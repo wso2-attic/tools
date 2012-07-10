@@ -138,6 +138,8 @@ public class EnqueueMediatorImpl extends MediatorImpl implements EnqueueMediator
 		getSequenceKey().save(self);  
 		if(description!=null)
 			description.save(self);
+		
+		addComments(self);
 		return self;
     }
     /**

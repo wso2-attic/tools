@@ -111,6 +111,8 @@ public class ClassMediatorImpl extends MediatorImpl implements ClassMediator {
          }
          if(description!=null)
  			description.save(self);
+         
+         addComments(self);
          return self;
     }
   

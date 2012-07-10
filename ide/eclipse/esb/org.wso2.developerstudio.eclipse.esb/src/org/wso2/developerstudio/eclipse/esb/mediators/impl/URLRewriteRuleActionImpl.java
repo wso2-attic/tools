@@ -255,7 +255,7 @@ public class URLRewriteRuleActionImpl extends ModelObjectImpl implements
 
 			setActionRegex(regexAttributeValue);
 		}
-
+		super.doLoad(self);
 	}
 
 	/**
@@ -284,6 +284,7 @@ public class URLRewriteRuleActionImpl extends ModelObjectImpl implements
 			self.setAttribute("regex", getActionRegex());
 		}
 
+		addComments(self);
 		return self;
 	}
 

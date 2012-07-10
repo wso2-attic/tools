@@ -115,7 +115,7 @@ public class EvaluatorExpressionPropertyImpl extends ModelObjectImpl implements 
 
 	
 	protected void doLoad(Element self) throws Exception {
-	
+		super.doLoad(self);
 	}
 
 	

@@ -107,6 +107,7 @@ public class SqlResultMappingImpl extends ModelObjectImpl implements SqlResultMa
 		} else {
 			throw new Exception("Expected result column attribute.");
 		}
+		super.doLoad(self);
 	}
 
 	/**
@@ -116,6 +117,7 @@ public class SqlResultMappingImpl extends ModelObjectImpl implements SqlResultMa
 		Element self = createChildElement(parent, "result");		
 		self.setAttribute("name", getPropertyName());
 		self.setAttribute("column", getColumnId());		
+		addComments(self);
 		return self;
 	}
 

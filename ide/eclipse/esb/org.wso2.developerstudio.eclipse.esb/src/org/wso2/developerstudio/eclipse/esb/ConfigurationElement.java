@@ -15,6 +15,8 @@
  */
 package org.wso2.developerstudio.eclipse.esb;
 
+import org.eclipse.emf.common.util.EList;
+
 
 /**
  * <!-- begin-user-doc -->

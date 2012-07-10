@@ -290,6 +290,8 @@ public class HeaderMediatorImpl extends MediatorImpl implements HeaderMediator {
 		}
 		if(description!=null)
 			description.save(self);
+		
+		addComments(self);
 		return self;
 	}
 

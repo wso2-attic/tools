@@ -173,6 +173,8 @@ public class LogMediatorImpl extends MediatorImpl implements LogMediator {
 		}
 		if(description!=null)
 			description.save(self);
+		
+		addComments(self);
 		return self;
 	}
 

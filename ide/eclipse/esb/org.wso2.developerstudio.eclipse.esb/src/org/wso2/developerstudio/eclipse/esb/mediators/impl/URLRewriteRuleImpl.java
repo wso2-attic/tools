@@ -120,7 +120,7 @@ public class URLRewriteRuleImpl extends ModelObjectImpl implements
 
 					}
 				});
-
+		super.doLoad(self);
 	}
 
 	/**
@@ -158,6 +158,7 @@ public class URLRewriteRuleImpl extends ModelObjectImpl implements
 			urlRewiteRuleAction.save(self);
 		}
 
+		addComments(self);
 		return self;
 	}
 

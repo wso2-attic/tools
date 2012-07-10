@@ -170,6 +170,8 @@ public class RMSequenceMediatorImpl extends MediatorImpl implements RMSequenceMe
 		}
 		if(description!=null)
 			description.save(self);
+		
+		addComments(self);
 		return self;
 	}
 	

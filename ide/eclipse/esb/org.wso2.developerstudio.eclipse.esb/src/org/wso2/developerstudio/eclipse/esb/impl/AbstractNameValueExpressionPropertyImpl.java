@@ -147,6 +147,7 @@ public abstract class AbstractNameValueExpressionPropertyImpl extends ModelObjec
 	    } else {
 	    	throw new Exception("Expected value or expression attribute.");
 	    }
+		super.doLoad(self);
 	}
 
 	/**
@@ -160,6 +161,7 @@ public abstract class AbstractNameValueExpressionPropertyImpl extends ModelObjec
 		} else {
 			getPropertyExpression().save(self);
 		}
+		addComments(self);
 		return self;
 	}
 	

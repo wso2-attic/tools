@@ -72,7 +72,8 @@ public class RuleFactsConfigurationImpl extends ModelObjectImpl implements RuleF
 			public void handle(RuleFact object) {
 				getFacts().add(object);
 			}			
-		});		
+		});
+		super.doLoad(self);
 	}
 
 	/**
@@ -83,6 +84,7 @@ public class RuleFactsConfigurationImpl extends ModelObjectImpl implements RuleF
 		for (RuleFact fact : getFacts()) {
 			fact.save(self);
 		}
+		addComments(self);
 		return self;
 	}
 	

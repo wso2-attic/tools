@@ -144,6 +144,8 @@ public class SwitchMediatorImpl extends MediatorImpl implements SwitchMediator {
 		}	
 		if(description!=null)
 			description.save(self);
+		
+		addComments(self);
 		return self;
 	}
 

@@ -24,19 +24,22 @@ import java.util.Map.Entry;
 
 import org.apache.commons.lang.StringUtils;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.w3c.dom.Attr;
 import org.w3c.dom.CDATASection;
-import org.w3c.dom.Comment;
 import org.w3c.dom.Element;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import org.wso2.developerstudio.eclipse.esb.Comment;
 import org.wso2.developerstudio.eclipse.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.esb.EsbVersion;
@@ -57,6 +60,7 @@ import org.wso2.developerstudio.eclipse.esb.mediators.MediatorsFactory;
  *   <li>{@link org.wso2.developerstudio.eclipse.esb.impl.ModelObjectImpl#getDefaultNamespace <em>Default Namespace</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.esb.impl.ModelObjectImpl#getAdditionalNamespaces <em>Additional Namespaces</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.esb.impl.ModelObjectImpl#getCurrentEsbVersion <em>Current Esb Version</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.esb.impl.ModelObjectImpl#getComment <em>Comment</em>}</li>
  * </ul>
  * </p>
  *
@@ -139,6 +143,16 @@ public abstract class ModelObjectImpl extends EObjectImpl implements
 	 * @ordered
 	 */
 	protected EsbVersion currentEsbVersion = CURRENT_ESB_VERSION_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getComment() <em>Comment</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getComment()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Comment> comment;
 
 	/**
 	 * Utility interface for handling loaded objects.
@@ -238,7 +252,7 @@ public abstract class ModelObjectImpl extends EObjectImpl implements
 			return self;
 		} else {
 			// Append the source text as a comment node.
-			Comment comment = parent.getOwnerDocument().createComment(
+			org.w3c.dom.Comment comment = parent.getOwnerDocument().createComment(
 					getSourceText());
 			parent.appendChild(comment);
 			return parent;
@@ -261,8 +275,27 @@ public abstract class ModelObjectImpl extends EObjectImpl implements
 	 *             if the given {@link Element} cannot be understood by this
 	 *             model object.
 	 */
-	protected abstract void doLoad(Element self) throws Exception;
+	//protected abstract void doLoad(Element self) throws Exception;
 
+	protected void doLoad(Element self) throws Exception {
+		int realCount=0;
+		for (int i=0;i<self.getChildNodes().getLength();++i){
+			if(self.getChildNodes().item(i) instanceof org.w3c.dom.Comment){
+				Comment newComment= getEsbFactory().createComment();
+				newComment.setValue(((org.w3c.dom.Comment)self.getChildNodes().item(i)).getTextContent());
+				newComment.setPosition(realCount);
+				getComment().add(newComment);				
+			}
+			++realCount;
+			/*
+			 * There is '#text' element in between actual elements.These elements should be avoid when we count.  
+			 */
+			if(self.getChildNodes().item(i).getNodeName().equals("#text")){
+				--realCount;
+			}
+		}		 
+	}
+	
 	/**
 	 * Performs the actual saving operation.
 	 * 
@@ -275,6 +308,20 @@ public abstract class ModelObjectImpl extends EObjectImpl implements
 	 */
 	protected abstract Element doSave(Element parent) throws Exception;
 
+	
+	protected Element addComments(Element self) throws Exception {
+		if(comment !=null){
+			for(int i=0;i<comment.size();++i){
+				Node tempNode=self.getFirstChild();
+				for(int j=0;(tempNode!=null)&&(j<comment.get(i).getPosition());++j){
+					tempNode=tempNode.getNextSibling();
+				}
+				self.insertBefore(self.getOwnerDocument().createComment(comment.get(i).getValue()), tempNode);
+			}
+			}
+		return null;
+	}
+	
 	/**
 	 * {@inheritDoc}
 	 */
@@ -755,6 +802,32 @@ public abstract class ModelObjectImpl extends EObjectImpl implements
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Comment> getComment() {
+		if (comment == null) {
+			comment = new EObjectContainmentEList<Comment>(Comment.class, this, EsbPackage.MODEL_OBJECT__COMMENT);
+		}
+		return comment;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case EsbPackage.MODEL_OBJECT__COMMENT:
+				return ((InternalEList<?>)getComment()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -773,6 +846,8 @@ public abstract class ModelObjectImpl extends EObjectImpl implements
 				return getAdditionalNamespaces();
 			case EsbPackage.MODEL_OBJECT__CURRENT_ESB_VERSION:
 				return getCurrentEsbVersion();
+			case EsbPackage.MODEL_OBJECT__COMMENT:
+				return getComment();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -802,6 +877,10 @@ public abstract class ModelObjectImpl extends EObjectImpl implements
 			case EsbPackage.MODEL_OBJECT__CURRENT_ESB_VERSION:
 				setCurrentEsbVersion((EsbVersion)newValue);
 				return;
+			case EsbPackage.MODEL_OBJECT__COMMENT:
+				getComment().clear();
+				getComment().addAll((Collection<? extends Comment>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -829,6 +908,9 @@ public abstract class ModelObjectImpl extends EObjectImpl implements
 			case EsbPackage.MODEL_OBJECT__CURRENT_ESB_VERSION:
 				setCurrentEsbVersion(CURRENT_ESB_VERSION_EDEFAULT);
 				return;
+			case EsbPackage.MODEL_OBJECT__COMMENT:
+				getComment().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -851,6 +933,8 @@ public abstract class ModelObjectImpl extends EObjectImpl implements
 				return additionalNamespaces != null && !additionalNamespaces.isEmpty();
 			case EsbPackage.MODEL_OBJECT__CURRENT_ESB_VERSION:
 				return currentEsbVersion != CURRENT_ESB_VERSION_EDEFAULT;
+			case EsbPackage.MODEL_OBJECT__COMMENT:
+				return comment != null && !comment.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -227,7 +227,8 @@ public class ThrottlePolicyEntryImpl extends ModelObjectImpl implements Throttle
 			} else {
 				throw new Exception("Unknown throttle policy entry.");
 			}
-		}		
+		}	
+		super.doLoad(self);
 	}
 
 	/**
@@ -280,7 +281,8 @@ public class ThrottlePolicyEntryImpl extends ModelObjectImpl implements Throttle
 				prohibitPeriodElem.setAttributeNS(policyNsURI, String.format("%s:%s", policyNsPrefix, "Optional"), "true");
 			}
 		}
-				
+			
+		addComments(self);
 		return self;
 	}
 	

@@ -122,7 +122,8 @@ public class CacheOnHitBranchImpl extends MediatorBranchImpl implements CacheOnH
 			}
 		} else {
 			getSequenceKey().save(self);
-		}		
+		}	
+		addComments(self);
 		return self;
 	}	
 

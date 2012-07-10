@@ -296,6 +296,7 @@ public class AggregateMediatorImpl extends MediatorImpl implements
 			break;
 		}
 
+		addComments(self);
 		return self;
 	}
 

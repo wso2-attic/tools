@@ -134,6 +134,8 @@ public class EntitlementMediatorImpl extends MediatorImpl implements Entitlement
 		self.setAttribute("remoteServicePassword", getPassword());		
 		if(description!=null)
 			description.save(self);
+		
+		addComments(self);
 		return self;
 	}
 	

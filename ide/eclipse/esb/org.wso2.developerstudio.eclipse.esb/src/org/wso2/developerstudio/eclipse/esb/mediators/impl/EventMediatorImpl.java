@@ -219,6 +219,8 @@ public class EventMediatorImpl extends MediatorImpl implements EventMediator {
 		}
 		if(description!=null)
 			description.save(self);
+		
+		addComments(self);
 		return self;
 	}
 

@@ -95,6 +95,8 @@ public abstract class EndPointImpl extends ConfigurationElementImpl implements E
     	} else {
     		setAnonymous(true);
     	}
+    	
+    	super.doLoad(self);
     }
 
     /**
@@ -104,7 +106,8 @@ public abstract class EndPointImpl extends ConfigurationElementImpl implements E
 	    Element self = createChildElement(parent, "endpoint");
 	    if (!isAnonymous()) {
 	    	self.setAttribute("name", getEndpointName());
-	    }
+	    }	    
+	    
 	    return self;
     }
 

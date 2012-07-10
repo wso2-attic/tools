@@ -133,6 +133,8 @@ public class ConditionalRouterMediatorImpl extends MediatorImpl implements
 		}
 		if(description!=null)
 			description.save(self);
+		
+		addComments(self);
 		return self;
 	}
 

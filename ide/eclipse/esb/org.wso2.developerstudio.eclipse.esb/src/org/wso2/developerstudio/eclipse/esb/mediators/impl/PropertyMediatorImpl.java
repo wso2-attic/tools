@@ -364,6 +364,8 @@ public class PropertyMediatorImpl extends MediatorImpl implements PropertyMediat
 		self.setAttribute("scope", getPropertyScope().getLiteral());
 		if(description!=null)
 			description.save(self);
+		
+		addComments(self);
 		return self;
 	}
 	/**

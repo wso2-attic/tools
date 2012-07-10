@@ -59,6 +59,7 @@ public class FilterThenBranchImpl extends MediatorBranchImpl implements FilterTh
 		for (Mediator child : getChildren()) {
 			child.save(self);
 		}
+		addComments(self);
 		return self;
 	}
 

@@ -126,13 +126,22 @@ public interface EsbPackage extends EPackage {
 	int MODEL_OBJECT__CURRENT_ESB_VERSION = 4;
 
 				/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL_OBJECT__COMMENT = 5;
+
+				/**
 	 * The number of structural features of the '<em>Model Object</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_OBJECT_FEATURE_COUNT = 5;
+	int MODEL_OBJECT_FEATURE_COUNT = 6;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.impl.NamespaceImpl <em>Namespace</em>}' class.
@@ -227,6 +236,15 @@ public interface EsbPackage extends EPackage {
 	int SYNAPSE_CONFIGURATION__CURRENT_ESB_VERSION = MODEL_OBJECT__CURRENT_ESB_VERSION;
 
 				/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYNAPSE_CONFIGURATION__COMMENT = MODEL_OBJECT__COMMENT;
+
+				/**
 	 * The feature id for the '<em><b>Configuration Elements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -309,6 +327,15 @@ public interface EsbPackage extends EPackage {
 	int CONFIGURATION_ELEMENT__CURRENT_ESB_VERSION = MODEL_OBJECT__CURRENT_ESB_VERSION;
 
 				/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFIGURATION_ELEMENT__COMMENT = MODEL_OBJECT__COMMENT;
+
+				/**
 	 * The number of structural features of the '<em>Configuration Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -373,6 +400,15 @@ public interface EsbPackage extends EPackage {
 	int MEDIATOR__CURRENT_ESB_VERSION = CONFIGURATION_ELEMENT__CURRENT_ESB_VERSION;
 
 				/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEDIATOR__COMMENT = CONFIGURATION_ELEMENT__COMMENT;
+
+				/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -389,7 +425,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getParentMediator()
 	 * @generated
 	 */
-	int PARENT_MEDIATOR = 11;
+	int PARENT_MEDIATOR = 12;
 
 	/**
 	 * The number of structural features of the '<em>Mediator</em>' class.
@@ -456,6 +492,15 @@ public interface EsbPackage extends EPackage {
 	int DESCRIPTION__CURRENT_ESB_VERSION = MODEL_OBJECT__CURRENT_ESB_VERSION;
 
 	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DESCRIPTION__COMMENT = MODEL_OBJECT__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -474,6 +519,43 @@ public interface EsbPackage extends EPackage {
 	int DESCRIPTION_FEATURE_COUNT = MODEL_OBJECT_FEATURE_COUNT + 1;
 
 				/**
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.impl.CommentImpl <em>Comment</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.wso2.developerstudio.eclipse.esb.impl.CommentImpl
+	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getComment()
+	 * @generated
+	 */
+	int COMMENT = 6;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMENT__VALUE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Position</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMENT__POSITION = 1;
+
+	/**
+	 * The number of structural features of the '<em>Comment</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMENT_FEATURE_COUNT = 2;
+
+				/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.impl.MediatorSequenceImpl <em>Mediator Sequence</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -481,7 +563,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getMediatorSequence()
 	 * @generated
 	 */
-	int MEDIATOR_SEQUENCE = 9;
+	int MEDIATOR_SEQUENCE = 10;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.impl.EndPointImpl <em>End Point</em>}' class.
@@ -491,7 +573,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getEndPoint()
 	 * @generated
 	 */
-    int END_POINT = 7;
+    int END_POINT = 8;
 
     /**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.impl.UnknownObjectImpl <em>Unknown Object</em>}' class.
@@ -501,7 +583,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getUnknownObject()
 	 * @generated
 	 */
-    int UNKNOWN_OBJECT = 8;
+    int UNKNOWN_OBJECT = 9;
 
     /**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.impl.AbstractEndPointImpl <em>Abstract End Point</em>}' class.
@@ -511,7 +593,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getAbstractEndPoint()
 	 * @generated
 	 */
-    int ABSTRACT_END_POINT = 19;
+    int ABSTRACT_END_POINT = 20;
 
     /**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.impl.AbstractDefaultEndPointImpl <em>Abstract Default End Point</em>}' class.
@@ -521,7 +603,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getAbstractDefaultEndPoint()
 	 * @generated
 	 */
-    int ABSTRACT_DEFAULT_END_POINT = 20;
+    int ABSTRACT_DEFAULT_END_POINT = 21;
 
     /**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.impl.DefaultEndPointImpl <em>Default End Point</em>}' class.
@@ -531,7 +613,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getDefaultEndPoint()
 	 * @generated
 	 */
-    int DEFAULT_END_POINT = 21;
+    int DEFAULT_END_POINT = 22;
 
     /**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.impl.AddressEndPointImpl <em>Address End Point</em>}' class.
@@ -541,7 +623,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getAddressEndPoint()
 	 * @generated
 	 */
-    int ADDRESS_END_POINT = 22;
+    int ADDRESS_END_POINT = 23;
 
     /**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.impl.WsdlEndPointImpl <em>Wsdl End Point</em>}' class.
@@ -551,7 +633,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getWsdlEndPoint()
 	 * @generated
 	 */
-    int WSDL_END_POINT = 23;
+    int WSDL_END_POINT = 24;
 
     /**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.impl.ParentEndPointImpl <em>Parent End Point</em>}' class.
@@ -561,7 +643,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getParentEndPoint()
 	 * @generated
 	 */
-    int PARENT_END_POINT = 24;
+    int PARENT_END_POINT = 25;
 
     /**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.impl.FailoverEndPointImpl <em>Failover End Point</em>}' class.
@@ -571,7 +653,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getFailoverEndPoint()
 	 * @generated
 	 */
-    int FAILOVER_END_POINT = 25;
+    int FAILOVER_END_POINT = 26;
 
     /**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.impl.LoadBalanceEndPointImpl <em>Load Balance End Point</em>}' class.
@@ -581,7 +663,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getLoadBalanceEndPoint()
 	 * @generated
 	 */
-    int LOAD_BALANCE_END_POINT = 26;
+    int LOAD_BALANCE_END_POINT = 27;
 
     /**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.impl.EndPointReferenceImpl <em>End Point Reference</em>}' class.
@@ -591,7 +673,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getEndPointReference()
 	 * @generated
 	 */
-    int END_POINT_REFERENCE = 6;
+    int END_POINT_REFERENCE = 7;
 
     /**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -637,6 +719,15 @@ public interface EsbPackage extends EPackage {
 	 * @ordered
 	 */
 	int END_POINT_REFERENCE__CURRENT_ESB_VERSION = MODEL_OBJECT__CURRENT_ESB_VERSION;
+
+				/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int END_POINT_REFERENCE__COMMENT = MODEL_OBJECT__COMMENT;
 
 				/**
 	 * The number of structural features of the '<em>End Point Reference</em>' class.
@@ -691,6 +782,15 @@ public interface EsbPackage extends EPackage {
 	 * @ordered
 	 */
 	int END_POINT__CURRENT_ESB_VERSION = CONFIGURATION_ELEMENT__CURRENT_ESB_VERSION;
+
+				/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int END_POINT__COMMENT = CONFIGURATION_ELEMENT__COMMENT;
 
 				/**
 	 * The feature id for the '<em><b>Anonymous</b></em>' attribute.
@@ -763,6 +863,15 @@ public interface EsbPackage extends EPackage {
 	 * @ordered
 	 */
 	int UNKNOWN_OBJECT__CURRENT_ESB_VERSION = CONFIGURATION_ELEMENT__CURRENT_ESB_VERSION;
+
+				/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNKNOWN_OBJECT__COMMENT = CONFIGURATION_ELEMENT__COMMENT;
 
 				/**
 	 * The feature id for the '<em><b>Anonymous</b></em>' attribute.
@@ -846,6 +955,15 @@ public interface EsbPackage extends EPackage {
 	int MEDIATOR_SEQUENCE__CURRENT_ESB_VERSION = CONFIGURATION_ELEMENT__CURRENT_ESB_VERSION;
 
 				/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEDIATOR_SEQUENCE__COMMENT = CONFIGURATION_ELEMENT__COMMENT;
+
+				/**
 	 * The feature id for the '<em><b>Anonymous</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 				 * <!-- end-user-doc -->
@@ -907,7 +1025,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getAbstractNameValueProperty()
 	 * @generated
 	 */
-	int ABSTRACT_NAME_VALUE_PROPERTY = 14;
+	int ABSTRACT_NAME_VALUE_PROPERTY = 15;
 
 				/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.impl.AbstractNameValueExpressionPropertyImpl <em>Abstract Name Value Expression Property</em>}' class.
@@ -917,7 +1035,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getAbstractNameValueExpressionProperty()
 	 * @generated
 	 */
-	int ABSTRACT_NAME_VALUE_EXPRESSION_PROPERTY = 15;
+	int ABSTRACT_NAME_VALUE_EXPRESSION_PROPERTY = 16;
 
 				/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.impl.AbstractBooleanFeatureImpl <em>Abstract Boolean Feature</em>}' class.
@@ -927,7 +1045,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getAbstractBooleanFeature()
 	 * @generated
 	 */
-	int ABSTRACT_BOOLEAN_FEATURE = 16;
+	int ABSTRACT_BOOLEAN_FEATURE = 17;
 
 				/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.impl.AbstractLocationKeyResourceImpl <em>Abstract Location Key Resource</em>}' class.
@@ -937,7 +1055,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getAbstractLocationKeyResource()
 	 * @generated
 	 */
-	int ABSTRACT_LOCATION_KEY_RESOURCE = 17;
+	int ABSTRACT_LOCATION_KEY_RESOURCE = 18;
 
 				/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.impl.AbstractCommonTargetImpl <em>Abstract Common Target</em>}' class.
@@ -947,7 +1065,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getAbstractCommonTarget()
 	 * @generated
 	 */
-	int ABSTRACT_COMMON_TARGET = 18;
+	int ABSTRACT_COMMON_TARGET = 19;
 
 				/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.impl.XPathEndPointReferenceImpl <em>XPath End Point Reference</em>}' class.
@@ -957,7 +1075,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getXPathEndPointReference()
 	 * @generated
 	 */
-    int XPATH_END_POINT_REFERENCE = 29;
+    int XPATH_END_POINT_REFERENCE = 30;
 
     /**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.impl.MediatorBranchImpl <em>Mediator Branch</em>}' class.
@@ -967,7 +1085,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getMediatorBranch()
 	 * @generated
 	 */
-	int MEDIATOR_BRANCH = 10;
+	int MEDIATOR_BRANCH = 11;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -1013,6 +1131,15 @@ public interface EsbPackage extends EPackage {
 	 * @ordered
 	 */
 	int MEDIATOR_BRANCH__CURRENT_ESB_VERSION = MODEL_OBJECT__CURRENT_ESB_VERSION;
+
+				/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEDIATOR_BRANCH__COMMENT = MODEL_OBJECT__COMMENT;
 
 				/**
 	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
@@ -1078,6 +1205,15 @@ public interface EsbPackage extends EPackage {
 	int PARENT_MEDIATOR__CURRENT_ESB_VERSION = MEDIATOR__CURRENT_ESB_VERSION;
 
 	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARENT_MEDIATOR__COMMENT = MEDIATOR__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1112,7 +1248,7 @@ int PARENT_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 1;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getNamespacedProperty()
 	 * @generated
 	 */
-	int NAMESPACED_PROPERTY = 12;
+	int NAMESPACED_PROPERTY = 13;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -1158,6 +1294,15 @@ int PARENT_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 1;
 	 * @ordered
 	 */
 	int NAMESPACED_PROPERTY__CURRENT_ESB_VERSION = MODEL_OBJECT__CURRENT_ESB_VERSION;
+
+				/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMESPACED_PROPERTY__COMMENT = MODEL_OBJECT__COMMENT;
 
 				/**
 	 * The feature id for the '<em><b>Pretty Name</b></em>' attribute.
@@ -1212,7 +1357,7 @@ int PARENT_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 1;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getRegistryKeyProperty()
 	 * @generated
 	 */
-	int REGISTRY_KEY_PROPERTY = 13;
+	int REGISTRY_KEY_PROPERTY = 14;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -1258,6 +1403,15 @@ int PARENT_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 1;
 	 * @ordered
 	 */
 	int REGISTRY_KEY_PROPERTY__CURRENT_ESB_VERSION = MODEL_OBJECT__CURRENT_ESB_VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REGISTRY_KEY_PROPERTY__COMMENT = MODEL_OBJECT__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Pretty Name</b></em>' attribute.
@@ -1350,6 +1504,15 @@ int ABSTRACT_NAME_VALUE_PROPERTY__SOURCE_TEXT = MODEL_OBJECT__SOURCE_TEXT;
 	int ABSTRACT_NAME_VALUE_PROPERTY__CURRENT_ESB_VERSION = MODEL_OBJECT__CURRENT_ESB_VERSION;
 
 	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_NAME_VALUE_PROPERTY__COMMENT = MODEL_OBJECT__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Property Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 * <!-- end-user-doc -->
@@ -1420,6 +1583,15 @@ int ABSTRACT_NAME_VALUE_EXPRESSION_PROPERTY__SOURCE_TEXT = MODEL_OBJECT__SOURCE_
 	 * @ordered
 	 */
 	int ABSTRACT_NAME_VALUE_EXPRESSION_PROPERTY__CURRENT_ESB_VERSION = MODEL_OBJECT__CURRENT_ESB_VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_NAME_VALUE_EXPRESSION_PROPERTY__COMMENT = MODEL_OBJECT__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Property Name</b></em>' attribute.
@@ -1512,6 +1684,15 @@ int ABSTRACT_BOOLEAN_FEATURE__SOURCE_TEXT = MODEL_OBJECT__SOURCE_TEXT;
 	int ABSTRACT_BOOLEAN_FEATURE__CURRENT_ESB_VERSION = MODEL_OBJECT__CURRENT_ESB_VERSION;
 
 	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_BOOLEAN_FEATURE__COMMENT = MODEL_OBJECT__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Feature Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 * <!-- end-user-doc -->
@@ -1584,6 +1765,15 @@ int ABSTRACT_LOCATION_KEY_RESOURCE__SOURCE_TEXT = MODEL_OBJECT__SOURCE_TEXT;
 	int ABSTRACT_LOCATION_KEY_RESOURCE__CURRENT_ESB_VERSION = MODEL_OBJECT__CURRENT_ESB_VERSION;
 
 	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_LOCATION_KEY_RESOURCE__COMMENT = MODEL_OBJECT__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Location</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 * <!-- end-user-doc -->
@@ -1654,6 +1844,15 @@ int ABSTRACT_COMMON_TARGET__SOURCE_TEXT = MODEL_OBJECT__SOURCE_TEXT;
 	 * @ordered
 	 */
 	int ABSTRACT_COMMON_TARGET__CURRENT_ESB_VERSION = MODEL_OBJECT__CURRENT_ESB_VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_COMMON_TARGET__COMMENT = MODEL_OBJECT__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Sequence Type</b></em>' attribute.
@@ -1762,6 +1961,15 @@ int ABSTRACT_COMMON_TARGET_FEATURE_COUNT = MODEL_OBJECT_FEATURE_COUNT + 6;
 	 * @ordered
 	 */
 	int ABSTRACT_END_POINT__CURRENT_ESB_VERSION = END_POINT__CURRENT_ESB_VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_END_POINT__COMMENT = END_POINT__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Anonymous</b></em>' attribute.
@@ -1978,6 +2186,15 @@ int ABSTRACT_END_POINT__ENDPOINT_NAME = END_POINT__ENDPOINT_NAME;
 	 * @ordered
 	 */
 	int ABSTRACT_DEFAULT_END_POINT__CURRENT_ESB_VERSION = ABSTRACT_END_POINT__CURRENT_ESB_VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_DEFAULT_END_POINT__COMMENT = ABSTRACT_END_POINT__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Anonymous</b></em>' attribute.
@@ -2250,6 +2467,15 @@ int ABSTRACT_DEFAULT_END_POINT__ENDPOINT_NAME = ABSTRACT_END_POINT__ENDPOINT_NAM
 	int DEFAULT_END_POINT__CURRENT_ESB_VERSION = ABSTRACT_DEFAULT_END_POINT__CURRENT_ESB_VERSION;
 
 	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEFAULT_END_POINT__COMMENT = ABSTRACT_DEFAULT_END_POINT__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Anonymous</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 * <!-- end-user-doc -->
@@ -2518,6 +2744,15 @@ int DEFAULT_END_POINT__ENDPOINT_NAME = ABSTRACT_DEFAULT_END_POINT__ENDPOINT_NAME
 	 * @ordered
 	 */
 	int ADDRESS_END_POINT__CURRENT_ESB_VERSION = ABSTRACT_DEFAULT_END_POINT__CURRENT_ESB_VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADDRESS_END_POINT__COMMENT = ABSTRACT_DEFAULT_END_POINT__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Anonymous</b></em>' attribute.
@@ -2799,6 +3034,15 @@ int ADDRESS_END_POINT__ENDPOINT_NAME = ABSTRACT_DEFAULT_END_POINT__ENDPOINT_NAME
 	int WSDL_END_POINT__CURRENT_ESB_VERSION = ABSTRACT_END_POINT__CURRENT_ESB_VERSION;
 
 	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WSDL_END_POINT__COMMENT = ABSTRACT_END_POINT__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Anonymous</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 * <!-- end-user-doc -->
@@ -3060,6 +3304,15 @@ int WSDL_END_POINT__ENDPOINT_NAME = ABSTRACT_END_POINT__ENDPOINT_NAME;
 	int PARENT_END_POINT__CURRENT_ESB_VERSION = END_POINT__CURRENT_ESB_VERSION;
 
 	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARENT_END_POINT__COMMENT = END_POINT__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Anonymous</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 * <!-- end-user-doc -->
@@ -3139,6 +3392,15 @@ int PARENT_END_POINT__ENDPOINT_NAME = END_POINT__ENDPOINT_NAME;
 	 * @ordered
 	 */
 	int FAILOVER_END_POINT__CURRENT_ESB_VERSION = PARENT_END_POINT__CURRENT_ESB_VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FAILOVER_END_POINT__COMMENT = PARENT_END_POINT__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Anonymous</b></em>' attribute.
@@ -3222,6 +3484,15 @@ int FAILOVER_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	int LOAD_BALANCE_END_POINT__CURRENT_ESB_VERSION = PARENT_END_POINT__CURRENT_ESB_VERSION;
 
 	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOAD_BALANCE_END_POINT__COMMENT = PARENT_END_POINT__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Anonymous</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 * <!-- end-user-doc -->
@@ -3292,7 +3563,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getDynamicLoadBalanceEndPoint()
 	 * @generated
 	 */
-	int DYNAMIC_LOAD_BALANCE_END_POINT = 27;
+	int DYNAMIC_LOAD_BALANCE_END_POINT = 28;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -3338,6 +3609,15 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @ordered
 	 */
 	int DYNAMIC_LOAD_BALANCE_END_POINT__CURRENT_ESB_VERSION = END_POINT__CURRENT_ESB_VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DYNAMIC_LOAD_BALANCE_END_POINT__COMMENT = END_POINT__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Anonymous</b></em>' attribute.
@@ -3410,7 +3690,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getDynamicLoadBalanceProperty()
 	 * @generated
 	 */
-	int DYNAMIC_LOAD_BALANCE_PROPERTY = 28;
+	int DYNAMIC_LOAD_BALANCE_PROPERTY = 29;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -3456,6 +3736,15 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @ordered
 	 */
 	int DYNAMIC_LOAD_BALANCE_PROPERTY__CURRENT_ESB_VERSION = ABSTRACT_NAME_VALUE_PROPERTY__CURRENT_ESB_VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DYNAMIC_LOAD_BALANCE_PROPERTY__COMMENT = ABSTRACT_NAME_VALUE_PROPERTY__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Property Name</b></em>' attribute.
@@ -3530,6 +3819,15 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	int XPATH_END_POINT_REFERENCE__CURRENT_ESB_VERSION = END_POINT_REFERENCE__CURRENT_ESB_VERSION;
 
 	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XPATH_END_POINT_REFERENCE__COMMENT = END_POINT_REFERENCE__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Endpoint Xpath</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3555,7 +3853,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getRegistryKeyEndPointReference()
 	 * @generated
 	 */
-	int REGISTRY_KEY_END_POINT_REFERENCE = 30;
+	int REGISTRY_KEY_END_POINT_REFERENCE = 31;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -3603,6 +3901,15 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	int REGISTRY_KEY_END_POINT_REFERENCE__CURRENT_ESB_VERSION = END_POINT_REFERENCE__CURRENT_ESB_VERSION;
 
 	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REGISTRY_KEY_END_POINT_REFERENCE__COMMENT = END_POINT_REFERENCE__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Endpoint Key</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3628,7 +3935,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getProxyService()
 	 * @generated
 	 */
-	int PROXY_SERVICE = 31;
+	int PROXY_SERVICE = 32;
 
 				/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.impl.ProxyWsdlConfigurationImpl <em>Proxy Wsdl Configuration</em>}' class.
@@ -3638,7 +3945,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getProxyWsdlConfiguration()
 	 * @generated
 	 */
-	int PROXY_WSDL_CONFIGURATION = 32;
+	int PROXY_WSDL_CONFIGURATION = 33;
 
 				/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.impl.ProxyWsdlResourceImpl <em>Proxy Wsdl Resource</em>}' class.
@@ -3648,7 +3955,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getProxyWsdlResource()
 	 * @generated
 	 */
-	int PROXY_WSDL_RESOURCE = 33;
+	int PROXY_WSDL_RESOURCE = 34;
 
 				/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.impl.ProxyServiceParameterImpl <em>Proxy Service Parameter</em>}' class.
@@ -3658,7 +3965,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getProxyServiceParameter()
 	 * @generated
 	 */
-	int PROXY_SERVICE_PARAMETER = 34;
+	int PROXY_SERVICE_PARAMETER = 35;
 
 				/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.impl.ProxyServicePolicyImpl <em>Proxy Service Policy</em>}' class.
@@ -3668,7 +3975,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getProxyServicePolicy()
 	 * @generated
 	 */
-	int PROXY_SERVICE_POLICY = 35;
+	int PROXY_SERVICE_POLICY = 36;
 
 				/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.impl.AbstractProxySequenceConfigurationImpl <em>Abstract Proxy Sequence Configuration</em>}' class.
@@ -3678,7 +3985,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getAbstractProxySequenceConfiguration()
 	 * @generated
 	 */
-	int ABSTRACT_PROXY_SEQUENCE_CONFIGURATION = 36;
+	int ABSTRACT_PROXY_SEQUENCE_CONFIGURATION = 37;
 
 				/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.impl.ProxyInSequenceConfigurationImpl <em>Proxy In Sequence Configuration</em>}' class.
@@ -3688,7 +3995,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getProxyInSequenceConfiguration()
 	 * @generated
 	 */
-	int PROXY_IN_SEQUENCE_CONFIGURATION = 37;
+	int PROXY_IN_SEQUENCE_CONFIGURATION = 38;
 
 				/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.impl.ProxyEndpointConfigurationImpl <em>Proxy Endpoint Configuration</em>}' class.
@@ -3698,7 +4005,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getProxyEndpointConfiguration()
 	 * @generated
 	 */
-	int PROXY_ENDPOINT_CONFIGURATION = 38;
+	int PROXY_ENDPOINT_CONFIGURATION = 39;
 
 				/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.impl.ProxyOutSequenceConfigurationImpl <em>Proxy Out Sequence Configuration</em>}' class.
@@ -3708,7 +4015,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getProxyOutSequenceConfiguration()
 	 * @generated
 	 */
-	int PROXY_OUT_SEQUENCE_CONFIGURATION = 39;
+	int PROXY_OUT_SEQUENCE_CONFIGURATION = 40;
 
 				/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.impl.ProxyFaultSequenceConfigurationImpl <em>Proxy Fault Sequence Configuration</em>}' class.
@@ -3718,7 +4025,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getProxyFaultSequenceConfiguration()
 	 * @generated
 	 */
-	int PROXY_FAULT_SEQUENCE_CONFIGURATION = 40;
+	int PROXY_FAULT_SEQUENCE_CONFIGURATION = 41;
 
 				/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -3764,6 +4071,15 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @ordered
 	 */
 	int PROXY_SERVICE__CURRENT_ESB_VERSION = CONFIGURATION_ELEMENT__CURRENT_ESB_VERSION;
+
+				/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROXY_SERVICE__COMMENT = CONFIGURATION_ELEMENT__COMMENT;
 
 				/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -3955,6 +4271,15 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	int PROXY_WSDL_CONFIGURATION__CURRENT_ESB_VERSION = MODEL_OBJECT__CURRENT_ESB_VERSION;
 
 				/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROXY_WSDL_CONFIGURATION__COMMENT = MODEL_OBJECT__COMMENT;
+
+				/**
 	 * The feature id for the '<em><b>Wsdl Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4054,6 +4379,15 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	int PROXY_WSDL_RESOURCE__CURRENT_ESB_VERSION = ABSTRACT_LOCATION_KEY_RESOURCE__CURRENT_ESB_VERSION;
 
 				/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROXY_WSDL_RESOURCE__COMMENT = ABSTRACT_LOCATION_KEY_RESOURCE__COMMENT;
+
+				/**
 	 * The feature id for the '<em><b>Location</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4124,6 +4458,15 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @ordered
 	 */
 	int PROXY_SERVICE_PARAMETER__CURRENT_ESB_VERSION = MODEL_OBJECT__CURRENT_ESB_VERSION;
+
+				/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROXY_SERVICE_PARAMETER__COMMENT = MODEL_OBJECT__COMMENT;
 
 				/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -4198,6 +4541,15 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	int PROXY_SERVICE_POLICY__CURRENT_ESB_VERSION = MODEL_OBJECT__CURRENT_ESB_VERSION;
 
 				/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROXY_SERVICE_POLICY__COMMENT = MODEL_OBJECT__COMMENT;
+
+				/**
 	 * The feature id for the '<em><b>Policy Key</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4259,6 +4611,15 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @ordered
 	 */
 	int ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__CURRENT_ESB_VERSION = MODEL_OBJECT__CURRENT_ESB_VERSION;
+
+				/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__COMMENT = MODEL_OBJECT__COMMENT;
 
 				/**
 	 * The feature id for the '<em><b>Sequence Type</b></em>' attribute.
@@ -4351,6 +4712,15 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	int PROXY_IN_SEQUENCE_CONFIGURATION__CURRENT_ESB_VERSION = ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__CURRENT_ESB_VERSION;
 
 				/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROXY_IN_SEQUENCE_CONFIGURATION__COMMENT = ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__COMMENT;
+
+				/**
 	 * The feature id for the '<em><b>Sequence Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4439,6 +4809,15 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @ordered
 	 */
 	int PROXY_ENDPOINT_CONFIGURATION__CURRENT_ESB_VERSION = MODEL_OBJECT__CURRENT_ESB_VERSION;
+
+				/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROXY_ENDPOINT_CONFIGURATION__COMMENT = MODEL_OBJECT__COMMENT;
 
 				/**
 	 * The feature id for the '<em><b>Endpoint Type</b></em>' attribute.
@@ -4531,6 +4910,15 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	int PROXY_OUT_SEQUENCE_CONFIGURATION__CURRENT_ESB_VERSION = ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__CURRENT_ESB_VERSION;
 
 				/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROXY_OUT_SEQUENCE_CONFIGURATION__COMMENT = ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__COMMENT;
+
+				/**
 	 * The feature id for the '<em><b>Sequence Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4621,6 +5009,15 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	int PROXY_FAULT_SEQUENCE_CONFIGURATION__CURRENT_ESB_VERSION = ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__CURRENT_ESB_VERSION;
 
 				/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROXY_FAULT_SEQUENCE_CONFIGURATION__COMMENT = ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__COMMENT;
+
+				/**
 	 * The feature id for the '<em><b>Sequence Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4673,7 +5070,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getLocalEntry()
 	 * @generated
 	 */
-	int LOCAL_ENTRY = 41;
+	int LOCAL_ENTRY = 42;
 
 				/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -4719,6 +5116,15 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @ordered
 	 */
 	int LOCAL_ENTRY__CURRENT_ESB_VERSION = CONFIGURATION_ELEMENT__CURRENT_ESB_VERSION;
+
+				/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOCAL_ENTRY__COMMENT = CONFIGURATION_ELEMENT__COMMENT;
 
 				/**
 	 * The feature id for the '<em><b>Entry Name</b></em>' attribute.
@@ -4782,7 +5188,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getEvaluatorExpressionProperty()
 	 * @generated
 	 */
-	int EVALUATOR_EXPRESSION_PROPERTY = 42;
+	int EVALUATOR_EXPRESSION_PROPERTY = 43;
 
 				/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -4830,6 +5236,15 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	int EVALUATOR_EXPRESSION_PROPERTY__CURRENT_ESB_VERSION = MODEL_OBJECT__CURRENT_ESB_VERSION;
 
 				/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVALUATOR_EXPRESSION_PROPERTY__COMMENT = MODEL_OBJECT__COMMENT;
+
+				/**
 	 * The feature id for the '<em><b>Pretty Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4873,7 +5288,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getModelObjectState()
 	 * @generated
 	 */
-    int MODEL_OBJECT_STATE = 43;
+    int MODEL_OBJECT_STATE = 44;
 
     /**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.PropertyValueType <em>Property Value Type</em>}' enum.
@@ -4883,7 +5298,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getPropertyValueType()
 	 * @generated
 	 */
-	int PROPERTY_VALUE_TYPE = 44;
+	int PROPERTY_VALUE_TYPE = 45;
 
 				/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.EndPointAddressingVersion <em>End Point Addressing Version</em>}' enum.
@@ -4893,7 +5308,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getEndPointAddressingVersion()
 	 * @generated
 	 */
-    int END_POINT_ADDRESSING_VERSION = 47;
+    int END_POINT_ADDRESSING_VERSION = 48;
 
     /**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.EndPointTimeOutAction <em>End Point Time Out Action</em>}' enum.
@@ -4903,7 +5318,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getEndPointTimeOutAction()
 	 * @generated
 	 */
-    int END_POINT_TIME_OUT_ACTION = 48;
+    int END_POINT_TIME_OUT_ACTION = 49;
 
     /**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.EndPointMessageFormat <em>End Point Message Format</em>}' enum.
@@ -4913,7 +5328,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getEndPointMessageFormat()
 	 * @generated
 	 */
-    int END_POINT_MESSAGE_FORMAT = 49;
+    int END_POINT_MESSAGE_FORMAT = 50;
 
     /**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.EndPointAttachmentOptimization <em>End Point Attachment Optimization</em>}' enum.
@@ -4923,7 +5338,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getEndPointAttachmentOptimization()
 	 * @generated
 	 */
-    int END_POINT_ATTACHMENT_OPTIMIZATION = 50;
+    int END_POINT_ATTACHMENT_OPTIMIZATION = 51;
 
     /**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.EndPointWsdlType <em>End Point Wsdl Type</em>}' enum.
@@ -4933,7 +5348,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getEndPointWsdlType()
 	 * @generated
 	 */
-    int END_POINT_WSDL_TYPE = 51;
+    int END_POINT_WSDL_TYPE = 52;
 
     /**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.LoadBalanceAlgorithm <em>Load Balance Algorithm</em>}' enum.
@@ -4943,7 +5358,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getLoadBalanceAlgorithm()
 	 * @generated
 	 */
-    int LOAD_BALANCE_ALGORITHM = 52;
+    int LOAD_BALANCE_ALGORITHM = 53;
 
     /**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.LoadBalanceSessionType <em>Load Balance Session Type</em>}' enum.
@@ -4953,7 +5368,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getLoadBalanceSessionType()
 	 * @generated
 	 */
-    int LOAD_BALANCE_SESSION_TYPE = 53;
+    int LOAD_BALANCE_SESSION_TYPE = 54;
 
     /**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.ProxyWsdlType <em>Proxy Wsdl Type</em>}' enum.
@@ -4963,7 +5378,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getProxyWsdlType()
 	 * @generated
 	 */
-	int PROXY_WSDL_TYPE = 54;
+	int PROXY_WSDL_TYPE = 55;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.ProxySequenceType <em>Proxy Sequence Type</em>}' enum.
@@ -4973,7 +5388,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getProxySequenceType()
 	 * @generated
 	 */
-	int PROXY_SEQUENCE_TYPE = 55;
+	int PROXY_SEQUENCE_TYPE = 56;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.ProxyEndpointType <em>Proxy Endpoint Type</em>}' enum.
@@ -4983,7 +5398,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getProxyEndpointType()
 	 * @generated
 	 */
-	int PROXY_ENDPOINT_TYPE = 56;
+	int PROXY_ENDPOINT_TYPE = 57;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.LocalEntryValueType <em>Local Entry Value Type</em>}' enum.
@@ -4993,7 +5408,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getLocalEntryValueType()
 	 * @generated
 	 */
-	int LOCAL_ENTRY_VALUE_TYPE = 57;
+	int LOCAL_ENTRY_VALUE_TYPE = 58;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.EsbVersion <em>Version</em>}' enum.
@@ -5003,7 +5418,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getEsbVersion()
 	 * @generated
 	 */
-	int ESB_VERSION = 58;
+	int ESB_VERSION = 59;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.EndPointMessageFormatRestType <em>End Point Message Format Rest Type</em>}' enum.
@@ -5013,7 +5428,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getEndPointMessageFormatRestType()
 	 * @generated
 	 */
-    int END_POINT_MESSAGE_FORMAT_REST_TYPE = 59;
+    int END_POINT_MESSAGE_FORMAT_REST_TYPE = 60;
 
     /**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.TargetSequenceType <em>Target Sequence Type</em>}' enum.
@@ -5023,7 +5438,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getTargetSequenceType()
 	 * @generated
 	 */
-	int TARGET_SEQUENCE_TYPE = 45;
+	int TARGET_SEQUENCE_TYPE = 46;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.TargetEndpointType <em>Target Endpoint Type</em>}' enum.
@@ -5033,7 +5448,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getTargetEndpointType()
 	 * @generated
 	 */
-	int TARGET_ENDPOINT_TYPE = 46;
+	int TARGET_ENDPOINT_TYPE = 47;
 
 	/**
 	 * The meta object id for the '<em>Map</em>' data type.
@@ -5043,7 +5458,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getMap()
 	 * @generated
 	 */
-	int MAP = 60;
+	int MAP = 61;
 
 	/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.esb.ModelObject <em>Model Object</em>}'.
@@ -5109,6 +5524,17 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @generated
 	 */
 	EAttribute getModelObject_CurrentEsbVersion();
+
+				/**
+	 * Returns the meta object for the containment reference list '{@link org.wso2.developerstudio.eclipse.esb.ModelObject#getComment <em>Comment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Comment</em>'.
+	 * @see org.wso2.developerstudio.eclipse.esb.ModelObject#getComment()
+	 * @see #getModelObject()
+	 * @generated
+	 */
+	EReference getModelObject_Comment();
 
 				/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.esb.Namespace <em>Namespace</em>}'.
@@ -5993,6 +6419,38 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @generated
 	 */
 	EAttribute getDescription_Value();
+
+	/**
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.esb.Comment <em>Comment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Comment</em>'.
+	 * @see org.wso2.developerstudio.eclipse.esb.Comment
+	 * @generated
+	 */
+	EClass getComment();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.esb.Comment#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see org.wso2.developerstudio.eclipse.esb.Comment#getValue()
+	 * @see #getComment()
+	 * @generated
+	 */
+	EAttribute getComment_Value();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.esb.Comment#getPosition <em>Position</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Position</em>'.
+	 * @see org.wso2.developerstudio.eclipse.esb.Comment#getPosition()
+	 * @see #getComment()
+	 * @generated
+	 */
+	EAttribute getComment_Position();
 
 	/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.esb.MediatorSequence <em>Mediator Sequence</em>}'.
@@ -7060,6 +7518,14 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 		EAttribute MODEL_OBJECT__CURRENT_ESB_VERSION = eINSTANCE.getModelObject_CurrentEsbVersion();
 
 								/**
+		 * The meta object literal for the '<em><b>Comment</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODEL_OBJECT__COMMENT = eINSTANCE.getModelObject_Comment();
+
+								/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.esb.impl.NamespaceImpl <em>Namespace</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7762,6 +8228,32 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 		 * @generated
 		 */
 		EAttribute DESCRIPTION__VALUE = eINSTANCE.getDescription_Value();
+
+		/**
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.esb.impl.CommentImpl <em>Comment</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.wso2.developerstudio.eclipse.esb.impl.CommentImpl
+		 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getComment()
+		 * @generated
+		 */
+		EClass COMMENT = eINSTANCE.getComment();
+
+								/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMMENT__VALUE = eINSTANCE.getComment_Value();
+
+								/**
+		 * The meta object literal for the '<em><b>Position</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMMENT__POSITION = eINSTANCE.getComment_Position();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.esb.impl.MediatorSequenceImpl <em>Mediator Sequence</em>}' class.

@@ -34,6 +34,7 @@ import org.wso2.developerstudio.eclipse.esb.AbstractNameValueExpressionProperty;
 import org.wso2.developerstudio.eclipse.esb.AbstractNameValueProperty;
 import org.wso2.developerstudio.eclipse.esb.AbstractProxySequenceConfiguration;
 import org.wso2.developerstudio.eclipse.esb.AddressEndPoint;
+import org.wso2.developerstudio.eclipse.esb.Comment;
 import org.wso2.developerstudio.eclipse.esb.ConfigurationElement;
 import org.wso2.developerstudio.eclipse.esb.DefaultEndPoint;
 import org.wso2.developerstudio.eclipse.esb.Description;
@@ -300,6 +301,13 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	private EClass descriptionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass commentEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -643,6 +651,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 */
 	public EAttribute getModelObject_CurrentEsbVersion() {
 		return (EAttribute)modelObjectEClass.getEStructuralFeatures().get(4);
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getModelObject_Comment() {
+		return (EReference)modelObjectEClass.getEStructuralFeatures().get(5);
 	}
 
 				/**
@@ -1381,6 +1398,33 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 */
 	public EAttribute getDescription_Value() {
 		return (EAttribute)descriptionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getComment() {
+		return commentEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getComment_Value() {
+		return (EAttribute)commentEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getComment_Position() {
+		return (EAttribute)commentEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2254,6 +2298,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEReference(modelObjectEClass, MODEL_OBJECT__DEFAULT_NAMESPACE);
 		createEReference(modelObjectEClass, MODEL_OBJECT__ADDITIONAL_NAMESPACES);
 		createEAttribute(modelObjectEClass, MODEL_OBJECT__CURRENT_ESB_VERSION);
+		createEReference(modelObjectEClass, MODEL_OBJECT__COMMENT);
 
 		namespaceEClass = createEClass(NAMESPACE);
 		createEAttribute(namespaceEClass, NAMESPACE__PREFIX);
@@ -2270,6 +2315,10 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 
 		descriptionEClass = createEClass(DESCRIPTION);
 		createEAttribute(descriptionEClass, DESCRIPTION__VALUE);
+
+		commentEClass = createEClass(COMMENT);
+		createEAttribute(commentEClass, COMMENT__VALUE);
+		createEAttribute(commentEClass, COMMENT__POSITION);
 
 		endPointReferenceEClass = createEClass(END_POINT_REFERENCE);
 
@@ -2559,6 +2608,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEReference(getModelObject_DefaultNamespace(), this.getNamespace(), null, "defaultNamespace", null, 0, 1, ModelObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getModelObject_AdditionalNamespaces(), this.getNamespace(), null, "additionalNamespaces", null, 0, -1, ModelObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getModelObject_CurrentEsbVersion(), this.getEsbVersion(), "currentEsbVersion", null, 0, 1, ModelObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModelObject_Comment(), this.getComment(), null, "comment", null, 0, -1, ModelObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(namespaceEClass, Namespace.class, "Namespace", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNamespace_Prefix(), ecorePackage.getEString(), "prefix", null, 0, 1, Namespace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2575,6 +2625,10 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 
 		initEClass(descriptionEClass, Description.class, "Description", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDescription_Value(), ecorePackage.getEString(), "value", null, 0, 1, Description.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(commentEClass, Comment.class, "Comment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getComment_Value(), ecorePackage.getEString(), "value", null, 0, 1, Comment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getComment_Position(), ecorePackage.getEInt(), "position", null, 0, 1, Comment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(endPointReferenceEClass, EndPointReference.class, "EndPointReference", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

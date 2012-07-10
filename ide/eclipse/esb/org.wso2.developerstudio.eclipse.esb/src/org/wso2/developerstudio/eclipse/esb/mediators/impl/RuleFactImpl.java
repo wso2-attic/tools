@@ -213,6 +213,7 @@ public class RuleFactImpl extends ModelObjectImpl implements RuleFact {
 		} else {
 			setValueType(RuleFactValueType.NONE);
 		}	
+		super.doLoad(self);
 	}
 
 	/**
@@ -246,6 +247,7 @@ public class RuleFactImpl extends ModelObjectImpl implements RuleFact {
 			}
 		}
 		
+		addComments(self);
 		return self;
 	}
 

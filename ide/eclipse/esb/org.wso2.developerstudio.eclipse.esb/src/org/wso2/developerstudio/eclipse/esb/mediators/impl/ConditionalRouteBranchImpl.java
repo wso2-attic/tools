@@ -160,6 +160,7 @@ public class ConditionalRouteBranchImpl extends MediatorBranchImpl implements
 				getTargetSequence().setKeyValue(attributeValue);
 			}
 		}
+		super.doLoad(self);
 	}
 
 	/**
@@ -206,6 +207,8 @@ public class ConditionalRouteBranchImpl extends MediatorBranchImpl implements
 				getTargetSequence().save(targetElem);
 			}
 		}
+		
+		addComments(self);
 		return self;
 	}
 

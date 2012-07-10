@@ -143,6 +143,8 @@ public class StoreMediatorImpl extends MediatorImpl implements StoreMediator {
 		}
 		if(description!=null)
 			description.save(self);
+		
+		addComments(self);
 		return self;
 
 	}

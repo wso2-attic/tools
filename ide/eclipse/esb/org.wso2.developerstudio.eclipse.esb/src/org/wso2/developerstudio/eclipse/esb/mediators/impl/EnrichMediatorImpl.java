@@ -505,6 +505,8 @@ public class EnrichMediatorImpl extends MediatorImpl implements EnrichMediator {
 
 		if(description!=null)
 			description.save(self);
+		
+		addComments(self);
 		return self;
 	}
 

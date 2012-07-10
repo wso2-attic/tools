@@ -11,6 +11,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="additionalNamespaces" upperBound="-1"
         eType="#//Namespace"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="currentEsbVersion" eType="#//EsbVersion"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="comment" upperBound="-1"
+        eType="#//Comment" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Namespace">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="prefix" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -36,6 +38,10 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Description" eSuperTypes="#//ModelObject">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Comment">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="position" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EndPointReference" abstract="true" eSuperTypes="#//ModelObject"/>
   <eClassifiers xsi:type="ecore:EClass" name="EndPoint" abstract="true" eSuperTypes="#//ConfigurationElement">

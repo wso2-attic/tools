@@ -95,6 +95,7 @@ public class RuleSessionConfigurationImpl extends ModelObjectImpl implements Rul
 				getProperties().add(object);
 			}			
 		});
+		super.doLoad(self);
 	}
 
 	/**
@@ -113,6 +114,7 @@ public class RuleSessionConfigurationImpl extends ModelObjectImpl implements Rul
 			property.save(self);
 		}
 		
+		addComments(self);
 		return self;
 	}
 	

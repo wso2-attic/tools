@@ -211,6 +211,7 @@ public class XQueryVariableImpl extends ModelObjectImpl implements XQueryVariabl
 				getValueKey().load(self);
 			}
 		}
+		super.doLoad(self);
 	}
 
 	/**
@@ -237,7 +238,7 @@ public class XQueryVariableImpl extends ModelObjectImpl implements XQueryVariabl
 				getValueKey().save(self);
 			}
 		}
-		
+		addComments(self);
 		return self;
 	}
 

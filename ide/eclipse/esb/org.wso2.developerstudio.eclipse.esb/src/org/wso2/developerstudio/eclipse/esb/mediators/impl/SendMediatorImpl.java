@@ -222,6 +222,8 @@ public class SendMediatorImpl extends MediatorImpl implements SendMediator {
 		}
 		if(description!=null)
 			description.save(self);
+		
+		addComments(self);
 		return self;
 	}
 

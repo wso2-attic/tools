@@ -274,6 +274,8 @@ public class XQueryMediatorImpl extends MediatorImpl implements XQueryMediator {
 		
 		if(description!=null)
 			description.save(self);
+		
+		addComments(self);
 		return self;
 	}
 

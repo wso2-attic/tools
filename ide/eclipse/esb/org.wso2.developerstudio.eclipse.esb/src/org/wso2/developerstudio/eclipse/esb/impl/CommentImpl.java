@@ -18,27 +18,32 @@ package org.wso2.developerstudio.eclipse.esb.impl;
 import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.w3c.dom.Element;
-import org.wso2.developerstudio.eclipse.esb.Description;
+import org.wso2.developerstudio.eclipse.esb.Comment;
 import org.wso2.developerstudio.eclipse.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Description</b></em>'.
+ * An implementation of the model object '<em><b>Comment</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.wso2.developerstudio.eclipse.esb.impl.DescriptionImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.esb.impl.CommentImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.esb.impl.CommentImpl#getPosition <em>Position</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class DescriptionImpl extends ModelObjectImpl implements Description {
+public class CommentImpl extends EObjectImpl implements Comment {
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -60,13 +65,32 @@ public class DescriptionImpl extends ModelObjectImpl implements Description {
 	protected String value = VALUE_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getPosition() <em>Position</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @see #getPosition()
+	 * @generated
+	 * @ordered
 	 */
-	protected DescriptionImpl() {
+	protected static final int POSITION_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getPosition() <em>Position</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPosition()
+	 * @generated
+	 * @ordered
+	 */
+	protected int position = POSITION_EDEFAULT;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CommentImpl() {
 		super();
-		setValue("");
 	}
 
 	/**
@@ -76,7 +100,7 @@ public class DescriptionImpl extends ModelObjectImpl implements Description {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return EsbPackage.Literals.DESCRIPTION;
+		return EsbPackage.Literals.COMMENT;
 	}
 
 	/**
@@ -97,7 +121,28 @@ public class DescriptionImpl extends ModelObjectImpl implements Description {
 		String oldValue = value;
 		value = newValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.DESCRIPTION__VALUE, oldValue, value));
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.COMMENT__VALUE, oldValue, value));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getPosition() {
+		return position;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPosition(int newPosition) {
+		int oldPosition = position;
+		position = newPosition;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.COMMENT__POSITION, oldPosition, position));
 	}
 
 	/**
@@ -108,8 +153,10 @@ public class DescriptionImpl extends ModelObjectImpl implements Description {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case EsbPackage.DESCRIPTION__VALUE:
+			case EsbPackage.COMMENT__VALUE:
 				return getValue();
+			case EsbPackage.COMMENT__POSITION:
+				return getPosition();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -122,8 +169,11 @@ public class DescriptionImpl extends ModelObjectImpl implements Description {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case EsbPackage.DESCRIPTION__VALUE:
+			case EsbPackage.COMMENT__VALUE:
 				setValue((String)newValue);
+				return;
+			case EsbPackage.COMMENT__POSITION:
+				setPosition((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -137,8 +187,11 @@ public class DescriptionImpl extends ModelObjectImpl implements Description {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case EsbPackage.DESCRIPTION__VALUE:
+			case EsbPackage.COMMENT__VALUE:
 				setValue(VALUE_EDEFAULT);
+				return;
+			case EsbPackage.COMMENT__POSITION:
+				setPosition(POSITION_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -152,8 +205,10 @@ public class DescriptionImpl extends ModelObjectImpl implements Description {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case EsbPackage.DESCRIPTION__VALUE:
+			case EsbPackage.COMMENT__VALUE:
 				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
+			case EsbPackage.COMMENT__POSITION:
+				return position != POSITION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -170,34 +225,11 @@ public class DescriptionImpl extends ModelObjectImpl implements Description {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (value: ");
 		result.append(value);
+		result.append(", position: ");
+		result.append(position);
 		result.append(')');
 		return result.toString();
 	}
 
-	
-	public Map<String, ObjectValidator> validate() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
-	
-	protected void doLoad(Element self) throws Exception {
-		if (self.hasAttribute("value")) {
-			setValue(self.getAttribute("value"));
-		}
-		super.doLoad(self);
-		
-	}
-	
-	protected Element doSave(Element parent) throws Exception {
-		Element self=getChildElement(parent, "description");
-		if(self==null){
-		self = createChildElement(parent, "description");
-		}
-		self.setTextContent(getValue());
-		addComments(self);
-		return self;
-	}
-
-
-} //DescriptionImpl
+} //CommentImpl

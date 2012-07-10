@@ -61,6 +61,8 @@ public class OutMediatorImpl extends ParentMediatorImpl implements OutMediator {
 		}
 		if(description!=null)
 			description.save(self);
+		
+		addComments(self);
 		return self;
 	}
 

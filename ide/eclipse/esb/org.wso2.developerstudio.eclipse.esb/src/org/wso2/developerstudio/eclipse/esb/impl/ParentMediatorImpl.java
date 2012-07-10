@@ -69,7 +69,8 @@ public abstract class ParentMediatorImpl extends MediatorImpl implements ParentM
 			public void handle(Mediator object) {
 				getChildren().add(object);
 			}			
-		});		
+		});	
+		super.doLoad(self);
 	}
 
 	/**

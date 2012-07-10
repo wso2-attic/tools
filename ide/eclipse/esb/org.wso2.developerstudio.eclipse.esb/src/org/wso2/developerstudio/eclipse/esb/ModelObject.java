@@ -35,6 +35,7 @@ import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
  *   <li>{@link org.wso2.developerstudio.eclipse.esb.ModelObject#getDefaultNamespace <em>Default Namespace</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.esb.ModelObject#getAdditionalNamespaces <em>Additional Namespaces</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.esb.ModelObject#getCurrentEsbVersion <em>Current Esb Version</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.esb.ModelObject#getComment <em>Comment</em>}</li>
  * </ul>
  * </p>
  *
@@ -276,6 +277,22 @@ public interface ModelObject extends EObject {
 	 * @generated
 	 */
 	void setCurrentEsbVersion(EsbVersion value);
+
+	/**
+	 * Returns the value of the '<em><b>Comment</b></em>' containment reference list.
+	 * The list contents are of type {@link org.wso2.developerstudio.eclipse.esb.Comment}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Comment</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Comment</em>' containment reference list.
+	 * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getModelObject_Comment()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Comment> getComment();
 
 	/**
 	 * Realize this model object using information contained within the

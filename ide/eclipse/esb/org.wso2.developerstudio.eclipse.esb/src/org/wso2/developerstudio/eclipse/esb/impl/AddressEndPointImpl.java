@@ -114,6 +114,7 @@ public class AddressEndPointImpl extends AbstractDefaultEndPointImpl implements 
 		// Delegate.
 		storeContent(addressElem);
 		
+		addComments(self);
 	    return self;
     }
 

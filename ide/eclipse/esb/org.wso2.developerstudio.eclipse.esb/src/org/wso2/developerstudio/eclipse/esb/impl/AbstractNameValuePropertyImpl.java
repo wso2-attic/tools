@@ -104,6 +104,7 @@ public abstract class AbstractNameValuePropertyImpl extends ModelObjectImpl impl
 		} else {
 			throw new Exception("Property value expected.");
 		}
+		super.doLoad(self);
 	}
 
 	/**
@@ -113,6 +114,8 @@ public abstract class AbstractNameValuePropertyImpl extends ModelObjectImpl impl
 		Element self = createChildElement(parent, "property");
 		self.setAttribute("name", getPropertyName());
 		self.setAttribute("value", getPropertyValue());
+		
+		addComments(self);
 		return self;
 	}
 

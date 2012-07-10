@@ -164,7 +164,7 @@ public class ValidateSchemaImpl extends ModelObjectImpl implements ValidateSchem
 			}
 			break;
 		}
-		
+		super.doLoad(self);
 	}
 
 	/**
@@ -190,7 +190,7 @@ public class ValidateSchemaImpl extends ModelObjectImpl implements ValidateSchem
 			}
 			break;
 		}
-		
+		addComments(self);
 		return self;
 	}
 

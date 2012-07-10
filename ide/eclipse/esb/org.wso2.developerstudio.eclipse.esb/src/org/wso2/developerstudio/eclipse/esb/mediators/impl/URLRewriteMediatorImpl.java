@@ -175,6 +175,8 @@ public class URLRewriteMediatorImpl extends MediatorImpl implements URLRewriteMe
 		}
 		if(description!=null)
 			description.save(self);
+		
+		addComments(self);
 		return self;
 	}
 	/**

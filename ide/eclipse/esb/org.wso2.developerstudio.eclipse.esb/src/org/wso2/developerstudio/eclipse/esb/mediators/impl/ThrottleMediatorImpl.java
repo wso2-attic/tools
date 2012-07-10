@@ -145,6 +145,8 @@ public class ThrottleMediatorImpl extends MediatorImpl implements ThrottleMediat
 		getOnRejectBranch().save(self);
 		if(description!=null)
 			description.save(self);
+		
+		addComments(self);
 		return self;
 	}
 	

@@ -161,6 +161,8 @@ public class ValidateMediatorImpl extends MediatorImpl implements ValidateMediat
 		}						
 		if(description!=null)
 			description.save(self);
+		
+		addComments(self);
 		return self;
 	}
 

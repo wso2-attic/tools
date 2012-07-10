@@ -195,6 +195,7 @@ public class MediatorSequenceImpl extends ConfigurationElementImpl implements
 			}
 		});	
 
+		super.doLoad(self);
 	}
 
 	/**
@@ -219,7 +220,7 @@ public class MediatorSequenceImpl extends ConfigurationElementImpl implements
 		if(description!=null)
 			description.save(self);
 		
-
+		addComments(self);
 		return self;
 	}
 

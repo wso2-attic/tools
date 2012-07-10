@@ -346,6 +346,8 @@ public class XSLTMediatorImpl extends MediatorImpl implements XSLTMediator {
 		}
 		if(description!=null)
 			description.save(self);
+		
+		addComments(self);
 		return self;
 	}
 

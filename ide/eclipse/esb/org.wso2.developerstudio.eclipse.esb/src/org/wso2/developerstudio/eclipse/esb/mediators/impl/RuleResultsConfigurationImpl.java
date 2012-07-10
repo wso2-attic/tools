@@ -72,7 +72,8 @@ public class RuleResultsConfigurationImpl extends ModelObjectImpl implements Rul
 			public void handle(RuleResult object) {
 				getResults().add(object);
 			}			
-		});		
+		});	
+		super.doLoad(self);
 	}
 
 	/**
@@ -83,6 +84,7 @@ public class RuleResultsConfigurationImpl extends ModelObjectImpl implements Rul
 		for (RuleResult result : getResults()) {
 			result.save(self);
 		}
+		addComments(self);
 		return self;
 	}
 	

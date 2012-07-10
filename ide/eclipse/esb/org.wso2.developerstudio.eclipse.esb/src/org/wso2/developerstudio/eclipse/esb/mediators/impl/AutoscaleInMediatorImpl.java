@@ -59,6 +59,8 @@ public class AutoscaleInMediatorImpl extends MediatorImpl implements AutoscaleIn
 		Element self=createChildElement(parent,"autoscaleIn");
 		if(description!=null)
 			description.save(self);
+		
+		addComments(self);
 		return self;
 		
 	}

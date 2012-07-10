@@ -94,6 +94,7 @@ public abstract class AbstractBooleanFeatureImpl extends ModelObjectImpl impleme
 		if (!self.getAttribute("value").equalsIgnoreCase("true")) {			
 			setFeatureEnabled(false);
 		}
+		super.doLoad(self);
 	}
 
 	/**
@@ -107,6 +108,7 @@ public abstract class AbstractBooleanFeatureImpl extends ModelObjectImpl impleme
 		} else {
 			self.setAttribute("value", "false");
 		}
+		addComments(self);
 		return self;
 	}
 

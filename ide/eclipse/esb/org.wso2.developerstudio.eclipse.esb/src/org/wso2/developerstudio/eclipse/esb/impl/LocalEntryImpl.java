@@ -181,7 +181,8 @@ public class LocalEntryImpl extends ConfigurationElementImpl implements LocalEnt
 				setValueLiteral(self.getTextContent());
 				setValueType(LocalEntryValueType.LITERAL);
 			}
-		}				
+		}	
+		super.doLoad(self);
 	}
 
 	/**
@@ -215,6 +216,7 @@ public class LocalEntryImpl extends ConfigurationElementImpl implements LocalEnt
 			}
 		}
 		
+		addComments(self);
 		return self;
 	}
 

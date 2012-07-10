@@ -108,6 +108,7 @@ public class ProxyServiceParameterImpl extends ModelObjectImpl implements ProxyS
 		} else if (null != self.getTextContent()) {
 			setValue(self.getTextContent());
 		}
+		super.doLoad(self);
 	}
 
 	/**
@@ -125,7 +126,8 @@ public class ProxyServiceParameterImpl extends ModelObjectImpl implements ProxyS
 		} catch (Exception ex) {
 			// Assume that the parameter value is specified as plain text.
 			self.setTextContent(getValue());
-		}			
+		}
+		addComments(self);
 		return self;
 	}
 	

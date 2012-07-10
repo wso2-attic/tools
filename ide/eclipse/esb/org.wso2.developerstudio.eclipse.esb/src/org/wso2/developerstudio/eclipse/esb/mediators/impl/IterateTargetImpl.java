@@ -149,6 +149,7 @@ public class IterateTargetImpl extends AbstractCommonTargetImpl implements Itera
 			self.setAttribute("to", getToAddress());
 		}
 		
+		addComments(self);
 		return self;
 	}
 	

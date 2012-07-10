@@ -151,6 +151,7 @@ public class RouterRouteImpl extends ModelObjectImpl implements RouterRoute {
 				setTarget(object);
 			}			
 		});
+		super.doLoad(self);
 	}
 
 	/**
@@ -169,7 +170,7 @@ public class RouterRouteImpl extends ModelObjectImpl implements RouterRoute {
 		if (getTarget() != null) {
 			getTarget().save(self);
 		}					
-		
+		addComments(self);
 		return self;
 	}
 	

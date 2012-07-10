@@ -59,6 +59,7 @@ public class ValidateOnFailBranchImpl extends MediatorBranchImpl implements Vali
 		for (Mediator child : getChildren()) {
 			child.save(self);
 		}
+		addComments(self);
 		return self;
 	}
 	

@@ -176,7 +176,8 @@ public class LoadBalanceEndPointImpl extends ParentEndPointImpl implements LoadB
 	    
 	    // Children.
 	    storeChildren(loadBalanceElem);
-	    	    
+	    	
+	    addComments(self);
 	    return self;
     }
 

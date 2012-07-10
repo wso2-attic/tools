@@ -58,6 +58,8 @@ public class DropMediatorImpl extends MediatorImpl implements DropMediator {
 		Element self = createChildElement(parent, "drop");
 		if(description!=null)
 			description.save(self);
+		
+		addComments(self);
 		return self;
 	}
 

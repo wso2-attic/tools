@@ -150,6 +150,7 @@ public class CloneTargetImpl extends AbstractCommonTargetImpl implements CloneTa
 			self.setAttribute("to", getToAddress());
 		}
 		
+		addComments(self);
 		return self;
 	}
 

@@ -61,6 +61,8 @@ public class InMediatorImpl extends ParentMediatorImpl implements InMediator {
 		}
 		if(description!=null)
 			description.save(self);
+		
+		addComments(self);
 		return self;
 	}
 

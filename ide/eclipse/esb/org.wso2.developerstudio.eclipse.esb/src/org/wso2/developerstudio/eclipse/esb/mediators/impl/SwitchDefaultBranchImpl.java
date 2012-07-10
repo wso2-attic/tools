@@ -59,6 +59,7 @@ public class SwitchDefaultBranchImpl extends MediatorBranchImpl implements Switc
 		for (Mediator child : getChildren()) {
 			child.save(self);
 		}
+		addComments(self);
 		return self;
 	}
 	

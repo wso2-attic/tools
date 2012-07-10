@@ -130,7 +130,7 @@ public class AggregateOnCompleteBranchImpl extends MediatorBranchImpl implements
 		} else {
 			setSequenceType(AggregateSequenceType.ANONYMOUS);
 			super.doLoad(self);
-		}				
+		}	
 	}
 
 	/**
@@ -149,6 +149,7 @@ public class AggregateOnCompleteBranchImpl extends MediatorBranchImpl implements
 			getSequenceKey().save(self);
 		}		
 
+		addComments(self);
 		return self;
 	}
 

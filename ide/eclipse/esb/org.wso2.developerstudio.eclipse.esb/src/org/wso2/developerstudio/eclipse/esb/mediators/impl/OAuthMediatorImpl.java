@@ -89,6 +89,8 @@ public class OAuthMediatorImpl extends MediatorImpl implements OAuthMediator {
 		self.setAttribute("remoteServiceUrl", getRemoteServiceUrl());
 		if(description!=null)
 			description.save(self);
+		
+		addComments(self);
 		return self;
 	}
 	

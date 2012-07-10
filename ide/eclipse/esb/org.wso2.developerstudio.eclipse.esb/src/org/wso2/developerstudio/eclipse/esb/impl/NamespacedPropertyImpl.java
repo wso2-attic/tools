@@ -141,7 +141,9 @@ public class NamespacedPropertyImpl extends ModelObjectImpl implements Namespace
 			// Do not include the namespace corresponding to current element itself.
 			additionalNamespaces.remove(self.getPrefix());
 		}
-		getNamespaces().putAll(additionalNamespaces);		
+		getNamespaces().putAll(additionalNamespaces);
+		
+		super.doLoad(self);
 	}
 	
 	/**
@@ -151,7 +153,8 @@ public class NamespacedPropertyImpl extends ModelObjectImpl implements Namespace
 		parent.setAttribute(getPropertyName(), getPropertyValue());
 		for (Map.Entry<String, String> entry : getNamespaces().entrySet()) {
 			parent.setAttribute(String.format("xmlns:%s", entry.getKey()), entry.getValue());
-		}		
+		}
+		addComments(parent);
 		return parent;
 	}
 

@@ -174,6 +174,8 @@ public class RuleMediatorImpl extends MediatorImpl implements RuleMediator {
 		getChildMediatorsConfiguration().save(self);
 		if(description!=null)
 			description.save(self);
+		
+		addComments(self);
 		return self;
 	}
 	

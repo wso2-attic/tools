@@ -213,6 +213,7 @@ public class RuleResultImpl extends ModelObjectImpl implements RuleResult {
 		} else {
 			throw new Exception("Unknown rule result definition.");
 		}
+		super.doLoad(self);
 	}
 
 	/**
@@ -246,6 +247,7 @@ public class RuleResultImpl extends ModelObjectImpl implements RuleResult {
 			}
 		}
 		
+		addComments(self);
 		return self;
 	}
 	

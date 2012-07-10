@@ -97,6 +97,7 @@ public class SwitchCaseBranchImpl extends MediatorBranchImpl implements SwitchCa
 		for (Mediator child : getChildren()) {
 			child.save(self);
 		}
+		addComments(self);
 		return self;
 	}
 	

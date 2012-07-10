@@ -335,6 +335,8 @@ public class CacheMediatorImpl extends MediatorImpl implements CacheMediator {
 		}
 		if(description!=null)
 			description.save(self);
+		
+		addComments(self);
 		return self;
 	}	
 	

@@ -109,6 +109,7 @@
       <genFeatures property="None" notify="false" createChild="false" propertySortChoices="true"
           ecoreFeature="ecore:EReference esb.ecore#//ModelObject/additionalNamespaces"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ModelObject/currentEsbVersion"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ModelObject/comment"/>
     </genClasses>
     <genClasses provider="None" image="false" ecoreClass="esb.ecore#//Namespace">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//Namespace/prefix"/>
@@ -124,6 +125,10 @@
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//Description">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//Description/value"/>
+    </genClasses>
+    <genClasses ecoreClass="esb.ecore#//Comment">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//Comment/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//Comment/position"/>
     </genClasses>
     <genClasses image="false" ecoreClass="esb.ecore#//EndPointReference"/>
     <genClasses image="false" ecoreClass="esb.ecore#//EndPoint">

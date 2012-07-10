@@ -64,6 +64,15 @@ public interface EsbFactory extends EFactory {
 	Description createDescription();
 
 	/**
+	 * Returns a new object of class '<em>Comment</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Comment</em>'.
+	 * @generated
+	 */
+	Comment createComment();
+
+	/**
 	 * Returns a new object of class '<em>Mediator Sequence</em>'. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 

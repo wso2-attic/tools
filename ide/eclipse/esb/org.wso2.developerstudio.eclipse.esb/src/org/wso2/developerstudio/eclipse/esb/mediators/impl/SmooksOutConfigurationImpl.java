@@ -438,6 +438,7 @@ public class SmooksOutConfigurationImpl extends ModelObjectImpl implements Smook
 			setProperty(propertyAttribute);
 			setOutputMethod(OutputMethod.PROPERTY);
 		}
+		super.doLoad(self);
 	}
 
 	
@@ -452,6 +453,7 @@ public class SmooksOutConfigurationImpl extends ModelObjectImpl implements Smook
 			case PROPERTY:
 				self.setAttribute("property", getProperty());
 		}
+		addComments(self);
 		return self;
 	}
 

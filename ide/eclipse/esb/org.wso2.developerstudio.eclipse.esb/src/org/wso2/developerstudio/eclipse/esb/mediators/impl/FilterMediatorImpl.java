@@ -239,6 +239,8 @@ public class FilterMediatorImpl extends MediatorImpl implements FilterMediator {
 		getElseBranch().save(self);	
 		if(description!=null)
 			description.save(self);
+		
+		addComments(self);
 		return self;
 	}
 

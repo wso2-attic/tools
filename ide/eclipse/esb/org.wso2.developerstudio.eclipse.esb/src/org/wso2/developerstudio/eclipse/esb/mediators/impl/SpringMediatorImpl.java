@@ -108,6 +108,8 @@ public class SpringMediatorImpl extends MediatorImpl implements SpringMediator {
 		getConfigurationKey().save(self);
 		if(description!=null)
 			description.save(self);
+		
+		addComments(self);
 		return self;
 	}
 

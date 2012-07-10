@@ -134,6 +134,8 @@ public class CallTemplateMediatorImpl extends MediatorImpl implements CallTempla
 		}
 		if(description!=null)
 			description.save(self);
+		
+		addComments(self);
 		return self;
 	}
 

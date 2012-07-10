@@ -117,6 +117,8 @@ public class DBReportMediatorImpl extends AbstractSqlExecutorMediatorImpl implem
 		}
 		if(description!=null)
 			description.save(self);
+		
+		addComments(self);
 		return self;
 	}
 

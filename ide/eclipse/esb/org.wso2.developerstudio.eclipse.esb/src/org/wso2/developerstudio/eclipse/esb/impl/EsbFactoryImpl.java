@@ -198,6 +198,7 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 			case EsbPackage.NAMESPACE: return createNamespace();
 			case EsbPackage.SYNAPSE_CONFIGURATION: return createSynapseConfiguration();
 			case EsbPackage.DESCRIPTION: return createDescription();
+			case EsbPackage.COMMENT: return createComment();
 			case EsbPackage.UNKNOWN_OBJECT: return createUnknownObject();
 			case EsbPackage.MEDIATOR_SEQUENCE: return createMediatorSequence();
 			case EsbPackage.NAMESPACED_PROPERTY: return createNamespacedProperty();
@@ -491,6 +492,16 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	public Description createDescription() {
 		DescriptionImpl description = new DescriptionImpl();
 		return description;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Comment createComment() {
+		CommentImpl comment = new CommentImpl();
+		return comment;
 	}
 
 	/**

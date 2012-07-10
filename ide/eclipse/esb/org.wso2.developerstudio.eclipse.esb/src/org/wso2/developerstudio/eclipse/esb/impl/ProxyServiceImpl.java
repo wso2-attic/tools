@@ -397,6 +397,7 @@ public class ProxyServiceImpl extends ConfigurationElementImpl implements ProxyS
 				setSecurityEnabled(true);
 			}
 		}
+		super.doLoad(self);
 	}
 
 	/**
@@ -479,6 +480,7 @@ public class ProxyServiceImpl extends ConfigurationElementImpl implements ProxyS
 			}
 		}
 		
+		addComments(self);
 		return self;
 	}
 	

@@ -262,6 +262,7 @@ public class SmooksInConfigurationImpl extends ModelObjectImpl implements Smooks
 			String expressionAttribute = self.getAttribute("expression");
 			getExpression().setPropertyValue(expressionAttribute);
 		}
+		super.doLoad(self);
 	}
 
 	
@@ -271,6 +272,7 @@ public class SmooksInConfigurationImpl extends ModelObjectImpl implements Smooks
 		if (!getExpression().getPropertyValue().trim().equals("")) {
 			self.setAttribute("expression", getExpression().getPropertyValue());
 		}
+		addComments(self);
 		return self;
 	}
 

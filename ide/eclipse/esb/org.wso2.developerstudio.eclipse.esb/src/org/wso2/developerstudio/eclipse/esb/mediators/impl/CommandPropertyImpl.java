@@ -247,6 +247,7 @@ public class CommandPropertyImpl extends ModelObjectImpl implements CommandPrope
 		} else {
 			throw new Exception("Unknown property definition.");
 		}
+		super.doLoad(self);
 	}
 
 	/**
@@ -278,6 +279,7 @@ public class CommandPropertyImpl extends ModelObjectImpl implements CommandPrope
 			}
 		}
 		
+		addComments(self);
 		return self;
 	}
 	

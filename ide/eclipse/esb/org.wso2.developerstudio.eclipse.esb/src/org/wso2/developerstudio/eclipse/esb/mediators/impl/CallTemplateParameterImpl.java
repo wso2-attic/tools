@@ -154,7 +154,7 @@ public class CallTemplateParameterImpl extends ModelObjectImpl implements CallTe
 
 			setParameterName("");
 		}
-		
+		super.doLoad(self);
 	}
 
 	/**
@@ -180,6 +180,8 @@ public class CallTemplateParameterImpl extends ModelObjectImpl implements CallTe
 			}
 			break;
 		}
+		
+		addComments(self);
 		return self;
 	}
 

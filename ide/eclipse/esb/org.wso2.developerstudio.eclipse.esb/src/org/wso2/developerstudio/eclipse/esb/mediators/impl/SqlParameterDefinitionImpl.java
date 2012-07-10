@@ -154,7 +154,8 @@ public class SqlParameterDefinitionImpl extends ModelObjectImpl implements SqlPa
 			getValueExpression().load(self);
 		} else {
 			throw new Exception("Expected either literal value or a namespaced expression.");
-		}				
+		}	
+		super.doLoad(self);
 	}
 
 	/**
@@ -173,6 +174,7 @@ public class SqlParameterDefinitionImpl extends ModelObjectImpl implements SqlPa
 			getValueExpression().save(self);
 		}
 		
+		addComments(self);
 		return self;
 	}
 

@@ -153,6 +153,7 @@ public class RuleSetConfigurationImpl extends ModelObjectImpl implements RuleSet
 				}
 			});
 		}
+		super.doLoad(self);
 	}
 
 	/**
@@ -181,6 +182,7 @@ public class RuleSetConfigurationImpl extends ModelObjectImpl implements RuleSet
 			property.save(creationElem);
 		}
 		
+		addComments(self);
 		return self;
 	}
 	

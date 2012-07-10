@@ -130,6 +130,8 @@ public class SmooksMediatorImpl extends MediatorImpl implements SmooksMediator {
 		getOutput().save(self);
 		if(description!=null)
 			description.save(self);
+		
+		addComments(self);
 		return self;
     }
 

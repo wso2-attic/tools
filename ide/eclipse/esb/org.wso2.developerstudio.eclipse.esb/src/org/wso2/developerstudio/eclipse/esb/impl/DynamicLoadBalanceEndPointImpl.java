@@ -184,6 +184,7 @@ public class DynamicLoadBalanceEndPointImpl extends EndPointImpl implements Dyna
 			property.save(membershipHandlerElem);
 		}
 		
+		addComments(self);
 		return self;
 	}
 

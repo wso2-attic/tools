@@ -123,6 +123,7 @@ public class ThrottleOnRejectBranchImpl extends MediatorBranchImpl implements Th
 			for (Mediator child : getChildren()) {
 				child.save(self);
 			}
+			addComments(self);
 			return self;
 		} else {
 			getSequenceKey().save(parent);

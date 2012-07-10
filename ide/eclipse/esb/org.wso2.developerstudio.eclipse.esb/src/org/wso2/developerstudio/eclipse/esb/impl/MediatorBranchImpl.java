@@ -69,7 +69,8 @@ public abstract class MediatorBranchImpl extends ModelObjectImpl implements Medi
 			public void handle(Mediator object) {
 				getChildren().add(object);
 			}			
-		});		
+		});	
+		super.doLoad(self);
 	}
 
 	/**

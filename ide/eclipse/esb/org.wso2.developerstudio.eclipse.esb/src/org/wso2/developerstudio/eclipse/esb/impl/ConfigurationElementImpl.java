@@ -15,7 +15,16 @@
  */
 package org.wso2.developerstudio.eclipse.esb.impl;
 
+import java.util.Collection;
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.wso2.developerstudio.eclipse.esb.Comment;
 import org.wso2.developerstudio.eclipse.esb.ConfigurationElement;
 import org.wso2.developerstudio.eclipse.esb.EsbPackage;
 
@@ -38,6 +47,29 @@ public abstract class ConfigurationElementImpl extends ModelObjectImpl implement
 		super();
 	}
 
+	
+	protected void doLoad(Element self) throws Exception {
+/*		int realCount=0;
+		for (int i=0;i<self.getChildNodes().getLength();++i){
+			if(self.getChildNodes().item(i) instanceof org.w3c.dom.Comment){
+				Comment newComment= getEsbFactory().createComment();
+				newComment.setValue(((org.w3c.dom.Comment)self.getChildNodes().item(i)).getTextContent());
+				newComment.setPosition(realCount);
+				getComment().add(newComment);				
+			}
+			++realCount;
+			
+			 * There is '#text' element in between actual elements.These elements should be avoid when we count.  
+			 
+			if(self.getChildNodes().item(i).getNodeName().equals("#text")){
+				--realCount;
+			}
+		}	*/
+		super.doLoad(self);
+	}
+	
+
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

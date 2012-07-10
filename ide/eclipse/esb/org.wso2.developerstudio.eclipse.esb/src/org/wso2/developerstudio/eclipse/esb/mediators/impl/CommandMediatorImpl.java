@@ -123,6 +123,8 @@ public class CommandMediatorImpl extends MediatorImpl implements CommandMediator
 		}
 		if(description!=null)
 			description.save(self);
+		
+		addComments(self);
 		return self;
 	}
 

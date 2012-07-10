@@ -511,6 +511,8 @@ public class FaultMediatorImpl extends MediatorImpl implements FaultMediator {
 		}		
 		if(description!=null)
 			description.save(self);
+		
+		addComments(self);
 		return self;
 	}
 

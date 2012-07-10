@@ -81,6 +81,7 @@ public class DefaultEndPointImpl extends AbstractDefaultEndPointImpl implements 
 	    // Delegate.
 	    storeContent(defaultElem);
 	    
+	    addComments(self);
 	    return self;
     }
 

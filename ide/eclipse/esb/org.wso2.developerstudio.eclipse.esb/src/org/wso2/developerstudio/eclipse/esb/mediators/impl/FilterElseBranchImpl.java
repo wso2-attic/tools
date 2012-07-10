@@ -59,6 +59,8 @@ public class FilterElseBranchImpl extends MediatorBranchImpl implements FilterEl
 		for (Mediator child : getChildren()) {
 			child.save(self);
 		}
+		
+		addComments(self);
 		return self;
 	}
 	

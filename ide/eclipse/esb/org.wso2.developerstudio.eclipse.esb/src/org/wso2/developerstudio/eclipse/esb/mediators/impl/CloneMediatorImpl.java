@@ -195,6 +195,7 @@ public class CloneMediatorImpl extends MediatorImpl implements CloneMediator {
 			break;
 		}
 
+		addComments(self);
 		return self;
 	}
 

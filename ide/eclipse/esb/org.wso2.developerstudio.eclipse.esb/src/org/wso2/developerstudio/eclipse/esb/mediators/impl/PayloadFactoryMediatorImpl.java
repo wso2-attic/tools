@@ -293,6 +293,8 @@ public class PayloadFactoryMediatorImpl extends MediatorImpl implements PayloadF
 		}
 		if(description!=null)
 			description.save(self);
+		
+		addComments(self);
 		return self;
     }
 

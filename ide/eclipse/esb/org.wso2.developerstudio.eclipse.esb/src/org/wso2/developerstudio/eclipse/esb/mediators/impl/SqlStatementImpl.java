@@ -145,6 +145,7 @@ public class SqlStatementImpl extends ModelObjectImpl implements SqlStatement {
 				getResults().add(object);				
 			}			
 		});
+		super.doLoad(self);
 	}
 
 	/**
@@ -167,6 +168,7 @@ public class SqlStatementImpl extends ModelObjectImpl implements SqlStatement {
 			result.save(self);
 		}
 		
+		addComments(self);
 		return self;
 	}
 

@@ -68,6 +68,7 @@ public class FailoverEndPointImpl extends ParentEndPointImpl implements Failover
 	    storeChildren(failoverElem);
 	    
 	    // Done.
+	    addComments(self);
 	    return self;
     }
 

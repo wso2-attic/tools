@@ -342,7 +342,7 @@ public class PayloadFactoryArgumentImpl extends ModelObjectImpl implements Paylo
 			setArgumentType(PayloadFactoryArgumentType.VALUE);
 			setArgumentValue(attributeValue);
 		} 
-	    
+	    super.doLoad(self);
     }
 
 	
@@ -358,6 +358,7 @@ public class PayloadFactoryArgumentImpl extends ModelObjectImpl implements Paylo
             }
 		}
 		
+		addComments(self);
 		return self;
     }
 

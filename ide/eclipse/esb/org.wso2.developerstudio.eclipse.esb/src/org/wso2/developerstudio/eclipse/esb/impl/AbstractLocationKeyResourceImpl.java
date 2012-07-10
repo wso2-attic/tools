@@ -85,6 +85,7 @@ public abstract class AbstractLocationKeyResourceImpl extends ModelObjectImpl im
 	protected void doLoad(Element self) throws Exception {
 		setLocation(self.getAttribute("location"));
 		getKey().load(self);
+		super.doLoad(self);
 	}
 
 	/**
@@ -94,6 +95,8 @@ public abstract class AbstractLocationKeyResourceImpl extends ModelObjectImpl im
 		Element self = createChildElement(parent, "resource");
 		self.setAttribute("location", getLocation());
 		getKey().save(self);
+		
+		addComments(self);
 		return self;
 	}
 	

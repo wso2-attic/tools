@@ -61,6 +61,8 @@ public class AutoscaleOutMediatorImpl extends MediatorImpl implements AutoscaleO
 		Element self=createChildElement(parent,"autoscaleOut");
 		if(description!=null)
 			description.save(self);
+		
+		addComments(self);
 		return self;
 	}
 

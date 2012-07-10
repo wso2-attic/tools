@@ -89,6 +89,8 @@ public class BuilderMediatorImpl extends MediatorImpl implements BuilderMediator
 		}
 		if(description!=null)
 			description.save(self);
+		
+		addComments(self);
 		return self;
 	}
 

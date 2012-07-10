@@ -91,6 +91,8 @@ public class TransactionMediatorImpl extends MediatorImpl implements Transaction
 		self.setAttribute("action", getAction().getLiteral());
 		if(description!=null)
 			description.save(self);
+		
+		addComments(self);
 		return self;
 	}
 

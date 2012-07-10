@@ -209,6 +209,8 @@ public class ScriptMediatorImpl extends MediatorImpl implements ScriptMediator {
 		}		
 		if(description!=null)
 			description.save(self);
+		
+		addComments(self);
 		return self;
 	}
 

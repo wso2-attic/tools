@@ -238,6 +238,7 @@ public class WsdlEndPointImpl extends AbstractEndPointImpl implements WsdlEndPoi
 	    // Delegate.
 	    storeContent(wsdlElem);
 	    
+	    addComments(self);
 	    return self;
     }
 

@@ -74,6 +74,7 @@ public abstract class MediatorImpl extends ConfigurationElementImpl implements M
 		} else {
 			//TODO
 		}
+		super.doLoad(self);
 	}
 	
 	/**

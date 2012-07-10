@@ -161,6 +161,7 @@ public class ThrottlePolicyConfigurationImpl extends ModelObjectImpl implements 
 				throw new Exception("Expected throttle policy configuration.");
 			}
 		}
+		super.doLoad(self);
 	}
 
 	/**
@@ -200,6 +201,7 @@ public class ThrottlePolicyConfigurationImpl extends ModelObjectImpl implements 
 			}
 		}
 
+		addComments(self);
 		return self;
 	}
 	

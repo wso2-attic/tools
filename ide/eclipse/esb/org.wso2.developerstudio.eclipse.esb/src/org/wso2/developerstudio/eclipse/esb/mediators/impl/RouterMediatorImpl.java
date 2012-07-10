@@ -123,6 +123,8 @@ public class RouterMediatorImpl extends MediatorImpl implements RouterMediator {
 		}
 		if(description!=null)
 			description.save(self);
+		
+		addComments(self);
 		return self;
 	}
 	

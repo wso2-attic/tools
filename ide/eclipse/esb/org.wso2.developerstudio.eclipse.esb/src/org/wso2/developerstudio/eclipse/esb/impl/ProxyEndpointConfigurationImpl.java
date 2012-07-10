@@ -156,6 +156,7 @@ public class ProxyEndpointConfigurationImpl extends ModelObjectImpl implements P
 				}				
 			});
 		}
+		super.doLoad(self);
 	}
 
 	/**

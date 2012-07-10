@@ -126,6 +126,15 @@ public interface MediatorsPackage extends EPackage {
 	int IN_MEDIATOR__CURRENT_ESB_VERSION = EsbPackage.PARENT_MEDIATOR__CURRENT_ESB_VERSION;
 
 	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IN_MEDIATOR__COMMENT = EsbPackage.PARENT_MEDIATOR__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -206,6 +215,15 @@ public interface MediatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int OUT_MEDIATOR__CURRENT_ESB_VERSION = EsbPackage.PARENT_MEDIATOR__CURRENT_ESB_VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUT_MEDIATOR__COMMENT = EsbPackage.PARENT_MEDIATOR__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -290,6 +308,15 @@ public interface MediatorsPackage extends EPackage {
 	int DROP_MEDIATOR__CURRENT_ESB_VERSION = EsbPackage.MEDIATOR__CURRENT_ESB_VERSION;
 
 	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DROP_MEDIATOR__COMMENT = EsbPackage.MEDIATOR__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -361,6 +388,15 @@ public interface MediatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int SEND_MEDIATOR__CURRENT_ESB_VERSION = EsbPackage.MEDIATOR__CURRENT_ESB_VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEND_MEDIATOR__COMMENT = EsbPackage.MEDIATOR__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -481,6 +517,15 @@ public interface MediatorsPackage extends EPackage {
 	int LOG_MEDIATOR__CURRENT_ESB_VERSION = EsbPackage.MEDIATOR__CURRENT_ESB_VERSION;
 
 	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOG_MEDIATOR__COMMENT = EsbPackage.MEDIATOR__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -590,6 +635,15 @@ public interface MediatorsPackage extends EPackage {
 	int LOG_PROPERTY__CURRENT_ESB_VERSION = EsbPackage.ABSTRACT_NAME_VALUE_EXPRESSION_PROPERTY__CURRENT_ESB_VERSION;
 
 	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOG_PROPERTY__COMMENT = EsbPackage.ABSTRACT_NAME_VALUE_EXPRESSION_PROPERTY__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Property Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -688,6 +742,15 @@ public interface MediatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int FILTER_MEDIATOR__CURRENT_ESB_VERSION = EsbPackage.MEDIATOR__CURRENT_ESB_VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_MEDIATOR__COMMENT = EsbPackage.MEDIATOR__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -817,6 +880,15 @@ public interface MediatorsPackage extends EPackage {
 	int FILTER_THEN_BRANCH__CURRENT_ESB_VERSION = EsbPackage.MEDIATOR_BRANCH__CURRENT_ESB_VERSION;
 
 	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_THEN_BRANCH__COMMENT = EsbPackage.MEDIATOR_BRANCH__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -890,6 +962,15 @@ public interface MediatorsPackage extends EPackage {
 	int FILTER_ELSE_BRANCH__CURRENT_ESB_VERSION = EsbPackage.MEDIATOR_BRANCH__CURRENT_ESB_VERSION;
 
 	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_ELSE_BRANCH__COMMENT = EsbPackage.MEDIATOR_BRANCH__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -961,6 +1042,15 @@ public interface MediatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int SWITCH_MEDIATOR__CURRENT_ESB_VERSION = EsbPackage.MEDIATOR__CURRENT_ESB_VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SWITCH_MEDIATOR__COMMENT = EsbPackage.MEDIATOR__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -1063,6 +1153,15 @@ public interface MediatorsPackage extends EPackage {
 	int SWITCH_CASE_BRANCH__CURRENT_ESB_VERSION = EsbPackage.MEDIATOR_BRANCH__CURRENT_ESB_VERSION;
 
 	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SWITCH_CASE_BRANCH__COMMENT = EsbPackage.MEDIATOR_BRANCH__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1145,6 +1244,15 @@ public interface MediatorsPackage extends EPackage {
 	int SWITCH_DEFAULT_BRANCH__CURRENT_ESB_VERSION = EsbPackage.MEDIATOR_BRANCH__CURRENT_ESB_VERSION;
 
 	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SWITCH_DEFAULT_BRANCH__COMMENT = EsbPackage.MEDIATOR_BRANCH__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1216,6 +1324,15 @@ public interface MediatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int ENTITLEMENT_MEDIATOR__CURRENT_ESB_VERSION = EsbPackage.MEDIATOR__CURRENT_ESB_VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTITLEMENT_MEDIATOR__COMMENT = EsbPackage.MEDIATOR__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -1318,6 +1435,15 @@ public interface MediatorsPackage extends EPackage {
 	int ENQUEUE_MEDIATOR__CURRENT_ESB_VERSION = EsbPackage.MEDIATOR__CURRENT_ESB_VERSION;
 
 	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENQUEUE_MEDIATOR__COMMENT = EsbPackage.MEDIATOR__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1418,6 +1544,15 @@ public interface MediatorsPackage extends EPackage {
 	int CLASS_MEDIATOR__CURRENT_ESB_VERSION = EsbPackage.MEDIATOR__CURRENT_ESB_VERSION;
 
 	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_MEDIATOR__COMMENT = EsbPackage.MEDIATOR__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1509,6 +1644,15 @@ public interface MediatorsPackage extends EPackage {
 	int CLASS_PROPERTY__CURRENT_ESB_VERSION = EsbPackage.ABSTRACT_NAME_VALUE_PROPERTY__CURRENT_ESB_VERSION;
 
 	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS_PROPERTY__COMMENT = EsbPackage.ABSTRACT_NAME_VALUE_PROPERTY__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Property Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1589,6 +1733,15 @@ public interface MediatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int SPRING_MEDIATOR__CURRENT_ESB_VERSION = EsbPackage.MEDIATOR__CURRENT_ESB_VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPRING_MEDIATOR__COMMENT = EsbPackage.MEDIATOR__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -1680,6 +1833,15 @@ public interface MediatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int VALIDATE_MEDIATOR__CURRENT_ESB_VERSION = EsbPackage.MEDIATOR__CURRENT_ESB_VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALIDATE_MEDIATOR__COMMENT = EsbPackage.MEDIATOR__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -1791,6 +1953,15 @@ public interface MediatorsPackage extends EPackage {
 	int VALIDATE_ON_FAIL_BRANCH__CURRENT_ESB_VERSION = EsbPackage.MEDIATOR_BRANCH__CURRENT_ESB_VERSION;
 
 	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALIDATE_ON_FAIL_BRANCH__COMMENT = EsbPackage.MEDIATOR_BRANCH__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1862,6 +2033,15 @@ public interface MediatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int VALIDATE_FEATURE__CURRENT_ESB_VERSION = EsbPackage.ABSTRACT_BOOLEAN_FEATURE__CURRENT_ESB_VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALIDATE_FEATURE__COMMENT = EsbPackage.ABSTRACT_BOOLEAN_FEATURE__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Feature Name</b></em>' attribute.
@@ -1944,6 +2124,15 @@ public interface MediatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int VALIDATE_SCHEMA__CURRENT_ESB_VERSION = EsbPackage.MODEL_OBJECT__CURRENT_ESB_VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALIDATE_SCHEMA__COMMENT = EsbPackage.MODEL_OBJECT__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Validate Static Schema Key</b></em>' reference.
@@ -2044,6 +2233,15 @@ public interface MediatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int SCRIPT_MEDIATOR__CURRENT_ESB_VERSION = EsbPackage.MEDIATOR__CURRENT_ESB_VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPT_MEDIATOR__COMMENT = EsbPackage.MEDIATOR__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -2162,6 +2360,15 @@ public interface MediatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int ENRICH_MEDIATOR__CURRENT_ESB_VERSION = EsbPackage.MEDIATOR__CURRENT_ESB_VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENRICH_MEDIATOR__COMMENT = EsbPackage.MEDIATOR__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -2334,6 +2541,15 @@ public interface MediatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int FAULT_MEDIATOR__CURRENT_ESB_VERSION = EsbPackage.MEDIATOR__CURRENT_ESB_VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FAULT_MEDIATOR__COMMENT = EsbPackage.MEDIATOR__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -2544,6 +2760,15 @@ public interface MediatorsPackage extends EPackage {
 	int AGGREGATE_MEDIATOR__CURRENT_ESB_VERSION = EsbPackage.MEDIATOR__CURRENT_ESB_VERSION;
 
 	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AGGREGATE_MEDIATOR__COMMENT = EsbPackage.MEDIATOR__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2671,6 +2896,15 @@ public interface MediatorsPackage extends EPackage {
 	int AGGREGATE_ON_COMPLETE_BRANCH__CURRENT_ESB_VERSION = EsbPackage.MEDIATOR_BRANCH__CURRENT_ESB_VERSION;
 
 	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AGGREGATE_ON_COMPLETE_BRANCH__COMMENT = EsbPackage.MEDIATOR_BRANCH__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2771,6 +3005,15 @@ public interface MediatorsPackage extends EPackage {
 	int ROUTER_MEDIATOR__CURRENT_ESB_VERSION = EsbPackage.MEDIATOR__CURRENT_ESB_VERSION;
 
 	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROUTER_MEDIATOR__COMMENT = EsbPackage.MEDIATOR__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2860,6 +3103,15 @@ public interface MediatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int ROUTER_ROUTE__CURRENT_ESB_VERSION = EsbPackage.MODEL_OBJECT__CURRENT_ESB_VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROUTER_ROUTE__COMMENT = EsbPackage.MODEL_OBJECT__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Break After Route</b></em>' attribute.
@@ -2960,6 +3212,15 @@ public interface MediatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int ROUTE_TARGET__CURRENT_ESB_VERSION = EsbPackage.ABSTRACT_COMMON_TARGET__CURRENT_ESB_VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROUTE_TARGET__COMMENT = EsbPackage.ABSTRACT_COMMON_TARGET__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Sequence Type</b></em>' attribute.
@@ -3080,6 +3341,15 @@ public interface MediatorsPackage extends EPackage {
 	int CLONE_MEDIATOR__CURRENT_ESB_VERSION = EsbPackage.MEDIATOR__CURRENT_ESB_VERSION;
 
 	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLONE_MEDIATOR__COMMENT = EsbPackage.MEDIATOR__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3187,6 +3457,15 @@ public interface MediatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int CLONE_TARGET__CURRENT_ESB_VERSION = EsbPackage.ABSTRACT_COMMON_TARGET__CURRENT_ESB_VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLONE_TARGET__COMMENT = EsbPackage.ABSTRACT_COMMON_TARGET__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Sequence Type</b></em>' attribute.
@@ -3325,6 +3604,15 @@ public interface MediatorsPackage extends EPackage {
 	int ITERATE_MEDIATOR__CURRENT_ESB_VERSION = EsbPackage.MEDIATOR__CURRENT_ESB_VERSION;
 
 	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITERATE_MEDIATOR__COMMENT = EsbPackage.MEDIATOR__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3461,6 +3749,15 @@ public interface MediatorsPackage extends EPackage {
 	int ITERATE_TARGET__CURRENT_ESB_VERSION = EsbPackage.ABSTRACT_COMMON_TARGET__CURRENT_ESB_VERSION;
 
 	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITERATE_TARGET__COMMENT = EsbPackage.ABSTRACT_COMMON_TARGET__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Sequence Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3595,6 +3892,15 @@ public interface MediatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int CACHE_MEDIATOR__CURRENT_ESB_VERSION = EsbPackage.MEDIATOR__CURRENT_ESB_VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CACHE_MEDIATOR__COMMENT = EsbPackage.MEDIATOR__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -3751,6 +4057,15 @@ public interface MediatorsPackage extends EPackage {
 	int CACHE_ON_HIT_BRANCH__CURRENT_ESB_VERSION = EsbPackage.MEDIATOR_BRANCH__CURRENT_ESB_VERSION;
 
 	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CACHE_ON_HIT_BRANCH__COMMENT = EsbPackage.MEDIATOR_BRANCH__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3840,6 +4155,15 @@ public interface MediatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int XSLT_MEDIATOR__CURRENT_ESB_VERSION = EsbPackage.MEDIATOR__CURRENT_ESB_VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XSLT_MEDIATOR__COMMENT = EsbPackage.MEDIATOR__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -3987,6 +4311,15 @@ public interface MediatorsPackage extends EPackage {
 	int XSLT_PROPERTY__CURRENT_ESB_VERSION = EsbPackage.ABSTRACT_NAME_VALUE_EXPRESSION_PROPERTY__CURRENT_ESB_VERSION;
 
 	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XSLT_PROPERTY__COMMENT = EsbPackage.ABSTRACT_NAME_VALUE_EXPRESSION_PROPERTY__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Property Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4087,6 +4420,15 @@ public interface MediatorsPackage extends EPackage {
 	int XSLT_FEATURE__CURRENT_ESB_VERSION = EsbPackage.ABSTRACT_BOOLEAN_FEATURE__CURRENT_ESB_VERSION;
 
 	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XSLT_FEATURE__COMMENT = EsbPackage.ABSTRACT_BOOLEAN_FEATURE__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Feature Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4169,6 +4511,15 @@ public interface MediatorsPackage extends EPackage {
 	int XSLT_RESOURCE__CURRENT_ESB_VERSION = EsbPackage.ABSTRACT_LOCATION_KEY_RESOURCE__CURRENT_ESB_VERSION;
 
 	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XSLT_RESOURCE__COMMENT = EsbPackage.ABSTRACT_LOCATION_KEY_RESOURCE__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Location</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4249,6 +4600,15 @@ public interface MediatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int XQUERY_MEDIATOR__CURRENT_ESB_VERSION = EsbPackage.MEDIATOR__CURRENT_ESB_VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XQUERY_MEDIATOR__COMMENT = EsbPackage.MEDIATOR__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -4378,6 +4738,15 @@ public interface MediatorsPackage extends EPackage {
 	int XQUERY_VARIABLE__CURRENT_ESB_VERSION = EsbPackage.MODEL_OBJECT__CURRENT_ESB_VERSION;
 
 	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int XQUERY_VARIABLE__COMMENT = EsbPackage.MODEL_OBJECT__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Variable Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4494,6 +4863,15 @@ public interface MediatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int CALLOUT_MEDIATOR__CURRENT_ESB_VERSION = EsbPackage.MEDIATOR__CURRENT_ESB_VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CALLOUT_MEDIATOR__COMMENT = EsbPackage.MEDIATOR__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -4668,6 +5046,15 @@ public interface MediatorsPackage extends EPackage {
 	int RM_SEQUENCE_MEDIATOR__CURRENT_ESB_VERSION = EsbPackage.MEDIATOR__CURRENT_ESB_VERSION;
 
 	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RM_SEQUENCE_MEDIATOR__COMMENT = EsbPackage.MEDIATOR__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4777,6 +5164,15 @@ public interface MediatorsPackage extends EPackage {
 	int TRANSACTION_MEDIATOR__CURRENT_ESB_VERSION = EsbPackage.MEDIATOR__CURRENT_ESB_VERSION;
 
 	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSACTION_MEDIATOR__COMMENT = EsbPackage.MEDIATOR__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4857,6 +5253,15 @@ public interface MediatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPERTY_MEDIATOR__CURRENT_ESB_VERSION = EsbPackage.MEDIATOR__CURRENT_ESB_VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_MEDIATOR__COMMENT = EsbPackage.MEDIATOR__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -5022,6 +5427,15 @@ public interface MediatorsPackage extends EPackage {
 	int OAUTH_MEDIATOR__CURRENT_ESB_VERSION = EsbPackage.MEDIATOR__CURRENT_ESB_VERSION;
 
 	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OAUTH_MEDIATOR__COMMENT = EsbPackage.MEDIATOR__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5104,6 +5518,15 @@ public interface MediatorsPackage extends EPackage {
 	int AUTOSCALE_IN_MEDIATOR__CURRENT_ESB_VERSION = EsbPackage.MEDIATOR__CURRENT_ESB_VERSION;
 
 	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AUTOSCALE_IN_MEDIATOR__COMMENT = EsbPackage.MEDIATOR__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5177,6 +5600,15 @@ public interface MediatorsPackage extends EPackage {
 	int AUTOSCALE_OUT_MEDIATOR__CURRENT_ESB_VERSION = EsbPackage.MEDIATOR__CURRENT_ESB_VERSION;
 
 	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AUTOSCALE_OUT_MEDIATOR__COMMENT = EsbPackage.MEDIATOR__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5248,6 +5680,15 @@ public interface MediatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int HEADER_MEDIATOR__CURRENT_ESB_VERSION = EsbPackage.MEDIATOR__CURRENT_ESB_VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HEADER_MEDIATOR__COMMENT = EsbPackage.MEDIATOR__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -5368,6 +5809,15 @@ public interface MediatorsPackage extends EPackage {
 	int THROTTLE_MEDIATOR__CURRENT_ESB_VERSION = EsbPackage.MEDIATOR__CURRENT_ESB_VERSION;
 
 	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int THROTTLE_MEDIATOR__COMMENT = EsbPackage.MEDIATOR__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5477,6 +5927,15 @@ public interface MediatorsPackage extends EPackage {
 	int THROTTLE_POLICY_CONFIGURATION__CURRENT_ESB_VERSION = EsbPackage.MODEL_OBJECT__CURRENT_ESB_VERSION;
 
 	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int THROTTLE_POLICY_CONFIGURATION__COMMENT = EsbPackage.MODEL_OBJECT__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Policy Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5575,6 +6034,15 @@ public interface MediatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int THROTTLE_POLICY_ENTRY__CURRENT_ESB_VERSION = EsbPackage.MODEL_OBJECT__CURRENT_ESB_VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int THROTTLE_POLICY_ENTRY__COMMENT = EsbPackage.MODEL_OBJECT__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Throttle Type</b></em>' attribute.
@@ -5695,6 +6163,15 @@ public interface MediatorsPackage extends EPackage {
 	int THROTTLE_ON_ACCEPT_BRANCH__CURRENT_ESB_VERSION = EsbPackage.MEDIATOR_BRANCH__CURRENT_ESB_VERSION;
 
 	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int THROTTLE_ON_ACCEPT_BRANCH__COMMENT = EsbPackage.MEDIATOR_BRANCH__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5784,6 +6261,15 @@ public interface MediatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int THROTTLE_ON_REJECT_BRANCH__CURRENT_ESB_VERSION = EsbPackage.MEDIATOR_BRANCH__CURRENT_ESB_VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int THROTTLE_ON_REJECT_BRANCH__COMMENT = EsbPackage.MEDIATOR_BRANCH__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
@@ -5877,6 +6363,15 @@ public interface MediatorsPackage extends EPackage {
 	int COMMAND_MEDIATOR__CURRENT_ESB_VERSION = EsbPackage.MEDIATOR__CURRENT_ESB_VERSION;
 
 	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMAND_MEDIATOR__COMMENT = EsbPackage.MEDIATOR__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5966,6 +6461,15 @@ public interface MediatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMMAND_PROPERTY__CURRENT_ESB_VERSION = EsbPackage.MODEL_OBJECT__CURRENT_ESB_VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMAND_PROPERTY__COMMENT = EsbPackage.MODEL_OBJECT__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Property Name</b></em>' attribute.
@@ -6095,6 +6599,15 @@ public interface MediatorsPackage extends EPackage {
 	int EVENT_MEDIATOR__CURRENT_ESB_VERSION = EsbPackage.MEDIATOR__CURRENT_ESB_VERSION;
 
 	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_MEDIATOR__COMMENT = EsbPackage.MEDIATOR__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6211,6 +6724,15 @@ public interface MediatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int ABSTRACT_SQL_EXECUTOR_MEDIATOR__CURRENT_ESB_VERSION = EsbPackage.MEDIATOR__CURRENT_ESB_VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_SQL_EXECUTOR_MEDIATOR__COMMENT = EsbPackage.MEDIATOR__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -6475,6 +6997,15 @@ public interface MediatorsPackage extends EPackage {
 	int SQL_STATEMENT__CURRENT_ESB_VERSION = EsbPackage.MODEL_OBJECT__CURRENT_ESB_VERSION;
 
 	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SQL_STATEMENT__COMMENT = EsbPackage.MODEL_OBJECT__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Query String</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6573,6 +7104,15 @@ public interface MediatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int SQL_PARAMETER_DEFINITION__CURRENT_ESB_VERSION = EsbPackage.MODEL_OBJECT__CURRENT_ESB_VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SQL_PARAMETER_DEFINITION__COMMENT = EsbPackage.MODEL_OBJECT__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Data Type</b></em>' attribute.
@@ -6675,6 +7215,15 @@ public interface MediatorsPackage extends EPackage {
 	int SQL_RESULT_MAPPING__CURRENT_ESB_VERSION = EsbPackage.MODEL_OBJECT__CURRENT_ESB_VERSION;
 
 	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SQL_RESULT_MAPPING__COMMENT = EsbPackage.MODEL_OBJECT__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Property Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6755,6 +7304,15 @@ public interface MediatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int DB_LOOKUP_MEDIATOR__CURRENT_ESB_VERSION = ABSTRACT_SQL_EXECUTOR_MEDIATOR__CURRENT_ESB_VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DB_LOOKUP_MEDIATOR__COMMENT = ABSTRACT_SQL_EXECUTOR_MEDIATOR__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -7017,6 +7575,15 @@ public interface MediatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int DB_REPORT_MEDIATOR__CURRENT_ESB_VERSION = ABSTRACT_SQL_EXECUTOR_MEDIATOR__CURRENT_ESB_VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DB_REPORT_MEDIATOR__COMMENT = ABSTRACT_SQL_EXECUTOR_MEDIATOR__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -7290,6 +7857,15 @@ public interface MediatorsPackage extends EPackage {
 	int RULE_MEDIATOR__CURRENT_ESB_VERSION = EsbPackage.MEDIATOR__CURRENT_ESB_VERSION;
 
 	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RULE_MEDIATOR__COMMENT = EsbPackage.MEDIATOR__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7408,6 +7984,15 @@ public interface MediatorsPackage extends EPackage {
 	int RULE_SET_CONFIGURATION__CURRENT_ESB_VERSION = EsbPackage.MODEL_OBJECT__CURRENT_ESB_VERSION;
 
 	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RULE_SET_CONFIGURATION__COMMENT = EsbPackage.MODEL_OBJECT__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Source Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7508,6 +8093,15 @@ public interface MediatorsPackage extends EPackage {
 	int RULE_SET_CREATION_PROPERTY__CURRENT_ESB_VERSION = EsbPackage.ABSTRACT_NAME_VALUE_PROPERTY__CURRENT_ESB_VERSION;
 
 	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RULE_SET_CREATION_PROPERTY__COMMENT = EsbPackage.ABSTRACT_NAME_VALUE_PROPERTY__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Property Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7588,6 +8182,15 @@ public interface MediatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int RULE_SESSION_CONFIGURATION__CURRENT_ESB_VERSION = EsbPackage.MODEL_OBJECT__CURRENT_ESB_VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RULE_SESSION_CONFIGURATION__COMMENT = EsbPackage.MODEL_OBJECT__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Stateful Session</b></em>' attribute.
@@ -7672,6 +8275,15 @@ public interface MediatorsPackage extends EPackage {
 	int RULE_SESSION_PROPERTY__CURRENT_ESB_VERSION = EsbPackage.ABSTRACT_NAME_VALUE_PROPERTY__CURRENT_ESB_VERSION;
 
 	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RULE_SESSION_PROPERTY__COMMENT = EsbPackage.ABSTRACT_NAME_VALUE_PROPERTY__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Property Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7754,6 +8366,15 @@ public interface MediatorsPackage extends EPackage {
 	int RULE_FACTS_CONFIGURATION__CURRENT_ESB_VERSION = EsbPackage.MODEL_OBJECT__CURRENT_ESB_VERSION;
 
 	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RULE_FACTS_CONFIGURATION__COMMENT = EsbPackage.MODEL_OBJECT__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Facts</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7825,6 +8446,15 @@ public interface MediatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int RULE_FACT__CURRENT_ESB_VERSION = EsbPackage.MODEL_OBJECT__CURRENT_ESB_VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RULE_FACT__COMMENT = EsbPackage.MODEL_OBJECT__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Fact Type</b></em>' attribute.
@@ -7954,6 +8584,15 @@ public interface MediatorsPackage extends EPackage {
 	int RULE_RESULTS_CONFIGURATION__CURRENT_ESB_VERSION = EsbPackage.MODEL_OBJECT__CURRENT_ESB_VERSION;
 
 	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RULE_RESULTS_CONFIGURATION__COMMENT = EsbPackage.MODEL_OBJECT__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Results</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8025,6 +8664,15 @@ public interface MediatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int RULE_RESULT__CURRENT_ESB_VERSION = EsbPackage.MODEL_OBJECT__CURRENT_ESB_VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RULE_RESULT__COMMENT = EsbPackage.MODEL_OBJECT__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Result Type</b></em>' attribute.
@@ -8154,6 +8802,15 @@ public interface MediatorsPackage extends EPackage {
 	int RULE_CHILD_MEDIATORS_CONFIGURATION__CURRENT_ESB_VERSION = EsbPackage.MEDIATOR_BRANCH__CURRENT_ESB_VERSION;
 
 	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RULE_CHILD_MEDIATORS_CONFIGURATION__COMMENT = EsbPackage.MEDIATOR_BRANCH__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8225,6 +8882,15 @@ public interface MediatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int SEQUENCE_MEDIATOR__CURRENT_ESB_VERSION = EsbPackage.MEDIATOR__CURRENT_ESB_VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEQUENCE_MEDIATOR__COMMENT = EsbPackage.MEDIATOR__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -8336,6 +9002,15 @@ public interface MediatorsPackage extends EPackage {
 	int BUILDER_MEDIATOR__CURRENT_ESB_VERSION = EsbPackage.MEDIATOR__CURRENT_ESB_VERSION;
 
 	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUILDER_MEDIATOR__COMMENT = EsbPackage.MEDIATOR__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8416,6 +9091,15 @@ public interface MediatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int MESSAGE_BUILDER__CURRENT_ESB_VERSION = EsbPackage.MODEL_OBJECT__CURRENT_ESB_VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MESSAGE_BUILDER__COMMENT = EsbPackage.MODEL_OBJECT__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Content Type</b></em>' attribute.
@@ -8507,6 +9191,15 @@ public interface MediatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int SMOOKS_MEDIATOR__CURRENT_ESB_VERSION = EsbPackage.MEDIATOR__CURRENT_ESB_VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SMOOKS_MEDIATOR__COMMENT = EsbPackage.MEDIATOR__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -8609,6 +9302,15 @@ public interface MediatorsPackage extends EPackage {
 	int SMOOKS_IN_CONFIGURATION__CURRENT_ESB_VERSION = EsbPackage.MODEL_OBJECT__CURRENT_ESB_VERSION;
 
 	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SMOOKS_IN_CONFIGURATION__COMMENT = EsbPackage.MODEL_OBJECT__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8689,6 +9391,15 @@ public interface MediatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int SMOOKS_OUT_CONFIGURATION__CURRENT_ESB_VERSION = EsbPackage.MODEL_OBJECT__CURRENT_ESB_VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SMOOKS_OUT_CONFIGURATION__COMMENT = EsbPackage.MODEL_OBJECT__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -8800,6 +9511,15 @@ public interface MediatorsPackage extends EPackage {
 	int STORE_MEDIATOR__CURRENT_ESB_VERSION = EsbPackage.MEDIATOR__CURRENT_ESB_VERSION;
 
 	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STORE_MEDIATOR__COMMENT = EsbPackage.MEDIATOR__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8889,6 +9609,15 @@ public interface MediatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int CONDITIONAL_ROUTE_BRANCH__CURRENT_ESB_VERSION = EsbPackage.MEDIATOR_BRANCH__CURRENT_ESB_VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITIONAL_ROUTE_BRANCH__COMMENT = EsbPackage.MEDIATOR_BRANCH__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
@@ -8991,6 +9720,15 @@ public interface MediatorsPackage extends EPackage {
 	int CONDITIONAL_ROUTER_MEDIATOR__CURRENT_ESB_VERSION = EsbPackage.MEDIATOR__CURRENT_ESB_VERSION;
 
 	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITIONAL_ROUTER_MEDIATOR__COMMENT = EsbPackage.MEDIATOR__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9080,6 +9818,15 @@ public interface MediatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int URL_REWRITE_RULE_ACTION__CURRENT_ESB_VERSION = EsbPackage.MODEL_OBJECT__CURRENT_ESB_VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int URL_REWRITE_RULE_ACTION__COMMENT = EsbPackage.MODEL_OBJECT__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Rule Action</b></em>' attribute.
@@ -9200,6 +9947,15 @@ public interface MediatorsPackage extends EPackage {
 	int URL_REWRITE_RULE__CURRENT_ESB_VERSION = EsbPackage.MODEL_OBJECT__CURRENT_ESB_VERSION;
 
 	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int URL_REWRITE_RULE__COMMENT = EsbPackage.MODEL_OBJECT__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Url Rewrite Rule Condition</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9280,6 +10036,15 @@ public interface MediatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int URL_REWRITE_MEDIATOR__CURRENT_ESB_VERSION = EsbPackage.MEDIATOR__CURRENT_ESB_VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int URL_REWRITE_MEDIATOR__COMMENT = EsbPackage.MEDIATOR__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
@@ -9382,6 +10147,15 @@ public interface MediatorsPackage extends EPackage {
 	int CALL_TEMPLATE_MEDIATOR__CURRENT_ESB_VERSION = EsbPackage.MEDIATOR__CURRENT_ESB_VERSION;
 
 	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CALL_TEMPLATE_MEDIATOR__COMMENT = EsbPackage.MEDIATOR__COMMENT;
+
+	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9471,6 +10245,15 @@ public interface MediatorsPackage extends EPackage {
 	 * @ordered
 	 */
 	int CALL_TEMPLATE_PARAMETER__CURRENT_ESB_VERSION = EsbPackage.MODEL_OBJECT__CURRENT_ESB_VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CALL_TEMPLATE_PARAMETER__COMMENT = EsbPackage.MODEL_OBJECT__COMMENT;
 
 	/**
 	 * The feature id for the '<em><b>Parameter Name</b></em>' attribute.
@@ -9573,6 +10356,15 @@ public interface MediatorsPackage extends EPackage {
     int PAYLOAD_FACTORY_MEDIATOR__CURRENT_ESB_VERSION = EsbPackage.MEDIATOR__CURRENT_ESB_VERSION;
 
     /**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAYLOAD_FACTORY_MEDIATOR__COMMENT = EsbPackage.MEDIATOR__COMMENT;
+
+				/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -9664,6 +10456,15 @@ public interface MediatorsPackage extends EPackage {
     int PAYLOAD_FACTORY_ARGUMENT__CURRENT_ESB_VERSION = EsbPackage.MODEL_OBJECT__CURRENT_ESB_VERSION;
 
     /**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAYLOAD_FACTORY_ARGUMENT__COMMENT = EsbPackage.MODEL_OBJECT__COMMENT;
+
+				/**
 	 * The feature id for the '<em><b>Argument Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->

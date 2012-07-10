@@ -305,6 +305,7 @@ public class IterateMediatorImpl extends MediatorImpl implements
 
 		}
 
+		addComments(self);
 		return self;
 	}
 

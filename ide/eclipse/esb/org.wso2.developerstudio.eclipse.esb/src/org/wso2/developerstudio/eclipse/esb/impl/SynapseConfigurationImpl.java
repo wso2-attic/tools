@@ -96,7 +96,8 @@ public class SynapseConfigurationImpl extends ModelObjectImpl implements Synapse
 			public void handle(ConfigurationElement object) {
 				getConfigurationElements().add(object);
 			}			
-		});			
+		});	
+		super.doLoad(self);
 	}
 
 	/**
@@ -109,6 +110,7 @@ public class SynapseConfigurationImpl extends ModelObjectImpl implements Synapse
 		for (ConfigurationElement child : getConfigurationElements()) {
 			child.save(self);
 		}	
+		addComments(self);
 		return self;
 	}
 

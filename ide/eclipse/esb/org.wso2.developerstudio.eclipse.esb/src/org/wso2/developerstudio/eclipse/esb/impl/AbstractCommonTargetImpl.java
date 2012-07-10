@@ -170,6 +170,7 @@ public abstract class AbstractCommonTargetImpl extends ModelObjectImpl implement
 				}				
 			});			
 		}
+		super.doLoad(self);
 	}
 
 	/**
