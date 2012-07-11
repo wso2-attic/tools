@@ -46,8 +46,16 @@ public class ApplicationInfo{
 	public void setApplicationRepoLink(String applicationRepoLink) {
 		this.applicationRepoLink = applicationRepoLink;
 	}
+	public void setRevision(long revision) {
+		this.revision = revision;
+	}
+
+	public long getRevision() {
+		return revision;
+	}
 	private String applicationDescription;
 	private String applicationKey;
 	private String applicationName;
 	private String applicationRepoLink;
+	private long revision;
 }

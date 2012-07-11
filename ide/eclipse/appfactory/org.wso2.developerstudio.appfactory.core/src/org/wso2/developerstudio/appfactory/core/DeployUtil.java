@@ -24,7 +24,8 @@ public class DeployUtil {
 	private static final String DEPLOY_TO_STAGE_PAYLOAD = "<p:DeployApplicationTo%1$sRequest "
 			+ "xmlns:p=\"http://wso2.org/carbon/appfactory/applicaiton/deployment\">"
 			+ "<p:applicationSvnLocation>%2$s</p:applicationSvnLocation>"
-			+ "<p:applicationId>%3$s</p:applicationId></p:DeployApplicationTo%1$sRequest>";
+			+ "<p:applicationId>%3$s</p:applicationId></p:DeployApplicationTo%1$sRequest>"
+			+ "<p:svnRevision>%4$s</p:svnRevision>";
 	
 	
 	private Authenticator authenticator;
@@ -41,9 +42,9 @@ public class DeployUtil {
 		return authenticator;
 	}
 	
-	public boolean deployToStage(String svnLocation, String appKey, String stageName) {
+	public boolean deployToStage(String svnLocation,String svnRevision, String appKey, String stageName) {
 		if (Stages.hasStage(stageName)) {
-			String payload = String.format(DEPLOY_TO_STAGE_PAYLOAD, stageName, svnLocation, appKey);
+			String payload = String.format(DEPLOY_TO_STAGE_PAYLOAD, stageName, svnLocation, appKey, svnRevision);
 			ServiceClientUtil clientUtil = new ServiceClientUtil(authenticator.getSessionCookie());
 			String reply = clientUtil.callSynchronous("process", authenticator.getServerURL()
 					+ Stages.getRelativeServiceUrl(stageName), payload);
