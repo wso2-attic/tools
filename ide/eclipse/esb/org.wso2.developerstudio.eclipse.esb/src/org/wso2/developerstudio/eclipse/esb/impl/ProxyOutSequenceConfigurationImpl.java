@@ -74,7 +74,9 @@ public class ProxyOutSequenceConfigurationImpl extends AbstractProxySequenceConf
 	 * {@inheritDoc}
 	 */
 	protected Element doSave(Element parent) throws Exception {
-		return saveContent(parent, "outSequence");
+		Element elem=saveContent(parent, "outSequence");
+		addComments(elem);
+		return elem;
 	}
 	
 	/**

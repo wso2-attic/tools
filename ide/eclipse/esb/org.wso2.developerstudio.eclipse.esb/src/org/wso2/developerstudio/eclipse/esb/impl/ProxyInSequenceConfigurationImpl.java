@@ -85,7 +85,9 @@ public class ProxyInSequenceConfigurationImpl extends AbstractProxySequenceConfi
 	 * {@inheritDoc}
 	 */
 	protected Element doSave(Element parent) throws Exception {
-		return saveContent(parent, "inSequence");
+		Element elem=saveContent(parent, "inSequence");
+		addComments(elem);
+		return elem;
 	}
 	
 	/**

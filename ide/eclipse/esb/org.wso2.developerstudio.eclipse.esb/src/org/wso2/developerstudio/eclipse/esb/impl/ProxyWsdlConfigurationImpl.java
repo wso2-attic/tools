@@ -182,6 +182,7 @@ public class ProxyWsdlConfigurationImpl extends ModelObjectImpl implements Proxy
 				}
 			});
 		}
+		super.doLoad(publishWsdlElem);
 	}
 
 	/**
@@ -222,6 +223,7 @@ public class ProxyWsdlConfigurationImpl extends ModelObjectImpl implements Proxy
 				resource.save(publishWsdlElem);
 			}
 			
+			addComments(publishWsdlElem);
 			return publishWsdlElem;
 		}
 		

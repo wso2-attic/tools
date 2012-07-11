@@ -124,6 +124,7 @@ public abstract class AbstractProxySequenceConfigurationImpl extends ModelObject
 	protected void loadContent(Element contentElem, String localName) throws Exception {
 		Element sequenceElem = getChildElement(contentElem, localName);
 		if (null != sequenceElem) {
+			super.doLoad(sequenceElem);
 			setSequenceType(ProxySequenceType.ANONYMOUS);
 			MediatorSequence sequence = getEsbFactory().createMediatorSequence();
 			sequence.load(sequenceElem);
