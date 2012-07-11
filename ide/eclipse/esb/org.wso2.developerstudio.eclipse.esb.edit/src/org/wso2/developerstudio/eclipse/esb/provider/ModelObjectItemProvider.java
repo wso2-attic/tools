@@ -163,17 +163,17 @@ public class ModelObjectItemProvider
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add
+/*		newChildDescriptors.add
 			(createChildParameter
 				(EsbPackage.Literals.MODEL_OBJECT__COMMENT,
-				 EsbFactory.eINSTANCE.createComment()));
+				 EsbFactory.eINSTANCE.createComment()));*/
 	}
 	
 	/**
