@@ -181,8 +181,9 @@ public class ProxyWsdlConfigurationImpl extends ModelObjectImpl implements Proxy
 					getWsdlResources().add(object);
 				}
 			});
+			super.doLoad(publishWsdlElem);
 		}
-		super.doLoad(publishWsdlElem);
+		
 	}
 
 	/**
