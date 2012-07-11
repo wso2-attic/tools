@@ -57,6 +57,8 @@ import org.tigris.subversion.subclipse.core.SVNProviderPlugin;
 import org.tigris.subversion.subclipse.ui.Policy;
 import org.tigris.subversion.subclipse.ui.SVNUIPlugin;
 import org.tigris.subversion.subclipse.ui.wizards.CheckoutWizard;
+import org.tigris.subversion.svnclientadapter.SVNRevision;
+import org.tigris.subversion.svnclientadapter.SVNRevision.Number;
 import org.wso2.developerstudio.appfactory.ui.Activator;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
@@ -277,11 +279,17 @@ public class AppfactoryView extends ViewPart {
 						for (ApplicationInfo appInfo : allAppInfo) {
 							List<String> roles = appMgtClient.getUserRolesForApplication(appInfo.getApplicationKey(),auth.getUserName());
 							if(roles.contains("developer")){
+								ISVNRepositoryLocation repositoryLocation = createLocation(
+										appInfo.getApplicationRepoLink(), auth.getUserName(),
+										auth.getPassword());
+								Number revision = repositoryLocation.getSVNClient()
+										.getInfo(repositoryLocation.getUrl()).getRevision();
+								appInfo.setRevision(revision.getNumber());
 								TableItem item = new TableItem(tblApplication, SWT.None);
 								item.setData(appInfo);
 								item.setText(0, appInfo.getApplicationName());
 								item.setText(1, appInfo.getApplicationRepoLink());
-								item.setText(2, "r0"); //TODO: show correct revision
+								item.setText(2, "r" + Long.toString(appInfo.getRevision()));
 							}
 						}
 						sctnApplication.setVisible(true);
@@ -405,8 +413,9 @@ public class AppfactoryView extends ViewPart {
 	private boolean deployApp(ApplicationInfo appInfo, String stage){
 		String appKey = appInfo.getApplicationKey();
 		String url = appInfo.getApplicationRepoLink();
+		String revision = Long.toString(appInfo.getRevision());
 		DeployUtil deployUtil= new DeployUtil(auth);
-		return deployUtil.deployToStage(url, appKey, stage);
+		return deployUtil.deployToStage(url,revision, appKey, stage);
 	}
 	
 }
