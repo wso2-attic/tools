@@ -28,6 +28,7 @@ public class Constants extends NLS{
 	public static final String POM_FILE_EXTENSION = "xml";
 	public static final String ARTIFACT_XML = "artifact.xml";
 	
+	public static final String JAVA_PROJECT_NATURE ="org.eclipse.jdt.core.javanature"; 
 	public static String AXIS2_PROJECT_NATURE;
 	public static String BPEL_PROJECT_NATURE;
 	public static String DS_PROJECT_NATURE;
