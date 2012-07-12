@@ -61,6 +61,7 @@ public interface DetailSectionCustomUiConstants {
 	public String ELEMENT_MAPPING_COLUMN_NUMBUR = "Data Source Column Number";
 	public String ELEMENT_MAPPING_EXPORT = "Export Name";
 	public String ELEMENT_MAPPING_OUTPUT_FIELD ="Output Field Name";
+	public String ELEMENT_MAPPING_COMPLEX_NAME ="Element Name";
 	public String ELEMENT_MAPING_ALLOWED_USER_ROLES = "Allowed User Roles";
 	public String ELEMENT_MAPPING_SCHEMA_TYPE = "Schema Type";
 	public String ELEMENT_MAPPING_NAMESPACE = "Element Namespace";

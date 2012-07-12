@@ -704,13 +704,22 @@ public interface DsPackage extends EPackage {
 	int ELEMENT_MAPPING__CALL_QUERY = 9;
 
 	/**
+	 * The feature id for the '<em><b>Is Complex Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT_MAPPING__IS_COMPLEX_TYPE = 10;
+
+	/**
 	 * The number of structural features of the '<em>Element Mapping</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING_FEATURE_COUNT = 10;
+	int ELEMENT_MAPPING_FEATURE_COUNT = 11;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.ds.impl.EventSubscriptionListImpl <em>Event Subscription List</em>}' class.
@@ -2551,6 +2560,17 @@ public interface DsPackage extends EPackage {
 	EReference getElementMapping_CallQuery();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.ds.ElementMapping#isIsComplexType <em>Is Complex Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Is Complex Type</em>'.
+	 * @see org.wso2.developerstudio.eclipse.ds.ElementMapping#isIsComplexType()
+	 * @see #getElementMapping()
+	 * @generated
+	 */
+	EAttribute getElementMapping_IsComplexType();
+
+	/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.ds.EventSubscriptionList <em>Event Subscription List</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4192,6 +4212,14 @@ public interface DsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ELEMENT_MAPPING__CALL_QUERY = eINSTANCE.getElementMapping_CallQuery();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Complex Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ELEMENT_MAPPING__IS_COMPLEX_TYPE = eINSTANCE.getElementMapping_IsComplexType();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.ds.impl.EventSubscriptionListImpl <em>Event Subscription List</em>}' class.

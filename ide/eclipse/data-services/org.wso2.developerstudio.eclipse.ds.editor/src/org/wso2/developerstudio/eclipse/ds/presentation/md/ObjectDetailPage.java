@@ -23,6 +23,7 @@ import org.eclipse.ui.forms.widgets.Section;
 import org.eclipse.ui.forms.widgets.TableWrapData;
 import org.eclipse.ui.forms.widgets.TableWrapLayout;
 import org.wso2.developerstudio.eclipse.ds.CallQuery;
+import org.wso2.developerstudio.eclipse.ds.ElementMapping;
 import org.wso2.developerstudio.eclipse.ds.Query;
 import org.wso2.developerstudio.eclipse.ds.presentation.DsEditor;
 
@@ -160,7 +161,7 @@ public class ObjectDetailPage implements IDetailsPage, IPartListener,
 			input = (EObjectImpl) ssel.getFirstElement();
 
 			// Fixing TOOLS-1004
-			if ((input instanceof Query || input instanceof CallQuery)
+			if ((input instanceof Query || input instanceof CallQuery )
 					&& !isCreateContentCalled) {
 
 				if (detailsclient != null) {

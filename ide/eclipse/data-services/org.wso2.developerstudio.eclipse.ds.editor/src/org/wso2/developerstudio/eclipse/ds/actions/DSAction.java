@@ -171,6 +171,10 @@ public class DSAction extends StaticSelectionCommandAction {
 		if (commandName.equals(DSActionConstants.ADD_OUTPUT_MAPPING_CALL_QUERY_ACTION)) {
 			imageURL = "wso2/call-query";
 		}
+		
+		if (commandName.equals(DSActionConstants.ADD_OUTPUT_MAPPING_COMPLEX_ELEMENT)) {
+			imageURL = "wso2/element";
+		}
 
 		if (commandName.equals(DSActionConstants.ADD_INPUT_MAPPING_ACTION)) {
 			imageURL = "wso2/with-param";
@@ -444,6 +448,29 @@ public class DSAction extends StaticSelectionCommandAction {
 						&& commandName
 								.equals(DSActionConstants.ADD_OUTPUT_MAPPING_CALL_QUERY_ACTION)) {
 					return getChildCommand(param, collection, owner);
+				}
+				
+				if(commandName.equals(DSActionConstants.ADD_OUTPUT_MAPPING_COMPLEX_ELEMENT)){
+					
+					CompoundCommand compoundCmd = new CompoundCommand(commandName);
+					ElementMapping elementMapping  = DsFactory.eINSTANCE.createElementMapping();
+				    elementMapping.setIsComplexType(true);
+				    
+					if (owner instanceof ResultMapping) {
+						CommandParameter param1 = new CommandParameter(owner,
+								DsPackage.Literals.RESULT_MAPPING__ELEMENT,
+								elementMapping);
+						compoundCmd.append(getChildCommand(param1, collection,
+								owner));
+					} else if (owner instanceof ElementMapping) {
+						CommandParameter param1 = new CommandParameter(owner,
+								DsPackage.Literals.ELEMENT_MAPPING__ELEMENT,
+								elementMapping);
+						compoundCmd.append(getChildCommand(param1, collection,
+								owner));
+					}
+					return compoundCmd;
+					
 				}
 				
 				if (childObj instanceof LongRangeValidator

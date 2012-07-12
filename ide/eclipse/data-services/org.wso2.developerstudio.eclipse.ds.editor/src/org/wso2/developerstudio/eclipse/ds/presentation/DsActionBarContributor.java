@@ -616,7 +616,13 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 			
 			if(referenceObject != null && referenceObject instanceof ElementMapping){
 				
-				generateElementMappingMenu = true;
+				ElementMapping elmMap = (ElementMapping)referenceObject;
+				
+				if(elmMap.isIsComplexType()){
+					generateElementMappingMenu = true;
+				}else{
+					generateElementMappingMenu = false;
+				}
 				populateAddElementAndAttributeAction(selection, domain, newChildDescriptors);
 				
 			}else{
@@ -877,7 +883,7 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 			} else {
 				String lb = DSActionConstants.ADD_OUTPUT_MAPPING_ACTION;
 				if(generateElementMappingMenu){
-					lb = DSActionConstants.ADD_OUTPUT_MAPPING_COMPLEX_ELEMENT;
+					lb = DSActionConstants.ADD_OUTOUT_MAPPING_NESTED_ELEMENT;
 					generateElementMappingMenu = false;
 				}
 				generateOutputMappingSubMenusAndActions(lb);
@@ -1079,7 +1085,20 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 	 */
 	private void populateAddElementAndAttributeAction(ISelection selection, EditingDomain domain,
 			Collection<?> newOutputMappingChildDescriptors) {
-
+		
+		boolean enableCompleElem = false;
+		IStructuredSelection structuredSelection =  (IStructuredSelection)selection;
+		Object owner  = structuredSelection.getFirstElement();
+		if(owner instanceof ElementMapping){
+			
+		ElementMapping element = (ElementMapping)owner;
+		enableCompleElem = element.isIsComplexType();
+		
+		}else{
+			
+			enableCompleElem = true;
+		}
+		if(enableCompleElem){
 		outputMappingsActions = new ArrayList<IAction>();
 		outputMappingsActions.add(new DSAction(selection, domain, newOutputMappingChildDescriptors,
 				DSActionConstants.ADD_OUTPUT_MAPPING_ELEMENT_ACTION));
@@ -1087,6 +1106,10 @@ public class DsActionBarContributor extends EditingDomainActionBarContributor im
 				DSActionConstants.ADD_OUTPUT_MAPPING_ATTRIBUTE_ACTION));
 		outputMappingsActions.add(new DSAction(selection, domain, newOutputMappingChildDescriptors,
 				DSActionConstants.ADD_OUTPUT_MAPPING_CALL_QUERY_ACTION));
+		
+		outputMappingsActions.add(new DSAction(selection, domain, newOutputMappingChildDescriptors,
+				DSActionConstants.ADD_OUTPUT_MAPPING_COMPLEX_ELEMENT));
+		}
 
 	}
 

@@ -59,7 +59,7 @@ public class ElementMappingItemProvider
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	
 	
@@ -75,6 +75,7 @@ public class ElementMappingItemProvider
 			addExportTypePropertyDescriptor(object);
 			addNamespacePropertyDescriptor(object);
 			addXsdTypePropertyDescriptor(object);
+			addIsComplexTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -234,6 +235,28 @@ public class ElementMappingItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Is Complex Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIsComplexTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ElementMapping_isComplexType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ElementMapping_isComplexType_feature", "_UI_ElementMapping_type"),
+				 DsPackage.Literals.ELEMENT_MAPPING__IS_COMPLEX_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -313,6 +336,7 @@ public class ElementMappingItemProvider
 			case DsPackage.ELEMENT_MAPPING__EXPORT_TYPE:
 			case DsPackage.ELEMENT_MAPPING__NAMESPACE:
 			case DsPackage.ELEMENT_MAPPING__XSD_TYPE:
+			case DsPackage.ELEMENT_MAPPING__IS_COMPLEX_TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case DsPackage.ELEMENT_MAPPING__ELEMENT:

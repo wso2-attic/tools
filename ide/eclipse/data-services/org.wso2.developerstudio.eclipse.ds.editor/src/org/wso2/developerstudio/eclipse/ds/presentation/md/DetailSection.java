@@ -1,9 +1,11 @@
 package org.wso2.developerstudio.eclipse.ds.presentation.md;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.impl.EAttributeImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.domain.EditingDomain;
@@ -217,9 +219,14 @@ public class DetailSection {
 			resultObjectConfigurator(result);
 			
 		}else if(input instanceof ElementMapping){
-			
+			boolean makeItComplex = false;
 			ElementMapping element = (ElementMapping)input;
-			elementMappingObjectConfigurator(element);
+			boolean isComplex = element.isIsComplexType();
+			Collection children = editingDomain.getChildren(input);
+			if(children.size() > 0 | isComplex){
+				makeItComplex = true;
+			}
+			elementMappingObjectConfigurator(element,makeItComplex);
 			
 		}else if(input instanceof AttributeMapping ){
 			
@@ -947,7 +954,7 @@ public class DetailSection {
 		}
 	}
 	
-	private void elementMappingObjectConfigurator(ElementMapping element){
+	private void elementMappingObjectConfigurator(ElementMapping element,boolean makeItComplex){
 		
 		ArrayList<IItemPropertyDescriptor> detailPropertyDescriptors = (ArrayList<IItemPropertyDescriptor>)
 		adapterFactoryItemDelegator
@@ -962,15 +969,25 @@ public class DetailSection {
 			
 			if(displayName.equals(DetailSectionCustomUiConstants.ELEMENT_MAPPING_OUTPUT_FIELD)){
 				
+				if(!makeItComplex){
 				labelMaker(DetailSectionCustomUiConstants.ELEMENT_MAPPING_OUTPUT_FIELD);
 				sectionUtil.getAttributeField(detailsclient, toolkit, element, element.getName()
 						,DsPackage.eINSTANCE.getElementMapping_Name(), DetailSectionCustomUiConstants.STRING);
 				voidMaker();
 				voidMaker();
+				}else{
+					labelMaker(DetailSectionCustomUiConstants.ELEMENT_MAPPING_COMPLEX_NAME);
+					sectionUtil.getAttributeField(detailsclient, toolkit, element, element.getName()
+							,DsPackage.eINSTANCE.getElementMapping_Name(), DetailSectionCustomUiConstants.STRING);
+					voidMaker();
+					voidMaker();
+				}
+				
 			}
 			
 			if(displayName.equals(DetailSectionCustomUiConstants.ELEMENT_MAPPING_COLUMN_NAME)){
 				
+				if(!makeItComplex){
 				//Fixed TOOLS-1012.
 				String labelString = DetailSectionCustomUiConstants.ELEMENT_MAPPING_COLUMN_NAME;
 				
@@ -995,31 +1012,32 @@ public class DetailSection {
 						,DsPackage.eINSTANCE.getElementMapping_Column(),DetailSectionCustomUiConstants.STRING);
 				voidMaker();
 				voidMaker();
-						
+				}		
 			}
 			
 			if(displayName.equals(DetailSectionCustomUiConstants.ELEMENT_MAPPING_EXPORT)){
-				
+				if(!makeItComplex){
 				labelMaker(DetailSectionCustomUiConstants.ELEMENT_MAPPING_EXPORT);
 				sectionUtil.getAttributeField(detailsclient, toolkit, element, element.getExport(), 
 						DsPackage.eINSTANCE.getElementMapping_Export(), DetailSectionCustomUiConstants.STRING);
 				voidMaker();
 				voidMaker();
-				
+				}
 			}
 			
 			if(displayName.equals(DetailSectionCustomUiConstants.ELEMENT_MAPPING_EXPORT_TYPE)){
-				
+				if(!makeItComplex){
 				labelMaker(DetailSectionCustomUiConstants.ELEMENT_MAPPING_EXPORT_TYPE);
 				String [] displayValues = {"ARRAY","SCALAR"};
 				sectionUtil.getCustomComboField(detailsclient, toolkit, element, element.getExportType(), 
 						DsPackage.eINSTANCE.getElementMapping_ExportType(), displayValues);
 				voidMaker();
 				voidMaker();
+				}
 			}
 			
 			if(displayName.equals(DetailSectionCustomUiConstants.ELEMENT_MAPPING_SCHEMA_TYPE)){
-				
+				if(!makeItComplex){
 				String [] displayValues = {"xs:string","xs:integer","xs:boolean",
 											"xs:float","xs:double","xs:decimal",
 											"xs:dateTime","xs:time","xs:date",
@@ -1029,16 +1047,17 @@ public class DetailSection {
 						DsPackage.eINSTANCE.getElementMapping_XsdType(),displayValues);
 				voidMaker();
 				voidMaker();
+				}
 			}
 			
 			if(displayName.equals(DetailSectionCustomUiConstants.ELEMENT_MAPING_ALLOWED_USER_ROLES)){
-				
+				if(!makeItComplex){
 				labelMaker(DetailSectionCustomUiConstants.ELEMENT_MAPING_ALLOWED_USER_ROLES);
 				sectionUtil.getAttributeField(detailsclient, toolkit, element, element.getRequiredRoles(),
 						DsPackage.eINSTANCE.getElementMapping_RequiredRoles(), DetailSectionCustomUiConstants.STRING);
 				voidMaker();
 				voidMaker();
-				
+				}
 			}
 			
 			if(displayName.equals(DetailSectionCustomUiConstants.ELEMENT_MAPPING_NAMESPACE)){
@@ -1050,6 +1069,12 @@ public class DetailSection {
 				voidMaker();
 			}
 			
+		}
+		
+		if(makeItComplex){
+			
+			EcoreUtil.remove(element, DsPackage.Literals.ELEMENT_MAPPING__EXPORT_TYPE, element.getExportType());
+			EcoreUtil.remove(element, DsPackage.Literals.ELEMENT_MAPPING__XSD_TYPE, element.getXsdType());
 			
 		}
 		

@@ -42,6 +42,7 @@ import org.wso2.developerstudio.eclipse.ds.ElementMapping;
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.ElementMappingImpl#getElement <em>Element</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.ElementMappingImpl#getAttribute <em>Attribute</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.ElementMappingImpl#getCallQuery <em>Call Query</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.ElementMappingImpl#isIsComplexType <em>Is Complex Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -217,7 +218,28 @@ public class ElementMappingImpl extends EObjectImpl implements ElementMapping {
 	 * @ordered
 	 */
 	protected CallQuery callQuery;
+ 
+	/**
+	 * The default value of the '{@link #isIsComplexType() <em>Is Complex Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isIsComplexType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean IS_COMPLEX_TYPE_EDEFAULT = false;
 
+	/**
+	 * The cached value of the '{@link #isIsComplexType() <em>Is Complex Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isIsComplexType()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean isComplexType = IS_COMPLEX_TYPE_EDEFAULT;
+
+	private boolean complex;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -458,6 +480,27 @@ public class ElementMappingImpl extends EObjectImpl implements ElementMapping {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isIsComplexType() {
+		return isComplexType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIsComplexType(boolean newIsComplexType) {
+		boolean oldIsComplexType = isComplexType;
+		isComplexType = newIsComplexType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.ELEMENT_MAPPING__IS_COMPLEX_TYPE, oldIsComplexType, isComplexType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -501,6 +544,8 @@ public class ElementMappingImpl extends EObjectImpl implements ElementMapping {
 				return getAttribute();
 			case DsPackage.ELEMENT_MAPPING__CALL_QUERY:
 				return getCallQuery();
+			case DsPackage.ELEMENT_MAPPING__IS_COMPLEX_TYPE:
+				return isIsComplexType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -548,6 +593,9 @@ public class ElementMappingImpl extends EObjectImpl implements ElementMapping {
 			case DsPackage.ELEMENT_MAPPING__CALL_QUERY:
 				setCallQuery((CallQuery)newValue);
 				return;
+			case DsPackage.ELEMENT_MAPPING__IS_COMPLEX_TYPE:
+				setIsComplexType((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -592,6 +640,9 @@ public class ElementMappingImpl extends EObjectImpl implements ElementMapping {
 			case DsPackage.ELEMENT_MAPPING__CALL_QUERY:
 				setCallQuery((CallQuery)null);
 				return;
+			case DsPackage.ELEMENT_MAPPING__IS_COMPLEX_TYPE:
+				setIsComplexType(IS_COMPLEX_TYPE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -626,6 +677,8 @@ public class ElementMappingImpl extends EObjectImpl implements ElementMapping {
 				return attribute != null && !attribute.isEmpty();
 			case DsPackage.ELEMENT_MAPPING__CALL_QUERY:
 				return callQuery != null;
+			case DsPackage.ELEMENT_MAPPING__IS_COMPLEX_TYPE:
+				return isComplexType != IS_COMPLEX_TYPE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -656,8 +709,22 @@ public class ElementMappingImpl extends EObjectImpl implements ElementMapping {
 		result.append(namespace);
 		result.append(", xsdType: ");
 		result.append(xsdType);
+		result.append(", isComplexType: ");
+		result.append(isComplexType);
 		result.append(')');
 		return result.toString();
 	}
+
+	/*@Override
+	public boolean isComplex() {
+		// TODO Auto-generated method stub
+		return complex;
+	}
+
+	@Override
+	public void setComplex(boolean isComplex) {
+		
+		complex = isComplex;
+	}*/
 
 } //ElementMappingImpl

@@ -137,8 +137,8 @@ public class LongRangeValidatorItemProvider
 	
 	@Override
 	public String getText(Object object) {
-		//LongRangeValidator longRangeValidator = (LongRangeValidator)object;
-		return getString("_UI_LongRangeValidator_type");// + " " + longRangeValidator.getMaximum();
+		LongRangeValidator longRangeValidator = (LongRangeValidator)object;
+		return getString("_UI_LongRangeValidator_type") + " " + longRangeValidator.getMaximum();
 	}
 
 	/**

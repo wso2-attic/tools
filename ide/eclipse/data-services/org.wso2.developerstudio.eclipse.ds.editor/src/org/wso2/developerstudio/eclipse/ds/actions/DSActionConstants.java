@@ -43,7 +43,9 @@ public interface DSActionConstants {
 
 	public String ADD_OUTPUT_MAPPING_ACTION = "Add Output Mapping";
 	
-	public String ADD_OUTPUT_MAPPING_COMPLEX_ELEMENT = "Add Nested Element";
+	public String ADD_OUTPUT_MAPPING_COMPLEX_ELEMENT = "Add Complex Element";
+	
+	public String ADD_OUTOUT_MAPPING_NESTED_ELEMENT = "Add Nested Element";
 
 	public String ADD_OUTPUT_MAPPING_ELEMENT_ACTION = "Add Element";
 

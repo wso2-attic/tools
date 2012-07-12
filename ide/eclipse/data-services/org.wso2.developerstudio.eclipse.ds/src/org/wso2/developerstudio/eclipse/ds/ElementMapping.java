@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.ElementMapping#getElement <em>Element</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.ElementMapping#getAttribute <em>Attribute</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.ElementMapping#getCallQuery <em>Call Query</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.ds.ElementMapping#isIsComplexType <em>Is Complex Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -284,5 +285,35 @@ public interface ElementMapping extends EObject {
 	 * @generated
 	 */
 	void setCallQuery(CallQuery value);
+	
+	/**
+	 * Returns the value of the '<em><b>Is Complex Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Is Complex Type</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Is Complex Type</em>' attribute.
+	 * @see #setIsComplexType(boolean)
+	 * @see org.wso2.developerstudio.eclipse.ds.DsPackage#getElementMapping_IsComplexType()
+	 * @model extendedMetaData="kind='attribute' name='isComplexType' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	boolean isIsComplexType();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.ds.ElementMapping#isIsComplexType <em>Is Complex Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Is Complex Type</em>' attribute.
+	 * @see #isIsComplexType()
+	 * @generated
+	 */
+	void setIsComplexType(boolean value);
+
+	/*boolean isComplex();
+	
+	void setComplex(boolean isComplex);*/
 
 } // ElementMapping
