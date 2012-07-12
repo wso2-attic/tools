@@ -32,10 +32,18 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.jdt.core.IClasspathEntry;
+import org.eclipse.jdt.core.IJavaProject;
+import org.eclipse.jdt.core.IPackageFragment;
+import org.eclipse.jdt.core.IPackageFragmentRoot;
+import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jface.wizard.IWizardPage;
+import org.wso2.developerstudio.eclipse.artifact.library.Activator;
 import org.wso2.developerstudio.eclipse.artifact.library.model.LibraryArtifactModel;
 import org.wso2.developerstudio.eclipse.artifact.library.util.Constants;
 import org.wso2.developerstudio.eclipse.artifact.library.util.LibraryImageUtils;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.platform.core.bundle.BundlesDataInfo;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
@@ -46,6 +54,7 @@ import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 
 public class LibraryArtifactCreationWizard extends
 		AbstractWSO2ProjectCreationWizard {
+	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	private LibraryArtifactModel libraryModel;
 	private NewJavaLibraryWizardPage javaLibraryWizardPage;
 	private IWizardPage[] pages;
@@ -90,10 +99,45 @@ public class LibraryArtifactCreationWizard extends
 					projects.add(workSpacePrj);
 					File pomfile = workSpacePrj.getFile("pom.xml").getLocation().toFile();
 					if (!pomfile.exists()) {
+						String srcDir = "src";
 						MavenProject mavenProject = MavenUtils.createMavenProject(
-								"org.wso2.carbon." + workSpacePrj.getName() , workSpacePrj.getName(), "1.0.0", "jar");
+								"org.wso2.carbon." + workSpacePrj.getName(),
+								workSpacePrj.getName(), "1.0.0", "jar");
+						IJavaProject javaProject = JavaCore.create(workSpacePrj);
+						IClasspathEntry[] classpath = javaProject.getRawClasspath();
+						int entryCount = 0;
+						for (IClasspathEntry classpathEntry : classpath) {
+							if (classpathEntry.getEntryKind() == IClasspathEntry.CPE_SOURCE) {
+								if (entryCount == 0) {
+									String entryPath = "";
+									String[] pathSegments = classpathEntry.getPath().segments();
+									if(pathSegments.length >1){
+										for (int i = 1; i < pathSegments.length; i++) {
+											if(i==1){
+												entryPath = pathSegments[i];
+											} else{
+												entryPath += "/" + pathSegments[i];
+											}
+										}
+										if(entryPath.length()>0){
+											srcDir = entryPath;
+											++entryCount;
+										}
+									}
+								} else {
+									log.warn("multiple source directories found, Considering '" + srcDir + "' as source directory");
+									break;
+								}
+							}
+						}
+						if(entryCount==0){
+							log.warn("No source directory specified, using default source directory.");
+						}
+						mavenProject.getBuild().setSourceDirectory(srcDir);
 						MavenUtils.saveMavenProject(mavenProject, pomfile);
 					}
+					workSpacePrj.refreshLocal(IResource.DEPTH_INFINITE,
+							new NullProgressMonitor());
 				}
 				if (libraryResource != null) {
 					FileUtils.copyFile(libraryResource.toString(),
@@ -150,12 +194,19 @@ public class LibraryArtifactCreationWizard extends
 						dependency.setGroupId(mavenProject.getGroupId());
 						dependency.setVersion(mavenProject.getVersion());
 						dependencyList.add(dependency);
-					} catch (Exception ignored) {
-						//ignored
+					} catch (Exception e) {
+						log.warn("Error reading "+ pomFile, e);
 					}
 				}
 				bundleData.createProjectElement(prj, new ArrayList<String>());
-				//TODO: add export packages for project (maven build)
+				IJavaProject javaProject = JavaCore.create(prj);
+				for (IPackageFragment pkg : javaProject.getPackageFragments()) {
+					if (pkg.getKind() == IPackageFragmentRoot.K_SOURCE) {
+						if (pkg.hasChildren()) {
+							exportedPackages.add(pkg.getElementName());
+						}
+					}
+				}
 			}
 			
 			for(String exportedpackage : exportedPackages) {
@@ -217,7 +268,7 @@ public class LibraryArtifactCreationWizard extends
 			refreshDistProjects();
 
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.warn("An Unspecified Error has occurred", e);
 		}
 
 		return true;
