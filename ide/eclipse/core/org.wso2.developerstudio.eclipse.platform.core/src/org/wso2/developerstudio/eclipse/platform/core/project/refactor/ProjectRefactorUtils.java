@@ -29,16 +29,16 @@ public class ProjectRefactorUtils {
 
 	public static Dependency getDependencyForTheProject(IProject project) {
 		MavenProject mavenProject = getMavenProject(project);
-
-		String groupId = mavenProject.getGroupId();
-		String artifactId = mavenProject.getArtifactId();
-		String version = mavenProject.getVersion();
-
 		Dependency dependency = new Dependency();
-		dependency.setGroupId(groupId);
-		dependency.setArtifactId(artifactId);
-		dependency.setVersion(version);
 
+		if (mavenProject != null) {
+	        String groupId = mavenProject.getGroupId();
+	        String artifactId = mavenProject.getArtifactId();
+	        String version = mavenProject.getVersion();
+	        dependency.setGroupId(groupId);
+	        dependency.setArtifactId(artifactId);
+	        dependency.setVersion(version);
+        }
 		return dependency;
 	}
 

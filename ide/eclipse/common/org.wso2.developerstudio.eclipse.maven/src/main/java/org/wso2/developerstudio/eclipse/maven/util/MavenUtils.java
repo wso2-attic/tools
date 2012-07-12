@@ -575,4 +575,17 @@ public class MavenUtils {
 		}
 		
 	}
+	
+	public static void updateMavenProjectWithWSO2Repository(MavenProject mavenProject){
+		Repository repo = new Repository();
+		repo.setUrl("http://maven.wso2.org/nexus/content/groups/wso2-public/");
+		repo.setId("wso2-maven2-repository-1");
+
+		mavenProject.getModel().addRepository(repo);
+		mavenProject.getModel().addPluginRepository(repo);
+	}
+	
+	public static void setSourceFolder(MavenProject mavenProject, String sourceDir){
+		mavenProject.getBuild().setSourceDirectory(sourceDir);
+	}
 }

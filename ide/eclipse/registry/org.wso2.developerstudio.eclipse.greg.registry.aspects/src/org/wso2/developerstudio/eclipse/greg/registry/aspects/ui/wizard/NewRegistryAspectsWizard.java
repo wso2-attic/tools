@@ -16,11 +16,13 @@
 
 package org.wso2.developerstudio.eclipse.greg.registry.aspects.ui.wizard;
 
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
 import org.wso2.developerstudio.eclipse.greg.registry.aspects.Activator;
+import org.wso2.developerstudio.eclipse.greg.registry.aspects.utils.RegistryAspectMavenUtils;
 import org.wso2.developerstudio.eclipse.greg.registry.aspects.utils.RegistryAspectsImageUtils;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
@@ -44,6 +46,9 @@ public class NewRegistryAspectsWizard extends Wizard implements INewWizard{
 	        log.error(e);
 	        return false;
         }
+		
+		RegistryAspectMavenUtils.initMavenConfiguration(ResourcesPlugin.getWorkspace().getRoot().getProject(getProjectName()));
+		
 		return true;
 	}
 	

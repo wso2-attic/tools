@@ -902,7 +902,7 @@ public class RegistryHandlerCreationWizard extends
 		configurationNode.addChild(instructionNode);
 
 		Repository repo = new Repository();
-		repo.setUrl("http://dist.wso2.org/maven2");
+		repo.setUrl("http://maven.wso2.org/nexus/content/groups/wso2-public/");
 		repo.setId("wso2-maven2-repository-1");
 
 		mavenProject.getModel().addRepository(repo);
@@ -969,7 +969,7 @@ public class RegistryHandlerCreationWizard extends
 //		plugin.addExecution(pluginExecution);
 
 		Repository repo = new Repository();
-		repo.setUrl("http://dist.wso2.org/maven2");
+		repo.setUrl("http://maven.wso2.org/nexus/content/groups/wso2-public/");
 		repo.setId("wso2-maven2-repository-1");
 
 		mavenProject.getModel().addRepository(repo);
