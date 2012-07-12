@@ -54,8 +54,6 @@ import org.eclipse.ui.part.*;
 import org.tigris.subversion.subclipse.core.ISVNRemoteFolder;
 import org.tigris.subversion.subclipse.core.ISVNRepositoryLocation;
 import org.tigris.subversion.subclipse.core.SVNProviderPlugin;
-import org.tigris.subversion.subclipse.ui.Policy;
-import org.tigris.subversion.subclipse.ui.SVNUIPlugin;
 import org.tigris.subversion.subclipse.ui.wizards.CheckoutWizard;
 import org.tigris.subversion.svnclientadapter.SVNRevision;
 import org.tigris.subversion.svnclientadapter.SVNRevision.Number;
@@ -120,19 +118,21 @@ public class AppfactoryView extends ViewPart {
 				ImageDescriptor.createFromImage(SWTResourceManager
 						.getImage(this.getClass(),
 								"/icons/svn-co.png"))) {
-			public void run() {
+			public void run() {	
 				if (tblApplication.getSelectionCount() ==1){
+					MessageBox msg = new MessageBox(form.getShell());
 					ApplicationInfo appInfo = (ApplicationInfo)tblApplication.getSelection()[0].getData();
-					
-					String url = appInfo.getApplicationRepoLink();
-					
-					ISVNRepositoryLocation location = createLocation(url,auth.getUserName(), auth.getPassword());
-					
-					final ISVNRemoteFolder[] folders = new ISVNRemoteFolder[]{ location.getRootFolder()};
-					Shell activeShell = PlatformUI.getWorkbench().getDisplay().getActiveShell();
-					CheckoutWizard wizard = new CheckoutWizard(folders);
-					WizardDialog dialog = new WizardDialog(activeShell, wizard);
-					dialog.open();
+					try {
+						showCheckoutWizard(appInfo);
+					} catch (InterruptedException e) {
+						msg.setMessage("Task interrupted by user");
+						msg.open();
+					} catch (InvocationTargetException e) {
+						log.error("An unknown error occurred.", e.getTargetException());
+						msg.setMessage("An unknown error occurred. See the log for more details.");
+						msg.open();
+					}
+	
 				}
 			};
 		};
@@ -143,8 +143,18 @@ public class AppfactoryView extends ViewPart {
 								"/icons/deploy.png"))) {
 			public void run() {
 				if (tblApplication.getSelectionCount() ==1){
+					MessageBox msg = new MessageBox(form.getShell());
 					ApplicationInfo appInfo = (ApplicationInfo)tblApplication.getSelection()[0].getData();
-					deployApp(appInfo, "Development");
+					try {
+						deployApp(appInfo, "Development");
+					} catch (InterruptedException e) {
+						msg.setMessage("Task interrupted by user");
+						msg.open();
+					} catch (InvocationTargetException e) {
+						log.error("An unknown error occurred.", e.getTargetException());
+						msg.setMessage("An unknown error occurred. See the log for more details.");
+						msg.open();
+					}
 				}
 			};
 		};
@@ -155,8 +165,18 @@ public class AppfactoryView extends ViewPart {
 								"/icons/deploy.png"))) {
 				public void run() {
 					if (tblApplication.getSelectionCount() ==1){
+						MessageBox msg = new MessageBox(form.getShell());
 						ApplicationInfo appInfo = (ApplicationInfo)tblApplication.getSelection()[0].getData();
-						deployApp(appInfo, "Live");
+						try {
+							deployApp(appInfo, "Live");
+						} catch (InterruptedException e) {
+							msg.setMessage("Task interrupted by user");
+							msg.open();
+						} catch (InvocationTargetException e) {
+							log.error("An unknown error occurred.", e.getTargetException());
+							msg.setMessage("An unknown error occurred. See the log for more details.");
+							msg.open();
+						}
 					}
 				};
 		};
@@ -261,7 +281,8 @@ public class AppfactoryView extends ViewPart {
 		btnSignIn.setText("Sign in");
 		btnSignIn.addSelectionListener(new SelectionAdapter() {
 			@Override
-			public void widgetSelected(SelectionEvent e) {
+			public void widgetSelected(SelectionEvent event) {
+				MessageBox msg = new MessageBox(form.getShell());
 				auth = new Authenticator();
 				auth.setServerURL(txtServerURL.getText());
 				auth.setUserName(txtUsername.getText());
@@ -271,38 +292,27 @@ public class AppfactoryView extends ViewPart {
 					if (auth.Authenticate()) {
 						sctnLogin.setVisible(false);
 						((GridData) sctnLogin.getLayoutData()).exclude = true;
-
-						tblApplication.removeAll();
-						
-						appMgtClient = new AppMgtClient(auth);
-						List<ApplicationInfo> allAppInfo = appMgtClient.getAllApplicationInfo(auth.getUserName());
-						for (ApplicationInfo appInfo : allAppInfo) {
-							List<String> roles = appMgtClient.getUserRolesForApplication(appInfo.getApplicationKey(),auth.getUserName());
-							if(roles.contains("developer")){
-								ISVNRepositoryLocation repositoryLocation = createLocation(
-										appInfo.getApplicationRepoLink(), auth.getUserName(),
-										auth.getPassword());
-								Number revision = repositoryLocation.getSVNClient()
-										.getInfo(repositoryLocation.getUrl()).getRevision();
-								appInfo.setRevision(revision.getNumber());
-								TableItem item = new TableItem(tblApplication, SWT.None);
-								item.setData(appInfo);
-								item.setText(0, appInfo.getApplicationName());
-								item.setText(1, appInfo.getApplicationRepoLink());
-								item.setText(2, "r" + Long.toString(appInfo.getRevision()));
-							}
+						try {
+							listApplications();
+						} catch (InterruptedException e) {
+							msg.setMessage("Task interrupted by user");
+							msg.open();
+						} catch (InvocationTargetException e) {
+							log.error("An unknown error occurred.", e.getTargetException());
+							msg.setMessage("An unknown error occurred. See the log for more details.");
+							msg.open();
 						}
 						sctnApplication.setVisible(true);
 						((GridData) sctnApplication.getLayoutData()).exclude = false;
 						form.getBody().layout();
 
 					} else {
-						MessageBox msg = new MessageBox(form.getShell());
 						msg.setMessage("Authentication failed on connection to the server");
 						msg.open();
 					}
 				} catch (Exception ex) {
-					log.error(ex);
+					msg.setMessage("Unable to connect to the server. It may be invalid settings");
+					msg.open();
 				}
 			}
 		});
@@ -323,12 +333,6 @@ public class AppfactoryView extends ViewPart {
 		form.reflow(true);
 		
 	}
-
-	@Override
-	public void setFocus() {
-		// TODO Auto-generated method stub
-		
-	}
 	
 	@Override
 	public void dispose() {
@@ -336,86 +340,123 @@ public class AppfactoryView extends ViewPart {
 		super.dispose();
 	}
 	
-	private ISVNRepositoryLocation createLocation(String url, String userName, String password) {
+	private void listApplications() throws InvocationTargetException, InterruptedException {
 		Shell activeShell = PlatformUI.getWorkbench().getDisplay().getActiveShell();
-		Properties properties =  new Properties();
-		properties.setProperty("user", userName); //$NON-NLS-1$
-		properties.setProperty("password", password); //$NON-NLS-1$
-		properties.setProperty("url", url); //$NON-NLS-1$
-		
-		final ISVNRepositoryLocation[] root = new ISVNRepositoryLocation[1];
-		SVNProviderPlugin provider = SVNProviderPlugin.getPlugin();
-		try {
-			root[0] = provider.getRepositories().getRepository(properties.getProperty("url"));
-			
-			if(root[0]!=null){
-				return root[0];
-			}
-			
-			root[0] = provider.getRepositories().createRepository(properties);
-			// Validate the connection info.  This process also determines the rootURL
-			try {
-				new ProgressMonitorDialog(activeShell).run(true, true, new IRunnableWithProgress() {
-					public void run(IProgressMonitor monitor) throws InvocationTargetException {
-						try {
-							root[0].validateConnection(monitor);
-						} catch (TeamException e) {
-							throw new InvocationTargetException(e);
+		new ProgressMonitorDialog(activeShell).run(true, true, new IRunnableWithProgress() {
+			public void run(IProgressMonitor monitor) throws InvocationTargetException {
+				try {					
+					PlatformUI.getWorkbench().getDisplay().syncExec(new Runnable() {
+						public void run() {
+							tblApplication.removeAll();
+						}
+					});
+					appMgtClient = new AppMgtClient(auth);
+					List<ApplicationInfo> allAppInfo = appMgtClient.getAllApplicationInfo(auth
+							.getUserName());
+					for (final ApplicationInfo appInfo : allAppInfo) {
+						List<String> roles = appMgtClient.getUserRolesForApplication(
+								appInfo.getApplicationKey(), auth.getUserName());
+						if (roles.contains("developer")) {
+							ISVNRepositoryLocation repositoryLocation = getRepository(monitor,
+									appInfo.getApplicationRepoLink(), auth.getUserName(),
+									auth.getPassword());
+							Number revision = repositoryLocation.getSVNClient()
+									.getInfo(repositoryLocation.getUrl()).getRevision();
+							appInfo.setRevision(revision.getNumber());
+							
+							PlatformUI.getWorkbench().getDisplay().syncExec(new Runnable() {
+								public void run() {
+									TableItem item = new TableItem(tblApplication, SWT.None);
+									item.setData(appInfo);
+									item.setText(0, appInfo.getApplicationName());
+									item.setText(1, appInfo.getApplicationRepoLink());
+									item.setText(2, "r" + Long.toString(appInfo.getRevision()));
+								}
+							});
 						}
 					}
-				});
-			} catch (InterruptedException e) {
-				return null;
-			} catch (InvocationTargetException e) {
-				Throwable t = e.getTargetException();
-				if (t instanceof TeamException) {
-					throw (TeamException)t;
+				} catch (Exception e) {
+					throw new InvocationTargetException(e);
 				}
 			}
-			provider.getRepositories().addOrUpdateRepository(root[0]);
-		} catch (TeamException e) {
-			if (root[0] == null) {
-				// Exception creating the root, we cannot continue
-				SVNUIPlugin.openError(activeShell, Policy.bind("NewLocationWizard.exception"), null, e); //$NON-NLS-1$
-				return null;
-			} else {
-				// Exception validating. We can continue if the user wishes.
-				IStatus error = e.getStatus();
-				if (error.isMultiStatus() && error.getChildren().length == 1) {
-					error = error.getChildren()[0];
-				}
+		});
+	}
+	
+	private void showCheckoutWizard(ApplicationInfo appInfo) throws InvocationTargetException,
+			InterruptedException {
+		Shell activeShell = PlatformUI.getWorkbench().getDisplay().getActiveShell();
+		final String url = appInfo.getApplicationRepoLink();
 
-				boolean keep = false;
-				if (error.isMultiStatus()) {
-					SVNUIPlugin.openError(activeShell, Policy.bind("NewLocationWizard.validationFailedTitle"), null, e); //$NON-NLS-1$
-				} else {
-					keep = MessageDialog.openQuestion(activeShell,
-						Policy.bind("NewLocationWizard.validationFailedTitle"), //$NON-NLS-1$
-						Policy.bind("NewLocationWizard.validationFailedText", new Object[] {error.getMessage()})); //$NON-NLS-1$
-				}
+		new ProgressMonitorDialog(activeShell).run(true, true, new IRunnableWithProgress() {
+			public void run(IProgressMonitor monitor) throws InvocationTargetException {
 				try {
-					if (keep) {
-						provider.getRepositories().addOrUpdateRepository(root[0]);
-					} else {
-						provider.getRepositories().disposeRepository(root[0]);
-					}
-				} catch (TeamException e1) {
-					SVNUIPlugin.openError(activeShell, Policy.bind("exception"), null, e1); //$NON-NLS-1$
-					return null;
+					ISVNRepositoryLocation location = getRepository(monitor, url,
+							auth.getUserName(), auth.getPassword());
+
+					final ISVNRemoteFolder[] folders = new ISVNRemoteFolder[] { location
+							.getRootFolder() };
+					
+					PlatformUI.getWorkbench().getDisplay().syncExec(new Runnable() {
+						public void run() {
+							Shell activeShell = PlatformUI.getWorkbench().getDisplay().getActiveShell();
+							CheckoutWizard wizard = new CheckoutWizard(folders);
+							WizardDialog dialog = new WizardDialog(activeShell, wizard);
+							dialog.open();
+						}
+					});
+				} catch (TeamException e) {
+					throw new InvocationTargetException(e);
 				}
-				if (keep) return root[0];
 			}
+		});
+	}
+	
+	private ISVNRepositoryLocation getRepository(IProgressMonitor monitor, String url,
+			String userName, String password) throws TeamException {
+
+		Properties properties = new Properties();
+		properties.setProperty("user", userName);
+		properties.setProperty("password", password); 
+		properties.setProperty("url", url);
+
+		SVNProviderPlugin provider = SVNProviderPlugin.getPlugin();
+		ISVNRepositoryLocation root = provider.getRepositories().getRepository(properties.getProperty("url"));
+
+		/* create a local repository if not already exists */
+		if (root == null) {
+			root = provider.getRepositories().createRepository(properties);
+			root.validateConnection(monitor);
+			provider.getRepositories().addOrUpdateRepository(root);
 		}
-		return root[0];
+		
+		return root;
 	}
 	
 	
-	private boolean deployApp(ApplicationInfo appInfo, String stage){
-		String appKey = appInfo.getApplicationKey();
-		String url = appInfo.getApplicationRepoLink();
-		String revision = Long.toString(appInfo.getRevision());
-		DeployUtil deployUtil= new DeployUtil(auth);
-		return deployUtil.deployToStage(url,revision, appKey, stage);
+	private boolean deployApp(final ApplicationInfo appInfo, final String stage)
+			throws InvocationTargetException, InterruptedException {
+		Shell activeShell = PlatformUI.getWorkbench().getDisplay().getActiveShell();
+		final boolean result[] = new boolean[1];
+		new ProgressMonitorDialog(activeShell).run(true, true, new IRunnableWithProgress() {
+			public void run(IProgressMonitor monitor) throws InvocationTargetException {
+				try {
+					String appKey = appInfo.getApplicationKey();
+					String url = appInfo.getApplicationRepoLink();
+					String revision = Long.toString(appInfo.getRevision());
+					DeployUtil deployUtil = new DeployUtil(auth);
+					result[0] = deployUtil.deployToStage(url, revision, appKey, stage);
+				} catch (Exception e) {
+					throw new InvocationTargetException(e);
+				}
+			}
+		});
+		return result[0];
+	}
+
+	@Override
+	public void setFocus() {
+		tblApplication.forceFocus();
+		
 	}
 	
 }
