@@ -57,17 +57,21 @@ public class EnqueueMediatorItemProvider
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
+		EnqueueMediator enqueueMediator=(EnqueueMediator)object;
+		if (itemPropertyDescriptors != null) {
+			itemPropertyDescriptors.clear();
+		}
 			super.getPropertyDescriptors(object);
 
 			addExecutorPropertyDescriptor(object);
 			addPriorityPropertyDescriptor(object);
-		}
+			addSequenceKeyPropertyDescriptor(object);
+		
 		return itemPropertyDescriptors;
 	}
 
@@ -111,6 +115,22 @@ public class EnqueueMediatorItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+	
+	protected void addSequenceKeyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EnqueueMediator_sequenceKey_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EnqueueMediator_sequenceKey_feature", "_UI_EnqueueMediator_type"),
+				 EsbPackage.Literals.ENQUEUE_MEDIATOR__SEQUENCE_KEY,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}
