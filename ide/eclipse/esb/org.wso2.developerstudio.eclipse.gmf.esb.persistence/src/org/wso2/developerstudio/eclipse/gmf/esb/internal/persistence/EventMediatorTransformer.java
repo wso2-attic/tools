@@ -3,11 +3,14 @@ package org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence;
 import java.util.List;
 
 import org.apache.synapse.endpoints.Endpoint;
+import org.apache.synapse.mediators.Value;
 import org.apache.synapse.mediators.base.SequenceMediator;
+import org.apache.synapse.util.xpath.SynapseXPath;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EObject;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.EventMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.EventTopicType;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
 
 public class EventMediatorTransformer extends AbstractEsbNodeTransformer  {
@@ -43,7 +46,17 @@ public class EventMediatorTransformer extends AbstractEsbNodeTransformer  {
 		
 		org.wso2.carbon.mediator.event.EventMediator eventMediator=new org.wso2.carbon.mediator.event.EventMediator();
 		{
-			
+			SynapseXPath expression=new SynapseXPath(visualEvent.getEventExpression().getPropertyValue());
+			eventMediator.setExpression(expression);
+			Value topic;
+			if(visualEvent.getTopicType().compareTo(EventTopicType.STATIC)==0){
+			topic = new Value(visualEvent.getStaticTopic());
+			}
+			else{
+			SynapseXPath topicExpression=new SynapseXPath(visualEvent.getDynamicTopic().getPropertyValue());	
+			topic = new Value(topicExpression);
+			}
+			eventMediator.setTopic(topic);
 		}
 		return eventMediator;
 	}

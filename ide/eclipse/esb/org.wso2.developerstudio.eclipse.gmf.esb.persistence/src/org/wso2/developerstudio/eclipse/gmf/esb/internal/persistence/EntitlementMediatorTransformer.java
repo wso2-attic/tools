@@ -14,9 +14,10 @@ public class EntitlementMediatorTransformer extends AbstractEsbNodeTransformer{
 
 	public void transform(TransformationInfo information, EsbNode subject)
 			throws Exception {
-		// TODO Auto-generated method stub
 		information.getParentSequence().addChild(createEntitlementMediator(information,subject));
-		// Transform the Entitlement mediator output data flow path.
+		/*
+		 *  Transform the Entitlement mediator output data flow path.
+		 */
 		doTransform(information,
 				((EntitlementMediator) subject).getOutputConnector());	
 		
@@ -24,32 +25,26 @@ public class EntitlementMediatorTransformer extends AbstractEsbNodeTransformer{
 
 	public void createSynapseObject(TransformationInfo info, EObject subject,
 			List<Endpoint> endPoints) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	public void transformWithinSequence(TransformationInfo information,
 			EsbNode subject, SequenceMediator sequence) throws Exception {
-		// TODO Auto-generated method stub
 		sequence.addChild(createEntitlementMediator(information,subject));
-		doTransformWithinSequence(information,((EntitlementMediator) subject).getOutputConnector().getOutgoingLink(),sequence);	
-		
-		
-		
+		doTransformWithinSequence(information,((EntitlementMediator) subject).getOutputConnector().getOutgoingLink(),sequence);			
 	}
 	
 	private org.wso2.carbon.identity.entitlement.mediator.EntitlementMediator createEntitlementMediator(TransformationInfo information,EsbNode subject) throws Exception{
-		// Check subject.
+		/*
+		 *  Check subject.
+		 */
 		Assert.isTrue(subject instanceof EntitlementMediator, "Invalid subject.");
 		EntitlementMediator visualEntitlement = (EntitlementMediator) subject;
 		org.wso2.carbon.identity.entitlement.mediator.EntitlementMediator entitlementMediator=new org.wso2.carbon.identity.entitlement.mediator.EntitlementMediator();
-		{
-			
-			entitlementMediator.setRemoteServiceUrl("Default");
-			entitlementMediator.setAxis2xml("Default");
-			entitlementMediator.setDescription("Default");
-			entitlementMediator.setRemoteServiceUserName("Default");
-			entitlementMediator.setRemoteServicePassword("Default");
+		{			
+			entitlementMediator.setRemoteServiceUrl(visualEntitlement.getServerURL());
+			entitlementMediator.setRemoteServiceUserName(visualEntitlement.getUsername());
+			entitlementMediator.setRemoteServicePassword(visualEntitlement.getPassword());
 		}
 		return entitlementMediator;
 	}

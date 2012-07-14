@@ -12,40 +12,41 @@ import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EObject;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.IterateMediator;
-import org.wso2.developerstudio.eclipse.gmf.esb.PropertyMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
 
 public class IterateMediatorTransformer extends AbstractEsbNodeTransformer{
 
 	public void transform(TransformationInfo information, EsbNode subject)
 			throws Exception {
-		// TODO Auto-generated method stub
 		information.getParentSequence().addChild(createIterateMediator(information,subject));
-		// Transform the property mediator output data flow path.
+		/*
+		 *  Transform the property mediator output data flow path.
+		 */
 		doTransform(information,
-				((IterateMediator) subject).getOutputConnector());
-		
+				((IterateMediator) subject).getOutputConnector());		
 	}
 
 	public void createSynapseObject(TransformationInfo info, EObject subject,
 			List<Endpoint> endPoints) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	public void transformWithinSequence(TransformationInfo information,
 			EsbNode subject, SequenceMediator sequence) throws Exception {
-		// TODO Auto-generated method stub
 		sequence.addChild(createIterateMediator(information,subject));
 		doTransformWithinSequence(information,((IterateMediator) subject).getOutputConnector().getOutgoingLink(),sequence);
 	}
 	
 	private org.apache.synapse.mediators.eip.splitter.IterateMediator createIterateMediator(TransformationInfo information,EsbNode subject) throws Exception{
-		// Check subject.
+		/*
+		 *  Check subject.
+		 */
 		Assert.isTrue(subject instanceof IterateMediator, "Invalid subject.");
 		IterateMediator visualIterate = (IterateMediator) subject;
 
-		// Configure Iterate mediator.
+		/*
+		 *  Configure Iterate mediator.
+		 */
 		org.apache.synapse.mediators.eip.splitter.IterateMediator iterateMediator = new org.apache.synapse.mediators.eip.splitter.IterateMediator();
 		{	
 			SynapseXPath expression=new SynapseXPath(visualIterate.getIterateExpression().getPropertyValue());

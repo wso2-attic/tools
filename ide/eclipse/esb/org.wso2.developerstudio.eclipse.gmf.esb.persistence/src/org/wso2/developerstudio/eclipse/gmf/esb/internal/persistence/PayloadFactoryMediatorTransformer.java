@@ -4,7 +4,9 @@ import java.util.List;
 
 import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.mediators.base.SequenceMediator;
+import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EObject;
+import org.wso2.developerstudio.eclipse.gmf.esb.EnqueueMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
@@ -34,7 +36,13 @@ public class PayloadFactoryMediatorTransformer extends AbstractEsbNodeTransforme
 	}
 	
 	private org.apache.synapse.mediators.transform.PayloadFactoryMediator createPayloadFactoryMediator(EsbNode subject) throws Exception{
+	
+		// Check subject.
+		Assert.isTrue(subject instanceof PayloadFactoryMediator, "Invalid subject.");
+		PayloadFactoryMediator visualPayloadFactory = (PayloadFactoryMediator) subject;
+		
 		org.apache.synapse.mediators.transform.PayloadFactoryMediator payloadFactoryMediator = new org.apache.synapse.mediators.transform.PayloadFactoryMediator();
+		payloadFactoryMediator.setFormat(visualPayloadFactory.getFormat());
 		return payloadFactoryMediator;
 	}
 
