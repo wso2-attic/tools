@@ -127,6 +127,8 @@ public class EsbPropertySource extends PropertySource {
 			return new CustomPropertyDescriptor(((SmooksMediator)object).getInput(), itemPropertyDescriptor);
 		} else if(pkg.getSmooksOutConfiguration_Expression().equals(feature)){
 			return new CustomPropertyDescriptor(((SmooksMediator)object).getOutput(), itemPropertyDescriptor);
+		} else if(pkg.getEnqueueMediator_SequenceKey().equals(feature)){
+			return new CustomPropertyDescriptor(object,itemPropertyDescriptor);
 		}
 			
 		

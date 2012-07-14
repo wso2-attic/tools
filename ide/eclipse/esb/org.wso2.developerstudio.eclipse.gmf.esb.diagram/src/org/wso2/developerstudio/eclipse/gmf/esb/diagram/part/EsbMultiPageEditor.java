@@ -13,6 +13,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.part;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -55,6 +56,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbElement;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbLink;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbServer;
+import org.wso2.developerstudio.eclipse.gmf.esb.ProxyService;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.SequenceDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.SequenceInfo;
@@ -432,8 +434,16 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 			}
 
 		}
-		List<EsbElement> childNodes = ((EsbDiagram) graphicalEditor
+		
+		List<EsbElement> childNodes = new ArrayList<EsbElement>();
+		List<EsbElement> rootChildNodes = ((EsbDiagram) graphicalEditor
 				.getDiagram().getElement()).getServer().getChildren();
+		for(int i=0;i<rootChildNodes.size();++i){
+			if(rootChildNodes.get(i) instanceof ProxyService){
+				childNodes.addAll(((ProxyService)rootChildNodes.get(i)).getContainer().getSequenceAndEndpointContainer().getSequenceContainer().getInSequence().getMediatorFlow().getChildren());
+				childNodes.addAll(((ProxyService)rootChildNodes.get(i)).getContainer().getSequenceAndEndpointContainer().getSequenceContainer().getOutSequence().getMediatorFlow().getChildren());				
+			}
+		}		
 		for (EsbElement childNode : childNodes) {
 			if (childNode instanceof Sequence) {
 				String name = ((Sequence) childNode).getName();
@@ -449,8 +459,8 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 				URI uri = URI.createFileURI(f.getAbsolutePath());
 
 				if (!f.exists()) {
-					//System.out.println(file.getLocationURI().getPath()
-							//+ " does not exist");
+					System.out.println(file.getLocationURI().getPath()
+							+ " does not exist");
 
 				} else {
 
