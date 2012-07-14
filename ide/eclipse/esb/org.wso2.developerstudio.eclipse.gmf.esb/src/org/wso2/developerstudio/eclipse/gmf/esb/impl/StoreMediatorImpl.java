@@ -90,10 +90,11 @@ public class StoreMediatorImpl extends MediatorImpl implements StoreMediator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected StoreMediatorImpl() {
 		super();
+		setMessageStore("messageStore");
 	}
 
 	/**

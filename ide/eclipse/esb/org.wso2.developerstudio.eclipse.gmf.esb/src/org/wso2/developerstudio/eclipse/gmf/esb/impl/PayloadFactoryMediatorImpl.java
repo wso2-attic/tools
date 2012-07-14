@@ -97,10 +97,11 @@ public class PayloadFactoryMediatorImpl extends MediatorImpl implements PayloadF
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected PayloadFactoryMediatorImpl() {
 		super();
+		setFormat("<inline/>");
 	}
 
 	/**

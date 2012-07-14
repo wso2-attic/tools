@@ -111,10 +111,16 @@ public class EnqueueMediatorImpl extends MediatorImpl implements EnqueueMediator
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected EnqueueMediatorImpl() {
 		super();
+		sequenceKey=EsbFactoryImpl.eINSTANCE.createRegistryKeyProperty();
+		sequenceKey.setPrettyName("Static");
+		sequenceKey.setKeyName("sequence");
+		sequenceKey
+				.setKeyValue(DEFAULT_SEQUENCE_REFERENCE_REGISTRY_KEY);
+		setSequenceKey(sequenceKey);
 	}
 
 	/**
