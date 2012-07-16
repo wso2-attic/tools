@@ -25,8 +25,8 @@ public class Stages {
 	
 	static{
 		stages = new HashMap<String,String>();
-		stages.put("Development", "services/DeployApplicationToDev");
-		stages.put("Live", "services/DeployApplicationToLive");
+		stages.put("Development", "services/DeployToStage");
+		stages.put("Live", "services/DeployToStage");
 	}
 	
 	public static boolean hasStage(String stage){

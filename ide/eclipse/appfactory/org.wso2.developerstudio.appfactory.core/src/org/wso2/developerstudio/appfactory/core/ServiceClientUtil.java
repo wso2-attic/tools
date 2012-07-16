@@ -45,6 +45,7 @@ public class ServiceClientUtil {
 			opts.setAction("urn:" + operation);
 			opts.setManageSession(true);
 			opts.setProperty(COOKIE_STRING, sessionCookie);
+			opts.setTimeOutInMilliSeconds(60*1000);
 			client.setOptions(opts);
 			OMElement element = client.sendReceive(AXIOMUtil.stringToOM(payLoad));
 			String soapMsg;
