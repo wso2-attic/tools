@@ -62,6 +62,7 @@ public class CarExportHandler extends ProjectArtifactHandler {
 		List<IResource> exportResources = new ArrayList<IResource>();
 		List<ArtifactData> artifactList = new ArrayList<ArtifactData>();
 		Map<IProject,Map<String,IResource>> resourceProjectList = new HashMap<IProject,Map<String,IResource>>() ;
+		Map<IProject,Map<String,IResource>> graphicalSynapseProjectList = new HashMap<IProject,Map<String,IResource>>() ;
 		IFile pomFileRes;
 		File pomFile; 
 		MavenProject parentPrj;	
@@ -116,61 +117,26 @@ public class CarExportHandler extends ProjectArtifactHandler {
 							IFile file = ((IProject) parent).getFile((String)self);
 							if(file.exists()) {
 								File synapseConf = file.getLocation().toFile();
-								if (SynapseFileUtils.isSynapseConfGiven(synapseConf ,SynapseEntryType.ALL)) {
-									List<OMElement> synapseArtifacts = SynapseFileUtils.synapseFileProcessing(synapseConf.getPath(),
-									                                               SynapseEntryType.ALL);
-									for (OMElement element : synapseArtifacts) {
-										String localName = element.getLocalName();
-										String qualifiedName = element.getAttributeValue(new QName("name"));
-										if ((qualifiedName == null) || ("".equals(qualifiedName))) {
-											qualifiedName = element.getAttributeValue(new QName("key"));
-											if((qualifiedName == null) || ("".equals(qualifiedName))){
-												log.warn("ignoring unrecognized configuration element" + element.toString());
-												continue;
+								if (SynapseFileUtils.isSynapseConfGiven(synapseConf ,SynapseEntryType.ALL)) {									
+									seperateSynapseConfig(synapseConf, splitESBResources, dependencyData, artifactList);									
+								} else if(dependencyData.getDependency().getType().equals("synapse/graphical-configuration")){									
+									IProject resProject = (IProject) parent;
+									if(!graphicalSynapseProjectList.containsKey(resProject)) {
+										Map<String,IResource> artifacts = new HashMap<String,IResource>(); 
+										List<IResource> buildProject = ExportUtil.buildProject(
+												resProject,
+												dependencyData.getCApptype());
+										for(IResource res : buildProject) {
+											if(res instanceof IFile){
+												IFile synapseFile = resProject.getFile("target"+File.separator+res.getName());												
+												seperateSynapseConfig(synapseFile.getLocation().toFile(), splitESBResources, dependencyData, artifactList);
+												artifacts.put(res.getName(), res);												
 											}
 										}
-										File artifact = new File(splitESBResources.getLocation().toFile(),qualifiedName + ".xml");
-										if(!artifact.exists()){
-											FileUtils.createFile(artifact, element.toString());
-										} else{
-											log.warn("artifact already exists. ignoring... " + element.toString() );
-											continue;
-										}
-										Dependency dummyDependency = new Dependency();
-										dummyDependency.setArtifactId(dependencyData.getDependency().getGroupId());
-										dummyDependency.setVersion(dependencyData.getDependency().getVersion());
-										dummyDependency.setArtifactId(qualifiedName);
-										
-										DependencyData dummyDependencyData = new DependencyData();
-										dummyDependencyData.setServerRole(dependencyData.getServerRole());
-										
-										if (localName.equalsIgnoreCase("sequence")) {
-											dummyDependency.setType("synapse/sequence");
-											dummyDependencyData.setDependency(dummyDependency);
-											dummyDependencyData.setCApptype("synapse/sequence");
-										} else if (localName.equalsIgnoreCase("endpoint")) {
-											dummyDependency.setType("synapse/endpoint");
-											dummyDependencyData.setDependency(dummyDependency);
-											dummyDependencyData.setCApptype("synapse/endpoint");
-										}else if (localName.equalsIgnoreCase("proxy")) {
-											dummyDependency.setType("synapse/proxy-service");
-											dummyDependencyData.setDependency(dummyDependency);
-											dummyDependencyData.setCApptype("synapse/proxy-service");
-										}else if (localName.equalsIgnoreCase("localEntry")) {
-											dummyDependency.setType("synapse/local-entry");
-											dummyDependencyData.setDependency(dummyDependency);
-											dummyDependencyData.setCApptype("synapse/local-entry");
-										} else{
-											log.warn("ignoring unrecognized configuration element" + element.toString());
-											continue;
-										}
-										ArtifactData artifactData = new ArtifactData();
-										artifactData.setDependencyData(dummyDependencyData);
-										artifactData.setFile(getFileName(dummyDependencyData));
-										artifactData.setResource((IResource)splitESBResources.getFile(artifact.getName()));
-										artifactList.add(artifactData);
-									} 
-								} else{
+										graphicalSynapseProjectList.put(resProject, artifacts);
+									}
+									
+									}else{
 									ArtifactData artifactData = new ArtifactData();
 									artifactData.setDependencyData(dependencyData);
 									artifactData.setFile(getFileName(dependencyData));
@@ -304,6 +270,70 @@ public class CarExportHandler extends ProjectArtifactHandler {
 		dependencyElt.addAttribute("include", "true", null);
 		dependencyElt.addAttribute("serverRole", artifact.getDependencyData().getServerRole(), null);
 		return dependencyElt;
+	}
+	
+	private void seperateSynapseConfig(File synapseConf,IFolder splitESBResources,DependencyData dependencyData,List<ArtifactData> artifactList) throws Exception{
+		List<OMElement> synapseArtifacts = SynapseFileUtils
+				.synapseFileProcessing(synapseConf.getPath(),
+						SynapseEntryType.ALL);
+		for (OMElement element : synapseArtifacts) {
+			String localName = element.getLocalName();
+			String qualifiedName = element.getAttributeValue(new QName("name"));
+			if ((qualifiedName == null) || ("".equals(qualifiedName))) {
+				qualifiedName = element.getAttributeValue(new QName("key"));
+				if ((qualifiedName == null) || ("".equals(qualifiedName))) {
+					log.warn("ignoring unrecognized configuration element"
+							+ element.toString());
+					continue;
+				}
+			}
+			File artifact = new File(splitESBResources.getLocation().toFile(),
+					qualifiedName + ".xml");
+			if (!artifact.exists()) {
+				FileUtils.createFile(artifact, element.toString());
+			} else {
+				log.warn("artifact already exists. ignoring... "
+						+ element.toString());
+				continue;
+			}
+			Dependency dummyDependency = new Dependency();
+			dummyDependency.setArtifactId(dependencyData.getDependency()
+					.getGroupId());
+			dummyDependency.setVersion(dependencyData.getDependency()
+					.getVersion());
+			dummyDependency.setArtifactId(qualifiedName);
+
+			DependencyData dummyDependencyData = new DependencyData();
+			dummyDependencyData.setServerRole(dependencyData.getServerRole());
+
+			if (localName.equalsIgnoreCase("sequence")) {
+				dummyDependency.setType("synapse/sequence");
+				dummyDependencyData.setDependency(dummyDependency);
+				dummyDependencyData.setCApptype("synapse/sequence");
+			} else if (localName.equalsIgnoreCase("endpoint")) {
+				dummyDependency.setType("synapse/endpoint");
+				dummyDependencyData.setDependency(dummyDependency);
+				dummyDependencyData.setCApptype("synapse/endpoint");
+			} else if (localName.equalsIgnoreCase("proxy")) {
+				dummyDependency.setType("synapse/proxy-service");
+				dummyDependencyData.setDependency(dummyDependency);
+				dummyDependencyData.setCApptype("synapse/proxy-service");
+			} else if (localName.equalsIgnoreCase("localEntry")) {
+				dummyDependency.setType("synapse/local-entry");
+				dummyDependencyData.setDependency(dummyDependency);
+				dummyDependencyData.setCApptype("synapse/local-entry");
+			} else {
+				log.warn("ignoring unrecognized configuration element"
+						+ element.toString());
+				continue;
+			}
+			ArtifactData artifactData = new ArtifactData();
+			artifactData.setDependencyData(dummyDependencyData);
+			artifactData.setFile(getFileName(dummyDependencyData));
+			artifactData.setResource((IResource) splitESBResources
+					.getFile(artifact.getName()));
+			artifactList.add(artifactData);
+		}
 	}
 
 }
