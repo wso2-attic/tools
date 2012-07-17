@@ -16,5 +16,17 @@
 	<module>org.wso2.developerstudio.appfactory.core</module>
         <module>org.wso2.developerstudio.appfactory.ui</module>	
     </modules>  
+  <repositories>
+    <repository>
+     <id>subclipse</id>
+     <layout>p2</layout>
+     <url>http://subclipse.tigris.org/archive/subclipse_1.8.13</url>
+     <releases>
+        <enabled>true</enabled>
+        <updatePolicy>daily</updatePolicy>
+        <checksumPolicy>ignore</checksumPolicy>
+      </releases>
+   </repository>
+  </repositories>
 </project>
 

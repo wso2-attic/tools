@@ -357,13 +357,22 @@ public class AppfactoryView extends ViewPart {
 						List<String> roles = appMgtClient.getUserRolesForApplication(
 								appInfo.getApplicationKey(), auth.getUserName());
 						if (roles.contains("developer")) {
-							ISVNRepositoryLocation repositoryLocation = getRepository(monitor,
-									appInfo.getApplicationRepoLink(), auth.getUserName(),
-									auth.getPassword());
-							Number revision = repositoryLocation.getSVNClient()
-									.getInfo(repositoryLocation.getUrl()).getRevision();
-							appInfo.setRevision(revision.getNumber());
 							
+							try {
+								ISVNRepositoryLocation repositoryLocation = getRepository(monitor,
+										appInfo.getApplicationRepoLink(), auth.getUserName(),
+										auth.getPassword());
+								Number revision = repositoryLocation.getSVNClient()
+										.getInfo(repositoryLocation.getUrl()).getRevision();
+								appInfo.setRevision(revision.getNumber());
+							} catch (Exception e) {
+								appInfo.setRevision(1);
+							}
+//							try {
+//								Thread.sleep(2*1000);
+//							} catch (Exception e) {
+//								//ignore
+//							}
 							PlatformUI.getWorkbench().getDisplay().syncExec(new Runnable() {
 								public void run() {
 									TableItem item = new TableItem(tblApplication, SWT.None);
@@ -427,6 +436,11 @@ public class AppfactoryView extends ViewPart {
 			root = provider.getRepositories().createRepository(properties);
 			root.validateConnection(monitor);
 			provider.getRepositories().addOrUpdateRepository(root);
+		} else{
+//			root.setUsername(userName);
+//			root.setPassword(password);
+//			root.validateConnection(monitor);
+//			provider.getRepositories().addOrUpdateRepository(root);
 		}
 		
 		return root;
@@ -444,7 +458,7 @@ public class AppfactoryView extends ViewPart {
 					String url = appInfo.getApplicationRepoLink();
 					String revision = Long.toString(appInfo.getRevision());
 					DeployUtil deployUtil = new DeployUtil(auth);
-					result[0] = deployUtil.deployToStage(url, revision, appKey, stage);
+					result[0] = deployUtil.deployToStage(appKey, revision,"1.0" , stage);
 				} catch (Exception e) {
 					throw new InvocationTargetException(e);
 				}
