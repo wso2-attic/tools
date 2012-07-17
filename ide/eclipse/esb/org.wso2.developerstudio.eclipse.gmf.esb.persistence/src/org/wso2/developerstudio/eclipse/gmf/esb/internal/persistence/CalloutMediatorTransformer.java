@@ -15,9 +15,10 @@ public class CalloutMediatorTransformer extends AbstractEsbNodeTransformer {
 
 	public void transform(TransformationInfo information, EsbNode subject)
 			throws Exception {
-		// TODO Auto-generated method stub
 		information.getParentSequence().addChild(createCalloutMediator(subject));
-		// Transform the property mediator output data flow path.
+		/*
+		 *  Transform the property mediator output data flow path.
+		 */
 		doTransform(information,
 				((CalloutMediator) subject).getOutputConnector());
 		
@@ -25,35 +26,50 @@ public class CalloutMediatorTransformer extends AbstractEsbNodeTransformer {
 
 	public void createSynapseObject(TransformationInfo info, EObject subject,
 			List<Endpoint> endPoints) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	public void transformWithinSequence(TransformationInfo information,
 			EsbNode subject, SequenceMediator sequence) throws Exception {
-		// TODO Auto-generated method stub
 		sequence.addChild(createCalloutMediator(subject));
-		doTransformWithinSequence(information,((CalloutMediator) subject).getOutputConnector().getOutgoingLink(),sequence);
-		
-		
+		doTransformWithinSequence(information,((CalloutMediator) subject).getOutputConnector().getOutgoingLink(),sequence);		
 	}
 	
 	private org.apache.synapse.mediators.builtin.CalloutMediator createCalloutMediator(EsbNode subject) throws Exception{
-		// Check subject.
+		/*
+		 *  Check subject.
+		 */
 		Assert.isTrue(subject instanceof CalloutMediator, "Invalid subject.");
 		CalloutMediator visualCallout = (CalloutMediator) subject;
-
-		// Configure Callout mediator.
+		/*
+		 *  Configure Callout mediator.
+		 */
 		org.apache.synapse.mediators.builtin.CalloutMediator calloutMediator = new org.apache.synapse.mediators.builtin.CalloutMediator();
 		{
 			calloutMediator.setServiceURL(visualCallout.getServiceURL());
 			calloutMediator.setAction(visualCallout.getSoapAction());
-			SynapseXPath payloadXPath=new SynapseXPath(visualCallout.getPayloadMessageXpath().getPropertyValue());
-			calloutMediator.setRequestXPath(payloadXPath);			
-			SynapseXPath resultXPath=new SynapseXPath(visualCallout.getResultMessageXpath().getPropertyValue());
-			calloutMediator.setTargetXPath(resultXPath);
+			String payloadXpathValue;
+			if(visualCallout.getPayloadType().getValue()==0){
+				payloadXpathValue = visualCallout.getPayloadMessageXpath().getPropertyValue();
+			}else{
+				payloadXpathValue = visualCallout.getPayloadRegistryKey().getKeyValue(); 
+			}
+			SynapseXPath payloadXPath=new SynapseXPath(payloadXpathValue);
+			calloutMediator.setRequestXPath(payloadXPath);
+			if(visualCallout.getResultType().getValue()==0){
+				String resultXPathValue = visualCallout.getResultMessageXpath().getPropertyValue();
+				SynapseXPath resultXPath=new SynapseXPath(resultXPathValue);
+				calloutMediator.setTargetXPath(resultXPath);
+			}else{
+				calloutMediator.setTargetKey(visualCallout.getResultContextProperty());
+			}
+
+			if(!visualCallout.getPathToAxis2Repository().equals("")){
 			calloutMediator.setClientRepository(visualCallout.getPathToAxis2Repository());
+			}
+			if(!visualCallout.getPathToAxis2xml().equals("")){
 			calloutMediator.setAxis2xml(visualCallout.getPathToAxis2xml());
+			}
 		}
 		return calloutMediator;
 	}

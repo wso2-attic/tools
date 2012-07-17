@@ -2,6 +2,11 @@ package org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence;
 
 import java.util.List;
 
+import javax.xml.namespace.QName;
+
+import org.apache.axiom.om.OMElement;
+import org.apache.axiom.om.impl.llom.OMElementImpl;
+import org.apache.axiom.om.util.AXIOMUtil;
 import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.eclipse.core.runtime.Assert;
@@ -14,10 +19,10 @@ public class ThrottleMediatorTransformer extends AbstractEsbNodeTransformer  {
 
 	public void transform(TransformationInfo information, EsbNode subject)
 			throws Exception {
-		// TODO Auto-generated method stub
-		information.getParentSequence().addChild(createThrottleMediator(subject,information));
-		
-		// Transform the Throttle mediator output data flow path.
+		information.getParentSequence().addChild(createThrottleMediator(subject,information));		
+		/*
+		 *  Transform the Throttle mediator output data flow path.
+		 */
 		doTransform(information,
 				((ThrottleMediator) subject).getOutputConnector());
 		
@@ -25,33 +30,38 @@ public class ThrottleMediatorTransformer extends AbstractEsbNodeTransformer  {
 
 	public void createSynapseObject(TransformationInfo info, EObject subject,
 			List<Endpoint> endPoints) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	public void transformWithinSequence(TransformationInfo information,
 			EsbNode subject, SequenceMediator sequence) throws Exception {
-		// TODO Auto-generated method stub
 		sequence.addChild(createThrottleMediator(subject,information));
-		doTransformWithinSequence(information,((ThrottleMediator) subject).getOutputConnector().getOutgoingLink(),sequence);
-		
+		doTransformWithinSequence(information,((ThrottleMediator) subject).getOutputConnector().getOutgoingLink(),sequence);	
 		
 	}
 	
 
 	private org.apache.synapse.mediators.throttle.ThrottleMediator createThrottleMediator(EsbNode subject,TransformationInfo information) throws Exception{
-		// Check subject.
+		/*
+		 *  Check subject.
+		 */
 		Assert.isTrue(subject instanceof ThrottleMediator, "Invalid subject.");
 		ThrottleMediator visualThrottle = (ThrottleMediator) subject;
-
-		// Configure property mediator.
+		/*
+		 *  Configure property mediator.
+		 */
 		org.apache.synapse.mediators.throttle.ThrottleMediator throttleMediator = new org.apache.synapse.mediators.throttle.ThrottleMediator();
 		{
 			throttleMediator.setId(visualThrottle.getGroupId());
-		}
+			OMElement policy =  AXIOMUtil.stringToOM("<wsp:Policy"+" xmlns:wsp="+"\"http://schemas.xmlsoap.org/ws/2004/09/policy\""+" xmlns:wsu=\"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd\""+" wsu:Id=\"WSO2MediatorThrottlingPolicy\">"
+                +"<throttle:MediatorThrottleAssertion xmlns:throttle=\"http://www.wso2.org/products/wso2commons/throttle\"/>"
+            +"</wsp:Policy>");
+			throttleMediator.setInLinePolicy(policy);
+		}		
 		
-		
-		// Transform onAccept output data flow path.
+		/*
+		 *  Transform onAccept output data flow path.
+		 */
 		SequenceMediator onAccept = new SequenceMediator();
 		throttleMediator.setOnAcceptMediator(onAccept);
 		TransformationInfo newOnAcceptInfo = new TransformationInfo();
@@ -63,7 +73,9 @@ public class ThrottleMediatorTransformer extends AbstractEsbNodeTransformer  {
 		doTransform(newOnAcceptInfo, visualThrottle.getOnAcceptOutputConnector());
 		//doTransformWithinSequence(newThenInfo,((FilterMediator) subject).getPassOutputConnector().getOutgoingLink(),sequence);
 		
-		// Transform onReject output data flow path.
+		/*
+		 *  Transform onReject output data flow path.
+		 */
 		SequenceMediator onReject = new SequenceMediator();
 		throttleMediator.setOnRejectMediator(onReject);
 		TransformationInfo newOnRejectInfo = new TransformationInfo();
