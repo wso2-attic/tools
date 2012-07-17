@@ -67,7 +67,9 @@ public class ThrottleMediatorItemProvider
 		}
 			super.getPropertyDescriptors(object);
 
-			addGroupIdPropertyDescriptor(object);		
+			addGroupIdPropertyDescriptor(object);
+			addPolicyTypePropertyDescriptor(object);
+			addMaxConcurrentAccessCountPropertyDescriptor(object);
 		return itemPropertyDescriptors;
 	}
 
@@ -89,6 +91,38 @@ public class ThrottleMediatorItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+	
+	protected void addPolicyTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ThrottlePolicyConfiguration_policyType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ThrottlePolicyConfiguration_policyType_feature", "_UI_ThrottlePolicyConfiguration_type"),
+				 EsbPackage.Literals.THROTTLE_POLICY_CONFIGURATION__POLICY_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+	
+	protected void addMaxConcurrentAccessCountPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ThrottlePolicyConfiguration_maxConcurrentAccessCount_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ThrottlePolicyConfiguration_maxConcurrentAccessCount_feature", "_UI_ThrottlePolicyConfiguration_type"),
+				 EsbPackage.Literals.THROTTLE_POLICY_CONFIGURATION__MAX_CONCURRENT_ACCESS_COUNT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
