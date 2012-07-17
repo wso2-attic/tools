@@ -51,6 +51,7 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.wizard.IWizardPage;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.ide.IDE;
+import org.wso2.developerstudio.eclipse.artifact.registry.handler.Activator;
 import org.wso2.developerstudio.eclipse.artifact.registry.handler.model.RegistryHandlerModel;
 import org.wso2.developerstudio.eclipse.artifact.registry.handler.ui.wizard.pages.FilterCreationOptionsWizardPage;
 import org.wso2.developerstudio.eclipse.artifact.registry.handler.ui.wizard.pages.HandlerMethodsInfoPage;
@@ -67,6 +68,8 @@ import org.wso2.developerstudio.eclipse.artifact.registry.handler.util.HandlerIn
 import org.wso2.developerstudio.eclipse.artifact.registry.handler.util.JavaCodeFormatter;
 import org.wso2.developerstudio.eclipse.artifact.registry.handler.util.RegistryHandlerUtils;
 import org.wso2.developerstudio.eclipse.libraries.utils.LibraryUtils;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.maven.util.ProjectDependencyConstants;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
@@ -81,6 +84,7 @@ import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 
 public class RegistryHandlerCreationWizard extends
 		AbstractWSO2ProjectCreationWizard {
+	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	
 	private static final String ACTIVATOR_FQN= "org.osgi.framework.BundleActivator";
 	private NewHandlerClassWizardPage newHandlerClassWizardPage;
@@ -169,6 +173,18 @@ public class RegistryHandlerCreationWizard extends
 					updatePom(project);
 					project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 				} else{
+					handlerSelectedMethod = regModel.getHandlerClassSeletionMethod();
+					if (handlerSelectedMethod.equals(Constants.NEW_HANDLER_CLASS_TEXT)) {
+						handlerClass = newHandlerClassWizardPage.getClassName();
+						handlerPackageName = newHandlerClassWizardPage.getPackageName();
+						fullyQualifiedHandlerClassName = handlerPackageName + "." + handlerClass;
+					} else if (handlerSelectedMethod.equals(Constants.IMPORT_HANDLER_CLASS_FROM_WS_TEXT)) {
+						fullyQualifiedHandlerClassName = importHandlerClassWizardPage.getHandlerClassName();
+						importHandlerFromWs = true;
+						importHandlerProject =
+						                       getKeyByValue(regModel.getImportHandlerList(),
+						                                     fullyQualifiedHandlerClassName);
+					}
 					addDependancies(project);
 					generateHandler();
 				}
@@ -183,19 +199,6 @@ public class RegistryHandlerCreationWizard extends
 	}
 	
 	private void generateHandler() throws Exception {
-		handlerSelectedMethod = regModel.getHandlerClassSeletionMethod();
-		if (handlerSelectedMethod.equals(Constants.NEW_HANDLER_CLASS_TEXT)) {
-			handlerClass = newHandlerClassWizardPage.getClassName();
-			handlerPackageName = newHandlerClassWizardPage.getPackageName();
-			fullyQualifiedHandlerClassName = handlerPackageName + "." + handlerClass;
-		} else if (handlerSelectedMethod.equals(Constants.IMPORT_HANDLER_CLASS_FROM_WS_TEXT)) {
-			fullyQualifiedHandlerClassName = importHandlerClassWizardPage.getHandlerClassName();
-			importHandlerFromWs = true;
-			importHandlerProject =
-			                       getKeyByValue(regModel.getImportHandlerList(),
-			                                     fullyQualifiedHandlerClassName);
-		}
-
 		selectedHandlerMethods = handlerMethodsInfoPage.getSelectedMethods();
 		handlerProperties = handlerMethodsInfoPage.getHandlerPropertyMap();
 
@@ -950,23 +953,7 @@ public class RegistryHandlerCreationWizard extends
 		bundleActivatorNode.setValue(BUNDLE_ACTIVATOR_NAME);
 		exportPackageNode.setValue(getExportedPackage(handlerInfo));
 		dynamicImportNode.setValue("*");
-		
-		
-//		instructionNode.addChild(bundleSymbolicNameNode);
-//		instructionNode.addChild(bundleNameNode);
-//		instructionNode.addChild(bundleActivatorNode);
-//		instructionNode.addChild(exportPackageNode);
-//		instructionNode.addChild(dynamicImportNode);
-		
 		configurationNode.addChild(instructionNode);
-		
-//		PluginExecution pluginExecution;
-//
-//		pluginExecution = new PluginExecution();
-//		pluginExecution.addGoal("pom-gen");
-//		pluginExecution.setPhase("process-resources");
-//		pluginExecution.setId("registry-handler");
-//		plugin.addExecution(pluginExecution);
 
 		Repository repo = new Repository();
 		repo.setUrl("http://maven.wso2.org/nexus/content/groups/wso2-public/");
@@ -974,8 +961,6 @@ public class RegistryHandlerCreationWizard extends
 
 		mavenProject.getModel().addRepository(repo);
 		mavenProject.getModel().addPluginRepository(repo);
-		
-		
 
 		List<Dependency> dependencyList = new ArrayList<Dependency>();
 
@@ -999,13 +984,78 @@ public class RegistryHandlerCreationWizard extends
 		if (importHandlerFromWs && importHandlerProject!=null) {	
 			try {
 				IFile pomFile = importHandlerProject.getFile("pom.xml");
-				MavenProject importHandlermavenProject = MavenUtils.getMavenProject(pomFile.getLocation().toFile());
+				MavenProject workspaceProject;
+				if(pomFile.exists()){
+					workspaceProject = MavenUtils.getMavenProject(pomFile.getLocation().toFile());
+				} else{
+					String srcDir = "src";
+					workspaceProject = MavenUtils.createMavenProject(
+							"org.wso2.carbon." + importHandlerProject.getName(),
+							importHandlerProject.getName(), "1.0.0", "jar");
+					IJavaProject javaProject = JavaCore.create(importHandlerProject);
+					IClasspathEntry[] classpath = javaProject.getRawClasspath();
+					int entryCount = 0;
+					for (IClasspathEntry classpathEntry : classpath) {
+						if (classpathEntry.getEntryKind() == IClasspathEntry.CPE_SOURCE) {
+							if (entryCount == 0) {
+								String entryPath = "";
+								String[] pathSegments = classpathEntry.getPath().segments();
+								if(pathSegments.length >1){
+									for (int i = 1; i < pathSegments.length; i++) {
+										if(i==1){
+											entryPath = pathSegments[i];
+										} else{
+											entryPath += "/" + pathSegments[i];
+										}
+									}
+									if(entryPath.length()>0){
+										srcDir = entryPath;
+										++entryCount;
+									}
+								}
+							} else {
+								log.warn("multiple source directories found, Considering '" + srcDir + "' as source directory");
+								break;
+							}
+						}
+					}
+					if(entryCount==0){
+						log.warn("No source directory specified, using default source directory.");
+					}
+					workspaceProject.getBuild().setSourceDirectory(srcDir);
+					
+					Repository nexusRepo = new Repository();
+					nexusRepo.setUrl("http://maven.wso2.org/nexus/content/groups/wso2-public/");
+					nexusRepo.setId("wso2-maven2-repository-1");
+					workspaceProject.getModel().addRepository(nexusRepo);
+					workspaceProject.getModel().addPluginRepository(nexusRepo);
+
+					List<Dependency> libList = new ArrayList<Dependency>();
+
+					Map<String, JavaLibraryBean> dependencyMap = JavaLibraryUtil
+							.getDependencyInfoMap(importHandlerProject);
+					
+					for (JavaLibraryBean bean : dependencyMap.values()) {
+						Dependency dependency = new Dependency();
+						dependency.setArtifactId(bean.getArtifactId());
+						dependency.setGroupId(bean.getGroupId());
+						dependency.setVersion(bean.getVersion());
+						libList.add(dependency);
+					}
+					
+					workspaceProject.setDependencies(libList);
+					MavenUtils.saveMavenProject(workspaceProject, pomFile.getLocation().toFile());
+					project.refreshLocal(IResource.DEPTH_INFINITE,new NullProgressMonitor());
+				}
+				
 				Dependency dependency = new Dependency();
-				dependency.setArtifactId(importHandlermavenProject.getArtifactId());
-				dependency.setGroupId(importHandlermavenProject.getGroupId());
-				dependency.setVersion(importHandlermavenProject.getVersion());
+				dependency.setArtifactId(workspaceProject.getArtifactId());
+				dependency.setGroupId(workspaceProject.getGroupId());
+				dependency.setVersion(workspaceProject.getVersion());
 				dependencyList.add(dependency);
-			} catch (Exception ignored) { /*ignored*/}
+			} catch (Exception e) { 
+				log.warn("Error reading or updating pom file.",e);	
+			}
 		}
 		
 		MavenUtils.addMavenDependency(mavenProject, dependencyList);
