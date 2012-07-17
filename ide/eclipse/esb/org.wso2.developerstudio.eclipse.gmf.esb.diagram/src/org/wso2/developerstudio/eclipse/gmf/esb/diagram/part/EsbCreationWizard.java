@@ -1,18 +1,30 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.part;
 
+import java.io.File;
 import java.lang.reflect.InvocationTargetException;
 
+import org.eclipse.core.internal.resources.Folder;
+import org.eclipse.core.internal.resources.Project;
+import org.eclipse.core.resources.IContainer;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.TreeSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
+import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBArtifact;
+import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
+import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 
 /**
  * @generated
@@ -48,6 +60,14 @@ public class EsbCreationWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 	private boolean openNewlyCreatedDiagramEditor = true;
+	
+	private IProject esbProject;
+	
+	private ESBProjectArtifact esbProjectArtifact;
+	
+	private URI fileCreationLocationDiagram;
+	
+	private URI fileCreationLocationDomain;
 
 	/**
 	 * @generated
@@ -131,16 +151,51 @@ public class EsbCreationWizard extends Wizard implements INewWizard {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean performFinish() {
+		try{
+		if(((TreeSelection)getSelection()).toArray()[0] instanceof Folder){
+			esbProject=((Folder)((TreeSelection)getSelection()).toArray()[0]).getProject();
+		}		
+		if(((TreeSelection)getSelection()).toArray()[0] instanceof Project){
+			esbProject=(Project)((TreeSelection)getSelection()).toArray()[0];
+		}		
+		esbProjectArtifact=new ESBProjectArtifact();
+		esbProjectArtifact.fromFile(esbProject.getFile("artifact.xml").getLocation().toFile());
+		
+		IContainer location = esbProject.getFolder("src" + File.separator + "main" +
+                File.separator +
+                "synapse-config");
+		
+		fileCreationLocationDiagram= URI.createPlatformResourceURI(location.getFullPath().toString()+"/"+diagramModelFilePage.getFileName(), false);
+		fileCreationLocationDomain= URI.createPlatformResourceURI(location.getFullPath().toString()+"/"+domainModelFilePage.getFileName(), false);
+		
+		String relativePathDiagram = FileUtils.getRelativePath(
+				esbProject.getLocation().toFile(),
+				new File(location.getLocation().toFile(), diagramModelFilePage.getFileName()));
+		esbProjectArtifact.addESBArtifact(createArtifact(
+				diagramModelFilePage.getFileName().split(".esb_diagram")[0], "test", "1.0.0", relativePathDiagram));
+		
+		esbProjectArtifact.toFile();
+		esbProject.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
+		} catch (CoreException e) {
+			System.out.println("Error ESBCreationWizard");
+		} catch (Exception e) {
+			System.out.println("Error ESBCreationWizard");
+		}
+			
+		//IProject currentProject = ResourcesPlugin.getWorkspace().
 		IRunnableWithProgress op = new WorkspaceModifyOperation(null) {
 
 			protected void execute(IProgressMonitor monitor)
 					throws CoreException, InterruptedException {
-				diagram = EsbDiagramEditorUtil.createDiagram(
+				/*diagram = EsbDiagramEditorUtil.createDiagram(
 						diagramModelFilePage.getURI(),
-						domainModelFilePage.getURI(), monitor);
+						domainModelFilePage.getURI(), monitor);  */
+				diagram = EsbDiagramEditorUtil.createDiagram(
+						fileCreationLocationDiagram,
+						fileCreationLocationDomain, monitor);
 				if (isOpenNewlyCreatedDiagramEditor() && diagram != null) {
 					try {
 						EsbDiagramEditorUtil.openDiagram(diagram);
@@ -168,5 +223,16 @@ public class EsbCreationWizard extends Wizard implements INewWizard {
 			return false;
 		}
 		return diagram != null;
+	}
+	
+	private ESBArtifact createArtifact(String name,String groupId,String version,String path){
+		ESBArtifact artifact=new ESBArtifact();
+		artifact.setName(name);
+		artifact.setVersion(version);
+		artifact.setType("synapse/graphical-configuration");
+		artifact.setServerRole("EnterpriseServiceBus");
+		artifact.setGroupId(groupId);
+		artifact.setFile(path);
+		return artifact;
 	}
 }

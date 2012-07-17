@@ -2431,6 +2431,15 @@
          <Priority name="Lowest"/>
       </ParserProvider>
    </extension>
+   
+      <extension
+         point="org.wso2.developerstudio.eclipse.project.export.handler">
+      <handler
+            class="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.export.SynapseArtfactExportHandler"
+            id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.export.export.handler"
+            type="synapse/graphical-configuration">
+      </handler>
+   </extension>
 
 
 
