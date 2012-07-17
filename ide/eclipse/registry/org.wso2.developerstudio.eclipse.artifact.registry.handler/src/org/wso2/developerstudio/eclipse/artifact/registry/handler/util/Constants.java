@@ -71,6 +71,8 @@ public class Constants extends NLS{
 	public static String METHOD_INFO_RESOURCE_EXISTS;
 	public static String METHOD_INFO_DUMP;
 	public static String METHOD_INFO_RESTORE;
+	public static String CLASS_FQN_URL_MATCHER;
+	public static String CLASS_FQN_MEDIA_TYPE_MATCHER;
 	
 	
 	

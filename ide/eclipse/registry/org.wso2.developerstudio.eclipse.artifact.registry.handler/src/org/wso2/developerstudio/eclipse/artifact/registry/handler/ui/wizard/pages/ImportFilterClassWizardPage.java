@@ -79,8 +79,8 @@ public class ImportFilterClassWizardPage extends WizardPage{
 
 	public void createControl(Composite parent) {
 		allFilterClassesList = new ArrayList<String>();
-		allFilterClassesList.add("org.wso2.carbon.registry.core.jdbc.handlers.filters.MediaTypeMatcher");
-		allFilterClassesList.add("org.wso2.carbon.registry.core.jdbc.handlers.filters.URLMatcher");
+		allFilterClassesList.add(Constants.CLASS_FQN_MEDIA_TYPE_MATCHER);
+		allFilterClassesList.add(Constants.CLASS_FQN_URL_MATCHER);
 		
 		Composite container = new Composite(parent, SWT.NULL);
 		GridLayout layout = new GridLayout();
@@ -103,10 +103,10 @@ public class ImportFilterClassWizardPage extends WizardPage{
 			public void widgetSelected(SelectionEvent arg0) {
 				setClassName(filterClassesCombo.getText());
 				if (filterClassesCombo.getText().equals(
-						"org.wso2.carbon.registry.core.jdbc.handlers.filters.MediaTypeMatcher")) {
+						Constants.CLASS_FQN_MEDIA_TYPE_MATCHER)) {
 					getMediaTypeMatcherFilterMap();
 				} else if (filterClassesCombo.getText().equals(
-						"org.wso2.carbon.registry.core.jdbc.handlers.filters.URLMatcher")) {
+						Constants.CLASS_FQN_URL_MATCHER)) {
 					getURLMatcherFilterMap();
 				} else {
 					getFilterMapForClass(filterClassesCombo.getText());
@@ -177,10 +177,10 @@ public class ImportFilterClassWizardPage extends WizardPage{
 			setClassName(filterClassesCombo.getText());
 		}
 
-		if (filterClassesCombo.getText().equals("org.wso2.carbon.registry.core.jdbc.handlers.filters.MediaTypeMatcher")) {
+		if (filterClassesCombo.getText().equals(Constants.CLASS_FQN_MEDIA_TYPE_MATCHER)) {
 			getMediaTypeMatcherFilterMap();
 		} else if (filterClassesCombo.getText()
-				.equals("org.wso2.carbon.registry.core.jdbc.handlers.filters.URLMatcher")) {
+				.equals(Constants.CLASS_FQN_URL_MATCHER)) {
 			getURLMatcherFilterMap();
 		} else {
 			getFilterMapForClass(filterClassesCombo.getText());

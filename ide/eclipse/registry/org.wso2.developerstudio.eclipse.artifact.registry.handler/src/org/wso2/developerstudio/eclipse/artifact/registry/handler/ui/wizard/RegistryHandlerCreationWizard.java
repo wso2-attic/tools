@@ -1015,11 +1015,30 @@ public class RegistryHandlerCreationWizard extends
 	
 	private String getExportedPackage(HandlerInfo handlerInfo){
 		String handlerCls = handlerInfo.getHandlerClass();
+		String filterCls =handlerInfo.getFilterClass();
 		String[] collection = handlerCls.split("\\.");
 		StringBuffer sb=new StringBuffer();
-		sb.append(collection[0]);
-		for (int i = 1; i< collection.length; i++) {
-			sb.append(".").append(collection[i]);
+		if (collection.length > 0) {
+			sb.append(collection[0]);
+			for (int i = 1; i < (collection.length - 1); i++) {
+				sb.append(".").append(collection[i]);
+			}
+		}
+		if (filterCls != null) {
+			if (!(filterCls.equals(Constants.CLASS_FQN_URL_MATCHER) || filterCls
+					.equals(Constants.CLASS_FQN_MEDIA_TYPE_MATCHER))) {
+				String[] segments = filterCls.split("\\.");
+				StringBuffer buffer=new StringBuffer();
+				buffer.append(segments[0]);
+				if (segments.length > 0) {
+					for (int i = 1; i < (segments.length - 1); i++) {
+						buffer.append(".").append(segments[i]);
+					}
+				}
+				if(!sb.toString().equals(buffer.toString())){
+					sb.append(",").append(buffer);
+				}
+			}
 		}
 		return sb.toString();
 		

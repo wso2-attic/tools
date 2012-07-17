@@ -24,7 +24,9 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 import org.apache.maven.model.Dependency;
+import org.apache.maven.model.Plugin;
 import org.apache.maven.project.MavenProject;
+import org.codehaus.plexus.util.xml.Xpp3Dom;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
@@ -37,6 +39,9 @@ import org.eclipse.jdt.core.IPackageFragmentRoot;
 import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.jdt.core.IType;
 import org.eclipse.jdt.core.JavaCore;
+import org.wso2.developerstudio.eclipse.artifact.registry.handler.Activator;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.platform.core.manifest.BundleManifest;
 import org.wso2.developerstudio.eclipse.platform.core.project.export.ProjectArtifactHandler;
@@ -46,6 +51,7 @@ import org.wso2.developerstudio.eclipse.utils.file.TempFileUtils;
 
 public class RegistryHandlerArtifactHandler extends ProjectArtifactHandler {
 	private static final String ACTIVATOR_FQN= "org.osgi.framework.BundleActivator";
+	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 
 	public List<IResource> exportArtifact(IProject project) throws Exception {
 		List<IResource> exportResources = new ArrayList<IResource>();
@@ -84,6 +90,31 @@ public class RegistryHandlerArtifactHandler extends ProjectArtifactHandler {
 						}
 					}
 				}
+			}
+		}
+		
+		List<Plugin> plugins = mavenProject.getBuild().getPlugins();
+		for (Plugin plugin : plugins) {
+			if("maven-bundle-plugin".equalsIgnoreCase(plugin.getArtifactId())){
+				Xpp3Dom configurationNode = (Xpp3Dom) plugin.getConfiguration();
+				Xpp3Dom[] instructions = configurationNode.getChildren("instructions");
+				if(instructions.length==1){
+					Xpp3Dom[] exportPackage = instructions[0].getChildren("Export-Package");
+					if(exportPackage.length==1){
+						exportedPackageList.clear(); //clear default configuration (All packages by default)
+						String packages = exportPackage[0].getValue();
+						if(packages!=null){
+							exportedPackageList.addAll(Arrays.asList(packages.split(",")));
+						}
+					} else{
+						log.warn("Invalid configuration for <Export-Package> entry"
+								+ " using default configuration for <Export-Package>");
+					}
+				} else{
+					log.warn("Invalid instructions configuration for plugin : maven-bundle-plugin"
+							+ " using default configuration for <Export-Package>");
+				}
+				break; //not considering multiple versions of the maven-bundle-plugin
 			}
 		}
 
