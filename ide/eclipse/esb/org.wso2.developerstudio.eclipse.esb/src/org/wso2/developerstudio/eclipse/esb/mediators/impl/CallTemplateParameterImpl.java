@@ -117,7 +117,7 @@ public class CallTemplateParameterImpl extends ModelObjectImpl implements CallTe
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected CallTemplateParameterImpl() {
 		super();
