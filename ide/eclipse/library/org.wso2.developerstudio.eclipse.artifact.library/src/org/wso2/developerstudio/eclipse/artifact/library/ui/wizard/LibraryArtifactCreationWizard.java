@@ -50,6 +50,8 @@ import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCr
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.pages.MavenDetailsPage;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.pages.ProjectOptionsDataPage;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
+import org.wso2.developerstudio.eclipse.utils.jdt.JavaLibraryBean;
+import org.wso2.developerstudio.eclipse.utils.jdt.JavaLibraryUtil;
 import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 
 public class LibraryArtifactCreationWizard extends
@@ -133,6 +135,28 @@ public class LibraryArtifactCreationWizard extends
 						if(entryCount==0){
 							log.warn("No source directory specified, using default source directory.");
 						}
+						
+						/* adding wso2 nexus repository */
+						Repository nexusRepo = new Repository();
+						nexusRepo.setUrl("http://maven.wso2.org/nexus/content/groups/wso2-public/");
+						nexusRepo.setId("wso2-maven2-repository-1");
+						mavenProject.getModel().addRepository(nexusRepo);
+						mavenProject.getModel().addPluginRepository(nexusRepo);
+						
+						/* adding maven dependencies */
+						List<Dependency> libList = new ArrayList<Dependency>();
+						Map<String, JavaLibraryBean> dependencyMap = JavaLibraryUtil
+								.getDependencyInfoMap(workSpacePrj);
+
+						for (JavaLibraryBean bean : dependencyMap.values()) {
+							Dependency dependency = new Dependency();
+							dependency.setArtifactId(bean.getArtifactId());
+							dependency.setGroupId(bean.getGroupId());
+							dependency.setVersion(bean.getVersion());
+							libList.add(dependency);
+						}
+						mavenProject.setDependencies(libList);
+						
 						mavenProject.getBuild().setSourceDirectory(srcDir);
 						MavenUtils.saveMavenProject(mavenProject, pomfile);
 					}
