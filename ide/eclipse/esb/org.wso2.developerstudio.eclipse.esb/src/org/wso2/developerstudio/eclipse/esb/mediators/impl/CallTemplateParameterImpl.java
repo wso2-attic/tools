@@ -121,6 +121,13 @@ public class CallTemplateParameterImpl extends ModelObjectImpl implements CallTe
 	 */
 	protected CallTemplateParameterImpl() {
 		super();
+		/* Initialize parameter expression. */
+		parameterExpression = getEsbFactory()
+				.createNamespacedProperty();
+		parameterExpression.setPrettyName("expression");
+		parameterExpression.setPropertyName("Expression");
+		parameterExpression.setPropertyValue("/default/expression");
+		setParameterExpression(parameterExpression);
 	}
 	
 	/**
