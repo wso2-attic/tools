@@ -16,6 +16,9 @@
 
 package org.wso2.developerstudio.eclipse.platform.ui.validator;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.wso2.developerstudio.eclipse.platform.core.exception.FieldValidationException;
@@ -61,6 +64,14 @@ public static void validateProjectField(Object value) throws FieldValidationExce
 	String projectName = value.toString();
 	if (projectName.trim().equals("")) {
 		throw new FieldValidationException("Project name cannot be empty");
+	} else{
+		if(projectName.indexOf(0x20)!=-1){
+			throw new FieldValidationException("Project name cannot contain spaces");
+		} else{
+		    if(!isValidArtifactName(projectName)){
+		    	throw new FieldValidationException("Project name cannot contain invalid characters");	
+		    }
+		}
 	}
 	IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
 
@@ -82,5 +93,11 @@ public static void isValidUrl(String url,String field) throws FieldValidationExc
 		throw new FieldValidationException( field + ": Invalid URL provided");
 	}
 }
+
+	public static boolean isValidArtifactName(String name) throws FieldValidationException {
+		Pattern pattern = Pattern.compile("^[^/\\ \\\\:;*#\\$?\"<>|\\(\\)]+$");
+		Matcher matcher = pattern.matcher(name);
+		return matcher.matches();
+	}
 	
 }
