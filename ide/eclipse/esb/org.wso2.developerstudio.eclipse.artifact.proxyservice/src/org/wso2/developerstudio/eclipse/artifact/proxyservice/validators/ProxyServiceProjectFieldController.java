@@ -17,17 +17,20 @@
 package org.wso2.developerstudio.eclipse.artifact.proxyservice.validators;
 
 import org.apache.axiom.om.OMElement;
+import org.eclipse.core.resources.IContainer;
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.wso2.developerstudio.eclipse.artifact.proxyservice.model.ProxyServiceModel;
 import org.wso2.developerstudio.eclipse.artifact.proxyservice.model.ProxyServiceModel.TargetEPType;
 import org.wso2.developerstudio.eclipse.artifact.proxyservice.utils.PsArtifactConstants;
+import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBArtifact;
+import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
 import org.wso2.developerstudio.eclipse.platform.core.exception.FieldValidationException;
 import org.wso2.developerstudio.eclipse.platform.core.model.AbstractFieldController;
 import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectDataModel;
 import org.wso2.developerstudio.eclipse.platform.core.templates.ArtifactTemplate;
 import org.wso2.developerstudio.eclipse.platform.ui.validator.CommonFieldValidator;
 
-import java.io.File;
 import java.util.List;
 
 public class ProxyServiceProjectFieldController extends AbstractFieldController {
@@ -43,21 +46,32 @@ public class ProxyServiceProjectFieldController extends AbstractFieldController 
 			optCustomProxy = selectedTemplate.getId().equalsIgnoreCase(PsArtifactConstants.CUSTOM_PROXY_TEMPL_ID);	
 		}
 		if (modelProperty.equals("ps.name")) {
-			if (value == null) {
-				throw new FieldValidationException("Proxy service name cannot be empty");
+			CommonFieldValidator.validateArtifactName(value);
+			if (value != null) {
+				String resource = value.toString();
+				ProxyServiceModel proxyModel = (ProxyServiceModel) model;
+				if (proxyModel != null) {
+					IContainer resLocation = proxyModel.getProxyServiceSaveLocation();
+					if (resLocation != null) {
+						IProject project = resLocation.getProject();
+						ESBProjectArtifact esbProjectArtifact = new ESBProjectArtifact();
+						try {
+							esbProjectArtifact.fromFile(project.getFile("artifact.xml").getLocation().toFile());
+							List<ESBArtifact> allArtifacts = esbProjectArtifact.getAllESBArtifacts();
+							for (ESBArtifact artifact : allArtifacts) {
+								if (resource.equals(artifact.getName())) {
+									throw new FieldValidationException("");
+								}
+							}
+
+						} catch (Exception e) {
+							throw new FieldValidationException("Artifact name already exsits");
+						}
+					}
+				}		 	 
 			}
-			String proxyName = value.toString();
-			if (proxyName.trim().equals("")) {
-				throw new FieldValidationException("Proxy service name cannot be empty");
-			}
-		} else if (modelProperty.equals("import.file")) {
-			if (value == null) {
-				throw new FieldValidationException("Specified configuration file location is invalid");
-			}
-			File proxyFile = (File) value;
-			if (!proxyFile.exists()) {
-				throw new FieldValidationException("Specified configuration file doesn't exist");
-			}
+		 } else if (modelProperty.equals("import.file")) {
+			 CommonFieldValidator.validateImportFile(value);
 		}  else if (modelProperty.equals("proxy.target.ep.type")) {
 		/** //TODO: 
 			if((((ProxyServiceModel)model).getTargetEPType()==TargetEPType.URL) && !(optWsdlbasedProxy||optCustomProxy)){

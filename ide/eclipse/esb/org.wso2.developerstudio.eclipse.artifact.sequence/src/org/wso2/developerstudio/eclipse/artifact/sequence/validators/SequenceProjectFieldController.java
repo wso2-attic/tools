@@ -17,13 +17,17 @@
 package org.wso2.developerstudio.eclipse.artifact.sequence.validators;
 
 import org.apache.axiom.om.OMElement;
+import org.eclipse.core.resources.IContainer;
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.wso2.developerstudio.eclipse.artifact.sequence.model.SequenceModel;
+import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBArtifact;
+import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
 import org.wso2.developerstudio.eclipse.platform.core.exception.FieldValidationException;
 import org.wso2.developerstudio.eclipse.platform.core.model.AbstractFieldController;
 import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectDataModel;
+import org.wso2.developerstudio.eclipse.platform.ui.validator.CommonFieldValidator;
 
-import java.io.File;
 import java.util.List;
 
 public class SequenceProjectFieldController extends AbstractFieldController {
@@ -32,21 +36,32 @@ public class SequenceProjectFieldController extends AbstractFieldController {
 	public void validate(String modelProperty, Object value, ProjectDataModel model)
 	        throws FieldValidationException {
 		if (modelProperty.equals("sequence.name")) {
-			if (value == null) {
-				throw new FieldValidationException("Sequence name cannot be empty");
-			}
-			String epName = value.toString();
-			if (epName.trim().equals("")) {
-				throw new FieldValidationException("Sequence name cannot be empty");
-			}
+		     CommonFieldValidator.validateArtifactName(value);
+			if (value != null) {
+				String resource = value.toString();
+				SequenceModel sqModel = (SequenceModel) model;
+				if (sqModel != null) {
+					IContainer resLocation = sqModel.getSequenceSaveLocation();
+					if (resLocation != null) {
+						IProject project = resLocation.getProject();
+						ESBProjectArtifact esbProjectArtifact = new ESBProjectArtifact();
+						try {
+							esbProjectArtifact.fromFile(project.getFile("artifact.xml").getLocation().toFile());
+							List<ESBArtifact> allArtifacts = esbProjectArtifact.getAllESBArtifacts();
+							for (ESBArtifact artifact : allArtifacts) {
+								if (resource.equals(artifact.getName())) {
+									throw new FieldValidationException("");
+								}
+							}
+
+						} catch (Exception e) {
+							throw new FieldValidationException("Artifact name already exsits");
+						}
+					}
+				}		 	 
+			}     
 		} else if (modelProperty.equals("import.file")) {
-			if (value == null) {
-				throw new FieldValidationException("Specified Sequence configuration file location is invalid");
-			}
-			File seqFile = (File) value;
-			if (!seqFile.exists()) {
-				throw new FieldValidationException("Specified configuration file doesn't exist");
-			}
+			 CommonFieldValidator.validateImportFile(value);
 		}  else if (modelProperty.equals("save.file")) {
 			IResource resource = (IResource)value;
 			if(null== resource || !resource.exists())	

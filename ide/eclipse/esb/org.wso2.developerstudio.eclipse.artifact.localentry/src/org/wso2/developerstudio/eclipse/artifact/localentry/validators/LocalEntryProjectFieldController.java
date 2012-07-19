@@ -16,40 +16,57 @@
 
 package org.wso2.developerstudio.eclipse.artifact.localentry.validators;
 
-import java.io.File;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.apache.axiom.om.OMElement;
+import org.eclipse.core.resources.IContainer;
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.wso2.developerstudio.eclipse.artifact.localentry.model.LocalEntryModel;
 import org.wso2.developerstudio.eclipse.artifact.localentry.utils.LocalEntryArtifactConstants;
+import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBArtifact;
+import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
 import org.wso2.developerstudio.eclipse.platform.core.exception.FieldValidationException;
 import org.wso2.developerstudio.eclipse.platform.core.model.AbstractFieldController;
 import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectDataModel;
+import org.wso2.developerstudio.eclipse.platform.ui.validator.CommonFieldValidator;
 
 public class LocalEntryProjectFieldController extends AbstractFieldController {
 
 	public void validate(String modelProperty, Object value,
 			ProjectDataModel model) throws FieldValidationException {
 		if (modelProperty.equals(LocalEntryArtifactConstants.WIZARD_OPTION_LE_NAME)) {
-			if (value == null) {
-				throw new FieldValidationException("Local Entry name cannot be empty");
+			CommonFieldValidator.validateArtifactName(value);
+			if (value != null) {
+				String resource = value.toString();
+				LocalEntryModel localentryModel = (LocalEntryModel) model;
+				if (localentryModel != null) {
+					IContainer resLocation = localentryModel.getLocalEntrySaveLocation();
+					if (resLocation != null) {
+						IProject project = resLocation.getProject();
+						ESBProjectArtifact esbProjectArtifact = new ESBProjectArtifact();
+						try {
+							esbProjectArtifact.fromFile(project.getFile("artifact.xml").getLocation().toFile());
+							List<ESBArtifact> allArtifacts = esbProjectArtifact.getAllESBArtifacts();
+							for (ESBArtifact artifact : allArtifacts) {
+								if (resource.equals(artifact.getName())) {
+									throw new FieldValidationException("");
+								}
+							}
+
+						} catch (Exception e) {
+							throw new FieldValidationException("Artifact name already exsits");
+						}
+					}
+				}		 	 
 			}
-			String localEntryName = value.toString();
-			if (localEntryName.trim().equals("")) {
-				throw new FieldValidationException("Local Entry name cannot be empty");
-			}
+
 		} else if (modelProperty.equals(LocalEntryArtifactConstants.WIZARD_OPTION_IMPORT_OPTION)) {
-			if (value == null) {
-				throw new FieldValidationException("Specified configuration file location is invalid");
-			}
-			File localEntryFile = (File) value;
-			if (!localEntryFile.exists()) {
-				throw new FieldValidationException("Specified configuration file doesn't exist");
-			}
+			CommonFieldValidator.validateImportFile(value);
+		
 		} else if (modelProperty.equals("save.file")) {
 			IResource resource = (IResource)value;
 			if(resource==null || !resource.exists())	

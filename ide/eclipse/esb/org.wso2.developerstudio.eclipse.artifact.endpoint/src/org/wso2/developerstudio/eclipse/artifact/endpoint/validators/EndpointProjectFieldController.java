@@ -17,14 +17,17 @@
 package org.wso2.developerstudio.eclipse.artifact.endpoint.validators;
 
 import org.apache.axiom.om.OMElement;
+import org.eclipse.core.resources.IContainer;
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.wso2.developerstudio.eclipse.artifact.endpoint.model.EndpointModel;
 import org.wso2.developerstudio.eclipse.artifact.endpoint.utils.EpArtifactConstants;
+import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBArtifact;
+import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
 import org.wso2.developerstudio.eclipse.platform.core.exception.FieldValidationException;
 import org.wso2.developerstudio.eclipse.platform.core.model.AbstractFieldController;
 import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectDataModel;
 import org.wso2.developerstudio.eclipse.platform.ui.validator.CommonFieldValidator;
-import java.io.File;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -44,21 +47,33 @@ public class EndpointProjectFieldController extends AbstractFieldController {
 		boolean isWSDlEP = EpArtifactConstants.WSDL_EP.equals(templateName);
 		
 		if (modelProperty.equals("ep.name")) {
-			if (value == null) {
-				throw new FieldValidationException("Endpoint name cannot be empty");
+			CommonFieldValidator.validateArtifactName(value);	
+			if (value != null) {
+				String resource = value.toString();
+				EndpointModel endpointModel = (EndpointModel) model;
+				if (endpointModel != null) {
+					IContainer resLocation = endpointModel.getEndpointSaveLocation();
+					if (resLocation != null) {
+						IProject project = resLocation.getProject();
+						ESBProjectArtifact esbProjectArtifact = new ESBProjectArtifact();
+						try {
+							esbProjectArtifact.fromFile(project.getFile("artifact.xml").getLocation().toFile());
+							List<ESBArtifact> allArtifacts = esbProjectArtifact.getAllESBArtifacts();
+							for (ESBArtifact artifact : allArtifacts) {
+								if (resource.equals(artifact.getName())) {
+									throw new FieldValidationException("");
+								}
+							}
+
+						} catch (Exception e) {
+							throw new FieldValidationException("Artifact name already exsits");
+						}
+					}
+				}		 	 
 			}
-			String epName = value.toString();
-			if (epName.trim().equals("")) {
-				throw new FieldValidationException("Endpoint name cannot be empty");
-			}
+			
 		} else if (modelProperty.equals("import.file")) {
-			if (value == null) {
-				throw new FieldValidationException("Specified configuration file location is invalid");
-			}
-			File epFile = (File) value;
-			if (!epFile.exists()) {
-				throw new FieldValidationException("Specified configuration file doesn't exist");
-			}
+			CommonFieldValidator.validateImportFile(value);
 		}  else if (modelProperty.equals("save.file")) {
 			IResource resource = (IResource)value;
 			if(resource==null || !resource.exists())	
