@@ -30,6 +30,7 @@ import org.wso2.developerstudio.eclipse.greg.base.model.RegistryResourceNode;
 import org.wso2.developerstudio.eclipse.platform.core.exception.FieldValidationException;
 import org.wso2.developerstudio.eclipse.platform.core.model.AbstractFieldController;
 import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectDataModel;
+import org.wso2.developerstudio.eclipse.platform.ui.validator.CommonFieldValidator;
 
 
 
@@ -53,9 +54,14 @@ public void validate(String modelProperty, Object value,
 			String resource = value.toString();
 			if (resource.trim().equals("")) {
 				throw new FieldValidationException("Resource name cannot be empty");
+			}else{
+				if(!CommonFieldValidator.isValidArtifactName(resource)){
+					throw new FieldValidationException("Resource name cannot contain invalid characters (/:@%\\^+;,=*#[{]}$?\"<> +)");
+				}
 			}
 
 		}else if (modelProperty.equals("artifact.name")) {
+			 CommonFieldValidator.validateArtifactName(value);
 			if (value != null) {
 				String resource = value.toString();
 				RegistryArtifactModel regModel = (RegistryArtifactModel) model;
@@ -72,18 +78,13 @@ public void validate(String modelProperty, Object value,
 									throw new FieldValidationException("");
 								}
 							}
-
+							
 						} catch (Exception e) {
 							throw new FieldValidationException("Artifact name already exsits");
 						}
 					}
 				}		 	 
 			}
-			String resource = value.toString();
-			if (resource.trim().equals("")) {	 
-			 throw new FieldValidationException("Artifact name cannot be empty");
-			}
-
 		}else if (modelProperty.equals(RegistryArtifactConstants.DATA_IMPORT_FILE)) {
 			if (value == null) {
 				throw new FieldValidationException("Specified resource location is invalid");
