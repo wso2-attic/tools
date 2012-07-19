@@ -16,6 +16,7 @@
 
 package org.wso2.developerstudio.eclipse.platform.ui.validator;
 
+import java.io.File;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -69,7 +70,7 @@ public static void validateProjectField(Object value) throws FieldValidationExce
 			throw new FieldValidationException("Project name cannot contain spaces");
 		} else{
 		    if(!isValidArtifactName(projectName)){
-		    	throw new FieldValidationException("Project name cannot contain invalid characters");	
+		    	throw new FieldValidationException("Project name cannot contain invalid characters(^/ : ; * # $ ? \" <> + $)");	
 		    }
 		}
 	}
@@ -94,10 +95,40 @@ public static void isValidUrl(String url,String field) throws FieldValidationExc
 	}
 }
 
-	public static boolean isValidArtifactName(String name) throws FieldValidationException {
-		Pattern pattern = Pattern.compile("^[^/\\ \\\\:;*#\\$?\"<>|\\(\\)]+$");
+	public static boolean isValidArtifactName(String name){
+		Pattern pattern = Pattern.compile("^[^/\\ \\\\:@%\\^+;,=\\[\\{\\]\\}*#\\$?\"<>|\\(\\)]+$");
 		Matcher matcher = pattern.matcher(name);
 		return matcher.matches();
+	}	
+	
+	public static void validateArtifactName(Object value) throws FieldValidationException{
+		if (value == null) {
+			throw new FieldValidationException("Artifact name cannot be empty");
+		}
+		String name = value.toString();
+		if (name.trim().equals("")) {
+			throw new FieldValidationException("Artifact name cannot be empty");
+		} else{
+			 if(!isValidArtifactName(name)){
+				 throw new FieldValidationException("Artifact name cannot contain invalid characters (/:@%\\^+;,=*#[{]}$?\"<> +)");	 
+			 }
+		}
+	}
+	
+	public static void validateImportFile(Object value) throws FieldValidationException{
+		if (value == null) {
+			throw new FieldValidationException("Specified configuration file location is invalid");
+		}
+		String name = value.toString();
+		if (name.trim().equals("")) {
+			throw new FieldValidationException("Specified configuration file location is invalid");
+		} else{
+			File proxyFile = (File) value;
+			if (!proxyFile.exists()) {
+				throw new FieldValidationException("Specified configuration file doesn't exist");
+			}	
+		}
+		 
 	}
 	
 }
