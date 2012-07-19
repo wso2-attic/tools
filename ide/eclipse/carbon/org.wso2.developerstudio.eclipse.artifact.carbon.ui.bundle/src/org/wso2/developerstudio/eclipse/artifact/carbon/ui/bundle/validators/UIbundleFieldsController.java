@@ -1,33 +1,17 @@
 package org.wso2.developerstudio.eclipse.artifact.carbon.ui.bundle.validators;
 
-import java.util.List;
-
-import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.ResourcesPlugin;
 import org.wso2.developerstudio.eclipse.artifact.carbon.ui.bundle.model.CarbonUiModel;
 import org.wso2.developerstudio.eclipse.platform.core.exception.FieldValidationException;
 import org.wso2.developerstudio.eclipse.platform.core.model.AbstractFieldController;
 import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectDataModel;
+import org.wso2.developerstudio.eclipse.platform.ui.validator.CommonFieldValidator;
 
 public class UIbundleFieldsController extends AbstractFieldController {
 
 	public void validate(String modelProperty, Object value,
 			ProjectDataModel model) throws FieldValidationException {
 		if (modelProperty.equals("project.name")) {
-			if (value == null) {
-				throw new FieldValidationException("Project name must be specified");
-			}
-			String projectName = value.toString();
-			
-			if (projectName.trim().equals("")) {
-				throw new FieldValidationException("Project name must be specified");
-			}
-			IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
-
-			if (project.exists()) {
-				throw new FieldValidationException("Project with the name '" + projectName + "' already exists");
-			}	
-				
+			CommonFieldValidator.validateProjectField(value);
 		}  else if (modelProperty.equals("uibundle.id")){
 			String id = value.toString();
 			if ("".equals(id)) {

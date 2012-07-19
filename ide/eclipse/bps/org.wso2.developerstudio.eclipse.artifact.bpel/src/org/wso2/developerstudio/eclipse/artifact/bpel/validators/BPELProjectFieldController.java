@@ -6,6 +6,7 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.wso2.developerstudio.eclipse.platform.core.exception.FieldValidationException;
 import org.wso2.developerstudio.eclipse.platform.core.model.AbstractFieldController;
 import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectDataModel;
+import org.wso2.developerstudio.eclipse.platform.ui.validator.CommonFieldValidator;
 import org.wso2.developerstudio.eclipse.artifact.bpel.model.BpelModel;
 
 import java.io.File;
@@ -18,18 +19,7 @@ public class BPELProjectFieldController extends AbstractFieldController {
 	        throws FieldValidationException {
 		IProject project;
 		if (modelProperty.equals("project.name")) {
-			if (value == null) {
-				throw new FieldValidationException("Project name cannot be empty");
-			}
-			String projectName = value.toString();
-			if (projectName.trim().equals("")) {
-				throw new FieldValidationException("Project name cannot be empty");
-			}
-			project = ResourcesPlugin.getWorkspace().getRoot().getProject(projectName);
-			if (project.exists()) {
-				throw new FieldValidationException("Project with the name '" + projectName +
-				                                   "' already exists");
-			}
+			CommonFieldValidator.validateProjectField(value);
 		} else if (modelProperty.equals("import.file")) {
 			if (value == null) {
 				throw new FieldValidationException("Specified war file location is invalid");
