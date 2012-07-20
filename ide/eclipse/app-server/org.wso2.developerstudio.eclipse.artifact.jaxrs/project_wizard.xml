@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wizard>
+	<projectOptions title="JAX RESTful Web Service Artifact Creation Options" 
+					description="Select how you would like to create your new project" 
+					error="Please select a method to create the project">
+		<option id="new.jaxws" default="true">Create New JAX RESTful Web Service</option>
+	</projectOptions>
+	<projectOptionSettings>
+		<settings optionId="new.jaxws" 
+				  title="Create New JAX RESTful Web Service" 
+				  description="Give a project name for the new JAX RESTful Web Service" 
+				  error="Please give a name to the project">
+			<data modelProperty="project.name" type="string" fieldController="org.wso2.developerstudio.eclipse.artifact.jaxrs.controller.JaxrsFieldController">Project Name</data>	
+			
+			<projectNatures>
+				<nature>org.eclipse.jdt.core.javanature</nature>
+			</projectNatures>
+		</settings>
+	</projectOptionSettings>
+</wizard>
