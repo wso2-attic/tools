@@ -25,6 +25,7 @@ import org.apache.axiom.om.util.AXIOMUtil;
 import org.apache.axis2.addressing.EndpointReference;
 import org.apache.axis2.client.Options;
 import org.apache.axis2.client.ServiceClient;
+import org.apache.axis2.client.async.AxisCallback;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 
@@ -62,5 +63,22 @@ public class ServiceClientUtil {
 			return "";
 		}
 	}
+	
+	public void callAsynchronous(String operation, String endPoint, String payLoad, AxisCallback axisCallback) {
+		ServiceClient client;
+		try {
+			client = new ServiceClient();
+			Options opts = new Options();
+			opts.setTo(new EndpointReference(endPoint));
+			opts.setAction("urn:" + operation);
+			opts.setManageSession(true);
+			opts.setProperty(COOKIE_STRING, sessionCookie);
+			opts.setTimeOutInMilliSeconds(5* 60*1000);
+			client.setOptions(opts);
+		} catch (Exception ex) {
+			log.error("Exception occured:", ex);
+		}
+	}
+	
 
 }

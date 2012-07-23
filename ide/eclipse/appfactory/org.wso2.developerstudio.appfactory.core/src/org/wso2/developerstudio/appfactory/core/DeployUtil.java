@@ -15,8 +15,8 @@
 
 package org.wso2.developerstudio.appfactory.core;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import org.apache.axis2.client.async.AxisCallback;
+import org.apache.axis2.context.MessageContext;
 
 public class DeployUtil {
 
@@ -46,16 +46,36 @@ public class DeployUtil {
 	
 	public boolean deployToStage(String appKey,String revision, String version , String stageName) {
 		if (Stages.hasStage(stageName)) {
+			AxisCallback axisCallback = new AxisCallback() {
+				
+				@Override
+				public void onMessage(MessageContext mc) {
+					//TODO:
+					
+				}
+				
+				@Override
+				public void onFault(MessageContext mc) {
+					//TODO:
+					
+				}
+				
+				@Override
+				public void onError(Exception e) {
+					//TODO:
+					
+				}
+				
+				@Override
+				public void onComplete() {
+					//TODO:
+					
+				}
+			};
 			String payload = String.format(DEPLOY_TO_STAGE_PAYLOAD, appKey, revision, version, stageName);
 			ServiceClientUtil clientUtil = new ServiceClientUtil(authenticator.getSessionCookie());
-			String reply = clientUtil.callSynchronous("process", authenticator.getServerURL()
-					+ Stages.getRelativeServiceUrl(stageName), payload);
-			Pattern pattern = Pattern.compile("<ns:return>(.*?)</ns:return>");
-			Matcher matcher = pattern.matcher(reply);
-			while (matcher.find()) {
-				// allApps.add(matcher.group().toString().replaceAll("^<ns:return>",
-				// "").replaceAll("</ns:return>$",""));
-			}
+			clientUtil.callAsynchronous("process", authenticator.getServerURL()
+					+ Stages.getRelativeServiceUrl(stageName), payload,axisCallback);
 		}
 		return false;
 	}
