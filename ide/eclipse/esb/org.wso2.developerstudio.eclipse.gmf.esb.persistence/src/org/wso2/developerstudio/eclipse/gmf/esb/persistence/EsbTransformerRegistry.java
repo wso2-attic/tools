@@ -21,6 +21,7 @@ import java.util.Map;
 import org.wso2.developerstudio.eclipse.gmf.esb.AddressEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.CallTemplateMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.ClassMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.CloneMediator;
@@ -63,6 +64,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.XSLTMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.AddressEndPointTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.AggregateMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.CacheMediatorTransformer;
+import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.CallTemplateMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.CalloutMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.ClassMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.CloneMediatorTransformer;
@@ -162,6 +164,7 @@ public class EsbTransformerRegistry {
 		addTransformer(StoreMediator.class, new StoreMediatorTransformer());
 		addTransformer(EnqueueMediator.class, new EnqueueMediatorTransformer());
 		addTransformer(PayloadFactoryMediator.class, new PayloadFactoryMediatorTransformer());
+		addTransformer(CallTemplateMediator.class, new CallTemplateMediatorTransformer());
 		
 	}
 	

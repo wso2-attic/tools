@@ -2583,10 +2583,13 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public CallTemplateParameter createCallTemplateParameter() {
 		CallTemplateParameterImpl callTemplateParameter = new CallTemplateParameterImpl();
+		callTemplateParameter.setParameterName("param_name");
+		callTemplateParameter.setParameterValue("param_value");
+		callTemplateParameter.setTemplateParameterType(RuleOptionType.VALUE);
 		return callTemplateParameter;
 	}
 

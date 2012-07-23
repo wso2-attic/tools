@@ -26,6 +26,7 @@ import org.apache.synapse.util.xpath.SynapseXPath;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EObject;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
+import org.wso2.developerstudio.eclipse.gmf.esb.PropertyAction;
 import org.wso2.developerstudio.eclipse.gmf.esb.PropertyMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.EsbNodeTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
@@ -86,7 +87,13 @@ public class PropertyMediatorTransformer extends AbstractEsbNodeTransformer {
 
 			}
 			// propMediator.setValue(visualProp.getValueLiteral());
-			
+			if(visualProp.getPropertyAction().equals(PropertyAction.REMOVE)){
+				
+				propMediator.setExpression(null);
+				propMediator.setValue(null);
+				
+			}else{
+				
 			if(visualProp.getValueType().getName().equals("EXPRESSION")){	
 				if(visualProp.getValueExpression()!=null&&visualProp.getValueExpression().getNamespaces().size()!=0){
 				SynapseXPath XPath=new SynapseXPath(visualProp.getValueExpression().getPropertyValue());
@@ -137,7 +144,7 @@ public class PropertyMediatorTransformer extends AbstractEsbNodeTransformer {
 				break;
 			}
 			}
-
+			}
 			switch (visualProp.getPropertyScope()) {
 			case AXIS2:
 				propMediator.setScope(XMLConfigConstants.SCOPE_AXIS2);

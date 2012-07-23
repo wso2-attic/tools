@@ -57,15 +57,17 @@ public class CallTemplateMediatorItemProvider
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
-			super.getPropertyDescriptors(object);
-
-			addTargetTemplatePropertyDescriptor(object);
+		if (itemPropertyDescriptors != null) {
+			itemPropertyDescriptors.clear();
 		}
+		super.getPropertyDescriptors(object);
+		addTargetTemplatePropertyDescriptor(object);
+		addParameterPropertyDescriptor(object);
+
 		return itemPropertyDescriptors;
 	}
 
@@ -89,6 +91,27 @@ public class CallTemplateMediatorItemProvider
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
+	}
+	
+	/**
+	 * This add a property descriptor for the CallTemplate Parameter feature. 
+	 * @param object
+	 */
+	
+	protected void addParameterPropertyDescriptor (Object object) {
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory)
+						.getRootAdapterFactory(),
+				getResourceLocator(),
+				getString("_UI_CallTemplateParameter_parameterName_feature"),
+				getString("_UI_PropertyDescriptor_description", "_UI_CallTemplateParameter_parameterName_feature", "_UI_CallTemplateMediator_type"),
+				EsbPackage.Literals.CALL_TEMPLATE_MEDIATOR__TEMPLATE_PARAMETERS,
+				true,
+				false,
+				false,
+				null,
+				null,
+				null));
 	}
 
 	/**

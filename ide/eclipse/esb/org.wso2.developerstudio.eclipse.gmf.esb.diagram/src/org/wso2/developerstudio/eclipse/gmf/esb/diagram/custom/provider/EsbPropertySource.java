@@ -129,12 +129,10 @@ public class EsbPropertySource extends PropertySource {
 			return new CustomPropertyDescriptor(((SmooksMediator)object).getOutput(), itemPropertyDescriptor);
 		} else if(pkg.getEnqueueMediator_SequenceKey().equals(feature)){
 			return new CustomPropertyDescriptor(object,itemPropertyDescriptor);
+		}else if(pkg.getCallTemplateMediator_TemplateParameters().equals(feature)){
+			return new CallTemplateParamCustomPropertyDescriptor(object, itemPropertyDescriptor);
 		}
 			
-		
-		
-		
-		
 		// Else, default EMF behavior
 		else {
 			return super.createPropertyDescriptor(itemPropertyDescriptor);
