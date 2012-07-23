@@ -78,8 +78,7 @@ public class ProxyServiceSequenceAndEndpointContainerItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE_SEQUENCE_AND_ENDPOINT_CONTAINER__SEQUENCE_CONTAINER);
-			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE_SEQUENCE_AND_ENDPOINT_CONTAINER__ENDPOINT_CONTAINER);
+			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE_SEQUENCE_AND_ENDPOINT_CONTAINER__MEDIATOR_FLOW);
 		}
 		return childrenFeatures;
 	}
@@ -131,8 +130,7 @@ public class ProxyServiceSequenceAndEndpointContainerItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ProxyServiceSequenceAndEndpointContainer.class)) {
-			case EsbPackage.PROXY_SERVICE_SEQUENCE_AND_ENDPOINT_CONTAINER__SEQUENCE_CONTAINER:
-			case EsbPackage.PROXY_SERVICE_SEQUENCE_AND_ENDPOINT_CONTAINER__ENDPOINT_CONTAINER:
+			case EsbPackage.PROXY_SERVICE_SEQUENCE_AND_ENDPOINT_CONTAINER__MEDIATOR_FLOW:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -152,13 +150,8 @@ public class ProxyServiceSequenceAndEndpointContainerItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.PROXY_SERVICE_SEQUENCE_AND_ENDPOINT_CONTAINER__SEQUENCE_CONTAINER,
-				 EsbFactory.eINSTANCE.createProxyServiceSequenceContainer()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(EsbPackage.Literals.PROXY_SERVICE_SEQUENCE_AND_ENDPOINT_CONTAINER__ENDPOINT_CONTAINER,
-				 EsbFactory.eINSTANCE.createProxyServiceEndpointContainer()));
+				(EsbPackage.Literals.PROXY_SERVICE_SEQUENCE_AND_ENDPOINT_CONTAINER__MEDIATOR_FLOW,
+				 EsbFactory.eINSTANCE.createMediatorFlow()));
 	}
 
 }

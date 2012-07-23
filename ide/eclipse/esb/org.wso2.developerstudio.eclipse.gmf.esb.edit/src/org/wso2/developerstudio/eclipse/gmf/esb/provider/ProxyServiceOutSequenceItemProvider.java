@@ -3,7 +3,7 @@
  * </copyright>
  *
  * $Id$
- */
+ *//*
 package org.wso2.developerstudio.eclipse.gmf.esb.provider;
 
 
@@ -27,12 +27,12 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceOutSequence;
 
-/**
+*//**
  * This is the item provider adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceOutSequence} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
- */
+ *//*
 public class ProxyServiceOutSequenceItemProvider
 	extends EsbNodeItemProvider
 	implements
@@ -41,22 +41,22 @@ public class ProxyServiceOutSequenceItemProvider
 		ITreeItemContentProvider,
 		IItemLabelProvider,
 		IItemPropertySource {
-	/**
+	*//**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
-	 */
+	 *//*
 	public ProxyServiceOutSequenceItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
-	/**
+	*//**
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
-	 */
+	 *//*
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		if (itemPropertyDescriptors == null) {
@@ -66,14 +66,14 @@ public class ProxyServiceOutSequenceItemProvider
 		return itemPropertyDescriptors;
 	}
 
-	/**
+	*//**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
-	 */
+	 *//*
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
@@ -83,11 +83,11 @@ public class ProxyServiceOutSequenceItemProvider
 		return childrenFeatures;
 	}
 
-	/**
+	*//**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
-	 */
+	 *//*
 	@Override
 	protected EStructuralFeature getChildFeature(Object object, Object child) {
 		// Check the type of the specified child object and return the proper feature to use for
@@ -96,35 +96,35 @@ public class ProxyServiceOutSequenceItemProvider
 		return super.getChildFeature(object, child);
 	}
 
-	/**
+	*//**
 	 * This returns ProxyServiceOutSequence.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
-	 */
+	 *//*
 	@Override
 	public Object getImage(Object object) {
 		return overlayImage(object, getResourceLocator().getImage("full/obj16/ProxyServiceOutSequence"));
 	}
 
-	/**
+	*//**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
-	 */
+	 *//*
 	@Override
 	public String getText(Object object) {
 		return getString("_UI_ProxyServiceOutSequence_type");
 	}
 
-	/**
+	*//**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
 	 * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
-	 */
+	 *//*
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
@@ -137,13 +137,13 @@ public class ProxyServiceOutSequenceItemProvider
 		super.notifyChanged(notification);
 	}
 
-	/**
+	*//**
 	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
-	 */
+	 *//*
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
@@ -155,3 +155,4 @@ public class ProxyServiceOutSequenceItemProvider
 	}
 
 }
+*/
