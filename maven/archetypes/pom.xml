@@ -28,7 +28,7 @@
     <url>http://wso2.org</url>
 
     <modules>
-        <module>cxf-jaxws-javafirst</module>
-        <module>cxf-jaxrs-service</module>
+        <module>wso2-cxf-jaxws-javafirst</module>
+        <module>wso2-cxf-jaxrs-service</module>
     </modules>
 </project>
