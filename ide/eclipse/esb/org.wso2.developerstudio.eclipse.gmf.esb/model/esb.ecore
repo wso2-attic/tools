@@ -107,29 +107,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="policyKey" eType="#//RegistryKeyProperty"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ProxyServiceInSequence" eSuperTypes="#//EsbNode">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="mediatorFlow" eType="#//MediatorFlow"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ProxyServiceOutSequence" eSuperTypes="#//EsbNode">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="mediatorFlow" eType="#//MediatorFlow"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ProxyServiceSequenceContainer" eSuperTypes="#//EsbNode">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="inSequence" eType="#//ProxyServiceInSequence"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="outSequence" eType="#//ProxyServiceOutSequence"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ProxyServiceEndpointContainer" eSuperTypes="#//EsbNode">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="endpointFlow" eType="#//EndpointFlow"
-        containment="true"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProxyServiceSequenceAndEndpointContainer"
       eSuperTypes="#//EsbNode">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sequenceContainer" eType="#//ProxyServiceSequenceContainer"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="endpointContainer" eType="#//ProxyServiceEndpointContainer"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mediatorFlow" eType="#//MediatorFlow"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProxyServiceFaultContainer" eSuperTypes="#//EsbNode">

@@ -107,42 +107,6 @@ public interface EsbFactory extends EFactory {
 	ProxyServicePolicy createProxyServicePolicy();
 
 	/**
-	 * Returns a new object of class '<em>Proxy Service In Sequence</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Proxy Service In Sequence</em>'.
-	 * @generated
-	 */
-	ProxyServiceInSequence createProxyServiceInSequence();
-
-	/**
-	 * Returns a new object of class '<em>Proxy Service Out Sequence</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Proxy Service Out Sequence</em>'.
-	 * @generated
-	 */
-	ProxyServiceOutSequence createProxyServiceOutSequence();
-
-	/**
-	 * Returns a new object of class '<em>Proxy Service Sequence Container</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Proxy Service Sequence Container</em>'.
-	 * @generated
-	 */
-	ProxyServiceSequenceContainer createProxyServiceSequenceContainer();
-
-	/**
-	 * Returns a new object of class '<em>Proxy Service Endpoint Container</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Proxy Service Endpoint Container</em>'.
-	 * @generated
-	 */
-	ProxyServiceEndpointContainer createProxyServiceEndpointContainer();
-
-	/**
 	 * Returns a new object of class '<em>Proxy Service Sequence And Endpoint Container</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

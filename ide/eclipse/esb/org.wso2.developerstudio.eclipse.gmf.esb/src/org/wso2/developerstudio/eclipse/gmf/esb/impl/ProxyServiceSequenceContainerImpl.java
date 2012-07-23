@@ -3,7 +3,7 @@
  * </copyright>
  *
  * $Id$
- */
+ *//*
 package org.wso2.developerstudio.eclipse.gmf.esb.impl;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -19,7 +19,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceInSequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceOutSequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceSequenceContainer;
 
-/**
+*//**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Proxy Service Sequence Container</b></em>'.
  * <!-- end-user-doc -->
@@ -32,61 +32,61 @@ import org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceSequenceContainer;
  * </p>
  *
  * @generated
- */
+ *//*
 public class ProxyServiceSequenceContainerImpl extends EsbNodeImpl implements ProxyServiceSequenceContainer {
-	/**
+	*//**
 	 * The cached value of the '{@link #getInSequence() <em>In Sequence</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getInSequence()
 	 * @generated
 	 * @ordered
-	 */
+	 *//*
 	protected ProxyServiceInSequence inSequence;
 
-	/**
+	*//**
 	 * The cached value of the '{@link #getOutSequence() <em>Out Sequence</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getOutSequence()
 	 * @generated
 	 * @ordered
-	 */
+	 *//*
 	protected ProxyServiceOutSequence outSequence;
 
-	/**
+	*//**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
-	 */
+	 *//*
 	protected ProxyServiceSequenceContainerImpl() {
 		super();
 	}
 
-	/**
+	*//**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
-	 */
+	 *//*
 	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.PROXY_SERVICE_SEQUENCE_CONTAINER;
 	}
 
-	/**
+	*//**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
-	 */
+	 *//*
 	public ProxyServiceInSequence getInSequence() {
 		return inSequence;
 	}
 
-	/**
+	*//**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
-	 */
+	 *//*
 	public NotificationChain basicSetInSequence(ProxyServiceInSequence newInSequence, NotificationChain msgs) {
 		ProxyServiceInSequence oldInSequence = inSequence;
 		inSequence = newInSequence;
@@ -97,11 +97,11 @@ public class ProxyServiceSequenceContainerImpl extends EsbNodeImpl implements Pr
 		return msgs;
 	}
 
-	/**
+	*//**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
-	 */
+	 *//*
 	public void setInSequence(ProxyServiceInSequence newInSequence) {
 		if (newInSequence != inSequence) {
 			NotificationChain msgs = null;
@@ -116,20 +116,20 @@ public class ProxyServiceSequenceContainerImpl extends EsbNodeImpl implements Pr
 			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.PROXY_SERVICE_SEQUENCE_CONTAINER__IN_SEQUENCE, newInSequence, newInSequence));
 	}
 
-	/**
+	*//**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
-	 */
+	 *//*
 	public ProxyServiceOutSequence getOutSequence() {
 		return outSequence;
 	}
 
-	/**
+	*//**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
-	 */
+	 *//*
 	public NotificationChain basicSetOutSequence(ProxyServiceOutSequence newOutSequence, NotificationChain msgs) {
 		ProxyServiceOutSequence oldOutSequence = outSequence;
 		outSequence = newOutSequence;
@@ -140,11 +140,11 @@ public class ProxyServiceSequenceContainerImpl extends EsbNodeImpl implements Pr
 		return msgs;
 	}
 
-	/**
+	*//**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
-	 */
+	 *//*
 	public void setOutSequence(ProxyServiceOutSequence newOutSequence) {
 		if (newOutSequence != outSequence) {
 			NotificationChain msgs = null;
@@ -159,11 +159,11 @@ public class ProxyServiceSequenceContainerImpl extends EsbNodeImpl implements Pr
 			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.PROXY_SERVICE_SEQUENCE_CONTAINER__OUT_SEQUENCE, newOutSequence, newOutSequence));
 	}
 
-	/**
+	*//**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
-	 */
+	 *//*
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -175,11 +175,11 @@ public class ProxyServiceSequenceContainerImpl extends EsbNodeImpl implements Pr
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
-	/**
+	*//**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
-	 */
+	 *//*
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -191,11 +191,11 @@ public class ProxyServiceSequenceContainerImpl extends EsbNodeImpl implements Pr
 		return super.eGet(featureID, resolve, coreType);
 	}
 
-	/**
+	*//**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
-	 */
+	 *//*
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -209,11 +209,11 @@ public class ProxyServiceSequenceContainerImpl extends EsbNodeImpl implements Pr
 		super.eSet(featureID, newValue);
 	}
 
-	/**
+	*//**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
-	 */
+	 *//*
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
@@ -227,11 +227,11 @@ public class ProxyServiceSequenceContainerImpl extends EsbNodeImpl implements Pr
 		super.eUnset(featureID);
 	}
 
-	/**
+	*//**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
-	 */
+	 *//*
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
@@ -244,3 +244,4 @@ public class ProxyServiceSequenceContainerImpl extends EsbNodeImpl implements Pr
 	}
 
 } //ProxyServiceSequenceContainerImpl
+*/

@@ -3,7 +3,7 @@
  * </copyright>
  *
  * $Id$
- */
+ *//*
 package org.wso2.developerstudio.eclipse.gmf.esb.impl;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -25,7 +25,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.MediatorFlow;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceInSequence;
 
-/**
+*//**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Proxy Service In Sequence</b></em>'.
  * <!-- end-user-doc -->
@@ -37,50 +37,50 @@ import org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceInSequence;
  * </p>
  *
  * @generated
- */
+ *//*
 public class ProxyServiceInSequenceImpl extends EsbNodeImpl implements ProxyServiceInSequence {
-	/**
+	*//**
 	 * The cached value of the '{@link #getMediatorFlow() <em>Mediator Flow</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getMediatorFlow()
 	 * @generated
 	 * @ordered
-	 */
+	 *//*
 	protected MediatorFlow mediatorFlow;
-	/**
+	*//**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
-	 */
+	 *//*
 	protected ProxyServiceInSequenceImpl() {
 		super();
 	}
 
-	/**
+	*//**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
-	 */
+	 *//*
 	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.PROXY_SERVICE_IN_SEQUENCE;
 	}
 
-	/**
+	*//**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
-	 */
+	 *//*
 	public MediatorFlow getMediatorFlow() {
 		return mediatorFlow;
 	}
 
-	/**
+	*//**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
-	 */
+	 *//*
 	public NotificationChain basicSetMediatorFlow(MediatorFlow newMediatorFlow, NotificationChain msgs) {
 		MediatorFlow oldMediatorFlow = mediatorFlow;
 		mediatorFlow = newMediatorFlow;
@@ -91,11 +91,11 @@ public class ProxyServiceInSequenceImpl extends EsbNodeImpl implements ProxyServ
 		return msgs;
 	}
 
-	/**
+	*//**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
-	 */
+	 *//*
 	public void setMediatorFlow(MediatorFlow newMediatorFlow) {
 		if (newMediatorFlow != mediatorFlow) {
 			NotificationChain msgs = null;
@@ -110,11 +110,11 @@ public class ProxyServiceInSequenceImpl extends EsbNodeImpl implements ProxyServ
 			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.PROXY_SERVICE_IN_SEQUENCE__MEDIATOR_FLOW, newMediatorFlow, newMediatorFlow));
 	}
 
-	/**
+	*//**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
-	 */
+	 *//*
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -124,11 +124,11 @@ public class ProxyServiceInSequenceImpl extends EsbNodeImpl implements ProxyServ
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
-	/**
+	*//**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
-	 */
+	 *//*
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -138,11 +138,11 @@ public class ProxyServiceInSequenceImpl extends EsbNodeImpl implements ProxyServ
 		return super.eGet(featureID, resolve, coreType);
 	}
 
-	/**
+	*//**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
-	 */
+	 *//*
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
@@ -154,11 +154,11 @@ public class ProxyServiceInSequenceImpl extends EsbNodeImpl implements ProxyServ
 		super.eSet(featureID, newValue);
 	}
 
-	/**
+	*//**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
-	 */
+	 *//*
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
@@ -169,11 +169,11 @@ public class ProxyServiceInSequenceImpl extends EsbNodeImpl implements ProxyServ
 		super.eUnset(featureID);
 	}
 
-	/**
+	*//**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
-	 */
+	 *//*
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
@@ -184,3 +184,4 @@ public class ProxyServiceInSequenceImpl extends EsbNodeImpl implements ProxyServ
 	}
 
 } //ProxyServiceInSequenceImpl
+*/

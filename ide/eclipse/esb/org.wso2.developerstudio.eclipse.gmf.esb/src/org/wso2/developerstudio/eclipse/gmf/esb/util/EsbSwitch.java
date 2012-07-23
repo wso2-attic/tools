@@ -206,34 +206,6 @@ public class EsbSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EsbPackage.PROXY_SERVICE_IN_SEQUENCE: {
-				ProxyServiceInSequence proxyServiceInSequence = (ProxyServiceInSequence)theEObject;
-				T result = caseProxyServiceInSequence(proxyServiceInSequence);
-				if (result == null) result = caseEsbNode(proxyServiceInSequence);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EsbPackage.PROXY_SERVICE_OUT_SEQUENCE: {
-				ProxyServiceOutSequence proxyServiceOutSequence = (ProxyServiceOutSequence)theEObject;
-				T result = caseProxyServiceOutSequence(proxyServiceOutSequence);
-				if (result == null) result = caseEsbNode(proxyServiceOutSequence);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EsbPackage.PROXY_SERVICE_SEQUENCE_CONTAINER: {
-				ProxyServiceSequenceContainer proxyServiceSequenceContainer = (ProxyServiceSequenceContainer)theEObject;
-				T result = caseProxyServiceSequenceContainer(proxyServiceSequenceContainer);
-				if (result == null) result = caseEsbNode(proxyServiceSequenceContainer);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EsbPackage.PROXY_SERVICE_ENDPOINT_CONTAINER: {
-				ProxyServiceEndpointContainer proxyServiceEndpointContainer = (ProxyServiceEndpointContainer)theEObject;
-				T result = caseProxyServiceEndpointContainer(proxyServiceEndpointContainer);
-				if (result == null) result = caseEsbNode(proxyServiceEndpointContainer);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case EsbPackage.PROXY_SERVICE_SEQUENCE_AND_ENDPOINT_CONTAINER: {
 				ProxyServiceSequenceAndEndpointContainer proxyServiceSequenceAndEndpointContainer = (ProxyServiceSequenceAndEndpointContainer)theEObject;
 				T result = caseProxyServiceSequenceAndEndpointContainer(proxyServiceSequenceAndEndpointContainer);
@@ -2221,66 +2193,6 @@ public class EsbSwitch<T> {
 	 * @generated
 	 */
 	public T caseProxyServicePolicy(ProxyServicePolicy object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Proxy Service In Sequence</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Proxy Service In Sequence</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseProxyServiceInSequence(ProxyServiceInSequence object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Proxy Service Out Sequence</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Proxy Service Out Sequence</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseProxyServiceOutSequence(ProxyServiceOutSequence object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Proxy Service Sequence Container</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Proxy Service Sequence Container</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseProxyServiceSequenceContainer(ProxyServiceSequenceContainer object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Proxy Service Endpoint Container</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Proxy Service Endpoint Container</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseProxyServiceEndpointContainer(ProxyServiceEndpointContainer object) {
 		return null;
 	}
 

@@ -3,7 +3,7 @@
  * </copyright>
  *
  * $Id$
- */
+ *//*
 package org.wso2.developerstudio.eclipse.gmf.esb.impl;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -25,7 +25,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbElement;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceEndpointContainer;
 
-/**
+*//**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Proxy Service Endpoint Container</b></em>'.
  * <!-- end-user-doc -->
@@ -37,50 +37,50 @@ import org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceEndpointContainer;
  * </p>
  *
  * @generated
- */
+ *//*
 public class ProxyServiceEndpointContainerImpl extends EsbNodeImpl implements ProxyServiceEndpointContainer {
-	/**
+	*//**
 	 * The cached value of the '{@link #getEndpointFlow() <em>Endpoint Flow</em>}' containment reference.
 	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
 	 * @see #getEndpointFlow()
 	 * @generated
 	 * @ordered
-	 */
+	 *//*
     protected EndpointFlow endpointFlow;
-    /**
+    *//**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
-	 */
+	 *//*
 	protected ProxyServiceEndpointContainerImpl() {
 		super();
 	}
 
-	/**
+	*//**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
-	 */
+	 *//*
 	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.PROXY_SERVICE_ENDPOINT_CONTAINER;
 	}
 
-	/**
+	*//**
 	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
 	 * @generated
-	 */
+	 *//*
     public EndpointFlow getEndpointFlow() {
 		return endpointFlow;
 	}
 
-    /**
+    *//**
 	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
 	 * @generated
-	 */
+	 *//*
     public NotificationChain basicSetEndpointFlow(EndpointFlow newEndpointFlow, NotificationChain msgs) {
 		EndpointFlow oldEndpointFlow = endpointFlow;
 		endpointFlow = newEndpointFlow;
@@ -91,11 +91,11 @@ public class ProxyServiceEndpointContainerImpl extends EsbNodeImpl implements Pr
 		return msgs;
 	}
 
-    /**
+    *//**
 	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
 	 * @generated
-	 */
+	 *//*
     public void setEndpointFlow(EndpointFlow newEndpointFlow) {
 		if (newEndpointFlow != endpointFlow) {
 			NotificationChain msgs = null;
@@ -110,11 +110,11 @@ public class ProxyServiceEndpointContainerImpl extends EsbNodeImpl implements Pr
 			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.PROXY_SERVICE_ENDPOINT_CONTAINER__ENDPOINT_FLOW, newEndpointFlow, newEndpointFlow));
 	}
 
-    /**
+    *//**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
-	 */
+	 *//*
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -124,11 +124,11 @@ public class ProxyServiceEndpointContainerImpl extends EsbNodeImpl implements Pr
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
-	/**
+	*//**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
-	 */
+	 *//*
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -138,11 +138,11 @@ public class ProxyServiceEndpointContainerImpl extends EsbNodeImpl implements Pr
 		return super.eGet(featureID, resolve, coreType);
 	}
 
-	/**
+	*//**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
-	 */
+	 *//*
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
@@ -154,11 +154,11 @@ public class ProxyServiceEndpointContainerImpl extends EsbNodeImpl implements Pr
 		super.eSet(featureID, newValue);
 	}
 
-	/**
+	*//**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
-	 */
+	 *//*
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
@@ -169,11 +169,11 @@ public class ProxyServiceEndpointContainerImpl extends EsbNodeImpl implements Pr
 		super.eUnset(featureID);
 	}
 
-	/**
+	*//**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
-	 */
+	 *//*
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
@@ -184,3 +184,4 @@ public class ProxyServiceEndpointContainerImpl extends EsbNodeImpl implements Pr
 	}
 
 } //ProxyServiceEndpointContainerImpl
+*/

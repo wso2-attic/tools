@@ -470,34 +470,6 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass proxyServiceInSequenceEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass proxyServiceOutSequenceEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass proxyServiceSequenceContainerEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass proxyServiceEndpointContainerEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass proxyServiceSequenceAndEndpointContainerEClass = null;
 
 	/**
@@ -3032,87 +3004,6 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getProxyServiceInSequence() {
-		return proxyServiceInSequenceEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getProxyServiceInSequence_MediatorFlow() {
-		return (EReference)proxyServiceInSequenceEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getProxyServiceOutSequence() {
-		return proxyServiceOutSequenceEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getProxyServiceOutSequence_MediatorFlow() {
-		return (EReference)proxyServiceOutSequenceEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getProxyServiceSequenceContainer() {
-		return proxyServiceSequenceContainerEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getProxyServiceSequenceContainer_InSequence() {
-		return (EReference)proxyServiceSequenceContainerEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getProxyServiceSequenceContainer_OutSequence() {
-		return (EReference)proxyServiceSequenceContainerEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getProxyServiceEndpointContainer() {
-		return proxyServiceEndpointContainerEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-	 * @generated
-	 */
-    public EReference getProxyServiceEndpointContainer_EndpointFlow() {
-		return (EReference)proxyServiceEndpointContainerEClass.getEStructuralFeatures().get(0);
-	}
-
-    /**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getProxyServiceSequenceAndEndpointContainer() {
 		return proxyServiceSequenceAndEndpointContainerEClass;
 	}
@@ -3122,17 +3013,8 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getProxyServiceSequenceAndEndpointContainer_SequenceContainer() {
+	public EReference getProxyServiceSequenceAndEndpointContainer_MediatorFlow() {
 		return (EReference)proxyServiceSequenceAndEndpointContainerEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getProxyServiceSequenceAndEndpointContainer_EndpointContainer() {
-		return (EReference)proxyServiceSequenceAndEndpointContainerEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -10097,22 +9979,8 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		proxyServicePolicyEClass = createEClass(PROXY_SERVICE_POLICY);
 		createEReference(proxyServicePolicyEClass, PROXY_SERVICE_POLICY__POLICY_KEY);
 
-		proxyServiceInSequenceEClass = createEClass(PROXY_SERVICE_IN_SEQUENCE);
-		createEReference(proxyServiceInSequenceEClass, PROXY_SERVICE_IN_SEQUENCE__MEDIATOR_FLOW);
-
-		proxyServiceOutSequenceEClass = createEClass(PROXY_SERVICE_OUT_SEQUENCE);
-		createEReference(proxyServiceOutSequenceEClass, PROXY_SERVICE_OUT_SEQUENCE__MEDIATOR_FLOW);
-
-		proxyServiceSequenceContainerEClass = createEClass(PROXY_SERVICE_SEQUENCE_CONTAINER);
-		createEReference(proxyServiceSequenceContainerEClass, PROXY_SERVICE_SEQUENCE_CONTAINER__IN_SEQUENCE);
-		createEReference(proxyServiceSequenceContainerEClass, PROXY_SERVICE_SEQUENCE_CONTAINER__OUT_SEQUENCE);
-
-		proxyServiceEndpointContainerEClass = createEClass(PROXY_SERVICE_ENDPOINT_CONTAINER);
-		createEReference(proxyServiceEndpointContainerEClass, PROXY_SERVICE_ENDPOINT_CONTAINER__ENDPOINT_FLOW);
-
 		proxyServiceSequenceAndEndpointContainerEClass = createEClass(PROXY_SERVICE_SEQUENCE_AND_ENDPOINT_CONTAINER);
-		createEReference(proxyServiceSequenceAndEndpointContainerEClass, PROXY_SERVICE_SEQUENCE_AND_ENDPOINT_CONTAINER__SEQUENCE_CONTAINER);
-		createEReference(proxyServiceSequenceAndEndpointContainerEClass, PROXY_SERVICE_SEQUENCE_AND_ENDPOINT_CONTAINER__ENDPOINT_CONTAINER);
+		createEReference(proxyServiceSequenceAndEndpointContainerEClass, PROXY_SERVICE_SEQUENCE_AND_ENDPOINT_CONTAINER__MEDIATOR_FLOW);
 
 		proxyServiceFaultContainerEClass = createEClass(PROXY_SERVICE_FAULT_CONTAINER);
 		createEReference(proxyServiceFaultContainerEClass, PROXY_SERVICE_FAULT_CONTAINER__MEDIATOR_FLOW);
@@ -11143,10 +11011,6 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		proxyOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
 		proxyInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
 		proxyFaultInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
-		proxyServiceInSequenceEClass.getESuperTypes().add(this.getEsbNode());
-		proxyServiceOutSequenceEClass.getESuperTypes().add(this.getEsbNode());
-		proxyServiceSequenceContainerEClass.getESuperTypes().add(this.getEsbNode());
-		proxyServiceEndpointContainerEClass.getESuperTypes().add(this.getEsbNode());
 		proxyServiceSequenceAndEndpointContainerEClass.getESuperTypes().add(this.getEsbNode());
 		proxyServiceFaultContainerEClass.getESuperTypes().add(this.getEsbNode());
 		proxyServiceContainerEClass.getESuperTypes().add(this.getEsbNode());
@@ -11415,22 +11279,8 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEClass(proxyServicePolicyEClass, ProxyServicePolicy.class, "ProxyServicePolicy", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getProxyServicePolicy_PolicyKey(), this.getRegistryKeyProperty(), null, "policyKey", null, 0, 1, ProxyServicePolicy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(proxyServiceInSequenceEClass, ProxyServiceInSequence.class, "ProxyServiceInSequence", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getProxyServiceInSequence_MediatorFlow(), this.getMediatorFlow(), null, "mediatorFlow", null, 0, 1, ProxyServiceInSequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(proxyServiceOutSequenceEClass, ProxyServiceOutSequence.class, "ProxyServiceOutSequence", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getProxyServiceOutSequence_MediatorFlow(), this.getMediatorFlow(), null, "mediatorFlow", null, 0, 1, ProxyServiceOutSequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(proxyServiceSequenceContainerEClass, ProxyServiceSequenceContainer.class, "ProxyServiceSequenceContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getProxyServiceSequenceContainer_InSequence(), this.getProxyServiceInSequence(), null, "inSequence", null, 0, 1, ProxyServiceSequenceContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getProxyServiceSequenceContainer_OutSequence(), this.getProxyServiceOutSequence(), null, "outSequence", null, 0, 1, ProxyServiceSequenceContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(proxyServiceEndpointContainerEClass, ProxyServiceEndpointContainer.class, "ProxyServiceEndpointContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getProxyServiceEndpointContainer_EndpointFlow(), this.getEndpointFlow(), null, "endpointFlow", null, 0, 1, ProxyServiceEndpointContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(proxyServiceSequenceAndEndpointContainerEClass, ProxyServiceSequenceAndEndpointContainer.class, "ProxyServiceSequenceAndEndpointContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getProxyServiceSequenceAndEndpointContainer_SequenceContainer(), this.getProxyServiceSequenceContainer(), null, "sequenceContainer", null, 0, 1, ProxyServiceSequenceAndEndpointContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getProxyServiceSequenceAndEndpointContainer_EndpointContainer(), this.getProxyServiceEndpointContainer(), null, "endpointContainer", null, 0, 1, ProxyServiceSequenceAndEndpointContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProxyServiceSequenceAndEndpointContainer_MediatorFlow(), this.getMediatorFlow(), null, "mediatorFlow", null, 0, 1, ProxyServiceSequenceAndEndpointContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(proxyServiceFaultContainerEClass, ProxyServiceFaultContainer.class, "ProxyServiceFaultContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getProxyServiceFaultContainer_MediatorFlow(), this.getMediatorFlow(), null, "mediatorFlow", null, 0, 1, ProxyServiceFaultContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

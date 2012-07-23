@@ -435,22 +435,8 @@
     <genClasses ecoreClass="esb.ecore#//ProxyServicePolicy">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyServicePolicy/policyKey"/>
     </genClasses>
-    <genClasses ecoreClass="esb.ecore#//ProxyServiceInSequence">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyServiceInSequence/mediatorFlow"/>
-    </genClasses>
-    <genClasses ecoreClass="esb.ecore#//ProxyServiceOutSequence">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyServiceOutSequence/mediatorFlow"/>
-    </genClasses>
-    <genClasses ecoreClass="esb.ecore#//ProxyServiceSequenceContainer">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyServiceSequenceContainer/inSequence"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyServiceSequenceContainer/outSequence"/>
-    </genClasses>
-    <genClasses ecoreClass="esb.ecore#//ProxyServiceEndpointContainer">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyServiceEndpointContainer/endpointFlow"/>
-    </genClasses>
     <genClasses ecoreClass="esb.ecore#//ProxyServiceSequenceAndEndpointContainer">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyServiceSequenceAndEndpointContainer/sequenceContainer"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyServiceSequenceAndEndpointContainer/endpointContainer"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyServiceSequenceAndEndpointContainer/mediatorFlow"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//ProxyServiceFaultContainer">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyServiceFaultContainer/mediatorFlow"/>

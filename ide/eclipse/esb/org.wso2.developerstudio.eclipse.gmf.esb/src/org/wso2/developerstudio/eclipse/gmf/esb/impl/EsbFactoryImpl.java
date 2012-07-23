@@ -70,10 +70,6 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 			case EsbPackage.PROXY_FAULT_INPUT_CONNECTOR: return createProxyFaultInputConnector();
 			case EsbPackage.PROXY_SERVICE_PARAMETER: return createProxyServiceParameter();
 			case EsbPackage.PROXY_SERVICE_POLICY: return createProxyServicePolicy();
-			case EsbPackage.PROXY_SERVICE_IN_SEQUENCE: return createProxyServiceInSequence();
-			case EsbPackage.PROXY_SERVICE_OUT_SEQUENCE: return createProxyServiceOutSequence();
-			case EsbPackage.PROXY_SERVICE_SEQUENCE_CONTAINER: return createProxyServiceSequenceContainer();
-			case EsbPackage.PROXY_SERVICE_ENDPOINT_CONTAINER: return createProxyServiceEndpointContainer();
 			case EsbPackage.PROXY_SERVICE_SEQUENCE_AND_ENDPOINT_CONTAINER: return createProxyServiceSequenceAndEndpointContainer();
 			case EsbPackage.PROXY_SERVICE_FAULT_CONTAINER: return createProxyServiceFaultContainer();
 			case EsbPackage.PROXY_SERVICE_CONTAINER: return createProxyServiceContainer();
@@ -697,55 +693,9 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public ProxyServiceInSequence createProxyServiceInSequence() {
-		ProxyServiceInSequenceImpl proxyServiceInSequence = new ProxyServiceInSequenceImpl();
-		proxyServiceInSequence.setMediatorFlow(createMediatorFlow());
-		return proxyServiceInSequence;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public ProxyServiceOutSequence createProxyServiceOutSequence() {
-		ProxyServiceOutSequenceImpl proxyServiceOutSequence = new ProxyServiceOutSequenceImpl();
-		proxyServiceOutSequence.setMediatorFlow(createMediatorFlow());
-		return proxyServiceOutSequence;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public ProxyServiceSequenceContainer createProxyServiceSequenceContainer() {
-		ProxyServiceSequenceContainerImpl proxyServiceSequenceContainer = new ProxyServiceSequenceContainerImpl();
-		proxyServiceSequenceContainer.setInSequence(createProxyServiceInSequence());
-		proxyServiceSequenceContainer.setOutSequence(createProxyServiceOutSequence());
-		return proxyServiceSequenceContainer;
-	}
-
-	/**
-     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-     * @generated NOT
-     */
-	public ProxyServiceEndpointContainer createProxyServiceEndpointContainer() {
-        ProxyServiceEndpointContainerImpl proxyServiceEndpointContainer = new ProxyServiceEndpointContainerImpl();
-        proxyServiceEndpointContainer.setEndpointFlow(createEndpointFlow());
-        return proxyServiceEndpointContainer;
-    }
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
 	public ProxyServiceSequenceAndEndpointContainer createProxyServiceSequenceAndEndpointContainer() {
 		ProxyServiceSequenceAndEndpointContainerImpl proxyServiceSequenceAndEndpointContainer = new ProxyServiceSequenceAndEndpointContainerImpl();
-		proxyServiceSequenceAndEndpointContainer.setSequenceContainer(createProxyServiceSequenceContainer());
-		proxyServiceSequenceAndEndpointContainer.setEndpointContainer(createProxyServiceEndpointContainer());
+		proxyServiceSequenceAndEndpointContainer.setMediatorFlow(createMediatorFlow());
 		return proxyServiceSequenceAndEndpointContainer;
 	}
 
