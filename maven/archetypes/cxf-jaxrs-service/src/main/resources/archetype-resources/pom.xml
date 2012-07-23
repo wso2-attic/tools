@@ -14,7 +14,8 @@
         <dependency>
             <groupId>org.apache.cxf</groupId>
             <artifactId>cxf-rt-frontend-jaxrs</artifactId>
-            <version>${project.version}</version>
+            <version>${cxf.version}</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.codehaus.jackson</groupId>
@@ -41,6 +42,7 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
             <version>3.0.6.RELEASE</version>
+            <scope>provided</scope>
         </dependency>    
     </dependencies>
     <build>
@@ -159,4 +161,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>
