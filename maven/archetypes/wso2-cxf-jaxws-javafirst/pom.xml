@@ -53,4 +53,8 @@
             </plugins>
         </pluginManagement>
     </build>
+
+    <properties>
+        <cxf.version>2.6.1</cxf.version>
+    </properties>
 </project>
