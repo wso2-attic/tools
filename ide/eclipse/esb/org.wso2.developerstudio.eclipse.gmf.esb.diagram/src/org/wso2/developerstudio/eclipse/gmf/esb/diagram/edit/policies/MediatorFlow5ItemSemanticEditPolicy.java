@@ -1,4 +1,4 @@
-package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies;
+/*package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies;
 
 import java.util.Iterator;
 
@@ -51,22 +51,22 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.XSLTMediatorE
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 
-/**
+*//**
  * @generated
- */
+ *//*
 public class MediatorFlow5ItemSemanticEditPolicy extends
 		EsbBaseItemSemanticEditPolicy {
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	public MediatorFlow5ItemSemanticEditPolicy() {
 		super(EsbElementTypes.MediatorFlow_3529);
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		View view = (View) getHost().getModel();
 		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(
@@ -85,9 +85,9 @@ public class MediatorFlow5ItemSemanticEditPolicy extends
 		return getGEFWrapper(cmd.reduce());
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	private void addDestroyChildNodesCommand(ICompositeCommand cmd) {
 		View view = (View) getHost().getModel();
 		for (Iterator<?> nit = view.getChildren().iterator(); nit.hasNext();) {
@@ -358,3 +358,4 @@ public class MediatorFlow5ItemSemanticEditPolicy extends
 	}
 
 }
+*/

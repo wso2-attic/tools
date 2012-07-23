@@ -409,7 +409,7 @@ public class FilterMediatorEditPart extends AbstractMediator {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	static final Color THIS_BACK = new Color(null, 230, 230, 230);
 

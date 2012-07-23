@@ -73,7 +73,7 @@ public class DefaultEndPointCanonicalEditPolicy extends CanonicalEditPolicy {
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
 		List<EsbNodeDescriptor> childDescriptors = EsbDiagramUpdater
-				.getDefaultEndPoint_3563SemanticChildren(viewObject);
+				.getDefaultEndPoint_3609SemanticChildren(viewObject);
 		for (EsbNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
@@ -107,7 +107,7 @@ public class DefaultEndPointCanonicalEditPolicy extends CanonicalEditPolicy {
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 		List<EsbNodeDescriptor> childDescriptors = EsbDiagramUpdater
-				.getDefaultEndPoint_3563SemanticChildren((View) getHost()
+				.getDefaultEndPoint_3609SemanticChildren((View) getHost()
 						.getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours

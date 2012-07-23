@@ -1,4 +1,4 @@
-package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
+/*package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
 
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.MarginBorder;
@@ -28,34 +28,34 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.EndpointFl
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.EndpointFlowEndpointCompartment2ItemSemanticEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.Messages;
 
-/**
+*//**
  * @generated
- */
+ *//*
 public class EndpointFlowEndpointCompartment2EditPart extends
 		ShapeCompartmentEditPart {
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	public static final int VISUAL_ID = 7029;
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	public EndpointFlowEndpointCompartment2EditPart(View view) {
 		super(view);
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	public String getCompartmentName() {
 		return Messages.EndpointFlowEndpointCompartment2EditPart_title;
 	}
 
-	/**
+	*//**
 	 * @generated NOT
-	 */
+	 *//*
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
@@ -85,9 +85,9 @@ public class EndpointFlowEndpointCompartment2EditPart extends
 		return false;
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected void setRatio(Double ratio) {
 		if (getFigure().getParent().getLayoutManager() instanceof ConstrainedToolbarLayout) {
 			super.setRatio(ratio);
@@ -225,3 +225,4 @@ public class EndpointFlowEndpointCompartment2EditPart extends
 	}
 
 }
+*/

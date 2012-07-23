@@ -35,10 +35,6 @@ public class EsbDiagramUpdater {
 			return getProxyServiceContainer_3486SemanticChildren(view);
 		case ProxyServiceSequenceAndEndpointContainerEditPart.VISUAL_ID:
 			return getProxyServiceSequenceAndEndpointContainer_3487SemanticChildren(view);
-		case ProxyServiceSequenceContainerEditPart.VISUAL_ID:
-			return getProxyServiceSequenceContainer_3391SemanticChildren(view);
-		case ProxyServiceInSequenceEditPart.VISUAL_ID:
-			return getProxyServiceInSequence_3197SemanticChildren(view);
 		case DropMediatorEditPart.VISUAL_ID:
 			return getDropMediator_3491SemanticChildren(view);
 		case PropertyMediatorEditPart.VISUAL_ID:
@@ -93,16 +89,6 @@ public class EsbDiagramUpdater {
 			return getSmooksMediator_3514SemanticChildren(view);
 		case SendMediatorEditPart.VISUAL_ID:
 			return getSendMediator_3515SemanticChildren(view);
-		case DefaultEndPointEditPart.VISUAL_ID:
-			return getDefaultEndPoint_3563SemanticChildren(view);
-		case AddressEndPointEditPart.VISUAL_ID:
-			return getAddressEndPoint_3564SemanticChildren(view);
-		case FailoverEndPointEditPart.VISUAL_ID:
-			return getFailoverEndPoint_3565SemanticChildren(view);
-		case WSDLEndPointEditPart.VISUAL_ID:
-			return getWSDLEndPoint_3566SemanticChildren(view);
-		case LoadBalanceEndPointEditPart.VISUAL_ID:
-			return getLoadBalanceEndPoint_3567SemanticChildren(view);
 		case HeaderMediatorEditPart.VISUAL_ID:
 			return getHeaderMediator_3516SemanticChildren(view);
 		case CloneMediatorEditPart.VISUAL_ID:
@@ -137,16 +123,22 @@ public class EsbDiagramUpdater {
 			return getPayloadFactoryMediator_3597SemanticChildren(view);
 		case EnqueueMediatorEditPart.VISUAL_ID:
 			return getEnqueueMediator_3600SemanticChildren(view);
+		case DefaultEndPointEditPart.VISUAL_ID:
+			return getDefaultEndPoint_3609SemanticChildren(view);
+		case AddressEndPointEditPart.VISUAL_ID:
+			return getAddressEndPoint_3610SemanticChildren(view);
+		case FailoverEndPointEditPart.VISUAL_ID:
+			return getFailoverEndPoint_3611SemanticChildren(view);
+		case WSDLEndPointEditPart.VISUAL_ID:
+			return getWSDLEndPoint_3612SemanticChildren(view);
+		case LoadBalanceEndPointEditPart.VISUAL_ID:
+			return getLoadBalanceEndPoint_3613SemanticChildren(view);
 		case SwitchDefaultContainerEditPart.VISUAL_ID:
 			return getSwitchDefaultContainer_3527SemanticChildren(view);
 		case FilterFailContainerEditPart.VISUAL_ID:
 			return getFilterFailContainer_3537SemanticChildren(view);
 		case ThrottleOnRejectContainerEditPart.VISUAL_ID:
 			return getThrottleOnRejectContainer_3586SemanticChildren(view);
-		case ProxyServiceOutSequenceEditPart.VISUAL_ID:
-			return getProxyServiceOutSequence_3198SemanticChildren(view);
-		case ProxyServiceEndpointContainerEditPart.VISUAL_ID:
-			return getProxyServiceEndpointContainer_3392SemanticChildren(view);
 		case ProxyServiceFaultContainerEditPart.VISUAL_ID:
 			return getProxyServiceFaultContainer_3488SemanticChildren(view);
 		case MessageMediatorEditPart.VISUAL_ID:
@@ -156,15 +148,13 @@ public class EsbDiagramUpdater {
 		case EsbServerContentsCompartmentEditPart.VISUAL_ID:
 			return getEsbServerContentsCompartment_7001SemanticChildren(view);
 		case MediatorFlowMediatorFlowCompartmentEditPart.VISUAL_ID:
-			return getMediatorFlowMediatorFlowCompartment_7014SemanticChildren(view);
+			return getMediatorFlowMediatorFlowCompartment_7034SemanticChildren(view);
 		case MediatorFlowMediatorFlowCompartment9EditPart.VISUAL_ID:
 			return getMediatorFlowMediatorFlowCompartment_7030SemanticChildren(view);
 		case MediatorFlowMediatorFlowCompartment7EditPart.VISUAL_ID:
 			return getMediatorFlowMediatorFlowCompartment_7022SemanticChildren(view);
 		case MediatorFlowMediatorFlowCompartment2EditPart.VISUAL_ID:
 			return getMediatorFlowMediatorFlowCompartment_7015SemanticChildren(view);
-		case EndpointFlowEndpointCompartmentEditPart.VISUAL_ID:
-			return getEndpointFlowEndpointCompartment_7028SemanticChildren(view);
 		case MediatorFlowMediatorFlowCompartment11EditPart.VISUAL_ID:
 			return getMediatorFlowMediatorFlowCompartment_7032SemanticChildren(view);
 		case MediatorFlowMediatorFlowCompartment12EditPart.VISUAL_ID:
@@ -177,10 +167,6 @@ public class EsbDiagramUpdater {
 			return getMediatorFlowMediatorFlowCompartment_7023SemanticChildren(view);
 		case MediatorFlowMediatorFlowCompartment10EditPart.VISUAL_ID:
 			return getMediatorFlowMediatorFlowCompartment_7031SemanticChildren(view);
-		case MediatorFlowMediatorFlowCompartment5EditPart.VISUAL_ID:
-			return getMediatorFlowMediatorFlowCompartment_7018SemanticChildren(view);
-		case EndpointFlowEndpointCompartment2EditPart.VISUAL_ID:
-			return getEndpointFlowEndpointCompartment_7029SemanticChildren(view);
 		case MediatorFlowMediatorFlowCompartment6EditPart.VISUAL_ID:
 			return getMediatorFlowMediatorFlowCompartment_7019SemanticChildren(view);
 		}
@@ -296,69 +282,6 @@ public class EsbDiagramUpdater {
 			return Collections.emptyList();
 		}
 		ProxyServiceSequenceAndEndpointContainer modelElement = (ProxyServiceSequenceAndEndpointContainer) view
-				.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
-		{
-			ProxyServiceSequenceContainer childElement = modelElement
-					.getSequenceContainer();
-			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
-					childElement);
-			if (visualID == ProxyServiceSequenceContainerEditPart.VISUAL_ID) {
-				result.add(new EsbNodeDescriptor(childElement, visualID));
-			}
-		}
-		{
-			ProxyServiceEndpointContainer childElement = modelElement
-					.getEndpointContainer();
-			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
-					childElement);
-			if (visualID == ProxyServiceEndpointContainerEditPart.VISUAL_ID) {
-				result.add(new EsbNodeDescriptor(childElement, visualID));
-			}
-		}
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<EsbNodeDescriptor> getProxyServiceSequenceContainer_3391SemanticChildren(
-			View view) {
-		if (!view.isSetElement()) {
-			return Collections.emptyList();
-		}
-		ProxyServiceSequenceContainer modelElement = (ProxyServiceSequenceContainer) view
-				.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
-		{
-			ProxyServiceInSequence childElement = modelElement.getInSequence();
-			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
-					childElement);
-			if (visualID == ProxyServiceInSequenceEditPart.VISUAL_ID) {
-				result.add(new EsbNodeDescriptor(childElement, visualID));
-			}
-		}
-		{
-			ProxyServiceOutSequence childElement = modelElement
-					.getOutSequence();
-			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
-					childElement);
-			if (visualID == ProxyServiceOutSequenceEditPart.VISUAL_ID) {
-				result.add(new EsbNodeDescriptor(childElement, visualID));
-			}
-		}
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<EsbNodeDescriptor> getProxyServiceInSequence_3197SemanticChildren(
-			View view) {
-		if (!view.isSetElement()) {
-			return Collections.emptyList();
-		}
-		ProxyServiceInSequence modelElement = (ProxyServiceInSequence) view
 				.getElement();
 		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
 		{
@@ -1276,184 +1199,6 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getDefaultEndPoint_3563SemanticChildren(
-			View view) {
-		if (!view.isSetElement()) {
-			return Collections.emptyList();
-		}
-		DefaultEndPoint modelElement = (DefaultEndPoint) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
-		{
-			DefaultEndPointInputConnector childElement = modelElement
-					.getInputConnector();
-			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
-					childElement);
-			if (visualID == DefaultEndPointInputConnectorEditPart.VISUAL_ID) {
-				result.add(new EsbNodeDescriptor(childElement, visualID));
-			}
-		}
-		{
-			DefaultEndPointOutputConnector childElement = modelElement
-					.getOutputConnector();
-			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
-					childElement);
-			if (visualID == DefaultEndPointOutputConnectorEditPart.VISUAL_ID) {
-				result.add(new EsbNodeDescriptor(childElement, visualID));
-			}
-		}
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<EsbNodeDescriptor> getAddressEndPoint_3564SemanticChildren(
-			View view) {
-		if (!view.isSetElement()) {
-			return Collections.emptyList();
-		}
-		AddressEndPoint modelElement = (AddressEndPoint) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
-		{
-			AddressEndPointInputConnector childElement = modelElement
-					.getInputConnector();
-			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
-					childElement);
-			if (visualID == AddressEndPointInputConnectorEditPart.VISUAL_ID) {
-				result.add(new EsbNodeDescriptor(childElement, visualID));
-			}
-		}
-		{
-			AddressEndPointOutputConnector childElement = modelElement
-					.getOutputConnector();
-			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
-					childElement);
-			if (visualID == AddressEndPointOutputConnectorEditPart.VISUAL_ID) {
-				result.add(new EsbNodeDescriptor(childElement, visualID));
-			}
-		}
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<EsbNodeDescriptor> getFailoverEndPoint_3565SemanticChildren(
-			View view) {
-		if (!view.isSetElement()) {
-			return Collections.emptyList();
-		}
-		FailoverEndPoint modelElement = (FailoverEndPoint) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
-		{
-			FailoverEndPointInputConnector childElement = modelElement
-					.getInputConnector();
-			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
-					childElement);
-			if (visualID == FailoverEndPointInputConnectorEditPart.VISUAL_ID) {
-				result.add(new EsbNodeDescriptor(childElement, visualID));
-			}
-		}
-		for (Iterator<?> it = modelElement.getOutputConnector().iterator(); it
-				.hasNext();) {
-			FailoverEndPointOutputConnector childElement = (FailoverEndPointOutputConnector) it
-					.next();
-			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
-					childElement);
-			if (visualID == FailoverEndPointOutputConnectorEditPart.VISUAL_ID) {
-				result.add(new EsbNodeDescriptor(childElement, visualID));
-				continue;
-			}
-		}
-		{
-			FailoverEndPointWestOutputConnector childElement = modelElement
-					.getWestOutputConnector();
-			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
-					childElement);
-			if (visualID == FailoverEndPointWestOutputConnectorEditPart.VISUAL_ID) {
-				result.add(new EsbNodeDescriptor(childElement, visualID));
-			}
-		}
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<EsbNodeDescriptor> getWSDLEndPoint_3566SemanticChildren(
-			View view) {
-		if (!view.isSetElement()) {
-			return Collections.emptyList();
-		}
-		WSDLEndPoint modelElement = (WSDLEndPoint) view.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
-		{
-			WSDLEndPointInputConnector childElement = modelElement
-					.getInputConnector();
-			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
-					childElement);
-			if (visualID == WSDLEndPointInputConnectorEditPart.VISUAL_ID) {
-				result.add(new EsbNodeDescriptor(childElement, visualID));
-			}
-		}
-		{
-			WSDLEndPointOutputConnector childElement = modelElement
-					.getOutputConnector();
-			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
-					childElement);
-			if (visualID == WSDLEndPointOutputConnectorEditPart.VISUAL_ID) {
-				result.add(new EsbNodeDescriptor(childElement, visualID));
-			}
-		}
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<EsbNodeDescriptor> getLoadBalanceEndPoint_3567SemanticChildren(
-			View view) {
-		if (!view.isSetElement()) {
-			return Collections.emptyList();
-		}
-		LoadBalanceEndPoint modelElement = (LoadBalanceEndPoint) view
-				.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
-		{
-			LoadBalanceEndPointInputConnector childElement = modelElement
-					.getInputConnector();
-			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
-					childElement);
-			if (visualID == LoadBalanceEndPointInputConnectorEditPart.VISUAL_ID) {
-				result.add(new EsbNodeDescriptor(childElement, visualID));
-			}
-		}
-		for (Iterator<?> it = modelElement.getOutputConnector().iterator(); it
-				.hasNext();) {
-			LoadBalanceEndPointOutputConnector childElement = (LoadBalanceEndPointOutputConnector) it
-					.next();
-			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
-					childElement);
-			if (visualID == LoadBalanceEndPointOutputConnectorEditPart.VISUAL_ID) {
-				result.add(new EsbNodeDescriptor(childElement, visualID));
-				continue;
-			}
-		}
-		{
-			LoadBalanceEndPointWestOutputConnector childElement = modelElement
-					.getWestOutputConnector();
-			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
-					childElement);
-			if (visualID == LoadBalanceEndPointWestOutputConnectorEditPart.VISUAL_ID) {
-				result.add(new EsbNodeDescriptor(childElement, visualID));
-			}
-		}
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
 	public static List<EsbNodeDescriptor> getHeaderMediator_3516SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
@@ -2024,6 +1769,184 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<EsbNodeDescriptor> getDefaultEndPoint_3609SemanticChildren(
+			View view) {
+		if (!view.isSetElement()) {
+			return Collections.emptyList();
+		}
+		DefaultEndPoint modelElement = (DefaultEndPoint) view.getElement();
+		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		{
+			DefaultEndPointInputConnector childElement = modelElement
+					.getInputConnector();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == DefaultEndPointInputConnectorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+			}
+		}
+		{
+			DefaultEndPointOutputConnector childElement = modelElement
+					.getOutputConnector();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == DefaultEndPointOutputConnectorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbNodeDescriptor> getAddressEndPoint_3610SemanticChildren(
+			View view) {
+		if (!view.isSetElement()) {
+			return Collections.emptyList();
+		}
+		AddressEndPoint modelElement = (AddressEndPoint) view.getElement();
+		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		{
+			AddressEndPointInputConnector childElement = modelElement
+					.getInputConnector();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == AddressEndPointInputConnectorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+			}
+		}
+		{
+			AddressEndPointOutputConnector childElement = modelElement
+					.getOutputConnector();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == AddressEndPointOutputConnectorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbNodeDescriptor> getFailoverEndPoint_3611SemanticChildren(
+			View view) {
+		if (!view.isSetElement()) {
+			return Collections.emptyList();
+		}
+		FailoverEndPoint modelElement = (FailoverEndPoint) view.getElement();
+		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		{
+			FailoverEndPointInputConnector childElement = modelElement
+					.getInputConnector();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == FailoverEndPointInputConnectorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+			}
+		}
+		for (Iterator<?> it = modelElement.getOutputConnector().iterator(); it
+				.hasNext();) {
+			FailoverEndPointOutputConnector childElement = (FailoverEndPointOutputConnector) it
+					.next();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == FailoverEndPointOutputConnectorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
+		{
+			FailoverEndPointWestOutputConnector childElement = modelElement
+					.getWestOutputConnector();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == FailoverEndPointWestOutputConnectorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbNodeDescriptor> getWSDLEndPoint_3612SemanticChildren(
+			View view) {
+		if (!view.isSetElement()) {
+			return Collections.emptyList();
+		}
+		WSDLEndPoint modelElement = (WSDLEndPoint) view.getElement();
+		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		{
+			WSDLEndPointInputConnector childElement = modelElement
+					.getInputConnector();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == WSDLEndPointInputConnectorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+			}
+		}
+		{
+			WSDLEndPointOutputConnector childElement = modelElement
+					.getOutputConnector();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == WSDLEndPointOutputConnectorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbNodeDescriptor> getLoadBalanceEndPoint_3613SemanticChildren(
+			View view) {
+		if (!view.isSetElement()) {
+			return Collections.emptyList();
+		}
+		LoadBalanceEndPoint modelElement = (LoadBalanceEndPoint) view
+				.getElement();
+		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		{
+			LoadBalanceEndPointInputConnector childElement = modelElement
+					.getInputConnector();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == LoadBalanceEndPointInputConnectorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+			}
+		}
+		for (Iterator<?> it = modelElement.getOutputConnector().iterator(); it
+				.hasNext();) {
+			LoadBalanceEndPointOutputConnector childElement = (LoadBalanceEndPointOutputConnector) it
+					.next();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == LoadBalanceEndPointOutputConnectorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
+		{
+			LoadBalanceEndPointWestOutputConnector childElement = modelElement
+					.getWestOutputConnector();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == LoadBalanceEndPointWestOutputConnectorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<EsbNodeDescriptor> getSwitchDefaultContainer_3527SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
@@ -2081,50 +2004,6 @@ public class EsbDiagramUpdater {
 			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
 					childElement);
 			if (visualID == MediatorFlow10EditPart.VISUAL_ID) {
-				result.add(new EsbNodeDescriptor(childElement, visualID));
-			}
-		}
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<EsbNodeDescriptor> getProxyServiceOutSequence_3198SemanticChildren(
-			View view) {
-		if (!view.isSetElement()) {
-			return Collections.emptyList();
-		}
-		ProxyServiceOutSequence modelElement = (ProxyServiceOutSequence) view
-				.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
-		{
-			MediatorFlow childElement = modelElement.getMediatorFlow();
-			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
-					childElement);
-			if (visualID == MediatorFlow5EditPart.VISUAL_ID) {
-				result.add(new EsbNodeDescriptor(childElement, visualID));
-			}
-		}
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<EsbNodeDescriptor> getProxyServiceEndpointContainer_3392SemanticChildren(
-			View view) {
-		if (!view.isSetElement()) {
-			return Collections.emptyList();
-		}
-		ProxyServiceEndpointContainer modelElement = (ProxyServiceEndpointContainer) view
-				.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
-		{
-			EndpointFlow childElement = modelElement.getEndpointFlow();
-			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
-					childElement);
-			if (visualID == EndpointFlow2EditPart.VISUAL_ID) {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 			}
 		}
@@ -2258,7 +2137,7 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbNodeDescriptor> getMediatorFlowMediatorFlowCompartment_7014SemanticChildren(
+	public static List<EsbNodeDescriptor> getMediatorFlowMediatorFlowCompartment_7034SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
 			return Collections.emptyList();
@@ -2415,6 +2294,26 @@ public class EsbDiagramUpdater {
 				continue;
 			}
 			if (visualID == EnqueueMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == DefaultEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == AddressEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == FailoverEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == WSDLEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == LoadBalanceEndPointEditPart.VISUAL_ID) {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -2585,6 +2484,26 @@ public class EsbDiagramUpdater {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 				continue;
 			}
+			if (visualID == DefaultEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == AddressEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == FailoverEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == WSDLEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == LoadBalanceEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
 		}
 		return result;
 	}
@@ -2749,6 +2668,26 @@ public class EsbDiagramUpdater {
 				continue;
 			}
 			if (visualID == EnqueueMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == DefaultEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == AddressEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == FailoverEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == WSDLEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == LoadBalanceEndPointEditPart.VISUAL_ID) {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -2919,29 +2858,6 @@ public class EsbDiagramUpdater {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 				continue;
 			}
-		}
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<EsbNodeDescriptor> getEndpointFlowEndpointCompartment_7028SemanticChildren(
-			View view) {
-		if (false == view.eContainer() instanceof View) {
-			return Collections.emptyList();
-		}
-		View containerView = (View) view.eContainer();
-		if (!containerView.isSetElement()) {
-			return Collections.emptyList();
-		}
-		EndpointFlow modelElement = (EndpointFlow) containerView.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
-		for (Iterator<?> it = modelElement.getChildren().iterator(); it
-				.hasNext();) {
-			EsbElement childElement = (EsbElement) it.next();
-			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
-					childElement);
 			if (visualID == DefaultEndPointEditPart.VISUAL_ID) {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 				continue;
@@ -3129,6 +3045,26 @@ public class EsbDiagramUpdater {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 				continue;
 			}
+			if (visualID == DefaultEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == AddressEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == FailoverEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == WSDLEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == LoadBalanceEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
 		}
 		return result;
 	}
@@ -3293,6 +3229,26 @@ public class EsbDiagramUpdater {
 				continue;
 			}
 			if (visualID == EnqueueMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == DefaultEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == AddressEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == FailoverEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == WSDLEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == LoadBalanceEndPointEditPart.VISUAL_ID) {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -3463,6 +3419,26 @@ public class EsbDiagramUpdater {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 				continue;
 			}
+			if (visualID == DefaultEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == AddressEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == FailoverEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == WSDLEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == LoadBalanceEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
 		}
 		return result;
 	}
@@ -3627,6 +3603,26 @@ public class EsbDiagramUpdater {
 				continue;
 			}
 			if (visualID == EnqueueMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == DefaultEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == AddressEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == FailoverEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == WSDLEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == LoadBalanceEndPointEditPart.VISUAL_ID) {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -3797,6 +3793,26 @@ public class EsbDiagramUpdater {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 				continue;
 			}
+			if (visualID == DefaultEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == AddressEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == FailoverEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == WSDLEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == LoadBalanceEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
 		}
 		return result;
 	}
@@ -3964,196 +3980,6 @@ public class EsbDiagramUpdater {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 				continue;
 			}
-		}
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<EsbNodeDescriptor> getMediatorFlowMediatorFlowCompartment_7018SemanticChildren(
-			View view) {
-		if (false == view.eContainer() instanceof View) {
-			return Collections.emptyList();
-		}
-		View containerView = (View) view.eContainer();
-		if (!containerView.isSetElement()) {
-			return Collections.emptyList();
-		}
-		MediatorFlow modelElement = (MediatorFlow) containerView.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
-		for (Iterator<?> it = modelElement.getChildren().iterator(); it
-				.hasNext();) {
-			EsbElement childElement = (EsbElement) it.next();
-			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
-					childElement);
-			if (visualID == DropMediatorEditPart.VISUAL_ID) {
-				result.add(new EsbNodeDescriptor(childElement, visualID));
-				continue;
-			}
-			if (visualID == PropertyMediatorEditPart.VISUAL_ID) {
-				result.add(new EsbNodeDescriptor(childElement, visualID));
-				continue;
-			}
-			if (visualID == ThrottleMediatorEditPart.VISUAL_ID) {
-				result.add(new EsbNodeDescriptor(childElement, visualID));
-				continue;
-			}
-			if (visualID == FilterMediatorEditPart.VISUAL_ID) {
-				result.add(new EsbNodeDescriptor(childElement, visualID));
-				continue;
-			}
-			if (visualID == LogMediatorEditPart.VISUAL_ID) {
-				result.add(new EsbNodeDescriptor(childElement, visualID));
-				continue;
-			}
-			if (visualID == EnrichMediatorEditPart.VISUAL_ID) {
-				result.add(new EsbNodeDescriptor(childElement, visualID));
-				continue;
-			}
-			if (visualID == XSLTMediatorEditPart.VISUAL_ID) {
-				result.add(new EsbNodeDescriptor(childElement, visualID));
-				continue;
-			}
-			if (visualID == SwitchMediatorEditPart.VISUAL_ID) {
-				result.add(new EsbNodeDescriptor(childElement, visualID));
-				continue;
-			}
-			if (visualID == SequenceEditPart.VISUAL_ID) {
-				result.add(new EsbNodeDescriptor(childElement, visualID));
-				continue;
-			}
-			if (visualID == EventMediatorEditPart.VISUAL_ID) {
-				result.add(new EsbNodeDescriptor(childElement, visualID));
-				continue;
-			}
-			if (visualID == EntitlementMediatorEditPart.VISUAL_ID) {
-				result.add(new EsbNodeDescriptor(childElement, visualID));
-				continue;
-			}
-			if (visualID == ClassMediatorEditPart.VISUAL_ID) {
-				result.add(new EsbNodeDescriptor(childElement, visualID));
-				continue;
-			}
-			if (visualID == SpringMediatorEditPart.VISUAL_ID) {
-				result.add(new EsbNodeDescriptor(childElement, visualID));
-				continue;
-			}
-			if (visualID == ScriptMediatorEditPart.VISUAL_ID) {
-				result.add(new EsbNodeDescriptor(childElement, visualID));
-				continue;
-			}
-			if (visualID == FaultMediatorEditPart.VISUAL_ID) {
-				result.add(new EsbNodeDescriptor(childElement, visualID));
-				continue;
-			}
-			if (visualID == XQueryMediatorEditPart.VISUAL_ID) {
-				result.add(new EsbNodeDescriptor(childElement, visualID));
-				continue;
-			}
-			if (visualID == CommandMediatorEditPart.VISUAL_ID) {
-				result.add(new EsbNodeDescriptor(childElement, visualID));
-				continue;
-			}
-			if (visualID == DBLookupMediatorEditPart.VISUAL_ID) {
-				result.add(new EsbNodeDescriptor(childElement, visualID));
-				continue;
-			}
-			if (visualID == DBReportMediatorEditPart.VISUAL_ID) {
-				result.add(new EsbNodeDescriptor(childElement, visualID));
-				continue;
-			}
-			if (visualID == SmooksMediatorEditPart.VISUAL_ID) {
-				result.add(new EsbNodeDescriptor(childElement, visualID));
-				continue;
-			}
-			if (visualID == SendMediatorEditPart.VISUAL_ID) {
-				result.add(new EsbNodeDescriptor(childElement, visualID));
-				continue;
-			}
-			if (visualID == HeaderMediatorEditPart.VISUAL_ID) {
-				result.add(new EsbNodeDescriptor(childElement, visualID));
-				continue;
-			}
-			if (visualID == CloneMediatorEditPart.VISUAL_ID) {
-				result.add(new EsbNodeDescriptor(childElement, visualID));
-				continue;
-			}
-			if (visualID == CacheMediatorEditPart.VISUAL_ID) {
-				result.add(new EsbNodeDescriptor(childElement, visualID));
-				continue;
-			}
-			if (visualID == IterateMediatorEditPart.VISUAL_ID) {
-				result.add(new EsbNodeDescriptor(childElement, visualID));
-				continue;
-			}
-			if (visualID == CalloutMediatorEditPart.VISUAL_ID) {
-				result.add(new EsbNodeDescriptor(childElement, visualID));
-				continue;
-			}
-			if (visualID == TransactionMediatorEditPart.VISUAL_ID) {
-				result.add(new EsbNodeDescriptor(childElement, visualID));
-				continue;
-			}
-			if (visualID == RMSequenceMediatorEditPart.VISUAL_ID) {
-				result.add(new EsbNodeDescriptor(childElement, visualID));
-				continue;
-			}
-			if (visualID == RuleMediatorEditPart.VISUAL_ID) {
-				result.add(new EsbNodeDescriptor(childElement, visualID));
-				continue;
-			}
-			if (visualID == OAuthMediatorEditPart.VISUAL_ID) {
-				result.add(new EsbNodeDescriptor(childElement, visualID));
-				continue;
-			}
-			if (visualID == AggregateMediatorEditPart.VISUAL_ID) {
-				result.add(new EsbNodeDescriptor(childElement, visualID));
-				continue;
-			}
-			if (visualID == StoreMediatorEditPart.VISUAL_ID) {
-				result.add(new EsbNodeDescriptor(childElement, visualID));
-				continue;
-			}
-			if (visualID == BuilderMediatorEditPart.VISUAL_ID) {
-				result.add(new EsbNodeDescriptor(childElement, visualID));
-				continue;
-			}
-			if (visualID == CallTemplateMediatorEditPart.VISUAL_ID) {
-				result.add(new EsbNodeDescriptor(childElement, visualID));
-				continue;
-			}
-			if (visualID == PayloadFactoryMediatorEditPart.VISUAL_ID) {
-				result.add(new EsbNodeDescriptor(childElement, visualID));
-				continue;
-			}
-			if (visualID == EnqueueMediatorEditPart.VISUAL_ID) {
-				result.add(new EsbNodeDescriptor(childElement, visualID));
-				continue;
-			}
-		}
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<EsbNodeDescriptor> getEndpointFlowEndpointCompartment_7029SemanticChildren(
-			View view) {
-		if (false == view.eContainer() instanceof View) {
-			return Collections.emptyList();
-		}
-		View containerView = (View) view.eContainer();
-		if (!containerView.isSetElement()) {
-			return Collections.emptyList();
-		}
-		EndpointFlow modelElement = (EndpointFlow) containerView.getElement();
-		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
-		for (Iterator<?> it = modelElement.getChildren().iterator(); it
-				.hasNext();) {
-			EsbElement childElement = (EsbElement) it.next();
-			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
-					childElement);
 			if (visualID == DefaultEndPointEditPart.VISUAL_ID) {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 				continue;
@@ -4341,6 +4167,26 @@ public class EsbDiagramUpdater {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 				continue;
 			}
+			if (visualID == DefaultEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == AddressEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == FailoverEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == WSDLEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == LoadBalanceEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
 		}
 		return result;
 	}
@@ -4387,12 +4233,8 @@ public class EsbDiagramUpdater {
 			return getProxyServiceContainer_3486ContainedLinks(view);
 		case ProxyServiceSequenceAndEndpointContainerEditPart.VISUAL_ID:
 			return getProxyServiceSequenceAndEndpointContainer_3487ContainedLinks(view);
-		case ProxyServiceSequenceContainerEditPart.VISUAL_ID:
-			return getProxyServiceSequenceContainer_3391ContainedLinks(view);
-		case ProxyServiceInSequenceEditPart.VISUAL_ID:
-			return getProxyServiceInSequence_3197ContainedLinks(view);
 		case MediatorFlowEditPart.VISUAL_ID:
-			return getMediatorFlow_3490ContainedLinks(view);
+			return getMediatorFlow_3608ContainedLinks(view);
 		case DropMediatorEditPart.VISUAL_ID:
 			return getDropMediator_3491ContainedLinks(view);
 		case DropMediatorInputConnectorEditPart.VISUAL_ID:
@@ -4551,40 +4393,6 @@ public class EsbDiagramUpdater {
 			return getSendMediatorEndpointOutputConnector_3539ContainedLinks(view);
 		case EndpointFlowEditPart.VISUAL_ID:
 			return getEndpointFlow_3562ContainedLinks(view);
-		case DefaultEndPointEditPart.VISUAL_ID:
-			return getDefaultEndPoint_3563ContainedLinks(view);
-		case DefaultEndPointInputConnectorEditPart.VISUAL_ID:
-			return getDefaultEndPointInputConnector_3021ContainedLinks(view);
-		case DefaultEndPointOutputConnectorEditPart.VISUAL_ID:
-			return getDefaultEndPointOutputConnector_3022ContainedLinks(view);
-		case AddressEndPointEditPart.VISUAL_ID:
-			return getAddressEndPoint_3564ContainedLinks(view);
-		case AddressEndPointInputConnectorEditPart.VISUAL_ID:
-			return getAddressEndPointInputConnector_3030ContainedLinks(view);
-		case AddressEndPointOutputConnectorEditPart.VISUAL_ID:
-			return getAddressEndPointOutputConnector_3031ContainedLinks(view);
-		case FailoverEndPointEditPart.VISUAL_ID:
-			return getFailoverEndPoint_3565ContainedLinks(view);
-		case FailoverEndPointInputConnectorEditPart.VISUAL_ID:
-			return getFailoverEndPointInputConnector_3088ContainedLinks(view);
-		case FailoverEndPointOutputConnectorEditPart.VISUAL_ID:
-			return getFailoverEndPointOutputConnector_3090ContainedLinks(view);
-		case FailoverEndPointWestOutputConnectorEditPart.VISUAL_ID:
-			return getFailoverEndPointWestOutputConnector_3097ContainedLinks(view);
-		case WSDLEndPointEditPart.VISUAL_ID:
-			return getWSDLEndPoint_3566ContainedLinks(view);
-		case WSDLEndPointInputConnectorEditPart.VISUAL_ID:
-			return getWSDLEndPointInputConnector_3092ContainedLinks(view);
-		case WSDLEndPointOutputConnectorEditPart.VISUAL_ID:
-			return getWSDLEndPointOutputConnector_3093ContainedLinks(view);
-		case LoadBalanceEndPointEditPart.VISUAL_ID:
-			return getLoadBalanceEndPoint_3567ContainedLinks(view);
-		case LoadBalanceEndPointInputConnectorEditPart.VISUAL_ID:
-			return getLoadBalanceEndPointInputConnector_3095ContainedLinks(view);
-		case LoadBalanceEndPointOutputConnectorEditPart.VISUAL_ID:
-			return getLoadBalanceEndPointOutputConnector_3096ContainedLinks(view);
-		case LoadBalanceEndPointWestOutputConnectorEditPart.VISUAL_ID:
-			return getLoadBalanceEndPointWestOutputConnector_3098ContainedLinks(view);
 		case HeaderMediatorEditPart.VISUAL_ID:
 			return getHeaderMediator_3516ContainedLinks(view);
 		case HeaderMediatorInputConnectorEditPart.VISUAL_ID:
@@ -4691,6 +4499,40 @@ public class EsbDiagramUpdater {
 			return getEnqueueMediatorInputConnector_3601ContainedLinks(view);
 		case EnqueueMediatorOutputConnectorEditPart.VISUAL_ID:
 			return getEnqueueMediatorOutputConnector_3602ContainedLinks(view);
+		case DefaultEndPointEditPart.VISUAL_ID:
+			return getDefaultEndPoint_3609ContainedLinks(view);
+		case DefaultEndPointInputConnectorEditPart.VISUAL_ID:
+			return getDefaultEndPointInputConnector_3021ContainedLinks(view);
+		case DefaultEndPointOutputConnectorEditPart.VISUAL_ID:
+			return getDefaultEndPointOutputConnector_3022ContainedLinks(view);
+		case AddressEndPointEditPart.VISUAL_ID:
+			return getAddressEndPoint_3610ContainedLinks(view);
+		case AddressEndPointInputConnectorEditPart.VISUAL_ID:
+			return getAddressEndPointInputConnector_3030ContainedLinks(view);
+		case AddressEndPointOutputConnectorEditPart.VISUAL_ID:
+			return getAddressEndPointOutputConnector_3031ContainedLinks(view);
+		case FailoverEndPointEditPart.VISUAL_ID:
+			return getFailoverEndPoint_3611ContainedLinks(view);
+		case FailoverEndPointInputConnectorEditPart.VISUAL_ID:
+			return getFailoverEndPointInputConnector_3088ContainedLinks(view);
+		case FailoverEndPointOutputConnectorEditPart.VISUAL_ID:
+			return getFailoverEndPointOutputConnector_3090ContainedLinks(view);
+		case FailoverEndPointWestOutputConnectorEditPart.VISUAL_ID:
+			return getFailoverEndPointWestOutputConnector_3097ContainedLinks(view);
+		case WSDLEndPointEditPart.VISUAL_ID:
+			return getWSDLEndPoint_3612ContainedLinks(view);
+		case WSDLEndPointInputConnectorEditPart.VISUAL_ID:
+			return getWSDLEndPointInputConnector_3092ContainedLinks(view);
+		case WSDLEndPointOutputConnectorEditPart.VISUAL_ID:
+			return getWSDLEndPointOutputConnector_3093ContainedLinks(view);
+		case LoadBalanceEndPointEditPart.VISUAL_ID:
+			return getLoadBalanceEndPoint_3613ContainedLinks(view);
+		case LoadBalanceEndPointInputConnectorEditPart.VISUAL_ID:
+			return getLoadBalanceEndPointInputConnector_3095ContainedLinks(view);
+		case LoadBalanceEndPointOutputConnectorEditPart.VISUAL_ID:
+			return getLoadBalanceEndPointOutputConnector_3096ContainedLinks(view);
+		case LoadBalanceEndPointWestOutputConnectorEditPart.VISUAL_ID:
+			return getLoadBalanceEndPointWestOutputConnector_3098ContainedLinks(view);
 		case SwitchDefaultContainerEditPart.VISUAL_ID:
 			return getSwitchDefaultContainer_3527ContainedLinks(view);
 		case MediatorFlow4EditPart.VISUAL_ID:
@@ -4703,14 +4545,6 @@ public class EsbDiagramUpdater {
 			return getThrottleOnRejectContainer_3586ContainedLinks(view);
 		case MediatorFlow10EditPart.VISUAL_ID:
 			return getMediatorFlow_3587ContainedLinks(view);
-		case ProxyServiceOutSequenceEditPart.VISUAL_ID:
-			return getProxyServiceOutSequence_3198ContainedLinks(view);
-		case MediatorFlow5EditPart.VISUAL_ID:
-			return getMediatorFlow_3529ContainedLinks(view);
-		case ProxyServiceEndpointContainerEditPart.VISUAL_ID:
-			return getProxyServiceEndpointContainer_3392ContainedLinks(view);
-		case EndpointFlow2EditPart.VISUAL_ID:
-			return getEndpointFlow_3580ContainedLinks(view);
 		case ProxyServiceFaultContainerEditPart.VISUAL_ID:
 			return getProxyServiceFaultContainer_3488ContainedLinks(view);
 		case MediatorFlow6EditPart.VISUAL_ID:
@@ -4754,12 +4588,8 @@ public class EsbDiagramUpdater {
 			return getProxyServiceContainer_3486IncomingLinks(view);
 		case ProxyServiceSequenceAndEndpointContainerEditPart.VISUAL_ID:
 			return getProxyServiceSequenceAndEndpointContainer_3487IncomingLinks(view);
-		case ProxyServiceSequenceContainerEditPart.VISUAL_ID:
-			return getProxyServiceSequenceContainer_3391IncomingLinks(view);
-		case ProxyServiceInSequenceEditPart.VISUAL_ID:
-			return getProxyServiceInSequence_3197IncomingLinks(view);
 		case MediatorFlowEditPart.VISUAL_ID:
-			return getMediatorFlow_3490IncomingLinks(view);
+			return getMediatorFlow_3608IncomingLinks(view);
 		case DropMediatorEditPart.VISUAL_ID:
 			return getDropMediator_3491IncomingLinks(view);
 		case DropMediatorInputConnectorEditPart.VISUAL_ID:
@@ -4918,40 +4748,6 @@ public class EsbDiagramUpdater {
 			return getSendMediatorEndpointOutputConnector_3539IncomingLinks(view);
 		case EndpointFlowEditPart.VISUAL_ID:
 			return getEndpointFlow_3562IncomingLinks(view);
-		case DefaultEndPointEditPart.VISUAL_ID:
-			return getDefaultEndPoint_3563IncomingLinks(view);
-		case DefaultEndPointInputConnectorEditPart.VISUAL_ID:
-			return getDefaultEndPointInputConnector_3021IncomingLinks(view);
-		case DefaultEndPointOutputConnectorEditPart.VISUAL_ID:
-			return getDefaultEndPointOutputConnector_3022IncomingLinks(view);
-		case AddressEndPointEditPart.VISUAL_ID:
-			return getAddressEndPoint_3564IncomingLinks(view);
-		case AddressEndPointInputConnectorEditPart.VISUAL_ID:
-			return getAddressEndPointInputConnector_3030IncomingLinks(view);
-		case AddressEndPointOutputConnectorEditPart.VISUAL_ID:
-			return getAddressEndPointOutputConnector_3031IncomingLinks(view);
-		case FailoverEndPointEditPart.VISUAL_ID:
-			return getFailoverEndPoint_3565IncomingLinks(view);
-		case FailoverEndPointInputConnectorEditPart.VISUAL_ID:
-			return getFailoverEndPointInputConnector_3088IncomingLinks(view);
-		case FailoverEndPointOutputConnectorEditPart.VISUAL_ID:
-			return getFailoverEndPointOutputConnector_3090IncomingLinks(view);
-		case FailoverEndPointWestOutputConnectorEditPart.VISUAL_ID:
-			return getFailoverEndPointWestOutputConnector_3097IncomingLinks(view);
-		case WSDLEndPointEditPart.VISUAL_ID:
-			return getWSDLEndPoint_3566IncomingLinks(view);
-		case WSDLEndPointInputConnectorEditPart.VISUAL_ID:
-			return getWSDLEndPointInputConnector_3092IncomingLinks(view);
-		case WSDLEndPointOutputConnectorEditPart.VISUAL_ID:
-			return getWSDLEndPointOutputConnector_3093IncomingLinks(view);
-		case LoadBalanceEndPointEditPart.VISUAL_ID:
-			return getLoadBalanceEndPoint_3567IncomingLinks(view);
-		case LoadBalanceEndPointInputConnectorEditPart.VISUAL_ID:
-			return getLoadBalanceEndPointInputConnector_3095IncomingLinks(view);
-		case LoadBalanceEndPointOutputConnectorEditPart.VISUAL_ID:
-			return getLoadBalanceEndPointOutputConnector_3096IncomingLinks(view);
-		case LoadBalanceEndPointWestOutputConnectorEditPart.VISUAL_ID:
-			return getLoadBalanceEndPointWestOutputConnector_3098IncomingLinks(view);
 		case HeaderMediatorEditPart.VISUAL_ID:
 			return getHeaderMediator_3516IncomingLinks(view);
 		case HeaderMediatorInputConnectorEditPart.VISUAL_ID:
@@ -5058,6 +4854,40 @@ public class EsbDiagramUpdater {
 			return getEnqueueMediatorInputConnector_3601IncomingLinks(view);
 		case EnqueueMediatorOutputConnectorEditPart.VISUAL_ID:
 			return getEnqueueMediatorOutputConnector_3602IncomingLinks(view);
+		case DefaultEndPointEditPart.VISUAL_ID:
+			return getDefaultEndPoint_3609IncomingLinks(view);
+		case DefaultEndPointInputConnectorEditPart.VISUAL_ID:
+			return getDefaultEndPointInputConnector_3021IncomingLinks(view);
+		case DefaultEndPointOutputConnectorEditPart.VISUAL_ID:
+			return getDefaultEndPointOutputConnector_3022IncomingLinks(view);
+		case AddressEndPointEditPart.VISUAL_ID:
+			return getAddressEndPoint_3610IncomingLinks(view);
+		case AddressEndPointInputConnectorEditPart.VISUAL_ID:
+			return getAddressEndPointInputConnector_3030IncomingLinks(view);
+		case AddressEndPointOutputConnectorEditPart.VISUAL_ID:
+			return getAddressEndPointOutputConnector_3031IncomingLinks(view);
+		case FailoverEndPointEditPart.VISUAL_ID:
+			return getFailoverEndPoint_3611IncomingLinks(view);
+		case FailoverEndPointInputConnectorEditPart.VISUAL_ID:
+			return getFailoverEndPointInputConnector_3088IncomingLinks(view);
+		case FailoverEndPointOutputConnectorEditPart.VISUAL_ID:
+			return getFailoverEndPointOutputConnector_3090IncomingLinks(view);
+		case FailoverEndPointWestOutputConnectorEditPart.VISUAL_ID:
+			return getFailoverEndPointWestOutputConnector_3097IncomingLinks(view);
+		case WSDLEndPointEditPart.VISUAL_ID:
+			return getWSDLEndPoint_3612IncomingLinks(view);
+		case WSDLEndPointInputConnectorEditPart.VISUAL_ID:
+			return getWSDLEndPointInputConnector_3092IncomingLinks(view);
+		case WSDLEndPointOutputConnectorEditPart.VISUAL_ID:
+			return getWSDLEndPointOutputConnector_3093IncomingLinks(view);
+		case LoadBalanceEndPointEditPart.VISUAL_ID:
+			return getLoadBalanceEndPoint_3613IncomingLinks(view);
+		case LoadBalanceEndPointInputConnectorEditPart.VISUAL_ID:
+			return getLoadBalanceEndPointInputConnector_3095IncomingLinks(view);
+		case LoadBalanceEndPointOutputConnectorEditPart.VISUAL_ID:
+			return getLoadBalanceEndPointOutputConnector_3096IncomingLinks(view);
+		case LoadBalanceEndPointWestOutputConnectorEditPart.VISUAL_ID:
+			return getLoadBalanceEndPointWestOutputConnector_3098IncomingLinks(view);
 		case SwitchDefaultContainerEditPart.VISUAL_ID:
 			return getSwitchDefaultContainer_3527IncomingLinks(view);
 		case MediatorFlow4EditPart.VISUAL_ID:
@@ -5070,14 +4900,6 @@ public class EsbDiagramUpdater {
 			return getThrottleOnRejectContainer_3586IncomingLinks(view);
 		case MediatorFlow10EditPart.VISUAL_ID:
 			return getMediatorFlow_3587IncomingLinks(view);
-		case ProxyServiceOutSequenceEditPart.VISUAL_ID:
-			return getProxyServiceOutSequence_3198IncomingLinks(view);
-		case MediatorFlow5EditPart.VISUAL_ID:
-			return getMediatorFlow_3529IncomingLinks(view);
-		case ProxyServiceEndpointContainerEditPart.VISUAL_ID:
-			return getProxyServiceEndpointContainer_3392IncomingLinks(view);
-		case EndpointFlow2EditPart.VISUAL_ID:
-			return getEndpointFlow_3580IncomingLinks(view);
 		case ProxyServiceFaultContainerEditPart.VISUAL_ID:
 			return getProxyServiceFaultContainer_3488IncomingLinks(view);
 		case MediatorFlow6EditPart.VISUAL_ID:
@@ -5121,12 +4943,8 @@ public class EsbDiagramUpdater {
 			return getProxyServiceContainer_3486OutgoingLinks(view);
 		case ProxyServiceSequenceAndEndpointContainerEditPart.VISUAL_ID:
 			return getProxyServiceSequenceAndEndpointContainer_3487OutgoingLinks(view);
-		case ProxyServiceSequenceContainerEditPart.VISUAL_ID:
-			return getProxyServiceSequenceContainer_3391OutgoingLinks(view);
-		case ProxyServiceInSequenceEditPart.VISUAL_ID:
-			return getProxyServiceInSequence_3197OutgoingLinks(view);
 		case MediatorFlowEditPart.VISUAL_ID:
-			return getMediatorFlow_3490OutgoingLinks(view);
+			return getMediatorFlow_3608OutgoingLinks(view);
 		case DropMediatorEditPart.VISUAL_ID:
 			return getDropMediator_3491OutgoingLinks(view);
 		case DropMediatorInputConnectorEditPart.VISUAL_ID:
@@ -5285,40 +5103,6 @@ public class EsbDiagramUpdater {
 			return getSendMediatorEndpointOutputConnector_3539OutgoingLinks(view);
 		case EndpointFlowEditPart.VISUAL_ID:
 			return getEndpointFlow_3562OutgoingLinks(view);
-		case DefaultEndPointEditPart.VISUAL_ID:
-			return getDefaultEndPoint_3563OutgoingLinks(view);
-		case DefaultEndPointInputConnectorEditPart.VISUAL_ID:
-			return getDefaultEndPointInputConnector_3021OutgoingLinks(view);
-		case DefaultEndPointOutputConnectorEditPart.VISUAL_ID:
-			return getDefaultEndPointOutputConnector_3022OutgoingLinks(view);
-		case AddressEndPointEditPart.VISUAL_ID:
-			return getAddressEndPoint_3564OutgoingLinks(view);
-		case AddressEndPointInputConnectorEditPart.VISUAL_ID:
-			return getAddressEndPointInputConnector_3030OutgoingLinks(view);
-		case AddressEndPointOutputConnectorEditPart.VISUAL_ID:
-			return getAddressEndPointOutputConnector_3031OutgoingLinks(view);
-		case FailoverEndPointEditPart.VISUAL_ID:
-			return getFailoverEndPoint_3565OutgoingLinks(view);
-		case FailoverEndPointInputConnectorEditPart.VISUAL_ID:
-			return getFailoverEndPointInputConnector_3088OutgoingLinks(view);
-		case FailoverEndPointOutputConnectorEditPart.VISUAL_ID:
-			return getFailoverEndPointOutputConnector_3090OutgoingLinks(view);
-		case FailoverEndPointWestOutputConnectorEditPart.VISUAL_ID:
-			return getFailoverEndPointWestOutputConnector_3097OutgoingLinks(view);
-		case WSDLEndPointEditPart.VISUAL_ID:
-			return getWSDLEndPoint_3566OutgoingLinks(view);
-		case WSDLEndPointInputConnectorEditPart.VISUAL_ID:
-			return getWSDLEndPointInputConnector_3092OutgoingLinks(view);
-		case WSDLEndPointOutputConnectorEditPart.VISUAL_ID:
-			return getWSDLEndPointOutputConnector_3093OutgoingLinks(view);
-		case LoadBalanceEndPointEditPart.VISUAL_ID:
-			return getLoadBalanceEndPoint_3567OutgoingLinks(view);
-		case LoadBalanceEndPointInputConnectorEditPart.VISUAL_ID:
-			return getLoadBalanceEndPointInputConnector_3095OutgoingLinks(view);
-		case LoadBalanceEndPointOutputConnectorEditPart.VISUAL_ID:
-			return getLoadBalanceEndPointOutputConnector_3096OutgoingLinks(view);
-		case LoadBalanceEndPointWestOutputConnectorEditPart.VISUAL_ID:
-			return getLoadBalanceEndPointWestOutputConnector_3098OutgoingLinks(view);
 		case HeaderMediatorEditPart.VISUAL_ID:
 			return getHeaderMediator_3516OutgoingLinks(view);
 		case HeaderMediatorInputConnectorEditPart.VISUAL_ID:
@@ -5425,6 +5209,40 @@ public class EsbDiagramUpdater {
 			return getEnqueueMediatorInputConnector_3601OutgoingLinks(view);
 		case EnqueueMediatorOutputConnectorEditPart.VISUAL_ID:
 			return getEnqueueMediatorOutputConnector_3602OutgoingLinks(view);
+		case DefaultEndPointEditPart.VISUAL_ID:
+			return getDefaultEndPoint_3609OutgoingLinks(view);
+		case DefaultEndPointInputConnectorEditPart.VISUAL_ID:
+			return getDefaultEndPointInputConnector_3021OutgoingLinks(view);
+		case DefaultEndPointOutputConnectorEditPart.VISUAL_ID:
+			return getDefaultEndPointOutputConnector_3022OutgoingLinks(view);
+		case AddressEndPointEditPart.VISUAL_ID:
+			return getAddressEndPoint_3610OutgoingLinks(view);
+		case AddressEndPointInputConnectorEditPart.VISUAL_ID:
+			return getAddressEndPointInputConnector_3030OutgoingLinks(view);
+		case AddressEndPointOutputConnectorEditPart.VISUAL_ID:
+			return getAddressEndPointOutputConnector_3031OutgoingLinks(view);
+		case FailoverEndPointEditPart.VISUAL_ID:
+			return getFailoverEndPoint_3611OutgoingLinks(view);
+		case FailoverEndPointInputConnectorEditPart.VISUAL_ID:
+			return getFailoverEndPointInputConnector_3088OutgoingLinks(view);
+		case FailoverEndPointOutputConnectorEditPart.VISUAL_ID:
+			return getFailoverEndPointOutputConnector_3090OutgoingLinks(view);
+		case FailoverEndPointWestOutputConnectorEditPart.VISUAL_ID:
+			return getFailoverEndPointWestOutputConnector_3097OutgoingLinks(view);
+		case WSDLEndPointEditPart.VISUAL_ID:
+			return getWSDLEndPoint_3612OutgoingLinks(view);
+		case WSDLEndPointInputConnectorEditPart.VISUAL_ID:
+			return getWSDLEndPointInputConnector_3092OutgoingLinks(view);
+		case WSDLEndPointOutputConnectorEditPart.VISUAL_ID:
+			return getWSDLEndPointOutputConnector_3093OutgoingLinks(view);
+		case LoadBalanceEndPointEditPart.VISUAL_ID:
+			return getLoadBalanceEndPoint_3613OutgoingLinks(view);
+		case LoadBalanceEndPointInputConnectorEditPart.VISUAL_ID:
+			return getLoadBalanceEndPointInputConnector_3095OutgoingLinks(view);
+		case LoadBalanceEndPointOutputConnectorEditPart.VISUAL_ID:
+			return getLoadBalanceEndPointOutputConnector_3096OutgoingLinks(view);
+		case LoadBalanceEndPointWestOutputConnectorEditPart.VISUAL_ID:
+			return getLoadBalanceEndPointWestOutputConnector_3098OutgoingLinks(view);
 		case SwitchDefaultContainerEditPart.VISUAL_ID:
 			return getSwitchDefaultContainer_3527OutgoingLinks(view);
 		case MediatorFlow4EditPart.VISUAL_ID:
@@ -5437,14 +5255,6 @@ public class EsbDiagramUpdater {
 			return getThrottleOnRejectContainer_3586OutgoingLinks(view);
 		case MediatorFlow10EditPart.VISUAL_ID:
 			return getMediatorFlow_3587OutgoingLinks(view);
-		case ProxyServiceOutSequenceEditPart.VISUAL_ID:
-			return getProxyServiceOutSequence_3198OutgoingLinks(view);
-		case MediatorFlow5EditPart.VISUAL_ID:
-			return getMediatorFlow_3529OutgoingLinks(view);
-		case ProxyServiceEndpointContainerEditPart.VISUAL_ID:
-			return getProxyServiceEndpointContainer_3392OutgoingLinks(view);
-		case EndpointFlow2EditPart.VISUAL_ID:
-			return getEndpointFlow_3580OutgoingLinks(view);
 		case ProxyServiceFaultContainerEditPart.VISUAL_ID:
 			return getProxyServiceFaultContainer_3488OutgoingLinks(view);
 		case MediatorFlow6EditPart.VISUAL_ID:
@@ -5540,23 +5350,7 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getProxyServiceSequenceContainer_3391ContainedLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<EsbLinkDescriptor> getProxyServiceInSequence_3197ContainedLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<EsbLinkDescriptor> getMediatorFlow_3490ContainedLinks(
+	public static List<EsbLinkDescriptor> getMediatorFlow_3608ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -5609,22 +5403,6 @@ public class EsbDiagramUpdater {
 	 * @generated
 	 */
 	public static List<EsbLinkDescriptor> getPropertyMediator_3492ContainedLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<EsbLinkDescriptor> getProxyServiceOutSequence_3198ContainedLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<EsbLinkDescriptor> getMediatorFlow_3529ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -6308,14 +6086,6 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDefaultEndPoint_3563ContainedLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
 	public static List<EsbLinkDescriptor> getHeaderMediator_3516ContainedLinks(
 			View view) {
 		return Collections.emptyList();
@@ -6356,7 +6126,7 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getWSDLEndPoint_3566ContainedLinks(
+	public static List<EsbLinkDescriptor> getWSDLEndPoint_3612ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -6384,7 +6154,7 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getLoadBalanceEndPoint_3567ContainedLinks(
+	public static List<EsbLinkDescriptor> getLoadBalanceEndPoint_3613ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -6788,6 +6558,14 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<EsbLinkDescriptor> getDefaultEndPoint_3609ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<EsbLinkDescriptor> getSwitchDefaultContainer_3527ContainedLinks(
 			View view) {
 		return Collections.emptyList();
@@ -6829,22 +6607,6 @@ public class EsbDiagramUpdater {
 	 * @generated
 	 */
 	public static List<EsbLinkDescriptor> getMediatorFlow_3587ContainedLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<EsbLinkDescriptor> getProxyServiceEndpointContainer_3392ContainedLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<EsbLinkDescriptor> getEndpointFlow_3580ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -7088,7 +6850,7 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getAddressEndPoint_3564ContainedLinks(
+	public static List<EsbLinkDescriptor> getAddressEndPoint_3610ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -7116,7 +6878,7 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFailoverEndPoint_3565ContainedLinks(
+	public static List<EsbLinkDescriptor> getFailoverEndPoint_3611ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -7202,23 +6964,7 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getProxyServiceSequenceContainer_3391IncomingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<EsbLinkDescriptor> getProxyServiceInSequence_3197IncomingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<EsbLinkDescriptor> getMediatorFlow_3490IncomingLinks(
+	public static List<EsbLinkDescriptor> getMediatorFlow_3608IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -7281,22 +7027,6 @@ public class EsbDiagramUpdater {
 	 * @generated
 	 */
 	public static List<EsbLinkDescriptor> getPropertyMediator_3492IncomingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<EsbLinkDescriptor> getProxyServiceOutSequence_3198IncomingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<EsbLinkDescriptor> getMediatorFlow_3529IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -8027,14 +7757,6 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDefaultEndPoint_3563IncomingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
 	public static List<EsbLinkDescriptor> getHeaderMediator_3516IncomingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -8074,7 +7796,7 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getWSDLEndPoint_3566IncomingLinks(
+	public static List<EsbLinkDescriptor> getWSDLEndPoint_3612IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -8105,7 +7827,7 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getLoadBalanceEndPoint_3567IncomingLinks(
+	public static List<EsbLinkDescriptor> getLoadBalanceEndPoint_3613IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -8526,6 +8248,14 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<EsbLinkDescriptor> getDefaultEndPoint_3609IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<EsbLinkDescriptor> getSwitchDefaultContainer_3527IncomingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -8567,22 +8297,6 @@ public class EsbDiagramUpdater {
 	 * @generated
 	 */
 	public static List<EsbLinkDescriptor> getMediatorFlow_3587IncomingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<EsbLinkDescriptor> getProxyServiceEndpointContainer_3392IncomingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<EsbLinkDescriptor> getEndpointFlow_3580IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -8839,7 +8553,7 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getAddressEndPoint_3564IncomingLinks(
+	public static List<EsbLinkDescriptor> getAddressEndPoint_3610IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -8870,7 +8584,7 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFailoverEndPoint_3565IncomingLinks(
+	public static List<EsbLinkDescriptor> getFailoverEndPoint_3611IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -8945,23 +8659,7 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getProxyServiceSequenceContainer_3391OutgoingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<EsbLinkDescriptor> getProxyServiceInSequence_3197OutgoingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<EsbLinkDescriptor> getMediatorFlow_3490OutgoingLinks(
+	public static List<EsbLinkDescriptor> getMediatorFlow_3608OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -9014,22 +8712,6 @@ public class EsbDiagramUpdater {
 	 * @generated
 	 */
 	public static List<EsbLinkDescriptor> getPropertyMediator_3492OutgoingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<EsbLinkDescriptor> getProxyServiceOutSequence_3198OutgoingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<EsbLinkDescriptor> getMediatorFlow_3529OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -9713,14 +9395,6 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getDefaultEndPoint_3563OutgoingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
 	public static List<EsbLinkDescriptor> getHeaderMediator_3516OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -9761,7 +9435,7 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getWSDLEndPoint_3566OutgoingLinks(
+	public static List<EsbLinkDescriptor> getWSDLEndPoint_3612OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -9789,7 +9463,7 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getLoadBalanceEndPoint_3567OutgoingLinks(
+	public static List<EsbLinkDescriptor> getLoadBalanceEndPoint_3613OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -10193,6 +9867,14 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<EsbLinkDescriptor> getDefaultEndPoint_3609OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<EsbLinkDescriptor> getSwitchDefaultContainer_3527OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -10234,22 +9916,6 @@ public class EsbDiagramUpdater {
 	 * @generated
 	 */
 	public static List<EsbLinkDescriptor> getMediatorFlow_3587OutgoingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<EsbLinkDescriptor> getProxyServiceEndpointContainer_3392OutgoingLinks(
-			View view) {
-		return Collections.emptyList();
-	}
-
-	/**
-	 * @generated
-	 */
-	public static List<EsbLinkDescriptor> getEndpointFlow_3580OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -10493,7 +10159,7 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getAddressEndPoint_3564OutgoingLinks(
+	public static List<EsbLinkDescriptor> getAddressEndPoint_3610OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -10521,7 +10187,7 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
-	public static List<EsbLinkDescriptor> getFailoverEndPoint_3565OutgoingLinks(
+	public static List<EsbLinkDescriptor> getFailoverEndPoint_3611OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}

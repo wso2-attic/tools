@@ -136,8 +136,8 @@ public class EsbGraphicalShape extends RoundedRectangle {
 		constraintPropertyValueRectangle1.verticalSpan = 1;
 		constraintPropertyValueRectangle1.grabExcessHorizontalSpace = true;
 		constraintPropertyValueRectangle1.grabExcessVerticalSpace = true;
-		graphicalNodeContainer0.add(propertyValueRectangle1,
-				constraintPropertyValueRectangle1);
+/*		graphicalNodeContainer0.add(propertyValueRectangle1,
+				constraintPropertyValueRectangle1);*/
 
 		propertyValueRectangle1.setLayoutManager(new StackLayout());
 

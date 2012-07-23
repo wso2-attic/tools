@@ -2,11 +2,9 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Set;
 
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.ecore.EObject;
@@ -23,8 +21,7 @@ import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceEndpointContainerEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceSequenceContainerEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramUpdater;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
@@ -34,11 +31,6 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry
  */
 public class ProxyServiceSequenceAndEndpointContainerCanonicalEditPolicy extends
 		CanonicalEditPolicy {
-
-	/**
-	 * @generated
-	 */
-	private Set<EStructuralFeature> myFeaturesToSynchronize;
 
 	/**
 	 * @generated
@@ -55,17 +47,9 @@ public class ProxyServiceSequenceAndEndpointContainerCanonicalEditPolicy extends
 	/**
 	 * @generated
 	 */
-	protected Set getFeaturesToSynchronize() {
-		if (myFeaturesToSynchronize == null) {
-			myFeaturesToSynchronize = new HashSet<EStructuralFeature>();
-			myFeaturesToSynchronize
-					.add(EsbPackage.eINSTANCE
-							.getProxyServiceSequenceAndEndpointContainer_SequenceContainer());
-			myFeaturesToSynchronize
-					.add(EsbPackage.eINSTANCE
-							.getProxyServiceSequenceAndEndpointContainer_EndpointContainer());
-		}
-		return myFeaturesToSynchronize;
+	protected EStructuralFeature getFeatureToSynchronize() {
+		return EsbPackage.eINSTANCE
+				.getProxyServiceSequenceAndEndpointContainer_MediatorFlow();
 	}
 
 	/**
@@ -96,9 +80,8 @@ public class ProxyServiceSequenceAndEndpointContainerCanonicalEditPolicy extends
 	 * @generated
 	 */
 	private boolean isMyDiagramElement(View view) {
-		int visualID = EsbVisualIDRegistry.getVisualID(view);
-		return visualID == ProxyServiceSequenceContainerEditPart.VISUAL_ID
-				|| visualID == ProxyServiceEndpointContainerEditPart.VISUAL_ID;
+		return MediatorFlowEditPart.VISUAL_ID == EsbVisualIDRegistry
+				.getVisualID(view);
 	}
 
 	/**

@@ -33,7 +33,7 @@ public class LoadBalanceEndPointItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public LoadBalanceEndPointItemSemanticEditPolicy() {
-		super(EsbElementTypes.LoadBalanceEndPoint_3567);
+		super(EsbElementTypes.LoadBalanceEndPoint_3613);
 	}
 
 	/**

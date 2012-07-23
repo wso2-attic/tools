@@ -31,7 +31,7 @@ public class DefaultEndPointItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public DefaultEndPointItemSemanticEditPolicy() {
-		super(EsbElementTypes.DefaultEndPoint_3563);
+		super(EsbElementTypes.DefaultEndPoint_3609);
 	}
 
 	/**

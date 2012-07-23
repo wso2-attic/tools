@@ -76,7 +76,7 @@ public class LoadBalanceEndPointCanonicalEditPolicy extends CanonicalEditPolicy 
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
 		List<EsbNodeDescriptor> childDescriptors = EsbDiagramUpdater
-				.getLoadBalanceEndPoint_3567SemanticChildren(viewObject);
+				.getLoadBalanceEndPoint_3613SemanticChildren(viewObject);
 		for (EsbNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
@@ -111,7 +111,7 @@ public class LoadBalanceEndPointCanonicalEditPolicy extends CanonicalEditPolicy 
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 		List<EsbNodeDescriptor> childDescriptors = EsbDiagramUpdater
-				.getLoadBalanceEndPoint_3567SemanticChildren((View) getHost()
+				.getLoadBalanceEndPoint_3613SemanticChildren((View) getHost()
 						.getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours

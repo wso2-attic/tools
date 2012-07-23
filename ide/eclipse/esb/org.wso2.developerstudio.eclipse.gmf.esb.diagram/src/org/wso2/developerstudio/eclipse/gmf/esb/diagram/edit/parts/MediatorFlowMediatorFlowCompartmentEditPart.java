@@ -2,14 +2,15 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
 
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.MarginBorder;
+import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.AddCommand;
+import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gef.EditPart;
+import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gef.commands.CompoundCommand;
 import org.eclipse.gef.internal.ui.palette.editparts.ToolEntryEditPart;
-import org.eclipse.gef.palette.PaletteContainer;
-import org.eclipse.gef.palette.ToolEntry;
 import org.eclipse.gmf.runtime.common.core.command.ICommand;
 import org.eclipse.gmf.runtime.diagram.ui.commands.DeferredCreateConnectionViewAndElementCommand;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
@@ -18,26 +19,28 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeCompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
+import org.eclipse.gmf.runtime.diagram.ui.figures.BorderedNodeFigure;
 import org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateConnectionViewAndElementRequest;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.emf.type.core.IHintedType;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.gmf.runtime.notation.impl.NodeImpl;
-import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.StructuredSelection;
+import org.wso2.developerstudio.eclipse.gmf.esb.AddressEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.DefaultEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
+import org.wso2.developerstudio.eclipse.gmf.esb.FailoverEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.FailoverEndPointOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPointOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
-import org.wso2.developerstudio.eclipse.gmf.esb.SwitchCaseBranchOutputConnector;
-import org.wso2.developerstudio.eclipse.gmf.esb.SwitchCaseContainer;
-import org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediator;
-import org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediatorContainer;
+import org.wso2.developerstudio.eclipse.gmf.esb.WSDLEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractOutputConnector;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.editpolicy.CustomDragDropEditPolicy;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.SlidingBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.utils.SwitchMediatorUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.MediatorFlowMediatorFlowCompartmentCanonicalEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.MediatorFlowMediatorFlowCompartmentItemSemanticEditPolicy;
@@ -51,6 +54,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementType
 public class MediatorFlowMediatorFlowCompartmentEditPart extends
 		ShapeCompartmentEditPart {
 
+	BorderedNodeFigure borderedNodeFigure;
 	AbstractOutputConnector sourceOutputConnector = null;
 	AbstractOutputConnector outputConnectorEditPart = null;
 	AbstractBorderedShapeEditPart sourceEditPart = null;
@@ -58,7 +62,7 @@ public class MediatorFlowMediatorFlowCompartmentEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 7014;
+	public static final int VISUAL_ID = 7034;
 
 	/**
 	 * @generated
@@ -71,25 +75,44 @@ public class MediatorFlowMediatorFlowCompartmentEditPart extends
 	 * @generated NOT
 	 */
 	public String getCompartmentName() {
-		return "In Sequence";
+		return "";
 		//return Messages.MediatorFlowMediatorFlowCompartmentEditPart_title;
 	}
 
-	/**
-	 * @generated NOT
-	 */
 	public IFigure createFigure() {
 		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super
 				.createFigure();
 		result.setTitleVisibility(true);
 		// Override default border.
 		result.setBorder(new MarginBorder(0, 0, 0, 0));
+		borderedNodeFigure = new BorderedNodeFigure(result);
 		result.setToolTip(getCompartmentName());
-		return result;
+		//return result;
+		return borderedNodeFigure;
+	}
+
+	public ResizableCompartmentFigure getCompartmentFigure() {
+		return (ResizableCompartmentFigure) borderedNodeFigure.getMainFigure();
+	}
+
+	protected void addChildVisual(EditPart childEditPart, int index) {
+		IFigure child = ((GraphicalEditPart) childEditPart).getFigure();
+		if (childEditPart instanceof AddressEndPointEditPart) {
+			borderedNodeFigure.getBorderItemContainer()
+					.add(((AddressEndPointEditPart) childEditPart).getFigure(),
+							new SlidingBorderItemLocator(borderedNodeFigure
+									.getMainFigure(),
+									((AddressEndPointEditPart) childEditPart)
+											.getFigure(),
+									PositionConstants.EAST, 10, 5));
+		} else {
+			index = Math.min(getContentPane().getChildren().size(), index);
+			getContentPane().add(child, index);
+		}
 	}
 
 	/**
-	 * @generated NOT
+	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
@@ -99,8 +122,6 @@ public class MediatorFlowMediatorFlowCompartmentEditPart extends
 				new CreationEditPolicy());
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
 				new DragDropEditPolicy());
-		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
-				new CustomDragDropEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
 				new MediatorFlowMediatorFlowCompartmentCanonicalEditPolicy());
 	}
@@ -109,9 +130,8 @@ public class MediatorFlowMediatorFlowCompartmentEditPart extends
 		super.addChild(child, index);
 		//Refresh connector's position.
 		((MediatorFlowEditPart) child.getParent().getParent())
-				.refreshOutputConnector(child.getParent().getParent()
-						.getParent().getParent().getParent().getParent()
-						.getParent());
+				.refreshConnector(child.getParent().getParent().getParent()
+						.getParent().getParent());
 		AbstractInputConnector inputConnector = null;
 
 		if (child instanceof AbstractMediator) {
@@ -131,12 +151,11 @@ public class MediatorFlowMediatorFlowCompartmentEditPart extends
 			if (outputConnectorEditPart == null) {
 				outputConnectorEditPart = ((AbstractOutputConnector) this
 						.getParent().getParent().getParent().getParent()
-						.getParent().getParent().getChildren().get(1));
+						.getChildren().get(1));
 			}
 			if (sourceEditPart == null || sourceEditPart.getRoot() == null) {
 				sourceEditPart = (AbstractBorderedShapeEditPart) this
-						.getParent().getParent().getParent().getParent()
-						.getParent().getParent();
+						.getParent().getParent().getParent().getParent();
 			}
 
 			CompoundCommand cc = new CompoundCommand("Create Link");
@@ -170,17 +189,147 @@ public class MediatorFlowMediatorFlowCompartmentEditPart extends
 					getEditingDomain());
 
 		}
-		if(child instanceof SequenceEditPart){
-			SequenceEditPart sequenceEditPart=(SequenceEditPart) child;
-			EditPart editpart=(EditPart) ((StructuredSelection)sequenceEditPart.getViewer().getEditDomain().getPaletteViewer().getSelection()).getFirstElement();
-			if(editpart instanceof ToolEntryEditPart){
-				String label= ((NodeToolEntry)((ToolEntryEditPart)editpart).getModel()).getLabel();
-				if((!label.equals(""))&&(!label.equals("Sequence"))){
-					((Sequence)((View)sequenceEditPart.getModel()).getElement()).setName(label);
+		if (child instanceof SequenceEditPart) {
+			SequenceEditPart sequenceEditPart = (SequenceEditPart) child;
+			EditPart editpart = (EditPart) ((StructuredSelection) sequenceEditPart
+					.getViewer().getEditDomain().getPaletteViewer()
+					.getSelection()).getFirstElement();
+			if (editpart instanceof ToolEntryEditPart) {
+				String label = ((NodeToolEntry) ((ToolEntryEditPart) editpart)
+						.getModel()).getLabel();
+				if ((!label.equals("")) && (!label.equals("Sequence"))) {
+					((Sequence) ((View) sequenceEditPart.getModel())
+							.getElement()).setName(label);
 				}
-			}			
+			}
 		}
 
+		if (child instanceof FailoverEndPointEditPart) {
+			FailoverEndPointEditPart endpointEditPart = (FailoverEndPointEditPart) child;
+			EObject parentEndpoint = ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (endpointEditPart)
+					.getModel()).getElement();
+			if (((FailoverEndPoint) parentEndpoint).getOutputConnector().size() == 0) {
+				TransactionalEditingDomain domain = getEditingDomain();
+				for (int i = 0; i < 2; ++i) {
+					FailoverEndPointOutputConnector outputConnector = EsbFactory.eINSTANCE
+							.createFailoverEndPointOutputConnector();
+					AddCommand addCmd = new AddCommand(
+							domain,
+							parentEndpoint,
+							EsbPackage.Literals.FAILOVER_END_POINT__OUTPUT_CONNECTOR,
+							outputConnector);
+					if (addCmd.canExecute()) {
+						domain.getCommandStack().execute(addCmd);
+					}
+				}
+			}
+			if (((FailoverEndPoint) parentEndpoint).getInputConnector()
+					.getIncomingLinks().size() == 0) {
+				if (((FailoverEndPoint) parentEndpoint)
+						.getWestOutputConnector() == null) {
+					SetCommand addCmd = new SetCommand(
+							getEditingDomain(),
+							parentEndpoint,
+							EsbPackage.Literals.FAILOVER_END_POINT__WEST_OUTPUT_CONNECTOR,
+							EsbFactory.eINSTANCE
+									.createFailoverEndPointWestOutputConnector());
+					if (addCmd.canExecute()) {
+						getEditingDomain().getCommandStack().execute(addCmd);
+					}
+				}
+			}
+		} else if (child instanceof LoadBalanceEndPointEditPart) {
+			LoadBalanceEndPointEditPart endpointEditPart = (LoadBalanceEndPointEditPart) child;
+			EObject parentEndpoint = ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (endpointEditPart)
+					.getModel()).getElement();
+			if (((LoadBalanceEndPoint) parentEndpoint).getOutputConnector()
+					.size() == 0) {
+				TransactionalEditingDomain domain = getEditingDomain();
+				for (int i = 0; i < 2; ++i) {
+					LoadBalanceEndPointOutputConnector outputConnector = EsbFactory.eINSTANCE
+							.createLoadBalanceEndPointOutputConnector();
+					AddCommand addCmd = new AddCommand(
+							domain,
+							parentEndpoint,
+							EsbPackage.Literals.LOAD_BALANCE_END_POINT__OUTPUT_CONNECTOR,
+							outputConnector);
+					if (addCmd.canExecute()) {
+						domain.getCommandStack().execute(addCmd);
+					}
+				}
+			}
+			if (((LoadBalanceEndPoint) parentEndpoint).getInputConnector()
+					.getIncomingLinks().size() == 0) {
+				if (((LoadBalanceEndPoint) parentEndpoint)
+						.getWestOutputConnector() == null) {
+					SetCommand addCmd = new SetCommand(
+							getEditingDomain(),
+							parentEndpoint,
+							EsbPackage.Literals.LOAD_BALANCE_END_POINT__WEST_OUTPUT_CONNECTOR,
+							EsbFactory.eINSTANCE
+									.createLoadBalanceEndPointWestOutputConnector());
+					if (addCmd.canExecute()) {
+						getEditingDomain().getCommandStack().execute(addCmd);
+					}
+				}
+			}
+
+		} else if (child instanceof DefaultEndPointEditPart) {
+			DefaultEndPointEditPart endpointEditPart = (DefaultEndPointEditPart) child;
+			EObject parentEndpoint = ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (endpointEditPart)
+					.getModel()).getElement();
+			if (((DefaultEndPoint) parentEndpoint).getInputConnector()
+					.getIncomingLinks().size() == 0) {
+				if (((DefaultEndPoint) parentEndpoint).getOutputConnector() == null) {
+					SetCommand addCmd = new SetCommand(
+							getEditingDomain(),
+							parentEndpoint,
+							EsbPackage.Literals.DEFAULT_END_POINT__OUTPUT_CONNECTOR,
+							EsbFactory.eINSTANCE
+									.createDefaultEndPointOutputConnector());
+					if (addCmd.canExecute()) {
+						getEditingDomain().getCommandStack().execute(addCmd);
+					}
+				}
+			}
+		} else if (child instanceof AddressEndPointEditPart) {
+			AddressEndPointEditPart endpointEditPart = (AddressEndPointEditPart) child;
+			EObject parentEndpoint = ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (endpointEditPart)
+					.getModel()).getElement();
+			if (((AddressEndPoint) parentEndpoint).getInputConnector()
+					.getIncomingLinks().size() == 0) {
+				if (((AddressEndPoint) parentEndpoint).getOutputConnector() == null) {
+					SetCommand addCmd = new SetCommand(
+							getEditingDomain(),
+							parentEndpoint,
+							EsbPackage.Literals.ADDRESS_END_POINT__OUTPUT_CONNECTOR,
+							EsbFactory.eINSTANCE
+									.createAddressEndPointOutputConnector());
+					if (addCmd.canExecute()) {
+						getEditingDomain().getCommandStack().execute(addCmd);
+					}
+				}
+			}
+
+		} else if (child instanceof WSDLEndPointEditPart) {
+			WSDLEndPointEditPart endpointEditPart = (WSDLEndPointEditPart) child;
+			EObject parentEndpoint = ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (endpointEditPart)
+					.getModel()).getElement();
+			if (((WSDLEndPoint) parentEndpoint).getInputConnector()
+					.getIncomingLinks().size() == 0) {
+				if (((WSDLEndPoint) parentEndpoint).getOutputConnector() == null) {
+					SetCommand addCmd = new SetCommand(
+							getEditingDomain(),
+							parentEndpoint,
+							EsbPackage.Literals.WSDL_END_POINT__OUTPUT_CONNECTOR,
+							EsbFactory.eINSTANCE
+									.createWSDLEndPointOutputConnector());
+					if (addCmd.canExecute()) {
+						getEditingDomain().getCommandStack().execute(addCmd);
+					}
+				}
+			}
+		}
 	}
 
 	protected void removeChild(EditPart child) {
@@ -190,12 +339,7 @@ public class MediatorFlowMediatorFlowCompartmentEditPart extends
 		EditPart proxyservice = child.getParent().getParent().getParent()
 				.getParent().getParent().getParent().getParent();
 		super.removeChild(child);
-		mediatorFlow.refreshOutputConnector(proxyservice);
-	}
-
-	public boolean isSelectable() {
-		// TODO This or using ResizableEditpolicy?
-		return false;
+		mediatorFlow.refreshConnector(proxyservice);
 	}
 
 	/**

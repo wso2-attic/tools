@@ -60,13 +60,13 @@ public class EsbCreationWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 	private boolean openNewlyCreatedDiagramEditor = true;
-	
+
 	private IProject esbProject;
-	
+
 	private ESBProjectArtifact esbProjectArtifact;
-	
+
 	private URI fileCreationLocationDiagram;
-	
+
 	private URI fileCreationLocationDomain;
 
 	/**
@@ -154,37 +154,46 @@ public class EsbCreationWizard extends Wizard implements INewWizard {
 	 * @generated NOT
 	 */
 	public boolean performFinish() {
-		try{
-		if(((TreeSelection)getSelection()).toArray()[0] instanceof Folder){
-			esbProject=((Folder)((TreeSelection)getSelection()).toArray()[0]).getProject();
-		}		
-		if(((TreeSelection)getSelection()).toArray()[0] instanceof Project){
-			esbProject=(Project)((TreeSelection)getSelection()).toArray()[0];
-		}		
-		esbProjectArtifact=new ESBProjectArtifact();
-		esbProjectArtifact.fromFile(esbProject.getFile("artifact.xml").getLocation().toFile());
-		
-		IContainer location = esbProject.getFolder("src" + File.separator + "main" +
-                File.separator +
-                "synapse-config");
-		
-		fileCreationLocationDiagram= URI.createPlatformResourceURI(location.getFullPath().toString()+"/"+diagramModelFilePage.getFileName(), false);
-		fileCreationLocationDomain= URI.createPlatformResourceURI(location.getFullPath().toString()+"/"+domainModelFilePage.getFileName(), false);
-		
-		String relativePathDiagram = FileUtils.getRelativePath(
-				esbProject.getLocation().toFile(),
-				new File(location.getLocation().toFile(), diagramModelFilePage.getFileName()));
-		esbProjectArtifact.addESBArtifact(createArtifact(
-				diagramModelFilePage.getFileName().split(".esb_diagram")[0], "test", "1.0.0", relativePathDiagram));
-		
-		esbProjectArtifact.toFile();
-		esbProject.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
+		try {
+			if (((TreeSelection) getSelection()).toArray()[0] instanceof Folder) {
+				esbProject = ((Folder) ((TreeSelection) getSelection())
+						.toArray()[0]).getProject();
+			}
+			if (((TreeSelection) getSelection()).toArray()[0] instanceof Project) {
+				esbProject = (Project) ((TreeSelection) getSelection())
+						.toArray()[0];
+			}
+			esbProjectArtifact = new ESBProjectArtifact();
+			esbProjectArtifact.fromFile(esbProject.getFile("artifact.xml")
+					.getLocation().toFile());
+
+			IContainer location = esbProject.getFolder("src" + File.separator
+					+ "main" + File.separator + "synapse-config");
+
+			fileCreationLocationDiagram = URI.createPlatformResourceURI(
+					location.getFullPath().toString() + "/"
+							+ diagramModelFilePage.getFileName(), false);
+			fileCreationLocationDomain = URI.createPlatformResourceURI(
+					location.getFullPath().toString() + "/"
+							+ domainModelFilePage.getFileName(), false);
+
+			String relativePathDiagram = FileUtils.getRelativePath(esbProject
+					.getLocation().toFile(), new File(location.getLocation()
+					.toFile(), diagramModelFilePage.getFileName()));
+			esbProjectArtifact
+					.addESBArtifact(createArtifact(diagramModelFilePage
+							.getFileName().split(".esb_diagram")[0], "test",
+							"1.0.0", relativePathDiagram));
+
+			esbProjectArtifact.toFile();
+			esbProject.refreshLocal(IResource.DEPTH_INFINITE,
+					new NullProgressMonitor());
 		} catch (CoreException e) {
 			System.out.println("Error ESBCreationWizard");
 		} catch (Exception e) {
 			System.out.println("Error ESBCreationWizard");
 		}
-			
+
 		//IProject currentProject = ResourcesPlugin.getWorkspace().
 		IRunnableWithProgress op = new WorkspaceModifyOperation(null) {
 
@@ -224,9 +233,10 @@ public class EsbCreationWizard extends Wizard implements INewWizard {
 		}
 		return diagram != null;
 	}
-	
-	private ESBArtifact createArtifact(String name,String groupId,String version,String path){
-		ESBArtifact artifact=new ESBArtifact();
+
+	private ESBArtifact createArtifact(String name, String groupId,
+			String version, String path) {
+		ESBArtifact artifact = new ESBArtifact();
 		artifact.setName(name);
 		artifact.setVersion(version);
 		artifact.setType("synapse/graphical-configuration");

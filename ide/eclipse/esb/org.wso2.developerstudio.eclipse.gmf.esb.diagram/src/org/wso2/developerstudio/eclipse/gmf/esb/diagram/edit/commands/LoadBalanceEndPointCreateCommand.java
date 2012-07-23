@@ -14,6 +14,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndpointFlow;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.MediatorFlow;
 
 /**
  * @generated
@@ -56,7 +57,7 @@ public class LoadBalanceEndPointCreateCommand extends EditElementCommand {
 		LoadBalanceEndPoint newElement = EsbFactory.eINSTANCE
 				.createLoadBalanceEndPoint();
 
-		EndpointFlow owner = (EndpointFlow) getElementToEdit();
+		MediatorFlow owner = (MediatorFlow) getElementToEdit();
 		owner.getChildren().add(newElement);
 
 		doConfigure(newElement, monitor, info);

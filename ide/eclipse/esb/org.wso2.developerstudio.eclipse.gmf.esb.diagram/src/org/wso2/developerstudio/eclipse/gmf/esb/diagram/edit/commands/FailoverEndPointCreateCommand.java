@@ -14,6 +14,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndpointFlow;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.FailoverEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.MediatorFlow;
 
 /**
  * @generated
@@ -56,7 +57,7 @@ public class FailoverEndPointCreateCommand extends EditElementCommand {
 		FailoverEndPoint newElement = EsbFactory.eINSTANCE
 				.createFailoverEndPoint();
 
-		EndpointFlow owner = (EndpointFlow) getElementToEdit();
+		MediatorFlow owner = (MediatorFlow) getElementToEdit();
 		owner.getChildren().add(newElement);
 
 		doConfigure(newElement, monitor, info);

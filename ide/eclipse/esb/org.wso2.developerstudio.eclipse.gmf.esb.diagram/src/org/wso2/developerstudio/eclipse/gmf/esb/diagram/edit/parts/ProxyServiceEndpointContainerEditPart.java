@@ -1,4 +1,4 @@
-package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
+/*package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
 
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.GridData;
@@ -29,36 +29,36 @@ import org.eclipse.swt.graphics.Color;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.ProxyServiceEndpointContainerCanonicalEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.ProxyServiceEndpointContainerItemSemanticEditPolicy;
 
-/**
+*//**
  * @generated
- */
+ *//*
 public class ProxyServiceEndpointContainerEditPart extends ShapeNodeEditPart {
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	public static final int VISUAL_ID = 3392;
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected IFigure contentPane;
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected IFigure primaryShape;
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	public ProxyServiceEndpointContainerEditPart(View view) {
 		super(view);
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected void createDefaultEditPolicies() {
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
 				new CreationEditPolicy());
@@ -74,9 +74,9 @@ public class ProxyServiceEndpointContainerEditPart extends ShapeNodeEditPart {
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected LayoutEditPolicy createLayoutEditPolicy() {
 		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
@@ -100,36 +100,36 @@ public class ProxyServiceEndpointContainerEditPart extends ShapeNodeEditPart {
 		return lep;
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected IFigure createNodeShape() {
 		return primaryShape = new ProxyServiceEndpointContainerFigure();
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	public ProxyServiceEndpointContainerFigure getPrimaryShape() {
 		return (ProxyServiceEndpointContainerFigure) primaryShape;
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected NodeFigure createNodePlate() {
 		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
 		return result;
 	}
 
-	/**
+	*//**
 	 * Creates figure for this edit part.
 	 * 
 	 * Body of this method does not depend on settings in generation model
 	 * so you may safely remove <i>generated</i> tag and modify it.
 	 * 
 	 * @generated
-	 */
+	 *//*
 	protected NodeFigure createNodeFigure() {
 		NodeFigure figure = createNodePlate();
 		figure.setLayoutManager(new StackLayout());
@@ -139,12 +139,12 @@ public class ProxyServiceEndpointContainerEditPart extends ShapeNodeEditPart {
 		return figure;
 	}
 
-	/**
+	*//**
 	 * Default implementation treats passed figure as content pane.
 	 * Respects layout one may have set for generated figure.
 	 * @param nodeShape instance of generated figure class
 	 * @generated
-	 */
+	 *//*
 	protected IFigure setupContentPane(IFigure nodeShape) {
 		if (nodeShape.getLayoutManager() == null) {
 			ConstrainedToolbarLayout layout = new ConstrainedToolbarLayout();
@@ -154,9 +154,9 @@ public class ProxyServiceEndpointContainerEditPart extends ShapeNodeEditPart {
 		return nodeShape; // use nodeShape itself as contentPane
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	public IFigure getContentPane() {
 		if (contentPane != null) {
 			return contentPane;
@@ -164,55 +164,55 @@ public class ProxyServiceEndpointContainerEditPart extends ShapeNodeEditPart {
 		return super.getContentPane();
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected void setForegroundColor(Color color) {
 		if (primaryShape != null) {
 			primaryShape.setForegroundColor(color);
 		}
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected void setBackgroundColor(Color color) {
 		if (primaryShape != null) {
 			primaryShape.setBackgroundColor(color);
 		}
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected void setLineWidth(int width) {
 		if (primaryShape instanceof Shape) {
 			((Shape) primaryShape).setLineWidth(width);
 		}
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected void setLineType(int style) {
 		if (primaryShape instanceof Shape) {
 			((Shape) primaryShape).setLineStyle(style);
 		}
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	public class ProxyServiceEndpointContainerFigure extends RoundedRectangle {
 
-		/**
+		*//**
 		 * @generated NOT
-		 */
+		 *//*
 		public ProxyServiceEndpointContainerFigure() {
 
-			/*GridLayout layoutThis = new GridLayout();
+			GridLayout layoutThis = new GridLayout();
 			layoutThis.numColumns = 1;
-			layoutThis.makeColumnsEqualWidth = true;*/
+			layoutThis.makeColumnsEqualWidth = true;
 			ToolbarLayout layoutThis = new ToolbarLayout();
 			layoutThis.setStretchMinorAxis(true);
 			layoutThis.setMinorAlignment(ToolbarLayout.ALIGN_CENTER);
@@ -250,9 +250,10 @@ public class ProxyServiceEndpointContainerEditPart extends ShapeNodeEditPart {
 		return false;
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	static final Color THIS_BACK = new Color(null, 255, 255, 255);
 
 }
+*/

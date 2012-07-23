@@ -52,7 +52,7 @@ public class AddressEndPointEndPointNameEditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5151;
+	public static final int VISUAL_ID = 5156;
 
 	/**
 	 * @generated
@@ -290,7 +290,7 @@ public class AddressEndPointEndPointNameEditPart extends CompartmentEditPart
 		if (parser == null) {
 			parser = EsbParserProvider
 					.getParser(
-							EsbElementTypes.AddressEndPoint_3564,
+							EsbElementTypes.AddressEndPoint_3610,
 							getParserElement(),
 							EsbVisualIDRegistry
 									.getType(org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AddressEndPointEndPointNameEditPart.VISUAL_ID));

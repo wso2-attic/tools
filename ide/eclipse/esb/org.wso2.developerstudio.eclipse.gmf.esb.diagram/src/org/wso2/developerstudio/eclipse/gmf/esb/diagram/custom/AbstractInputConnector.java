@@ -2,10 +2,15 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom;
 
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.geometry.Dimension;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderItemEditPart;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.utils.MediatorFigureReverser;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbLinkEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SendMediatorEndpointOutputConnectorEditPart;
 
 public abstract class AbstractInputConnector extends AbstractBorderItemEditPart {
 
@@ -59,6 +64,29 @@ public abstract class AbstractInputConnector extends AbstractBorderItemEditPart 
 
 	}
 	
+	public void notifyChanged(Notification notification) {
+		int direction = -1;
+		super.notifyChanged(notification);
+		if (notification.getEventType() == Notification.ADD) {
+			if (this.getTargetConnections().size() != 0) {
+				EditPart link = ((EsbLinkEditPart) this.getTargetConnections()
+						.get(0)).getSource();
+				if ((link instanceof AbstractOutputConnector)&&(((AbstractOutputConnector) link).getParent() instanceof AbstractMediator)&&(((AbstractMediator) ((AbstractOutputConnector) link)
+						.getParent()).reversed)) {
+							((AbstractMediator) this.getParent())
+									.setShouldReverse(true);
+							((AbstractMediator) this.getParent()).Reverse(this
+									.getParent());
+				}
+				if (link instanceof AbstractEndpointOutputConnector) {
+					((AbstractMediator) this.getParent())
+							.setShouldReverse(true);
+					((AbstractMediator) this.getParent()).Reverse(this
+							.getParent());
+				}
+			}
+		}
+	}
 
 	public class EastPointerFigure extends EastPointerShape {
 

@@ -10,7 +10,6 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPar
 import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
-import org.wso2.developerstudio.eclipse.gmf.esb.CloneMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.Mediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.utils.MediatorFigureReverser;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AggregateMediatorEditPart;
@@ -23,11 +22,11 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowM
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment2EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment3EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment4EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment5EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment6EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment7EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment8EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment9EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartmentEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SendMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ThrottleMediatorEditPart;
@@ -41,6 +40,8 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 	 * variable to avoid calling reverse method twice.
 	 */
 	public boolean reversed = false;
+	
+	private boolean shouldReverse=false;
 
 	public AbstractMediator(View view) {
 		super(view);
@@ -58,6 +59,13 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 	public void setIsForward(boolean isForward_) {
 		isForward = isForward_;
 	}
+	
+	public void setShouldReverse(boolean shouldReverse){
+		this.shouldReverse=shouldReverse;
+	}
+	public boolean isShouldReverse(){
+		return shouldReverse;
+	}
 
 	public void activate() {
 		super.activate();
@@ -69,8 +77,8 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 	public void Reverse(EditPart editorPart) {
 
 		if (!reversed
-				& ((editorPart.getParent() instanceof MediatorFlowMediatorFlowCompartment5EditPart)
-						| (editorPart.getParent() instanceof MediatorFlowMediatorFlowCompartment6EditPart)
+				& (/*(editorPart.getParent() instanceof MediatorFlowMediatorFlowCompartmentEditPart)
+						| */(editorPart.getParent() instanceof MediatorFlowMediatorFlowCompartment6EditPart)
 						| ((editorPart.getParent() instanceof MediatorFlowMediatorFlowCompartment3EditPart)
 								&& (editorPart.getParent().getParent().getParent() instanceof AggregateMediatorEditPart) && (((AbstractMediator) editorPart
 								.getParent().getParent().getParent()).reversed))
@@ -94,7 +102,7 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 						| (((editorPart.getParent() instanceof MediatorFlowMediatorFlowCompartment9EditPart) | (editorPart
 					        	.getParent() instanceof MediatorFlowMediatorFlowCompartment10EditPart))
 					        	&& (editorPart.getParent().getParent().getParent().getParent().getParent() instanceof ThrottleMediatorEditPart) && (((AbstractMediator) editorPart
-					                	.getParent().getParent().getParent().getParent().getParent()).reversed)))) {
+					                	.getParent().getParent().getParent().getParent().getParent()).reversed))|(shouldReverse))) {
 
 			AbstractMediator selectedEP = (AbstractMediator) editorPart;
 			List<IFigure> inputConnectors = new ArrayList<IFigure>();

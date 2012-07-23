@@ -1,6 +1,8 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
 
+import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.Graphics;
+import org.eclipse.draw2d.GridData;
 import org.eclipse.draw2d.GridLayout;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.RoundedRectangle;
@@ -15,10 +17,13 @@ import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.ResizableCompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
+import org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
@@ -165,6 +170,15 @@ public class ProxyServiceSequenceAndEndpointContainerEditPart extends
 		return super.getContentPane();
 	}
 
+	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
+		if (editPart instanceof ResizableCompartmentEditPart) {
+			// Compartment should be added to the primary shape.
+			return getPrimaryShape();
+		} else {
+			return super.getContentPaneFor(editPart);
+		}
+	}
+
 	/**
 	 * @generated
 	 */
@@ -212,22 +226,47 @@ public class ProxyServiceSequenceAndEndpointContainerEditPart extends
 		 */
 		public ProxyServiceSequenceAndEndpointContainerFigure() {
 
-			/*		GridLayout layoutThis = new GridLayout();
-					layoutThis.numColumns = 1;
-					layoutThis.makeColumnsEqualWidth = true;*/
+			/*			GridLayout layoutThis = new GridLayout();
+			 layoutThis.numColumns = 1;
+			 layoutThis.makeColumnsEqualWidth = true;
+			 this.setLayoutManager(layoutThis);*/
 
 			ToolbarLayout layoutThis = new ToolbarLayout();
 			layoutThis.setStretchMinorAxis(true);
 			layoutThis.setMinorAlignment(ToolbarLayout.ALIGN_CENTER);
 			layoutThis.setSpacing(0);
-			layoutThis.setVertical(false);
-
-			this.setLayoutManager(layoutThis);
+			layoutThis.setVertical(true);
 
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
 					getMapMode().DPtoLP(8)));
 			this.setLineStyle(Graphics.LINE_DASH);
 			this.setBackgroundColor(THIS_BACK);
+		}
+
+		public void add(IFigure figure, Object constraint, int index) {
+			if (figure instanceof ResizableCompartmentFigure) {
+				GridData layoutData = new GridData();
+				layoutData.grabExcessHorizontalSpace = true;
+				layoutData.grabExcessVerticalSpace = true;
+				layoutData.horizontalAlignment = GridData.FILL;
+				layoutData.verticalAlignment = GridData.FILL;
+				super.add(figure, layoutData, index);
+			} else {
+				super.add(figure, constraint, index);
+			}
+		}
+
+		protected void fillShape(Graphics graphics) {
+			// Backup the graphics colors
+			Color bgColor = graphics.getBackgroundColor();
+			Color fgColor = graphics.getForegroundColor();
+			// Set the graphics color
+			graphics.setBackgroundColor(getBackgroundColor());
+			graphics.setForegroundColor(ColorConstants.white);
+			// Restore the original colors
+			graphics.fillGradient(getBounds(), true);
+			graphics.setBackgroundColor(bgColor);
+			graphics.setForegroundColor(fgColor);
 		}
 
 	}

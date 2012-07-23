@@ -324,32 +324,10 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 			}
 			break;
 		}
-		case ProxyServiceSequenceContainerEditPart.VISUAL_ID: {
-			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(EsbDiagramUpdater
-						.getProxyServiceSequenceContainer_3391ContainedLinks(view));
-			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
-			break;
-		}
-		case ProxyServiceInSequenceEditPart.VISUAL_ID: {
-			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(EsbDiagramUpdater
-						.getProxyServiceInSequence_3197ContainedLinks(view));
-			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
-			break;
-		}
 		case MediatorFlowEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater
-						.getMediatorFlow_3490ContainedLinks(view));
+						.getMediatorFlow_3608ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
@@ -1226,193 +1204,6 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 			}
 			break;
 		}
-		case DefaultEndPointEditPart.VISUAL_ID: {
-			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(EsbDiagramUpdater
-						.getDefaultEndPoint_3563ContainedLinks(view));
-			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
-			break;
-		}
-		case DefaultEndPointInputConnectorEditPart.VISUAL_ID: {
-			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(EsbDiagramUpdater
-						.getDefaultEndPointInputConnector_3021ContainedLinks(view));
-			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
-			break;
-		}
-		case DefaultEndPointOutputConnectorEditPart.VISUAL_ID: {
-			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(EsbDiagramUpdater
-						.getDefaultEndPointOutputConnector_3022ContainedLinks(view));
-			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
-			break;
-		}
-		case AddressEndPointEditPart.VISUAL_ID: {
-			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(EsbDiagramUpdater
-						.getAddressEndPoint_3564ContainedLinks(view));
-			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
-			break;
-		}
-		case AddressEndPointInputConnectorEditPart.VISUAL_ID: {
-			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(EsbDiagramUpdater
-						.getAddressEndPointInputConnector_3030ContainedLinks(view));
-			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
-			break;
-		}
-		case AddressEndPointOutputConnectorEditPart.VISUAL_ID: {
-			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(EsbDiagramUpdater
-						.getAddressEndPointOutputConnector_3031ContainedLinks(view));
-			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
-			break;
-		}
-		case FailoverEndPointEditPart.VISUAL_ID: {
-			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(EsbDiagramUpdater
-						.getFailoverEndPoint_3565ContainedLinks(view));
-			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
-			break;
-		}
-		case FailoverEndPointInputConnectorEditPart.VISUAL_ID: {
-			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(EsbDiagramUpdater
-						.getFailoverEndPointInputConnector_3088ContainedLinks(view));
-			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
-			break;
-		}
-		case FailoverEndPointOutputConnectorEditPart.VISUAL_ID: {
-			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(EsbDiagramUpdater
-						.getFailoverEndPointOutputConnector_3090ContainedLinks(view));
-			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
-			break;
-		}
-		case FailoverEndPointWestOutputConnectorEditPart.VISUAL_ID: {
-			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(EsbDiagramUpdater
-						.getFailoverEndPointWestOutputConnector_3097ContainedLinks(view));
-			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
-			break;
-		}
-		case WSDLEndPointEditPart.VISUAL_ID: {
-			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(EsbDiagramUpdater
-						.getWSDLEndPoint_3566ContainedLinks(view));
-			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
-			break;
-		}
-		case WSDLEndPointInputConnectorEditPart.VISUAL_ID: {
-			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(EsbDiagramUpdater
-						.getWSDLEndPointInputConnector_3092ContainedLinks(view));
-			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
-			break;
-		}
-		case WSDLEndPointOutputConnectorEditPart.VISUAL_ID: {
-			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(EsbDiagramUpdater
-						.getWSDLEndPointOutputConnector_3093ContainedLinks(view));
-			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
-			break;
-		}
-		case LoadBalanceEndPointEditPart.VISUAL_ID: {
-			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(EsbDiagramUpdater
-						.getLoadBalanceEndPoint_3567ContainedLinks(view));
-			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
-			break;
-		}
-		case LoadBalanceEndPointInputConnectorEditPart.VISUAL_ID: {
-			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(EsbDiagramUpdater
-						.getLoadBalanceEndPointInputConnector_3095ContainedLinks(view));
-			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
-			break;
-		}
-		case LoadBalanceEndPointOutputConnectorEditPart.VISUAL_ID: {
-			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(EsbDiagramUpdater
-						.getLoadBalanceEndPointOutputConnector_3096ContainedLinks(view));
-			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
-			break;
-		}
-		case LoadBalanceEndPointWestOutputConnectorEditPart.VISUAL_ID: {
-			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(EsbDiagramUpdater
-						.getLoadBalanceEndPointWestOutputConnector_3098ContainedLinks(view));
-			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
-			break;
-		}
 		case HeaderMediatorEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater
@@ -1996,6 +1787,193 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 			}
 			break;
 		}
+		case DefaultEndPointEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(EsbDiagramUpdater
+						.getDefaultEndPoint_3609ContainedLinks(view));
+			}
+			if (!domain2NotationMap.containsKey(view.getElement())
+					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+				domain2NotationMap.put(view.getElement(), view);
+			}
+			break;
+		}
+		case DefaultEndPointInputConnectorEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(EsbDiagramUpdater
+						.getDefaultEndPointInputConnector_3021ContainedLinks(view));
+			}
+			if (!domain2NotationMap.containsKey(view.getElement())
+					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+				domain2NotationMap.put(view.getElement(), view);
+			}
+			break;
+		}
+		case DefaultEndPointOutputConnectorEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(EsbDiagramUpdater
+						.getDefaultEndPointOutputConnector_3022ContainedLinks(view));
+			}
+			if (!domain2NotationMap.containsKey(view.getElement())
+					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+				domain2NotationMap.put(view.getElement(), view);
+			}
+			break;
+		}
+		case AddressEndPointEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(EsbDiagramUpdater
+						.getAddressEndPoint_3610ContainedLinks(view));
+			}
+			if (!domain2NotationMap.containsKey(view.getElement())
+					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+				domain2NotationMap.put(view.getElement(), view);
+			}
+			break;
+		}
+		case AddressEndPointInputConnectorEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(EsbDiagramUpdater
+						.getAddressEndPointInputConnector_3030ContainedLinks(view));
+			}
+			if (!domain2NotationMap.containsKey(view.getElement())
+					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+				domain2NotationMap.put(view.getElement(), view);
+			}
+			break;
+		}
+		case AddressEndPointOutputConnectorEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(EsbDiagramUpdater
+						.getAddressEndPointOutputConnector_3031ContainedLinks(view));
+			}
+			if (!domain2NotationMap.containsKey(view.getElement())
+					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+				domain2NotationMap.put(view.getElement(), view);
+			}
+			break;
+		}
+		case FailoverEndPointEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(EsbDiagramUpdater
+						.getFailoverEndPoint_3611ContainedLinks(view));
+			}
+			if (!domain2NotationMap.containsKey(view.getElement())
+					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+				domain2NotationMap.put(view.getElement(), view);
+			}
+			break;
+		}
+		case FailoverEndPointInputConnectorEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(EsbDiagramUpdater
+						.getFailoverEndPointInputConnector_3088ContainedLinks(view));
+			}
+			if (!domain2NotationMap.containsKey(view.getElement())
+					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+				domain2NotationMap.put(view.getElement(), view);
+			}
+			break;
+		}
+		case FailoverEndPointOutputConnectorEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(EsbDiagramUpdater
+						.getFailoverEndPointOutputConnector_3090ContainedLinks(view));
+			}
+			if (!domain2NotationMap.containsKey(view.getElement())
+					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+				domain2NotationMap.put(view.getElement(), view);
+			}
+			break;
+		}
+		case FailoverEndPointWestOutputConnectorEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(EsbDiagramUpdater
+						.getFailoverEndPointWestOutputConnector_3097ContainedLinks(view));
+			}
+			if (!domain2NotationMap.containsKey(view.getElement())
+					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+				domain2NotationMap.put(view.getElement(), view);
+			}
+			break;
+		}
+		case WSDLEndPointEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(EsbDiagramUpdater
+						.getWSDLEndPoint_3612ContainedLinks(view));
+			}
+			if (!domain2NotationMap.containsKey(view.getElement())
+					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+				domain2NotationMap.put(view.getElement(), view);
+			}
+			break;
+		}
+		case WSDLEndPointInputConnectorEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(EsbDiagramUpdater
+						.getWSDLEndPointInputConnector_3092ContainedLinks(view));
+			}
+			if (!domain2NotationMap.containsKey(view.getElement())
+					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+				domain2NotationMap.put(view.getElement(), view);
+			}
+			break;
+		}
+		case WSDLEndPointOutputConnectorEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(EsbDiagramUpdater
+						.getWSDLEndPointOutputConnector_3093ContainedLinks(view));
+			}
+			if (!domain2NotationMap.containsKey(view.getElement())
+					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+				domain2NotationMap.put(view.getElement(), view);
+			}
+			break;
+		}
+		case LoadBalanceEndPointEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(EsbDiagramUpdater
+						.getLoadBalanceEndPoint_3613ContainedLinks(view));
+			}
+			if (!domain2NotationMap.containsKey(view.getElement())
+					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+				domain2NotationMap.put(view.getElement(), view);
+			}
+			break;
+		}
+		case LoadBalanceEndPointInputConnectorEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(EsbDiagramUpdater
+						.getLoadBalanceEndPointInputConnector_3095ContainedLinks(view));
+			}
+			if (!domain2NotationMap.containsKey(view.getElement())
+					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+				domain2NotationMap.put(view.getElement(), view);
+			}
+			break;
+		}
+		case LoadBalanceEndPointOutputConnectorEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(EsbDiagramUpdater
+						.getLoadBalanceEndPointOutputConnector_3096ContainedLinks(view));
+			}
+			if (!domain2NotationMap.containsKey(view.getElement())
+					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+				domain2NotationMap.put(view.getElement(), view);
+			}
+			break;
+		}
+		case LoadBalanceEndPointWestOutputConnectorEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(EsbDiagramUpdater
+						.getLoadBalanceEndPointWestOutputConnector_3098ContainedLinks(view));
+			}
+			if (!domain2NotationMap.containsKey(view.getElement())
+					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+				domain2NotationMap.put(view.getElement(), view);
+			}
+			break;
+		}
 		case SwitchDefaultContainerEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater
@@ -2055,50 +2033,6 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater
 						.getMediatorFlow_3587ContainedLinks(view));
-			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
-			break;
-		}
-		case ProxyServiceOutSequenceEditPart.VISUAL_ID: {
-			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(EsbDiagramUpdater
-						.getProxyServiceOutSequence_3198ContainedLinks(view));
-			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
-			break;
-		}
-		case MediatorFlow5EditPart.VISUAL_ID: {
-			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(EsbDiagramUpdater
-						.getMediatorFlow_3529ContainedLinks(view));
-			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
-			break;
-		}
-		case ProxyServiceEndpointContainerEditPart.VISUAL_ID: {
-			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(EsbDiagramUpdater
-						.getProxyServiceEndpointContainer_3392ContainedLinks(view));
-			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
-			break;
-		}
-		case EndpointFlow2EditPart.VISUAL_ID: {
-			if (!domain2NotationMap.containsKey(view.getElement())) {
-				result.addAll(EsbDiagramUpdater
-						.getEndpointFlow_3580ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$

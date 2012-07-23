@@ -34,7 +34,7 @@ public class ProxyServiceGroupBox extends RoundedRectangle {
 		graphicalNodeContainer0.setOutline(false);
 		graphicalNodeContainer0.setBackgroundColor(this.getBackgroundColor());
 		// graphicalNodeContainer0.setPreferredSize(new Dimension(100, 40));
-		LineBorder border0 = new LineBorder(this.getBackgroundColor(), 1, SWT.BORDER_SOLID);
+		LineBorder border0 = new LineBorder(new Color(null, 0,0,0), 1, SWT.BORDER_SOLID);
 		graphicalNodeContainer0.setBorder(border0);
 		graphicalNodeContainer0.setPreferredSize(new Dimension(100, 20));
 
@@ -105,7 +105,7 @@ public class ProxyServiceGroupBox extends RoundedRectangle {
 		// actual label to display which type this is
 		WrappingLabel esbNodeTypeNameLabel2 = new WrappingLabel();
 		esbNodeTypeNameLabel2.setText(getNodeName());
-		esbNodeTypeNameLabel2.setForegroundColor(new Color(null, 255, 255, 255));
+		esbNodeTypeNameLabel2.setForegroundColor(new Color(null, 0, 0, 0));
 		esbNodeTypeNameLabel2.setFont(new Font(null, "Arial", 10, SWT.BOLD));
 		esbNodeTypeNameLabel2.setAlignment(SWT.CENTER);
 		esbNodeTypeNameLabel2.setPreferredSize(new Dimension(64, 20));

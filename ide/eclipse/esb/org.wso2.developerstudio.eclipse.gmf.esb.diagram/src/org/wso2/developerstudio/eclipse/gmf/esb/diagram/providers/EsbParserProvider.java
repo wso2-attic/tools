@@ -360,96 +360,6 @@ public class EsbParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser defaultEndPointEndPointName_5150Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getDefaultEndPointEndPointName_5150Parser() {
-		if (defaultEndPointEndPointName_5150Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getEndPoint_EndPointName() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			defaultEndPointEndPointName_5150Parser = parser;
-		}
-		return defaultEndPointEndPointName_5150Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser addressEndPointEndPointName_5151Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getAddressEndPointEndPointName_5151Parser() {
-		if (addressEndPointEndPointName_5151Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getEndPoint_EndPointName() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			addressEndPointEndPointName_5151Parser = parser;
-		}
-		return addressEndPointEndPointName_5151Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser failoverEndPointEndPointName_5152Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getFailoverEndPointEndPointName_5152Parser() {
-		if (failoverEndPointEndPointName_5152Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getEndPoint_EndPointName() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			failoverEndPointEndPointName_5152Parser = parser;
-		}
-		return failoverEndPointEndPointName_5152Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser wSDLEndPointEndPointName_5153Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getWSDLEndPointEndPointName_5153Parser() {
-		if (wSDLEndPointEndPointName_5153Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getEndPoint_EndPointName() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			wSDLEndPointEndPointName_5153Parser = parser;
-		}
-		return wSDLEndPointEndPointName_5153Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser loadBalanceEndPointEndPointName_5154Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getLoadBalanceEndPointEndPointName_5154Parser() {
-		if (loadBalanceEndPointEndPointName_5154Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getEndPoint_EndPointName() };
-			MessageFormatParser parser = new MessageFormatParser(features);
-			loadBalanceEndPointEndPointName_5154Parser = parser;
-		}
-		return loadBalanceEndPointEndPointName_5154Parser;
-	}
-
-	/**
-	 * @generated
-	 */
 	private IParser headerMediatorValueLiteral_5143Parser;
 
 	/**
@@ -576,6 +486,96 @@ public class EsbParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
+	private IParser defaultEndPointEndPointName_5155Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getDefaultEndPointEndPointName_5155Parser() {
+		if (defaultEndPointEndPointName_5155Parser == null) {
+			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
+					.getEndPoint_EndPointName() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			defaultEndPointEndPointName_5155Parser = parser;
+		}
+		return defaultEndPointEndPointName_5155Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser addressEndPointEndPointName_5156Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getAddressEndPointEndPointName_5156Parser() {
+		if (addressEndPointEndPointName_5156Parser == null) {
+			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
+					.getEndPoint_EndPointName() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			addressEndPointEndPointName_5156Parser = parser;
+		}
+		return addressEndPointEndPointName_5156Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser failoverEndPointEndPointName_5157Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getFailoverEndPointEndPointName_5157Parser() {
+		if (failoverEndPointEndPointName_5157Parser == null) {
+			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
+					.getEndPoint_EndPointName() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			failoverEndPointEndPointName_5157Parser = parser;
+		}
+		return failoverEndPointEndPointName_5157Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser wSDLEndPointEndPointName_5158Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getWSDLEndPointEndPointName_5158Parser() {
+		if (wSDLEndPointEndPointName_5158Parser == null) {
+			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
+					.getEndPoint_EndPointName() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			wSDLEndPointEndPointName_5158Parser = parser;
+		}
+		return wSDLEndPointEndPointName_5158Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser loadBalanceEndPointEndPointName_5159Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getLoadBalanceEndPointEndPointName_5159Parser() {
+		if (loadBalanceEndPointEndPointName_5159Parser == null) {
+			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
+					.getEndPoint_EndPointName() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			loadBalanceEndPointEndPointName_5159Parser = parser;
+		}
+		return loadBalanceEndPointEndPointName_5159Parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case ProxyServiceNameEditPart.VISUAL_ID:
@@ -612,16 +612,6 @@ public class EsbParserProvider extends AbstractProvider implements
 			return getDBLookupMediatorConnectionURL_5141Parser();
 		case DBReportMediatorConnectionURLEditPart.VISUAL_ID:
 			return getDBReportMediatorConnectionURL_5142Parser();
-		case DefaultEndPointEndPointNameEditPart.VISUAL_ID:
-			return getDefaultEndPointEndPointName_5150Parser();
-		case AddressEndPointEndPointNameEditPart.VISUAL_ID:
-			return getAddressEndPointEndPointName_5151Parser();
-		case FailoverEndPointEndPointNameEditPart.VISUAL_ID:
-			return getFailoverEndPointEndPointName_5152Parser();
-		case WSDLEndPointEndPointNameEditPart.VISUAL_ID:
-			return getWSDLEndPointEndPointName_5153Parser();
-		case LoadBalanceEndPointEndPointNameEditPart.VISUAL_ID:
-			return getLoadBalanceEndPointEndPointName_5154Parser();
 		case HeaderMediatorValueLiteralEditPart.VISUAL_ID:
 			return getHeaderMediatorValueLiteral_5143Parser();
 		case CloneMediatorCloneIDEditPart.VISUAL_ID:
@@ -636,6 +626,16 @@ public class EsbParserProvider extends AbstractProvider implements
 			return getOAuthMediatorRemoteServiceUrl_5148Parser();
 		case AggregateMediatorAggregateIDEditPart.VISUAL_ID:
 			return getAggregateMediatorAggregateID_5149Parser();
+		case DefaultEndPointEndPointNameEditPart.VISUAL_ID:
+			return getDefaultEndPointEndPointName_5155Parser();
+		case AddressEndPointEndPointNameEditPart.VISUAL_ID:
+			return getAddressEndPointEndPointName_5156Parser();
+		case FailoverEndPointEndPointNameEditPart.VISUAL_ID:
+			return getFailoverEndPointEndPointName_5157Parser();
+		case WSDLEndPointEndPointNameEditPart.VISUAL_ID:
+			return getWSDLEndPointEndPointName_5158Parser();
+		case LoadBalanceEndPointEndPointNameEditPart.VISUAL_ID:
+			return getLoadBalanceEndPointEndPointName_5159Parser();
 		}
 		return null;
 	}

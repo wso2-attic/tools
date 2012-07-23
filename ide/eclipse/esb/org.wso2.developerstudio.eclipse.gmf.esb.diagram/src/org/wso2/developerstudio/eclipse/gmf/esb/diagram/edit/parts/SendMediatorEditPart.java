@@ -345,8 +345,8 @@ public class SendMediatorEditPart extends AbstractMediator {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
-	static final Color THIS_BACK = new Color(null, 230, 230, 230);
+	static final Color THIS_BACK = new Color(null, 255, 215, 0);
 
 }

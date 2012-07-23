@@ -56,12 +56,6 @@ public class EsbEditPartFactory implements EditPartFactory {
 				return new ProxyServiceSequenceAndEndpointContainerEditPart(
 						view);
 
-			case ProxyServiceSequenceContainerEditPart.VISUAL_ID:
-				return new ProxyServiceSequenceContainerEditPart(view);
-
-			case ProxyServiceInSequenceEditPart.VISUAL_ID:
-				return new ProxyServiceInSequenceEditPart(view);
-
 			case MediatorFlowEditPart.VISUAL_ID:
 				return new MediatorFlowEditPart(view);
 
@@ -350,72 +344,6 @@ public class EsbEditPartFactory implements EditPartFactory {
 			case EndpointFlowEditPart.VISUAL_ID:
 				return new EndpointFlowEditPart(view);
 
-			case DefaultEndPointEditPart.VISUAL_ID:
-				return new DefaultEndPointEditPart(view);
-
-			case DefaultEndPointEndPointNameEditPart.VISUAL_ID:
-				return new DefaultEndPointEndPointNameEditPart(view);
-
-			case DefaultEndPointInputConnectorEditPart.VISUAL_ID:
-				return new DefaultEndPointInputConnectorEditPart(view);
-
-			case DefaultEndPointOutputConnectorEditPart.VISUAL_ID:
-				return new DefaultEndPointOutputConnectorEditPart(view);
-
-			case AddressEndPointEditPart.VISUAL_ID:
-				return new AddressEndPointEditPart(view);
-
-			case AddressEndPointEndPointNameEditPart.VISUAL_ID:
-				return new AddressEndPointEndPointNameEditPart(view);
-
-			case AddressEndPointInputConnectorEditPart.VISUAL_ID:
-				return new AddressEndPointInputConnectorEditPart(view);
-
-			case AddressEndPointOutputConnectorEditPart.VISUAL_ID:
-				return new AddressEndPointOutputConnectorEditPart(view);
-
-			case FailoverEndPointEditPart.VISUAL_ID:
-				return new FailoverEndPointEditPart(view);
-
-			case FailoverEndPointEndPointNameEditPart.VISUAL_ID:
-				return new FailoverEndPointEndPointNameEditPart(view);
-
-			case FailoverEndPointInputConnectorEditPart.VISUAL_ID:
-				return new FailoverEndPointInputConnectorEditPart(view);
-
-			case FailoverEndPointOutputConnectorEditPart.VISUAL_ID:
-				return new FailoverEndPointOutputConnectorEditPart(view);
-
-			case FailoverEndPointWestOutputConnectorEditPart.VISUAL_ID:
-				return new FailoverEndPointWestOutputConnectorEditPart(view);
-
-			case WSDLEndPointEditPart.VISUAL_ID:
-				return new WSDLEndPointEditPart(view);
-
-			case WSDLEndPointEndPointNameEditPart.VISUAL_ID:
-				return new WSDLEndPointEndPointNameEditPart(view);
-
-			case WSDLEndPointInputConnectorEditPart.VISUAL_ID:
-				return new WSDLEndPointInputConnectorEditPart(view);
-
-			case WSDLEndPointOutputConnectorEditPart.VISUAL_ID:
-				return new WSDLEndPointOutputConnectorEditPart(view);
-
-			case LoadBalanceEndPointEditPart.VISUAL_ID:
-				return new LoadBalanceEndPointEditPart(view);
-
-			case LoadBalanceEndPointEndPointNameEditPart.VISUAL_ID:
-				return new LoadBalanceEndPointEndPointNameEditPart(view);
-
-			case LoadBalanceEndPointInputConnectorEditPart.VISUAL_ID:
-				return new LoadBalanceEndPointInputConnectorEditPart(view);
-
-			case LoadBalanceEndPointOutputConnectorEditPart.VISUAL_ID:
-				return new LoadBalanceEndPointOutputConnectorEditPart(view);
-
-			case LoadBalanceEndPointWestOutputConnectorEditPart.VISUAL_ID:
-				return new LoadBalanceEndPointWestOutputConnectorEditPart(view);
-
 			case HeaderMediatorEditPart.VISUAL_ID:
 				return new HeaderMediatorEditPart(view);
 
@@ -597,6 +525,72 @@ public class EsbEditPartFactory implements EditPartFactory {
 			case EnqueueMediatorOutputConnectorEditPart.VISUAL_ID:
 				return new EnqueueMediatorOutputConnectorEditPart(view);
 
+			case DefaultEndPointEditPart.VISUAL_ID:
+				return new DefaultEndPointEditPart(view);
+
+			case DefaultEndPointEndPointNameEditPart.VISUAL_ID:
+				return new DefaultEndPointEndPointNameEditPart(view);
+
+			case DefaultEndPointInputConnectorEditPart.VISUAL_ID:
+				return new DefaultEndPointInputConnectorEditPart(view);
+
+			case DefaultEndPointOutputConnectorEditPart.VISUAL_ID:
+				return new DefaultEndPointOutputConnectorEditPart(view);
+
+			case AddressEndPointEditPart.VISUAL_ID:
+				return new AddressEndPointEditPart(view);
+
+			case AddressEndPointEndPointNameEditPart.VISUAL_ID:
+				return new AddressEndPointEndPointNameEditPart(view);
+
+			case AddressEndPointInputConnectorEditPart.VISUAL_ID:
+				return new AddressEndPointInputConnectorEditPart(view);
+
+			case AddressEndPointOutputConnectorEditPart.VISUAL_ID:
+				return new AddressEndPointOutputConnectorEditPart(view);
+
+			case FailoverEndPointEditPart.VISUAL_ID:
+				return new FailoverEndPointEditPart(view);
+
+			case FailoverEndPointEndPointNameEditPart.VISUAL_ID:
+				return new FailoverEndPointEndPointNameEditPart(view);
+
+			case FailoverEndPointInputConnectorEditPart.VISUAL_ID:
+				return new FailoverEndPointInputConnectorEditPart(view);
+
+			case FailoverEndPointOutputConnectorEditPart.VISUAL_ID:
+				return new FailoverEndPointOutputConnectorEditPart(view);
+
+			case FailoverEndPointWestOutputConnectorEditPart.VISUAL_ID:
+				return new FailoverEndPointWestOutputConnectorEditPart(view);
+
+			case WSDLEndPointEditPart.VISUAL_ID:
+				return new WSDLEndPointEditPart(view);
+
+			case WSDLEndPointEndPointNameEditPart.VISUAL_ID:
+				return new WSDLEndPointEndPointNameEditPart(view);
+
+			case WSDLEndPointInputConnectorEditPart.VISUAL_ID:
+				return new WSDLEndPointInputConnectorEditPart(view);
+
+			case WSDLEndPointOutputConnectorEditPart.VISUAL_ID:
+				return new WSDLEndPointOutputConnectorEditPart(view);
+
+			case LoadBalanceEndPointEditPart.VISUAL_ID:
+				return new LoadBalanceEndPointEditPart(view);
+
+			case LoadBalanceEndPointEndPointNameEditPart.VISUAL_ID:
+				return new LoadBalanceEndPointEndPointNameEditPart(view);
+
+			case LoadBalanceEndPointInputConnectorEditPart.VISUAL_ID:
+				return new LoadBalanceEndPointInputConnectorEditPart(view);
+
+			case LoadBalanceEndPointOutputConnectorEditPart.VISUAL_ID:
+				return new LoadBalanceEndPointOutputConnectorEditPart(view);
+
+			case LoadBalanceEndPointWestOutputConnectorEditPart.VISUAL_ID:
+				return new LoadBalanceEndPointWestOutputConnectorEditPart(view);
+
 			case SwitchDefaultContainerEditPart.VISUAL_ID:
 				return new SwitchDefaultContainerEditPart(view);
 
@@ -614,18 +608,6 @@ public class EsbEditPartFactory implements EditPartFactory {
 
 			case MediatorFlow10EditPart.VISUAL_ID:
 				return new MediatorFlow10EditPart(view);
-
-			case ProxyServiceOutSequenceEditPart.VISUAL_ID:
-				return new ProxyServiceOutSequenceEditPart(view);
-
-			case MediatorFlow5EditPart.VISUAL_ID:
-				return new MediatorFlow5EditPart(view);
-
-			case ProxyServiceEndpointContainerEditPart.VISUAL_ID:
-				return new ProxyServiceEndpointContainerEditPart(view);
-
-			case EndpointFlow2EditPart.VISUAL_ID:
-				return new EndpointFlow2EditPart(view);
 
 			case ProxyServiceFaultContainerEditPart.VISUAL_ID:
 				return new ProxyServiceFaultContainerEditPart(view);
@@ -689,12 +671,6 @@ public class EsbEditPartFactory implements EditPartFactory {
 
 			case MediatorFlowMediatorFlowCompartment10EditPart.VISUAL_ID:
 				return new MediatorFlowMediatorFlowCompartment10EditPart(view);
-
-			case MediatorFlowMediatorFlowCompartment5EditPart.VISUAL_ID:
-				return new MediatorFlowMediatorFlowCompartment5EditPart(view);
-
-			case EndpointFlowEndpointCompartment2EditPart.VISUAL_ID:
-				return new EndpointFlowEndpointCompartment2EditPart(view);
 
 			case MediatorFlowMediatorFlowCompartment6EditPart.VISUAL_ID:
 				return new MediatorFlowMediatorFlowCompartment6EditPart(view);

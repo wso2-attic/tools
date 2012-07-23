@@ -76,7 +76,7 @@ public class FailoverEndPointCanonicalEditPolicy extends CanonicalEditPolicy {
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
 		List<EsbNodeDescriptor> childDescriptors = EsbDiagramUpdater
-				.getFailoverEndPoint_3565SemanticChildren(viewObject);
+				.getFailoverEndPoint_3611SemanticChildren(viewObject);
 		for (EsbNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
@@ -111,7 +111,7 @@ public class FailoverEndPointCanonicalEditPolicy extends CanonicalEditPolicy {
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 		List<EsbNodeDescriptor> childDescriptors = EsbDiagramUpdater
-				.getFailoverEndPoint_3565SemanticChildren((View) getHost()
+				.getFailoverEndPoint_3611SemanticChildren((View) getHost()
 						.getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours

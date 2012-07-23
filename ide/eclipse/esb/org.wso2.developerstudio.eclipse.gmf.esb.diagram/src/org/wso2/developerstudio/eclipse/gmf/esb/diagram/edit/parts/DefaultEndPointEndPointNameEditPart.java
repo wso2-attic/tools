@@ -52,7 +52,7 @@ public class DefaultEndPointEndPointNameEditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5150;
+	public static final int VISUAL_ID = 5155;
 
 	/**
 	 * @generated
@@ -290,7 +290,7 @@ public class DefaultEndPointEndPointNameEditPart extends CompartmentEditPart
 		if (parser == null) {
 			parser = EsbParserProvider
 					.getParser(
-							EsbElementTypes.DefaultEndPoint_3563,
+							EsbElementTypes.DefaultEndPoint_3609,
 							getParserElement(),
 							EsbVisualIDRegistry
 									.getType(org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DefaultEndPointEndPointNameEditPart.VISUAL_ID));

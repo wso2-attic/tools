@@ -2,8 +2,11 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
 
 import java.beans.PropertyChangeListener;
 
+import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.GridData;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.LineBorder;
+import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
@@ -366,6 +369,9 @@ public class ProxyServiceEditPart extends AbstractBorderedShapeEditPart {
 			this.setBackgroundColor(THIS_BACK);
 			//this.setLineStyle(Graphics.LINE_DASH);
 			this.setOutline(true);
+			LineBorder border0 = new LineBorder(new Color(null, 0, 0, 0), 1,
+					SWT.BORDER_SOLID);
+			this.setBorder(border0);
 			//this.setOutlineXOR(true);
 			createContents();
 		}
@@ -435,7 +441,7 @@ public class ProxyServiceEditPart extends AbstractBorderedShapeEditPart {
 	/**
 	 * @generated NOT
 	 */
-	//static final Color THIS_BACK = new Color(null, 150, 130, 180);
-	static final Color THIS_BACK = new Color(null, 60, 120, 60);
+	static final Color THIS_BACK = new Color(null, 255, 255, 255);
+	//static final Color THIS_BACK = new Color(null, 60, 120, 60);
 	static final Color THIS_LABEL_BACK = new Color(null, 0, 0, 0);
 }

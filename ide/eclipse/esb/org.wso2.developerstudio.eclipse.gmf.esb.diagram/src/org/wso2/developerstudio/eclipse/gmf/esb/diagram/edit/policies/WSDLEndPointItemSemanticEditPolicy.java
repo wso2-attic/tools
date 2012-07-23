@@ -31,7 +31,7 @@ public class WSDLEndPointItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public WSDLEndPointItemSemanticEditPolicy() {
-		super(EsbElementTypes.WSDLEndPoint_3566);
+		super(EsbElementTypes.WSDLEndPoint_3612);
 	}
 
 	/**

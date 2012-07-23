@@ -2,6 +2,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies;
 
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.AddressEndPointCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.AggregateMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.BuilderMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.CacheMediatorCreateCommand;
@@ -12,15 +13,18 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.CloneMedia
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.CommandMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.DBLookupMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.DBReportMediatorCreateCommand;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.DefaultEndPointCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.DropMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.EnqueueMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.EnrichMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.EntitlementMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.EventMediatorCreateCommand;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.FailoverEndPointCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.FaultMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.FilterMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.HeaderMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.IterateMediatorCreateCommand;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.LoadBalanceEndPointCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.LogMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.OAuthMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.PayloadFactoryMediatorCreateCommand;
@@ -36,6 +40,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.StoreMedia
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.SwitchMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.ThrottleMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.TransactionMediatorCreateCommand;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.WSDLEndPointCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.XQueryMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.XSLTMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
@@ -164,6 +169,21 @@ public class MediatorFlowMediatorFlowCompartment8ItemSemanticEditPolicy extends
 		}
 		if (EsbElementTypes.EnqueueMediator_3600 == req.getElementType()) {
 			return getGEFWrapper(new EnqueueMediatorCreateCommand(req));
+		}
+		if (EsbElementTypes.DefaultEndPoint_3609 == req.getElementType()) {
+			return getGEFWrapper(new DefaultEndPointCreateCommand(req));
+		}
+		if (EsbElementTypes.AddressEndPoint_3610 == req.getElementType()) {
+			return getGEFWrapper(new AddressEndPointCreateCommand(req));
+		}
+		if (EsbElementTypes.FailoverEndPoint_3611 == req.getElementType()) {
+			return getGEFWrapper(new FailoverEndPointCreateCommand(req));
+		}
+		if (EsbElementTypes.WSDLEndPoint_3612 == req.getElementType()) {
+			return getGEFWrapper(new WSDLEndPointCreateCommand(req));
+		}
+		if (EsbElementTypes.LoadBalanceEndPoint_3613 == req.getElementType()) {
+			return getGEFWrapper(new LoadBalanceEndPointCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

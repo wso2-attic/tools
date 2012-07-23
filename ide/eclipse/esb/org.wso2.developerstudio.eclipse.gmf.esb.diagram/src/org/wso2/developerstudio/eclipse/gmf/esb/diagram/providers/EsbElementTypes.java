@@ -86,17 +86,7 @@ public class EsbElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType ProxyServiceSequenceContainer_3391 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.ProxyServiceSequenceContainer_3391"); //$NON-NLS-1$
-
-	/**
-	 * @generated
-	 */
-	public static final IElementType ProxyServiceInSequence_3197 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.ProxyServiceInSequence_3197"); //$NON-NLS-1$
-
-	/**
-	 * @generated
-	 */
-	public static final IElementType MediatorFlow_3490 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.MediatorFlow_3490"); //$NON-NLS-1$
+	public static final IElementType MediatorFlow_3608 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.MediatorFlow_3608"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -127,16 +117,6 @@ public class EsbElementTypes {
 	 * @generated
 	 */
 	public static final IElementType PropertyMediator_3492 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.PropertyMediator_3492"); //$NON-NLS-1$
-
-	/**
-	 * @generated
-	 */
-	public static final IElementType ProxyServiceOutSequence_3198 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.ProxyServiceOutSequence_3198"); //$NON-NLS-1$
-
-	/**
-	 * @generated
-	 */
-	public static final IElementType MediatorFlow_3529 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.MediatorFlow_3529"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -501,11 +481,6 @@ public class EsbElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType DefaultEndPoint_3563 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.DefaultEndPoint_3563"); //$NON-NLS-1$
-
-	/**
-	 * @generated
-	 */
 	public static final IElementType HeaderMediator_3516 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.HeaderMediator_3516"); //$NON-NLS-1$
 
 	/**
@@ -526,7 +501,7 @@ public class EsbElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType WSDLEndPoint_3566 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.WSDLEndPoint_3566"); //$NON-NLS-1$
+	public static final IElementType WSDLEndPoint_3612 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.WSDLEndPoint_3612"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -541,7 +516,7 @@ public class EsbElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType LoadBalanceEndPoint_3567 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.LoadBalanceEndPoint_3567"); //$NON-NLS-1$
+	public static final IElementType LoadBalanceEndPoint_3613 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.LoadBalanceEndPoint_3613"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -756,6 +731,11 @@ public class EsbElementTypes {
 	/**
 	 * @generated
 	 */
+	public static final IElementType DefaultEndPoint_3609 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.DefaultEndPoint_3609"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
 	public static final IElementType SwitchDefaultContainer_3527 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.SwitchDefaultContainer_3527"); //$NON-NLS-1$
 
 	/**
@@ -782,16 +762,6 @@ public class EsbElementTypes {
 	 * @generated
 	 */
 	public static final IElementType MediatorFlow_3587 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.MediatorFlow_3587"); //$NON-NLS-1$
-
-	/**
-	 * @generated
-	 */
-	public static final IElementType ProxyServiceEndpointContainer_3392 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.ProxyServiceEndpointContainer_3392"); //$NON-NLS-1$
-
-	/**
-	 * @generated
-	 */
-	public static final IElementType EndpointFlow_3580 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.EndpointFlow_3580"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -921,7 +891,7 @@ public class EsbElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType AddressEndPoint_3564 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.AddressEndPoint_3564"); //$NON-NLS-1$
+	public static final IElementType AddressEndPoint_3610 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.AddressEndPoint_3610"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -936,7 +906,7 @@ public class EsbElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType FailoverEndPoint_3565 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.FailoverEndPoint_3565"); //$NON-NLS-1$
+	public static final IElementType FailoverEndPoint_3611 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.FailoverEndPoint_3611"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -1077,13 +1047,7 @@ public class EsbElementTypes {
 					EsbPackage.eINSTANCE
 							.getProxyServiceSequenceAndEndpointContainer());
 
-			elements.put(ProxyServiceSequenceContainer_3391,
-					EsbPackage.eINSTANCE.getProxyServiceSequenceContainer());
-
-			elements.put(ProxyServiceInSequence_3197,
-					EsbPackage.eINSTANCE.getProxyServiceInSequence());
-
-			elements.put(MediatorFlow_3490,
+			elements.put(MediatorFlow_3608,
 					EsbPackage.eINSTANCE.getMediatorFlow());
 
 			elements.put(DropMediator_3491,
@@ -1327,60 +1291,6 @@ public class EsbElementTypes {
 			elements.put(EndpointFlow_3562,
 					EsbPackage.eINSTANCE.getEndpointFlow());
 
-			elements.put(DefaultEndPoint_3563,
-					EsbPackage.eINSTANCE.getDefaultEndPoint());
-
-			elements.put(DefaultEndPointInputConnector_3021,
-					EsbPackage.eINSTANCE.getDefaultEndPointInputConnector());
-
-			elements.put(DefaultEndPointOutputConnector_3022,
-					EsbPackage.eINSTANCE.getDefaultEndPointOutputConnector());
-
-			elements.put(AddressEndPoint_3564,
-					EsbPackage.eINSTANCE.getAddressEndPoint());
-
-			elements.put(AddressEndPointInputConnector_3030,
-					EsbPackage.eINSTANCE.getAddressEndPointInputConnector());
-
-			elements.put(AddressEndPointOutputConnector_3031,
-					EsbPackage.eINSTANCE.getAddressEndPointOutputConnector());
-
-			elements.put(FailoverEndPoint_3565,
-					EsbPackage.eINSTANCE.getFailoverEndPoint());
-
-			elements.put(FailoverEndPointInputConnector_3088,
-					EsbPackage.eINSTANCE.getFailoverEndPointInputConnector());
-
-			elements.put(FailoverEndPointOutputConnector_3090,
-					EsbPackage.eINSTANCE.getFailoverEndPointOutputConnector());
-
-			elements.put(FailoverEndPointWestOutputConnector_3097,
-					EsbPackage.eINSTANCE
-							.getFailoverEndPointWestOutputConnector());
-
-			elements.put(WSDLEndPoint_3566,
-					EsbPackage.eINSTANCE.getWSDLEndPoint());
-
-			elements.put(WSDLEndPointInputConnector_3092,
-					EsbPackage.eINSTANCE.getWSDLEndPointInputConnector());
-
-			elements.put(WSDLEndPointOutputConnector_3093,
-					EsbPackage.eINSTANCE.getWSDLEndPointOutputConnector());
-
-			elements.put(LoadBalanceEndPoint_3567,
-					EsbPackage.eINSTANCE.getLoadBalanceEndPoint());
-
-			elements.put(LoadBalanceEndPointInputConnector_3095,
-					EsbPackage.eINSTANCE.getLoadBalanceEndPointInputConnector());
-
-			elements.put(LoadBalanceEndPointOutputConnector_3096,
-					EsbPackage.eINSTANCE
-							.getLoadBalanceEndPointOutputConnector());
-
-			elements.put(LoadBalanceEndPointWestOutputConnector_3098,
-					EsbPackage.eINSTANCE
-							.getLoadBalanceEndPointWestOutputConnector());
-
 			elements.put(HeaderMediator_3516,
 					EsbPackage.eINSTANCE.getHeaderMediator());
 
@@ -1548,6 +1458,60 @@ public class EsbElementTypes {
 			elements.put(EnqueueMediatorOutputConnector_3602,
 					EsbPackage.eINSTANCE.getEnqueueMediatorOutputConnector());
 
+			elements.put(DefaultEndPoint_3609,
+					EsbPackage.eINSTANCE.getDefaultEndPoint());
+
+			elements.put(DefaultEndPointInputConnector_3021,
+					EsbPackage.eINSTANCE.getDefaultEndPointInputConnector());
+
+			elements.put(DefaultEndPointOutputConnector_3022,
+					EsbPackage.eINSTANCE.getDefaultEndPointOutputConnector());
+
+			elements.put(AddressEndPoint_3610,
+					EsbPackage.eINSTANCE.getAddressEndPoint());
+
+			elements.put(AddressEndPointInputConnector_3030,
+					EsbPackage.eINSTANCE.getAddressEndPointInputConnector());
+
+			elements.put(AddressEndPointOutputConnector_3031,
+					EsbPackage.eINSTANCE.getAddressEndPointOutputConnector());
+
+			elements.put(FailoverEndPoint_3611,
+					EsbPackage.eINSTANCE.getFailoverEndPoint());
+
+			elements.put(FailoverEndPointInputConnector_3088,
+					EsbPackage.eINSTANCE.getFailoverEndPointInputConnector());
+
+			elements.put(FailoverEndPointOutputConnector_3090,
+					EsbPackage.eINSTANCE.getFailoverEndPointOutputConnector());
+
+			elements.put(FailoverEndPointWestOutputConnector_3097,
+					EsbPackage.eINSTANCE
+							.getFailoverEndPointWestOutputConnector());
+
+			elements.put(WSDLEndPoint_3612,
+					EsbPackage.eINSTANCE.getWSDLEndPoint());
+
+			elements.put(WSDLEndPointInputConnector_3092,
+					EsbPackage.eINSTANCE.getWSDLEndPointInputConnector());
+
+			elements.put(WSDLEndPointOutputConnector_3093,
+					EsbPackage.eINSTANCE.getWSDLEndPointOutputConnector());
+
+			elements.put(LoadBalanceEndPoint_3613,
+					EsbPackage.eINSTANCE.getLoadBalanceEndPoint());
+
+			elements.put(LoadBalanceEndPointInputConnector_3095,
+					EsbPackage.eINSTANCE.getLoadBalanceEndPointInputConnector());
+
+			elements.put(LoadBalanceEndPointOutputConnector_3096,
+					EsbPackage.eINSTANCE
+							.getLoadBalanceEndPointOutputConnector());
+
+			elements.put(LoadBalanceEndPointWestOutputConnector_3098,
+					EsbPackage.eINSTANCE
+							.getLoadBalanceEndPointWestOutputConnector());
+
 			elements.put(SwitchDefaultContainer_3527,
 					EsbPackage.eINSTANCE.getSwitchDefaultContainer());
 
@@ -1565,18 +1529,6 @@ public class EsbElementTypes {
 
 			elements.put(MediatorFlow_3587,
 					EsbPackage.eINSTANCE.getMediatorFlow());
-
-			elements.put(ProxyServiceOutSequence_3198,
-					EsbPackage.eINSTANCE.getProxyServiceOutSequence());
-
-			elements.put(MediatorFlow_3529,
-					EsbPackage.eINSTANCE.getMediatorFlow());
-
-			elements.put(ProxyServiceEndpointContainer_3392,
-					EsbPackage.eINSTANCE.getProxyServiceEndpointContainer());
-
-			elements.put(EndpointFlow_3580,
-					EsbPackage.eINSTANCE.getEndpointFlow());
 
 			elements.put(ProxyServiceFaultContainer_3488,
 					EsbPackage.eINSTANCE.getProxyServiceFaultContainer());
@@ -1631,9 +1583,7 @@ public class EsbElementTypes {
 			KNOWN_ELEMENT_TYPES.add(ProxyServiceContainer_3486);
 			KNOWN_ELEMENT_TYPES
 					.add(ProxyServiceSequenceAndEndpointContainer_3487);
-			KNOWN_ELEMENT_TYPES.add(ProxyServiceSequenceContainer_3391);
-			KNOWN_ELEMENT_TYPES.add(ProxyServiceInSequence_3197);
-			KNOWN_ELEMENT_TYPES.add(MediatorFlow_3490);
+			KNOWN_ELEMENT_TYPES.add(MediatorFlow_3608);
 			KNOWN_ELEMENT_TYPES.add(DropMediator_3491);
 			KNOWN_ELEMENT_TYPES.add(DropMediatorInputConnector_3008);
 			KNOWN_ELEMENT_TYPES.add(PropertyMediator_3492);
@@ -1715,24 +1665,6 @@ public class EsbElementTypes {
 			KNOWN_ELEMENT_TYPES.add(SendMediatorOutputConnector_3086);
 			KNOWN_ELEMENT_TYPES.add(SendMediatorEndpointOutputConnector_3539);
 			KNOWN_ELEMENT_TYPES.add(EndpointFlow_3562);
-			KNOWN_ELEMENT_TYPES.add(DefaultEndPoint_3563);
-			KNOWN_ELEMENT_TYPES.add(DefaultEndPointInputConnector_3021);
-			KNOWN_ELEMENT_TYPES.add(DefaultEndPointOutputConnector_3022);
-			KNOWN_ELEMENT_TYPES.add(AddressEndPoint_3564);
-			KNOWN_ELEMENT_TYPES.add(AddressEndPointInputConnector_3030);
-			KNOWN_ELEMENT_TYPES.add(AddressEndPointOutputConnector_3031);
-			KNOWN_ELEMENT_TYPES.add(FailoverEndPoint_3565);
-			KNOWN_ELEMENT_TYPES.add(FailoverEndPointInputConnector_3088);
-			KNOWN_ELEMENT_TYPES.add(FailoverEndPointOutputConnector_3090);
-			KNOWN_ELEMENT_TYPES.add(FailoverEndPointWestOutputConnector_3097);
-			KNOWN_ELEMENT_TYPES.add(WSDLEndPoint_3566);
-			KNOWN_ELEMENT_TYPES.add(WSDLEndPointInputConnector_3092);
-			KNOWN_ELEMENT_TYPES.add(WSDLEndPointOutputConnector_3093);
-			KNOWN_ELEMENT_TYPES.add(LoadBalanceEndPoint_3567);
-			KNOWN_ELEMENT_TYPES.add(LoadBalanceEndPointInputConnector_3095);
-			KNOWN_ELEMENT_TYPES.add(LoadBalanceEndPointOutputConnector_3096);
-			KNOWN_ELEMENT_TYPES
-					.add(LoadBalanceEndPointWestOutputConnector_3098);
 			KNOWN_ELEMENT_TYPES.add(HeaderMediator_3516);
 			KNOWN_ELEMENT_TYPES.add(HeaderMediatorInputConnector_3100);
 			KNOWN_ELEMENT_TYPES.add(HeaderMediatorOutputConnector_3101);
@@ -1787,16 +1719,30 @@ public class EsbElementTypes {
 			KNOWN_ELEMENT_TYPES.add(EnqueueMediator_3600);
 			KNOWN_ELEMENT_TYPES.add(EnqueueMediatorInputConnector_3601);
 			KNOWN_ELEMENT_TYPES.add(EnqueueMediatorOutputConnector_3602);
+			KNOWN_ELEMENT_TYPES.add(DefaultEndPoint_3609);
+			KNOWN_ELEMENT_TYPES.add(DefaultEndPointInputConnector_3021);
+			KNOWN_ELEMENT_TYPES.add(DefaultEndPointOutputConnector_3022);
+			KNOWN_ELEMENT_TYPES.add(AddressEndPoint_3610);
+			KNOWN_ELEMENT_TYPES.add(AddressEndPointInputConnector_3030);
+			KNOWN_ELEMENT_TYPES.add(AddressEndPointOutputConnector_3031);
+			KNOWN_ELEMENT_TYPES.add(FailoverEndPoint_3611);
+			KNOWN_ELEMENT_TYPES.add(FailoverEndPointInputConnector_3088);
+			KNOWN_ELEMENT_TYPES.add(FailoverEndPointOutputConnector_3090);
+			KNOWN_ELEMENT_TYPES.add(FailoverEndPointWestOutputConnector_3097);
+			KNOWN_ELEMENT_TYPES.add(WSDLEndPoint_3612);
+			KNOWN_ELEMENT_TYPES.add(WSDLEndPointInputConnector_3092);
+			KNOWN_ELEMENT_TYPES.add(WSDLEndPointOutputConnector_3093);
+			KNOWN_ELEMENT_TYPES.add(LoadBalanceEndPoint_3613);
+			KNOWN_ELEMENT_TYPES.add(LoadBalanceEndPointInputConnector_3095);
+			KNOWN_ELEMENT_TYPES.add(LoadBalanceEndPointOutputConnector_3096);
+			KNOWN_ELEMENT_TYPES
+					.add(LoadBalanceEndPointWestOutputConnector_3098);
 			KNOWN_ELEMENT_TYPES.add(SwitchDefaultContainer_3527);
 			KNOWN_ELEMENT_TYPES.add(MediatorFlow_3528);
 			KNOWN_ELEMENT_TYPES.add(FilterFailContainer_3537);
 			KNOWN_ELEMENT_TYPES.add(MediatorFlow_3538);
 			KNOWN_ELEMENT_TYPES.add(ThrottleOnRejectContainer_3586);
 			KNOWN_ELEMENT_TYPES.add(MediatorFlow_3587);
-			KNOWN_ELEMENT_TYPES.add(ProxyServiceOutSequence_3198);
-			KNOWN_ELEMENT_TYPES.add(MediatorFlow_3529);
-			KNOWN_ELEMENT_TYPES.add(ProxyServiceEndpointContainer_3392);
-			KNOWN_ELEMENT_TYPES.add(EndpointFlow_3580);
 			KNOWN_ELEMENT_TYPES.add(ProxyServiceFaultContainer_3488);
 			KNOWN_ELEMENT_TYPES.add(MediatorFlow_3530);
 			KNOWN_ELEMENT_TYPES.add(MessageMediator_3045);
@@ -1832,12 +1778,8 @@ public class EsbElementTypes {
 			return ProxyServiceContainer_3486;
 		case ProxyServiceSequenceAndEndpointContainerEditPart.VISUAL_ID:
 			return ProxyServiceSequenceAndEndpointContainer_3487;
-		case ProxyServiceSequenceContainerEditPart.VISUAL_ID:
-			return ProxyServiceSequenceContainer_3391;
-		case ProxyServiceInSequenceEditPart.VISUAL_ID:
-			return ProxyServiceInSequence_3197;
 		case MediatorFlowEditPart.VISUAL_ID:
-			return MediatorFlow_3490;
+			return MediatorFlow_3608;
 		case DropMediatorEditPart.VISUAL_ID:
 			return DropMediator_3491;
 		case DropMediatorInputConnectorEditPart.VISUAL_ID:
@@ -1996,40 +1938,6 @@ public class EsbElementTypes {
 			return SendMediatorEndpointOutputConnector_3539;
 		case EndpointFlowEditPart.VISUAL_ID:
 			return EndpointFlow_3562;
-		case DefaultEndPointEditPart.VISUAL_ID:
-			return DefaultEndPoint_3563;
-		case DefaultEndPointInputConnectorEditPart.VISUAL_ID:
-			return DefaultEndPointInputConnector_3021;
-		case DefaultEndPointOutputConnectorEditPart.VISUAL_ID:
-			return DefaultEndPointOutputConnector_3022;
-		case AddressEndPointEditPart.VISUAL_ID:
-			return AddressEndPoint_3564;
-		case AddressEndPointInputConnectorEditPart.VISUAL_ID:
-			return AddressEndPointInputConnector_3030;
-		case AddressEndPointOutputConnectorEditPart.VISUAL_ID:
-			return AddressEndPointOutputConnector_3031;
-		case FailoverEndPointEditPart.VISUAL_ID:
-			return FailoverEndPoint_3565;
-		case FailoverEndPointInputConnectorEditPart.VISUAL_ID:
-			return FailoverEndPointInputConnector_3088;
-		case FailoverEndPointOutputConnectorEditPart.VISUAL_ID:
-			return FailoverEndPointOutputConnector_3090;
-		case FailoverEndPointWestOutputConnectorEditPart.VISUAL_ID:
-			return FailoverEndPointWestOutputConnector_3097;
-		case WSDLEndPointEditPart.VISUAL_ID:
-			return WSDLEndPoint_3566;
-		case WSDLEndPointInputConnectorEditPart.VISUAL_ID:
-			return WSDLEndPointInputConnector_3092;
-		case WSDLEndPointOutputConnectorEditPart.VISUAL_ID:
-			return WSDLEndPointOutputConnector_3093;
-		case LoadBalanceEndPointEditPart.VISUAL_ID:
-			return LoadBalanceEndPoint_3567;
-		case LoadBalanceEndPointInputConnectorEditPart.VISUAL_ID:
-			return LoadBalanceEndPointInputConnector_3095;
-		case LoadBalanceEndPointOutputConnectorEditPart.VISUAL_ID:
-			return LoadBalanceEndPointOutputConnector_3096;
-		case LoadBalanceEndPointWestOutputConnectorEditPart.VISUAL_ID:
-			return LoadBalanceEndPointWestOutputConnector_3098;
 		case HeaderMediatorEditPart.VISUAL_ID:
 			return HeaderMediator_3516;
 		case HeaderMediatorInputConnectorEditPart.VISUAL_ID:
@@ -2136,6 +2044,40 @@ public class EsbElementTypes {
 			return EnqueueMediatorInputConnector_3601;
 		case EnqueueMediatorOutputConnectorEditPart.VISUAL_ID:
 			return EnqueueMediatorOutputConnector_3602;
+		case DefaultEndPointEditPart.VISUAL_ID:
+			return DefaultEndPoint_3609;
+		case DefaultEndPointInputConnectorEditPart.VISUAL_ID:
+			return DefaultEndPointInputConnector_3021;
+		case DefaultEndPointOutputConnectorEditPart.VISUAL_ID:
+			return DefaultEndPointOutputConnector_3022;
+		case AddressEndPointEditPart.VISUAL_ID:
+			return AddressEndPoint_3610;
+		case AddressEndPointInputConnectorEditPart.VISUAL_ID:
+			return AddressEndPointInputConnector_3030;
+		case AddressEndPointOutputConnectorEditPart.VISUAL_ID:
+			return AddressEndPointOutputConnector_3031;
+		case FailoverEndPointEditPart.VISUAL_ID:
+			return FailoverEndPoint_3611;
+		case FailoverEndPointInputConnectorEditPart.VISUAL_ID:
+			return FailoverEndPointInputConnector_3088;
+		case FailoverEndPointOutputConnectorEditPart.VISUAL_ID:
+			return FailoverEndPointOutputConnector_3090;
+		case FailoverEndPointWestOutputConnectorEditPart.VISUAL_ID:
+			return FailoverEndPointWestOutputConnector_3097;
+		case WSDLEndPointEditPart.VISUAL_ID:
+			return WSDLEndPoint_3612;
+		case WSDLEndPointInputConnectorEditPart.VISUAL_ID:
+			return WSDLEndPointInputConnector_3092;
+		case WSDLEndPointOutputConnectorEditPart.VISUAL_ID:
+			return WSDLEndPointOutputConnector_3093;
+		case LoadBalanceEndPointEditPart.VISUAL_ID:
+			return LoadBalanceEndPoint_3613;
+		case LoadBalanceEndPointInputConnectorEditPart.VISUAL_ID:
+			return LoadBalanceEndPointInputConnector_3095;
+		case LoadBalanceEndPointOutputConnectorEditPart.VISUAL_ID:
+			return LoadBalanceEndPointOutputConnector_3096;
+		case LoadBalanceEndPointWestOutputConnectorEditPart.VISUAL_ID:
+			return LoadBalanceEndPointWestOutputConnector_3098;
 		case SwitchDefaultContainerEditPart.VISUAL_ID:
 			return SwitchDefaultContainer_3527;
 		case MediatorFlow4EditPart.VISUAL_ID:
@@ -2148,14 +2090,6 @@ public class EsbElementTypes {
 			return ThrottleOnRejectContainer_3586;
 		case MediatorFlow10EditPart.VISUAL_ID:
 			return MediatorFlow_3587;
-		case ProxyServiceOutSequenceEditPart.VISUAL_ID:
-			return ProxyServiceOutSequence_3198;
-		case MediatorFlow5EditPart.VISUAL_ID:
-			return MediatorFlow_3529;
-		case ProxyServiceEndpointContainerEditPart.VISUAL_ID:
-			return ProxyServiceEndpointContainer_3392;
-		case EndpointFlow2EditPart.VISUAL_ID:
-			return EndpointFlow_3580;
 		case ProxyServiceFaultContainerEditPart.VISUAL_ID:
 			return ProxyServiceFaultContainer_3488;
 		case MediatorFlow6EditPart.VISUAL_ID:

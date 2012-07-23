@@ -21,6 +21,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.ResizableCompartmentEditPart
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
+import org.eclipse.gmf.runtime.diagram.ui.figures.BorderedNodeFigure;
 import org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
@@ -35,12 +36,12 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.MediatorFl
  */
 public class MediatorFlowEditPart extends ShapeNodeEditPart {
 
-	//ProxyService InSequence.
+	//ProxyService Sequence & Endpoint.
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3490;
+	public static final int VISUAL_ID = 3608;
 
 	/**
 	 * @generated
@@ -119,15 +120,28 @@ public class MediatorFlowEditPart extends ShapeNodeEditPart {
 		return result;
 	}
 
-	public void refreshOutputConnector(EditPart childEditPart) {
+	public void refreshConnector(EditPart childEditPart) {
 		if (childEditPart instanceof ProxyServiceEditPart) {
 			ProxyServiceEditPart proxyServiceEditPart = (ProxyServiceEditPart) childEditPart;
-			BorderItemLocator locator = new FixedBorderItemLocator(
+			BorderItemLocator outputLocator = new FixedBorderItemLocator(
 					this.getFigure(),
 					proxyServiceEditPart.outputConnectorFigure,
-					PositionConstants.WEST, 0.5);
-			proxyServiceEditPart.getBorderedFigure().getBorderItemContainer()
-					.add(proxyServiceEditPart.outputConnectorFigure, locator);
+					PositionConstants.WEST, 0.3);
+			proxyServiceEditPart
+					.getBorderedFigure()
+					.getBorderItemContainer()
+					.add(proxyServiceEditPart.outputConnectorFigure,
+							outputLocator);
+
+			BorderItemLocator inputLocator = new FixedBorderItemLocator(
+					this.getFigure(),
+					proxyServiceEditPart.inputConnectorFigure,
+					PositionConstants.WEST, 0.7);
+			proxyServiceEditPart
+					.getBorderedFigure()
+					.getBorderItemContainer()
+					.add(proxyServiceEditPart.inputConnectorFigure,
+							inputLocator);
 		} else {
 			//Should handle properly.
 			throw new ClassCastException();
@@ -135,9 +149,8 @@ public class MediatorFlowEditPart extends ShapeNodeEditPart {
 	}
 
 	protected void addChildVisual(EditPart childEditPart, int index) {
-		refreshOutputConnector(((ProxyServiceEditPart) childEditPart
-				.getParent().getParent().getParent().getParent().getParent()
-				.getParent()));
+		refreshConnector(((ProxyServiceEditPart) childEditPart.getParent()
+				.getParent().getParent().getParent()));
 		super.addChildVisual(childEditPart, -1);
 	}
 
@@ -237,7 +250,6 @@ public class MediatorFlowEditPart extends ShapeNodeEditPart {
 		 * @generated NOT
 		 */
 		public MediatorFlowFigure() {
-			super();
 			GridLayout layoutThis = new GridLayout();
 			layoutThis.numColumns = 1;
 			layoutThis.makeColumnsEqualWidth = true;
@@ -247,13 +259,13 @@ public class MediatorFlowEditPart extends ShapeNodeEditPart {
 					getMapMode().DPtoLP(8)));
 			this.setLineStyle(Graphics.LINE_DASH);
 			this.setBackgroundColor(THIS_BACK);
+
 			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(5000),
 					getMapMode().DPtoLP(4000)));
-
 		}
 
 		public void add(IFigure figure, Object constraint, int index) {
-			if (figure instanceof ResizableCompartmentFigure) {
+			if (figure instanceof BorderedNodeFigure) {
 				GridData layoutData = new GridData();
 				layoutData.grabExcessHorizontalSpace = true;
 				layoutData.grabExcessVerticalSpace = true;

@@ -52,7 +52,7 @@ public class FailoverEndPointEndPointNameEditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5152;
+	public static final int VISUAL_ID = 5157;
 
 	/**
 	 * @generated
@@ -290,7 +290,7 @@ public class FailoverEndPointEndPointNameEditPart extends CompartmentEditPart
 		if (parser == null) {
 			parser = EsbParserProvider
 					.getParser(
-							EsbElementTypes.FailoverEndPoint_3565,
+							EsbElementTypes.FailoverEndPoint_3611,
 							getParserElement(),
 							EsbVisualIDRegistry
 									.getType(org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FailoverEndPointEndPointNameEditPart.VISUAL_ID));

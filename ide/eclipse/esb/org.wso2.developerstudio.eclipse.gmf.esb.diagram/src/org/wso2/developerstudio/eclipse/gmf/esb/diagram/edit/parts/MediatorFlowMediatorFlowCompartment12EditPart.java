@@ -40,7 +40,7 @@ public class MediatorFlowMediatorFlowCompartment12EditPart extends
 		//return Messages.MediatorFlowMediatorFlowCompartment12EditPart_title;
 		return "Target";
 	}
-	
+
 	public IFigure createFigure() {
 		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super
 				.createFigure();
@@ -66,7 +66,7 @@ public class MediatorFlowMediatorFlowCompartment12EditPart extends
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
 				new MediatorFlowMediatorFlowCompartment12CanonicalEditPolicy());
 	}
-	
+
 	protected void addChild(EditPart child, int index) {
 		// TODO Auto-generated method stub
 		super.addChild(child, index);
@@ -82,7 +82,7 @@ public class MediatorFlowMediatorFlowCompartment12EditPart extends
 		// TODO This or using ResizableEditpolicy?
 		return false;
 	}
-	
+
 	/**
 	 * @generated
 	 */

@@ -770,10 +770,10 @@ public class EsbPaletteFactory {
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.DefaultEndPoint1CreationTool_title,
 				Messages.DefaultEndPoint1CreationTool_desc,
-				Collections.singletonList(EsbElementTypes.DefaultEndPoint_3563));
+				Collections.singletonList(EsbElementTypes.DefaultEndPoint_3609));
 		entry.setId("createDefaultEndPoint1CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(EsbElementTypes
-				.getImageDescriptor(EsbElementTypes.DefaultEndPoint_3563));
+				.getImageDescriptor(EsbElementTypes.DefaultEndPoint_3609));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -785,10 +785,10 @@ public class EsbPaletteFactory {
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.AddressEndPoint2CreationTool_title,
 				Messages.AddressEndPoint2CreationTool_desc,
-				Collections.singletonList(EsbElementTypes.AddressEndPoint_3564));
+				Collections.singletonList(EsbElementTypes.AddressEndPoint_3610));
 		entry.setId("createAddressEndPoint2CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(EsbElementTypes
-				.getImageDescriptor(EsbElementTypes.AddressEndPoint_3564));
+				.getImageDescriptor(EsbElementTypes.AddressEndPoint_3610));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -801,10 +801,10 @@ public class EsbPaletteFactory {
 				Messages.FailoverEndPoint3CreationTool_title,
 				Messages.FailoverEndPoint3CreationTool_desc,
 				Collections
-						.singletonList(EsbElementTypes.FailoverEndPoint_3565));
+						.singletonList(EsbElementTypes.FailoverEndPoint_3611));
 		entry.setId("createFailoverEndPoint3CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(EsbElementTypes
-				.getImageDescriptor(EsbElementTypes.FailoverEndPoint_3565));
+				.getImageDescriptor(EsbElementTypes.FailoverEndPoint_3611));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -816,10 +816,10 @@ public class EsbPaletteFactory {
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.WSDLEndPoint4CreationTool_title,
 				Messages.WSDLEndPoint4CreationTool_desc,
-				Collections.singletonList(EsbElementTypes.WSDLEndPoint_3566));
+				Collections.singletonList(EsbElementTypes.WSDLEndPoint_3612));
 		entry.setId("createWSDLEndPoint4CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(EsbElementTypes
-				.getImageDescriptor(EsbElementTypes.WSDLEndPoint_3566));
+				.getImageDescriptor(EsbElementTypes.WSDLEndPoint_3612));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -832,10 +832,10 @@ public class EsbPaletteFactory {
 				Messages.LoadBalanceEndPoint5CreationTool_title,
 				Messages.LoadBalanceEndPoint5CreationTool_desc,
 				Collections
-						.singletonList(EsbElementTypes.LoadBalanceEndPoint_3567));
+						.singletonList(EsbElementTypes.LoadBalanceEndPoint_3613));
 		entry.setId("createLoadBalanceEndPoint5CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(EsbElementTypes
-				.getImageDescriptor(EsbElementTypes.LoadBalanceEndPoint_3567));
+				.getImageDescriptor(EsbElementTypes.LoadBalanceEndPoint_3613));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

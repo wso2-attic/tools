@@ -1,4 +1,4 @@
-package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies;
+/*package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies;
 
 import java.util.Iterator;
 
@@ -19,22 +19,22 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceO
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 
-/**
+*//**
  * @generated
- */
+ *//*
 public class ProxyServiceSequenceContainerItemSemanticEditPolicy extends
 		EsbBaseItemSemanticEditPolicy {
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	public ProxyServiceSequenceContainerItemSemanticEditPolicy() {
 		super(EsbElementTypes.ProxyServiceSequenceContainer_3391);
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected Command getCreateCommand(CreateElementRequest req) {
 		if (EsbElementTypes.ProxyServiceInSequence_3197 == req.getElementType()) {
 			return getGEFWrapper(new ProxyServiceInSequenceCreateCommand(req));
@@ -46,9 +46,9 @@ public class ProxyServiceSequenceContainerItemSemanticEditPolicy extends
 		return super.getCreateCommand(req);
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		View view = (View) getHost().getModel();
 		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(
@@ -67,9 +67,9 @@ public class ProxyServiceSequenceContainerItemSemanticEditPolicy extends
 		return getGEFWrapper(cmd.reduce());
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	private void addDestroyChildNodesCommand(ICompositeCommand cmd) {
 		View view = (View) getHost().getModel();
 		for (Iterator<?> nit = view.getChildren().iterator(); nit.hasNext();) {
@@ -92,3 +92,4 @@ public class ProxyServiceSequenceContainerItemSemanticEditPolicy extends
 	}
 
 }
+*/

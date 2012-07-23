@@ -440,8 +440,8 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 				.getDiagram().getElement()).getServer().getChildren();
 		for(int i=0;i<rootChildNodes.size();++i){
 			if(rootChildNodes.get(i) instanceof ProxyService){
-				childNodes.addAll(((ProxyService)rootChildNodes.get(i)).getContainer().getSequenceAndEndpointContainer().getSequenceContainer().getInSequence().getMediatorFlow().getChildren());
-				childNodes.addAll(((ProxyService)rootChildNodes.get(i)).getContainer().getSequenceAndEndpointContainer().getSequenceContainer().getOutSequence().getMediatorFlow().getChildren());				
+				childNodes.addAll(((ProxyService)rootChildNodes.get(i)).getContainer().getSequenceAndEndpointContainer().getMediatorFlow().getChildren());
+				childNodes.addAll(((ProxyService)rootChildNodes.get(i)).getContainer().getSequenceAndEndpointContainer().getMediatorFlow().getChildren());				
 			}
 		}		
 		for (EsbElement childNode : childNodes) {

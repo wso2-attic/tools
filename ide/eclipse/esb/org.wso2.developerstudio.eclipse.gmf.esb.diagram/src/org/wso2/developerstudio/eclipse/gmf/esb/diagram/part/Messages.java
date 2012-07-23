@@ -788,16 +788,6 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String MediatorFlowMediatorFlowCompartment5EditPart_title;
-
-	/**
-	 * @generated
-	 */
-	public static String EndpointFlowEndpointCompartment2EditPart_title;
-
-	/**
-	 * @generated
-	 */
 	public static String MediatorFlowMediatorFlowCompartment6EditPart_title;
 
 	/**

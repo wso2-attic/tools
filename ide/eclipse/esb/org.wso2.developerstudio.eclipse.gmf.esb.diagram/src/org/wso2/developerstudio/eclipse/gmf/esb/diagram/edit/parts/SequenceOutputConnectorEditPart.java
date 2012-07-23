@@ -276,21 +276,6 @@ public class SequenceOutputConnectorEditPart extends AbstractBorderItemEditPart 
 		if (targetEditPart instanceof SendMediatorInputConnectorEditPart) {
 			types.add(EsbElementTypes.EsbLink_4001);
 		}
-		if (targetEditPart instanceof DefaultEndPointInputConnectorEditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof AddressEndPointInputConnectorEditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof FailoverEndPointInputConnectorEditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof WSDLEndPointInputConnectorEditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
-		if (targetEditPart instanceof LoadBalanceEndPointInputConnectorEditPart) {
-			types.add(EsbElementTypes.EsbLink_4001);
-		}
 		if (targetEditPart instanceof HeaderMediatorInputConnectorEditPart) {
 			types.add(EsbElementTypes.EsbLink_4001);
 		}
@@ -336,6 +321,21 @@ public class SequenceOutputConnectorEditPart extends AbstractBorderItemEditPart 
 		if (targetEditPart instanceof EnqueueMediatorInputConnectorEditPart) {
 			types.add(EsbElementTypes.EsbLink_4001);
 		}
+		if (targetEditPart instanceof DefaultEndPointInputConnectorEditPart) {
+			types.add(EsbElementTypes.EsbLink_4001);
+		}
+		if (targetEditPart instanceof AddressEndPointInputConnectorEditPart) {
+			types.add(EsbElementTypes.EsbLink_4001);
+		}
+		if (targetEditPart instanceof FailoverEndPointInputConnectorEditPart) {
+			types.add(EsbElementTypes.EsbLink_4001);
+		}
+		if (targetEditPart instanceof WSDLEndPointInputConnectorEditPart) {
+			types.add(EsbElementTypes.EsbLink_4001);
+		}
+		if (targetEditPart instanceof LoadBalanceEndPointInputConnectorEditPart) {
+			types.add(EsbElementTypes.EsbLink_4001);
+		}
 		if (targetEditPart instanceof MessageInputConnectorEditPart) {
 			types.add(EsbElementTypes.EsbLink_4001);
 		}
@@ -377,11 +377,6 @@ public class SequenceOutputConnectorEditPart extends AbstractBorderItemEditPart 
 			types.add(EsbElementTypes.DBReportMediatorInputConnector_3079);
 			types.add(EsbElementTypes.SmooksMediatorInputConnector_3082);
 			types.add(EsbElementTypes.SendMediatorInputConnector_3085);
-			types.add(EsbElementTypes.DefaultEndPointInputConnector_3021);
-			types.add(EsbElementTypes.AddressEndPointInputConnector_3030);
-			types.add(EsbElementTypes.FailoverEndPointInputConnector_3088);
-			types.add(EsbElementTypes.WSDLEndPointInputConnector_3092);
-			types.add(EsbElementTypes.LoadBalanceEndPointInputConnector_3095);
 			types.add(EsbElementTypes.HeaderMediatorInputConnector_3100);
 			types.add(EsbElementTypes.CloneMediatorInputConnector_3103);
 			types.add(EsbElementTypes.CacheMediatorInputConnector_3106);
@@ -397,6 +392,11 @@ public class SequenceOutputConnectorEditPart extends AbstractBorderItemEditPart 
 			types.add(EsbElementTypes.CallTemplateMediatorInputConnector_3595);
 			types.add(EsbElementTypes.PayloadFactoryMediatorInputConnector_3598);
 			types.add(EsbElementTypes.EnqueueMediatorInputConnector_3601);
+			types.add(EsbElementTypes.DefaultEndPointInputConnector_3021);
+			types.add(EsbElementTypes.AddressEndPointInputConnector_3030);
+			types.add(EsbElementTypes.FailoverEndPointInputConnector_3088);
+			types.add(EsbElementTypes.WSDLEndPointInputConnector_3092);
+			types.add(EsbElementTypes.LoadBalanceEndPointInputConnector_3095);
 			types.add(EsbElementTypes.MessageInputConnector_3046);
 			types.add(EsbElementTypes.MergeNodeFirstInputConnector_3014);
 			types.add(EsbElementTypes.MergeNodeSecondInputConnector_3015);

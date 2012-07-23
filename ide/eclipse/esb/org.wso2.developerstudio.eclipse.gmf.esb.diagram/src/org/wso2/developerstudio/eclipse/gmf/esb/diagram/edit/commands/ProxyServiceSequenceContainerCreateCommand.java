@@ -1,4 +1,4 @@
-package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands;
+/*package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands;
 
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.IAdaptable;
@@ -15,23 +15,23 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceSequenceAndEndpointContainer;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceSequenceContainer;
 
-/**
+*//**
  * @generated
- */
+ *//*
 public class ProxyServiceSequenceContainerCreateCommand extends
 		EditElementCommand {
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	public ProxyServiceSequenceContainerCreateCommand(CreateElementRequest req) {
 		super(req.getLabel(), null, req);
 	}
 
-	/**
+	*//**
 	 * FIXME: replace with setElementToEdit()
 	 * @generated
-	 */
+	 *//*
 	protected EObject getElementToEdit() {
 		EObject container = ((CreateElementRequest) getRequest())
 				.getContainer();
@@ -41,9 +41,9 @@ public class ProxyServiceSequenceContainerCreateCommand extends
 		return container;
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	public boolean canExecute() {
 		ProxyServiceSequenceAndEndpointContainer container = (ProxyServiceSequenceAndEndpointContainer) getElementToEdit();
 		if (container.getSequenceContainer() != null) {
@@ -53,9 +53,9 @@ public class ProxyServiceSequenceContainerCreateCommand extends
 
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
 			IAdaptable info) throws ExecutionException {
 		ProxyServiceSequenceContainer newElement = EsbFactory.eINSTANCE
@@ -70,9 +70,9 @@ public class ProxyServiceSequenceContainerCreateCommand extends
 		return CommandResult.newOKCommandResult(newElement);
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected void doConfigure(ProxyServiceSequenceContainer newElement,
 			IProgressMonitor monitor, IAdaptable info)
 			throws ExecutionException {
@@ -91,3 +91,4 @@ public class ProxyServiceSequenceContainerCreateCommand extends
 	}
 
 }
+*/

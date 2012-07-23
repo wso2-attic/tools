@@ -1,4 +1,4 @@
-package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies;
+/*package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -30,15 +30,15 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramUpdater;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
 
-/**
+*//**
  * @generated
- */
+ *//*
 public class EndpointFlowEndpointCompartment2CanonicalEditPolicy extends
 		CanonicalEditPolicy {
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected void refreshOnActivate() {
 		// Need to activate editpart children before invoking the canonical refresh for EditParts to add event listeners
 		List<?> c = getHost().getChildren();
@@ -48,16 +48,16 @@ public class EndpointFlowEndpointCompartment2CanonicalEditPolicy extends
 		super.refreshOnActivate();
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected EStructuralFeature getFeatureToSynchronize() {
 		return EsbPackage.eINSTANCE.getEndpointFlow_Children();
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	@SuppressWarnings("rawtypes")
 	protected List getSemanticChildrenList() {
 		View viewObject = (View) getHost().getModel();
@@ -70,18 +70,18 @@ public class EndpointFlowEndpointCompartment2CanonicalEditPolicy extends
 		return result;
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected boolean isOrphaned(Collection<EObject> semanticChildren,
 			final View view) {
 		return isMyDiagramElement(view)
 				&& !semanticChildren.contains(view.getElement());
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	private boolean isMyDiagramElement(View view) {
 		int visualID = EsbVisualIDRegistry.getVisualID(view);
 		switch (visualID) {
@@ -95,9 +95,9 @@ public class EndpointFlowEndpointCompartment2CanonicalEditPolicy extends
 		return false;
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected void refreshSemantic() {
 		if (resolveSemanticElement() == null) {
 			return;
@@ -182,3 +182,4 @@ public class EndpointFlowEndpointCompartment2CanonicalEditPolicy extends
 		makeViewsImmutable(createdViews);
 	}
 }
+*/

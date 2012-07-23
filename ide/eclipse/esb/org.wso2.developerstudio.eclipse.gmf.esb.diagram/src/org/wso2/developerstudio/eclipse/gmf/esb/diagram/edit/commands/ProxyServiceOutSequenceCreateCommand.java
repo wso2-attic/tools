@@ -1,4 +1,4 @@
-package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands;
+/*package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands;
 
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.IAdaptable;
@@ -15,22 +15,22 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceOutSequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceSequenceContainer;
 
-/**
+*//**
  * @generated
- */
+ *//*
 public class ProxyServiceOutSequenceCreateCommand extends EditElementCommand {
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	public ProxyServiceOutSequenceCreateCommand(CreateElementRequest req) {
 		super(req.getLabel(), null, req);
 	}
 
-	/**
+	*//**
 	 * FIXME: replace with setElementToEdit()
 	 * @generated
-	 */
+	 *//*
 	protected EObject getElementToEdit() {
 		EObject container = ((CreateElementRequest) getRequest())
 				.getContainer();
@@ -40,9 +40,9 @@ public class ProxyServiceOutSequenceCreateCommand extends EditElementCommand {
 		return container;
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	public boolean canExecute() {
 		ProxyServiceSequenceContainer container = (ProxyServiceSequenceContainer) getElementToEdit();
 		if (container.getOutSequence() != null) {
@@ -52,9 +52,9 @@ public class ProxyServiceOutSequenceCreateCommand extends EditElementCommand {
 
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
 			IAdaptable info) throws ExecutionException {
 		ProxyServiceOutSequence newElement = EsbFactory.eINSTANCE
@@ -69,9 +69,9 @@ public class ProxyServiceOutSequenceCreateCommand extends EditElementCommand {
 		return CommandResult.newOKCommandResult(newElement);
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected void doConfigure(ProxyServiceOutSequence newElement,
 			IProgressMonitor monitor, IAdaptable info)
 			throws ExecutionException {
@@ -90,3 +90,4 @@ public class ProxyServiceOutSequenceCreateCommand extends EditElementCommand {
 	}
 
 }
+*/

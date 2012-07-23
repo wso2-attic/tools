@@ -14,6 +14,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.MediatorFlow;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceInSequence;
+import org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceSequenceAndEndpointContainer;
 
 /**
  * @generated
@@ -44,7 +45,7 @@ public class MediatorFlowCreateCommand extends EditElementCommand {
 	 * @generated
 	 */
 	public boolean canExecute() {
-		ProxyServiceInSequence container = (ProxyServiceInSequence) getElementToEdit();
+		ProxyServiceSequenceAndEndpointContainer container = (ProxyServiceSequenceAndEndpointContainer) getElementToEdit();
 		if (container.getMediatorFlow() != null) {
 			return false;
 		}
@@ -59,7 +60,7 @@ public class MediatorFlowCreateCommand extends EditElementCommand {
 			IAdaptable info) throws ExecutionException {
 		MediatorFlow newElement = EsbFactory.eINSTANCE.createMediatorFlow();
 
-		ProxyServiceInSequence owner = (ProxyServiceInSequence) getElementToEdit();
+		ProxyServiceSequenceAndEndpointContainer owner = (ProxyServiceSequenceAndEndpointContainer) getElementToEdit();
 		owner.setMediatorFlow(newElement);
 
 		doConfigure(newElement, monitor, info);

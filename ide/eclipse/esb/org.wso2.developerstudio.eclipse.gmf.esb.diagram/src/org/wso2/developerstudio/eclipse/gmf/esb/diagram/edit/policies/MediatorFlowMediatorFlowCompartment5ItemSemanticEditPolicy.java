@@ -1,4 +1,4 @@
-package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies;
+/*package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies;
 
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
@@ -40,22 +40,22 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.XQueryMedi
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.XSLTMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 
-/**
+*//**
  * @generated
- */
+ *//*
 public class MediatorFlowMediatorFlowCompartment5ItemSemanticEditPolicy extends
 		EsbBaseItemSemanticEditPolicy {
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	public MediatorFlowMediatorFlowCompartment5ItemSemanticEditPolicy() {
 		super(EsbElementTypes.MediatorFlow_3529);
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected Command getCreateCommand(CreateElementRequest req) {
 		if (EsbElementTypes.DropMediator_3491 == req.getElementType()) {
 			return getGEFWrapper(new DropMediatorCreateCommand(req));
@@ -169,3 +169,4 @@ public class MediatorFlowMediatorFlowCompartment5ItemSemanticEditPolicy extends
 	}
 
 }
+*/

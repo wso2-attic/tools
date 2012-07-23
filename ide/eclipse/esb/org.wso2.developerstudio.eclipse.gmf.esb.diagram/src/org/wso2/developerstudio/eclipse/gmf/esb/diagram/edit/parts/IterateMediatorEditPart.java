@@ -45,7 +45,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry
 public class IterateMediatorEditPart extends AbstractMediator {
 
 	public IFigure targetOutputConnector;
-	
+
 	/**
 	 * @generated
 	 */
@@ -347,7 +347,7 @@ public class IterateMediatorEditPart extends AbstractMediator {
 			this.setBackgroundColor(THIS_BACK);
 			createContents();
 		}
-		
+
 		public void add(IFigure figure, Object constraint, int index) {
 			if (figure instanceof DefaultSizeNodeFigure) {
 				GridData layoutData = new GridData();

@@ -52,7 +52,7 @@ public class LoadBalanceEndPointEndPointNameEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5154;
+	public static final int VISUAL_ID = 5159;
 
 	/**
 	 * @generated
@@ -290,7 +290,7 @@ public class LoadBalanceEndPointEndPointNameEditPart extends
 		if (parser == null) {
 			parser = EsbParserProvider
 					.getParser(
-							EsbElementTypes.LoadBalanceEndPoint_3567,
+							EsbElementTypes.LoadBalanceEndPoint_3613,
 							getParserElement(),
 							EsbVisualIDRegistry
 									.getType(org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.LoadBalanceEndPointEndPointNameEditPart.VISUAL_ID));

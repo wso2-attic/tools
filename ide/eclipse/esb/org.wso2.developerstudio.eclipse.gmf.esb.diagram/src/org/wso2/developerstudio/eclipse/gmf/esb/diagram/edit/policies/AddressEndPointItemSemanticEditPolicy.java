@@ -31,7 +31,7 @@ public class AddressEndPointItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public AddressEndPointItemSemanticEditPolicy() {
-		super(EsbElementTypes.AddressEndPoint_3564);
+		super(EsbElementTypes.AddressEndPoint_3610);
 	}
 
 	/**

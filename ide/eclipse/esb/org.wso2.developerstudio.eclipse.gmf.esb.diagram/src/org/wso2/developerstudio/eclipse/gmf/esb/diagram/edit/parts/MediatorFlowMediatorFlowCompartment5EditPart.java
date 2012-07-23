@@ -1,4 +1,4 @@
-package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
+/*package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
 
 import java.util.List;
 
@@ -26,35 +26,35 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.MediatorFl
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.MediatorFlowMediatorFlowCompartment5ItemSemanticEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.Messages;
 
-/**
+*//**
  * @generated
- */
+ *//*
 public class MediatorFlowMediatorFlowCompartment5EditPart extends
 		ShapeCompartmentEditPart {
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	public static final int VISUAL_ID = 7018;
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	public MediatorFlowMediatorFlowCompartment5EditPart(View view) {
 		super(view);
 	}
 
-	/**
+	*//**
 	 * @generated NOT
-	 */
+	 *//*
 	public String getCompartmentName() {
 		return "Out Sequence";
 		//return Messages.MediatorFlowMediatorFlowCompartment5EditPart_title;
 	}
 
-	/**
+	*//**
 	 * @generated NOT
-	 */
+	 *//*
 	public IFigure createFigure() {
 		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super
 				.createFigure();
@@ -65,9 +65,9 @@ public class MediatorFlowMediatorFlowCompartment5EditPart extends
 		return result;
 	}
 
-	/**
+	*//**
 	 * @generated NOT
-	 */
+	 *//*
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		installEditPolicy(
@@ -122,9 +122,9 @@ public class MediatorFlowMediatorFlowCompartment5EditPart extends
 		return false;
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected void setRatio(Double ratio) {
 		if (getFigure().getParent().getLayoutManager() instanceof ConstrainedToolbarLayout) {
 			super.setRatio(ratio);
@@ -132,3 +132,4 @@ public class MediatorFlowMediatorFlowCompartment5EditPart extends
 	}
 
 }
+*/

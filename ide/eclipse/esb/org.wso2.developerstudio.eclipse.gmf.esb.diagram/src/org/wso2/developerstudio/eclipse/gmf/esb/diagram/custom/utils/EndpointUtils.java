@@ -107,7 +107,7 @@ public class EndpointUtils {
 						}
 					}
 				}
-			} else if (child instanceof AddressEndPointEditPart) {
+			} /*else if (child instanceof AddressEndPointEditPart) {
 				AddressEndPointEditPart endpointEditPart = (AddressEndPointEditPart) child;
 				EObject parentEndpoint =
 				                         ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (endpointEditPart).getModel()).getElement();
@@ -124,7 +124,7 @@ public class EndpointUtils {
 						}
 					}
 				}
-			} else if (child instanceof WSDLEndPointEditPart) {
+			}*/ else if (child instanceof WSDLEndPointEditPart) {
 				WSDLEndPointEditPart endpointEditPart = (WSDLEndPointEditPart) child;
 				EObject parentEndpoint =
 				                         ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (endpointEditPart).getModel()).getElement();

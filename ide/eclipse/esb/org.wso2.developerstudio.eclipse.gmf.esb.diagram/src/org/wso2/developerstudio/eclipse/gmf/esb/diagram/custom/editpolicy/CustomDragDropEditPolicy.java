@@ -11,14 +11,12 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateUnspecifiedTypeRequest;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.FigureUtilities;
 import org.eclipse.swt.graphics.Color;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EndpointFlowEndpointCompartment2EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EndpointFlowEndpointCompartmentEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbServerContentsCompartmentEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment10EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment2EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment3EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment4EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment5EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment6EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment7EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment8EditPart;
@@ -81,14 +79,14 @@ public class CustomDragDropEditPolicy extends DragDropEditPolicy{
     		}	
 	    }
 	    
-	    if(getHost() instanceof MediatorFlowMediatorFlowCompartment5EditPart){
+/*	    if(getHost() instanceof MediatorFlowMediatorFlowCompartment5EditPart){
 	    	if(isAllowable("MediatorFlow5",result[1])){
 	    		setGreenColor();
     		}
     		else{
     			setRedColor();
     		}
-	    }
+	    }*/
 	    
 	    if(getHost() instanceof MediatorFlowMediatorFlowCompartment6EditPart){
 	    	if(isAllowable("MediatorFlow6",result[1])){
@@ -145,14 +143,14 @@ public class CustomDragDropEditPolicy extends DragDropEditPolicy{
 	    		
 	    }
 	    
-	    if(getHost() instanceof EndpointFlowEndpointCompartment2EditPart){
+/*	    if(getHost() instanceof EndpointFlowEndpointCompartment2EditPart){
 	    	if(isAllowable("EndpointFlow2",result[1])){
 	    		setGreenColor();
     		}
     		else{
     			setRedColor();
     		}
-	    }
+	    }*/
 	    
 	    if(getHost() instanceof EndpointFlowEndpointCompartmentEditPart){
 	    	if(isAllowable("EndpointFlow",result[1])){

@@ -4,6 +4,7 @@ import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.GridData;
 import org.eclipse.draw2d.GridLayout;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.LineBorder;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
@@ -26,6 +27,7 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.EndpointFlowItemSemanticEditPolicy;
@@ -242,7 +244,10 @@ public class EndpointFlowEditPart extends ShapeNodeEditPart {
 
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
 					getMapMode().DPtoLP(8)));
-			this.setLineStyle(Graphics.LINE_DASH);
+			//this.setLineStyle(Graphics.LINE_DASH);
+			LineBorder border0 = new LineBorder(new Color(null, 250, 250, 250),
+					1, SWT.BORDER_SOLID);
+			this.setBorder(border0);
 			this.setBackgroundColor(THIS_BACK);
 			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(5000),
 					getMapMode().DPtoLP(4000)));

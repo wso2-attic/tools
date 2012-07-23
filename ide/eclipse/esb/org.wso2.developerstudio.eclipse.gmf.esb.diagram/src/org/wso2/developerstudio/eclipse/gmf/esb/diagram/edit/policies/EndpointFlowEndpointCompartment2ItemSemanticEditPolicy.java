@@ -1,4 +1,4 @@
-package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies;
+/*package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies;
 
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
@@ -9,22 +9,22 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.LoadBalanc
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.WSDLEndPointCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 
-/**
+*//**
  * @generated
- */
+ *//*
 public class EndpointFlowEndpointCompartment2ItemSemanticEditPolicy extends
 		EsbBaseItemSemanticEditPolicy {
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	public EndpointFlowEndpointCompartment2ItemSemanticEditPolicy() {
 		super(EsbElementTypes.EndpointFlow_3580);
 	}
 
-	/**
+	*//**
 	 * @generated
-	 */
+	 *//*
 	protected Command getCreateCommand(CreateElementRequest req) {
 		if (EsbElementTypes.DefaultEndPoint_3563 == req.getElementType()) {
 			return getGEFWrapper(new DefaultEndPointCreateCommand(req));
@@ -45,3 +45,4 @@ public class EndpointFlowEndpointCompartment2ItemSemanticEditPolicy extends
 	}
 
 }
+*/

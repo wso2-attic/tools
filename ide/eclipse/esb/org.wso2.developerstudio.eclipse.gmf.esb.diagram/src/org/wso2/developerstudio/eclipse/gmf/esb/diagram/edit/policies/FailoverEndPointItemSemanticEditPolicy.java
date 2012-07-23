@@ -33,7 +33,7 @@ public class FailoverEndPointItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	public FailoverEndPointItemSemanticEditPolicy() {
-		super(EsbElementTypes.FailoverEndPoint_3565);
+		super(EsbElementTypes.FailoverEndPoint_3611);
 	}
 
 	/**

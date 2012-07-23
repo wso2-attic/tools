@@ -13,6 +13,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndpointFlow;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
+import org.wso2.developerstudio.eclipse.gmf.esb.MediatorFlow;
 import org.wso2.developerstudio.eclipse.gmf.esb.WSDLEndPoint;
 
 /**
@@ -55,7 +56,7 @@ public class WSDLEndPointCreateCommand extends EditElementCommand {
 			IAdaptable info) throws ExecutionException {
 		WSDLEndPoint newElement = EsbFactory.eINSTANCE.createWSDLEndPoint();
 
-		EndpointFlow owner = (EndpointFlow) getElementToEdit();
+		MediatorFlow owner = (MediatorFlow) getElementToEdit();
 		owner.getChildren().add(newElement);
 
 		doConfigure(newElement, monitor, info);
