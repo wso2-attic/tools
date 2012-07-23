@@ -17,6 +17,12 @@
 package org.wso2.developerstudio.eclipse.artifact.jaxrs.utils;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -28,6 +34,8 @@ import org.apache.axiom.om.OMDocument;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMNamespace;
+import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.Platform;
 import org.wso2.developerstudio.eclipse.artifact.jaxrs.Activator;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
@@ -69,34 +77,88 @@ public class JaxUtil {
 		buffer.append("package " + PackageName + ";\n");
 		buffer.append("\n");
 		}
-		buffer.append("import javax.jws.WebService;\n");
-		/*buffer.append("import javax.jws.WebMethod;\n");
-		buffer.append("import javax.jws.WebParam;\n");*/
-		buffer.append("\n");
-		buffer.append("@WebService\n" + "public interface " + className +"{\n\n" );
+		
 		if(stubs){
-			buffer.append("\t/** This is a sample web service operation */\n");
-			buffer.append("\tpublic String hello(String txt);");
-			buffer.append("\t\n");
+			buffer.append("import javax.ws.rs.*;\n");
+			buffer.append("import javax.ws.rs.core.*;\n");
+		} else{
+			buffer.append("import javax.ws.rs.Path;\n");
+		}
+		buffer.append("\n");
+		buffer.append("@Path(\"");
+		buffer.append(className.toLowerCase());
+		buffer.append("\")\n");
+		buffer.append("public interface ");
+		buffer.append(className);
+		buffer.append("{\n\n");
+		if(stubs){
+			buffer.append("\t/** This is sample methods */\n");
+			buffer.append("\t@GET\n");
+			buffer.append("\t@Path(\"/add/{a}/{b}\")\n");
+			buffer.append("\t@Produces(MediaType.TEXT_XML)\n");
+			buffer.append("\tpublic String add(");
+			buffer.append("@PathParam(\"a\") double a,");
+			buffer.append("@PathParam(\"b\") double b);\n\n");
+			
+			buffer.append("\t@GET\n");
+			buffer.append("\t@Path(\"/sub/{a}/{b}\")\n");
+			buffer.append("\t@Produces(MediaType.TEXT_XML)\n");
+			buffer.append("\tpublic String sub(");
+			buffer.append("@PathParam(\"a\") double a,");
+			buffer.append("@PathParam(\"b\") double b);\n\n");
 		}
 		buffer.append("\n}");
 		return buffer.toString();
 	}
 	
+	public static File getJsr311LibraryPath(){
+		return getLibraryPath("jsr311-api-1.1.1.jar");
+	} 
+	
+	private static File getLibraryPath(String libraryName){
+		URL resource = Platform.getBundle(Activator.PLUGIN_ID).getResource("lib/"+libraryName);
+		IPath path = Activator.getDefault().getStateLocation();
+		IPath libFolder = path.append("lib");
+		String[] paths = resource.getFile().split("/");
+		IPath library = libFolder.append(paths[paths.length-1]);
+		File libraryFile = new File(library.toOSString());
+		if (libraryFile.exists()) return libraryFile;
+		try {
+	        writeToFile(libraryFile, resource.openStream());
+        } catch (IOException e) {
+	        log.error(e);
+	        return null;
+        }
+		return libraryFile;
+	}
+	
+	private static void writeToFile(File file, InputStream stream) throws IOException{
+		file.getParentFile().mkdirs();
+	    OutputStream out=new FileOutputStream(file);
+	    byte buf[]=new byte[1024];
+	    int len;
+	    while((len=stream.read(buf))>0)
+	    	out.write(buf,0,len);
+	    out.close();
+	    stream.close();
+	}
+	
 	public static class CxfServlet extends AbstractXMLDoc{
-		private static final String SCHEMA_LOCATION = "http://www.springframework.org/schema/beans "
-				+ "http://www.springframework.org/schema/beans/spring-beans.xsd "
-				+ "http://cxf.apache.org/bindings/soap http://cxf.apache.org/schemas/configuration/soap.xsd "
-				+ "http://cxf.apache.org/jaxws "
-				+ "http://cxf.apache.org/schemas/jaxws.xsd";
 		private static final String XSI_NS = "http://www.w3.org/2001/XMLSchema-instance";
-		private static final String JAXWS_NS = "http://cxf.apache.org/jaxws";
+		private static final String JAXRS_NS = "http://cxf.apache.org/jaxrs";
+		private static final String JAXRS_XSD = "http://cxf.apache.org/schemas/jaxrs.xsd";
 		private static final String SOAP_NS = "http://cxf.apache.org/bindings/soap";
+		private static final String SOAP_XSD = "http://cxf.apache.org/schemas/configuration/soap.xsd";
 		private static final String DEFAULT_NS = "http://www.springframework.org/schema/beans";
+		private static final String BEANS_XSD = "http://www.springframework.org/schema/beans";
+		
+		private static final String SCHEMA_LOCATION = String.format("%s %s %s %s %s %s",
+				DEFAULT_NS, BEANS_XSD, SOAP_NS, SOAP_XSD, JAXRS_NS, JAXRS_XSD);
+		
 		
 		OMElement documentElement=null;
 		OMNamespace xsi = null;
-		OMNamespace jaxws = null;
+		OMNamespace jaxrs = null;
 		OMNamespace soap = null;
 		
 		private Map<String,JaxwsServer> servers= new HashMap<String,JaxwsServer>(); 
@@ -127,7 +189,7 @@ public class JaxUtil {
 		public void deserialize(OMElement documentElement) throws Exception {
 			this.documentElement = documentElement;
 			xsi = documentElement.findNamespace(XSI_NS, "xsi");
-			jaxws = documentElement.findNamespace(JAXWS_NS, "jaxws");
+			jaxrs = documentElement.findNamespace(JAXRS_NS, "jaxrs");
 			soap = documentElement.findNamespace(SOAP_NS, "soap");
 			/*
 			List<OMElement> servers = getChildElements(documentElement,"server");
@@ -181,22 +243,25 @@ public class JaxUtil {
 				documentElement = getElement("beans", "");
 				documentElement.declareDefaultNamespace(DEFAULT_NS);
 				xsi = documentElement.declareNamespace(XSI_NS, "xsi");
-				jaxws = documentElement.declareNamespace(JAXWS_NS, "jaxws");
+				jaxrs = documentElement.declareNamespace(JAXRS_NS, "jaxrs");
 				soap = documentElement.declareNamespace(SOAP_NS, "soap");
 				documentElement.addAttribute("schemaLocation",SCHEMA_LOCATION, xsi);
 			}
 			
 			for(JaxwsServer s: getServers().values()){
-				OMElement serverElement = factory.createOMElement("server",jaxws);
+				OMElement serverElement = factory.createOMElement("server",jaxrs);
 				serverElement.addAttribute("id",s.getId(),null);
-				serverElement.addAttribute("serviceClass",s.getServiceClass(),null);
 				serverElement.addAttribute("address",s.getAddress(),null);
 				if(s.getBeanClass()!=null){
-					OMElement serviceBeanElement = factory.createOMElement("serviceBean",jaxws);
-					OMElement beanElement = factory.createOMElement(new QName("bean"));
-					beanElement.addAttribute("class",s.getBeanClass(),null);
-					serviceBeanElement.addChild(beanElement);
+					OMElement serviceBeanElement = factory.createOMElement("serviceBean",jaxrs);
+					OMElement beanRef = factory.createOMElement(new QName("ref"));
+					beanRef.addAttribute("bean",s.getId().concat("Bean"),null);
+					serviceBeanElement.addChild(beanRef);
 					serverElement.addChild(serviceBeanElement);
+					OMElement beanElement = factory.createOMElement(new QName("bean"));
+					beanElement.addAttribute("id",s.getId().concat("Bean"),null);
+					beanElement.addAttribute("class",s.getBeanClass(),null);
+					documentElement.addChild(beanElement);
 				}
 				documentElement.addChild(serverElement);
 			}

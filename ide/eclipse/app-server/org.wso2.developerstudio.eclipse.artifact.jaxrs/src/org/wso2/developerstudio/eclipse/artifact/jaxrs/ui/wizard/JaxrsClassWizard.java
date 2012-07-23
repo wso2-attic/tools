@@ -86,15 +86,15 @@ public class JaxrsClassWizard extends Wizard implements INewWizard {
 			classWizardPage.createType(new NullProgressMonitor());
 			IType classSource = classWizardPage.getCreatedType();
 			ICompilationUnit unit = classSource.getCompilationUnit();
-			unit.becomeWorkingCopy(new NullProgressMonitor());
-			unit.createImport("javax.jws.WebService", null,new NullProgressMonitor());
-			String source = unit.getSource();
-			String searchFor = "public class " + classSource.getTypeQualifiedName();
-			int pos = source.indexOf(searchFor);
-			source = (source.substring(0,pos)+ "@WebService(serviceName = \"" + classSource.getTypeQualifiedName()+ "\")"+ System.getProperty("line.separator") +source.substring(pos));
-			IBuffer workingCopyBuffer = unit.getBuffer();
-			workingCopyBuffer.setContents(source);
-			unit.commitWorkingCopy(false, new NullProgressMonitor());
+//			unit.becomeWorkingCopy(new NullProgressMonitor());
+//			unit.createImport("javax.jws.WebService", null,new NullProgressMonitor());
+//			String source = unit.getSource();
+//			String searchFor = "public class " + classSource.getTypeQualifiedName();
+//			int pos = source.indexOf(searchFor);
+//			source = (source.substring(0,pos)+ "@WebService(serviceName = \"" + classSource.getTypeQualifiedName()+ "\")"+ System.getProperty("line.separator") +source.substring(pos));
+//			IBuffer workingCopyBuffer = unit.getBuffer();
+//			workingCopyBuffer.setContents(source);
+//			unit.commitWorkingCopy(false, new NullProgressMonitor());
 			unit.getJavaProject().getProject().refreshLocal(IResource.DEPTH_INFINITE,new NullProgressMonitor());
 			
 			JaxUtil.CxfServlet cxfServlet = new JaxUtil.CxfServlet();			

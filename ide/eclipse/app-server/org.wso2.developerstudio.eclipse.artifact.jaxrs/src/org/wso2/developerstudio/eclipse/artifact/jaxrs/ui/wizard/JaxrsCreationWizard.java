@@ -88,6 +88,9 @@ public class JaxrsCreationWizard  extends AbstractWSO2ProjectCreationWizard{
 			File pomfile = project.getFile("pom.xml").getLocation().toFile();
 			getModel().getMavenInfo().setPackageName("war");
 			createPOM(pomfile);
+			project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
+			File dependencyPath = JaxUtil.getJsr311LibraryPath();
+			JavaUtils.addJarLibraryToProject(javaProject, dependencyPath);
 			ProjectUtils.addNatureToProject(project,
 			                                false,
 											"org.wso2.developerstudio.eclipse.jaxrs.project.nature");
