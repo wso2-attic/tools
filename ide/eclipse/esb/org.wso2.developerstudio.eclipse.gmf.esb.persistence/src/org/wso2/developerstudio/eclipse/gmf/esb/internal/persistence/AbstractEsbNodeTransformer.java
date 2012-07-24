@@ -96,4 +96,13 @@ public abstract class AbstractEsbNodeTransformer implements EsbNodeTransformer {
 		
 	}
 	
+	protected void doTransformFaultSequence(TransformationInfo info,EsbNode originNode) throws Exception {
+		if(originNode !=null){
+		EsbNodeTransformer transformer = EsbTransformerRegistry.getInstance().getTransformer(originNode);
+		Assert.isNotNull(transformer, "No registered transformer for given node.");
+
+		transformer.transform(info, originNode);
+		}
+	}
+	
 }
