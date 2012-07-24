@@ -15,6 +15,7 @@ import org.eclipse.gmf.runtime.common.core.command.ICommand;
 import org.eclipse.gmf.runtime.diagram.ui.commands.DeferredCreateConnectionViewAndElementCommand;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeCompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
@@ -105,9 +106,37 @@ public class MediatorFlowMediatorFlowCompartmentEditPart extends
 									((AddressEndPointEditPart) childEditPart)
 											.getFigure(),
 									PositionConstants.EAST, 10, 5));
-		} else {
+		} else if (childEditPart instanceof WSDLEndPointEditPart) {
+			borderedNodeFigure.getBorderItemContainer().add(
+					((WSDLEndPointEditPart) childEditPart).getFigure(),
+					new SlidingBorderItemLocator(borderedNodeFigure
+							.getMainFigure(),
+							((WSDLEndPointEditPart) childEditPart).getFigure(),
+							PositionConstants.EAST, 10, 5));
+		} else if (childEditPart instanceof DefaultEndPointEditPart) {
+			borderedNodeFigure.getBorderItemContainer()
+					.add(((DefaultEndPointEditPart) childEditPart).getFigure(),
+							new SlidingBorderItemLocator(borderedNodeFigure
+									.getMainFigure(),
+									((DefaultEndPointEditPart) childEditPart)
+											.getFigure(),
+									PositionConstants.EAST, 10, 5));
+		}
+
+		else {
 			index = Math.min(getContentPane().getChildren().size(), index);
 			getContentPane().add(child, index);
+		}
+	}
+	
+	
+	protected void removeChildVisual(EditPart child) {
+		IFigure childFigure = ((GraphicalEditPart) child).getFigure();
+		if((child instanceof AddressEndPointEditPart) ||(child instanceof WSDLEndPointEditPart)||(child instanceof DefaultEndPointEditPart)){
+			borderedNodeFigure.getBorderItemContainer().remove(childFigure);
+		}
+		else{
+			getContentPane().remove(childFigure);
 		}
 	}
 

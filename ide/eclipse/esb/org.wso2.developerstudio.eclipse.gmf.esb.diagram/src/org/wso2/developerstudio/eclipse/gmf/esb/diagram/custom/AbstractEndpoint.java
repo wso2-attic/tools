@@ -10,12 +10,13 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.DeleteCommand;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.BorderedBorderItemEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EndpointFlowEndpointCompartmentEditPart;
 
-public abstract class AbstractEndpoint extends AbstractBorderedShapeEditPart {
+public abstract class AbstractEndpoint extends BorderedBorderItemEditPart {
 
 	// activete method is called twice for a mediator. Reason is not detected
 	// yet.so that we use this variable to avoid calling reverse method twice.
