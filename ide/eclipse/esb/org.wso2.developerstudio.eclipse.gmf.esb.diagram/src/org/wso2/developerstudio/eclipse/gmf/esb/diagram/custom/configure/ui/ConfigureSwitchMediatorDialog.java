@@ -7,15 +7,7 @@ import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.jface.dialogs.Dialog;
-import org.eclipse.swt.graphics.Point;
-import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Control;
-import org.eclipse.swt.widgets.Shell;
-import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.Text;
-import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.custom.TableEditor;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
@@ -23,13 +15,20 @@ import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.graphics.Point;
+import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
-import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
+import org.eclipse.swt.widgets.TableItem;
+import org.eclipse.swt.widgets.Text;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
-import org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.SwitchCaseBranchOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediator;
 
 public class ConfigureSwitchMediatorDialog extends Dialog {
 	private Text txtXPath;
@@ -37,6 +36,7 @@ public class ConfigureSwitchMediatorDialog extends Dialog {
 	private SwitchMediator mediator;
 	private TransactionalEditingDomain editingDomain;
 	private CompoundCommand resultCommand;
+	private int branchCounter ;
 	/**
 	 * Create the dialog.
 	 * @param parentShell
@@ -52,12 +52,12 @@ public class ConfigureSwitchMediatorDialog extends Dialog {
 	 * @param parent
 	 */
 	
-	protected Control createDialogArea(Composite parent) {
+	protected Control createDialogArea(final Composite parent) {
 		Composite container = (Composite) super.createDialogArea(parent);
 		container.setLayout(null);
 		
 		txtXPath = new Text(container, SWT.BORDER);
-		txtXPath.setBounds(46, 10, 297, 21);
+		txtXPath.setBounds(60, 10, 297, 21);
 		
 		Label lblXPath = new Label(container, SWT.NONE);
 		lblXPath.setText("XPath");
@@ -67,25 +67,33 @@ public class ConfigureSwitchMediatorDialog extends Dialog {
 		cmdBrowseXPath.addSelectionListener(new SelectionAdapter() {
 			
 			public void widgetSelected(SelectionEvent e) {
+				
+				NamespacedPropertyEditorDialog switchMediatorXpathConfigDialog = 
+					new NamespacedPropertyEditorDialog(parent.getShell(),mediator.getSourceXpath());
+				switchMediatorXpathConfigDialog.open();
+				txtXPath.setText(mediator.getSourceXpath().getPropertyValue());
 			}
 		});
 		cmdBrowseXPath.setText("..");
-		cmdBrowseXPath.setBounds(345, 10, 20, 20);
+		cmdBrowseXPath.setBounds(360, 10, 20, 20);
 		
-		tblCases = new Table(container, SWT.BORDER | SWT.FULL_SELECTION);
+		tblCases = new Table(container, SWT.BORDER | SWT.FULL_SELECTION );
 		tblCases.setLinesVisible(true);
 		tblCases.setHeaderVisible(true);
-		tblCases.setBounds(10, 47, 335, 162);
+		tblCases.setBounds(10, 47, 430, 162);
 		
-	//	TableColumn tblclmnCase = new TableColumn(tblCases, SWT.NONE);
-	//	tblclmnCase.setWidth(100);
-	//	tblclmnCase.setText("Case");
+		TableColumn tblclmnCase = new TableColumn(tblCases, SWT.NONE);
+		tblclmnCase.setWidth(100);
+		tblclmnCase.setText("Case");
 		
 		TableColumn tblclmnRegexp = new TableColumn(tblCases, SWT.NONE);
 		tblclmnRegexp.setWidth(311);
 		tblclmnRegexp.setText("RegExp");
-		
-		Button cmdRemove = new Button(container, SWT.NONE);
+		/**
+		 * Commented out because of no need to have adding and removing feature 
+		 * in the configure dialog.
+		 */
+     /* Button cmdRemove = new Button(container, SWT.NONE);
 		cmdRemove.addSelectionListener(new SelectionAdapter() {
 			
 			public void widgetSelected(SelectionEvent e) {
@@ -111,10 +119,12 @@ public class ConfigureSwitchMediatorDialog extends Dialog {
 			}
 		});
 		cmdNew.setText("New");
-		cmdNew.setBounds(351, 47, 75, 25);
+		cmdNew.setBounds(351, 47, 75, 25);*/
+		
 		setupTableEditor(tblCases);
 		
 		for(SwitchCaseBranchOutputConnector s: mediator.getCaseBranches()){
+			 branchCounter ++;
 			 bindCase(s);
 		}
 		
@@ -128,7 +138,7 @@ public class ConfigureSwitchMediatorDialog extends Dialog {
 
 	private TableItem bindCase(SwitchCaseBranchOutputConnector s) {
 		TableItem item = new TableItem(tblCases, SWT.NONE);
-		item.setText(new String [] {s.getCaseRegex()});
+		item.setText(new String [] {Integer.toString(branchCounter),s.getCaseRegex()});
 		item.setData(s);
 		return item;
 	}
@@ -158,13 +168,13 @@ public class ConfigureSwitchMediatorDialog extends Dialog {
 		for (TableItem item : tblCases.getItems()) {
 			SwitchCaseBranchOutputConnector s = (SwitchCaseBranchOutputConnector) item.getData();
 			if (null == s.eContainer()) {
-				s.setCaseRegex(item.getText());
+				s.setCaseRegex(item.getText(0));
 				AddCommand addCmd = new AddCommand(editingDomain,mediator,EsbPackage.Literals.SWITCH_MEDIATOR__CASE_BRANCHES, s);
 				getResultCommand().append(addCmd);
 			}
 			else{
 				if (!s.getCaseRegex().equals(item.getText())) {
-					SetCommand setCmd = new SetCommand(editingDomain, s,EsbPackage.Literals.SWITCH_CASE_BRANCH_OUTPUT_CONNECTOR__CASE_REGEX, item.getText());
+					SetCommand setCmd = new SetCommand(editingDomain, s,EsbPackage.Literals.SWITCH_CASE_BRANCH_OUTPUT_CONNECTOR__CASE_REGEX, item.getText(1));
 					getResultCommand().append(setCmd);
 				}
 			}
@@ -223,7 +233,7 @@ public class ConfigureSwitchMediatorDialog extends Dialog {
 				}
 				
 				// Setup a new editor control.
-				if (-1 != selectedColumn) {
+				if (-1 != selectedColumn && 0 != selectedColumn) {
 					Text editorControl = new Text(table, SWT.NONE);
 					final int editorControlColumn = selectedColumn;
 					editorControl.setText(item.getText(selectedColumn));
@@ -255,5 +265,5 @@ public class ConfigureSwitchMediatorDialog extends Dialog {
 		}
 		return resultCommand;
 	}
-
+	
 }
