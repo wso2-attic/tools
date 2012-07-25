@@ -59,6 +59,7 @@ public class ProjectList extends AbstractListDataProvider {
 					   project.hasNature(Constants.DS_VALIDATOR_PROJECT_NATURE) ||
 					   project.hasNature(Constants.ESB_PROJECT_NATURE) ||
 					   project.hasNature(Constants.JAXWS_PROJECT_NATURE) ||
+					   project.hasNature(Constants.JAXRS_PROJECT_NATURE) ||
 					   project.hasNature(Constants.WEBAPP_PROJECT_NATURE) ||
 					   project.hasNature(Constants.GADGET_PROJECT_NATURE) ||
 					   project.hasNature(Constants.LIBRARY_PROJECT_NATURE) ||
