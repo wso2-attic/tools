@@ -8,12 +8,14 @@ import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
+import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.wso2.developerstudio.eclipse.gmf.esb.Mediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.utils.MediatorFigureReverser;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AggregateMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloneMediatorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbLinkEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FilterMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.IterateMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment10EditPart;
@@ -34,14 +36,13 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ThrottleMedia
 public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 
 	public boolean isForward = true;
+	private int i = 0;
 
 	/*
 	 * activete method is called twice for a mediator.so that we use this
 	 * variable to avoid calling reverse method twice.
 	 */
 	public boolean reversed = false;
-	
-	private boolean shouldReverse=false;
 
 	public AbstractMediator(View view) {
 		super(view);
@@ -59,21 +60,43 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 	public void setIsForward(boolean isForward_) {
 		isForward = isForward_;
 	}
-	
-	public void setShouldReverse(boolean shouldReverse){
-		this.shouldReverse=shouldReverse;
-	}
-	public boolean isShouldReverse(){
-		return shouldReverse;
-	}
 
 	public void activate() {
 		super.activate();
 		if (!reversed) {
 			Reverse(this);
 		}
+		/*
+		 * activate method is being called twice. At the first time most of the
+		 * child figures has not been initialized. So that we should call
+		 * MediatorFigureReverser.reverse(EditPart, boolean) at the second time.
+		 */
+		if ((i == 1)&& this.reversed) {
+			MediatorFigureReverser.reverse(this, true);
+		}
+		++i;
 	}
-
+	
+	private boolean shouldReverse() {
+		for(int i=0;i<this.getChildren().size();++i){
+			if (this.getChildren().get(i) instanceof AbstractInputConnector) {
+				AbstractInputConnector inputConnector = (AbstractInputConnector) this.getChildren().get(i);
+				if (inputConnector.getTargetConnections().size() != 0) {
+					EditPart link = ((EsbLinkEditPart) inputConnector
+							.getTargetConnections().get(0)).getSource();
+					if ((link instanceof AbstractOutputConnector)
+							&& (((AbstractOutputConnector) link).getParent() instanceof AbstractMediator)
+							&& (((AbstractMediator) ((AbstractOutputConnector) link)
+									.getParent()).reversed)
+							|| (link instanceof AbstractEndpointOutputConnector)) {
+						return true;
+					}
+				}
+			}
+		}
+		return false;
+	}
+	
 	public void Reverse(EditPart editorPart) {
 
 		if (!reversed
@@ -102,7 +125,7 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 						| (((editorPart.getParent() instanceof MediatorFlowMediatorFlowCompartment9EditPart) | (editorPart
 					        	.getParent() instanceof MediatorFlowMediatorFlowCompartment10EditPart))
 					        	&& (editorPart.getParent().getParent().getParent().getParent().getParent() instanceof ThrottleMediatorEditPart) && (((AbstractMediator) editorPart
-					                	.getParent().getParent().getParent().getParent().getParent()).reversed))|(shouldReverse))) {
+					                	.getParent().getParent().getParent().getParent().getParent()).reversed))|(shouldReverse()))) {
 
 			AbstractMediator selectedEP = (AbstractMediator) editorPart;
 			List<IFigure> inputConnectors = new ArrayList<IFigure>();
@@ -192,6 +215,7 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 				MediatorFigureReverser.reverse(this, false);
 			}
 		}
+		
 	}
 
 	private boolean checkComplexity() {

@@ -8,6 +8,11 @@ import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gef.EditPart;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.ModifyEvent;
+import org.eclipse.swt.events.ModifyListener;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.layout.FormAttachment;
 import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.layout.FormLayout;
@@ -15,7 +20,10 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Text;
+import org.eclipse.ui.ISelectionListener;
+import org.eclipse.ui.IWorkbenchPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.SwitchCaseBranchOutputConnector;
@@ -70,6 +78,17 @@ public class AddCaseBranchDialog extends Dialog {
 
 		count = new Text(container, SWT.NONE);
 		{
+			count.addModifyListener(new ModifyListener() {					
+				public void modifyText(ModifyEvent arg0) {
+					if(getOKButton()!=null){
+					if(count.getText().equals("0")){
+						getOKButton().setEnabled(false);
+					}else{						
+						getOKButton().setEnabled(true);
+					}	
+					}
+				}
+			});
 			FormData countLayoutData = new FormData();
 			countLayoutData.width = 50;
 			countLayoutData.top = new FormAttachment(caseCount, 0, SWT.CENTER);

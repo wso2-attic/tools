@@ -105,6 +105,8 @@ public class MediatorFigureReverser {
 		}
 
 		if (editorPart instanceof FilterMediatorEditPart) {
+			if( ((IFigure) ((DefaultSizeNodeFigure) childFigures.get(0)).getChildren()
+					.get(0)).getChildren().size()!=0){
 			arrangeType2Compartment(editorPart,
 					((FilterMediatorEditPart) editorPart).passOutputConnector,
 					((FilterMediatorEditPart) editorPart).failOutputConnector, childFigures);
@@ -118,6 +120,7 @@ public class MediatorFigureReverser {
 					.getChildren().get(5)).getChildren().get(1)).getChildren().get(0))
 					.getChildren().get(0)).getChildren();
 			children.addAll(failChildren);
+			}
 		}
 
 		if (editorPart instanceof ThrottleMediatorEditPart) {
@@ -137,6 +140,8 @@ public class MediatorFigureReverser {
 		}
 
 		if (editorPart instanceof SwitchMediatorEditPart) {
+			if( ((IFigure) ((DefaultSizeNodeFigure) childFigures.get(0)).getChildren()
+					.get(0)).getChildren().size()!=0){
 			BorderItemLocator locator = new FixedBorderItemLocator(
 					(IFigure) ((IFigure) ((DefaultSizeNodeFigure) childFigures.get(0))
 							.getChildren().get(0)).getChildren().get(0),
@@ -185,6 +190,7 @@ public class MediatorFigureReverser {
 					break;
 				}
 			}
+		}
 		}
 		
 		

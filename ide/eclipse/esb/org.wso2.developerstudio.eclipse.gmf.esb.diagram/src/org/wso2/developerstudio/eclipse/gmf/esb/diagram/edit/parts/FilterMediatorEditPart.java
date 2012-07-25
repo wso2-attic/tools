@@ -45,8 +45,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry
 public class FilterMediatorEditPart extends AbstractMediator {
 
 	public IFigure passOutputConnector;
-	public IFigure failOutputConnector;
-
+	public IFigure failOutputConnector;	
+	
 	/**
 	 * @generated
 	 */
