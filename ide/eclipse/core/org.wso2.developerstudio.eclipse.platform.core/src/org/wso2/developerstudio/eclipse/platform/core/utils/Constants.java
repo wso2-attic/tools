@@ -34,6 +34,7 @@ public class Constants extends NLS{
 	public static String DS_PROJECT_NATURE;
 	public static String DS_VALIDATOR_PROJECT_NATURE;
 	public static String JAXWS_PROJECT_NATURE;
+	public static String JAXRS_PROJECT_NATURE;
 	public static String WEBAPP_PROJECT_NATURE;
 	public static String ESB_PROJECT_NATURE;
 	public static String GADGET_PROJECT_NATURE;
