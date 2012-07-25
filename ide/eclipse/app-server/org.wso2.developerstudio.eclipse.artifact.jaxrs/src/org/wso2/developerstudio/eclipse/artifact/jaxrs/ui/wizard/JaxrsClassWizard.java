@@ -56,7 +56,7 @@ public class JaxrsClassWizard extends Wizard implements INewWizard {
 		classWizardPage = new JaxrsClassWizardPage(workbench, selection);
 		addPage(classWizardPage);
 		classWizardPage.init(selection);
-		classWizardPage.setImageDescriptor(Activator.getImageDescriptor("icons/JAX-WS-wizard.png"));
+		classWizardPage.setImageDescriptor(Activator.getImageDescriptor("icons/JAX-RS-wizard.png"));
 	}
 	
 	
