@@ -30,6 +30,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowM
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment9EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartmentEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SendMediatorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ThrottleMediatorEditPart;
 
@@ -73,6 +74,9 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 		 */
 		if ((i == 1)&& this.reversed) {
 			MediatorFigureReverser.reverse(this, true);
+		}
+		if ((i == 1)&& (this instanceof SequenceEditPart)){
+			((SequenceEditPart)this).moveConnectorsRightSide();
 		}
 		++i;
 	}
@@ -222,7 +226,7 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 		if ((this instanceof AggregateMediatorEditPart) || (this instanceof SwitchMediatorEditPart)
 				|| (this instanceof FilterMediatorEditPart)
 				|| (this instanceof ThrottleMediatorEditPart)
-				|| (this instanceof SendMediatorEditPart)
+				//|| (this instanceof SendMediatorEditPart)
 				|| (this instanceof CloneMediatorEditPart)
 				|| (this instanceof IterateMediatorEditPart)) {
 			return true;

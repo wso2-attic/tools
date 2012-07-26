@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
+import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.requests.ChangeBoundsRequest;
@@ -135,7 +137,7 @@ public class CustomDragDropEditPolicy extends DragDropEditPolicy{
 	    
 	    if(getHost() instanceof EsbServerContentsCompartmentEditPart){
 	    	if(isAllowable("ESBServer",result[1])){
-	    		setGreenColor();
+	    		setGreenColor();	    		
     		}
     		else{
     			setRedColor();

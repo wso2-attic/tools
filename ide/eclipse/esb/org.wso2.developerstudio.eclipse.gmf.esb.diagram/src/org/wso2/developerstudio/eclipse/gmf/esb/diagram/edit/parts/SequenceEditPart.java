@@ -101,6 +101,9 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.sequence.diagram.custom.SequenceFileCreator;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.SequenceOpenEditPolicy;
@@ -117,9 +120,9 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 
 /**
- * @generated
+ * @generated NOT
  */
-public class SequenceEditPart extends AbstractBorderedShapeEditPart {
+public class SequenceEditPart extends AbstractMediator {
 
 	/**
 	 * @generated
@@ -145,6 +148,9 @@ public class SequenceEditPart extends AbstractBorderedShapeEditPart {
 	private String value;
 
 	public static ArrayList<String> definedSequenceNames = new ArrayList<String>();
+	
+	private float inputCount = 0, outputCount = 0;
+
 
 	/**
 	 * @generated
@@ -831,6 +837,50 @@ public class SequenceEditPart extends AbstractBorderedShapeEditPart {
 	 */
 	static final Color THIS_BACK = new Color(null, 230, 230, 230);
 
+	/*
+	 * This will be used for arrange the connectors to the right side of the figure.
+	 */
+	public void moveConnectorsRightSide(){
+	
+		for (int i = 0; i < this.getChildren().size(); ++i) {
+			if (this.getChildren().get(i) instanceof AbstractInputConnector) {
+				IFigure inputConnector=((AbstractInputConnector) this.getChildren().get(i))
+				.getFigure();
+				NodeFigure figureInput = ((AbstractInputConnector) this.getChildren()
+						.get(i)).getNodeFigureInput();
+				figureInput.removeAll();
+				figureInput.add(((AbstractInputConnector) this.getChildren().get(i))
+						.getPrimaryShapeReverse());
+				BorderItemLocator inputLocator = new FixedBorderItemLocator(
+						this.getMainFigure(), inputConnector, PositionConstants.EAST,
+						0.30);
+				
+				this.getBorderedFigure().getBorderItemContainer()
+				.remove(inputConnector);
+				this.getBorderedFigure().getBorderItemContainer()
+				.add(inputConnector, inputLocator);
+			}
+		}
+
+		for (int i = 0; i < this.getChildren().size(); ++i) {
+			if (this.getChildren().get(i) instanceof AbstractOutputConnector) {
+				IFigure outputConnector = ((AbstractOutputConnector) this.getChildren().get(i))
+				.getFigure();
+				NodeFigure figureOutput = ((AbstractOutputConnector) this.getChildren()
+						.get(i)).getNodeFigureOutput();
+				
+				BorderItemLocator outputLocator = new FixedBorderItemLocator(
+						this.getMainFigure(), outputConnector, PositionConstants.EAST,
+						0.70);
+				this.getBorderedFigure().getBorderItemContainer()
+				.remove(outputConnector);
+				this.getBorderedFigure().getBorderItemContainer()
+				.add(outputConnector,outputLocator);
+			}
+		}
+		
+	}
+	
 	private static class NodeToolEntry extends PaletteToolEntry {
 
 		private final List<IElementType> elementTypes;

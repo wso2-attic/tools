@@ -16,6 +16,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.utils.MediatorFig
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbLinkEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FilterMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SendMediatorEndpointOutputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceEditPart;
 
 public abstract class AbstractInputConnector extends AbstractBorderItemEditPart {
 
@@ -87,8 +88,12 @@ public abstract class AbstractInputConnector extends AbstractBorderItemEditPart 
 						&& (((AbstractMediator) ((AbstractOutputConnector) link)
 								.getParent()).reversed)
 						|| (link instanceof AbstractEndpointOutputConnector)) {
+					if(this.getParent() instanceof SequenceEditPart){
+						((SequenceEditPart)this.getParent()).moveConnectorsRightSide();
+					}else{
 					((AbstractMediator) this.getParent()).Reverse(this
 							.getParent());
+					}
 				}
 			}
 		}

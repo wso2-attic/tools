@@ -30,6 +30,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGroupingShape;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.SendMediatorGraphicalShape;
@@ -273,10 +274,11 @@ public class SendMediatorEditPart extends AbstractMediator {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
-	public class SendMediatorFigure extends SendMediatorGraphicalShape {
+	//public class SendMediatorFigure extends SendMediatorGraphicalShape {
 
+	 public class SendMediatorFigure extends EsbGraphicalShape {
 		/**
 		 * @generated
 		 */
@@ -287,7 +289,7 @@ public class SendMediatorEditPart extends AbstractMediator {
 		 */
 		public SendMediatorFigure() {
 
-			ToolbarLayout layoutThis = new ToolbarLayout();
+/*			ToolbarLayout layoutThis = new ToolbarLayout();
 			layoutThis.setStretchMinorAxis(true);
 			layoutThis.setMinorAlignment(ToolbarLayout.ALIGN_CENTER);
 
@@ -297,12 +299,12 @@ public class SendMediatorEditPart extends AbstractMediator {
 			this.setLayoutManager(layoutThis);
 			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(250),
 					getMapMode().DPtoLP(100)));
-			this.setOutline(true);
+			this.setOutline(true);*/
 			this.setBackgroundColor(THIS_BACK);
 			createContents();
 		}
 
-		public void add(IFigure figure, Object constraint, int index) {
+/*		public void add(IFigure figure, Object constraint, int index) {
 			if (figure instanceof DefaultSizeNodeFigure) {
 				GridData layoutData = new GridData();
 				layoutData.grabExcessHorizontalSpace = true;
@@ -322,7 +324,7 @@ public class SendMediatorEditPart extends AbstractMediator {
 			else {
 				super.add(figure, constraint, index);
 			}
-		}
+		}*/
 
 		/**
 		 * @generated NOT
@@ -333,6 +335,9 @@ public class SendMediatorEditPart extends AbstractMediator {
 			fFigureSendMediatorPropertyValue.setText("<...>");
 			fFigureSendMediatorPropertyValue.setAlignment(SWT.CENTER);
 
+			this.getPropertyValueRectangle1().add(
+					fFigureSendMediatorPropertyValue);
+
 		}
 
 		/**
@@ -341,12 +346,20 @@ public class SendMediatorEditPart extends AbstractMediator {
 		public WrappingLabel getFigureSendMediatorPropertyValue() {
 			return fFigureSendMediatorPropertyValue;
 		}
+		
+		public String getIconPath() {
+			return "icons/ico20/send-mediator.gif";
+		}
+
+		public String getNodeName() {
+			return "Send";
+		}
 
 	}
 
 	/**
 	 * @generated NOT
 	 */
-	static final Color THIS_BACK = new Color(null, 255, 215, 0);
+	static final Color THIS_BACK = new Color(null, 230, 230, 230);
 
 }
