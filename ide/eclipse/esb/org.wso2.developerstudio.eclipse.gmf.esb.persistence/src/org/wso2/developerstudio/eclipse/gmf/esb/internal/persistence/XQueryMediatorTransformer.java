@@ -10,9 +10,7 @@ import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EObject;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.KeyType;
-import org.wso2.developerstudio.eclipse.gmf.esb.TransactionMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.XQueryMediator;
-import org.wso2.developerstudio.eclipse.gmf.esb.XSLTMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
 
 public class XQueryMediatorTransformer extends AbstractEsbNodeTransformer {

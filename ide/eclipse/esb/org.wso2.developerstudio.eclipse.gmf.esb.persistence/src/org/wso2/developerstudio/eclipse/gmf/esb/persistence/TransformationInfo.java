@@ -15,6 +15,7 @@ public class TransformationInfo {
 	ListMediator originInSequence;
 	ListMediator originOutSequence;
 	ListMediator parentSequence;
+	ListMediator currentReferredSequence;
 	int traversalDirection;
 	public boolean isEndPointFound;
 	public EObject firstEndPoint;
@@ -47,6 +48,10 @@ public class TransformationInfo {
 		return previousNode;
 	}
 	
+	public ListMediator getCurrentReferredSequence(){
+		return currentReferredSequence;
+	}
+	
 	public void setOriginOutSequence(ListMediator originOutSequence) {
 		this.originOutSequence = originOutSequence;
 	}
@@ -70,5 +75,9 @@ public class TransformationInfo {
 	
 	public void setPreviousNode(EObject previousNode){
 		this.previousNode=previousNode;
+	}
+	
+	public void setCurrentReferredSequence(ListMediator currentReferredSequence){
+		this.currentReferredSequence=currentReferredSequence;
 	}
 }

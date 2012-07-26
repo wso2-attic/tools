@@ -38,6 +38,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EndPointAddressingVersion;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.FailoverEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
+import org.wso2.developerstudio.eclipse.gmf.esb.SequenceInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.EsbNodeTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
 
@@ -67,10 +69,15 @@ public class AddressEndPointTransformer extends AbstractEsbNodeTransformer {
 		// TODO: We're using a default endpoint here, need to handle other cases
 		// on the real implementation.
 		SendMediator sendMediator = null;
-		if (info.getPreviouNode() instanceof org.wso2.developerstudio.eclipse.gmf.esb.SendMediator) {
+		if (info.getPreviouNode() instanceof org.wso2.developerstudio.eclipse.gmf.esb.SendMediator) {			
+		 if(visualEndPoint.getInputConnector().getIncomingLinks().get(0).getSource().eContainer() instanceof org.wso2.developerstudio.eclipse.gmf.esb.Sequence){
+			 sendMediator=(SendMediator)info.getCurrentReferredSequence().getList().get(info.getCurrentReferredSequence().getList().size()-1);
+		}else{
 			sendMediator = (SendMediator) info.getParentSequence().getList()
-					.get(info.getParentSequence().getList().size() - 1);
-		} else {
+			.get(info.getParentSequence().getList().size() - 1);
+		}
+		}
+		else {
 			sendMediator = new SendMediator();
 			info.getParentSequence().addChild(sendMediator);
 		}
@@ -151,8 +158,13 @@ public class AddressEndPointTransformer extends AbstractEsbNodeTransformer {
 			info.firstEndPoint = visualEndPoint;
 		}
 
-		info.setParentSequence(info.getOriginOutSequence());
-		info.setTraversalDirection(TransformationInfo.TRAVERSAL_DIRECTION_OUT);
+		if(!(visualEndPoint.getOutputConnector().getOutgoingLink().getTarget() instanceof SequenceInputConnector)){
+			info.setParentSequence(info.getOriginOutSequence());
+			info.setTraversalDirection(TransformationInfo.TRAVERSAL_DIRECTION_OUT);
+		}else if(visualEndPoint.getInputConnector().getIncomingLinks().get(0).getSource().eContainer() instanceof Sequence){
+			info.setParentSequence(info.getCurrentReferredSequence());
+		}
+
 
 		// Transform endpoint output data flow.
 		doTransform(info, visualEndPoint.getOutputConnector());

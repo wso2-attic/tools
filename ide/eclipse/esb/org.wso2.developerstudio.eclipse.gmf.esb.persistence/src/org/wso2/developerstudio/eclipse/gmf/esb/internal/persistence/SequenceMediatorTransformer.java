@@ -2,10 +2,12 @@ package org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence;
 
 import java.util.List;
 
+import org.apache.synapse.endpoints.AbstractEndpoint;
 import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.mediators.Value;
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.apache.synapse.mediators.builtin.LogMediator;
+import org.apache.synapse.mediators.builtin.SendMediator;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EObject;
 
@@ -52,9 +54,16 @@ public class SequenceMediatorTransformer extends AbstractEsbNodeTransformer {
 			//Duplicate sequence definition for key
 		}
 		
+		if(information.getPreviouNode() instanceof org.wso2.developerstudio.eclipse.gmf.esb.EndPoint){
+			Object lastMediator=information.getParentSequence().getList()
+			.get(information.getParentSequence().getList().size() - 1);
+			((SendMediator) lastMediator).setReceivingSequence(refferingSequence.getKey());
+		}else{
+			information.getParentSequence().addChild(refferingSequence);
+		}		
 		
-		information.getParentSequence().addChild(refferingSequence);
 		information.currentSequence=visualSequence;
+		information.setCurrentReferredSequence(sequence);
 		doTransformWithinSequence(information, SequenceInfo.sequenceMap.get(visualSequence.getName()),sequence);
 		
 	}
