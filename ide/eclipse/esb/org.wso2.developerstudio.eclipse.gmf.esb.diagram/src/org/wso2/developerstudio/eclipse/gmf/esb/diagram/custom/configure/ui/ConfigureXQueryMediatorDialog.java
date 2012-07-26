@@ -1,5 +1,7 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.ui;
 
+import java.util.ArrayList;
+
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.RemoveCommand;
@@ -30,30 +32,34 @@ import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Text;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
-import org.wso2.developerstudio.eclipse.gmf.esb.LogLevel;
-import org.wso2.developerstudio.eclipse.gmf.esb.LogProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
-import org.wso2.developerstudio.eclipse.gmf.esb.PropertyValueType;
 import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.XQueryMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.XQueryVariable;
 import org.wso2.developerstudio.eclipse.gmf.esb.XQueryVariableType;
 import org.wso2.developerstudio.eclipse.gmf.esb.XQueryVariableValueType;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.provider.NamedEntityDescriptor;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.provider.RegistryKeyPropertyEditorDialog;
 import org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbFactoryImpl;
 
 public class ConfigureXQueryMediatorDialog extends Dialog {
 	
+	private static final String LITERAL_TYPE = "LITERAL";
+	private static final String EXPRESSION_TYPE = "EXPRESSION";
 	private Table xqueryVariableTable;
 	private TableEditor variableTypeEditor;
 	private TableEditor valueTypeEditor;
+	private TableEditor regKeyEditor;
 	private Combo cmbValueType;
 	private Combo cmbVariableType;
+	private Text regKeyText;
 	private XQueryMediator xqueryMediator;
 	private TransactionalEditingDomain editingDomain;
 	private Button newXQueryVariableButton;
 	private Label xqueryVariableLabel;
 	private Button removeXQueryVariableButton;
 	private CompoundCommand resultCommand;
+	private Shell parentShell;
 	
 	public ConfigureXQueryMediatorDialog(Shell parentShell,
 			XQueryMediator xqueryMediator, TransactionalEditingDomain editingDomain) {
@@ -64,7 +70,7 @@ public class ConfigureXQueryMediatorDialog extends Dialog {
 	
 	protected void configureShell(Shell newShell) {
 		super.configureShell(newShell);
-
+		parentShell = newShell;
 		// Set title.
 		newShell.setText("XQuery Mediator Configuration");
 	}
@@ -190,24 +196,77 @@ public class ConfigureXQueryMediatorDialog extends Dialog {
 	}
 	
 	private void editItem(final TableItem item) {
+		
+		//value type table editor
 		valueTypeEditor = initTableEditor(valueTypeEditor,
 				item.getParent());
 		cmbValueType = new Combo(item.getParent(), SWT.READ_ONLY);
-		cmbValueType.setItems(new String[] { "LITERAL", "EXPRESSION" });
+		cmbValueType.setItems(new String[] { LITERAL_TYPE,EXPRESSION_TYPE });
 		cmbValueType.setText(item.getText(3));
 		valueTypeEditor.setEditor(cmbValueType, item, 3);
 		
+		//variable type table editor
 		variableTypeEditor = initTableEditor(variableTypeEditor,
 				item.getParent());
 		cmbVariableType=new Combo(item.getParent(), SWT.READ_ONLY);
 		cmbVariableType.setItems(new String[]{"DOCUMENT","DOCUMENT_ELEMENT","ELEMENT","INT","INTEGER","BOOLEAN","BYTE","DOUBLE","SHORT","LONG","FLOAT","STRING"});		
 		cmbVariableType.setText(item.getText(1));
 		variableTypeEditor.setEditor(cmbVariableType, item, 1);
+		
+		regKeyEditor = initTableEditor(regKeyEditor, item.getParent());
+		
+		regKeyText = new Text(item.getParent(), SWT.NONE);
+		regKeyText.setEditable(false);
+		
+		regKeyText.addMouseListener(new MouseAdapter() {
+		
+			public void mouseDown(MouseEvent e) {
+				
+				if (item.getText(3).equals(EXPRESSION_TYPE)) {
+					RegistryKeyProperty registryPropertyKey = EsbFactory.eINSTANCE
+							.createRegistryKeyProperty();
+
+					RegistryKeyPropertyEditorDialog rkpe = new RegistryKeyPropertyEditorDialog(
+							parentShell, SWT.NULL, registryPropertyKey,
+							new ArrayList<NamedEntityDescriptor>());
+					rkpe.open();
+
+					if (registryPropertyKey.getKeyValue() != null) {
+						
+						item.setText(4, registryPropertyKey.getKeyValue());
+						regKeyText.setText(item.getText(4));
+						
+					}
+
+				}
+			}
+			
+		});	
+		
+		regKeyEditor.setEditor(regKeyText,item,4);
+				
 		item.getParent().redraw();
 		item.getParent().layout();
 		cmbValueType.addListener(SWT.Selection, new Listener() {
 			public void handleEvent(Event evt) {
+				String selectedItemText = cmbValueType.getText();
 				item.setText(3, cmbValueType.getText());
+				
+				if(selectedItemText.equals(EXPRESSION_TYPE)){
+					
+					if(!regKeyText.isEnabled()){
+						
+						regKeyText.setEnabled(true);
+					}
+					
+				}else if(selectedItemText.equals(LITERAL_TYPE)){
+					
+					regKeyText.setText("");
+					if(regKeyText.isEnabled()){
+						
+						regKeyText.setEnabled(false);
+					}
+				}
 			}
 		});
 		cmbVariableType.addListener(SWT.Selection, new Listener() {			
@@ -518,5 +577,7 @@ public class ConfigureXQueryMediatorDialog extends Dialog {
 
 		super.okPressed();
 	}
-
+	
+	
+	
 }
