@@ -12,6 +12,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.sequence.diagram.edit.policies.E
 import org.wso2.developerstudio.eclipse.gmf.esb.sequence.diagram.edit.policies.EsbSequenceSeqContentsCompartmentItemSemanticEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.sequence.diagram.part.Messages;
 
+
 /**
  * @generated
  */
@@ -70,6 +71,11 @@ public class EsbSequenceSeqContentsCompartmentEditPart extends
 		if (getFigure().getParent().getLayoutManager() instanceof ConstrainedToolbarLayout) {
 			super.setRatio(ratio);
 		}
+	}
+	
+	public boolean isSelectable() {
+		// TODO This or using ResizableEditpolicy?
+		return false;
 	}
 
 }

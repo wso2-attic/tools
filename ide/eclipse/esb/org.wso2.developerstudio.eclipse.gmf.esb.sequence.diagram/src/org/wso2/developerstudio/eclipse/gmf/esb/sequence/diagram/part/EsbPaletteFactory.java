@@ -30,13 +30,13 @@ public class EsbPaletteFactory {
 
 	/**
 	 * Creates "Nodes" palette tool group
-	 * @generated
+	 * @generated NOT
 	 */
 	private PaletteContainer createNodes1Group() {
 		PaletteDrawer paletteContainer = new PaletteDrawer(
 				Messages.Nodes1Group_title);
 		paletteContainer.setId("createNodes1Group"); //$NON-NLS-1$
-		paletteContainer.add(createEsbServer1CreationTool());
+	//	paletteContainer.add(createEsbServer1CreationTool());
 		paletteContainer.add(createSequence2CreationTool());
 		return paletteContainer;
 	}

@@ -287,8 +287,8 @@ public class EsbSequenceEditPart extends AbstractBorderedShapeEditPart {
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
 					getMapMode().DPtoLP(8)));
 			this.setBackgroundColor(THIS_BACK);
-			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(300),
-					getMapMode().DPtoLP(200)));
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(1000),
+					getMapMode().DPtoLP(600)));
 			
 			MarginBorder marginBorder = new MarginBorder(-7, 20, -5, 20);
 
