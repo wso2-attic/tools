@@ -1292,10 +1292,11 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public SequenceDiagram createSequenceDiagram() {
 		SequenceDiagramImpl sequenceDiagram = new SequenceDiagramImpl();
+		sequenceDiagram.setSequence(createEsbSequence());
 		return sequenceDiagram;
 	}
 
@@ -2772,8 +2773,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 		SendMediatorImpl sendMediator = new SendMediatorImpl();
 		sendMediator.setInputConnector(createSendMediatorInputConnector());
 		sendMediator.setOutputConnector(createSendMediatorOutputConnector());
-		sendMediator.setEndpointOutputConnector(createSendMediatorEndpointOutputConnector());
-		sendMediator.setEndpointFlow(createEndpointFlow());
+		//sendMediator.setEndpointOutputConnector(createSendMediatorEndpointOutputConnector());
+		//sendMediator.setEndpointFlow(createEndpointFlow());
 		return sendMediator;
 	}
 
