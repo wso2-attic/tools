@@ -222,11 +222,22 @@ public class MediatorFlowMediatorFlowCompartmentEditPart extends
 					.getViewer().getEditDomain().getPaletteViewer()
 					.getSelection()).getFirstElement();
 			if (editpart instanceof ToolEntryEditPart) {
+				if(((ToolEntryEditPart) editpart)
+						.getModel() instanceof NodeToolEntry){
 				String label = ((NodeToolEntry) ((ToolEntryEditPart) editpart)
 						.getModel()).getLabel();
 				if ((!label.equals("")) && (!label.equals("Sequence"))) {
 					((Sequence) ((View) sequenceEditPart.getModel())
 							.getElement()).setName(label);
+				}
+				}else if(((ToolEntryEditPart) editpart)
+						.getModel() instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceEditPart.NodeToolEntry){
+					String label = ((org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceEditPart.NodeToolEntry) ((ToolEntryEditPart) editpart)
+							.getModel()).getLabel();
+					if ((!label.equals("")) && (!label.equals("Sequence"))) {
+						((Sequence) ((View) sequenceEditPart.getModel())
+								.getElement()).setName(label);
+					}
 				}
 			}
 		}

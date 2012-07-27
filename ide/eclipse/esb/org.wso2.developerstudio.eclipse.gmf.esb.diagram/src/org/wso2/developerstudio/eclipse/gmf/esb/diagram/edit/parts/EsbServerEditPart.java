@@ -329,8 +329,8 @@ public class EsbServerEditPart extends AbstractBorderedShapeEditPart {
 
 			this.setOutline(true);
 			// TODO: review this:
-			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(1000),
-					getMapMode().DPtoLP(600)));
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(3000),
+					getMapMode().DPtoLP(1800)));
 
 			// Leave more space on left and right for border item placement.
 			MarginBorder marginBorder = new MarginBorder(-7, 20, -5, 20);

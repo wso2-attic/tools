@@ -881,7 +881,7 @@ public class SequenceEditPart extends AbstractMediator {
 		
 	}
 	
-	private static class NodeToolEntry extends PaletteToolEntry {
+	public static class NodeToolEntry extends PaletteToolEntry {
 
 		private final List<IElementType> elementTypes;
 
