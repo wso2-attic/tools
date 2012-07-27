@@ -51,7 +51,9 @@
                             <bundles>
                                 <bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.artifact.axis2:${appserver.artifacts.version}</bundleDef>                                
                                 <bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.artifact.webapp:${appserver.artifacts.version}</bundleDef>                                
-                                <bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.artifact.jaxws:${appserver.artifacts.version}</bundleDef>                      <bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.artifact.axis2serviceclient:${appserver.artifacts.version}</bundleDef>                                
+                                <bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.artifact.jaxws:${appserver.artifacts.version}</bundleDef>
+				<bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.artifact.jaxrs:${appserver.jaxrs.artifacts.version}</bundleDef>
+				<bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.artifact.axis2serviceclient:${appserver.artifacts.version}</bundleDef>                                
                             </bundles>
                         </configuration>
                     </execution>
