@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+	<classpathentry exported="true" kind="lib" path="lib/org.wso2.carbon.cep.core-4.0.0-SNAPSHOT.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/org.wso2.carbon.utils-3.2.2.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/axiom-1.2.9.wso2v1.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/axis2-1.6.0.wso2v1.jar"/>

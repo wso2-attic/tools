@@ -40,7 +40,7 @@ public class CEPProjectNature extends AbstractWSO2ProjectNature {
 				.getMavenProject(mavenProjectPomLocation);
 		Plugin pluginEntry = MavenUtils.createPluginEntry(mavenProject,
 				"org.wso2.maven", "maven-cep-plugin",
-				MavenConstants.WSO2_CEP_PROJECT_VERSION, true);
+				MavenConstants.MAVEN_CEP_PLUGIN_VERSION, true);
 		Xpp3Dom configurationNode = MavenUtils
 				.createMainConfigurationNode(pluginEntry);
 		Xpp3Dom artifactNode = MavenUtils.createXpp3Node(configurationNode,
