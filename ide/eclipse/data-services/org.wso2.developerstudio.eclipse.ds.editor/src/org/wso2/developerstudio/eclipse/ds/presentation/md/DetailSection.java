@@ -954,13 +954,95 @@ public class DetailSection {
 		}
 	}
 	
-	private void elementMappingObjectConfigurator(ElementMapping element,boolean makeItComplex){
+	private void elementMappingObjectConfigurator(final ElementMapping element,boolean makeItComplex){
 		
 		ArrayList<IItemPropertyDescriptor> detailPropertyDescriptors = (ArrayList<IItemPropertyDescriptor>)
 		adapterFactoryItemDelegator
 	    .getPropertyDescriptors(element);
+	/////////////////////////////////////////////////////
+		if(!makeItComplex){
+		String initialVal = "";
+		String[] typeCombodisplayValues = {
+				DetailSectionCustomUiConstants.PARAM_MAPPING_COMBO_VAL_0,
+				DetailSectionCustomUiConstants.PARAM_MAPPING_COMBO_VAL_1 };
+
+		if (element.getQueryParam() != null
+				&& !element.getQueryParam().equals("")) {
+
+			initialVal = DetailSectionCustomUiConstants.PARAM_MAPPING_COMBO_VAL_1;
+		} else if (element.getColumn() != null
+				&& !element.getColumn().equals("")) {
+
+			initialVal = DetailSectionCustomUiConstants.PARAM_MAPPING_COMBO_VAL_0;
+		}
+
+		labelMaker(DetailSectionCustomUiConstants.ELEMENT_MAPPING_DATA_SOURCE_TYPE);
+
+		paramTypeCombo = sectionUtil.getCustomComboField(detailsclient,
+				toolkit, null, initialVal, null, typeCombodisplayValues);
+
+		paramTypeCombo.addSelectionListener(new SelectionAdapter() {
+
+			@Override
+			public void widgetSelected(SelectionEvent event) {
+
+				if (paramTypeCombo.getSelectionIndex() == 0) {
+
+					queryParamLabel.setEnabled(false);
+					queryParamText.setEnabled(false);
+					queryParamText.setBackground(gray);
+					queryParamText.setText("");
+
+					if (!columnLabel.isEnabled()) {
+						columnLabel.setEnabled(true);
+					}
+					if (!columnTxt.isEnabled()) {
+						columnTxt.setEnabled(true);
+
+						columnTxt.setBackground(white);
+					}
+
+					if (element.getQueryParam() != null) {
+
+						EcoreUtil
+								.remove(element,
+										DsPackage.Literals.ELEMENT_MAPPING__QUERY_PARAM,
+										element.getQueryParam());
+
+					}
+
+				} else if (paramTypeCombo.getSelectionIndex() == 1) {
+
+					columnLabel.setEnabled(false);
+					columnTxt.setEnabled(false);
+					columnTxt.setBackground(gray);
+					columnTxt.setText("");
+
+					if (!queryParamLabel.isEnabled()) {
+						queryParamLabel.setEnabled(true);
+					}
+					if (!queryParamText.isEnabled()) {
+						queryParamText.setEnabled(true);
+
+						queryParamText.setBackground(white);
+					}
+
+					if (element.getColumn() != null) {
+
+						EcoreUtil.remove(element,
+								DsPackage.Literals.ELEMENT_MAPPING__COLUMN,
+								element.getColumn());
+					}
+
+				}
+
+			}
+		});
+		}
+		/////////////////////////////////////////////
 		voidMaker();
 		voidMaker();
+		
 		for (Iterator<IItemPropertyDescriptor> i = detailPropertyDescriptors.iterator(); i.hasNext();) {
 			
 			ItemPropertyDescriptor desc = (ItemPropertyDescriptor) i.next();
@@ -1007,12 +1089,36 @@ public class DetailSection {
 					}
 				}
 				
-				labelMaker(labelString);
-				sectionUtil.getAttributeField(detailsclient, toolkit, element, element.getColumn()
+				columnLabel = labelMaker(labelString);
+				columnTxt = sectionUtil.getAttributeField(detailsclient, toolkit, element, element.getColumn()
 						,DsPackage.eINSTANCE.getElementMapping_Column(),DetailSectionCustomUiConstants.STRING);
+				
+				if (element.getColumn() == null) {
+
+					columnLabel.setEnabled(false);
+					columnTxt.setEnabled(false);
+					columnTxt.setBackground(gray);
+				}
 				voidMaker();
 				voidMaker();
 				}		
+			}
+			
+			if(displayName.equals(DetailSectionCustomUiConstants.ELEMENT_MAPPING_QUERY_PARAM)){
+				if(!makeItComplex){
+				queryParamLabel = labelMaker(DetailSectionCustomUiConstants.ELEMENT_MAPPING_QUERY_PARAM);
+				queryParamText = sectionUtil.getAttributeField(detailsclient, toolkit,element, element.getQueryParam(),
+						DsPackage.eINSTANCE.getElementMapping_QueryParam(), DetailSectionCustomUiConstants.STRING);
+				
+				if (element.getQueryParam() == null) {
+
+					queryParamLabel.setEnabled(false);
+					queryParamText.setEnabled(false);
+					queryParamText.setBackground(gray);
+				}
+				voidMaker();
+				voidMaker();
+				}
 			}
 			
 			if(displayName.equals(DetailSectionCustomUiConstants.ELEMENT_MAPPING_EXPORT)){
@@ -1028,7 +1134,7 @@ public class DetailSection {
 			if(displayName.equals(DetailSectionCustomUiConstants.ELEMENT_MAPPING_EXPORT_TYPE)){
 				if(!makeItComplex){
 				labelMaker(DetailSectionCustomUiConstants.ELEMENT_MAPPING_EXPORT_TYPE);
-				String [] displayValues = {"ARRAY","SCALAR"};
+				String [] displayValues = {"SCALAR","ARRAY"};
 				sectionUtil.getCustomComboField(detailsclient, toolkit, element, element.getExportType(), 
 						DsPackage.eINSTANCE.getElementMapping_ExportType(), displayValues);
 				voidMaker();
@@ -1205,7 +1311,6 @@ public class DetailSection {
 				String [] displayValues = {"SCALAR","ARRAY"};
 				Combo paramTypeCombo = sectionUtil.getCustomComboField(detailsclient, toolkit,queryParam, queryParam.getParamType(),
 						DsPackage.eINSTANCE.getQueryParameter_ParamType(),displayValues);
-				paramTypeCombo.select(0);
 				voidMaker();
 				voidMaker();
 						
@@ -1222,7 +1327,6 @@ public class DetailSection {
 				labelMaker(DetailSectionCustomUiConstants.QUERY_PARAM_SQL_TYPE);
 				Combo sqlTypeCombo = sectionUtil.getCustomComboField(detailsclient, toolkit, queryParam, queryParam.getSqlType(),
 						DsPackage.eINSTANCE.getQueryParameter_SqlType(), displayValues);
-				sqlTypeCombo.select(0);
 				voidMaker();
 				voidMaker();
 				

@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.ElementMapping#getAttribute <em>Attribute</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.ElementMapping#getCallQuery <em>Call Query</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.ElementMapping#isIsComplexType <em>Is Complex Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.ds.ElementMapping#getQueryParam <em>Query Param</em>}</li>
  * </ul>
  * </p>
  *
@@ -311,6 +312,33 @@ public interface ElementMapping extends EObject {
 	 * @generated
 	 */
 	void setIsComplexType(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Query Param</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Query Param</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Query Param</em>' attribute.
+	 * @see #setQueryParam(String)
+	 * @see org.wso2.developerstudio.eclipse.ds.DsPackage#getElementMapping_QueryParam()
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
+	 *        extendedMetaData="kind='attribute' name='query-param' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	String getQueryParam();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.ds.ElementMapping#getQueryParam <em>Query Param</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Query Param</em>' attribute.
+	 * @see #getQueryParam()
+	 * @generated
+	 */
+	void setQueryParam(String value);
 
 	/*boolean isComplex();
 	

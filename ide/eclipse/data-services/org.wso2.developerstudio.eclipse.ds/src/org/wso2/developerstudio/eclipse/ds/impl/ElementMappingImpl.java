@@ -43,6 +43,7 @@ import org.wso2.developerstudio.eclipse.ds.ElementMapping;
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.ElementMappingImpl#getAttribute <em>Attribute</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.ElementMappingImpl#getCallQuery <em>Call Query</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.ElementMappingImpl#isIsComplexType <em>Is Complex Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.ElementMappingImpl#getQueryParam <em>Query Param</em>}</li>
  * </ul>
  * </p>
  *
@@ -238,6 +239,26 @@ public class ElementMappingImpl extends EObjectImpl implements ElementMapping {
 	 * @ordered
 	 */
 	protected boolean isComplexType = IS_COMPLEX_TYPE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getQueryParam() <em>Query Param</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getQueryParam()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String QUERY_PARAM_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getQueryParam() <em>Query Param</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getQueryParam()
+	 * @generated
+	 * @ordered
+	 */
+	protected String queryParam = QUERY_PARAM_EDEFAULT;
 
 	private boolean complex;
 	/**
@@ -501,6 +522,27 @@ public class ElementMappingImpl extends EObjectImpl implements ElementMapping {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getQueryParam() {
+		return queryParam;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setQueryParam(String newQueryParam) {
+		String oldQueryParam = queryParam;
+		queryParam = newQueryParam;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.ELEMENT_MAPPING__QUERY_PARAM, oldQueryParam, queryParam));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -546,6 +588,8 @@ public class ElementMappingImpl extends EObjectImpl implements ElementMapping {
 				return getCallQuery();
 			case DsPackage.ELEMENT_MAPPING__IS_COMPLEX_TYPE:
 				return isIsComplexType();
+			case DsPackage.ELEMENT_MAPPING__QUERY_PARAM:
+				return getQueryParam();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -596,6 +640,9 @@ public class ElementMappingImpl extends EObjectImpl implements ElementMapping {
 			case DsPackage.ELEMENT_MAPPING__IS_COMPLEX_TYPE:
 				setIsComplexType((Boolean)newValue);
 				return;
+			case DsPackage.ELEMENT_MAPPING__QUERY_PARAM:
+				setQueryParam((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -643,6 +690,9 @@ public class ElementMappingImpl extends EObjectImpl implements ElementMapping {
 			case DsPackage.ELEMENT_MAPPING__IS_COMPLEX_TYPE:
 				setIsComplexType(IS_COMPLEX_TYPE_EDEFAULT);
 				return;
+			case DsPackage.ELEMENT_MAPPING__QUERY_PARAM:
+				setQueryParam(QUERY_PARAM_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -679,6 +729,8 @@ public class ElementMappingImpl extends EObjectImpl implements ElementMapping {
 				return callQuery != null;
 			case DsPackage.ELEMENT_MAPPING__IS_COMPLEX_TYPE:
 				return isComplexType != IS_COMPLEX_TYPE_EDEFAULT;
+			case DsPackage.ELEMENT_MAPPING__QUERY_PARAM:
+				return QUERY_PARAM_EDEFAULT == null ? queryParam != null : !QUERY_PARAM_EDEFAULT.equals(queryParam);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -711,6 +763,8 @@ public class ElementMappingImpl extends EObjectImpl implements ElementMapping {
 		result.append(xsdType);
 		result.append(", isComplexType: ");
 		result.append(isComplexType);
+		result.append(", queryParam: ");
+		result.append(queryParam);
 		result.append(')');
 		return result.toString();
 	}

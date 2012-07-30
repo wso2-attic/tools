@@ -713,13 +713,22 @@ public interface DsPackage extends EPackage {
 	int ELEMENT_MAPPING__IS_COMPLEX_TYPE = 10;
 
 	/**
+	 * The feature id for the '<em><b>Query Param</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT_MAPPING__QUERY_PARAM = 11;
+
+	/**
 	 * The number of structural features of the '<em>Element Mapping</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING_FEATURE_COUNT = 11;
+	int ELEMENT_MAPPING_FEATURE_COUNT = 12;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.ds.impl.EventSubscriptionListImpl <em>Event Subscription List</em>}' class.
@@ -2571,6 +2580,17 @@ public interface DsPackage extends EPackage {
 	EAttribute getElementMapping_IsComplexType();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.ds.ElementMapping#getQueryParam <em>Query Param</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Query Param</em>'.
+	 * @see org.wso2.developerstudio.eclipse.ds.ElementMapping#getQueryParam()
+	 * @see #getElementMapping()
+	 * @generated
+	 */
+	EAttribute getElementMapping_QueryParam();
+
+	/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.ds.EventSubscriptionList <em>Event Subscription List</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4220,6 +4240,14 @@ public interface DsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ELEMENT_MAPPING__IS_COMPLEX_TYPE = eINSTANCE.getElementMapping_IsComplexType();
+
+		/**
+		 * The meta object literal for the '<em><b>Query Param</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ELEMENT_MAPPING__QUERY_PARAM = eINSTANCE.getElementMapping_QueryParam();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.ds.impl.EventSubscriptionListImpl <em>Event Subscription List</em>}' class.

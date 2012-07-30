@@ -58,6 +58,7 @@ public interface DetailSectionCustomUiConstants {
 	public String MAX_ROWS_DISPLAY = "Max Rows";
 	
 	public String ELEMENT_MAPPING_COLUMN_NAME = "Data Source Column Name";
+	public String ELEMENT_MAPPING_QUERY_PARAM = "Data Source Query Param Name";
 	public String ELEMENT_MAPPING_COLUMN_NUMBUR = "Data Source Column Number";
 	public String ELEMENT_MAPPING_EXPORT = "Export Name";
 	public String ELEMENT_MAPPING_OUTPUT_FIELD ="Output Field Name";
@@ -66,6 +67,7 @@ public interface DetailSectionCustomUiConstants {
 	public String ELEMENT_MAPPING_SCHEMA_TYPE = "Schema Type";
 	public String ELEMENT_MAPPING_NAMESPACE = "Element Namespace";
 	public String ELEMENT_MAPPING_EXPORT_TYPE = "Export Type";
+	public String ELEMENT_MAPPING_DATA_SOURCE_TYPE = "Data Source Type";
 	
 	public String EXCEL_WORKBOOK_NAME = "Workbook Name";
 	public String EXCEL_HAS_HEADER = "Headers available";
