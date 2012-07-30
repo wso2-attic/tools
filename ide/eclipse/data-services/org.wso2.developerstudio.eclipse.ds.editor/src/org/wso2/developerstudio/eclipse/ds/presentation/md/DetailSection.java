@@ -1093,12 +1093,6 @@ public class DetailSection {
 				columnTxt = sectionUtil.getAttributeField(detailsclient, toolkit, element, element.getColumn()
 						,DsPackage.eINSTANCE.getElementMapping_Column(),DetailSectionCustomUiConstants.STRING);
 				
-				if (element.getColumn() == null) {
-
-					columnLabel.setEnabled(false);
-					columnTxt.setEnabled(false);
-					columnTxt.setBackground(gray);
-				}
 				voidMaker();
 				voidMaker();
 				}		
@@ -1155,6 +1149,17 @@ public class DetailSection {
 				voidMaker();
 				}
 			}
+			
+		 	if(displayName.equals(DetailSectionCustomUiConstants.ELEMENT_MAPPING_DAFAULT_VALUE)){
+		 		if(!makeItComplex){
+		 			
+		 			labelMaker(DetailSectionCustomUiConstants.ELEMENT_MAPPING_DAFAULT_VALUE);
+		 			sectionUtil.getAttributeField(detailsclient, toolkit, element, element.getValue(),
+		 					DsPackage.eINSTANCE.getElementMapping_Value(), DetailSectionCustomUiConstants.STRING);
+		 			voidMaker();
+					voidMaker();
+		 		}
+		 	}
 			
 			if(displayName.equals(DetailSectionCustomUiConstants.ELEMENT_MAPING_ALLOWED_USER_ROLES)){
 				if(!makeItComplex){

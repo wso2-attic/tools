@@ -722,13 +722,22 @@ public interface DsPackage extends EPackage {
 	int ELEMENT_MAPPING__QUERY_PARAM = 11;
 
 	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT_MAPPING__VALUE = 12;
+
+	/**
 	 * The number of structural features of the '<em>Element Mapping</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING_FEATURE_COUNT = 12;
+	int ELEMENT_MAPPING_FEATURE_COUNT = 13;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.ds.impl.EventSubscriptionListImpl <em>Event Subscription List</em>}' class.
@@ -2591,6 +2600,17 @@ public interface DsPackage extends EPackage {
 	EAttribute getElementMapping_QueryParam();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.ds.ElementMapping#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see org.wso2.developerstudio.eclipse.ds.ElementMapping#getValue()
+	 * @see #getElementMapping()
+	 * @generated
+	 */
+	EAttribute getElementMapping_Value();
+
+	/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.ds.EventSubscriptionList <em>Event Subscription List</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4248,6 +4268,14 @@ public interface DsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ELEMENT_MAPPING__QUERY_PARAM = eINSTANCE.getElementMapping_QueryParam();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ELEMENT_MAPPING__VALUE = eINSTANCE.getElementMapping_Value();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.ds.impl.EventSubscriptionListImpl <em>Event Subscription List</em>}' class.

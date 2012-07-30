@@ -44,6 +44,7 @@ import org.wso2.developerstudio.eclipse.ds.ElementMapping;
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.ElementMappingImpl#getCallQuery <em>Call Query</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.ElementMappingImpl#isIsComplexType <em>Is Complex Type</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.ElementMappingImpl#getQueryParam <em>Query Param</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.ElementMappingImpl#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
@@ -259,6 +260,26 @@ public class ElementMappingImpl extends EObjectImpl implements ElementMapping {
 	 * @ordered
 	 */
 	protected String queryParam = QUERY_PARAM_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String VALUE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected String value = VALUE_EDEFAULT;
 
 	private boolean complex;
 	/**
@@ -543,6 +564,27 @@ public class ElementMappingImpl extends EObjectImpl implements ElementMapping {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getValue() {
+		return value;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setValue(String newValue) {
+		String oldValue = value;
+		value = newValue;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.ELEMENT_MAPPING__VALUE, oldValue, value));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -590,6 +632,8 @@ public class ElementMappingImpl extends EObjectImpl implements ElementMapping {
 				return isIsComplexType();
 			case DsPackage.ELEMENT_MAPPING__QUERY_PARAM:
 				return getQueryParam();
+			case DsPackage.ELEMENT_MAPPING__VALUE:
+				return getValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -643,6 +687,9 @@ public class ElementMappingImpl extends EObjectImpl implements ElementMapping {
 			case DsPackage.ELEMENT_MAPPING__QUERY_PARAM:
 				setQueryParam((String)newValue);
 				return;
+			case DsPackage.ELEMENT_MAPPING__VALUE:
+				setValue((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -693,6 +740,9 @@ public class ElementMappingImpl extends EObjectImpl implements ElementMapping {
 			case DsPackage.ELEMENT_MAPPING__QUERY_PARAM:
 				setQueryParam(QUERY_PARAM_EDEFAULT);
 				return;
+			case DsPackage.ELEMENT_MAPPING__VALUE:
+				setValue(VALUE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -731,6 +781,8 @@ public class ElementMappingImpl extends EObjectImpl implements ElementMapping {
 				return isComplexType != IS_COMPLEX_TYPE_EDEFAULT;
 			case DsPackage.ELEMENT_MAPPING__QUERY_PARAM:
 				return QUERY_PARAM_EDEFAULT == null ? queryParam != null : !QUERY_PARAM_EDEFAULT.equals(queryParam);
+			case DsPackage.ELEMENT_MAPPING__VALUE:
+				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -765,6 +817,8 @@ public class ElementMappingImpl extends EObjectImpl implements ElementMapping {
 		result.append(isComplexType);
 		result.append(", queryParam: ");
 		result.append(queryParam);
+		result.append(", value: ");
+		result.append(value);
 		result.append(')');
 		return result.toString();
 	}
