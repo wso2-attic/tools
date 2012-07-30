@@ -78,12 +78,14 @@ public class DashboardPage extends FormPage {
 	private ISelection selection = null;
 	
 	static{
+		/*TODO: implement custom extension point to obtain configuration */
 		wizardCategoryMap.put("Application Server", new String[] {
 				"org.wso2.developerstudio.eclipse.artifact.newaxis2artifact",
 				"org.wso2.developerstudio.eclipse.artifact.newjaxwsartifact",
 				"org.wso2.developerstudio.eclipse.artifact.newwarartifact",
 				"org.wso2.developerstudio.eclipse.artifact.generation.axis2serviceclient",
-				"org.wso2.developerstudio.eclipse.artifact.generation.axis2service"
+				"org.wso2.developerstudio.eclipse.artifact.generation.axis2service",
+				"org.wso2.developerstudio.eclipse.artifact.newjaxrsartifact"
 				});
 		
 		wizardCategoryMap.put("Business Process Server", new String[] {
