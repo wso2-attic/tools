@@ -73,6 +73,9 @@ public class CacheMediatorItemProvider
 		addCacheScopePropertyDescriptor(object);
 		addCacheActionPropertyDescriptor(object);
 		
+		//adding cache on hit property descriptor.
+		addSequenceKeyPropertyDescriptor(object);
+		
 		if (cacheMediator.getCacheAction().equals(CacheAction.FINDER)) {
 			addHashGeneratorPropertyDescriptor(object);
 			addCacheTimeoutPropertyDescriptor(object);
@@ -258,6 +261,29 @@ public class CacheMediatorItemProvider
 				 null,
 				 null));
 	}
+	
+	/**
+	 * This adds a property descriptor for the Sequence Key feature in {@link CacheOnHitBranchItemProvider}}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addSequenceKeyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CacheOnHitBranch_sequenceKey_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CacheOnHitBranch_sequenceKey_feature", "_UI_CacheOnHitBranch_type"),
+				 EsbPackage.Literals.CACHE_ON_HIT_BRANCH__SEQUENCE_KEY,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+	
 
 	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an

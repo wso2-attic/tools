@@ -22,6 +22,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.CacheMediatorOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.CacheOnHitBranch;
 import org.wso2.developerstudio.eclipse.gmf.esb.CacheScope;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
+import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
 
 /**
  * <!-- begin-user-doc -->
@@ -240,10 +241,17 @@ public class CacheMediatorImpl extends MediatorImpl implements CacheMediator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected CacheMediatorImpl() {
 		super();
+		
+		//Adding default cache on hit branch to cache mediator initialization.
+		CacheOnHitBranch  onhitBranch = EsbFactoryImpl.eINSTANCE.createCacheOnHitBranch();
+		RegistryKeyProperty keyproperty = EsbFactoryImpl.eINSTANCE.createRegistryKeyProperty();
+		keyproperty.setKeyValue("default/path");
+		onhitBranch.setSequenceKey(keyproperty);
+		this.setOnHitBranch(onhitBranch);
 	}
 
 	/**

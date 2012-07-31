@@ -8,6 +8,8 @@ import org.eclipse.emf.edit.ui.provider.PropertySource;
 import org.eclipse.ui.views.properties.IPropertyDescriptor;
 import org.wso2.developerstudio.eclipse.esb.core.Activator;
 import org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.CacheOnHitBranch;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.SmooksMediator;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
@@ -129,8 +131,13 @@ public class EsbPropertySource extends PropertySource {
 			return new CustomPropertyDescriptor(((SmooksMediator)object).getOutput(), itemPropertyDescriptor);
 		} else if(pkg.getEnqueueMediator_SequenceKey().equals(feature)){
 			return new CustomPropertyDescriptor(object,itemPropertyDescriptor);
+			
+			//CallTemplate Mediator Template parameter custom property descriptor.
 		}else if(pkg.getCallTemplateMediator_TemplateParameters().equals(feature)){
 			return new CallTemplateParamCustomPropertyDescriptor(object, itemPropertyDescriptor);
+			//Cache Mediator OnHitBranch Sequence Key custom property descriptor.
+		}else if(pkg.getCacheOnHitBranch_SequenceKey().equals(feature)){
+			return new CustomPropertyDescriptor(((CacheMediator)object).getOnHitBranch(), itemPropertyDescriptor);
 		}
 			
 		// Else, default EMF behavior

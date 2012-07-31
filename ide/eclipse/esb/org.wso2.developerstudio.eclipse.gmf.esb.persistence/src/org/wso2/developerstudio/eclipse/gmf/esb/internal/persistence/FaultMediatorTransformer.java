@@ -39,7 +39,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
  */
 public class FaultMediatorTransformer extends AbstractEsbNodeTransformer {
 	public static final String soap11EnvNS = "http://schemas.xmlsoap.org/soap/envelope/";
-	public static final String soap12EnvNS = "http://www.w3.org/2003/05/soap-envelope/";
+	public static final String soap12EnvNS = "http://www.w3.org/2003/05/soap-envelope";
 
 	/**
 	 * {@inheritDoc}
@@ -83,6 +83,12 @@ public class FaultMediatorTransformer extends AbstractEsbNodeTransformer {
 			case SOAP_11:
 				faultMediator
 						.setSoapVersion(org.apache.synapse.mediators.transform.FaultMediator.SOAP11);
+				
+				if (visualFault.getFaultActor() != null) {
+					faultMediator.setFaultRole(new URI(visualFault
+							.getFaultActor()));
+				}
+				
 				switch (visualFault.getFaultCodeSoap11()) {
 				case VERSION_MISSMATCH:
 					faultMediator.setFaultCodeValue(new QName(soap11EnvNS,
@@ -102,6 +108,11 @@ public class FaultMediatorTransformer extends AbstractEsbNodeTransformer {
 			case SOAP_12:
 				faultMediator
 						.setSoapVersion(org.apache.synapse.mediators.transform.FaultMediator.SOAP12);
+				
+				if (visualFault.getRoleName() != null) {
+					faultMediator.setFaultRole(new URI(visualFault.getRoleName()));
+				}
+				
 				switch (visualFault.getFaultCodeSoap12()) {
 				case VERSION_MISSMATCH:
 					faultMediator.setFaultCodeValue(new QName(soap12EnvNS,
@@ -145,12 +156,11 @@ public class FaultMediatorTransformer extends AbstractEsbNodeTransformer {
 			// Response?.
 			faultMediator.setMarkAsResponse(visualFault.isMarkAsResponse());
 
-			if (visualFault.getRoleName() != null) {
-				faultMediator.setFaultRole(new URI(visualFault.getRoleName()));
-			}
 			
 		}
 		return faultMediator;
 	}
+	
+	
 
 }
