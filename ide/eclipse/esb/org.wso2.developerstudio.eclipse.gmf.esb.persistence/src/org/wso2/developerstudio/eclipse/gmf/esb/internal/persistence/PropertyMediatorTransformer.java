@@ -95,12 +95,16 @@ public class PropertyMediatorTransformer extends AbstractEsbNodeTransformer {
 			}else{
 				
 			if(visualProp.getValueType().getName().equals("EXPRESSION")){	
-				if(visualProp.getValueExpression()!=null&&visualProp.getValueExpression().getNamespaces().size()!=0){
-				SynapseXPath XPath=new SynapseXPath(visualProp.getValueExpression().getPropertyValue());
-				String prefix=visualProp.getValueExpression().getNamespaces().keySet().toArray()[0].toString();
-				String namespace=visualProp.getValueExpression().getNamespaces().values().toArray()[0].toString();
+				if(visualProp.getValueExpression()!=null && visualProp.getValueExpression().getNamespaces().size()!=0){
+				SynapseXPath XPath = new SynapseXPath(visualProp.getValueExpression().getPropertyValue());
+				String prefix = visualProp.getValueExpression().getNamespaces().keySet().toArray()[0].toString();
+				String namespace = visualProp.getValueExpression().getNamespaces().values().toArray()[0].toString();
 				XPath.addNamespace(prefix,namespace);
 				propMediator.setExpression(XPath);
+				}
+				else if(visualProp.getValueExpression()!=null && !visualProp.getValueExpression().getPropertyValue().equals("") ){
+					SynapseXPath XPath = new SynapseXPath(visualProp.getValueExpression().getPropertyValue());
+					propMediator.setExpression(XPath);
 				}
 				else{
 					propMediator.setExpression(new SynapseXPath("Default:"));
