@@ -553,6 +553,10 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 				return createCloneMediatorAdapter();
 			}
 			@Override
+			public Adapter caseCloneTarget(CloneTarget object) {
+				return createCloneTargetAdapter();
+			}
+			@Override
 			public Adapter caseCloneMediatorInputConnector(CloneMediatorInputConnector object) {
 				return createCloneMediatorInputConnectorAdapter();
 			}
@@ -2722,6 +2726,20 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createCloneMediatorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.CloneTarget <em>Clone Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CloneTarget
+	 * @generated
+	 */
+	public Adapter createCloneTargetAdapter() {
 		return null;
 	}
 

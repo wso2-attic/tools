@@ -12,6 +12,7 @@ import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.CloneMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.CloneMediatorTargetOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.CloneTarget;
 import org.wso2.developerstudio.eclipse.gmf.esb.CloneTargetContainer;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
@@ -96,6 +97,16 @@ public class CloneMediatorUtils {
 					targetContainer);
 			if (addCmd.canExecute()) {
 				domain.getCommandStack().execute(addCmd);
+			}
+		}
+		
+		if(((CloneMediator) parentContainer).getTargets().size() == 0){
+			
+			CloneTarget target = EsbFactory.eINSTANCE.createCloneTarget();
+			AddCommand addTargetCmd = new AddCommand(domain, parentContainer,
+					EsbPackage.Literals.CLONE_MEDIATOR__TARGETS, target);
+			if(addTargetCmd.canExecute()){
+				domain.getCommandStack().execute(addTargetCmd);
 			}
 		}
 	}

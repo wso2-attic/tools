@@ -19,6 +19,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CloneMediator#getCloneID <em>Clone ID</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CloneMediator#isSequentialMediation <em>Sequential Mediation</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CloneMediator#isContinueParent <em>Continue Parent</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CloneMediator#getTargets <em>Targets</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CloneMediator#getTargetsOutputConnector <em>Targets Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CloneMediator#getInputConnector <em>Input Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CloneMediator#getOutputConnector <em>Output Connector</em>}</li>
@@ -108,6 +109,22 @@ public interface CloneMediator extends Mediator {
 	 * @generated
 	 */
 	void setContinueParent(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Targets</b></em>' containment reference list.
+	 * The list contents are of type {@link org.wso2.developerstudio.eclipse.gmf.esb.CloneTarget}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Targets</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Targets</em>' containment reference list.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getCloneMediator_Targets()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<CloneTarget> getTargets();
 
 	/**
 	 * Returns the value of the '<em><b>Targets Output Connector</b></em>' containment reference list.

@@ -54,6 +54,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.AddBran
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.AddBranchFailoverEndpointAction;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.AddBranchLoadBalanceEndpointAction;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.AddBranchSwitchMediatorAction;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.ConfigureCloneMediatorAction;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.ConfigureEsbNodeAction;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.ConfigureLogMediatorAction;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.ConfigureProxyServiceAction;
@@ -137,86 +138,90 @@ public class DiagramEditorContextMenuProvider extends
 
 		// Initialize context sensitive actions.
 		contextActions = new HashMap<Class<? extends EsbNode>, ConfigureEsbNodeAction>();
-		contextActions.put(LogMediator.class, new ConfigureLogMediatorAction(
-				part));
-		contextActions.put(SwitchMediator.class,
-				new ConfigureSwitchMediatorAction(part));
-		contextActions.put(ProxyService.class, new ConfigureProxyServiceAction(
-				part));
-		contextActions.put(XQueryMediator.class,
-				new ConfigureXQueryMediatorAction(part));
-
+		
+		contextActions.put(LogMediator.class, new ConfigureLogMediatorAction(part));
+		
+		contextActions.put(SwitchMediator.class,new ConfigureSwitchMediatorAction(part));
+		
+		contextActions.put(ProxyService.class, new ConfigureProxyServiceAction(part));
+		
+		contextActions.put(XQueryMediator.class,new ConfigureXQueryMediatorAction(part));
+		
+		contextActions.put(CloneMediator.class, new ConfigureCloneMediatorAction(part));
+		
+		//Initialize branch context sensitive actions.
 		addBranchContextActions = new HashMap<Class<? extends EsbNode>, ConfigureEsbNodeAction>();
-		addBranchContextActions.put(SwitchMediator.class,
-				new AddBranchSwitchMediatorAction(part));
-		addBranchContextActions.put(FailoverEndPoint.class,
-				new AddBranchFailoverEndpointAction(part));
-		addBranchContextActions.put(LoadBalanceEndPoint.class,
-				new AddBranchLoadBalanceEndpointAction(part));
-		addBranchContextActions.put(CloneMediator.class,
-				new AddBranchCloneMediatorAction(part));
-
+		
+		addBranchContextActions.put(SwitchMediator.class,new AddBranchSwitchMediatorAction(part));
+		
+		addBranchContextActions.put(FailoverEndPoint.class,new AddBranchFailoverEndpointAction(part));
+		
+		addBranchContextActions.put(LoadBalanceEndPoint.class,new AddBranchLoadBalanceEndpointAction(part));
+		
+		addBranchContextActions.put(CloneMediator.class,new AddBranchCloneMediatorAction(part));
+		
+		//Initialize direction sensitive actions.
 		contextActionsDirection = new HashMap<Class<? extends EsbNode>, DirectionEsbNodeAction>();
-		contextActionsDirection.put(LogMediator.class,
-				new DirectionLogMediatorAction(part));
-		contextActionsDirection.put(DropMediator.class,
-				new DirectionDropMediatorAction(part));
-		contextActionsDirection.put(SwitchMediator.class,
-				new DirectionSwitchMediatorAction(part));
-		contextActionsDirection.put(FilterMediator.class,
-				new DirectionFilterMediatorAction(part));
-		contextActionsDirection.put(PropertyMediator.class,
-				new DirectionPropertyMediatorAction(part));
-		contextActionsDirection.put(EnrichMediator.class,
-				new DirectionEnrichMediatorAction(part));
-		contextActionsDirection.put(XSLTMediator.class,
-				new DirectionXSLTMediatorAction(part));
-		contextActionsDirection.put(EventMediator.class,
-				new DirectionEventMediatorAction(part));
-		contextActionsDirection.put(EntitlementMediator.class,
-				new DirectionEntitlementMediatorAction(part));
-		contextActionsDirection.put(ClassMediator.class,
-				new DirectionClassMediatorAction(part));
-		contextActionsDirection.put(SpringMediator.class,
-				new DirectionSpringMediatorAction(part));
-		contextActionsDirection.put(ScriptMediator.class,
-				new DirectionScriptMediatorAction(part));
-		contextActionsDirection.put(FaultMediator.class,
-				new DirectionFaultMediatorAction(part));
-		contextActionsDirection.put(XQueryMediator.class,
-				new DirectionXQueryMediatorAction(part));
-		contextActionsDirection.put(DBLookupMediator.class,
-				new DirectionDBLookupMediatorAction(part));
-		contextActionsDirection.put(DBReportMediator.class,
-				new DirectionDBReportMediatorAction(part));
-		contextActionsDirection.put(SmooksMediator.class,
-				new DirectionSmooksMediatorAction(part));
-		contextActionsDirection.put(CommandMediator.class,
-				new DirectionCommandMediatorAction(part));
-		contextActionsDirection.put(SendMediator.class,
-				new DirectionSendMediatorAction(part));
-		contextActionsDirection.put(HeaderMediator.class,
-				new DirectionHeaderMediatorAction(part));
-		contextActionsDirection.put(CloneMediator.class,
-				new DirectionCloneMediatorAction(part));
-		contextActionsDirection.put(CacheMediator.class,
-				new DirectionCacheMediatorAction(part));
-		contextActionsDirection.put(IterateMediator.class,
-				new DirectionIterateMediatorAction(part));
-		contextActionsDirection.put(AggregateMediator.class,
-				new DirectionAggregateMediatorAction(part));
-		contextActionsDirection.put(CalloutMediator.class,
-				new DirectionCalloutMediatorAction(part));
-		contextActionsDirection.put(TransactionMediator.class,
-				new DirectionTransactionMediatorAction(part));
-		contextActionsDirection.put(ThrottleMediator.class,
-				new DirectionThrottleMediatorAction(part));
-		contextActionsDirection.put(RMSequenceMediator.class,
-				new DirectionRMSequenceMediatorAction(part));
-		contextActionsDirection.put(RuleMediator.class,
-				new DirectionRuleMediatorAction(part));
-		contextActionsDirection.put(OAuthMediator.class,
-				new DirectionOAuthMediatorAction(part));
+		
+		contextActionsDirection.put(LogMediator.class,new DirectionLogMediatorAction(part));
+		
+		contextActionsDirection.put(DropMediator.class,new DirectionDropMediatorAction(part));
+		
+		contextActionsDirection.put(SwitchMediator.class,new DirectionSwitchMediatorAction(part));
+		
+		contextActionsDirection.put(FilterMediator.class,new DirectionFilterMediatorAction(part));
+		
+		contextActionsDirection.put(PropertyMediator.class,new DirectionPropertyMediatorAction(part));
+		
+		contextActionsDirection.put(EnrichMediator.class,new DirectionEnrichMediatorAction(part));
+		
+		contextActionsDirection.put(XSLTMediator.class,new DirectionXSLTMediatorAction(part));
+		
+		contextActionsDirection.put(EventMediator.class,new DirectionEventMediatorAction(part));
+		
+		contextActionsDirection.put(EntitlementMediator.class,new DirectionEntitlementMediatorAction(part));
+		
+		contextActionsDirection.put(ClassMediator.class,new DirectionClassMediatorAction(part));
+		
+		contextActionsDirection.put(SpringMediator.class,new DirectionSpringMediatorAction(part));
+		
+		contextActionsDirection.put(ScriptMediator.class,new DirectionScriptMediatorAction(part));
+		
+		contextActionsDirection.put(FaultMediator.class,new DirectionFaultMediatorAction(part));
+		
+		contextActionsDirection.put(XQueryMediator.class,new DirectionXQueryMediatorAction(part));
+		
+		contextActionsDirection.put(DBLookupMediator.class,new DirectionDBLookupMediatorAction(part));
+		
+		contextActionsDirection.put(DBReportMediator.class,new DirectionDBReportMediatorAction(part));
+		
+		contextActionsDirection.put(SmooksMediator.class,new DirectionSmooksMediatorAction(part));
+		
+		contextActionsDirection.put(CommandMediator.class,new DirectionCommandMediatorAction(part));
+		
+		contextActionsDirection.put(SendMediator.class,new DirectionSendMediatorAction(part));
+		
+		contextActionsDirection.put(HeaderMediator.class,new DirectionHeaderMediatorAction(part));
+		
+		contextActionsDirection.put(CloneMediator.class,new DirectionCloneMediatorAction(part));
+		
+		contextActionsDirection.put(CacheMediator.class,new DirectionCacheMediatorAction(part));
+		
+		contextActionsDirection.put(IterateMediator.class,new DirectionIterateMediatorAction(part));
+		
+		contextActionsDirection.put(AggregateMediator.class,new DirectionAggregateMediatorAction(part));
+		
+		contextActionsDirection.put(CalloutMediator.class,new DirectionCalloutMediatorAction(part));
+		
+		contextActionsDirection.put(TransactionMediator.class,new DirectionTransactionMediatorAction(part));
+		
+		contextActionsDirection.put(ThrottleMediator.class,new DirectionThrottleMediatorAction(part));
+		
+		contextActionsDirection.put(RMSequenceMediator.class,new DirectionRMSequenceMediatorAction(part));
+		
+		contextActionsDirection.put(RuleMediator.class,new DirectionRuleMediatorAction(part));
+		
+		contextActionsDirection.put(OAuthMediator.class,new DirectionOAuthMediatorAction(part));
 
 	}
 

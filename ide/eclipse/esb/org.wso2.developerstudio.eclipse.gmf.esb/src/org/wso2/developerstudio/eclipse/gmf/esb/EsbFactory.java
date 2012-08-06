@@ -1003,6 +1003,15 @@ public interface EsbFactory extends EFactory {
 	CloneMediator createCloneMediator();
 
 	/**
+	 * Returns a new object of class '<em>Clone Target</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Clone Target</em>'.
+	 * @generated
+	 */
+	CloneTarget createCloneTarget();
+
+	/**
 	 * Returns a new object of class '<em>Clone Mediator Input Connector</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

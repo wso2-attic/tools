@@ -153,6 +153,7 @@ public class CloneMediatorItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(EsbPackage.Literals.CLONE_MEDIATOR__TARGETS);
 			childrenFeatures.add(EsbPackage.Literals.CLONE_MEDIATOR__TARGETS_OUTPUT_CONNECTOR);
 			childrenFeatures.add(EsbPackage.Literals.CLONE_MEDIATOR__INPUT_CONNECTOR);
 			childrenFeatures.add(EsbPackage.Literals.CLONE_MEDIATOR__OUTPUT_CONNECTOR);
@@ -218,6 +219,7 @@ public class CloneMediatorItemProvider
 			case EsbPackage.CLONE_MEDIATOR__CONTINUE_PARENT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case EsbPackage.CLONE_MEDIATOR__TARGETS:
 			case EsbPackage.CLONE_MEDIATOR__TARGETS_OUTPUT_CONNECTOR:
 			case EsbPackage.CLONE_MEDIATOR__INPUT_CONNECTOR:
 			case EsbPackage.CLONE_MEDIATOR__OUTPUT_CONNECTOR:
@@ -239,6 +241,11 @@ public class CloneMediatorItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.CLONE_MEDIATOR__TARGETS,
+				 EsbFactory.eINSTANCE.createCloneTarget()));
 
 		newChildDescriptors.add
 			(createChildParameter

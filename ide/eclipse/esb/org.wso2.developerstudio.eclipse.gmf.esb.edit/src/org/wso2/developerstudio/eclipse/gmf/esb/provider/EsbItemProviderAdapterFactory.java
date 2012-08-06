@@ -2621,6 +2621,29 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.CloneTarget} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CloneTargetItemProvider cloneTargetItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.CloneTarget}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCloneTargetAdapter() {
+		if (cloneTargetItemProvider == null) {
+			cloneTargetItemProvider = new CloneTargetItemProvider(this);
+		}
+
+		return cloneTargetItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.CloneMediatorInputConnector} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5574,6 +5597,7 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 		if (routerRouteItemProvider != null) routerRouteItemProvider.dispose();
 		if (routeTargetItemProvider != null) routeTargetItemProvider.dispose();
 		if (cloneMediatorItemProvider != null) cloneMediatorItemProvider.dispose();
+		if (cloneTargetItemProvider != null) cloneTargetItemProvider.dispose();
 		if (cloneMediatorInputConnectorItemProvider != null) cloneMediatorInputConnectorItemProvider.dispose();
 		if (cloneMediatorOutputConnectorItemProvider != null) cloneMediatorOutputConnectorItemProvider.dispose();
 		if (cloneMediatorTargetOutputConnectorItemProvider != null) cloneMediatorTargetOutputConnectorItemProvider.dispose();

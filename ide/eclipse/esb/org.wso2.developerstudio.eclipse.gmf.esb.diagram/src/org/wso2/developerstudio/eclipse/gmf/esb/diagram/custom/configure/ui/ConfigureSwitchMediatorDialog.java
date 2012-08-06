@@ -36,7 +36,7 @@ public class ConfigureSwitchMediatorDialog extends Dialog {
 	private SwitchMediator mediator;
 	private TransactionalEditingDomain editingDomain;
 	private CompoundCommand resultCommand;
-	private int branchCounter ;
+	private int branchCounter;
 	/**
 	 * Create the dialog.
 	 * @param parentShell

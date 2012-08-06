@@ -168,6 +168,7 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 			case EsbPackage.ROUTER_ROUTE: return createRouterRoute();
 			case EsbPackage.ROUTE_TARGET: return createRouteTarget();
 			case EsbPackage.CLONE_MEDIATOR: return createCloneMediator();
+			case EsbPackage.CLONE_TARGET: return createCloneTarget();
 			case EsbPackage.CLONE_MEDIATOR_INPUT_CONNECTOR: return createCloneMediatorInputConnector();
 			case EsbPackage.CLONE_MEDIATOR_OUTPUT_CONNECTOR: return createCloneMediatorOutputConnector();
 			case EsbPackage.CLONE_MEDIATOR_TARGET_OUTPUT_CONNECTOR: return createCloneMediatorTargetOutputConnector();
@@ -1753,6 +1754,16 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 		cloneMediator.setOutputConnector(createCloneMediatorOutputConnector());
 		cloneMediator.setCloneContainer(createCloneMediatorContainer());
 		return cloneMediator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CloneTarget createCloneTarget() {
+		CloneTargetImpl cloneTarget = new CloneTargetImpl();
+		return cloneTarget;
 	}
 
 	/**

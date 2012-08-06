@@ -1020,6 +1020,14 @@ public class EsbSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case EsbPackage.CLONE_TARGET: {
+				CloneTarget cloneTarget = (CloneTarget)theEObject;
+				T result = caseCloneTarget(cloneTarget);
+				if (result == null) result = caseAbstractCommonTarget(cloneTarget);
+				if (result == null) result = caseEsbNode(cloneTarget);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case EsbPackage.CLONE_MEDIATOR_INPUT_CONNECTOR: {
 				CloneMediatorInputConnector cloneMediatorInputConnector = (CloneMediatorInputConnector)theEObject;
 				T result = caseCloneMediatorInputConnector(cloneMediatorInputConnector);
@@ -3738,6 +3746,21 @@ public class EsbSwitch<T> {
 	 * @generated
 	 */
 	public T caseCloneMediator(CloneMediator object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Clone Target</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Clone Target</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCloneTarget(CloneTarget object) {
 		return null;
 	}
 

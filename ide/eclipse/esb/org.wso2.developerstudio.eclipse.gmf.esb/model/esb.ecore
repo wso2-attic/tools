@@ -794,6 +794,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="cloneID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sequentialMediation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="continueParent" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="targets" upperBound="-1"
+        eType="#//CloneTarget" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="targetsOutputConnector"
         upperBound="-1" eType="#//CloneMediatorTargetOutputConnector" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="inputConnector" eType="#//CloneMediatorInputConnector"
@@ -803,12 +805,20 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="cloneContainer" eType="#//CloneMediatorContainer"
         containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CloneTarget" eSuperTypes="#//AbstractCommonTarget">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="soapAction" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="soap_action"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="toAddress" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="to_address"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CloneMediatorInputConnector" eSuperTypes="#//InputConnector"/>
   <eClassifiers xsi:type="ecore:EClass" name="CloneMediatorOutputConnector" eSuperTypes="#//OutputConnector"/>
   <eClassifiers xsi:type="ecore:EClass" name="CloneMediatorTargetOutputConnector"
       eSuperTypes="#//OutputConnector">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="soapAction" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="toAddress" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="soapAction" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="soapAction"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="toAddress" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="toAddress"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CloneMediatorContainer" eSuperTypes="#//EsbNode">
     <eStructuralFeatures xsi:type="ecore:EReference" name="cloneTargetContainer" upperBound="-1"

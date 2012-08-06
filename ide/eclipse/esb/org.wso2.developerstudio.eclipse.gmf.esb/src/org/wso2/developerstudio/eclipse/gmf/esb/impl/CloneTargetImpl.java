@@ -12,24 +12,24 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.wso2.developerstudio.eclipse.gmf.esb.CloneMediatorTargetOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.CloneTarget;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Clone Mediator Target Output Connector</b></em>'.
+ * An implementation of the model object '<em><b>Clone Target</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CloneMediatorTargetOutputConnectorImpl#getSoapAction <em>Soap Action</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CloneMediatorTargetOutputConnectorImpl#getToAddress <em>To Address</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CloneTargetImpl#getSoapAction <em>Soap Action</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CloneTargetImpl#getToAddress <em>To Address</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class CloneMediatorTargetOutputConnectorImpl extends OutputConnectorImpl implements CloneMediatorTargetOutputConnector {
+public class CloneTargetImpl extends AbstractCommonTargetImpl implements CloneTarget {
 	/**
 	 * The default value of the '{@link #getSoapAction() <em>Soap Action</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -38,7 +38,7 @@ public class CloneMediatorTargetOutputConnectorImpl extends OutputConnectorImpl 
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String SOAP_ACTION_EDEFAULT = "soapAction";
+	protected static final String SOAP_ACTION_EDEFAULT = "soap_action";
 
 	/**
 	 * The cached value of the '{@link #getSoapAction() <em>Soap Action</em>}' attribute.
@@ -58,7 +58,7 @@ public class CloneMediatorTargetOutputConnectorImpl extends OutputConnectorImpl 
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String TO_ADDRESS_EDEFAULT = "toAddress";
+	protected static final String TO_ADDRESS_EDEFAULT = "to_address";
 
 	/**
 	 * The cached value of the '{@link #getToAddress() <em>To Address</em>}' attribute.
@@ -75,7 +75,7 @@ public class CloneMediatorTargetOutputConnectorImpl extends OutputConnectorImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected CloneMediatorTargetOutputConnectorImpl() {
+	protected CloneTargetImpl() {
 		super();
 	}
 
@@ -86,7 +86,7 @@ public class CloneMediatorTargetOutputConnectorImpl extends OutputConnectorImpl 
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return EsbPackage.Literals.CLONE_MEDIATOR_TARGET_OUTPUT_CONNECTOR;
+		return EsbPackage.Literals.CLONE_TARGET;
 	}
 
 	/**
@@ -107,7 +107,7 @@ public class CloneMediatorTargetOutputConnectorImpl extends OutputConnectorImpl 
 		String oldSoapAction = soapAction;
 		soapAction = newSoapAction;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.CLONE_MEDIATOR_TARGET_OUTPUT_CONNECTOR__SOAP_ACTION, oldSoapAction, soapAction));
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.CLONE_TARGET__SOAP_ACTION, oldSoapAction, soapAction));
 	}
 
 	/**
@@ -128,7 +128,7 @@ public class CloneMediatorTargetOutputConnectorImpl extends OutputConnectorImpl 
 		String oldToAddress = toAddress;
 		toAddress = newToAddress;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.CLONE_MEDIATOR_TARGET_OUTPUT_CONNECTOR__TO_ADDRESS, oldToAddress, toAddress));
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.CLONE_TARGET__TO_ADDRESS, oldToAddress, toAddress));
 	}
 
 	/**
@@ -139,9 +139,9 @@ public class CloneMediatorTargetOutputConnectorImpl extends OutputConnectorImpl 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case EsbPackage.CLONE_MEDIATOR_TARGET_OUTPUT_CONNECTOR__SOAP_ACTION:
+			case EsbPackage.CLONE_TARGET__SOAP_ACTION:
 				return getSoapAction();
-			case EsbPackage.CLONE_MEDIATOR_TARGET_OUTPUT_CONNECTOR__TO_ADDRESS:
+			case EsbPackage.CLONE_TARGET__TO_ADDRESS:
 				return getToAddress();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -155,10 +155,10 @@ public class CloneMediatorTargetOutputConnectorImpl extends OutputConnectorImpl 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case EsbPackage.CLONE_MEDIATOR_TARGET_OUTPUT_CONNECTOR__SOAP_ACTION:
+			case EsbPackage.CLONE_TARGET__SOAP_ACTION:
 				setSoapAction((String)newValue);
 				return;
-			case EsbPackage.CLONE_MEDIATOR_TARGET_OUTPUT_CONNECTOR__TO_ADDRESS:
+			case EsbPackage.CLONE_TARGET__TO_ADDRESS:
 				setToAddress((String)newValue);
 				return;
 		}
@@ -173,10 +173,10 @@ public class CloneMediatorTargetOutputConnectorImpl extends OutputConnectorImpl 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case EsbPackage.CLONE_MEDIATOR_TARGET_OUTPUT_CONNECTOR__SOAP_ACTION:
+			case EsbPackage.CLONE_TARGET__SOAP_ACTION:
 				setSoapAction(SOAP_ACTION_EDEFAULT);
 				return;
-			case EsbPackage.CLONE_MEDIATOR_TARGET_OUTPUT_CONNECTOR__TO_ADDRESS:
+			case EsbPackage.CLONE_TARGET__TO_ADDRESS:
 				setToAddress(TO_ADDRESS_EDEFAULT);
 				return;
 		}
@@ -191,9 +191,9 @@ public class CloneMediatorTargetOutputConnectorImpl extends OutputConnectorImpl 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case EsbPackage.CLONE_MEDIATOR_TARGET_OUTPUT_CONNECTOR__SOAP_ACTION:
+			case EsbPackage.CLONE_TARGET__SOAP_ACTION:
 				return SOAP_ACTION_EDEFAULT == null ? soapAction != null : !SOAP_ACTION_EDEFAULT.equals(soapAction);
-			case EsbPackage.CLONE_MEDIATOR_TARGET_OUTPUT_CONNECTOR__TO_ADDRESS:
+			case EsbPackage.CLONE_TARGET__TO_ADDRESS:
 				return TO_ADDRESS_EDEFAULT == null ? toAddress != null : !TO_ADDRESS_EDEFAULT.equals(toAddress);
 		}
 		return super.eIsSet(featureID);
@@ -217,4 +217,4 @@ public class CloneMediatorTargetOutputConnectorImpl extends OutputConnectorImpl 
 		return result.toString();
 	}
 
-} //CloneMediatorTargetOutputConnectorImpl
+} //CloneTargetImpl

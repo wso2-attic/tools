@@ -796,10 +796,15 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//CloneMediator/cloneID"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//CloneMediator/sequentialMediation"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//CloneMediator/continueParent"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//CloneMediator/targets"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//CloneMediator/targetsOutputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//CloneMediator/inputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//CloneMediator/outputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//CloneMediator/cloneContainer"/>
+    </genClasses>
+    <genClasses ecoreClass="esb.ecore#//CloneTarget">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//CloneTarget/soapAction"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//CloneTarget/toAddress"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//CloneMediatorInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//CloneMediatorOutputConnector"/>

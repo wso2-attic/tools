@@ -39,6 +39,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CloneMediatorImpl#getCloneID <em>Clone ID</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CloneMediatorImpl#isSequentialMediation <em>Sequential Mediation</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CloneMediatorImpl#isContinueParent <em>Continue Parent</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CloneMediatorImpl#getTargets <em>Targets</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CloneMediatorImpl#getTargetsOutputConnector <em>Targets Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CloneMediatorImpl#getInputConnector <em>Input Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CloneMediatorImpl#getOutputConnector <em>Output Connector</em>}</li>
@@ -108,6 +109,16 @@ public class CloneMediatorImpl extends MediatorImpl implements CloneMediator {
 	 * @ordered
 	 */
 	protected boolean continueParent = CONTINUE_PARENT_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getTargets() <em>Targets</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTargets()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<CloneTarget> targets;
 
 	/**
 	 * The cached value of the '{@link #getTargetsOutputConnector() <em>Targets Output Connector</em>}' containment reference list.
@@ -230,6 +241,18 @@ public class CloneMediatorImpl extends MediatorImpl implements CloneMediator {
 		continueParent = newContinueParent;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.CLONE_MEDIATOR__CONTINUE_PARENT, oldContinueParent, continueParent));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<CloneTarget> getTargets() {
+		if (targets == null) {
+			targets = new EObjectContainmentEList<CloneTarget>(CloneTarget.class, this, EsbPackage.CLONE_MEDIATOR__TARGETS);
+		}
+		return targets;
 	}
 
 	/**
@@ -382,6 +405,8 @@ public class CloneMediatorImpl extends MediatorImpl implements CloneMediator {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case EsbPackage.CLONE_MEDIATOR__TARGETS:
+				return ((InternalEList<?>)getTargets()).basicRemove(otherEnd, msgs);
 			case EsbPackage.CLONE_MEDIATOR__TARGETS_OUTPUT_CONNECTOR:
 				return ((InternalEList<?>)getTargetsOutputConnector()).basicRemove(otherEnd, msgs);
 			case EsbPackage.CLONE_MEDIATOR__INPUT_CONNECTOR:
@@ -409,6 +434,8 @@ public class CloneMediatorImpl extends MediatorImpl implements CloneMediator {
 				return isSequentialMediation();
 			case EsbPackage.CLONE_MEDIATOR__CONTINUE_PARENT:
 				return isContinueParent();
+			case EsbPackage.CLONE_MEDIATOR__TARGETS:
+				return getTargets();
 			case EsbPackage.CLONE_MEDIATOR__TARGETS_OUTPUT_CONNECTOR:
 				return getTargetsOutputConnector();
 			case EsbPackage.CLONE_MEDIATOR__INPUT_CONNECTOR:
@@ -439,6 +466,10 @@ public class CloneMediatorImpl extends MediatorImpl implements CloneMediator {
 				return;
 			case EsbPackage.CLONE_MEDIATOR__CONTINUE_PARENT:
 				setContinueParent((Boolean)newValue);
+				return;
+			case EsbPackage.CLONE_MEDIATOR__TARGETS:
+				getTargets().clear();
+				getTargets().addAll((Collection<? extends CloneTarget>)newValue);
 				return;
 			case EsbPackage.CLONE_MEDIATOR__TARGETS_OUTPUT_CONNECTOR:
 				getTargetsOutputConnector().clear();
@@ -475,6 +506,9 @@ public class CloneMediatorImpl extends MediatorImpl implements CloneMediator {
 			case EsbPackage.CLONE_MEDIATOR__CONTINUE_PARENT:
 				setContinueParent(CONTINUE_PARENT_EDEFAULT);
 				return;
+			case EsbPackage.CLONE_MEDIATOR__TARGETS:
+				getTargets().clear();
+				return;
 			case EsbPackage.CLONE_MEDIATOR__TARGETS_OUTPUT_CONNECTOR:
 				getTargetsOutputConnector().clear();
 				return;
@@ -506,6 +540,8 @@ public class CloneMediatorImpl extends MediatorImpl implements CloneMediator {
 				return sequentialMediation != SEQUENTIAL_MEDIATION_EDEFAULT;
 			case EsbPackage.CLONE_MEDIATOR__CONTINUE_PARENT:
 				return continueParent != CONTINUE_PARENT_EDEFAULT;
+			case EsbPackage.CLONE_MEDIATOR__TARGETS:
+				return targets != null && !targets.isEmpty();
 			case EsbPackage.CLONE_MEDIATOR__TARGETS_OUTPUT_CONNECTOR:
 				return targetsOutputConnector != null && !targetsOutputConnector.isEmpty();
 			case EsbPackage.CLONE_MEDIATOR__INPUT_CONNECTOR:

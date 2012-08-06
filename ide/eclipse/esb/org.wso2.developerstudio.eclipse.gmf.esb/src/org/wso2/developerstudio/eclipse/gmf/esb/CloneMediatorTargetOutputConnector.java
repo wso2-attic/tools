@@ -27,6 +27,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb;
 public interface CloneMediatorTargetOutputConnector extends OutputConnector {
 	/**
 	 * Returns the value of the '<em><b>Soap Action</b></em>' attribute.
+	 * The default value is <code>"soapAction"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Soap Action</em>' attribute isn't clear,
@@ -36,7 +37,7 @@ public interface CloneMediatorTargetOutputConnector extends OutputConnector {
 	 * @return the value of the '<em>Soap Action</em>' attribute.
 	 * @see #setSoapAction(String)
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getCloneMediatorTargetOutputConnector_SoapAction()
-	 * @model
+	 * @model default="soapAction"
 	 * @generated
 	 */
 	String getSoapAction();
@@ -53,6 +54,7 @@ public interface CloneMediatorTargetOutputConnector extends OutputConnector {
 
 	/**
 	 * Returns the value of the '<em><b>To Address</b></em>' attribute.
+	 * The default value is <code>"toAddress"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>To Address</em>' attribute isn't clear,
@@ -62,7 +64,7 @@ public interface CloneMediatorTargetOutputConnector extends OutputConnector {
 	 * @return the value of the '<em>To Address</em>' attribute.
 	 * @see #setToAddress(String)
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getCloneMediatorTargetOutputConnector_ToAddress()
-	 * @model
+	 * @model default="toAddress"
 	 * @generated
 	 */
 	String getToAddress();

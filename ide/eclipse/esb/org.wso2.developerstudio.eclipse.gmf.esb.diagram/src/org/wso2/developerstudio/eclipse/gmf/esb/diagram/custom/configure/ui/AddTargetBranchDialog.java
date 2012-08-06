@@ -1,6 +1,7 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.ui;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.DeleteCommand;
@@ -18,6 +19,7 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 import org.wso2.developerstudio.eclipse.gmf.esb.CloneMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.CloneMediatorTargetOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.CloneTarget;
 import org.wso2.developerstudio.eclipse.gmf.esb.CloneTargetContainer;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
@@ -33,6 +35,7 @@ public class AddTargetBranchDialog extends Dialog {
 	private TransactionalEditingDomain editingDomain;
 	private ArrayList<CloneTargetContainer> targetBranches=new ArrayList<CloneTargetContainer>();
 	private ArrayList<CloneMediatorTargetOutputConnector> targetOutputConnectors=new ArrayList<CloneMediatorTargetOutputConnector>();
+	private List<CloneTarget> cloneTargets = new ArrayList<CloneTarget>();
 
 
 
@@ -84,51 +87,112 @@ public class AddTargetBranchDialog extends Dialog {
 	
 	
 	protected void okPressed() {		
-			int number=Integer.parseInt(count.getText())-cloneMediator.getCloneContainer().getCloneTargetContainer().size();
-			if(number>0){
-			for(int i=0;i<number;++i){
-			CloneTargetContainer targetContainer = EsbFactory.eINSTANCE.createCloneTargetContainer();
-			AddCommand addCmd = new AddCommand(editingDomain,cloneMediator.getCloneContainer(),EsbPackage.Literals.CLONE_MEDIATOR_CONTAINER__CLONE_TARGET_CONTAINER, targetContainer);
-			if (addCmd.canExecute()){
-				editingDomain.getCommandStack().execute(addCmd);
+		int number = Integer.parseInt(count.getText())
+				- cloneMediator.getCloneContainer().getCloneTargetContainer()
+						.size();
+
+		if (number > 0) {
+
+			for (int i = 0; i < number; ++i) {
+				CloneTargetContainer targetContainer = EsbFactory.eINSTANCE
+						.createCloneTargetContainer();
+
+				AddCommand addCmd = new AddCommand(
+						editingDomain,
+						cloneMediator.getCloneContainer(),
+						EsbPackage.Literals.CLONE_MEDIATOR_CONTAINER__CLONE_TARGET_CONTAINER,
+						targetContainer);
+
+				if (addCmd.canExecute()) {
+					editingDomain.getCommandStack().execute(addCmd);
+				}
+
+				CloneMediatorTargetOutputConnector targetOutputConnector = EsbFactory.eINSTANCE
+						.createCloneMediatorTargetOutputConnector();
+
+				AddCommand addTargetOutputConnectorCommand = new AddCommand(
+						editingDomain,
+						cloneMediator,
+						EsbPackage.Literals.CLONE_MEDIATOR__TARGETS_OUTPUT_CONNECTOR,
+						targetOutputConnector);
+
+				if (addTargetOutputConnectorCommand.canExecute()) {
+					editingDomain.getCommandStack().execute(
+							addTargetOutputConnectorCommand);
+				}
+
+				CloneTarget target = EsbFactory.eINSTANCE.createCloneTarget();
+
+				AddCommand addTargetCmd = new AddCommand(editingDomain,
+						cloneMediator,
+						EsbPackage.Literals.CLONE_MEDIATOR__TARGETS, target);
+				if (addTargetCmd.canExecute()) {
+					editingDomain.getCommandStack().execute(addTargetCmd);
+				}
+
 			}
-			CloneMediatorTargetOutputConnector targetOutputConnector=EsbFactory.eINSTANCE.createCloneMediatorTargetOutputConnector();
-			AddCommand addTargetOutputConnectorCommand=new AddCommand(editingDomain, cloneMediator, EsbPackage.Literals.CLONE_MEDIATOR__TARGETS_OUTPUT_CONNECTOR,targetOutputConnector);
-			if (addTargetOutputConnectorCommand.canExecute()){
-				editingDomain.getCommandStack().execute(addTargetOutputConnectorCommand);
-			}			
-			}
-			}else{
-				
-				for(int i=0;i<Math.abs(number);++i){
-					CloneTargetContainer lastTargetContainer=cloneMediator.getCloneContainer().getCloneTargetContainer().get(cloneMediator.getCloneContainer().getCloneTargetContainer().size()-1);
-					targetBranches.add(lastTargetContainer);
-				DeleteCommand deleteCmd=new DeleteCommand(editingDomain, targetBranches);
-				if (deleteCmd.canExecute()){
+		} else {
+
+			for (int i = 0; i < Math.abs(number); ++i) {
+				CloneTargetContainer lastTargetContainer = cloneMediator
+						.getCloneContainer()
+						.getCloneTargetContainer()
+						.get(cloneMediator.getCloneContainer()
+								.getCloneTargetContainer().size() - 1);
+
+				targetBranches.add(lastTargetContainer);
+
+				DeleteCommand deleteCmd = new DeleteCommand(editingDomain,
+						targetBranches);
+
+				if (deleteCmd.canExecute()) {
 					editingDomain.getCommandStack().execute(deleteCmd);
-				} 
+				}
+
 				targetBranches.remove(lastTargetContainer);
-				
-				
-				CloneMediatorTargetOutputConnector lastTargetOutputConnector=cloneMediator.getTargetsOutputConnector().get(cloneMediator.getTargetsOutputConnector().size()-1);
+
+				CloneMediatorTargetOutputConnector lastTargetOutputConnector = cloneMediator
+						.getTargetsOutputConnector().get(
+								cloneMediator.getTargetsOutputConnector()
+										.size() - 1);
+
 				targetOutputConnectors.add(lastTargetOutputConnector);
-				DeleteCommand deleteTargetOutputConnectorscmd=new DeleteCommand(editingDomain, targetOutputConnectors);
-				if (deleteTargetOutputConnectorscmd.canExecute()){
-					editingDomain.getCommandStack().execute(deleteTargetOutputConnectorscmd);
-				} 
+
+				DeleteCommand deleteTargetOutputConnectorscmd = new DeleteCommand(
+						editingDomain, targetOutputConnectors);
+
+				if (deleteTargetOutputConnectorscmd.canExecute()) {
+					editingDomain.getCommandStack().execute(
+							deleteTargetOutputConnectorscmd);
+				}
+
 				targetOutputConnectors.remove(lastTargetOutputConnector);
-				
-			}
-			}
-			if(editpart instanceof CloneMediatorEditPart){
-				if(((CloneMediatorEditPart)editpart).reversed){
-					CloneMediatorUtils.reorderWhenRevered(editpart);
+
+				CloneTarget lastCloneTarget = cloneMediator.getTargets().get(
+						cloneMediator.getTargets().size() - 1);
+
+				cloneTargets.add(lastCloneTarget);
+
+				DeleteCommand deleteTarget = new DeleteCommand(editingDomain,
+						cloneTargets);
+
+				if (deleteTarget.canExecute()) {
+
+					editingDomain.getCommandStack().execute(deleteTarget);
 				}
-				else{
-					CloneMediatorUtils.reorderWhenForward(editpart);
-				}
+
+				cloneTargets.remove(lastCloneTarget);
+
 			}
-			super.okPressed();
-		}	
-	
+		}
+		if (editpart instanceof CloneMediatorEditPart) {
+			if (((CloneMediatorEditPart) editpart).reversed) {
+				CloneMediatorUtils.reorderWhenRevered(editpart);
+			} else {
+				CloneMediatorUtils.reorderWhenForward(editpart);
+			}
+		}
+		super.okPressed();
+	}
+
 }

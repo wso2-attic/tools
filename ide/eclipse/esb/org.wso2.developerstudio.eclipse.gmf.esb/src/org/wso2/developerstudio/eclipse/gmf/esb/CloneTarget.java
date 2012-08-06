@@ -25,9 +25,10 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface CloneTarget extends EObject {
+public interface CloneTarget extends AbstractCommonTarget {
 	/**
 	 * Returns the value of the '<em><b>Soap Action</b></em>' attribute.
+	 * The default value is <code>"soap_action"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Soap Action</em>' attribute isn't clear,
@@ -37,7 +38,7 @@ public interface CloneTarget extends EObject {
 	 * @return the value of the '<em>Soap Action</em>' attribute.
 	 * @see #setSoapAction(String)
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getCloneTarget_SoapAction()
-	 * @model
+	 * @model default="soap_action"
 	 * @generated
 	 */
 	String getSoapAction();
@@ -54,6 +55,7 @@ public interface CloneTarget extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>To Address</b></em>' attribute.
+	 * The default value is <code>"to_address"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>To Address</em>' attribute isn't clear,
@@ -63,7 +65,7 @@ public interface CloneTarget extends EObject {
 	 * @return the value of the '<em>To Address</em>' attribute.
 	 * @see #setToAddress(String)
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getCloneTarget_ToAddress()
-	 * @model
+	 * @model default="to_address"
 	 * @generated
 	 */
 	String getToAddress();
