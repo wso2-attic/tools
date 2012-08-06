@@ -12,70 +12,116 @@ import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EObject;
 import org.wso2.developerstudio.eclipse.gmf.esb.CloneMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.CloneMediatorTargetOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.CloneTarget;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
+import org.wso2.developerstudio.eclipse.gmf.esb.TargetEndpointType;
+import org.wso2.developerstudio.eclipse.gmf.esb.TargetSequenceType;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
 
 public class CloneMediatorTransformer extends AbstractEsbNodeTransformer {
 
 	public void transform(TransformationInfo information, EsbNode subject)
 			throws Exception {
-		information.getParentSequence().addChild(createCloneMediator(information,subject));
+		information.getParentSequence().addChild(
+				createCloneMediator(information, subject));
 		/*
-		 *  Transform the property mediator output data flow path.
+		 * Transform the mediator output data flow path.
 		 */
-		doTransform(information,
-				((CloneMediator) subject).getOutputConnector());
-		
+		doTransform(information, ((CloneMediator) subject).getOutputConnector());
+
 	}
 
 	public void createSynapseObject(TransformationInfo info, EObject subject,
-			List<Endpoint> endPoints) {		
+			List<Endpoint> endPoints) {
 	}
 
 	public void transformWithinSequence(TransformationInfo information,
 			EsbNode subject, SequenceMediator sequence) throws Exception {
-		sequence.addChild(createCloneMediator(information,subject));
-		doTransformWithinSequence(information,((CloneMediator) subject).getOutputConnector().getOutgoingLink(),sequence);		
+		sequence.addChild(createCloneMediator(information, subject));
+		doTransformWithinSequence(information, ((CloneMediator) subject)
+				.getOutputConnector().getOutgoingLink(), sequence);
 	}
-	
-	private org.apache.synapse.mediators.eip.splitter.CloneMediator createCloneMediator(TransformationInfo information,EsbNode subject) throws Exception{
+
+	private org.apache.synapse.mediators.eip.splitter.CloneMediator createCloneMediator(
+			TransformationInfo information, EsbNode subject) throws Exception {
 		/*
-		 *  Check subject.
+		 * Check subject.
 		 */
 		Assert.isTrue(subject instanceof CloneMediator, "Invalid subject.");
 		CloneMediator visualClone = (CloneMediator) subject;
 
 		/*
-		 *  Configure Clone mediator.
+		 * Configure Clone mediator.
 		 */
 		org.apache.synapse.mediators.eip.splitter.CloneMediator cloneMediator = new org.apache.synapse.mediators.eip.splitter.CloneMediator();
 		{
 			cloneMediator.setId(visualClone.getCloneID());
 			cloneMediator.setSequential(visualClone.isSequentialMediation());
 			cloneMediator.setContinueParent(visualClone.isContinueParent());
-			
-			List<Target> list=new ArrayList<Target>();
-			for (CloneMediatorTargetOutputConnector outputConnector : visualClone.getTargetsOutputConnector()) {
-				Target target=new Target();
-				list.add(target);
-				ListMediator targetList = new AnonymousListMediator();
-				SequenceMediator targetSequence=new SequenceMediator();	
-			
-				TransformationInfo newInfo = new TransformationInfo();
-				newInfo.setTraversalDirection(information.getTraversalDirection());
-				newInfo.setSynapseConfiguration(information.getSynapseConfiguration());
-				newInfo.setOriginInSequence(information.getOriginInSequence());
-				newInfo.setOriginOutSequence(information.getOriginOutSequence());
-				newInfo.setParentSequence(targetList);
-				doTransform(newInfo, outputConnector);
-				
-				targetSequence.addAll(targetList.getList());
-				target.setSequence(targetSequence);
+
+			List<Target> targetList = new ArrayList<Target>();
+
+			for (int i = 0; i < visualClone.getTargets().size(); ++i) {
+
+				CloneTarget visualTarget = visualClone.getTargets().get(i);
+				Target target = new Target();
+
+				target.setSoapAction(visualTarget.getSoapAction()); // set soap action.
+
+				target.setToAddress(visualTarget.getToAddress()); // set to address.
+
+				if (visualTarget.getSequenceType().equals(
+						TargetSequenceType.ANONYMOUS)) { // handle if target sequence type anonymous.
+
+					CloneMediatorTargetOutputConnector outputConnector = visualClone
+							.getTargetsOutputConnector().get(i);
+
+					ListMediator listMediator = new AnonymousListMediator();
+
+					SequenceMediator targetSequence = new SequenceMediator();
+
+					TransformationInfo newInfo = new TransformationInfo();
+					newInfo.setTraversalDirection(information
+							.getTraversalDirection());
+					newInfo.setSynapseConfiguration(information
+							.getSynapseConfiguration());
+					newInfo.setOriginInSequence(information
+							.getOriginInSequence());
+					newInfo.setOriginOutSequence(information
+							.getOriginOutSequence());
+					newInfo.setParentSequence(listMediator);
+					doTransform(newInfo, outputConnector);
+
+					targetSequence.addAll(listMediator.getList());
+					target.setSequence(targetSequence);
+
+				} else if (visualTarget.getSequenceType().equals(
+						TargetSequenceType.REGISTRY_REFERENCE)) { //handle if target sequence type registry ref.
+
+					target.setSequenceRef(visualTarget.getSequenceKey()
+							.getKeyValue());
+
+				}
+
+				if (visualTarget.getEndpointType().equals(
+						TargetEndpointType.ANONYMOUS)) {
+
+					// TODO handle this situation.
+
+				} else if (visualTarget.getEndpointType().equals(
+						TargetEndpointType.REGISTRY_REFERENCE)) {
+
+					target.setEndpointRef(visualTarget.getEndpointKey()
+							.getKeyValue());
+				}
+
+				targetList.add(target);
+
 			}
-			cloneMediator.setTargets(list);			
+
+			cloneMediator.setTargets(targetList);
 		}
 		return cloneMediator;
 	}
-	
 
 }

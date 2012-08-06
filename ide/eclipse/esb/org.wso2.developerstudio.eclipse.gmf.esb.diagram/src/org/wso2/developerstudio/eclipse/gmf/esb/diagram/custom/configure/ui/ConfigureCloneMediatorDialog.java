@@ -664,7 +664,7 @@ public class ConfigureCloneMediatorDialog extends Dialog {
 				}
 
 				// Setup a new editor control.
-				if (-1 != selectedColumn) {
+				if (-1 != selectedColumn && selectedColumn != 0) {
 					Text editorControl = new Text(table, SWT.NONE);
 					final int editorControlColumn = selectedColumn;
 					editorControl.setText(item.getText(selectedColumn));
