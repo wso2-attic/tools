@@ -1,6 +1,7 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.synapse.config.xml.AnonymousListMediator;
 import org.apache.synapse.endpoints.Endpoint;
@@ -12,6 +13,7 @@ import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EObject;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.IterateMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
 
 public class IterateMediatorTransformer extends AbstractEsbNodeTransformer{
@@ -49,16 +51,50 @@ public class IterateMediatorTransformer extends AbstractEsbNodeTransformer{
 		 */
 		org.apache.synapse.mediators.eip.splitter.IterateMediator iterateMediator = new org.apache.synapse.mediators.eip.splitter.IterateMediator();
 		{	
-			SynapseXPath expression=new SynapseXPath(visualIterate.getIterateExpression().getPropertyValue());
-			iterateMediator.setExpression(expression);
-			SynapseXPath attachedPath=new SynapseXPath(visualIterate.getAttachPath().getPropertyValue());
-			iterateMediator.setAttachPath(attachedPath);
+			NamespacedProperty iterateExp = visualIterate.getIterateExpression();
+			
+			if(iterateExp != null && !iterateExp.getPropertyValue().equals("")){
+				
+				SynapseXPath xpath = new SynapseXPath(iterateExp.getPropertyValue());
+				Map<String, String> nameSpaceMap = iterateExp.getNamespaces();
+				
+				
+				for(String key : nameSpaceMap.keySet()){
+					
+					xpath.addNamespace(key, nameSpaceMap.get(key));
+				}
+				
+				iterateMediator.setExpression(xpath);
+				
+			}
+			
+			NamespacedProperty attachedPath = visualIterate.getAttachPath();
+			
+			if(attachedPath != null && !attachedPath.getPropertyValue().equals("")){
+				
+				
+				SynapseXPath xpath = new SynapseXPath(attachedPath.getPropertyValue());
+				Map<String, String> nameSpaceMap = attachedPath.getNamespaces();
+				
+				for(String key : nameSpaceMap.keySet()){
+					
+					xpath.addNamespace(key, nameSpaceMap.get(key));
+				}
+				
+				iterateMediator.setAttachPath(xpath);
+			}
+			
 			iterateMediator.setPreservePayload(visualIterate.isPreservePayload());
+			
 			iterateMediator.setContinueParent(visualIterate.isContinueParent());
+			
 			iterateMediator.setId(visualIterate.getIterateID());
-			Target target =new Target();
+			
+			
+			Target target = new Target();
 			target.setSoapAction(visualIterate.getTarget().getSoapAction());
 			target.setToAddress(visualIterate.getTarget().getToAddress());
+			
 			ListMediator targetList = new AnonymousListMediator();
 			SequenceMediator targetSequence=new SequenceMediator();
 			
