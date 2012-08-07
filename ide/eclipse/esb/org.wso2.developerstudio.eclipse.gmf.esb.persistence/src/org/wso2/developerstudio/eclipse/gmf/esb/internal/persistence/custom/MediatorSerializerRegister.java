@@ -30,7 +30,8 @@ public class MediatorSerializerRegister {
 	}
 	
 	/* custom mediator serializers */
-	private static final Class[] mediatorSerializers = { ClassMediatorExtSerializer.class };
+	private static final Class[] mediatorSerializers = { ClassMediatorExtSerializer.class,
+		POJOCommandMediatorExtSerializer.class};
 
 	public static synchronized void registerSerializers() {
 		Map<String, MediatorSerializer> serializerMap = mediatorSerializerFinder.getSerializerMap();
