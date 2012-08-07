@@ -1055,13 +1055,13 @@
   <eClassifiers xsi:type="ecore:EClass" name="TransactionMediatorOutputConnector"
       eSuperTypes="#//OutputConnector"/>
   <eClassifiers xsi:type="ecore:EEnum" name="TransactionAction">
-    <eLiterals name="COMMIT" literal="commit"/>
-    <eLiterals name="FAULT_IF_NO_TRANSACTION" value="1" literal="fault-if-no-tx"/>
-    <eLiterals name="INITIATE_NEW" value="2" literal="new"/>
-    <eLiterals name="RESUME" value="3" literal="resume"/>
-    <eLiterals name="SUSPEND" value="4" literal="suspend"/>
-    <eLiterals name="ROLLBACK" value="5" literal="rollback"/>
-    <eLiterals name="USE_EXISTING_OR_NEW" value="6" literal="use-existing-or-new"/>
+    <eLiterals name="COMMIT" literal="Commit transaction"/>
+    <eLiterals name="FAULT_IF_NO_TRANSACTION" value="1" literal="Fault if no transaction"/>
+    <eLiterals name="INITIATE_NEW" value="2" literal="Initiate new transaction"/>
+    <eLiterals name="RESUME" value="3" literal="Resume transaction"/>
+    <eLiterals name="SUSPEND" value="4" literal="Suspend transaction"/>
+    <eLiterals name="ROLLBACK" value="5" literal="Rollback transaction"/>
+    <eLiterals name="USE_EXISTING_OR_NEW" value="6" literal="Use existing or initiate transaction"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OAuthMediator" eSuperTypes="#//Mediator">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="remoteServiceUrl" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"

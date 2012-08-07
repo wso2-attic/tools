@@ -47,7 +47,23 @@ public class TransactionMediatorTransformer extends AbstractEsbNodeTransformer {
 		 */
 		org.apache.synapse.mediators.transaction.TransactionMediator transactionMediator = new org.apache.synapse.mediators.transaction.TransactionMediator();
 		{
-			transactionMediator.setAction(visualTransaction.getAction().getLiteral());
+			String action ="";
+			if(visualTransaction.getAction().getValue()==0){
+				action ="commit";
+			}else if(visualTransaction.getAction().getValue()==1){
+				action ="fault-if-no-tx";
+			}else if(visualTransaction.getAction().getValue()==2){
+				action="new";
+			}else if(visualTransaction.getAction().getValue()==3){
+				action="resume";
+			}else if(visualTransaction.getAction().getValue()==4){
+				action="suspend";
+			}else if(visualTransaction.getAction().getValue()==5){
+				action="rollback";
+			}else if(visualTransaction.getAction().getValue()==6){
+				action="use-existing-or-new";
+			}
+			transactionMediator.setAction(action);
 		}
 		return transactionMediator;
 	}

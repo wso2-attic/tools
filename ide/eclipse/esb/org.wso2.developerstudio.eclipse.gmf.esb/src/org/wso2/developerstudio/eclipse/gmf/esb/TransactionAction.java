@@ -30,7 +30,7 @@ public enum TransactionAction implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	COMMIT(0, "COMMIT", "commit"),
+	COMMIT(0, "COMMIT", "Commit transaction"),
 
 	/**
 	 * The '<em><b>FAULT IF NO TRANSACTION</b></em>' literal object.
@@ -40,7 +40,7 @@ public enum TransactionAction implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	FAULT_IF_NO_TRANSACTION(1, "FAULT_IF_NO_TRANSACTION", "fault-if-no-tx"),
+	FAULT_IF_NO_TRANSACTION(1, "FAULT_IF_NO_TRANSACTION", "Fault if no transaction"),
 
 	/**
 	 * The '<em><b>INITIATE NEW</b></em>' literal object.
@@ -50,7 +50,7 @@ public enum TransactionAction implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	INITIATE_NEW(2, "INITIATE_NEW", "new"),
+	INITIATE_NEW(2, "INITIATE_NEW", "Initiate new transaction"),
 
 	/**
 	 * The '<em><b>RESUME</b></em>' literal object.
@@ -60,7 +60,7 @@ public enum TransactionAction implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	RESUME(3, "RESUME", "resume"),
+	RESUME(3, "RESUME", "Resume transaction"),
 
 	/**
 	 * The '<em><b>SUSPEND</b></em>' literal object.
@@ -70,7 +70,7 @@ public enum TransactionAction implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SUSPEND(4, "SUSPEND", "suspend"),
+	SUSPEND(4, "SUSPEND", "Suspend transaction"),
 
 	/**
 	 * The '<em><b>ROLLBACK</b></em>' literal object.
@@ -80,7 +80,7 @@ public enum TransactionAction implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ROLLBACK(5, "ROLLBACK", "rollback"),
+	ROLLBACK(5, "ROLLBACK", "Rollback transaction"),
 
 	/**
 	 * The '<em><b>USE EXISTING OR NEW</b></em>' literal object.
@@ -90,7 +90,7 @@ public enum TransactionAction implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	USE_EXISTING_OR_NEW(6, "USE_EXISTING_OR_NEW", "use-existing-or-new");
+	USE_EXISTING_OR_NEW(6, "USE_EXISTING_OR_NEW", "Use existing or initiate transaction");
 
 	/**
 	 * The '<em><b>COMMIT</b></em>' literal value.
@@ -101,7 +101,7 @@ public enum TransactionAction implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #COMMIT
-	 * @model literal="commit"
+	 * @model literal="Commit transaction"
 	 * @generated
 	 * @ordered
 	 */
@@ -116,7 +116,7 @@ public enum TransactionAction implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #FAULT_IF_NO_TRANSACTION
-	 * @model literal="fault-if-no-tx"
+	 * @model literal="Fault if no transaction"
 	 * @generated
 	 * @ordered
 	 */
@@ -131,7 +131,7 @@ public enum TransactionAction implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #INITIATE_NEW
-	 * @model literal="new"
+	 * @model literal="Initiate new transaction"
 	 * @generated
 	 * @ordered
 	 */
@@ -146,7 +146,7 @@ public enum TransactionAction implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #RESUME
-	 * @model literal="resume"
+	 * @model literal="Resume transaction"
 	 * @generated
 	 * @ordered
 	 */
@@ -161,7 +161,7 @@ public enum TransactionAction implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #SUSPEND
-	 * @model literal="suspend"
+	 * @model literal="Suspend transaction"
 	 * @generated
 	 * @ordered
 	 */
@@ -176,7 +176,7 @@ public enum TransactionAction implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #ROLLBACK
-	 * @model literal="rollback"
+	 * @model literal="Rollback transaction"
 	 * @generated
 	 * @ordered
 	 */
@@ -191,7 +191,7 @@ public enum TransactionAction implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #USE_EXISTING_OR_NEW
-	 * @model literal="use-existing-or-new"
+	 * @model literal="Use existing or initiate transaction"
 	 * @generated
 	 * @ordered
 	 */
