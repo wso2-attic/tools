@@ -28,6 +28,23 @@
     <name>WSO2 Archetype - Simple JAX-RS webapp</name>
     <description>Simple WSO2 JAX-RS webapp service using Spring configuration</description>
 
+    <url>http://www.wso2.org</url>
+    
+    <licenses>
+        <license>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+            <comments>A business-friendly OSS license</comments>
+        </license>
+    </licenses>
+
+    <scm>
+        <connection>scm:svn:http://svn.wso2.org/repos/wso2/trunk/tools/maven/archetypes/wso2-cxf-jaxrs-service/</connection>
+        <developerConnection>scm:svn:https://svn.wso2.org/repos/wso2/trunk/tools/maven/archetypes/wso2-cxf-jaxrs-service/</developerConnection>
+        <tag>HEAD</tag>
+        <url>http://svn.wso2.org/repos/wso2/trunk/tools/maven/archetypes/wso2-cxf-jaxrs-service</url>
+    </scm>
+
     <build>
         <resources>
             <resource>
@@ -57,4 +74,20 @@
     <properties>
         <cxf.version>2.6.1</cxf.version>
     </properties>
+    
+    <developers>
+        <developer>
+            <id>kasung</id>
+            <name>Kasun Gajasinghe</name>
+            <email>kasung@wso2.com</email>
+            <url>http://kasunbg.org</url>
+            <organization>WSO2 Inc.</organization>
+            <organizationUrl>http://wso2.org</organizationUrl>
+            <roles>
+                <role>engineer</role>
+            </roles>
+            <timezone>+5.30</timezone>
+        </developer>
+    </developers>
+
 </project>
