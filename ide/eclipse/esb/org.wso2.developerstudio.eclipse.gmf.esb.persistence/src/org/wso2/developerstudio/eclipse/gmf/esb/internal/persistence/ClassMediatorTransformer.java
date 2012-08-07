@@ -16,17 +16,17 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence;
 
 import java.util.List;
-
 import org.apache.synapse.Mediator;
 import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.swt.widgets.Display;
 import org.wso2.developerstudio.eclipse.gmf.esb.ClassMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.ClassProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
+import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.ClassMediatorExt;
+import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.DummyClassMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.MediatorSerializerRegister;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.EsbNodeTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
 
@@ -36,6 +36,11 @@ import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
  * corresponding synapse artifact(s).
  */
 public class ClassMediatorTransformer extends AbstractEsbNodeTransformer {
+	
+	static{
+		//TODO: move this to common location
+		MediatorSerializerRegister.registerSerializers();
+	}
 	/**
 	 * {@inheritDoc}
 	 */
@@ -63,34 +68,22 @@ public class ClassMediatorTransformer extends AbstractEsbNodeTransformer {
 		
 	}
 	
-	private org.apache.synapse.mediators.ext.ClassMediator createClassMediator(EsbNode subject) throws Exception{
+	private ClassMediatorExt createClassMediator(EsbNode subject) throws Exception {
 		Assert.isTrue(subject instanceof ClassMediator, "Invalid subject.");
-		ClassMediator visualClass = (ClassMediator)subject;
-	
-		// Configure class mediator.
-		org.apache.synapse.mediators.ext.ClassMediator classMediator = new org.apache.synapse.mediators.ext.ClassMediator();
-		String className = visualClass.getClassName();
-		Mediator m = null;	
-		Class clazz=null;
-		Object o=null;
-		try{
-		clazz= Class.forName(className);
-		o= clazz.newInstance();
+		ClassMediator visualClass = (ClassMediator) subject;
+
+		ClassMediatorExt classMediator = new ClassMediatorExt(visualClass.getClassName());
+		Mediator m = new DummyClassMediator();
+
+		classMediator.setMediator((Mediator) m);
+
+		// Class properties.
+		for (ClassProperty visualProperty : visualClass.getProperties()) {
+			classMediator.addProperty(visualProperty.getPropertyName(),
+					visualProperty.getPropertyValue());
 		}
-		catch(ClassNotFoundException ex){
-			MessageDialog.openError(Display.getCurrent().getActiveShell(), "Invalid Class Name ", "Enter a valid class name for Class Mediator.");			
-		}		
-		classMediator.setMediator((Mediator) o);
-		
-		 // Class properties.
-		 for (ClassProperty visualProperty : visualClass.getProperties()) {
-//		 MediatorProperty mediatorProperty = new MediatorProperty();
-//		 mediatorProperty.setName(visualProperty.getPropertyName());
-//		 mediatorProperty.setValue(visualProperty.getPropertyValue());
-		 classMediator.addProperty(visualProperty.getPropertyName(),visualProperty.getPropertyValue());
-		 }
-		 return classMediator;
-	
+		return classMediator;
+
 	}
 
 }
