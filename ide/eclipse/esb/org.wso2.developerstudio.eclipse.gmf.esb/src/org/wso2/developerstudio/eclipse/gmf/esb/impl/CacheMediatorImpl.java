@@ -247,11 +247,11 @@ public class CacheMediatorImpl extends MediatorImpl implements CacheMediator {
 		super();
 		
 		//Adding default cache on hit branch to cache mediator initialization.
-		CacheOnHitBranch  onhitBranch = EsbFactoryImpl.eINSTANCE.createCacheOnHitBranch();
+		/*CacheOnHitBranch  onhitBranch = EsbFactoryImpl.eINSTANCE.createCacheOnHitBranch();
 		RegistryKeyProperty keyproperty = EsbFactoryImpl.eINSTANCE.createRegistryKeyProperty();
 		keyproperty.setKeyValue("default/path");
 		onhitBranch.setSequenceKey(keyproperty);
-		this.setOnHitBranch(onhitBranch);
+		this.setOnHitBranch(onhitBranch);*/
 	}
 
 	/**

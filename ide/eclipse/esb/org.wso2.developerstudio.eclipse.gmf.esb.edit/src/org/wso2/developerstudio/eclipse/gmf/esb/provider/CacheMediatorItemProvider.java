@@ -74,7 +74,7 @@ public class CacheMediatorItemProvider
 		addCacheActionPropertyDescriptor(object);
 		
 		//adding cache on hit property descriptor.
-		addSequenceKeyPropertyDescriptor(object);
+		//addSequenceKeyPropertyDescriptor(object);
 		
 		if (cacheMediator.getCacheAction().equals(CacheAction.FINDER)) {
 			addHashGeneratorPropertyDescriptor(object);
