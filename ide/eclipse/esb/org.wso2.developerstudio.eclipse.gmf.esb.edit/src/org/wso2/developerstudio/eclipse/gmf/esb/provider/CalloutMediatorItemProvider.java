@@ -297,7 +297,7 @@ public class CalloutMediatorItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 "Result",
+				 null,
 				 null));
 	}
 

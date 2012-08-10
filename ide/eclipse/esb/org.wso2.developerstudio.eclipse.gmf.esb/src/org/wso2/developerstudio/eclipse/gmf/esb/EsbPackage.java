@@ -6469,13 +6469,22 @@ public interface EsbPackage extends EPackage {
 	int CACHE_MEDIATOR__MAX_ENTRY_COUNT = MEDIATOR_FEATURE_COUNT + 7;
 
 	/**
-	 * The feature id for the '<em><b>On Hit Branch</b></em>' containment reference.
+	 * The feature id for the '<em><b>Sequence Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CACHE_MEDIATOR__ON_HIT_BRANCH = MEDIATOR_FEATURE_COUNT + 8;
+	int CACHE_MEDIATOR__SEQUENCE_TYPE = MEDIATOR_FEATURE_COUNT + 8;
+
+	/**
+	 * The feature id for the '<em><b>Sequence Key</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CACHE_MEDIATOR__SEQUENCE_KEY = MEDIATOR_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Input Connector</b></em>' containment reference.
@@ -6484,7 +6493,7 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CACHE_MEDIATOR__INPUT_CONNECTOR = MEDIATOR_FEATURE_COUNT + 9;
+	int CACHE_MEDIATOR__INPUT_CONNECTOR = MEDIATOR_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Output Connector</b></em>' containment reference.
@@ -6493,7 +6502,7 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CACHE_MEDIATOR__OUTPUT_CONNECTOR = MEDIATOR_FEATURE_COUNT + 10;
+	int CACHE_MEDIATOR__OUTPUT_CONNECTOR = MEDIATOR_FEATURE_COUNT + 11;
 
 	/**
 	 * The number of structural features of the '<em>Cache Mediator</em>' class.
@@ -6502,7 +6511,7 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CACHE_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 11;
+	int CACHE_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 12;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CacheMediatorInputConnectorImpl <em>Cache Mediator Input Connector</em>}' class.
@@ -6571,31 +6580,13 @@ public interface EsbPackage extends EPackage {
 	int CACHE_ON_HIT_BRANCH = 136;
 
 	/**
-	 * The feature id for the '<em><b>Sequence Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CACHE_ON_HIT_BRANCH__SEQUENCE_TYPE = 0;
-
-	/**
-	 * The feature id for the '<em><b>Sequence Key</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CACHE_ON_HIT_BRANCH__SEQUENCE_KEY = 1;
-
-	/**
 	 * The number of structural features of the '<em>Cache On Hit Branch</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CACHE_ON_HIT_BRANCH_FEATURE_COUNT = 2;
+	int CACHE_ON_HIT_BRANCH_FEATURE_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.XQueryMediatorImpl <em>XQuery Mediator</em>}' class.
@@ -16935,15 +16926,26 @@ public interface EsbPackage extends EPackage {
 	EAttribute getCacheMediator_MaxEntryCount();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getOnHitBranch <em>On Hit Branch</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getSequenceType <em>Sequence Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>On Hit Branch</em>'.
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getOnHitBranch()
+	 * @return the meta object for the attribute '<em>Sequence Type</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getSequenceType()
 	 * @see #getCacheMediator()
 	 * @generated
 	 */
-	EReference getCacheMediator_OnHitBranch();
+	EAttribute getCacheMediator_SequenceType();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getSequenceKey <em>Sequence Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Sequence Key</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getSequenceKey()
+	 * @see #getCacheMediator()
+	 * @generated
+	 */
+	EReference getCacheMediator_SequenceKey();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getInputConnector <em>Input Connector</em>}'.
@@ -16996,28 +16998,6 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getCacheOnHitBranch();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheOnHitBranch#getSequenceType <em>Sequence Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Sequence Type</em>'.
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CacheOnHitBranch#getSequenceType()
-	 * @see #getCacheOnHitBranch()
-	 * @generated
-	 */
-	EAttribute getCacheOnHitBranch_SequenceType();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheOnHitBranch#getSequenceKey <em>Sequence Key</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Sequence Key</em>'.
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CacheOnHitBranch#getSequenceKey()
-	 * @see #getCacheOnHitBranch()
-	 * @generated
-	 */
-	EReference getCacheOnHitBranch_SequenceKey();
 
 	/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.gmf.esb.XQueryMediator <em>XQuery Mediator</em>}'.
@@ -24802,12 +24782,20 @@ public interface EsbPackage extends EPackage {
 		EAttribute CACHE_MEDIATOR__MAX_ENTRY_COUNT = eINSTANCE.getCacheMediator_MaxEntryCount();
 
 		/**
-		 * The meta object literal for the '<em><b>On Hit Branch</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Sequence Type</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CACHE_MEDIATOR__ON_HIT_BRANCH = eINSTANCE.getCacheMediator_OnHitBranch();
+		EAttribute CACHE_MEDIATOR__SEQUENCE_TYPE = eINSTANCE.getCacheMediator_SequenceType();
+
+		/**
+		 * The meta object literal for the '<em><b>Sequence Key</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CACHE_MEDIATOR__SEQUENCE_KEY = eINSTANCE.getCacheMediator_SequenceKey();
 
 		/**
 		 * The meta object literal for the '<em><b>Input Connector</b></em>' containment reference feature.
@@ -24854,22 +24842,6 @@ public interface EsbPackage extends EPackage {
 		 * @generated
 		 */
 		EClass CACHE_ON_HIT_BRANCH = eINSTANCE.getCacheOnHitBranch();
-
-		/**
-		 * The meta object literal for the '<em><b>Sequence Type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CACHE_ON_HIT_BRANCH__SEQUENCE_TYPE = eINSTANCE.getCacheOnHitBranch_SequenceType();
-
-		/**
-		 * The meta object literal for the '<em><b>Sequence Key</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CACHE_ON_HIT_BRANCH__SEQUENCE_KEY = eINSTANCE.getCacheOnHitBranch_SequenceKey();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.XQueryMediatorImpl <em>XQuery Mediator</em>}' class.

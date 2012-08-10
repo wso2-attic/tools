@@ -7,6 +7,7 @@ import org.apache.synapse.mediators.base.SequenceMediator;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EObject;
 import org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.CacheSequenceType;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
@@ -61,12 +62,15 @@ public class CacheMediatorTransformer extends AbstractEsbNodeTransformer {
 				cacheMediator.setCollector(true);
 			}
 			
-			if(visualCache.getOnHitBranch() != null && visualCache.getOnHitBranch().getSequenceKey() != null){
-				
-				RegistryKeyProperty regKeyProperty = visualCache.getOnHitBranch().getSequenceKey();
-				cacheMediator.setOnCacheHitRef(regKeyProperty.getKeyValue());
-				
-			}
+			if(visualCache.getSequenceType().equals(CacheSequenceType.REGISTRY_REFERENCE)){
+				 
+				 if(visualCache.getSequenceKey() != null){
+					 
+					 RegistryKeyProperty  regKeyProperty = visualCache.getSequenceKey();
+					 cacheMediator.setOnCacheHitRef(regKeyProperty.getKeyValue());
+				 }
+			 }
+			
 		}
 		return cacheMediator;
 	}

@@ -862,16 +862,14 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//CacheMediator/maxMessageSize"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//CacheMediator/implementationType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//CacheMediator/maxEntryCount"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//CacheMediator/onHitBranch"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//CacheMediator/sequenceType"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esb.ecore#//CacheMediator/sequenceKey"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//CacheMediator/inputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//CacheMediator/outputConnector"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//CacheMediatorInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//CacheMediatorOutputConnector"/>
-    <genClasses ecoreClass="esb.ecore#//CacheOnHitBranch">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//CacheOnHitBranch/sequenceType"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esb.ecore#//CacheOnHitBranch/sequenceKey"/>
-    </genClasses>
+    <genClasses ecoreClass="esb.ecore#//CacheOnHitBranch"/>
     <genClasses ecoreClass="esb.ecore#//XQueryMediator">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//XQueryMediator/variables"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esb.ecore#//XQueryMediator/targetXPath"/>

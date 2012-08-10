@@ -27,6 +27,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.wso2.developerstudio.eclipse.gmf.esb.CacheAction;
 import org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.CacheSequenceType;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 
@@ -73,8 +74,12 @@ public class CacheMediatorItemProvider
 		addCacheScopePropertyDescriptor(object);
 		addCacheActionPropertyDescriptor(object);
 		
-		//adding cache on hit property descriptor.
-		//addSequenceKeyPropertyDescriptor(object);
+		
+		addSequenceTypePropertyDescriptor(object);
+		if(cacheMediator.getSequenceType().equals(CacheSequenceType.REGISTRY_REFERENCE)){
+			//adding cache on hit property descriptor.
+			addSequenceKeyPropertyDescriptor(object);
+		}
 		
 		if (cacheMediator.getCacheAction().equals(CacheAction.FINDER)) {
 			addHashGeneratorPropertyDescriptor(object);
@@ -263,19 +268,41 @@ public class CacheMediatorItemProvider
 	}
 	
 	/**
-	 * This adds a property descriptor for the Sequence Key feature in {@link CacheOnHitBranchItemProvider}}.
+	 * This adds a property descriptor for the Sequence Type feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
+	 */
+	protected void addSequenceTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CacheMediator_sequenceType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CacheMediator_sequenceType_feature", "_UI_CacheMediator_type"),
+				 EsbPackage.Literals.CACHE_MEDIATOR__SEQUENCE_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Sequence Key feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
 	 */
 	protected void addSequenceKeyPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_CacheOnHitBranch_sequenceKey_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CacheOnHitBranch_sequenceKey_feature", "_UI_CacheOnHitBranch_type"),
-				 EsbPackage.Literals.CACHE_ON_HIT_BRANCH__SEQUENCE_KEY,
+				 getString("_UI_CacheMediator_sequenceKey_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CacheMediator_sequenceKey_feature", "_UI_CacheMediator_type"),
+				 EsbPackage.Literals.CACHE_MEDIATOR__SEQUENCE_KEY,
 				 true,
 				 false,
 				 true,
@@ -298,7 +325,6 @@ public class CacheMediatorItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(EsbPackage.Literals.CACHE_MEDIATOR__ON_HIT_BRANCH);
 			childrenFeatures.add(EsbPackage.Literals.CACHE_MEDIATOR__INPUT_CONNECTOR);
 			childrenFeatures.add(EsbPackage.Literals.CACHE_MEDIATOR__OUTPUT_CONNECTOR);
 		}
@@ -365,9 +391,9 @@ public class CacheMediatorItemProvider
 			case EsbPackage.CACHE_MEDIATOR__MAX_MESSAGE_SIZE:
 			case EsbPackage.CACHE_MEDIATOR__IMPLEMENTATION_TYPE:
 			case EsbPackage.CACHE_MEDIATOR__MAX_ENTRY_COUNT:
+			case EsbPackage.CACHE_MEDIATOR__SEQUENCE_TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case EsbPackage.CACHE_MEDIATOR__ON_HIT_BRANCH:
 			case EsbPackage.CACHE_MEDIATOR__INPUT_CONNECTOR:
 			case EsbPackage.CACHE_MEDIATOR__OUTPUT_CONNECTOR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
@@ -387,11 +413,6 @@ public class CacheMediatorItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(EsbPackage.Literals.CACHE_MEDIATOR__ON_HIT_BRANCH,
-				 EsbFactory.eINSTANCE.createCacheOnHitBranch()));
 
 		newChildDescriptors.add
 			(createChildParameter

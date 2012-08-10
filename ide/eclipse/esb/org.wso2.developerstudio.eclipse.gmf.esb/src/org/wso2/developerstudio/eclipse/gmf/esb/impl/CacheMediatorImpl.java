@@ -6,6 +6,9 @@
  */
 package org.wso2.developerstudio.eclipse.gmf.esb.impl;
 
+import java.util.List;
+import java.util.Map;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -21,8 +24,12 @@ import org.wso2.developerstudio.eclipse.gmf.esb.CacheMediatorInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.CacheMediatorOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.CacheOnHitBranch;
 import org.wso2.developerstudio.eclipse.gmf.esb.CacheScope;
+import org.wso2.developerstudio.eclipse.gmf.esb.CacheSequenceType;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
+import org.wso2.developerstudio.eclipse.platform.core.mediatype.PlatformMediaTypeConstants;
+import org.wso2.developerstudio.eclipse.platform.core.utils.CSProviderConstants;
+import org.wso2.developerstudio.eclipse.platform.core.utils.DeveloperStudioProviderUtils;
 
 /**
  * <!-- begin-user-doc -->
@@ -39,7 +46,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CacheMediatorImpl#getMaxMessageSize <em>Max Message Size</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CacheMediatorImpl#getImplementationType <em>Implementation Type</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CacheMediatorImpl#getMaxEntryCount <em>Max Entry Count</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CacheMediatorImpl#getOnHitBranch <em>On Hit Branch</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CacheMediatorImpl#getSequenceType <em>Sequence Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CacheMediatorImpl#getSequenceKey <em>Sequence Key</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CacheMediatorImpl#getInputConnector <em>Input Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CacheMediatorImpl#getOutputConnector <em>Output Connector</em>}</li>
  * </ul>
@@ -209,14 +217,34 @@ public class CacheMediatorImpl extends MediatorImpl implements CacheMediator {
 	protected int maxEntryCount = MAX_ENTRY_COUNT_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getOnHitBranch() <em>On Hit Branch</em>}' containment reference.
+	 * The default value of the '{@link #getSequenceType() <em>Sequence Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOnHitBranch()
+	 * @see #getSequenceType()
+	 * @generated NOT
+	 * @ordered
+	 */
+	protected static final CacheSequenceType SEQUENCE_TYPE_EDEFAULT = CacheSequenceType.ANONYMOUS;
+
+	/**
+	 * The cached value of the '{@link #getSequenceType() <em>Sequence Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSequenceType()
 	 * @generated
 	 * @ordered
 	 */
-	protected CacheOnHitBranch onHitBranch;
+	protected CacheSequenceType sequenceType = SEQUENCE_TYPE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getSequenceKey() <em>Sequence Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSequenceKey()
+	 * @generated
+	 * @ordered
+	 */
+	protected RegistryKeyProperty sequenceKey;
 
 	/**
 	 * The cached value of the '{@link #getInputConnector() <em>Input Connector</em>}' containment reference.
@@ -246,12 +274,12 @@ public class CacheMediatorImpl extends MediatorImpl implements CacheMediator {
 	protected CacheMediatorImpl() {
 		super();
 		
-		//Adding default cache on hit branch to cache mediator initialization.
-		/*CacheOnHitBranch  onhitBranch = EsbFactoryImpl.eINSTANCE.createCacheOnHitBranch();
 		RegistryKeyProperty keyproperty = EsbFactoryImpl.eINSTANCE.createRegistryKeyProperty();
-		keyproperty.setKeyValue("default/path");
-		onhitBranch.setSequenceKey(keyproperty);
-		this.setOnHitBranch(onhitBranch);*/
+		keyproperty.setKeyName("keyName");
+		keyproperty.setPrettyName("prettyName");
+		keyproperty.setKeyValue("default/path");		
+		setSequenceKey(keyproperty);
+		
 	}
 
 	/**
@@ -438,8 +466,8 @@ public class CacheMediatorImpl extends MediatorImpl implements CacheMediator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CacheOnHitBranch getOnHitBranch() {
-		return onHitBranch;
+	public CacheSequenceType getSequenceType() {
+		return sequenceType;
 	}
 
 	/**
@@ -447,11 +475,32 @@ public class CacheMediatorImpl extends MediatorImpl implements CacheMediator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetOnHitBranch(CacheOnHitBranch newOnHitBranch, NotificationChain msgs) {
-		CacheOnHitBranch oldOnHitBranch = onHitBranch;
-		onHitBranch = newOnHitBranch;
+	public void setSequenceType(CacheSequenceType newSequenceType) {
+		CacheSequenceType oldSequenceType = sequenceType;
+		sequenceType = newSequenceType == null ? SEQUENCE_TYPE_EDEFAULT : newSequenceType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.CACHE_MEDIATOR__SEQUENCE_TYPE, oldSequenceType, sequenceType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RegistryKeyProperty getSequenceKey() {
+		return sequenceKey;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSequenceKey(RegistryKeyProperty newSequenceKey, NotificationChain msgs) {
+		RegistryKeyProperty oldSequenceKey = sequenceKey;
+		sequenceKey = newSequenceKey;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.CACHE_MEDIATOR__ON_HIT_BRANCH, oldOnHitBranch, newOnHitBranch);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.CACHE_MEDIATOR__SEQUENCE_KEY, oldSequenceKey, newSequenceKey);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -462,18 +511,18 @@ public class CacheMediatorImpl extends MediatorImpl implements CacheMediator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOnHitBranch(CacheOnHitBranch newOnHitBranch) {
-		if (newOnHitBranch != onHitBranch) {
+	public void setSequenceKey(RegistryKeyProperty newSequenceKey) {
+		if (newSequenceKey != sequenceKey) {
 			NotificationChain msgs = null;
-			if (onHitBranch != null)
-				msgs = ((InternalEObject)onHitBranch).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.CACHE_MEDIATOR__ON_HIT_BRANCH, null, msgs);
-			if (newOnHitBranch != null)
-				msgs = ((InternalEObject)newOnHitBranch).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.CACHE_MEDIATOR__ON_HIT_BRANCH, null, msgs);
-			msgs = basicSetOnHitBranch(newOnHitBranch, msgs);
+			if (sequenceKey != null)
+				msgs = ((InternalEObject)sequenceKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.CACHE_MEDIATOR__SEQUENCE_KEY, null, msgs);
+			if (newSequenceKey != null)
+				msgs = ((InternalEObject)newSequenceKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.CACHE_MEDIATOR__SEQUENCE_KEY, null, msgs);
+			msgs = basicSetSequenceKey(newSequenceKey, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.CACHE_MEDIATOR__ON_HIT_BRANCH, newOnHitBranch, newOnHitBranch));
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.CACHE_MEDIATOR__SEQUENCE_KEY, newSequenceKey, newSequenceKey));
 	}
 
 	/**
@@ -571,8 +620,8 @@ public class CacheMediatorImpl extends MediatorImpl implements CacheMediator {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case EsbPackage.CACHE_MEDIATOR__ON_HIT_BRANCH:
-				return basicSetOnHitBranch(null, msgs);
+			case EsbPackage.CACHE_MEDIATOR__SEQUENCE_KEY:
+				return basicSetSequenceKey(null, msgs);
 			case EsbPackage.CACHE_MEDIATOR__INPUT_CONNECTOR:
 				return basicSetInputConnector(null, msgs);
 			case EsbPackage.CACHE_MEDIATOR__OUTPUT_CONNECTOR:
@@ -606,8 +655,10 @@ public class CacheMediatorImpl extends MediatorImpl implements CacheMediator {
 				return getImplementationType();
 			case EsbPackage.CACHE_MEDIATOR__MAX_ENTRY_COUNT:
 				return getMaxEntryCount();
-			case EsbPackage.CACHE_MEDIATOR__ON_HIT_BRANCH:
-				return getOnHitBranch();
+			case EsbPackage.CACHE_MEDIATOR__SEQUENCE_TYPE:
+				return getSequenceType();
+			case EsbPackage.CACHE_MEDIATOR__SEQUENCE_KEY:
+				return getSequenceKey();
 			case EsbPackage.CACHE_MEDIATOR__INPUT_CONNECTOR:
 				return getInputConnector();
 			case EsbPackage.CACHE_MEDIATOR__OUTPUT_CONNECTOR:
@@ -649,8 +700,11 @@ public class CacheMediatorImpl extends MediatorImpl implements CacheMediator {
 			case EsbPackage.CACHE_MEDIATOR__MAX_ENTRY_COUNT:
 				setMaxEntryCount((Integer)newValue);
 				return;
-			case EsbPackage.CACHE_MEDIATOR__ON_HIT_BRANCH:
-				setOnHitBranch((CacheOnHitBranch)newValue);
+			case EsbPackage.CACHE_MEDIATOR__SEQUENCE_TYPE:
+				setSequenceType((CacheSequenceType)newValue);
+				return;
+			case EsbPackage.CACHE_MEDIATOR__SEQUENCE_KEY:
+				setSequenceKey((RegistryKeyProperty)newValue);
 				return;
 			case EsbPackage.CACHE_MEDIATOR__INPUT_CONNECTOR:
 				setInputConnector((CacheMediatorInputConnector)newValue);
@@ -695,8 +749,11 @@ public class CacheMediatorImpl extends MediatorImpl implements CacheMediator {
 			case EsbPackage.CACHE_MEDIATOR__MAX_ENTRY_COUNT:
 				setMaxEntryCount(MAX_ENTRY_COUNT_EDEFAULT);
 				return;
-			case EsbPackage.CACHE_MEDIATOR__ON_HIT_BRANCH:
-				setOnHitBranch((CacheOnHitBranch)null);
+			case EsbPackage.CACHE_MEDIATOR__SEQUENCE_TYPE:
+				setSequenceType(SEQUENCE_TYPE_EDEFAULT);
+				return;
+			case EsbPackage.CACHE_MEDIATOR__SEQUENCE_KEY:
+				setSequenceKey((RegistryKeyProperty)null);
 				return;
 			case EsbPackage.CACHE_MEDIATOR__INPUT_CONNECTOR:
 				setInputConnector((CacheMediatorInputConnector)null);
@@ -733,8 +790,10 @@ public class CacheMediatorImpl extends MediatorImpl implements CacheMediator {
 				return implementationType != IMPLEMENTATION_TYPE_EDEFAULT;
 			case EsbPackage.CACHE_MEDIATOR__MAX_ENTRY_COUNT:
 				return maxEntryCount != MAX_ENTRY_COUNT_EDEFAULT;
-			case EsbPackage.CACHE_MEDIATOR__ON_HIT_BRANCH:
-				return onHitBranch != null;
+			case EsbPackage.CACHE_MEDIATOR__SEQUENCE_TYPE:
+				return sequenceType != SEQUENCE_TYPE_EDEFAULT;
+			case EsbPackage.CACHE_MEDIATOR__SEQUENCE_KEY:
+				return sequenceKey != null;
 			case EsbPackage.CACHE_MEDIATOR__INPUT_CONNECTOR:
 				return inputConnector != null;
 			case EsbPackage.CACHE_MEDIATOR__OUTPUT_CONNECTOR:
@@ -770,6 +829,8 @@ public class CacheMediatorImpl extends MediatorImpl implements CacheMediator {
 		result.append(implementationType);
 		result.append(", maxEntryCount: ");
 		result.append(maxEntryCount);
+		result.append(", sequenceType: ");
+		result.append(sequenceType);
 		result.append(')');
 		return result.toString();
 	}

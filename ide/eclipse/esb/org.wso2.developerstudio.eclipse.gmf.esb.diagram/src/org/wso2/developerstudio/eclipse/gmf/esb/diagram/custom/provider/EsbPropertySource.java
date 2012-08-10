@@ -135,9 +135,10 @@ public class EsbPropertySource extends PropertySource {
 			//CallTemplate Mediator Template parameter custom property descriptor.
 		}else if(pkg.getCallTemplateMediator_TemplateParameters().equals(feature)){
 			return new CallTemplateParamCustomPropertyDescriptor(object, itemPropertyDescriptor);
+			
 			//Cache Mediator OnHitBranch Sequence Key custom property descriptor.
-		}else if(pkg.getCacheOnHitBranch_SequenceKey().equals(feature)){
-			return new CustomPropertyDescriptor(((CacheMediator)object).getOnHitBranch(), itemPropertyDescriptor);
+		}else if(pkg.getCacheMediator_SequenceKey().equals(feature)){
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
 		}
 			
 		// Else, default EMF behavior

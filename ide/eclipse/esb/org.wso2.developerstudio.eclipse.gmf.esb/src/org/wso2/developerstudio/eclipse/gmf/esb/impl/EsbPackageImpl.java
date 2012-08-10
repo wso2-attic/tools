@@ -6341,8 +6341,8 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCacheMediator_OnHitBranch() {
-		return (EReference)cacheMediatorEClass.getEStructuralFeatures().get(8);
+	public EAttribute getCacheMediator_SequenceType() {
+		return (EAttribute)cacheMediatorEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -6350,7 +6350,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCacheMediator_InputConnector() {
+	public EReference getCacheMediator_SequenceKey() {
 		return (EReference)cacheMediatorEClass.getEStructuralFeatures().get(9);
 	}
 
@@ -6359,8 +6359,17 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCacheMediator_OutputConnector() {
+	public EReference getCacheMediator_InputConnector() {
 		return (EReference)cacheMediatorEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCacheMediator_OutputConnector() {
+		return (EReference)cacheMediatorEClass.getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -6388,24 +6397,6 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 */
 	public EClass getCacheOnHitBranch() {
 		return cacheOnHitBranchEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getCacheOnHitBranch_SequenceType() {
-		return (EAttribute)cacheOnHitBranchEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getCacheOnHitBranch_SequenceKey() {
-		return (EReference)cacheOnHitBranchEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -10508,7 +10499,8 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEAttribute(cacheMediatorEClass, CACHE_MEDIATOR__MAX_MESSAGE_SIZE);
 		createEAttribute(cacheMediatorEClass, CACHE_MEDIATOR__IMPLEMENTATION_TYPE);
 		createEAttribute(cacheMediatorEClass, CACHE_MEDIATOR__MAX_ENTRY_COUNT);
-		createEReference(cacheMediatorEClass, CACHE_MEDIATOR__ON_HIT_BRANCH);
+		createEAttribute(cacheMediatorEClass, CACHE_MEDIATOR__SEQUENCE_TYPE);
+		createEReference(cacheMediatorEClass, CACHE_MEDIATOR__SEQUENCE_KEY);
 		createEReference(cacheMediatorEClass, CACHE_MEDIATOR__INPUT_CONNECTOR);
 		createEReference(cacheMediatorEClass, CACHE_MEDIATOR__OUTPUT_CONNECTOR);
 
@@ -10517,8 +10509,6 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		cacheMediatorOutputConnectorEClass = createEClass(CACHE_MEDIATOR_OUTPUT_CONNECTOR);
 
 		cacheOnHitBranchEClass = createEClass(CACHE_ON_HIT_BRANCH);
-		createEAttribute(cacheOnHitBranchEClass, CACHE_ON_HIT_BRANCH__SEQUENCE_TYPE);
-		createEReference(cacheOnHitBranchEClass, CACHE_ON_HIT_BRANCH__SEQUENCE_KEY);
 
 		xQueryMediatorEClass = createEClass(XQUERY_MEDIATOR);
 		createEReference(xQueryMediatorEClass, XQUERY_MEDIATOR__VARIABLES);
@@ -11824,7 +11814,8 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEAttribute(getCacheMediator_MaxMessageSize(), ecorePackage.getEInt(), "maxMessageSize", "2000", 0, 1, CacheMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCacheMediator_ImplementationType(), this.getCacheImplementationType(), "implementationType", "IN_MEMORY", 0, 1, CacheMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCacheMediator_MaxEntryCount(), ecorePackage.getEInt(), "maxEntryCount", "1000", 0, 1, CacheMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCacheMediator_OnHitBranch(), this.getCacheOnHitBranch(), null, "onHitBranch", null, 0, 1, CacheMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCacheMediator_SequenceType(), this.getCacheSequenceType(), "sequenceType", "REGISTRY_REFERENCE", 0, 1, CacheMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCacheMediator_SequenceKey(), this.getRegistryKeyProperty(), null, "sequenceKey", null, 0, 1, CacheMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCacheMediator_InputConnector(), this.getCacheMediatorInputConnector(), null, "inputConnector", null, 0, 1, CacheMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCacheMediator_OutputConnector(), this.getCacheMediatorOutputConnector(), null, "outputConnector", null, 0, 1, CacheMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -11833,8 +11824,6 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEClass(cacheMediatorOutputConnectorEClass, CacheMediatorOutputConnector.class, "CacheMediatorOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(cacheOnHitBranchEClass, CacheOnHitBranch.class, "CacheOnHitBranch", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getCacheOnHitBranch_SequenceType(), this.getCacheSequenceType(), "sequenceType", "REGISTRY_REFERENCE", 0, 1, CacheOnHitBranch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCacheOnHitBranch_SequenceKey(), this.getRegistryKeyProperty(), null, "sequenceKey", null, 0, 1, CacheOnHitBranch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(xQueryMediatorEClass, XQueryMediator.class, "XQueryMediator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getXQueryMediator_Variables(), this.getXQueryVariable(), null, "variables", null, 0, -1, XQueryMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

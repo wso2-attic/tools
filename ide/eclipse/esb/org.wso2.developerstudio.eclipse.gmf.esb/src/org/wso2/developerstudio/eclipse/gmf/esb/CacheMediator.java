@@ -23,7 +23,8 @@ package org.wso2.developerstudio.eclipse.gmf.esb;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getMaxMessageSize <em>Max Message Size</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getImplementationType <em>Implementation Type</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getMaxEntryCount <em>Max Entry Count</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getOnHitBranch <em>On Hit Branch</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getSequenceType <em>Sequence Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getSequenceKey <em>Sequence Key</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getInputConnector <em>Input Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getOutputConnector <em>Output Connector</em>}</li>
  * </ul>
@@ -259,30 +260,60 @@ public interface CacheMediator extends Mediator {
 	void setMaxEntryCount(int value);
 
 	/**
-	 * Returns the value of the '<em><b>On Hit Branch</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Sequence Type</b></em>' attribute.
+	 * The default value is <code>"REGISTRY_REFERENCE"</code>.
+	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.gmf.esb.CacheSequenceType}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>On Hit Branch</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Sequence Type</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>On Hit Branch</em>' containment reference.
-	 * @see #setOnHitBranch(CacheOnHitBranch)
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getCacheMediator_OnHitBranch()
+	 * @return the value of the '<em>Sequence Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CacheSequenceType
+	 * @see #setSequenceType(CacheSequenceType)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getCacheMediator_SequenceType()
+	 * @model default="REGISTRY_REFERENCE"
+	 * @generated
+	 */
+	CacheSequenceType getSequenceType();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getSequenceType <em>Sequence Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Sequence Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CacheSequenceType
+	 * @see #getSequenceType()
+	 * @generated
+	 */
+	void setSequenceType(CacheSequenceType value);
+
+	/**
+	 * Returns the value of the '<em><b>Sequence Key</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Sequence Key</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Sequence Key</em>' containment reference.
+	 * @see #setSequenceKey(RegistryKeyProperty)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getCacheMediator_SequenceKey()
 	 * @model containment="true"
 	 * @generated
 	 */
-	CacheOnHitBranch getOnHitBranch();
+	RegistryKeyProperty getSequenceKey();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getOnHitBranch <em>On Hit Branch</em>}' containment reference.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator#getSequenceKey <em>Sequence Key</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>On Hit Branch</em>' containment reference.
-	 * @see #getOnHitBranch()
+	 * @param value the new value of the '<em>Sequence Key</em>' containment reference.
+	 * @see #getSequenceKey()
 	 * @generated
 	 */
-	void setOnHitBranch(CacheOnHitBranch value);
+	void setSequenceKey(RegistryKeyProperty value);
 
 	/**
 	 * Returns the value of the '<em><b>Input Connector</b></em>' containment reference.

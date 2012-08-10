@@ -66,54 +66,8 @@ public class CacheOnHitBranchItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addSequenceTypePropertyDescriptor(object);
-			addSequenceKeyPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Sequence Type feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSequenceTypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_CacheOnHitBranch_sequenceType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CacheOnHitBranch_sequenceType_feature", "_UI_CacheOnHitBranch_type"),
-				 EsbPackage.Literals.CACHE_ON_HIT_BRANCH__SEQUENCE_TYPE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Sequence Key feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSequenceKeyPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_CacheOnHitBranch_sequenceKey_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CacheOnHitBranch_sequenceKey_feature", "_UI_CacheOnHitBranch_type"),
-				 EsbPackage.Literals.CACHE_ON_HIT_BRANCH__SEQUENCE_KEY,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -137,11 +91,7 @@ public class CacheOnHitBranchItemProvider
 	
 	@Override
 	public String getText(Object object) {
-		CacheSequenceType labelValue = ((CacheOnHitBranch)object).getSequenceType();
-		String label = labelValue == null ? null : labelValue.toString();
-		return label == null || label.length() == 0 ?
-			getString("_UI_CacheOnHitBranch_type") :
-			getString("_UI_CacheOnHitBranch_type") + " " + label;
+		return getString("_UI_CacheOnHitBranch_type");
 	}
 
 	/**
@@ -155,12 +105,6 @@ public class CacheOnHitBranchItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(CacheOnHitBranch.class)) {
-			case EsbPackage.CACHE_ON_HIT_BRANCH__SEQUENCE_TYPE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 
