@@ -138,7 +138,7 @@ public class EsbPaletteFactory {
 
 	/**
 	 * Creates "EndPoints" palette tool group
-	 * @generated
+	 * @generated NOT
 	 */
 	private PaletteContainer createEndPoints3Group() {
 		PaletteDrawer paletteContainer = new PaletteDrawer(
@@ -146,9 +146,9 @@ public class EsbPaletteFactory {
 		paletteContainer.setId("createEndPoints3Group"); //$NON-NLS-1$
 		paletteContainer.add(createDefaultEndPoint1CreationTool());
 		paletteContainer.add(createAddressEndPoint2CreationTool());
-		paletteContainer.add(createFailoverEndPoint3CreationTool());
+	//	paletteContainer.add(createFailoverEndPoint3CreationTool());
 		paletteContainer.add(createWSDLEndPoint4CreationTool());
-		paletteContainer.add(createLoadBalanceEndPoint5CreationTool());
+	//	paletteContainer.add(createLoadBalanceEndPoint5CreationTool());
 		return paletteContainer;
 	}
 
