@@ -11,6 +11,7 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.gef.EditPartViewer;
 import org.eclipse.gef.Tool;
+import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.palette.PaletteContainer;
 import org.eclipse.gef.palette.PaletteDrawer;
 import org.eclipse.gef.palette.PaletteEntry;
@@ -37,7 +38,14 @@ import org.eclipse.jface.action.Separator;
 import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IFileEditorInput;
+import org.wso2.developerstudio.eclipse.gmf.esb.AddressEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpointInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ToolPalleteDetails;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AddressEndPointEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AddressEndPointInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 
@@ -1020,6 +1028,34 @@ public class EsbPaletteFactory {
 				public void mouseMove(MouseEvent me, EditPartViewer viewer) {
 					super.mouseMove(me, viewer);
 				}
+				
+				protected Command getCommand() {
+					if (getTargetEditPart() == null) {
+						return null;
+					}
+					if (getTargetEditPart() instanceof AbstractMediator) {
+						for (int i = 0; i < ((AbstractMediator) getTargetEditPart())
+								.getChildren().size(); ++i) {
+							if (((AbstractMediator) getTargetEditPart())
+									.getChildren().get(i) instanceof AbstractInputConnector) {
+								return ((AbstractInputConnector) ((AbstractMediator) getTargetEditPart())
+										.getChildren().get(i))
+										.getCommand(getTargetRequest());
+							}
+						}
+					} else if (getTargetEditPart() instanceof AbstractEndpoint) {
+						for (int j = 0; j < ((AbstractEndpoint) getTargetEditPart())
+								.getChildren().size(); ++j) {
+							if (((AbstractEndpoint) getTargetEditPart())
+									.getChildren().get(j) instanceof AbstractEndpointInputConnector) {
+								return ((AbstractEndpointInputConnector) ((AbstractEndpoint) getTargetEditPart())
+										.getChildren().get(j))
+										.getCommand(getTargetRequest());
+							}
+						}
+					}
+					return getTargetEditPart().getCommand(getTargetRequest());
+				}				
 			};
 			tool.setProperties(getToolProperties());
 			return tool;

@@ -187,6 +187,7 @@ public class MediatorFlowMediatorFlowCompartmentEditPart extends
 
 			CompoundCommand cc = new CompoundCommand("Create Link");
 
+			if(inputConnector !=null){
 			ICommand createSubTopicsCmd = new DeferredCreateConnectionViewAndElementCommand(
 					new CreateConnectionViewAndElementRequest(
 							EsbElementTypes.EsbLink_4001,
@@ -201,6 +202,7 @@ public class MediatorFlowMediatorFlowCompartmentEditPart extends
 			cc.add(new ICommandProxy(createSubTopicsCmd));
 
 			getDiagramEditDomain().getDiagramCommandStack().execute(cc);
+			}
 
 			outputConnectorEditPart = sourceOutputConnector;
 			sourceEditPart = (AbstractBorderedShapeEditPart) child;
