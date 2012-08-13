@@ -45,7 +45,7 @@ public class EsbServerContentsCompartmentEditPart extends
 	 * @generated NOT
 	 */
 	public String getCompartmentName() {
-		return "This is a tech preview.";
+		return "";
 		//return Messages.EsbServerContentsCompartmentEditPart_title;
 	}
 

@@ -1,69 +1,37 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
 
-import javax.swing.ProgressMonitor;
-
-import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.IResource;
-import org.eclipse.core.resources.ResourcesPlugin;
-import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.NullProgressMonitor;
-import org.eclipse.core.runtime.Status;
-import org.eclipse.draw2d.ColorConstants;
-import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.IFigure;
-import org.eclipse.draw2d.ImageFigure;
-import org.eclipse.draw2d.KeyEvent;
-import org.eclipse.draw2d.KeyListener;
-import org.eclipse.draw2d.LightweightSystem;
-import org.eclipse.draw2d.MouseEvent;
-import org.eclipse.draw2d.MouseListener;
 import org.eclipse.draw2d.PositionConstants;
-import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
-import org.eclipse.draw2d.geometry.Dimension;
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gef.EditPart;
-import org.eclipse.gef.EditPartViewer;
 import org.eclipse.gef.EditPolicy;
-import org.eclipse.gef.GraphicalViewer;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.Tool;
 import org.eclipse.gef.commands.Command;
-import org.eclipse.gef.commands.CommandStack;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.palette.PaletteContainer;
 import org.eclipse.gef.palette.PaletteDrawer;
 import org.eclipse.gef.palette.ToolEntry;
 import org.eclipse.gef.requests.CreateRequest;
-import org.eclipse.gef.ui.parts.GraphicalEditor;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IBorderItemEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.BorderItemSelectionEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.OpenEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
 import org.eclipse.gmf.runtime.diagram.ui.internal.services.palette.PaletteToolEntry;
-import org.eclipse.gmf.runtime.diagram.ui.tools.UnspecifiedTypeConnectionTool;
 import org.eclipse.gmf.runtime.diagram.ui.tools.UnspecifiedTypeCreationTool;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
@@ -73,15 +41,11 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.jface.dialogs.ErrorDialog;
-import org.eclipse.jface.operation.IRunnableWithProgress;
-import org.eclipse.jface.resource.ImageDescriptor;
-import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
-import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Listener;
@@ -90,17 +54,10 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorReference;
 import org.eclipse.ui.IFileEditorInput;
-import org.eclipse.ui.IViewPart;
-import org.eclipse.ui.IWorkbenchPage;
-import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
-import org.eclipse.ui.actions.WorkspaceModifyOperation;
-import org.eclipse.ui.ide.IDE;
-import org.eclipse.ui.views.navigator.ResourceNavigator;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
-import org.wso2.developerstudio.eclipse.gmf.esb.sequence.diagram.custom.SequenceFileCreator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractOutputConnector;
@@ -111,13 +68,10 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.SequenceStorage;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ToolPalleteDetails;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.SequenceCanonicalEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.SequenceItemSemanticEditPolicy;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramEditorPlugin;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramEditorUtil;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.Messages;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
-import org.eclipse.swt.layout.GridData;
-import org.eclipse.swt.layout.GridLayout;
+import org.wso2.developerstudio.eclipse.gmf.esb.sequence.diagram.custom.SequenceFileCreator;
 
 /**
  * @generated NOT
@@ -527,24 +481,40 @@ public class SequenceEditPart extends AbstractMediator {
 
 		// For validation: user should not enter "" value for name.
 		if (((Sequence) sequence).getName().equals("")) {
-
+			
 			Shell parent = new Shell();
 			final Shell shell = new Shell(parent, SWT.TITLE | SWT.BORDER
 					| SWT.APPLICATION_MODAL);
 			shell.setText("Enter Sequence Name");
-
-			shell.setLayout(new GridLayout(2, true));
+			// Set layout for the main container
+			GridLayout mainLayout = new GridLayout(2,false);
+			mainLayout.marginHeight = 20;
+			mainLayout.marginWidth = 20;
+			shell.setLayout(mainLayout);
 
 			Label label = new Label(shell, SWT.NULL);
 			label.setText("Name    ");
 
 			final Text text = new Text(shell, SWT.SINGLE | SWT.BORDER);
-
-			final Button buttonOK = new Button(shell, SWT.PUSH);
-			buttonOK.setText("Ok");
-			buttonOK.setLayoutData(new GridData(GridData.HORIZONTAL_ALIGN_END));
+			GridData textGridData= new GridData();
+			textGridData.horizontalAlignment = GridData.HORIZONTAL_ALIGN_FILL;
+			textGridData.horizontalSpan = 1;
+			textGridData.minimumHeight=100;
+			textGridData.minimumWidth=300;
+			textGridData.grabExcessHorizontalSpace=true;
+			text.setLayoutData(textGridData);	
+			
 			Button buttonCancel = new Button(shell, SWT.PUSH);
-			buttonCancel.setText("Cancel");
+			buttonCancel.setText("    Cancel    ");
+			GridData cancelButtonGridData=new GridData(GridData.HORIZONTAL_ALIGN_BEGINNING);
+			cancelButtonGridData.verticalIndent=10;
+			buttonCancel.setLayoutData(cancelButtonGridData);
+			
+			final Button buttonOK = new Button(shell, SWT.PUSH);
+			buttonOK.setText("        Ok         ");
+			GridData okButtonGridData=new GridData(GridData.HORIZONTAL_ALIGN_END);
+			okButtonGridData.verticalIndent=10;
+			buttonOK.setLayoutData(okButtonGridData);
 
 			text.addListener(SWT.Modify, new Listener() {
 				public void handleEvent(Event event) {
