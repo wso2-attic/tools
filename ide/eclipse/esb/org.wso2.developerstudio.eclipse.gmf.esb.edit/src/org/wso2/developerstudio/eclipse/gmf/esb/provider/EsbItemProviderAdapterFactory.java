@@ -5389,6 +5389,75 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.Sequences} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SequencesItemProvider sequencesItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.Sequences}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSequencesAdapter() {
+		if (sequencesItemProvider == null) {
+			sequencesItemProvider = new SequencesItemProvider(this);
+		}
+
+		return sequencesItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.SequencesOutputConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SequencesOutputConnectorItemProvider sequencesOutputConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.SequencesOutputConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSequencesOutputConnectorAdapter() {
+		if (sequencesOutputConnectorItemProvider == null) {
+			sequencesOutputConnectorItemProvider = new SequencesOutputConnectorItemProvider(this);
+		}
+
+		return sequencesOutputConnectorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.SequencesInputConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SequencesInputConnectorItemProvider sequencesInputConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.SequencesInputConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSequencesInputConnectorAdapter() {
+		if (sequencesInputConnectorItemProvider == null) {
+			sequencesInputConnectorItemProvider = new SequencesInputConnectorItemProvider(this);
+		}
+
+		return sequencesInputConnectorItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5715,6 +5784,9 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 		if (loadBalanceEndPointWestOutputConnectorItemProvider != null) loadBalanceEndPointWestOutputConnectorItemProvider.dispose();
 		if (localEntryItemProvider != null) localEntryItemProvider.dispose();
 		if (sessionItemProvider != null) sessionItemProvider.dispose();
+		if (sequencesItemProvider != null) sequencesItemProvider.dispose();
+		if (sequencesOutputConnectorItemProvider != null) sequencesOutputConnectorItemProvider.dispose();
+		if (sequencesInputConnectorItemProvider != null) sequencesInputConnectorItemProvider.dispose();
 	}
 
 }
