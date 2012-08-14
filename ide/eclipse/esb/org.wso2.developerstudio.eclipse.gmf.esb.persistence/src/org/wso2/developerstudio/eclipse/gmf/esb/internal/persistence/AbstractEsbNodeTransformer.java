@@ -9,6 +9,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbSequenceOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.InputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.OutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.SequencesInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.SequencesOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.EsbNodeTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.EsbTransformerRegistry;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
@@ -64,7 +66,7 @@ public abstract class AbstractEsbNodeTransformer implements EsbNodeTransformer {
 				InputConnector inputConnector = outgoingLink.getTarget();
 				Assert.isNotNull(inputConnector, "Input connector should not be null.");
 				
-				if(inputConnector instanceof EsbSequenceOutputConnector){
+				if(inputConnector instanceof SequencesInputConnector){
 					if(info.currentSequence.getOutputConnector().getOutgoingLink()!=null){
 					EsbNode esbNode=(EsbNode)info.currentSequence.getOutputConnector().getOutgoingLink().getTarget().eContainer();
 					EsbNodeTransformer transformer = EsbTransformerRegistry.getInstance().getTransformer(esbNode);					
