@@ -1,3 +1,19 @@
+/*
+ * Copyright (c) 2012, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package org.wso2.developerstudio.eclipse.artifact.cep.ui.Dialog;
 
 import java.util.ArrayList;
@@ -113,8 +129,8 @@ public class QueryDialog extends TitleAreaDialog {
 	@Override
 	protected Control createDialogArea(Composite parent) {
 		GridData grData = null;
-		final ScrolledComposite scrolledContainer = new ScrolledComposite(parent,
-				SWT.H_SCROLL | SWT.V_SCROLL | SWT.BORDER);
+		final ScrolledComposite scrolledContainer = new ScrolledComposite(
+				parent, SWT.H_SCROLL | SWT.V_SCROLL | SWT.BORDER);
 		scrolledContainer.setMinSize(800, 500);
 		scrolledContainer.setExpandHorizontal(true);
 		scrolledContainer.setExpandVertical(true);
@@ -135,9 +151,9 @@ public class QueryDialog extends TitleAreaDialog {
 
 			@Override
 			public void modifyText(ModifyEvent arg0) {
-				if(name.getText().trim().equals("")){
+				if (name.getText().trim().equals("")) {
 					getButton(OK).setEnabled(false);
-				}else{
+				} else {
 					getButton(OK).setEnabled(true);
 				}
 			}
@@ -237,27 +253,26 @@ public class QueryDialog extends TitleAreaDialog {
 		documentElement.setLayoutData(grData);
 		final Label lbNamespace = new Label(tabComposite, SWT.NULL);
 		lbNamespace.setText("Namespace");
-        namespace = new Text(tabComposite, SWT.BORDER | SWT.SINGLE);
+		namespace = new Text(tabComposite, SWT.BORDER | SWT.SINGLE);
 		namespace.setText(oNamespace);
 		grData = new GridData(GridData.FILL_HORIZONTAL);
 		grData.horizontalSpan = 2;
 		namespace.setLayoutData(grData);
 		final Label lbProperties = new Label(tabComposite, SWT.NULL);
 		lbProperties.setText("Properties");
-		 lbEmpty = new Label(tabComposite, SWT.NULL);
+		lbEmpty = new Label(tabComposite, SWT.NULL);
 		lbEmpty.setText("");
-         lbEmpty.setLayoutData(grData);
+		lbEmpty.setLayoutData(grData);
 		tableQuery = new TableViewer(tabComposite, SWT.MULTI | SWT.H_SCROLL
 				| SWT.V_SCROLL | SWT.FULL_SELECTION | SWT.BORDER);
 		table = tableQuery.getTable();
-		 grData = new GridData(GridData.FILL_HORIZONTAL);
+		grData = new GridData(GridData.FILL_HORIZONTAL);
 		grData.horizontalSpan = 2;
-		grData.verticalSpan=3;
+		grData.verticalSpan = 3;
 		table.setLayoutData(grData);
-		
-		
+
 		add = new Button(tabComposite, SWT.NONE);
-		 grData = new GridData(GridData.FILL_HORIZONTAL);
+		grData = new GridData(GridData.FILL_HORIZONTAL);
 		add.setLayoutData(grData);
 		edit = new Button(tabComposite, SWT.NONE);
 		edit.setLayoutData(grData);
@@ -295,14 +310,10 @@ public class QueryDialog extends TitleAreaDialog {
 							already = true;
 						}
 					}
-
 					setXmlFieldName(pro.getXmlFieldName());
-
 					setSelectedXMLFieldType(pro.getXmlFieldType());
-
 					hashMapProperty = getXmlFieldName() + "|"
 							+ getSelectedXMLFieldType();
-
 					if (!editPage && !already) {
 						if (count < 2 && !exceedCount) {
 							queryProperty.remove(count);
@@ -422,7 +433,6 @@ public class QueryDialog extends TitleAreaDialog {
 				tableQuery.refresh();
 
 				delete.setEnabled(false);
-
 			}
 
 			@Override
@@ -431,8 +441,8 @@ public class QueryDialog extends TitleAreaDialog {
 			}
 		});
 
-		scrolledContainer
-				.setMinSize(container.computeSize(SWT.DEFAULT, SWT.DEFAULT));
+		scrolledContainer.setMinSize(container.computeSize(SWT.DEFAULT,
+				SWT.DEFAULT));
 		container.layout();
 
 		return super.createDialogArea(scrolledContainer);
@@ -458,8 +468,8 @@ public class QueryDialog extends TitleAreaDialog {
 		viewerColumn.getColumn().setWidth(200);
 		viewerColumn.getColumn().setText("Name");
 
-		TableViewerColumn viewerColumnFieldName = new TableViewerColumn(tableQuery,
-				SWT.NONE, 1);
+		TableViewerColumn viewerColumnFieldName = new TableViewerColumn(
+				tableQuery, SWT.NONE, 1);
 		viewerColumnFieldName.setLabelProvider(new ColumnLabelProvider() {
 			@Override
 			public String getText(Object element) {
@@ -471,8 +481,8 @@ public class QueryDialog extends TitleAreaDialog {
 		});
 		viewerColumnFieldName.getColumn().setWidth(200);
 		viewerColumnFieldName.getColumn().setText("Xml Field Name");
-		TableViewerColumn viewerColumnXMLType = new TableViewerColumn(tableQuery,
-				SWT.NONE, 2);
+		TableViewerColumn viewerColumnXMLType = new TableViewerColumn(
+				tableQuery, SWT.NONE, 2);
 		viewerColumnXMLType.setLabelProvider(new ColumnLabelProvider() {
 			@Override
 			public String getText(Object element) {
@@ -486,7 +496,7 @@ public class QueryDialog extends TitleAreaDialog {
 		viewerColumnXMLType.getColumn().setText("Xml Field Type");
 		tableQuery.setContentProvider(ArrayContentProvider.getInstance());
 		tableQuery.setInput(propertylist.toArray());
-         tableQuery.refresh();
+		tableQuery.refresh();
 	}
 
 	@Override
@@ -542,7 +552,7 @@ public class QueryDialog extends TitleAreaDialog {
 
 		query.setOutput(out);
 		query.setExpression(expressionObject);
-		if(name.getText().trim().equals("")){
+		if (name.getText().trim().equals("")) {
 			ok = false;
 		}
 		return ok;
@@ -581,7 +591,7 @@ public class QueryDialog extends TitleAreaDialog {
 			List<XMLProperty> xmlProperty = ((ElementOutputMapping) query
 					.getOutput().getOutputMapping()).getProperties();
 			for (XMLProperty xmlproperty : xmlProperty) {
-				
+
 				queryProperty.add(xmlproperty);
 				proQuery.put(
 						xmlproperty.getName(),
@@ -604,13 +614,13 @@ public class QueryDialog extends TitleAreaDialog {
 	@Override
 	protected void okPressed() {
 		// TODO Auto-generated method stub
-		if(finalizePage()){
-		super.okPressed();
-	}else{
-		getButton(OK).setEnabled(false);
-		
-	}
+		if (finalizePage()) {
+			super.okPressed();
+		} else {
+			getButton(OK).setEnabled(false);
+
 		}
+	}
 
 	public boolean isPageCanceled() {
 		return isPageCanceled;

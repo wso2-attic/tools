@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ * Copyright (c) 2012, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,7 +23,6 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.Path;
 import org.wso2.developerstudio.eclipse.platform.core.project.export.ProjectArtifactHandler;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -41,7 +40,9 @@ public class CEPArtfactExportHandler extends ProjectArtifactHandler {
 					.getRoot()
 					.getFileForLocation(
 							Path.fromOSString(cepFile.getAbsolutePath()));
-			exportResources.add((IResource) cepFileRef);
+			if (!cepFile.getName().equals("pom.xml")) {
+				exportResources.add((IResource) cepFileRef);
+			}
 		}
 		return exportResources;
 	}

@@ -1,3 +1,19 @@
+/*
+ * Copyright (c) 2012, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package org.wso2.developerstudio.eclipse.artifact.cep.editor;
 
 import java.io.BufferedInputStream;
@@ -74,10 +90,9 @@ import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
-
 public class CEPProjectEditorPage extends FormPage {
 	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
-	private  String outputfileLocation;
+	private String outputfileLocation;
 	public static String bucketProjectName;
 	public static String initialFileLocation;
 	public static boolean isNewProject = true;
@@ -94,7 +109,7 @@ public class CEPProjectEditorPage extends FormPage {
 	private TableViewer viewerQuery;
 	private List<Input> inputList = new ArrayList<Input>();
 	private List<Query> queryList = new ArrayList<Query>();
-	private Action exportAction;
+
 	private Table inputTable;
 	private Table queryTable;
 	private int selectedIndex;
@@ -114,14 +129,15 @@ public class CEPProjectEditorPage extends FormPage {
 	public CEPProjectEditorPage(FormEditor editor, String id, String title) {
 		super(editor, id, title);
 		bucket = new Bucket();
-		
+
 	}
 
 	public void initContent() throws Exception {
 		pomFileRes = ((IFileEditorInput) (getEditor().getEditorInput()))
 				.getFile();
 		pomFileRes.getLocation().toFile();
-		outputfileLocation =pomFileRes.getLocation().toFile().getAbsolutePath();
+		outputfileLocation = pomFileRes.getLocation().toFile()
+				.getAbsolutePath();
 		cepTemplateFile = new File(outputfileLocation);
 	}
 
@@ -132,7 +148,7 @@ public class CEPProjectEditorPage extends FormPage {
 		bucket.setEngineProvider(getBucketEngineProvider());
 		bucket.setOverWriteRegistry(isOverWriteRegistry());
 		bucket.setInputs(inputList);
-		for(Query query:queryList){
+		for (Query query : queryList) {
 			query.setQueryIndex(queryList.indexOf(query));
 		}
 		bucket.setQueries(queryList);
@@ -226,7 +242,6 @@ public class CEPProjectEditorPage extends FormPage {
 
 			@Override
 			public void widgetDefaultSelected(SelectionEvent arg0) {
-				
 
 			}
 		});
@@ -246,9 +261,7 @@ public class CEPProjectEditorPage extends FormPage {
 
 			@Override
 			public void widgetSelected(SelectionEvent arg0) {
-
 				if (overWriteChecked.getSelection()) {
-
 					setOverWriteRegistry(true);
 					setPageDirty(true);
 					updateDirtyState();
@@ -261,14 +274,13 @@ public class CEPProjectEditorPage extends FormPage {
 
 			@Override
 			public void widgetDefaultSelected(SelectionEvent arg0) {
-				
+
 			}
 		});
 
 		Section bucketInputs = managedForm.getToolkit().createSection(
 				managedForm.getForm().getBody(),
 				Section.TWISTIE | Section.TITLE_BAR);
-
 		GridData gd_inputs = new GridData(SWT.NONE, SWT.CENTER, true, false, 2,
 				1);
 		bucketInputs.setText("Inputs");
@@ -328,20 +340,17 @@ public class CEPProjectEditorPage extends FormPage {
 				BucketInputDialog dialog = new BucketInputDialog(managedForm
 						.getForm().getBody().getShell(), false);
 				dialog.create();
-			
 				if (dialog.open() == Window.OK) {
 					Input p = dialog.getInput();
 					updateInputTable(p, false);
 				}
-
 				setPageDirty(true);
 				updateDirtyState();
-
 			}
 
 			@Override
 			public void widgetDefaultSelected(SelectionEvent arg0) {
-				
+
 			}
 		});
 		Button editButton = managedForm.getToolkit().createButton(compositeone,
@@ -363,14 +372,13 @@ public class CEPProjectEditorPage extends FormPage {
 					Input inp = dialog.getInput();
 					updateInputTable(inp, true);
 				}
-
 				setPageDirty(true);
 				updateDirtyState();
 			}
 
 			@Override
 			public void widgetDefaultSelected(SelectionEvent arg0) {
-				
+
 			}
 		});
 
@@ -383,9 +391,7 @@ public class CEPProjectEditorPage extends FormPage {
 		deleteButton.addSelectionListener(new SelectionListener() {
 			@Override
 			public void widgetSelected(SelectionEvent arg0) {
-				
 				selectedIndex = inputTable.getSelectionIndex();
-				
 				inputList.remove(selectedIndex);
 				viewer.setInput(inputList.toArray());
 				viewer.refresh();
@@ -395,14 +401,12 @@ public class CEPProjectEditorPage extends FormPage {
 
 			@Override
 			public void widgetDefaultSelected(SelectionEvent arg0) {
-				
+
 			}
 		});
-
 		Section bucketQueries = managedForm.getToolkit().createSection(
 				managedForm.getForm().getBody(),
 				Section.TWISTIE | Section.TITLE_BAR);
-
 		GridData gd_queries = new GridData(SWT.NONE, SWT.CENTER, true, false,
 				2, 1);
 		bucketQueries.setText("Queries");
@@ -413,7 +417,6 @@ public class CEPProjectEditorPage extends FormPage {
 		bucketQueries.setClient(compositetwo);
 		compositetwo.setLayout(new GridLayout(3, false));
 		initQueryTable(compositetwo, managedForm);
-
 		gdBtn.widthHint = 100;
 		Button addButtonQuery = managedForm.getToolkit().createButton(
 				compositetwo, "Add...", SWT.PUSH);
@@ -436,7 +439,7 @@ public class CEPProjectEditorPage extends FormPage {
 
 			@Override
 			public void widgetDefaultSelected(SelectionEvent arg0) {
-				
+
 			}
 		});
 		Button editButtonQuery = managedForm.getToolkit().createButton(
@@ -446,16 +449,12 @@ public class CEPProjectEditorPage extends FormPage {
 		editButtonQuery.addSelectionListener(new SelectionListener() {
 			@Override
 			public void widgetSelected(SelectionEvent arg0) {
-				
-
 				selectedIndexQuery = queryTable.getSelectionIndex();
-				Query p = queryList.get(queryTable.getSelectionIndex());
-                 
+				Query queryTemp = queryList.get(queryTable.getSelectionIndex());
 				QueryDialog dialog = new QueryDialog(managedForm.getForm()
 						.getBody().getShell(), true);
-				dialog.initializePage(p);
+				dialog.initializePage(queryTemp);
 				dialog.create();
-
 				if (dialog.open() == Window.OK) {
 					Query query = dialog.getQueryObject();
 					updateQueryTable(query, true);
@@ -467,7 +466,7 @@ public class CEPProjectEditorPage extends FormPage {
 
 			@Override
 			public void widgetDefaultSelected(SelectionEvent arg0) {
-				
+
 			}
 		});
 
@@ -478,19 +477,17 @@ public class CEPProjectEditorPage extends FormPage {
 		deleteButtonQuery.addSelectionListener(new SelectionListener() {
 			@Override
 			public void widgetSelected(SelectionEvent arg0) {
-				
 				selectedIndexQuery = queryTable.getSelectionIndex();
 				queryList.remove(selectedIndexQuery);
-			    viewerQuery.setInput(queryList.toArray());
+				viewerQuery.setInput(queryList.toArray());
 				viewerQuery.refresh();
 				setPageDirty(true);
 				updateDirtyState();
-
 			}
 
 			@Override
 			public void widgetDefaultSelected(SelectionEvent arg0) {
-				
+
 			}
 		});
 
@@ -526,7 +523,6 @@ public class CEPProjectEditorPage extends FormPage {
 		GridData db = new GridData(SWT.NONE, SWT.TOP, true, true, 4, 10);
 		db.horizontalSpan = 2;
 		table.setLayoutData(db);
-
 		TableViewerColumn viewerColumn = new TableViewerColumn(viewer,
 				SWT.NONE, 0);
 		viewerColumn.setLabelProvider(new ColumnLabelProvider() {
@@ -541,8 +537,8 @@ public class CEPProjectEditorPage extends FormPage {
 		});
 		viewerColumn.getColumn().setWidth(300);
 		viewerColumn.getColumn().setText("Topic");
-		TableViewerColumn viewerColumnBrokerName = new TableViewerColumn(viewer,
-				SWT.NONE, 1);
+		TableViewerColumn viewerColumnBrokerName = new TableViewerColumn(
+				viewer, SWT.NONE, 1);
 		viewerColumnBrokerName.setLabelProvider(new ColumnLabelProvider() {
 			@Override
 			public String getText(Object element) {
@@ -584,13 +580,11 @@ public class CEPProjectEditorPage extends FormPage {
 
 			@Override
 			public void widgetSelected(SelectionEvent arg0) {
-			
 
 			}
 
 			@Override
 			public void widgetDefaultSelected(SelectionEvent arg0) {
-				
 
 			}
 		});
@@ -609,7 +603,6 @@ public class CEPProjectEditorPage extends FormPage {
 		GridData dbone = new GridData(SWT.NONE, SWT.TOP, true, true, 4, 10);
 		dbone.horizontalSpan = 2;
 		table.setLayoutData(dbone);
-
 		TableViewerColumn viewerColumn = new TableViewerColumn(viewerQuery,
 				SWT.NONE, 0);
 		viewerColumn.setLabelProvider(new ColumnLabelProvider() {
@@ -640,8 +633,8 @@ public class CEPProjectEditorPage extends FormPage {
 		});
 		viewerColumnType.getColumn().setWidth(300);
 		viewerColumnType.getColumn().setText("Expression Type");
-		TableViewerColumn viewerColumnTopic = new TableViewerColumn(viewerQuery,
-				SWT.NONE, 2);
+		TableViewerColumn viewerColumnTopic = new TableViewerColumn(
+				viewerQuery, SWT.NONE, 2);
 		viewerColumnTopic.setLabelProvider(new ColumnLabelProvider() {
 			@Override
 			public String getText(Object element) {
@@ -669,13 +662,11 @@ public class CEPProjectEditorPage extends FormPage {
 
 			@Override
 			public void widgetSelected(SelectionEvent arg0) {
-				
 
 			}
 
 			@Override
 			public void widgetDefaultSelected(SelectionEvent arg0) {
-				
 
 			}
 		});
@@ -683,21 +674,11 @@ public class CEPProjectEditorPage extends FormPage {
 	}
 
 	private void updateQueryTable(Query query, boolean edit) {
-
-	
-
 		if (!edit) {
-			
-			
 			queryList.add(query);
-			
-			
-			} else if (edit) {
-				
+		} else if (edit) {
 			queryList.remove(selectedIndexQuery);
 			queryList.add(selectedIndexQuery, query);
-				
-			
 		}
 		viewerQuery.setInput(queryList.toArray());
 		viewerQuery.refresh();
@@ -705,21 +686,20 @@ public class CEPProjectEditorPage extends FormPage {
 
 	private void writeTOFile(Bucket bucket) throws IOException,
 			XMLStreamException {
-
 		String templateContent = BucketHelper.bucketToOM(bucket).toString();
 		templateContent = templateContent.replace("<![CDATA[", "");
 		templateContent = templateContent.replace("]]>", "");
 		templateContent = format(templateContent);
 		templateContent = templateContent.replace(
 				"<?xml version=\"1.0\" encoding=\"UTF-8\"?>", "");
+		templateContent = templateContent.trim();
 		templateContent = templateContent.replaceAll("&gt;", ">");
 		templateContent = templateContent.replaceAll("&lt;", "<");
 		FileUtils.writeContent(cepTemplateFile, templateContent);
-
 	}
 
 	private Bucket readFromFile(String path) throws XMLStreamException,
-		FactoryConfigurationError, CEPConfigurationException, IOException {
+			FactoryConfigurationError, CEPConfigurationException, IOException {
 		File bucketFile = new File(path);
 		BufferedInputStream inputStream = null;
 		OMElement bucketElement = null;
@@ -739,8 +719,8 @@ public class CEPProjectEditorPage extends FormPage {
 		String description = bucket.getDescription();
 		String engineProvider = bucket.getEngineProvider();
 		boolean isOverWrte = bucket.isOverWriteRegistry();
-		List<Input> input =  bucket.getInputs();
-		List<Query> query =  bucket.getQueries();
+		List<Input> input = bucket.getInputs();
+		List<Query> query = bucket.getQueries();
 
 		txtBucketName.setText(name);
 		txtDescription.setText(description);
@@ -768,10 +748,9 @@ public class CEPProjectEditorPage extends FormPage {
 			viewer.refresh();
 		}
 		if (query != null) {
-		
+
 			queryList = query;
-			
-			
+
 			viewerQuery.setInput(queryList.toArray());
 			viewerQuery.refresh();
 		}
@@ -870,39 +849,9 @@ public class CEPProjectEditorPage extends FormPage {
 		this.overWriteRegistry = overWriteRegistry;
 	}
 
-	public void exportCar() {
-		MessageBox exportMsg = new MessageBox(PlatformUI.getWorkbench()
-				.getActiveWorkbenchWindow().getShell(), SWT.ICON_INFORMATION);
-		exportMsg.setText("WSO2 Platform Distribution");
-		String finalFileName = String.format("%s_%s.car", parentPrj.getModel()
-				.getArtifactId(), parentPrj.getModel().getVersion());
-		try {
-			saveConfigurationFile();
-			IResource CarbonArchive = ExportUtil.BuildCAppProject(pomFileRes
-					.getProject());
-			DirectoryDialog dirDlg = new DirectoryDialog(PlatformUI
-					.getWorkbench().getActiveWorkbenchWindow().getShell());
-			String dirName = dirDlg.open();
-			if (dirName != null) {
-				File destFileName = new File(dirName, finalFileName);
-				FileUtils.copy(CarbonArchive.getLocation().toFile(),
-						destFileName);
-				// exportMsg.setMessage("archive created successfully at " +
-				// destFileName );
-				// exportMsg.open();
-			}
-		} catch (Exception e) {
-			exportMsg
-					.setMessage("Error occurred while exporting the archive :\n"
-							+ e.getMessage());
-			exportMsg.open();
-		}
-	}
-
-	public void refreshForm() throws Exception  {
+	public void refreshForm() throws Exception {
 		initContent();
 		updateDesignChanges(readFromFile(outputfileLocation));
-		
 
 	}
 

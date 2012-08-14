@@ -1,3 +1,19 @@
+/*
+ * Copyright (c) 2012, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package org.wso2.developerstudio.eclipse.artifact.cep.ui.Dialog;
 
 import org.eclipse.jface.dialogs.TitleAreaDialog;
@@ -39,13 +55,13 @@ public class InputPropertyDialog extends TitleAreaDialog {
 		super.create();
 		setTitle("Input Property Configuration");
 	}
-	
+
 	@Override
 	public Control createDialogArea(Composite parent) {
 		GridData grData = null;
-		final ScrolledComposite scrolledContainer = new ScrolledComposite(parent,
-				SWT.H_SCROLL | SWT.V_SCROLL | SWT.BORDER|SWT.FILL);
-		
+		final ScrolledComposite scrolledContainer = new ScrolledComposite(
+				parent, SWT.H_SCROLL | SWT.V_SCROLL | SWT.BORDER | SWT.FILL);
+
 		scrolledContainer.setExpandHorizontal(true);
 		scrolledContainer.setExpandVertical(true);
 		scrolledContainer.setAlwaysShowScrollBars(true);
@@ -65,7 +81,7 @@ public class InputPropertyDialog extends TitleAreaDialog {
 		Label lbXpath = new Label(container, SWT.NULL);
 		lbXpath.setText("Xpath");
 		proXPath = new Text(container, SWT.BORDER | SWT.SINGLE);
-		 grData = new GridData(GridData.FILL_HORIZONTAL);
+		grData = new GridData(GridData.FILL_HORIZONTAL);
 		grData.horizontalSpan = 2;
 		proXPath.setLayoutData(grData);
 		proXPath.setText(xpath);
@@ -74,27 +90,26 @@ public class InputPropertyDialog extends TitleAreaDialog {
 		proXType = new Combo(container, SWT.READ_ONLY);
 		proXType.setItems(propertyTypes);
 		proXType.setText(type);
-		 grData = new GridData();
+		grData = new GridData();
 		grData.horizontalSpan = 1;
-        proXType.setLayoutData(grData);
-		scrolledContainer
-		.setMinSize(container.computeSize(SWT.DEFAULT, SWT.DEFAULT));
-container.layout();
+		proXType.setLayoutData(grData);
+		scrolledContainer.setMinSize(container.computeSize(SWT.DEFAULT,
+				SWT.DEFAULT));
+		container.layout();
 
-return super.createDialogArea(scrolledContainer);
+		return super.createDialogArea(scrolledContainer);
 	}
 
 	private boolean finalizePage() {
-		boolean ok =true;
+		boolean ok = true;
 		xmlProperty = new XMLProperty();
 		xmlProperty.setName(proName.getText().trim());
 		xmlProperty.setXpath(proXPath.getText().trim());
 		xmlProperty.setType(proXType.getText().trim());
-           if(proName.getText().trim().equals("")){
-        	 ok = false;
-        	   
-           }
-           return ok;
+		if (proName.getText().trim().equals("")) {
+			ok = false;
+		}
+		return ok;
 	}
 
 	public XMLProperty getProperties() {
@@ -110,10 +125,10 @@ return super.createDialogArea(scrolledContainer);
 	@Override
 	protected void okPressed() {
 		// TODO Auto-generated method stub
-		if(finalizePage()){
+		if (finalizePage()) {
 			super.okPressed();
-		}else{
-		super.cancelPressed();
+		} else {
+			super.cancelPressed();
 		}
 	}
 

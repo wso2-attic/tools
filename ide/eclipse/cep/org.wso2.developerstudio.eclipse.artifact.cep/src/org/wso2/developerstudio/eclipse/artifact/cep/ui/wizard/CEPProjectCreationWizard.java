@@ -70,7 +70,6 @@ public class CEPProjectCreationWizard extends AbstractWSO2ProjectCreationWizard 
 		boolean already = false;
 		try {
 			if (getModel().getSelectedOption().equals("import.cepproject")) {
-
 				File importFile = getModel().getImportFile();
 				CEPProjectEditorPage.initialFileLocation = importFile
 						.getAbsolutePath();
@@ -80,7 +79,6 @@ public class CEPProjectCreationWizard extends AbstractWSO2ProjectCreationWizard 
 				if (exproject.exists()) {
 					MessageDialog.openError(getShell(), "ERROR",
 							"Project already exisits");
-
 				} else {
 					cepModel.setBucketName(cepModel.getProjectName());
 					project = createNewProject();
@@ -88,7 +86,6 @@ public class CEPProjectCreationWizard extends AbstractWSO2ProjectCreationWizard 
 				}
 			}
 			if (getModel().getSelectedOption().equals("new.cepproject")) {
-
 				project = createNewProject();
 				openFile = addCEPTemplate(project);
 				CEPProjectEditorPage.bucketProjectName = project.getName();
@@ -98,11 +95,10 @@ public class CEPProjectCreationWizard extends AbstractWSO2ProjectCreationWizard 
 				File pomfile = project.getFile("pom.xml").getLocation()
 						.toFile();
 				getModel().getMavenInfo().setPackageName(
-						"service" + File.separator + cepModel.getBucketName());
+						"service" + File.separator + "cepservice");
 				createPOM(pomfile);
 				ProjectUtils.addNatureToProject(project, false,
 						"org.wso2.developerstudio.eclipse.cep.project.nature");
-
 				getModel().addToWorkingSet(project);
 				project.refreshLocal(IResource.DEPTH_INFINITE,
 						new NullProgressMonitor());
@@ -115,11 +111,10 @@ public class CEPProjectCreationWizard extends AbstractWSO2ProjectCreationWizard 
 									Path.fromOSString(openFile
 											.getAbsolutePath()));
 
-					IDE.openEditor(
-							PlatformUI.getWorkbench()
-									.getActiveWorkbenchWindow().getActivePage(),
+					IDE.openEditor(PlatformUI.getWorkbench()
+							.getActiveWorkbenchWindow().getActivePage(),
 							new FileEditorInput(cepFile),
-							"org.wso2.developerstudio.eclipse.artifact.complexeventprocessing.editor.CEPProjectEditor");
+							"org.wso2.developerstudio.eclipse.artifact.cep.editor.CEPProjectEditor");
 
 				} catch (Exception e) {
 					log.error("Cannot open file in editor", e);
@@ -140,7 +135,6 @@ public class CEPProjectCreationWizard extends AbstractWSO2ProjectCreationWizard 
 		File cepTemplateFile = new CEPTemplateUtils()
 				.getResourceFile("templates" + File.separator
 						+ "cepservice.xml");
-
 		String templateContent = FileUtils.getContentAsString(cepTemplateFile);
 		templateContent = templateContent.replaceAll("\\{", "<");
 		templateContent = templateContent.replaceAll("\\}", ">");

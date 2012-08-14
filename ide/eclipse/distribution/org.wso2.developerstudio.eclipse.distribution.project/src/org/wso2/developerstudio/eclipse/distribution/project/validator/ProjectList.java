@@ -67,7 +67,8 @@ public class ProjectList extends AbstractListDataProvider {
 					   project.hasNature(Constants.REGISTRY_FILTER_PROJECT_NATURE) ||
 					   project.hasNature(Constants.REGISTRY_HANDLER_PROJECT_NATURE) ||
 					   project.hasNature(Constants.GENERAL_PROJECT_NATURE) ||
-					   project.hasNature(Constants.CARBON_UI_PROJECT_NATURE)){
+					   project.hasNature(Constants.CARBON_UI_PROJECT_NATURE)||
+					   project.hasNature(Constants.CEP_PROJECT_NATURE)){
 						try {
 							if (project.hasNature(Constants.ESB_PROJECT_NATURE) || project.hasNature(Constants.GENERAL_PROJECT_NATURE)) {
 								IFile artifactXMLFile = project.getFile(Constants.ARTIFACT_XML);

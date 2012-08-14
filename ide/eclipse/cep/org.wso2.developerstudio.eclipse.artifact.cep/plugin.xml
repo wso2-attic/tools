@@ -3,7 +3,7 @@
 <plugin>
    <extension
          point="org.eclipse.ui.newWizards">
-         <wizard name="CEP Project" category="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.eclipse.artifact.complexeventprocessing.category1"
+         <wizard name="CEP Project" category="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.eclipse.artifact.cep.category"
 			class="org.wso2.developerstudio.eclipse.artifact.cep.ui.wizard.CEPProjectCreationWizard"
 			wizardManifest="project_wizard.xml"
 			id="org.wso2.developerstudio.eclipse.artifact.newcepartifact"
@@ -12,13 +12,13 @@
 			<description>CEP Bucket Project</description>
 		</wizard>
          <category
-               id="org.wso2.developerstudio.eclipse.artifact.complexeventprocessing.category1"
+               id="org.wso2.developerstudio.eclipse.artifact.cep.category"
                name="Complex Event Processing"
                parentCategory="org.wso2.developerstudio.eclipse.capp.project">
          </category>
    </extension>
    <extension point="org.eclipse.core.resources.natures"
-		id="org.wso2.developerstudio.eclipse.cep.project.nature" name="CEP Project Nature">
+		id="org.wso2.developerstudio.eclipse.cep.project.nature" name="CEP_PROJECT_NATURE">
 		<runtime>
 			<run
 				class="org.wso2.developerstudio.eclipse.artifact.cep.project.nature.CEPProjectNature">
@@ -36,9 +36,9 @@
 			id="org.eclipse.ui.navigator.resourceContent"
 			name="test">
 				<commonWizard 
-					menuGroupId="3org.wso2.developerstudio.eclipse.artifact.newdsartifact"
+					menuGroupId="3org.wso2.developerstudio.eclipse.artifact.newcepartifact"
 			  	 	type="new"
-					wizardId="org.wso2.developerstudio.eclipse.artifact.newdsartifact">
+					wizardId="org.wso2.developerstudio.eclipse.artifact.newcepartifact">
 					<enablement>
 						<or>
 							<adapt type="org.eclipse.core.resources.IProject"/>
@@ -61,9 +61,9 @@
  <extension
        point="org.wso2.developerstudio.eclipse.project.export.handler">
     <handler
-          class="org.wso2.developerstudio.eclipse.artifact.complexeventprocessing.project.export.CEPArtfactExportHandler"
-          id="org.wso2.developerstudio.eclipse.artifact.complexeventprocessing.project.export.handler"
-          type="service/dataservice">
+          class="org.wso2.developerstudio.eclipse.artifact.cep.project.export.CEPArtfactExportHandler"
+          id="org.wso2.developerstudio.eclipse.artifact.cep.project.export.handler"
+          type="service/cepservice">
     </handler>
  </extension>
     <extension
@@ -71,10 +71,10 @@
        <editor
              class="org.wso2.developerstudio.eclipse.artifact.cep.editor.CEPProjectEditor"
              extensions="xml"
-             id="org.wso2.developerstudio.eclipse.artifact.complexeventprocessing.editor.CEPProjectEditor"
+             id="org.wso2.developerstudio.eclipse.artifact.cep.editor.CEPProjectEditor"
              name="CEPEditor">
           <contentTypeBinding
-                contentTypeId="org.wso2.developerstudio.eclipse.artifact.complexeventprocessing.content-type.cepservice">
+                contentTypeId="org.wso2.developerstudio.eclipse.artifact.cep.content-type.cepservice">
           </contentTypeBinding>
        </editor>
     </extension>

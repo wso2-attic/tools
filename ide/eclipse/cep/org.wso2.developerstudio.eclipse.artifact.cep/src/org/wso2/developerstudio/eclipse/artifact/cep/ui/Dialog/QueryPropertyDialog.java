@@ -1,3 +1,19 @@
+/*
+ * Copyright (c) 2012, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package org.wso2.developerstudio.eclipse.artifact.cep.ui.Dialog;
 
 import org.eclipse.jface.dialogs.TitleAreaDialog;
@@ -32,22 +48,19 @@ public class QueryPropertyDialog extends TitleAreaDialog {
 
 	}
 
-	
 	@Override
 	public void create() {
 		// TODO Auto-generated method stub
 		super.create();
 		setTitle("Query Property Configuration");
 	}
-	
-	
-	
+
 	@Override
 	protected Control createDialogArea(Composite parent) {
 		GridData grData = null;
-		final ScrolledComposite scrolledContainer = new ScrolledComposite(parent,
-				SWT.H_SCROLL | SWT.V_SCROLL | SWT.BORDER|SWT.FILL);
-		
+		final ScrolledComposite scrolledContainer = new ScrolledComposite(
+				parent, SWT.H_SCROLL | SWT.V_SCROLL | SWT.BORDER | SWT.FILL);
+
 		scrolledContainer.setExpandHorizontal(true);
 		scrolledContainer.setExpandVertical(true);
 		scrolledContainer.setAlwaysShowScrollBars(true);
@@ -80,21 +93,21 @@ public class QueryPropertyDialog extends TitleAreaDialog {
 		lbFieldType.setText("XML Field Type");
 
 		xmlFieldType = new Combo(container, SWT.READ_ONLY);
-		 grData = new GridData();
-		 
+		grData = new GridData();
+
 		xmlFieldType.setItems(xmlFieldTypes);
 		xmlFieldType.setText(selectedXMLFieldType);
 		xmlFieldType.setLayoutData(grData);
 
-		scrolledContainer
-		.setMinSize(container.computeSize(SWT.DEFAULT, SWT.DEFAULT));
-container.layout();
+		scrolledContainer.setMinSize(container.computeSize(SWT.DEFAULT,
+				SWT.DEFAULT));
+		container.layout();
 
-return super.createDialogArea(scrolledContainer);
+		return super.createDialogArea(scrolledContainer);
 	}
 
 	private boolean finalizePage() {
-		boolean ok =true;
+		boolean ok = true;
 		property = new XMLProperty();
 		propertyName = proName.getText().trim();
 		xmlFieldName = xmlproField.getText().trim();
@@ -102,10 +115,10 @@ return super.createDialogArea(scrolledContainer);
 		property.setName(propertyName);
 		property.setXmlFieldName(xmlFieldName);
 		property.setXmlFieldType(selectedXMLFieldType);
-          if(proName.getText().trim().equals("")){
-        	  ok = false;
-          }
-          return ok;
+		if (proName.getText().trim().equals("")) {
+			ok = false;
+		}
+		return ok;
 	}
 
 	public void initializePage(XMLProperty property) {
@@ -121,10 +134,10 @@ return super.createDialogArea(scrolledContainer);
 	@Override
 	protected void okPressed() {
 		// TODO Auto-generated method stub
-		if(finalizePage()){
+		if (finalizePage()) {
 			super.okPressed();
-		}else{
-		super.cancelPressed();
+		} else {
+			super.cancelPressed();
 		}
 	}
 }

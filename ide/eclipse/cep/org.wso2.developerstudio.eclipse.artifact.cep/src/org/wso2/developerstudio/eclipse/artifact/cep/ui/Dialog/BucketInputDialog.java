@@ -1,3 +1,19 @@
+/*
+ * Copyright (c) 2012, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package org.wso2.developerstudio.eclipse.artifact.cep.ui.Dialog;
 
 import java.util.ArrayList;
@@ -52,8 +68,8 @@ public class BucketInputDialog extends TitleAreaDialog {
 	private Button addproperty;
 	private Button editproperty;
 	private Button deleteproperty;
-    private boolean editPage = false;
-	
+	private boolean editPage = false;
+
 	private TableViewer viewer;
 	private Table table;
 	private Table tableProperty;
@@ -74,7 +90,7 @@ public class BucketInputDialog extends TitleAreaDialog {
 		initXMLProperty.setName("");
 		initXMLProperty.setXpath("");
 		initXMLProperty.setType("");
-	    xpathList.add(initXpathDefinition);
+		xpathList.add(initXpathDefinition);
 		xpathList.add(initXpathDefinition);
 		xpathList.add(initXpathDefinition);
 		xpathList.add(initXpathDefinition);
@@ -95,9 +111,9 @@ public class BucketInputDialog extends TitleAreaDialog {
 
 	@Override
 	protected Control createDialogArea(Composite parent) {
-		GridData grData  = null;
-		final ScrolledComposite scrolleContainer = new ScrolledComposite(parent,
-				SWT.H_SCROLL | SWT.V_SCROLL | SWT.BORDER);
+		GridData grData = null;
+		final ScrolledComposite scrolleContainer = new ScrolledComposite(
+				parent, SWT.H_SCROLL | SWT.V_SCROLL | SWT.BORDER);
 		scrolleContainer.setMinSize(800, 500);
 		scrolleContainer.setExpandHorizontal(true);
 		scrolleContainer.setExpandVertical(true);
@@ -120,11 +136,12 @@ public class BucketInputDialog extends TitleAreaDialog {
 
 			@Override
 			public void modifyText(ModifyEvent arg0) {
-				
-				if (topic.getText().trim().equals("")||txtStream.getText().trim().equals("")) {
-					
-                    getButton(OK).setEnabled(false);
-				}else{
+
+				if (topic.getText().trim().equals("")
+						|| txtStream.getText().trim().equals("")) {
+
+					getButton(OK).setEnabled(false);
+				} else {
 					getButton(OK).setEnabled(true);
 				}
 
@@ -133,7 +150,7 @@ public class BucketInputDialog extends TitleAreaDialog {
 		Label lbBrokerName = new Label(container, SWT.NULL);
 		lbBrokerName.setText("Broker Name");
 		cmbBroker = new Text(container, SWT.BORDER | SWT.SINGLE);
-		 grData = new GridData(GridData.FILL_HORIZONTAL);
+		grData = new GridData(GridData.FILL_HORIZONTAL);
 		grData.horizontalSpan = 2;
 		cmbBroker.setLayoutData(grData);
 		cmbBroker.setText(selectedBrokerName);
@@ -143,17 +160,18 @@ public class BucketInputDialog extends TitleAreaDialog {
 		grData = new GridData(GridData.FILL_HORIZONTAL);
 		grData.horizontalSpan = 2;
 		txtStream.setLayoutData(grData);
-        txtStream.setText(iStream);
-        txtStream.addModifyListener(new ModifyListener() {
+		txtStream.setText(iStream);
+		txtStream.addModifyListener(new ModifyListener() {
 
 			@Override
 			public void modifyText(ModifyEvent arg0) {
 				// TODO Auto-generated method stub
-				
-if (topic.getText().trim().equals("")||txtStream.getText().trim().equals("")) {
-					
-                    getButton(OK).setEnabled(false);
-				}else{
+
+				if (topic.getText().trim().equals("")
+						|| txtStream.getText().trim().equals("")) {
+
+					getButton(OK).setEnabled(false);
+				} else {
 					getButton(OK).setEnabled(true);
 				}
 
@@ -169,7 +187,7 @@ if (topic.getText().trim().equals("")||txtStream.getText().trim().equals("")) {
 		lbEmpty.setLayoutData(grData);
 		setInputTable(container, xpathList);
 		add = new Button(container, SWT.NONE);
-		 grData = new GridData(GridData.FILL_HORIZONTAL);
+		grData = new GridData(GridData.FILL_HORIZONTAL);
 		grData.horizontalSpan = 1;
 		add.setLayoutData(grData);
 		add.setText("Add...");
@@ -187,21 +205,17 @@ if (topic.getText().trim().equals("")||txtStream.getText().trim().equals("")) {
 					definition = xpathPrefix.getXpathPrefix();
 
 					for (XpathDefinition xpathDefinition : xpathList) {
-						if (xpathDefinition.getPrefix()
-								.equals(definition.getPrefix())) {
+						if (xpathDefinition.getPrefix().equals(
+								definition.getPrefix())) {
 							already = true;
-
 						}
-
 					}
-
 					if (!already) {
 						setPrifix(definition.getPrefix());
 						setSnameSpace(definition.getNamespace());
 						xpathPrefixes.put(getPrifix(), getSnameSpace());
 						int count = 0;
 						for (XpathDefinition xdef : xpathList) {
-
 							count++;
 							if (xdef.getPrefix().equals("")) {
 								int index = xpathList.indexOf(xdef);
@@ -218,7 +232,6 @@ if (topic.getText().trim().equals("")||txtStream.getText().trim().equals("")) {
 							xpathList.add(definition);
 						}
 					}
-
 					viewer.setContentProvider(ArrayContentProvider
 							.getInstance());
 					viewer.setInput(xpathList.toArray());
@@ -232,9 +245,8 @@ if (topic.getText().trim().equals("")||txtStream.getText().trim().equals("")) {
 
 			}
 		});
-
 		edit = new Button(container, SWT.NONE);
-		 grData = new GridData(GridData.FILL_HORIZONTAL);
+		grData = new GridData(GridData.FILL_HORIZONTAL);
 		grData.horizontalSpan = 1;
 		edit.setLayoutData(grData);
 		edit.setText("Edit...");
@@ -243,9 +255,9 @@ if (topic.getText().trim().equals("")||txtStream.getText().trim().equals("")) {
 
 			@Override
 			public void widgetSelected(SelectionEvent arg0) {
-
 				int selectedIndex = table.getSelectionIndex();
-				XpathDefinition xpathDefinitionEdit = xpathList.get(selectedIndex);
+				XpathDefinition xpathDefinitionEdit = xpathList
+						.get(selectedIndex);
 				XpathPrefixeDialog xpath = new XpathPrefixeDialog(getShell(),
 						true);
 				xpath.initializePage(xpathDefinitionEdit);
@@ -258,26 +270,20 @@ if (topic.getText().trim().equals("")||txtStream.getText().trim().equals("")) {
 					xpathPrefixes.put(definiton.getPrefix(),
 							definiton.getNamespace());
 				}
-
 				edit.setEnabled(false);
 				delete.setEnabled(false);
-
 				viewer.setContentProvider(ArrayContentProvider.getInstance());
 				viewer.setInput(xpathList.toArray());
 				viewer.refresh();
-
 			}
 
 			@Override
 			public void widgetDefaultSelected(SelectionEvent arg0) {
 				// TODO Auto-generated method stub
-
 			}
-
 		});
-
 		delete = new Button(container, SWT.NONE);
-		 grData = new GridData(GridData.FILL_HORIZONTAL);
+		grData = new GridData(GridData.FILL_HORIZONTAL);
 		grData.horizontalSpan = 1;
 		delete.setLayoutData(grData);
 		delete.setText("Delete");
@@ -321,7 +327,7 @@ if (topic.getText().trim().equals("")||txtStream.getText().trim().equals("")) {
 		lbempty.setText("");
 		setPropertyTable(container, propertyList);
 		addproperty = new Button(container, SWT.NONE);
-		 grData = new GridData(GridData.FILL_HORIZONTAL);
+		grData = new GridData(GridData.FILL_HORIZONTAL);
 		addproperty.setLayoutData(grData);
 		addproperty.setText("Add...");
 		addproperty.addSelectionListener(new SelectionListener() {
@@ -335,26 +341,20 @@ if (topic.getText().trim().equals("")||txtStream.getText().trim().equals("")) {
 				inputProperty.create();
 				if (inputProperty.open() == Window.OK) {
 					XMLProperty xmlProperty = inputProperty.getProperties();
-
 					for (int k = 0; k < propertyList.size(); k++) {
-						if (propertyList.get(k).getName().equals(xmlProperty.getName())) {
+						if (propertyList.get(k).getName()
+								.equals(xmlProperty.getName())) {
 							already = true;
-
 						}
-
 					}
-
 					if (!already) {
 						setPropertyName(xmlProperty.getName());
 						setXpath(xmlProperty.getXpath());
 						setType(xmlProperty.getType());
-
 						String value = getXpath() + "|" + getType();
 						properties.put(getPropertyName(), value);
-
 						int count = 0;
 						for (XMLProperty xProperty : propertyList) {
-
 							count++;
 							if (xProperty.getName().equals("")) {
 								int index = propertyList.indexOf(xProperty);
@@ -373,10 +373,10 @@ if (topic.getText().trim().equals("")||txtStream.getText().trim().equals("")) {
 					}
 
 				}
-				viewerProperty.setContentProvider(ArrayContentProvider.getInstance());
+				viewerProperty.setContentProvider(ArrayContentProvider
+						.getInstance());
 				viewerProperty.setInput(propertyList.toArray());
 				viewerProperty.refresh();
-				
 
 			}
 
@@ -388,7 +388,7 @@ if (topic.getText().trim().equals("")||txtStream.getText().trim().equals("")) {
 		editproperty = new Button(container, SWT.NONE);
 		editproperty.setText("Edit...");
 		editproperty.setEnabled(false);
-		 grData = new GridData(GridData.FILL_HORIZONTAL);
+		grData = new GridData(GridData.FILL_HORIZONTAL);
 		editproperty.setLayoutData(grData);
 		editproperty.addSelectionListener(new SelectionListener() {
 
@@ -430,17 +430,18 @@ if (topic.getText().trim().equals("")||txtStream.getText().trim().equals("")) {
 
 		deleteproperty = new Button(container, SWT.NONE);
 		deleteproperty.setText("Delete");
-		 grData = new GridData(GridData.FILL_HORIZONTAL);
+		grData = new GridData(GridData.FILL_HORIZONTAL);
 		deleteproperty.setLayoutData(grData);
 		deleteproperty.addSelectionListener(new SelectionListener() {
 
 			@Override
 			public void widgetSelected(SelectionEvent arg0) {
-				properties.remove(propertyList
-						.get(tableProperty.getSelectionIndex()).getName());
+				properties.remove(propertyList.get(
+						tableProperty.getSelectionIndex()).getName());
 				propertyList.remove(tableProperty.getSelectionIndex());
 				deleteproperty.setEnabled(false);
-				viewerProperty.setContentProvider(ArrayContentProvider.getInstance());
+				viewerProperty.setContentProvider(ArrayContentProvider
+						.getInstance());
 				viewerProperty.setInput(propertyList.toArray());
 				viewerProperty.refresh();
 
@@ -468,11 +469,11 @@ if (topic.getText().trim().equals("")||txtStream.getText().trim().equals("")) {
 
 			}
 		});
-		scrolleContainer
-				.setMinSize(container.computeSize(SWT.DEFAULT, SWT.DEFAULT));
+		scrolleContainer.setMinSize(container.computeSize(SWT.DEFAULT,
+				SWT.DEFAULT));
 		container.layout();
-      return super.createDialogArea(scrolleContainer);
-		
+		return super.createDialogArea(scrolleContainer);
+
 	}
 
 	public boolean finalizePage() {
@@ -485,14 +486,14 @@ if (topic.getText().trim().equals("")||txtStream.getText().trim().equals("")) {
 		List<XpathDefinition> xpathDefinitionList = new ArrayList<XpathDefinition>();
 		for (String prefix : xpathPrefixes.keySet()) {
 			XpathDefinition definition = new XpathDefinition();
-			definition.setPrefix( prefix);
+			definition.setPrefix(prefix);
 			definition.setNamespace(xpathPrefixes.get(prefix));
 			xpathDefinitionList.add(definition);
 		}
 		List<XMLProperty> xmlProperty = new ArrayList<XMLProperty>();
 		for (String pName : properties.keySet()) {
 			XMLProperty property = new XMLProperty();
-			property.setName( pName);
+			property.setName(pName);
 			String xpath, type;
 			xpath = properties.get(pName)// TODO chnage name
 					.substring(0, properties.get(pName).indexOf("|"));
@@ -507,10 +508,11 @@ if (topic.getText().trim().equals("")||txtStream.getText().trim().equals("")) {
 		xmlMap.setProperties(xmlProperty);
 
 		input.setInputMapping(xmlMap);
-          if(topic.getText().trim().equals("")||txtStream.getText().trim().equals("")){
-        	  ok =false;
-          }
-          return ok;
+		if (topic.getText().trim().equals("")
+				|| txtStream.getText().trim().equals("")) {
+			ok = false;
+		}
+		return ok;
 	}
 
 	public void initiatePage(Input input) {
@@ -527,7 +529,6 @@ if (topic.getText().trim().equals("")||txtStream.getText().trim().equals("")) {
 			for (XpathDefinition xpathdefinition : xpathList) {
 				xpathPrefixes.put(xpathdefinition.getPrefix(),
 						xpathdefinition.getNamespace());
-
 			}
 		}
 		if (((XMLInputMapping) input.getInputMapping()).getProperties() != null) {
@@ -536,11 +537,8 @@ if (topic.getText().trim().equals("")||txtStream.getText().trim().equals("")) {
 			for (XMLProperty xmlProperty : propertyList) {
 				this.properties.put(xmlProperty.getName(),
 						xmlProperty.getXpath() + "|" + xmlProperty.getType());
-
 			}
-
 		}
-
 	}
 
 	public void setPageCanceld(boolean value) {
@@ -563,7 +561,8 @@ if (topic.getText().trim().equals("")||txtStream.getText().trim().equals("")) {
 		this.topic.setText(topic);
 	}
 
-	private void setInputTable(Composite container, List<XpathDefinition> xpathlist) {
+	private void setInputTable(Composite container,
+			List<XpathDefinition> xpathlist) {
 		viewer = new TableViewer(container, SWT.MULTI | SWT.H_SCROLL
 				| SWT.V_SCROLL | SWT.FULL_SELECTION | SWT.BORDER);
 		table = viewer.getTable();
@@ -571,7 +570,7 @@ if (topic.getText().trim().equals("")||txtStream.getText().trim().equals("")) {
 		table.setLinesVisible(true);
 		GridData grTable = new GridData(GridData.FILL_HORIZONTAL);
 		grTable.horizontalSpan = 2;
-		grTable.verticalSpan=3;
+		grTable.verticalSpan = 3;
 		table.setLayoutData(grTable);
 		TableViewerColumn viewerColumn = new TableViewerColumn(viewer,
 				SWT.NONE, 0);
@@ -580,7 +579,6 @@ if (topic.getText().trim().equals("")||txtStream.getText().trim().equals("")) {
 			public String getText(Object element) {
 				if (element instanceof XpathDefinition) {
 					XpathDefinition p = (XpathDefinition) element;
-
 					return p.getPrefix();
 				} else
 					return "";
@@ -588,7 +586,6 @@ if (topic.getText().trim().equals("")||txtStream.getText().trim().equals("")) {
 		});
 		viewerColumn.getColumn().setWidth(200);
 		viewerColumn.getColumn().setText("prefix");
-
 		TableViewerColumn viewerColumn1 = new TableViewerColumn(viewer,
 				SWT.NONE, 1);
 		viewerColumn1.setLabelProvider(new ColumnLabelProvider() {
@@ -609,7 +606,8 @@ if (topic.getText().trim().equals("")||txtStream.getText().trim().equals("")) {
 
 	}
 
-	private void setPropertyTable(Composite container, List<XMLProperty> propertylist) {
+	private void setPropertyTable(Composite container,
+			List<XMLProperty> propertylist) {
 		viewerProperty = new TableViewer(container, SWT.MULTI | SWT.H_SCROLL
 				| SWT.V_SCROLL | SWT.FULL_SELECTION | SWT.BORDER);
 		tableProperty = viewerProperty.getTable();
@@ -617,7 +615,7 @@ if (topic.getText().trim().equals("")||txtStream.getText().trim().equals("")) {
 		tableProperty.setLinesVisible(true);
 		GridData grtab = new GridData(GridData.FILL_HORIZONTAL);
 		grtab.horizontalSpan = 2;
-		grtab.verticalSpan=3;
+		grtab.verticalSpan = 3;
 		tableProperty.setLayoutData(grtab);
 		TableViewerColumn viewerColumn = new TableViewerColumn(viewerProperty,
 				SWT.NONE, 0);
@@ -633,8 +631,8 @@ if (topic.getText().trim().equals("")||txtStream.getText().trim().equals("")) {
 		viewerColumn.getColumn().setWidth(200);
 		viewerColumn.getColumn().setText("Name");
 
-		TableViewerColumn viewerColumnXpath = new TableViewerColumn(viewerProperty,
-				SWT.NONE, 1);
+		TableViewerColumn viewerColumnXpath = new TableViewerColumn(
+				viewerProperty, SWT.NONE, 1);
 		viewerColumnXpath.setLabelProvider(new ColumnLabelProvider() {
 			@Override
 			public String getText(Object element) {
@@ -646,8 +644,8 @@ if (topic.getText().trim().equals("")||txtStream.getText().trim().equals("")) {
 		});
 		viewerColumnXpath.getColumn().setWidth(200);
 		viewerColumnXpath.getColumn().setText("Xpath");
-		TableViewerColumn viewerColumnFieldName = new TableViewerColumn(viewerProperty,
-				SWT.NONE, 2);
+		TableViewerColumn viewerColumnFieldName = new TableViewerColumn(
+				viewerProperty, SWT.NONE, 2);
 		viewerColumnFieldName.setLabelProvider(new ColumnLabelProvider() {
 			@Override
 			public String getText(Object element) {
@@ -668,12 +666,11 @@ if (topic.getText().trim().equals("")||txtStream.getText().trim().equals("")) {
 	@Override
 	protected void okPressed() {
 		// TODO Auto-generated method stub
-		if(finalizePage()){
+		if (finalizePage()) {
 			super.okPressed();
-		}else{
+		} else {
 			getButton(OK).setEnabled(false);
 		}
-		
 
 	}
 
