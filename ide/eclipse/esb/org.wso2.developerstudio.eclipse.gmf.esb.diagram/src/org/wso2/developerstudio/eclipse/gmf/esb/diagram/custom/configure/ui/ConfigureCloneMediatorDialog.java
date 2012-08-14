@@ -145,7 +145,6 @@ public class ConfigureCloneMediatorDialog extends Dialog {
 
 		seqRegistryKeyText.addModifyListener(new ModifyListener() {
 
-			@Override
 			public void modifyText(ModifyEvent e) {
 
 				CloneTarget target = getCurrentTarget();
@@ -226,7 +225,6 @@ public class ConfigureCloneMediatorDialog extends Dialog {
 
 		seqTypeCombo.addListener(SWT.Selection, new Listener() {
 
-			@Override
 			public void handleEvent(Event event) {
 
 				CloneTarget target = getCurrentTarget();
@@ -334,7 +332,6 @@ public class ConfigureCloneMediatorDialog extends Dialog {
 
 		endPregistryKeyText.addModifyListener(new ModifyListener() {
 
-			@Override
 			public void modifyText(ModifyEvent e) {
 
 				CloneTarget target = getCurrentTarget();
@@ -416,7 +413,6 @@ public class ConfigureCloneMediatorDialog extends Dialog {
 
 		endPtypeCombo.addListener(SWT.Selection, new Listener() {
 
-			@Override
 			public void handleEvent(Event event) {
 
 				CloneTarget target = getCurrentTarget();

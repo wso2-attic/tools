@@ -20,8 +20,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractOutputCon
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractOutputConnector.WestPointerFigure;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.Messages;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
-import org.wso2.developerstudio.eclipse.gmf.esb.sequence.diagram.custom.EastPointerShape;
-import org.wso2.developerstudio.eclipse.gmf.esb.sequence.diagram.custom.WestPointerShape;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EastPointerShape;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.WestPointerShape;
 
 public abstract class AdditionalOutputConnector extends AbstractBorderItemEditPart{
 

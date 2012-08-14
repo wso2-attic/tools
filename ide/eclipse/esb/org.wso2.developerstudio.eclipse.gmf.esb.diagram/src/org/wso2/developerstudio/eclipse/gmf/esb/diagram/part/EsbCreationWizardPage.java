@@ -21,8 +21,8 @@ public class EsbCreationWizardPage extends WizardNewFileCreationPage {
 	/**
 	 * @generated
 	 */
-	public EsbCreationWizardPage(String pageName,
-			IStructuredSelection selection, String fileExtension) {
+	public EsbCreationWizardPage(String pageName, IStructuredSelection selection,
+			String fileExtension) {
 		super(pageName, selection);
 		this.fileExtension = fileExtension;
 	}
@@ -63,8 +63,8 @@ public class EsbCreationWizardPage extends WizardNewFileCreationPage {
 	 */
 	public void createControl(Composite parent) {
 		super.createControl(parent);
-		setFileName(EsbDiagramEditorUtil.getUniqueFileName(
-				getContainerFullPath(), getFileName(), getExtension()));
+		setFileName(EsbDiagramEditorUtil.getUniqueFileName(getContainerFullPath(), getFileName(),
+				getExtension()));
 		setPageComplete(validatePage());
 	}
 
@@ -76,10 +76,8 @@ public class EsbCreationWizardPage extends WizardNewFileCreationPage {
 			return false;
 		}
 		String extension = getExtension();
-		if (extension != null
-				&& !getFilePath().toString().endsWith("." + extension)) {
-			setErrorMessage(NLS.bind(
-					Messages.EsbCreationWizardPageExtensionError, extension));
+		if (extension != null && !getFilePath().toString().endsWith("." + extension)) {
+			setErrorMessage(NLS.bind(Messages.EsbCreationWizardPageExtensionError, extension));
 			return false;
 		}
 		return true;

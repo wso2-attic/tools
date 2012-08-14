@@ -29,10 +29,12 @@ import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.query.statements.FROM;
 import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
@@ -59,6 +61,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbServer;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyService;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.SequenceDiagram;
+import org.wso2.developerstudio.eclipse.gmf.esb.Sequences;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.SequenceInfo;
 
 
@@ -449,7 +452,7 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 				String name = ((Sequence) childNode).getName();
 				IPath location = new Path("platform:/resource/"
 						+ activeProject.getName() + "/" + "sequence_"
-						+ name + ".sequence_diagram");
+						+ name + ".esb_diagram");
 				IFile file = activeProject.getFile(location.lastSegment());
 
 				ResourceSet resourceSet = new ResourceSetImpl();
@@ -466,13 +469,21 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 
 					resource = resourceSet.getResource(uri, true);
 
-					SequenceDiagram s = (SequenceDiagram) ((org.eclipse.gmf.runtime.notation.impl.DiagramImpl) resource
+					EsbDiagram s = (EsbDiagram) ((org.eclipse.gmf.runtime.notation.impl.DiagramImpl) resource
 							.getContents().get(0)).getElement();
-					if (s.getSequence().getInput().getOutgoingLink() != null) {
-						EsbLink incomingLink = s.getSequence().getInput()
-								.getOutgoingLink();
-						SequenceInfo.sequenceMap.put(name, incomingLink);
+					EList<EsbElement> children = s.getServer().getChildren();
+					for (EsbElement esbElement : children) {
+						if (esbElement instanceof Sequences){
+							Sequences sequence = (Sequences) esbElement;
+							EsbLink incomingLink = sequence.getOutputConnector().getOutgoingLink();
+							SequenceInfo.sequenceMap.put(name, incomingLink);
+						}
 					}
+//					if (s.getSequence().getInput().getOutgoingLink() != null) {
+//						EsbLink incomingLink = s.getSequence().getInput()
+//								.getOutgoingLink();
+//						SequenceInfo.sequenceMap.put(name, incomingLink);
+//					}
 				}
 			}
 

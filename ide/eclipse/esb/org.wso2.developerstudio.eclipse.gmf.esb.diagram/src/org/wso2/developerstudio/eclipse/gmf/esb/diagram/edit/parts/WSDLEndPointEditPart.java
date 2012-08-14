@@ -71,15 +71,11 @@ public class WSDLEndPointEditPart extends AbstractEndpoint {
 	 * @generated NOT
 	 */
 	protected void createDefaultEditPolicies() {
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new CreationEditPolicy());
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new WSDLEndPointItemSemanticEditPolicy());
-		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
-				new DragDropEditPolicy());
-		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
-				new WSDLEndPointCanonicalEditPolicy());
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new WSDLEndPointItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
+		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE, new WSDLEndPointCanonicalEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// For handle Double click Event.
 		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
@@ -101,8 +97,7 @@ public class WSDLEndPointEditPart extends AbstractEndpoint {
 				case WSDLEndPointOutputConnectorEditPart.VISUAL_ID:
 					return new BorderItemSelectionEditPolicy();
 				}
-				EditPolicy result = child
-						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+				EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
 				if (result == null) {
 					result = new NonResizableEditPolicy();
 				}
@@ -139,20 +134,17 @@ public class WSDLEndPointEditPart extends AbstractEndpoint {
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof WSDLEndPointEndPointNameEditPart) {
-			((WSDLEndPointEndPointNameEditPart) childEditPart)
-					.setLabel(getPrimaryShape()
-							.getFigureWSDLEndPointNamePropertyLabel());
+			((WSDLEndPointEndPointNameEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getFigureWSDLEndPointNamePropertyLabel());
 			return true;
 		}
 		if (childEditPart instanceof WSDLEndPointInputConnectorEditPart) {
 			double position;
 			EObject parentEndpoint = ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (childEditPart
 					.getParent()).getModel()).getElement();
-			if (((WSDLEndPoint) parentEndpoint).getInputConnector()
-					.getIncomingLinks().size() != 0) {
-				EObject source = ((WSDLEndPoint) parentEndpoint)
-						.getInputConnector().getIncomingLinks().get(0)
-						.getSource().eContainer();
+			if (((WSDLEndPoint) parentEndpoint).getInputConnector().getIncomingLinks().size() != 0) {
+				EObject source = ((WSDLEndPoint) parentEndpoint).getInputConnector()
+						.getIncomingLinks().get(0).getSource().eContainer();
 				position = ((source instanceof LoadBalanceEndPoint)
 						|| (source instanceof FailoverEndPoint) || (source instanceof SendMediator)) ? 0.5
 						: 0.25;
@@ -161,21 +153,17 @@ public class WSDLEndPointEditPart extends AbstractEndpoint {
 			}
 			IFigure borderItemFigure = ((WSDLEndPointInputConnectorEditPart) childEditPart)
 					.getFigure();
-			BorderItemLocator locator = new FixedBorderItemLocator(
-					getMainFigure(), borderItemFigure, PositionConstants.WEST,
-					position);
-			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
-					locator);
+			BorderItemLocator locator = new FixedBorderItemLocator(getMainFigure(),
+					borderItemFigure, PositionConstants.WEST, position);
+			getBorderedFigure().getBorderItemContainer().add(borderItemFigure, locator);
 			return true;
 		}
 		if (childEditPart instanceof WSDLEndPointOutputConnectorEditPart) {
 			IFigure borderItemFigure = ((WSDLEndPointOutputConnectorEditPart) childEditPart)
 					.getFigure();
-			BorderItemLocator locator = new FixedBorderItemLocator(
-					getMainFigure(), borderItemFigure, PositionConstants.WEST,
-					0.75);
-			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
-					locator);
+			BorderItemLocator locator = new FixedBorderItemLocator(getMainFigure(),
+					borderItemFigure, PositionConstants.WEST, 0.75);
+			getBorderedFigure().getBorderItemContainer().add(borderItemFigure, locator);
 			return true;
 		}
 		return false;
@@ -190,14 +178,12 @@ public class WSDLEndPointEditPart extends AbstractEndpoint {
 		}
 		if (childEditPart instanceof WSDLEndPointInputConnectorEditPart) {
 			getBorderedFigure().getBorderItemContainer().remove(
-					((WSDLEndPointInputConnectorEditPart) childEditPart)
-							.getFigure());
+					((WSDLEndPointInputConnectorEditPart) childEditPart).getFigure());
 			return true;
 		}
 		if (childEditPart instanceof WSDLEndPointOutputConnectorEditPart) {
 			getBorderedFigure().getBorderItemContainer().remove(
-					((WSDLEndPointOutputConnectorEditPart) childEditPart)
-							.getFigure());
+					((WSDLEndPointOutputConnectorEditPart) childEditPart).getFigure());
 			return true;
 		}
 		return false;
@@ -359,8 +345,7 @@ public class WSDLEndPointEditPart extends AbstractEndpoint {
 			fFigureWSDLEndPointNamePropertyLabel = new WrappingLabel();
 			fFigureWSDLEndPointNamePropertyLabel.setText("<...>");
 			fFigureWSDLEndPointNamePropertyLabel.setAlignment(SWT.CENTER);
-			this.getPropertyValueRectangle1().add(
-					fFigureWSDLEndPointNamePropertyLabel);
+			this.getPropertyValueRectangle1().add(fFigureWSDLEndPointNamePropertyLabel);
 
 		}
 

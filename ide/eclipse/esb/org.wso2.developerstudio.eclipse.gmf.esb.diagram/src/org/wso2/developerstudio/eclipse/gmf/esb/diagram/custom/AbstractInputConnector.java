@@ -99,6 +99,12 @@ public abstract class AbstractInputConnector extends AbstractBorderItemEditPart 
 		}
 
 	}
+	
+	@Override
+	public boolean isSelectable() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 
 	public class EastPointerFigure extends EastPointerShape {
 

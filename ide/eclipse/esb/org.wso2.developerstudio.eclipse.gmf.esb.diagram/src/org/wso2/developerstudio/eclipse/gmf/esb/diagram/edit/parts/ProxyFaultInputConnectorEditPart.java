@@ -72,8 +72,7 @@ public class ProxyFaultInputConnectorEditPart extends ShapeNodeEditPart {
 		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
 			protected EditPolicy createChildEditPolicy(EditPart child) {
-				EditPolicy result = child
-						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+				EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
 				if (result == null) {
 					result = new NonResizableEditPolicy();
 				}
@@ -256,6 +255,7 @@ public class ProxyFaultInputConnectorEditPart extends ShapeNodeEditPart {
 			types.add(EsbElementTypes.LoadBalanceEndPointWestOutputConnector_3098);
 			types.add(EsbElementTypes.MessageOutputConnector_3047);
 			types.add(EsbElementTypes.MergeNodeOutputConnector_3016);
+			types.add(EsbElementTypes.SequencesOutputConnector_3617);
 		}
 		return types;
 	}
@@ -271,8 +271,7 @@ public class ProxyFaultInputConnectorEditPart extends ShapeNodeEditPart {
 		public WestPointerFigure() {
 
 			this.setBackgroundColor(THIS_BACK);
-			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(12),
-					getMapMode().DPtoLP(10)));
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(12), getMapMode().DPtoLP(10)));
 		}
 
 	}

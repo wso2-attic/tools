@@ -46,10 +46,9 @@ Require-Bundle: org.eclipse.core.runtime,
  org.wso2.developerstudio.eclipse.gmf.esb.persistence,
  org.eclipse.wst.sse.core,
  org.eclipse.wst.sse.ui,
- org.eclipse.wst.xml.xpath.core,
- org.wso2.developerstudio.eclipse.gmf.esb.sequence.diagram
+ org.eclipse.wst.xml.xpath.core
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Eclipse-LazyStart: true
 Import-Package: org.apache.commons.lang,
  org.eclipse.core.filesystem,
@@ -63,7 +62,6 @@ Import-Package: org.apache.commons.lang,
  org.wso2.developerstudio.eclipse.esb.core.interfaces,
  org.wso2.developerstudio.eclipse.esb.project.artifact,
  org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom,
- org.wso2.developerstudio.eclipse.gmf.esb.sequence.diagram.part,
  org.wso2.developerstudio.eclipse.greg.core,
  org.wso2.developerstudio.eclipse.greg.core.interfaces,
  org.wso2.developerstudio.eclipse.logging.core,

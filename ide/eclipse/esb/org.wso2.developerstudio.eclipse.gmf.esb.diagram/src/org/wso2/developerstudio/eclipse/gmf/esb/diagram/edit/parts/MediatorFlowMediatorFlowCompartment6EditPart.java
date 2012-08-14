@@ -19,8 +19,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.Messages;
 /**
  * @generated
  */
-public class MediatorFlowMediatorFlowCompartment6EditPart extends
-		ShapeCompartmentEditPart {
+public class MediatorFlowMediatorFlowCompartment6EditPart extends ShapeCompartmentEditPart {
 
 	/**
 	 * @generated
@@ -46,8 +45,7 @@ public class MediatorFlowMediatorFlowCompartment6EditPart extends
 	 * @generated NOT
 	 */
 	public IFigure createFigure() {
-		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super
-				.createFigure();
+		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super.createFigure();
 		result.setTitleVisibility(true);
 		// Override default border.
 		result.setBorder(new MarginBorder(0, 0, 0, 0));
@@ -60,15 +58,11 @@ public class MediatorFlowMediatorFlowCompartment6EditPart extends
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(
-				EditPolicyRoles.SEMANTIC_ROLE,
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new MediatorFlowMediatorFlowCompartment6ItemSemanticEditPolicy());
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new CreationEditPolicy());
-		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
-				new DragDropEditPolicy());
-		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
-				new CustomDragDropEditPolicy());
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
+		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
+		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new CustomDragDropEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
 				new MediatorFlowMediatorFlowCompartment6CanonicalEditPolicy());
 	}
@@ -76,23 +70,19 @@ public class MediatorFlowMediatorFlowCompartment6EditPart extends
 	protected void addChild(EditPart child, int index) {
 		super.addChild(child, index);
 		//Refresh connector's position. HardCoded.
-		((MediatorFlow6EditPart) child.getParent().getParent())
-				.refreshInputConnector(child.getParent().getParent()
-						.getParent().getParent().getParent());
+		((MediatorFlow6EditPart) child.getParent().getParent()).refreshInputConnector(child
+				.getParent().getParent().getParent().getParent().getParent());
 
 		if (child instanceof SwitchMediatorEditPart) {
 			SwitchMediatorEditPart switchMediatorEditPart = (SwitchMediatorEditPart) child;
-			SwitchMediatorUtils.addCaseBranchInitially(switchMediatorEditPart,
-					getEditingDomain());
+			SwitchMediatorUtils.addCaseBranchInitially(switchMediatorEditPart, getEditingDomain());
 		}
 	}
 
 	protected void removeChild(EditPart child) {
 		// TODO Auto-generated method stub
-		MediatorFlow6EditPart mediatorFlow = (MediatorFlow6EditPart) child
-				.getParent().getParent();
-		EditPart proxyService = child.getParent().getParent().getParent()
-				.getParent().getParent();
+		MediatorFlow6EditPart mediatorFlow = (MediatorFlow6EditPart) child.getParent().getParent();
+		EditPart proxyService = child.getParent().getParent().getParent().getParent().getParent();
 		super.removeChild(child);
 		mediatorFlow.refreshInputConnector(proxyService);
 

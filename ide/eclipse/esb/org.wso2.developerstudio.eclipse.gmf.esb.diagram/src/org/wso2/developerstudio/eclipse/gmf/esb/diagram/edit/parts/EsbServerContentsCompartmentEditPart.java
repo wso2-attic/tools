@@ -26,8 +26,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.Messages;
 /**
  * @generated
  */
-public class EsbServerContentsCompartmentEditPart extends
-		ShapeCompartmentEditPart {
+public class EsbServerContentsCompartmentEditPart extends ShapeCompartmentEditPart {
 
 	/**
 	 * @generated
@@ -53,8 +52,7 @@ public class EsbServerContentsCompartmentEditPart extends
 	 * @generated NOT
 	 */
 	public IFigure createFigure() {
-		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super
-				.createFigure();
+		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super.createFigure();
 		result.setFontColor(new Color(null, 200, 0, 0));
 		result.setTitleVisibility(true);
 		// Override default border.
@@ -71,10 +69,8 @@ public class EsbServerContentsCompartmentEditPart extends
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new EsbServerContentsCompartmentItemSemanticEditPolicy());
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new CreationEditPolicy());
-		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
-				new CustomDragDropEditPolicy());
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
+		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new CustomDragDropEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
 				new EsbServerContentsCompartmentCanonicalEditPolicy());
 	}
@@ -98,13 +94,12 @@ public class EsbServerContentsCompartmentEditPart extends
 	protected EditPart createChild(Object model) {
 		if (!getEditDomain().getPaletteViewer().getActiveTool().getLabel()
 				.equals(SequenceInfo.SEQUENCE_LABEL)
-				& !getEditDomain().getPaletteViewer().getActiveTool()
-						.getLabel().equals(SequenceInfo.SELECT)) {
+				& !getEditDomain().getPaletteViewer().getActiveTool().getLabel()
+						.equals(SequenceInfo.SELECT)) {
 			// Resource diagram;
 			// if(((Sequence)((org.eclipse.gmf.runtime.notation.impl.NodeImpl)model).getElement()).getName().equals("")){
 
-			String name = getEditDomain().getPaletteViewer().getActiveTool()
-					.getLabel();
+			String name = getEditDomain().getPaletteViewer().getActiveTool().getLabel();
 
 			/*
 			 * EditPart editPart=super.createChild(model); if(editPart
@@ -116,8 +111,7 @@ public class EsbServerContentsCompartmentEditPart extends
 			 * URI.createURI("platform:/resource/testing/" +name+".sequence"),
 			 * new NullProgressMonitor()); }
 			 */
-			if (((org.eclipse.gmf.runtime.notation.impl.NodeImpl) model)
-					.getElement() instanceof Sequence) {
+			if (((org.eclipse.gmf.runtime.notation.impl.NodeImpl) model).getElement() instanceof Sequence) {
 				Sequence sequence = (Sequence) ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) model)
 						.getElement();
 				TransactionalEditingDomain editingDomain = getEditingDomain();
@@ -138,8 +132,7 @@ public class EsbServerContentsCompartmentEditPart extends
 				if (command.canExecute()) {
 					getEditDomain().getCommandStack().execute(command);
 				}
-				((org.eclipse.gmf.runtime.notation.impl.NodeImpl) model)
-						.getChildren().size();
+				((org.eclipse.gmf.runtime.notation.impl.NodeImpl) model).getChildren().size();
 
 			}
 		}

@@ -75,19 +75,16 @@ public class LoadBalanceEndPointEditPart extends AbstractEndpoint {
 	 * @generated NOT
 	 */
 	protected void createDefaultEditPolicies() {
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new CreationEditPolicy());
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new LoadBalanceEndPointItemSemanticEditPolicy());
-		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
-				new DragDropEditPolicy());
+		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
 				new LoadBalanceEndPointCanonicalEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// For handle Double click Event.
-		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
-				new ShowPropertyViewEditPolicy());
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new ShowPropertyViewEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
@@ -106,8 +103,7 @@ public class LoadBalanceEndPointEditPart extends AbstractEndpoint {
 				case LoadBalanceEndPointWestOutputConnectorEditPart.VISUAL_ID:
 					return new BorderItemSelectionEditPolicy();
 				}
-				EditPolicy result = child
-						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+				EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
 				if (result == null) {
 					result = new NonResizableEditPolicy();
 				}
@@ -145,20 +141,18 @@ public class LoadBalanceEndPointEditPart extends AbstractEndpoint {
 	protected boolean addFixedChild(EditPart childEditPart) {
 		int outputCount = arrangeOutputConnectors();
 		if (childEditPart instanceof LoadBalanceEndPointEndPointNameEditPart) {
-			((LoadBalanceEndPointEndPointNameEditPart) childEditPart)
-					.setLabel(getPrimaryShape()
-							.getFigureLoadBalanceEndPointNamePropertyLabel());
+			((LoadBalanceEndPointEndPointNameEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getFigureLoadBalanceEndPointNamePropertyLabel());
 			return true;
 		}
 		if (childEditPart instanceof LoadBalanceEndPointInputConnectorEditPart) {
 			double position;
 			EObject parentEndpoint = ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (childEditPart
 					.getParent()).getModel()).getElement();
-			if (((LoadBalanceEndPoint) parentEndpoint).getInputConnector()
-					.getIncomingLinks().size() != 0) {
-				EObject source = ((LoadBalanceEndPoint) parentEndpoint)
-						.getInputConnector().getIncomingLinks().get(0)
-						.getSource().eContainer();
+			if (((LoadBalanceEndPoint) parentEndpoint).getInputConnector().getIncomingLinks()
+					.size() != 0) {
+				EObject source = ((LoadBalanceEndPoint) parentEndpoint).getInputConnector()
+						.getIncomingLinks().get(0).getSource().eContainer();
 				position = ((source instanceof LoadBalanceEndPoint)
 						|| (source instanceof FailoverEndPoint) || (source instanceof SendMediator)) ? 0.5
 						: 0.25;
@@ -167,35 +161,28 @@ public class LoadBalanceEndPointEditPart extends AbstractEndpoint {
 			}
 			IFigure borderItemFigure = ((LoadBalanceEndPointInputConnectorEditPart) childEditPart)
 					.getFigure();
-			BorderItemLocator locator = new FixedBorderItemLocator(
-					getMainFigure(), borderItemFigure, PositionConstants.WEST,
-					position);
-			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
-					locator);
+			BorderItemLocator locator = new FixedBorderItemLocator(getMainFigure(),
+					borderItemFigure, PositionConstants.WEST, position);
+			getBorderedFigure().getBorderItemContainer().add(borderItemFigure, locator);
 			return true;
 		}
 		if (childEditPart instanceof LoadBalanceEndPointOutputConnectorEditPart) {
 			IFigure borderItemFigure = ((LoadBalanceEndPointOutputConnectorEditPart) childEditPart)
 					.getFigure();
-			getBorderedFigure()
-					.getBorderItemContainer()
-					.add(borderItemFigure,
-							new EvenlyDividedFixedBorderItemLocator(
-									getMainFigure(),
-									borderItemFigure,
-									PositionConstants.EAST,
-									((DefaultSizeCaseBranchPointerNodeFigure) borderItemFigure)
-											.getId(), outputCount));
+			getBorderedFigure().getBorderItemContainer().add(
+					borderItemFigure,
+					new EvenlyDividedFixedBorderItemLocator(getMainFigure(), borderItemFigure,
+							PositionConstants.EAST,
+							((DefaultSizeCaseBranchPointerNodeFigure) borderItemFigure).getId(),
+							outputCount));
 			return true;
 		}
 		if (childEditPart instanceof LoadBalanceEndPointWestOutputConnectorEditPart) {
 			IFigure borderItemFigure = ((LoadBalanceEndPointWestOutputConnectorEditPart) childEditPart)
 					.getFigure();
-			BorderItemLocator locator = new FixedBorderItemLocator(
-					getMainFigure(), borderItemFigure, PositionConstants.WEST,
-					0.75);
-			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
-					locator);
+			BorderItemLocator locator = new FixedBorderItemLocator(getMainFigure(),
+					borderItemFigure, PositionConstants.WEST, 0.75);
+			getBorderedFigure().getBorderItemContainer().add(borderItemFigure, locator);
 			return true;
 		}
 		return false;
@@ -210,22 +197,17 @@ public class LoadBalanceEndPointEditPart extends AbstractEndpoint {
 		}
 		if (childEditPart instanceof LoadBalanceEndPointInputConnectorEditPart) {
 			getBorderedFigure().getBorderItemContainer().remove(
-					((LoadBalanceEndPointInputConnectorEditPart) childEditPart)
-							.getFigure());
+					((LoadBalanceEndPointInputConnectorEditPart) childEditPart).getFigure());
 			return true;
 		}
 		if (childEditPart instanceof LoadBalanceEndPointOutputConnectorEditPart) {
-			getBorderedFigure()
-					.getBorderItemContainer()
-					.remove(((LoadBalanceEndPointOutputConnectorEditPart) childEditPart)
-							.getFigure());
+			getBorderedFigure().getBorderItemContainer().remove(
+					((LoadBalanceEndPointOutputConnectorEditPart) childEditPart).getFigure());
 			return true;
 		}
 		if (childEditPart instanceof LoadBalanceEndPointWestOutputConnectorEditPart) {
-			getBorderedFigure()
-					.getBorderItemContainer()
-					.remove(((LoadBalanceEndPointWestOutputConnectorEditPart) childEditPart)
-							.getFigure());
+			getBorderedFigure().getBorderItemContainer().remove(
+					((LoadBalanceEndPointWestOutputConnectorEditPart) childEditPart).getFigure());
 			return true;
 		}
 		return false;
@@ -378,8 +360,7 @@ public class LoadBalanceEndPointEditPart extends AbstractEndpoint {
 			EvenlyDividedFixedBorderItemLocator borderItemLocator = null;
 			// if (((DefaultSizeCaseBranchPointerNodeFigure) caseBranch
 			// .getFigure()).getId() == -1) {
-			((DefaultSizeCaseBranchPointerNodeFigure) caseBranchEditpart
-					.getFigure()).setId(id++);
+			((DefaultSizeCaseBranchPointerNodeFigure) caseBranchEditpart.getFigure()).setId(id++);
 			if (caseBranchEditpart.getBorderItemLocator() instanceof EvenlyDividedFixedBorderItemLocator) {
 				borderItemLocator = (EvenlyDividedFixedBorderItemLocator) caseBranchEditpart
 						.getBorderItemLocator();
@@ -419,11 +400,9 @@ public class LoadBalanceEndPointEditPart extends AbstractEndpoint {
 
 			fFigureLoadBalanceEndPointNamePropertyLabel = new WrappingLabel();
 			fFigureLoadBalanceEndPointNamePropertyLabel.setText("<...>");
-			fFigureLoadBalanceEndPointNamePropertyLabel
-					.setAlignment(SWT.CENTER);
+			fFigureLoadBalanceEndPointNamePropertyLabel.setAlignment(SWT.CENTER);
 
-			this.getPropertyValueRectangle1().add(
-					fFigureLoadBalanceEndPointNamePropertyLabel);
+			this.getPropertyValueRectangle1().add(fFigureLoadBalanceEndPointNamePropertyLabel);
 
 		}
 

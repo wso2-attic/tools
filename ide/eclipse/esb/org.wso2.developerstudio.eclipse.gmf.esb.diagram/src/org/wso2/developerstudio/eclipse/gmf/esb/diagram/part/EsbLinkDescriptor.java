@@ -28,8 +28,7 @@ public class EsbLinkDescriptor extends EsbNodeDescriptor {
 	/**
 	 * @generated
 	 */
-	private EsbLinkDescriptor(EObject source, EObject destination,
-			EObject linkElement, int linkVID) {
+	private EsbLinkDescriptor(EObject source, EObject destination, EObject linkElement, int linkVID) {
 		super(linkElement, linkVID);
 		mySource = source;
 		myDestination = destination;
@@ -38,8 +37,8 @@ public class EsbLinkDescriptor extends EsbNodeDescriptor {
 	/**
 	 * @generated
 	 */
-	public EsbLinkDescriptor(EObject source, EObject destination,
-			IElementType elementType, int linkVID) {
+	public EsbLinkDescriptor(EObject source, EObject destination, IElementType elementType,
+			int linkVID) {
 		this(source, destination, (EObject) null, linkVID);
 		final IElementType elementTypeCopy = elementType;
 		mySemanticAdapter = new IAdaptable() {
@@ -55,8 +54,8 @@ public class EsbLinkDescriptor extends EsbNodeDescriptor {
 	/**
 	 * @generated
 	 */
-	public EsbLinkDescriptor(EObject source, EObject destination,
-			EObject linkElement, IElementType elementType, int linkVID) {
+	public EsbLinkDescriptor(EObject source, EObject destination, EObject linkElement,
+			IElementType elementType, int linkVID) {
 		this(source, destination, linkElement, linkVID);
 		final IElementType elementTypeCopy = elementType;
 		mySemanticAdapter = new EObjectAdapter(linkElement) {
