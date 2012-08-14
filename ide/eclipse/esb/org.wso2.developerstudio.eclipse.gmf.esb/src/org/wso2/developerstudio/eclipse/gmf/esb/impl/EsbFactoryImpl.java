@@ -6,13 +6,23 @@
  */
 package org.wso2.developerstudio.eclipse.gmf.esb.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Map;
+
+import org.eclipse.emf.common.notify.Adapter;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.wso2.developerstudio.eclipse.gmf.esb.*;
 
 /**
@@ -286,6 +296,9 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 			case EsbPackage.LOAD_BALANCE_END_POINT_WEST_OUTPUT_CONNECTOR: return createLoadBalanceEndPointWestOutputConnector();
 			case EsbPackage.LOCAL_ENTRY: return createLocalEntry();
 			case EsbPackage.SESSION: return createSession();
+			case EsbPackage.SEQUENCES: return createSequences();
+			case EsbPackage.SEQUENCES_OUTPUT_CONNECTOR: return createSequencesOutputConnector();
+			case EsbPackage.SEQUENCES_INPUT_CONNECTOR: return createSequencesInputConnector();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -2990,6 +3003,39 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	public Session createSession() {
 		SessionImpl session = new SessionImpl();
 		return session;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public Sequences createSequences() {
+		SequencesImpl sequences = new SequencesImpl();
+		sequences.setInputConnector(createSequencesInputConnector());
+		sequences.setOutputConnector(createSequencesOutputConnector());
+		sequences.setMediatorFlow(createMediatorFlow());
+		return sequences;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SequencesOutputConnector createSequencesOutputConnector() {
+		SequencesOutputConnectorImpl sequencesOutputConnector = new SequencesOutputConnectorImpl();
+		return sequencesOutputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SequencesInputConnector createSequencesInputConnector() {
+		SequencesInputConnectorImpl sequencesInputConnector = new SequencesInputConnectorImpl();
+		return sequencesInputConnector;
 	}
 
 	/**

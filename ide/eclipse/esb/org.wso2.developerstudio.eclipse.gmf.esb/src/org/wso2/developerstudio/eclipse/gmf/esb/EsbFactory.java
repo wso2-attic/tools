@@ -2065,6 +2065,33 @@ public interface EsbFactory extends EFactory {
 	Session createSession();
 
 	/**
+	 * Returns a new object of class '<em>Sequences</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Sequences</em>'.
+	 * @generated
+	 */
+	Sequences createSequences();
+
+	/**
+	 * Returns a new object of class '<em>Sequences Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Sequences Output Connector</em>'.
+	 * @generated
+	 */
+	SequencesOutputConnector createSequencesOutputConnector();
+
+	/**
+	 * Returns a new object of class '<em>Sequences Input Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Sequences Input Connector</em>'.
+	 * @generated
+	 */
+	SequencesInputConnector createSequencesInputConnector();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

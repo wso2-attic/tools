@@ -1243,5 +1243,12 @@
     <genClasses ecoreClass="esb.ecore#//Session">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//Session/type"/>
     </genClasses>
+    <genClasses ecoreClass="esb.ecore#//Sequences">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//Sequences/mediatorFlow"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//Sequences/outputConnector"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//Sequences/inputConnector"/>
+    </genClasses>
+    <genClasses ecoreClass="esb.ecore#//SequencesOutputConnector"/>
+    <genClasses ecoreClass="esb.ecore#//SequencesInputConnector"/>
   </genPackages>
 </genmodel:GenModel>

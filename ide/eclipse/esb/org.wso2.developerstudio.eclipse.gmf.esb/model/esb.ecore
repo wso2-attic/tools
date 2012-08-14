@@ -1703,4 +1703,14 @@
   <eClassifiers xsi:type="ecore:EClass" name="Session">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//Type"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Sequences" eSuperTypes="#//EsbElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outputConnector" eType="#//SequencesOutputConnector"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inputConnector" eType="#//SequencesInputConnector"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mediatorFlow" eType="#//MediatorFlow"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SequencesOutputConnector" eSuperTypes="#//OutputConnector"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SequencesInputConnector" eSuperTypes="#//InputConnector"/>
 </ecore:EPackage>

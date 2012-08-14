@@ -2094,8 +2094,44 @@
           </children>
         </ownedChild>
       </children>
+      <children
+          compartment="//@nodes.0/@ownedChild/@compartments.0">
+        <containmentFeature
+            href="esb.ecore#//EsbServer/children"/>
+        <ownedChild>
+          <domainMetaElement
+              href="esb.ecore#//Sequences"/>
+          <diagramNode
+              href="esb.gmfgraph#Sequences"/>
+          <children
+              referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild">
+            <containmentFeature
+                href="esb.ecore#//Sequences/mediatorFlow"/>
+          </children>
+          <children>
+            <containmentFeature
+                href="esb.ecore#//Sequences/inputConnector"/>
+            <ownedChild>
+              <domainMetaElement
+                  href="esb.ecore#//SequencesInputConnector"/>
+              <diagramNode
+                  href="esb.gmfgraph#SequenceInputConnector"/>
+            </ownedChild>
+          </children>
+          <children>
+            <containmentFeature
+                href="esb.ecore#//Sequences/outputConnector"/>
+            <ownedChild>
+              <domainMetaElement
+                  href="esb.ecore#//SequencesOutputConnector"/>
+              <diagramNode
+                  href="esb.gmfgraph#SequenceOutputConnector"/>
+            </ownedChild>
+          </children>
+        </ownedChild>
+      </children>
       <compartments
-          children="//@nodes.0/@ownedChild/@children.2 //@nodes.0/@ownedChild/@children.0">
+          children="//@nodes.0/@ownedChild/@children.2 //@nodes.0/@ownedChild/@children.0 //@nodes.0/@ownedChild/@children.3">
         <compartment
             href="esb.gmfgraph#ContentsCompartment"/>
       </compartments>

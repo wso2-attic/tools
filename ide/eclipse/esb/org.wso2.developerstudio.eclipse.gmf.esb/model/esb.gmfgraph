@@ -1297,6 +1297,21 @@
             blue="255"/>
       </actualFigure>
     </descriptors>
+    <descriptors
+        name="SequencesFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="SequencesFigure"
+          lineKind="LINE_DASH">
+        <layout
+            xsi:type="gmfgraph:GridLayout"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="255"
+            green="255"
+            blue="255"/>
+      </actualFigure>
+    </descriptors>
   </figures>
   <nodes
       name="EsbServer"
@@ -1934,6 +1949,15 @@
       name="IterateMediatorTargetOutputConnector"
       figure="EastPointerFigure"
       affixedParentSide="EAST"/>
+  <nodes
+      name="Sequences"
+      figure="SequencesFigure"/>
+  <nodes
+      name="SequencesOutputConnector"
+      figure="EastPointerFigure"/>
+  <nodes
+      name="SequencesInputConnector"
+      figure="WestPointerFigure"/>
   <connections
       name="EsbLink"
       figure="PlainConnectionFigure"/>

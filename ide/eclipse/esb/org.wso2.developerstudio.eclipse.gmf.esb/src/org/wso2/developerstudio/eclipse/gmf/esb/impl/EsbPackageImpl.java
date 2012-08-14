@@ -259,6 +259,9 @@ import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.SequenceDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.SequenceInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.SequenceOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.Sequences;
+import org.wso2.developerstudio.eclipse.gmf.esb.SequencesInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.SequencesOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.Session;
 import org.wso2.developerstudio.eclipse.gmf.esb.SmooksIODataType;
 import org.wso2.developerstudio.eclipse.gmf.esb.SmooksInConfiguration;
@@ -2018,6 +2021,27 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	private EClass sessionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass sequencesEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass sequencesOutputConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass sequencesInputConnectorEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -9311,6 +9335,60 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getSequences() {
+		return sequencesEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSequences_MediatorFlow() {
+		return (EReference)sequencesEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSequences_OutputConnector() {
+		return (EReference)sequencesEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSequences_InputConnector() {
+		return (EReference)sequencesEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSequencesOutputConnector() {
+		return sequencesOutputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSequencesInputConnector() {
+		return sequencesInputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getProxyWsdlType() {
 		return proxyWsdlTypeEEnum;
 	}
@@ -10935,6 +11013,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		sessionEClass = createEClass(SESSION);
 		createEAttribute(sessionEClass, SESSION__TYPE);
 
+		sequencesEClass = createEClass(SEQUENCES);
+		createEReference(sequencesEClass, SEQUENCES__OUTPUT_CONNECTOR);
+		createEReference(sequencesEClass, SEQUENCES__INPUT_CONNECTOR);
+		createEReference(sequencesEClass, SEQUENCES__MEDIATOR_FLOW);
+
+		sequencesOutputConnectorEClass = createEClass(SEQUENCES_OUTPUT_CONNECTOR);
+
+		sequencesInputConnectorEClass = createEClass(SEQUENCES_INPUT_CONNECTOR);
+
 		// Create enums
 		proxyWsdlTypeEEnum = createEEnum(PROXY_WSDL_TYPE);
 		filterConditionTypeEEnum = createEEnum(FILTER_CONDITION_TYPE);
@@ -11240,6 +11327,9 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		loadBalanceEndPointOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
 		loadBalanceEndPointWestOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
 		localEntryEClass.getESuperTypes().add(this.getEsbElement());
+		sequencesEClass.getESuperTypes().add(this.getEsbElement());
+		sequencesOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
+		sequencesInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(esbDiagramEClass, EsbDiagram.class, "EsbDiagram", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -12249,6 +12339,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 
 		initEClass(sessionEClass, Session.class, "Session", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSession_Type(), this.getType(), "type", null, 0, 1, Session.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(sequencesEClass, Sequences.class, "Sequences", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSequences_OutputConnector(), this.getSequencesOutputConnector(), null, "outputConnector", null, 0, 1, Sequences.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSequences_InputConnector(), this.getSequencesInputConnector(), null, "inputConnector", null, 0, 1, Sequences.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSequences_MediatorFlow(), this.getMediatorFlow(), null, "mediatorFlow", null, 0, 1, Sequences.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(sequencesOutputConnectorEClass, SequencesOutputConnector.class, "SequencesOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(sequencesInputConnectorEClass, SequencesInputConnector.class, "SequencesInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(proxyWsdlTypeEEnum, ProxyWsdlType.class, "ProxyWsdlType");

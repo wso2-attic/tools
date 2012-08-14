@@ -1029,6 +1029,18 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 				return createSessionAdapter();
 			}
 			@Override
+			public Adapter caseSequences(Sequences object) {
+				return createSequencesAdapter();
+			}
+			@Override
+			public Adapter caseSequencesOutputConnector(SequencesOutputConnector object) {
+				return createSequencesOutputConnectorAdapter();
+			}
+			@Override
+			public Adapter caseSequencesInputConnector(SequencesInputConnector object) {
+				return createSequencesInputConnectorAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -4392,6 +4404,48 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSessionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.Sequences <em>Sequences</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.Sequences
+	 * @generated
+	 */
+	public Adapter createSequencesAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.SequencesOutputConnector <em>Sequences Output Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.SequencesOutputConnector
+	 * @generated
+	 */
+	public Adapter createSequencesOutputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.SequencesInputConnector <em>Sequences Input Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.SequencesInputConnector
+	 * @generated
+	 */
+	public Adapter createSequencesInputConnectorAdapter() {
 		return null;
 	}
 

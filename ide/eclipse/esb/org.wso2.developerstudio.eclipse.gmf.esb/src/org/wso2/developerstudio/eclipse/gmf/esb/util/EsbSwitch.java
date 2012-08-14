@@ -1945,6 +1945,30 @@ public class EsbSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case EsbPackage.SEQUENCES: {
+				Sequences sequences = (Sequences)theEObject;
+				T result = caseSequences(sequences);
+				if (result == null) result = caseEsbElement(sequences);
+				if (result == null) result = caseEsbNode(sequences);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.SEQUENCES_OUTPUT_CONNECTOR: {
+				SequencesOutputConnector sequencesOutputConnector = (SequencesOutputConnector)theEObject;
+				T result = caseSequencesOutputConnector(sequencesOutputConnector);
+				if (result == null) result = caseOutputConnector(sequencesOutputConnector);
+				if (result == null) result = caseEsbConnector(sequencesOutputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.SEQUENCES_INPUT_CONNECTOR: {
+				SequencesInputConnector sequencesInputConnector = (SequencesInputConnector)theEObject;
+				T result = caseSequencesInputConnector(sequencesInputConnector);
+				if (result == null) result = caseInputConnector(sequencesInputConnector);
+				if (result == null) result = caseEsbConnector(sequencesInputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -5531,6 +5555,51 @@ public class EsbSwitch<T> {
 	 * @generated
 	 */
 	public T caseSession(Session object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Sequences</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Sequences</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSequences(Sequences object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Sequences Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Sequences Output Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSequencesOutputConnector(SequencesOutputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Sequences Input Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Sequences Input Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSequencesInputConnector(SequencesInputConnector object) {
 		return null;
 	}
 
