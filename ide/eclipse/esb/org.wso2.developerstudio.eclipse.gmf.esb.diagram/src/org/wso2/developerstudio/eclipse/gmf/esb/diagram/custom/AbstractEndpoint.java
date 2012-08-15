@@ -6,12 +6,13 @@ import java.util.List;
 
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.PositionConstants;
+import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.DeleteCommand;
 import org.eclipse.gef.EditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.BorderedBorderItemEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
+import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EndpointFlowEndpointCompartmentEditPart;
@@ -31,7 +32,19 @@ public abstract class AbstractEndpoint extends BorderedBorderItemEditPart {
 		super.activate();		
 		if (!reversed)
 			Reverse(this);		
-	}	
+	}
+	
+	public IFigure getFigure() {
+		IFigure figure = super.getFigure();
+		figure.setMaximumSize(new Dimension(104, 44));
+		return figure;
+	}
+	
+	protected NodeFigure createNodePlate() {
+		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(104, 44);
+		result.setMinimumSize(new Dimension(104, 44));
+		return result;
+	}
 	
 	public void Reverse(EditPart editorPart) {		
 		if (!reversed & ((editorPart.getParent() instanceof EndpointFlowEndpointCompartmentEditPart)&&(((AbstractMediator)editorPart.getParent().getParent().getParent()).reversed))){
