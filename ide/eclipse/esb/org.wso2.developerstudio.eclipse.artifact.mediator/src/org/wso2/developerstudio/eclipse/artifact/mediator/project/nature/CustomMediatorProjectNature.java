@@ -20,16 +20,12 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.ResourceBundle;
 
 import org.apache.maven.model.Dependency;
-import org.apache.maven.model.Plugin;
-import org.apache.maven.model.PluginExecution;
 import org.apache.maven.model.Repository;
 import org.apache.maven.model.RepositoryPolicy;
 import org.apache.maven.project.MavenProject;
 import org.eclipse.core.runtime.CoreException;
-import org.wso2.developerstudio.eclipse.capp.maven.utils.MavenConstants;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.maven.Activator;
@@ -52,18 +48,10 @@ public class CustomMediatorProjectNature extends AbstractWSO2ProjectNature {
 	}
 	
 	public void updatePom() throws Exception {
-        ResourceBundle mediatorPropetiesBundle = ResourceBundle.getBundle("mediator");
-		String groupId = mediatorPropetiesBundle.getString("Plugin_groupId");
-		String artifactId = mediatorPropetiesBundle.getString("Plugin_artficatId");
-		String version = MavenConstants.MAVEN_SYNAPSE_MEDIATOR_PLUGIN_VERSION;
-		
+
 		File mavenProjectPomLocation = getProject().getFile("pom.xml").getLocation().toFile();
 		MavenProject mavenProject = MavenUtils.getMavenProject(mavenProjectPomLocation);
 		mavenProject.getModel().getProperties().put("CApp.type", "lib/synapse/mediator");
-		Plugin plugin = MavenUtils.createPluginEntry(mavenProject,groupId,artifactId,version, true);
-		PluginExecution pluginExecution;
-		pluginExecution = new PluginExecution();
-		plugin.addExecution(pluginExecution);
 		Repository repo = new Repository();
 		repo.setUrl("http://maven.wso2.org/nexus/content/groups/wso2-public/");
 		repo.setId("wso2-nexus");

@@ -17,13 +17,16 @@
 package org.wso2.developerstudio.eclipse.artifact.mediator.project.export;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
+import org.apache.maven.model.Plugin;
+import org.apache.maven.project.MavenProject;
+import org.codehaus.plexus.util.xml.Xpp3Dom;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
-import org.eclipse.core.resources.IncrementalProjectBuilder;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
@@ -40,28 +43,21 @@ import org.wso2.developerstudio.eclipse.utils.archive.ArchiveManipulator;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 import org.wso2.developerstudio.eclipse.logging.core.*;
 import org.wso2.developerstudio.eclipse.maven.Activator;
+import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 
 public class MediatorExportHandler extends ProjectArtifactHandler {
 
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	
-	public List<IResource> exportArtifact(IProject project) {
+	public List<IResource> exportArtifact(IProject project) throws Exception {
 		List<IResource> exportResources = new ArrayList<IResource>();
-		if(!project.isOpen()){
-			return exportResources;
-		}
-	 	
-		try{
+	
 			ArchiveManipulator archiveManipulator = new ArchiveManipulator();
 			NullProgressMonitor nullProgressMonitor = new NullProgressMonitor();
 			//cleaning target directory 
 			clearTarget(project);
-			project.build(IncrementalProjectBuilder.FULL_BUILD, nullProgressMonitor);
 		    IJavaProject javaProject = JavaCore.create(project);
-		  //  BundlesDataInfo bundlesDataInfo = new BundlesDataInfo();
-		  //  bundlesDataInfo.deserialize(project.getFile("mediator-data.xml"));
-          //  Map<IProject , List<String>> dataMap = bundlesDataInfo.getExportedPackageListsFromProject();
-		  //  List<String> exportPac = dataMap.get(project);
+
             List<String> exportPac =getExportPackages(javaProject);
 		    BundleManifest manifest = new BundleManifest();	   
 		    manifest.setBundleName(project.getName());
@@ -69,8 +65,7 @@ public class MediatorExportHandler extends ProjectArtifactHandler {
 		    manifest.setBundleDescription(project.getName());
 		    manifest.setBundleVersion("2.0");
 		    manifest.setExportPackagesList(exportPac);
-		    // IPath outPutPath = javaProject.getOutputLocation();
-			IPath outPutPath = ResourcesPlugin.getWorkspace().getRoot().getFolder(javaProject.getOutputLocation()).getLocation();
+			IPath outPutPath =  buildJavaProject(project);
 			  //Let's create a temp project 
 	        IProject tempProject = ResourcesPlugin.getWorkspace().getRoot().getProject(".temp"+System.currentTimeMillis());
 	        tempProject.create(nullProgressMonitor);
@@ -88,19 +83,16 @@ public class MediatorExportHandler extends ProjectArtifactHandler {
 	        File metainfPath = new File(mediatorResource,"META-INF");
 	        metainfPath.mkdir();
 	        File manifestFile=new File(metainfPath,"MANIFEST.MF");
-	        FileUtils.createFile(manifestFile, manifest.toString());	   
-
-			// Copy the folder resources/META-INF/services to META-INF
-			IFolder manifestFolder = project.getFolder("src" + File.separator + "main" +
-			                                           File.separator + "resources" +
-			                                           File.separator + "META-INF" +
-			                                           File.separator + "services");
-			if (manifestFolder.exists()) {
-				File destinationServices = new File(metainfPath, "services");
-				FileUtils.copyDirectory(manifestFolder.getLocation().toFile(), destinationServices);
+	        FileUtils.createFile(manifestFile, manifest.toString());	
+	        
+//	        Copy the folder resources/META-INF/services to META-INF
+	        IFolder manifestFolder=project.getFolder("src"+File.separator+"main"+File.separator+"resources"+File.separator+"META-INF"+File.separator+"services");
+	        if (manifestFolder.exists()) {
+	        	File destinationServices=new File(metainfPath, "services");
+				FileUtils.copyDirectory(manifestFolder.getLocation().toFile(),destinationServices);
 			}
-
-	        File tmpArchive = new File(tempProject.getLocation().toFile(),project.getName().concat(".jar"));
+	        
+			File tmpArchive = new File(tempProject.getLocation().toFile(),project.getName().concat(".jar"));
 	        archiveManipulator.archiveDir(tmpArchive.toString(), mediatorResource.toString());
 	        IFolder binaries = project.getFolder("target");
 	        if(!binaries.exists()) {
@@ -113,16 +105,13 @@ public class MediatorExportHandler extends ProjectArtifactHandler {
 	        //cleaning temp project
 	        tempProject.delete(true, nullProgressMonitor);
 			
-		}catch (Exception e) {
-			  log.error(e);
-		}
 		return exportResources;
 	}
 		
-	private List<String> getExportPackages(IJavaProject iJavaProject) throws CoreException,
+	private List<String> getExportPackages(IJavaProject javaProject) throws CoreException,
 	JavaModelException, Exception {
 	ArrayList<String> exportedPackagesList = new ArrayList<String>();
-	IPackageFragment[] packages = iJavaProject.getPackageFragments();
+	IPackageFragment[] packages = javaProject.getPackageFragments();
     for (IPackageFragment iPackageFragment : packages) {
 		    iPackageFragment.getElementName();
 		    if (iPackageFragment.getKind() == IPackageFragmentRoot.K_SOURCE) { 
@@ -130,6 +119,32 @@ public class MediatorExportHandler extends ProjectArtifactHandler {
 				    	exportedPackagesList.add(iPackageFragment.getElementName());
 		    	 }
 			}
+	}
+    MavenProject mavenProject =  MavenUtils.getMavenProject(javaProject.getProject().getFile("pom.xml")
+            .getLocation().toFile());
+	List<Plugin> plugins = mavenProject.getBuild().getPlugins();
+	for (Plugin plugin : plugins) {
+		if("maven-bundle-plugin".equalsIgnoreCase(plugin.getArtifactId())){
+			Xpp3Dom configurationNode = (Xpp3Dom) plugin.getConfiguration();
+			Xpp3Dom[] instructions = configurationNode.getChildren("instructions");
+			if(instructions.length==1){
+				Xpp3Dom[] exportPackage = instructions[0].getChildren("Export-Package");
+				if(exportPackage.length==1){
+					exportedPackagesList.clear(); //clear default configuration (All packages by default)
+					String exportpackages = exportPackage[0].getValue();
+					if(packages!=null){
+						exportedPackagesList.addAll(Arrays.asList(exportpackages.split(",")));
+					}
+				} else{
+					log.warn("Invalid configuration for <Export-Package> entry"
+							+ " using default configuration for <Export-Package>");
+				}
+			} else{
+				log.warn("Invalid instructions configuration for plugin : maven-bundle-plugin"
+						+ " using default configuration for <Export-Package>");
+			}
+			break; //not considering multiple versions of the maven-bundle-plugin
+		}
 	}
     return exportedPackagesList;
 }

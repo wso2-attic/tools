@@ -17,11 +17,11 @@
 package org.wso2.developerstudio.eclipse.artifact.mediator.ui.wizard;
 
 import java.io.File;
-import java.util.List;
 import java.util.ResourceBundle;
 
 import org.apache.maven.model.Plugin;
 import org.apache.maven.project.MavenProject;
+import org.codehaus.plexus.util.xml.Xpp3Dom;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
@@ -39,7 +39,6 @@ import org.eclipse.ui.IEditorPart;
 import org.wso2.developerstudio.eclipse.artifact.mediator.model.CustomMediatorModel;
 import org.wso2.developerstudio.eclipse.artifact.mediator.template.CustomMediatorClassTemplate;
 import org.wso2.developerstudio.eclipse.artifact.mediator.utils.MediatorImageUtils;
-import org.wso2.developerstudio.eclipse.capp.maven.utils.MavenConstants;
 import org.wso2.developerstudio.eclipse.libraries.utils.LibraryUtils;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
@@ -48,7 +47,6 @@ import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.platform.core.model.MavenInfo;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.pages.ProjectOptionsDataPage;
-import org.wso2.developerstudio.eclipse.platform.ui.wizard.pages.ProjectOptionsPage;
 import org.wso2.developerstudio.eclipse.utils.jdt.JavaUtils;
 import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 
@@ -105,15 +103,6 @@ public class CustomMediatorCreationWizard extends AbstractWSO2ProjectCreationWiz
 		     	String template = CustomMediatorClassTemplate.getClassTemplete(packageName, className);
 				ICompilationUnit cu = sourcePackage.createCompilationUnit(className+".java", template, false, null);
 
-				/*Map<File, ArrayList<String>> exportedPackagesInfoMap = FileUtils
-				.processJarList(project.getLocation().toFile()
-						.listFiles(new FilenameFilter() {
-							public boolean accept(File file, String name) {
-								return name.endsWith(".jar");
-							}
-						}));*/
-				
-				//createExportPackages(iJavaProject);
 				project.refreshLocal(IResource.DEPTH_INFINITE,new NullProgressMonitor());
 				try {
 					IEditorPart javaEditor = JavaUI.openInEditor(cu);
@@ -123,7 +112,6 @@ public class CustomMediatorCreationWizard extends AbstractWSO2ProjectCreationWiz
 				}
 			} else{
 		     project = customMediatorModel.getMediatorProject();
-		    // createExportPackages(JavaCore.create(project));
 			 project.refreshLocal(IResource.DEPTH_INFINITE,new NullProgressMonitor());
 			}
 			File pomfile = project.getFile("pom.xml").getLocation().toFile();
@@ -133,13 +121,45 @@ public class CustomMediatorCreationWizard extends AbstractWSO2ProjectCreationWiz
 				addDependancies(project);
 			}
 			MavenProject mavenProject = MavenUtils.getMavenProject(pomfile);
-			List<Plugin> plugins = mavenProject.getBuild().getPlugins();
 			boolean pluginExists = MavenUtils.checkOldPluginEntry(mavenProject,
-					"org.wso2.maven", "maven-synapse-mediator-plugin",
-					MavenConstants.WSO2_ESB_PROXY_VERSION);
-			if(pluginExists){
-				project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
-				return true;
+					"org.apache.felix", "maven-bundle-plugin",
+					"2.3.4");
+			if(!pluginExists){
+				Plugin plugin = MavenUtils
+				.createPluginEntry(mavenProject, "org.apache.felix",
+						"maven-bundle-plugin", "2.3.4", true);
+		
+				Xpp3Dom configurationNode = MavenUtils.createMainConfigurationNode(plugin);
+				Xpp3Dom instructionNode = MavenUtils.createXpp3Node("instructions");
+				Xpp3Dom bundleSymbolicNameNode = MavenUtils.createXpp3Node(instructionNode, "Bundle-SymbolicName");
+				Xpp3Dom bundleNameNode = MavenUtils.createXpp3Node(instructionNode, "Bundle-Name");;
+				Xpp3Dom exportPackageNode =
+				MavenUtils.createXpp3Node(instructionNode, "Export-Package");
+				Xpp3Dom dynamicImportNode = MavenUtils.createXpp3Node(
+						instructionNode, "DynamicImport-Package");
+				bundleSymbolicNameNode.setValue(project.getName());
+				bundleNameNode.setValue(project.getName());
+				if (customMediatorModel.getMediatorClassPackageName() != null
+						&& !customMediatorModel.getMediatorClassPackageName()
+								.trim().isEmpty()) {
+					exportPackageNode.setValue(customMediatorModel.getMediatorClassPackageName());
+				} else{
+					IJavaProject javaProject = JavaCore.create(project);
+					if (null != javaProject) {
+						StringBuffer sb = new StringBuffer();
+						for (IPackageFragment pkg : javaProject.getPackageFragments()) {
+							if (pkg.getKind() == IPackageFragmentRoot.K_SOURCE) {
+								if (pkg.hasChildren()) {
+									sb.append(pkg.getElementName()).append(",");
+								}
+							}
+						}
+						exportPackageNode.setValue(sb.toString().replaceAll(",$", ""));
+					}
+				}
+				dynamicImportNode.setValue("*");
+				configurationNode.addChild(instructionNode);
+				MavenUtils.saveMavenProject(mavenProject, pomfile);
 			}
 
 			project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
@@ -157,26 +177,6 @@ public class CustomMediatorCreationWizard extends AbstractWSO2ProjectCreationWiz
 		return true;
 	}
 
-	/*private void createExportPackages(IJavaProject iJavaProject) throws CoreException,
-			JavaModelException, Exception {
-
-            BundlesDataInfo bundleData = new BundlesDataInfo();
-			IFile mediatorData = project.getFile("mediator-data.xml");
-			//mediatorData.setHidden(true);
-			ArrayList<String> exportedPackagesList = new ArrayList<String>();
-			IPackageFragment[] packages = iJavaProject.getPackageFragments();
-		    for (IPackageFragment iPackageFragment : packages) {
-				    iPackageFragment.getElementName();
-				    if (iPackageFragment.getKind() == IPackageFragmentRoot.K_SOURCE) { 
-				    	 if(iPackageFragment.hasChildren()){
-						    	exportedPackagesList.add(iPackageFragment.getElementName());
-				    	 }
-					}
-			}
-		 bundleData.createProjectElement(project, exportedPackagesList); 
-		 bundleData.toFile(mediatorData);
-	}
-*/	
 	public void setCustomMediatorModel(CustomMediatorModel customMediatorModel) {
 		this.customMediatorModel = customMediatorModel;
 	}
@@ -198,7 +198,7 @@ public class CustomMediatorCreationWizard extends AbstractWSO2ProjectCreationWiz
 						LibraryUtils.getDependencyPath(libName));
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("adding dependancies fail",e);
 		}
 	}
 	
