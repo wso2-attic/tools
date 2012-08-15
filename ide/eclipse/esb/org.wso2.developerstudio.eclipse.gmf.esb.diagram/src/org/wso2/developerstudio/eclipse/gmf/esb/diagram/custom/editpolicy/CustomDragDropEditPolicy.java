@@ -252,17 +252,17 @@ public class CustomDragDropEditPolicy extends DragDropEditPolicy{
 	}
 	
 	private void setGreenColor(){
-		revertColor = getHostFigure().getBackgroundColor();
+		/*revertColor = getHostFigure().getBackgroundColor();
 		getHostFigure().setBackgroundColor(
 			FigureUtilities.mixColors(new Color(null, 142, 215, 91), revertColor));
-		getHostFigure().setOpaque(true);
+		getHostFigure().setOpaque(true);*/
 	}
 	
 	private void setRedColor(){
-		revertColor = getHostFigure().getBackgroundColor();
+		/*revertColor = getHostFigure().getBackgroundColor();
 		getHostFigure().setBackgroundColor(
 			FigureUtilities.mixColors(new Color(null, 168, 41, 24), revertColor));
-		getHostFigure().setOpaque(true);
+		getHostFigure().setOpaque(true);*/
 	}
 	
 }

@@ -1,8 +1,12 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
 
+import org.eclipse.draw2d.GridData;
+import org.eclipse.draw2d.GridLayout;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.ToolbarLayout;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gef.EditPart;
+import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gef.tools.SelectionTool;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeCompartmentEditPart;
@@ -54,11 +58,10 @@ public class EsbServerContentsCompartmentEditPart extends ShapeCompartmentEditPa
 	public IFigure createFigure() {
 		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super.createFigure();
 		result.setFontColor(new Color(null, 200, 0, 0));
-		result.setTitleVisibility(true);
+		result.setTitleVisibility(true);		
 		// Override default border.
 		// result.setBorder(new MarginBorder(0, 0, 0, 0));
 		result.setToolTip((String) null);
-
 		return result;
 	}
 

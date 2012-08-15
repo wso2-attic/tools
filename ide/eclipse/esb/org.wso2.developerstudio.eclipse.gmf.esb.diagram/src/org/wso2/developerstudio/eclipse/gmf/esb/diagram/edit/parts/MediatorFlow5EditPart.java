@@ -3,6 +3,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
 import org.eclipse.draw2d.GridData;
 import org.eclipse.draw2d.GridLayout;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.LineBorder;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
@@ -251,8 +252,10 @@ public class MediatorFlow5EditPart extends ShapeNodeEditPart {
 
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8), getMapMode().DPtoLP(8)));
 			this.setBackgroundColor(THIS_BACK);
-			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(750), getMapMode()
-					.DPtoLP(400)));
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(1000), getMapMode()
+					.DPtoLP(300)));
+			LineBorder border0 = new LineBorder(new Color(null, 0, 0, 0), 1, SWT.BORDER_SOLID);
+			this.setBorder(border0);
 		}
 		
 		public void add(IFigure figure, Object constraint, int index) {

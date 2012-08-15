@@ -132,19 +132,25 @@ public abstract class AbstractOutputConnector extends AbstractBorderItemEditPart
 				}
 
 				public void mouseExited(MouseEvent arg0) {
-					// TODO Auto-generated method stub
+					if (getEditDomain().getPaletteViewer().getActiveTool()
+							.getId().equals("createEsbLink1CreationTool")) {
+					getEditDomain().getPaletteViewer().setActiveTool(null);		
+					}
 
 				}
 
 				public void mouseEntered(MouseEvent arg0) {
-					// TODO Auto-generated method stub					
-					getEditDomain()
-							.getPaletteViewer()
-							.setActiveTool(
-									(ToolEntry) (((PaletteContainer) getEditDomain()
-											.getPaletteViewer()
-											.getPaletteRoot().getChildren()
-											.get(4)).getChildren().get(0)));
+					// TODO Auto-generated method stub
+					if (getEditDomain().getPaletteViewer().getActiveTool()
+							.getId().equals("selectionTool")) {
+						getEditDomain()
+								.getPaletteViewer()
+								.setActiveTool(
+										(ToolEntry) (((PaletteContainer) getEditDomain()
+												.getPaletteViewer()
+												.getPaletteRoot().getChildren()
+												.get(4)).getChildren().get(0)));
+					}
 
 				}
 
@@ -183,20 +189,26 @@ public abstract class AbstractOutputConnector extends AbstractBorderItemEditPart
 				}
 
 				public void mouseExited(MouseEvent me) {
-					// TODO Auto-generated method stub
-
+					if (getEditDomain().getPaletteViewer().getActiveTool()
+							.getId().equals("createEsbLink1CreationTool")) {
+					getEditDomain().getPaletteViewer().setActiveTool(null);
+					}
+					
 				}
 
 				public void mouseEntered(MouseEvent me) {
 					// TODO Auto-generated method stub
-					getEditDomain()
-							.getPaletteViewer()
-							.setActiveTool(
-									(ToolEntry) (((PaletteContainer) getEditDomain()
-											.getPaletteViewer()
-											.getPaletteRoot().getChildren()
-											.get(4)).getChildren().get(0)));
+					if (getEditDomain().getPaletteViewer().getActiveTool()
+							.getId().equals("selectionTool")) {
+						getEditDomain()
+								.getPaletteViewer()
+								.setActiveTool(
+										(ToolEntry) (((PaletteContainer) getEditDomain()
+												.getPaletteViewer()
+												.getPaletteRoot().getChildren()
+												.get(4)).getChildren().get(0)));
 
+					}
 				}
 
 				public void mouseDragged(MouseEvent me) {
