@@ -11,6 +11,7 @@ import org.apache.synapse.mediators.base.SequenceMediator;
 import org.apache.synapse.util.xpath.SynapseXPath;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EObject;
+import org.wso2.developerstudio.eclipse.gmf.esb.CloneMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator;
@@ -22,6 +23,32 @@ public class SwitchMediatorTransformer extends AbstractEsbNodeTransformer {
 
 	public void transform(TransformationInfo info,
 			EsbNode subject) throws Exception {
+
+		info.getParentSequence().addChild(createSwitchMediator(info,subject));		
+		doTransform(info,
+					((SwitchMediator) subject).getOutputConnector());
+		
+	}
+
+	public void createSynapseObject(TransformationInfo info, EObject subject,
+			List<Endpoint> endPoints) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	public void transformWithinSequence(TransformationInfo information,
+			EsbNode subject, SequenceMediator sequence) throws Exception {
+		sequence.addChild(createSwitchMediator(information, subject));
+		doTransformWithinSequence(information, ((SwitchMediator) subject)
+				.getOutputConnector().getOutgoingLink(), sequence);
+		
+	}
+	
+	
+	private org.apache.synapse.mediators.filters.SwitchMediator createSwitchMediator(
+			TransformationInfo info, EsbNode subject) throws Exception {
+		
 		Assert.isTrue(subject instanceof SwitchMediator, "Invalid subject.");
 		SwitchMediator visualSwitch = (SwitchMediator) subject;
 
@@ -46,7 +73,7 @@ public class SwitchMediatorTransformer extends AbstractEsbNodeTransformer {
 		
 
 		
-		info.getParentSequence().addChild(switchMediator);
+		
 
 //		SwitchCase defaultCase = new SwitchCase();
 //		AnonymousListMediator defaultMediator = new AnonymousListMediator();
@@ -87,24 +114,6 @@ public class SwitchMediatorTransformer extends AbstractEsbNodeTransformer {
 		newInfo.setParentSequence(caseMediator);
 		doTransform(newInfo, visualSwitch.getDefaultBranch());
 		
-		doTransform(info,
-					((SwitchMediator) subject).getOutputConnector());
-		
+		return switchMediator;
 	}
-
-	public void createSynapseObject(TransformationInfo info, EObject subject,
-			List<Endpoint> endPoints) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	public void transformWithinSequence(TransformationInfo information,
-			EsbNode subject, SequenceMediator sequence) throws Exception {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-
 }

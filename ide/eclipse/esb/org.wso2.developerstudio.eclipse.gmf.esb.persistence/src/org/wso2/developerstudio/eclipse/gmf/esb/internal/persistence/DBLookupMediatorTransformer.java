@@ -33,6 +33,8 @@ public class DBLookupMediatorTransformer extends AbstractEsbNodeTransformer {
 	
 	public void transformWithinSequence(TransformationInfo information,
 			EsbNode subject, SequenceMediator sequence) throws Exception {
+		sequence.addChild(createDBLookupMediator(information,subject));
+		doTransformWithinSequence(information,((DBLookupMediator) subject).getOutputConnector().getOutgoingLink(),sequence);
 		
 	}
 
