@@ -158,11 +158,13 @@ public class AddressEndPointTransformer extends AbstractEsbNodeTransformer {
 			info.firstEndPoint = visualEndPoint;
 		}
 
+		if(visualEndPoint.getOutputConnector().getOutgoingLink() !=null){
 		if(!(visualEndPoint.getOutputConnector().getOutgoingLink().getTarget() instanceof SequenceInputConnector)){
 			info.setParentSequence(info.getOriginOutSequence());
 			info.setTraversalDirection(TransformationInfo.TRAVERSAL_DIRECTION_OUT);
 		}else if(visualEndPoint.getInputConnector().getIncomingLinks().get(0).getSource().eContainer() instanceof Sequence){
 			info.setParentSequence(info.getCurrentReferredSequence());
+		}
 		}
 
 
