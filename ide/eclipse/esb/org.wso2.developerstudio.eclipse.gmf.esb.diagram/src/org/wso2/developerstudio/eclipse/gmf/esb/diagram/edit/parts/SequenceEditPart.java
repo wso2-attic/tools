@@ -849,7 +849,9 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 						.getFigure();
 				NodeFigure figureOutput = ((AbstractOutputConnector) this.getChildren().get(i))
 						.getNodeFigureOutput();
-
+				figureOutput.removeAll();
+				figureOutput.add(((AbstractOutputConnector) this.getChildren().get(i))
+						.getPrimaryShapeForward());
 				BorderItemLocator outputLocator = new FixedBorderItemLocator(this.getMainFigure(),
 						outputConnector, PositionConstants.EAST, 0.70);
 				this.getBorderedFigure().getBorderItemContainer().remove(outputConnector);

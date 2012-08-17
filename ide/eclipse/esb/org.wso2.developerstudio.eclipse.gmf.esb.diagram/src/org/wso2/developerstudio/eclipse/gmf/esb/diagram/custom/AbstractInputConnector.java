@@ -93,7 +93,7 @@ public abstract class AbstractInputConnector extends AbstractBorderItemEditPart 
 				
 				if(this.getParent() instanceof SequenceEditPart){
 					if(link instanceof AbstractEndpointOutputConnector){
-					((SequenceEditPart)this.getParent()).moveConnectorsRightSide();
+					//((SequenceEditPart)this.getParent()).moveConnectorsRightSide();
 					}
 				}
 			}

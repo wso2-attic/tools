@@ -20,6 +20,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractInputConn
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbLinkEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SendMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SendMediatorEndpointOutputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceEditPart;
 
 public abstract class AbstractEndpointInputConnector extends AbstractBorderItemEditPart {
 
@@ -99,6 +100,16 @@ public abstract class AbstractEndpointInputConnector extends AbstractBorderItemE
 							}
 						}
 					}
+					
+					
+					EditPart sourceOutputConnector = ((EsbLinkEditPart) this.getTargetConnections()
+							.get(0)).getSource();
+					if(sourceOutputConnector.getParent() instanceof SequenceEditPart){
+						if(((EsbLinkEditPart)((AbstractInputConnector)sourceOutputConnector.getParent().getChildren().get(1)).getTargetConnections().get(0)).getSource() instanceof AbstractEndpointOutputConnector){
+						((SequenceEditPart)sourceOutputConnector.getParent()).moveConnectorsRightSide();
+						}
+					}
+					
 				}
 				
 			}

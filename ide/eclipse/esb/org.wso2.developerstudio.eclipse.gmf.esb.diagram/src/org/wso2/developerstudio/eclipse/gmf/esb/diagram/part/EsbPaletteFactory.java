@@ -93,7 +93,7 @@ public class EsbPaletteFactory {
 		paletteContainer.add(createEnrichMediator5CreationTool());
 		paletteContainer.add(createEventMediator8CreationTool());
 		paletteContainer.add(createSendMediator19CreationTool());
-		paletteContainer.add(createCallTemplateMediator33CreationTool());
+		//paletteContainer.add(createCallTemplateMediator33CreationTool());
 		paletteContainer.add(createEnqueueMediator35CreationTool());
 
 		paletteContainer.add(new PaletteSeparator());
