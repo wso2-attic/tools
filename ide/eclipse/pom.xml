@@ -47,6 +47,7 @@
 		<module>data-services</module>
 		<module>esb</module>
 		<module>gs</module>
+		<module>cep</module>
 		<module>capp</module>
 		<module>connectors</module>
 		<module>distribution</module>
