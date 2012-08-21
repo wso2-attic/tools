@@ -2992,6 +2992,29 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.CacheMediatorOnHitOutputConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CacheMediatorOnHitOutputConnectorItemProvider cacheMediatorOnHitOutputConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.CacheMediatorOnHitOutputConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCacheMediatorOnHitOutputConnectorAdapter() {
+		if (cacheMediatorOnHitOutputConnectorItemProvider == null) {
+			cacheMediatorOnHitOutputConnectorItemProvider = new CacheMediatorOnHitOutputConnectorItemProvider(this);
+		}
+
+		return cacheMediatorOnHitOutputConnectorItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.CacheOnHitBranch} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5682,6 +5705,7 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 		if (cacheMediatorItemProvider != null) cacheMediatorItemProvider.dispose();
 		if (cacheMediatorInputConnectorItemProvider != null) cacheMediatorInputConnectorItemProvider.dispose();
 		if (cacheMediatorOutputConnectorItemProvider != null) cacheMediatorOutputConnectorItemProvider.dispose();
+		if (cacheMediatorOnHitOutputConnectorItemProvider != null) cacheMediatorOnHitOutputConnectorItemProvider.dispose();
 		if (cacheOnHitBranchItemProvider != null) cacheOnHitBranchItemProvider.dispose();
 		if (xQueryMediatorItemProvider != null) xQueryMediatorItemProvider.dispose();
 		if (xQueryMediatorInputConnectorItemProvider != null) xQueryMediatorInputConnectorItemProvider.dispose();

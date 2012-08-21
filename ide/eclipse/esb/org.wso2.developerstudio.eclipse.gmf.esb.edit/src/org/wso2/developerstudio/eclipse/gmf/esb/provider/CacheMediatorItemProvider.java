@@ -327,6 +327,8 @@ public class CacheMediatorItemProvider
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(EsbPackage.Literals.CACHE_MEDIATOR__INPUT_CONNECTOR);
 			childrenFeatures.add(EsbPackage.Literals.CACHE_MEDIATOR__OUTPUT_CONNECTOR);
+			childrenFeatures.add(EsbPackage.Literals.CACHE_MEDIATOR__ON_HIT_OUTPUT_CONNECTOR);
+			childrenFeatures.add(EsbPackage.Literals.CACHE_MEDIATOR__MEDIATOR_FLOW);
 		}
 		return childrenFeatures;
 	}
@@ -396,6 +398,8 @@ public class CacheMediatorItemProvider
 				return;
 			case EsbPackage.CACHE_MEDIATOR__INPUT_CONNECTOR:
 			case EsbPackage.CACHE_MEDIATOR__OUTPUT_CONNECTOR:
+			case EsbPackage.CACHE_MEDIATOR__ON_HIT_OUTPUT_CONNECTOR:
+			case EsbPackage.CACHE_MEDIATOR__MEDIATOR_FLOW:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -423,6 +427,16 @@ public class CacheMediatorItemProvider
 			(createChildParameter
 				(EsbPackage.Literals.CACHE_MEDIATOR__OUTPUT_CONNECTOR,
 				 EsbFactory.eINSTANCE.createCacheMediatorOutputConnector()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.CACHE_MEDIATOR__ON_HIT_OUTPUT_CONNECTOR,
+				 EsbFactory.eINSTANCE.createCacheMediatorOnHitOutputConnector()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.CACHE_MEDIATOR__MEDIATOR_FLOW,
+				 EsbFactory.eINSTANCE.createMediatorFlow()));
 	}
 
 }
