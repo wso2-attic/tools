@@ -1297,6 +1297,21 @@
                                   href="esb.gmfgraph#CacheMediatorOutputConnector"/>
                             </ownedChild>
                           </children>
+                          <children>
+                            <containmentFeature
+                                href="esb.ecore#//CacheMediator/onHitOutputConnector"/>
+                            <ownedChild>
+                              <domainMetaElement
+                                  href="esb.ecore#//CacheMediatorOnHitOutputConnector"/>
+                              <diagramNode
+                                  href="esb.gmfgraph#CacheMediatorOnHitOutputConnector"/>
+                            </ownedChild>
+                          </children>
+                          <children
+                              referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild">
+                            <containmentFeature
+                                href="esb.ecore#//CacheMediator/mediatorFlow"/>
+                          </children>
                         </ownedChild>
                       </children>
                       <children

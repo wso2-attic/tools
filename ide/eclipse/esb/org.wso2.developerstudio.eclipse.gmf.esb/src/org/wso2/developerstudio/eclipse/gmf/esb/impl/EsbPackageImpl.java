@@ -45,6 +45,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.CacheAction;
 import org.wso2.developerstudio.eclipse.gmf.esb.CacheImplementationType;
 import org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.CacheMediatorInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.CacheMediatorOnHitOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.CacheMediatorOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.CacheOnHitBranch;
 import org.wso2.developerstudio.eclipse.gmf.esb.CacheScope;
@@ -1300,6 +1301,13 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	private EClass cacheMediatorOutputConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass cacheMediatorOnHitOutputConnectorEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -6401,6 +6409,24 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getCacheMediator_OnHitOutputConnector() {
+		return (EReference)cacheMediatorEClass.getEStructuralFeatures().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCacheMediator_MediatorFlow() {
+		return (EReference)cacheMediatorEClass.getEStructuralFeatures().get(13);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getCacheMediatorInputConnector() {
 		return cacheMediatorInputConnectorEClass;
 	}
@@ -6412,6 +6438,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 */
 	public EClass getCacheMediatorOutputConnector() {
 		return cacheMediatorOutputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCacheMediatorOnHitOutputConnector() {
+		return cacheMediatorOnHitOutputConnectorEClass;
 	}
 
 	/**
@@ -10581,10 +10616,14 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEReference(cacheMediatorEClass, CACHE_MEDIATOR__SEQUENCE_KEY);
 		createEReference(cacheMediatorEClass, CACHE_MEDIATOR__INPUT_CONNECTOR);
 		createEReference(cacheMediatorEClass, CACHE_MEDIATOR__OUTPUT_CONNECTOR);
+		createEReference(cacheMediatorEClass, CACHE_MEDIATOR__ON_HIT_OUTPUT_CONNECTOR);
+		createEReference(cacheMediatorEClass, CACHE_MEDIATOR__MEDIATOR_FLOW);
 
 		cacheMediatorInputConnectorEClass = createEClass(CACHE_MEDIATOR_INPUT_CONNECTOR);
 
 		cacheMediatorOutputConnectorEClass = createEClass(CACHE_MEDIATOR_OUTPUT_CONNECTOR);
+
+		cacheMediatorOnHitOutputConnectorEClass = createEClass(CACHE_MEDIATOR_ON_HIT_OUTPUT_CONNECTOR);
 
 		cacheOnHitBranchEClass = createEClass(CACHE_ON_HIT_BRANCH);
 
@@ -11247,6 +11286,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		cacheMediatorEClass.getESuperTypes().add(this.getMediator());
 		cacheMediatorInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
 		cacheMediatorOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
+		cacheMediatorOnHitOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
 		xQueryMediatorEClass.getESuperTypes().add(this.getMediator());
 		xQueryMediatorInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
 		xQueryMediatorOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
@@ -11908,10 +11948,14 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEReference(getCacheMediator_SequenceKey(), this.getRegistryKeyProperty(), null, "sequenceKey", null, 0, 1, CacheMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCacheMediator_InputConnector(), this.getCacheMediatorInputConnector(), null, "inputConnector", null, 0, 1, CacheMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCacheMediator_OutputConnector(), this.getCacheMediatorOutputConnector(), null, "outputConnector", null, 0, 1, CacheMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCacheMediator_OnHitOutputConnector(), this.getCacheMediatorOnHitOutputConnector(), null, "onHitOutputConnector", null, 0, 1, CacheMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCacheMediator_MediatorFlow(), this.getMediatorFlow(), null, "mediatorFlow", null, 0, 1, CacheMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(cacheMediatorInputConnectorEClass, CacheMediatorInputConnector.class, "CacheMediatorInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(cacheMediatorOutputConnectorEClass, CacheMediatorOutputConnector.class, "CacheMediatorOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(cacheMediatorOnHitOutputConnectorEClass, CacheMediatorOnHitOutputConnector.class, "CacheMediatorOnHitOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(cacheOnHitBranchEClass, CacheOnHitBranch.class, "CacheOnHitBranch", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

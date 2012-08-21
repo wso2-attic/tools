@@ -194,6 +194,7 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 			case EsbPackage.CACHE_MEDIATOR: return createCacheMediator();
 			case EsbPackage.CACHE_MEDIATOR_INPUT_CONNECTOR: return createCacheMediatorInputConnector();
 			case EsbPackage.CACHE_MEDIATOR_OUTPUT_CONNECTOR: return createCacheMediatorOutputConnector();
+			case EsbPackage.CACHE_MEDIATOR_ON_HIT_OUTPUT_CONNECTOR: return createCacheMediatorOnHitOutputConnector();
 			case EsbPackage.CACHE_ON_HIT_BRANCH: return createCacheOnHitBranch();
 			case EsbPackage.XQUERY_MEDIATOR: return createXQueryMediator();
 			case EsbPackage.XQUERY_MEDIATOR_INPUT_CONNECTOR: return createXQueryMediatorInputConnector();
@@ -1913,6 +1914,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 		CacheMediatorImpl cacheMediator = new CacheMediatorImpl();
 		cacheMediator.setInputConnector(createCacheMediatorInputConnector());
 		cacheMediator.setOutputConnector(createCacheMediatorOutputConnector());
+		cacheMediator.setOnHitOutputConnector(createCacheMediatorOnHitOutputConnector());
+		cacheMediator.setMediatorFlow(createMediatorFlow());
 		return cacheMediator;
 	}
 
@@ -1934,6 +1937,16 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	public CacheMediatorOutputConnector createCacheMediatorOutputConnector() {
 		CacheMediatorOutputConnectorImpl cacheMediatorOutputConnector = new CacheMediatorOutputConnectorImpl();
 		return cacheMediatorOutputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CacheMediatorOnHitOutputConnector createCacheMediatorOnHitOutputConnector() {
+		CacheMediatorOnHitOutputConnectorImpl cacheMediatorOnHitOutputConnector = new CacheMediatorOnHitOutputConnectorImpl();
+		return cacheMediatorOnHitOutputConnector;
 	}
 
 	/**

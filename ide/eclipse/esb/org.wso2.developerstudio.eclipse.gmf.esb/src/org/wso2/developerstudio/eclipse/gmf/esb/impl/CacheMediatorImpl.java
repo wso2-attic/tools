@@ -21,11 +21,13 @@ import org.wso2.developerstudio.eclipse.gmf.esb.CacheAction;
 import org.wso2.developerstudio.eclipse.gmf.esb.CacheImplementationType;
 import org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.CacheMediatorInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.CacheMediatorOnHitOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.CacheMediatorOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.CacheOnHitBranch;
 import org.wso2.developerstudio.eclipse.gmf.esb.CacheScope;
 import org.wso2.developerstudio.eclipse.gmf.esb.CacheSequenceType;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
+import org.wso2.developerstudio.eclipse.gmf.esb.MediatorFlow;
 import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
 import org.wso2.developerstudio.eclipse.platform.core.mediatype.PlatformMediaTypeConstants;
 import org.wso2.developerstudio.eclipse.platform.core.utils.CSProviderConstants;
@@ -50,6 +52,8 @@ import org.wso2.developerstudio.eclipse.platform.core.utils.DeveloperStudioProvi
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CacheMediatorImpl#getSequenceKey <em>Sequence Key</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CacheMediatorImpl#getInputConnector <em>Input Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CacheMediatorImpl#getOutputConnector <em>Output Connector</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CacheMediatorImpl#getOnHitOutputConnector <em>On Hit Output Connector</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CacheMediatorImpl#getMediatorFlow <em>Mediator Flow</em>}</li>
  * </ul>
  * </p>
  *
@@ -265,6 +269,26 @@ public class CacheMediatorImpl extends MediatorImpl implements CacheMediator {
 	 * @ordered
 	 */
 	protected CacheMediatorOutputConnector outputConnector;
+
+	/**
+	 * The cached value of the '{@link #getOnHitOutputConnector() <em>On Hit Output Connector</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOnHitOutputConnector()
+	 * @generated
+	 * @ordered
+	 */
+	protected CacheMediatorOnHitOutputConnector onHitOutputConnector;
+
+	/**
+	 * The cached value of the '{@link #getMediatorFlow() <em>Mediator Flow</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMediatorFlow()
+	 * @generated
+	 * @ordered
+	 */
+	protected MediatorFlow mediatorFlow;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -616,6 +640,92 @@ public class CacheMediatorImpl extends MediatorImpl implements CacheMediator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public CacheMediatorOnHitOutputConnector getOnHitOutputConnector() {
+		return onHitOutputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetOnHitOutputConnector(CacheMediatorOnHitOutputConnector newOnHitOutputConnector, NotificationChain msgs) {
+		CacheMediatorOnHitOutputConnector oldOnHitOutputConnector = onHitOutputConnector;
+		onHitOutputConnector = newOnHitOutputConnector;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.CACHE_MEDIATOR__ON_HIT_OUTPUT_CONNECTOR, oldOnHitOutputConnector, newOnHitOutputConnector);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOnHitOutputConnector(CacheMediatorOnHitOutputConnector newOnHitOutputConnector) {
+		if (newOnHitOutputConnector != onHitOutputConnector) {
+			NotificationChain msgs = null;
+			if (onHitOutputConnector != null)
+				msgs = ((InternalEObject)onHitOutputConnector).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.CACHE_MEDIATOR__ON_HIT_OUTPUT_CONNECTOR, null, msgs);
+			if (newOnHitOutputConnector != null)
+				msgs = ((InternalEObject)newOnHitOutputConnector).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.CACHE_MEDIATOR__ON_HIT_OUTPUT_CONNECTOR, null, msgs);
+			msgs = basicSetOnHitOutputConnector(newOnHitOutputConnector, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.CACHE_MEDIATOR__ON_HIT_OUTPUT_CONNECTOR, newOnHitOutputConnector, newOnHitOutputConnector));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MediatorFlow getMediatorFlow() {
+		return mediatorFlow;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetMediatorFlow(MediatorFlow newMediatorFlow, NotificationChain msgs) {
+		MediatorFlow oldMediatorFlow = mediatorFlow;
+		mediatorFlow = newMediatorFlow;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.CACHE_MEDIATOR__MEDIATOR_FLOW, oldMediatorFlow, newMediatorFlow);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMediatorFlow(MediatorFlow newMediatorFlow) {
+		if (newMediatorFlow != mediatorFlow) {
+			NotificationChain msgs = null;
+			if (mediatorFlow != null)
+				msgs = ((InternalEObject)mediatorFlow).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.CACHE_MEDIATOR__MEDIATOR_FLOW, null, msgs);
+			if (newMediatorFlow != null)
+				msgs = ((InternalEObject)newMediatorFlow).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.CACHE_MEDIATOR__MEDIATOR_FLOW, null, msgs);
+			msgs = basicSetMediatorFlow(newMediatorFlow, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.CACHE_MEDIATOR__MEDIATOR_FLOW, newMediatorFlow, newMediatorFlow));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -626,6 +736,10 @@ public class CacheMediatorImpl extends MediatorImpl implements CacheMediator {
 				return basicSetInputConnector(null, msgs);
 			case EsbPackage.CACHE_MEDIATOR__OUTPUT_CONNECTOR:
 				return basicSetOutputConnector(null, msgs);
+			case EsbPackage.CACHE_MEDIATOR__ON_HIT_OUTPUT_CONNECTOR:
+				return basicSetOnHitOutputConnector(null, msgs);
+			case EsbPackage.CACHE_MEDIATOR__MEDIATOR_FLOW:
+				return basicSetMediatorFlow(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -663,6 +777,10 @@ public class CacheMediatorImpl extends MediatorImpl implements CacheMediator {
 				return getInputConnector();
 			case EsbPackage.CACHE_MEDIATOR__OUTPUT_CONNECTOR:
 				return getOutputConnector();
+			case EsbPackage.CACHE_MEDIATOR__ON_HIT_OUTPUT_CONNECTOR:
+				return getOnHitOutputConnector();
+			case EsbPackage.CACHE_MEDIATOR__MEDIATOR_FLOW:
+				return getMediatorFlow();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -711,6 +829,12 @@ public class CacheMediatorImpl extends MediatorImpl implements CacheMediator {
 				return;
 			case EsbPackage.CACHE_MEDIATOR__OUTPUT_CONNECTOR:
 				setOutputConnector((CacheMediatorOutputConnector)newValue);
+				return;
+			case EsbPackage.CACHE_MEDIATOR__ON_HIT_OUTPUT_CONNECTOR:
+				setOnHitOutputConnector((CacheMediatorOnHitOutputConnector)newValue);
+				return;
+			case EsbPackage.CACHE_MEDIATOR__MEDIATOR_FLOW:
+				setMediatorFlow((MediatorFlow)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -761,6 +885,12 @@ public class CacheMediatorImpl extends MediatorImpl implements CacheMediator {
 			case EsbPackage.CACHE_MEDIATOR__OUTPUT_CONNECTOR:
 				setOutputConnector((CacheMediatorOutputConnector)null);
 				return;
+			case EsbPackage.CACHE_MEDIATOR__ON_HIT_OUTPUT_CONNECTOR:
+				setOnHitOutputConnector((CacheMediatorOnHitOutputConnector)null);
+				return;
+			case EsbPackage.CACHE_MEDIATOR__MEDIATOR_FLOW:
+				setMediatorFlow((MediatorFlow)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -798,6 +928,10 @@ public class CacheMediatorImpl extends MediatorImpl implements CacheMediator {
 				return inputConnector != null;
 			case EsbPackage.CACHE_MEDIATOR__OUTPUT_CONNECTOR:
 				return outputConnector != null;
+			case EsbPackage.CACHE_MEDIATOR__ON_HIT_OUTPUT_CONNECTOR:
+				return onHitOutputConnector != null;
+			case EsbPackage.CACHE_MEDIATOR__MEDIATOR_FLOW:
+				return mediatorFlow != null;
 		}
 		return super.eIsSet(featureID);
 	}

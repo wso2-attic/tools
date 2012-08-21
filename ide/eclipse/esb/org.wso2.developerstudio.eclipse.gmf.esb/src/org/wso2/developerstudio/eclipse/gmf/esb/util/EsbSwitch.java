@@ -1146,6 +1146,14 @@ public class EsbSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case EsbPackage.CACHE_MEDIATOR_ON_HIT_OUTPUT_CONNECTOR: {
+				CacheMediatorOnHitOutputConnector cacheMediatorOnHitOutputConnector = (CacheMediatorOnHitOutputConnector)theEObject;
+				T result = caseCacheMediatorOnHitOutputConnector(cacheMediatorOnHitOutputConnector);
+				if (result == null) result = caseOutputConnector(cacheMediatorOnHitOutputConnector);
+				if (result == null) result = caseEsbConnector(cacheMediatorOnHitOutputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case EsbPackage.CACHE_ON_HIT_BRANCH: {
 				CacheOnHitBranch cacheOnHitBranch = (CacheOnHitBranch)theEObject;
 				T result = caseCacheOnHitBranch(cacheOnHitBranch);
@@ -4010,6 +4018,21 @@ public class EsbSwitch<T> {
 	 * @generated
 	 */
 	public T caseCacheMediatorOutputConnector(CacheMediatorOutputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Cache Mediator On Hit Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Cache Mediator On Hit Output Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCacheMediatorOnHitOutputConnector(CacheMediatorOnHitOutputConnector object) {
 		return null;
 	}
 

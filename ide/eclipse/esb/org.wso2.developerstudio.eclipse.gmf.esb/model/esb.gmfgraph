@@ -1958,6 +1958,10 @@
   <nodes
       name="SequencesInputConnector"
       figure="WestPointerFigure"/>
+  <nodes
+      name="CacheMediatorOnHitOutputConnector"
+      figure="EastPointerFigure"
+      affixedParentSide="EAST"/>
   <connections
       name="EsbLink"
       figure="PlainConnectionFigure"/>

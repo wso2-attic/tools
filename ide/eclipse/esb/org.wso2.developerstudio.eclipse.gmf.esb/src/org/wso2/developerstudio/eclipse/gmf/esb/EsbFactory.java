@@ -1147,6 +1147,15 @@ public interface EsbFactory extends EFactory {
 	CacheMediatorOutputConnector createCacheMediatorOutputConnector();
 
 	/**
+	 * Returns a new object of class '<em>Cache Mediator On Hit Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Cache Mediator On Hit Output Connector</em>'.
+	 * @generated
+	 */
+	CacheMediatorOnHitOutputConnector createCacheMediatorOnHitOutputConnector();
+
+	/**
 	 * Returns a new object of class '<em>Cache On Hit Branch</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -617,6 +617,10 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 				return createCacheMediatorOutputConnectorAdapter();
 			}
 			@Override
+			public Adapter caseCacheMediatorOnHitOutputConnector(CacheMediatorOnHitOutputConnector object) {
+				return createCacheMediatorOnHitOutputConnectorAdapter();
+			}
+			@Override
 			public Adapter caseCacheOnHitBranch(CacheOnHitBranch object) {
 				return createCacheOnHitBranchAdapter();
 			}
@@ -2962,6 +2966,20 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createCacheMediatorOutputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheMediatorOnHitOutputConnector <em>Cache Mediator On Hit Output Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CacheMediatorOnHitOutputConnector
+	 * @generated
+	 */
+	public Adapter createCacheMediatorOnHitOutputConnectorAdapter() {
 		return null;
 	}
 
