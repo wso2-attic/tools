@@ -8,7 +8,7 @@
 			wizardManifest="project_wizard.xml"
 			id="org.wso2.developerstudio.eclipse.artifact.newcepartifact"
 			project="true"
-			icon="icons/buket.png">
+			icon="icons/buket-16x16.png">
 			<description>CEP Bucket Project</description>
 		</wizard>
          <category
@@ -27,7 +27,7 @@
 	</extension>
 	<extension point="org.eclipse.ui.ide.projectNatureImages">
 		<image id="org.wso2.developerstudio.eclipse.cep.project.natureImage"
-			natureId="org.wso2.developerstudio.eclipse.cep.project.nature" icon="icons/buket.png">
+			natureId="org.wso2.developerstudio.eclipse.cep.project.nature" icon="icons/buket-12x12.png">
 		</image>
 	</extension>
 	<extension point="org.eclipse.ui.navigator.navigatorContent">	

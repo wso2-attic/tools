@@ -17,7 +17,6 @@
 package org.wso2.developerstudio.eclipse.artifact.cep.ui.wizard;
 
 import java.io.File;
-import java.io.IOException;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
@@ -29,9 +28,6 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.jface.dialogs.MessageDialog;
 
-import org.eclipse.ui.IWorkbenchPage;
-import org.eclipse.ui.IWorkbenchWindow;
-import org.eclipse.ui.OpenAndLinkWithEditorHelper;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.ide.IDE;
 import org.eclipse.ui.part.FileEditorInput;
@@ -62,7 +58,7 @@ public class CEPProjectCreationWizard extends AbstractWSO2ProjectCreationWizard 
 		setModel(this.cepModel);
 		setWindowTitle(CEP_WIZARD_WINDOW_TITLE);
 		setDefaultPageImageDescriptor(CEPImageUtils.getInstance()
-				.getImageDescriptor("buket.png"));
+				.getImageDescriptor("buket-64x64.png"));
 	}
 
 	public boolean performFinish() {
