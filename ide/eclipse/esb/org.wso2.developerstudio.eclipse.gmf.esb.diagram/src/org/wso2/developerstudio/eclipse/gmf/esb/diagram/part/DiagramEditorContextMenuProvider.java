@@ -96,7 +96,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.export.EsbModelEx
 /**
  * @generated
  */
-public class DiagramEditorContextMenuProvider extends DiagramContextMenuProvider {
+public class DiagramEditorContextMenuProvider extends
+		DiagramContextMenuProvider {
 
 	/**
 	 * @generated
@@ -125,7 +126,8 @@ public class DiagramEditorContextMenuProvider extends DiagramContextMenuProvider
 	/**
 	 * @generated NOT
 	 */
-	public DiagramEditorContextMenuProvider(IWorkbenchPart part, EditPartViewer viewer) {
+	public DiagramEditorContextMenuProvider(IWorkbenchPart part,
+			EditPartViewer viewer) {
 		super(part, viewer);
 		this.part = part;
 
@@ -137,102 +139,128 @@ public class DiagramEditorContextMenuProvider extends DiagramContextMenuProvider
 		// Initialize context sensitive actions.
 		contextActions = new HashMap<Class<? extends EsbNode>, ConfigureEsbNodeAction>();
 
-		contextActions.put(LogMediator.class, new ConfigureLogMediatorAction(part));
+		contextActions.put(LogMediator.class, new ConfigureLogMediatorAction(
+				part));
 
-		contextActions.put(SwitchMediator.class, new ConfigureSwitchMediatorAction(part));
+		contextActions.put(SwitchMediator.class,
+				new ConfigureSwitchMediatorAction(part));
 
-		contextActions.put(ProxyService.class, new ConfigureProxyServiceAction(part));
+		contextActions.put(ProxyService.class, new ConfigureProxyServiceAction(
+				part));
 
-		contextActions.put(XQueryMediator.class, new ConfigureXQueryMediatorAction(part));
+		contextActions.put(XQueryMediator.class,
+				new ConfigureXQueryMediatorAction(part));
 
-		contextActions.put(CloneMediator.class, new ConfigureCloneMediatorAction(part));
+		contextActions.put(CloneMediator.class,
+				new ConfigureCloneMediatorAction(part));
 
 		//Initialize branch context sensitive actions.
 		addBranchContextActions = new HashMap<Class<? extends EsbNode>, ConfigureEsbNodeAction>();
 
-		addBranchContextActions.put(SwitchMediator.class, new AddBranchSwitchMediatorAction(part));
+		addBranchContextActions.put(SwitchMediator.class,
+				new AddBranchSwitchMediatorAction(part));
 
-		addBranchContextActions.put(FailoverEndPoint.class, new AddBranchFailoverEndpointAction(
-				part));
+		addBranchContextActions.put(FailoverEndPoint.class,
+				new AddBranchFailoverEndpointAction(part));
 
 		addBranchContextActions.put(LoadBalanceEndPoint.class,
 				new AddBranchLoadBalanceEndpointAction(part));
 
-		addBranchContextActions.put(CloneMediator.class, new AddBranchCloneMediatorAction(part));
+		addBranchContextActions.put(CloneMediator.class,
+				new AddBranchCloneMediatorAction(part));
 
 		//Initialize direction sensitive actions.
 		contextActionsDirection = new HashMap<Class<? extends EsbNode>, DirectionEsbNodeAction>();
 
-		contextActionsDirection.put(LogMediator.class, new DirectionLogMediatorAction(part));
+		contextActionsDirection.put(LogMediator.class,
+				new DirectionLogMediatorAction(part));
 
-		contextActionsDirection.put(DropMediator.class, new DirectionDropMediatorAction(part));
+		contextActionsDirection.put(DropMediator.class,
+				new DirectionDropMediatorAction(part));
 
-		contextActionsDirection.put(SwitchMediator.class, new DirectionSwitchMediatorAction(part));
+		contextActionsDirection.put(SwitchMediator.class,
+				new DirectionSwitchMediatorAction(part));
 
-		contextActionsDirection.put(FilterMediator.class, new DirectionFilterMediatorAction(part));
+		contextActionsDirection.put(FilterMediator.class,
+				new DirectionFilterMediatorAction(part));
 
-		contextActionsDirection.put(PropertyMediator.class, new DirectionPropertyMediatorAction(
-				part));
+		contextActionsDirection.put(PropertyMediator.class,
+				new DirectionPropertyMediatorAction(part));
 
-		contextActionsDirection.put(EnrichMediator.class, new DirectionEnrichMediatorAction(part));
+		contextActionsDirection.put(EnrichMediator.class,
+				new DirectionEnrichMediatorAction(part));
 
-		contextActionsDirection.put(XSLTMediator.class, new DirectionXSLTMediatorAction(part));
+		contextActionsDirection.put(XSLTMediator.class,
+				new DirectionXSLTMediatorAction(part));
 
-		contextActionsDirection.put(EventMediator.class, new DirectionEventMediatorAction(part));
+		contextActionsDirection.put(EventMediator.class,
+				new DirectionEventMediatorAction(part));
 
 		contextActionsDirection.put(EntitlementMediator.class,
 				new DirectionEntitlementMediatorAction(part));
 
-		contextActionsDirection.put(ClassMediator.class, new DirectionClassMediatorAction(part));
+		contextActionsDirection.put(ClassMediator.class,
+				new DirectionClassMediatorAction(part));
 
-		contextActionsDirection.put(SpringMediator.class, new DirectionSpringMediatorAction(part));
+		contextActionsDirection.put(SpringMediator.class,
+				new DirectionSpringMediatorAction(part));
 
-		contextActionsDirection.put(ScriptMediator.class, new DirectionScriptMediatorAction(part));
+		contextActionsDirection.put(ScriptMediator.class,
+				new DirectionScriptMediatorAction(part));
 
-		contextActionsDirection.put(FaultMediator.class, new DirectionFaultMediatorAction(part));
+		contextActionsDirection.put(FaultMediator.class,
+				new DirectionFaultMediatorAction(part));
 
-		contextActionsDirection.put(XQueryMediator.class, new DirectionXQueryMediatorAction(part));
+		contextActionsDirection.put(XQueryMediator.class,
+				new DirectionXQueryMediatorAction(part));
 
-		contextActionsDirection.put(DBLookupMediator.class, new DirectionDBLookupMediatorAction(
-				part));
+		contextActionsDirection.put(DBLookupMediator.class,
+				new DirectionDBLookupMediatorAction(part));
 
-		contextActionsDirection.put(DBReportMediator.class, new DirectionDBReportMediatorAction(
-				part));
+		contextActionsDirection.put(DBReportMediator.class,
+				new DirectionDBReportMediatorAction(part));
 
-		contextActionsDirection.put(SmooksMediator.class, new DirectionSmooksMediatorAction(part));
+		contextActionsDirection.put(SmooksMediator.class,
+				new DirectionSmooksMediatorAction(part));
 
-		contextActionsDirection
-				.put(CommandMediator.class, new DirectionCommandMediatorAction(part));
+		contextActionsDirection.put(CommandMediator.class,
+				new DirectionCommandMediatorAction(part));
 
-		contextActionsDirection.put(SendMediator.class, new DirectionSendMediatorAction(part));
+		contextActionsDirection.put(SendMediator.class,
+				new DirectionSendMediatorAction(part));
 
-		contextActionsDirection.put(HeaderMediator.class, new DirectionHeaderMediatorAction(part));
+		contextActionsDirection.put(HeaderMediator.class,
+				new DirectionHeaderMediatorAction(part));
 
-		contextActionsDirection.put(CloneMediator.class, new DirectionCloneMediatorAction(part));
+		contextActionsDirection.put(CloneMediator.class,
+				new DirectionCloneMediatorAction(part));
 
-		contextActionsDirection.put(CacheMediator.class, new DirectionCacheMediatorAction(part));
+		contextActionsDirection.put(CacheMediator.class,
+				new DirectionCacheMediatorAction(part));
 
-		contextActionsDirection
-				.put(IterateMediator.class, new DirectionIterateMediatorAction(part));
+		contextActionsDirection.put(IterateMediator.class,
+				new DirectionIterateMediatorAction(part));
 
-		contextActionsDirection.put(AggregateMediator.class, new DirectionAggregateMediatorAction(
-				part));
+		contextActionsDirection.put(AggregateMediator.class,
+				new DirectionAggregateMediatorAction(part));
 
-		contextActionsDirection
-				.put(CalloutMediator.class, new DirectionCalloutMediatorAction(part));
+		contextActionsDirection.put(CalloutMediator.class,
+				new DirectionCalloutMediatorAction(part));
 
 		contextActionsDirection.put(TransactionMediator.class,
 				new DirectionTransactionMediatorAction(part));
 
-		contextActionsDirection.put(ThrottleMediator.class, new DirectionThrottleMediatorAction(
-				part));
+		contextActionsDirection.put(ThrottleMediator.class,
+				new DirectionThrottleMediatorAction(part));
 
 		contextActionsDirection.put(RMSequenceMediator.class,
 				new DirectionRMSequenceMediatorAction(part));
 
-		contextActionsDirection.put(RuleMediator.class, new DirectionRuleMediatorAction(part));
+		contextActionsDirection.put(RuleMediator.class,
+				new DirectionRuleMediatorAction(part));
 
-		contextActionsDirection.put(OAuthMediator.class, new DirectionOAuthMediatorAction(part));
+		contextActionsDirection.put(OAuthMediator.class,
+				new DirectionOAuthMediatorAction(part));
 
 	}
 
@@ -259,11 +287,15 @@ public class DiagramEditorContextMenuProvider extends DiagramContextMenuProvider
 	public void buildContextMenu(final IMenuManager menu) {
 		getViewer().flush();
 		try {
-			TransactionUtil.getEditingDomain((EObject) getViewer().getContents().getModel())
+			TransactionUtil.getEditingDomain(
+					(EObject) getViewer().getContents().getModel())
 					.runExclusive(new Runnable() {
 						public void run() {
-							ContributionItemService.getInstance().contributeToPopupMenu(
-									DiagramEditorContextMenuProvider.this, part);
+							ContributionItemService
+									.getInstance()
+									.contributeToPopupMenu(
+											DiagramEditorContextMenuProvider.this,
+											part);
 							//menu.removeAll();
 							menu.remove(ActionIds.ACTION_DELETE_FROM_MODEL);
 							menu.remove(ActionIds.ACTION_ADD_NOTE);
@@ -273,27 +305,34 @@ public class DiagramEditorContextMenuProvider extends DiagramContextMenuProvider
 							menu.appendToGroup("editGroup", exportAction);
 
 							// Custom configuration menu item.
-							List<?> selectedEPs = getViewer().getSelectedEditParts();
+							List<?> selectedEPs = getViewer()
+									.getSelectedEditParts();
 							if (selectedEPs.size() == 1) {
-								selectedEditorPart = (IGraphicalEditPart) selectedEPs.get(0);
-								EObject contextObj = ((View) selectedEditorPart.getModel())
-										.getElement();
+								selectedEditorPart = (IGraphicalEditPart) selectedEPs
+										.get(0);
+								EObject contextObj = ((View) selectedEditorPart
+										.getModel()).getElement();
 								ConfigureEsbNodeAction contextAction = contextActions
-										.get(contextObj.eClass().getInstanceClass());
+										.get(contextObj.eClass()
+												.getInstanceClass());
 								ConfigureEsbNodeAction addBranchContextAction = addBranchContextActions
-										.get(contextObj.eClass().getInstanceClass());
+										.get(contextObj.eClass()
+												.getInstanceClass());
 								if (null != contextAction) {
-									menu.appendToGroup("editGroup", contextAction);
+									menu.appendToGroup("editGroup",
+											contextAction);
 								}
 								if (null != addBranchContextAction) {
-									menu.appendToGroup("editGroup", addBranchContextAction);
+									menu.appendToGroup("editGroup",
+											addBranchContextAction);
 								}
 							}
 							//appendToGroupDirection(menu);
 						}
 					});
 		} catch (Exception e) {
-			EsbDiagramEditorPlugin.getInstance().logError("Error building context menu", e);
+			EsbDiagramEditorPlugin.getInstance().logError(
+					"Error building context menu", e);
 		}
 	}
 
@@ -301,9 +340,10 @@ public class DiagramEditorContextMenuProvider extends DiagramContextMenuProvider
 		List<?> selectedEPs = getViewer().getSelectedEditParts();
 		if (selectedEPs.size() == 1) {
 			EditPart selectedEP = (IGraphicalEditPart) selectedEPs.get(0);
-			EObject contextObj = ((View) selectedEditorPart.getModel()).getElement();
-			DirectionEsbNodeAction contextActionDirection = contextActionsDirection.get(contextObj
-					.eClass().getInstanceClass());
+			EObject contextObj = ((View) selectedEditorPart.getModel())
+					.getElement();
+			DirectionEsbNodeAction contextActionDirection = contextActionsDirection
+					.get(contextObj.eClass().getInstanceClass());
 
 			if (null != contextActionDirection) {
 				contextActionDirection.setEditorPart(selectedEditorPart);

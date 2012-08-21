@@ -23,7 +23,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.EsbLinkIte
 /**
  * @generated
  */
-public class EsbLinkEditPart extends ConnectionNodeEditPart implements ITreeBranchEditPart {
+public class EsbLinkEditPart extends ConnectionNodeEditPart implements
+		ITreeBranchEditPart {
 
 	/**
 	 * @generated
@@ -42,7 +43,8 @@ public class EsbLinkEditPart extends ConnectionNodeEditPart implements ITreeBran
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new EsbLinkItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
+				new EsbLinkItemSemanticEditPolicy());
 	}
 
 	/**
@@ -57,19 +59,21 @@ public class EsbLinkEditPart extends ConnectionNodeEditPart implements ITreeBran
 		PolylineConnectionEx figure = new PolylineConnectionEx();
 
 		// Need to execute this operation as a command.
-		AbstractEMFOperation command = new AbstractEMFOperation(getEditingDomain(),
-				"change-esb-link-routing-style") {
-			protected IStatus doExecute(IProgressMonitor monitor, IAdaptable info)
-					throws ExecutionException {
+		AbstractEMFOperation command = new AbstractEMFOperation(
+				getEditingDomain(), "change-esb-link-routing-style") {
+			protected IStatus doExecute(IProgressMonitor monitor,
+					IAdaptable info) throws ExecutionException {
 				RoutingStyle style = (RoutingStyle) ((View) getModel())
 						.getStyle(NotationPackage.Literals.ROUTING_STYLE);
 				style.setRouting(Routing.RECTILINEAR_LITERAL);
+				style.setRoundedBendpointsRadius(5);
 				return Status.OK_STATUS;
 			}
 		};
 
 		try {
-			OperationHistoryFactory.getOperationHistory().execute(command, null, null);
+			OperationHistoryFactory.getOperationHistory().execute(command,
+					null, null);
 		} catch (ExecutionException ex) {
 			// Ignore.
 		}

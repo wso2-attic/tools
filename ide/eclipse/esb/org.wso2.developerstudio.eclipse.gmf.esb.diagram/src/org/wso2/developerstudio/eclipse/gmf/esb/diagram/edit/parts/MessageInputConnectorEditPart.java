@@ -58,7 +58,8 @@ public class MessageInputConnectorEditPart extends AbstractBorderItemEditPart {
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, getPrimaryDragEditPolicy());
+		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
+				getPrimaryDragEditPolicy());
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new MessageInputConnectorItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
@@ -73,7 +74,8 @@ public class MessageInputConnectorEditPart extends AbstractBorderItemEditPart {
 		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
 			protected EditPolicy createChildEditPolicy(EditPart child) {
-				EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+				EditPolicy result = child
+						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
 				if (result == null) {
 					result = new NonResizableEditPolicy();
 				}
@@ -236,6 +238,7 @@ public class MessageInputConnectorEditPart extends AbstractBorderItemEditPart {
 			types.add(EsbElementTypes.CloneMediatorOutputConnector_3104);
 			types.add(EsbElementTypes.CloneMediatorTargetOutputConnector_3133);
 			types.add(EsbElementTypes.CacheMediatorOutputConnector_3107);
+			types.add(EsbElementTypes.CacheMediatorOnHitOutputConnector_3618);
 			types.add(EsbElementTypes.IterateMediatorOutputConnector_3110);
 			types.add(EsbElementTypes.IterateMediatorTargetOutputConnector_3606);
 			types.add(EsbElementTypes.CalloutMediatorOutputConnector_3116);
@@ -275,7 +278,8 @@ public class MessageInputConnectorEditPart extends AbstractBorderItemEditPart {
 		public WestPointerFigure() {
 
 			this.setBackgroundColor(THIS_BACK);
-			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(12), getMapMode().DPtoLP(10)));
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(12),
+					getMapMode().DPtoLP(10)));
 		}
 
 	}

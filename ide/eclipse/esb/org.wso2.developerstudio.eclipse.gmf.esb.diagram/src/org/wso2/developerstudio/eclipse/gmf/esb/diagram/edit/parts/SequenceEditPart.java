@@ -129,15 +129,20 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 	 * @generated NOT
 	 */
 	protected void createDefaultEditPolicies() {
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
+				new CreationEditPolicy());
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new SequenceItemSemanticEditPolicy());
-		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
-		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE, new SequenceCanonicalEditPolicy());
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
+				new SequenceItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
+				new DragDropEditPolicy());
+		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
+				new SequenceCanonicalEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 
 		// For handle Double click Event.
-		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new SequenceOpenEditPolicy());
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
+				new SequenceOpenEditPolicy());
 
 		// XXX need an SCR to runtime to have another abstract superclass that
 		// would let children add reasonable editpolicies
@@ -157,7 +162,8 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 				case SequenceOutputConnectorEditPart.VISUAL_ID:
 					return new BorderItemSelectionEditPolicy();
 				}
-				EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+				EditPolicy result = child
+						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
 				if (result == null) {
 					result = new NonResizableEditPolicy();
 				}
@@ -199,18 +205,23 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 			return true;
 		}
 		if (childEditPart instanceof SequenceInputConnectorEditPart) {
-			IFigure borderItemFigure = ((SequenceInputConnectorEditPart) childEditPart).getFigure();
-			BorderItemLocator locator = new FixedBorderItemLocator(getMainFigure(),
-					borderItemFigure, PositionConstants.WEST, 0.5);
-			getBorderedFigure().getBorderItemContainer().add(borderItemFigure, locator);
+			IFigure borderItemFigure = ((SequenceInputConnectorEditPart) childEditPart)
+					.getFigure();
+			BorderItemLocator locator = new FixedBorderItemLocator(
+					getMainFigure(), borderItemFigure, PositionConstants.WEST,
+					0.5);
+			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
+					locator);
 			return true;
 		}
 		if (childEditPart instanceof SequenceOutputConnectorEditPart) {
 			IFigure borderItemFigure = ((SequenceOutputConnectorEditPart) childEditPart)
 					.getFigure();
-			BorderItemLocator locator = new FixedBorderItemLocator(getMainFigure(),
-					borderItemFigure, PositionConstants.EAST, 0.5);
-			getBorderedFigure().getBorderItemContainer().add(borderItemFigure, locator);
+			BorderItemLocator locator = new FixedBorderItemLocator(
+					getMainFigure(), borderItemFigure, PositionConstants.EAST,
+					0.5);
+			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
+					locator);
 			return true;
 		}
 		return false;
@@ -225,12 +236,14 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 		}
 		if (childEditPart instanceof SequenceInputConnectorEditPart) {
 			getBorderedFigure().getBorderItemContainer().remove(
-					((SequenceInputConnectorEditPart) childEditPart).getFigure());
+					((SequenceInputConnectorEditPart) childEditPart)
+							.getFigure());
 			return true;
 		}
 		if (childEditPart instanceof SequenceOutputConnectorEditPart) {
 			getBorderedFigure().getBorderItemContainer().remove(
-					((SequenceOutputConnectorEditPart) childEditPart).getFigure());
+					((SequenceOutputConnectorEditPart) childEditPart)
+							.getFigure());
 			return true;
 		}
 		return false;
@@ -313,14 +326,17 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 	/**
 	 * {@inheritDoc}
 	 */
-	protected void addBorderItem(IFigure borderItemContainer, IBorderItemEditPart borderItemEditPart) {
+	protected void addBorderItem(IFigure borderItemContainer,
+			IBorderItemEditPart borderItemEditPart) {
 		IFigure borderItemFigure = borderItemEditPart.getFigure();
 		if (borderItemEditPart instanceof SequenceInputConnectorEditPart) {
-			borderItemContainer.add(borderItemFigure, new FixedBorderItemLocator(getMainFigure(),
-					borderItemFigure, PositionConstants.WEST, 0.5));
+			borderItemContainer.add(borderItemFigure,
+					new FixedBorderItemLocator(getMainFigure(),
+							borderItemFigure, PositionConstants.WEST, 0.5));
 		} else if (borderItemEditPart instanceof SequenceOutputConnectorEditPart) {
-			borderItemContainer.add(borderItemFigure, new FixedBorderItemLocator(getMainFigure(),
-					borderItemFigure, PositionConstants.EAST, 0.5));
+			borderItemContainer.add(borderItemFigure,
+					new FixedBorderItemLocator(getMainFigure(),
+							borderItemFigure, PositionConstants.EAST, 0.5));
 		} else {
 			super.addBorderItem(borderItemContainer, borderItemEditPart);
 		}
@@ -366,24 +382,27 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 	 * @generated
 	 */
 	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(EsbVisualIDRegistry.getType(SequenceNameEditPart.VISUAL_ID));
+		return getChildBySemanticHint(EsbVisualIDRegistry
+				.getType(SequenceNameEditPart.VISUAL_ID));
 	}
 
 	public void openWithSeparateEditor() {
 		IEditorPart editorPart = null;
 		IProject activeProject = null;
-		IEditorReference editorReferences[] = PlatformUI.getWorkbench().getActiveWorkbenchWindow()
-				.getActivePage().getEditorReferences();
+		IEditorReference editorReferences[] = PlatformUI.getWorkbench()
+				.getActiveWorkbenchWindow().getActivePage()
+				.getEditorReferences();
 		for (int i = 0; i < editorReferences.length; i++) {
 			IEditorPart editor = editorReferences[i].getEditor(false);
 
 			if (editor != null) {
-				editorPart = editor.getSite().getWorkbenchWindow().getActivePage()
-						.getActiveEditor();
+				editorPart = editor.getSite().getWorkbenchWindow()
+						.getActivePage().getActiveEditor();
 			}
 
 			if (editorPart != null) {
-				IFileEditorInput input = (IFileEditorInput) editorPart.getEditorInput();
+				IFileEditorInput input = (IFileEditorInput) editorPart
+						.getEditorInput();
 				IFile file = input.getFile();
 				activeProject = file.getProject();
 
@@ -403,13 +422,16 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 			 * Tool group creations in the Tool pallete.
 			 */
 
-			if ((getEditDomain().getPaletteViewer().getPaletteRoot().getChildren().size() - 1) != ToolPalleteDetails.SEQUENCE) {
-				getEditDomain().getPaletteViewer().getPaletteRoot().add(createSequenceGroup());
+			if ((getEditDomain().getPaletteViewer().getPaletteRoot()
+					.getChildren().size() - 1) != ToolPalleteDetails.SEQUENCE) {
+				getEditDomain().getPaletteViewer().getPaletteRoot()
+						.add(createSequenceGroup());
 			}
 
 			if (!definedSequenceNames.contains(name)) {
-				((PaletteContainer) getEditDomain().getPaletteViewer().getPaletteRoot()
-						.getChildren().get(ToolPalleteDetails.SEQUENCE))
+				((PaletteContainer) getEditDomain().getPaletteViewer()
+						.getPaletteRoot().getChildren()
+						.get(ToolPalleteDetails.SEQUENCE))
 						.add(createSequence4CreationTool(name));
 				definedSequenceNames.add(name);
 			}
@@ -428,23 +450,26 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 		//		} catch (Exception e) {
 		//			log.error(e);
 		//		}
-		createFiles("sequence_" + name + ".esb_diagram", "sequence_" + name + ".esb", activeProject);
+		createFiles("sequence_" + name + ".esb_diagram", "sequence_" + name
+				+ ".esb", activeProject);
 
 	}
 
-	public boolean createFiles(String fileURI1, String fileURI2, IProject currentProject) {
+	public boolean createFiles(String fileURI1, String fileURI2,
+			IProject currentProject) {
 		Resource diagram;
 
-		IPath location = new Path("platform:/resource/" + currentProject.getName() + "/" + fileURI1);
+		IPath location = new Path("platform:/resource/"
+				+ currentProject.getName() + "/" + fileURI1);
 		IFile file = currentProject.getFile(location.lastSegment());
 
 		if (!file.exists()) {
-			diagram = EsbDiagramEditorUtil
-					.createSequenceDiagram(
-							URI.createURI("platform:/resource/" + currentProject.getName() + "/"
-									+ fileURI1),
-							URI.createURI("platform:/resource/" + currentProject.getName() + "/"
-									+ fileURI2), new NullProgressMonitor());
+			diagram = EsbDiagramEditorUtil.createSequenceDiagram(
+					URI.createURI("platform:/resource/"
+							+ currentProject.getName() + "/" + fileURI1),
+					URI.createURI("platform:/resource/"
+							+ currentProject.getName() + "/" + fileURI2),
+					new NullProgressMonitor());
 			try {
 				EsbDiagramEditorUtil.openDiagram(diagram);
 
@@ -455,10 +480,10 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 		}
 
 		else {
-			IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow()
-					.getActivePage();
-			IEditorDescriptor desc = PlatformUI.getWorkbench().getEditorRegistry()
-					.getDefaultEditor(file.getName());
+			IWorkbenchPage page = PlatformUI.getWorkbench()
+					.getActiveWorkbenchWindow().getActivePage();
+			IEditorDescriptor desc = PlatformUI.getWorkbench()
+					.getEditorRegistry().getDefaultEditor(file.getName());
 			try {
 				page.openEditor(new FileEditorInput(file), desc.getId());
 			} catch (PartInitException e) {
@@ -481,9 +506,11 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 		/*types.add(EsbElementTypes.Sequence_3187);
 		types.add(EsbElementTypes.Sequence_3254);
 		types.add(EsbElementTypes.Sequence_3375);*/
-		NodeToolEntry entry = new NodeToolEntry(name, Messages.Sequence4CreationTool_desc, types);
+		NodeToolEntry entry = new NodeToolEntry(name,
+				Messages.Sequence4CreationTool_desc, types);
 		entry.setId("createSequence4CreationTool"); //$NON-NLS-1$
-		entry.setSmallIcon(EsbElementTypes.getImageDescriptor(EsbElementTypes.Sequence_3503));
+		entry.setSmallIcon(EsbElementTypes
+				.getImageDescriptor(EsbElementTypes.Sequence_3503));
 		entry.setLargeIcon(entry.getSmallIcon());
 
 		// ((org.wso2.developerstudio.eclipse.gmf.esb.Sequence)(org.eclipse.emf.ecore.impl.EClassImpl)entry.elementTypes.get(0).getEClass()).setName("Tha");
@@ -503,12 +530,13 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 
 		// For validation: user should not enter "" value for name.
 		if (((Sequence) sequence).getName().equals("")) {
-			
+
 			Shell parent = new Shell();
-			final Shell shell = new Shell(parent, SWT.TITLE | SWT.BORDER | SWT.APPLICATION_MODAL);
+			final Shell shell = new Shell(parent, SWT.TITLE | SWT.BORDER
+					| SWT.APPLICATION_MODAL);
 			shell.setText("Enter Sequence Name");
 			// Set layout for the main container
-			GridLayout mainLayout = new GridLayout(2,false);
+			GridLayout mainLayout = new GridLayout(2, false);
 			mainLayout.marginHeight = 20;
 			mainLayout.marginWidth = 20;
 			shell.setLayout(mainLayout);
@@ -517,24 +545,26 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 			label.setText("Name    ");
 
 			final Text text = new Text(shell, SWT.SINGLE | SWT.BORDER);
-			GridData textGridData= new GridData();
+			GridData textGridData = new GridData();
 			textGridData.horizontalAlignment = GridData.HORIZONTAL_ALIGN_FILL;
 			textGridData.horizontalSpan = 1;
-			textGridData.minimumHeight=100;
-			textGridData.minimumWidth=300;
-			textGridData.grabExcessHorizontalSpace=true;
-			text.setLayoutData(textGridData);	
-			
+			textGridData.minimumHeight = 100;
+			textGridData.minimumWidth = 300;
+			textGridData.grabExcessHorizontalSpace = true;
+			text.setLayoutData(textGridData);
+
 			Button buttonCancel = new Button(shell, SWT.PUSH);
 			buttonCancel.setText("    Cancel    ");
-			GridData cancelButtonGridData=new GridData(GridData.HORIZONTAL_ALIGN_BEGINNING);
-			cancelButtonGridData.verticalIndent=10;
+			GridData cancelButtonGridData = new GridData(
+					GridData.HORIZONTAL_ALIGN_BEGINNING);
+			cancelButtonGridData.verticalIndent = 10;
 			buttonCancel.setLayoutData(cancelButtonGridData);
-			
+
 			final Button buttonOK = new Button(shell, SWT.PUSH);
 			buttonOK.setText("        Ok         ");
-			GridData okButtonGridData=new GridData(GridData.HORIZONTAL_ALIGN_END);
-			okButtonGridData.verticalIndent=10;
+			GridData okButtonGridData = new GridData(
+					GridData.HORIZONTAL_ALIGN_END);
+			okButtonGridData.verticalIndent = 10;
 			buttonOK.setLayoutData(okButtonGridData);
 
 			text.addListener(SWT.Modify, new Listener() {
@@ -552,9 +582,10 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 				public void handleEvent(Event event) {
 
 					TransactionalEditingDomain editingDomain = getEditingDomain();
-					SetRequest setRequestSequenceCount = new SetRequest(editingDomain, diagram,
-							EsbPackage.eINSTANCE.getEsbDiagram_Test(), ((EsbDiagram) diagram)
-									.getTest() + 1);
+					SetRequest setRequestSequenceCount = new SetRequest(
+							editingDomain, diagram, EsbPackage.eINSTANCE
+									.getEsbDiagram_Test(),
+							((EsbDiagram) diagram).getTest() + 1);
 					SetValueCommand operationSequenceCount = new SetValueCommand(
 							setRequestSequenceCount) {
 
@@ -567,16 +598,19 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 						}
 					};
 
-					ICommandProxy commandSequenceCount = new ICommandProxy(operationSequenceCount);
+					ICommandProxy commandSequenceCount = new ICommandProxy(
+							operationSequenceCount);
 					if (commandSequenceCount.canExecute()) {
-						getEditDomain().getCommandStack().execute(commandSequenceCount);
+						getEditDomain().getCommandStack().execute(
+								commandSequenceCount);
 					}
 
 					// Set Name
 
 					//TransactionalEditingDomain editingDomain = getEditingDomain();
-					SetRequest setRequest = new SetRequest(editingDomain, sequence,
-							EsbPackage.eINSTANCE.getSequence_Name(), text.getText());
+					SetRequest setRequest = new SetRequest(editingDomain,
+							sequence, EsbPackage.eINSTANCE.getSequence_Name(),
+							text.getText());
 					SetValueCommand operation = new SetValueCommand(setRequest) {
 
 						public boolean canUndo() {
@@ -588,7 +622,8 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 						}
 					};
 
-					getEditDomain().getCommandStack().execute(new ICommandProxy(operation));
+					getEditDomain().getCommandStack().execute(
+							new ICommandProxy(operation));
 
 					shell.dispose();
 
@@ -760,10 +795,12 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 		}
 
 		private ToolEntry createSequence4CreationTool(String name) {
-			NodeToolEntry entry = new NodeToolEntry(name, Messages.Sequence4CreationTool_desc,
+			NodeToolEntry entry = new NodeToolEntry(name,
+					Messages.Sequence4CreationTool_desc,
 					Collections.singletonList(EsbElementTypes.Sequence_3503));
 			entry.setId("createSequence4CreationTool"); //$NON-NLS-1$
-			entry.setSmallIcon(EsbElementTypes.getImageDescriptor(EsbElementTypes.Sequence_3503));
+			entry.setSmallIcon(EsbElementTypes
+					.getImageDescriptor(EsbElementTypes.Sequence_3503));
 			entry.setLargeIcon(entry.getSmallIcon());
 
 			// ((org.wso2.developerstudio.eclipse.gmf.esb.Sequence)(org.eclipse.emf.ecore.impl.EClassImpl)entry.elementTypes.get(0).getEClass()).setName("Tha");
@@ -828,33 +865,38 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 
 		for (int i = 0; i < this.getChildren().size(); ++i) {
 			if (this.getChildren().get(i) instanceof AbstractInputConnector) {
-				IFigure inputConnector = ((AbstractInputConnector) this.getChildren().get(i))
-						.getFigure();
-				NodeFigure figureInput = ((AbstractInputConnector) this.getChildren().get(i))
-						.getNodeFigureInput();
+				IFigure inputConnector = ((AbstractInputConnector) this
+						.getChildren().get(i)).getFigure();
+				NodeFigure figureInput = ((AbstractInputConnector) this
+						.getChildren().get(i)).getNodeFigureInput();
 				figureInput.removeAll();
-				figureInput.add(((AbstractInputConnector) this.getChildren().get(i))
-						.getPrimaryShapeReverse());
-				BorderItemLocator inputLocator = new FixedBorderItemLocator(this.getMainFigure(),
-						inputConnector, PositionConstants.EAST, 0.30);
+				figureInput.add(((AbstractInputConnector) this.getChildren()
+						.get(i)).getPrimaryShapeReverse());
+				BorderItemLocator inputLocator = new FixedBorderItemLocator(
+						this.getMainFigure(), inputConnector,
+						PositionConstants.EAST, 0.30);
 
-				this.getBorderedFigure().getBorderItemContainer().remove(inputConnector);
-				this.getBorderedFigure().getBorderItemContainer().add(inputConnector, inputLocator);
+				this.getBorderedFigure().getBorderItemContainer()
+						.remove(inputConnector);
+				this.getBorderedFigure().getBorderItemContainer()
+						.add(inputConnector, inputLocator);
 			}
 		}
 
 		for (int i = 0; i < this.getChildren().size(); ++i) {
 			if (this.getChildren().get(i) instanceof AbstractOutputConnector) {
-				IFigure outputConnector = ((AbstractOutputConnector) this.getChildren().get(i))
-						.getFigure();
-				NodeFigure figureOutput = ((AbstractOutputConnector) this.getChildren().get(i))
-						.getNodeFigureOutput();
+				IFigure outputConnector = ((AbstractOutputConnector) this
+						.getChildren().get(i)).getFigure();
+				NodeFigure figureOutput = ((AbstractOutputConnector) this
+						.getChildren().get(i)).getNodeFigureOutput();
 				figureOutput.removeAll();
-				figureOutput.add(((AbstractOutputConnector) this.getChildren().get(i))
-						.getPrimaryShapeForward());
-				BorderItemLocator outputLocator = new FixedBorderItemLocator(this.getMainFigure(),
-						outputConnector, PositionConstants.EAST, 0.70);
-				this.getBorderedFigure().getBorderItemContainer().remove(outputConnector);
+				figureOutput.add(((AbstractOutputConnector) this.getChildren()
+						.get(i)).getPrimaryShapeForward());
+				BorderItemLocator outputLocator = new FixedBorderItemLocator(
+						this.getMainFigure(), outputConnector,
+						PositionConstants.EAST, 0.70);
+				this.getBorderedFigure().getBorderItemContainer()
+						.remove(outputConnector);
 				this.getBorderedFigure().getBorderItemContainer()
 						.add(outputConnector, outputLocator);
 			}
@@ -866,7 +908,8 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 
 		private final List<IElementType> elementTypes;
 
-		private NodeToolEntry(String title, String description, List<IElementType> elementTypes) {
+		private NodeToolEntry(String title, String description,
+				List<IElementType> elementTypes) {
 			// super(title, description, null, null);
 			super(null, title, null);
 			this.setDescription(description);

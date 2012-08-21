@@ -370,7 +370,7 @@ public class ProxyOutputConnectorEditPart extends AbstractOutputConnector {
 				public void mouseExited(MouseEvent arg0) {
 					if (getEditDomain().getPaletteViewer().getActiveTool()
 							.getId().equals("createEsbLink1CreationTool")) {
-					getEditDomain().getPaletteViewer().setActiveTool(null);
+						getEditDomain().getPaletteViewer().setActiveTool(null);
 					}
 				}
 

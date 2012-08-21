@@ -121,7 +121,8 @@ public class EsbEditPartProvider extends AbstractEditPartProvider {
 	public synchronized boolean provides(IOperation operation) {
 		if (operation instanceof CreateGraphicEditPartOperation) {
 			View view = ((IEditPartOperation) operation).getView();
-			if (!EsbDiagramEditPart.MODEL_ID.equals(EsbVisualIDRegistry.getModelID(view))) {
+			if (!EsbDiagramEditPart.MODEL_ID.equals(EsbVisualIDRegistry
+					.getModelID(view))) {
 				return false;
 			}
 			if (isAllowCaching() && getCachedPart(view) != null) {

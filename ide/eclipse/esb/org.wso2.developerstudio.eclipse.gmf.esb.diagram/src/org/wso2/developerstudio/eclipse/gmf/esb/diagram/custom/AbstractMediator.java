@@ -16,6 +16,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.SequenceInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.SequenceOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.utils.MediatorFigureReverser;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AggregateMediatorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CacheMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloneMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbLinkEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FilterMediatorEditPart;
@@ -233,8 +234,9 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 
 			reversed = true;
 			if (checkComplexity()) {
-				MediatorFigureReverser.reverse(this, false);
+				MediatorFigureReverser.reverse(editorPart, false);
 			}
+			
 		}
 		
 	}
@@ -243,7 +245,7 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 		if ((this instanceof AggregateMediatorEditPart) || (this instanceof SwitchMediatorEditPart)
 				|| (this instanceof FilterMediatorEditPart)
 				|| (this instanceof ThrottleMediatorEditPart)
-				//|| (this instanceof SendMediatorEditPart)
+				|| (this instanceof CacheMediatorEditPart)
 				|| (this instanceof CloneMediatorEditPart)
 				|| (this instanceof IterateMediatorEditPart)) {
 			return true;

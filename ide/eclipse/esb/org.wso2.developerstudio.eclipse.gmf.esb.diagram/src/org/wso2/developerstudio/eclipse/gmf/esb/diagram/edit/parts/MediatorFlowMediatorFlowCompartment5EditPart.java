@@ -52,7 +52,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementType
 /**
  * @generated NOT
  */
-public class MediatorFlowMediatorFlowCompartment5EditPart extends ShapeCompartmentEditPart {
+public class MediatorFlowMediatorFlowCompartment5EditPart extends
+		ShapeCompartmentEditPart {
 
 	/* 	Sequences  */
 
@@ -85,10 +86,13 @@ public class MediatorFlowMediatorFlowCompartment5EditPart extends ShapeCompartme
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
+		installEditPolicy(
+				EditPolicyRoles.SEMANTIC_ROLE,
 				new MediatorFlowMediatorFlowCompartment5ItemSemanticEditPolicy());
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
-		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
+				new CreationEditPolicy());
+		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
+				new DragDropEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
 				new MediatorFlowMediatorFlowCompartment5CanonicalEditPolicy());
 	}
@@ -97,7 +101,8 @@ public class MediatorFlowMediatorFlowCompartment5EditPart extends ShapeCompartme
 	 * @generated NOT
 	 */
 	protected IFigure createFigure() {
-		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super.createFigure();
+		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super
+				.createFigure();
 		result.setTitleVisibility(true);
 		// Override default border.
 		result.setBorder(new MarginBorder(0, 0, 0, 0));
@@ -122,11 +127,13 @@ public class MediatorFlowMediatorFlowCompartment5EditPart extends ShapeCompartme
 		}
 	}
 
-	private <T extends AbstractEndpoint> void addEndpointChildVisual(T childEditPart) {
+	private <T extends AbstractEndpoint> void addEndpointChildVisual(
+			T childEditPart) {
 		borderedNodeFigure.getBorderItemContainer().add(
 				((T) childEditPart).getFigure(),
-				new SlidingBorderItemLocator(borderedNodeFigure.getMainFigure(),
-						((T) childEditPart).getFigure(), PositionConstants.EAST, 10, 5));
+				new SlidingBorderItemLocator(
+						borderedNodeFigure.getMainFigure(), ((T) childEditPart)
+								.getFigure(), PositionConstants.EAST, 10, 5));
 	}
 
 	protected void removeChildVisual(EditPart child) {
@@ -140,44 +147,51 @@ public class MediatorFlowMediatorFlowCompartment5EditPart extends ShapeCompartme
 
 	protected void addChild(EditPart child, int index) {
 		super.addChild(child, index);
-		((MediatorFlow5EditPart) child.getParent().getParent()).refreshConnector(this.getParent()
-				.getParent());
+		((MediatorFlow5EditPart) child.getParent().getParent())
+				.refreshConnector(this.getParent().getParent());
 		AbstractInputConnector inputConnector = null;
-		
-		if(this.getParent().getParent()
-				.getChildren().size()<2){
+
+		if (this.getParent().getParent().getChildren().size() < 2) {
 			return;
 		}
 
 		if (child instanceof AbstractMediator) {
 			for (int i = 0; i < child.getChildren().size(); ++i) {
 				if (child.getChildren().get(i) instanceof AbstractInputConnector) {
-					inputConnector = (AbstractInputConnector) child.getChildren().get(i);
+					inputConnector = (AbstractInputConnector) child
+							.getChildren().get(i);
 				}
 				if (child.getChildren().get(i) instanceof AbstractOutputConnector) {
-					sourceOutputConnector = (AbstractOutputConnector) child.getChildren().get(i);
+					sourceOutputConnector = (AbstractOutputConnector) child
+							.getChildren().get(i);
 				}
 			}
 			if (outputConnectorEditPart == null) {
-				outputConnectorEditPart = ((AbstractOutputConnector) this.getParent().getParent()
-						.getChildren().get(2));
+				outputConnectorEditPart = ((AbstractOutputConnector) this
+						.getParent().getParent().getChildren().get(2));
 			}
 			if (sourceEditPart == null || sourceEditPart.getRoot() == null) {
-				sourceEditPart = (AbstractBorderedShapeEditPart) this.getParent().getParent();
+				sourceEditPart = (AbstractBorderedShapeEditPart) this
+						.getParent().getParent();
 			}
 
 			CompoundCommand compoundCommand = new CompoundCommand();
 
 			ICommand createLinkCommand = new DeferredCreateConnectionViewAndElementCommand(
-					new CreateConnectionViewAndElementRequest(EsbElementTypes.EsbLink_4001,
-							((IHintedType) EsbElementTypes.EsbLink_4001).getSemanticHint(),
-							sourceEditPart.getDiagramPreferencesHint()), new EObjectAdapter(
-							(EObject) outputConnectorEditPart.getModel()), new EObjectAdapter(
-							(EObject) (inputConnector).getModel()), sourceEditPart.getViewer());
+					new CreateConnectionViewAndElementRequest(
+							EsbElementTypes.EsbLink_4001,
+							((IHintedType) EsbElementTypes.EsbLink_4001)
+									.getSemanticHint(),
+							sourceEditPart.getDiagramPreferencesHint()),
+					new EObjectAdapter((EObject) outputConnectorEditPart
+							.getModel()), new EObjectAdapter(
+							(EObject) (inputConnector).getModel()),
+					sourceEditPart.getViewer());
 
 			compoundCommand.add(new ICommandProxy(createLinkCommand));
 
-			getDiagramEditDomain().getDiagramCommandStack().execute(compoundCommand);
+			getDiagramEditDomain().getDiagramCommandStack().execute(
+					compoundCommand);
 
 			outputConnectorEditPart = sourceOutputConnector;
 			sourceEditPart = (AbstractBorderedShapeEditPart) child;
@@ -189,27 +203,29 @@ public class MediatorFlowMediatorFlowCompartment5EditPart extends ShapeCompartme
 
 		if (child instanceof SwitchMediatorEditPart) {
 			SwitchMediatorEditPart switchMediatorEditPart = (SwitchMediatorEditPart) child;
-			SwitchMediatorUtils.addCaseBranchInitially(switchMediatorEditPart, getEditingDomain());
+			SwitchMediatorUtils.addCaseBranchInitially(switchMediatorEditPart,
+					getEditingDomain());
 
 		}
 		if (child instanceof SequenceEditPart) {
 			SequenceEditPart sequenceEditPart = (SequenceEditPart) child;
-			EditPart editpart = (EditPart) ((StructuredSelection) sequenceEditPart.getViewer()
-					.getEditDomain().getPaletteViewer().getSelection()).getFirstElement();
+			EditPart editpart = (EditPart) ((StructuredSelection) sequenceEditPart
+					.getViewer().getEditDomain().getPaletteViewer()
+					.getSelection()).getFirstElement();
 			if (editpart instanceof ToolEntryEditPart) {
 				if (((ToolEntryEditPart) editpart).getModel() instanceof NodeToolEntry) {
-					String label = ((NodeToolEntry) ((ToolEntryEditPart) editpart).getModel())
-							.getLabel();
+					String label = ((NodeToolEntry) ((ToolEntryEditPart) editpart)
+							.getModel()).getLabel();
 					if ((!label.equals("")) && (!label.equals("Sequence"))) {
-						((Sequence) ((View) sequenceEditPart.getModel()).getElement())
-								.setName(label);
+						((Sequence) ((View) sequenceEditPart.getModel())
+								.getElement()).setName(label);
 					}
 				} else if (((ToolEntryEditPart) editpart).getModel() instanceof SequenceEditPart.NodeToolEntry) {
 					String label = ((SequenceEditPart.NodeToolEntry) ((ToolEntryEditPart) editpart)
 							.getModel()).getLabel();
 					if ((!label.equals("")) && (!label.equals("Sequence"))) {
-						((Sequence) ((View) sequenceEditPart.getModel()).getElement())
-								.setName(label);
+						((Sequence) ((View) sequenceEditPart.getModel())
+								.getElement()).setName(label);
 					}
 				}
 			}
@@ -224,7 +240,9 @@ public class MediatorFlowMediatorFlowCompartment5EditPart extends ShapeCompartme
 				for (int i = 0; i < 2; ++i) {
 					FailoverEndPointOutputConnector outputConnector = EsbFactory.eINSTANCE
 							.createFailoverEndPointOutputConnector();
-					AddCommand addCmd = new AddCommand(domain, parentEndpoint,
+					AddCommand addCmd = new AddCommand(
+							domain,
+							parentEndpoint,
 							EsbPackage.Literals.FAILOVER_END_POINT__OUTPUT_CONNECTOR,
 							outputConnector);
 					if (addCmd.canExecute()) {
@@ -232,11 +250,16 @@ public class MediatorFlowMediatorFlowCompartment5EditPart extends ShapeCompartme
 					}
 				}
 			}
-			if (((FailoverEndPoint) parentEndpoint).getInputConnector().getIncomingLinks().size() == 0) {
-				if (((FailoverEndPoint) parentEndpoint).getWestOutputConnector() == null) {
-					SetCommand addCmd = new SetCommand(getEditingDomain(), parentEndpoint,
+			if (((FailoverEndPoint) parentEndpoint).getInputConnector()
+					.getIncomingLinks().size() == 0) {
+				if (((FailoverEndPoint) parentEndpoint)
+						.getWestOutputConnector() == null) {
+					SetCommand addCmd = new SetCommand(
+							getEditingDomain(),
+							parentEndpoint,
 							EsbPackage.Literals.FAILOVER_END_POINT__WEST_OUTPUT_CONNECTOR,
-							EsbFactory.eINSTANCE.createFailoverEndPointWestOutputConnector());
+							EsbFactory.eINSTANCE
+									.createFailoverEndPointWestOutputConnector());
 					if (addCmd.canExecute()) {
 						getEditingDomain().getCommandStack().execute(addCmd);
 					}
@@ -246,12 +269,15 @@ public class MediatorFlowMediatorFlowCompartment5EditPart extends ShapeCompartme
 			LoadBalanceEndPointEditPart endpointEditPart = (LoadBalanceEndPointEditPart) child;
 			EObject parentEndpoint = ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (endpointEditPart)
 					.getModel()).getElement();
-			if (((LoadBalanceEndPoint) parentEndpoint).getOutputConnector().size() == 0) {
+			if (((LoadBalanceEndPoint) parentEndpoint).getOutputConnector()
+					.size() == 0) {
 				TransactionalEditingDomain domain = getEditingDomain();
 				for (int i = 0; i < 2; ++i) {
 					LoadBalanceEndPointOutputConnector outputConnector = EsbFactory.eINSTANCE
 							.createLoadBalanceEndPointOutputConnector();
-					AddCommand addCmd = new AddCommand(domain, parentEndpoint,
+					AddCommand addCmd = new AddCommand(
+							domain,
+							parentEndpoint,
 							EsbPackage.Literals.LOAD_BALANCE_END_POINT__OUTPUT_CONNECTOR,
 							outputConnector);
 					if (addCmd.canExecute()) {
@@ -259,12 +285,16 @@ public class MediatorFlowMediatorFlowCompartment5EditPart extends ShapeCompartme
 					}
 				}
 			}
-			if (((LoadBalanceEndPoint) parentEndpoint).getInputConnector().getIncomingLinks()
-					.size() == 0) {
-				if (((LoadBalanceEndPoint) parentEndpoint).getWestOutputConnector() == null) {
-					SetCommand addCmd = new SetCommand(getEditingDomain(), parentEndpoint,
+			if (((LoadBalanceEndPoint) parentEndpoint).getInputConnector()
+					.getIncomingLinks().size() == 0) {
+				if (((LoadBalanceEndPoint) parentEndpoint)
+						.getWestOutputConnector() == null) {
+					SetCommand addCmd = new SetCommand(
+							getEditingDomain(),
+							parentEndpoint,
 							EsbPackage.Literals.LOAD_BALANCE_END_POINT__WEST_OUTPUT_CONNECTOR,
-							EsbFactory.eINSTANCE.createLoadBalanceEndPointWestOutputConnector());
+							EsbFactory.eINSTANCE
+									.createLoadBalanceEndPointWestOutputConnector());
 					if (addCmd.canExecute()) {
 						getEditingDomain().getCommandStack().execute(addCmd);
 					}
@@ -275,11 +305,15 @@ public class MediatorFlowMediatorFlowCompartment5EditPart extends ShapeCompartme
 			DefaultEndPointEditPart endpointEditPart = (DefaultEndPointEditPart) child;
 			EObject parentEndpoint = ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (endpointEditPart)
 					.getModel()).getElement();
-			if (((DefaultEndPoint) parentEndpoint).getInputConnector().getIncomingLinks().size() == 0) {
+			if (((DefaultEndPoint) parentEndpoint).getInputConnector()
+					.getIncomingLinks().size() == 0) {
 				if (((DefaultEndPoint) parentEndpoint).getOutputConnector() == null) {
-					SetCommand addCmd = new SetCommand(getEditingDomain(), parentEndpoint,
+					SetCommand addCmd = new SetCommand(
+							getEditingDomain(),
+							parentEndpoint,
 							EsbPackage.Literals.DEFAULT_END_POINT__OUTPUT_CONNECTOR,
-							EsbFactory.eINSTANCE.createDefaultEndPointOutputConnector());
+							EsbFactory.eINSTANCE
+									.createDefaultEndPointOutputConnector());
 					if (addCmd.canExecute()) {
 						getEditingDomain().getCommandStack().execute(addCmd);
 					}
@@ -289,11 +323,15 @@ public class MediatorFlowMediatorFlowCompartment5EditPart extends ShapeCompartme
 			AddressEndPointEditPart endpointEditPart = (AddressEndPointEditPart) child;
 			EObject parentEndpoint = ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (endpointEditPart)
 					.getModel()).getElement();
-			if (((AddressEndPoint) parentEndpoint).getInputConnector().getIncomingLinks().size() == 0) {
+			if (((AddressEndPoint) parentEndpoint).getInputConnector()
+					.getIncomingLinks().size() == 0) {
 				if (((AddressEndPoint) parentEndpoint).getOutputConnector() == null) {
-					SetCommand addCmd = new SetCommand(getEditingDomain(), parentEndpoint,
+					SetCommand addCmd = new SetCommand(
+							getEditingDomain(),
+							parentEndpoint,
 							EsbPackage.Literals.ADDRESS_END_POINT__OUTPUT_CONNECTOR,
-							EsbFactory.eINSTANCE.createAddressEndPointOutputConnector());
+							EsbFactory.eINSTANCE
+									.createAddressEndPointOutputConnector());
 					if (addCmd.canExecute()) {
 						getEditingDomain().getCommandStack().execute(addCmd);
 					}
@@ -304,11 +342,15 @@ public class MediatorFlowMediatorFlowCompartment5EditPart extends ShapeCompartme
 			WSDLEndPointEditPart endpointEditPart = (WSDLEndPointEditPart) child;
 			EObject parentEndpoint = ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (endpointEditPart)
 					.getModel()).getElement();
-			if (((WSDLEndPoint) parentEndpoint).getInputConnector().getIncomingLinks().size() == 0) {
+			if (((WSDLEndPoint) parentEndpoint).getInputConnector()
+					.getIncomingLinks().size() == 0) {
 				if (((WSDLEndPoint) parentEndpoint).getOutputConnector() == null) {
-					SetCommand addCmd = new SetCommand(getEditingDomain(), parentEndpoint,
+					SetCommand addCmd = new SetCommand(
+							getEditingDomain(),
+							parentEndpoint,
 							EsbPackage.Literals.WSDL_END_POINT__OUTPUT_CONNECTOR,
-							EsbFactory.eINSTANCE.createWSDLEndPointOutputConnector());
+							EsbFactory.eINSTANCE
+									.createWSDLEndPointOutputConnector());
 					if (addCmd.canExecute()) {
 						getEditingDomain().getCommandStack().execute(addCmd);
 					}

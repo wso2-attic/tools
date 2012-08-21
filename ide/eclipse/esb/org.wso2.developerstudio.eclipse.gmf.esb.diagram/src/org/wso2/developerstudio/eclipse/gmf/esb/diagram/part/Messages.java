@@ -763,6 +763,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String MediatorFlowMediatorFlowCompartment13EditPart_title;
+
+	/**
+	 * @generated
+	 */
 	public static String MediatorFlowMediatorFlowCompartment12EditPart_title;
 
 	/**
@@ -1064,6 +1069,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_CloneMediatorInputConnector_3103_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_CacheMediatorOnHitOutputConnector_3618_outgoinglinks;
 
 	/**
 	 * @generated

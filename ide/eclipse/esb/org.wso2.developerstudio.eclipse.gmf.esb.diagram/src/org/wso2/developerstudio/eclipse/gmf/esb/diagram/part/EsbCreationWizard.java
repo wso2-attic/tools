@@ -100,7 +100,8 @@ public class EsbCreationWizard extends Wizard implements INewWizard {
 	/**
 	 * @generated
 	 */
-	public void setOpenNewlyCreatedDiagramEditor(boolean openNewlyCreatedDiagramEditor) {
+	public void setOpenNewlyCreatedDiagramEditor(
+			boolean openNewlyCreatedDiagramEditor) {
 		this.openNewlyCreatedDiagramEditor = openNewlyCreatedDiagramEditor;
 	}
 
@@ -122,24 +123,28 @@ public class EsbCreationWizard extends Wizard implements INewWizard {
 	public void addPages() {
 		diagramModelFilePage = new EsbCreationWizardPage(
 				"DiagramModelFile", getSelection(), "esb_diagram"); //$NON-NLS-1$ //$NON-NLS-2$
-		diagramModelFilePage.setTitle(Messages.EsbCreationWizard_DiagramModelFilePageTitle);
+		diagramModelFilePage
+				.setTitle(Messages.EsbCreationWizard_DiagramModelFilePageTitle);
 		diagramModelFilePage
 				.setDescription(Messages.EsbCreationWizard_DiagramModelFilePageDescription);
 		addPage(diagramModelFilePage);
 
-		domainModelFilePage = new EsbCreationWizardPage("DomainModelFile", getSelection(), "esb") { //$NON-NLS-1$ //$NON-NLS-2$
+		domainModelFilePage = new EsbCreationWizardPage(
+				"DomainModelFile", getSelection(), "esb") { //$NON-NLS-1$ //$NON-NLS-2$
 
 			public void setVisible(boolean visible) {
 				if (visible) {
 					String fileName = diagramModelFilePage.getFileName();
-					fileName = fileName.substring(0, fileName.length() - ".esb_diagram".length()); //$NON-NLS-1$
-					setFileName(EsbDiagramEditorUtil.getUniqueFileName(getContainerFullPath(),
-							fileName, "esb")); //$NON-NLS-1$
+					fileName = fileName.substring(0, fileName.length()
+							- ".esb_diagram".length()); //$NON-NLS-1$
+					setFileName(EsbDiagramEditorUtil.getUniqueFileName(
+							getContainerFullPath(), fileName, "esb")); //$NON-NLS-1$
 				}
 				super.setVisible(visible);
 			}
 		};
-		domainModelFilePage.setTitle(Messages.EsbCreationWizard_DomainModelFilePageTitle);
+		domainModelFilePage
+				.setTitle(Messages.EsbCreationWizard_DomainModelFilePageTitle);
 		domainModelFilePage
 				.setDescription(Messages.EsbCreationWizard_DomainModelFilePageDescription);
 		addPage(domainModelFilePage);
@@ -151,30 +156,38 @@ public class EsbCreationWizard extends Wizard implements INewWizard {
 	public boolean performFinish() {
 		try {
 			if (((TreeSelection) getSelection()).toArray()[0] instanceof Folder) {
-				esbProject = ((Folder) ((TreeSelection) getSelection()).toArray()[0]).getProject();
+				esbProject = ((Folder) ((TreeSelection) getSelection())
+						.toArray()[0]).getProject();
 			}
 			if (((TreeSelection) getSelection()).toArray()[0] instanceof Project) {
-				esbProject = (Project) ((TreeSelection) getSelection()).toArray()[0];
+				esbProject = (Project) ((TreeSelection) getSelection())
+						.toArray()[0];
 			}
 			esbProjectArtifact = new ESBProjectArtifact();
-			esbProjectArtifact.fromFile(esbProject.getFile("artifact.xml").getLocation().toFile());
+			esbProjectArtifact.fromFile(esbProject.getFile("artifact.xml")
+					.getLocation().toFile());
 
-			IContainer location = esbProject.getFolder("src" + File.separator + "main"
-					+ File.separator + "synapse-config");
+			IContainer location = esbProject.getFolder("src" + File.separator
+					+ "main" + File.separator + "synapse-config");
 
-			fileCreationLocationDiagram = URI.createPlatformResourceURI(location.getFullPath()
-					.toString() + "/" + diagramModelFilePage.getFileName(), false);
-			fileCreationLocationDomain = URI.createPlatformResourceURI(location.getFullPath()
-					.toString() + "/" + domainModelFilePage.getFileName(), false);
+			fileCreationLocationDiagram = URI.createPlatformResourceURI(
+					location.getFullPath().toString() + "/"
+							+ diagramModelFilePage.getFileName(), false);
+			fileCreationLocationDomain = URI.createPlatformResourceURI(
+					location.getFullPath().toString() + "/"
+							+ domainModelFilePage.getFileName(), false);
 
-			String relativePathDiagram = FileUtils.getRelativePath(esbProject.getLocation()
-					.toFile(),
-					new File(location.getLocation().toFile(), diagramModelFilePage.getFileName()));
-			esbProjectArtifact.addESBArtifact(createArtifact(diagramModelFilePage.getFileName()
-					.split(".esb_diagram")[0], "test", "1.0.0", relativePathDiagram));
+			String relativePathDiagram = FileUtils.getRelativePath(esbProject
+					.getLocation().toFile(), new File(location.getLocation()
+					.toFile(), diagramModelFilePage.getFileName()));
+			esbProjectArtifact
+					.addESBArtifact(createArtifact(diagramModelFilePage
+							.getFileName().split(".esb_diagram")[0], "test",
+							"1.0.0", relativePathDiagram));
 
 			esbProjectArtifact.toFile();
-			esbProject.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
+			esbProject.refreshLocal(IResource.DEPTH_INFINITE,
+					new NullProgressMonitor());
 		} catch (CoreException e) {
 			System.out.println("Error ESBCreationWizard");
 		} catch (Exception e) {
@@ -184,19 +197,21 @@ public class EsbCreationWizard extends Wizard implements INewWizard {
 		//IProject currentProject = ResourcesPlugin.getWorkspace().
 		IRunnableWithProgress op = new WorkspaceModifyOperation(null) {
 
-			protected void execute(IProgressMonitor monitor) throws CoreException,
-					InterruptedException {
+			protected void execute(IProgressMonitor monitor)
+					throws CoreException, InterruptedException {
 				/*diagram = EsbDiagramEditorUtil.createDiagram(
 						diagramModelFilePage.getURI(),
 						domainModelFilePage.getURI(), monitor);  */
-				diagram = EsbDiagramEditorUtil.createDiagram(fileCreationLocationDiagram,
+				diagram = EsbDiagramEditorUtil.createDiagram(
+						fileCreationLocationDiagram,
 						fileCreationLocationDomain, monitor);
 				if (isOpenNewlyCreatedDiagramEditor() && diagram != null) {
 					try {
 						EsbDiagramEditorUtil.openDiagram(diagram);
 					} catch (PartInitException e) {
 						ErrorDialog.openError(getContainer().getShell(),
-								Messages.EsbCreationWizardOpenEditorError, null, e.getStatus());
+								Messages.EsbCreationWizardOpenEditorError,
+								null, e.getStatus());
 					}
 				}
 			}
@@ -219,7 +234,8 @@ public class EsbCreationWizard extends Wizard implements INewWizard {
 		return diagram != null;
 	}
 
-	private ESBArtifact createArtifact(String name, String groupId, String version, String path) {
+	private ESBArtifact createArtifact(String name, String groupId,
+			String version, String path) {
 		ESBArtifact artifact = new ESBArtifact();
 		artifact.setName(name);
 		artifact.setVersion(version);

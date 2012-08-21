@@ -73,7 +73,7 @@ public abstract class AbstractInputConnector extends AbstractBorderItemEditPart 
 	public void notifyChanged(Notification notification) {
 		int direction = -1;
 		super.notifyChanged(notification);
-		if (notification.getEventType() == Notification.ADD) {
+		if (notification.getEventType() == Notification.ADD) {			
 			/*
 			 * You can directly call Reverse(EditPart) method here. But it will
 			 * lead to reduce the performance since it will call
@@ -83,10 +83,10 @@ public abstract class AbstractInputConnector extends AbstractBorderItemEditPart 
 			if (this.getTargetConnections().size() != 0) {
 				EditPart link = ((EsbLinkEditPart) this.getTargetConnections()
 						.get(0)).getSource();
-				if ((link instanceof AbstractOutputConnector)
+				if (((link instanceof AbstractOutputConnector)
 						&& (((AbstractOutputConnector) link).getParent() instanceof AbstractMediator)
 						&& (((AbstractMediator) ((AbstractOutputConnector) link)
-								.getParent()).reversed) || (link instanceof AbstractEndpointOutputConnector)) {					
+								.getParent()).reversed)) || (link instanceof AbstractEndpointOutputConnector)) {					
 					((AbstractMediator) this.getParent()).Reverse(this
 							.getParent());	
 				}
