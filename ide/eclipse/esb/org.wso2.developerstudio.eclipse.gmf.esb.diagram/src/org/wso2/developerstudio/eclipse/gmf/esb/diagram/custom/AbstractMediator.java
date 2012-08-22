@@ -24,6 +24,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.IterateMediat
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment10EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment11EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment12EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment13EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment2EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment3EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment4EditPart;
@@ -147,7 +148,11 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 						| (((editorPart.getParent() instanceof MediatorFlowMediatorFlowCompartment9EditPart) | (editorPart
 					        	.getParent() instanceof MediatorFlowMediatorFlowCompartment10EditPart))
 					        	&& (editorPart.getParent().getParent().getParent().getParent().getParent() instanceof ThrottleMediatorEditPart) && (((AbstractMediator) editorPart
-					                	.getParent().getParent().getParent().getParent().getParent()).reversed))|(shouldReverse()))) {
+					                	.getParent().getParent().getParent().getParent().getParent()).reversed))
+					    | ((editorPart.getParent() instanceof MediatorFlowMediatorFlowCompartment13EditPart)
+					    		&& (editorPart.getParent().getParent().getParent() instanceof CacheMediatorEditPart) && (((AbstractMediator) editorPart
+										.getParent().getParent().getParent()).reversed))            	
+					                	|(shouldReverse()))) {
 
 			AbstractMediator selectedEP = (AbstractMediator) editorPart;
 			List<IFigure> inputConnectors = new ArrayList<IFigure>();
