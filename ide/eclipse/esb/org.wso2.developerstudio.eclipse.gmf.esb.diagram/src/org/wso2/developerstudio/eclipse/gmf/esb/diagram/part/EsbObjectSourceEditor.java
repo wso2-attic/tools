@@ -17,6 +17,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.part;
 
 import org.eclipse.core.internal.resources.ModelObject;
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.ui.IEditorInput;
@@ -75,7 +76,18 @@ public class EsbObjectSourceEditor {
 	 */
 	public EsbObjectSourceEditor(IFile dummyFile){//, AdapterFactoryEditingDomain editingDomain) {
 		//this.editingDomain = editingDomain;
-		this.editor = new StructuredTextEditor();
+		this.editor = new StructuredTextEditor(){
+
+			public void doSave(IProgressMonitor progressMonitor) {
+				/*TODO: handle source to design*/
+				super.doSave(progressMonitor);
+			}
+
+			public boolean isEditable() {
+				/*Source view is currently read-only*/
+				return false;
+			}
+		};
 		this.input = new FileEditorInput(dummyFile);
 //		this.listener = new ModelStateListenerAdapter() {
 //            public void modelChanged(IStructuredModel model) {

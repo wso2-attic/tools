@@ -362,6 +362,17 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
     public void doSave(IProgressMonitor monitor) {
         getEditor(0).doSave(monitor);
     }
+    
+	/**
+	 * Source view is currently read-only, so for now we only handling design
+	 * view's dirty property
+	 */
+	public boolean isDirty() {
+		if (getEditor(0) instanceof EsbDiagramEditor) {
+			return getEditor(0).isDirty();
+		}
+		return super.isDirty();
+	}
 
     /**
      * Saves the multi-page editor's document as another file.
