@@ -34,6 +34,7 @@ import org.apache.synapse.util.xpath.SynapseXPath;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EObject;
 import org.wso2.developerstudio.eclipse.gmf.esb.AddressEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.EndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPointAddressingVersion;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.FailoverEndPoint;
@@ -159,10 +160,11 @@ public class AddressEndPointTransformer extends AbstractEsbNodeTransformer {
 		}
 
 		if(visualEndPoint.getOutputConnector().getOutgoingLink() !=null){
-		if(!(visualEndPoint.getOutputConnector().getOutgoingLink().getTarget() instanceof SequenceInputConnector)){
+		if((!(visualEndPoint.getOutputConnector().getOutgoingLink().getTarget() instanceof SequenceInputConnector))||
+				(!(((Sequence)visualEndPoint.getOutputConnector().getOutgoingLink().getTarget().eContainer()).getOutputConnector().getOutgoingLink().getTarget().eContainer() instanceof EndPoint))){
 			info.setParentSequence(info.getOriginOutSequence());
 			info.setTraversalDirection(TransformationInfo.TRAVERSAL_DIRECTION_OUT);
-		}else if(visualEndPoint.getInputConnector().getIncomingLinks().get(0).getSource().eContainer() instanceof Sequence){
+		}else if((visualEndPoint.getInputConnector().getIncomingLinks().get(0).getSource().eContainer() instanceof Sequence)){
 			info.setParentSequence(info.getCurrentReferredSequence());
 		}
 		}

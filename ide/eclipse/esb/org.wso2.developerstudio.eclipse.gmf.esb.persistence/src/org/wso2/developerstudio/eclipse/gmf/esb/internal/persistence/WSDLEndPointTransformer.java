@@ -9,6 +9,7 @@ import org.apache.synapse.mediators.base.SequenceMediator;
 import org.apache.synapse.mediators.builtin.SendMediator;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EObject;
+import org.wso2.developerstudio.eclipse.gmf.esb.EndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPointAddressingVersion;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.FailoverEndPoint;
@@ -40,11 +41,14 @@ public class WSDLEndPointTransformer extends AbstractEsbNodeTransformer{
 		}		
 		sendMediator.setEndpoint(create(visualEndPoint));	
 		
-		if(!(visualEndPoint.getOutputConnector().getOutgoingLink().getTarget() instanceof SequenceInputConnector)){
+		if(visualEndPoint.getOutputConnector().getOutgoingLink() !=null){
+		if((!(visualEndPoint.getOutputConnector().getOutgoingLink().getTarget() instanceof SequenceInputConnector))||
+				(!(((Sequence)visualEndPoint.getOutputConnector().getOutgoingLink().getTarget().eContainer()).getOutputConnector().getOutgoingLink().getTarget().eContainer() instanceof EndPoint))){
 		information.setParentSequence(information.getOriginOutSequence());
 		information.setTraversalDirection(TransformationInfo.TRAVERSAL_DIRECTION_OUT);
 		}else if(visualEndPoint.getInputConnector().getIncomingLinks().get(0).getSource().eContainer() instanceof Sequence){
 			information.setParentSequence(information.getCurrentReferredSequence());
+		}
 		}
 
 		if(!information.isEndPointFound){

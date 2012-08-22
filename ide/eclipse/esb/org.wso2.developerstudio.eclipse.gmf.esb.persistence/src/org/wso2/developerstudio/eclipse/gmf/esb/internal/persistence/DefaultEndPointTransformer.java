@@ -154,11 +154,14 @@ public class DefaultEndPointTransformer extends AbstractEsbNodeTransformer {
 			info.firstEndPoint=visualEP;
 		}
 		
-		if(!(visualEP.getOutputConnector().getOutgoingLink().getTarget() instanceof SequenceInputConnector)){
+		if(visualEP.getOutputConnector().getOutgoingLink() !=null){
+		if((!(visualEP.getOutputConnector().getOutgoingLink().getTarget() instanceof SequenceInputConnector))||
+				(!(((Sequence)visualEP.getOutputConnector().getOutgoingLink().getTarget().eContainer()).getOutputConnector().getOutgoingLink().getTarget().eContainer() instanceof EndPoint))){
 		info.setParentSequence(info.getOriginOutSequence());
 		info.setTraversalDirection(TransformationInfo.TRAVERSAL_DIRECTION_OUT);
 		}else if(visualEP.getInputConnector().getIncomingLinks().get(0).getSource().eContainer() instanceof Sequence){
 			info.setParentSequence(info.getCurrentReferredSequence());
+		}
 		}
 
 		// Transform endpoint output data flow.

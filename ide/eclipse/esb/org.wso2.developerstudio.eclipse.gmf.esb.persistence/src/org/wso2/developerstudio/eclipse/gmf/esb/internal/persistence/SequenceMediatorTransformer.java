@@ -10,7 +10,10 @@ import org.apache.synapse.mediators.builtin.LogMediator;
 import org.apache.synapse.mediators.builtin.SendMediator;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.swt.widgets.Display;
 
+import org.wso2.developerstudio.eclipse.gmf.esb.EndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbSequence;
@@ -53,14 +56,25 @@ public class SequenceMediatorTransformer extends AbstractEsbNodeTransformer {
 			//Should handle properly
 			//Duplicate sequence definition for key
 		}
-		
-		if(information.getPreviouNode() instanceof org.wso2.developerstudio.eclipse.gmf.esb.EndPoint){
-			Object lastMediator=information.getParentSequence().getList()
-			.get(information.getParentSequence().getList().size() - 1);
-			((SendMediator) lastMediator).setReceivingSequence(refferingSequence.getKey());
-		}else{
-			information.getParentSequence().addChild(refferingSequence);
-		}		
+		try {
+			if ((information.getPreviouNode() instanceof org.wso2.developerstudio.eclipse.gmf.esb.EndPoint)&&
+					(visualSequence.getOutputConnector().getOutgoingLink().getTarget().eContainer() instanceof EndPoint)) {
+				Object lastMediator = information
+						.getParentSequence()
+						.getList()
+						.get(information.getParentSequence().getList().size() - 1);
+				((SendMediator) lastMediator)
+						.setReceivingSequence(refferingSequence.getKey());
+			} else {
+				information.getParentSequence().addChild(refferingSequence);
+			}
+		} catch (ClassCastException e) {
+			MessageDialog
+					.openError(
+							Display.getCurrent().getActiveShell(),
+							"Diagram Incomplete ! ",
+							"If there are two Sequences connected to an Endpoint's in and out terminals, the Sequence which is connected to the in terminal must have a Send mediator as the last mediator of the Sequence.");
+		}
 		
 		information.currentSequence=visualSequence;
 		information.setCurrentReferredSequence(sequence);

@@ -27,6 +27,7 @@ import org.apache.synapse.util.xpath.SynapseXPath;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EObject;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
+import org.wso2.developerstudio.eclipse.gmf.esb.FaultMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.FilterConditionType;
 import org.wso2.developerstudio.eclipse.gmf.esb.FilterMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.PropertyMediator;
@@ -142,7 +143,8 @@ public class FilterMediatorTransformer extends AbstractEsbNodeTransformer {
 		doTransform(newElseInfo, visualFilter.getFailOutputConnector());
 		//doTransformWithinSequence(newThenInfo,((FilterMediator) subject).getFailOutputConnector().getOutgoingLink(),sequence);
 		
-		doTransform(info, ((FilterMediator)subject).getOutputConnector());
+		
+		doTransformWithinSequence(info,((FilterMediator) subject).getOutputConnector().getOutgoingLink(),sequence);
 		
 	}
 
