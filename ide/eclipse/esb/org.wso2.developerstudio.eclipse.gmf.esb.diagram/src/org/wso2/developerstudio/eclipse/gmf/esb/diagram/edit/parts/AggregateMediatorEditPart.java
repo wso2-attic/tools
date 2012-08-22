@@ -30,6 +30,7 @@ import org.eclipse.swt.graphics.Color;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGroupingShape;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.complexFiguredAbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.utils.MediatorFigureReverser;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.AggregateMediatorCanonicalEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.AggregateMediatorItemSemanticEditPolicy;
@@ -39,7 +40,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry
 /**
  * @generated NOT
  */
-public class AggregateMediatorEditPart extends AbstractMediator {
+public class AggregateMediatorEditPart extends complexFiguredAbstractMediator {
 
 	public IFigure onCompleteOutputConnector;
 
@@ -110,10 +111,17 @@ public class AggregateMediatorEditPart extends AbstractMediator {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected IFigure createNodeShape() {
-		return primaryShape = new AggregateMediatorFigure();
+		return primaryShape = new AggregateMediatorFigure(){
+			public void setBounds(org.eclipse.draw2d.geometry.Rectangle rect) {
+				super.setBounds(rect);				
+				if(this.getBounds().getLocation().x!=0 &&this.getBounds().getLocation().y!=0){
+				getMostSuitableElementToConnect();
+				}				
+			};
+		};
 	}
 
 	/**

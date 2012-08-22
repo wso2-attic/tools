@@ -441,10 +441,17 @@ public class DropMediatorEditPart extends FixedSizedAbstractMediator {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected IFigure createNodeShape() {
-		return primaryShape = new DropMediatorFigure();
+		return primaryShape = new DropMediatorFigure(){
+			public void setBounds(org.eclipse.draw2d.geometry.Rectangle rect) {
+				super.setBounds(rect);				
+				if(this.getBounds().getLocation().x!=0 &&this.getBounds().getLocation().y!=0){
+				getMostSuitableElementToConnect();
+				}				
+			};
+		};
 	}
 
 	/**

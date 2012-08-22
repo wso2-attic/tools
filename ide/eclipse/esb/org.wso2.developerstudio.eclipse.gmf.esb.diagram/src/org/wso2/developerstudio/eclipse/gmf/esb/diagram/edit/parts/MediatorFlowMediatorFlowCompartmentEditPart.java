@@ -186,8 +186,6 @@ public class MediatorFlowMediatorFlowCompartmentEditPart extends
 						.getParent().getParent().getParent().getParent();
 			}
 
-			getMostSuitableElementToConnect(child);
-
 			CompoundCommand cc = new CompoundCommand("Create Link");
 
 			if (inputConnector != null) {
@@ -371,10 +369,6 @@ public class MediatorFlowMediatorFlowCompartmentEditPart extends
 				}
 			}
 		}
-	}
-
-	private void getMostSuitableElementToConnect(EditPart child) {
-
 	}
 
 	protected void removeChild(EditPart child) {

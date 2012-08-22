@@ -49,6 +49,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AdditionalOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.SwitchMediatorGraphicalShape;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.complexFiguredAbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.utils.MediatorFigureReverser;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.utils.SwitchMediatorUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.SwitchMediatorCanonicalEditPolicy;
@@ -58,7 +59,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry
 /**
  * @generated NOT
  */
-public class SwitchMediatorEditPart extends AbstractMediator {
+public class SwitchMediatorEditPart extends complexFiguredAbstractMediator {
 
 	public IFigure defaultOutputConnector;
 	public ArrayList<IFigure> caseOutputConnectors = new ArrayList<IFigure>();
@@ -139,10 +140,17 @@ public class SwitchMediatorEditPart extends AbstractMediator {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected IFigure createNodeShape() {
-		return primaryShape = new SwitchMediatorFigure();
+		return primaryShape = new SwitchMediatorFigure(){
+			public void setBounds(org.eclipse.draw2d.geometry.Rectangle rect) {
+				super.setBounds(rect);				
+				if(this.getBounds().getLocation().x!=0 &&this.getBounds().getLocation().y!=0){
+				getMostSuitableElementToConnect();
+				}				
+			};
+		};
 	}
 
 	/**

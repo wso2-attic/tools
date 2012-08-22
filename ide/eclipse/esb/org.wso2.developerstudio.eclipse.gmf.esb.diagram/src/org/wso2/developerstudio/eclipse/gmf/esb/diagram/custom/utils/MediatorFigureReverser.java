@@ -108,15 +108,15 @@ public class MediatorFigureReverser {
 					.getChildren().get(4)).getChildren().get(0)).getChildren();
 		}
 
-		if (editorPart instanceof SendMediatorEditPart) {
+/*		if (editorPart instanceof SendMediatorEditPart) {
 			arrangeType1Compartment(editorPart,
 					((SendMediatorEditPart) editorPart).endpointOutputConnector, childFigures);
-			/*
+			
 			 * Reverse the mediators inside the Send mediator.
-			 */
+			 
 			children = ((EndpointFlowEndpointCompartmentEditPart) ((EndpointFlowEditPart) editorPart
 					.getChildren().get(3)).getChildren().get(0)).getChildren();
-		}
+		}*/
 
 		if (editorPart instanceof FilterMediatorEditPart) {
 			if( ((IFigure) ((DefaultSizeNodeFigure) childFigures.get(0)).getChildren()
@@ -256,13 +256,16 @@ public class MediatorFigureReverser {
 		}
 	}
 
-	private static void arrangeType1Compartment(EditPart editpart, IFigure outputConnector,
-			List childFigures) {
-		BorderItemLocator locator = new FixedBorderItemLocator(
-				(IFigure) ((DefaultSizeNodeFigure) childFigures.get(0)).getChildren().get(0),
-				outputConnector, PositionConstants.EAST, 0.5);
-		((AbstractMediator) editpart).getBorderedFigure().getBorderItemContainer()
-				.add(outputConnector, locator);
+	private static void arrangeType1Compartment(EditPart editpart,
+			IFigure outputConnector, List childFigures) {
+		if (childFigures.get(0) instanceof DefaultSizeNodeFigure) {
+			BorderItemLocator locator = new FixedBorderItemLocator(
+					(IFigure) ((DefaultSizeNodeFigure) childFigures.get(0))
+							.getChildren().get(0), outputConnector,
+					PositionConstants.EAST, 0.5);
+			((AbstractMediator) editpart).getBorderedFigure()
+					.getBorderItemContainer().add(outputConnector, locator);
+		}
 	}
 
 	private static void arrangeType2Compartment(EditPart editpart, IFigure outputConnector1,

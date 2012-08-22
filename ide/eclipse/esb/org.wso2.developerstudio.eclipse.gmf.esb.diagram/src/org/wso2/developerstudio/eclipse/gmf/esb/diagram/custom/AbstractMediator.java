@@ -1,19 +1,32 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.PositionConstants;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gef.EditPart;
+import org.eclipse.gef.commands.CompoundCommand;
+import org.eclipse.gmf.runtime.common.core.command.ICommand;
+import org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand;
+import org.eclipse.gmf.runtime.diagram.ui.commands.DeferredCreateConnectionViewAndElementCommand;
+import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderItemEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
+import org.eclipse.gmf.runtime.diagram.ui.requests.CreateConnectionViewAndElementRequest;
+import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
+import org.eclipse.gmf.runtime.emf.type.core.IHintedType;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.Mediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.SequenceInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.SequenceOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.connections.ConnectionCalculator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.utils.MediatorFigureReverser;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AggregateMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CacheMediatorEditPart;
@@ -39,11 +52,17 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceInput
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ThrottleMediatorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 
 public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 
 	public boolean isForward = true;
 	private int i = 0;
+	
+	private AbstractBorderedShapeEditPart sourceEditPart = null;
+	private AbstractOutputConnector sourceOutputConnector = null;
+	private AbstractInputConnector inputConnector = null;
+	private AbstractOutputConnector outputConnectorEditPart = null;
 
 	/*
 	 * activete method is called twice for a mediator.so that we use this
@@ -244,7 +263,165 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 			
 		}
 		
+	}	
+	
+	protected void getMostSuitableElementToConnect() {
+		ArrayList<EsbLinkEditPart> ESBLinkEditpart = new ArrayList<EsbLinkEditPart>();
+		for (int i = 0; i < getViewer().getEditPartRegistry().size(); ++i) {
+			if (getViewer().getEditPartRegistry().values().toArray()[i] instanceof EsbLinkEditPart) {
+				ESBLinkEditpart.add((EsbLinkEditPart) getViewer()
+						.getEditPartRegistry().values().toArray()[i]);
+			}
+		}
+		EsbLinkEditPart nearestESBLink = ConnectionCalculator
+				.getNearestLinkEditPart(ESBLinkEditpart, this);	
+		
+		
+		AbstractBorderItemEditPart outputConnector = null;
+		AbstractBorderItemEditPart inputConnector = null;
+		AbstractInputConnector currentInputConnector = null;
+		AbstractOutputConnector currentOutputConnector = null;
+		if (nearestESBLink != null) {			
+			outputConnector = (AbstractBorderItemEditPart) nearestESBLink
+					.getSource();
+			inputConnector = (AbstractBorderItemEditPart) nearestESBLink
+					.getTarget();
+		}else{
+			connectNormally();
+		}
+
+		for (int p = 0; p < this.getChildren().size(); ++p) {
+			if (this.getChildren().get(p) instanceof AbstractInputConnector) {
+				currentInputConnector = (AbstractInputConnector) this
+						.getChildren().get(p);
+			}
+		}
+
+		for (int j = 0; j < this.getChildren().size(); ++j) {
+			if (this.getChildren().get(j) instanceof AbstractOutputConnector) {
+				currentOutputConnector = (AbstractOutputConnector) this
+						.getChildren().get(j);
+			}
+		}
+
+		if (nearestESBLink != null) {
+			Collection col = new ArrayList();
+			col.add(((org.eclipse.gmf.runtime.notation.impl.ConnectorImpl) nearestESBLink
+					.getModel()).getElement());
+
+			org.eclipse.emf.edit.command.DeleteCommand del = new org.eclipse.emf.edit.command.DeleteCommand(
+					getEditingDomain(), col);
+			if (del.canExecute()) {
+				getEditingDomain().getCommandStack().execute(del);
+			}
+
+		}
+
+		if (ConnectionCalculator.getNearestLinkEditPart(ESBLinkEditpart, this) != null) {
+			DeleteCommand delCmd = new DeleteCommand(ConnectionCalculator
+					.getNearestLinkEditPart(ESBLinkEditpart, this)
+					.getNotationView());
+			CompoundCommand dl = new CompoundCommand("Delete Link");
+			dl.add(new ICommandProxy(delCmd));
+			if (delCmd.canExecute()) {
+				getDiagramEditDomain().getDiagramCommandStack().execute(dl);
+			}
+		}
+
+		if (outputConnector != null && currentInputConnector != null
+				&& (outputConnector.getParent() instanceof ShapeNodeEditPart)) {
+			CompoundCommand cc = new CompoundCommand("Create Link");
+
+			ICommand createSubTopicsCmd = new DeferredCreateConnectionViewAndElementCommand(
+					new CreateConnectionViewAndElementRequest(
+							EsbElementTypes.EsbLink_4001,
+							((IHintedType) EsbElementTypes.EsbLink_4001)
+									.getSemanticHint(),
+							((ShapeNodeEditPart) outputConnector.getParent())
+									.getDiagramPreferencesHint()),
+					new EObjectAdapter((EObject) outputConnector.getModel()),
+					new EObjectAdapter((EObject) currentInputConnector
+							.getModel()),
+					((ShapeNodeEditPart) outputConnector.getParent())
+							.getViewer());
+
+			cc.add(new ICommandProxy(createSubTopicsCmd));
+			getDiagramEditDomain().getDiagramCommandStack().execute(cc);
+
+		}
+
+		if (currentOutputConnector != null
+				&& inputConnector != null
+				&& (currentOutputConnector.getParent() instanceof AbstractMediator)) {
+			CompoundCommand cc = new CompoundCommand("Create Link");
+
+			ICommand createSubTopicsCmd = new DeferredCreateConnectionViewAndElementCommand(
+					new CreateConnectionViewAndElementRequest(
+							EsbElementTypes.EsbLink_4001,
+							((IHintedType) EsbElementTypes.EsbLink_4001)
+									.getSemanticHint(),
+							((AbstractMediator) currentOutputConnector
+									.getParent()).getDiagramPreferencesHint()),
+					new EObjectAdapter((EObject) currentOutputConnector
+							.getModel()), new EObjectAdapter(
+							(EObject) inputConnector.getModel()),
+					((AbstractMediator) currentOutputConnector.getParent())
+							.getViewer());
+
+			cc.add(new ICommandProxy(createSubTopicsCmd));
+			getDiagramEditDomain().getDiagramCommandStack().execute(cc);
+
+		}
+
 	}
+	
+
+	private void connectNormally(){
+		//AbstractMediator mediator = (AbstractMediator) child;
+		AbstractBorderedShapeEditPart child=this;
+		
+		for (int i = 0; i < child.getChildren().size(); ++i) {
+			if (child.getChildren().get(i) instanceof AbstractInputConnector) {
+				inputConnector = (AbstractInputConnector) child.getChildren().get(i);
+			}
+			if (child.getChildren().get(i) instanceof AbstractOutputConnector) {
+				sourceOutputConnector = (AbstractOutputConnector) child.getChildren().get(i);
+			}
+
+		}
+		if (outputConnectorEditPart == null) {
+			if((this.getParent().getParent().getParent().getParent().getParent().getChildren().size()>1)&&(this.getParent().getParent().getParent().getParent().getParent().getChildren().get(1) instanceof AbstractOutputConnector)){
+			outputConnectorEditPart = ((AbstractOutputConnector) this.getParent().getParent()
+					.getParent().getParent().getParent().getChildren().get(1));
+			}
+		}
+		if (sourceEditPart == null || sourceEditPart.getRoot() == null) {
+			if(this.getParent().getParent().getParent().getParent().getParent() instanceof AbstractBorderedShapeEditPart){
+			sourceEditPart = (AbstractBorderedShapeEditPart) this.getParent().getParent()
+					.getParent().getParent().getParent();
+			}
+		}
+		
+		CompoundCommand cc = new CompoundCommand("Create Link");
+
+		if((inputConnector !=null) && (outputConnectorEditPart!=null) && (sourceEditPart!=null)){
+		ICommand createSubTopicsCmd = new DeferredCreateConnectionViewAndElementCommand(
+				new CreateConnectionViewAndElementRequest(EsbElementTypes.EsbLink_4001,
+						((IHintedType) EsbElementTypes.EsbLink_4001).getSemanticHint(),
+						sourceEditPart.getDiagramPreferencesHint()), new EObjectAdapter(
+						(EObject) outputConnectorEditPart.getModel()), new EObjectAdapter(
+						(EObject) (inputConnector).getModel()), sourceEditPart.getViewer());
+
+		cc.add(new ICommandProxy(createSubTopicsCmd));
+
+		getDiagramEditDomain().getDiagramCommandStack().execute(cc);
+		}
+
+		outputConnectorEditPart = sourceOutputConnector;
+		sourceEditPart = (AbstractBorderedShapeEditPart) child;
+	}
+	
+	
 
 	private boolean checkComplexity() {
 		if ((this instanceof AggregateMediatorEditPart) || (this instanceof SwitchMediatorEditPart)
