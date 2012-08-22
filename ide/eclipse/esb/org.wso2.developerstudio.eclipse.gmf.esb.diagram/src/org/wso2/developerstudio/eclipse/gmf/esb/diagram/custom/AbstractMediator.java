@@ -287,7 +287,9 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 			inputConnector = (AbstractBorderItemEditPart) nearestESBLink
 					.getTarget();
 		}else{
-			connectNormally();
+			if(this.getParent() instanceof MediatorFlowMediatorFlowCompartmentEditPart){
+			((MediatorFlowMediatorFlowCompartmentEditPart)this.getParent()).connectNormally(this);
+			}
 		}
 
 		for (int p = 0; p < this.getChildren().size(); ++p) {
@@ -374,54 +376,6 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 		}
 
 	}
-	
-
-	private void connectNormally(){
-		//AbstractMediator mediator = (AbstractMediator) child;
-		AbstractBorderedShapeEditPart child=this;
-		
-		for (int i = 0; i < child.getChildren().size(); ++i) {
-			if (child.getChildren().get(i) instanceof AbstractInputConnector) {
-				inputConnector = (AbstractInputConnector) child.getChildren().get(i);
-			}
-			if (child.getChildren().get(i) instanceof AbstractOutputConnector) {
-				sourceOutputConnector = (AbstractOutputConnector) child.getChildren().get(i);
-			}
-
-		}
-		if (outputConnectorEditPart == null) {
-			if((this.getParent().getParent().getParent().getParent().getParent().getChildren().size()>1)&&(this.getParent().getParent().getParent().getParent().getParent().getChildren().get(1) instanceof AbstractOutputConnector)){
-			outputConnectorEditPart = ((AbstractOutputConnector) this.getParent().getParent()
-					.getParent().getParent().getParent().getChildren().get(1));
-			}
-		}
-		if (sourceEditPart == null || sourceEditPart.getRoot() == null) {
-			if(this.getParent().getParent().getParent().getParent().getParent() instanceof AbstractBorderedShapeEditPart){
-			sourceEditPart = (AbstractBorderedShapeEditPart) this.getParent().getParent()
-					.getParent().getParent().getParent();
-			}
-		}
-		
-		CompoundCommand cc = new CompoundCommand("Create Link");
-
-		if((inputConnector !=null) && (outputConnectorEditPart!=null) && (sourceEditPart!=null)){
-		ICommand createSubTopicsCmd = new DeferredCreateConnectionViewAndElementCommand(
-				new CreateConnectionViewAndElementRequest(EsbElementTypes.EsbLink_4001,
-						((IHintedType) EsbElementTypes.EsbLink_4001).getSemanticHint(),
-						sourceEditPart.getDiagramPreferencesHint()), new EObjectAdapter(
-						(EObject) outputConnectorEditPart.getModel()), new EObjectAdapter(
-						(EObject) (inputConnector).getModel()), sourceEditPart.getViewer());
-
-		cc.add(new ICommandProxy(createSubTopicsCmd));
-
-		getDiagramEditDomain().getDiagramCommandStack().execute(cc);
-		}
-
-		outputConnectorEditPart = sourceOutputConnector;
-		sourceEditPart = (AbstractBorderedShapeEditPart) child;
-	}
-	
-	
 
 	private boolean checkComplexity() {
 		if ((this instanceof AggregateMediatorEditPart) || (this instanceof SwitchMediatorEditPart)
