@@ -123,10 +123,18 @@ public class AddressEndPointEditPart extends AbstractEndpoint {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected IFigure createNodeShape() {
-		return primaryShape = new AddressEndPointFigure();
+		return primaryShape = new AddressEndPointFigure() {
+			public void setBounds(org.eclipse.draw2d.geometry.Rectangle rect) {
+				super.setBounds(rect);
+				if (!connected) {
+					getMostSuitableElementToConnect();
+					connected = true;
+				}
+			};
+		};
 	}
 
 	/**

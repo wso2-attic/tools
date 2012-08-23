@@ -121,10 +121,18 @@ public class WSDLEndPointEditPart extends AbstractEndpoint {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected IFigure createNodeShape() {
-		return primaryShape = new WSDLEndPointFigure();
+		return primaryShape = new WSDLEndPointFigure(){
+			public void setBounds(org.eclipse.draw2d.geometry.Rectangle rect) {
+				super.setBounds(rect);
+				if (!connected) {
+					getMostSuitableElementToConnect();
+					connected = true;
+				}
+			};
+		};
 	}
 
 	/**

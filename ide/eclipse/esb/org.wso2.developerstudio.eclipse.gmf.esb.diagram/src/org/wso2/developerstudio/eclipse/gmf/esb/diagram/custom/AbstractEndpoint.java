@@ -16,12 +16,15 @@ import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EndpointFlowEndpointCompartmentEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartmentEditPart;
 
 public abstract class AbstractEndpoint extends BorderedBorderItemEditPart {
 
 	// activete method is called twice for a mediator. Reason is not detected
 	// yet.so that we use this variable to avoid calling reverse method twice.
 	public boolean reversed = false;
+	
+	protected boolean connected;
 	
 	
 	public AbstractEndpoint(View view) {
@@ -158,6 +161,10 @@ public abstract class AbstractEndpoint extends BorderedBorderItemEditPart {
 			reversed = true;
 			
 		}
+	}
+	
+	protected void getMostSuitableElementToConnect(){
+		((MediatorFlowMediatorFlowCompartmentEditPart)this.getParent()).connectNormally(this);
 	}
 
 }

@@ -14,8 +14,10 @@ import org.eclipse.gef.internal.ui.palette.editparts.ToolEntryEditPart;
 import org.eclipse.gmf.runtime.common.core.command.ICommand;
 import org.eclipse.gmf.runtime.diagram.ui.commands.DeferredCreateConnectionViewAndElementCommand;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderItemEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeCompartmentEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
@@ -37,6 +39,9 @@ import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPointOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.WSDLEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpointInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpointOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractOutputConnector;
@@ -55,9 +60,9 @@ public class MediatorFlowMediatorFlowCompartmentEditPart extends
 		ShapeCompartmentEditPart {
 
 	BorderedNodeFigure borderedNodeFigure;
-	AbstractOutputConnector sourceOutputConnector = null;
-	AbstractOutputConnector outputConnectorEditPart = null;
-	AbstractBorderedShapeEditPart sourceEditPart = null;
+	AbstractBorderItemEditPart sourceOutputConnector = null;
+	AbstractBorderItemEditPart outputConnectorEditPart = null;
+	ShapeNodeEditPart sourceEditPart = null;
 
 	/**
 	 * @generated
@@ -300,7 +305,6 @@ public class MediatorFlowMediatorFlowCompartmentEditPart extends
 					}
 				}
 			}
-
 		} else if (child instanceof WSDLEndPointEditPart) {
 			WSDLEndPointEditPart endpointEditPart = (WSDLEndPointEditPart) child;
 			EObject parentEndpoint = ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (endpointEditPart)
@@ -342,10 +346,9 @@ public class MediatorFlowMediatorFlowCompartmentEditPart extends
 	}
 	
 	public void connectNormally(EditPart child){
-		AbstractInputConnector inputConnector = null;
+		AbstractBorderItemEditPart inputConnector = null;
 
-		if (child instanceof AbstractMediator) {
-			AbstractMediator mediator = (AbstractMediator) child;
+		if ((child instanceof AbstractMediator)||(child instanceof AbstractEndpoint)) {
 
 			for (int i = 0; i < child.getChildren().size(); ++i) {
 				if (child.getChildren().get(i) instanceof AbstractInputConnector) {
@@ -354,6 +357,14 @@ public class MediatorFlowMediatorFlowCompartmentEditPart extends
 				}
 				if (child.getChildren().get(i) instanceof AbstractOutputConnector) {
 					sourceOutputConnector = (AbstractOutputConnector) child
+							.getChildren().get(i);
+				}
+				if(child.getChildren().get(i) instanceof AbstractEndpointInputConnector){
+					inputConnector = (AbstractEndpointInputConnector) child
+					.getChildren().get(i);
+				}
+				if (child.getChildren().get(i) instanceof AbstractEndpointOutputConnector) {
+					sourceOutputConnector = (AbstractEndpointOutputConnector) child
 							.getChildren().get(i);
 				}
 
@@ -388,7 +399,7 @@ public class MediatorFlowMediatorFlowCompartmentEditPart extends
 			}
 
 			outputConnectorEditPart = sourceOutputConnector;
-			sourceEditPart = (AbstractBorderedShapeEditPart) child;
+			sourceEditPart = (ShapeNodeEditPart) child;
 
 		}
 	}
