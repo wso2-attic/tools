@@ -41,6 +41,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowM
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment2EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment3EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment4EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment5EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment6EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment7EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment8EditPart;
@@ -288,7 +289,9 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 					.getTarget();
 		}else{
 			if(this.getParent() instanceof MediatorFlowMediatorFlowCompartmentEditPart){
-			((MediatorFlowMediatorFlowCompartmentEditPart)this.getParent()).connectNormally(this);
+				((MediatorFlowMediatorFlowCompartmentEditPart)this.getParent()).connectNormally(this);
+			}else if(this.getParent() instanceof MediatorFlowMediatorFlowCompartment5EditPart){
+				((MediatorFlowMediatorFlowCompartment5EditPart)this.getParent()).connectNormally(this);
 			}
 		}
 

@@ -16,6 +16,7 @@ import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EndpointFlowEndpointCompartmentEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment5EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartmentEditPart;
 
 public abstract class AbstractEndpoint extends BorderedBorderItemEditPart {
@@ -164,7 +165,11 @@ public abstract class AbstractEndpoint extends BorderedBorderItemEditPart {
 	}
 	
 	protected void getMostSuitableElementToConnect(){
-		((MediatorFlowMediatorFlowCompartmentEditPart)this.getParent()).connectNormally(this);
+		if(this.getParent() instanceof MediatorFlowMediatorFlowCompartmentEditPart){
+			((MediatorFlowMediatorFlowCompartmentEditPart)this.getParent()).connectNormally(this);
+		}else if(this.getParent() instanceof MediatorFlowMediatorFlowCompartment5EditPart){
+			((MediatorFlowMediatorFlowCompartment5EditPart)this.getParent()).connectNormally(this);
+		}
 	}
 
 }
