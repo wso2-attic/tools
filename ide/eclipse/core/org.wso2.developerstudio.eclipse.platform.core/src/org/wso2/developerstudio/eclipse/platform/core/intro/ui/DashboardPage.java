@@ -124,6 +124,10 @@ public class DashboardPage extends FormPage {
 				"org.wso2.developerstudio.eclipse.artifact.newgadgetartifact"
 				});
 		
+		wizardCategoryMap.put("Complex Event Processing Server", new String[]{ 
+				"org.wso2.developerstudio.eclipse.artifact.newcepartifact"
+				});
+		
 		wizardCategoryMap.put("Distribution", new String[]{
 				"org.wso2.developerstudio.eclipse.distribution.project",
 				});
@@ -230,6 +234,7 @@ public class DashboardPage extends FormPage {
 		createCategory(managedForm,composite,"Carbon");
 		createCategory(managedForm,composite,"Business Process Server");
 		createCategory(managedForm,composite,"Gadget Server");
+		createCategory(managedForm,composite,"Complex Event Processing Server");
 		
 
 		sctnCreate.setExpanded(true);
@@ -294,7 +299,8 @@ public class DashboardPage extends FormPage {
 				"org.wso2.developerstudio.eclipse.extensions.features",
 				"org.wso2.developerstudio.eclipse.message.mediation.project.types",
 				"org.wso2.developerstudio.eclipse.message.mediation.features",
-				"org.wso2.developerstudio.eclipse.maven.features");
+				"org.wso2.developerstudio.eclipse.maven.features",
+				"org.wso2.developerstudio.eclipse.artifact.cep.category");
 		
 		for (IWizardDescriptor descriptor : descriptors) {
 			descriptorMap.put(descriptor.getId(), descriptor);
