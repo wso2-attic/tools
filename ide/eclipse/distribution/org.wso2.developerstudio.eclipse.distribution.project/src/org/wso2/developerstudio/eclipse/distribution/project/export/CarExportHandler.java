@@ -61,170 +61,176 @@ public class CarExportHandler extends ProjectArtifactHandler {
 	public List<IResource> exportArtifact(IProject project) throws Exception {
 		List<IResource> exportResources = new ArrayList<IResource>();
 		List<ArtifactData> artifactList = new ArrayList<ArtifactData>();
-		Map<IProject,Map<String,IResource>> resourceProjectList = new HashMap<IProject,Map<String,IResource>>() ;
-		Map<IProject,Map<String,IResource>> graphicalSynapseProjectList = new HashMap<IProject,Map<String,IResource>>() ;
+		Map<IProject, Map<String, IResource>> resourceProjectList = new HashMap<IProject, Map<String, IResource>>();
+		Map<IProject, Map<String, IResource>> graphicalSynapseProjectList = new HashMap<IProject, Map<String, IResource>>();
 		IFile pomFileRes;
-		File pomFile; 
-		MavenProject parentPrj;	
-		
-			ArchiveManipulator archiveManipulator = new ArchiveManipulator();
-			
-			clearTarget(project);
-			
-	        //Let's create a temp project 
-	        File tempProject = createTempProject();
-	        
-	        File carResources = createTempDir(tempProject,"car_resources");
-	        IFolder splitESBResources = getTempDirInWorksapce(project.getName(),SPLIT_DIR_NAME);
-	        pomFileRes = project.getFile(POM_FILE);
-	        if(!pomFileRes.exists()) {
-	        	throw new Exception("not a valid carbon application project");
-	        }
-	        pomFile = pomFileRes.getLocation().toFile();
-	        
-	    	ProjectList projectListProvider = new ProjectList();
-			List<ListData> projectListData = projectListProvider.getListData(null, null);
-			Map<String,DependencyData> projectList= new HashMap<String, DependencyData>();
-			Map<String,Dependency> dependencyMap = new HashMap<String, Dependency>();
-			Map<String,String> serverRoleList = new HashMap<String, String>();
-			for (ListData data : projectListData) {
-				DependencyData dependencyData = (DependencyData)data.getData();
-				projectList.put(DistProjectUtils.getArtifactInfoAsString(dependencyData.getDependency()), dependencyData);
-			}
-			
-			parentPrj = MavenUtils.getMavenProject(pomFile);
-			
-			for(Dependency dependency : (List<Dependency>)parentPrj.getDependencies()){
-				dependencyMap.put(DistProjectUtils.getArtifactInfoAsString(dependency), dependency);
-				serverRoleList.put(DistProjectUtils.getArtifactInfoAsString(dependency), DistProjectUtils.getServerRole(parentPrj, dependency));
-			}
-			
-			//for(String dependency : dependencyMap.keySet()) {
-			for(Map.Entry<String,Dependency> entry : dependencyMap.entrySet()) {
-				String dependencyKey = entry.getKey();
-				Dependency dependency = entry.getValue();
-				if(projectList.containsKey(dependencyKey)) {
-					DependencyData dependencyData = projectList.get(dependencyKey);
-					Object parent = dependencyData.getParent();
-					Object self = dependencyData.getSelf();
-					dependencyMap.get(dependencyKey);
-					String serverRole = serverRoleList.get(DistProjectUtils.getArtifactInfoAsString(dependency));
-					dependencyData.setServerRole(serverRole
-				                                          .replaceAll("^capp/", ""));
-					
-					if(parent!=null && self!=null) { //ESB artifacts 
-						if(parent instanceof IProject && self instanceof String) {
-							IFile file = ((IProject) parent).getFile((String)self);
-							if(file.exists()) {
-								File synapseConf = file.getLocation().toFile();
-								if (SynapseFileUtils.isSynapseConfGiven(synapseConf ,SynapseEntryType.ALL)) {									
-									seperateSynapseConfig(synapseConf, splitESBResources, dependencyData, artifactList);									
-								} else if(dependencyData.getDependency().getType().equals("synapse/graphical-configuration")){									
-									IProject resProject = (IProject) parent;
-									if(!graphicalSynapseProjectList.containsKey(resProject)) {
-										Map<String,IResource> artifacts = new HashMap<String,IResource>(); 
-										List<IResource> buildProject = ExportUtil.buildProject(
-												resProject,
-												dependencyData.getCApptype());
-										for(IResource res : buildProject) {
-											if(res instanceof IFile){
-												IFile synapseFile = resProject.getFile("target"+File.separator+res.getName());												
-												seperateSynapseConfig(synapseFile.getLocation().toFile(), splitESBResources, dependencyData, artifactList);
-												artifacts.put(res.getName(), res);												
-											}
+		File pomFile;
+		MavenProject parentPrj;
+
+		ArchiveManipulator archiveManipulator = new ArchiveManipulator();
+
+		clearTarget(project);
+
+		// Let's create a temp project
+		File tempProject = createTempProject();
+
+		File carResources = createTempDir(tempProject, "car_resources");
+		IFolder splitESBResources = getTempDirInWorksapce(project.getName(), SPLIT_DIR_NAME);
+		pomFileRes = project.getFile(POM_FILE);
+		if (!pomFileRes.exists()) {
+			throw new Exception("not a valid carbon application project");
+		}
+		pomFile = pomFileRes.getLocation().toFile();
+
+		ProjectList projectListProvider = new ProjectList();
+		List<ListData> projectListData = projectListProvider.getListData(null, null);
+		Map<String, DependencyData> projectList = new HashMap<String, DependencyData>();
+		Map<String, Dependency> dependencyMap = new HashMap<String, Dependency>();
+		Map<String, String> serverRoleList = new HashMap<String, String>();
+		for (ListData data : projectListData) {
+			DependencyData dependencyData = (DependencyData) data.getData();
+			projectList.put(
+					DistProjectUtils.getArtifactInfoAsString(dependencyData.getDependency()),
+					dependencyData);
+		}
+
+		parentPrj = MavenUtils.getMavenProject(pomFile);
+
+		for (Dependency dependency : (List<Dependency>) parentPrj.getDependencies()) {
+			dependencyMap.put(DistProjectUtils.getArtifactInfoAsString(dependency), dependency);
+			serverRoleList.put(DistProjectUtils.getArtifactInfoAsString(dependency),
+					DistProjectUtils.getServerRole(parentPrj, dependency));
+		}
+
+		// for(String dependency : dependencyMap.keySet()) {
+		for (Map.Entry<String, Dependency> entry : dependencyMap.entrySet()) {
+			String dependencyKey = entry.getKey();
+			Dependency dependency = entry.getValue();
+			if (projectList.containsKey(dependencyKey)) {
+				DependencyData dependencyData = projectList.get(dependencyKey);
+				Object parent = dependencyData.getParent();
+				Object self = dependencyData.getSelf();
+				dependencyMap.get(dependencyKey);
+				String serverRole = serverRoleList.get(DistProjectUtils
+						.getArtifactInfoAsString(dependency));
+				dependencyData.setServerRole(serverRole.replaceAll("^capp/", ""));
+
+				if (parent != null && self != null) { // ESB artifacts
+					if (parent instanceof IProject && self instanceof String) {
+						IFile file = ((IProject) parent).getFile((String) self);
+						if (file.exists()) {
+							File synapseConf = file.getLocation().toFile();
+							if (SynapseFileUtils.isSynapseConfGiven(synapseConf,
+									SynapseEntryType.ALL)) {
+								seperateSynapseConfig(synapseConf, splitESBResources,
+										dependencyData, artifactList);
+							} else if (dependencyData.getDependency().getType()
+									.equals("synapse/graphical-configuration")) {
+								IProject resProject = (IProject) parent;
+								if (!graphicalSynapseProjectList.containsKey(resProject)) {
+									Map<String, IResource> artifacts = new HashMap<String, IResource>();
+									List<IResource> buildProject = ExportUtil.buildProject(
+											resProject, dependencyData.getCApptype());
+									for (IResource res : buildProject) {
+										if (res instanceof IFile) {
+											IFile synapseFile = resProject.getFile("target"
+													+ File.separator + res.getName());
+											seperateSynapseConfig(synapseFile.getLocation()
+													.toFile(), splitESBResources, dependencyData,
+													artifactList);
+											artifacts.put(res.getName(), res);
 										}
-										graphicalSynapseProjectList.put(resProject, artifacts);
 									}
-									
-									}else{
-									ArtifactData artifactData = new ArtifactData();
-									artifactData.setDependencyData(dependencyData);
-									artifactData.setFile(getFileName(dependencyData));
-									artifactData.setResource((IResource)file);
-									artifactList.add(artifactData);
+									graphicalSynapseProjectList.put(resProject, artifacts);
 								}
-							}
-						}
-					} else if (parent==null && self!=null) { // artifacts as single archive
-						if(self instanceof IProject) {
-								List<IResource> buildProject = ExportUtil.buildProject(
-										(IProject) self,
-										dependencyData.getCApptype());
-								if (buildProject.size()==1) {
-									ArtifactData artifactData = new ArtifactData();
-									artifactData.setDependencyData(dependencyData);
-									artifactData.setFile(getFileName(dependencyData));
-									artifactData.setResource(buildProject.get(0));
-									artifactList.add(artifactData);
-								} else {
-									throw new Exception("No resource found that matches the given type: " + dependencyData.getCApptype());
-								}
-						}
-					} else if (parent!=null && self==null) { //registry resources
-						IProject resProject = (IProject) parent;
-						if(!resourceProjectList.containsKey(resProject)) {
-							Map<String,IResource> artifacts = new HashMap<String,IResource>(); 
-							List<IResource> buildProject = ExportUtil.buildProject(
-									resProject,
-									dependencyData.getCApptype());
-							for(IResource res : buildProject) {
-								if(res instanceof IFolder){
-									artifacts.put(res.getName(), res);
-								}
-							}
-							resourceProjectList.put(resProject, artifacts);
-						}
-						if(resourceProjectList.containsKey(resProject)) {
-							Map<String, IResource> artifacts = resourceProjectList.get(resProject);
-							if(artifacts.containsKey(getArtifactDir(dependencyData))) {
+
+							} else {
 								ArtifactData artifactData = new ArtifactData();
 								artifactData.setDependencyData(dependencyData);
-								artifactData.setFile("registry-info.xml");
-								artifactData.setResource(artifacts.get(getArtifactDir(dependencyData)));
+								artifactData.setFile(getFileName(dependencyData));
+								artifactData.setResource((IResource) file);
 								artifactList.add(artifactData);
 							}
-							
 						}
+					}
+				} else if (parent == null && self != null) { // artifacts as
+																// single
+																// archive
+					if (self instanceof IProject) {
+						List<IResource> buildProject = ExportUtil.buildProject((IProject) self,
+								dependencyData.getCApptype());
+						if (buildProject.size() == 1) {
+							ArtifactData artifactData = new ArtifactData();
+							artifactData.setDependencyData(dependencyData);
+							artifactData.setFile(getFileName(dependencyData));
+							artifactData.setResource(buildProject.get(0));
+							artifactList.add(artifactData);
+						} else {
+							throw new Exception("No resource found that matches the given type: "
+									+ dependencyData.getCApptype());
+						}
+					}
+				} else if (parent != null && self == null) { // registry resources
+					IProject resProject = (IProject) parent;
+					if (!resourceProjectList.containsKey(resProject)) {
+						Map<String, IResource> artifacts = new HashMap<String, IResource>();
+						List<IResource> buildProject = ExportUtil.buildProject(resProject,
+								dependencyData.getCApptype());
+						for (IResource res : buildProject) {
+							if (res instanceof IFolder) {
+								artifacts.put(res.getName(), res);
+							}
+						}
+						resourceProjectList.put(resProject, artifacts);
+					}
+					if (resourceProjectList.containsKey(resProject)) {
+						Map<String, IResource> artifacts = resourceProjectList.get(resProject);
+						if (artifacts.containsKey(getArtifactDir(dependencyData))) {
+							ArtifactData artifactData = new ArtifactData();
+							artifactData.setDependencyData(dependencyData);
+							artifactData.setFile("registry-info.xml");
+							artifactData.setResource(artifacts.get(getArtifactDir(dependencyData)));
+							artifactList.add(artifactData);
+						}
+
 					}
 				}
 			}
-			
-			OMFactory factory = OMAbstractFactory.getOMFactory();
-			OMElement artifactsDocRoot = factory.createOMElement(new QName("artifacts"));
-			OMElement artifactElt = factory.createOMElement(new QName("artifact"));
-			artifactElt.addAttribute("name", parentPrj.getModel().getArtifactId(), null);
-			artifactElt.addAttribute("version", parentPrj.getModel().getVersion(), null);
-			artifactElt.addAttribute("type", "carbon/application", null);
-			
-			for(ArtifactData artifact : artifactList) {
-				File artifactDir = new File(carResources, getArtifactDir(artifact
-						.getDependencyData()));
-				if (artifact.getResource() instanceof IFolder) {
-					FileUtils.copyDirectory(artifact.getResource().getLocation().toFile(),
-							artifactDir);
-				} else if (artifact.getResource() instanceof IFile) {
-					FileUtils.copy(artifact.getResource().getLocation().toFile(), new File(
-							artifactDir,  artifact.getFile()));
-				}
-				artifactElt.addChild(createDependencyElement(factory,artifact));
-				createArtifactXML(artifactDir,artifact);
+		}
+
+		OMFactory factory = OMAbstractFactory.getOMFactory();
+		OMElement artifactsDocRoot = factory.createOMElement(new QName("artifacts"));
+		OMElement artifactElt = factory.createOMElement(new QName("artifact"));
+		artifactElt.addAttribute("name", parentPrj.getModel().getArtifactId(), null);
+		artifactElt.addAttribute("version", parentPrj.getModel().getVersion(), null);
+		artifactElt.addAttribute("type", "carbon/application", null);
+
+		for (ArtifactData artifact : artifactList) {
+			File artifactDir = new File(carResources, getArtifactDir(artifact.getDependencyData()));
+			if (artifact.getResource() instanceof IFolder) {
+				FileUtils.copyDirectory(artifact.getResource().getLocation().toFile(), artifactDir);
+			} else if (artifact.getResource() instanceof IFile) {
+				FileUtils.copy(artifact.getResource().getLocation().toFile(), new File(artifactDir,
+						artifact.getFile()));
 			}
-			
-			artifactsDocRoot.addChild(artifactElt);
-			File artifactsXml = new File(carResources,"artifacts.xml");
-			XMLUtil.prettify(artifactsDocRoot, new FileOutputStream(artifactsXml));
-	        
-	        File tmpArchive = new File(tempProject,project.getName().concat("_").concat(parentPrj.getVersion()).concat(".car"));
-	        archiveManipulator.archiveDir(tmpArchive.toString(), carResources.toString());
-	       
-	        IFile carbonArchive = getTargetArchive(project,parentPrj.getVersion(),"car");
-	        FileUtils.copy(tmpArchive, carbonArchive.getLocation().toFile());
-	        exportResources.add((IResource)carbonArchive);
-	        clearTempDirInWorksapce(project.getName(),SPLIT_DIR_NAME);
-	        //cleaning temp project
-//	        clearProject(tempProject);
-	        TempFileUtils.cleanUp();
-		
+			artifactElt.addChild(createDependencyElement(factory, artifact));
+			createArtifactXML(artifactDir, artifact);
+		}
+
+		artifactsDocRoot.addChild(artifactElt);
+		File artifactsXml = new File(carResources, "artifacts.xml");
+		XMLUtil.prettify(artifactsDocRoot, new FileOutputStream(artifactsXml));
+
+		File tmpArchive = new File(tempProject, project.getName().concat("_")
+				.concat(parentPrj.getVersion()).concat(".car"));
+		archiveManipulator.archiveDir(tmpArchive.toString(), carResources.toString());
+
+		IFile carbonArchive = getTargetArchive(project, parentPrj.getVersion(), "car");
+		FileUtils.copy(tmpArchive, carbonArchive.getLocation().toFile());
+		exportResources.add((IResource) carbonArchive);
+		clearTempDirInWorksapce(project.getName(), SPLIT_DIR_NAME);
+		TempFileUtils.cleanUp();
+
 		return exportResources;
 	}
 	
