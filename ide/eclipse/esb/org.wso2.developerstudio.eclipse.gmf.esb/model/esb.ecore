@@ -1511,10 +1511,16 @@
   <eClassifiers xsi:type="ecore:EClass" name="SmooksMediator" eSuperTypes="#//Mediator">
     <eStructuralFeatures xsi:type="ecore:EReference" name="configurationKey" eType="#//RegistryKeyProperty"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="input" eType="#//SmooksInConfiguration"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="inputType" eType="#//SmooksIODataType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inputExpression" eType="#//NamespacedProperty"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="output" eType="#//SmooksOutConfiguration"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="outputType" eType="#//SmooksIODataType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outputExpression" eType="#//NamespacedProperty"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="outputProperty" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="outputAction" eType="#//ExpressionAction"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="outputMethod" eType="#//OutputMethod"
+        defaultValueLiteral=""/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="inputConnector" eType="#//SmooksMediatorInputConnector"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outputConnector" eType="#//SmooksMediatorOutputConnector"
@@ -1522,20 +1528,6 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SmooksMediatorInputConnector" eSuperTypes="#//InputConnector"/>
   <eClassifiers xsi:type="ecore:EClass" name="SmooksMediatorOutputConnector" eSuperTypes="#//OutputConnector"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SmooksInConfiguration">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//SmooksIODataType"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//NamespacedProperty"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SmooksOutConfiguration">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//SmooksIODataType"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//NamespacedProperty"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="property" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="action" eType="#//ExpressionAction"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="outputMethod" eType="#//OutputMethod"
-        defaultValueLiteral=""/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ExpressionAction">
     <eLiterals name="ADD" literal="Add"/>
     <eLiterals name="REPLACE" value="1" literal="Replace"/>

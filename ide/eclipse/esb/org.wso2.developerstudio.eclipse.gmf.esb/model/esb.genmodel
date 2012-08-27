@@ -1126,25 +1126,27 @@
     <genClasses ecoreClass="esb.ecore#//CallTemplateMediatorInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//CallTemplateMediatorOutputConnector"/>
     <genClasses ecoreClass="esb.ecore#//SmooksMediator">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//SmooksMediator/configurationKey"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//SmooksMediator/input"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//SmooksMediator/output"/>
+      <genFeatures children="true" createChild="true" propertyCategory="Key" propertyDescription="Key"
+          ecoreFeature="ecore:EReference esb.ecore#//SmooksMediator/configurationKey"/>
+      <genFeatures createChild="false" propertyCategory="Input" propertyDescription="Type"
+          ecoreFeature="ecore:EAttribute esb.ecore#//SmooksMediator/inputType"/>
+      <genFeatures children="true" createChild="true" propertyCategory="Input" propertyDescription="Expression"
+          ecoreFeature="ecore:EReference esb.ecore#//SmooksMediator/inputExpression"/>
+      <genFeatures createChild="false" propertyCategory="Output" propertyDescription="Type"
+          ecoreFeature="ecore:EAttribute esb.ecore#//SmooksMediator/outputType"/>
+      <genFeatures children="true" createChild="true" propertyCategory="Output" propertyDescription="Expression"
+          ecoreFeature="ecore:EReference esb.ecore#//SmooksMediator/outputExpression"/>
+      <genFeatures createChild="false" propertyCategory="Output" propertyDescription="Property"
+          ecoreFeature="ecore:EAttribute esb.ecore#//SmooksMediator/outputProperty"/>
+      <genFeatures createChild="false" propertyCategory="Output" propertyDescription="Action"
+          ecoreFeature="ecore:EAttribute esb.ecore#//SmooksMediator/outputAction"/>
+      <genFeatures createChild="false" propertyCategory="Output" propertyDescription="Method"
+          ecoreFeature="ecore:EAttribute esb.ecore#//SmooksMediator/outputMethod"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//SmooksMediator/inputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//SmooksMediator/outputConnector"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//SmooksMediatorInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//SmooksMediatorOutputConnector"/>
-    <genClasses ecoreClass="esb.ecore#//SmooksInConfiguration">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//SmooksInConfiguration/type"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esb.ecore#//SmooksInConfiguration/expression"/>
-    </genClasses>
-    <genClasses ecoreClass="esb.ecore#//SmooksOutConfiguration">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//SmooksOutConfiguration/type"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esb.ecore#//SmooksOutConfiguration/expression"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//SmooksOutConfiguration/property"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//SmooksOutConfiguration/action"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//SmooksOutConfiguration/outputMethod"/>
-    </genClasses>
     <genClasses ecoreClass="esb.ecore#//StoreMediator">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//StoreMediator/messageStore"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esb.ecore#//StoreMediator/onStoreSequence"/>
