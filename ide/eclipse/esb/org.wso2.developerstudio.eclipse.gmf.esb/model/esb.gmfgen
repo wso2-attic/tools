@@ -6856,6 +6856,7 @@
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <viewmap
             xsi:type="gmfgen:FigureViewmap"
+            layoutType="XY_LAYOUT"
             figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
       </compartments>
       <compartments

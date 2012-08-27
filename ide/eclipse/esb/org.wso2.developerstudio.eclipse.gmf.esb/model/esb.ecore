@@ -1030,8 +1030,10 @@
         defaultValueLiteral="VERSION_1_0"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sequenceType" eType="#//RMSequenceType"
         defaultValueLiteral="SINGLE_MESSAGE"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="correlationXpath" eType="#//NamespacedProperty"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="lastMessageXpath" eType="#//NamespacedProperty"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="correlationXpath" eType="#//NamespacedProperty"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lastMessageXpath" eType="#//NamespacedProperty"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="inputConnector" eType="#//RMSequenceMediatorInputConnector"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outputConnector" eType="#//RMSequenceMediatorOutputConnector"

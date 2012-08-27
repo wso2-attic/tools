@@ -82,7 +82,7 @@ public class RMSequenceMediatorImpl extends MediatorImpl implements RMSequenceMe
 	protected RMSequenceType sequenceType = SEQUENCE_TYPE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getCorrelationXpath() <em>Correlation Xpath</em>}' reference.
+	 * The cached value of the '{@link #getCorrelationXpath() <em>Correlation Xpath</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getCorrelationXpath()
@@ -92,7 +92,7 @@ public class RMSequenceMediatorImpl extends MediatorImpl implements RMSequenceMe
 	protected NamespacedProperty correlationXpath;
 
 	/**
-	 * The cached value of the '{@link #getLastMessageXpath() <em>Last Message Xpath</em>}' reference.
+	 * The cached value of the '{@link #getLastMessageXpath() <em>Last Message Xpath</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getLastMessageXpath()
@@ -140,6 +140,7 @@ public class RMSequenceMediatorImpl extends MediatorImpl implements RMSequenceMe
 		NamespacedProperty lastMessageXpath = EsbFactoryImpl.eINSTANCE.createNamespacedProperty();
 		lastMessageXpath.setPrettyName("Last message XPath");
 		lastMessageXpath.setPropertyName("last-message");
+		lastMessageXpath.setPropertyValue("");
 		setLastMessageXpath(lastMessageXpath);
 	}
 
@@ -202,14 +203,6 @@ public class RMSequenceMediatorImpl extends MediatorImpl implements RMSequenceMe
 	 * @generated
 	 */
 	public NamespacedProperty getCorrelationXpath() {
-		if (correlationXpath != null && correlationXpath.eIsProxy()) {
-			InternalEObject oldCorrelationXpath = (InternalEObject)correlationXpath;
-			correlationXpath = (NamespacedProperty)eResolveProxy(oldCorrelationXpath);
-			if (correlationXpath != oldCorrelationXpath) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EsbPackage.RM_SEQUENCE_MEDIATOR__CORRELATION_XPATH, oldCorrelationXpath, correlationXpath));
-			}
-		}
 		return correlationXpath;
 	}
 
@@ -218,8 +211,14 @@ public class RMSequenceMediatorImpl extends MediatorImpl implements RMSequenceMe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NamespacedProperty basicGetCorrelationXpath() {
-		return correlationXpath;
+	public NotificationChain basicSetCorrelationXpath(NamespacedProperty newCorrelationXpath, NotificationChain msgs) {
+		NamespacedProperty oldCorrelationXpath = correlationXpath;
+		correlationXpath = newCorrelationXpath;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.RM_SEQUENCE_MEDIATOR__CORRELATION_XPATH, oldCorrelationXpath, newCorrelationXpath);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -228,10 +227,17 @@ public class RMSequenceMediatorImpl extends MediatorImpl implements RMSequenceMe
 	 * @generated
 	 */
 	public void setCorrelationXpath(NamespacedProperty newCorrelationXpath) {
-		NamespacedProperty oldCorrelationXpath = correlationXpath;
-		correlationXpath = newCorrelationXpath;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.RM_SEQUENCE_MEDIATOR__CORRELATION_XPATH, oldCorrelationXpath, correlationXpath));
+		if (newCorrelationXpath != correlationXpath) {
+			NotificationChain msgs = null;
+			if (correlationXpath != null)
+				msgs = ((InternalEObject)correlationXpath).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.RM_SEQUENCE_MEDIATOR__CORRELATION_XPATH, null, msgs);
+			if (newCorrelationXpath != null)
+				msgs = ((InternalEObject)newCorrelationXpath).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.RM_SEQUENCE_MEDIATOR__CORRELATION_XPATH, null, msgs);
+			msgs = basicSetCorrelationXpath(newCorrelationXpath, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.RM_SEQUENCE_MEDIATOR__CORRELATION_XPATH, newCorrelationXpath, newCorrelationXpath));
 	}
 
 	/**
@@ -240,14 +246,6 @@ public class RMSequenceMediatorImpl extends MediatorImpl implements RMSequenceMe
 	 * @generated
 	 */
 	public NamespacedProperty getLastMessageXpath() {
-		if (lastMessageXpath != null && lastMessageXpath.eIsProxy()) {
-			InternalEObject oldLastMessageXpath = (InternalEObject)lastMessageXpath;
-			lastMessageXpath = (NamespacedProperty)eResolveProxy(oldLastMessageXpath);
-			if (lastMessageXpath != oldLastMessageXpath) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EsbPackage.RM_SEQUENCE_MEDIATOR__LAST_MESSAGE_XPATH, oldLastMessageXpath, lastMessageXpath));
-			}
-		}
 		return lastMessageXpath;
 	}
 
@@ -256,8 +254,14 @@ public class RMSequenceMediatorImpl extends MediatorImpl implements RMSequenceMe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NamespacedProperty basicGetLastMessageXpath() {
-		return lastMessageXpath;
+	public NotificationChain basicSetLastMessageXpath(NamespacedProperty newLastMessageXpath, NotificationChain msgs) {
+		NamespacedProperty oldLastMessageXpath = lastMessageXpath;
+		lastMessageXpath = newLastMessageXpath;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.RM_SEQUENCE_MEDIATOR__LAST_MESSAGE_XPATH, oldLastMessageXpath, newLastMessageXpath);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -266,10 +270,17 @@ public class RMSequenceMediatorImpl extends MediatorImpl implements RMSequenceMe
 	 * @generated
 	 */
 	public void setLastMessageXpath(NamespacedProperty newLastMessageXpath) {
-		NamespacedProperty oldLastMessageXpath = lastMessageXpath;
-		lastMessageXpath = newLastMessageXpath;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.RM_SEQUENCE_MEDIATOR__LAST_MESSAGE_XPATH, oldLastMessageXpath, lastMessageXpath));
+		if (newLastMessageXpath != lastMessageXpath) {
+			NotificationChain msgs = null;
+			if (lastMessageXpath != null)
+				msgs = ((InternalEObject)lastMessageXpath).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.RM_SEQUENCE_MEDIATOR__LAST_MESSAGE_XPATH, null, msgs);
+			if (newLastMessageXpath != null)
+				msgs = ((InternalEObject)newLastMessageXpath).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.RM_SEQUENCE_MEDIATOR__LAST_MESSAGE_XPATH, null, msgs);
+			msgs = basicSetLastMessageXpath(newLastMessageXpath, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.RM_SEQUENCE_MEDIATOR__LAST_MESSAGE_XPATH, newLastMessageXpath, newLastMessageXpath));
 	}
 
 	/**
@@ -366,6 +377,10 @@ public class RMSequenceMediatorImpl extends MediatorImpl implements RMSequenceMe
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case EsbPackage.RM_SEQUENCE_MEDIATOR__CORRELATION_XPATH:
+				return basicSetCorrelationXpath(null, msgs);
+			case EsbPackage.RM_SEQUENCE_MEDIATOR__LAST_MESSAGE_XPATH:
+				return basicSetLastMessageXpath(null, msgs);
 			case EsbPackage.RM_SEQUENCE_MEDIATOR__INPUT_CONNECTOR:
 				return basicSetInputConnector(null, msgs);
 			case EsbPackage.RM_SEQUENCE_MEDIATOR__OUTPUT_CONNECTOR:
@@ -388,11 +403,9 @@ public class RMSequenceMediatorImpl extends MediatorImpl implements RMSequenceMe
 			case EsbPackage.RM_SEQUENCE_MEDIATOR__SEQUENCE_TYPE:
 				return getSequenceType();
 			case EsbPackage.RM_SEQUENCE_MEDIATOR__CORRELATION_XPATH:
-				if (resolve) return getCorrelationXpath();
-				return basicGetCorrelationXpath();
+				return getCorrelationXpath();
 			case EsbPackage.RM_SEQUENCE_MEDIATOR__LAST_MESSAGE_XPATH:
-				if (resolve) return getLastMessageXpath();
-				return basicGetLastMessageXpath();
+				return getLastMessageXpath();
 			case EsbPackage.RM_SEQUENCE_MEDIATOR__INPUT_CONNECTOR:
 				return getInputConnector();
 			case EsbPackage.RM_SEQUENCE_MEDIATOR__OUTPUT_CONNECTOR:

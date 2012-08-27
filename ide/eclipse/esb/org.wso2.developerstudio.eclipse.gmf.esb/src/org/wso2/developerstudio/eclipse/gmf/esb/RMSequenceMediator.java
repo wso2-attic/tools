@@ -90,52 +90,52 @@ public interface RMSequenceMediator extends Mediator {
 	void setSequenceType(RMSequenceType value);
 
 	/**
-	 * Returns the value of the '<em><b>Correlation Xpath</b></em>' reference.
+	 * Returns the value of the '<em><b>Correlation Xpath</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Correlation Xpath</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Correlation Xpath</em>' reference.
+	 * @return the value of the '<em>Correlation Xpath</em>' containment reference.
 	 * @see #setCorrelationXpath(NamespacedProperty)
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getRMSequenceMediator_CorrelationXpath()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	NamespacedProperty getCorrelationXpath();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.RMSequenceMediator#getCorrelationXpath <em>Correlation Xpath</em>}' reference.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.RMSequenceMediator#getCorrelationXpath <em>Correlation Xpath</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Correlation Xpath</em>' reference.
+	 * @param value the new value of the '<em>Correlation Xpath</em>' containment reference.
 	 * @see #getCorrelationXpath()
 	 * @generated
 	 */
 	void setCorrelationXpath(NamespacedProperty value);
 
 	/**
-	 * Returns the value of the '<em><b>Last Message Xpath</b></em>' reference.
+	 * Returns the value of the '<em><b>Last Message Xpath</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Last Message Xpath</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Last Message Xpath</em>' reference.
+	 * @return the value of the '<em>Last Message Xpath</em>' containment reference.
 	 * @see #setLastMessageXpath(NamespacedProperty)
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getRMSequenceMediator_LastMessageXpath()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	NamespacedProperty getLastMessageXpath();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.RMSequenceMediator#getLastMessageXpath <em>Last Message Xpath</em>}' reference.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.RMSequenceMediator#getLastMessageXpath <em>Last Message Xpath</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Last Message Xpath</em>' reference.
+	 * @param value the new value of the '<em>Last Message Xpath</em>' containment reference.
 	 * @see #getLastMessageXpath()
 	 * @generated
 	 */

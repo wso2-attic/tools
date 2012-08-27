@@ -7102,7 +7102,7 @@ public interface EsbPackage extends EPackage {
 	int RM_SEQUENCE_MEDIATOR__SEQUENCE_TYPE = MEDIATOR_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Correlation Xpath</b></em>' reference.
+	 * The feature id for the '<em><b>Correlation Xpath</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -7111,7 +7111,7 @@ public interface EsbPackage extends EPackage {
 	int RM_SEQUENCE_MEDIATOR__CORRELATION_XPATH = MEDIATOR_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Last Message Xpath</b></em>' reference.
+	 * The feature id for the '<em><b>Last Message Xpath</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -17579,10 +17579,10 @@ public interface EsbPackage extends EPackage {
 	EAttribute getRMSequenceMediator_SequenceType();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.RMSequenceMediator#getCorrelationXpath <em>Correlation Xpath</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.RMSequenceMediator#getCorrelationXpath <em>Correlation Xpath</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Correlation Xpath</em>'.
+	 * @return the meta object for the containment reference '<em>Correlation Xpath</em>'.
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RMSequenceMediator#getCorrelationXpath()
 	 * @see #getRMSequenceMediator()
 	 * @generated
@@ -17590,10 +17590,10 @@ public interface EsbPackage extends EPackage {
 	EReference getRMSequenceMediator_CorrelationXpath();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.RMSequenceMediator#getLastMessageXpath <em>Last Message Xpath</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.RMSequenceMediator#getLastMessageXpath <em>Last Message Xpath</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Last Message Xpath</em>'.
+	 * @return the meta object for the containment reference '<em>Last Message Xpath</em>'.
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RMSequenceMediator#getLastMessageXpath()
 	 * @see #getRMSequenceMediator()
 	 * @generated
@@ -25425,7 +25425,7 @@ public interface EsbPackage extends EPackage {
 		EAttribute RM_SEQUENCE_MEDIATOR__SEQUENCE_TYPE = eINSTANCE.getRMSequenceMediator_SequenceType();
 
 		/**
-		 * The meta object literal for the '<em><b>Correlation Xpath</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Correlation Xpath</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -25433,7 +25433,7 @@ public interface EsbPackage extends EPackage {
 		EReference RM_SEQUENCE_MEDIATOR__CORRELATION_XPATH = eINSTANCE.getRMSequenceMediator_CorrelationXpath();
 
 		/**
-		 * The meta object literal for the '<em><b>Last Message Xpath</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Last Message Xpath</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
