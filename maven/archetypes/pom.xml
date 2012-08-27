@@ -19,8 +19,8 @@
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.apache.cxf.wso2</groupId>
-    <artifactId>cxf-archetypes</artifactId>
+    <groupId>org.wso2.tool</groupId>
+    <artifactId>archetype</artifactId>
     <packaging>pom</packaging>
     <version>2.6.1.wso2v1</version>
     <name>WSO2 JAX-RS / JAX-WS Maven Archetypes</name>

@@ -20,8 +20,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.apache.cxf.archetype.wso2</groupId>
-    <artifactId>cxf-jaxrs-service</artifactId>
+    <groupId>org.wso2.tool.archetype</groupId>
+    <artifactId>jaxrs-service</artifactId>
     <version>2.6.1.wso2v1</version>
     <packaging>maven-archetype</packaging>
 
@@ -80,7 +80,7 @@
             <id>kasung</id>
             <name>Kasun Gajasinghe</name>
             <email>kasung@wso2.com</email>
-            <url>http://kasunbg.org</url>
+            <url>http://wso2.org</url>
             <organization>WSO2 Inc.</organization>
             <organizationUrl>http://wso2.org</organizationUrl>
             <roles>
