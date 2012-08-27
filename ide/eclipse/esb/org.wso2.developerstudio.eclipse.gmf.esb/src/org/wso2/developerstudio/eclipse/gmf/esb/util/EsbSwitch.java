@@ -1668,18 +1668,6 @@ public class EsbSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EsbPackage.SMOOKS_IN_CONFIGURATION: {
-				SmooksInConfiguration smooksInConfiguration = (SmooksInConfiguration)theEObject;
-				T result = caseSmooksInConfiguration(smooksInConfiguration);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EsbPackage.SMOOKS_OUT_CONFIGURATION: {
-				SmooksOutConfiguration smooksOutConfiguration = (SmooksOutConfiguration)theEObject;
-				T result = caseSmooksOutConfiguration(smooksOutConfiguration);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case EsbPackage.STORE_MEDIATOR: {
 				StoreMediator storeMediator = (StoreMediator)theEObject;
 				T result = caseStoreMediator(storeMediator);
@@ -5038,36 +5026,6 @@ public class EsbSwitch<T> {
 	 * @generated
 	 */
 	public T caseSmooksMediatorOutputConnector(SmooksMediatorOutputConnector object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Smooks In Configuration</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Smooks In Configuration</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSmooksInConfiguration(SmooksInConfiguration object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Smooks Out Configuration</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Smooks Out Configuration</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseSmooksOutConfiguration(SmooksOutConfiguration object) {
 		return null;
 	}
 

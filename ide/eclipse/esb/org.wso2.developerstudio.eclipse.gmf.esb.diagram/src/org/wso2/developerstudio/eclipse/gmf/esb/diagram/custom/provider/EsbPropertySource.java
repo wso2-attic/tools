@@ -8,10 +8,7 @@ import org.eclipse.emf.edit.ui.provider.PropertySource;
 import org.eclipse.ui.views.properties.IPropertyDescriptor;
 import org.wso2.developerstudio.eclipse.esb.core.Activator;
 import org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator;
-import org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator;
-import org.wso2.developerstudio.eclipse.gmf.esb.CacheOnHitBranch;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
-import org.wso2.developerstudio.eclipse.gmf.esb.SmooksMediator;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 
@@ -125,10 +122,10 @@ public class EsbPropertySource extends PropertySource {
 			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
 		} else if(pkg.getSmooksMediator_ConfigurationKey().equals(feature)){
 			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
-		} else if(pkg.getSmooksInConfiguration_Expression().equals(feature)){
-			return new CustomPropertyDescriptor(((SmooksMediator)object).getInput(), itemPropertyDescriptor);
-		} else if(pkg.getSmooksOutConfiguration_Expression().equals(feature)){
-			return new CustomPropertyDescriptor(((SmooksMediator)object).getOutput(), itemPropertyDescriptor);
+		} else if(pkg.getSmooksMediator_InputExpression() .equals(feature)){
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
+		} else if(pkg.getSmooksMediator_OutputExpression().equals(feature)){
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
 		} else if(pkg.getEnqueueMediator_SequenceKey().equals(feature)){
 			return new CustomPropertyDescriptor(object,itemPropertyDescriptor);
 			

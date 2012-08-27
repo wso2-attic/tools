@@ -261,8 +261,6 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 			case EsbPackage.SMOOKS_MEDIATOR: return createSmooksMediator();
 			case EsbPackage.SMOOKS_MEDIATOR_INPUT_CONNECTOR: return createSmooksMediatorInputConnector();
 			case EsbPackage.SMOOKS_MEDIATOR_OUTPUT_CONNECTOR: return createSmooksMediatorOutputConnector();
-			case EsbPackage.SMOOKS_IN_CONFIGURATION: return createSmooksInConfiguration();
-			case EsbPackage.SMOOKS_OUT_CONFIGURATION: return createSmooksOutConfiguration();
 			case EsbPackage.STORE_MEDIATOR: return createStoreMediator();
 			case EsbPackage.STORE_MEDIATOR_INPUT_CONNECTOR: return createStoreMediatorInputConnector();
 			case EsbPackage.STORE_MEDIATOR_OUTPUT_CONNECTOR: return createStoreMediatorOutputConnector();
@@ -2643,26 +2641,6 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	public SmooksMediatorOutputConnector createSmooksMediatorOutputConnector() {
 		SmooksMediatorOutputConnectorImpl smooksMediatorOutputConnector = new SmooksMediatorOutputConnectorImpl();
 		return smooksMediatorOutputConnector;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SmooksInConfiguration createSmooksInConfiguration() {
-		SmooksInConfigurationImpl smooksInConfiguration = new SmooksInConfigurationImpl();
-		return smooksInConfiguration;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SmooksOutConfiguration createSmooksOutConfiguration() {
-		SmooksOutConfigurationImpl smooksOutConfiguration = new SmooksOutConfigurationImpl();
-		return smooksOutConfiguration;
 	}
 
 	/**

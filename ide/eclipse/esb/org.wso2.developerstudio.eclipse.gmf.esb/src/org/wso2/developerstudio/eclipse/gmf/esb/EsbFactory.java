@@ -1750,24 +1750,6 @@ public interface EsbFactory extends EFactory {
 	SmooksMediatorOutputConnector createSmooksMediatorOutputConnector();
 
 	/**
-	 * Returns a new object of class '<em>Smooks In Configuration</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Smooks In Configuration</em>'.
-	 * @generated
-	 */
-	SmooksInConfiguration createSmooksInConfiguration();
-
-	/**
-	 * Returns a new object of class '<em>Smooks Out Configuration</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Smooks Out Configuration</em>'.
-	 * @generated
-	 */
-	SmooksOutConfiguration createSmooksOutConfiguration();
-
-	/**
 	 * Returns a new object of class '<em>Store Mediator</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

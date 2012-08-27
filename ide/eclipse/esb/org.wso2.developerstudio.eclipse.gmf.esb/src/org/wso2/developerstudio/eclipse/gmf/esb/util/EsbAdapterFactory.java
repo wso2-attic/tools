@@ -889,14 +889,6 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 				return createSmooksMediatorOutputConnectorAdapter();
 			}
 			@Override
-			public Adapter caseSmooksInConfiguration(SmooksInConfiguration object) {
-				return createSmooksInConfigurationAdapter();
-			}
-			@Override
-			public Adapter caseSmooksOutConfiguration(SmooksOutConfiguration object) {
-				return createSmooksOutConfigurationAdapter();
-			}
-			@Override
 			public Adapter caseStoreMediator(StoreMediator object) {
 				return createStoreMediatorAdapter();
 			}
@@ -3918,34 +3910,6 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSmooksMediatorOutputConnectorAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.SmooksInConfiguration <em>Smooks In Configuration</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.SmooksInConfiguration
-	 * @generated
-	 */
-	public Adapter createSmooksInConfigurationAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.SmooksOutConfiguration <em>Smooks Out Configuration</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.SmooksOutConfiguration
-	 * @generated
-	 */
-	public Adapter createSmooksOutConfigurationAdapter() {
 		return null;
 	}
 

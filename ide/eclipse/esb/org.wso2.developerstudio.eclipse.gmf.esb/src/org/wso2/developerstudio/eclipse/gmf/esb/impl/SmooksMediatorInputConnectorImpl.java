@@ -35,7 +35,6 @@ public class SmooksMediatorInputConnectorImpl extends InputConnectorImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
 	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.SMOOKS_MEDIATOR_INPUT_CONNECTOR;

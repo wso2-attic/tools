@@ -4576,54 +4576,6 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.SmooksInConfiguration} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected SmooksInConfigurationItemProvider smooksInConfigurationItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.SmooksInConfiguration}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	
-	@Override
-	public Adapter createSmooksInConfigurationAdapter() {
-		if (smooksInConfigurationItemProvider == null) {
-			smooksInConfigurationItemProvider = new SmooksInConfigurationItemProvider(this);
-		}
-
-		return smooksInConfigurationItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.SmooksOutConfiguration} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected SmooksOutConfigurationItemProvider smooksOutConfigurationItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.SmooksOutConfiguration}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	
-	@Override
-	public Adapter createSmooksOutConfigurationAdapter() {
-		if (smooksOutConfigurationItemProvider == null) {
-			smooksOutConfigurationItemProvider = new SmooksOutConfigurationItemProvider(this);
-		}
-
-		return smooksOutConfigurationItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.StoreMediator} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5772,8 +5724,6 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 		if (smooksMediatorItemProvider != null) smooksMediatorItemProvider.dispose();
 		if (smooksMediatorInputConnectorItemProvider != null) smooksMediatorInputConnectorItemProvider.dispose();
 		if (smooksMediatorOutputConnectorItemProvider != null) smooksMediatorOutputConnectorItemProvider.dispose();
-		if (smooksInConfigurationItemProvider != null) smooksInConfigurationItemProvider.dispose();
-		if (smooksOutConfigurationItemProvider != null) smooksOutConfigurationItemProvider.dispose();
 		if (storeMediatorItemProvider != null) storeMediatorItemProvider.dispose();
 		if (storeMediatorInputConnectorItemProvider != null) storeMediatorInputConnectorItemProvider.dispose();
 		if (storeMediatorOutputConnectorItemProvider != null) storeMediatorOutputConnectorItemProvider.dispose();

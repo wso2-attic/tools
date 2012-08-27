@@ -1783,20 +1783,6 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass smooksInConfigurationEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass smooksOutConfigurationEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass storeMediatorEClass = null;
 
 	/**
@@ -8461,8 +8447,8 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSmooksMediator_Input() {
-		return (EReference)smooksMediatorEClass.getEStructuralFeatures().get(1);
+	public EAttribute getSmooksMediator_InputType() {
+		return (EAttribute)smooksMediatorEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -8470,7 +8456,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSmooksMediator_Output() {
+	public EReference getSmooksMediator_InputExpression() {
 		return (EReference)smooksMediatorEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -8479,8 +8465,53 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getSmooksMediator_OutputType() {
+		return (EAttribute)smooksMediatorEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSmooksMediator_OutputExpression() {
+		return (EReference)smooksMediatorEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSmooksMediator_OutputProperty() {
+		return (EAttribute)smooksMediatorEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSmooksMediator_OutputAction() {
+		return (EAttribute)smooksMediatorEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSmooksMediator_OutputMethod() {
+		return (EAttribute)smooksMediatorEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getSmooksMediator_InputConnector() {
-		return (EReference)smooksMediatorEClass.getEStructuralFeatures().get(3);
+		return (EReference)smooksMediatorEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -8489,7 +8520,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	public EReference getSmooksMediator_OutputConnector() {
-		return (EReference)smooksMediatorEClass.getEStructuralFeatures().get(4);
+		return (EReference)smooksMediatorEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -8508,87 +8539,6 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 */
 	public EClass getSmooksMediatorOutputConnector() {
 		return smooksMediatorOutputConnectorEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getSmooksInConfiguration() {
-		return smooksInConfigurationEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSmooksInConfiguration_Type() {
-		return (EAttribute)smooksInConfigurationEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSmooksInConfiguration_Expression() {
-		return (EReference)smooksInConfigurationEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getSmooksOutConfiguration() {
-		return smooksOutConfigurationEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSmooksOutConfiguration_Type() {
-		return (EAttribute)smooksOutConfigurationEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSmooksOutConfiguration_Expression() {
-		return (EReference)smooksOutConfigurationEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSmooksOutConfiguration_Property() {
-		return (EAttribute)smooksOutConfigurationEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSmooksOutConfiguration_Action() {
-		return (EAttribute)smooksOutConfigurationEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSmooksOutConfiguration_OutputMethod() {
-		return (EAttribute)smooksOutConfigurationEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -10912,25 +10862,19 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 
 		smooksMediatorEClass = createEClass(SMOOKS_MEDIATOR);
 		createEReference(smooksMediatorEClass, SMOOKS_MEDIATOR__CONFIGURATION_KEY);
-		createEReference(smooksMediatorEClass, SMOOKS_MEDIATOR__INPUT);
-		createEReference(smooksMediatorEClass, SMOOKS_MEDIATOR__OUTPUT);
+		createEAttribute(smooksMediatorEClass, SMOOKS_MEDIATOR__INPUT_TYPE);
+		createEReference(smooksMediatorEClass, SMOOKS_MEDIATOR__INPUT_EXPRESSION);
+		createEAttribute(smooksMediatorEClass, SMOOKS_MEDIATOR__OUTPUT_TYPE);
+		createEReference(smooksMediatorEClass, SMOOKS_MEDIATOR__OUTPUT_EXPRESSION);
+		createEAttribute(smooksMediatorEClass, SMOOKS_MEDIATOR__OUTPUT_PROPERTY);
+		createEAttribute(smooksMediatorEClass, SMOOKS_MEDIATOR__OUTPUT_ACTION);
+		createEAttribute(smooksMediatorEClass, SMOOKS_MEDIATOR__OUTPUT_METHOD);
 		createEReference(smooksMediatorEClass, SMOOKS_MEDIATOR__INPUT_CONNECTOR);
 		createEReference(smooksMediatorEClass, SMOOKS_MEDIATOR__OUTPUT_CONNECTOR);
 
 		smooksMediatorInputConnectorEClass = createEClass(SMOOKS_MEDIATOR_INPUT_CONNECTOR);
 
 		smooksMediatorOutputConnectorEClass = createEClass(SMOOKS_MEDIATOR_OUTPUT_CONNECTOR);
-
-		smooksInConfigurationEClass = createEClass(SMOOKS_IN_CONFIGURATION);
-		createEAttribute(smooksInConfigurationEClass, SMOOKS_IN_CONFIGURATION__TYPE);
-		createEReference(smooksInConfigurationEClass, SMOOKS_IN_CONFIGURATION__EXPRESSION);
-
-		smooksOutConfigurationEClass = createEClass(SMOOKS_OUT_CONFIGURATION);
-		createEAttribute(smooksOutConfigurationEClass, SMOOKS_OUT_CONFIGURATION__TYPE);
-		createEReference(smooksOutConfigurationEClass, SMOOKS_OUT_CONFIGURATION__EXPRESSION);
-		createEAttribute(smooksOutConfigurationEClass, SMOOKS_OUT_CONFIGURATION__PROPERTY);
-		createEAttribute(smooksOutConfigurationEClass, SMOOKS_OUT_CONFIGURATION__ACTION);
-		createEAttribute(smooksOutConfigurationEClass, SMOOKS_OUT_CONFIGURATION__OUTPUT_METHOD);
 
 		storeMediatorEClass = createEClass(STORE_MEDIATOR);
 		createEAttribute(storeMediatorEClass, STORE_MEDIATOR__MESSAGE_STORE);
@@ -12244,25 +12188,19 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 
 		initEClass(smooksMediatorEClass, SmooksMediator.class, "SmooksMediator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSmooksMediator_ConfigurationKey(), this.getRegistryKeyProperty(), null, "configurationKey", null, 0, 1, SmooksMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSmooksMediator_Input(), this.getSmooksInConfiguration(), null, "input", null, 0, 1, SmooksMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSmooksMediator_Output(), this.getSmooksOutConfiguration(), null, "output", null, 0, 1, SmooksMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSmooksMediator_InputType(), this.getSmooksIODataType(), "inputType", null, 0, 1, SmooksMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSmooksMediator_InputExpression(), this.getNamespacedProperty(), null, "inputExpression", null, 0, 1, SmooksMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSmooksMediator_OutputType(), this.getSmooksIODataType(), "outputType", null, 0, 1, SmooksMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSmooksMediator_OutputExpression(), this.getNamespacedProperty(), null, "outputExpression", null, 0, 1, SmooksMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSmooksMediator_OutputProperty(), ecorePackage.getEString(), "outputProperty", null, 0, 1, SmooksMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSmooksMediator_OutputAction(), this.getExpressionAction(), "outputAction", null, 0, 1, SmooksMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSmooksMediator_OutputMethod(), this.getOutputMethod(), "outputMethod", "", 0, 1, SmooksMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSmooksMediator_InputConnector(), this.getSmooksMediatorInputConnector(), null, "inputConnector", null, 0, 1, SmooksMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSmooksMediator_OutputConnector(), this.getSmooksMediatorOutputConnector(), null, "outputConnector", null, 0, 1, SmooksMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(smooksMediatorInputConnectorEClass, SmooksMediatorInputConnector.class, "SmooksMediatorInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(smooksMediatorOutputConnectorEClass, SmooksMediatorOutputConnector.class, "SmooksMediatorOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(smooksInConfigurationEClass, SmooksInConfiguration.class, "SmooksInConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSmooksInConfiguration_Type(), this.getSmooksIODataType(), "type", null, 0, 1, SmooksInConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSmooksInConfiguration_Expression(), this.getNamespacedProperty(), null, "expression", null, 0, 1, SmooksInConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(smooksOutConfigurationEClass, SmooksOutConfiguration.class, "SmooksOutConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSmooksOutConfiguration_Type(), this.getSmooksIODataType(), "type", null, 0, 1, SmooksOutConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSmooksOutConfiguration_Expression(), this.getNamespacedProperty(), null, "expression", null, 0, 1, SmooksOutConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSmooksOutConfiguration_Property(), ecorePackage.getEString(), "property", null, 0, 1, SmooksOutConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSmooksOutConfiguration_Action(), this.getExpressionAction(), "action", null, 0, 1, SmooksOutConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSmooksOutConfiguration_OutputMethod(), this.getOutputMethod(), "outputMethod", "", 0, 1, SmooksOutConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(storeMediatorEClass, StoreMediator.class, "StoreMediator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStoreMediator_MessageStore(), ecorePackage.getEString(), "messageStore", null, 0, 1, StoreMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
