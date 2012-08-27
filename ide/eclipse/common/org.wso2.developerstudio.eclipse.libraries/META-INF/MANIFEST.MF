@@ -148,7 +148,8 @@ Bundle-ClassPath: .,
  lib/org.wso2.carbon.utils-3.2.2.jar,
  lib/org.wso2.securevault-1.0.0.jar,
  lib/org.wso2.carbon.registry.core-3.2.2.jar,
- lib/org.wso2.carbon.cep.core-4.0.1.jar
+ lib/org.wso2.carbon.cep.core-4.0.1.jar,
+ lib/org.wso2.carbon.databridge.commons-4.0.0.jar
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.jdt.ui,
