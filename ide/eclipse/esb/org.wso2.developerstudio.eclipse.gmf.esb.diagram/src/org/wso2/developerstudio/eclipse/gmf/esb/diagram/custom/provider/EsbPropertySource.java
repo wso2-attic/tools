@@ -136,7 +136,10 @@ public class EsbPropertySource extends PropertySource {
 			//Cache Mediator OnHitBranch Sequence Key custom property descriptor.
 		}else if(pkg.getCacheMediator_SequenceKey().equals(feature)){
 			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
-		}
+		} else if (pkg.getCommandMediator_Properties().equals(feature)) {
+			return new CommandMediatorPropertyDescriptor(object,
+					itemPropertyDescriptor);
+		} 
 			
 		// Else, default EMF behavior
 		else {

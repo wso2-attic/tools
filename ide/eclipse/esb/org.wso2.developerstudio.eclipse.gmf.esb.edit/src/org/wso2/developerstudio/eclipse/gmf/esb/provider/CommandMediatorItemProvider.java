@@ -66,6 +66,7 @@ public class CommandMediatorItemProvider
 		}
 		super.getPropertyDescriptors(object);
 		addClassNamePropertyDescriptor(object);
+		addPropertiesPropertyDescriptor(object);
 		return itemPropertyDescriptors;
 	}
 
@@ -87,6 +88,28 @@ public class CommandMediatorItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Properties feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPropertiesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CommandMediator_properties_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CommandMediator_properties_feature", "_UI_CommandMediator_type"),
+				 EsbPackage.Literals.COMMAND_MEDIATOR__PROPERTIES,
+				 true,
+				 false,
+				 false,
+				 null,
 				 null,
 				 null));
 	}

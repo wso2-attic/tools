@@ -996,7 +996,7 @@
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//CommandMediator">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//CommandMediator/className"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//CommandMediator/properties"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//CommandMediator/properties"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//CommandMediator/inputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//CommandMediator/outputConnector"/>
     </genClasses>

@@ -1,8 +1,25 @@
+/*
+ * Copyright 2012 WSO2, Inc. (http://wso2.com)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.ui;
-/*package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.ui;
 
 import org.eclipse.emf.common.command.CompoundCommand;
+import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.RemoveCommand;
+import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.swt.SWT;
@@ -29,10 +46,13 @@ import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Text;
 import org.wso2.developerstudio.eclipse.gmf.esb.CommandMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.CommandProperty;
+import org.wso2.developerstudio.eclipse.gmf.esb.CommandPropertyContextAction;
+import org.wso2.developerstudio.eclipse.gmf.esb.CommandPropertyMessageAction;
+import org.wso2.developerstudio.eclipse.gmf.esb.CommandPropertyValueType;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
-import org.wso2.developerstudio.eclipse.gmf.esb.XQueryMediator;
-import org.wso2.developerstudio.eclipse.gmf.esb.XQueryVariable;
+import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
+import org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbFactoryImpl;
 
 public class ConfigureCommandMediatorDialog extends Dialog{
 
@@ -42,8 +62,20 @@ public class ConfigureCommandMediatorDialog extends Dialog{
 	private Label commandPropertyLabel;
 	private Table commandPropertyTable;
 	private Button removeCommandPropertyButton;
+	private CompoundCommand resultCommand;
+	private TableEditor valueTypeEditor;
+	private TableEditor actionEditor;
+	private Combo cmbPropertyType;
+	private Combo cmbAction;
 	
-	protected ConfigureCommandMediatorDialog(Shell parentShell,
+	private static final String LITERAL = "literal";
+	private static final String MESSAGE_ELEMENT = "message element";
+	private static final String CONTEXT_PROPERTY = "context property";
+	private static final String READ_MESSAGE = "read message";
+	private static final String UPDATE_MESSAGE = "update message";
+	private static final String READ_AND_UPDATE_MESSAGE = "read and update message";
+
+	public ConfigureCommandMediatorDialog(Shell parentShell,
 			CommandMediator commandMediator, TransactionalEditingDomain editingDomain) {
 		super(parentShell);
 		this.commandMediator = commandMediator;
@@ -52,8 +84,6 @@ public class ConfigureCommandMediatorDialog extends Dialog{
 	
 	protected void configureShell(Shell newShell) {
 		super.configureShell(newShell);
-
-		// Set title.
 		newShell.setText("Command Mediator Configuration");
 	}
 	
@@ -121,16 +151,21 @@ public class ConfigureCommandMediatorDialog extends Dialog{
 					SWT.LEFT);
 			TableColumn valueColumn = new TableColumn(commandPropertyTable,
 					SWT.LEFT);
+			TableColumn actionColumn = new TableColumn(commandPropertyTable,
+					SWT.LEFT);
 			
 			nameColumn.setText("Name");
 			nameColumn.setWidth(150);
-			valueColumn.setText("Value Type");
-			valueColumn.setWidth(200);
-			typeColumn.setText("Value");
+			typeColumn.setText("Value  Type");
 			typeColumn.setWidth(150);
-
+			valueColumn.setText("Value");
+			valueColumn.setWidth(200);
+			actionColumn.setText("Action");
+			actionColumn.setWidth(150);
+			
 			commandPropertyTable.setHeaderVisible(true);
 			commandPropertyTable.setLinesVisible(true);
+			commandPropertyTable.setSize(600, 400);
 
 			Listener tblPropertiesListener = new Listener() {
 				
@@ -172,22 +207,26 @@ public class ConfigureCommandMediatorDialog extends Dialog{
 	
 	private TableItem bindCommandProperty(CommandProperty property) {
 		TableItem item = new TableItem(commandPropertyTable, SWT.NONE);
-		if (property.getValueType().getLiteral().equals("LITERAL")) {
-			item.setText(new String[] { property.getPropertyName(),
-					property.getValueType().getLiteral(),
-					property.getValueLiteral()});
-		}
-		if (property.getValueType().getLiteral().equals("EXPRESSION")) {
-			if(property.getValueKey()==null){
-				
-			}else{
-				
+		if (property.getValueType().equals(CommandPropertyValueType.MESSAGE_ELEMENT)) {
+			if(null!=property.getValueMessageElementXpath()){
+				item.setText(new String[] { property.getPropertyName(),
+						property.getValueType().getLiteral().toLowerCase(),
+						property.getValueLiteral(),
+						property.getValueMessageElementXpath().getPropertyValue(),
+						property.getMessageAction().getLiteral().toLowerCase()});
 			}
-			item.setText(new String[] { variable.getVariableName(),
-					property.getVariableType().getLiteral(),
-					property.getValueExpression().getPropertyValue(),
-					property.getValueType().getLiteral(),
-					property.getValueKey().getKeyValue()});
+		}
+		if (property.getValueType().equals(CommandPropertyValueType.CONTEXT_PROPERTY)) {
+			if(null!=property.getValueContextPropertyName()){
+				item.setText(new String[] { property.getPropertyName(),
+						property.getValueType().getLiteral().toLowerCase(),
+						property.getValueContextPropertyName(),
+						property.getContextAction().getLiteral().toLowerCase()});
+			}
+		} else {
+			item.setText(new String[] { property.getPropertyName(),
+					property.getValueType().getLiteral().toLowerCase(),
+					property.getValueLiteral()});
 		}
 
 		item.setData(property);
@@ -196,40 +235,61 @@ public class ConfigureCommandMediatorDialog extends Dialog{
 	
 	private void unbindCommandProperty(int itemIndex) {
 		TableItem item = commandPropertyTable.getItem(itemIndex);
-		XQueryVariable variable = (XQueryVariable) item.getData();
-		if (null != variable.eContainer()) {
+		CommandProperty property = (CommandProperty) item.getData();
+		if (null != property.eContainer()) {
 			RemoveCommand removeCmd = new RemoveCommand(editingDomain,
 					commandMediator, EsbPackage.Literals.COMMAND_MEDIATOR__PROPERTIES,
-					variable);
+					property);
 			getResultCommand().append(removeCmd);
 		}
 		commandPropertyTable.remove(commandPropertyTable.indexOf(item));
 	}
 	
-	private void editItem(final TableItem item) {
-		valueTypeEditor = initTableEditor(valueTypeEditor,
-				item.getParent());
-		cmbValueType = new Combo(item.getParent(), SWT.READ_ONLY);
-		cmbValueType.setItems(new String[] { "LITERAL", "EXPRESSION" });
-		cmbValueType.setText(item.getText(3));
-		valueTypeEditor.setEditor(cmbValueType, item, 3);
-		
-		variableTypeEditor = initTableEditor(variableTypeEditor,
-				item.getParent());
-		cmbVariableType=new Combo(item.getParent(), SWT.READ_ONLY);
-		cmbVariableType.setItems(new String[]{"DOCUMENT","DOCUMENT_ELEMENT","ELEMENT","INT","INTEGER","BOOLEAN","BYTE","DOUBLE","SHORT","LONG","FLOAT","STRING"});		
-		cmbVariableType.setText(item.getText(1));
-		variableTypeEditor.setEditor(cmbVariableType, item, 1);
-		item.getParent().redraw();
-		item.getParent().layout();
-		cmbValueType.addListener(SWT.Selection, new Listener() {
-			public void handleEvent(Event evt) {
-				item.setText(3, cmbValueType.getText());
+	private TableEditor initTableEditor(TableEditor editor, Table table) {
+		if (null != editor) {
+			Control lastCtrl = editor.getEditor();
+			if (null != lastCtrl) {
+				lastCtrl.dispose();
 			}
-		});
-		cmbVariableType.addListener(SWT.Selection, new Listener() {			
+		}
+		editor = new TableEditor(table);
+		editor.horizontalAlignment = SWT.LEFT;
+		editor.grabHorizontal = true;
+		return editor;
+	}
+	
+	private void editItem(final TableItem item) {		
+		valueTypeEditor = initTableEditor(valueTypeEditor, item.getParent());
+		cmbPropertyType = new Combo(item.getParent(), SWT.READ_ONLY);
+		cmbPropertyType.setItems(new String[] { LITERAL, MESSAGE_ELEMENT, CONTEXT_PROPERTY });
+		cmbPropertyType.setText(item.getText(1));
+		valueTypeEditor.setEditor(cmbPropertyType, item, 1);
+
+		if(item.getText(1).equalsIgnoreCase(LITERAL)){
+			actionEditor = initTableEditor(actionEditor, item.getParent());
+			cmbAction = new Combo(item.getParent(), SWT.READ_ONLY);
+			cmbAction.setItems(new String[] { READ_MESSAGE, UPDATE_MESSAGE,
+					READ_AND_UPDATE_MESSAGE });
+			cmbAction.setText(item.getText(3));
+			actionEditor.setEditor(cmbAction, item, 3);
+			item.getParent().redraw();
+			item.getParent().layout();
+			
+			cmbPropertyType.addListener(SWT.Selection, new Listener() {			
+				public void handleEvent(Event evt) {
+					item.setText(1, cmbPropertyType.getText());
+					if(LITERAL.equalsIgnoreCase(cmbPropertyType.getText())){
+						item.setText(3,"");
+						cmbAction.setEnabled(false);
+					} else{
+						cmbAction.setEnabled(true);
+					}
+				}
+			});
+		}
+		cmbAction.addListener(SWT.Selection, new Listener() {
 			public void handleEvent(Event evt) {
-				item.setText(1, cmbVariableType.getText());
+				item.setText(3, cmbAction.getText());
 			}
 		});
 	}
@@ -238,10 +298,11 @@ public class ConfigureCommandMediatorDialog extends Dialog{
 		final TableEditor cellEditor = new TableEditor(table);
 		cellEditor.grabHorizontal = true;
 		cellEditor.minimumWidth = 50;
+
 		table.addMouseListener(new MouseAdapter() {
-			*//**
+			/**
 			 * Setup a new cell editor control at double click event.
-			 *//*
+			 */
 			public void mouseDoubleClick(MouseEvent e) {
 				// Dispose the old editor control (if one is setup).
 				Control oldEditorControl = cellEditor.getEditor();
@@ -283,10 +344,10 @@ public class ConfigureCommandMediatorDialog extends Dialog{
 				}
 			}
 
-			*//**
+			/**
 			 * Dispose cell editor control at mouse down (otherwise the control
 			 * keep showing).
-			 *//*
+			 */
 			public void mouseDown(MouseEvent e) {
 				Control oldEditorControl = cellEditor.getEditor();
 				if (null != oldEditorControl)
@@ -295,15 +356,165 @@ public class ConfigureCommandMediatorDialog extends Dialog{
 		});
 	}
 	
+	protected void okPressed() {
+		
+		for (TableItem item : commandPropertyTable.getItems()) {
+			CommandProperty property = (CommandProperty) item.getData();
+
+			// If the property is a new one, add it to the model.
+			if (null == property.eContainer()) {
+				// Update the log property with the latest data from table row.
+				property.setPropertyName(item.getText(0));
+
+				if (CONTEXT_PROPERTY.equalsIgnoreCase(item.getText(1))) {
+					property.setValueContextPropertyName(item.getText(2));
+					property.setValueType(CommandPropertyValueType.CONTEXT_PROPERTY);
+					CommandPropertyContextAction contextAction= CommandPropertyContextAction.READ_CONTEXT;
+					if (READ_AND_UPDATE_MESSAGE.equalsIgnoreCase(item.getText(3))) {
+						contextAction= CommandPropertyContextAction.READ_AND_UPDATE_CONTEXT;
+					} else if (UPDATE_MESSAGE.equalsIgnoreCase(item.getText(3))) {
+						contextAction= CommandPropertyContextAction.UPDATE_CONTEXT;
+					}		
+					property.setContextAction(contextAction);
+					
+				} else if (MESSAGE_ELEMENT.equalsIgnoreCase(item.getText(1))) {
+					property.setValueType(CommandPropertyValueType.MESSAGE_ELEMENT);
+					NamespacedProperty namespaceProperty = EsbFactoryImpl.eINSTANCE
+							.createNamespacedProperty();
+					namespaceProperty.setPropertyValue(item.getText(1));
+					property.setValueMessageElementXpath(namespaceProperty);
+					CommandPropertyMessageAction messageAction = CommandPropertyMessageAction.READ_MESSAGE;
+					if (READ_AND_UPDATE_MESSAGE.equalsIgnoreCase(item.getText(3))) {
+						messageAction = CommandPropertyMessageAction.READ_AND_UPDATE_MESSAGE;
+					} else if (UPDATE_MESSAGE.equalsIgnoreCase(item.getText(3))) {
+						messageAction = CommandPropertyMessageAction.UPDATE_MESSAGE;
+					} 
+					property.setMessageAction(messageAction);
+				} else{
+					property.setValueType(CommandPropertyValueType.LITERAL);
+					property.setValueLiteral(item.getText(2));
+				}
+
+				// Record the add operation.
+				AddCommand addCmd = new AddCommand(editingDomain, commandMediator,
+						EsbPackage.Literals.COMMAND_MEDIATOR__PROPERTIES, property);
+				getResultCommand().append(addCmd);
+			} else {
+				// If the property name needs to be updated.
+				if (!property.getPropertyName().equals(item.getText(0))) {
+					SetCommand setCmd = new SetCommand(
+							editingDomain,
+							property,
+							EsbPackage.Literals.COMMAND_PROPERTY__PROPERTY_NAME,
+							item.getText(0));
+					getResultCommand().append(setCmd);
+				}
+				
+				if (CONTEXT_PROPERTY.equalsIgnoreCase(item.getText(1))) {
+					SetCommand setCmd = new SetCommand(
+							editingDomain,
+							property,
+							EsbPackage.Literals.COMMAND_PROPERTY__VALUE_TYPE,
+							CommandPropertyValueType.CONTEXT_PROPERTY);
+					getResultCommand().append(setCmd);
+					
+					if (!property.getValueContextPropertyName().equals(item.getText(1))) {
+						setCmd = new SetCommand(
+								editingDomain,
+								property,
+								EsbPackage.Literals.COMMAND_PROPERTY__VALUE_CONTEXT_PROPERTY_NAME,
+								item.getText(1));
+						getResultCommand().append(setCmd);
+					}
+					CommandPropertyContextAction contextAction= CommandPropertyContextAction.READ_CONTEXT;
+					if (READ_AND_UPDATE_MESSAGE.equalsIgnoreCase(item.getText(3))) {
+						contextAction= CommandPropertyContextAction.READ_AND_UPDATE_CONTEXT;
+					} else if (UPDATE_MESSAGE.equalsIgnoreCase(item.getText(3))) {
+						contextAction= CommandPropertyContextAction.UPDATE_CONTEXT;
+					} 
+					setCmd = new SetCommand(
+							editingDomain,
+							property,
+							EsbPackage.Literals.COMMAND_PROPERTY__CONTEXT_ACTION,
+							contextAction);
+					getResultCommand().append(setCmd);
+					
+				} else if (MESSAGE_ELEMENT.equalsIgnoreCase(item.getText(1))) {
+					SetCommand setCmd = new SetCommand(
+							editingDomain,
+							property,
+							EsbPackage.Literals.COMMAND_PROPERTY__VALUE_TYPE,
+							CommandPropertyValueType.MESSAGE_ELEMENT);
+					getResultCommand().append(setCmd);
+					
+					if (property.getValueMessageElementXpath() == null) {
+						NamespacedProperty namespaceProperty = EsbFactoryImpl.eINSTANCE
+								.createNamespacedProperty();
+						namespaceProperty.setPropertyValue(item.getText(1));
+
+						AddCommand addCmd = new AddCommand(editingDomain, property,
+								EsbPackage.Literals.COMMAND_PROPERTY__VALUE_MESSAGE_ELEMENT_XPATH,
+								namespaceProperty);
+						getResultCommand().append(addCmd);
+					} else {
+						setCmd = new SetCommand(editingDomain,
+								property.getValueMessageElementXpath(),
+								EsbPackage.Literals.NAMESPACED_PROPERTY__PROPERTY_VALUE,
+								item.getText(1));
+						getResultCommand().append(setCmd);
+					}
+					CommandPropertyMessageAction messageAction = CommandPropertyMessageAction.READ_MESSAGE;
+					setCmd = new SetCommand(
+							editingDomain,
+							property,
+							EsbPackage.Literals.COMMAND_PROPERTY__MESSAGE_ACTION,
+							messageAction);
+					getResultCommand().append(setCmd);
+					if (READ_AND_UPDATE_MESSAGE.equalsIgnoreCase(item.getText(3))) {
+						messageAction = CommandPropertyMessageAction.READ_AND_UPDATE_MESSAGE;
+					} else if (UPDATE_MESSAGE.equalsIgnoreCase(item.getText(3))) {
+						messageAction = CommandPropertyMessageAction.UPDATE_MESSAGE;
+					} 
+				} else{
+					SetCommand setCmd = new SetCommand(
+							editingDomain,
+							property,
+							EsbPackage.Literals.COMMAND_PROPERTY__VALUE_TYPE,
+							CommandPropertyValueType.LITERAL);
+					getResultCommand().append(setCmd);
+					
+					if (!property.getValueLiteral().equals(item.getText(1))) {
+						setCmd = new SetCommand(
+								editingDomain,
+								property,
+								EsbPackage.Literals.COMMAND_PROPERTY__VALUE_LITERAL,
+								item.getText(1));
+						getResultCommand().append(setCmd);
+					}
+				}
+			}
+		}
+
+		// Apply changes.
+		if (getResultCommand().canExecute()) {
+			editingDomain.getCommandStack().execute(getResultCommand());
+		} 
+		
+		super.okPressed();
+	}
+	
 	private CompoundCommand getResultCommand() {
 		if (null == resultCommand) {
 			resultCommand = new CompoundCommand();
 		}
 		return resultCommand;
 	}
-
 	
+	@Override
+	protected Point getInitialSize() {
+		return new Point(800,400);
+	}
+
 
 
 }
-*/

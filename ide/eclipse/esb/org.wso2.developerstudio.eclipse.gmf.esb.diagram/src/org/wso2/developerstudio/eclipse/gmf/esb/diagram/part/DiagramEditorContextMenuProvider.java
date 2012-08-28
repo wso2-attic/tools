@@ -55,6 +55,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.AddBran
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.AddBranchLoadBalanceEndpointAction;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.AddBranchSwitchMediatorAction;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.ConfigureCloneMediatorAction;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.ConfigureCommandMediatorAction;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.ConfigureEsbNodeAction;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.ConfigureLogMediatorAction;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.ConfigureProxyServiceAction;
@@ -153,6 +154,9 @@ public class DiagramEditorContextMenuProvider extends
 
 		contextActions.put(CloneMediator.class,
 				new ConfigureCloneMediatorAction(part));
+		
+		contextActions.put(CommandMediator.class,
+				new ConfigureCommandMediatorAction(part));
 
 		//Initialize branch context sensitive actions.
 		addBranchContextActions = new HashMap<Class<? extends EsbNode>, ConfigureEsbNodeAction>();
@@ -312,12 +316,17 @@ public class DiagramEditorContextMenuProvider extends
 										.get(0);
 								EObject contextObj = ((View) selectedEditorPart
 										.getModel()).getElement();
-								ConfigureEsbNodeAction contextAction = contextActions
-										.get(contextObj.eClass()
-												.getInstanceClass());
-								ConfigureEsbNodeAction addBranchContextAction = addBranchContextActions
-										.get(contextObj.eClass()
-												.getInstanceClass());
+								ConfigureEsbNodeAction contextAction = null;
+								ConfigureEsbNodeAction addBranchContextAction = null;
+								
+								if(contextObj instanceof EObject){
+									contextAction = contextActions.get(contextObj.eClass()
+											.getInstanceClass());
+									addBranchContextAction = addBranchContextActions.get(contextObj
+											.eClass().getInstanceClass());
+								}
+								
+								
 								if (null != contextAction) {
 									menu.appendToGroup("editGroup",
 											contextAction);
