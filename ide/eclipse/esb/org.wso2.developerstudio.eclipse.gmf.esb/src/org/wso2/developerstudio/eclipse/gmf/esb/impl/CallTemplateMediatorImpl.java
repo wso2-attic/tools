@@ -49,10 +49,10 @@ public class CallTemplateMediatorImpl extends MediatorImpl implements CallTempla
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getTargetTemplate()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
-	protected static final String TARGET_TEMPLATE_EDEFAULT = null;
+	protected static final String TARGET_TEMPLATE_EDEFAULT = "template";
 
 	/**
 	 * The cached value of the '{@link #getTargetTemplate() <em>Target Template</em>}' attribute.
