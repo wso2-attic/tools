@@ -5,6 +5,7 @@ import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.commands.CompoundCommand;
+import org.eclipse.gef.internal.ui.palette.editparts.ToolEntryEditPart;
 import org.eclipse.gmf.runtime.common.core.command.ICommand;
 import org.eclipse.gmf.runtime.diagram.ui.commands.DeferredCreateConnectionViewAndElementCommand;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
@@ -21,6 +22,8 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.emf.type.core.IHintedType;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.jface.viewers.StructuredSelection;
+import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpointInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpointOutputConnector;
@@ -32,6 +35,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.utils.SwitchMedia
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.MediatorFlowMediatorFlowCompartment6CanonicalEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.MediatorFlowMediatorFlowCompartment6ItemSemanticEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.Messages;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbPaletteFactory.NodeToolEntry;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 
 /**
@@ -109,6 +113,30 @@ public class MediatorFlowMediatorFlowCompartment6EditPart extends
 			SwitchMediatorEditPart switchMediatorEditPart = (SwitchMediatorEditPart) child;
 			SwitchMediatorUtils.addCaseBranchInitially(switchMediatorEditPart,
 					getEditingDomain());
+		}
+		
+		if (child instanceof SequenceEditPart) {
+			SequenceEditPart sequenceEditPart = (SequenceEditPart) child;
+			EditPart editpart = (EditPart) ((StructuredSelection) sequenceEditPart
+					.getViewer().getEditDomain().getPaletteViewer()
+					.getSelection()).getFirstElement();
+			if (editpart instanceof ToolEntryEditPart) {
+				if (((ToolEntryEditPart) editpart).getModel() instanceof NodeToolEntry) {
+					String label = ((NodeToolEntry) ((ToolEntryEditPart) editpart)
+							.getModel()).getLabel();
+					if ((!label.equals("")) && (!label.equals("Sequence"))) {
+						((Sequence) ((View) sequenceEditPart.getModel())
+								.getElement()).setName(label);
+					}
+				} else if (((ToolEntryEditPart) editpart).getModel() instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceEditPart.NodeToolEntry) {
+					String label = ((org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceEditPart.NodeToolEntry) ((ToolEntryEditPart) editpart)
+							.getModel()).getLabel();
+					if ((!label.equals("")) && (!label.equals("Sequence"))) {
+						((Sequence) ((View) sequenceEditPart.getModel())
+								.getElement()).setName(label);
+					}
+				}
+			}
 		}
 	}
 

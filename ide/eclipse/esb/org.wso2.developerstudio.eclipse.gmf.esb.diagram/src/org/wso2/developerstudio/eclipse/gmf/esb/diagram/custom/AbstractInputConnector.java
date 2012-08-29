@@ -86,9 +86,11 @@ public abstract class AbstractInputConnector extends AbstractBorderItemEditPart 
 				if (((link instanceof AbstractOutputConnector)
 						&& (((AbstractOutputConnector) link).getParent() instanceof AbstractMediator)
 						&& (((AbstractMediator) ((AbstractOutputConnector) link)
-								.getParent()).reversed)) || (link instanceof AbstractEndpointOutputConnector)) {					
+								.getParent()).reversed)) || (link instanceof AbstractEndpointOutputConnector)) {
+					if(this.getParent() instanceof AbstractMediator){
 					((AbstractMediator) this.getParent()).Reverse(this
 							.getParent());	
+					}
 				}
 				
 				if(this.getParent() instanceof SequenceEditPart){
