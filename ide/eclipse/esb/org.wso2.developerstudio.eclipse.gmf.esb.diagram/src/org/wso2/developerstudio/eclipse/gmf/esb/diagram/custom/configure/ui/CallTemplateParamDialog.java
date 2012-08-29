@@ -299,7 +299,7 @@ public class CallTemplateParamDialog extends Dialog {
 		if (param.getTemplateParameterType().getLiteral()
 				.equals(EXPRESSION_TYPE)) {
 			item.setText(new String[] { param.getParameterName(),
-					param.getParameterExpression().toString(),
+					param.getParameterExpression().getPropertyValue(),
 					param.getTemplateParameterType().getLiteral()});
 		}
 

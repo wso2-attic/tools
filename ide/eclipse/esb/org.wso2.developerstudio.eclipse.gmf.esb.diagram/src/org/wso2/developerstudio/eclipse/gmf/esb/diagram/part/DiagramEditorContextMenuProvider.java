@@ -17,6 +17,7 @@ import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.ui.IWorkbenchPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.CallTemplateMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.ClassMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.CloneMediator;
@@ -54,6 +55,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.AddBran
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.AddBranchFailoverEndpointAction;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.AddBranchLoadBalanceEndpointAction;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.AddBranchSwitchMediatorAction;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.ConfigureCallTemplateMediatorAction;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.ConfigureCloneMediatorAction;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.ConfigureCommandMediatorAction;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.ConfigureEsbNodeAction;
@@ -157,6 +159,9 @@ public class DiagramEditorContextMenuProvider extends
 		
 		contextActions.put(CommandMediator.class,
 				new ConfigureCommandMediatorAction(part));
+		
+		contextActions.put(CallTemplateMediator.class,
+				new ConfigureCallTemplateMediatorAction(part));
 
 		//Initialize branch context sensitive actions.
 		addBranchContextActions = new HashMap<Class<? extends EsbNode>, ConfigureEsbNodeAction>();
