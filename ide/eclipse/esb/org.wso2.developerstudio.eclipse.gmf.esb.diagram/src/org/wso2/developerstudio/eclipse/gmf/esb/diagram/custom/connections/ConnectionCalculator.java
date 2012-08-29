@@ -11,7 +11,11 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.complexFiguredAbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbLinkEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment6EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceContainerEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceContainerEditPart.ProxyServiceContainerFigure;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceFaultContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequencesEditPart;
 
 /*
@@ -94,10 +98,16 @@ public class ConnectionCalculator {
 			/*
 			 * When we get the current location of the added figure, it will
 			 * give the location related to the Proxy Service. So we have to add
-			 * the Proxy Service location to get the absolue location.
-			 */
-			currentFigureLocation.y = currentFigureLocation.y
+			 * the Proxy Service location or Proxy service's Children's(Fault Sequence etc.) location to get the absolute location.
+			 */				
+				
+				if(childEditPart.getParent() instanceof MediatorFlowMediatorFlowCompartment6EditPart){
+					currentFigureLocation.y = currentFigureLocation.y+((ProxyServiceFaultContainerEditPart)((ProxyServiceContainerEditPart)proxyService.getChildren().get(4)).getChildren().get(1)).getFigure().getBounds().getLocation().y+50;
+				}else{
+					currentFigureLocation.y = currentFigureLocation.y
 					+ proxyService.getFigure().getBounds().getLocation().y + 30;
+				}
+			
 			currentFigureLocation.y=getYAbsolutePosition(currentFigureLocation.y,childEditPart);
 
 			for (int i = 0; i < links.size(); ++i) {
@@ -114,7 +124,7 @@ public class ConnectionCalculator {
 					 */
 					int actualCurrentPosition = currentFigureLocation.x
 							+ proxyService.getFigure().getBounds()
-									.getLocation().x + 75;
+									.getLocation().x + 75;					
 					actualCurrentPosition=getXAbsolutePosition(actualCurrentPosition,childEditPart);
 					if ((xLeft < actualCurrentPosition)
 							&& (actualCurrentPosition < xRight)) {

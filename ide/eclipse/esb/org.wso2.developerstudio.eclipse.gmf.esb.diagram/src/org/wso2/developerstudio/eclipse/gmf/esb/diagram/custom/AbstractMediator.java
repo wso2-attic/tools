@@ -292,6 +292,8 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 				((MediatorFlowMediatorFlowCompartmentEditPart)this.getParent()).connectNormally(this);
 			}else if(this.getParent() instanceof MediatorFlowMediatorFlowCompartment5EditPart){
 				((MediatorFlowMediatorFlowCompartment5EditPart)this.getParent()).connectNormally(this);
+			}else if(this.getParent() instanceof MediatorFlowMediatorFlowCompartment6EditPart){
+				((MediatorFlowMediatorFlowCompartment6EditPart)this.getParent()).connectNormally(this);
 			}
 		}
 
