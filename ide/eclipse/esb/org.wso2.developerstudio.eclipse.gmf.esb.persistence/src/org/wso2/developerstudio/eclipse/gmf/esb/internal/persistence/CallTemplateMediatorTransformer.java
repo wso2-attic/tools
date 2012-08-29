@@ -1,55 +1,78 @@
+/*
+ * Copyright 2012 WSO2, Inc. (http://wso2.com)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence;
 
 import java.util.List;
-
 import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.mediators.base.SequenceMediator;
+import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EObject;
+import org.wso2.developerstudio.eclipse.gmf.esb.CallTemplateMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.CallTemplateParameter;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleOptionType;
+import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.CallTemplateExtParameter;
+import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.CallTemplateExtParameter.ParameterType;
+import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.CallTemplateMediatorExt;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
 
 public class CallTemplateMediatorTransformer extends AbstractEsbNodeTransformer{
-
-	public void transform(TransformationInfo information, EsbNode subject)
-			throws Exception {
-		
-		/**
-		 * This code snippet for check the EMF model update state only
-		 *  this will be useful when implementing the actual transformation logic.
-		 */
-		/*Assert.isTrue(subject instanceof CallTemplateMediator, "Invalid subject.");
+	
+	public void transform(TransformationInfo information, EsbNode subject) throws Exception {
+		Assert.isTrue(subject instanceof CallTemplateMediator, "Invalid subject.");
 		CallTemplateMediator visuaCallTemplate = (CallTemplateMediator) subject;
-		
-		for(CallTemplateParameter param :visuaCallTemplate.getTemplateParameters()){
-			
-			System.out.println(param.getParameterName());
-			
-			if(param.getTemplateParameterType().equals(RuleOptionType.VALUE)){
-				
-				System.out.println(param.getTemplateParameterType().getLiteral());
-				System.out.println(param.getParameterValue());
-			}
-			
-			if(param.getTemplateParameterType().equals(RuleOptionType.EXPRESSION)){
-				
-				System.out.println(param.getTemplateParameterType().getLiteral());
-				System.out.println(param.getParameterExpression());
-			}
-		}*/
-		
+		information.getParentSequence().addChild(
+				createCallTemplateMediator(information, visuaCallTemplate));
+		// Transform the callTemplate mediator output data flow path.
+		doTransform(information, visuaCallTemplate.getOutputConnector());
 	}
 
 	public void createSynapseObject(TransformationInfo info, EObject subject,
 			List<Endpoint> endPoints) {
-		// TODO Auto-generated method stub
-		
 	}
 
-	public void transformWithinSequence(TransformationInfo information,
-			EsbNode subject, SequenceMediator sequence) throws Exception {
-		// TODO Auto-generated method stub
-		
-		
+	public void transformWithinSequence(TransformationInfo information, EsbNode subject,
+			SequenceMediator sequence) throws Exception {
+		Assert.isTrue(subject instanceof CallTemplateMediator, "Invalid subject.");
+		CallTemplateMediator visuaCallTemplate = (CallTemplateMediator) subject;
+		sequence.addChild(createCallTemplateMediator(information, visuaCallTemplate));
+		doTransformWithinSequence(information, visuaCallTemplate.getOutputConnector()
+				.getOutgoingLink(), sequence);
+	}
+
+	private CallTemplateMediatorExt createCallTemplateMediator(TransformationInfo information,
+			CallTemplateMediator obj) {
+		CallTemplateMediatorExt callTemplateMediator = new CallTemplateMediatorExt();
+		callTemplateMediator.setTarget(obj.getTargetTemplate());
+		List<CallTemplateExtParameter> parameters = callTemplateMediator.getParameters();
+		for (CallTemplateParameter param : obj.getTemplateParameters()) {
+			CallTemplateExtParameter parameter = new CallTemplateExtParameter(
+					param.getParameterName());
+			if (param.getTemplateParameterType().equals(RuleOptionType.EXPRESSION)) {
+				/* RuleOptionType?, this should fix */
+				parameter.setParameterType(ParameterType.EXPRESSION);
+				parameter.setParameterValue(param.getParameterExpression().getPropertyValue());
+			} else {
+				parameter.setParameterType(ParameterType.VALUE);
+				parameter.setParameterValue(param.getParameterValue());
+			}
+			parameters.add(parameter);
+		}
+		return callTemplateMediator;
 	}
 
 }

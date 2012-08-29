@@ -31,17 +31,11 @@ import org.wso2.developerstudio.eclipse.gmf.esb.CommandPropertyMessageAction;
 import org.wso2.developerstudio.eclipse.gmf.esb.CommandPropertyValueType;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.DummyPOJOClass;
-import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.MediatorSerializerRegister;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.POJOCommandMediatorExt;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
 
 public class CommandMediatorTransformer extends AbstractEsbNodeTransformer{
 	
-	static{
-		//TODO: move this to common location
-		MediatorSerializerRegister.registerSerializers();
-	}
-
 	public void transform(TransformationInfo information, EsbNode subject)
 			throws Exception {
 		information.getParentSequence().addChild(createCommandMediator(information,subject));

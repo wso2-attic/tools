@@ -26,7 +26,6 @@ import org.wso2.developerstudio.eclipse.gmf.esb.ClassProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.ClassMediatorExt;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.DummyClassMediator;
-import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.MediatorSerializerRegister;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.EsbNodeTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
 
@@ -37,10 +36,6 @@ import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
  */
 public class ClassMediatorTransformer extends AbstractEsbNodeTransformer {
 	
-	static{
-		//TODO: move this to common location
-		MediatorSerializerRegister.registerSerializers();
-	}
 	/**
 	 * {@inheritDoc}
 	 */

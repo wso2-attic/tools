@@ -103,6 +103,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.Transaction
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.WSDLEndPointTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.XQueryMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.XSLTMediatorTransformer;
+import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.MediatorSerializerRegister;
 
 /**
  * A registry of visual model object transformers.
@@ -122,6 +123,7 @@ public class EsbTransformerRegistry {
 	 * Creates a new transformer registry.
 	 */
 	private EsbTransformerRegistry() {
+		MediatorSerializerRegister.registerSerializers(); /* Register Custom serializers */
 		transformersMap = new HashMap<Class<?>, EsbNodeTransformer>();
 		addTransformer(ProxyService.class, new ProxyServiceTransformer());
 		addTransformer(DefaultEndPoint.class, new DefaultEndPointTransformer());
