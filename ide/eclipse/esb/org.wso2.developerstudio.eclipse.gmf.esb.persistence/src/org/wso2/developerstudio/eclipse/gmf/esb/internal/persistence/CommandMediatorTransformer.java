@@ -21,9 +21,14 @@ import java.util.List;
 import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.apache.synapse.mediators.ext.POJOCommandMediator;
+import org.apache.synapse.util.xpath.SynapseXPath;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EObject;
 import org.wso2.developerstudio.eclipse.gmf.esb.CommandMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.CommandProperty;
+import org.wso2.developerstudio.eclipse.gmf.esb.CommandPropertyContextAction;
+import org.wso2.developerstudio.eclipse.gmf.esb.CommandPropertyMessageAction;
+import org.wso2.developerstudio.eclipse.gmf.esb.CommandPropertyValueType;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.DummyPOJOClass;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.MediatorSerializerRegister;
@@ -39,7 +44,6 @@ public class CommandMediatorTransformer extends AbstractEsbNodeTransformer{
 
 	public void transform(TransformationInfo information, EsbNode subject)
 			throws Exception {
-		// TODO Auto-generated method stub
 		information.getParentSequence().addChild(createCommandMediator(information,subject));
 		// Transform the Command mediator output data flow path.
 		doTransform(information,
@@ -49,13 +53,11 @@ public class CommandMediatorTransformer extends AbstractEsbNodeTransformer{
 
 	public void createSynapseObject(TransformationInfo info, EObject subject,
 			List<Endpoint> endPoints) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	public void transformWithinSequence(TransformationInfo information,
 			EsbNode subject, SequenceMediator sequence) throws Exception {
-		// TODO Auto-generated method stub
 		sequence.addChild( createCommandMediator(information,subject));
 		doTransformWithinSequence(information,((CommandMediator) subject).getOutputConnector().getOutgoingLink(),sequence);	
 
@@ -69,7 +71,34 @@ public class CommandMediatorTransformer extends AbstractEsbNodeTransformer{
 		POJOCommandMediatorExt commandMediator =new POJOCommandMediatorExt(className);
 		Class clazz= DummyPOJOClass.class;
 		
-		//TODO: serialize setter/getter properties
+		for (CommandProperty property : visualCommand.getProperties()) {
+			if (property.getValueType().equals(CommandPropertyValueType.MESSAGE_ELEMENT)) {
+				SynapseXPath expression = new SynapseXPath(property.getValueMessageElementXpath().getPropertyValue());
+				CommandPropertyMessageAction messageAction = property.getMessageAction();
+				if (messageAction.equals(CommandPropertyMessageAction.READ_AND_UPDATE_MESSAGE)) {
+					commandMediator.addMessageSetterProperty(property.getPropertyName(), expression);
+					commandMediator.addMessageGetterProperty(property.getPropertyName(), expression);
+				} else if (messageAction.equals(CommandPropertyMessageAction.UPDATE_MESSAGE)) {
+					commandMediator.addMessageGetterProperty(property.getPropertyName(), expression);
+				} else {
+					commandMediator.addMessageSetterProperty(property.getPropertyName(), expression);
+				}
+			} else if (property.getValueType().equals(CommandPropertyValueType.CONTEXT_PROPERTY)) {
+				String contextProperty = property.getValueContextPropertyName();
+				CommandPropertyContextAction contextAction = property.getContextAction();
+				if (contextAction.equals(CommandPropertyContextAction.READ_AND_UPDATE_CONTEXT)) {
+					commandMediator.addContextSetterProperty(property.getPropertyName(),contextProperty);
+					commandMediator.addContextGetterProperty(property.getPropertyName(),contextProperty);
+				} else if (contextAction.equals(CommandPropertyContextAction.UPDATE_CONTEXT)) {
+					commandMediator.addContextGetterProperty(property.getPropertyName(),contextProperty);
+				} else {
+					commandMediator.addContextSetterProperty(property.getPropertyName(),contextProperty);
+				}
+			} else {
+				commandMediator.addStaticSetterProperty(property.getPropertyName(),
+						property.getValueLiteral());
+			}
+		}
 		
 		commandMediator.setCommand(clazz);
 		return commandMediator;

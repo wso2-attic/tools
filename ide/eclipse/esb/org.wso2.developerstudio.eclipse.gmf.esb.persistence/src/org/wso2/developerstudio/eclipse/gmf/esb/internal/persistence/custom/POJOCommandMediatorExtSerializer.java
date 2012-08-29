@@ -42,7 +42,7 @@ public class POJOCommandMediatorExtSerializer extends AbstractMediatorSerializer
 
 	        for (String propName : mediator.getStaticSetterProperties().keySet()) {
 	            Object value = mediator.getStaticSetterProperties().get(propName);
-	            OMElement prop = fac.createOMElement(PROP_Q);
+	            OMElement prop = fac.createOMElement("property", synNS);
 	            prop.addAttribute(fac.createOMAttribute("name", nullNS, propName));
 
 	            if (value instanceof String) {
@@ -65,7 +65,7 @@ public class POJOCommandMediatorExtSerializer extends AbstractMediatorSerializer
 	        }
 
 	        for (String propName : mediator.getMessageSetterProperties().keySet()) {
-	            OMElement prop = fac.createOMElement(PROP_Q);
+	            OMElement prop = fac.createOMElement("property", synNS);
 	            prop.addAttribute(fac.createOMAttribute("name", nullNS, propName));
 	            SynapseXPathSerializer.serializeXPath(
 	                mediator.getMessageSetterProperties().get(propName), prop, "expression");
@@ -83,7 +83,7 @@ public class POJOCommandMediatorExtSerializer extends AbstractMediatorSerializer
 	        }
 
 	        for (String propName : mediator.getContextSetterProperties().keySet()) {
-	            OMElement prop = fac.createOMElement(PROP_Q);
+	            OMElement prop = fac.createOMElement("property", synNS);
 	            prop.addAttribute(fac.createOMAttribute("name", nullNS, propName));
 	            prop.addAttribute(fac.createOMAttribute("context-name", nullNS,
 	                mediator.getContextSetterProperties().get(propName)));
@@ -103,7 +103,7 @@ public class POJOCommandMediatorExtSerializer extends AbstractMediatorSerializer
 	        for (String propName : mediator.getContextGetterProperties().keySet()) {
 	            if (!isSerialized(propName, mediator)) {
 	                String value = mediator.getContextGetterProperties().get(propName);
-	                OMElement prop = fac.createOMElement(PROP_Q);
+	                OMElement prop = fac.createOMElement("property", synNS);
 	                prop.addAttribute(fac.createOMAttribute("name", nullNS, propName));
 	                prop.addAttribute(fac.createOMAttribute("context-name", nullNS, value));
 	                prop.addAttribute(fac.createOMAttribute("action", nullNS, "UpdateContext"));
@@ -113,7 +113,7 @@ public class POJOCommandMediatorExtSerializer extends AbstractMediatorSerializer
 
 	        for (String propName : mediator.getMessageGetterProperties().keySet()) {
 	            if (!isSerialized(propName, mediator)) {
-	                OMElement prop = fac.createOMElement(PROP_Q);
+	                OMElement prop = fac.createOMElement("property", synNS);
 	                prop.addAttribute(fac.createOMAttribute("name", nullNS, propName));
 	                SynapseXPathSerializer.serializeXPath(
 	                    mediator.getMessageGetterProperties().get(propName), prop, "expression");
