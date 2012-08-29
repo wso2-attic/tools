@@ -56,6 +56,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.RMSequenceMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.ScriptMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.SendMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.SmooksMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.SpringMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.StoreMediator;
@@ -165,6 +166,7 @@ public class ProxyServiceTransformer extends AbstractEsbNodeTransformer {
 			proxyService.setTargetInLineFaultSequence(faultSequence);
 			TransformationInfo faultInfo =new TransformationInfo(); 
 			faultInfo.setParentSequence(faultSequence);			
+			faultInfo.setSynapseConfiguration(info.getSynapseConfiguration());
 			doTransformFaultSequence(faultInfo,getOriginNode(visualService));
 			
 		} else {
@@ -295,6 +297,9 @@ public class ProxyServiceTransformer extends AbstractEsbNodeTransformer {
 					return children.get(i);
 			}else if(children.get(i) instanceof XSLTMediator){
 				if(((XSLTMediator)children.get(i)).getInputConnector().getIncomingLinks().size()==0)
+					return children.get(i);
+			}else if(children.get(i) instanceof Sequence){
+				if(((Sequence)children.get(i)).getInputConnector().getIncomingLinks().size()==0)
 					return children.get(i);
 			}
 			
