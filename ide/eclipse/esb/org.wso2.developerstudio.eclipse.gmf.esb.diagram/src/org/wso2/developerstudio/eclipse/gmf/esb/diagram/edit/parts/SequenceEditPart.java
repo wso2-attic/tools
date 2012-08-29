@@ -43,16 +43,13 @@ import org.eclipse.gmf.runtime.emf.type.core.commands.SetValueCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.jface.dialogs.Dialog;
+import org.eclipse.jface.dialogs.IInputValidator;
+import org.eclipse.jface.dialogs.InputDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
-import org.eclipse.swt.layout.GridData;
-import org.eclipse.swt.layout.GridLayout;
-import org.eclipse.swt.widgets.Button;
-import org.eclipse.swt.widgets.Event;
-import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.Listener;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
-import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.IEditorDescriptor;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorReference;
@@ -422,9 +419,6 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 		//if (sequenceStorage.sequences.get(name) == null) {
 		if (!name.equals("")) {
 
-			//sequenceStorage.sequences.put(name,
-			//	((EsbDiagram) diagram).getTest());
-
 			/*
 			 * Tool group creations in the Tool pallete.
 			 */
@@ -448,15 +442,6 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 		/*
 		 * File creations.
 		 */
-		//	SequenceFileCreator sequenceFileCreator = new SequenceFileCreator();
-		//		ISequenceFileCreator sequenceFileCreator;
-		//		try {
-		//			sequenceFileCreator = SequenceFileCreatorUtil.getSequenceFileCreator();
-		//			sequenceFileCreator.createFiles("sequence_" + name + ".sequence_diagram", "sequence_"
-		//					+ name + ".sequence", activeProject);
-		//		} catch (Exception e) {
-		//			log.error(e);
-		//		}
 		createFiles("sequence_" + name + ".esb_diagram", "sequence_" + name
 				+ ".esb", activeProject);
 
@@ -520,10 +505,6 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 				.getImageDescriptor(EsbElementTypes.Sequence_3503));
 		entry.setLargeIcon(entry.getSmallIcon());
 
-		// ((org.wso2.developerstudio.eclipse.gmf.esb.Sequence)(org.eclipse.emf.ecore.impl.EClassImpl)entry.elementTypes.get(0).getEClass()).setName("Tha");
-		// System.out.println("wwwwww"
-		// + entry.elementTypes.get(0).getEClass().eContainer()
-		// .eContents().get(0));
 		return entry;
 	}
 
@@ -536,131 +517,70 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 				.getElement();
 
 		// For validation: user should not enter "" value for name.
-		if (((Sequence) sequence).getName().equals("")) {
+		if (((Sequence) sequence).getName().trim().equals("")) {
+			IInputValidator validator = new IInputValidator() {
 
-			Shell parent = new Shell();
-			final Shell shell = new Shell(parent, SWT.TITLE | SWT.BORDER
-					| SWT.APPLICATION_MODAL);
-			shell.setText("Enter Sequence Name");
-			// Set layout for the main container
-			GridLayout mainLayout = new GridLayout(2, false);
-			mainLayout.marginHeight = 20;
-			mainLayout.marginWidth = 20;
-			shell.setLayout(mainLayout);
-
-			Label label = new Label(shell, SWT.NULL);
-			label.setText("Name    ");
-
-			final Text text = new Text(shell, SWT.SINGLE | SWT.BORDER);
-			GridData textGridData = new GridData();
-			textGridData.horizontalAlignment = GridData.HORIZONTAL_ALIGN_FILL;
-			textGridData.horizontalSpan = 1;
-			textGridData.minimumHeight = 100;
-			textGridData.minimumWidth = 300;
-			textGridData.grabExcessHorizontalSpace = true;
-			text.setLayoutData(textGridData);
-
-			Button buttonCancel = new Button(shell, SWT.PUSH);
-			buttonCancel.setText("    Cancel    ");
-			GridData cancelButtonGridData = new GridData(
-					GridData.HORIZONTAL_ALIGN_BEGINNING);
-			cancelButtonGridData.verticalIndent = 10;
-			buttonCancel.setLayoutData(cancelButtonGridData);
-
-			final Button buttonOK = new Button(shell, SWT.PUSH);
-			buttonOK.setText("        Ok         ");
-			GridData okButtonGridData = new GridData(
-					GridData.HORIZONTAL_ALIGN_END);
-			okButtonGridData.verticalIndent = 10;
-			buttonOK.setLayoutData(okButtonGridData);
-
-			text.addListener(SWT.Modify, new Listener() {
-				public void handleEvent(Event event) {
-					try {
-						value = text.getText();
-						buttonOK.setEnabled(true);
-					} catch (Exception e) {
-						buttonOK.setEnabled(false);
+				public String isValid(String str) {
+					if (str.trim().isEmpty()) {
+						return "Sequence name cannot be empty";
+					} else if(str.indexOf(0x20)!=-1){
+						return "Sequence name cannot contain spaces";
+					} else if(str.indexOf(0x20)!=-1){
+						return "Sequence name cannot contain spaces";
 					}
+					return null;
 				}
-			});
 
-			buttonOK.addListener(SWT.Selection, new Listener() {
-				public void handleEvent(Event event) {
+			};
+			String defaultName = "Default" + (((EsbDiagram) diagram).getTest() + 1);
+			final InputDialog sequenceNameInput = new InputDialog(new Shell(),
+					"Enter Sequence Name", "Sequence Name", defaultName, validator);
+			int open = sequenceNameInput.open();
+			if (open == Dialog.OK) {
+				Display.getDefault().asyncExec(new Runnable() {
 
-					TransactionalEditingDomain editingDomain = getEditingDomain();
-					SetRequest setRequestSequenceCount = new SetRequest(
-							editingDomain, diagram, EsbPackage.eINSTANCE
-									.getEsbDiagram_Test(),
-							((EsbDiagram) diagram).getTest() + 1);
-					SetValueCommand operationSequenceCount = new SetValueCommand(
-							setRequestSequenceCount) {
+					public void run() {
+						String sequenceName = sequenceNameInput.getValue();
+						TransactionalEditingDomain editingDomain = getEditingDomain();
+						SetRequest setRequestSequenceCount = new SetRequest(editingDomain, diagram,
+								EsbPackage.eINSTANCE.getEsbDiagram_Test(), ((EsbDiagram) diagram)
+										.getTest() + 1);
+						SetValueCommand operationSequenceCount = new SetValueCommand(
+								setRequestSequenceCount) {
 
-						public boolean canUndo() {
-							return true;
+							public boolean canUndo() {
+								return true;
+							}
+
+							public boolean canRedo() {
+								return true;
+							}
+						};
+
+						ICommandProxy commandSequenceCount = new ICommandProxy(
+								operationSequenceCount);
+						if (commandSequenceCount.canExecute()) {
+							getEditDomain().getCommandStack().execute(commandSequenceCount);
 						}
 
-						public boolean canRedo() {
-							return true;
-						}
-					};
+						SetRequest setRequest = new SetRequest(editingDomain, sequence,
+								EsbPackage.eINSTANCE.getSequence_Name(), sequenceName);
+						SetValueCommand operation = new SetValueCommand(setRequest) {
 
-					ICommandProxy commandSequenceCount = new ICommandProxy(
-							operationSequenceCount);
-					if (commandSequenceCount.canExecute()) {
-						getEditDomain().getCommandStack().execute(
-								commandSequenceCount);
+							public boolean canUndo() {
+								return true;
+							}
+
+							public boolean canRedo() {
+								return true;
+							}
+						};
+
+						getEditDomain().getCommandStack().execute(new ICommandProxy(operation));
+						openWithSeparateEditor();
 					}
-
-					// Set Name
-
-					//TransactionalEditingDomain editingDomain = getEditingDomain();
-					SetRequest setRequest = new SetRequest(editingDomain,
-							sequence, EsbPackage.eINSTANCE.getSequence_Name(),
-							text.getText());
-					SetValueCommand operation = new SetValueCommand(setRequest) {
-
-						public boolean canUndo() {
-							return true;
-						}
-
-						public boolean canRedo() {
-							return true;
-						}
-					};
-
-					getEditDomain().getCommandStack().execute(
-							new ICommandProxy(operation));
-
-					shell.dispose();
-
-					openWithSeparateEditor();
-				}
-			});
-
-			buttonCancel.addListener(SWT.Selection, new Listener() {
-				public void handleEvent(Event event) {
-					shell.dispose();
-				}
-			});
-
-			shell.addListener(SWT.Traverse, new Listener() {
-				public void handleEvent(Event event) {
-					if (event.detail == SWT.TRAVERSE_ESCAPE)
-						event.doit = false;
-				}
-			});
-
-			text.setText("Default" + (((EsbDiagram) diagram).getTest() + 1));
-			shell.pack();
-			shell.open();
-
-			/*
-			 * Display display = parent.getDisplay(); while
-			 * (!shell.isDisposed()) { if (!display.readAndDispatch())
-			 * display.sleep(); }
-			 */
-
+				});
+			}
 		} else {
 			openWithSeparateEditor();
 		}
@@ -810,10 +730,6 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 					.getImageDescriptor(EsbElementTypes.Sequence_3503));
 			entry.setLargeIcon(entry.getSmallIcon());
 
-			// ((org.wso2.developerstudio.eclipse.gmf.esb.Sequence)(org.eclipse.emf.ecore.impl.EClassImpl)entry.elementTypes.get(0).getEClass()).setName("Tha");
-			// System.out.println("wwwwww"
-			// + entry.elementTypes.get(0).getEClass().eContainer()
-			// .eContents().get(0));
 			return entry;
 		}
 
