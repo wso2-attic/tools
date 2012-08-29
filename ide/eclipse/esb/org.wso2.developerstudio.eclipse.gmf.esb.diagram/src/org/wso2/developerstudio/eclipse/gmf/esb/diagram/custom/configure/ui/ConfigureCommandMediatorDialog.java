@@ -68,12 +68,12 @@ public class ConfigureCommandMediatorDialog extends Dialog{
 	private Combo cmbPropertyType;
 	private Combo cmbAction;
 	
-	private static final String LITERAL = "literal";
-	private static final String MESSAGE_ELEMENT = "message element";
-	private static final String CONTEXT_PROPERTY = "context property";
-	private static final String READ_MESSAGE = "read message";
-	private static final String UPDATE_MESSAGE = "update message";
-	private static final String READ_AND_UPDATE_MESSAGE = "read and update message";
+	private static final String LITERAL = "Literal";
+	private static final String MESSAGE_ELEMENT = "Message Element";
+	private static final String CONTEXT_PROPERTY = "Context Property";
+	private static final String READ = "Read";
+	private static final String UPDATE = "Update";
+	private static final String READ_AND_UPDATE = "Read And Update";
 
 	public ConfigureCommandMediatorDialog(Shell parentShell,
 			CommandMediator commandMediator, TransactionalEditingDomain editingDomain) {
@@ -159,9 +159,9 @@ public class ConfigureCommandMediatorDialog extends Dialog{
 			typeColumn.setText("Value  Type");
 			typeColumn.setWidth(150);
 			valueColumn.setText("Value");
-			valueColumn.setWidth(200);
+			valueColumn.setWidth(250);
 			actionColumn.setText("Action");
-			actionColumn.setWidth(150);
+			actionColumn.setWidth(100);
 			
 			commandPropertyTable.setHeaderVisible(true);
 			commandPropertyTable.setLinesVisible(true);
@@ -210,27 +210,49 @@ public class ConfigureCommandMediatorDialog extends Dialog{
 		if (property.getValueType().equals(CommandPropertyValueType.MESSAGE_ELEMENT)) {
 			if(null!=property.getValueMessageElementXpath()){
 				item.setText(new String[] { property.getPropertyName(),
-						property.getValueType().getLiteral().toLowerCase(),
-						property.getValueLiteral(),
+						MESSAGE_ELEMENT,
 						property.getValueMessageElementXpath().getPropertyValue(),
-						property.getMessageAction().getLiteral().toLowerCase()});
+						getActionCaption(property)});
 			}
-		}
-		if (property.getValueType().equals(CommandPropertyValueType.CONTEXT_PROPERTY)) {
+		} else if (property.getValueType().equals(CommandPropertyValueType.CONTEXT_PROPERTY)) {
 			if(null!=property.getValueContextPropertyName()){
 				item.setText(new String[] { property.getPropertyName(),
-						property.getValueType().getLiteral().toLowerCase(),
+						CONTEXT_PROPERTY,
 						property.getValueContextPropertyName(),
-						property.getContextAction().getLiteral().toLowerCase()});
+						getActionCaption(property)});
 			}
 		} else {
 			item.setText(new String[] { property.getPropertyName(),
-					property.getValueType().getLiteral().toLowerCase(),
+					LITERAL,
 					property.getValueLiteral()});
 		}
 
 		item.setData(property);
 		return item;
+	}
+	
+	private String getActionCaption(CommandProperty property) {
+		String caption = "";
+		if (property.getValueType().equals(CommandPropertyValueType.MESSAGE_ELEMENT)) {
+			CommandPropertyMessageAction messageAction = property.getMessageAction();
+			if (messageAction.equals(CommandPropertyMessageAction.READ_AND_UPDATE_MESSAGE)) {
+				caption = READ_AND_UPDATE;
+			} else if (messageAction.equals(CommandPropertyMessageAction.UPDATE_MESSAGE)) {
+				caption = UPDATE;
+			} else {
+				caption = READ;
+			}
+		} else if (property.getValueType().equals(CommandPropertyValueType.CONTEXT_PROPERTY)) {
+			CommandPropertyContextAction contextAction = property.getContextAction();
+			if (contextAction.equals(CommandPropertyContextAction.READ_AND_UPDATE_CONTEXT)) {
+				caption = READ_AND_UPDATE;
+			} else if (contextAction.equals(CommandPropertyContextAction.UPDATE_CONTEXT)) {
+				caption = UPDATE;
+			} else {
+				caption = READ;
+			}
+		}
+		return caption;
 	}
 	
 	private void unbindCommandProperty(int itemIndex) {
@@ -265,31 +287,36 @@ public class ConfigureCommandMediatorDialog extends Dialog{
 		cmbPropertyType.setText(item.getText(1));
 		valueTypeEditor.setEditor(cmbPropertyType, item, 1);
 
-		if(item.getText(1).equalsIgnoreCase(LITERAL)){
+		if(!LITERAL.equalsIgnoreCase(item.getText(1))){
 			actionEditor = initTableEditor(actionEditor, item.getParent());
 			cmbAction = new Combo(item.getParent(), SWT.READ_ONLY);
-			cmbAction.setItems(new String[] { READ_MESSAGE, UPDATE_MESSAGE,
-					READ_AND_UPDATE_MESSAGE });
+			cmbAction.setItems(new String[] { READ, UPDATE,
+					READ_AND_UPDATE });
 			cmbAction.setText(item.getText(3));
 			actionEditor.setEditor(cmbAction, item, 3);
 			item.getParent().redraw();
 			item.getParent().layout();
 			
-			cmbPropertyType.addListener(SWT.Selection, new Listener() {			
+			cmbAction.addListener(SWT.Selection, new Listener() {
 				public void handleEvent(Event evt) {
-					item.setText(1, cmbPropertyType.getText());
-					if(LITERAL.equalsIgnoreCase(cmbPropertyType.getText())){
-						item.setText(3,"");
-						cmbAction.setEnabled(false);
-					} else{
-						cmbAction.setEnabled(true);
-					}
+					item.setText(3, cmbAction.getText());
 				}
 			});
 		}
-		cmbAction.addListener(SWT.Selection, new Listener() {
+		
+		cmbPropertyType.addListener(SWT.Selection, new Listener() {			
 			public void handleEvent(Event evt) {
-				item.setText(3, cmbAction.getText());
+				item.setText(1, cmbPropertyType.getText());
+				if(LITERAL.equalsIgnoreCase(cmbPropertyType.getText())){
+					item.setText(3,"");
+					if(cmbAction!=null){
+						cmbAction.setEnabled(false);
+					}
+				} else{
+					if(cmbAction!=null){
+						cmbAction.setEnabled(true);
+					}
+				}
 			}
 		});
 	}
@@ -370,9 +397,9 @@ public class ConfigureCommandMediatorDialog extends Dialog{
 					property.setValueContextPropertyName(item.getText(2));
 					property.setValueType(CommandPropertyValueType.CONTEXT_PROPERTY);
 					CommandPropertyContextAction contextAction= CommandPropertyContextAction.READ_CONTEXT;
-					if (READ_AND_UPDATE_MESSAGE.equalsIgnoreCase(item.getText(3))) {
+					if (READ_AND_UPDATE.equalsIgnoreCase(item.getText(3))) {
 						contextAction= CommandPropertyContextAction.READ_AND_UPDATE_CONTEXT;
-					} else if (UPDATE_MESSAGE.equalsIgnoreCase(item.getText(3))) {
+					} else if (UPDATE.equalsIgnoreCase(item.getText(3))) {
 						contextAction= CommandPropertyContextAction.UPDATE_CONTEXT;
 					}		
 					property.setContextAction(contextAction);
@@ -384,9 +411,9 @@ public class ConfigureCommandMediatorDialog extends Dialog{
 					namespaceProperty.setPropertyValue(item.getText(1));
 					property.setValueMessageElementXpath(namespaceProperty);
 					CommandPropertyMessageAction messageAction = CommandPropertyMessageAction.READ_MESSAGE;
-					if (READ_AND_UPDATE_MESSAGE.equalsIgnoreCase(item.getText(3))) {
+					if (READ_AND_UPDATE.equalsIgnoreCase(item.getText(3))) {
 						messageAction = CommandPropertyMessageAction.READ_AND_UPDATE_MESSAGE;
-					} else if (UPDATE_MESSAGE.equalsIgnoreCase(item.getText(3))) {
+					} else if (UPDATE.equalsIgnoreCase(item.getText(3))) {
 						messageAction = CommandPropertyMessageAction.UPDATE_MESSAGE;
 					} 
 					property.setMessageAction(messageAction);
@@ -418,18 +445,18 @@ public class ConfigureCommandMediatorDialog extends Dialog{
 							CommandPropertyValueType.CONTEXT_PROPERTY);
 					getResultCommand().append(setCmd);
 					
-					if (!property.getValueContextPropertyName().equals(item.getText(1))) {
+					if (!property.getValueContextPropertyName().equals(item.getText(2))) {
 						setCmd = new SetCommand(
 								editingDomain,
 								property,
 								EsbPackage.Literals.COMMAND_PROPERTY__VALUE_CONTEXT_PROPERTY_NAME,
-								item.getText(1));
+								item.getText(2));
 						getResultCommand().append(setCmd);
 					}
 					CommandPropertyContextAction contextAction= CommandPropertyContextAction.READ_CONTEXT;
-					if (READ_AND_UPDATE_MESSAGE.equalsIgnoreCase(item.getText(3))) {
+					if (READ_AND_UPDATE.equalsIgnoreCase(item.getText(3))) {
 						contextAction= CommandPropertyContextAction.READ_AND_UPDATE_CONTEXT;
-					} else if (UPDATE_MESSAGE.equalsIgnoreCase(item.getText(3))) {
+					} else if (UPDATE.equalsIgnoreCase(item.getText(3))) {
 						contextAction= CommandPropertyContextAction.UPDATE_CONTEXT;
 					} 
 					setCmd = new SetCommand(
@@ -450,31 +477,30 @@ public class ConfigureCommandMediatorDialog extends Dialog{
 					if (property.getValueMessageElementXpath() == null) {
 						NamespacedProperty namespaceProperty = EsbFactoryImpl.eINSTANCE
 								.createNamespacedProperty();
-						namespaceProperty.setPropertyValue(item.getText(1));
-
-						AddCommand addCmd = new AddCommand(editingDomain, property,
-								EsbPackage.Literals.COMMAND_PROPERTY__VALUE_MESSAGE_ELEMENT_XPATH,
-								namespaceProperty);
-						getResultCommand().append(addCmd);
+						namespaceProperty.setPropertyValue(item.getText(2));
+						SetCommand addCmd = new SetCommand(editingDomain, property,
+						EsbPackage.Literals.COMMAND_PROPERTY__VALUE_MESSAGE_ELEMENT_XPATH,
+						namespaceProperty);
+				getResultCommand().append(addCmd);
 					} else {
 						setCmd = new SetCommand(editingDomain,
 								property.getValueMessageElementXpath(),
 								EsbPackage.Literals.NAMESPACED_PROPERTY__PROPERTY_VALUE,
-								item.getText(1));
+								item.getText(2));
 						getResultCommand().append(setCmd);
 					}
 					CommandPropertyMessageAction messageAction = CommandPropertyMessageAction.READ_MESSAGE;
+					if (READ_AND_UPDATE.equalsIgnoreCase(item.getText(3))) {
+						messageAction = CommandPropertyMessageAction.READ_AND_UPDATE_MESSAGE;
+					} else if (UPDATE.equalsIgnoreCase(item.getText(3))) {
+						messageAction = CommandPropertyMessageAction.UPDATE_MESSAGE;
+					} 
 					setCmd = new SetCommand(
 							editingDomain,
 							property,
 							EsbPackage.Literals.COMMAND_PROPERTY__MESSAGE_ACTION,
 							messageAction);
 					getResultCommand().append(setCmd);
-					if (READ_AND_UPDATE_MESSAGE.equalsIgnoreCase(item.getText(3))) {
-						messageAction = CommandPropertyMessageAction.READ_AND_UPDATE_MESSAGE;
-					} else if (UPDATE_MESSAGE.equalsIgnoreCase(item.getText(3))) {
-						messageAction = CommandPropertyMessageAction.UPDATE_MESSAGE;
-					} 
 				} else{
 					SetCommand setCmd = new SetCommand(
 							editingDomain,
@@ -483,12 +509,12 @@ public class ConfigureCommandMediatorDialog extends Dialog{
 							CommandPropertyValueType.LITERAL);
 					getResultCommand().append(setCmd);
 					
-					if (!property.getValueLiteral().equals(item.getText(1))) {
+					if (!property.getValueLiteral().equals(item.getText(2))) {
 						setCmd = new SetCommand(
 								editingDomain,
 								property,
 								EsbPackage.Literals.COMMAND_PROPERTY__VALUE_LITERAL,
-								item.getText(1));
+								item.getText(2));
 						getResultCommand().append(setCmd);
 					}
 				}
