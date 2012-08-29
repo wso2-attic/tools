@@ -44,7 +44,7 @@ public class CallTemplateMediatorExtSerializer extends AbstractMediatorSerialize
         
         List<CallTemplateExtParameter> parameters = mediator.getParameters();
         for (CallTemplateExtParameter parameter : parameters) {
-        	OMElement param = fac.createOMElement("target", synNS, callTemplate);
+        	OMElement param = fac.createOMElement("with-param", synNS, callTemplate);
         	param.addAttribute(fac.createOMAttribute("name", nullNS, parameter.getParameterName()));
         	if(parameter.getParameterType().equals(CallTemplateExtParameter.ParameterType.EXPRESSION)){
         		param.addAttribute(fac.createOMAttribute("value", nullNS, "{" + parameter.getParameterValue() + "}"));
