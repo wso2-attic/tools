@@ -30,7 +30,7 @@ import java.io.IOException;
  * This is the Maven Mojo used for dataservice resources to be copied to the output
  * directory in the resource-process phase.
  *
- * @goal package-cepservice
+ * @goal package-cepbucket
  *
  */
 public class CEPMojo extends AbstractMojo {
