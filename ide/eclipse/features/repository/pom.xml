@@ -117,6 +117,7 @@
 						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.gs.jaggery.feature:${jaggery.tools.version}</featureArtifactDef>
 						<!--featureArtifactDef>org.wso2.developerstudio:org.smooks.edi.editor-feature:${smooks.edi.editor.version}</featureArtifactDef-->
 						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.cep.artifact.feature:${cep.feature.version}</featureArtifactDef>
+						<featureArtifactDef>org.wso2.developerstudio:org.wso2.soapui.feature:${soapui.feature.version}</featureArtifactDef>
             			</featureArtifacts>
 				        <bundleArtifacts>
 						<bundleArtifactDef>org.wso2.eclipse:org.wso2.developerstudio.eclipse.logging:${common.logging.version}</bundleArtifactDef>
@@ -300,6 +301,7 @@
 						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.server.framework.feature:${server.framework.feature.version}</featureArtifactDef>
 						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.usermgt.core.feature:${usermgt.tools.feature.version}</featureArtifactDef>
 							<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.cep.artifact.feature:${cep.feature.version}</featureArtifactDef>
+							<featureArtifactDef>org.wso2.developerstudio:org.wso2.soapui.feature:${soapui.feature.version}</featureArtifactDef>
 		                            			</features>
 							</category>							    
 								    <!--category>
