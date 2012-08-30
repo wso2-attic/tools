@@ -21,43 +21,32 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.ScrolledComposite;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
-import org.wso2.carbon.cep.core.mapping.input.property.XMLInputProperty;
+import org.wso2.developerstudio.eclipse.artifact.cep.model.EngineProviderPropertyModel;
 
-import org.wso2.developerstudio.eclipse.artifact.cep.utils.CEPArtifactConstants;
-
-public class InputPropertyDialog extends TitleAreaDialog {
-	private Text proName;
-	private Text proXPath;
-	private Combo proXType;
+public class EngineProviderConfigurationDialog extends TitleAreaDialog {
+	private Text txtName;
+	private Text txtValue;
 	private String name = "";
-	private String xpath = "";
-	private String type = CEPArtifactConstants.WIZARD_OPTION_INTEGER;
-	private String[] propertyTypes = {
-			CEPArtifactConstants.WIZARD_OPTION_INTEGER,
-			CEPArtifactConstants.WIZARD_OPTION_DOUBLE,
-			CEPArtifactConstants.WIZARD_OPTION_STRING,
-			CEPArtifactConstants.WIZARD_OPTION_LONG };
-	private XMLInputProperty xmlProperty;
+	private String value = "";
+	private EngineProviderPropertyModel property;
 
-	protected InputPropertyDialog(Shell parentShell, boolean edit) {
+	public EngineProviderConfigurationDialog(Shell parentShell) {
 		super(parentShell);
-
 	}
 
 	@Override
 	public void create() {
 		super.create();
-		setTitle("Input Property Configuration");
+		setTitle("Engine Provider Configuration");
 	}
 
 	@Override
-	public Control createDialogArea(Composite parent) {
+	protected Control createDialogArea(Composite parent) {
 		GridData grData = null;
 		final ScrolledComposite scrolledContainer = new ScrolledComposite(
 				parent, SWT.H_SCROLL | SWT.V_SCROLL | SWT.BORDER | SWT.FILL);
@@ -71,55 +60,26 @@ public class InputPropertyDialog extends TitleAreaDialog {
 		GridLayout layout = new GridLayout();
 		layout.numColumns = 3;
 		container.setLayout(layout);
-		Label lbName = new Label(container, SWT.NULL);
-		lbName.setText("Name");
-		proName = new Text(container, SWT.BORDER | SWT.SINGLE);
+		Label lbPrefix = new Label(container, SWT.NULL);
+		lbPrefix.setText("Name");
+		txtName = new Text(container, SWT.BORDER | SWT.SINGLE);
 		grData = new GridData(GridData.FILL_HORIZONTAL);
 		grData.horizontalSpan = 2;
-		proName.setText(name);
-		proName.setLayoutData(grData);
-		Label lbXpath = new Label(container, SWT.NULL);
-		lbXpath.setText("Xpath");
-		proXPath = new Text(container, SWT.BORDER | SWT.SINGLE);
+		txtName.setLayoutData(grData);
+		txtName.setText(name);
+		Label lbNamespace = new Label(container, SWT.NULL);
+		lbNamespace.setText("Value");
+		txtValue = new Text(container, SWT.BORDER | SWT.SINGLE);
 		grData = new GridData(GridData.FILL_HORIZONTAL);
 		grData.horizontalSpan = 2;
-		proXPath.setLayoutData(grData);
-		proXPath.setText(xpath);
-		Label lbType = new Label(container, SWT.NULL);
-		lbType.setText("Type");
-		proXType = new Combo(container, SWT.READ_ONLY);
-		proXType.setItems(propertyTypes);
-		proXType.setText(type);
-		grData = new GridData();
-		grData.horizontalSpan = 1;
-		proXType.setLayoutData(grData);
+		txtValue.setLayoutData(grData);
+		txtValue.setText(value);
+		container.layout();
 		scrolledContainer.setMinSize(container.computeSize(SWT.DEFAULT,
 				SWT.DEFAULT));
 		container.layout();
 
 		return super.createDialogArea(scrolledContainer);
-	}
-
-	private boolean finalizePage() {
-		boolean ok = true;
-		xmlProperty = new XMLInputProperty();
-		xmlProperty.setName(proName.getText().trim());
-		xmlProperty.setXpath(proXPath.getText().trim());
-		xmlProperty.setType(proXType.getText().trim());
-		if (proName.getText().trim().equals("")) {
-			ok = false;
-		}
-		return ok;
-	}
-
-	public XMLInputProperty getProperties() {
-		return xmlProperty;
-	}
-
-	public void initialize(XMLInputProperty xmlProperty) {
-		name = xmlProperty.getName();
-		xpath = xmlProperty.getXpath();
-		type = xmlProperty.getType();
 	}
 
 	@Override
@@ -129,6 +89,29 @@ public class InputPropertyDialog extends TitleAreaDialog {
 		} else {
 			super.cancelPressed();
 		}
+	}
+
+	private boolean finalizePage() {
+		boolean ok = true;
+
+		name = txtName.getText().trim();
+		value = txtValue.getText().trim();
+		property = new EngineProviderPropertyModel(name, value);
+
+		if (name.equals("")) {
+			ok = false;
+		}
+		return ok;
+	}
+
+	public void initializePage(EngineProviderPropertyModel propetyModel) {
+		name = propetyModel.getPropertyName();
+		value = propetyModel.getPropertyValue();
+
+	}
+
+	public EngineProviderPropertyModel getPropertModel() {
+		return property;
 	}
 
 }

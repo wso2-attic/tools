@@ -63,7 +63,7 @@
     <handler
           class="org.wso2.developerstudio.eclipse.artifact.cep.project.export.CEPArtfactExportHandler"
           id="org.wso2.developerstudio.eclipse.artifact.cep.project.export.handler"
-          type="service/cepservice">
+          type="cep/bucket">
     </handler>
  </extension>
     <extension

@@ -27,11 +27,9 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.jface.dialogs.MessageDialog;
-
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.ide.IDE;
 import org.eclipse.ui.part.FileEditorInput;
-
 import org.wso2.developerstudio.eclipse.artifact.cep.Activator;
 import org.wso2.developerstudio.eclipse.artifact.cep.editor.CEPProjectEditorPage;
 import org.wso2.developerstudio.eclipse.artifact.cep.model.CEPModel;
@@ -62,7 +60,7 @@ public class CEPProjectCreationWizard extends AbstractWSO2ProjectCreationWizard 
 	}
 
 	public boolean performFinish() {
-
+		CEPProjectEditorPage.isCreatedProject = false;
 		boolean already = false;
 		try {
 			if (getModel().getSelectedOption().equals("import.cepproject")) {
@@ -91,7 +89,7 @@ public class CEPProjectCreationWizard extends AbstractWSO2ProjectCreationWizard 
 				File pomfile = project.getFile("pom.xml").getLocation()
 						.toFile();
 				getModel().getMavenInfo().setPackageName(
-						"service" + File.separator + "cepservice");
+						"cep" + File.separator + "bucket");
 				createPOM(pomfile);
 				ProjectUtils.addNatureToProject(project, false,
 						"org.wso2.developerstudio.eclipse.cep.project.nature");

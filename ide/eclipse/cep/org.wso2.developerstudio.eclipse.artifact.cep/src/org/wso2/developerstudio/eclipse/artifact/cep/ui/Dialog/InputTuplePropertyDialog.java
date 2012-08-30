@@ -27,33 +27,41 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
-import org.wso2.carbon.cep.core.mapping.input.property.XMLInputProperty;
+import org.wso2.carbon.cep.core.mapping.input.property.TupleInputProperty;
 
 import org.wso2.developerstudio.eclipse.artifact.cep.utils.CEPArtifactConstants;
 
-public class InputPropertyDialog extends TitleAreaDialog {
-	private Text proName;
-	private Text proXPath;
-	private Combo proXType;
+public class InputTuplePropertyDialog extends TitleAreaDialog {
+
+	public InputTuplePropertyDialog(Shell parentShell, boolean edit) {
+		super(parentShell);
+	}
+
+	private Text txtName;
+	private Text txtInputName;
+	private Combo cmbType;
+	private Combo cmbDataType;
 	private String name = "";
-	private String xpath = "";
+	private String inputName = "";
 	private String type = CEPArtifactConstants.WIZARD_OPTION_INTEGER;
+	private String dataType = CEPArtifactConstants.WIZARD_OPTION_METADATA;
 	private String[] propertyTypes = {
 			CEPArtifactConstants.WIZARD_OPTION_INTEGER,
 			CEPArtifactConstants.WIZARD_OPTION_DOUBLE,
 			CEPArtifactConstants.WIZARD_OPTION_STRING,
 			CEPArtifactConstants.WIZARD_OPTION_LONG };
-	private XMLInputProperty xmlProperty;
 
-	protected InputPropertyDialog(Shell parentShell, boolean edit) {
-		super(parentShell);
+	private String[] dataTypes = {
+			CEPArtifactConstants.WIZARD_OPTION_CORRELATION,
+			CEPArtifactConstants.WIZARD_OPTION_METADATA,
+			CEPArtifactConstants.WIZARD_OPTION_PAYLOAD };
 
-	}
+	private TupleInputProperty tupleProperty;
 
 	@Override
 	public void create() {
 		super.create();
-		setTitle("Input Property Configuration");
+		setTitle("Input Tuple Property Configuration");
 	}
 
 	@Override
@@ -73,26 +81,36 @@ public class InputPropertyDialog extends TitleAreaDialog {
 		container.setLayout(layout);
 		Label lbName = new Label(container, SWT.NULL);
 		lbName.setText("Name");
-		proName = new Text(container, SWT.BORDER | SWT.SINGLE);
+		txtName = new Text(container, SWT.BORDER | SWT.SINGLE);
 		grData = new GridData(GridData.FILL_HORIZONTAL);
 		grData.horizontalSpan = 2;
-		proName.setText(name);
-		proName.setLayoutData(grData);
+		txtName.setText(name);
+		txtName.setLayoutData(grData);
+
+		Label lbInputName = new Label(container, SWT.NULL);
+		lbInputName.setText("Input Name");
+		txtInputName = new Text(container, SWT.BORDER | SWT.SINGLE);
+		grData = new GridData(GridData.FILL_HORIZONTAL);
+		grData.horizontalSpan = 2;
+		txtInputName.setText(inputName);
+		txtInputName.setLayoutData(grData);
+
 		Label lbXpath = new Label(container, SWT.NULL);
-		lbXpath.setText("Xpath");
-		proXPath = new Text(container, SWT.BORDER | SWT.SINGLE);
-		grData = new GridData(GridData.FILL_HORIZONTAL);
+		lbXpath.setText("Data Type");
+		cmbDataType = new Combo(container, SWT.READ_ONLY);
+		cmbDataType.setItems(dataTypes);
+		cmbDataType.setText(dataType);
+		grData = new GridData();
 		grData.horizontalSpan = 2;
-		proXPath.setLayoutData(grData);
-		proXPath.setText(xpath);
+		cmbDataType.setLayoutData(grData);
 		Label lbType = new Label(container, SWT.NULL);
 		lbType.setText("Type");
-		proXType = new Combo(container, SWT.READ_ONLY);
-		proXType.setItems(propertyTypes);
-		proXType.setText(type);
+		cmbType = new Combo(container, SWT.READ_ONLY);
+		cmbType.setItems(propertyTypes);
+		cmbType.setText(type);
 		grData = new GridData();
 		grData.horizontalSpan = 1;
-		proXType.setLayoutData(grData);
+		cmbType.setLayoutData(grData);
 		scrolledContainer.setMinSize(container.computeSize(SWT.DEFAULT,
 				SWT.DEFAULT));
 		container.layout();
@@ -102,24 +120,27 @@ public class InputPropertyDialog extends TitleAreaDialog {
 
 	private boolean finalizePage() {
 		boolean ok = true;
-		xmlProperty = new XMLInputProperty();
-		xmlProperty.setName(proName.getText().trim());
-		xmlProperty.setXpath(proXPath.getText().trim());
-		xmlProperty.setType(proXType.getText().trim());
-		if (proName.getText().trim().equals("")) {
+		tupleProperty = new TupleInputProperty();
+		tupleProperty.setName(txtName.getText().trim());
+		tupleProperty.setInputDataType(cmbDataType.getText().trim());
+		tupleProperty.setType(cmbType.getText().trim());
+		tupleProperty.setInputName(txtInputName.getText().trim());
+
+		if (txtName.getText().trim().equals("")) {
 			ok = false;
 		}
 		return ok;
 	}
 
-	public XMLInputProperty getProperties() {
-		return xmlProperty;
+	public TupleInputProperty getProperties() {
+		return tupleProperty;
 	}
 
-	public void initialize(XMLInputProperty xmlProperty) {
-		name = xmlProperty.getName();
-		xpath = xmlProperty.getXpath();
-		type = xmlProperty.getType();
+	public void initialize(TupleInputProperty tupleProperty) {
+		name = tupleProperty.getName();
+		dataType = tupleProperty.getInputDataType();
+		type = tupleProperty.getType();
+		inputName = tupleProperty.getInputName();
 	}
 
 	@Override

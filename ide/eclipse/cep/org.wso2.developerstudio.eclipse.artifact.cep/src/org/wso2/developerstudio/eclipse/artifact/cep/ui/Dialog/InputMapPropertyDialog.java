@@ -27,36 +27,37 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
-import org.wso2.carbon.cep.core.internal.util.CEPConstants;
-import org.wso2.carbon.cep.core.mapping.property.XMLProperty;
+import org.wso2.carbon.cep.core.mapping.input.property.MapInputProperty;
 
-public class QueryPropertyDialog extends TitleAreaDialog {
+import org.wso2.developerstudio.eclipse.artifact.cep.utils.CEPArtifactConstants;
 
-	private String propertyName = "";
-	private String xmlFieldName = "";
-	private String selectedXMLFieldType = CEPConstants.CEP_CONF_XML_FIELD_TYPE_ELEMENT;
-	private Text proName;
-	private Text xmlproField;
-	private Combo xmlFieldType;
-	private String[] xmlFieldTypes = {
-			CEPConstants.CEP_CONF_XML_FIELD_TYPE_ELEMENT,
-			CEPConstants.CEP_CONF_XML_FIELD_TYPE_ATTRIBUTE };
-	private XMLProperty property;
-
-	public QueryPropertyDialog(Shell parentShell, boolean edit) {
+public class InputMapPropertyDialog extends TitleAreaDialog {
+	public InputMapPropertyDialog(Shell parentShell, boolean newOne) {
 		super(parentShell);
-
 	}
+
+	private Text txtName;
+	private Text txtInputName;
+	private Combo cmbType;
+	private String name = "";
+	private String inputName = "";
+	private String type = CEPArtifactConstants.WIZARD_OPTION_INTEGER;
+	private String[] propertyTypes = {
+			CEPArtifactConstants.WIZARD_OPTION_INTEGER,
+			CEPArtifactConstants.WIZARD_OPTION_DOUBLE,
+			CEPArtifactConstants.WIZARD_OPTION_STRING,
+			CEPArtifactConstants.WIZARD_OPTION_LONG,
+			CEPArtifactConstants.WIZARD_OPTION_FLOAT };
+	private MapInputProperty mapProperty;
 
 	@Override
 	public void create() {
-		// TODO Auto-generated method stub
 		super.create();
-		setTitle("Query Property Configuration");
+		setTitle("Input MapProperty Configuration");
 	}
 
 	@Override
-	protected Control createDialogArea(Composite parent) {
+	public Control createDialogArea(Composite parent) {
 		GridData grData = null;
 		final ScrolledComposite scrolledContainer = new ScrolledComposite(
 				parent, SWT.H_SCROLL | SWT.V_SCROLL | SWT.BORDER | SWT.FILL);
@@ -70,35 +71,28 @@ public class QueryPropertyDialog extends TitleAreaDialog {
 		GridLayout layout = new GridLayout();
 		layout.numColumns = 3;
 		container.setLayout(layout);
-		final Label lbName = new Label(container, SWT.NULL);
+		Label lbName = new Label(container, SWT.NULL);
 		lbName.setText("Name");
-
-		proName = new Text(container, SWT.BORDER | SWT.SINGLE);
+		txtName = new Text(container, SWT.BORDER | SWT.SINGLE);
 		grData = new GridData(GridData.FILL_HORIZONTAL);
 		grData.horizontalSpan = 2;
-		proName.setLayoutData(grData);
-		proName.setText(propertyName);
-
-		final Label lbFieldName = new Label(container, SWT.NULL);
-		lbFieldName.setText("XML Field Name");
-
-		xmlproField = new Text(container, SWT.BORDER | SWT.SINGLE);
+		txtName.setText(name);
+		txtName.setLayoutData(grData);
+		Label lbInputName = new Label(container, SWT.NULL);
+		lbInputName.setText("Input Name");
+		txtInputName = new Text(container, SWT.BORDER | SWT.SINGLE);
 		grData = new GridData(GridData.FILL_HORIZONTAL);
 		grData.horizontalSpan = 2;
-
-		xmlproField.setLayoutData(grData);
-		xmlproField.setText(xmlFieldName);
-
-		final Label lbFieldType = new Label(container, SWT.NULL);
-		lbFieldType.setText("XML Field Type");
-
-		xmlFieldType = new Combo(container, SWT.READ_ONLY);
+		txtInputName.setText(inputName);
+		txtInputName.setLayoutData(grData);
+		Label lbType = new Label(container, SWT.NULL);
+		lbType.setText("Type");
+		cmbType = new Combo(container, SWT.READ_ONLY);
+		cmbType.setItems(propertyTypes);
+		cmbType.setText(type);
 		grData = new GridData();
-
-		xmlFieldType.setItems(xmlFieldTypes);
-		xmlFieldType.setText(selectedXMLFieldType);
-		xmlFieldType.setLayoutData(grData);
-
+		grData.horizontalSpan = 1;
+		cmbType.setLayoutData(grData);
 		scrolledContainer.setMinSize(container.computeSize(SWT.DEFAULT,
 				SWT.DEFAULT));
 		container.layout();
@@ -108,36 +102,34 @@ public class QueryPropertyDialog extends TitleAreaDialog {
 
 	private boolean finalizePage() {
 		boolean ok = true;
-		property = new XMLProperty();
-		propertyName = proName.getText().trim();
-		xmlFieldName = xmlproField.getText().trim();
-		selectedXMLFieldType = xmlFieldType.getText().trim();
-		property.setName(propertyName);
-		property.setXmlFieldName(xmlFieldName);
-		property.setXmlFieldType(selectedXMLFieldType);
-		if (proName.getText().trim().equals("")) {
+		mapProperty = new MapInputProperty();
+		mapProperty.setName(txtName.getText().trim());
+		mapProperty.setType(cmbType.getText().trim());
+		mapProperty.setInputName(txtInputName.getText().trim());
+
+		if (txtName.getText().trim().equals("")) {
 			ok = false;
 		}
 		return ok;
 	}
 
-	public void initializePage(XMLProperty property) {
-		propertyName = property.getName();
-		xmlFieldName = property.getXmlFieldName();
-		selectedXMLFieldType = property.getXmlFieldType();
+	public MapInputProperty getProperties() {
+		return mapProperty;
 	}
 
-	public XMLProperty getProperty() {
-		return property;
+	public void initialize(MapInputProperty mapProperty) {
+		name = mapProperty.getName();
+		type = mapProperty.getType();
+		inputName = mapProperty.getInputName();
 	}
 
 	@Override
 	protected void okPressed() {
-		// TODO Auto-generated method stub
 		if (finalizePage()) {
 			super.okPressed();
 		} else {
 			super.cancelPressed();
 		}
 	}
+
 }

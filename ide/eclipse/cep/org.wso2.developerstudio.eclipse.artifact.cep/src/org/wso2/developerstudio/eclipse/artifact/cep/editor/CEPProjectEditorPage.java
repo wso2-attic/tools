@@ -25,6 +25,7 @@ import java.io.StringWriter;
 import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -36,13 +37,12 @@ import javax.xml.stream.XMLStreamReader;
 
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.impl.builder.StAXOMBuilder;
-import org.apache.maven.project.MavenProject;
+
 import org.apache.xml.serialize.OutputFormat;
 import org.apache.xml.serialize.XMLSerializer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.NullProgressMonitor;
-import org.eclipse.jface.action.Action;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.ColumnLabelProvider;
 import org.eclipse.jface.viewers.TableViewer;
@@ -58,15 +58,15 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.DirectoryDialog;
+
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Listener;
-import org.eclipse.swt.widgets.MessageBox;
+
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.IFileEditorInput;
-import org.eclipse.ui.PlatformUI;
+
 import org.eclipse.ui.forms.IManagedForm;
 import org.eclipse.ui.forms.editor.FormEditor;
 import org.eclipse.ui.forms.editor.FormPage;
@@ -74,18 +74,21 @@ import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.forms.widgets.Section;
 import org.w3c.dom.Document;
+
 import org.wso2.carbon.cep.core.Bucket;
 import org.wso2.carbon.cep.core.Query;
 import org.wso2.carbon.cep.core.exception.CEPConfigurationException;
 import org.wso2.carbon.cep.core.internal.config.BucketHelper;
 import org.wso2.carbon.cep.core.mapping.input.Input;
+import org.wso2.carbon.cep.core.mapping.input.mapping.TupleInputMapping;
 import org.wso2.developerstudio.eclipse.artifact.cep.Activator;
+import org.wso2.developerstudio.eclipse.artifact.cep.model.EngineProviderPropertyModel;
 import org.wso2.developerstudio.eclipse.artifact.cep.ui.Dialog.BucketInputDialog;
+import org.wso2.developerstudio.eclipse.artifact.cep.ui.Dialog.EngineProviderConfigurationDialog;
 import org.wso2.developerstudio.eclipse.artifact.cep.ui.Dialog.QueryDialog;
 import org.wso2.developerstudio.eclipse.artifact.cep.utils.CEPArtifactConstants;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
-import org.wso2.developerstudio.eclipse.platform.core.project.export.util.ExportUtil;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
@@ -96,33 +99,43 @@ public class CEPProjectEditorPage extends FormPage {
 	public static String bucketProjectName;
 	public static String initialFileLocation;
 	public static boolean isNewProject = true;
+	public static boolean isCreatedProject = true;
 	private IFile pomFileRes;
-	private MavenProject parentPrj;
+
 	private FormToolkit toolkit;
 	private ScrolledForm form;
 	private Composite body;
 	private Text txtBucketName;
 	private Text txtDescription;
+
 	private boolean pageDirty;
-	private Button overWriteChecked;
+
 	private TableViewer viewer;
 	private TableViewer viewerQuery;
+	private TableViewer viewerProperty;
+
+	private List<EngineProviderPropertyModel> propertyList = new ArrayList<EngineProviderPropertyModel>();
 	private List<Input> inputList = new ArrayList<Input>();
 	private List<Query> queryList = new ArrayList<Query>();
 
 	private Table inputTable;
 	private Table queryTable;
+	private Table propertyTable;
+	private Properties engineProperty;
 	private int selectedIndex;
 	private int selectedIndexQuery;
+	private int selectedIndexProperty;
 	private Bucket bucket;
 	private String bucketName;
 	private String bucketDescription;
 	private String bucketNameSpace;
 	private String bucketEngineProvider;
+
 	private String[] arrayCEPEngine = {
 			CEPArtifactConstants.WIZARD_OPTION_DROOLS_FUSION_CEP_RUNTIME,
-			CEPArtifactConstants.WIZARD_OPTION_ESPER_CEP_RUNTIME };
-	private boolean overWriteRegistry;
+			CEPArtifactConstants.WIZARD_OPTION_ESPER_CEP_RUNTIME,
+			CEPArtifactConstants.WIZARD_OPTION_SIDDHI_CEP_RUNTIME };
+
 	private Combo engineCombo;
 	private File cepTemplateFile;
 
@@ -146,8 +159,15 @@ public class CEPProjectEditorPage extends FormPage {
 		bucket.setName(getBucketName());
 		bucket.setDescription(getBucketDescription());
 		bucket.setEngineProvider(getBucketEngineProvider());
-		bucket.setOverWriteRegistry(isOverWriteRegistry());
+
 		bucket.setInputs(inputList);
+		engineProperty = new Properties();
+		for (EngineProviderPropertyModel model : propertyList) {
+			engineProperty.setProperty(model.getPropertyName(),
+					model.getPropertyValue());
+		}
+		bucket.setProviderConfigurationProperties(engineProperty);
+
 		for (Query query : queryList) {
 			query.setQueryIndex(queryList.indexOf(query));
 		}
@@ -170,9 +190,10 @@ public class CEPProjectEditorPage extends FormPage {
 		txtBucketName = managedForm.getToolkit().createText(
 				managedForm.getForm().getBody(),
 				CEPProjectEditorPage.bucketProjectName, SWT.NONE);
-		setBucketName(CEPProjectEditorPage.bucketProjectName);//
+		setBucketName(CEPProjectEditorPage.bucketProjectName);
 		GridData gd_txtGroupId = new GridData(SWT.LEFT, SWT.CENTER, true,
 				false, 1, 1);
+
 		gd_txtGroupId.widthHint = 180;
 		txtBucketName.setLayoutData(gd_txtGroupId);
 		txtBucketName.addModifyListener(new ModifyListener() {
@@ -192,9 +213,10 @@ public class CEPProjectEditorPage extends FormPage {
 				managedForm.getForm().getBody(), "",
 				SWT.MULTI | SWT.V_SCROLL | SWT.WRAP);
 
-		GridData gd_txtDescription = new GridData(SWT.FILL, SWT.CENTER, true,
+		GridData gd_txtDescription = new GridData(SWT.NONE, SWT.CENTER, true,
 				false, 1, 1);
-		gd_txtDescription.heightHint = 60;
+		gd_txtDescription.heightHint = 80;
+		gd_txtDescription.widthHint = 850;
 		txtDescription.setLayoutData(gd_txtDescription);
 		setBucketDescription(txtDescription.getText().trim());//
 		txtDescription.addModifyListener(new ModifyListener() {
@@ -219,8 +241,8 @@ public class CEPProjectEditorPage extends FormPage {
 		toolkit.paintBordersFor(managedForm.getForm().getBody());
 		engineCombo.setItems(arrayCEPEngine);
 		engineCombo
-				.setText(CEPArtifactConstants.WIZARD_OPTION_ESPER_CEP_RUNTIME);
-		setBucketEngineProvider(CEPArtifactConstants.WIZARD_OPTION_ESPER_CEP_RUNTIME);
+				.setText(CEPArtifactConstants.WIZARD_OPTION_SIDDHI_CEP_RUNTIME);
+		setBucketEngineProvider(CEPArtifactConstants.WIZARD_OPTION_SIDDHI_CEP_RUNTIME);
 		engineCombo.addSelectionListener(new SelectionListener() {
 
 			@Override
@@ -237,6 +259,11 @@ public class CEPProjectEditorPage extends FormPage {
 					setPageDirty(true);
 					updateDirtyState();
 
+				} else if (arrayCEPEngine[engineCombo.getSelectionIndex()]
+						.equals(CEPArtifactConstants.WIZARD_OPTION_SIDDHI_CEP_RUNTIME)) {
+					setBucketEngineProvider(CEPArtifactConstants.WIZARD_OPTION_SIDDHI_CEP_RUNTIME);
+					setPageDirty(true);
+					updateDirtyState();
 				}
 			}
 
@@ -246,30 +273,141 @@ public class CEPProjectEditorPage extends FormPage {
 			}
 		});
 
-		overWriteChecked = managedForm.getToolkit().createButton(
-				managedForm.getForm().getBody(), "", SWT.CHECK);
-		overWriteChecked.setSelection(true);
-		setOverWriteRegistry(true);
-		Label over = managedForm.getToolkit().createLabel(
+		Section engineProperties = managedForm.getToolkit().createSection(
 				managedForm.getForm().getBody(),
-				"Overwrite Registry Stored Bucket", SWT.NONE);
-		over.setLayoutData(new GridData(SWT.LEFT, SWT.TOP, false, false, 1, 1));
+				Section.TWISTIE | Section.TITLE_BAR);
+		GridData gd_properties = new GridData(SWT.NONE, SWT.CENTER, true,
+				false, 2, 1);
+		engineProperties.setText("Engine Configuraton Properties");
+		engineProperties.setLayoutData(gd_properties);
+		engineProperties.setExpanded(true);
+		final Composite compositeProperty = managedForm.getToolkit()
+				.createComposite(engineProperties, SWT.NONE);
+		engineProperties.setClient(compositeProperty);
+		compositeProperty.setLayout(new GridLayout(3, false));
+		if (!isNewProject) {
+			try {
+				bucket = readFromFile(initialFileLocation);
 
-		overWriteChecked.setLayoutData(new GridData(SWT.RIGHT, SWT.RIGHT,
-				false, false, 1, 1));
-		overWriteChecked.addSelectionListener(new SelectionListener() {
+			} catch (Exception e) {
+				log.warn("Failed to read file", e);
+			}
+			txtBucketName.setText(bucket.getName());
+			setBucketName(bucket.getName());
+			txtDescription.setText(bucket.getDescription());
+			setBucketDescription(bucket.getDescription());
+			setBucketEngineProvider(CEPArtifactConstants.WIZARD_OPTION_DROOLS_FUSION_CEP_RUNTIME);
+			if (bucket
+					.getEngineProvider()
+					.equals(CEPArtifactConstants.WIZARD_OPTION_DROOLS_FUSION_CEP_RUNTIME)) {
+				engineCombo
+						.setText(CEPArtifactConstants.WIZARD_OPTION_DROOLS_FUSION_CEP_RUNTIME);
+				setBucketEngineProvider(CEPArtifactConstants.WIZARD_OPTION_DROOLS_FUSION_CEP_RUNTIME);
+			} else if (bucket.getEngineProvider().equals(
+					CEPArtifactConstants.WIZARD_OPTION_ESPER_CEP_RUNTIME)) {
+				engineCombo
+						.setText(CEPArtifactConstants.WIZARD_OPTION_ESPER_CEP_RUNTIME);
+				setBucketEngineProvider(CEPArtifactConstants.WIZARD_OPTION_ESPER_CEP_RUNTIME);
+			} else if (bucket.getEngineProvider().equals(
+					CEPArtifactConstants.WIZARD_OPTION_SIDDHI_CEP_RUNTIME)) {
+				engineCombo
+						.setText(CEPArtifactConstants.WIZARD_OPTION_SIDDHI_CEP_RUNTIME);
+				setBucketEngineProvider(CEPArtifactConstants.WIZARD_OPTION_SIDDHI_CEP_RUNTIME);
+			}
 
+			if (bucket.getInputs() != null) {
+				inputList = bucket.getInputs();
+			}
+			if (bucket.getQueries() != null) {
+				queryList = bucket.getQueries();
+			}
+			List<EngineProviderPropertyModel> propertyListTemp = new ArrayList<EngineProviderPropertyModel>();
+			if (bucket.getProviderConfigurationProperties() != null) {
+				for (Object key : bucket.getProviderConfigurationProperties()
+						.keySet()) {
+
+					propertyListTemp.add(new EngineProviderPropertyModel(
+							(String) key, (String) bucket
+									.getProviderConfigurationProperties().get(
+											(String) key)));
+				}
+			}
+			propertyList = propertyListTemp;
+		}
+		initPropertyTable(compositeProperty, managedForm);
+
+		GridData gdBtnProperty = new GridData(SWT.LEFT, SWT.CENTER, false,
+				false, 1, 1);
+		gdBtnProperty.widthHint = 100;
+		Button addButtonproperty = managedForm.getToolkit().createButton(
+				compositeProperty, "Add...", SWT.PUSH);
+		addButtonproperty.setLayoutData(gdBtnProperty);
+
+		addButtonproperty.addSelectionListener(new SelectionListener() {
 			@Override
 			public void widgetSelected(SelectionEvent arg0) {
-				if (overWriteChecked.getSelection()) {
-					setOverWriteRegistry(true);
-					setPageDirty(true);
-					updateDirtyState();
-				} else {
-					setOverWriteRegistry(false);
-					setPageDirty(true);
-					updateDirtyState();
+				EngineProviderConfigurationDialog dialog = new EngineProviderConfigurationDialog(
+						managedForm.getForm().getBody().getShell());
+				dialog.create();
+				if (dialog.open() == Window.OK) {
+					EngineProviderPropertyModel p = dialog.getPropertModel();
+					updatePropertyTable(p, false);
 				}
+				setPageDirty(true);
+				updateDirtyState();
+			}
+
+			@Override
+			public void widgetDefaultSelected(SelectionEvent arg0) {
+
+			}
+		});
+		Button editButtonProperty = managedForm.getToolkit().createButton(
+				compositeProperty, "Edit...", SWT.PUSH);
+		addButtonproperty.setLayoutData(new GridData(SWT.FILL, SWT.CENTER,
+				false, false, 1, 1));
+
+		editButtonProperty.addSelectionListener(new SelectionListener() {
+			@Override
+			public void widgetSelected(SelectionEvent arg0) {
+				selectedIndexProperty = propertyTable.getSelectionIndex();
+				EngineProviderPropertyModel p = propertyList.get(propertyTable
+						.getSelectionIndex());
+
+				EngineProviderConfigurationDialog dialog = new EngineProviderConfigurationDialog(
+						managedForm.getForm().getBody().getShell());
+				dialog.initializePage(p);
+				dialog.create();
+				if (dialog.open() == Window.OK) {
+					EngineProviderPropertyModel propertyTemp = dialog
+							.getPropertModel();
+					updatePropertyTable(propertyTemp, true);
+				}
+				setPageDirty(true);
+				updateDirtyState();
+			}
+
+			@Override
+			public void widgetDefaultSelected(SelectionEvent arg0) {
+
+			}
+		});
+
+		Button deleteButtonProperty = managedForm.getToolkit().createButton(
+				compositeProperty, "Delete", SWT.PUSH);
+		editButtonProperty.setLayoutData(new GridData(SWT.FILL, SWT.CENTER,
+				false, false, 1, 1));
+		deleteButtonProperty.setLayoutData(new GridData(SWT.FILL, SWT.CENTER,
+				false, false, 1, 1));
+		deleteButtonProperty.addSelectionListener(new SelectionListener() {
+			@Override
+			public void widgetSelected(SelectionEvent arg0) {
+				selectedIndexProperty = propertyTable.getSelectionIndex();
+				propertyList.remove(selectedIndexProperty);
+				viewerProperty.setInput(propertyList.toArray());
+				viewerProperty.refresh();
+				setPageDirty(true);
+				updateDirtyState();
 			}
 
 			@Override
@@ -290,42 +428,7 @@ public class CEPProjectEditorPage extends FormPage {
 				.createComposite(bucketInputs, SWT.NONE);
 		bucketInputs.setClient(compositeone);
 		compositeone.setLayout(new GridLayout(3, false));
-		if (!isNewProject) {
-			try {
-				bucket = readFromFile(initialFileLocation);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			txtBucketName.setText(bucket.getName());
-			setBucketName(bucket.getName());
-			txtDescription.setText(bucket.getDescription());
-			setBucketDescription(bucket.getDescription());
-			if (bucket
-					.getEngineProvider()
-					.equals(CEPArtifactConstants.WIZARD_OPTION_DROOLS_FUSION_CEP_RUNTIME)) {
-				engineCombo
-						.setText(CEPArtifactConstants.WIZARD_OPTION_DROOLS_FUSION_CEP_RUNTIME);
-				setBucketEngineProvider(CEPArtifactConstants.WIZARD_OPTION_DROOLS_FUSION_CEP_RUNTIME);
-			} else if (bucket.getEngineProvider().equals(
-					CEPArtifactConstants.WIZARD_OPTION_ESPER_CEP_RUNTIME)) {
-				engineCombo
-						.setText(CEPArtifactConstants.WIZARD_OPTION_ESPER_CEP_RUNTIME);
-				setBucketEngineProvider(CEPArtifactConstants.WIZARD_OPTION_ESPER_CEP_RUNTIME);
-			}
-			if (bucket.isOverWriteRegistry()) {
-				overWriteChecked.setSelection(true);
-				setOverWriteRegistry(true);
-			} else {
-				overWriteChecked.setSelection(false);
-				setOverWriteRegistry(false);
-			}
-			if (bucket.getInputs() != null) {
-				inputList = bucket.getInputs();
-			}
-			if (bucket.getQueries() != null) {
-				queryList = bucket.getQueries();
-			}
-		}
+
 		initInputTable(compositeone, managedForm);
 
 		GridData gdBtn = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
@@ -491,8 +594,97 @@ public class CEPProjectEditorPage extends FormPage {
 			}
 		});
 
+		if (isCreatedProject == true || isNewProject == true) {
+			try {
+				updateDesignChanges(readFromFile(outputfileLocation));
+			} catch (Exception e) {
+
+			}
+		}
+
 		form.updateToolBar();
 		form.reflow(true);
+	}
+
+	private void initPropertyTable(Composite composite, IManagedForm managedForm) {
+
+		final Table table = managedForm.getToolkit().createTable(
+				composite,
+				SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL | SWT.FULL_SELECTION
+						| SWT.BORDER | SWT.VIRTUAL);
+		table.setHeaderVisible(true);
+		table.setLinesVisible(true);
+		propertyTable = table;
+		viewerProperty = new TableViewer(table);
+		GridData db = new GridData(SWT.NONE, SWT.TOP, true, true, 4, 10);
+		db.horizontalSpan = 2;
+		table.setLayoutData(db);
+		TableViewerColumn viewerColumn = new TableViewerColumn(viewerProperty,
+				SWT.NONE, 0);
+		viewerColumn.setLabelProvider(new ColumnLabelProvider() {
+			@Override
+			public String getText(Object element) {
+				EngineProviderPropertyModel p = (EngineProviderPropertyModel) element;
+				if (p != null) {
+					return p.getPropertyName();
+				} else
+					return "";
+			}
+		});
+		viewerColumn.getColumn().setWidth(300);
+		viewerColumn.getColumn().setText("Name");
+		TableViewerColumn viewerColumnBrokerName = new TableViewerColumn(
+				viewerProperty, SWT.NONE, 1);
+		viewerColumnBrokerName.setLabelProvider(new ColumnLabelProvider() {
+			@Override
+			public String getText(Object element) {
+				EngineProviderPropertyModel p = (EngineProviderPropertyModel) element;
+				if (p != null) {
+					return p.getPropertyValue();
+				} else
+					return "";
+			}
+
+		});
+		viewerColumnBrokerName.getColumn().setWidth(300);
+		viewerColumnBrokerName.getColumn().setText("Value");
+		viewerProperty.setContentProvider(new ArrayContentProvider());
+		viewerProperty.setInput(propertyList.toArray());
+		table.setItemCount(3);
+		table.addListener(SWT.SetData, new Listener() {
+			public void handleEvent(Event event) {
+
+			}
+
+		});
+
+		table.addSelectionListener(new SelectionListener() {
+
+			@Override
+			public void widgetSelected(SelectionEvent arg0) {
+
+			}
+
+			@Override
+			public void widgetDefaultSelected(SelectionEvent arg0) {
+
+			}
+		});
+
+	}
+
+	private void updatePropertyTable(EngineProviderPropertyModel model,
+			boolean edit) {
+		if (!edit) {
+			propertyList.add(model);
+		} else if (edit) {
+			propertyList.remove(selectedIndex);
+			propertyList.add(selectedIndex, model);
+		}
+		if (propertyList.size() > 0) {
+			viewerProperty.setInput(propertyList.toArray());
+			viewerProperty.refresh();
+		}
 	}
 
 	private void updateInputTable(Input input, boolean edit) {
@@ -624,7 +816,7 @@ public class CEPProjectEditorPage extends FormPage {
 			public String getText(Object element) {
 				Query q = (Query) element;
 				if (q != null) {
-					return q.getExpression().getType();
+					return "type";
 				} else
 					return "";
 
@@ -687,8 +879,6 @@ public class CEPProjectEditorPage extends FormPage {
 	private void writeTOFile(Bucket bucket) throws IOException,
 			XMLStreamException {
 		String templateContent = BucketHelper.bucketToOM(bucket).toString();
-		templateContent = templateContent.replace("<![CDATA[", "");
-		templateContent = templateContent.replace("]]>", "");
 		templateContent = format(templateContent);
 		templateContent = templateContent.replace(
 				"<?xml version=\"1.0\" encoding=\"UTF-8\"?>", "");
@@ -718,30 +908,45 @@ public class CEPProjectEditorPage extends FormPage {
 		String name = bucket.getName();
 		String description = bucket.getDescription();
 		String engineProvider = bucket.getEngineProvider();
-		boolean isOverWrte = bucket.isOverWriteRegistry();
 		List<Input> input = bucket.getInputs();
 		List<Query> query = bucket.getQueries();
+		List<EngineProviderPropertyModel> property = new ArrayList<EngineProviderPropertyModel>();
+		Properties properties = bucket.getProviderConfigurationProperties();
+		if (properties != null && properties.size() > 0) {
+			for (Object key : properties.keySet()) {
+				property.add(new EngineProviderPropertyModel((String) key,
+						(String) properties.get(key)));
+			}
+		}
 
 		txtBucketName.setText(name);
+		setBucketName(name);
 		txtDescription.setText(description);
+		setBucketDescription(description);
+
 		if (engineProvider
 				.equals(CEPArtifactConstants.WIZARD_OPTION_DROOLS_FUSION_CEP_RUNTIME)) {
 			engineCombo
 					.setText(CEPArtifactConstants.WIZARD_OPTION_DROOLS_FUSION_CEP_RUNTIME);
+			setBucketEngineProvider(CEPArtifactConstants.WIZARD_OPTION_DROOLS_FUSION_CEP_RUNTIME);
 
 		} else if (engineProvider
 				.equals(CEPArtifactConstants.WIZARD_OPTION_ESPER_CEP_RUNTIME)) {
 			engineCombo
 					.setText(CEPArtifactConstants.WIZARD_OPTION_ESPER_CEP_RUNTIME);
+			setBucketEngineProvider(CEPArtifactConstants.WIZARD_OPTION_ESPER_CEP_RUNTIME);
+		} else if (engineProvider
+				.equals(CEPArtifactConstants.WIZARD_OPTION_SIDDHI_CEP_RUNTIME)) {
+			engineCombo
+					.setText(CEPArtifactConstants.WIZARD_OPTION_SIDDHI_CEP_RUNTIME);
+			setBucketEngineProvider(CEPArtifactConstants.WIZARD_OPTION_SIDDHI_CEP_RUNTIME);
+		}
+		if (property != null) {
+			propertyList = property;
+			viewerProperty.setInput(propertyList.toArray());
+			viewerProperty.refresh();
 		}
 
-		if (isOverWrte) {
-			overWriteChecked.setSelection(true);
-			overWriteRegistry = true;
-		} else {
-			overWriteChecked.setSelection(false);
-			overWriteRegistry = false;
-		}
 		if (input != null) {
 			inputList = input;
 			viewer.setInput(inputList.toArray());
@@ -839,14 +1044,6 @@ public class CEPProjectEditorPage extends FormPage {
 
 	public void setBucketEngineProvider(String bucketEngineProvider) {
 		this.bucketEngineProvider = bucketEngineProvider;
-	}
-
-	public boolean isOverWriteRegistry() {
-		return overWriteRegistry;
-	}
-
-	public void setOverWriteRegistry(boolean overWriteRegistry) {
-		this.overWriteRegistry = overWriteRegistry;
 	}
 
 	public void refreshForm() throws Exception {

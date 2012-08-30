@@ -38,6 +38,11 @@ public class CEPArtifactConstants extends NLS {
 	public static String WIZARD_OPTION_LONG;
 	public static String WIZARD_OPTION_NEW_CEPPROJECT;
 	public static String WIZARD_OPTION_IMPORT_CEPPROJECT;
+	public static String WIZARD_OPTION_FLOAT;
+	public static String WIZARD_OPTION_METADATA;
+	public static String WIZARD_OPTION_PAYLOAD;
+	public static String WIZARD_OPTION_CORRELATION;
+	public static String WIZARD_OPTION_SIDDHI_CEP_RUNTIME;
 	static {
 		// initialize resource bundle
 		NLS.initializeMessages(BUNDLE_NAME, CEPArtifactConstants.class);

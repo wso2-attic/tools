@@ -38,7 +38,6 @@ import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
-import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
@@ -49,62 +48,86 @@ import org.wso2.carbon.cep.core.Expression;
 import org.wso2.carbon.cep.core.Query;
 import org.wso2.carbon.cep.core.internal.util.CEPConstants;
 import org.wso2.carbon.cep.core.mapping.output.Output;
-import org.wso2.carbon.cep.core.mapping.output.mapping.ElementOutputMapping;
+
+import org.wso2.carbon.cep.core.mapping.output.mapping.MapOutputMapping;
+import org.wso2.carbon.cep.core.mapping.output.mapping.TupleOutputMapping;
 import org.wso2.carbon.cep.core.mapping.output.mapping.XMLOutputMapping;
-import org.wso2.carbon.cep.core.mapping.property.XMLProperty;
-import org.wso2.developerstudio.eclipse.artifact.cep.utils.CEPArtifactConstants;
+import org.wso2.carbon.cep.core.mapping.output.property.MapOutputProperty;
+import org.wso2.carbon.cep.core.mapping.output.property.TupleOutputProperty;
 
 public class QueryDialog extends TitleAreaDialog {
 	private String qname = "";
-	private String qExpressionType = CEPConstants.CEP_CONF_EXPRESSION_INLINE;
+
 	private String queryBroker = "";
-	private String selectedMethod = CEPConstants.CEP_CONF_ELE_XML_MAPPING;
+	private String selectedMethod = "";
 	private String qExpression = "";
-	private String qExpressionLookUpKey = "";
-	private String oDocumentElement = "";
-	private String oNamespace = "";
+
 	private String oTopic = "";
 	private String sXMLMapping = "";
-	private String propertyName = "";
+	private String mapName = "";
+	private String valueOf = "";
 	private String selectedXMLFieldType = CEPConstants.CEP_CONF_XML_FIELD_TYPE_ELEMENT;
 	private String xmlFieldName = "";
-	private String hashMapProperty = "";
-	private String[] expressionTypes = {
-			CEPConstants.CEP_CONF_EXPRESSION_INLINE,
-			CEPConstants.CEP_REGISTRY_KEY };
+
 	private String[] methods = { CEPConstants.CEP_CONF_ELE_XML_MAPPING,
-			CEPConstants.CEP_CONF_ELE_EMAPPING };
+			CEPConstants.CEP_CONF_ELE_MAP_MAPPING,
+			CEPConstants.CEP_CONF_ELE_TUPLE_MAPPING };
 	private String[] xmlFieldTypes = {
 			CEPConstants.CEP_CONF_XML_FIELD_TYPE_ELEMENT,
 			CEPConstants.CEP_CONF_XML_FIELD_TYPE_ATTRIBUTE };
 	private boolean editPage = false;
 	private boolean exceedCount = false;
-
+	private boolean exceedCountMedtadata = false;
+	private boolean exceedCountCorrelationData = false;
+	private boolean exceedCountPayloadData = false;
 	private boolean isPageCanceled = false;
 
-	private int count;//
-	private List<XMLProperty> queryProperty = new ArrayList<XMLProperty>();
-	private Map<String, String> proQuery = new HashMap<String, String>();
+	private int count;
+	private int countMetadata;
+	private int countCorrelationData;
+	private int countPayloadData;
+	private List<MapOutputProperty> mapProperty = new ArrayList<MapOutputProperty>();
+	private List<TupleOutputProperty> tupleMetadataProperty = new ArrayList<TupleOutputProperty>();
+	private List<TupleOutputProperty> tupleCorrelationProperty = new ArrayList<TupleOutputProperty>();
+	private List<TupleOutputProperty> tuplePayloadProperty = new ArrayList<TupleOutputProperty>();
+	private Map<String, String> mapQuery = new HashMap<String, String>();
+	private Map<String, String> mapMetadata = new HashMap<String, String>();
+	private Map<String, String> mapCorrelationdata = new HashMap<String, String>();
+	private Map<String, String> mapPayloaddata = new HashMap<String, String>();
 	private Text name;
 	private Text expression;
-	private Text expressionLookUpKey;
+
 	private Text topic;
-	private Text documentElement;
-	private Text namespace;
+
 	private Text xmlMapping;
 	private Text brokerName;
 
-	private Combo expressionAs;
-
 	private CTabFolder tabFolder;
 	private CTabItem tXMLMap;
-	private CTabItem tEleMap;
+	private CTabItem tMap;
+	private CTabItem tTuple;
 	private TableViewer tableQuery;
+	private TableViewer tableTupleMetadata;
+	private TableViewer tableTupleCorrelationdata;
+	private TableViewer tableTuplePayloaddata;
+
 	private Table table;
+	private Table tableMetadata;
+	private Table tableCorrelationdata;
+	private Table tablePayloaddata;
 
 	private Button edit;
 	private Button add;
 	private Button delete;
+	private Button editMetadata;
+	private Button addMetadata;
+	private Button deleteMetadata;
+	private Button editCorreltaionData;
+	private Button addCorrelationData;
+	private Button deleteCorrelationData;
+	private Button editPayloadData;
+	private Button addPayloadData;
+	private Button deletePayloadData;
 	private Query query;
 
 	@Override
@@ -118,30 +141,46 @@ public class QueryDialog extends TitleAreaDialog {
 	public QueryDialog(Shell parentShell, boolean edit) {
 		super(parentShell);
 		editPage = edit;
-		XMLProperty empty = new XMLProperty();
-		empty.setName("");
-		empty.setXmlFieldName("");
-		empty.setXmlFieldType("");
-		queryProperty.add(empty);
-		queryProperty.add(empty);
+		MapOutputProperty empty = new MapOutputProperty("", "");
+		TupleOutputProperty emptyOut = new TupleOutputProperty("", "", "");
+		tupleMetadataProperty.add(emptyOut);
+		tupleMetadataProperty.add(emptyOut);
+		tupleCorrelationProperty.add(emptyOut);
+		tupleCorrelationProperty.add(emptyOut);
+		tuplePayloadProperty.add(emptyOut);
+		tuplePayloadProperty.add(emptyOut);
+		mapProperty.add(empty);
+		mapProperty.add(empty);
 	}
 
 	@Override
 	protected Control createDialogArea(Composite parent) {
 		GridData grData = null;
+		final Composite containerInit = (Composite) super
+				.createDialogArea(parent);
+		GridLayout layoutInit = new GridLayout();
+		containerInit.setLayout(layoutInit);
+
 		final ScrolledComposite scrolledContainer = new ScrolledComposite(
-				parent, SWT.H_SCROLL | SWT.V_SCROLL | SWT.BORDER);
+				containerInit, SWT.V_SCROLL | SWT.H_SCROLL | SWT.BORDER);
+
 		scrolledContainer.setMinSize(800, 500);
 		scrolledContainer.setExpandHorizontal(true);
 		scrolledContainer.setExpandVertical(true);
 		scrolledContainer.setAlwaysShowScrollBars(true);
-		final Composite container = new Composite(scrolledContainer, SWT.NONE
-				| SWT.V_SCROLL);
+
+		final Composite container = new Composite(scrolledContainer,
+				SWT.V_SCROLL | SWT.H_SCROLL | SWT.BORDER);
 		scrolledContainer.setContent(container);
+		grData = new GridData();
+		grData.grabExcessHorizontalSpace = true;
+		grData.grabExcessVerticalSpace = true;
 		GridLayout layout = new GridLayout();
 		container.setLayout(layout);
+		container.setLayoutData(grData);
 		layout.numColumns = 2;
 		layout.marginHeight = 10;
+
 		Label lbName = new Label(container, SWT.NULL);
 		lbName.setText("Name*");
 		name = new Text(container, SWT.BORDER | SWT.SINGLE);
@@ -158,59 +197,15 @@ public class QueryDialog extends TitleAreaDialog {
 				}
 			}
 		});
-		Label lbExpression = new Label(container, SWT.NULL);
-		lbExpression.setText("Expression as ");
 
-		expressionAs = new Combo(container, SWT.READ_ONLY);
-		expressionAs.setItems(expressionTypes);
-		expressionAs.setText(qExpressionType);
-		expressionAs.setBounds(150, 44, 152, 23);
-		final Label lbExpressionLookup = new Label(container, SWT.NULL);
-		lbExpressionLookup.setText("Expresion Look Up Key");
-		lbExpressionLookup.setVisible(false);
-		expressionLookUpKey = new Text(container, SWT.BORDER | SWT.SINGLE);
-		expressionLookUpKey
-				.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
-		expressionLookUpKey.setVisible(false);
-		expressionLookUpKey.setText(qExpressionLookUpKey);
 		final Label lblExpression = new Label(container, SWT.NULL);
 		lblExpression.setText("Expression");
-		expression = new Text(container, SWT.BORDER | SWT.MULTI);
+		expression = new Text(container, SWT.BORDER | SWT.MULTI | SWT.V_SCROLL);
 		expression.setLayoutData(new GridData(GridData.FILL_HORIZONTAL, 100));
 		expression.setText(qExpression);
-		expressionAs.addSelectionListener(new SelectionListener() {
 
-			@Override
-			public void widgetSelected(SelectionEvent arg0) {
-				// TODO Auto-generated method stub
-				if (expressionAs.getSelectionIndex() == 1) {
-					lbExpressionLookup.setVisible(true);
-
-					expressionLookUpKey.setVisible(true);
-					lblExpression.setVisible(false);
-					expression.setVisible(false);
-
-				} else if (expressionAs.getSelectionIndex() == 0) {
-					lbExpressionLookup.setVisible(false);
-					;
-					expressionLookUpKey.setVisible(false);
-					lblExpression.setVisible(true);
-					expression.setVisible(true);
-				}
-
-			}
-
-			@Override
-			public void widgetDefaultSelected(SelectionEvent arg0) {
-
-			}
-		});
-		Label lbOutput = new Label(container, SWT.NULL);
-		lbOutput.setText("Output");
-		Label lbEmpty = new Label(container, SWT.NULL);
-		lbEmpty.setText("");
 		Label lbTopic = new Label(container, SWT.NULL);
-		lbTopic.setText("Topic");
+		lbTopic.setText("Output Topic");
 		topic = new Text(container, SWT.BORDER | SWT.SINGLE);
 		topic.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 		topic.setText(oTopic);
@@ -220,7 +215,7 @@ public class QueryDialog extends TitleAreaDialog {
 		brokerName.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 		brokerName.setText(queryBroker);
 		Label lbMethod = new Label(container, SWT.NULL);
-		lbMethod.setText("Method");
+		lbMethod.setText("Output Mapping");
 
 		tabFolder = new CTabFolder(container, SWT.NULL);
 		tabFolder.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
@@ -231,38 +226,24 @@ public class QueryDialog extends TitleAreaDialog {
 		tXMLMap.setControl(xmlMapping);
 		xmlMapping.setLayoutData(new GridData(GridData.FILL_HORIZONTAL, 200));
 		xmlMapping.setText(sXMLMapping);
-		tEleMap = new CTabItem(tabFolder, SWT.NULL);
-		tEleMap.setText("Element Mapping");
+		tMap = new CTabItem(tabFolder, SWT.NULL);
+		tMap.setText("Map Mapping");
+		tTuple = new CTabItem(tabFolder, SWT.NULL);
+		tTuple.setText("Tuple Mapping");
+		tabFolder.setSelection(tTuple);
 		if (getSelectedMethod().equals(CEPConstants.CEP_CONF_ELE_XML_MAPPING)) {
 			tabFolder.setSelection(tXMLMap);
 		} else if (getSelectedMethod().equals(
-				CEPConstants.CEP_CONF_ELE_EMAPPING)) {
-			tabFolder.setSelection(tEleMap);
+				CEPConstants.CEP_CONF_ELE_MAP_MAPPING)) {
+			tabFolder.setSelection(tMap);
+		} else if (getSelectedMethod().equals(
+				CEPConstants.CEP_CONF_ELE_TUPLE_MAPPING)) {
+			tabFolder.setSelection(tTuple);
 		}
 		GridLayout tabLayout = new GridLayout();
 		tabLayout.numColumns = 3;
 		Composite tabComposite = new Composite(tabFolder, SWT.BORDER);
 		tabComposite.setLayout(tabLayout);
-		final Label lbDocElement = new Label(tabComposite, SWT.NULL);
-		lbDocElement.setText("Document Element");
-		documentElement = new Text(tabComposite, SWT.BORDER | SWT.SINGLE);
-		grData = new GridData(GridData.FILL_HORIZONTAL);
-		grData.horizontalSpan = 2;
-		documentElement.setLayoutData(grData);
-		documentElement.setText(oDocumentElement);
-		documentElement.setLayoutData(grData);
-		final Label lbNamespace = new Label(tabComposite, SWT.NULL);
-		lbNamespace.setText("Namespace");
-		namespace = new Text(tabComposite, SWT.BORDER | SWT.SINGLE);
-		namespace.setText(oNamespace);
-		grData = new GridData(GridData.FILL_HORIZONTAL);
-		grData.horizontalSpan = 2;
-		namespace.setLayoutData(grData);
-		final Label lbProperties = new Label(tabComposite, SWT.NULL);
-		lbProperties.setText("Properties");
-		lbEmpty = new Label(tabComposite, SWT.NULL);
-		lbEmpty.setText("");
-		lbEmpty.setLayoutData(grData);
 		tableQuery = new TableViewer(tabComposite, SWT.MULTI | SWT.H_SCROLL
 				| SWT.V_SCROLL | SWT.FULL_SELECTION | SWT.BORDER);
 		table = tableQuery.getTable();
@@ -279,60 +260,45 @@ public class QueryDialog extends TitleAreaDialog {
 		delete = new Button(tabComposite, SWT.NONE);
 		delete.setLayoutData(grData);
 
-		if (qExpressionType.equals(CEPConstants.CEP_CONF_EXPRESSION_INLINE)) {
-			lbExpressionLookup.setVisible(false);
-			expressionLookUpKey.setVisible(false);
-			lblExpression.setVisible(true);
-			expression.setVisible(true);
-		} else if (qExpressionType.equals(CEPConstants.CEP_REGISTRY_KEY)) {
-			lbExpressionLookup.setVisible(true);
-			expressionLookUpKey.setVisible(true);
-			lblExpression.setVisible(false);
-			expression.setVisible(false);
-		}
-
 		add.setText("Add...");
 		add.addSelectionListener(new SelectionListener() {
 
 			@Override
 			public void widgetSelected(SelectionEvent arg0) {
 				boolean already = false;
-				QueryPropertyDialog dialog = new QueryPropertyDialog(
-						getParentShell(), false);
+				QueryMapPropertyDialog dialog = new QueryMapPropertyDialog(
+						getParentShell());
 				dialog.create();
 				if (dialog.open() == Window.OK) {
-					XMLProperty pro = dialog.getProperty();
-					setPropertyName(pro.getName());
+					MapOutputProperty property = dialog.getProperty();
+					setMapName(property.getName());
 
-					for (int k = 0; k < queryProperty.size(); k++) {
-						if (queryProperty.get(k).getName()
-								.equals(getPropertyName())) {
+					for (int k = 0; k < mapProperty.size(); k++) {
+						if (mapProperty.get(k).getName().equals(getMapName())) {
 							already = true;
 						}
 					}
-					setXmlFieldName(pro.getXmlFieldName());
-					setSelectedXMLFieldType(pro.getXmlFieldType());
-					hashMapProperty = getXmlFieldName() + "|"
-							+ getSelectedXMLFieldType();
+					setValueOf(property.getValueOf());
+
 					if (!editPage && !already) {
 						if (count < 2 && !exceedCount) {
-							queryProperty.remove(count);
+							mapProperty.remove(count);
 
-							queryProperty.add(count, pro);
-							proQuery.put(getPropertyName(), hashMapProperty);
+							mapProperty.add(count, property);
+							mapQuery.put(getMapName(), getValueOf());
 							count++;
 						} else {
 
-							queryProperty.add(pro);
-							proQuery.put(getPropertyName(), hashMapProperty);
+							mapProperty.add(property);
+							mapQuery.put(getMapName(), getValueOf());
 
 						}
 					} else if (editPage && !already) {
 						int counting = 0;
-						if (queryProperty.size() > 0) {
-							while (queryProperty.get(0).getName().equals("")) {
+						if (mapProperty.size() > 0) {
+							while (mapProperty.get(0).getName().equals("")) {
 								counting++;
-								queryProperty.remove(0);
+								mapProperty.remove(0);
 								if (counting == 2) {
 									break;
 								}
@@ -340,14 +306,14 @@ public class QueryDialog extends TitleAreaDialog {
 
 						}
 
-						queryProperty.add(pro);
-						proQuery.put(getPropertyName(), hashMapProperty);
+						mapProperty.add(property);
+						mapQuery.put(getMapName(), getValueOf());
 
 					}
 
 					tableQuery.setContentProvider(ArrayContentProvider
 							.getInstance());
-					tableQuery.setInput(queryProperty.toArray());
+					tableQuery.setInput(mapProperty.toArray());
 					tableQuery.refresh();
 
 				}
@@ -357,10 +323,11 @@ public class QueryDialog extends TitleAreaDialog {
 			public void widgetDefaultSelected(SelectionEvent arg0) {
 
 			}
+
 		});
 
-		setQueryTable(tabComposite, queryProperty);
-		tEleMap.setControl(tabComposite);
+		setQueryTable(tabComposite, mapProperty);
+		tMap.setControl(tabComposite);
 		table.addSelectionListener(new SelectionListener() {
 
 			@Override
@@ -371,7 +338,6 @@ public class QueryDialog extends TitleAreaDialog {
 
 			@Override
 			public void widgetDefaultSelected(SelectionEvent arg0) {
-				// TODO Auto-generated method stub
 
 			}
 		});
@@ -383,23 +349,20 @@ public class QueryDialog extends TitleAreaDialog {
 			public void widgetSelected(SelectionEvent arg0) {
 
 				int selectedIndex = table.getSelectionIndex();
-				XMLProperty property = queryProperty.get(selectedIndex);
-				QueryPropertyDialog dialog = new QueryPropertyDialog(
-						getParentShell(), true);
+				MapOutputProperty property = mapProperty.get(selectedIndex);
+				QueryMapPropertyDialog dialog = new QueryMapPropertyDialog(
+						getParentShell());
 				dialog.initializePage(property);
 				dialog.create();
 				if (dialog.open() == Window.OK) {
-					XMLProperty newProperty = dialog.getProperty();
-					hashMapProperty = newProperty.getXmlFieldName() + "|"
-							+ newProperty.getXmlFieldType();
-					proQuery.remove(queryProperty
-							.get(table.getSelectionIndex()).getName());
-					queryProperty.remove(selectedIndex);
-					proQuery.put(newProperty.getName(), hashMapProperty);
-					queryProperty.add(selectedIndex, newProperty);
+					MapOutputProperty newProperty = dialog.getProperty();
+					mapProperty.remove(selectedIndex);
+					mapQuery.put(newProperty.getName(),
+							newProperty.getValueOf());
+					mapProperty.add(selectedIndex, newProperty);
 					tableQuery.setContentProvider(ArrayContentProvider
 							.getInstance());
-					tableQuery.setInput(queryProperty.toArray());
+					tableQuery.setInput(mapProperty.toArray());
 					tableQuery.refresh();
 					edit.setEnabled(false);
 				}
@@ -407,7 +370,6 @@ public class QueryDialog extends TitleAreaDialog {
 
 			@Override
 			public void widgetDefaultSelected(SelectionEvent arg0) {
-				// TODO Auto-generated method stub
 
 			}
 
@@ -420,16 +382,16 @@ public class QueryDialog extends TitleAreaDialog {
 			@Override
 			public void widgetSelected(SelectionEvent arg0) {
 				if (count < 2 && !exceedCount && !editPage) {
-					queryProperty.remove(0);
+					mapProperty.remove(0);
 				}
 				exceedCount = true;
 
-				proQuery.remove(queryProperty.get(table.getSelectionIndex())
+				mapQuery.remove(mapProperty.get(table.getSelectionIndex())
 						.getName());
-				queryProperty.remove(table.getSelectionIndex());
+				mapProperty.remove(table.getSelectionIndex());
 				tableQuery.setContentProvider(ArrayContentProvider
 						.getInstance());
-				tableQuery.setInput(queryProperty.toArray());
+				tableQuery.setInput(mapProperty.toArray());
 				tableQuery.refresh();
 
 				delete.setEnabled(false);
@@ -440,16 +402,566 @@ public class QueryDialog extends TitleAreaDialog {
 
 			}
 		});
+		GridLayout tabLayoutTuple = new GridLayout();
+		tabLayoutTuple.numColumns = 3;
+		Composite tabCompositeTuple = new Composite(tabFolder, SWT.BORDER);
 
-		scrolledContainer.setMinSize(container.computeSize(SWT.DEFAULT,
-				SWT.DEFAULT));
+		tabCompositeTuple.setLayout(tabLayoutTuple);
+		Label lbMetadata = new Label(tabCompositeTuple, SWT.NULL);
+		lbMetadata.setText("Meta Data");
+
+		GridData grDataOne = new GridData(GridData.FILL_HORIZONTAL);
+		grDataOne.verticalSpan = 3;
+		lbMetadata.setLayoutData(grDataOne);
+		tableTupleMetadata = new TableViewer(tabCompositeTuple, SWT.MULTI
+				| SWT.H_SCROLL | SWT.V_SCROLL | SWT.FULL_SELECTION | SWT.BORDER);
+		tableMetadata = tableTupleMetadata.getTable();
+		grData = new GridData(GridData.FILL_HORIZONTAL);
+		grData.horizontalSpan = 1;
+		grData.verticalSpan = 3;
+		tableMetadata.setLayoutData(grData);
+
+		addMetadata = new Button(tabCompositeTuple, SWT.NONE);
+		grData = new GridData(GridData.FILL_HORIZONTAL);
+		addMetadata.setLayoutData(grData);
+
+		editMetadata = new Button(tabCompositeTuple, SWT.NONE);
+		editMetadata.setLayoutData(grData);
+		deleteMetadata = new Button(tabCompositeTuple, SWT.NONE);
+		deleteMetadata.setLayoutData(grData);
+
+		addMetadata.setText("Add...");
+		addMetadata.addSelectionListener(new SelectionListener() {
+
+			@Override
+			public void widgetSelected(SelectionEvent arg0) {
+				boolean already = false;
+				QueryTuplePropertyDialog dialog = new QueryTuplePropertyDialog(
+						getParentShell(), "Metadata Configuration");
+				dialog.create();
+				if (dialog.open() == Window.OK) {
+					TupleOutputProperty property = dialog.getProperty();
+
+					for (TupleOutputProperty tuple : tupleMetadataProperty) {
+						if (tuple.getName().equals(property.getName())) {
+							already = true;
+						}
+					}
+
+					if (!editPage && !already) {
+						if (countMetadata < 2 && !exceedCountMedtadata) {
+							tupleMetadataProperty.remove(countMetadata);
+
+							tupleMetadataProperty.add(countMetadata, property);
+							mapMetadata.put(
+									property.getName(),
+									property.getValueOf() + "|"
+											+ property.getType());
+							countMetadata++;
+						} else {
+
+							tupleMetadataProperty.add(property);
+							mapMetadata.put(
+									property.getName(),
+									property.getValueOf() + "|"
+											+ property.getType());
+
+						}
+					} else if (editPage && !already) {
+						int counting = 0;
+						if (tupleMetadataProperty.size() > 0) {
+							while (tupleMetadataProperty.get(0).getName()
+									.equals("")) {
+								counting++;
+								tupleMetadataProperty.remove(0);
+								if (counting == 2) {
+									break;
+								}
+							}
+
+						}
+
+						tupleMetadataProperty.add(property);
+						mapMetadata.put(
+								property.getName(),
+								property.getValueOf() + "|"
+										+ property.getType());
+
+					}
+
+					tableTupleMetadata.setContentProvider(ArrayContentProvider
+							.getInstance());
+					tableTupleMetadata.setInput(tupleMetadataProperty.toArray());
+					tableTupleMetadata.refresh();
+
+				}
+			}
+
+			@Override
+			public void widgetDefaultSelected(SelectionEvent arg0) {
+
+			}
+
+		});
+
+		setTuplePropertyTable(tabCompositeTuple, tupleMetadataProperty,
+				tableMetadata, tableTupleMetadata);
+		tTuple.setControl(tabCompositeTuple);
+		tableMetadata.addSelectionListener(new SelectionListener() {
+
+			@Override
+			public void widgetSelected(SelectionEvent arg0) {
+				deleteMetadata.setEnabled(true);
+				editMetadata.setEnabled(true);
+			}
+
+			@Override
+			public void widgetDefaultSelected(SelectionEvent arg0) {
+
+			}
+		});
+		editMetadata.setText("Edit...");
+		editMetadata.setEnabled(false);
+		editMetadata.addSelectionListener(new SelectionListener() {
+
+			@Override
+			public void widgetSelected(SelectionEvent arg0) {
+
+				int selectedIndex = tableMetadata.getSelectionIndex();
+				TupleOutputProperty property = tupleMetadataProperty
+						.get(selectedIndex);
+				QueryTuplePropertyDialog dialog = new QueryTuplePropertyDialog(
+						getParentShell(), "Metadata Configuration");
+				dialog.initializePage(property);
+				dialog.create();
+				if (dialog.open() == Window.OK) {
+					TupleOutputProperty newProperty = dialog.getProperty();
+					tupleMetadataProperty.remove(selectedIndex);
+					mapMetadata.put(
+							newProperty.getName(),
+							newProperty.getValueOf() + "|"
+									+ newProperty.getType());
+					tupleMetadataProperty.add(selectedIndex, newProperty);
+					tableTupleMetadata.setContentProvider(ArrayContentProvider
+							.getInstance());
+					tableTupleMetadata.setInput(tupleMetadataProperty.toArray());
+					tableTupleMetadata.refresh();
+					editMetadata.setEnabled(false);
+				}
+			}
+
+			@Override
+			public void widgetDefaultSelected(SelectionEvent arg0) {
+
+			}
+
+		});
+
+		deleteMetadata.setText("Delete");
+		deleteMetadata.setEnabled(false);
+		deleteMetadata.addSelectionListener(new SelectionListener() {
+
+			@Override
+			public void widgetSelected(SelectionEvent arg0) {
+				if (countMetadata < 2 && !exceedCountMedtadata && !editPage) {
+					tupleMetadataProperty.remove(0);
+				}
+				exceedCountMedtadata = true;
+
+				mapMetadata.remove(tupleMetadataProperty.get(
+						tableMetadata.getSelectionIndex()).getName());
+				tupleMetadataProperty.remove(tableMetadata.getSelectionIndex());
+				tableTupleMetadata.setContentProvider(ArrayContentProvider
+						.getInstance());
+				tableTupleMetadata.setInput(tupleMetadataProperty.toArray());
+				tableTupleMetadata.refresh();
+
+				deleteMetadata.setEnabled(false);
+			}
+
+			@Override
+			public void widgetDefaultSelected(SelectionEvent arg0) {
+
+			}
+		});
+
+		Label lbCorrelation = new Label(tabCompositeTuple, SWT.NULL);
+		lbCorrelation.setText("Correlation");
+
+		lbCorrelation.setLayoutData(grDataOne);
+		tableTupleCorrelationdata = new TableViewer(tabCompositeTuple,
+				SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL | SWT.FULL_SELECTION
+						| SWT.BORDER);
+		tableCorrelationdata = tableTupleCorrelationdata.getTable();
+		grData = new GridData(GridData.FILL_HORIZONTAL);
+		grData.horizontalSpan = 1;
+		grData.verticalSpan = 3;
+		tableCorrelationdata.setLayoutData(grData);
+
+		addCorrelationData = new Button(tabCompositeTuple, SWT.NONE);
+		grData = new GridData(GridData.FILL_HORIZONTAL);
+		addCorrelationData.setLayoutData(grData);
+		editCorreltaionData = new Button(tabCompositeTuple, SWT.NONE);
+		editCorreltaionData.setLayoutData(grData);
+		deleteCorrelationData = new Button(tabCompositeTuple, SWT.NONE);
+		deleteCorrelationData.setLayoutData(grData);
+
+		addCorrelationData.setText("Add...");
+		addCorrelationData.addSelectionListener(new SelectionListener() {
+
+			@Override
+			public void widgetSelected(SelectionEvent arg0) {
+				boolean already = false;
+				QueryTuplePropertyDialog dialog = new QueryTuplePropertyDialog(
+						getParentShell(), "Correlation Data Configuration");
+				dialog.create();
+				if (dialog.open() == Window.OK) {
+					TupleOutputProperty property = dialog.getProperty();
+
+					for (TupleOutputProperty tuple : tupleCorrelationProperty) {
+						if (tuple.getName().equals(property.getName())) {
+							already = true;
+						}
+					}
+
+					if (!editPage && !already) {
+						if (countCorrelationData < 2
+								&& !exceedCountCorrelationData) {
+							tupleCorrelationProperty
+									.remove(countCorrelationData);
+
+							tupleCorrelationProperty.add(countCorrelationData,
+									property);
+							mapCorrelationdata.put(
+									property.getName(),
+									property.getValueOf() + "|"
+											+ property.getType());
+							countCorrelationData++;
+						} else {
+
+							tupleCorrelationProperty.add(property);
+							mapCorrelationdata.put(
+									property.getName(),
+									property.getValueOf() + "|"
+											+ property.getType());
+
+						}
+					} else if (editPage && !already) {
+						int counting = 0;
+						if (tupleCorrelationProperty.size() > 0) {
+							while (tupleCorrelationProperty.get(0).getName()
+									.equals("")) {
+								counting++;
+								tupleCorrelationProperty.remove(0);
+								if (counting == 2) {
+									break;
+								}
+							}
+
+						}
+
+						tupleCorrelationProperty.add(property);
+						mapCorrelationdata.put(
+								property.getName(),
+								property.getValueOf() + "|"
+										+ property.getType());
+
+					}
+
+					tableTupleCorrelationdata
+							.setContentProvider(ArrayContentProvider
+									.getInstance());
+					tableTupleCorrelationdata.setInput(tupleCorrelationProperty
+							.toArray());
+					tableTupleCorrelationdata.refresh();
+
+				}
+			}
+
+			@Override
+			public void widgetDefaultSelected(SelectionEvent arg0) {
+
+			}
+
+		});
+
+		setTuplePropertyTable(tabCompositeTuple, tupleCorrelationProperty,
+				tableCorrelationdata, tableTupleCorrelationdata);
+		tTuple.setControl(tabCompositeTuple);
+		tableCorrelationdata.addSelectionListener(new SelectionListener() {
+
+			@Override
+			public void widgetSelected(SelectionEvent arg0) {
+				deleteCorrelationData.setEnabled(true);
+				editCorreltaionData.setEnabled(true);
+			}
+
+			@Override
+			public void widgetDefaultSelected(SelectionEvent arg0) {
+
+			}
+		});
+		editCorreltaionData.setText("Edit...");
+		editCorreltaionData.setEnabled(false);
+		editCorreltaionData.addSelectionListener(new SelectionListener() {
+
+			@Override
+			public void widgetSelected(SelectionEvent arg0) {
+
+				int selectedIndex = tableCorrelationdata.getSelectionIndex();
+				TupleOutputProperty property = tupleCorrelationProperty
+						.get(selectedIndex);
+				QueryTuplePropertyDialog dialog = new QueryTuplePropertyDialog(
+						getParentShell(), "Correlation Data Configuration");
+				dialog.initializePage(property);
+				dialog.create();
+				if (dialog.open() == Window.OK) {
+					TupleOutputProperty newProperty = dialog.getProperty();
+					tupleCorrelationProperty.remove(selectedIndex);
+					mapCorrelationdata.put(
+							newProperty.getName(),
+							newProperty.getValueOf() + "|"
+									+ newProperty.getType());
+					tupleCorrelationProperty.add(selectedIndex, newProperty);
+					tableTupleCorrelationdata
+							.setContentProvider(ArrayContentProvider
+									.getInstance());
+					tableTupleCorrelationdata.setInput(tupleCorrelationProperty
+							.toArray());
+					tableTupleCorrelationdata.refresh();
+					editCorreltaionData.setEnabled(false);
+				}
+			}
+
+			@Override
+			public void widgetDefaultSelected(SelectionEvent arg0) {
+
+			}
+
+		});
+
+		deleteCorrelationData.setText("Delete");
+		deleteCorrelationData.setEnabled(false);
+		deleteCorrelationData.addSelectionListener(new SelectionListener() {
+
+			@Override
+			public void widgetSelected(SelectionEvent arg0) {
+				if (countCorrelationData < 2 && !exceedCountCorrelationData
+						&& !editPage) {
+					tupleCorrelationProperty.remove(0);
+				}
+				exceedCountCorrelationData = true;
+
+				mapCorrelationdata.remove(tupleCorrelationProperty.get(
+						tableCorrelationdata.getSelectionIndex()).getName());
+				tupleCorrelationProperty.remove(tableCorrelationdata
+						.getSelectionIndex());
+				tableTupleCorrelationdata
+						.setContentProvider(ArrayContentProvider.getInstance());
+				tableTupleCorrelationdata.setInput(tupleCorrelationProperty
+						.toArray());
+				tableTupleCorrelationdata.refresh();
+
+				deleteCorrelationData.setEnabled(false);
+			}
+
+			@Override
+			public void widgetDefaultSelected(SelectionEvent arg0) {
+
+			}
+		});
+
+		Label lbPayload = new Label(tabCompositeTuple, SWT.NULL);
+		lbPayload.setText("Payload Data");
+
+		lbPayload.setLayoutData(grDataOne);
+		tableTuplePayloaddata = new TableViewer(tabCompositeTuple, SWT.MULTI
+				| SWT.H_SCROLL | SWT.V_SCROLL | SWT.FULL_SELECTION | SWT.BORDER);
+		tablePayloaddata = tableTuplePayloaddata.getTable();
+		grData = new GridData(GridData.FILL_HORIZONTAL);
+		grData.horizontalSpan = 1;
+		grData.verticalSpan = 3;
+		tablePayloaddata.setLayoutData(grData);
+
+		addPayloadData = new Button(tabCompositeTuple, SWT.NONE);
+		grData = new GridData(GridData.FILL_HORIZONTAL);
+		addPayloadData.setLayoutData(grData);
+		editPayloadData = new Button(tabCompositeTuple, SWT.NONE);
+		editPayloadData.setLayoutData(grData);
+		deletePayloadData = new Button(tabCompositeTuple, SWT.NONE);
+		deletePayloadData.setLayoutData(grData);
+
+		addPayloadData.setText("Add...");
+		addPayloadData.addSelectionListener(new SelectionListener() {
+
+			@Override
+			public void widgetSelected(SelectionEvent arg0) {
+				boolean already = false;
+				QueryTuplePropertyDialog dialog = new QueryTuplePropertyDialog(
+						getParentShell(), "Payload Data Configuration");
+				dialog.create();
+				if (dialog.open() == Window.OK) {
+					TupleOutputProperty property = dialog.getProperty();
+
+					for (TupleOutputProperty tuple : tuplePayloadProperty) {
+						if (tuple.getName().equals(property.getName())) {
+							already = true;
+						}
+					}
+
+					if (!editPage && !already) {
+						if (countPayloadData < 2 && !exceedCountPayloadData) {
+							tuplePayloadProperty.remove(countPayloadData);
+
+							tuplePayloadProperty
+									.add(countPayloadData, property);
+							mapPayloaddata.put(
+									property.getName(),
+									property.getValueOf() + "|"
+											+ property.getType());
+							countPayloadData++;
+						} else {
+
+							tuplePayloadProperty.add(property);
+							mapPayloaddata.put(
+									property.getName(),
+									property.getValueOf() + "|"
+											+ property.getType());
+
+						}
+					} else if (editPage && !already) {
+						int counting = 0;
+						if (tuplePayloadProperty.size() > 0) {
+							while (tuplePayloadProperty.get(0).getName()
+									.equals("")) {
+								counting++;
+								tuplePayloadProperty.remove(0);
+								if (counting == 2) {
+									break;
+								}
+							}
+
+						}
+
+						tuplePayloadProperty.add(property);
+						mapPayloaddata.put(
+								property.getName(),
+								property.getValueOf() + "|"
+										+ property.getType());
+
+					}
+
+					tableTuplePayloaddata
+							.setContentProvider(ArrayContentProvider
+									.getInstance());
+					tableTuplePayloaddata.setInput(tuplePayloadProperty
+							.toArray());
+					tableTuplePayloaddata.refresh();
+
+				}
+			}
+
+			@Override
+			public void widgetDefaultSelected(SelectionEvent arg0) {
+
+			}
+
+		});
+
+		setTuplePropertyTable(tabCompositeTuple, tuplePayloadProperty,
+				tablePayloaddata, tableTuplePayloaddata);
+		tTuple.setControl(tabCompositeTuple);
+		tablePayloaddata.addSelectionListener(new SelectionListener() {
+
+			@Override
+			public void widgetSelected(SelectionEvent arg0) {
+				deletePayloadData.setEnabled(true);
+				editPayloadData.setEnabled(true);
+			}
+
+			@Override
+			public void widgetDefaultSelected(SelectionEvent arg0) {
+
+			}
+		});
+		editPayloadData.setText("Edit...");
+		editPayloadData.setEnabled(false);
+		editPayloadData.addSelectionListener(new SelectionListener() {
+
+			@Override
+			public void widgetSelected(SelectionEvent arg0) {
+
+				int selectedIndex = tablePayloaddata.getSelectionIndex();
+				TupleOutputProperty property = tuplePayloadProperty
+						.get(selectedIndex);
+				QueryTuplePropertyDialog dialog = new QueryTuplePropertyDialog(
+						getParentShell(), "Payload Data Configuration");
+				dialog.initializePage(property);
+				dialog.create();
+				if (dialog.open() == Window.OK) {
+					TupleOutputProperty newProperty = dialog.getProperty();
+					tuplePayloadProperty.remove(selectedIndex);
+					mapPayloaddata.put(
+							newProperty.getName(),
+							newProperty.getValueOf() + "|"
+									+ newProperty.getType());
+					tuplePayloadProperty.add(selectedIndex, newProperty);
+					tableTuplePayloaddata
+							.setContentProvider(ArrayContentProvider
+									.getInstance());
+					tableTuplePayloaddata.setInput(tuplePayloadProperty
+							.toArray());
+					tableTuplePayloaddata.refresh();
+					editPayloadData.setEnabled(false);
+				}
+			}
+
+			@Override
+			public void widgetDefaultSelected(SelectionEvent arg0) {
+
+			}
+
+		});
+
+		deletePayloadData.setText("Delete");
+		deletePayloadData.setEnabled(false);
+		deletePayloadData.addSelectionListener(new SelectionListener() {
+
+			@Override
+			public void widgetSelected(SelectionEvent arg0) {
+				if (countPayloadData < 2 && !exceedCountPayloadData
+						&& !editPage) {
+					tuplePayloadProperty.remove(0);
+				}
+				exceedCountPayloadData = true;
+
+				mapPayloaddata.remove(tuplePayloadProperty.get(
+						tablePayloaddata.getSelectionIndex()).getName());
+				tuplePayloadProperty.remove(tablePayloaddata
+						.getSelectionIndex());
+				tableTuplePayloaddata.setContentProvider(ArrayContentProvider
+						.getInstance());
+				tableTuplePayloaddata.setInput(tuplePayloadProperty.toArray());
+				tableTuplePayloaddata.refresh();
+
+				deletePayloadData.setEnabled(false);
+			}
+
+			@Override
+			public void widgetDefaultSelected(SelectionEvent arg0) {
+
+			}
+		});
+
+		scrolledContainer.setMinSize(container.computeSize(SWT.SCROLL_PAGE,
+				SWT.SCROLL_PAGE));
 		container.layout();
 
-		return super.createDialogArea(scrolledContainer);
+		return containerInit;
 	}
 
 	private void setQueryTable(Composite container,
-			List<XMLProperty> propertylist) {
+			List<MapOutputProperty> propertylist) {
 
 		table.setHeaderVisible(true);
 		table.setLinesVisible(true);
@@ -459,8 +971,8 @@ public class QueryDialog extends TitleAreaDialog {
 		viewerColumn.setLabelProvider(new ColumnLabelProvider() {
 			@Override
 			public String getText(Object element) {
-				if (element instanceof XMLProperty) {
-					return ((XMLProperty) element).getName();
+				if (element instanceof MapOutputProperty) {
+					return ((MapOutputProperty) element).getName();
 				} else
 					return "";
 			}
@@ -473,35 +985,74 @@ public class QueryDialog extends TitleAreaDialog {
 		viewerColumnFieldName.setLabelProvider(new ColumnLabelProvider() {
 			@Override
 			public String getText(Object element) {
-				if (element instanceof XMLProperty) {
-					return ((XMLProperty) element).getXmlFieldName();
+				if (element instanceof MapOutputProperty) {
+					return ((MapOutputProperty) element).getValueOf();
 				} else
 					return "";
 			}
 		});
 		viewerColumnFieldName.getColumn().setWidth(200);
-		viewerColumnFieldName.getColumn().setText("Xml Field Name");
-		TableViewerColumn viewerColumnXMLType = new TableViewerColumn(
-				tableQuery, SWT.NONE, 2);
-		viewerColumnXMLType.setLabelProvider(new ColumnLabelProvider() {
-			@Override
-			public String getText(Object element) {
-				if (element instanceof XMLProperty) {
-					return ((XMLProperty) element).getXmlFieldType();
-				} else
-					return "";
-			}
-		});
-		viewerColumnXMLType.getColumn().setWidth(200);
-		viewerColumnXMLType.getColumn().setText("Xml Field Type");
+		viewerColumnFieldName.getColumn().setText("Value Of");
+
 		tableQuery.setContentProvider(ArrayContentProvider.getInstance());
 		tableQuery.setInput(propertylist.toArray());
 		tableQuery.refresh();
 	}
 
+	private void setTuplePropertyTable(Composite container,
+			List<TupleOutputProperty> propertyList, Table table,
+			TableViewer tableViewer) {
+		table.setHeaderVisible(true);
+		table.setLinesVisible(true);
+
+		TableViewerColumn viewerColumn = new TableViewerColumn(tableViewer,
+				SWT.NONE, 0);
+		viewerColumn.setLabelProvider(new ColumnLabelProvider() {
+			@Override
+			public String getText(Object element) {
+				if (element instanceof TupleOutputProperty) {
+					return ((TupleOutputProperty) element).getName();
+				} else
+					return "";
+			}
+		});
+		viewerColumn.getColumn().setWidth(200);
+		viewerColumn.getColumn().setText("Name");
+
+		TableViewerColumn viewerColumnFieldName = new TableViewerColumn(
+				tableViewer, SWT.NONE, 1);
+		viewerColumnFieldName.setLabelProvider(new ColumnLabelProvider() {
+			@Override
+			public String getText(Object element) {
+				if (element instanceof TupleOutputProperty) {
+					return ((TupleOutputProperty) element).getValueOf();
+				} else
+					return "";
+			}
+		});
+		viewerColumnFieldName.getColumn().setWidth(200);
+		viewerColumnFieldName.getColumn().setText("Value Of");
+		TableViewerColumn viewerColumnType = new TableViewerColumn(tableViewer,
+				SWT.NONE, 2);
+		viewerColumnType.setLabelProvider(new ColumnLabelProvider() {
+			@Override
+			public String getText(Object element) {
+				if (element instanceof TupleOutputProperty) {
+					return ((TupleOutputProperty) element).getType();
+				} else
+					return "";
+			}
+		});
+		viewerColumnType.getColumn().setWidth(200);
+		viewerColumnType.getColumn().setText("Type");
+
+		tableViewer.setContentProvider(ArrayContentProvider.getInstance());
+		tableViewer.setInput(propertyList.toArray());
+		tableViewer.refresh();
+	}
+
 	@Override
 	protected boolean isResizable() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
@@ -510,16 +1061,9 @@ public class QueryDialog extends TitleAreaDialog {
 		query = new Query();
 		query.setName(name.getText().trim());
 		Expression expressionObject = new Expression();
-		expressionObject.setType(expressionTypes[expressionAs
-				.getSelectionIndex()]);
 
-		if (expressionTypes[expressionAs.getSelectionIndex()]
-				.equals(CEPConstants.CEP_CONF_EXPRESSION_INLINE)) {
-			expressionObject.setText(expression.getText().trim());
-		} else if (expressionTypes[expressionAs.getSelectionIndex()]
-				.equals(CEPConstants.CEP_REGISTRY_KEY)) {
-			expressionObject.setText(expressionLookUpKey.getText().trim());
-		}
+		expressionObject.setText(expression.getText().trim());
+
 		Output out = new Output();
 		out.setTopic(topic.getText().trim());
 
@@ -529,25 +1073,69 @@ public class QueryDialog extends TitleAreaDialog {
 			XMLOutputMapping xmlout = new XMLOutputMapping();
 			xmlout.setMappingXMLText(xmlMapping.getText().trim());
 			out.setOutputMapping(xmlout);
-		} else if (tabFolder.getSelection() == tEleMap) {
-			ElementOutputMapping eleMap = new ElementOutputMapping();
-			eleMap.setDocumentElement(documentElement.getText().trim());
-			eleMap.setNamespace(namespace.getText().trim());
-			List<XMLProperty> xmlPropertList = new ArrayList<XMLProperty>();
-			for (String key : proQuery.keySet()) {
-				XMLProperty xmlpop = new XMLProperty();
-				xmlpop.setName(key);
+		} else if (tabFolder.getSelection() == tMap) {
+			MapOutputMapping mapMapping = new MapOutputMapping();
 
-				String name = proQuery.get(key).substring(0,
-						proQuery.get(key).indexOf("|"));
-				xmlpop.setXmlFieldName(name);
-				String type = proQuery.get(key).substring(
-						proQuery.get(key).indexOf("|") + 1);
-				xmlpop.setXmlFieldType(type);
-				xmlPropertList.add(xmlpop);
+			List<MapOutputProperty> mapPropertList = new ArrayList<MapOutputProperty>();
+			for (String key : mapQuery.keySet()) {
+				MapOutputProperty mappop = new MapOutputProperty(key,
+						mapQuery.get(key));
+
+				mapPropertList.add(mappop);
 			}
-			eleMap.setProperties(xmlPropertList);
-			out.setOutputMapping(eleMap);
+			if (mapPropertList.size() > 0) {
+				mapMapping.setPropertyList(mapPropertList);
+
+			}
+			out.setOutputMapping(mapMapping);
+		} else if (tabFolder.getSelection() == tTuple) {
+			TupleOutputMapping tupleMapping = new TupleOutputMapping();
+			List<TupleOutputProperty> metadataPropertList = new ArrayList<TupleOutputProperty>();
+			for (String key : mapMetadata.keySet()) {
+				String metaValueOf, metaType;
+				metaValueOf = mapMetadata.get(key).substring(0,
+						mapMetadata.get(key).indexOf("|"));
+				metaType = mapMetadata.get(key).substring(
+						mapMetadata.get(key).indexOf("|") + 1);
+				TupleOutputProperty metaProperty = new TupleOutputProperty(key,
+						metaValueOf, metaType);
+
+				metadataPropertList.add(metaProperty);
+			}
+			List<TupleOutputProperty> correlationPropertList = new ArrayList<TupleOutputProperty>();
+			for (String key : mapCorrelationdata.keySet()) {
+				String metaValueOf, metaType;
+				metaValueOf = mapCorrelationdata.get(key).substring(0,
+						mapCorrelationdata.get(key).indexOf("|"));
+				metaType = mapCorrelationdata.get(key).substring(
+						mapCorrelationdata.get(key).indexOf("|") + 1);
+				TupleOutputProperty metaProperty = new TupleOutputProperty(key,
+						metaValueOf, metaType);
+
+				correlationPropertList.add(metaProperty);
+			}
+			List<TupleOutputProperty> payLoadPropertList = new ArrayList<TupleOutputProperty>();
+			for (String key : mapPayloaddata.keySet()) {
+				String metaValueOf, metaType;
+				metaValueOf = mapPayloaddata.get(key).substring(0,
+						mapPayloaddata.get(key).indexOf("|"));
+				metaType = mapPayloaddata.get(key).substring(
+						mapPayloaddata.get(key).indexOf("|") + 1);
+				TupleOutputProperty metaProperty = new TupleOutputProperty(key,
+						metaValueOf, metaType);
+
+				payLoadPropertList.add(metaProperty);
+			}
+			if (correlationPropertList.size() > 0
+					|| metadataPropertList.size() > 0
+					|| payLoadPropertList.size() > 0) {
+				tupleMapping
+						.setCorrelationDataProperties(correlationPropertList);
+				tupleMapping.setMetaDataProperties(metadataPropertList);
+				tupleMapping.setPayloadDataProperties(payLoadPropertList);
+
+			}
+			out.setOutputMapping(tupleMapping);
 		}
 
 		query.setOutput(out);
@@ -561,42 +1149,85 @@ public class QueryDialog extends TitleAreaDialog {
 	public void initializePage(Query query) {
 
 		setQname(query.getName());
-		if (query.getExpression().getType()
-				.equals(CEPConstants.CEP_CONF_EXPRESSION_INLINE)) {
-			setqExpressionType(CEPConstants.CEP_CONF_EXPRESSION_INLINE);
-			setQexpression(query.getExpression().getText());
-		} else if (query.getExpression().getType()
-				.equals(CEPConstants.CEP_REGISTRY_KEY)) {
-			setqExpressionType(CEPConstants.CEP_REGISTRY_KEY);
-			setQexpressionLookUpKey(query.getExpression().getText());
-		}
+
+		setQexpression(query.getExpression().getText());
+
 		setOtopic(query.getOutput().getTopic());
 		setQueryBroker(query.getOutput().getBrokerName());
 		if (query.getOutput().getOutputMapping() instanceof XMLOutputMapping) {
 			setSelectedMethod(CEPConstants.CEP_CONF_ELE_XML_MAPPING);
 			setSXMLMapping(((XMLOutputMapping) query.getOutput()
 					.getOutputMapping()).getMappingXMLText());
-		} else if (query.getOutput().getOutputMapping() instanceof ElementOutputMapping) {
-			setSelectedMethod(CEPConstants.CEP_CONF_ELE_EMAPPING);
-			setOdocumentElement(((ElementOutputMapping) query.getOutput()
-					.getOutputMapping()).getDocumentElement());
-			setOnameSpace(((ElementOutputMapping) query.getOutput()
-					.getOutputMapping()).getNamespace());
+		} else if (query.getOutput().getOutputMapping() instanceof MapOutputMapping) {
+			setSelectedMethod(CEPConstants.CEP_CONF_ELE_MAP_MAPPING);
 
-			if (((ElementOutputMapping) query.getOutput().getOutputMapping())
-					.getProperties() != null) {
-				queryProperty.remove(0);
-				queryProperty.remove(0);
+			if (((MapOutputMapping) query.getOutput().getOutputMapping())
+					.getPropertyList() != null) {
+				mapProperty.remove(0);
+				mapProperty.remove(0);
+				List<MapOutputProperty> mapPropertyList = ((MapOutputMapping) query
+						.getOutput().getOutputMapping()).getPropertyList();
+
+				for (MapOutputProperty mapproperty : mapPropertyList) {
+
+					mapProperty.add(mapproperty);
+					mapQuery.put(mapproperty.getName(),
+							mapproperty.getValueOf());
+				}
 			}
-			List<XMLProperty> xmlProperty = ((ElementOutputMapping) query
-					.getOutput().getOutputMapping()).getProperties();
-			for (XMLProperty xmlproperty : xmlProperty) {
 
-				queryProperty.add(xmlproperty);
-				proQuery.put(
-						xmlproperty.getName(),
-						xmlproperty.getXmlFieldName() + "|"
-								+ xmlproperty.getXmlFieldType());
+		} else if (query.getOutput().getOutputMapping() instanceof TupleOutputMapping) {
+			setSelectedMethod(CEPConstants.CEP_CONF_ELE_TUPLE_MAPPING);
+			if (((TupleOutputMapping) query.getOutput().getOutputMapping())
+					.getMetaDataProperties() != null) {
+				tupleMetadataProperty.remove(0);
+				tupleMetadataProperty.remove(0);
+				List<TupleOutputProperty> metadataPropertyList = ((TupleOutputMapping) query
+						.getOutput().getOutputMapping())
+						.getMetaDataProperties();
+				for (TupleOutputProperty metaproperty : metadataPropertyList) {
+
+					tupleMetadataProperty.add(metaproperty);
+					mapMetadata.put(
+							metaproperty.getName(),
+							metaproperty.getValueOf() + "|"
+									+ metaproperty.getType());
+				}
+			}
+
+			if (((TupleOutputMapping) query.getOutput().getOutputMapping())
+					.getCorrelationDataProperties() != null) {
+				tupleCorrelationProperty.remove(0);
+				tupleCorrelationProperty.remove(0);
+				List<TupleOutputProperty> corrleationdataPropertyList = ((TupleOutputMapping) query
+						.getOutput().getOutputMapping())
+						.getCorrelationDataProperties();
+				for (TupleOutputProperty metaproperty : corrleationdataPropertyList) {
+
+					tupleCorrelationProperty.add(metaproperty);
+					mapCorrelationdata.put(
+							metaproperty.getName(),
+							metaproperty.getValueOf() + "|"
+									+ metaproperty.getType());
+				}
+
+			}
+
+			if (((TupleOutputMapping) query.getOutput().getOutputMapping())
+					.getPayloadDataProperties() != null) {
+				tuplePayloadProperty.remove(0);
+				tuplePayloadProperty.remove(0);
+				List<TupleOutputProperty> payLoaddataPropertyList = ((TupleOutputMapping) query
+						.getOutput().getOutputMapping())
+						.getPayloadDataProperties();
+				for (TupleOutputProperty metaproperty : payLoaddataPropertyList) {
+
+					tuplePayloadProperty.add(metaproperty);
+					mapPayloaddata.put(
+							metaproperty.getName(),
+							metaproperty.getValueOf() + "|"
+									+ metaproperty.getType());
+				}
 			}
 
 		}
@@ -613,7 +1244,6 @@ public class QueryDialog extends TitleAreaDialog {
 
 	@Override
 	protected void okPressed() {
-		// TODO Auto-generated method stub
 		if (finalizePage()) {
 			super.okPressed();
 		} else {
@@ -646,14 +1276,6 @@ public class QueryDialog extends TitleAreaDialog {
 		this.qname = qname;
 	}
 
-	public String getqExpressionType() {
-		return qExpressionType;
-	}
-
-	public void setqExpressionType(String qExpressionType) {
-		this.qExpressionType = qExpressionType;
-	}
-
 	public String getQexpression() {
 		return qExpression;
 	}
@@ -662,36 +1284,12 @@ public class QueryDialog extends TitleAreaDialog {
 		this.qExpression = qexpression;
 	}
 
-	public String getQexpressionLookUpKey() {
-		return qExpressionLookUpKey;
+	public String getMapName() {
+		return mapName;
 	}
 
-	public void setQexpressionLookUpKey(String qexpressionLookUpKey) {
-		this.qExpressionLookUpKey = qexpressionLookUpKey;
-	}
-
-	public String getOdocumentElement() {
-		return oDocumentElement;
-	}
-
-	public void setOdocumentElement(String odocumentElement) {
-		this.oDocumentElement = odocumentElement;
-	}
-
-	public String getOnameSpace() {
-		return oNamespace;
-	}
-
-	public void setOnameSpace(String onameSpace) {
-		this.oNamespace = onameSpace;
-	}
-
-	public String getPropertyName() {
-		return propertyName;
-	}
-
-	public void setPropertyName(String propertyName) {
-		this.propertyName = propertyName;
+	public void setMapName(String propertyName) {
+		this.mapName = propertyName;
 	}
 
 	public String getSelectedXMLFieldType() {
@@ -708,14 +1306,6 @@ public class QueryDialog extends TitleAreaDialog {
 
 	public void setXmlFieldName(String xmlFieldName) {
 		this.xmlFieldName = xmlFieldName;
-	}
-
-	public String[] getExpressionTypes() {
-		return expressionTypes;
-	}
-
-	public void setExpressionTypes(String[] expressionTypes) {
-		this.expressionTypes = expressionTypes;
 	}
 
 	public String[] getMethods() {
@@ -752,5 +1342,13 @@ public class QueryDialog extends TitleAreaDialog {
 
 	public Query getQueryObject() {
 		return query;
+	}
+
+	public String getValueOf() {
+		return valueOf;
+	}
+
+	public void setValueOf(String valueOf) {
+		this.valueOf = valueOf;
 	}
 }

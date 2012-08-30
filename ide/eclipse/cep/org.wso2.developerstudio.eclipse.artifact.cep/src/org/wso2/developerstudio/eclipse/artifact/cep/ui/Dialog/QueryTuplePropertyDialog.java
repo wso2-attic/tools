@@ -27,37 +27,40 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
-import org.wso2.carbon.cep.core.mapping.input.property.XMLInputProperty;
+
+import org.wso2.carbon.cep.core.mapping.output.property.TupleOutputProperty;
 
 import org.wso2.developerstudio.eclipse.artifact.cep.utils.CEPArtifactConstants;
 
-public class InputPropertyDialog extends TitleAreaDialog {
-	private Text proName;
-	private Text proXPath;
-	private Combo proXType;
+public class QueryTuplePropertyDialog extends TitleAreaDialog {
+
 	private String name = "";
-	private String xpath = "";
 	private String type = CEPArtifactConstants.WIZARD_OPTION_INTEGER;
-	private String[] propertyTypes = {
+	private String valueOf = "";
+	private Text txtName;
+	private Text txtValueOf;
+	private String title = "";
+	private Combo cmbType;
+	private String[] types = { CEPArtifactConstants.WIZARD_OPTION_DOUBLE,
 			CEPArtifactConstants.WIZARD_OPTION_INTEGER,
-			CEPArtifactConstants.WIZARD_OPTION_DOUBLE,
 			CEPArtifactConstants.WIZARD_OPTION_STRING,
 			CEPArtifactConstants.WIZARD_OPTION_LONG };
-	private XMLInputProperty xmlProperty;
 
-	protected InputPropertyDialog(Shell parentShell, boolean edit) {
+	private TupleOutputProperty property;
+
+	public QueryTuplePropertyDialog(Shell parentShell, String title) {
 		super(parentShell);
-
+		this.title = title;
 	}
 
 	@Override
 	public void create() {
 		super.create();
-		setTitle("Input Property Configuration");
+		setTitle(title);
 	}
 
 	@Override
-	public Control createDialogArea(Composite parent) {
+	protected Control createDialogArea(Composite parent) {
 		GridData grData = null;
 		final ScrolledComposite scrolledContainer = new ScrolledComposite(
 				parent, SWT.H_SCROLL | SWT.V_SCROLL | SWT.BORDER | SWT.FILL);
@@ -71,28 +74,35 @@ public class InputPropertyDialog extends TitleAreaDialog {
 		GridLayout layout = new GridLayout();
 		layout.numColumns = 3;
 		container.setLayout(layout);
-		Label lbName = new Label(container, SWT.NULL);
+		final Label lbName = new Label(container, SWT.NULL);
 		lbName.setText("Name");
-		proName = new Text(container, SWT.BORDER | SWT.SINGLE);
+
+		txtName = new Text(container, SWT.BORDER | SWT.SINGLE);
 		grData = new GridData(GridData.FILL_HORIZONTAL);
 		grData.horizontalSpan = 2;
-		proName.setText(name);
-		proName.setLayoutData(grData);
-		Label lbXpath = new Label(container, SWT.NULL);
-		lbXpath.setText("Xpath");
-		proXPath = new Text(container, SWT.BORDER | SWT.SINGLE);
+		txtName.setLayoutData(grData);
+		txtName.setText(name);
+
+		final Label lbFieldName = new Label(container, SWT.NULL);
+		lbFieldName.setText("Value Of");
+
+		txtValueOf = new Text(container, SWT.BORDER | SWT.SINGLE);
 		grData = new GridData(GridData.FILL_HORIZONTAL);
 		grData.horizontalSpan = 2;
-		proXPath.setLayoutData(grData);
-		proXPath.setText(xpath);
-		Label lbType = new Label(container, SWT.NULL);
-		lbType.setText("Type");
-		proXType = new Combo(container, SWT.READ_ONLY);
-		proXType.setItems(propertyTypes);
-		proXType.setText(type);
+
+		txtValueOf.setLayoutData(grData);
+		txtValueOf.setText(valueOf);
+
+		final Label lbFieldType = new Label(container, SWT.NULL);
+		lbFieldType.setText("Type");
+
+		cmbType = new Combo(container, SWT.READ_ONLY);
 		grData = new GridData();
-		grData.horizontalSpan = 1;
-		proXType.setLayoutData(grData);
+
+		cmbType.setItems(types);
+		cmbType.setText(type);
+		cmbType.setLayoutData(grData);
+
 		scrolledContainer.setMinSize(container.computeSize(SWT.DEFAULT,
 				SWT.DEFAULT));
 		container.layout();
@@ -102,24 +112,25 @@ public class InputPropertyDialog extends TitleAreaDialog {
 
 	private boolean finalizePage() {
 		boolean ok = true;
-		xmlProperty = new XMLInputProperty();
-		xmlProperty.setName(proName.getText().trim());
-		xmlProperty.setXpath(proXPath.getText().trim());
-		xmlProperty.setType(proXType.getText().trim());
-		if (proName.getText().trim().equals("")) {
+
+		name = txtName.getText().trim();
+		valueOf = txtValueOf.getText().trim();
+		type = cmbType.getText().trim();
+		property = new TupleOutputProperty(name, valueOf, type);
+		if (txtName.getText().trim().equals("")) {
 			ok = false;
 		}
 		return ok;
 	}
 
-	public XMLInputProperty getProperties() {
-		return xmlProperty;
+	public void initializePage(TupleOutputProperty property) {
+		name = property.getName();
+		valueOf = property.getValueOf();
+		type = property.getType();
 	}
 
-	public void initialize(XMLInputProperty xmlProperty) {
-		name = xmlProperty.getName();
-		xpath = xmlProperty.getXpath();
-		type = xmlProperty.getType();
+	public TupleOutputProperty getProperty() {
+		return property;
 	}
 
 	@Override

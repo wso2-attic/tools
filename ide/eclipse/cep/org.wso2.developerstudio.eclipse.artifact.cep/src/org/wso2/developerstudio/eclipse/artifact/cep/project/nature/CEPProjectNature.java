@@ -27,19 +27,23 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.jdt.core.JavaModelException;
+import org.wso2.developerstudio.eclipse.artifact.cep.Activator;
 import org.wso2.developerstudio.eclipse.capp.maven.utils.MavenConstants;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.platform.core.nature.AbstractWSO2ProjectNature;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 import org.wso2.developerstudio.eclipse.utils.ide.FileExtensionResourcevisitor;
 
 public class CEPProjectNature extends AbstractWSO2ProjectNature {
+	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
 
 	public void configure() throws CoreException, JavaModelException {
 		try {
 			updatePom();
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("Failed to update POM file", e);
 		}
 	}
 
