@@ -46,6 +46,11 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ToolPalleteDetails;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AddressEndPointEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AddressEndPointInputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyFaultInputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyInputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceContainerEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceFaultContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 
@@ -1050,6 +1055,26 @@ public class EsbPaletteFactory {
 									.getChildren().get(j) instanceof AbstractEndpointInputConnector) {
 								return ((AbstractEndpointInputConnector) ((AbstractEndpoint) getTargetEditPart())
 										.getChildren().get(j))
+										.getCommand(getTargetRequest());
+							}
+						}
+					} else if (getTargetEditPart() instanceof ProxyServiceEditPart) {
+						for (int i = 0; i < ((ProxyServiceEditPart) getTargetEditPart())
+								.getChildren().size(); ++i) {
+							int yFaultContainer = ((ProxyServiceFaultContainerEditPart) ((ProxyServiceContainerEditPart) ((ProxyServiceEditPart) getTargetEditPart())
+									.getChildren().get(4)).getChildren().get(1))
+									.getFigure().getBounds().getLocation().y;
+							if ((((ProxyServiceEditPart) getTargetEditPart())
+									.getChildren().get(i) instanceof ProxyInputConnectorEditPart)
+									&& (getStartLocation().y < yFaultContainer)) {
+								return ((ProxyInputConnectorEditPart) ((ProxyServiceEditPart) getTargetEditPart())
+										.getChildren().get(i))
+										.getCommand(getTargetRequest());
+							} else if ((((ProxyServiceEditPart) getTargetEditPart())
+									.getChildren().get(i) instanceof ProxyFaultInputConnectorEditPart)
+									&& (getStartLocation().y > yFaultContainer)) {
+								return ((ProxyFaultInputConnectorEditPart) ((ProxyServiceEditPart) getTargetEditPart())
+										.getChildren().get(i))
 										.getCommand(getTargetRequest());
 							}
 						}
