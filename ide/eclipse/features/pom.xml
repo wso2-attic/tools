@@ -51,12 +51,12 @@
 	<module>library</module>
 	<module>gadgets</module>
 	<module>cep</module>
+	<module>SoapUI</module>
 	<!--module>smooks</module-->
         <!--module>gadgets</module-->                        
         <module>carbon-studio</module>
         <module>repository</module>
 	<!--module>installed-distributions</module-->
-	<module>SoapUI</module>
     </modules>        
 
     <!--properties>
