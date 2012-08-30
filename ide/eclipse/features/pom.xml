@@ -56,6 +56,7 @@
         <module>carbon-studio</module>
         <module>repository</module>
 	<!--module>installed-distributions</module-->
+	<module>SoapUI</module>
     </modules>        
 
     <!--properties>
