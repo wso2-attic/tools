@@ -10230,7 +10230,7 @@ public interface EsbPackage extends EPackage {
 	int STORE_MEDIATOR__MESSAGE_STORE = MEDIATOR_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>On Store Sequence</b></em>' reference.
+	 * The feature id for the '<em><b>On Store Sequence</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -19642,10 +19642,10 @@ public interface EsbPackage extends EPackage {
 	EAttribute getStoreMediator_MessageStore();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.StoreMediator#getOnStoreSequence <em>On Store Sequence</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.StoreMediator#getOnStoreSequence <em>On Store Sequence</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>On Store Sequence</em>'.
+	 * @return the meta object for the containment reference '<em>On Store Sequence</em>'.
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.StoreMediator#getOnStoreSequence()
 	 * @see #getStoreMediator()
 	 * @generated
@@ -27029,7 +27029,7 @@ public interface EsbPackage extends EPackage {
 		EAttribute STORE_MEDIATOR__MESSAGE_STORE = eINSTANCE.getStoreMediator_MessageStore();
 
 		/**
-		 * The meta object literal for the '<em><b>On Store Sequence</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>On Store Sequence</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

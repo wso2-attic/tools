@@ -1147,7 +1147,7 @@
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//SmooksMediatorInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//SmooksMediatorOutputConnector"/>
-    <genClasses ecoreClass="esb.ecore#//StoreMediator">
+    <genClasses ecoreClass="esb.ecore#//StoreMediator" labelFeature="#//esb/StoreMediator/messageStore">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//StoreMediator/messageStore"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esb.ecore#//StoreMediator/onStoreSequence"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//StoreMediator/inputConnector"/>

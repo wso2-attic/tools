@@ -6,6 +6,9 @@
  */
 package org.wso2.developerstudio.eclipse.gmf.esb.impl;
 
+import java.util.List;
+import java.util.Map;
+
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -19,6 +22,9 @@ import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.StoreMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.StoreMediatorInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.StoreMediatorOutputConnector;
+import org.wso2.developerstudio.eclipse.platform.core.mediatype.PlatformMediaTypeConstants;
+import org.wso2.developerstudio.eclipse.platform.core.utils.CSProviderConstants;
+import org.wso2.developerstudio.eclipse.platform.core.utils.DeveloperStudioProviderUtils;
 
 /**
  * <!-- begin-user-doc -->
@@ -58,7 +64,7 @@ public class StoreMediatorImpl extends MediatorImpl implements StoreMediator {
 	protected String messageStore = MESSAGE_STORE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getOnStoreSequence() <em>On Store Sequence</em>}' reference.
+	 * The cached value of the '{@link #getOnStoreSequence() <em>On Store Sequence</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getOnStoreSequence()
@@ -95,6 +101,11 @@ public class StoreMediatorImpl extends MediatorImpl implements StoreMediator {
 	protected StoreMediatorImpl() {
 		super();
 		setMessageStore("messageStore");
+		onStoreSequence = EsbFactoryImpl.eINSTANCE.createRegistryKeyProperty();
+		onStoreSequence.setPrettyName("onStore Sequence");
+		onStoreSequence.setKeyName("onStore Sequence");
+		onStoreSequence.setKeyValue(DEFAULT_REGISTRY_KEY);
+		setOnStoreSequence(onStoreSequence);
 	}
 
 	/**
@@ -135,14 +146,6 @@ public class StoreMediatorImpl extends MediatorImpl implements StoreMediator {
 	 * @generated
 	 */
 	public RegistryKeyProperty getOnStoreSequence() {
-		if (onStoreSequence != null && onStoreSequence.eIsProxy()) {
-			InternalEObject oldOnStoreSequence = (InternalEObject)onStoreSequence;
-			onStoreSequence = (RegistryKeyProperty)eResolveProxy(oldOnStoreSequence);
-			if (onStoreSequence != oldOnStoreSequence) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EsbPackage.STORE_MEDIATOR__ON_STORE_SEQUENCE, oldOnStoreSequence, onStoreSequence));
-			}
-		}
 		return onStoreSequence;
 	}
 
@@ -151,8 +154,14 @@ public class StoreMediatorImpl extends MediatorImpl implements StoreMediator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RegistryKeyProperty basicGetOnStoreSequence() {
-		return onStoreSequence;
+	public NotificationChain basicSetOnStoreSequence(RegistryKeyProperty newOnStoreSequence, NotificationChain msgs) {
+		RegistryKeyProperty oldOnStoreSequence = onStoreSequence;
+		onStoreSequence = newOnStoreSequence;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.STORE_MEDIATOR__ON_STORE_SEQUENCE, oldOnStoreSequence, newOnStoreSequence);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -161,10 +170,17 @@ public class StoreMediatorImpl extends MediatorImpl implements StoreMediator {
 	 * @generated
 	 */
 	public void setOnStoreSequence(RegistryKeyProperty newOnStoreSequence) {
-		RegistryKeyProperty oldOnStoreSequence = onStoreSequence;
-		onStoreSequence = newOnStoreSequence;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.STORE_MEDIATOR__ON_STORE_SEQUENCE, oldOnStoreSequence, onStoreSequence));
+		if (newOnStoreSequence != onStoreSequence) {
+			NotificationChain msgs = null;
+			if (onStoreSequence != null)
+				msgs = ((InternalEObject)onStoreSequence).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.STORE_MEDIATOR__ON_STORE_SEQUENCE, null, msgs);
+			if (newOnStoreSequence != null)
+				msgs = ((InternalEObject)newOnStoreSequence).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.STORE_MEDIATOR__ON_STORE_SEQUENCE, null, msgs);
+			msgs = basicSetOnStoreSequence(newOnStoreSequence, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.STORE_MEDIATOR__ON_STORE_SEQUENCE, newOnStoreSequence, newOnStoreSequence));
 	}
 
 	/**
@@ -261,6 +277,8 @@ public class StoreMediatorImpl extends MediatorImpl implements StoreMediator {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case EsbPackage.STORE_MEDIATOR__ON_STORE_SEQUENCE:
+				return basicSetOnStoreSequence(null, msgs);
 			case EsbPackage.STORE_MEDIATOR__INPUT_CONNECTOR:
 				return basicSetInputConnector(null, msgs);
 			case EsbPackage.STORE_MEDIATOR__OUTPUT_CONNECTOR:
@@ -281,8 +299,7 @@ public class StoreMediatorImpl extends MediatorImpl implements StoreMediator {
 			case EsbPackage.STORE_MEDIATOR__MESSAGE_STORE:
 				return getMessageStore();
 			case EsbPackage.STORE_MEDIATOR__ON_STORE_SEQUENCE:
-				if (resolve) return getOnStoreSequence();
-				return basicGetOnStoreSequence();
+				return getOnStoreSequence();
 			case EsbPackage.STORE_MEDIATOR__INPUT_CONNECTOR:
 				return getInputConnector();
 			case EsbPackage.STORE_MEDIATOR__OUTPUT_CONNECTOR:

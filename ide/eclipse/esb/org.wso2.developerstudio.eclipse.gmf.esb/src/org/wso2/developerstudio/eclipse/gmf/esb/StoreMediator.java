@@ -54,26 +54,26 @@ public interface StoreMediator extends Mediator {
 	void setMessageStore(String value);
 
 	/**
-	 * Returns the value of the '<em><b>On Store Sequence</b></em>' reference.
+	 * Returns the value of the '<em><b>On Store Sequence</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>On Store Sequence</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>On Store Sequence</em>' reference.
+	 * @return the value of the '<em>On Store Sequence</em>' containment reference.
 	 * @see #setOnStoreSequence(RegistryKeyProperty)
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getStoreMediator_OnStoreSequence()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	RegistryKeyProperty getOnStoreSequence();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.StoreMediator#getOnStoreSequence <em>On Store Sequence</em>}' reference.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.StoreMediator#getOnStoreSequence <em>On Store Sequence</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>On Store Sequence</em>' reference.
+	 * @param value the new value of the '<em>On Store Sequence</em>' containment reference.
 	 * @see #getOnStoreSequence()
 	 * @generated
 	 */

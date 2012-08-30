@@ -56,17 +56,18 @@ public class StoreMediatorItemProvider
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	
-	@Override
+	@Override 
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
-			super.getPropertyDescriptors(object);
-
-			addMessageStorePropertyDescriptor(object);
-			addOnStoreSequencePropertyDescriptor(object);
+		if (itemPropertyDescriptors != null) {
+			itemPropertyDescriptors.clear();
 		}
+		super.getPropertyDescriptors(object);
+
+		addMessageStorePropertyDescriptor(object);
+		addOnStoreSequencePropertyDescriptor(object);
 		return itemPropertyDescriptors;
 	}
 

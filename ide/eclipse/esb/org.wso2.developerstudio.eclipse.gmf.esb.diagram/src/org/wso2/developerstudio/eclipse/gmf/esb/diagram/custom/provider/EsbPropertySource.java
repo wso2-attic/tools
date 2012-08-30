@@ -128,17 +128,18 @@ public class EsbPropertySource extends PropertySource {
 			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
 		} else if(pkg.getEnqueueMediator_SequenceKey().equals(feature)){
 			return new CustomPropertyDescriptor(object,itemPropertyDescriptor);
-			
+		} else if (pkg.getStoreMediator_OnStoreSequence().equals(feature)) {
+				return new CustomPropertyDescriptor(object,itemPropertyDescriptor);
+				
 			//CallTemplate Mediator Template parameter custom property descriptor.
-		}else if(pkg.getCallTemplateMediator_TemplateParameters().equals(feature)){
+		} else if(pkg.getCallTemplateMediator_TemplateParameters().equals(feature)){
 			return new CallTemplateParamCustomPropertyDescriptor(object, itemPropertyDescriptor);
 			
 			//Cache Mediator OnHitBranch Sequence Key custom property descriptor.
-		}else if(pkg.getCacheMediator_SequenceKey().equals(feature)){
+		} else if(pkg.getCacheMediator_SequenceKey().equals(feature)){
 			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
 		} else if (pkg.getCommandMediator_Properties().equals(feature)) {
-			return new CommandMediatorPropertyDescriptor(object,
-					itemPropertyDescriptor);
+			return new CommandMediatorPropertyDescriptor(object,itemPropertyDescriptor);
 		} 
 			
 		// Else, default EMF behavior
