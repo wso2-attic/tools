@@ -50,7 +50,7 @@
                             <id>${project.artifactId}</id>
                             <propertiesFile>../../feature.properties</propertiesFile>
                             <bundles>
-                                <bundleDef>tcpmonitor:tcpmonitor:1.1.0</bundleDef>
+                                <bundleDef>tcpmonitor:tcpmonitor:1.0.0</bundleDef>
                             </bundles>
                         </configuration>
                     </execution>

@@ -287,6 +287,6 @@
 	<ds.content.assist.feature.version>1.0.0-SNAPSHOT</ds.content.assist.feature.version>
 	<cep.feature.version>1.0.0-SNAPSHOT</cep.feature.version>
 	<soapui.feature.version>4.0.1</soapui.feature.version>
-	<tcpmon.feature.version>1.1.0</tcpmon.feature.version>
+	<tcpmon.feature.version>1.0.0</tcpmon.feature.version>
     </properties>
 </project>
