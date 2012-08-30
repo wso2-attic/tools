@@ -21,6 +21,7 @@ import java.io.IOException;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import javax.xml.namespace.QName;
 
@@ -124,7 +125,7 @@ public class LocalEntryProjectCreationWizard extends AbstractWSO2ProjectCreation
 				artifact.setType("synapse/local-entry");
 				artifact.setServerRole("EnterpriseServiceBus");
 				artifact.setGroupId(groupId);
-				artifact.setFile(FileUtils.getRelativePath(esbProject.getLocation().toFile(), new File(location.getLocation().toFile(),localEntryModel.getLocalENtryName()+".xml")));
+				artifact.setFile(FileUtils.getRelativePath(esbProject.getLocation().toFile(), new File(location.getLocation().toFile(),localEntryModel.getLocalENtryName()+".xml")).replaceAll(Pattern.quote(File.separator), "/"));
 				esbProjectArtifact.addESBArtifact(artifact);
 			}
 			File pomfile = esbProject.getFile("pom.xml").getLocation().toFile();

@@ -21,6 +21,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import java.util.regex.Pattern;
 
 import org.apache.maven.model.Plugin;
 import org.apache.maven.model.PluginExecution;
@@ -187,13 +188,13 @@ public class RegistryResourceCreationWizard extends AbstractWSO2ProjectCreationW
 				// item.setFile("resources"+File.separator+registryResourceInfo.getResourceBaseRelativePath());
 				if (registryResourceInfo.getType() == RegistryArtifactConstants.REGISTRY_RESOURCE) {
 					item = new RegistryItem();
-					((RegistryItem) item).setFile(registryResourceInfo.getResourceBaseRelativePath());
+					((RegistryItem) item).setFile(registryResourceInfo.getResourceBaseRelativePath().replaceAll(Pattern.quote(File.separator), "/"));
 				} else if (registryResourceInfo.getType() == RegistryArtifactConstants.REGISTRY_COLLECTION) {
 					item = new RegistryCollection();
-					((RegistryCollection) item).setDirectory(registryResourceInfo.getResourceBaseRelativePath());
+					((RegistryCollection) item).setDirectory(registryResourceInfo.getResourceBaseRelativePath().replaceAll(Pattern.quote(File.separator), "/"));
 				} else if (registryResourceInfo.getType() == RegistryArtifactConstants.REGISTRY_DUMP) {
 					item = new RegistryDump();
-					((RegistryDump) item).setFile(registryResourceInfo.getResourceBaseRelativePath());
+					((RegistryDump) item).setFile(registryResourceInfo.getResourceBaseRelativePath().replaceAll(Pattern.quote(File.separator), "/"));
 				} 
 				item.setPath(registryResourceInfo.getDeployPath().replaceAll("/$",""));
 				artifact.addRegistryElement(item);

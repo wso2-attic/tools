@@ -20,6 +20,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import javax.xml.namespace.QName;
 import javax.xml.stream.FactoryConfigurationError;
@@ -225,7 +226,7 @@ public class SynapseCreationWizard extends AbstractWSO2ProjectCreationWizard {
 		artifact.setGroupId(groupId);
 		artifact.setFile(FileUtils.getRelativePath(esbProject.getLocation().toFile(),
 			                                           new File(baseDir,
-			                                                    name + ".xml")));	
+			                                                    name + ".xml")).replaceAll(Pattern.quote(File.separator), "/"));	
 		esbProjectArtifact.addESBArtifact(artifact);
 		esbProjectArtifact.toFile();
 	}

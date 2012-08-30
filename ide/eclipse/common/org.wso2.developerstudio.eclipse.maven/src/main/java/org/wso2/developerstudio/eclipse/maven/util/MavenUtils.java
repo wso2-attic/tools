@@ -31,6 +31,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
+import java.util.regex.Pattern;
 
 public class MavenUtils {
 	public static final String CAPP_SCOPE_PREFIX = "capp";
@@ -313,7 +314,7 @@ public class MavenUtils {
 			                      FileUtils.getRelativePath(mavenProjectSaveLocation.getParentFile(),
 			                                                sourceFoldersForProject[0].getResource()
 			                                                                          .getLocation()
-			                                                                          .toFile());
+			                                                                          .toFile()).replaceAll(Pattern.quote(File.separator), "/");
 			mavenProject.getModel().getBuild().setSourceDirectory(sourceFolder);
 			Xpp3Dom configurationNode = createMainConfigurationNode();
 			pluginExecution.setConfiguration(configurationNode);
@@ -323,7 +324,7 @@ public class MavenUtils {
 				File sourceDirectory = packageFragmentRoot.getResource().getLocation().toFile();
 				String relativePath =
 				                      FileUtils.getRelativePath(mavenProjectSaveLocation.getParentFile(),
-				                                                sourceDirectory);
+				                                                sourceDirectory).replaceAll(Pattern.quote(File.separator), "/");
 				Xpp3Dom sourceNode = createXpp3Node(sourcesNode, "source");
 				sourceNode.setValue(relativePath);
 			}
@@ -478,7 +479,7 @@ public class MavenUtils {
 		Xpp3Dom config=(Xpp3Dom)plugin.getConfiguration();
 		
 		Xpp3Dom warSourceDir=createXpp3Node(config, "warSourceDirectory");
-		warSourceDir.setValue("src"+File.separator+"main"+File.separator+"webapp");
+		warSourceDir.setValue("src/main/webapp");
 		
 		mavenProject.getModel().addProperty(PROPERTY_CAPP_TYPE, "web/application");
 	}

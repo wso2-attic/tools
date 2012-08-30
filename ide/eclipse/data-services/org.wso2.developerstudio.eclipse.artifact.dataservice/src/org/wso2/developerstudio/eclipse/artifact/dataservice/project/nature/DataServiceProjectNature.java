@@ -2,6 +2,7 @@ package org.wso2.developerstudio.eclipse.artifact.dataservice.project.nature;
 
 import java.io.File;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import org.apache.maven.model.Plugin;
 import org.apache.maven.model.Repository;
@@ -48,7 +49,7 @@ public class DataServiceProjectNature extends AbstractWSO2ProjectNature{
 		Xpp3Dom configurationNode = MavenUtils.createMainConfigurationNode(pluginEntry);
 		Xpp3Dom artifactNode = MavenUtils.createXpp3Node(configurationNode, "artifact");
 		if(getDBSFile() != null){
-			String fileName = FileUtils.getRelativePath(getProject().getLocation().toFile(),getDBSFile().getLocation().toFile());
+			String fileName = FileUtils.getRelativePath(getProject().getLocation().toFile(),getDBSFile().getLocation().toFile()).replaceAll(Pattern.quote(File.separator), "/");
 			artifactNode.setValue(fileName);
 		}
 		Repository repo = new Repository();

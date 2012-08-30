@@ -21,6 +21,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import java.util.regex.Pattern;
 
 import javax.xml.namespace.QName;
 
@@ -144,7 +145,7 @@ public class ProxyServiceProjectCreationWizard extends AbstractWSO2ProjectCreati
 				String relativePath = FileUtils.getRelativePath(
 						esbProject.getLocation().toFile(),
 						new File(location.getLocation().toFile(), proxyServiceModel
-								.getProxyServiceName() + ".xml"));
+								.getProxyServiceName() + ".xml")).replaceAll(Pattern.quote(File.separator), "/");
 				esbProjectArtifact.addESBArtifact(createArtifact(
 						proxyServiceModel.getProxyServiceName(), groupId, "1.0.0", relativePath));
 			}

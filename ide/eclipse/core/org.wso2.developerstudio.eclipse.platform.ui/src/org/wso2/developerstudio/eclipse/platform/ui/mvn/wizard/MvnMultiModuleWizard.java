@@ -34,8 +34,10 @@ import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCr
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class MvnMultiModuleWizard extends AbstractWSO2ProjectCreationWizard {
 	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
@@ -72,7 +74,7 @@ public class MvnMultiModuleWizard extends AbstractWSO2ProjectCreationWizard {
 					for (ListData data : listData) {
 						IProject moduleProject = (IProject) data.getData();
 						String relativePath = FileUtils.getRelativePath(multiModuleProject.getLocation()
-								.toFile(), moduleProject.getLocation().toFile());
+								.toFile(), moduleProject.getLocation().toFile()).replaceAll(Pattern.quote(File.separator), "/");
 						if (modules.contains(relativePath)) {
 							moduleModel.getSelectedProjects().add(moduleProject);
 						}
@@ -187,7 +189,7 @@ public class MvnMultiModuleWizard extends AbstractWSO2ProjectCreationWizard {
 		for (IProject iProject : selectedProjects) {
 			String relativePath =
 			                      FileUtils.getRelativePath(selectedProject.getLocation().toFile(),
-			                                                iProject.getLocation().toFile());
+			                                                iProject.getLocation().toFile()).replaceAll(Pattern.quote(File.separator), "/");
 			if (!modules.contains(relativePath)) {
 				modules.add(relativePath);
 			}

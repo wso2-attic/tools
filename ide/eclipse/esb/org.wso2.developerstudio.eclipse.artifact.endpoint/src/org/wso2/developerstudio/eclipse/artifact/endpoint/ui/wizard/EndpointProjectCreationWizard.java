@@ -22,6 +22,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import javax.xml.namespace.QName;
 
@@ -200,7 +201,7 @@ public class EndpointProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 			artifact.setGroupId(groupId);
 			artifact.setFile(FileUtils.getRelativePath(project.getLocation()
 					.toFile(), new File(location.getLocation().toFile(),
-					epModel.getEpName() + ".xml")));
+					epModel.getEpName() + ".xml")).replaceAll(Pattern.quote(File.separator), "/"));
 			esbProjectArtifact.addESBArtifact(artifact);
  
 		}

@@ -21,6 +21,7 @@ import java.io.IOException;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import javax.xml.namespace.QName;
 
@@ -232,7 +233,7 @@ public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 			artifact.setGroupId(groupId);
 			artifact.setFile(FileUtils.getRelativePath(project.getLocation()
 					.toFile(), new File(location.getLocation().toFile(),
-					sequenceModel.getSequenceName() + ".xml")));
+					sequenceModel.getSequenceName() + ".xml")).replaceAll(Pattern.quote(File.separator), "/"));
 			esbProjectArtifact.addESBArtifact(artifact);
 		}
 		esbProjectArtifact.toFile();
