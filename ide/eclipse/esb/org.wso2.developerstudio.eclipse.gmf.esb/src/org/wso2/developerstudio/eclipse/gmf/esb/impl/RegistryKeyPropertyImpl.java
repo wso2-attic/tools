@@ -315,23 +315,14 @@ public class RegistryKeyPropertyImpl extends EObjectImpl implements RegistryKeyP
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	
 	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (prettyName: ");
-		result.append(prettyName);
-		result.append(", keyName: ");
-		result.append(keyName);
-		result.append(", keyValue: ");
+		StringBuffer result = new StringBuffer();
 		result.append(keyValue);
-		result.append(", filters: ");
-		result.append(filters);
-		result.append(')');
 		return result.toString();
 	}
 

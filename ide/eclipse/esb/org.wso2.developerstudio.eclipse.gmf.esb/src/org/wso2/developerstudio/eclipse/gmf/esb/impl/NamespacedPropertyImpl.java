@@ -306,23 +306,15 @@ public class NamespacedPropertyImpl extends EsbNodeImpl implements NamespacedPro
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	
 	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (prettyName: ");
-		result.append(prettyName);
-		result.append(", propertyName: ");
-		result.append(propertyName);
-		result.append(", propertyValue: ");
-		result.append(propertyValue);
-		result.append(", namespaces: ");
-		result.append(namespaces);
-		result.append(')');
+		StringBuffer result = new StringBuffer();
+		result.append(getPropertyValue());
 		return result.toString();
 	}
 
