@@ -408,7 +408,7 @@ public class ConfigureCommandMediatorDialog extends Dialog{
 					property.setValueType(CommandPropertyValueType.MESSAGE_ELEMENT);
 					NamespacedProperty namespaceProperty = EsbFactoryImpl.eINSTANCE
 							.createNamespacedProperty();
-					namespaceProperty.setPropertyValue(item.getText(1));
+					namespaceProperty.setPropertyValue(item.getText(2));
 					property.setValueMessageElementXpath(namespaceProperty);
 					CommandPropertyMessageAction messageAction = CommandPropertyMessageAction.READ_MESSAGE;
 					if (READ_AND_UPDATE.equalsIgnoreCase(item.getText(3))) {
