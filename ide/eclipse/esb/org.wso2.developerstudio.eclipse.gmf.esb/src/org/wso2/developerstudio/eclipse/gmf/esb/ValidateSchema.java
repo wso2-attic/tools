@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ValidateSchema#getValidateStaticSchemaKey <em>Validate Static Schema Key</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ValidateSchema#getValidateDynamicSchemaKey <em>Validate Dynamic Schema Key</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ValidateSchema#getValidateSchemaKeyType <em>Validate Schema Key Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ValidateSchema#getSchemaKey <em>Schema Key</em>}</li>
  * </ul>
  * </p>
  *
@@ -26,7 +27,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface ValidateSchema extends EObject {
+public interface ValidateSchema extends EsbNode {
 	/**
 	 * Returns the value of the '<em><b>Validate Static Schema Key</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -107,5 +108,31 @@ public interface ValidateSchema extends EObject {
 	 * @generated
 	 */
 	void setValidateSchemaKeyType(KeyType value);
+
+	/**
+	 * Returns the value of the '<em><b>Schema Key</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Schema Key</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Schema Key</em>' reference.
+	 * @see #setSchemaKey(RegistryKeyProperty)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getValidateSchema_SchemaKey()
+	 * @model
+	 * @generated
+	 */
+	RegistryKeyProperty getSchemaKey();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ValidateSchema#getSchemaKey <em>Schema Key</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Schema Key</em>' reference.
+	 * @see #getSchemaKey()
+	 * @generated
+	 */
+	void setSchemaKey(RegistryKeyProperty value);
 
 } // ValidateSchema

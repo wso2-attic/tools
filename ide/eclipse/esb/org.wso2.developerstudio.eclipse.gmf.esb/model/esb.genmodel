@@ -361,6 +361,23 @@
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//LocalEntryValueType/XML"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//LocalEntryValueType/URL"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//RuleActionType">
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//RuleActionType/REPLACE"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//RuleActionType/REMOVE"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//RuleActionType/APPEND"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//RuleActionType/PREPEND"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//RuleActionType/SET"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//RuleFragmentType">
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//RuleFragmentType/PROTOCOL"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//RuleFragmentType/HOST"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//RuleFragmentType/PORT"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//RuleFragmentType/PATH"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//RuleFragmentType/QUERY"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//RuleFragmentType/REF"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//RuleFragmentType/USER"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//RuleFragmentType/FULL"/>
+    </genEnums>
     <genDataTypes ecoreDataType="esb.ecore#//Map">
       <genTypeParameters ecoreTypeParameter="esb.ecore#//Map/K"/>
       <genTypeParameters ecoreTypeParameter="esb.ecore#//Map/V"/>
@@ -715,19 +732,6 @@
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//SpringMediatorInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//SpringMediatorOutputConnector"/>
-    <genClasses ecoreClass="esb.ecore#//ValidateMediator">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ValidateMediator/sourceXpath"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ValidateMediator/onFailBranch"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ValidateMediator/features"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ValidateMediator/schemas"/>
-    </genClasses>
-    <genClasses ecoreClass="esb.ecore#//ValidateOnFailBranch"/>
-    <genClasses ecoreClass="esb.ecore#//ValidateFeature"/>
-    <genClasses ecoreClass="esb.ecore#//ValidateSchema">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esb.ecore#//ValidateSchema/validateStaticSchemaKey"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esb.ecore#//ValidateSchema/validateDynamicSchemaKey"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ValidateSchema/validateSchemaKeyType"/>
-    </genClasses>
     <genClasses ecoreClass="esb.ecore#//ScriptMediator">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ScriptMediator/scriptType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ScriptMediator/scriptLanguage"/>
@@ -1255,5 +1259,50 @@
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//SequencesOutputConnector"/>
     <genClasses ecoreClass="esb.ecore#//SequencesInputConnector"/>
+    <genClasses ecoreClass="esb.ecore#//URLRewriteRuleAction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//URLRewriteRuleAction/ruleAction"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//URLRewriteRuleAction/ruleFragment"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//URLRewriteRuleAction/ruleOption"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esb.ecore#//URLRewriteRuleAction/actionExpression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//URLRewriteRuleAction/actionValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//URLRewriteRuleAction/actionRegex"/>
+    </genClasses>
+    <genClasses ecoreClass="esb.ecore#//URLRewriteRule">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//URLRewriteRule/urlRewriteRuleCondition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//URLRewriteRule/rewriteRuleAction"/>
+    </genClasses>
+    <genClasses ecoreClass="esb.ecore#//URLRewriteMediator">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//URLRewriteMediator/urlRewriteRules"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//URLRewriteMediator/InProperty"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//URLRewriteMediator/outProperty"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//URLRewriteMediator/inputConnector"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//URLRewriteMediator/outputConnector"/>
+    </genClasses>
+    <genClasses ecoreClass="esb.ecore#//URLRewriteMediatorInputConnector"/>
+    <genClasses ecoreClass="esb.ecore#//URLRewriteMediatorOutputConnector"/>
+    <genClasses ecoreClass="esb.ecore#//EvaluatorExpressionProperty">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EvaluatorExpressionProperty/prettyName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EvaluatorExpressionProperty/evaluatorName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EvaluatorExpressionProperty/evaluatorValue"/>
+    </genClasses>
+    <genClasses ecoreClass="esb.ecore#//ValidateMediator">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ValidateMediator/sourceXpath"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ValidateMediator/features"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ValidateMediator/schemas"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ValidateMediator/inputConnector"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ValidateMediator/outputConnector"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ValidateMediator/onFailOutputConnector"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ValidateMediator/mediatorFlow"/>
+    </genClasses>
+    <genClasses ecoreClass="esb.ecore#//ValidateFeature"/>
+    <genClasses ecoreClass="esb.ecore#//ValidateSchema">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esb.ecore#//ValidateSchema/validateStaticSchemaKey"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esb.ecore#//ValidateSchema/validateDynamicSchemaKey"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ValidateSchema/validateSchemaKeyType"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esb.ecore#//ValidateSchema/schemaKey"/>
+    </genClasses>
+    <genClasses ecoreClass="esb.ecore#//ValidateMediatorInputConnector"/>
+    <genClasses ecoreClass="esb.ecore#//ValidateMediatorOutputConnector"/>
+    <genClasses ecoreClass="esb.ecore#//ValidateMediatorOnFailOutputConnector"/>
   </genPackages>
 </genmodel:GenModel>

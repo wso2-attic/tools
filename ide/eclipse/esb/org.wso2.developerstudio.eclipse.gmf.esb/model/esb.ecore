@@ -630,26 +630,6 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SpringMediatorInputConnector" eSuperTypes="#//InputConnector"/>
   <eClassifiers xsi:type="ecore:EClass" name="SpringMediatorOutputConnector" eSuperTypes="#//OutputConnector"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ValidateMediator" eSuperTypes="#//Mediator">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sourceXpath" eType="#//NamespacedProperty"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="onFailBranch" eType="#//ValidateOnFailBranch"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="features" upperBound="-1"
-        eType="#//ValidateFeature" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="schemas" upperBound="-1"
-        eType="#//ValidateSchema" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ValidateOnFailBranch"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ValidateFeature" eSuperTypes="#//AbstractBooleanFeature"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ValidateSchema">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="validateStaticSchemaKey"
-        eType="#//RegistryKeyProperty"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="validateDynamicSchemaKey"
-        eType="#//NamespacedProperty"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="validateSchemaKeyType"
-        eType="#//KeyType"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ScriptMediator" eSuperTypes="#//Mediator">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="scriptType" eType="#//ScriptType"
         defaultValueLiteral="REGISTRY_REFERENCE"/>
@@ -1713,4 +1693,87 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SequencesOutputConnector" eSuperTypes="#//OutputConnector"/>
   <eClassifiers xsi:type="ecore:EClass" name="SequencesInputConnector" eSuperTypes="#//InputConnector"/>
+  <eClassifiers xsi:type="ecore:EClass" name="URLRewriteRuleAction" eSuperTypes="#//EsbNode">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ruleAction" eType="#//RuleActionType"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ruleFragment" eType="#//RuleFragmentType"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ruleOption" eType="#//RuleOptionType"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actionExpression" eType="#//NamespacedProperty"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="actionValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="actionRegex" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="RuleActionType">
+    <eLiterals name="REPLACE" literal="Replace"/>
+    <eLiterals name="REMOVE" value="1" literal="Remove"/>
+    <eLiterals name="APPEND" value="2" literal="Append"/>
+    <eLiterals name="PREPEND" value="3" literal="Prepend"/>
+    <eLiterals name="SET" value="4" literal="Set"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="RuleFragmentType">
+    <eLiterals name="PROTOCOL" literal="protocol"/>
+    <eLiterals name="HOST" value="1" literal="host"/>
+    <eLiterals name="PORT" value="2" literal="port"/>
+    <eLiterals name="PATH" value="3" literal="path"/>
+    <eLiterals name="QUERY" value="4" literal="query"/>
+    <eLiterals name="REF" value="5" literal="ref"/>
+    <eLiterals name="USER" value="6" literal="user"/>
+    <eLiterals name="FULL" value="7" literal="full"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="URLRewriteRule" eSuperTypes="#//EsbNode">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="urlRewriteRuleCondition"
+        eType="#//EvaluatorExpressionProperty" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rewriteRuleAction" upperBound="-1"
+        eType="#//URLRewriteRuleAction" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="URLRewriteMediator" eSuperTypes="#//Mediator">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="urlRewriteRules" upperBound="-1"
+        eType="#//URLRewriteRule" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="InProperty" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="outProperty" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inputConnector" eType="#//URLRewriteMediatorInputConnector"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outputConnector" eType="#//URLRewriteMediatorOutputConnector"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="URLRewriteMediatorInputConnector" eSuperTypes="#//InputConnector"/>
+  <eClassifiers xsi:type="ecore:EClass" name="URLRewriteMediatorOutputConnector" eSuperTypes="#//OutputConnector"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EvaluatorExpressionProperty" eSuperTypes="#//EsbNode">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prettyName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="evaluatorName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="evaluatorValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ValidateMediator" eSuperTypes="#//Mediator">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sourceXpath" eType="#//NamespacedProperty"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="features" upperBound="-1"
+        eType="#//ValidateFeature" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="schemas" upperBound="-1"
+        eType="#//ValidateSchema" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inputConnector" eType="#//ValidateMediatorInputConnector"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outputConnector" eType="#//ValidateMediatorOutputConnector"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="onFailOutputConnector"
+        eType="#//ValidateMediatorOnFailOutputConnector" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mediatorFlow" eType="#//MediatorFlow"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ValidateFeature" eSuperTypes="#//AbstractBooleanFeature"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ValidateSchema" eSuperTypes="#//EsbNode">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="validateStaticSchemaKey"
+        eType="#//RegistryKeyProperty"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="validateDynamicSchemaKey"
+        eType="#//NamespacedProperty"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="validateSchemaKeyType"
+        eType="#//KeyType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="schemaKey" eType="#//RegistryKeyProperty"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ValidateMediatorInputConnector" eSuperTypes="#//InputConnector"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ValidateMediatorOutputConnector" eSuperTypes="#//OutputConnector"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ValidateMediatorOnFailOutputConnector"
+      eSuperTypes="#//OutputConnector"/>
 </ecore:EPackage>

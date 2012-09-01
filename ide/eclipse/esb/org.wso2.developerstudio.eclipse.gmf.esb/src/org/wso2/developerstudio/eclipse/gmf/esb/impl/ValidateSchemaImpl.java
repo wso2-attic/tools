@@ -30,12 +30,13 @@ import org.wso2.developerstudio.eclipse.gmf.esb.ValidateSchema;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ValidateSchemaImpl#getValidateStaticSchemaKey <em>Validate Static Schema Key</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ValidateSchemaImpl#getValidateDynamicSchemaKey <em>Validate Dynamic Schema Key</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ValidateSchemaImpl#getValidateSchemaKeyType <em>Validate Schema Key Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ValidateSchemaImpl#getSchemaKey <em>Schema Key</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ValidateSchemaImpl extends EObjectImpl implements ValidateSchema {
+public class ValidateSchemaImpl extends EsbNodeImpl implements ValidateSchema {
 	/**
 	 * The cached value of the '{@link #getValidateStaticSchemaKey() <em>Validate Static Schema Key</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -75,6 +76,16 @@ public class ValidateSchemaImpl extends EObjectImpl implements ValidateSchema {
 	 * @ordered
 	 */
 	protected KeyType validateSchemaKeyType = VALIDATE_SCHEMA_KEY_TYPE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getSchemaKey() <em>Schema Key</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSchemaKey()
+	 * @generated
+	 * @ordered
+	 */
+	protected RegistryKeyProperty schemaKey;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -198,6 +209,44 @@ public class ValidateSchemaImpl extends EObjectImpl implements ValidateSchema {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public RegistryKeyProperty getSchemaKey() {
+		if (schemaKey != null && schemaKey.eIsProxy()) {
+			InternalEObject oldSchemaKey = (InternalEObject)schemaKey;
+			schemaKey = (RegistryKeyProperty)eResolveProxy(oldSchemaKey);
+			if (schemaKey != oldSchemaKey) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EsbPackage.VALIDATE_SCHEMA__SCHEMA_KEY, oldSchemaKey, schemaKey));
+			}
+		}
+		return schemaKey;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RegistryKeyProperty basicGetSchemaKey() {
+		return schemaKey;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSchemaKey(RegistryKeyProperty newSchemaKey) {
+		RegistryKeyProperty oldSchemaKey = schemaKey;
+		schemaKey = newSchemaKey;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.VALIDATE_SCHEMA__SCHEMA_KEY, oldSchemaKey, schemaKey));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
@@ -210,6 +259,9 @@ public class ValidateSchemaImpl extends EObjectImpl implements ValidateSchema {
 				return basicGetValidateDynamicSchemaKey();
 			case EsbPackage.VALIDATE_SCHEMA__VALIDATE_SCHEMA_KEY_TYPE:
 				return getValidateSchemaKeyType();
+			case EsbPackage.VALIDATE_SCHEMA__SCHEMA_KEY:
+				if (resolve) return getSchemaKey();
+				return basicGetSchemaKey();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -231,6 +283,9 @@ public class ValidateSchemaImpl extends EObjectImpl implements ValidateSchema {
 				return;
 			case EsbPackage.VALIDATE_SCHEMA__VALIDATE_SCHEMA_KEY_TYPE:
 				setValidateSchemaKeyType((KeyType)newValue);
+				return;
+			case EsbPackage.VALIDATE_SCHEMA__SCHEMA_KEY:
+				setSchemaKey((RegistryKeyProperty)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -254,6 +309,9 @@ public class ValidateSchemaImpl extends EObjectImpl implements ValidateSchema {
 			case EsbPackage.VALIDATE_SCHEMA__VALIDATE_SCHEMA_KEY_TYPE:
 				setValidateSchemaKeyType(VALIDATE_SCHEMA_KEY_TYPE_EDEFAULT);
 				return;
+			case EsbPackage.VALIDATE_SCHEMA__SCHEMA_KEY:
+				setSchemaKey((RegistryKeyProperty)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -273,6 +331,8 @@ public class ValidateSchemaImpl extends EObjectImpl implements ValidateSchema {
 				return validateDynamicSchemaKey != null;
 			case EsbPackage.VALIDATE_SCHEMA__VALIDATE_SCHEMA_KEY_TYPE:
 				return validateSchemaKeyType != VALIDATE_SCHEMA_KEY_TYPE_EDEFAULT;
+			case EsbPackage.VALIDATE_SCHEMA__SCHEMA_KEY:
+				return schemaKey != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -841,15 +841,6 @@ public interface EsbFactory extends EFactory {
 	ValidateMediator createValidateMediator();
 
 	/**
-	 * Returns a new object of class '<em>Validate On Fail Branch</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Validate On Fail Branch</em>'.
-	 * @generated
-	 */
-	ValidateOnFailBranch createValidateOnFailBranch();
-
-	/**
 	 * Returns a new object of class '<em>Validate Feature</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -866,6 +857,33 @@ public interface EsbFactory extends EFactory {
 	 * @generated
 	 */
 	ValidateSchema createValidateSchema();
+
+	/**
+	 * Returns a new object of class '<em>Validate Mediator Input Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Validate Mediator Input Connector</em>'.
+	 * @generated
+	 */
+	ValidateMediatorInputConnector createValidateMediatorInputConnector();
+
+	/**
+	 * Returns a new object of class '<em>Validate Mediator Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Validate Mediator Output Connector</em>'.
+	 * @generated
+	 */
+	ValidateMediatorOutputConnector createValidateMediatorOutputConnector();
+
+	/**
+	 * Returns a new object of class '<em>Validate Mediator On Fail Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Validate Mediator On Fail Output Connector</em>'.
+	 * @generated
+	 */
+	ValidateMediatorOnFailOutputConnector createValidateMediatorOnFailOutputConnector();
 
 	/**
 	 * Returns a new object of class '<em>Script Mediator</em>'.
@@ -2081,6 +2099,60 @@ public interface EsbFactory extends EFactory {
 	 * @generated
 	 */
 	SequencesInputConnector createSequencesInputConnector();
+
+	/**
+	 * Returns a new object of class '<em>URL Rewrite Rule Action</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>URL Rewrite Rule Action</em>'.
+	 * @generated
+	 */
+	URLRewriteRuleAction createURLRewriteRuleAction();
+
+	/**
+	 * Returns a new object of class '<em>URL Rewrite Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>URL Rewrite Rule</em>'.
+	 * @generated
+	 */
+	URLRewriteRule createURLRewriteRule();
+
+	/**
+	 * Returns a new object of class '<em>URL Rewrite Mediator</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>URL Rewrite Mediator</em>'.
+	 * @generated
+	 */
+	URLRewriteMediator createURLRewriteMediator();
+
+	/**
+	 * Returns a new object of class '<em>URL Rewrite Mediator Input Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>URL Rewrite Mediator Input Connector</em>'.
+	 * @generated
+	 */
+	URLRewriteMediatorInputConnector createURLRewriteMediatorInputConnector();
+
+	/**
+	 * Returns a new object of class '<em>URL Rewrite Mediator Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>URL Rewrite Mediator Output Connector</em>'.
+	 * @generated
+	 */
+	URLRewriteMediatorOutputConnector createURLRewriteMediatorOutputConnector();
+
+	/**
+	 * Returns a new object of class '<em>Evaluator Expression Property</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Evaluator Expression Property</em>'.
+	 * @generated
+	 */
+	EvaluatorExpressionProperty createEvaluatorExpressionProperty();
 
 	/**
 	 * Returns the package supported by this factory.

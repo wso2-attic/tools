@@ -1312,6 +1312,52 @@
             blue="255"/>
       </actualFigure>
     </descriptors>
+    <descriptors
+        name="URLRewriteMediatorFigure">
+      <actualFigure
+          xsi:type="gmfgraph:CustomFigure"
+          name="URLRewriteMediatorGraphicalFigure"
+          qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="230"
+            green="230"
+            blue="230"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="URLRewriteMediatorPropertyValue"
+            text="&lt;...>"/>
+      </actualFigure>
+      <accessors
+          accessor="getFigureURLRewriteMediatorPropertyValue"
+          figure="//@figures.0/@descriptors.75/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="ValidateMediatorFigure">
+      <actualFigure
+          xsi:type="gmfgraph:CustomFigure"
+          name="ValidateMediatorGraphicalFigure"
+          qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGroupingShape">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"
+            matchMinorSize="true"
+            forceSingleLine="true"
+            majorAlignment="CENTER"
+            minorAlignment="CENTER"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="230"
+            green="230"
+            blue="230"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="ValidateMediatorPropertyValue"
+            text="&lt;...>"/>
+      </actualFigure>
+      <accessors
+          accessor="getFigureValidateMediatorPropertyValue"
+          figure="//@figures.0/@descriptors.76/@actualFigure/@children.0"/>
+    </descriptors>
   </figures>
   <nodes
       name="EsbServer"
@@ -1960,6 +2006,32 @@
       figure="WestPointerFigure"/>
   <nodes
       name="CacheMediatorOnHitOutputConnector"
+      figure="EastPointerFigure"
+      affixedParentSide="EAST"/>
+  <nodes
+      name="URLRewriteMediator"
+      figure="URLRewriteMediatorFigure"/>
+  <nodes
+      name="URLRewriteMediatorInputConnector"
+      figure="EastPointerFigure"
+      affixedParentSide="WEST"/>
+  <nodes
+      name="URLRewriteMediatorOutputConnector"
+      figure="EastPointerFigure"
+      affixedParentSide="EAST"/>
+  <nodes
+      name="ValidateMediator"
+      figure="ValidateMediatorFigure"/>
+  <nodes
+      name="ValidateMediatorInputConnector"
+      figure="EastPointerFigure"
+      affixedParentSide="WEST"/>
+  <nodes
+      name="ValidateMediatorOutputConnector"
+      figure="EastPointerFigure"
+      affixedParentSide="EAST"/>
+  <nodes
+      name="ValidateMediatorOnFailOutputConnector"
       figure="EastPointerFigure"
       affixedParentSide="EAST"/>
   <connections

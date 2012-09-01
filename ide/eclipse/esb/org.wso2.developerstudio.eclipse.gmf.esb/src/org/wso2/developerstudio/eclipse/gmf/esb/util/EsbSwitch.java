@@ -872,35 +872,6 @@ public class EsbSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EsbPackage.VALIDATE_MEDIATOR: {
-				ValidateMediator validateMediator = (ValidateMediator)theEObject;
-				T result = caseValidateMediator(validateMediator);
-				if (result == null) result = caseMediator(validateMediator);
-				if (result == null) result = caseEsbElement(validateMediator);
-				if (result == null) result = caseEsbNode(validateMediator);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EsbPackage.VALIDATE_ON_FAIL_BRANCH: {
-				ValidateOnFailBranch validateOnFailBranch = (ValidateOnFailBranch)theEObject;
-				T result = caseValidateOnFailBranch(validateOnFailBranch);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EsbPackage.VALIDATE_FEATURE: {
-				ValidateFeature validateFeature = (ValidateFeature)theEObject;
-				T result = caseValidateFeature(validateFeature);
-				if (result == null) result = caseAbstractBooleanFeature(validateFeature);
-				if (result == null) result = caseEsbNode(validateFeature);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EsbPackage.VALIDATE_SCHEMA: {
-				ValidateSchema validateSchema = (ValidateSchema)theEObject;
-				T result = caseValidateSchema(validateSchema);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case EsbPackage.SCRIPT_MEDIATOR: {
 				ScriptMediator scriptMediator = (ScriptMediator)theEObject;
 				T result = caseScriptMediator(scriptMediator);
@@ -1962,6 +1933,100 @@ public class EsbSwitch<T> {
 				T result = caseSequencesInputConnector(sequencesInputConnector);
 				if (result == null) result = caseInputConnector(sequencesInputConnector);
 				if (result == null) result = caseEsbConnector(sequencesInputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.URL_REWRITE_RULE_ACTION: {
+				URLRewriteRuleAction urlRewriteRuleAction = (URLRewriteRuleAction)theEObject;
+				T result = caseURLRewriteRuleAction(urlRewriteRuleAction);
+				if (result == null) result = caseEsbNode(urlRewriteRuleAction);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.URL_REWRITE_RULE: {
+				URLRewriteRule urlRewriteRule = (URLRewriteRule)theEObject;
+				T result = caseURLRewriteRule(urlRewriteRule);
+				if (result == null) result = caseEsbNode(urlRewriteRule);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.URL_REWRITE_MEDIATOR: {
+				URLRewriteMediator urlRewriteMediator = (URLRewriteMediator)theEObject;
+				T result = caseURLRewriteMediator(urlRewriteMediator);
+				if (result == null) result = caseMediator(urlRewriteMediator);
+				if (result == null) result = caseEsbElement(urlRewriteMediator);
+				if (result == null) result = caseEsbNode(urlRewriteMediator);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.URL_REWRITE_MEDIATOR_INPUT_CONNECTOR: {
+				URLRewriteMediatorInputConnector urlRewriteMediatorInputConnector = (URLRewriteMediatorInputConnector)theEObject;
+				T result = caseURLRewriteMediatorInputConnector(urlRewriteMediatorInputConnector);
+				if (result == null) result = caseInputConnector(urlRewriteMediatorInputConnector);
+				if (result == null) result = caseEsbConnector(urlRewriteMediatorInputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.URL_REWRITE_MEDIATOR_OUTPUT_CONNECTOR: {
+				URLRewriteMediatorOutputConnector urlRewriteMediatorOutputConnector = (URLRewriteMediatorOutputConnector)theEObject;
+				T result = caseURLRewriteMediatorOutputConnector(urlRewriteMediatorOutputConnector);
+				if (result == null) result = caseOutputConnector(urlRewriteMediatorOutputConnector);
+				if (result == null) result = caseEsbConnector(urlRewriteMediatorOutputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.EVALUATOR_EXPRESSION_PROPERTY: {
+				EvaluatorExpressionProperty evaluatorExpressionProperty = (EvaluatorExpressionProperty)theEObject;
+				T result = caseEvaluatorExpressionProperty(evaluatorExpressionProperty);
+				if (result == null) result = caseEsbNode(evaluatorExpressionProperty);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.VALIDATE_MEDIATOR: {
+				ValidateMediator validateMediator = (ValidateMediator)theEObject;
+				T result = caseValidateMediator(validateMediator);
+				if (result == null) result = caseMediator(validateMediator);
+				if (result == null) result = caseEsbElement(validateMediator);
+				if (result == null) result = caseEsbNode(validateMediator);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.VALIDATE_FEATURE: {
+				ValidateFeature validateFeature = (ValidateFeature)theEObject;
+				T result = caseValidateFeature(validateFeature);
+				if (result == null) result = caseAbstractBooleanFeature(validateFeature);
+				if (result == null) result = caseEsbNode(validateFeature);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.VALIDATE_SCHEMA: {
+				ValidateSchema validateSchema = (ValidateSchema)theEObject;
+				T result = caseValidateSchema(validateSchema);
+				if (result == null) result = caseEsbNode(validateSchema);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.VALIDATE_MEDIATOR_INPUT_CONNECTOR: {
+				ValidateMediatorInputConnector validateMediatorInputConnector = (ValidateMediatorInputConnector)theEObject;
+				T result = caseValidateMediatorInputConnector(validateMediatorInputConnector);
+				if (result == null) result = caseInputConnector(validateMediatorInputConnector);
+				if (result == null) result = caseEsbConnector(validateMediatorInputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.VALIDATE_MEDIATOR_OUTPUT_CONNECTOR: {
+				ValidateMediatorOutputConnector validateMediatorOutputConnector = (ValidateMediatorOutputConnector)theEObject;
+				T result = caseValidateMediatorOutputConnector(validateMediatorOutputConnector);
+				if (result == null) result = caseOutputConnector(validateMediatorOutputConnector);
+				if (result == null) result = caseEsbConnector(validateMediatorOutputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.VALIDATE_MEDIATOR_ON_FAIL_OUTPUT_CONNECTOR: {
+				ValidateMediatorOnFailOutputConnector validateMediatorOnFailOutputConnector = (ValidateMediatorOnFailOutputConnector)theEObject;
+				T result = caseValidateMediatorOnFailOutputConnector(validateMediatorOnFailOutputConnector);
+				if (result == null) result = caseOutputConnector(validateMediatorOnFailOutputConnector);
+				if (result == null) result = caseEsbConnector(validateMediatorOnFailOutputConnector);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -3500,21 +3565,6 @@ public class EsbSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Validate On Fail Branch</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Validate On Fail Branch</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseValidateOnFailBranch(ValidateOnFailBranch object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Validate Feature</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -3541,6 +3591,51 @@ public class EsbSwitch<T> {
 	 * @generated
 	 */
 	public T caseValidateSchema(ValidateSchema object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Validate Mediator Input Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Validate Mediator Input Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseValidateMediatorInputConnector(ValidateMediatorInputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Validate Mediator Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Validate Mediator Output Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseValidateMediatorOutputConnector(ValidateMediatorOutputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Validate Mediator On Fail Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Validate Mediator On Fail Output Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseValidateMediatorOnFailOutputConnector(ValidateMediatorOnFailOutputConnector object) {
 		return null;
 	}
 
@@ -5581,6 +5676,96 @@ public class EsbSwitch<T> {
 	 * @generated
 	 */
 	public T caseSequencesInputConnector(SequencesInputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>URL Rewrite Rule Action</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>URL Rewrite Rule Action</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseURLRewriteRuleAction(URLRewriteRuleAction object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>URL Rewrite Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>URL Rewrite Rule</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseURLRewriteRule(URLRewriteRule object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>URL Rewrite Mediator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>URL Rewrite Mediator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseURLRewriteMediator(URLRewriteMediator object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>URL Rewrite Mediator Input Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>URL Rewrite Mediator Input Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseURLRewriteMediatorInputConnector(URLRewriteMediatorInputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>URL Rewrite Mediator Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>URL Rewrite Mediator Output Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseURLRewriteMediatorOutputConnector(URLRewriteMediatorOutputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Evaluator Expression Property</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Evaluator Expression Property</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEvaluatorExpressionProperty(EvaluatorExpressionProperty object) {
 		return null;
 	}
 

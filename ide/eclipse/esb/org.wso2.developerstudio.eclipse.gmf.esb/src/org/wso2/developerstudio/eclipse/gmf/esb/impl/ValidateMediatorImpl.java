@@ -22,9 +22,13 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
+import org.wso2.developerstudio.eclipse.gmf.esb.MediatorFlow;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.ValidateFeature;
 import org.wso2.developerstudio.eclipse.gmf.esb.ValidateMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.ValidateMediatorInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.ValidateMediatorOnFailOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.ValidateMediatorOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.ValidateOnFailBranch;
 import org.wso2.developerstudio.eclipse.gmf.esb.ValidateSchema;
 
@@ -36,9 +40,12 @@ import org.wso2.developerstudio.eclipse.gmf.esb.ValidateSchema;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ValidateMediatorImpl#getSourceXpath <em>Source Xpath</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ValidateMediatorImpl#getOnFailBranch <em>On Fail Branch</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ValidateMediatorImpl#getFeatures <em>Features</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ValidateMediatorImpl#getSchemas <em>Schemas</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ValidateMediatorImpl#getInputConnector <em>Input Connector</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ValidateMediatorImpl#getOutputConnector <em>Output Connector</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ValidateMediatorImpl#getOnFailOutputConnector <em>On Fail Output Connector</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ValidateMediatorImpl#getMediatorFlow <em>Mediator Flow</em>}</li>
  * </ul>
  * </p>
  *
@@ -54,16 +61,6 @@ public class ValidateMediatorImpl extends MediatorImpl implements ValidateMediat
 	 * @ordered
 	 */
 	protected NamespacedProperty sourceXpath;
-
-	/**
-	 * The cached value of the '{@link #getOnFailBranch() <em>On Fail Branch</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOnFailBranch()
-	 * @generated
-	 * @ordered
-	 */
-	protected ValidateOnFailBranch onFailBranch;
 
 	/**
 	 * The cached value of the '{@link #getFeatures() <em>Features</em>}' containment reference list.
@@ -84,6 +81,46 @@ public class ValidateMediatorImpl extends MediatorImpl implements ValidateMediat
 	 * @ordered
 	 */
 	protected EList<ValidateSchema> schemas;
+
+	/**
+	 * The cached value of the '{@link #getInputConnector() <em>Input Connector</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInputConnector()
+	 * @generated
+	 * @ordered
+	 */
+	protected ValidateMediatorInputConnector inputConnector;
+
+	/**
+	 * The cached value of the '{@link #getOutputConnector() <em>Output Connector</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOutputConnector()
+	 * @generated
+	 * @ordered
+	 */
+	protected ValidateMediatorOutputConnector outputConnector;
+
+	/**
+	 * The cached value of the '{@link #getOnFailOutputConnector() <em>On Fail Output Connector</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOnFailOutputConnector()
+	 * @generated
+	 * @ordered
+	 */
+	protected ValidateMediatorOnFailOutputConnector onFailOutputConnector;
+
+	/**
+	 * The cached value of the '{@link #getMediatorFlow() <em>Mediator Flow</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMediatorFlow()
+	 * @generated
+	 * @ordered
+	 */
+	protected MediatorFlow mediatorFlow;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -153,49 +190,6 @@ public class ValidateMediatorImpl extends MediatorImpl implements ValidateMediat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ValidateOnFailBranch getOnFailBranch() {
-		return onFailBranch;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetOnFailBranch(ValidateOnFailBranch newOnFailBranch, NotificationChain msgs) {
-		ValidateOnFailBranch oldOnFailBranch = onFailBranch;
-		onFailBranch = newOnFailBranch;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.VALIDATE_MEDIATOR__ON_FAIL_BRANCH, oldOnFailBranch, newOnFailBranch);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setOnFailBranch(ValidateOnFailBranch newOnFailBranch) {
-		if (newOnFailBranch != onFailBranch) {
-			NotificationChain msgs = null;
-			if (onFailBranch != null)
-				msgs = ((InternalEObject)onFailBranch).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.VALIDATE_MEDIATOR__ON_FAIL_BRANCH, null, msgs);
-			if (newOnFailBranch != null)
-				msgs = ((InternalEObject)newOnFailBranch).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.VALIDATE_MEDIATOR__ON_FAIL_BRANCH, null, msgs);
-			msgs = basicSetOnFailBranch(newOnFailBranch, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.VALIDATE_MEDIATOR__ON_FAIL_BRANCH, newOnFailBranch, newOnFailBranch));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<ValidateFeature> getFeatures() {
 		if (features == null) {
 			features = new EObjectContainmentEList<ValidateFeature>(ValidateFeature.class, this, EsbPackage.VALIDATE_MEDIATOR__FEATURES);
@@ -220,18 +214,196 @@ public class ValidateMediatorImpl extends MediatorImpl implements ValidateMediat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ValidateMediatorInputConnector getInputConnector() {
+		return inputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetInputConnector(ValidateMediatorInputConnector newInputConnector, NotificationChain msgs) {
+		ValidateMediatorInputConnector oldInputConnector = inputConnector;
+		inputConnector = newInputConnector;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.VALIDATE_MEDIATOR__INPUT_CONNECTOR, oldInputConnector, newInputConnector);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInputConnector(ValidateMediatorInputConnector newInputConnector) {
+		if (newInputConnector != inputConnector) {
+			NotificationChain msgs = null;
+			if (inputConnector != null)
+				msgs = ((InternalEObject)inputConnector).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.VALIDATE_MEDIATOR__INPUT_CONNECTOR, null, msgs);
+			if (newInputConnector != null)
+				msgs = ((InternalEObject)newInputConnector).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.VALIDATE_MEDIATOR__INPUT_CONNECTOR, null, msgs);
+			msgs = basicSetInputConnector(newInputConnector, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.VALIDATE_MEDIATOR__INPUT_CONNECTOR, newInputConnector, newInputConnector));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ValidateMediatorOutputConnector getOutputConnector() {
+		return outputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetOutputConnector(ValidateMediatorOutputConnector newOutputConnector, NotificationChain msgs) {
+		ValidateMediatorOutputConnector oldOutputConnector = outputConnector;
+		outputConnector = newOutputConnector;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.VALIDATE_MEDIATOR__OUTPUT_CONNECTOR, oldOutputConnector, newOutputConnector);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOutputConnector(ValidateMediatorOutputConnector newOutputConnector) {
+		if (newOutputConnector != outputConnector) {
+			NotificationChain msgs = null;
+			if (outputConnector != null)
+				msgs = ((InternalEObject)outputConnector).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.VALIDATE_MEDIATOR__OUTPUT_CONNECTOR, null, msgs);
+			if (newOutputConnector != null)
+				msgs = ((InternalEObject)newOutputConnector).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.VALIDATE_MEDIATOR__OUTPUT_CONNECTOR, null, msgs);
+			msgs = basicSetOutputConnector(newOutputConnector, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.VALIDATE_MEDIATOR__OUTPUT_CONNECTOR, newOutputConnector, newOutputConnector));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ValidateMediatorOnFailOutputConnector getOnFailOutputConnector() {
+		return onFailOutputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetOnFailOutputConnector(ValidateMediatorOnFailOutputConnector newOnFailOutputConnector, NotificationChain msgs) {
+		ValidateMediatorOnFailOutputConnector oldOnFailOutputConnector = onFailOutputConnector;
+		onFailOutputConnector = newOnFailOutputConnector;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.VALIDATE_MEDIATOR__ON_FAIL_OUTPUT_CONNECTOR, oldOnFailOutputConnector, newOnFailOutputConnector);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOnFailOutputConnector(ValidateMediatorOnFailOutputConnector newOnFailOutputConnector) {
+		if (newOnFailOutputConnector != onFailOutputConnector) {
+			NotificationChain msgs = null;
+			if (onFailOutputConnector != null)
+				msgs = ((InternalEObject)onFailOutputConnector).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.VALIDATE_MEDIATOR__ON_FAIL_OUTPUT_CONNECTOR, null, msgs);
+			if (newOnFailOutputConnector != null)
+				msgs = ((InternalEObject)newOnFailOutputConnector).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.VALIDATE_MEDIATOR__ON_FAIL_OUTPUT_CONNECTOR, null, msgs);
+			msgs = basicSetOnFailOutputConnector(newOnFailOutputConnector, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.VALIDATE_MEDIATOR__ON_FAIL_OUTPUT_CONNECTOR, newOnFailOutputConnector, newOnFailOutputConnector));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MediatorFlow getMediatorFlow() {
+		return mediatorFlow;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetMediatorFlow(MediatorFlow newMediatorFlow, NotificationChain msgs) {
+		MediatorFlow oldMediatorFlow = mediatorFlow;
+		mediatorFlow = newMediatorFlow;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.VALIDATE_MEDIATOR__MEDIATOR_FLOW, oldMediatorFlow, newMediatorFlow);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMediatorFlow(MediatorFlow newMediatorFlow) {
+		if (newMediatorFlow != mediatorFlow) {
+			NotificationChain msgs = null;
+			if (mediatorFlow != null)
+				msgs = ((InternalEObject)mediatorFlow).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.VALIDATE_MEDIATOR__MEDIATOR_FLOW, null, msgs);
+			if (newMediatorFlow != null)
+				msgs = ((InternalEObject)newMediatorFlow).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.VALIDATE_MEDIATOR__MEDIATOR_FLOW, null, msgs);
+			msgs = basicSetMediatorFlow(newMediatorFlow, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.VALIDATE_MEDIATOR__MEDIATOR_FLOW, newMediatorFlow, newMediatorFlow));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case EsbPackage.VALIDATE_MEDIATOR__SOURCE_XPATH:
 				return basicSetSourceXpath(null, msgs);
-			case EsbPackage.VALIDATE_MEDIATOR__ON_FAIL_BRANCH:
-				return basicSetOnFailBranch(null, msgs);
 			case EsbPackage.VALIDATE_MEDIATOR__FEATURES:
 				return ((InternalEList<?>)getFeatures()).basicRemove(otherEnd, msgs);
 			case EsbPackage.VALIDATE_MEDIATOR__SCHEMAS:
 				return ((InternalEList<?>)getSchemas()).basicRemove(otherEnd, msgs);
+			case EsbPackage.VALIDATE_MEDIATOR__INPUT_CONNECTOR:
+				return basicSetInputConnector(null, msgs);
+			case EsbPackage.VALIDATE_MEDIATOR__OUTPUT_CONNECTOR:
+				return basicSetOutputConnector(null, msgs);
+			case EsbPackage.VALIDATE_MEDIATOR__ON_FAIL_OUTPUT_CONNECTOR:
+				return basicSetOnFailOutputConnector(null, msgs);
+			case EsbPackage.VALIDATE_MEDIATOR__MEDIATOR_FLOW:
+				return basicSetMediatorFlow(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -247,12 +419,18 @@ public class ValidateMediatorImpl extends MediatorImpl implements ValidateMediat
 		switch (featureID) {
 			case EsbPackage.VALIDATE_MEDIATOR__SOURCE_XPATH:
 				return getSourceXpath();
-			case EsbPackage.VALIDATE_MEDIATOR__ON_FAIL_BRANCH:
-				return getOnFailBranch();
 			case EsbPackage.VALIDATE_MEDIATOR__FEATURES:
 				return getFeatures();
 			case EsbPackage.VALIDATE_MEDIATOR__SCHEMAS:
 				return getSchemas();
+			case EsbPackage.VALIDATE_MEDIATOR__INPUT_CONNECTOR:
+				return getInputConnector();
+			case EsbPackage.VALIDATE_MEDIATOR__OUTPUT_CONNECTOR:
+				return getOutputConnector();
+			case EsbPackage.VALIDATE_MEDIATOR__ON_FAIL_OUTPUT_CONNECTOR:
+				return getOnFailOutputConnector();
+			case EsbPackage.VALIDATE_MEDIATOR__MEDIATOR_FLOW:
+				return getMediatorFlow();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -270,9 +448,6 @@ public class ValidateMediatorImpl extends MediatorImpl implements ValidateMediat
 			case EsbPackage.VALIDATE_MEDIATOR__SOURCE_XPATH:
 				setSourceXpath((NamespacedProperty)newValue);
 				return;
-			case EsbPackage.VALIDATE_MEDIATOR__ON_FAIL_BRANCH:
-				setOnFailBranch((ValidateOnFailBranch)newValue);
-				return;
 			case EsbPackage.VALIDATE_MEDIATOR__FEATURES:
 				getFeatures().clear();
 				getFeatures().addAll((Collection<? extends ValidateFeature>)newValue);
@@ -280,6 +455,18 @@ public class ValidateMediatorImpl extends MediatorImpl implements ValidateMediat
 			case EsbPackage.VALIDATE_MEDIATOR__SCHEMAS:
 				getSchemas().clear();
 				getSchemas().addAll((Collection<? extends ValidateSchema>)newValue);
+				return;
+			case EsbPackage.VALIDATE_MEDIATOR__INPUT_CONNECTOR:
+				setInputConnector((ValidateMediatorInputConnector)newValue);
+				return;
+			case EsbPackage.VALIDATE_MEDIATOR__OUTPUT_CONNECTOR:
+				setOutputConnector((ValidateMediatorOutputConnector)newValue);
+				return;
+			case EsbPackage.VALIDATE_MEDIATOR__ON_FAIL_OUTPUT_CONNECTOR:
+				setOnFailOutputConnector((ValidateMediatorOnFailOutputConnector)newValue);
+				return;
+			case EsbPackage.VALIDATE_MEDIATOR__MEDIATOR_FLOW:
+				setMediatorFlow((MediatorFlow)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -297,14 +484,23 @@ public class ValidateMediatorImpl extends MediatorImpl implements ValidateMediat
 			case EsbPackage.VALIDATE_MEDIATOR__SOURCE_XPATH:
 				setSourceXpath((NamespacedProperty)null);
 				return;
-			case EsbPackage.VALIDATE_MEDIATOR__ON_FAIL_BRANCH:
-				setOnFailBranch((ValidateOnFailBranch)null);
-				return;
 			case EsbPackage.VALIDATE_MEDIATOR__FEATURES:
 				getFeatures().clear();
 				return;
 			case EsbPackage.VALIDATE_MEDIATOR__SCHEMAS:
 				getSchemas().clear();
+				return;
+			case EsbPackage.VALIDATE_MEDIATOR__INPUT_CONNECTOR:
+				setInputConnector((ValidateMediatorInputConnector)null);
+				return;
+			case EsbPackage.VALIDATE_MEDIATOR__OUTPUT_CONNECTOR:
+				setOutputConnector((ValidateMediatorOutputConnector)null);
+				return;
+			case EsbPackage.VALIDATE_MEDIATOR__ON_FAIL_OUTPUT_CONNECTOR:
+				setOnFailOutputConnector((ValidateMediatorOnFailOutputConnector)null);
+				return;
+			case EsbPackage.VALIDATE_MEDIATOR__MEDIATOR_FLOW:
+				setMediatorFlow((MediatorFlow)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -321,12 +517,18 @@ public class ValidateMediatorImpl extends MediatorImpl implements ValidateMediat
 		switch (featureID) {
 			case EsbPackage.VALIDATE_MEDIATOR__SOURCE_XPATH:
 				return sourceXpath != null;
-			case EsbPackage.VALIDATE_MEDIATOR__ON_FAIL_BRANCH:
-				return onFailBranch != null;
 			case EsbPackage.VALIDATE_MEDIATOR__FEATURES:
 				return features != null && !features.isEmpty();
 			case EsbPackage.VALIDATE_MEDIATOR__SCHEMAS:
 				return schemas != null && !schemas.isEmpty();
+			case EsbPackage.VALIDATE_MEDIATOR__INPUT_CONNECTOR:
+				return inputConnector != null;
+			case EsbPackage.VALIDATE_MEDIATOR__OUTPUT_CONNECTOR:
+				return outputConnector != null;
+			case EsbPackage.VALIDATE_MEDIATOR__ON_FAIL_OUTPUT_CONNECTOR:
+				return onFailOutputConnector != null;
+			case EsbPackage.VALIDATE_MEDIATOR__MEDIATOR_FLOW:
+				return mediatorFlow != null;
 		}
 		return super.eIsSet(featureID);
 	}

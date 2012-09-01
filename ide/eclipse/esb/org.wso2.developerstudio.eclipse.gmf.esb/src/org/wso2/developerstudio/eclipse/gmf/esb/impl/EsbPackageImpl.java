@@ -121,6 +121,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbSequenceInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbSequenceOutput;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbSequenceOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbServer;
+import org.wso2.developerstudio.eclipse.gmf.esb.EvaluatorExpressionProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.EventMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.EventMediatorInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.EventMediatorOutputConnector;
@@ -228,11 +229,13 @@ import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.RouteTarget;
 import org.wso2.developerstudio.eclipse.gmf.esb.RouterMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.RouterRoute;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleActionType;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleChildMediatorsConfiguration;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleFact;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleFactType;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleFactValueType;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleFactsConfiguration;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleFragmentType;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleMediatorInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleMediatorOutputConnector;
@@ -319,8 +322,16 @@ import org.wso2.developerstudio.eclipse.gmf.esb.TransactionMediatorInputConnecto
 import org.wso2.developerstudio.eclipse.gmf.esb.TransactionMediatorOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.Trigger;
 import org.wso2.developerstudio.eclipse.gmf.esb.Type;
+import org.wso2.developerstudio.eclipse.gmf.esb.URLRewriteMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.URLRewriteMediatorInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.URLRewriteMediatorOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.URLRewriteRule;
+import org.wso2.developerstudio.eclipse.gmf.esb.URLRewriteRuleAction;
 import org.wso2.developerstudio.eclipse.gmf.esb.ValidateFeature;
 import org.wso2.developerstudio.eclipse.gmf.esb.ValidateMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.ValidateMediatorInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.ValidateMediatorOnFailOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.ValidateMediatorOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.ValidateOnFailBranch;
 import org.wso2.developerstudio.eclipse.gmf.esb.ValidateSchema;
 import org.wso2.developerstudio.eclipse.gmf.esb.WSDLDefinition;
@@ -1069,13 +1080,6 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass validateOnFailBranchEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass validateFeatureEClass = null;
 
 	/**
@@ -1084,6 +1088,27 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	private EClass validateSchemaEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass validateMediatorInputConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass validateMediatorOutputConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass validateMediatorOnFailOutputConnectorEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -2042,6 +2067,48 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass urlRewriteRuleActionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass urlRewriteRuleEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass urlRewriteMediatorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass urlRewriteMediatorInputConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass urlRewriteMediatorOutputConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass evaluatorExpressionPropertyEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum proxyWsdlTypeEEnum = null;
 
 	/**
@@ -2505,6 +2572,20 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	private EEnum localEntryValueTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum ruleActionTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum ruleFragmentTypeEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -5207,7 +5288,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getValidateMediator_OnFailBranch() {
+	public EReference getValidateMediator_Features() {
 		return (EReference)validateMediatorEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -5216,7 +5297,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getValidateMediator_Features() {
+	public EReference getValidateMediator_Schemas() {
 		return (EReference)validateMediatorEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -5225,7 +5306,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getValidateMediator_Schemas() {
+	public EReference getValidateMediator_InputConnector() {
 		return (EReference)validateMediatorEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -5234,8 +5315,26 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getValidateOnFailBranch() {
-		return validateOnFailBranchEClass;
+	public EReference getValidateMediator_OutputConnector() {
+		return (EReference)validateMediatorEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getValidateMediator_OnFailOutputConnector() {
+		return (EReference)validateMediatorEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getValidateMediator_MediatorFlow() {
+		return (EReference)validateMediatorEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -5281,6 +5380,42 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 */
 	public EAttribute getValidateSchema_ValidateSchemaKeyType() {
 		return (EAttribute)validateSchemaEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getValidateSchema_SchemaKey() {
+		return (EReference)validateSchemaEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getValidateMediatorInputConnector() {
+		return validateMediatorInputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getValidateMediatorOutputConnector() {
+		return validateMediatorOutputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getValidateMediatorOnFailOutputConnector() {
+		return validateMediatorOnFailOutputConnectorEClass;
 	}
 
 	/**
@@ -9374,6 +9509,204 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getURLRewriteRuleAction() {
+		return urlRewriteRuleActionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getURLRewriteRuleAction_RuleAction() {
+		return (EAttribute)urlRewriteRuleActionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getURLRewriteRuleAction_RuleFragment() {
+		return (EAttribute)urlRewriteRuleActionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getURLRewriteRuleAction_RuleOption() {
+		return (EAttribute)urlRewriteRuleActionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getURLRewriteRuleAction_ActionExpression() {
+		return (EReference)urlRewriteRuleActionEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getURLRewriteRuleAction_ActionValue() {
+		return (EAttribute)urlRewriteRuleActionEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getURLRewriteRuleAction_ActionRegex() {
+		return (EAttribute)urlRewriteRuleActionEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getURLRewriteRule() {
+		return urlRewriteRuleEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getURLRewriteRule_UrlRewriteRuleCondition() {
+		return (EReference)urlRewriteRuleEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getURLRewriteRule_RewriteRuleAction() {
+		return (EReference)urlRewriteRuleEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getURLRewriteMediator() {
+		return urlRewriteMediatorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getURLRewriteMediator_UrlRewriteRules() {
+		return (EReference)urlRewriteMediatorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getURLRewriteMediator_InProperty() {
+		return (EAttribute)urlRewriteMediatorEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getURLRewriteMediator_OutProperty() {
+		return (EAttribute)urlRewriteMediatorEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getURLRewriteMediator_InputConnector() {
+		return (EReference)urlRewriteMediatorEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getURLRewriteMediator_OutputConnector() {
+		return (EReference)urlRewriteMediatorEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getURLRewriteMediatorInputConnector() {
+		return urlRewriteMediatorInputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getURLRewriteMediatorOutputConnector() {
+		return urlRewriteMediatorOutputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getEvaluatorExpressionProperty() {
+		return evaluatorExpressionPropertyEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getEvaluatorExpressionProperty_PrettyName() {
+		return (EAttribute)evaluatorExpressionPropertyEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getEvaluatorExpressionProperty_EvaluatorName() {
+		return (EAttribute)evaluatorExpressionPropertyEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getEvaluatorExpressionProperty_EvaluatorValue() {
+		return (EAttribute)evaluatorExpressionPropertyEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getProxyWsdlType() {
 		return proxyWsdlTypeEEnum;
 	}
@@ -9977,6 +10310,24 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getRuleActionType() {
+		return ruleActionTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getRuleFragmentType() {
+		return ruleFragmentTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EDataType getMap() {
 		return mapEDataType;
 	}
@@ -10399,21 +10750,6 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		springMediatorInputConnectorEClass = createEClass(SPRING_MEDIATOR_INPUT_CONNECTOR);
 
 		springMediatorOutputConnectorEClass = createEClass(SPRING_MEDIATOR_OUTPUT_CONNECTOR);
-
-		validateMediatorEClass = createEClass(VALIDATE_MEDIATOR);
-		createEReference(validateMediatorEClass, VALIDATE_MEDIATOR__SOURCE_XPATH);
-		createEReference(validateMediatorEClass, VALIDATE_MEDIATOR__ON_FAIL_BRANCH);
-		createEReference(validateMediatorEClass, VALIDATE_MEDIATOR__FEATURES);
-		createEReference(validateMediatorEClass, VALIDATE_MEDIATOR__SCHEMAS);
-
-		validateOnFailBranchEClass = createEClass(VALIDATE_ON_FAIL_BRANCH);
-
-		validateFeatureEClass = createEClass(VALIDATE_FEATURE);
-
-		validateSchemaEClass = createEClass(VALIDATE_SCHEMA);
-		createEReference(validateSchemaEClass, VALIDATE_SCHEMA__VALIDATE_STATIC_SCHEMA_KEY);
-		createEReference(validateSchemaEClass, VALIDATE_SCHEMA__VALIDATE_DYNAMIC_SCHEMA_KEY);
-		createEAttribute(validateSchemaEClass, VALIDATE_SCHEMA__VALIDATE_SCHEMA_KEY_TYPE);
 
 		scriptMediatorEClass = createEClass(SCRIPT_MEDIATOR);
 		createEAttribute(scriptMediatorEClass, SCRIPT_MEDIATOR__SCRIPT_TYPE);
@@ -11005,6 +11341,57 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 
 		sequencesInputConnectorEClass = createEClass(SEQUENCES_INPUT_CONNECTOR);
 
+		urlRewriteRuleActionEClass = createEClass(URL_REWRITE_RULE_ACTION);
+		createEAttribute(urlRewriteRuleActionEClass, URL_REWRITE_RULE_ACTION__RULE_ACTION);
+		createEAttribute(urlRewriteRuleActionEClass, URL_REWRITE_RULE_ACTION__RULE_FRAGMENT);
+		createEAttribute(urlRewriteRuleActionEClass, URL_REWRITE_RULE_ACTION__RULE_OPTION);
+		createEReference(urlRewriteRuleActionEClass, URL_REWRITE_RULE_ACTION__ACTION_EXPRESSION);
+		createEAttribute(urlRewriteRuleActionEClass, URL_REWRITE_RULE_ACTION__ACTION_VALUE);
+		createEAttribute(urlRewriteRuleActionEClass, URL_REWRITE_RULE_ACTION__ACTION_REGEX);
+
+		urlRewriteRuleEClass = createEClass(URL_REWRITE_RULE);
+		createEReference(urlRewriteRuleEClass, URL_REWRITE_RULE__URL_REWRITE_RULE_CONDITION);
+		createEReference(urlRewriteRuleEClass, URL_REWRITE_RULE__REWRITE_RULE_ACTION);
+
+		urlRewriteMediatorEClass = createEClass(URL_REWRITE_MEDIATOR);
+		createEReference(urlRewriteMediatorEClass, URL_REWRITE_MEDIATOR__URL_REWRITE_RULES);
+		createEAttribute(urlRewriteMediatorEClass, URL_REWRITE_MEDIATOR__IN_PROPERTY);
+		createEAttribute(urlRewriteMediatorEClass, URL_REWRITE_MEDIATOR__OUT_PROPERTY);
+		createEReference(urlRewriteMediatorEClass, URL_REWRITE_MEDIATOR__INPUT_CONNECTOR);
+		createEReference(urlRewriteMediatorEClass, URL_REWRITE_MEDIATOR__OUTPUT_CONNECTOR);
+
+		urlRewriteMediatorInputConnectorEClass = createEClass(URL_REWRITE_MEDIATOR_INPUT_CONNECTOR);
+
+		urlRewriteMediatorOutputConnectorEClass = createEClass(URL_REWRITE_MEDIATOR_OUTPUT_CONNECTOR);
+
+		evaluatorExpressionPropertyEClass = createEClass(EVALUATOR_EXPRESSION_PROPERTY);
+		createEAttribute(evaluatorExpressionPropertyEClass, EVALUATOR_EXPRESSION_PROPERTY__PRETTY_NAME);
+		createEAttribute(evaluatorExpressionPropertyEClass, EVALUATOR_EXPRESSION_PROPERTY__EVALUATOR_NAME);
+		createEAttribute(evaluatorExpressionPropertyEClass, EVALUATOR_EXPRESSION_PROPERTY__EVALUATOR_VALUE);
+
+		validateMediatorEClass = createEClass(VALIDATE_MEDIATOR);
+		createEReference(validateMediatorEClass, VALIDATE_MEDIATOR__SOURCE_XPATH);
+		createEReference(validateMediatorEClass, VALIDATE_MEDIATOR__FEATURES);
+		createEReference(validateMediatorEClass, VALIDATE_MEDIATOR__SCHEMAS);
+		createEReference(validateMediatorEClass, VALIDATE_MEDIATOR__INPUT_CONNECTOR);
+		createEReference(validateMediatorEClass, VALIDATE_MEDIATOR__OUTPUT_CONNECTOR);
+		createEReference(validateMediatorEClass, VALIDATE_MEDIATOR__ON_FAIL_OUTPUT_CONNECTOR);
+		createEReference(validateMediatorEClass, VALIDATE_MEDIATOR__MEDIATOR_FLOW);
+
+		validateFeatureEClass = createEClass(VALIDATE_FEATURE);
+
+		validateSchemaEClass = createEClass(VALIDATE_SCHEMA);
+		createEReference(validateSchemaEClass, VALIDATE_SCHEMA__VALIDATE_STATIC_SCHEMA_KEY);
+		createEReference(validateSchemaEClass, VALIDATE_SCHEMA__VALIDATE_DYNAMIC_SCHEMA_KEY);
+		createEAttribute(validateSchemaEClass, VALIDATE_SCHEMA__VALIDATE_SCHEMA_KEY_TYPE);
+		createEReference(validateSchemaEClass, VALIDATE_SCHEMA__SCHEMA_KEY);
+
+		validateMediatorInputConnectorEClass = createEClass(VALIDATE_MEDIATOR_INPUT_CONNECTOR);
+
+		validateMediatorOutputConnectorEClass = createEClass(VALIDATE_MEDIATOR_OUTPUT_CONNECTOR);
+
+		validateMediatorOnFailOutputConnectorEClass = createEClass(VALIDATE_MEDIATOR_ON_FAIL_OUTPUT_CONNECTOR);
+
 		// Create enums
 		proxyWsdlTypeEEnum = createEEnum(PROXY_WSDL_TYPE);
 		filterConditionTypeEEnum = createEEnum(FILTER_CONDITION_TYPE);
@@ -11073,6 +11460,8 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		payloadFactoryArgumentTypeEEnum = createEEnum(PAYLOAD_FACTORY_ARGUMENT_TYPE);
 		typeEEnum = createEEnum(TYPE);
 		localEntryValueTypeEEnum = createEEnum(LOCAL_ENTRY_VALUE_TYPE);
+		ruleActionTypeEEnum = createEEnum(RULE_ACTION_TYPE);
+		ruleFragmentTypeEEnum = createEEnum(RULE_FRAGMENT_TYPE);
 
 		// Create data types
 		mapEDataType = createEDataType(MAP);
@@ -11200,8 +11589,6 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		springMediatorEClass.getESuperTypes().add(this.getMediator());
 		springMediatorInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
 		springMediatorOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
-		validateMediatorEClass.getESuperTypes().add(this.getMediator());
-		validateFeatureEClass.getESuperTypes().add(this.getAbstractBooleanFeature());
 		scriptMediatorEClass.getESuperTypes().add(this.getMediator());
 		scriptMediatorInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
 		scriptMediatorOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
@@ -11314,6 +11701,18 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		sequencesEClass.getESuperTypes().add(this.getEsbElement());
 		sequencesOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
 		sequencesInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
+		urlRewriteRuleActionEClass.getESuperTypes().add(this.getEsbNode());
+		urlRewriteRuleEClass.getESuperTypes().add(this.getEsbNode());
+		urlRewriteMediatorEClass.getESuperTypes().add(this.getMediator());
+		urlRewriteMediatorInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
+		urlRewriteMediatorOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
+		evaluatorExpressionPropertyEClass.getESuperTypes().add(this.getEsbNode());
+		validateMediatorEClass.getESuperTypes().add(this.getMediator());
+		validateFeatureEClass.getESuperTypes().add(this.getAbstractBooleanFeature());
+		validateSchemaEClass.getESuperTypes().add(this.getEsbNode());
+		validateMediatorInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
+		validateMediatorOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
+		validateMediatorOnFailOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(esbDiagramEClass, EsbDiagram.class, "EsbDiagram", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -11725,21 +12124,6 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEClass(springMediatorInputConnectorEClass, SpringMediatorInputConnector.class, "SpringMediatorInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(springMediatorOutputConnectorEClass, SpringMediatorOutputConnector.class, "SpringMediatorOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(validateMediatorEClass, ValidateMediator.class, "ValidateMediator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getValidateMediator_SourceXpath(), this.getNamespacedProperty(), null, "sourceXpath", null, 0, 1, ValidateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getValidateMediator_OnFailBranch(), this.getValidateOnFailBranch(), null, "onFailBranch", null, 0, 1, ValidateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getValidateMediator_Features(), this.getValidateFeature(), null, "features", null, 0, -1, ValidateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getValidateMediator_Schemas(), this.getValidateSchema(), null, "schemas", null, 0, -1, ValidateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(validateOnFailBranchEClass, ValidateOnFailBranch.class, "ValidateOnFailBranch", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(validateFeatureEClass, ValidateFeature.class, "ValidateFeature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(validateSchemaEClass, ValidateSchema.class, "ValidateSchema", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getValidateSchema_ValidateStaticSchemaKey(), this.getRegistryKeyProperty(), null, "validateStaticSchemaKey", null, 0, 1, ValidateSchema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getValidateSchema_ValidateDynamicSchemaKey(), this.getNamespacedProperty(), null, "validateDynamicSchemaKey", null, 0, 1, ValidateSchema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getValidateSchema_ValidateSchemaKeyType(), this.getKeyType(), "validateSchemaKeyType", null, 0, 1, ValidateSchema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(scriptMediatorEClass, ScriptMediator.class, "ScriptMediator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getScriptMediator_ScriptType(), this.getScriptType(), "scriptType", "REGISTRY_REFERENCE", 0, 1, ScriptMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -12331,6 +12715,57 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 
 		initEClass(sequencesInputConnectorEClass, SequencesInputConnector.class, "SequencesInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		initEClass(urlRewriteRuleActionEClass, URLRewriteRuleAction.class, "URLRewriteRuleAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getURLRewriteRuleAction_RuleAction(), this.getRuleActionType(), "ruleAction", "", 0, 1, URLRewriteRuleAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getURLRewriteRuleAction_RuleFragment(), this.getRuleFragmentType(), "ruleFragment", "", 0, 1, URLRewriteRuleAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getURLRewriteRuleAction_RuleOption(), this.getRuleOptionType(), "ruleOption", "", 0, 1, URLRewriteRuleAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getURLRewriteRuleAction_ActionExpression(), this.getNamespacedProperty(), null, "actionExpression", null, 0, 1, URLRewriteRuleAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getURLRewriteRuleAction_ActionValue(), ecorePackage.getEString(), "actionValue", "", 0, 1, URLRewriteRuleAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getURLRewriteRuleAction_ActionRegex(), ecorePackage.getEString(), "actionRegex", "", 0, 1, URLRewriteRuleAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(urlRewriteRuleEClass, URLRewriteRule.class, "URLRewriteRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getURLRewriteRule_UrlRewriteRuleCondition(), this.getEvaluatorExpressionProperty(), null, "urlRewriteRuleCondition", null, 0, 1, URLRewriteRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getURLRewriteRule_RewriteRuleAction(), this.getURLRewriteRuleAction(), null, "rewriteRuleAction", null, 0, -1, URLRewriteRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(urlRewriteMediatorEClass, URLRewriteMediator.class, "URLRewriteMediator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getURLRewriteMediator_UrlRewriteRules(), this.getURLRewriteRule(), null, "urlRewriteRules", null, 0, -1, URLRewriteMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getURLRewriteMediator_InProperty(), ecorePackage.getEString(), "InProperty", null, 0, 1, URLRewriteMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getURLRewriteMediator_OutProperty(), ecorePackage.getEString(), "outProperty", null, 0, 1, URLRewriteMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getURLRewriteMediator_InputConnector(), this.getURLRewriteMediatorInputConnector(), null, "inputConnector", null, 0, 1, URLRewriteMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getURLRewriteMediator_OutputConnector(), this.getURLRewriteMediatorOutputConnector(), null, "outputConnector", null, 0, 1, URLRewriteMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(urlRewriteMediatorInputConnectorEClass, URLRewriteMediatorInputConnector.class, "URLRewriteMediatorInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(urlRewriteMediatorOutputConnectorEClass, URLRewriteMediatorOutputConnector.class, "URLRewriteMediatorOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(evaluatorExpressionPropertyEClass, EvaluatorExpressionProperty.class, "EvaluatorExpressionProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getEvaluatorExpressionProperty_PrettyName(), ecorePackage.getEString(), "prettyName", null, 0, 1, EvaluatorExpressionProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEvaluatorExpressionProperty_EvaluatorName(), ecorePackage.getEString(), "evaluatorName", null, 0, 1, EvaluatorExpressionProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEvaluatorExpressionProperty_EvaluatorValue(), ecorePackage.getEString(), "evaluatorValue", null, 0, 1, EvaluatorExpressionProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(validateMediatorEClass, ValidateMediator.class, "ValidateMediator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getValidateMediator_SourceXpath(), this.getNamespacedProperty(), null, "sourceXpath", null, 0, 1, ValidateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getValidateMediator_Features(), this.getValidateFeature(), null, "features", null, 0, -1, ValidateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getValidateMediator_Schemas(), this.getValidateSchema(), null, "schemas", null, 0, -1, ValidateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getValidateMediator_InputConnector(), this.getValidateMediatorInputConnector(), null, "inputConnector", null, 0, 1, ValidateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getValidateMediator_OutputConnector(), this.getValidateMediatorOutputConnector(), null, "outputConnector", null, 0, 1, ValidateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getValidateMediator_OnFailOutputConnector(), this.getValidateMediatorOnFailOutputConnector(), null, "onFailOutputConnector", null, 0, 1, ValidateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getValidateMediator_MediatorFlow(), this.getMediatorFlow(), null, "mediatorFlow", null, 0, 1, ValidateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(validateFeatureEClass, ValidateFeature.class, "ValidateFeature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(validateSchemaEClass, ValidateSchema.class, "ValidateSchema", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getValidateSchema_ValidateStaticSchemaKey(), this.getRegistryKeyProperty(), null, "validateStaticSchemaKey", null, 0, 1, ValidateSchema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getValidateSchema_ValidateDynamicSchemaKey(), this.getNamespacedProperty(), null, "validateDynamicSchemaKey", null, 0, 1, ValidateSchema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getValidateSchema_ValidateSchemaKeyType(), this.getKeyType(), "validateSchemaKeyType", null, 0, 1, ValidateSchema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getValidateSchema_SchemaKey(), this.getRegistryKeyProperty(), null, "schemaKey", null, 0, 1, ValidateSchema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(validateMediatorInputConnectorEClass, ValidateMediatorInputConnector.class, "ValidateMediatorInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(validateMediatorOutputConnectorEClass, ValidateMediatorOutputConnector.class, "ValidateMediatorOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(validateMediatorOnFailOutputConnectorEClass, ValidateMediatorOnFailOutputConnector.class, "ValidateMediatorOnFailOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
 		// Initialize enums and add enum literals
 		initEEnum(proxyWsdlTypeEEnum, ProxyWsdlType.class, "ProxyWsdlType");
 		addEEnumLiteral(proxyWsdlTypeEEnum, ProxyWsdlType.NONE);
@@ -12685,6 +13120,23 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		addEEnumLiteral(localEntryValueTypeEEnum, LocalEntryValueType.LITERAL);
 		addEEnumLiteral(localEntryValueTypeEEnum, LocalEntryValueType.XML);
 		addEEnumLiteral(localEntryValueTypeEEnum, LocalEntryValueType.URL);
+
+		initEEnum(ruleActionTypeEEnum, RuleActionType.class, "RuleActionType");
+		addEEnumLiteral(ruleActionTypeEEnum, RuleActionType.REPLACE);
+		addEEnumLiteral(ruleActionTypeEEnum, RuleActionType.REMOVE);
+		addEEnumLiteral(ruleActionTypeEEnum, RuleActionType.APPEND);
+		addEEnumLiteral(ruleActionTypeEEnum, RuleActionType.PREPEND);
+		addEEnumLiteral(ruleActionTypeEEnum, RuleActionType.SET);
+
+		initEEnum(ruleFragmentTypeEEnum, RuleFragmentType.class, "RuleFragmentType");
+		addEEnumLiteral(ruleFragmentTypeEEnum, RuleFragmentType.PROTOCOL);
+		addEEnumLiteral(ruleFragmentTypeEEnum, RuleFragmentType.HOST);
+		addEEnumLiteral(ruleFragmentTypeEEnum, RuleFragmentType.PORT);
+		addEEnumLiteral(ruleFragmentTypeEEnum, RuleFragmentType.PATH);
+		addEEnumLiteral(ruleFragmentTypeEEnum, RuleFragmentType.QUERY);
+		addEEnumLiteral(ruleFragmentTypeEEnum, RuleFragmentType.REF);
+		addEEnumLiteral(ruleFragmentTypeEEnum, RuleFragmentType.USER);
+		addEEnumLiteral(ruleFragmentTypeEEnum, RuleFragmentType.FULL);
 
 		// Initialize data types
 		initEDataType(mapEDataType, Map.class, "Map", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

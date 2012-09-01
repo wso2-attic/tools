@@ -477,22 +477,6 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 				return createSpringMediatorOutputConnectorAdapter();
 			}
 			@Override
-			public Adapter caseValidateMediator(ValidateMediator object) {
-				return createValidateMediatorAdapter();
-			}
-			@Override
-			public Adapter caseValidateOnFailBranch(ValidateOnFailBranch object) {
-				return createValidateOnFailBranchAdapter();
-			}
-			@Override
-			public Adapter caseValidateFeature(ValidateFeature object) {
-				return createValidateFeatureAdapter();
-			}
-			@Override
-			public Adapter caseValidateSchema(ValidateSchema object) {
-				return createValidateSchemaAdapter();
-			}
-			@Override
 			public Adapter caseScriptMediator(ScriptMediator object) {
 				return createScriptMediatorAdapter();
 			}
@@ -1035,6 +1019,54 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseSequencesInputConnector(SequencesInputConnector object) {
 				return createSequencesInputConnectorAdapter();
+			}
+			@Override
+			public Adapter caseURLRewriteRuleAction(URLRewriteRuleAction object) {
+				return createURLRewriteRuleActionAdapter();
+			}
+			@Override
+			public Adapter caseURLRewriteRule(URLRewriteRule object) {
+				return createURLRewriteRuleAdapter();
+			}
+			@Override
+			public Adapter caseURLRewriteMediator(URLRewriteMediator object) {
+				return createURLRewriteMediatorAdapter();
+			}
+			@Override
+			public Adapter caseURLRewriteMediatorInputConnector(URLRewriteMediatorInputConnector object) {
+				return createURLRewriteMediatorInputConnectorAdapter();
+			}
+			@Override
+			public Adapter caseURLRewriteMediatorOutputConnector(URLRewriteMediatorOutputConnector object) {
+				return createURLRewriteMediatorOutputConnectorAdapter();
+			}
+			@Override
+			public Adapter caseEvaluatorExpressionProperty(EvaluatorExpressionProperty object) {
+				return createEvaluatorExpressionPropertyAdapter();
+			}
+			@Override
+			public Adapter caseValidateMediator(ValidateMediator object) {
+				return createValidateMediatorAdapter();
+			}
+			@Override
+			public Adapter caseValidateFeature(ValidateFeature object) {
+				return createValidateFeatureAdapter();
+			}
+			@Override
+			public Adapter caseValidateSchema(ValidateSchema object) {
+				return createValidateSchemaAdapter();
+			}
+			@Override
+			public Adapter caseValidateMediatorInputConnector(ValidateMediatorInputConnector object) {
+				return createValidateMediatorInputConnectorAdapter();
+			}
+			@Override
+			public Adapter caseValidateMediatorOutputConnector(ValidateMediatorOutputConnector object) {
+				return createValidateMediatorOutputConnectorAdapter();
+			}
+			@Override
+			public Adapter caseValidateMediatorOnFailOutputConnector(ValidateMediatorOnFailOutputConnector object) {
+				return createValidateMediatorOnFailOutputConnectorAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -2486,20 +2518,6 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.ValidateOnFailBranch <em>Validate On Fail Branch</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.ValidateOnFailBranch
-	 * @generated
-	 */
-	public Adapter createValidateOnFailBranchAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.ValidateFeature <em>Validate Feature</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -2524,6 +2542,48 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createValidateSchemaAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.ValidateMediatorInputConnector <em>Validate Mediator Input Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.ValidateMediatorInputConnector
+	 * @generated
+	 */
+	public Adapter createValidateMediatorInputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.ValidateMediatorOutputConnector <em>Validate Mediator Output Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.ValidateMediatorOutputConnector
+	 * @generated
+	 */
+	public Adapter createValidateMediatorOutputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.ValidateMediatorOnFailOutputConnector <em>Validate Mediator On Fail Output Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.ValidateMediatorOnFailOutputConnector
+	 * @generated
+	 */
+	public Adapter createValidateMediatorOnFailOutputConnectorAdapter() {
 		return null;
 	}
 
@@ -4428,6 +4488,90 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSequencesInputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.URLRewriteRuleAction <em>URL Rewrite Rule Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.URLRewriteRuleAction
+	 * @generated
+	 */
+	public Adapter createURLRewriteRuleActionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.URLRewriteRule <em>URL Rewrite Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.URLRewriteRule
+	 * @generated
+	 */
+	public Adapter createURLRewriteRuleAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.URLRewriteMediator <em>URL Rewrite Mediator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.URLRewriteMediator
+	 * @generated
+	 */
+	public Adapter createURLRewriteMediatorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.URLRewriteMediatorInputConnector <em>URL Rewrite Mediator Input Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.URLRewriteMediatorInputConnector
+	 * @generated
+	 */
+	public Adapter createURLRewriteMediatorInputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.URLRewriteMediatorOutputConnector <em>URL Rewrite Mediator Output Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.URLRewriteMediatorOutputConnector
+	 * @generated
+	 */
+	public Adapter createURLRewriteMediatorOutputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.EvaluatorExpressionProperty <em>Evaluator Expression Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EvaluatorExpressionProperty
+	 * @generated
+	 */
+	public Adapter createEvaluatorExpressionPropertyAdapter() {
 		return null;
 	}
 

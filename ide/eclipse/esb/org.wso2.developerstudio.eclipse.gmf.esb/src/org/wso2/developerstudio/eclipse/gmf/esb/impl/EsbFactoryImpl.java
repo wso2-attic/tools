@@ -159,10 +159,6 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 			case EsbPackage.SPRING_MEDIATOR: return createSpringMediator();
 			case EsbPackage.SPRING_MEDIATOR_INPUT_CONNECTOR: return createSpringMediatorInputConnector();
 			case EsbPackage.SPRING_MEDIATOR_OUTPUT_CONNECTOR: return createSpringMediatorOutputConnector();
-			case EsbPackage.VALIDATE_MEDIATOR: return createValidateMediator();
-			case EsbPackage.VALIDATE_ON_FAIL_BRANCH: return createValidateOnFailBranch();
-			case EsbPackage.VALIDATE_FEATURE: return createValidateFeature();
-			case EsbPackage.VALIDATE_SCHEMA: return createValidateSchema();
 			case EsbPackage.SCRIPT_MEDIATOR: return createScriptMediator();
 			case EsbPackage.SCRIPT_MEDIATOR_INPUT_CONNECTOR: return createScriptMediatorInputConnector();
 			case EsbPackage.SCRIPT_MEDIATOR_OUTPUT_CONNECTOR: return createScriptMediatorOutputConnector();
@@ -298,6 +294,18 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 			case EsbPackage.SEQUENCES: return createSequences();
 			case EsbPackage.SEQUENCES_OUTPUT_CONNECTOR: return createSequencesOutputConnector();
 			case EsbPackage.SEQUENCES_INPUT_CONNECTOR: return createSequencesInputConnector();
+			case EsbPackage.URL_REWRITE_RULE_ACTION: return createURLRewriteRuleAction();
+			case EsbPackage.URL_REWRITE_RULE: return createURLRewriteRule();
+			case EsbPackage.URL_REWRITE_MEDIATOR: return createURLRewriteMediator();
+			case EsbPackage.URL_REWRITE_MEDIATOR_INPUT_CONNECTOR: return createURLRewriteMediatorInputConnector();
+			case EsbPackage.URL_REWRITE_MEDIATOR_OUTPUT_CONNECTOR: return createURLRewriteMediatorOutputConnector();
+			case EsbPackage.EVALUATOR_EXPRESSION_PROPERTY: return createEvaluatorExpressionProperty();
+			case EsbPackage.VALIDATE_MEDIATOR: return createValidateMediator();
+			case EsbPackage.VALIDATE_FEATURE: return createValidateFeature();
+			case EsbPackage.VALIDATE_SCHEMA: return createValidateSchema();
+			case EsbPackage.VALIDATE_MEDIATOR_INPUT_CONNECTOR: return createValidateMediatorInputConnector();
+			case EsbPackage.VALIDATE_MEDIATOR_OUTPUT_CONNECTOR: return createValidateMediatorOutputConnector();
+			case EsbPackage.VALIDATE_MEDIATOR_ON_FAIL_OUTPUT_CONNECTOR: return createValidateMediatorOnFailOutputConnector();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -446,6 +454,10 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 				return createTypeFromString(eDataType, initialValue);
 			case EsbPackage.LOCAL_ENTRY_VALUE_TYPE:
 				return createLocalEntryValueTypeFromString(eDataType, initialValue);
+			case EsbPackage.RULE_ACTION_TYPE:
+				return createRuleActionTypeFromString(eDataType, initialValue);
+			case EsbPackage.RULE_FRAGMENT_TYPE:
+				return createRuleFragmentTypeFromString(eDataType, initialValue);
 			case EsbPackage.MAP:
 				return createMapFromString(eDataType, initialValue);
 			default:
@@ -596,6 +608,10 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 				return convertTypeToString(eDataType, instanceValue);
 			case EsbPackage.LOCAL_ENTRY_VALUE_TYPE:
 				return convertLocalEntryValueTypeToString(eDataType, instanceValue);
+			case EsbPackage.RULE_ACTION_TYPE:
+				return convertRuleActionTypeToString(eDataType, instanceValue);
+			case EsbPackage.RULE_FRAGMENT_TYPE:
+				return convertRuleFragmentTypeToString(eDataType, instanceValue);
 			case EsbPackage.MAP:
 				return convertMapToString(eDataType, instanceValue);
 			default:
@@ -1570,21 +1586,15 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public ValidateMediator createValidateMediator() {
 		ValidateMediatorImpl validateMediator = new ValidateMediatorImpl();
+		validateMediator.setInputConnector(createValidateMediatorInputConnector());
+		validateMediator.setOutputConnector(createValidateMediatorOutputConnector());
+		validateMediator.setOnFailOutputConnector(createValidateMediatorOnFailOutputConnector());
+		validateMediator.setMediatorFlow(createMediatorFlow());
 		return validateMediator;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ValidateOnFailBranch createValidateOnFailBranch() {
-		ValidateOnFailBranchImpl validateOnFailBranch = new ValidateOnFailBranchImpl();
-		return validateOnFailBranch;
 	}
 
 	/**
@@ -1605,6 +1615,36 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	public ValidateSchema createValidateSchema() {
 		ValidateSchemaImpl validateSchema = new ValidateSchemaImpl();
 		return validateSchema;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ValidateMediatorInputConnector createValidateMediatorInputConnector() {
+		ValidateMediatorInputConnectorImpl validateMediatorInputConnector = new ValidateMediatorInputConnectorImpl();
+		return validateMediatorInputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ValidateMediatorOutputConnector createValidateMediatorOutputConnector() {
+		ValidateMediatorOutputConnectorImpl validateMediatorOutputConnector = new ValidateMediatorOutputConnectorImpl();
+		return validateMediatorOutputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ValidateMediatorOnFailOutputConnector createValidateMediatorOnFailOutputConnector() {
+		ValidateMediatorOnFailOutputConnectorImpl validateMediatorOnFailOutputConnector = new ValidateMediatorOnFailOutputConnectorImpl();
+		return validateMediatorOnFailOutputConnector;
 	}
 
 	/**
@@ -3034,6 +3074,68 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public URLRewriteRuleAction createURLRewriteRuleAction() {
+		URLRewriteRuleActionImpl urlRewriteRuleAction = new URLRewriteRuleActionImpl();
+		return urlRewriteRuleAction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public URLRewriteRule createURLRewriteRule() {
+		URLRewriteRuleImpl urlRewriteRule = new URLRewriteRuleImpl();
+		return urlRewriteRule;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public URLRewriteMediator createURLRewriteMediator() {
+		URLRewriteMediatorImpl urlRewriteMediator = new URLRewriteMediatorImpl();
+		urlRewriteMediator.setInputConnector(createURLRewriteMediatorInputConnector());
+		urlRewriteMediator.setOutputConnector(createURLRewriteMediatorOutputConnector());
+		return urlRewriteMediator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public URLRewriteMediatorInputConnector createURLRewriteMediatorInputConnector() {
+		URLRewriteMediatorInputConnectorImpl urlRewriteMediatorInputConnector = new URLRewriteMediatorInputConnectorImpl();
+		return urlRewriteMediatorInputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public URLRewriteMediatorOutputConnector createURLRewriteMediatorOutputConnector() {
+		URLRewriteMediatorOutputConnectorImpl urlRewriteMediatorOutputConnector = new URLRewriteMediatorOutputConnectorImpl();
+		return urlRewriteMediatorOutputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EvaluatorExpressionProperty createEvaluatorExpressionProperty() {
+		EvaluatorExpressionPropertyImpl evaluatorExpressionProperty = new EvaluatorExpressionPropertyImpl();
+		return evaluatorExpressionProperty;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ProxyWsdlType createProxyWsdlTypeFromString(EDataType eDataType, String initialValue) {
 		ProxyWsdlType result = ProxyWsdlType.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -4366,6 +4468,46 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	 * @generated
 	 */
 	public String convertLocalEntryValueTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RuleActionType createRuleActionTypeFromString(EDataType eDataType, String initialValue) {
+		RuleActionType result = RuleActionType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertRuleActionTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RuleFragmentType createRuleFragmentTypeFromString(EDataType eDataType, String initialValue) {
+		RuleFragmentType result = RuleFragmentType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertRuleFragmentTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
