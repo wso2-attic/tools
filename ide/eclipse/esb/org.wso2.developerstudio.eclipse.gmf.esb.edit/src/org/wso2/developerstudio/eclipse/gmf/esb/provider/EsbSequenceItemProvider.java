@@ -273,11 +273,6 @@ public class EsbSequenceItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(EsbPackage.Literals.ESB_SEQUENCE__CHILD_MEDIATORS,
-				 EsbFactory.eINSTANCE.createValidateMediator()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(EsbPackage.Literals.ESB_SEQUENCE__CHILD_MEDIATORS,
 				 EsbFactory.eINSTANCE.createScriptMediator()));
 
 		newChildDescriptors.add
@@ -409,6 +404,16 @@ public class EsbSequenceItemProvider
 			(createChildParameter
 				(EsbPackage.Literals.ESB_SEQUENCE__CHILD_MEDIATORS,
 				 EsbFactory.eINSTANCE.createSendMediator()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.ESB_SEQUENCE__CHILD_MEDIATORS,
+				 EsbFactory.eINSTANCE.createURLRewriteMediator()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.ESB_SEQUENCE__CHILD_MEDIATORS,
+				 EsbFactory.eINSTANCE.createValidateMediator()));
 	}
 
 }

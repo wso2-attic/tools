@@ -297,11 +297,6 @@ public class SequenceItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(EsbPackage.Literals.SEQUENCE__INCLUDED_MEDIATORS,
-				 EsbFactory.eINSTANCE.createValidateMediator()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(EsbPackage.Literals.SEQUENCE__INCLUDED_MEDIATORS,
 				 EsbFactory.eINSTANCE.createScriptMediator()));
 
 		newChildDescriptors.add
@@ -433,6 +428,16 @@ public class SequenceItemProvider
 			(createChildParameter
 				(EsbPackage.Literals.SEQUENCE__INCLUDED_MEDIATORS,
 				 EsbFactory.eINSTANCE.createSendMediator()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.SEQUENCE__INCLUDED_MEDIATORS,
+				 EsbFactory.eINSTANCE.createURLRewriteMediator()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.SEQUENCE__INCLUDED_MEDIATORS,
+				 EsbFactory.eINSTANCE.createValidateMediator()));
 	}
 
 }

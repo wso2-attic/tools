@@ -15,25 +15,27 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
-import org.wso2.developerstudio.eclipse.gmf.esb.ValidateMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.URLRewriteMediator;
 
 /**
- * This is the item provider adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.ValidateMediator} object.
+ * This is the item provider adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.URLRewriteMediator} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ValidateMediatorItemProvider
+public class URLRewriteMediatorItemProvider
 	extends MediatorItemProvider
 	implements
 		IEditingDomainItemProvider,
@@ -47,7 +49,7 @@ public class ValidateMediatorItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ValidateMediatorItemProvider(AdapterFactory adapterFactory) {
+	public URLRewriteMediatorItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -57,14 +59,59 @@ public class ValidateMediatorItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addInPropertyPropertyDescriptor(object);
+			addOutPropertyPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the In Property feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addInPropertyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_URLRewriteMediator_InProperty_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_URLRewriteMediator_InProperty_feature", "_UI_URLRewriteMediator_type"),
+				 EsbPackage.Literals.URL_REWRITE_MEDIATOR__IN_PROPERTY,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Out Property feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOutPropertyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_URLRewriteMediator_outProperty_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_URLRewriteMediator_outProperty_feature", "_UI_URLRewriteMediator_type"),
+				 EsbPackage.Literals.URL_REWRITE_MEDIATOR__OUT_PROPERTY,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -75,18 +122,13 @@ public class ValidateMediatorItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(EsbPackage.Literals.VALIDATE_MEDIATOR__SOURCE_XPATH);
-			childrenFeatures.add(EsbPackage.Literals.VALIDATE_MEDIATOR__FEATURES);
-			childrenFeatures.add(EsbPackage.Literals.VALIDATE_MEDIATOR__SCHEMAS);
-			childrenFeatures.add(EsbPackage.Literals.VALIDATE_MEDIATOR__INPUT_CONNECTOR);
-			childrenFeatures.add(EsbPackage.Literals.VALIDATE_MEDIATOR__OUTPUT_CONNECTOR);
-			childrenFeatures.add(EsbPackage.Literals.VALIDATE_MEDIATOR__ON_FAIL_OUTPUT_CONNECTOR);
-			childrenFeatures.add(EsbPackage.Literals.VALIDATE_MEDIATOR__MEDIATOR_FLOW);
+			childrenFeatures.add(EsbPackage.Literals.URL_REWRITE_MEDIATOR__URL_REWRITE_RULES);
+			childrenFeatures.add(EsbPackage.Literals.URL_REWRITE_MEDIATOR__INPUT_CONNECTOR);
+			childrenFeatures.add(EsbPackage.Literals.URL_REWRITE_MEDIATOR__OUTPUT_CONNECTOR);
 		}
 		return childrenFeatures;
 	}
@@ -96,7 +138,6 @@ public class ValidateMediatorItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
 	@Override
 	protected EStructuralFeature getChildFeature(Object object, Object child) {
 		// Check the type of the specified child object and return the proper feature to use for
@@ -106,15 +147,14 @@ public class ValidateMediatorItemProvider
 	}
 
 	/**
-	 * This returns ValidateMediator.gif.
+	 * This returns URLRewriteMediator.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ValidateMediator"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/URLRewriteMediator"));
 	}
 
 	/**
@@ -123,11 +163,10 @@ public class ValidateMediatorItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
 	@Override
 	public String getText(Object object) {
-		ValidateMediator validateMediator = (ValidateMediator)object;
-		return getString("_UI_ValidateMediator_type") + " " + validateMediator.isReverse();
+		URLRewriteMediator urlRewriteMediator = (URLRewriteMediator)object;
+		return getString("_UI_URLRewriteMediator_type") + " " + urlRewriteMediator.isReverse();
 	}
 
 	/**
@@ -137,19 +176,18 @@ public class ValidateMediatorItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(ValidateMediator.class)) {
-			case EsbPackage.VALIDATE_MEDIATOR__SOURCE_XPATH:
-			case EsbPackage.VALIDATE_MEDIATOR__FEATURES:
-			case EsbPackage.VALIDATE_MEDIATOR__SCHEMAS:
-			case EsbPackage.VALIDATE_MEDIATOR__INPUT_CONNECTOR:
-			case EsbPackage.VALIDATE_MEDIATOR__OUTPUT_CONNECTOR:
-			case EsbPackage.VALIDATE_MEDIATOR__ON_FAIL_OUTPUT_CONNECTOR:
-			case EsbPackage.VALIDATE_MEDIATOR__MEDIATOR_FLOW:
+		switch (notification.getFeatureID(URLRewriteMediator.class)) {
+			case EsbPackage.URL_REWRITE_MEDIATOR__IN_PROPERTY:
+			case EsbPackage.URL_REWRITE_MEDIATOR__OUT_PROPERTY:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case EsbPackage.URL_REWRITE_MEDIATOR__URL_REWRITE_RULES:
+			case EsbPackage.URL_REWRITE_MEDIATOR__INPUT_CONNECTOR:
+			case EsbPackage.URL_REWRITE_MEDIATOR__OUTPUT_CONNECTOR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -163,45 +201,24 @@ public class ValidateMediatorItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.VALIDATE_MEDIATOR__SOURCE_XPATH,
-				 EsbFactory.eINSTANCE.createNamespacedProperty()));
+				(EsbPackage.Literals.URL_REWRITE_MEDIATOR__URL_REWRITE_RULES,
+				 EsbFactory.eINSTANCE.createURLRewriteRule()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.VALIDATE_MEDIATOR__FEATURES,
-				 EsbFactory.eINSTANCE.createValidateFeature()));
+				(EsbPackage.Literals.URL_REWRITE_MEDIATOR__INPUT_CONNECTOR,
+				 EsbFactory.eINSTANCE.createURLRewriteMediatorInputConnector()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.VALIDATE_MEDIATOR__SCHEMAS,
-				 EsbFactory.eINSTANCE.createValidateSchema()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(EsbPackage.Literals.VALIDATE_MEDIATOR__INPUT_CONNECTOR,
-				 EsbFactory.eINSTANCE.createValidateMediatorInputConnector()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(EsbPackage.Literals.VALIDATE_MEDIATOR__OUTPUT_CONNECTOR,
-				 EsbFactory.eINSTANCE.createValidateMediatorOutputConnector()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(EsbPackage.Literals.VALIDATE_MEDIATOR__ON_FAIL_OUTPUT_CONNECTOR,
-				 EsbFactory.eINSTANCE.createValidateMediatorOnFailOutputConnector()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(EsbPackage.Literals.VALIDATE_MEDIATOR__MEDIATOR_FLOW,
-				 EsbFactory.eINSTANCE.createMediatorFlow()));
+				(EsbPackage.Literals.URL_REWRITE_MEDIATOR__OUTPUT_CONNECTOR,
+				 EsbFactory.eINSTANCE.createURLRewriteMediatorOutputConnector()));
 	}
 
 }

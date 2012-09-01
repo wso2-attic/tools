@@ -241,11 +241,6 @@ public class EndpointFlowItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(EsbPackage.Literals.ENDPOINT_FLOW__CHILDREN,
-				 EsbFactory.eINSTANCE.createValidateMediator()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(EsbPackage.Literals.ENDPOINT_FLOW__CHILDREN,
 				 EsbFactory.eINSTANCE.createScriptMediator()));
 
 		newChildDescriptors.add
@@ -407,6 +402,16 @@ public class EndpointFlowItemProvider
 			(createChildParameter
 				(EsbPackage.Literals.ENDPOINT_FLOW__CHILDREN,
 				 EsbFactory.eINSTANCE.createSequences()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.ENDPOINT_FLOW__CHILDREN,
+				 EsbFactory.eINSTANCE.createURLRewriteMediator()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.ENDPOINT_FLOW__CHILDREN,
+				 EsbFactory.eINSTANCE.createValidateMediator()));
 	}
 
 }

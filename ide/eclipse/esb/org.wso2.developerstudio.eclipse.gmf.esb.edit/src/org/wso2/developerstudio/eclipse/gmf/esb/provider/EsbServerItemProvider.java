@@ -247,11 +247,6 @@ public class EsbServerItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(EsbPackage.Literals.ESB_SERVER__CHILDREN,
-				 EsbFactory.eINSTANCE.createValidateMediator()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(EsbPackage.Literals.ESB_SERVER__CHILDREN,
 				 EsbFactory.eINSTANCE.createScriptMediator()));
 
 		newChildDescriptors.add
@@ -413,6 +408,16 @@ public class EsbServerItemProvider
 			(createChildParameter
 				(EsbPackage.Literals.ESB_SERVER__CHILDREN,
 				 EsbFactory.eINSTANCE.createSequences()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.ESB_SERVER__CHILDREN,
+				 EsbFactory.eINSTANCE.createURLRewriteMediator()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.ESB_SERVER__CHILDREN,
+				 EsbFactory.eINSTANCE.createValidateMediator()));
 
 		newChildDescriptors.add
 			(createChildParameter

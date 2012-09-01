@@ -2192,30 +2192,6 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.ValidateOnFailBranch} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ValidateOnFailBranchItemProvider validateOnFailBranchItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.ValidateOnFailBranch}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	
-	@Override
-	public Adapter createValidateOnFailBranchAdapter() {
-		if (validateOnFailBranchItemProvider == null) {
-			validateOnFailBranchItemProvider = new ValidateOnFailBranchItemProvider(this);
-		}
-
-		return validateOnFailBranchItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.ValidateFeature} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2261,6 +2237,75 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 		}
 
 		return validateSchemaItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.ValidateMediatorInputConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ValidateMediatorInputConnectorItemProvider validateMediatorInputConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.ValidateMediatorInputConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createValidateMediatorInputConnectorAdapter() {
+		if (validateMediatorInputConnectorItemProvider == null) {
+			validateMediatorInputConnectorItemProvider = new ValidateMediatorInputConnectorItemProvider(this);
+		}
+
+		return validateMediatorInputConnectorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.ValidateMediatorOutputConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ValidateMediatorOutputConnectorItemProvider validateMediatorOutputConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.ValidateMediatorOutputConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createValidateMediatorOutputConnectorAdapter() {
+		if (validateMediatorOutputConnectorItemProvider == null) {
+			validateMediatorOutputConnectorItemProvider = new ValidateMediatorOutputConnectorItemProvider(this);
+		}
+
+		return validateMediatorOutputConnectorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.ValidateMediatorOnFailOutputConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ValidateMediatorOnFailOutputConnectorItemProvider validateMediatorOnFailOutputConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.ValidateMediatorOnFailOutputConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createValidateMediatorOnFailOutputConnectorAdapter() {
+		if (validateMediatorOnFailOutputConnectorItemProvider == null) {
+			validateMediatorOnFailOutputConnectorItemProvider = new ValidateMediatorOnFailOutputConnectorItemProvider(this);
+		}
+
+		return validateMediatorOnFailOutputConnectorItemProvider;
 	}
 
 	/**
@@ -5433,6 +5478,144 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.URLRewriteRuleAction} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected URLRewriteRuleActionItemProvider urlRewriteRuleActionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.URLRewriteRuleAction}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createURLRewriteRuleActionAdapter() {
+		if (urlRewriteRuleActionItemProvider == null) {
+			urlRewriteRuleActionItemProvider = new URLRewriteRuleActionItemProvider(this);
+		}
+
+		return urlRewriteRuleActionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.URLRewriteRule} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected URLRewriteRuleItemProvider urlRewriteRuleItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.URLRewriteRule}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createURLRewriteRuleAdapter() {
+		if (urlRewriteRuleItemProvider == null) {
+			urlRewriteRuleItemProvider = new URLRewriteRuleItemProvider(this);
+		}
+
+		return urlRewriteRuleItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.URLRewriteMediator} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected URLRewriteMediatorItemProvider urlRewriteMediatorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.URLRewriteMediator}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createURLRewriteMediatorAdapter() {
+		if (urlRewriteMediatorItemProvider == null) {
+			urlRewriteMediatorItemProvider = new URLRewriteMediatorItemProvider(this);
+		}
+
+		return urlRewriteMediatorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.URLRewriteMediatorInputConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected URLRewriteMediatorInputConnectorItemProvider urlRewriteMediatorInputConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.URLRewriteMediatorInputConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createURLRewriteMediatorInputConnectorAdapter() {
+		if (urlRewriteMediatorInputConnectorItemProvider == null) {
+			urlRewriteMediatorInputConnectorItemProvider = new URLRewriteMediatorInputConnectorItemProvider(this);
+		}
+
+		return urlRewriteMediatorInputConnectorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.URLRewriteMediatorOutputConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected URLRewriteMediatorOutputConnectorItemProvider urlRewriteMediatorOutputConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.URLRewriteMediatorOutputConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createURLRewriteMediatorOutputConnectorAdapter() {
+		if (urlRewriteMediatorOutputConnectorItemProvider == null) {
+			urlRewriteMediatorOutputConnectorItemProvider = new URLRewriteMediatorOutputConnectorItemProvider(this);
+		}
+
+		return urlRewriteMediatorOutputConnectorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.EvaluatorExpressionProperty} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EvaluatorExpressionPropertyItemProvider evaluatorExpressionPropertyItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.EvaluatorExpressionProperty}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEvaluatorExpressionPropertyAdapter() {
+		if (evaluatorExpressionPropertyItemProvider == null) {
+			evaluatorExpressionPropertyItemProvider = new EvaluatorExpressionPropertyItemProvider(this);
+		}
+
+		return evaluatorExpressionPropertyItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5622,10 +5805,6 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 		if (springMediatorItemProvider != null) springMediatorItemProvider.dispose();
 		if (springMediatorInputConnectorItemProvider != null) springMediatorInputConnectorItemProvider.dispose();
 		if (springMediatorOutputConnectorItemProvider != null) springMediatorOutputConnectorItemProvider.dispose();
-		if (validateMediatorItemProvider != null) validateMediatorItemProvider.dispose();
-		if (validateOnFailBranchItemProvider != null) validateOnFailBranchItemProvider.dispose();
-		if (validateFeatureItemProvider != null) validateFeatureItemProvider.dispose();
-		if (validateSchemaItemProvider != null) validateSchemaItemProvider.dispose();
 		if (scriptMediatorItemProvider != null) scriptMediatorItemProvider.dispose();
 		if (scriptMediatorInputConnectorItemProvider != null) scriptMediatorInputConnectorItemProvider.dispose();
 		if (scriptMediatorOutputConnectorItemProvider != null) scriptMediatorOutputConnectorItemProvider.dispose();
@@ -5761,6 +5940,18 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 		if (sequencesItemProvider != null) sequencesItemProvider.dispose();
 		if (sequencesOutputConnectorItemProvider != null) sequencesOutputConnectorItemProvider.dispose();
 		if (sequencesInputConnectorItemProvider != null) sequencesInputConnectorItemProvider.dispose();
+		if (urlRewriteRuleActionItemProvider != null) urlRewriteRuleActionItemProvider.dispose();
+		if (urlRewriteRuleItemProvider != null) urlRewriteRuleItemProvider.dispose();
+		if (urlRewriteMediatorItemProvider != null) urlRewriteMediatorItemProvider.dispose();
+		if (urlRewriteMediatorInputConnectorItemProvider != null) urlRewriteMediatorInputConnectorItemProvider.dispose();
+		if (urlRewriteMediatorOutputConnectorItemProvider != null) urlRewriteMediatorOutputConnectorItemProvider.dispose();
+		if (evaluatorExpressionPropertyItemProvider != null) evaluatorExpressionPropertyItemProvider.dispose();
+		if (validateMediatorItemProvider != null) validateMediatorItemProvider.dispose();
+		if (validateFeatureItemProvider != null) validateFeatureItemProvider.dispose();
+		if (validateSchemaItemProvider != null) validateSchemaItemProvider.dispose();
+		if (validateMediatorInputConnectorItemProvider != null) validateMediatorInputConnectorItemProvider.dispose();
+		if (validateMediatorOutputConnectorItemProvider != null) validateMediatorOutputConnectorItemProvider.dispose();
+		if (validateMediatorOnFailOutputConnectorItemProvider != null) validateMediatorOnFailOutputConnectorItemProvider.dispose();
 	}
 
 }

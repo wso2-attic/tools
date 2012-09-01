@@ -167,8 +167,10 @@ public class StoreMediatorItemProvider
 	
 	@Override
 	public String getText(Object object) {
-		StoreMediator storeMediator = (StoreMediator)object;
-		return getString("_UI_StoreMediator_type") + " " + storeMediator.isReverse();
+		String label = ((StoreMediator)object).getMessageStore();
+		return label == null || label.length() == 0 ?
+			getString("_UI_StoreMediator_type") :
+			getString("_UI_StoreMediator_type") + " " + label;
 	}
 
 	/**

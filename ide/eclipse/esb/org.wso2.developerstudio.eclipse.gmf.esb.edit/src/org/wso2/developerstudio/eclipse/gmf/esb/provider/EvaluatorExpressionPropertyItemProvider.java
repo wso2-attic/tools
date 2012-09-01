@@ -13,8 +13,6 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -23,20 +21,18 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
-import org.wso2.developerstudio.eclipse.gmf.esb.KeyType;
-import org.wso2.developerstudio.eclipse.gmf.esb.ValidateSchema;
+import org.wso2.developerstudio.eclipse.gmf.esb.EvaluatorExpressionProperty;
 
 /**
- * This is the item provider adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.ValidateSchema} object.
+ * This is the item provider adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.EvaluatorExpressionProperty} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ValidateSchemaItemProvider
+public class EvaluatorExpressionPropertyItemProvider
 	extends EsbNodeItemProvider
 	implements
 		IEditingDomainItemProvider,
@@ -50,7 +46,7 @@ public class ValidateSchemaItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ValidateSchemaItemProvider(AdapterFactory adapterFactory) {
+	public EvaluatorExpressionPropertyItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -60,78 +56,32 @@ public class ValidateSchemaItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addValidateStaticSchemaKeyPropertyDescriptor(object);
-			addValidateDynamicSchemaKeyPropertyDescriptor(object);
-			addValidateSchemaKeyTypePropertyDescriptor(object);
-			addSchemaKeyPropertyDescriptor(object);
+			addPrettyNamePropertyDescriptor(object);
+			addEvaluatorNamePropertyDescriptor(object);
+			addEvaluatorValuePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Validate Static Schema Key feature.
+	 * This adds a property descriptor for the Pretty Name feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addValidateStaticSchemaKeyPropertyDescriptor(Object object) {
+	protected void addPrettyNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ValidateSchema_validateStaticSchemaKey_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ValidateSchema_validateStaticSchemaKey_feature", "_UI_ValidateSchema_type"),
-				 EsbPackage.Literals.VALIDATE_SCHEMA__VALIDATE_STATIC_SCHEMA_KEY,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Validate Dynamic Schema Key feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addValidateDynamicSchemaKeyPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ValidateSchema_validateDynamicSchemaKey_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ValidateSchema_validateDynamicSchemaKey_feature", "_UI_ValidateSchema_type"),
-				 EsbPackage.Literals.VALIDATE_SCHEMA__VALIDATE_DYNAMIC_SCHEMA_KEY,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Validate Schema Key Type feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addValidateSchemaKeyTypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ValidateSchema_validateSchemaKeyType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ValidateSchema_validateSchemaKeyType_feature", "_UI_ValidateSchema_type"),
-				 EsbPackage.Literals.VALIDATE_SCHEMA__VALIDATE_SCHEMA_KEY_TYPE,
+				 getString("_UI_EvaluatorExpressionProperty_prettyName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EvaluatorExpressionProperty_prettyName_feature", "_UI_EvaluatorExpressionProperty_type"),
+				 EsbPackage.Literals.EVALUATOR_EXPRESSION_PROPERTY__PRETTY_NAME,
 				 true,
 				 false,
 				 false,
@@ -141,37 +91,58 @@ public class ValidateSchemaItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Schema Key feature.
+	 * This adds a property descriptor for the Evaluator Name feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addSchemaKeyPropertyDescriptor(Object object) {
+	protected void addEvaluatorNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ValidateSchema_schemaKey_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ValidateSchema_schemaKey_feature", "_UI_ValidateSchema_type"),
-				 EsbPackage.Literals.VALIDATE_SCHEMA__SCHEMA_KEY,
+				 getString("_UI_EvaluatorExpressionProperty_evaluatorName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EvaluatorExpressionProperty_evaluatorName_feature", "_UI_EvaluatorExpressionProperty_type"),
+				 EsbPackage.Literals.EVALUATOR_EXPRESSION_PROPERTY__EVALUATOR_NAME,
 				 true,
 				 false,
-				 true,
-				 null,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
 
 	/**
-	 * This returns ValidateSchema.gif.
+	 * This adds a property descriptor for the Evaluator Value feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
+	protected void addEvaluatorValuePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EvaluatorExpressionProperty_evaluatorValue_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EvaluatorExpressionProperty_evaluatorValue_feature", "_UI_EvaluatorExpressionProperty_type"),
+				 EsbPackage.Literals.EVALUATOR_EXPRESSION_PROPERTY__EVALUATOR_VALUE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This returns EvaluatorExpressionProperty.gif.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ValidateSchema"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/EvaluatorExpressionProperty"));
 	}
 
 	/**
@@ -180,14 +151,12 @@ public class ValidateSchemaItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
 	@Override
 	public String getText(Object object) {
-		KeyType labelValue = ((ValidateSchema)object).getValidateSchemaKeyType();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((EvaluatorExpressionProperty)object).getPrettyName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ValidateSchema_type") :
-			getString("_UI_ValidateSchema_type") + " " + label;
+			getString("_UI_EvaluatorExpressionProperty_type") :
+			getString("_UI_EvaluatorExpressionProperty_type") + " " + label;
 	}
 
 	/**
@@ -197,13 +166,14 @@ public class ValidateSchemaItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(ValidateSchema.class)) {
-			case EsbPackage.VALIDATE_SCHEMA__VALIDATE_SCHEMA_KEY_TYPE:
+		switch (notification.getFeatureID(EvaluatorExpressionProperty.class)) {
+			case EsbPackage.EVALUATOR_EXPRESSION_PROPERTY__PRETTY_NAME:
+			case EsbPackage.EVALUATOR_EXPRESSION_PROPERTY__EVALUATOR_NAME:
+			case EsbPackage.EVALUATOR_EXPRESSION_PROPERTY__EVALUATOR_VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
@@ -217,7 +187,6 @@ public class ValidateSchemaItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);

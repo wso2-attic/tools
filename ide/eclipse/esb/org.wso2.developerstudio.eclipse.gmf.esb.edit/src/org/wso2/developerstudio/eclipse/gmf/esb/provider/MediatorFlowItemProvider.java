@@ -241,11 +241,6 @@ public class MediatorFlowItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
-				 EsbFactory.eINSTANCE.createValidateMediator()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
 				 EsbFactory.eINSTANCE.createScriptMediator()));
 
 		newChildDescriptors.add
@@ -407,6 +402,16 @@ public class MediatorFlowItemProvider
 			(createChildParameter
 				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
 				 EsbFactory.eINSTANCE.createSequences()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
+				 EsbFactory.eINSTANCE.createURLRewriteMediator()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
+				 EsbFactory.eINSTANCE.createValidateMediator()));
 	}
 
 }
