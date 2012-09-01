@@ -81,10 +81,10 @@ public class RegistryKeyPropertyImpl extends EObjectImpl implements RegistryKeyP
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getKeyValue()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
-	protected static final String KEY_VALUE_EDEFAULT = null;
+	protected static final String KEY_VALUE_EDEFAULT = "";
 
 	/**
 	 * The cached value of the '{@link #getKeyValue() <em>Key Value</em>}' attribute.

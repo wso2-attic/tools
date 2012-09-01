@@ -80,10 +80,10 @@ public class NamespacedPropertyImpl extends EsbNodeImpl implements NamespacedPro
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getPropertyValue()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
-	protected static final String PROPERTY_VALUE_EDEFAULT = null;
+	protected static final String PROPERTY_VALUE_EDEFAULT = "";
 
 	/**
 	 * The cached value of the '{@link #getPropertyValue() <em>Property Value</em>}' attribute.
