@@ -124,7 +124,7 @@ public class DefaultEndPointEditPart extends AbstractEndpoint {
 	 * @generated NOT
 	 */
 	protected IFigure createNodeShape() {
-		return primaryShape = new DefaultEndPointFigure(){
+		return primaryShape = new DefaultEndPointFigure() {
 			public void setBounds(org.eclipse.draw2d.geometry.Rectangle rect) {
 				super.setBounds(rect);
 				if (!connected) {

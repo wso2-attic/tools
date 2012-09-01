@@ -114,12 +114,13 @@ public class RuleMediatorEditPart extends FixedSizedAbstractMediator {
 	 * @generated NOT
 	 */
 	protected IFigure createNodeShape() {
-		return primaryShape = new RuleMediatorFigure(){
+		return primaryShape = new RuleMediatorFigure() {
 			public void setBounds(org.eclipse.draw2d.geometry.Rectangle rect) {
-				super.setBounds(rect);				
-				if(this.getBounds().getLocation().x!=0 &&this.getBounds().getLocation().y!=0){
-				getMostSuitableElementToConnect();
-				}				
+				super.setBounds(rect);
+				if (this.getBounds().getLocation().x != 0
+						&& this.getBounds().getLocation().y != 0) {
+					getMostSuitableElementToConnect();
+				}
 			};
 		};
 	}

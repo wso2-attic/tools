@@ -156,10 +156,10 @@ public class DiagramEditorContextMenuProvider extends
 
 		contextActions.put(CloneMediator.class,
 				new ConfigureCloneMediatorAction(part));
-		
+
 		contextActions.put(CommandMediator.class,
 				new ConfigureCommandMediatorAction(part));
-		
+
 		contextActions.put(CallTemplateMediator.class,
 				new ConfigureCallTemplateMediatorAction(part));
 
@@ -323,15 +323,16 @@ public class DiagramEditorContextMenuProvider extends
 										.getModel()).getElement();
 								ConfigureEsbNodeAction contextAction = null;
 								ConfigureEsbNodeAction addBranchContextAction = null;
-								
-								if(contextObj instanceof EObject){
-									contextAction = contextActions.get(contextObj.eClass()
-											.getInstanceClass());
-									addBranchContextAction = addBranchContextActions.get(contextObj
-											.eClass().getInstanceClass());
+
+								if (contextObj instanceof EObject) {
+									contextAction = contextActions
+											.get(contextObj.eClass()
+													.getInstanceClass());
+									addBranchContextAction = addBranchContextActions
+											.get(contextObj.eClass()
+													.getInstanceClass());
 								}
-								
-								
+
 								if (null != contextAction) {
 									menu.appendToGroup("editGroup",
 											contextAction);

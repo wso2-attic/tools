@@ -658,6 +658,26 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String URLRewriteMediator36CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String URLRewriteMediator36CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String ValidateMediator37CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ValidateMediator37CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
 	public static String DefaultEndPoint1CreationTool_title;
 
 	/**
@@ -774,6 +794,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String MediatorFlowMediatorFlowCompartment3EditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String MediatorFlowMediatorFlowCompartment14EditPart_title;
 
 	/**
 	 * @generated
@@ -973,6 +998,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_ValidateMediatorInputConnector_3624_incominglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_MessageInputConnector_3046_incominglinks;
 
 	/**
@@ -1078,6 +1108,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_ValidateMediatorOutputConnector_3625_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_ThrottleMediatorOnRejectOutputConnector_3582_outgoinglinks;
 
 	/**
@@ -1159,6 +1194,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_BuilderMediatorInputConnector_3592_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_URLRewriteMediatorOutputConnector_3622_outgoinglinks;
 
 	/**
 	 * @generated
@@ -1253,7 +1293,17 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_URLRewriteMediatorInputConnector_3621_incominglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_WSDLEndPointInputConnector_3092_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_ValidateMediatorOnFailOutputConnector_3626_outgoinglinks;
 
 	/**
 	 * @generated

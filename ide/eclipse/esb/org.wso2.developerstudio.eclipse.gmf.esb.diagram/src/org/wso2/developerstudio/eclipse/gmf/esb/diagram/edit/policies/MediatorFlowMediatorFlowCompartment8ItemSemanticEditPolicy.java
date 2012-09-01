@@ -40,6 +40,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.StoreMedia
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.SwitchMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.ThrottleMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.TransactionMediatorCreateCommand;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.URLRewriteMediatorCreateCommand;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.ValidateMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.WSDLEndPointCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.XQueryMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.XSLTMediatorCreateCommand;
@@ -169,6 +171,12 @@ public class MediatorFlowMediatorFlowCompartment8ItemSemanticEditPolicy extends
 		}
 		if (EsbElementTypes.EnqueueMediator_3600 == req.getElementType()) {
 			return getGEFWrapper(new EnqueueMediatorCreateCommand(req));
+		}
+		if (EsbElementTypes.URLRewriteMediator_3620 == req.getElementType()) {
+			return getGEFWrapper(new URLRewriteMediatorCreateCommand(req));
+		}
+		if (EsbElementTypes.ValidateMediator_3623 == req.getElementType()) {
+			return getGEFWrapper(new ValidateMediatorCreateCommand(req));
 		}
 		if (EsbElementTypes.DefaultEndPoint_3609 == req.getElementType()) {
 			return getGEFWrapper(new DefaultEndPointCreateCommand(req));

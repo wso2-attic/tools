@@ -116,12 +116,13 @@ public class CallTemplateMediatorEditPart extends FixedSizedAbstractMediator {
 	 * @generated NOT
 	 */
 	protected IFigure createNodeShape() {
-		return primaryShape = new CallTemplateMediatorFigure(){
+		return primaryShape = new CallTemplateMediatorFigure() {
 			public void setBounds(org.eclipse.draw2d.geometry.Rectangle rect) {
-				super.setBounds(rect);				
-				if(this.getBounds().getLocation().x!=0 &&this.getBounds().getLocation().y!=0){
-				getMostSuitableElementToConnect();
-				}				
+				super.setBounds(rect);
+				if (this.getBounds().getLocation().x != 0
+						&& this.getBounds().getLocation().y != 0) {
+					getMostSuitableElementToConnect();
+				}
 			};
 		};
 	}

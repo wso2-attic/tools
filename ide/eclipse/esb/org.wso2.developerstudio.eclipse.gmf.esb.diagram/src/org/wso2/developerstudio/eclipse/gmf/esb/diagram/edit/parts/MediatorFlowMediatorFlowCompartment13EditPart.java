@@ -38,7 +38,7 @@ public class MediatorFlowMediatorFlowCompartment13EditPart extends
 		//return Messages.MediatorFlowMediatorFlowCompartment13EditPart_title;
 		return "";
 	}
-	
+
 	public IFigure createFigure() {
 		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super
 				.createFigure();

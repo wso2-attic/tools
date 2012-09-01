@@ -344,11 +344,12 @@ public class MediatorFlowMediatorFlowCompartmentEditPart extends
 			super.setRatio(ratio);
 		}
 	}
-	
-	public void connectNormally(EditPart child){
+
+	public void connectNormally(EditPart child) {
 		AbstractBorderItemEditPart inputConnector = null;
 
-		if ((child instanceof AbstractMediator)||(child instanceof AbstractEndpoint)) {
+		if ((child instanceof AbstractMediator)
+				|| (child instanceof AbstractEndpoint)) {
 
 			for (int i = 0; i < child.getChildren().size(); ++i) {
 				if (child.getChildren().get(i) instanceof AbstractInputConnector) {
@@ -359,9 +360,9 @@ public class MediatorFlowMediatorFlowCompartmentEditPart extends
 					sourceOutputConnector = (AbstractOutputConnector) child
 							.getChildren().get(i);
 				}
-				if(child.getChildren().get(i) instanceof AbstractEndpointInputConnector){
+				if (child.getChildren().get(i) instanceof AbstractEndpointInputConnector) {
 					inputConnector = (AbstractEndpointInputConnector) child
-					.getChildren().get(i);
+							.getChildren().get(i);
 				}
 				if (child.getChildren().get(i) instanceof AbstractEndpointOutputConnector) {
 					sourceOutputConnector = (AbstractEndpointOutputConnector) child

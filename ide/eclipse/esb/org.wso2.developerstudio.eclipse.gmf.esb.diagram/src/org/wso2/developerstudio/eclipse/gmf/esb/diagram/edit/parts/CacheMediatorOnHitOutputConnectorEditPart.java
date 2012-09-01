@@ -33,7 +33,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementType
  * @generated NOT
  */
 public class CacheMediatorOnHitOutputConnectorEditPart extends
-	AdditionalOutputConnector {
+		AdditionalOutputConnector {
 
 	/**
 	 * @generated
@@ -49,7 +49,7 @@ public class CacheMediatorOnHitOutputConnectorEditPart extends
 	 * @generated NOT
 	 */
 	protected IFigure primaryShapeForward;
-	
+
 	public IFigure primaryShapeReverse;
 
 	/**
@@ -58,7 +58,7 @@ public class CacheMediatorOnHitOutputConnectorEditPart extends
 	public CacheMediatorOnHitOutputConnectorEditPart(View view) {
 		super(view);
 	}
-	
+
 	public NodeFigure figure_;
 
 	public NodeFigure getNodeFigureOutput() {

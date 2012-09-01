@@ -106,6 +106,7 @@ public class EsbPaletteFactory {
 		paletteContainer.add(new PaletteSeparator());
 		paletteContainer.add(createFilterMediator2CreationTool());
 		paletteContainer.add(createSwitchMediator7CreationTool());
+		paletteContainer.add(createValidateMediator37CreationTool());
 
 		paletteContainer.add(new PaletteSeparator());
 		paletteContainer.add(createXSLTMediator6CreationTool());
@@ -113,6 +114,7 @@ public class EsbPaletteFactory {
 		paletteContainer.add(createFaultMediator13CreationTool());
 		paletteContainer.add(createHeaderMediator20CreationTool());
 		paletteContainer.add(createPayloadFactoryMediator34CreationTool());
+		paletteContainer.add(createURLRewriteMediator36CreationTool());
 
 		paletteContainer.add(new PaletteSeparator());
 		paletteContainer.add(createDBLookupMediator16CreationTool());
@@ -129,7 +131,7 @@ public class EsbPaletteFactory {
 		paletteContainer.add(createOAuthMediator29CreationTool());
 		paletteContainer.add(createRuleMediator30CreationTool());
 		paletteContainer.add(createStoreMediator31CreationTool());
-		//paletteContainer.add(createBuilderMediator32CreationTool());
+		paletteContainer.add(createBuilderMediator32CreationTool());
 
 		paletteContainer.add(new PaletteSeparator());
 		paletteContainer.add(createClassMediator10CreationTool());
@@ -772,6 +774,38 @@ public class EsbPaletteFactory {
 		entry.setId("createEnqueueMediator35CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(EsbElementTypes
 				.getImageDescriptor(EsbElementTypes.EnqueueMediator_3600));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createURLRewriteMediator36CreationTool() {
+		NodeToolEntry entry = new NodeToolEntry(
+				Messages.URLRewriteMediator36CreationTool_title,
+				Messages.URLRewriteMediator36CreationTool_desc,
+				Collections
+						.singletonList(EsbElementTypes.URLRewriteMediator_3620));
+		entry.setId("createURLRewriteMediator36CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(EsbElementTypes
+				.getImageDescriptor(EsbElementTypes.URLRewriteMediator_3620));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createValidateMediator37CreationTool() {
+		NodeToolEntry entry = new NodeToolEntry(
+				Messages.ValidateMediator37CreationTool_title,
+				Messages.ValidateMediator37CreationTool_desc,
+				Collections
+						.singletonList(EsbElementTypes.ValidateMediator_3623));
+		entry.setId("createValidateMediator37CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(EsbElementTypes
+				.getImageDescriptor(EsbElementTypes.ValidateMediator_3623));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

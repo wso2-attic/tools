@@ -253,6 +253,9 @@ public class MessageInputConnectorEditPart extends AbstractBorderItemEditPart {
 			types.add(EsbElementTypes.CallTemplateMediatorOutputConnector_3596);
 			types.add(EsbElementTypes.PayloadFactoryMediatorOutputConnector_3599);
 			types.add(EsbElementTypes.EnqueueMediatorOutputConnector_3602);
+			types.add(EsbElementTypes.URLRewriteMediatorOutputConnector_3622);
+			types.add(EsbElementTypes.ValidateMediatorOutputConnector_3625);
+			types.add(EsbElementTypes.ValidateMediatorOnFailOutputConnector_3626);
 			types.add(EsbElementTypes.DefaultEndPointOutputConnector_3022);
 			types.add(EsbElementTypes.AddressEndPointOutputConnector_3031);
 			types.add(EsbElementTypes.FailoverEndPointOutputConnector_3090);

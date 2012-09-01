@@ -24,10 +24,12 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EndpointFlowE
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FilterMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.IterateMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlow12EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlow14EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlow3EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlow4EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlow13EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment12EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment14EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment3EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment4EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment13EditPart;
@@ -37,6 +39,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchDefault
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchMediatorContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ThrottleMediatorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ValidateMediatorEditPart;
 
 public class MediatorFigureReverser {
 
@@ -86,12 +89,23 @@ public class MediatorFigureReverser {
 					.getChildren().get(4)).getChildren().get(0)).getChildren();
 		}
 		
+		if(editorPart instanceof ValidateMediatorEditPart){
+			arrangeType1Compartment(editorPart,
+					((ValidateMediatorEditPart) editorPart).onFailOutputConnector,
+					childFigures);
+			/*
+			 * Reverse the mediators inside the Validate mediator.
+			 */
+			children = ((MediatorFlowMediatorFlowCompartment14EditPart) ((MediatorFlow14EditPart) editorPart
+					.getChildren().get(3)).getChildren().get(0)).getChildren();
+		}
+		
 		if(editorPart instanceof CacheMediatorEditPart){
 			arrangeType1Compartment(editorPart,
 					((CacheMediatorEditPart) editorPart).onHitOutputConnector,
 					childFigures);
 			/*
-			 * Reverse the mediators inside the Aggregate mediator.
+			 * Reverse the mediators inside the Cache mediator.
 			 */
 			children = ((MediatorFlowMediatorFlowCompartment13EditPart) ((MediatorFlow13EditPart) editorPart
 					.getChildren().get(4)).getChildren().get(0)).getChildren();

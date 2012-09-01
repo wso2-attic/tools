@@ -59,6 +59,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.StoreMediator
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ThrottleMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.TransactionMediatorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.URLRewriteMediatorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ValidateMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.WSDLEndPointEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.XQueryMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.XSLTMediatorEditPart;
@@ -157,6 +159,8 @@ public class MediatorFlowMediatorFlowCompartment2CanonicalEditPolicy extends
 		case CallTemplateMediatorEditPart.VISUAL_ID:
 		case PayloadFactoryMediatorEditPart.VISUAL_ID:
 		case EnqueueMediatorEditPart.VISUAL_ID:
+		case URLRewriteMediatorEditPart.VISUAL_ID:
+		case ValidateMediatorEditPart.VISUAL_ID:
 		case DefaultEndPointEditPart.VISUAL_ID:
 		case AddressEndPointEditPart.VISUAL_ID:
 		case FailoverEndPointEditPart.VISUAL_ID:

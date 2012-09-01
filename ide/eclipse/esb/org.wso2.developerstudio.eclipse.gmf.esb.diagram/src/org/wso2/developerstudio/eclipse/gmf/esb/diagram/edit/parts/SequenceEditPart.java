@@ -182,12 +182,13 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 	 * @generated NOT
 	 */
 	protected IFigure createNodeShape() {
-		return primaryShape = new SequenceFigure(){
+		return primaryShape = new SequenceFigure() {
 			public void setBounds(org.eclipse.draw2d.geometry.Rectangle rect) {
-				super.setBounds(rect);				
-				if(this.getBounds().getLocation().x!=0 &&this.getBounds().getLocation().y!=0){
-				getMostSuitableElementToConnect();
-				}				
+				super.setBounds(rect);
+				if (this.getBounds().getLocation().x != 0
+						&& this.getBounds().getLocation().y != 0) {
+					getMostSuitableElementToConnect();
+				}
 			};
 		};
 	}
@@ -523,18 +524,20 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 				public String isValid(String str) {
 					if (str.trim().isEmpty()) {
 						return "Sequence name cannot be empty";
-					} else if(str.indexOf(0x20)!=-1){
+					} else if (str.indexOf(0x20) != -1) {
 						return "Sequence name cannot contain spaces";
-					} else if(str.indexOf(0x20)!=-1){
+					} else if (str.indexOf(0x20) != -1) {
 						return "Sequence name cannot contain spaces";
 					}
 					return null;
 				}
 
 			};
-			String defaultName = "Default" + (((EsbDiagram) diagram).getTest() + 1);
+			String defaultName = "Default"
+					+ (((EsbDiagram) diagram).getTest() + 1);
 			final InputDialog sequenceNameInput = new InputDialog(new Shell(),
-					"Enter Sequence Name", "Sequence Name", defaultName, validator);
+					"Enter Sequence Name", "Sequence Name", defaultName,
+					validator);
 			int open = sequenceNameInput.open();
 			if (open == Dialog.OK) {
 				Display.getDefault().asyncExec(new Runnable() {
@@ -542,9 +545,10 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 					public void run() {
 						String sequenceName = sequenceNameInput.getValue();
 						TransactionalEditingDomain editingDomain = getEditingDomain();
-						SetRequest setRequestSequenceCount = new SetRequest(editingDomain, diagram,
-								EsbPackage.eINSTANCE.getEsbDiagram_Test(), ((EsbDiagram) diagram)
-										.getTest() + 1);
+						SetRequest setRequestSequenceCount = new SetRequest(
+								editingDomain, diagram, EsbPackage.eINSTANCE
+										.getEsbDiagram_Test(),
+								((EsbDiagram) diagram).getTest() + 1);
 						SetValueCommand operationSequenceCount = new SetValueCommand(
 								setRequestSequenceCount) {
 
@@ -560,12 +564,15 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 						ICommandProxy commandSequenceCount = new ICommandProxy(
 								operationSequenceCount);
 						if (commandSequenceCount.canExecute()) {
-							getEditDomain().getCommandStack().execute(commandSequenceCount);
+							getEditDomain().getCommandStack().execute(
+									commandSequenceCount);
 						}
 
-						SetRequest setRequest = new SetRequest(editingDomain, sequence,
-								EsbPackage.eINSTANCE.getSequence_Name(), sequenceName);
-						SetValueCommand operation = new SetValueCommand(setRequest) {
+						SetRequest setRequest = new SetRequest(editingDomain,
+								sequence, EsbPackage.eINSTANCE
+										.getSequence_Name(), sequenceName);
+						SetValueCommand operation = new SetValueCommand(
+								setRequest) {
 
 							public boolean canUndo() {
 								return true;
@@ -576,7 +583,8 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 							}
 						};
 
-						getEditDomain().getCommandStack().execute(new ICommandProxy(operation));
+						getEditDomain().getCommandStack().execute(
+								new ICommandProxy(operation));
 						openWithSeparateEditor();
 					}
 				});

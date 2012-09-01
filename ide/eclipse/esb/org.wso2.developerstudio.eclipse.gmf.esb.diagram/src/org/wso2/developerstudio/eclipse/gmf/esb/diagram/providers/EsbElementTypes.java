@@ -761,6 +761,46 @@ public class EsbElementTypes {
 	/**
 	 * @generated
 	 */
+	public static final IElementType URLRewriteMediator_3620 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.URLRewriteMediator_3620"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType URLRewriteMediatorInputConnector_3621 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.URLRewriteMediatorInputConnector_3621"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType URLRewriteMediatorOutputConnector_3622 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.URLRewriteMediatorOutputConnector_3622"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType ValidateMediator_3623 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.ValidateMediator_3623"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType ValidateMediatorInputConnector_3624 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.ValidateMediatorInputConnector_3624"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType ValidateMediatorOutputConnector_3625 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.ValidateMediatorOutputConnector_3625"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType ValidateMediatorOnFailOutputConnector_3626 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.ValidateMediatorOnFailOutputConnector_3626"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType MediatorFlow_3627 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.MediatorFlow_3627"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
 	public static final IElementType DefaultEndPoint_3609 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.DefaultEndPoint_3609"); //$NON-NLS-1$
 
 	/**
@@ -1494,6 +1534,31 @@ public class EsbElementTypes {
 			elements.put(EnqueueMediatorOutputConnector_3602,
 					EsbPackage.eINSTANCE.getEnqueueMediatorOutputConnector());
 
+			elements.put(URLRewriteMediator_3620,
+					EsbPackage.eINSTANCE.getURLRewriteMediator());
+
+			elements.put(URLRewriteMediatorInputConnector_3621,
+					EsbPackage.eINSTANCE.getURLRewriteMediatorInputConnector());
+
+			elements.put(URLRewriteMediatorOutputConnector_3622,
+					EsbPackage.eINSTANCE.getURLRewriteMediatorOutputConnector());
+
+			elements.put(ValidateMediator_3623,
+					EsbPackage.eINSTANCE.getValidateMediator());
+
+			elements.put(ValidateMediatorInputConnector_3624,
+					EsbPackage.eINSTANCE.getValidateMediatorInputConnector());
+
+			elements.put(ValidateMediatorOutputConnector_3625,
+					EsbPackage.eINSTANCE.getValidateMediatorOutputConnector());
+
+			elements.put(ValidateMediatorOnFailOutputConnector_3626,
+					EsbPackage.eINSTANCE
+							.getValidateMediatorOnFailOutputConnector());
+
+			elements.put(MediatorFlow_3627,
+					EsbPackage.eINSTANCE.getMediatorFlow());
+
 			elements.put(DefaultEndPoint_3609,
 					EsbPackage.eINSTANCE.getDefaultEndPoint());
 
@@ -1768,6 +1833,14 @@ public class EsbElementTypes {
 			KNOWN_ELEMENT_TYPES.add(EnqueueMediator_3600);
 			KNOWN_ELEMENT_TYPES.add(EnqueueMediatorInputConnector_3601);
 			KNOWN_ELEMENT_TYPES.add(EnqueueMediatorOutputConnector_3602);
+			KNOWN_ELEMENT_TYPES.add(URLRewriteMediator_3620);
+			KNOWN_ELEMENT_TYPES.add(URLRewriteMediatorInputConnector_3621);
+			KNOWN_ELEMENT_TYPES.add(URLRewriteMediatorOutputConnector_3622);
+			KNOWN_ELEMENT_TYPES.add(ValidateMediator_3623);
+			KNOWN_ELEMENT_TYPES.add(ValidateMediatorInputConnector_3624);
+			KNOWN_ELEMENT_TYPES.add(ValidateMediatorOutputConnector_3625);
+			KNOWN_ELEMENT_TYPES.add(ValidateMediatorOnFailOutputConnector_3626);
+			KNOWN_ELEMENT_TYPES.add(MediatorFlow_3627);
 			KNOWN_ELEMENT_TYPES.add(DefaultEndPoint_3609);
 			KNOWN_ELEMENT_TYPES.add(DefaultEndPointInputConnector_3021);
 			KNOWN_ELEMENT_TYPES.add(DefaultEndPointOutputConnector_3022);
@@ -2101,6 +2174,22 @@ public class EsbElementTypes {
 			return EnqueueMediatorInputConnector_3601;
 		case EnqueueMediatorOutputConnectorEditPart.VISUAL_ID:
 			return EnqueueMediatorOutputConnector_3602;
+		case URLRewriteMediatorEditPart.VISUAL_ID:
+			return URLRewriteMediator_3620;
+		case URLRewriteMediatorInputConnectorEditPart.VISUAL_ID:
+			return URLRewriteMediatorInputConnector_3621;
+		case URLRewriteMediatorOutputConnectorEditPart.VISUAL_ID:
+			return URLRewriteMediatorOutputConnector_3622;
+		case ValidateMediatorEditPart.VISUAL_ID:
+			return ValidateMediator_3623;
+		case ValidateMediatorInputConnectorEditPart.VISUAL_ID:
+			return ValidateMediatorInputConnector_3624;
+		case ValidateMediatorOutputConnectorEditPart.VISUAL_ID:
+			return ValidateMediatorOutputConnector_3625;
+		case ValidateMediatorOnFailOutputConnectorEditPart.VISUAL_ID:
+			return ValidateMediatorOnFailOutputConnector_3626;
+		case MediatorFlow14EditPart.VISUAL_ID:
+			return MediatorFlow_3627;
 		case DefaultEndPointEditPart.VISUAL_ID:
 			return DefaultEndPoint_3609;
 		case DefaultEndPointInputConnectorEditPart.VISUAL_ID:

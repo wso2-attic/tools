@@ -45,12 +45,12 @@ public class MediatorFlowMediatorFlowCompartment6EditPart extends
 		ShapeCompartmentEditPart {
 
 	//ProxyService FaultSequence.
-	
+
 	AbstractBorderItemEditPart sourceOutputConnector = null;
 	AbstractBorderItemEditPart inputConnectorEditPart = null;
 	AbstractBorderItemEditPart sourceInputConnector = null;
 	ShapeNodeEditPart sourceEditPart = null;
-	
+
 	/**
 	 * @generated
 	 */
@@ -114,7 +114,7 @@ public class MediatorFlowMediatorFlowCompartment6EditPart extends
 			SwitchMediatorUtils.addCaseBranchInitially(switchMediatorEditPart,
 					getEditingDomain());
 		}
-		
+
 		if (child instanceof SequenceEditPart) {
 			SequenceEditPart sequenceEditPart = (SequenceEditPart) child;
 			EditPart editpart = (EditPart) ((StructuredSelection) sequenceEditPart
@@ -164,10 +164,11 @@ public class MediatorFlowMediatorFlowCompartment6EditPart extends
 			super.setRatio(ratio);
 		}
 	}
-	
-	public void connectNormally(EditPart child){		
 
-		if ((child instanceof AbstractMediator)||(child instanceof AbstractEndpoint)) {
+	public void connectNormally(EditPart child) {
+
+		if ((child instanceof AbstractMediator)
+				|| (child instanceof AbstractEndpoint)) {
 
 			for (int i = 0; i < child.getChildren().size(); ++i) {
 				if (child.getChildren().get(i) instanceof AbstractInputConnector) {
@@ -178,9 +179,9 @@ public class MediatorFlowMediatorFlowCompartment6EditPart extends
 					sourceOutputConnector = (AbstractOutputConnector) child
 							.getChildren().get(i);
 				}
-				if(child.getChildren().get(i) instanceof AbstractEndpointInputConnector){
+				if (child.getChildren().get(i) instanceof AbstractEndpointInputConnector) {
 					sourceInputConnector = (AbstractEndpointInputConnector) child
-					.getChildren().get(i);
+							.getChildren().get(i);
 				}
 				if (child.getChildren().get(i) instanceof AbstractEndpointOutputConnector) {
 					sourceOutputConnector = (AbstractEndpointOutputConnector) child
@@ -193,7 +194,7 @@ public class MediatorFlowMediatorFlowCompartment6EditPart extends
 						.getParent().getParent().getParent().getParent()
 						.getChildren().get(3));
 			}
-			sourceEditPart=(ShapeNodeEditPart) child;
+			sourceEditPart = (ShapeNodeEditPart) child;
 
 			CompoundCommand cc = new CompoundCommand("Create Link");
 

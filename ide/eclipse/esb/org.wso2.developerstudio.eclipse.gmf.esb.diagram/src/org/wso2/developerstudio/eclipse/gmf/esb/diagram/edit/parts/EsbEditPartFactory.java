@@ -531,6 +531,30 @@ public class EsbEditPartFactory implements EditPartFactory {
 			case EnqueueMediatorOutputConnectorEditPart.VISUAL_ID:
 				return new EnqueueMediatorOutputConnectorEditPart(view);
 
+			case URLRewriteMediatorEditPart.VISUAL_ID:
+				return new URLRewriteMediatorEditPart(view);
+
+			case URLRewriteMediatorInputConnectorEditPart.VISUAL_ID:
+				return new URLRewriteMediatorInputConnectorEditPart(view);
+
+			case URLRewriteMediatorOutputConnectorEditPart.VISUAL_ID:
+				return new URLRewriteMediatorOutputConnectorEditPart(view);
+
+			case ValidateMediatorEditPart.VISUAL_ID:
+				return new ValidateMediatorEditPart(view);
+
+			case ValidateMediatorInputConnectorEditPart.VISUAL_ID:
+				return new ValidateMediatorInputConnectorEditPart(view);
+
+			case ValidateMediatorOutputConnectorEditPart.VISUAL_ID:
+				return new ValidateMediatorOutputConnectorEditPart(view);
+
+			case ValidateMediatorOnFailOutputConnectorEditPart.VISUAL_ID:
+				return new ValidateMediatorOnFailOutputConnectorEditPart(view);
+
+			case MediatorFlow14EditPart.VISUAL_ID:
+				return new MediatorFlow14EditPart(view);
+
 			case DefaultEndPointEditPart.VISUAL_ID:
 				return new DefaultEndPointEditPart(view);
 
@@ -683,6 +707,9 @@ public class EsbEditPartFactory implements EditPartFactory {
 
 			case MediatorFlowMediatorFlowCompartment3EditPart.VISUAL_ID:
 				return new MediatorFlowMediatorFlowCompartment3EditPart(view);
+
+			case MediatorFlowMediatorFlowCompartment14EditPart.VISUAL_ID:
+				return new MediatorFlowMediatorFlowCompartment14EditPart(view);
 
 			case MediatorFlowMediatorFlowCompartment4EditPart.VISUAL_ID:
 				return new MediatorFlowMediatorFlowCompartment4EditPart(view);
