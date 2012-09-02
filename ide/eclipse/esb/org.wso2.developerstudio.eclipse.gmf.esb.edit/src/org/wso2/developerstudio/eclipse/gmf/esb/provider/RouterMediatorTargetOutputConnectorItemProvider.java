@@ -13,10 +13,6 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.common.util.ResourceLocator;
-
-import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -25,21 +21,19 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
-import org.wso2.developerstudio.eclipse.gmf.esb.RouterRoute;
+import org.wso2.developerstudio.eclipse.gmf.esb.RouterMediatorTargetOutputConnector;
 
 /**
- * This is the item provider adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.RouterRoute} object.
+ * This is the item provider adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.RouterMediatorTargetOutputConnector} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class RouterRouteItemProvider
-	extends EsbNodeItemProvider
+public class RouterMediatorTargetOutputConnectorItemProvider
+	extends OutputConnectorItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -52,7 +46,7 @@ public class RouterRouteItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RouterRouteItemProvider(AdapterFactory adapterFactory) {
+	public RouterMediatorTargetOutputConnectorItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -62,77 +56,31 @@ public class RouterRouteItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addBreakAfterRoutePropertyDescriptor(object);
-			addRouteExpressionPropertyDescriptor(object);
-			addRoutePatternPropertyDescriptor(object);
+			addSoapActionPropertyDescriptor(object);
+			addToAddressPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Break After Route feature.
+	 * This adds a property descriptor for the Soap Action feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addBreakAfterRoutePropertyDescriptor(Object object) {
+	protected void addSoapActionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RouterRoute_breakAfterRoute_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RouterRoute_breakAfterRoute_feature", "_UI_RouterRoute_type"),
-				 EsbPackage.Literals.ROUTER_ROUTE__BREAK_AFTER_ROUTE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Route Expression feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addRouteExpressionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_RouterRoute_routeExpression_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RouterRoute_routeExpression_feature", "_UI_RouterRoute_type"),
-				 EsbPackage.Literals.ROUTER_ROUTE__ROUTE_EXPRESSION,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Route Pattern feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addRoutePatternPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_RouterRoute_routePattern_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RouterRoute_routePattern_feature", "_UI_RouterRoute_type"),
-				 EsbPackage.Literals.ROUTER_ROUTE__ROUTE_PATTERN,
+				 getString("_UI_RouterMediatorTargetOutputConnector_soapAction_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RouterMediatorTargetOutputConnector_soapAction_feature", "_UI_RouterMediatorTargetOutputConnector_type"),
+				 EsbPackage.Literals.ROUTER_MEDIATOR_TARGET_OUTPUT_CONNECTOR__SOAP_ACTION,
 				 true,
 				 false,
 				 false,
@@ -142,15 +90,36 @@ public class RouterRouteItemProvider
 	}
 
 	/**
-	 * This returns RouterRoute.gif.
+	 * This adds a property descriptor for the To Address feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
+	protected void addToAddressPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RouterMediatorTargetOutputConnector_toAddress_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RouterMediatorTargetOutputConnector_toAddress_feature", "_UI_RouterMediatorTargetOutputConnector_type"),
+				 EsbPackage.Literals.ROUTER_MEDIATOR_TARGET_OUTPUT_CONNECTOR__TO_ADDRESS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This returns RouterMediatorTargetOutputConnector.gif.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/RouterRoute"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/RouterMediatorTargetOutputConnector"));
 	}
 
 	/**
@@ -159,11 +128,12 @@ public class RouterRouteItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
 	@Override
 	public String getText(Object object) {
-		RouterRoute routerRoute = (RouterRoute)object;
-		return getString("_UI_RouterRoute_type") + " " + routerRoute.isBreakAfterRoute();
+		String label = ((RouterMediatorTargetOutputConnector)object).getSoapAction();
+		return label == null || label.length() == 0 ?
+			getString("_UI_RouterMediatorTargetOutputConnector_type") :
+			getString("_UI_RouterMediatorTargetOutputConnector_type") + " " + label;
 	}
 
 	/**
@@ -173,14 +143,13 @@ public class RouterRouteItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(RouterRoute.class)) {
-			case EsbPackage.ROUTER_ROUTE__BREAK_AFTER_ROUTE:
-			case EsbPackage.ROUTER_ROUTE__ROUTE_PATTERN:
+		switch (notification.getFeatureID(RouterMediatorTargetOutputConnector.class)) {
+			case EsbPackage.ROUTER_MEDIATOR_TARGET_OUTPUT_CONNECTOR__SOAP_ACTION:
+			case EsbPackage.ROUTER_MEDIATOR_TARGET_OUTPUT_CONNECTOR__TO_ADDRESS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
@@ -194,7 +163,6 @@ public class RouterRouteItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);

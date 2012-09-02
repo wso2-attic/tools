@@ -2618,27 +2618,141 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.RouteTarget} instances.
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.RouterTarget} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected RouteTargetItemProvider routeTargetItemProvider;
+	protected RouterTargetItemProvider routerTargetItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.RouteTarget}.
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.RouterTarget}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
 	@Override
-	public Adapter createRouteTargetAdapter() {
-		if (routeTargetItemProvider == null) {
-			routeTargetItemProvider = new RouteTargetItemProvider(this);
+	public Adapter createRouterTargetAdapter() {
+		if (routerTargetItemProvider == null) {
+			routerTargetItemProvider = new RouterTargetItemProvider(this);
 		}
 
-		return routeTargetItemProvider;
+		return routerTargetItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.RouterMediatorInputConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RouterMediatorInputConnectorItemProvider routerMediatorInputConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.RouterMediatorInputConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRouterMediatorInputConnectorAdapter() {
+		if (routerMediatorInputConnectorItemProvider == null) {
+			routerMediatorInputConnectorItemProvider = new RouterMediatorInputConnectorItemProvider(this);
+		}
+
+		return routerMediatorInputConnectorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.RouterMediatorOutputConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RouterMediatorOutputConnectorItemProvider routerMediatorOutputConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.RouterMediatorOutputConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRouterMediatorOutputConnectorAdapter() {
+		if (routerMediatorOutputConnectorItemProvider == null) {
+			routerMediatorOutputConnectorItemProvider = new RouterMediatorOutputConnectorItemProvider(this);
+		}
+
+		return routerMediatorOutputConnectorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.RouterMediatorTargetOutputConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RouterMediatorTargetOutputConnectorItemProvider routerMediatorTargetOutputConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.RouterMediatorTargetOutputConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRouterMediatorTargetOutputConnectorAdapter() {
+		if (routerMediatorTargetOutputConnectorItemProvider == null) {
+			routerMediatorTargetOutputConnectorItemProvider = new RouterMediatorTargetOutputConnectorItemProvider(this);
+		}
+
+		return routerMediatorTargetOutputConnectorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.RouterMediatorContainer} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RouterMediatorContainerItemProvider routerMediatorContainerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.RouterMediatorContainer}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRouterMediatorContainerAdapter() {
+		if (routerMediatorContainerItemProvider == null) {
+			routerMediatorContainerItemProvider = new RouterMediatorContainerItemProvider(this);
+		}
+
+		return routerMediatorContainerItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.RouterTargetContainer} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RouterTargetContainerItemProvider routerTargetContainerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.RouterTargetContainer}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRouterTargetContainerAdapter() {
+		if (routerTargetContainerItemProvider == null) {
+			routerTargetContainerItemProvider = new RouterTargetContainerItemProvider(this);
+		}
+
+		return routerTargetContainerItemProvider;
 	}
 
 	/**
@@ -5818,7 +5932,12 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 		if (aggregateOnCompleteBranchItemProvider != null) aggregateOnCompleteBranchItemProvider.dispose();
 		if (routerMediatorItemProvider != null) routerMediatorItemProvider.dispose();
 		if (routerRouteItemProvider != null) routerRouteItemProvider.dispose();
-		if (routeTargetItemProvider != null) routeTargetItemProvider.dispose();
+		if (routerTargetItemProvider != null) routerTargetItemProvider.dispose();
+		if (routerMediatorInputConnectorItemProvider != null) routerMediatorInputConnectorItemProvider.dispose();
+		if (routerMediatorOutputConnectorItemProvider != null) routerMediatorOutputConnectorItemProvider.dispose();
+		if (routerMediatorTargetOutputConnectorItemProvider != null) routerMediatorTargetOutputConnectorItemProvider.dispose();
+		if (routerMediatorContainerItemProvider != null) routerMediatorContainerItemProvider.dispose();
+		if (routerTargetContainerItemProvider != null) routerTargetContainerItemProvider.dispose();
 		if (cloneMediatorItemProvider != null) cloneMediatorItemProvider.dispose();
 		if (cloneTargetItemProvider != null) cloneTargetItemProvider.dispose();
 		if (cloneMediatorInputConnectorItemProvider != null) cloneMediatorInputConnectorItemProvider.dispose();
