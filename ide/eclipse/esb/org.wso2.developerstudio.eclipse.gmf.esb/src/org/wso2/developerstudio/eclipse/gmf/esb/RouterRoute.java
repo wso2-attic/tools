@@ -19,7 +19,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.RouterRoute#isBreakAfterRoute <em>Break After Route</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.RouterRoute#getRouteExpression <em>Route Expression</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.RouterRoute#getRoutePattern <em>Route Pattern</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.RouterRoute#getTarget <em>Target</em>}</li>
  * </ul>
  * </p>
  *
@@ -27,7 +26,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface RouterRoute extends EObject {
+public interface RouterRoute extends EsbNode {
 	/**
 	 * Returns the value of the '<em><b>Break After Route</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -105,31 +104,5 @@ public interface RouterRoute extends EObject {
 	 * @generated
 	 */
 	void setRoutePattern(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Target</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Target</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Target</em>' containment reference.
-	 * @see #setTarget(RouteTarget)
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getRouterRoute_Target()
-	 * @model containment="true"
-	 * @generated
-	 */
-	RouteTarget getTarget();
-
-	/**
-	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.RouterRoute#getTarget <em>Target</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Target</em>' containment reference.
-	 * @see #getTarget()
-	 * @generated
-	 */
-	void setTarget(RouteTarget value);
 
 } // RouterRoute

@@ -30,13 +30,12 @@ import org.wso2.developerstudio.eclipse.gmf.esb.RouterRoute;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RouterRouteImpl#isBreakAfterRoute <em>Break After Route</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RouterRouteImpl#getRouteExpression <em>Route Expression</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RouterRouteImpl#getRoutePattern <em>Route Pattern</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RouterRouteImpl#getTarget <em>Target</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class RouterRouteImpl extends EObjectImpl implements RouterRoute {
+public class RouterRouteImpl extends EsbNodeImpl implements RouterRoute {
 	/**
 	 * The default value of the '{@link #isBreakAfterRoute() <em>Break After Route</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -86,16 +85,6 @@ public class RouterRouteImpl extends EObjectImpl implements RouterRoute {
 	 * @ordered
 	 */
 	protected String routePattern = ROUTE_PATTERN_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getTarget() <em>Target</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTarget()
-	 * @generated
-	 * @ordered
-	 */
-	protected RouteTarget target;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -202,64 +191,6 @@ public class RouterRouteImpl extends EObjectImpl implements RouterRoute {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RouteTarget getTarget() {
-		return target;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetTarget(RouteTarget newTarget, NotificationChain msgs) {
-		RouteTarget oldTarget = target;
-		target = newTarget;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.ROUTER_ROUTE__TARGET, oldTarget, newTarget);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTarget(RouteTarget newTarget) {
-		if (newTarget != target) {
-			NotificationChain msgs = null;
-			if (target != null)
-				msgs = ((InternalEObject)target).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.ROUTER_ROUTE__TARGET, null, msgs);
-			if (newTarget != null)
-				msgs = ((InternalEObject)newTarget).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.ROUTER_ROUTE__TARGET, null, msgs);
-			msgs = basicSetTarget(newTarget, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ROUTER_ROUTE__TARGET, newTarget, newTarget));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case EsbPackage.ROUTER_ROUTE__TARGET:
-				return basicSetTarget(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
@@ -271,8 +202,6 @@ public class RouterRouteImpl extends EObjectImpl implements RouterRoute {
 				return basicGetRouteExpression();
 			case EsbPackage.ROUTER_ROUTE__ROUTE_PATTERN:
 				return getRoutePattern();
-			case EsbPackage.ROUTER_ROUTE__TARGET:
-				return getTarget();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -294,9 +223,6 @@ public class RouterRouteImpl extends EObjectImpl implements RouterRoute {
 				return;
 			case EsbPackage.ROUTER_ROUTE__ROUTE_PATTERN:
 				setRoutePattern((String)newValue);
-				return;
-			case EsbPackage.ROUTER_ROUTE__TARGET:
-				setTarget((RouteTarget)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -320,9 +246,6 @@ public class RouterRouteImpl extends EObjectImpl implements RouterRoute {
 			case EsbPackage.ROUTER_ROUTE__ROUTE_PATTERN:
 				setRoutePattern(ROUTE_PATTERN_EDEFAULT);
 				return;
-			case EsbPackage.ROUTER_ROUTE__TARGET:
-				setTarget((RouteTarget)null);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -342,8 +265,6 @@ public class RouterRouteImpl extends EObjectImpl implements RouterRoute {
 				return routeExpression != null;
 			case EsbPackage.ROUTER_ROUTE__ROUTE_PATTERN:
 				return ROUTE_PATTERN_EDEFAULT == null ? routePattern != null : !ROUTE_PATTERN_EDEFAULT.equals(routePattern);
-			case EsbPackage.ROUTER_ROUTE__TARGET:
-				return target != null;
 		}
 		return super.eIsSet(featureID);
 	}

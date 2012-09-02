@@ -973,12 +973,53 @@ public class EsbSwitch<T> {
 			case EsbPackage.ROUTER_ROUTE: {
 				RouterRoute routerRoute = (RouterRoute)theEObject;
 				T result = caseRouterRoute(routerRoute);
+				if (result == null) result = caseEsbNode(routerRoute);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EsbPackage.ROUTE_TARGET: {
-				RouteTarget routeTarget = (RouteTarget)theEObject;
-				T result = caseRouteTarget(routeTarget);
+			case EsbPackage.ROUTER_TARGET: {
+				RouterTarget routerTarget = (RouterTarget)theEObject;
+				T result = caseRouterTarget(routerTarget);
+				if (result == null) result = caseAbstractCommonTarget(routerTarget);
+				if (result == null) result = caseEsbNode(routerTarget);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.ROUTER_MEDIATOR_INPUT_CONNECTOR: {
+				RouterMediatorInputConnector routerMediatorInputConnector = (RouterMediatorInputConnector)theEObject;
+				T result = caseRouterMediatorInputConnector(routerMediatorInputConnector);
+				if (result == null) result = caseInputConnector(routerMediatorInputConnector);
+				if (result == null) result = caseEsbConnector(routerMediatorInputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.ROUTER_MEDIATOR_OUTPUT_CONNECTOR: {
+				RouterMediatorOutputConnector routerMediatorOutputConnector = (RouterMediatorOutputConnector)theEObject;
+				T result = caseRouterMediatorOutputConnector(routerMediatorOutputConnector);
+				if (result == null) result = caseOutputConnector(routerMediatorOutputConnector);
+				if (result == null) result = caseEsbConnector(routerMediatorOutputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.ROUTER_MEDIATOR_TARGET_OUTPUT_CONNECTOR: {
+				RouterMediatorTargetOutputConnector routerMediatorTargetOutputConnector = (RouterMediatorTargetOutputConnector)theEObject;
+				T result = caseRouterMediatorTargetOutputConnector(routerMediatorTargetOutputConnector);
+				if (result == null) result = caseOutputConnector(routerMediatorTargetOutputConnector);
+				if (result == null) result = caseEsbConnector(routerMediatorTargetOutputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.ROUTER_MEDIATOR_CONTAINER: {
+				RouterMediatorContainer routerMediatorContainer = (RouterMediatorContainer)theEObject;
+				T result = caseRouterMediatorContainer(routerMediatorContainer);
+				if (result == null) result = caseEsbNode(routerMediatorContainer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.ROUTER_TARGET_CONTAINER: {
+				RouterTargetContainer routerTargetContainer = (RouterTargetContainer)theEObject;
+				T result = caseRouterTargetContainer(routerTargetContainer);
+				if (result == null) result = caseEsbNode(routerTargetContainer);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -3835,17 +3876,92 @@ public class EsbSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Route Target</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Router Target</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Route Target</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Router Target</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseRouteTarget(RouteTarget object) {
+	public T caseRouterTarget(RouterTarget object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Router Mediator Input Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Router Mediator Input Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRouterMediatorInputConnector(RouterMediatorInputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Router Mediator Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Router Mediator Output Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRouterMediatorOutputConnector(RouterMediatorOutputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Router Mediator Target Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Router Mediator Target Output Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRouterMediatorTargetOutputConnector(RouterMediatorTargetOutputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Router Mediator Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Router Mediator Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRouterMediatorContainer(RouterMediatorContainer object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Router Target Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Router Target Container</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRouterTargetContainer(RouterTargetContainer object) {
 		return null;
 	}
 

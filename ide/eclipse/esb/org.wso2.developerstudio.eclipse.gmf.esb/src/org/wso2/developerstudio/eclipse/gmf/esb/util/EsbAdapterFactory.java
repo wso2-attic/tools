@@ -529,8 +529,28 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 				return createRouterRouteAdapter();
 			}
 			@Override
-			public Adapter caseRouteTarget(RouteTarget object) {
-				return createRouteTargetAdapter();
+			public Adapter caseRouterTarget(RouterTarget object) {
+				return createRouterTargetAdapter();
+			}
+			@Override
+			public Adapter caseRouterMediatorInputConnector(RouterMediatorInputConnector object) {
+				return createRouterMediatorInputConnectorAdapter();
+			}
+			@Override
+			public Adapter caseRouterMediatorOutputConnector(RouterMediatorOutputConnector object) {
+				return createRouterMediatorOutputConnectorAdapter();
+			}
+			@Override
+			public Adapter caseRouterMediatorTargetOutputConnector(RouterMediatorTargetOutputConnector object) {
+				return createRouterMediatorTargetOutputConnectorAdapter();
+			}
+			@Override
+			public Adapter caseRouterMediatorContainer(RouterMediatorContainer object) {
+				return createRouterMediatorContainerAdapter();
+			}
+			@Override
+			public Adapter caseRouterTargetContainer(RouterTargetContainer object) {
+				return createRouterTargetContainerAdapter();
 			}
 			@Override
 			public Adapter caseCloneMediator(CloneMediator object) {
@@ -2770,16 +2790,86 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.RouteTarget <em>Route Target</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.RouterTarget <em>Router Target</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RouteTarget
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RouterTarget
 	 * @generated
 	 */
-	public Adapter createRouteTargetAdapter() {
+	public Adapter createRouterTargetAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.RouterMediatorInputConnector <em>Router Mediator Input Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RouterMediatorInputConnector
+	 * @generated
+	 */
+	public Adapter createRouterMediatorInputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.RouterMediatorOutputConnector <em>Router Mediator Output Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RouterMediatorOutputConnector
+	 * @generated
+	 */
+	public Adapter createRouterMediatorOutputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.RouterMediatorTargetOutputConnector <em>Router Mediator Target Output Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RouterMediatorTargetOutputConnector
+	 * @generated
+	 */
+	public Adapter createRouterMediatorTargetOutputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.RouterMediatorContainer <em>Router Mediator Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RouterMediatorContainer
+	 * @generated
+	 */
+	public Adapter createRouterMediatorContainerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.RouterTargetContainer <em>Router Target Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RouterTargetContainer
+	 * @generated
+	 */
+	public Adapter createRouterTargetContainerAdapter() {
 		return null;
 	}
 

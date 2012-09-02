@@ -172,7 +172,12 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 			case EsbPackage.AGGREGATE_ON_COMPLETE_BRANCH: return createAggregateOnCompleteBranch();
 			case EsbPackage.ROUTER_MEDIATOR: return createRouterMediator();
 			case EsbPackage.ROUTER_ROUTE: return createRouterRoute();
-			case EsbPackage.ROUTE_TARGET: return createRouteTarget();
+			case EsbPackage.ROUTER_TARGET: return createRouterTarget();
+			case EsbPackage.ROUTER_MEDIATOR_INPUT_CONNECTOR: return createRouterMediatorInputConnector();
+			case EsbPackage.ROUTER_MEDIATOR_OUTPUT_CONNECTOR: return createRouterMediatorOutputConnector();
+			case EsbPackage.ROUTER_MEDIATOR_TARGET_OUTPUT_CONNECTOR: return createRouterMediatorTargetOutputConnector();
+			case EsbPackage.ROUTER_MEDIATOR_CONTAINER: return createRouterMediatorContainer();
+			case EsbPackage.ROUTER_TARGET_CONTAINER: return createRouterTargetContainer();
 			case EsbPackage.CLONE_MEDIATOR: return createCloneMediator();
 			case EsbPackage.CLONE_TARGET: return createCloneTarget();
 			case EsbPackage.CLONE_MEDIATOR_INPUT_CONNECTOR: return createCloneMediatorInputConnector();
@@ -1768,10 +1773,13 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public RouterMediator createRouterMediator() {
 		RouterMediatorImpl routerMediator = new RouterMediatorImpl();
+		routerMediator.setInputConnector(createRouterMediatorInputConnector());
+		routerMediator.setOutputConnector(createRouterMediatorOutputConnector());
+		routerMediator.setRouterContainer(createRouterMediatorContainer());
 		return routerMediator;
 	}
 
@@ -1790,9 +1798,60 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RouteTarget createRouteTarget() {
-		RouteTargetImpl routeTarget = new RouteTargetImpl();
-		return routeTarget;
+	public RouterTarget createRouterTarget() {
+		RouterTargetImpl routerTarget = new RouterTargetImpl();
+		return routerTarget;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RouterMediatorInputConnector createRouterMediatorInputConnector() {
+		RouterMediatorInputConnectorImpl routerMediatorInputConnector = new RouterMediatorInputConnectorImpl();
+		return routerMediatorInputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RouterMediatorOutputConnector createRouterMediatorOutputConnector() {
+		RouterMediatorOutputConnectorImpl routerMediatorOutputConnector = new RouterMediatorOutputConnectorImpl();
+		return routerMediatorOutputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RouterMediatorTargetOutputConnector createRouterMediatorTargetOutputConnector() {
+		RouterMediatorTargetOutputConnectorImpl routerMediatorTargetOutputConnector = new RouterMediatorTargetOutputConnectorImpl();
+		return routerMediatorTargetOutputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RouterMediatorContainer createRouterMediatorContainer() {
+		RouterMediatorContainerImpl routerMediatorContainer = new RouterMediatorContainerImpl();
+		return routerMediatorContainer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public RouterTargetContainer createRouterTargetContainer() {
+		RouterTargetContainerImpl routerTargetContainer = new RouterTargetContainerImpl();
+		routerTargetContainer.setMediatorFlow(createMediatorFlow());
+		return routerTargetContainer;
 	}
 
 	/**

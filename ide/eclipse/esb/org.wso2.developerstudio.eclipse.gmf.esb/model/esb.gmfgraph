@@ -1358,6 +1358,56 @@
           accessor="getFigureValidateMediatorPropertyValue"
           figure="//@figures.0/@descriptors.76/@actualFigure/@children.0"/>
     </descriptors>
+    <descriptors
+        name="RouterMediatorFigure">
+      <actualFigure
+          xsi:type="gmfgraph:CustomFigure"
+          name="RouterMediatorGraphicalFigure"
+          qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.CloneMediatorGraphicalShape">
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="230"
+            green="230"
+            blue="230"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="RouterMediatorPropertyValue"
+            text="&lt;...>"/>
+      </actualFigure>
+      <accessors
+          accessor="getFigureRouterMediatorPropertyValue"
+          figure="//@figures.0/@descriptors.77/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="RouterMediatorContainerFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="RouterMediatorContainerFigure"
+          lineKind="LINE_DASH">
+        <layout
+            xsi:type="gmfgraph:GridLayout"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="255"
+            green="255"
+            blue="255"/>
+      </actualFigure>
+    </descriptors>
+    <descriptors
+        name="RouterTargetContainerFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="RouterTargetContainerFigure"
+          lineKind="LINE_DASH">
+        <layout
+            xsi:type="gmfgraph:GridLayout"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="255"
+            green="255"
+            blue="255"/>
+      </actualFigure>
+    </descriptors>
   </figures>
   <nodes
       name="EsbServer"
@@ -2034,6 +2084,27 @@
       name="ValidateMediatorOnFailOutputConnector"
       figure="EastPointerFigure"
       affixedParentSide="EAST"/>
+  <nodes
+      name="RouterMediator"
+      figure="RouterMediatorFigure"/>
+  <nodes
+      name="RouterMediatorInputConnector"
+      figure="EastPointerFigure"
+      affixedParentSide="WEST"/>
+  <nodes
+      name="RouterMediatorOutputConnector"
+      figure="EastPointerFigure"
+      affixedParentSide="EAST"/>
+  <nodes
+      name="RouterMediatorTargetOutputConnector"
+      figure="EastPointerFigure"
+      affixedParentSide="EAST"/>
+  <nodes
+      name="RouterMediatorContainer"
+      figure="RouterMediatorContainerFigure"/>
+  <nodes
+      name="RouterTargetContainer"
+      figure="RouterTargetContainerFigure"/>
   <connections
       name="EsbLink"
       figure="PlainConnectionFigure"/>

@@ -788,14 +788,30 @@
     <genClasses ecoreClass="esb.ecore#//RouterMediator">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//RouterMediator/continueAfterRouting"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//RouterMediator/routes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//RouterMediator/targets"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//RouterMediator/targetOutputConnector"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//RouterMediator/inputConnector"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//RouterMediator/outputConnector"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//RouterMediator/routerContainer"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//RouterRoute">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//RouterRoute/breakAfterRoute"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esb.ecore#//RouterRoute/routeExpression"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//RouterRoute/routePattern"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//RouterRoute/target"/>
     </genClasses>
-    <genClasses ecoreClass="esb.ecore#//RouteTarget"/>
+    <genClasses ecoreClass="esb.ecore#//RouterTarget"/>
+    <genClasses ecoreClass="esb.ecore#//RouterMediatorInputConnector"/>
+    <genClasses ecoreClass="esb.ecore#//RouterMediatorOutputConnector"/>
+    <genClasses ecoreClass="esb.ecore#//RouterMediatorTargetOutputConnector">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//RouterMediatorTargetOutputConnector/soapAction"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//RouterMediatorTargetOutputConnector/toAddress"/>
+    </genClasses>
+    <genClasses ecoreClass="esb.ecore#//RouterMediatorContainer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//RouterMediatorContainer/routerTargetContainer"/>
+    </genClasses>
+    <genClasses ecoreClass="esb.ecore#//RouterTargetContainer">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//RouterTargetContainer/mediatorFlow"/>
+    </genClasses>
     <genClasses ecoreClass="esb.ecore#//CloneMediator">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//CloneMediator/cloneID"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//CloneMediator/sequentialMediation"/>

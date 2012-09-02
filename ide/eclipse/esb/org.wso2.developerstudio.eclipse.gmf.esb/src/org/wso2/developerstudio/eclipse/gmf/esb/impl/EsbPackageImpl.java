@@ -228,7 +228,13 @@ import org.wso2.developerstudio.eclipse.gmf.esb.ReceivingSequenceType;
 import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.RouteTarget;
 import org.wso2.developerstudio.eclipse.gmf.esb.RouterMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.RouterMediatorContainer;
+import org.wso2.developerstudio.eclipse.gmf.esb.RouterMediatorInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.RouterMediatorOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.RouterMediatorTargetOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.RouterRoute;
+import org.wso2.developerstudio.eclipse.gmf.esb.RouterTarget;
+import org.wso2.developerstudio.eclipse.gmf.esb.RouterTargetContainer;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleActionType;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleChildMediatorsConfiguration;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleFact;
@@ -1206,7 +1212,42 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass routeTargetEClass = null;
+	private EClass routerTargetEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass routerMediatorInputConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass routerMediatorOutputConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass routerMediatorTargetOutputConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass routerMediatorContainerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass routerTargetContainerEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -5891,6 +5932,51 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getRouterMediator_Targets() {
+		return (EReference)routerMediatorEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRouterMediator_TargetOutputConnector() {
+		return (EReference)routerMediatorEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRouterMediator_InputConnector() {
+		return (EReference)routerMediatorEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRouterMediator_OutputConnector() {
+		return (EReference)routerMediatorEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRouterMediator_RouterContainer() {
+		return (EReference)routerMediatorEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getRouterRoute() {
 		return routerRouteEClass;
 	}
@@ -5927,8 +6013,8 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRouterRoute_Target() {
-		return (EReference)routerRouteEClass.getEStructuralFeatures().get(3);
+	public EClass getRouterTarget() {
+		return routerTargetEClass;
 	}
 
 	/**
@@ -5936,8 +6022,80 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getRouteTarget() {
-		return routeTargetEClass;
+	public EClass getRouterMediatorInputConnector() {
+		return routerMediatorInputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRouterMediatorOutputConnector() {
+		return routerMediatorOutputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRouterMediatorTargetOutputConnector() {
+		return routerMediatorTargetOutputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getRouterMediatorTargetOutputConnector_SoapAction() {
+		return (EAttribute)routerMediatorTargetOutputConnectorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getRouterMediatorTargetOutputConnector_ToAddress() {
+		return (EAttribute)routerMediatorTargetOutputConnectorEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRouterMediatorContainer() {
+		return routerMediatorContainerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRouterMediatorContainer_RouterTargetContainer() {
+		return (EReference)routerMediatorContainerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRouterTargetContainer() {
+		return routerTargetContainerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRouterTargetContainer_MediatorFlow() {
+		return (EReference)routerTargetContainerEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -10814,14 +10972,32 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		routerMediatorEClass = createEClass(ROUTER_MEDIATOR);
 		createEAttribute(routerMediatorEClass, ROUTER_MEDIATOR__CONTINUE_AFTER_ROUTING);
 		createEReference(routerMediatorEClass, ROUTER_MEDIATOR__ROUTES);
+		createEReference(routerMediatorEClass, ROUTER_MEDIATOR__TARGETS);
+		createEReference(routerMediatorEClass, ROUTER_MEDIATOR__TARGET_OUTPUT_CONNECTOR);
+		createEReference(routerMediatorEClass, ROUTER_MEDIATOR__INPUT_CONNECTOR);
+		createEReference(routerMediatorEClass, ROUTER_MEDIATOR__OUTPUT_CONNECTOR);
+		createEReference(routerMediatorEClass, ROUTER_MEDIATOR__ROUTER_CONTAINER);
 
 		routerRouteEClass = createEClass(ROUTER_ROUTE);
 		createEAttribute(routerRouteEClass, ROUTER_ROUTE__BREAK_AFTER_ROUTE);
 		createEReference(routerRouteEClass, ROUTER_ROUTE__ROUTE_EXPRESSION);
 		createEAttribute(routerRouteEClass, ROUTER_ROUTE__ROUTE_PATTERN);
-		createEReference(routerRouteEClass, ROUTER_ROUTE__TARGET);
 
-		routeTargetEClass = createEClass(ROUTE_TARGET);
+		routerTargetEClass = createEClass(ROUTER_TARGET);
+
+		routerMediatorInputConnectorEClass = createEClass(ROUTER_MEDIATOR_INPUT_CONNECTOR);
+
+		routerMediatorOutputConnectorEClass = createEClass(ROUTER_MEDIATOR_OUTPUT_CONNECTOR);
+
+		routerMediatorTargetOutputConnectorEClass = createEClass(ROUTER_MEDIATOR_TARGET_OUTPUT_CONNECTOR);
+		createEAttribute(routerMediatorTargetOutputConnectorEClass, ROUTER_MEDIATOR_TARGET_OUTPUT_CONNECTOR__SOAP_ACTION);
+		createEAttribute(routerMediatorTargetOutputConnectorEClass, ROUTER_MEDIATOR_TARGET_OUTPUT_CONNECTOR__TO_ADDRESS);
+
+		routerMediatorContainerEClass = createEClass(ROUTER_MEDIATOR_CONTAINER);
+		createEReference(routerMediatorContainerEClass, ROUTER_MEDIATOR_CONTAINER__ROUTER_TARGET_CONTAINER);
+
+		routerTargetContainerEClass = createEClass(ROUTER_TARGET_CONTAINER);
+		createEReference(routerTargetContainerEClass, ROUTER_TARGET_CONTAINER__MEDIATOR_FLOW);
 
 		cloneMediatorEClass = createEClass(CLONE_MEDIATOR);
 		createEAttribute(cloneMediatorEClass, CLONE_MEDIATOR__CLONE_ID);
@@ -11600,6 +11776,13 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		aggregateMediatorOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
 		aggregateMediatorOnCompleteOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
 		routerMediatorEClass.getESuperTypes().add(this.getMediator());
+		routerRouteEClass.getESuperTypes().add(this.getEsbNode());
+		routerTargetEClass.getESuperTypes().add(this.getAbstractCommonTarget());
+		routerMediatorInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
+		routerMediatorOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
+		routerMediatorTargetOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
+		routerMediatorContainerEClass.getESuperTypes().add(this.getEsbNode());
+		routerTargetContainerEClass.getESuperTypes().add(this.getEsbNode());
 		cloneMediatorEClass.getESuperTypes().add(this.getMediator());
 		cloneTargetEClass.getESuperTypes().add(this.getAbstractCommonTarget());
 		cloneMediatorInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
@@ -12188,14 +12371,32 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEClass(routerMediatorEClass, RouterMediator.class, "RouterMediator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRouterMediator_ContinueAfterRouting(), ecorePackage.getEBoolean(), "continueAfterRouting", null, 0, 1, RouterMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRouterMediator_Routes(), this.getRouterRoute(), null, "routes", null, 0, -1, RouterMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRouterMediator_Targets(), this.getRouterTarget(), null, "targets", null, 0, -1, RouterMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRouterMediator_TargetOutputConnector(), this.getRouterMediatorTargetOutputConnector(), null, "targetOutputConnector", null, 0, -1, RouterMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRouterMediator_InputConnector(), this.getRouterMediatorInputConnector(), null, "inputConnector", null, 0, 1, RouterMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRouterMediator_OutputConnector(), this.getRouterMediatorOutputConnector(), null, "outputConnector", null, 0, 1, RouterMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRouterMediator_RouterContainer(), this.getRouterMediatorContainer(), null, "routerContainer", null, 0, 1, RouterMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(routerRouteEClass, RouterRoute.class, "RouterRoute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRouterRoute_BreakAfterRoute(), ecorePackage.getEBoolean(), "breakAfterRoute", null, 0, 1, RouterRoute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRouterRoute_RouteExpression(), this.getNamespacedProperty(), null, "routeExpression", null, 0, 1, RouterRoute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRouterRoute_RoutePattern(), ecorePackage.getEString(), "routePattern", null, 0, 1, RouterRoute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRouterRoute_Target(), this.getRouteTarget(), null, "target", null, 0, 1, RouterRoute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(routeTargetEClass, RouteTarget.class, "RouteTarget", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(routerTargetEClass, RouterTarget.class, "RouterTarget", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(routerMediatorInputConnectorEClass, RouterMediatorInputConnector.class, "RouterMediatorInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(routerMediatorOutputConnectorEClass, RouterMediatorOutputConnector.class, "RouterMediatorOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(routerMediatorTargetOutputConnectorEClass, RouterMediatorTargetOutputConnector.class, "RouterMediatorTargetOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getRouterMediatorTargetOutputConnector_SoapAction(), ecorePackage.getEString(), "soapAction", "soapAction", 0, 1, RouterMediatorTargetOutputConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRouterMediatorTargetOutputConnector_ToAddress(), ecorePackage.getEString(), "toAddress", "toAddress", 0, 1, RouterMediatorTargetOutputConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(routerMediatorContainerEClass, RouterMediatorContainer.class, "RouterMediatorContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRouterMediatorContainer_RouterTargetContainer(), this.getRouterTargetContainer(), null, "routerTargetContainer", null, 0, -1, RouterMediatorContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(routerTargetContainerEClass, RouterTargetContainer.class, "RouterTargetContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRouterTargetContainer_MediatorFlow(), this.getMediatorFlow(), null, "mediatorFlow", null, 0, 1, RouterTargetContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(cloneMediatorEClass, CloneMediator.class, "CloneMediator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCloneMediator_CloneID(), ecorePackage.getEString(), "cloneID", null, 0, 1, CloneMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -1003,13 +1003,58 @@ public interface EsbFactory extends EFactory {
 	RouterRoute createRouterRoute();
 
 	/**
-	 * Returns a new object of class '<em>Route Target</em>'.
+	 * Returns a new object of class '<em>Router Target</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Route Target</em>'.
+	 * @return a new object of class '<em>Router Target</em>'.
 	 * @generated
 	 */
-	RouteTarget createRouteTarget();
+	RouterTarget createRouterTarget();
+
+	/**
+	 * Returns a new object of class '<em>Router Mediator Input Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Router Mediator Input Connector</em>'.
+	 * @generated
+	 */
+	RouterMediatorInputConnector createRouterMediatorInputConnector();
+
+	/**
+	 * Returns a new object of class '<em>Router Mediator Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Router Mediator Output Connector</em>'.
+	 * @generated
+	 */
+	RouterMediatorOutputConnector createRouterMediatorOutputConnector();
+
+	/**
+	 * Returns a new object of class '<em>Router Mediator Target Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Router Mediator Target Output Connector</em>'.
+	 * @generated
+	 */
+	RouterMediatorTargetOutputConnector createRouterMediatorTargetOutputConnector();
+
+	/**
+	 * Returns a new object of class '<em>Router Mediator Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Router Mediator Container</em>'.
+	 * @generated
+	 */
+	RouterMediatorContainer createRouterMediatorContainer();
+
+	/**
+	 * Returns a new object of class '<em>Router Target Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Router Target Container</em>'.
+	 * @generated
+	 */
+	RouterTargetContainer createRouterTargetContainer();
 
 	/**
 	 * Returns a new object of class '<em>Clone Mediator</em>'.

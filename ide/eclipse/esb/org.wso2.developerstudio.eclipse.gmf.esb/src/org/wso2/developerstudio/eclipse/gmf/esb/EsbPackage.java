@@ -4670,7 +4670,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getValidateMediator()
 	 * @generated
 	 */
-	int VALIDATE_MEDIATOR = 243;
+	int VALIDATE_MEDIATOR = 248;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ValidateFeatureImpl <em>Validate Feature</em>}' class.
@@ -4680,7 +4680,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getValidateFeature()
 	 * @generated
 	 */
-	int VALIDATE_FEATURE = 244;
+	int VALIDATE_FEATURE = 249;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ValidateSchemaImpl <em>Validate Schema</em>}' class.
@@ -4690,7 +4690,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getValidateSchema()
 	 * @generated
 	 */
-	int VALIDATE_SCHEMA = 245;
+	int VALIDATE_SCHEMA = 250;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ValidateMediatorInputConnectorImpl <em>Validate Mediator Input Connector</em>}' class.
@@ -4700,7 +4700,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getValidateMediatorInputConnector()
 	 * @generated
 	 */
-	int VALIDATE_MEDIATOR_INPUT_CONNECTOR = 246;
+	int VALIDATE_MEDIATOR_INPUT_CONNECTOR = 251;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ValidateMediatorOutputConnectorImpl <em>Validate Mediator Output Connector</em>}' class.
@@ -4710,7 +4710,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getValidateMediatorOutputConnector()
 	 * @generated
 	 */
-	int VALIDATE_MEDIATOR_OUTPUT_CONNECTOR = 247;
+	int VALIDATE_MEDIATOR_OUTPUT_CONNECTOR = 252;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ValidateMediatorOnFailOutputConnectorImpl <em>Validate Mediator On Fail Output Connector</em>}' class.
@@ -4720,7 +4720,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getValidateMediatorOnFailOutputConnector()
 	 * @generated
 	 */
-	int VALIDATE_MEDIATOR_ON_FAIL_OUTPUT_CONNECTOR = 248;
+	int VALIDATE_MEDIATOR_ON_FAIL_OUTPUT_CONNECTOR = 253;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ScriptMediatorImpl <em>Script Mediator</em>}' class.
@@ -5401,13 +5401,58 @@ public interface EsbPackage extends EPackage {
 	int ROUTER_MEDIATOR__ROUTES = MEDIATOR_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Targets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROUTER_MEDIATOR__TARGETS = MEDIATOR_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Target Output Connector</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROUTER_MEDIATOR__TARGET_OUTPUT_CONNECTOR = MEDIATOR_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Input Connector</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROUTER_MEDIATOR__INPUT_CONNECTOR = MEDIATOR_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Output Connector</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROUTER_MEDIATOR__OUTPUT_CONNECTOR = MEDIATOR_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Router Container</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROUTER_MEDIATOR__ROUTER_CONTAINER = MEDIATOR_FEATURE_COUNT + 6;
+
+	/**
 	 * The number of structural features of the '<em>Router Mediator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROUTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 2;
+	int ROUTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RouterRouteImpl <em>Router Route</em>}' class.
@@ -5426,7 +5471,7 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROUTER_ROUTE__BREAK_AFTER_ROUTE = 0;
+	int ROUTER_ROUTE__BREAK_AFTER_ROUTE = ESB_NODE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Route Expression</b></em>' reference.
@@ -5435,7 +5480,7 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROUTER_ROUTE__ROUTE_EXPRESSION = 1;
+	int ROUTER_ROUTE__ROUTE_EXPRESSION = ESB_NODE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Route Pattern</b></em>' attribute.
@@ -5444,16 +5489,7 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROUTER_ROUTE__ROUTE_PATTERN = 2;
-
-	/**
-	 * The feature id for the '<em><b>Target</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ROUTER_ROUTE__TARGET = 3;
+	int ROUTER_ROUTE__ROUTE_PATTERN = ESB_NODE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Router Route</em>' class.
@@ -5462,26 +5498,7 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROUTER_ROUTE_FEATURE_COUNT = 4;
-
-	/**
-	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RouteTargetImpl <em>Route Target</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.RouteTargetImpl
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRouteTarget()
-	 * @generated
-	 */
-	int ROUTE_TARGET = 114;
-
-	/**
-	 * The number of structural features of the '<em>Route Target</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ROUTE_TARGET_FEATURE_COUNT = 0;
+	int ROUTER_ROUTE_FEATURE_COUNT = ESB_NODE_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CloneMediatorImpl <em>Clone Mediator</em>}' class.
@@ -5491,7 +5508,401 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCloneMediator()
 	 * @generated
 	 */
-	int CLONE_MEDIATOR = 115;
+	int CLONE_MEDIATOR = 120;
+
+	/**
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CloneMediatorInputConnectorImpl <em>Clone Mediator Input Connector</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.CloneMediatorInputConnectorImpl
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCloneMediatorInputConnector()
+	 * @generated
+	 */
+	int CLONE_MEDIATOR_INPUT_CONNECTOR = 122;
+
+	/**
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CloneMediatorOutputConnectorImpl <em>Clone Mediator Output Connector</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.CloneMediatorOutputConnectorImpl
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCloneMediatorOutputConnector()
+	 * @generated
+	 */
+	int CLONE_MEDIATOR_OUTPUT_CONNECTOR = 123;
+
+	/**
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CloneMediatorTargetOutputConnectorImpl <em>Clone Mediator Target Output Connector</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.CloneMediatorTargetOutputConnectorImpl
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCloneMediatorTargetOutputConnector()
+	 * @generated
+	 */
+	int CLONE_MEDIATOR_TARGET_OUTPUT_CONNECTOR = 124;
+
+	/**
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CloneMediatorContainerImpl <em>Clone Mediator Container</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.CloneMediatorContainerImpl
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCloneMediatorContainer()
+	 * @generated
+	 */
+	int CLONE_MEDIATOR_CONTAINER = 125;
+
+	/**
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CloneTargetContainerImpl <em>Clone Target Container</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.CloneTargetContainerImpl
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCloneTargetContainer()
+	 * @generated
+	 */
+	int CLONE_TARGET_CONTAINER = 126;
+
+	/**
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.IterateMediatorImpl <em>Iterate Mediator</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.IterateMediatorImpl
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getIterateMediator()
+	 * @generated
+	 */
+	int ITERATE_MEDIATOR = 127;
+
+	/**
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.IterateMediatorInputConnectorImpl <em>Iterate Mediator Input Connector</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.IterateMediatorInputConnectorImpl
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getIterateMediatorInputConnector()
+	 * @generated
+	 */
+	int ITERATE_MEDIATOR_INPUT_CONNECTOR = 128;
+
+	/**
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.IterateMediatorOutputConnectorImpl <em>Iterate Mediator Output Connector</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.IterateMediatorOutputConnectorImpl
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getIterateMediatorOutputConnector()
+	 * @generated
+	 */
+	int ITERATE_MEDIATOR_OUTPUT_CONNECTOR = 129;
+
+	/**
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.IterateMediatorTargetOutputConnectorImpl <em>Iterate Mediator Target Output Connector</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.IterateMediatorTargetOutputConnectorImpl
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getIterateMediatorTargetOutputConnector()
+	 * @generated
+	 */
+	int ITERATE_MEDIATOR_TARGET_OUTPUT_CONNECTOR = 130;
+
+	/**
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.AbstractCommonTargetImpl <em>Abstract Common Target</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.AbstractCommonTargetImpl
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getAbstractCommonTarget()
+	 * @generated
+	 */
+	int ABSTRACT_COMMON_TARGET = 132;
+
+	/**
+	 * The feature id for the '<em><b>Sequence Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_COMMON_TARGET__SEQUENCE_TYPE = ESB_NODE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Sequence</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_COMMON_TARGET__SEQUENCE = ESB_NODE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Sequence Key</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_COMMON_TARGET__SEQUENCE_KEY = ESB_NODE_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Endpoint Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_COMMON_TARGET__ENDPOINT_TYPE = ESB_NODE_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Endpoint</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_COMMON_TARGET__ENDPOINT = ESB_NODE_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Endpoint Key</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_COMMON_TARGET__ENDPOINT_KEY = ESB_NODE_FEATURE_COUNT + 5;
+
+	/**
+	 * The number of structural features of the '<em>Abstract Common Target</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_COMMON_TARGET_FEATURE_COUNT = ESB_NODE_FEATURE_COUNT + 6;
+
+	/**
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RouterTargetImpl <em>Router Target</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.RouterTargetImpl
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRouterTarget()
+	 * @generated
+	 */
+	int ROUTER_TARGET = 114;
+
+	/**
+	 * The feature id for the '<em><b>Sequence Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROUTER_TARGET__SEQUENCE_TYPE = ABSTRACT_COMMON_TARGET__SEQUENCE_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Sequence</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROUTER_TARGET__SEQUENCE = ABSTRACT_COMMON_TARGET__SEQUENCE;
+
+	/**
+	 * The feature id for the '<em><b>Sequence Key</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROUTER_TARGET__SEQUENCE_KEY = ABSTRACT_COMMON_TARGET__SEQUENCE_KEY;
+
+	/**
+	 * The feature id for the '<em><b>Endpoint Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROUTER_TARGET__ENDPOINT_TYPE = ABSTRACT_COMMON_TARGET__ENDPOINT_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Endpoint</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROUTER_TARGET__ENDPOINT = ABSTRACT_COMMON_TARGET__ENDPOINT;
+
+	/**
+	 * The feature id for the '<em><b>Endpoint Key</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROUTER_TARGET__ENDPOINT_KEY = ABSTRACT_COMMON_TARGET__ENDPOINT_KEY;
+
+	/**
+	 * The number of structural features of the '<em>Router Target</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROUTER_TARGET_FEATURE_COUNT = ABSTRACT_COMMON_TARGET_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RouterMediatorInputConnectorImpl <em>Router Mediator Input Connector</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.RouterMediatorInputConnectorImpl
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRouterMediatorInputConnector()
+	 * @generated
+	 */
+	int ROUTER_MEDIATOR_INPUT_CONNECTOR = 115;
+
+	/**
+	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROUTER_MEDIATOR_INPUT_CONNECTOR__INCOMING_LINKS = INPUT_CONNECTOR__INCOMING_LINKS;
+
+	/**
+	 * The number of structural features of the '<em>Router Mediator Input Connector</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROUTER_MEDIATOR_INPUT_CONNECTOR_FEATURE_COUNT = INPUT_CONNECTOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RouterMediatorOutputConnectorImpl <em>Router Mediator Output Connector</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.RouterMediatorOutputConnectorImpl
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRouterMediatorOutputConnector()
+	 * @generated
+	 */
+	int ROUTER_MEDIATOR_OUTPUT_CONNECTOR = 116;
+
+	/**
+	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROUTER_MEDIATOR_OUTPUT_CONNECTOR__OUTGOING_LINK = OUTPUT_CONNECTOR__OUTGOING_LINK;
+
+	/**
+	 * The number of structural features of the '<em>Router Mediator Output Connector</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROUTER_MEDIATOR_OUTPUT_CONNECTOR_FEATURE_COUNT = OUTPUT_CONNECTOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RouterMediatorTargetOutputConnectorImpl <em>Router Mediator Target Output Connector</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.RouterMediatorTargetOutputConnectorImpl
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRouterMediatorTargetOutputConnector()
+	 * @generated
+	 */
+	int ROUTER_MEDIATOR_TARGET_OUTPUT_CONNECTOR = 117;
+
+	/**
+	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROUTER_MEDIATOR_TARGET_OUTPUT_CONNECTOR__OUTGOING_LINK = OUTPUT_CONNECTOR__OUTGOING_LINK;
+
+	/**
+	 * The feature id for the '<em><b>Soap Action</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROUTER_MEDIATOR_TARGET_OUTPUT_CONNECTOR__SOAP_ACTION = OUTPUT_CONNECTOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>To Address</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROUTER_MEDIATOR_TARGET_OUTPUT_CONNECTOR__TO_ADDRESS = OUTPUT_CONNECTOR_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Router Mediator Target Output Connector</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROUTER_MEDIATOR_TARGET_OUTPUT_CONNECTOR_FEATURE_COUNT = OUTPUT_CONNECTOR_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RouterMediatorContainerImpl <em>Router Mediator Container</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.RouterMediatorContainerImpl
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRouterMediatorContainer()
+	 * @generated
+	 */
+	int ROUTER_MEDIATOR_CONTAINER = 118;
+
+	/**
+	 * The feature id for the '<em><b>Router Target Container</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROUTER_MEDIATOR_CONTAINER__ROUTER_TARGET_CONTAINER = ESB_NODE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Router Mediator Container</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROUTER_MEDIATOR_CONTAINER_FEATURE_COUNT = ESB_NODE_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RouterTargetContainerImpl <em>Router Target Container</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.RouterTargetContainerImpl
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRouterTargetContainer()
+	 * @generated
+	 */
+	int ROUTER_TARGET_CONTAINER = 119;
+
+	/**
+	 * The feature id for the '<em><b>Mediator Flow</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROUTER_TARGET_CONTAINER__MEDIATOR_FLOW = ESB_NODE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Router Target Container</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROUTER_TARGET_CONTAINER_FEATURE_COUNT = ESB_NODE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -5584,169 +5995,6 @@ public interface EsbPackage extends EPackage {
 	int CLONE_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 8;
 
 	/**
-	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CloneMediatorInputConnectorImpl <em>Clone Mediator Input Connector</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.CloneMediatorInputConnectorImpl
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCloneMediatorInputConnector()
-	 * @generated
-	 */
-	int CLONE_MEDIATOR_INPUT_CONNECTOR = 117;
-
-	/**
-	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CloneMediatorOutputConnectorImpl <em>Clone Mediator Output Connector</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.CloneMediatorOutputConnectorImpl
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCloneMediatorOutputConnector()
-	 * @generated
-	 */
-	int CLONE_MEDIATOR_OUTPUT_CONNECTOR = 118;
-
-	/**
-	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CloneMediatorTargetOutputConnectorImpl <em>Clone Mediator Target Output Connector</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.CloneMediatorTargetOutputConnectorImpl
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCloneMediatorTargetOutputConnector()
-	 * @generated
-	 */
-	int CLONE_MEDIATOR_TARGET_OUTPUT_CONNECTOR = 119;
-
-	/**
-	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CloneMediatorContainerImpl <em>Clone Mediator Container</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.CloneMediatorContainerImpl
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCloneMediatorContainer()
-	 * @generated
-	 */
-	int CLONE_MEDIATOR_CONTAINER = 120;
-
-	/**
-	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CloneTargetContainerImpl <em>Clone Target Container</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.CloneTargetContainerImpl
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCloneTargetContainer()
-	 * @generated
-	 */
-	int CLONE_TARGET_CONTAINER = 121;
-
-	/**
-	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.IterateMediatorImpl <em>Iterate Mediator</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.IterateMediatorImpl
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getIterateMediator()
-	 * @generated
-	 */
-	int ITERATE_MEDIATOR = 122;
-
-	/**
-	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.IterateMediatorInputConnectorImpl <em>Iterate Mediator Input Connector</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.IterateMediatorInputConnectorImpl
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getIterateMediatorInputConnector()
-	 * @generated
-	 */
-	int ITERATE_MEDIATOR_INPUT_CONNECTOR = 123;
-
-	/**
-	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.IterateMediatorOutputConnectorImpl <em>Iterate Mediator Output Connector</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.IterateMediatorOutputConnectorImpl
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getIterateMediatorOutputConnector()
-	 * @generated
-	 */
-	int ITERATE_MEDIATOR_OUTPUT_CONNECTOR = 124;
-
-	/**
-	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.IterateMediatorTargetOutputConnectorImpl <em>Iterate Mediator Target Output Connector</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.IterateMediatorTargetOutputConnectorImpl
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getIterateMediatorTargetOutputConnector()
-	 * @generated
-	 */
-	int ITERATE_MEDIATOR_TARGET_OUTPUT_CONNECTOR = 125;
-
-	/**
-	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.AbstractCommonTargetImpl <em>Abstract Common Target</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.AbstractCommonTargetImpl
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getAbstractCommonTarget()
-	 * @generated
-	 */
-	int ABSTRACT_COMMON_TARGET = 127;
-
-	/**
-	 * The feature id for the '<em><b>Sequence Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ABSTRACT_COMMON_TARGET__SEQUENCE_TYPE = ESB_NODE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Sequence</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ABSTRACT_COMMON_TARGET__SEQUENCE = ESB_NODE_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Sequence Key</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ABSTRACT_COMMON_TARGET__SEQUENCE_KEY = ESB_NODE_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Endpoint Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ABSTRACT_COMMON_TARGET__ENDPOINT_TYPE = ESB_NODE_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Endpoint</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ABSTRACT_COMMON_TARGET__ENDPOINT = ESB_NODE_FEATURE_COUNT + 4;
-
-	/**
-	 * The feature id for the '<em><b>Endpoint Key</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ABSTRACT_COMMON_TARGET__ENDPOINT_KEY = ESB_NODE_FEATURE_COUNT + 5;
-
-	/**
-	 * The number of structural features of the '<em>Abstract Common Target</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ABSTRACT_COMMON_TARGET_FEATURE_COUNT = ESB_NODE_FEATURE_COUNT + 6;
-
-	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CloneTargetImpl <em>Clone Target</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5754,7 +6002,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCloneTarget()
 	 * @generated
 	 */
-	int CLONE_TARGET = 116;
+	int CLONE_TARGET = 121;
 
 	/**
 	 * The feature id for the '<em><b>Sequence Type</b></em>' attribute.
@@ -6124,7 +6372,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getIterateTarget()
 	 * @generated
 	 */
-	int ITERATE_TARGET = 126;
+	int ITERATE_TARGET = 131;
 
 	/**
 	 * The feature id for the '<em><b>Sequence Type</b></em>' attribute.
@@ -6215,7 +6463,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getMediatorSequence()
 	 * @generated
 	 */
-	int MEDIATOR_SEQUENCE = 128;
+	int MEDIATOR_SEQUENCE = 133;
 
 	/**
 	 * The feature id for the '<em><b>Anonymous</b></em>' attribute.
@@ -6279,7 +6527,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCacheMediator()
 	 * @generated
 	 */
-	int CACHE_MEDIATOR = 129;
+	int CACHE_MEDIATOR = 134;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -6433,7 +6681,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCacheMediatorInputConnector()
 	 * @generated
 	 */
-	int CACHE_MEDIATOR_INPUT_CONNECTOR = 130;
+	int CACHE_MEDIATOR_INPUT_CONNECTOR = 135;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -6461,7 +6709,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCacheMediatorOutputConnector()
 	 * @generated
 	 */
-	int CACHE_MEDIATOR_OUTPUT_CONNECTOR = 131;
+	int CACHE_MEDIATOR_OUTPUT_CONNECTOR = 136;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -6489,7 +6737,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCacheMediatorOnHitOutputConnector()
 	 * @generated
 	 */
-	int CACHE_MEDIATOR_ON_HIT_OUTPUT_CONNECTOR = 132;
+	int CACHE_MEDIATOR_ON_HIT_OUTPUT_CONNECTOR = 137;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -6517,7 +6765,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCacheOnHitBranch()
 	 * @generated
 	 */
-	int CACHE_ON_HIT_BRANCH = 133;
+	int CACHE_ON_HIT_BRANCH = 138;
 
 	/**
 	 * The number of structural features of the '<em>Cache On Hit Branch</em>' class.
@@ -6536,7 +6784,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getXQueryMediator()
 	 * @generated
 	 */
-	int XQUERY_MEDIATOR = 134;
+	int XQUERY_MEDIATOR = 139;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -6636,7 +6884,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getXQueryMediatorInputConnector()
 	 * @generated
 	 */
-	int XQUERY_MEDIATOR_INPUT_CONNECTOR = 135;
+	int XQUERY_MEDIATOR_INPUT_CONNECTOR = 140;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -6664,7 +6912,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getXQueryMediatorOutputConnector()
 	 * @generated
 	 */
-	int XQUERY_MEDIATOR_OUTPUT_CONNECTOR = 136;
+	int XQUERY_MEDIATOR_OUTPUT_CONNECTOR = 141;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -6692,7 +6940,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getXQueryVariable()
 	 * @generated
 	 */
-	int XQUERY_VARIABLE = 137;
+	int XQUERY_VARIABLE = 142;
 
 	/**
 	 * The feature id for the '<em><b>Variable Name</b></em>' attribute.
@@ -6765,7 +7013,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCalloutMediator()
 	 * @generated
 	 */
-	int CALLOUT_MEDIATOR = 138;
+	int CALLOUT_MEDIATOR = 143;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -6910,7 +7158,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCalloutMediatorInputConnector()
 	 * @generated
 	 */
-	int CALLOUT_MEDIATOR_INPUT_CONNECTOR = 139;
+	int CALLOUT_MEDIATOR_INPUT_CONNECTOR = 144;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -6938,7 +7186,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCalloutMediatorOutputConnector()
 	 * @generated
 	 */
-	int CALLOUT_MEDIATOR_OUTPUT_CONNECTOR = 140;
+	int CALLOUT_MEDIATOR_OUTPUT_CONNECTOR = 145;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -6966,7 +7214,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRMSequenceMediator()
 	 * @generated
 	 */
-	int RM_SEQUENCE_MEDIATOR = 141;
+	int RM_SEQUENCE_MEDIATOR = 146;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -7048,7 +7296,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRMSequenceMediatorInputConnector()
 	 * @generated
 	 */
-	int RM_SEQUENCE_MEDIATOR_INPUT_CONNECTOR = 142;
+	int RM_SEQUENCE_MEDIATOR_INPUT_CONNECTOR = 147;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -7076,7 +7324,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRMSequenceMediatorOutputConnector()
 	 * @generated
 	 */
-	int RM_SEQUENCE_MEDIATOR_OUTPUT_CONNECTOR = 143;
+	int RM_SEQUENCE_MEDIATOR_OUTPUT_CONNECTOR = 148;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -7104,7 +7352,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getTransactionMediator()
 	 * @generated
 	 */
-	int TRANSACTION_MEDIATOR = 144;
+	int TRANSACTION_MEDIATOR = 149;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -7159,7 +7407,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getTransactionMediatorInputConnector()
 	 * @generated
 	 */
-	int TRANSACTION_MEDIATOR_INPUT_CONNECTOR = 145;
+	int TRANSACTION_MEDIATOR_INPUT_CONNECTOR = 150;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -7187,7 +7435,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getTransactionMediatorOutputConnector()
 	 * @generated
 	 */
-	int TRANSACTION_MEDIATOR_OUTPUT_CONNECTOR = 146;
+	int TRANSACTION_MEDIATOR_OUTPUT_CONNECTOR = 151;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -7215,7 +7463,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getOAuthMediator()
 	 * @generated
 	 */
-	int OAUTH_MEDIATOR = 147;
+	int OAUTH_MEDIATOR = 152;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -7270,7 +7518,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getOAuthMediatorInputConnector()
 	 * @generated
 	 */
-	int OAUTH_MEDIATOR_INPUT_CONNECTOR = 148;
+	int OAUTH_MEDIATOR_INPUT_CONNECTOR = 153;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -7298,7 +7546,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getOAuthMediatorOutputConnector()
 	 * @generated
 	 */
-	int OAUTH_MEDIATOR_OUTPUT_CONNECTOR = 149;
+	int OAUTH_MEDIATOR_OUTPUT_CONNECTOR = 154;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -7326,7 +7574,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getAutoscaleInMediator()
 	 * @generated
 	 */
-	int AUTOSCALE_IN_MEDIATOR = 150;
+	int AUTOSCALE_IN_MEDIATOR = 155;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -7354,7 +7602,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getAutoscaleOutMediator()
 	 * @generated
 	 */
-	int AUTOSCALE_OUT_MEDIATOR = 151;
+	int AUTOSCALE_OUT_MEDIATOR = 156;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -7382,7 +7630,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getHeaderMediator()
 	 * @generated
 	 */
-	int HEADER_MEDIATOR = 152;
+	int HEADER_MEDIATOR = 157;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -7473,7 +7721,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getHeaderMediatorInputConnector()
 	 * @generated
 	 */
-	int HEADER_MEDIATOR_INPUT_CONNECTOR = 153;
+	int HEADER_MEDIATOR_INPUT_CONNECTOR = 158;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -7501,7 +7749,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getHeaderMediatorOutputConnector()
 	 * @generated
 	 */
-	int HEADER_MEDIATOR_OUTPUT_CONNECTOR = 154;
+	int HEADER_MEDIATOR_OUTPUT_CONNECTOR = 159;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -7529,7 +7777,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getThrottleMediator()
 	 * @generated
 	 */
-	int THROTTLE_MEDIATOR = 155;
+	int THROTTLE_MEDIATOR = 160;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -7638,7 +7886,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getThrottleMediatorInputConnector()
 	 * @generated
 	 */
-	int THROTTLE_MEDIATOR_INPUT_CONNECTOR = 156;
+	int THROTTLE_MEDIATOR_INPUT_CONNECTOR = 161;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -7666,7 +7914,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getThrottleMediatorOutputConnector()
 	 * @generated
 	 */
-	int THROTTLE_MEDIATOR_OUTPUT_CONNECTOR = 157;
+	int THROTTLE_MEDIATOR_OUTPUT_CONNECTOR = 162;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -7694,7 +7942,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getThrottleMediatorOnAcceptOutputConnector()
 	 * @generated
 	 */
-    int THROTTLE_MEDIATOR_ON_ACCEPT_OUTPUT_CONNECTOR = 158;
+    int THROTTLE_MEDIATOR_ON_ACCEPT_OUTPUT_CONNECTOR = 163;
 
     /**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -7722,7 +7970,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getThrottleMediatorOnRejectOutputConnector()
 	 * @generated
 	 */
-    int THROTTLE_MEDIATOR_ON_REJECT_OUTPUT_CONNECTOR = 159;
+    int THROTTLE_MEDIATOR_ON_REJECT_OUTPUT_CONNECTOR = 164;
 
     /**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -7750,7 +7998,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getThrottlePolicyConfiguration()
 	 * @generated
 	 */
-	int THROTTLE_POLICY_CONFIGURATION = 160;
+	int THROTTLE_POLICY_CONFIGURATION = 165;
 
 	/**
 	 * The feature id for the '<em><b>Policy Type</b></em>' attribute.
@@ -7805,7 +8053,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getThrottlePolicyEntry()
 	 * @generated
 	 */
-	int THROTTLE_POLICY_ENTRY = 161;
+	int THROTTLE_POLICY_ENTRY = 166;
 
 	/**
 	 * The feature id for the '<em><b>Throttle Type</b></em>' attribute.
@@ -7878,7 +8126,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getThrottleOnAcceptBranch()
 	 * @generated
 	 */
-	int THROTTLE_ON_ACCEPT_BRANCH = 162;
+	int THROTTLE_ON_ACCEPT_BRANCH = 167;
 
 	/**
 	 * The feature id for the '<em><b>Sequence Type</b></em>' attribute.
@@ -7915,7 +8163,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getThrottleOnRejectBranch()
 	 * @generated
 	 */
-	int THROTTLE_ON_REJECT_BRANCH = 163;
+	int THROTTLE_ON_REJECT_BRANCH = 168;
 
 	/**
 	 * The feature id for the '<em><b>Sequence Type</b></em>' attribute.
@@ -7952,7 +8200,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getThrottleContainer()
 	 * @generated
 	 */
-    int THROTTLE_CONTAINER = 164;
+    int THROTTLE_CONTAINER = 169;
 
     /**
 	 * The feature id for the '<em><b>On Accept Container</b></em>' containment reference.
@@ -7989,7 +8237,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getThrottleOnAcceptContainer()
 	 * @generated
 	 */
-    int THROTTLE_ON_ACCEPT_CONTAINER = 165;
+    int THROTTLE_ON_ACCEPT_CONTAINER = 170;
 
     /**
 	 * The feature id for the '<em><b>Mediator Flow</b></em>' containment reference.
@@ -8017,7 +8265,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getThrottleOnRejectContainer()
 	 * @generated
 	 */
-    int THROTTLE_ON_REJECT_CONTAINER = 166;
+    int THROTTLE_ON_REJECT_CONTAINER = 171;
 
     /**
 	 * The feature id for the '<em><b>Mediator Flow</b></em>' containment reference.
@@ -8045,7 +8293,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCommandMediator()
 	 * @generated
 	 */
-	int COMMAND_MEDIATOR = 167;
+	int COMMAND_MEDIATOR = 172;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -8109,7 +8357,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCommandMediatorInputConnector()
 	 * @generated
 	 */
-	int COMMAND_MEDIATOR_INPUT_CONNECTOR = 168;
+	int COMMAND_MEDIATOR_INPUT_CONNECTOR = 173;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -8137,7 +8385,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCommandMediatorOutputConnector()
 	 * @generated
 	 */
-	int COMMAND_MEDIATOR_OUTPUT_CONNECTOR = 169;
+	int COMMAND_MEDIATOR_OUTPUT_CONNECTOR = 174;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -8165,7 +8413,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCommandProperty()
 	 * @generated
 	 */
-	int COMMAND_PROPERTY = 170;
+	int COMMAND_PROPERTY = 175;
 
 	/**
 	 * The feature id for the '<em><b>Property Name</b></em>' attribute.
@@ -8247,7 +8495,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getAbstractSqlExecutorMediator()
 	 * @generated
 	 */
-	int ABSTRACT_SQL_EXECUTOR_MEDIATOR = 171;
+	int ABSTRACT_SQL_EXECUTOR_MEDIATOR = 176;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -8464,7 +8712,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getSqlStatement()
 	 * @generated
 	 */
-	int SQL_STATEMENT = 172;
+	int SQL_STATEMENT = 177;
 
 	/**
 	 * The feature id for the '<em><b>Query String</b></em>' attribute.
@@ -8519,7 +8767,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getSqlParameterDefinition()
 	 * @generated
 	 */
-	int SQL_PARAMETER_DEFINITION = 173;
+	int SQL_PARAMETER_DEFINITION = 178;
 
 	/**
 	 * The feature id for the '<em><b>Data Type</b></em>' attribute.
@@ -8574,7 +8822,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getSqlResultMapping()
 	 * @generated
 	 */
-	int SQL_RESULT_MAPPING = 174;
+	int SQL_RESULT_MAPPING = 179;
 
 	/**
 	 * The feature id for the '<em><b>Property Name</b></em>' attribute.
@@ -8611,7 +8859,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getDBLookupMediator()
 	 * @generated
 	 */
-	int DB_LOOKUP_MEDIATOR = 175;
+	int DB_LOOKUP_MEDIATOR = 180;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -8846,7 +9094,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getDBLookupMediatorInputConnector()
 	 * @generated
 	 */
-	int DB_LOOKUP_MEDIATOR_INPUT_CONNECTOR = 176;
+	int DB_LOOKUP_MEDIATOR_INPUT_CONNECTOR = 181;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -8874,7 +9122,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getDBLookupMediatorOutputConnector()
 	 * @generated
 	 */
-	int DB_LOOKUP_MEDIATOR_OUTPUT_CONNECTOR = 177;
+	int DB_LOOKUP_MEDIATOR_OUTPUT_CONNECTOR = 182;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -8902,7 +9150,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getDBReportMediator()
 	 * @generated
 	 */
-	int DB_REPORT_MEDIATOR = 178;
+	int DB_REPORT_MEDIATOR = 183;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -9146,7 +9394,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getDBReportMediatorInputConnector()
 	 * @generated
 	 */
-	int DB_REPORT_MEDIATOR_INPUT_CONNECTOR = 179;
+	int DB_REPORT_MEDIATOR_INPUT_CONNECTOR = 184;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -9174,7 +9422,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getDBReportMediatorOutputConnector()
 	 * @generated
 	 */
-	int DB_REPORT_MEDIATOR_OUTPUT_CONNECTOR = 180;
+	int DB_REPORT_MEDIATOR_OUTPUT_CONNECTOR = 185;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -9202,7 +9450,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRuleMediator()
 	 * @generated
 	 */
-	int RULE_MEDIATOR = 181;
+	int RULE_MEDIATOR = 186;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -9293,7 +9541,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRuleMediatorInputConnector()
 	 * @generated
 	 */
-	int RULE_MEDIATOR_INPUT_CONNECTOR = 182;
+	int RULE_MEDIATOR_INPUT_CONNECTOR = 187;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -9321,7 +9569,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRuleMediatorOutputConnector()
 	 * @generated
 	 */
-	int RULE_MEDIATOR_OUTPUT_CONNECTOR = 183;
+	int RULE_MEDIATOR_OUTPUT_CONNECTOR = 188;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -9349,7 +9597,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRuleSetConfiguration()
 	 * @generated
 	 */
-	int RULE_SET_CONFIGURATION = 184;
+	int RULE_SET_CONFIGURATION = 189;
 
 	/**
 	 * The feature id for the '<em><b>Source Type</b></em>' attribute.
@@ -9404,7 +9652,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRuleSetCreationProperty()
 	 * @generated
 	 */
-	int RULE_SET_CREATION_PROPERTY = 185;
+	int RULE_SET_CREATION_PROPERTY = 190;
 
 	/**
 	 * The feature id for the '<em><b>Property Name</b></em>' attribute.
@@ -9441,7 +9689,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRuleSessionConfiguration()
 	 * @generated
 	 */
-	int RULE_SESSION_CONFIGURATION = 186;
+	int RULE_SESSION_CONFIGURATION = 191;
 
 	/**
 	 * The feature id for the '<em><b>Stateful Session</b></em>' attribute.
@@ -9478,7 +9726,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRuleSessionProperty()
 	 * @generated
 	 */
-	int RULE_SESSION_PROPERTY = 187;
+	int RULE_SESSION_PROPERTY = 192;
 
 	/**
 	 * The feature id for the '<em><b>Property Name</b></em>' attribute.
@@ -9515,7 +9763,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRuleFactsConfiguration()
 	 * @generated
 	 */
-	int RULE_FACTS_CONFIGURATION = 188;
+	int RULE_FACTS_CONFIGURATION = 193;
 
 	/**
 	 * The feature id for the '<em><b>Facts</b></em>' containment reference list.
@@ -9543,7 +9791,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRuleFact()
 	 * @generated
 	 */
-	int RULE_FACT = 189;
+	int RULE_FACT = 194;
 
 	/**
 	 * The feature id for the '<em><b>Fact Type</b></em>' attribute.
@@ -9625,7 +9873,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRuleResultsConfiguration()
 	 * @generated
 	 */
-	int RULE_RESULTS_CONFIGURATION = 190;
+	int RULE_RESULTS_CONFIGURATION = 195;
 
 	/**
 	 * The feature id for the '<em><b>Results</b></em>' containment reference list.
@@ -9653,7 +9901,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRuleResult()
 	 * @generated
 	 */
-	int RULE_RESULT = 191;
+	int RULE_RESULT = 196;
 
 	/**
 	 * The feature id for the '<em><b>Result Type</b></em>' attribute.
@@ -9735,7 +9983,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRuleChildMediatorsConfiguration()
 	 * @generated
 	 */
-	int RULE_CHILD_MEDIATORS_CONFIGURATION = 192;
+	int RULE_CHILD_MEDIATORS_CONFIGURATION = 197;
 
 	/**
 	 * The number of structural features of the '<em>Rule Child Mediators Configuration</em>' class.
@@ -9754,7 +10002,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCallTemplateParameter()
 	 * @generated
 	 */
-	int CALL_TEMPLATE_PARAMETER = 193;
+	int CALL_TEMPLATE_PARAMETER = 198;
 
 	/**
 	 * The feature id for the '<em><b>Parameter Name</b></em>' attribute.
@@ -9809,7 +10057,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCallTemplateMediator()
 	 * @generated
 	 */
-	int CALL_TEMPLATE_MEDIATOR = 194;
+	int CALL_TEMPLATE_MEDIATOR = 199;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -9873,7 +10121,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCallTemplateMediatorInputConnector()
 	 * @generated
 	 */
-	int CALL_TEMPLATE_MEDIATOR_INPUT_CONNECTOR = 195;
+	int CALL_TEMPLATE_MEDIATOR_INPUT_CONNECTOR = 200;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -9901,7 +10149,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCallTemplateMediatorOutputConnector()
 	 * @generated
 	 */
-	int CALL_TEMPLATE_MEDIATOR_OUTPUT_CONNECTOR = 196;
+	int CALL_TEMPLATE_MEDIATOR_OUTPUT_CONNECTOR = 201;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -9929,7 +10177,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getSmooksMediator()
 	 * @generated
 	 */
-	int SMOOKS_MEDIATOR = 197;
+	int SMOOKS_MEDIATOR = 202;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -10047,7 +10295,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getSmooksMediatorInputConnector()
 	 * @generated
 	 */
-	int SMOOKS_MEDIATOR_INPUT_CONNECTOR = 198;
+	int SMOOKS_MEDIATOR_INPUT_CONNECTOR = 203;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -10075,7 +10323,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getSmooksMediatorOutputConnector()
 	 * @generated
 	 */
-	int SMOOKS_MEDIATOR_OUTPUT_CONNECTOR = 199;
+	int SMOOKS_MEDIATOR_OUTPUT_CONNECTOR = 204;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -10103,7 +10351,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getStoreMediator()
 	 * @generated
 	 */
-	int STORE_MEDIATOR = 200;
+	int STORE_MEDIATOR = 205;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -10167,7 +10415,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getStoreMediatorInputConnector()
 	 * @generated
 	 */
-	int STORE_MEDIATOR_INPUT_CONNECTOR = 201;
+	int STORE_MEDIATOR_INPUT_CONNECTOR = 206;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -10195,7 +10443,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getStoreMediatorOutputConnector()
 	 * @generated
 	 */
-	int STORE_MEDIATOR_OUTPUT_CONNECTOR = 202;
+	int STORE_MEDIATOR_OUTPUT_CONNECTOR = 207;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -10223,7 +10471,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getBuilderMediator()
 	 * @generated
 	 */
-	int BUILDER_MEDIATOR = 203;
+	int BUILDER_MEDIATOR = 208;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -10278,7 +10526,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getBuilderMediatorInputConnector()
 	 * @generated
 	 */
-	int BUILDER_MEDIATOR_INPUT_CONNECTOR = 204;
+	int BUILDER_MEDIATOR_INPUT_CONNECTOR = 209;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -10306,7 +10554,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getBuilderMediatorOutputConector()
 	 * @generated
 	 */
-	int BUILDER_MEDIATOR_OUTPUT_CONECTOR = 205;
+	int BUILDER_MEDIATOR_OUTPUT_CONECTOR = 210;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -10334,7 +10582,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getMessageBuilder()
 	 * @generated
 	 */
-	int MESSAGE_BUILDER = 206;
+	int MESSAGE_BUILDER = 211;
 
 	/**
 	 * The feature id for the '<em><b>Content Type</b></em>' attribute.
@@ -10380,7 +10628,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getPayloadFactoryMediator()
 	 * @generated
 	 */
-	int PAYLOAD_FACTORY_MEDIATOR = 207;
+	int PAYLOAD_FACTORY_MEDIATOR = 212;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -10444,7 +10692,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getPayloadFactoryMediatorInputConnector()
 	 * @generated
 	 */
-	int PAYLOAD_FACTORY_MEDIATOR_INPUT_CONNECTOR = 208;
+	int PAYLOAD_FACTORY_MEDIATOR_INPUT_CONNECTOR = 213;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -10472,7 +10720,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getPayloadFactoryMediatorOutputConnector()
 	 * @generated
 	 */
-	int PAYLOAD_FACTORY_MEDIATOR_OUTPUT_CONNECTOR = 209;
+	int PAYLOAD_FACTORY_MEDIATOR_OUTPUT_CONNECTOR = 214;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -10500,7 +10748,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getPayloadFactoryArgument()
 	 * @generated
 	 */
-	int PAYLOAD_FACTORY_ARGUMENT = 210;
+	int PAYLOAD_FACTORY_ARGUMENT = 215;
 
 	/**
 	 * The feature id for the '<em><b>Argument Type</b></em>' attribute.
@@ -10546,7 +10794,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getConditionalRouteBranch()
 	 * @generated
 	 */
-	int CONDITIONAL_ROUTE_BRANCH = 211;
+	int CONDITIONAL_ROUTE_BRANCH = 216;
 
 	/**
 	 * The feature id for the '<em><b>Break Route</b></em>' attribute.
@@ -10574,7 +10822,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getConditionalRouterMediator()
 	 * @generated
 	 */
-	int CONDITIONAL_ROUTER_MEDIATOR = 212;
+	int CONDITIONAL_ROUTER_MEDIATOR = 217;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -10620,7 +10868,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getSendMediator()
 	 * @generated
 	 */
-	int SEND_MEDIATOR = 213;
+	int SEND_MEDIATOR = 218;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -10720,7 +10968,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getSendContainer()
 	 * @generated
 	 */
-    int SEND_CONTAINER = 214;
+    int SEND_CONTAINER = 219;
 
     /**
 	 * The feature id for the '<em><b>Endpoint Flow</b></em>' containment reference.
@@ -10748,7 +10996,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getSendMediatorInputConnector()
 	 * @generated
 	 */
-	int SEND_MEDIATOR_INPUT_CONNECTOR = 215;
+	int SEND_MEDIATOR_INPUT_CONNECTOR = 220;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -10776,7 +11024,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getSendMediatorOutputConnector()
 	 * @generated
 	 */
-	int SEND_MEDIATOR_OUTPUT_CONNECTOR = 216;
+	int SEND_MEDIATOR_OUTPUT_CONNECTOR = 221;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -10804,7 +11052,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getSendMediatorEndpointOutputConnector()
 	 * @generated
 	 */
-    int SEND_MEDIATOR_ENDPOINT_OUTPUT_CONNECTOR = 217;
+    int SEND_MEDIATOR_ENDPOINT_OUTPUT_CONNECTOR = 222;
 
     /**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -10832,7 +11080,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getParentEndPoint()
 	 * @generated
 	 */
-	int PARENT_END_POINT = 222;
+	int PARENT_END_POINT = 227;
 
 	/**
 	 * The feature id for the '<em><b>End Point Name</b></em>' attribute.
@@ -10878,7 +11126,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getFailoverEndPoint()
 	 * @generated
 	 */
-	int FAILOVER_END_POINT = 218;
+	int FAILOVER_END_POINT = 223;
 
 	/**
 	 * The feature id for the '<em><b>End Point Name</b></em>' attribute.
@@ -10951,7 +11199,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getFailoverEndPointInputConnector()
 	 * @generated
 	 */
-	int FAILOVER_END_POINT_INPUT_CONNECTOR = 219;
+	int FAILOVER_END_POINT_INPUT_CONNECTOR = 224;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -10979,7 +11227,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getFailoverEndPointOutputConnector()
 	 * @generated
 	 */
-	int FAILOVER_END_POINT_OUTPUT_CONNECTOR = 220;
+	int FAILOVER_END_POINT_OUTPUT_CONNECTOR = 225;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -11007,7 +11255,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getFailoverEndPointWestOutputConnector()
 	 * @generated
 	 */
-	int FAILOVER_END_POINT_WEST_OUTPUT_CONNECTOR = 221;
+	int FAILOVER_END_POINT_WEST_OUTPUT_CONNECTOR = 226;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -11035,7 +11283,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getWSDLEndPoint()
 	 * @generated
 	 */
-	int WSDL_END_POINT = 223;
+	int WSDL_END_POINT = 228;
 
 	/**
 	 * The feature id for the '<em><b>End Point Name</b></em>' attribute.
@@ -11279,7 +11527,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getWSDLDefinition()
 	 * @generated
 	 */
-	int WSDL_DEFINITION = 224;
+	int WSDL_DEFINITION = 229;
 
 	/**
 	 * The number of structural features of the '<em>WSDL Definition</em>' class.
@@ -11298,7 +11546,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getWSDLDescription()
 	 * @generated
 	 */
-	int WSDL_DESCRIPTION = 225;
+	int WSDL_DESCRIPTION = 230;
 
 	/**
 	 * The number of structural features of the '<em>WSDL Description</em>' class.
@@ -11317,7 +11565,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getWSDLEndPointInputConnector()
 	 * @generated
 	 */
-	int WSDL_END_POINT_INPUT_CONNECTOR = 226;
+	int WSDL_END_POINT_INPUT_CONNECTOR = 231;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -11345,7 +11593,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getWSDLEndPointOutputConnector()
 	 * @generated
 	 */
-	int WSDL_END_POINT_OUTPUT_CONNECTOR = 227;
+	int WSDL_END_POINT_OUTPUT_CONNECTOR = 232;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -11373,7 +11621,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getLoadBalanceEndPoint()
 	 * @generated
 	 */
-	int LOAD_BALANCE_END_POINT = 228;
+	int LOAD_BALANCE_END_POINT = 233;
 
 	/**
 	 * The feature id for the '<em><b>End Point Name</b></em>' attribute.
@@ -11473,7 +11721,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getLoadBalanceEndPointInputConnector()
 	 * @generated
 	 */
-	int LOAD_BALANCE_END_POINT_INPUT_CONNECTOR = 229;
+	int LOAD_BALANCE_END_POINT_INPUT_CONNECTOR = 234;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -11501,7 +11749,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getLoadBalanceEndPointOutputConnector()
 	 * @generated
 	 */
-	int LOAD_BALANCE_END_POINT_OUTPUT_CONNECTOR = 230;
+	int LOAD_BALANCE_END_POINT_OUTPUT_CONNECTOR = 235;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -11529,7 +11777,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getLoadBalanceEndPointWestOutputConnector()
 	 * @generated
 	 */
-	int LOAD_BALANCE_END_POINT_WEST_OUTPUT_CONNECTOR = 231;
+	int LOAD_BALANCE_END_POINT_WEST_OUTPUT_CONNECTOR = 236;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -11557,7 +11805,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getLocalEntry()
 	 * @generated
 	 */
-	int LOCAL_ENTRY = 232;
+	int LOCAL_ENTRY = 237;
 
 	/**
 	 * The feature id for the '<em><b>Entry Name</b></em>' attribute.
@@ -11621,7 +11869,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getSession()
 	 * @generated
 	 */
-	int SESSION = 233;
+	int SESSION = 238;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -11649,7 +11897,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getSequences()
 	 * @generated
 	 */
-	int SEQUENCES = 234;
+	int SEQUENCES = 239;
 
 	/**
 	 * The feature id for the '<em><b>Output Connector</b></em>' containment reference.
@@ -11695,7 +11943,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getSequencesOutputConnector()
 	 * @generated
 	 */
-	int SEQUENCES_OUTPUT_CONNECTOR = 235;
+	int SEQUENCES_OUTPUT_CONNECTOR = 240;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -11723,7 +11971,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getSequencesInputConnector()
 	 * @generated
 	 */
-	int SEQUENCES_INPUT_CONNECTOR = 236;
+	int SEQUENCES_INPUT_CONNECTOR = 241;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -11751,7 +11999,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getURLRewriteRuleAction()
 	 * @generated
 	 */
-	int URL_REWRITE_RULE_ACTION = 237;
+	int URL_REWRITE_RULE_ACTION = 242;
 
 	/**
 	 * The feature id for the '<em><b>Rule Action</b></em>' attribute.
@@ -11824,7 +12072,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getURLRewriteRule()
 	 * @generated
 	 */
-	int URL_REWRITE_RULE = 238;
+	int URL_REWRITE_RULE = 243;
 
 	/**
 	 * The feature id for the '<em><b>Url Rewrite Rule Condition</b></em>' containment reference.
@@ -11861,7 +12109,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getURLRewriteMediator()
 	 * @generated
 	 */
-	int URL_REWRITE_MEDIATOR = 239;
+	int URL_REWRITE_MEDIATOR = 244;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -11934,7 +12182,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getURLRewriteMediatorInputConnector()
 	 * @generated
 	 */
-	int URL_REWRITE_MEDIATOR_INPUT_CONNECTOR = 240;
+	int URL_REWRITE_MEDIATOR_INPUT_CONNECTOR = 245;
 
 	/**
 	 * The feature id for the '<em><b>Incoming Links</b></em>' reference list.
@@ -11962,7 +12210,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getURLRewriteMediatorOutputConnector()
 	 * @generated
 	 */
-	int URL_REWRITE_MEDIATOR_OUTPUT_CONNECTOR = 241;
+	int URL_REWRITE_MEDIATOR_OUTPUT_CONNECTOR = 246;
 
 	/**
 	 * The feature id for the '<em><b>Outgoing Link</b></em>' containment reference.
@@ -11990,7 +12238,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getEvaluatorExpressionProperty()
 	 * @generated
 	 */
-	int EVALUATOR_EXPRESSION_PROPERTY = 242;
+	int EVALUATOR_EXPRESSION_PROPERTY = 247;
 
 	/**
 	 * The feature id for the '<em><b>Pretty Name</b></em>' attribute.
@@ -12243,7 +12491,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getProxyWsdlType()
 	 * @generated
 	 */
-	int PROXY_WSDL_TYPE = 249;
+	int PROXY_WSDL_TYPE = 254;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.FilterConditionType <em>Filter Condition Type</em>}' enum.
@@ -12253,7 +12501,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getFilterConditionType()
 	 * @generated
 	 */
-	int FILTER_CONDITION_TYPE = 250;
+	int FILTER_CONDITION_TYPE = 255;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.LogCategory <em>Log Category</em>}' enum.
@@ -12263,7 +12511,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getLogCategory()
 	 * @generated
 	 */
-	int LOG_CATEGORY = 251;
+	int LOG_CATEGORY = 256;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.LogLevel <em>Log Level</em>}' enum.
@@ -12273,7 +12521,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getLogLevel()
 	 * @generated
 	 */
-	int LOG_LEVEL = 252;
+	int LOG_LEVEL = 257;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.EndPointAddressingVersion <em>End Point Addressing Version</em>}' enum.
@@ -12283,7 +12531,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getEndPointAddressingVersion()
 	 * @generated
 	 */
-	int END_POINT_ADDRESSING_VERSION = 253;
+	int END_POINT_ADDRESSING_VERSION = 258;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.EndPointTimeOutAction <em>End Point Time Out Action</em>}' enum.
@@ -12293,7 +12541,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getEndPointTimeOutAction()
 	 * @generated
 	 */
-	int END_POINT_TIME_OUT_ACTION = 254;
+	int END_POINT_TIME_OUT_ACTION = 259;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.EndPointMessageFormat <em>End Point Message Format</em>}' enum.
@@ -12303,7 +12551,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getEndPointMessageFormat()
 	 * @generated
 	 */
-	int END_POINT_MESSAGE_FORMAT = 255;
+	int END_POINT_MESSAGE_FORMAT = 260;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.EndPointAttachmentOptimization <em>End Point Attachment Optimization</em>}' enum.
@@ -12313,7 +12561,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getEndPointAttachmentOptimization()
 	 * @generated
 	 */
-	int END_POINT_ATTACHMENT_OPTIMIZATION = 256;
+	int END_POINT_ATTACHMENT_OPTIMIZATION = 261;
 
 
 	/**
@@ -12324,7 +12572,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getPropertyDataType()
 	 * @generated
 	 */
-	int PROPERTY_DATA_TYPE = 257;
+	int PROPERTY_DATA_TYPE = 262;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.PropertyAction <em>Property Action</em>}' enum.
@@ -12334,7 +12582,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getPropertyAction()
 	 * @generated
 	 */
-	int PROPERTY_ACTION = 258;
+	int PROPERTY_ACTION = 263;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.PropertyScope <em>Property Scope</em>}' enum.
@@ -12344,7 +12592,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getPropertyScope()
 	 * @generated
 	 */
-	int PROPERTY_SCOPE = 259;
+	int PROPERTY_SCOPE = 264;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.PropertyValueType <em>Property Value Type</em>}' enum.
@@ -12354,7 +12602,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getPropertyValueType()
 	 * @generated
 	 */
-	int PROPERTY_VALUE_TYPE = 260;
+	int PROPERTY_VALUE_TYPE = 265;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.EnrichSourceType <em>Enrich Source Type</em>}' enum.
@@ -12364,7 +12612,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getEnrichSourceType()
 	 * @generated
 	 */
-	int ENRICH_SOURCE_TYPE = 261;
+	int ENRICH_SOURCE_TYPE = 266;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.EnrichTargetAction <em>Enrich Target Action</em>}' enum.
@@ -12374,7 +12622,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getEnrichTargetAction()
 	 * @generated
 	 */
-	int ENRICH_TARGET_ACTION = 262;
+	int ENRICH_TARGET_ACTION = 267;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.EnrichTargetType <em>Enrich Target Type</em>}' enum.
@@ -12384,7 +12632,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getEnrichTargetType()
 	 * @generated
 	 */
-	int ENRICH_TARGET_TYPE = 263;
+	int ENRICH_TARGET_TYPE = 268;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.EventTopicType <em>Event Topic Type</em>}' enum.
@@ -12394,7 +12642,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getEventTopicType()
 	 * @generated
 	 */
-	int EVENT_TOPIC_TYPE = 264;
+	int EVENT_TOPIC_TYPE = 269;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ScriptType <em>Script Type</em>}' enum.
@@ -12404,7 +12652,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getScriptType()
 	 * @generated
 	 */
-	int SCRIPT_TYPE = 265;
+	int SCRIPT_TYPE = 270;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ScriptLanguage <em>Script Language</em>}' enum.
@@ -12414,7 +12662,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getScriptLanguage()
 	 * @generated
 	 */
-	int SCRIPT_LANGUAGE = 266;
+	int SCRIPT_LANGUAGE = 271;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.FaultSoapVersion <em>Fault Soap Version</em>}' enum.
@@ -12424,7 +12672,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getFaultSoapVersion()
 	 * @generated
 	 */
-	int FAULT_SOAP_VERSION = 267;
+	int FAULT_SOAP_VERSION = 272;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.FaultCodeSoap11 <em>Fault Code Soap11</em>}' enum.
@@ -12434,7 +12682,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getFaultCodeSoap11()
 	 * @generated
 	 */
-	int FAULT_CODE_SOAP11 = 268;
+	int FAULT_CODE_SOAP11 = 273;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.FaultCodeSoap12 <em>Fault Code Soap12</em>}' enum.
@@ -12444,7 +12692,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getFaultCodeSoap12()
 	 * @generated
 	 */
-	int FAULT_CODE_SOAP12 = 269;
+	int FAULT_CODE_SOAP12 = 274;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.FaultStringType <em>Fault String Type</em>}' enum.
@@ -12454,7 +12702,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getFaultStringType()
 	 * @generated
 	 */
-	int FAULT_STRING_TYPE = 270;
+	int FAULT_STRING_TYPE = 275;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.FaultReasonType <em>Fault Reason Type</em>}' enum.
@@ -12464,7 +12712,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getFaultReasonType()
 	 * @generated
 	 */
-	int FAULT_REASON_TYPE = 271;
+	int FAULT_REASON_TYPE = 276;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.FaultDetailType <em>Fault Detail Type</em>}' enum.
@@ -12474,7 +12722,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getFaultDetailType()
 	 * @generated
 	 */
-	int FAULT_DETAIL_TYPE = 272;
+	int FAULT_DETAIL_TYPE = 277;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.AggregateSequenceType <em>Aggregate Sequence Type</em>}' enum.
@@ -12484,7 +12732,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getAggregateSequenceType()
 	 * @generated
 	 */
-	int AGGREGATE_SEQUENCE_TYPE = 273;
+	int AGGREGATE_SEQUENCE_TYPE = 278;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.TargetSequenceType <em>Target Sequence Type</em>}' enum.
@@ -12494,7 +12742,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getTargetSequenceType()
 	 * @generated
 	 */
-	int TARGET_SEQUENCE_TYPE = 274;
+	int TARGET_SEQUENCE_TYPE = 279;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.TargetEndpointType <em>Target Endpoint Type</em>}' enum.
@@ -12504,7 +12752,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getTargetEndpointType()
 	 * @generated
 	 */
-	int TARGET_ENDPOINT_TYPE = 275;
+	int TARGET_ENDPOINT_TYPE = 280;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheSequenceType <em>Cache Sequence Type</em>}' enum.
@@ -12514,7 +12762,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCacheSequenceType()
 	 * @generated
 	 */
-	int CACHE_SEQUENCE_TYPE = 276;
+	int CACHE_SEQUENCE_TYPE = 281;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheImplementationType <em>Cache Implementation Type</em>}' enum.
@@ -12524,7 +12772,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCacheImplementationType()
 	 * @generated
 	 */
-	int CACHE_IMPLEMENTATION_TYPE = 277;
+	int CACHE_IMPLEMENTATION_TYPE = 282;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheAction <em>Cache Action</em>}' enum.
@@ -12534,7 +12782,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCacheAction()
 	 * @generated
 	 */
-	int CACHE_ACTION = 278;
+	int CACHE_ACTION = 283;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CacheScope <em>Cache Scope</em>}' enum.
@@ -12544,7 +12792,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCacheScope()
 	 * @generated
 	 */
-	int CACHE_SCOPE = 279;
+	int CACHE_SCOPE = 284;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.XQueryVariableType <em>XQuery Variable Type</em>}' enum.
@@ -12554,7 +12802,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getXQueryVariableType()
 	 * @generated
 	 */
-	int XQUERY_VARIABLE_TYPE = 280;
+	int XQUERY_VARIABLE_TYPE = 285;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.XQueryVariableValueType <em>XQuery Variable Value Type</em>}' enum.
@@ -12564,7 +12812,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getXQueryVariableValueType()
 	 * @generated
 	 */
-	int XQUERY_VARIABLE_VALUE_TYPE = 281;
+	int XQUERY_VARIABLE_VALUE_TYPE = 286;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CalloutPayloadType <em>Callout Payload Type</em>}' enum.
@@ -12574,7 +12822,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCalloutPayloadType()
 	 * @generated
 	 */
-	int CALLOUT_PAYLOAD_TYPE = 282;
+	int CALLOUT_PAYLOAD_TYPE = 287;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CalloutResultType <em>Callout Result Type</em>}' enum.
@@ -12584,7 +12832,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCalloutResultType()
 	 * @generated
 	 */
-	int CALLOUT_RESULT_TYPE = 283;
+	int CALLOUT_RESULT_TYPE = 288;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.RMSpecVersion <em>RM Spec Version</em>}' enum.
@@ -12594,7 +12842,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRMSpecVersion()
 	 * @generated
 	 */
-	int RM_SPEC_VERSION = 284;
+	int RM_SPEC_VERSION = 289;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.RMSequenceType <em>RM Sequence Type</em>}' enum.
@@ -12604,7 +12852,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRMSequenceType()
 	 * @generated
 	 */
-	int RM_SEQUENCE_TYPE = 285;
+	int RM_SEQUENCE_TYPE = 290;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.TransactionAction <em>Transaction Action</em>}' enum.
@@ -12614,7 +12862,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getTransactionAction()
 	 * @generated
 	 */
-	int TRANSACTION_ACTION = 286;
+	int TRANSACTION_ACTION = 291;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.HeaderAction <em>Header Action</em>}' enum.
@@ -12624,7 +12872,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getHeaderAction()
 	 * @generated
 	 */
-	int HEADER_ACTION = 287;
+	int HEADER_ACTION = 292;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.HeaderValueType <em>Header Value Type</em>}' enum.
@@ -12634,7 +12882,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getHeaderValueType()
 	 * @generated
 	 */
-	int HEADER_VALUE_TYPE = 288;
+	int HEADER_VALUE_TYPE = 293;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ThrottlePolicyType <em>Throttle Policy Type</em>}' enum.
@@ -12644,7 +12892,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getThrottlePolicyType()
 	 * @generated
 	 */
-	int THROTTLE_POLICY_TYPE = 289;
+	int THROTTLE_POLICY_TYPE = 294;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ThrottleConditionType <em>Throttle Condition Type</em>}' enum.
@@ -12654,7 +12902,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getThrottleConditionType()
 	 * @generated
 	 */
-	int THROTTLE_CONDITION_TYPE = 290;
+	int THROTTLE_CONDITION_TYPE = 295;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ThrottleAccessType <em>Throttle Access Type</em>}' enum.
@@ -12664,7 +12912,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getThrottleAccessType()
 	 * @generated
 	 */
-	int THROTTLE_ACCESS_TYPE = 291;
+	int THROTTLE_ACCESS_TYPE = 296;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ThrottleSequenceType <em>Throttle Sequence Type</em>}' enum.
@@ -12674,7 +12922,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getThrottleSequenceType()
 	 * @generated
 	 */
-	int THROTTLE_SEQUENCE_TYPE = 292;
+	int THROTTLE_SEQUENCE_TYPE = 297;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CommandPropertyValueType <em>Command Property Value Type</em>}' enum.
@@ -12684,7 +12932,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCommandPropertyValueType()
 	 * @generated
 	 */
-	int COMMAND_PROPERTY_VALUE_TYPE = 293;
+	int COMMAND_PROPERTY_VALUE_TYPE = 298;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CommandPropertyMessageAction <em>Command Property Message Action</em>}' enum.
@@ -12694,7 +12942,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCommandPropertyMessageAction()
 	 * @generated
 	 */
-	int COMMAND_PROPERTY_MESSAGE_ACTION = 294;
+	int COMMAND_PROPERTY_MESSAGE_ACTION = 299;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.CommandPropertyContextAction <em>Command Property Context Action</em>}' enum.
@@ -12704,7 +12952,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getCommandPropertyContextAction()
 	 * @generated
 	 */
-	int COMMAND_PROPERTY_CONTEXT_ACTION = 295;
+	int COMMAND_PROPERTY_CONTEXT_ACTION = 300;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.SqlExecutorConnectionType <em>Sql Executor Connection Type</em>}' enum.
@@ -12714,7 +12962,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getSqlExecutorConnectionType()
 	 * @generated
 	 */
-	int SQL_EXECUTOR_CONNECTION_TYPE = 296;
+	int SQL_EXECUTOR_CONNECTION_TYPE = 301;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.SqlExecutorDatasourceType <em>Sql Executor Datasource Type</em>}' enum.
@@ -12724,7 +12972,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getSqlExecutorDatasourceType()
 	 * @generated
 	 */
-	int SQL_EXECUTOR_DATASOURCE_TYPE = 297;
+	int SQL_EXECUTOR_DATASOURCE_TYPE = 302;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.SqlExecutorBooleanValue <em>Sql Executor Boolean Value</em>}' enum.
@@ -12734,7 +12982,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getSqlExecutorBooleanValue()
 	 * @generated
 	 */
-	int SQL_EXECUTOR_BOOLEAN_VALUE = 298;
+	int SQL_EXECUTOR_BOOLEAN_VALUE = 303;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.SqlExecutorIsolationLevel <em>Sql Executor Isolation Level</em>}' enum.
@@ -12744,7 +12992,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getSqlExecutorIsolationLevel()
 	 * @generated
 	 */
-	int SQL_EXECUTOR_ISOLATION_LEVEL = 299;
+	int SQL_EXECUTOR_ISOLATION_LEVEL = 304;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.SqlParameterValueType <em>Sql Parameter Value Type</em>}' enum.
@@ -12754,7 +13002,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getSqlParameterValueType()
 	 * @generated
 	 */
-	int SQL_PARAMETER_VALUE_TYPE = 300;
+	int SQL_PARAMETER_VALUE_TYPE = 305;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.SqlParameterDataType <em>Sql Parameter Data Type</em>}' enum.
@@ -12764,7 +13012,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getSqlParameterDataType()
 	 * @generated
 	 */
-	int SQL_PARAMETER_DATA_TYPE = 301;
+	int SQL_PARAMETER_DATA_TYPE = 306;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleSourceType <em>Rule Source Type</em>}' enum.
@@ -12774,7 +13022,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRuleSourceType()
 	 * @generated
 	 */
-	int RULE_SOURCE_TYPE = 302;
+	int RULE_SOURCE_TYPE = 307;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleFactType <em>Rule Fact Type</em>}' enum.
@@ -12784,7 +13032,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRuleFactType()
 	 * @generated
 	 */
-	int RULE_FACT_TYPE = 303;
+	int RULE_FACT_TYPE = 308;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleFactValueType <em>Rule Fact Value Type</em>}' enum.
@@ -12794,7 +13042,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRuleFactValueType()
 	 * @generated
 	 */
-	int RULE_FACT_VALUE_TYPE = 304;
+	int RULE_FACT_VALUE_TYPE = 309;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleResultType <em>Rule Result Type</em>}' enum.
@@ -12804,7 +13052,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRuleResultType()
 	 * @generated
 	 */
-	int RULE_RESULT_TYPE = 305;
+	int RULE_RESULT_TYPE = 310;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleResultValueType <em>Rule Result Value Type</em>}' enum.
@@ -12814,7 +13062,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRuleResultValueType()
 	 * @generated
 	 */
-	int RULE_RESULT_VALUE_TYPE = 306;
+	int RULE_RESULT_VALUE_TYPE = 311;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleOptionType <em>Rule Option Type</em>}' enum.
@@ -12824,7 +13072,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRuleOptionType()
 	 * @generated
 	 */
-	int RULE_OPTION_TYPE = 307;
+	int RULE_OPTION_TYPE = 312;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.SmooksIODataType <em>Smooks IO Data Type</em>}' enum.
@@ -12834,7 +13082,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getSmooksIODataType()
 	 * @generated
 	 */
-	int SMOOKS_IO_DATA_TYPE = 308;
+	int SMOOKS_IO_DATA_TYPE = 313;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ExpressionAction <em>Expression Action</em>}' enum.
@@ -12844,7 +13092,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getExpressionAction()
 	 * @generated
 	 */
-	int EXPRESSION_ACTION = 309;
+	int EXPRESSION_ACTION = 314;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.OutputMethod <em>Output Method</em>}' enum.
@@ -12854,7 +13102,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getOutputMethod()
 	 * @generated
 	 */
-	int OUTPUT_METHOD = 310;
+	int OUTPUT_METHOD = 315;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ReceivingSequenceType <em>Receiving Sequence Type</em>}' enum.
@@ -12864,7 +13112,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getReceivingSequenceType()
 	 * @generated
 	 */
-	int RECEIVING_SEQUENCE_TYPE = 311;
+	int RECEIVING_SEQUENCE_TYPE = 316;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.KeyType <em>Key Type</em>}' enum.
@@ -12874,7 +13122,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getKeyType()
 	 * @generated
 	 */
-	int KEY_TYPE = 312;
+	int KEY_TYPE = 317;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryArgumentType <em>Payload Factory Argument Type</em>}' enum.
@@ -12884,7 +13132,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getPayloadFactoryArgumentType()
 	 * @generated
 	 */
-	int PAYLOAD_FACTORY_ARGUMENT_TYPE = 313;
+	int PAYLOAD_FACTORY_ARGUMENT_TYPE = 318;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.Type <em>Type</em>}' enum.
@@ -12894,7 +13142,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getType()
 	 * @generated
 	 */
-	int TYPE = 314;
+	int TYPE = 319;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.LocalEntryValueType <em>Local Entry Value Type</em>}' enum.
@@ -12904,7 +13152,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getLocalEntryValueType()
 	 * @generated
 	 */
-	int LOCAL_ENTRY_VALUE_TYPE = 315;
+	int LOCAL_ENTRY_VALUE_TYPE = 320;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleActionType <em>Rule Action Type</em>}' enum.
@@ -12914,7 +13162,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRuleActionType()
 	 * @generated
 	 */
-	int RULE_ACTION_TYPE = 316;
+	int RULE_ACTION_TYPE = 321;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleFragmentType <em>Rule Fragment Type</em>}' enum.
@@ -12924,7 +13172,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRuleFragmentType()
 	 * @generated
 	 */
-	int RULE_FRAGMENT_TYPE = 317;
+	int RULE_FRAGMENT_TYPE = 322;
 
 	/**
 	 * The meta object id for the '<em>Map</em>' data type.
@@ -12934,7 +13182,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getMap()
 	 * @generated
 	 */
-	int MAP = 318;
+	int MAP = 323;
 
 
 	/**
@@ -16768,6 +17016,61 @@ public interface EsbPackage extends EPackage {
 	EReference getRouterMediator_Routes();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link org.wso2.developerstudio.eclipse.gmf.esb.RouterMediator#getTargets <em>Targets</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Targets</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RouterMediator#getTargets()
+	 * @see #getRouterMediator()
+	 * @generated
+	 */
+	EReference getRouterMediator_Targets();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.wso2.developerstudio.eclipse.gmf.esb.RouterMediator#getTargetOutputConnector <em>Target Output Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Target Output Connector</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RouterMediator#getTargetOutputConnector()
+	 * @see #getRouterMediator()
+	 * @generated
+	 */
+	EReference getRouterMediator_TargetOutputConnector();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.RouterMediator#getInputConnector <em>Input Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Input Connector</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RouterMediator#getInputConnector()
+	 * @see #getRouterMediator()
+	 * @generated
+	 */
+	EReference getRouterMediator_InputConnector();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.RouterMediator#getOutputConnector <em>Output Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Output Connector</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RouterMediator#getOutputConnector()
+	 * @see #getRouterMediator()
+	 * @generated
+	 */
+	EReference getRouterMediator_OutputConnector();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.RouterMediator#getRouterContainer <em>Router Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Router Container</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RouterMediator#getRouterContainer()
+	 * @see #getRouterMediator()
+	 * @generated
+	 */
+	EReference getRouterMediator_RouterContainer();
+
+	/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.gmf.esb.RouterRoute <em>Router Route</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -16811,25 +17114,108 @@ public interface EsbPackage extends EPackage {
 	EAttribute getRouterRoute_RoutePattern();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.RouterRoute#getTarget <em>Target</em>}'.
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.gmf.esb.RouterTarget <em>Router Target</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Target</em>'.
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RouterRoute#getTarget()
-	 * @see #getRouterRoute()
+	 * @return the meta object for class '<em>Router Target</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RouterTarget
 	 * @generated
 	 */
-	EReference getRouterRoute_Target();
+	EClass getRouterTarget();
 
 	/**
-	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.gmf.esb.RouteTarget <em>Route Target</em>}'.
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.gmf.esb.RouterMediatorInputConnector <em>Router Mediator Input Connector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Route Target</em>'.
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RouteTarget
+	 * @return the meta object for class '<em>Router Mediator Input Connector</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RouterMediatorInputConnector
 	 * @generated
 	 */
-	EClass getRouteTarget();
+	EClass getRouterMediatorInputConnector();
+
+	/**
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.gmf.esb.RouterMediatorOutputConnector <em>Router Mediator Output Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Router Mediator Output Connector</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RouterMediatorOutputConnector
+	 * @generated
+	 */
+	EClass getRouterMediatorOutputConnector();
+
+	/**
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.gmf.esb.RouterMediatorTargetOutputConnector <em>Router Mediator Target Output Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Router Mediator Target Output Connector</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RouterMediatorTargetOutputConnector
+	 * @generated
+	 */
+	EClass getRouterMediatorTargetOutputConnector();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.RouterMediatorTargetOutputConnector#getSoapAction <em>Soap Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Soap Action</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RouterMediatorTargetOutputConnector#getSoapAction()
+	 * @see #getRouterMediatorTargetOutputConnector()
+	 * @generated
+	 */
+	EAttribute getRouterMediatorTargetOutputConnector_SoapAction();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.RouterMediatorTargetOutputConnector#getToAddress <em>To Address</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>To Address</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RouterMediatorTargetOutputConnector#getToAddress()
+	 * @see #getRouterMediatorTargetOutputConnector()
+	 * @generated
+	 */
+	EAttribute getRouterMediatorTargetOutputConnector_ToAddress();
+
+	/**
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.gmf.esb.RouterMediatorContainer <em>Router Mediator Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Router Mediator Container</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RouterMediatorContainer
+	 * @generated
+	 */
+	EClass getRouterMediatorContainer();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.wso2.developerstudio.eclipse.gmf.esb.RouterMediatorContainer#getRouterTargetContainer <em>Router Target Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Router Target Container</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RouterMediatorContainer#getRouterTargetContainer()
+	 * @see #getRouterMediatorContainer()
+	 * @generated
+	 */
+	EReference getRouterMediatorContainer_RouterTargetContainer();
+
+	/**
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.gmf.esb.RouterTargetContainer <em>Router Target Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Router Target Container</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RouterTargetContainer
+	 * @generated
+	 */
+	EClass getRouterTargetContainer();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.RouterTargetContainer#getMediatorFlow <em>Mediator Flow</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Mediator Flow</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RouterTargetContainer#getMediatorFlow()
+	 * @see #getRouterTargetContainer()
+	 * @generated
+	 */
+	EReference getRouterTargetContainer_MediatorFlow();
 
 	/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.gmf.esb.CloneMediator <em>Clone Mediator</em>}'.
@@ -25135,6 +25521,46 @@ public interface EsbPackage extends EPackage {
 		EReference ROUTER_MEDIATOR__ROUTES = eINSTANCE.getRouterMediator_Routes();
 
 		/**
+		 * The meta object literal for the '<em><b>Targets</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ROUTER_MEDIATOR__TARGETS = eINSTANCE.getRouterMediator_Targets();
+
+		/**
+		 * The meta object literal for the '<em><b>Target Output Connector</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ROUTER_MEDIATOR__TARGET_OUTPUT_CONNECTOR = eINSTANCE.getRouterMediator_TargetOutputConnector();
+
+		/**
+		 * The meta object literal for the '<em><b>Input Connector</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ROUTER_MEDIATOR__INPUT_CONNECTOR = eINSTANCE.getRouterMediator_InputConnector();
+
+		/**
+		 * The meta object literal for the '<em><b>Output Connector</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ROUTER_MEDIATOR__OUTPUT_CONNECTOR = eINSTANCE.getRouterMediator_OutputConnector();
+
+		/**
+		 * The meta object literal for the '<em><b>Router Container</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ROUTER_MEDIATOR__ROUTER_CONTAINER = eINSTANCE.getRouterMediator_RouterContainer();
+
+		/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RouterRouteImpl <em>Router Route</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -25169,22 +25595,96 @@ public interface EsbPackage extends EPackage {
 		EAttribute ROUTER_ROUTE__ROUTE_PATTERN = eINSTANCE.getRouterRoute_RoutePattern();
 
 		/**
-		 * The meta object literal for the '<em><b>Target</b></em>' containment reference feature.
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RouterTargetImpl <em>Router Target</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
+		 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.RouterTargetImpl
+		 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRouterTarget()
 		 * @generated
 		 */
-		EReference ROUTER_ROUTE__TARGET = eINSTANCE.getRouterRoute_Target();
+		EClass ROUTER_TARGET = eINSTANCE.getRouterTarget();
 
 		/**
-		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RouteTargetImpl <em>Route Target</em>}' class.
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RouterMediatorInputConnectorImpl <em>Router Mediator Input Connector</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.RouteTargetImpl
-		 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRouteTarget()
+		 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.RouterMediatorInputConnectorImpl
+		 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRouterMediatorInputConnector()
 		 * @generated
 		 */
-		EClass ROUTE_TARGET = eINSTANCE.getRouteTarget();
+		EClass ROUTER_MEDIATOR_INPUT_CONNECTOR = eINSTANCE.getRouterMediatorInputConnector();
+
+		/**
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RouterMediatorOutputConnectorImpl <em>Router Mediator Output Connector</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.RouterMediatorOutputConnectorImpl
+		 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRouterMediatorOutputConnector()
+		 * @generated
+		 */
+		EClass ROUTER_MEDIATOR_OUTPUT_CONNECTOR = eINSTANCE.getRouterMediatorOutputConnector();
+
+		/**
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RouterMediatorTargetOutputConnectorImpl <em>Router Mediator Target Output Connector</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.RouterMediatorTargetOutputConnectorImpl
+		 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRouterMediatorTargetOutputConnector()
+		 * @generated
+		 */
+		EClass ROUTER_MEDIATOR_TARGET_OUTPUT_CONNECTOR = eINSTANCE.getRouterMediatorTargetOutputConnector();
+
+		/**
+		 * The meta object literal for the '<em><b>Soap Action</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ROUTER_MEDIATOR_TARGET_OUTPUT_CONNECTOR__SOAP_ACTION = eINSTANCE.getRouterMediatorTargetOutputConnector_SoapAction();
+
+		/**
+		 * The meta object literal for the '<em><b>To Address</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ROUTER_MEDIATOR_TARGET_OUTPUT_CONNECTOR__TO_ADDRESS = eINSTANCE.getRouterMediatorTargetOutputConnector_ToAddress();
+
+		/**
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RouterMediatorContainerImpl <em>Router Mediator Container</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.RouterMediatorContainerImpl
+		 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRouterMediatorContainer()
+		 * @generated
+		 */
+		EClass ROUTER_MEDIATOR_CONTAINER = eINSTANCE.getRouterMediatorContainer();
+
+		/**
+		 * The meta object literal for the '<em><b>Router Target Container</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ROUTER_MEDIATOR_CONTAINER__ROUTER_TARGET_CONTAINER = eINSTANCE.getRouterMediatorContainer_RouterTargetContainer();
+
+		/**
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RouterTargetContainerImpl <em>Router Target Container</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.RouterTargetContainerImpl
+		 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRouterTargetContainer()
+		 * @generated
+		 */
+		EClass ROUTER_TARGET_CONTAINER = eINSTANCE.getRouterTargetContainer();
+
+		/**
+		 * The meta object literal for the '<em><b>Mediator Flow</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ROUTER_TARGET_CONTAINER__MEDIATOR_FLOW = eINSTANCE.getRouterTargetContainer_MediatorFlow();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CloneMediatorImpl <em>Clone Mediator</em>}' class.

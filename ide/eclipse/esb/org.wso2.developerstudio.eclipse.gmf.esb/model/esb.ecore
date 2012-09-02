@@ -761,15 +761,40 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="continueAfterRouting" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="routes" upperBound="-1"
         eType="#//RouterRoute" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="targets" upperBound="-1"
+        eType="#//RouterTarget" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="targetOutputConnector"
+        upperBound="-1" eType="#//RouterMediatorTargetOutputConnector" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inputConnector" eType="#//RouterMediatorInputConnector"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outputConnector" eType="#//RouterMediatorOutputConnector"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="routerContainer" eType="#//RouterMediatorContainer"
+        containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RouterRoute">
+  <eClassifiers xsi:type="ecore:EClass" name="RouterRoute" eSuperTypes="#//EsbNode">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="breakAfterRoute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="routeExpression" eType="#//NamespacedProperty"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="routePattern" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//RouteTarget"
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RouterTarget" eSuperTypes="#//AbstractCommonTarget"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RouterMediatorInputConnector" eSuperTypes="#//InputConnector"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RouterMediatorOutputConnector" eSuperTypes="#//OutputConnector"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RouterMediatorTargetOutputConnector"
+      eSuperTypes="#//OutputConnector">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="soapAction" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="soapAction"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="toAddress" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="toAddress"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RouterMediatorContainer" eSuperTypes="#//EsbNode">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="routerTargetContainer"
+        upperBound="-1" eType="#//RouterTargetContainer" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RouterTargetContainer" eSuperTypes="#//EsbNode">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mediatorFlow" eType="#//MediatorFlow"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RouteTarget"/>
   <eClassifiers xsi:type="ecore:EClass" name="CloneMediator" eSuperTypes="#//Mediator">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="cloneID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sequentialMediation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
