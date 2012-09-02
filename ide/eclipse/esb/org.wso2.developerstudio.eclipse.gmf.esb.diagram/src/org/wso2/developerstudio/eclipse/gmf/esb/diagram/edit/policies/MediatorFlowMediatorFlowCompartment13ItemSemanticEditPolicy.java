@@ -30,6 +30,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.OAuthMedia
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.PayloadFactoryMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.PropertyMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.RMSequenceMediatorCreateCommand;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.RouterMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.RuleMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.ScriptMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.SendMediatorCreateCommand;
@@ -177,6 +178,9 @@ public class MediatorFlowMediatorFlowCompartment13ItemSemanticEditPolicy extends
 		}
 		if (EsbElementTypes.ValidateMediator_3623 == req.getElementType()) {
 			return getGEFWrapper(new ValidateMediatorCreateCommand(req));
+		}
+		if (EsbElementTypes.RouterMediator_3628 == req.getElementType()) {
+			return getGEFWrapper(new RouterMediatorCreateCommand(req));
 		}
 		if (EsbElementTypes.DefaultEndPoint_3609 == req.getElementType()) {
 			return getGEFWrapper(new DefaultEndPointCreateCommand(req));

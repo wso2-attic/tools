@@ -801,6 +801,41 @@ public class EsbElementTypes {
 	/**
 	 * @generated
 	 */
+	public static final IElementType RouterMediator_3628 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.RouterMediator_3628"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType RouterMediatorInputConnector_3629 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.RouterMediatorInputConnector_3629"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType RouterMediatorOutputConnector_3630 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.RouterMediatorOutputConnector_3630"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType RouterMediatorTargetOutputConnector_3631 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.RouterMediatorTargetOutputConnector_3631"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType RouterMediatorContainer_3632 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.RouterMediatorContainer_3632"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType RouterTargetContainer_3633 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.RouterTargetContainer_3633"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType MediatorFlow_3634 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.MediatorFlow_3634"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
 	public static final IElementType DefaultEndPoint_3609 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.DefaultEndPoint_3609"); //$NON-NLS-1$
 
 	/**
@@ -1559,6 +1594,28 @@ public class EsbElementTypes {
 			elements.put(MediatorFlow_3627,
 					EsbPackage.eINSTANCE.getMediatorFlow());
 
+			elements.put(RouterMediator_3628,
+					EsbPackage.eINSTANCE.getRouterMediator());
+
+			elements.put(RouterMediatorInputConnector_3629,
+					EsbPackage.eINSTANCE.getRouterMediatorInputConnector());
+
+			elements.put(RouterMediatorOutputConnector_3630,
+					EsbPackage.eINSTANCE.getRouterMediatorOutputConnector());
+
+			elements.put(RouterMediatorTargetOutputConnector_3631,
+					EsbPackage.eINSTANCE
+							.getRouterMediatorTargetOutputConnector());
+
+			elements.put(RouterMediatorContainer_3632,
+					EsbPackage.eINSTANCE.getRouterMediatorContainer());
+
+			elements.put(RouterTargetContainer_3633,
+					EsbPackage.eINSTANCE.getRouterTargetContainer());
+
+			elements.put(MediatorFlow_3634,
+					EsbPackage.eINSTANCE.getMediatorFlow());
+
 			elements.put(DefaultEndPoint_3609,
 					EsbPackage.eINSTANCE.getDefaultEndPoint());
 
@@ -1841,6 +1898,13 @@ public class EsbElementTypes {
 			KNOWN_ELEMENT_TYPES.add(ValidateMediatorOutputConnector_3625);
 			KNOWN_ELEMENT_TYPES.add(ValidateMediatorOnFailOutputConnector_3626);
 			KNOWN_ELEMENT_TYPES.add(MediatorFlow_3627);
+			KNOWN_ELEMENT_TYPES.add(RouterMediator_3628);
+			KNOWN_ELEMENT_TYPES.add(RouterMediatorInputConnector_3629);
+			KNOWN_ELEMENT_TYPES.add(RouterMediatorOutputConnector_3630);
+			KNOWN_ELEMENT_TYPES.add(RouterMediatorTargetOutputConnector_3631);
+			KNOWN_ELEMENT_TYPES.add(RouterMediatorContainer_3632);
+			KNOWN_ELEMENT_TYPES.add(RouterTargetContainer_3633);
+			KNOWN_ELEMENT_TYPES.add(MediatorFlow_3634);
 			KNOWN_ELEMENT_TYPES.add(DefaultEndPoint_3609);
 			KNOWN_ELEMENT_TYPES.add(DefaultEndPointInputConnector_3021);
 			KNOWN_ELEMENT_TYPES.add(DefaultEndPointOutputConnector_3022);
@@ -2190,6 +2254,20 @@ public class EsbElementTypes {
 			return ValidateMediatorOnFailOutputConnector_3626;
 		case MediatorFlow14EditPart.VISUAL_ID:
 			return MediatorFlow_3627;
+		case RouterMediatorEditPart.VISUAL_ID:
+			return RouterMediator_3628;
+		case RouterMediatorInputConnectorEditPart.VISUAL_ID:
+			return RouterMediatorInputConnector_3629;
+		case RouterMediatorOutputConnectorEditPart.VISUAL_ID:
+			return RouterMediatorOutputConnector_3630;
+		case RouterMediatorTargetOutputConnectorEditPart.VISUAL_ID:
+			return RouterMediatorTargetOutputConnector_3631;
+		case RouterMediatorContainerEditPart.VISUAL_ID:
+			return RouterMediatorContainer_3632;
+		case RouterTargetContainerEditPart.VISUAL_ID:
+			return RouterTargetContainer_3633;
+		case MediatorFlow15EditPart.VISUAL_ID:
+			return MediatorFlow_3634;
 		case DefaultEndPointEditPart.VISUAL_ID:
 			return DefaultEndPoint_3609;
 		case DefaultEndPointInputConnectorEditPart.VISUAL_ID:

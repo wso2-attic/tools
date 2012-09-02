@@ -33,6 +33,9 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowM
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment3EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment4EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment13EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.RouterMediatorContainerEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.RouterMediatorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.RouterTargetContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SendMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchCaseContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchDefaultContainerEditPart;
@@ -254,7 +257,45 @@ public class MediatorFigureReverser {
 					break;
 				}
 			}
-		}	
+		}
+		
+		
+		
+		if (editorPart instanceof RouterMediatorEditPart) {
+
+			for (int i = 0; (i < ((RouterMediatorEditPart) editorPart).targetOutputConnectors.size()&&(i < (((IFigure) ((DefaultSizeNodeFigure) childFigures
+					.get(0)).getChildren().get(0)).getChildren().size()))); ++i) {
+				BorderItemLocator targetLocator = new FixedBorderItemLocator(
+						(IFigure) ((IFigure) ((DefaultSizeNodeFigure) childFigures.get(0))
+								.getChildren().get(0)).getChildren().get(i),
+						((RouterMediatorEditPart) editorPart).targetOutputConnectors.get(i),
+						PositionConstants.EAST, 0.5);
+				((RouterMediatorEditPart) editorPart)
+						.getBorderedFigure()
+						.getBorderItemContainer()
+						.add(((RouterMediatorEditPart) editorPart).targetOutputConnectors.get(i),
+								targetLocator);
+			}
+
+			for (int j = 0; j < editorPart.getChildren().size(); ++j) {
+				if (editorPart.getChildren().get(j) instanceof RouterMediatorContainerEditPart) {
+
+					List<RouterTargetContainerEditPart> routerTargetContainerEditPartList = ((RouterMediatorContainerEditPart) editorPart
+							.getChildren().get(j)).getChildren();
+					for (int p = 0; p < routerTargetContainerEditPartList.size(); ++p) {
+						childrenCaseContainer
+								.addAll(((EditPart) ((EditPart) ((EditPart) routerTargetContainerEditPartList
+										.get(p)).getChildren().get(0)).getChildren().get(0))
+										.getChildren());
+					}
+
+					children = childrenCaseContainer;
+					break;
+				}
+			}
+		}
+		
+		
 		
 
 		if (children != null) {

@@ -169,7 +169,7 @@ public class ValidateMediatorEditPart extends complexFiguredAbstractMediator {
 		}
 		super.addChildVisual(childEditPart, -1);
 	}
-	
+
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
 		if (editPart instanceof IBorderItemEditPart) {
 			return getBorderedFigure().getBorderItemContainer();
@@ -334,7 +334,6 @@ public class ValidateMediatorEditPart extends complexFiguredAbstractMediator {
 		public WrappingLabel getFigureValidateMediatorPropertyValue() {
 			return fFigureValidateMediatorPropertyValue;
 		}
-		
 
 		public String getIconPath() {
 			return "icons/ico20/aggregate-mediator.gif";

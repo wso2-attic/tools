@@ -555,6 +555,27 @@ public class EsbEditPartFactory implements EditPartFactory {
 			case MediatorFlow14EditPart.VISUAL_ID:
 				return new MediatorFlow14EditPart(view);
 
+			case RouterMediatorEditPart.VISUAL_ID:
+				return new RouterMediatorEditPart(view);
+
+			case RouterMediatorInputConnectorEditPart.VISUAL_ID:
+				return new RouterMediatorInputConnectorEditPart(view);
+
+			case RouterMediatorOutputConnectorEditPart.VISUAL_ID:
+				return new RouterMediatorOutputConnectorEditPart(view);
+
+			case RouterMediatorTargetOutputConnectorEditPart.VISUAL_ID:
+				return new RouterMediatorTargetOutputConnectorEditPart(view);
+
+			case RouterMediatorContainerEditPart.VISUAL_ID:
+				return new RouterMediatorContainerEditPart(view);
+
+			case RouterTargetContainerEditPart.VISUAL_ID:
+				return new RouterTargetContainerEditPart(view);
+
+			case MediatorFlow15EditPart.VISUAL_ID:
+				return new MediatorFlow15EditPart(view);
+
 			case DefaultEndPointEditPart.VISUAL_ID:
 				return new DefaultEndPointEditPart(view);
 
@@ -710,6 +731,9 @@ public class EsbEditPartFactory implements EditPartFactory {
 
 			case MediatorFlowMediatorFlowCompartment14EditPart.VISUAL_ID:
 				return new MediatorFlowMediatorFlowCompartment14EditPart(view);
+
+			case MediatorFlowMediatorFlowCompartment15EditPart.VISUAL_ID:
+				return new MediatorFlowMediatorFlowCompartment15EditPart(view);
 
 			case MediatorFlowMediatorFlowCompartment4EditPart.VISUAL_ID:
 				return new MediatorFlowMediatorFlowCompartment4EditPart(view);

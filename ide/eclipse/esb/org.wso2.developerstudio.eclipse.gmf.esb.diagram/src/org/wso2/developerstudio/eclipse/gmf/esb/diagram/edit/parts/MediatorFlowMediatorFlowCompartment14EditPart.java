@@ -41,7 +41,7 @@ public class MediatorFlowMediatorFlowCompartment14EditPart extends
 		//return Messages.MediatorFlowMediatorFlowCompartment14EditPart_title;
 		return "OnFail";
 	}
-	
+
 	public IFigure createFigure() {
 		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super
 				.createFigure();
@@ -69,7 +69,7 @@ public class MediatorFlowMediatorFlowCompartment14EditPart extends
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
 				new MediatorFlowMediatorFlowCompartment14CanonicalEditPolicy());
 	}
-	
+
 	protected void addChild(EditPart child, int index) {
 		// TODO Auto-generated method stub
 		super.addChild(child, index);
@@ -80,7 +80,7 @@ public class MediatorFlowMediatorFlowCompartment14EditPart extends
 					getEditingDomain());
 		}
 	}
-	
+
 	public boolean isSelectable() {
 		// TODO This or using ResizableEditpolicy?
 		return false;
