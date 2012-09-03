@@ -177,15 +177,17 @@ public class RegistryKeyPropertyItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	
 	@Override
 	public String getText(Object object) {
-		String label = ((RegistryKeyProperty)object).getPrettyName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_RegistryKeyProperty_type") :
-			getString("_UI_RegistryKeyProperty_type") + " " + label;
+		String keyValue = "";
+		RegistryKeyProperty property = (RegistryKeyProperty) object;
+		if (null != property) {
+			keyValue = property.getKeyValue();
+		}
+		return keyValue;
 	}
 
 	/**
