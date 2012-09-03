@@ -969,6 +969,10 @@
     <genClasses ecoreClass="esb.ecore#//HeaderMediatorOutputConnector"/>
     <genClasses ecoreClass="esb.ecore#//ThrottleMediator">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ThrottleMediator/groupId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ThrottleMediator/policyType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ThrottleMediator/policyKey"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ThrottleMediator/maxConcurrentAccessCount"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ThrottleMediator/policyEntries"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ThrottleMediator/policyConfiguration"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ThrottleMediator/onAcceptBranch"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ThrottleMediator/onRejectBranch"/>
@@ -977,6 +981,10 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ThrottleMediator/onAcceptOutputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ThrottleMediator/onRejectOutputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ThrottleMediator/throttleContainer"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ThrottleMediator/OnAcceptBranchsequenceType"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ThrottleMediator/OnAcceptBranchsequenceKey"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ThrottleMediator/OnRejectBranchsequenceType"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ThrottleMediator/OnRejectBranchsequenceKey"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//ThrottleMediatorInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//ThrottleMediatorOutputConnector"/>

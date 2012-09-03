@@ -1110,6 +1110,14 @@
   <eClassifiers xsi:type="ecore:EClass" name="ThrottleMediator" eSuperTypes="#//Mediator">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="groupId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="group_id"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="policyType" eType="#//ThrottlePolicyType"
+        defaultValueLiteral="INLINE"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="policyKey" eType="#//RegistryKeyProperty"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxConcurrentAccessCount"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="policyEntries" upperBound="-1"
+        eType="#//ThrottlePolicyEntry" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="policyConfiguration" eType="#//ThrottlePolicyConfiguration"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="onAcceptBranch" eType="#//ThrottleOnAcceptBranch"
@@ -1126,6 +1134,14 @@
         eType="#//ThrottleMediatorOnRejectOutputConnector" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="throttleContainer" eType="#//ThrottleContainer"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="OnAcceptBranchsequenceType"
+        eType="#//ThrottleSequenceType" defaultValueLiteral="ANONYMOUS"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="OnAcceptBranchsequenceKey"
+        eType="#//RegistryKeyProperty" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="OnRejectBranchsequenceType"
+        eType="#//ThrottleSequenceType" defaultValueLiteral="ANONYMOUS"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="OnRejectBranchsequenceKey"
+        eType="#//RegistryKeyProperty" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ThrottleMediatorInputConnector" eSuperTypes="#//InputConnector"/>
   <eClassifiers xsi:type="ecore:EClass" name="ThrottleMediatorOutputConnector" eSuperTypes="#//OutputConnector"/>

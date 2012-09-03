@@ -8,6 +8,7 @@ import org.eclipse.emf.edit.ui.provider.PropertySource;
 import org.eclipse.ui.views.properties.IPropertyDescriptor;
 import org.wso2.developerstudio.eclipse.esb.core.Activator;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
+import org.wso2.developerstudio.eclipse.gmf.esb.ThrottleMediator;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 
@@ -138,10 +139,30 @@ public class EsbPropertySource extends PropertySource {
 			
 			//Cache Mediator OnHitBranch Sequence Key custom property descriptor.
 		} else if(pkg.getCacheMediator_SequenceKey().equals(feature)){
+			
 			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
+			
 		} else if (pkg.getCommandMediator_Properties().equals(feature)) {
+			
 			return new CommandMediatorPropertyDescriptor(object,itemPropertyDescriptor);
 		} 
+			//Throttle Mediator Policy Entries custom property descriptor.
+		else if(pkg.getThrottleMediator_PolicyEntries().equals(feature)){
+			
+			return new ThrottlePolicyEntryPropertyDescriptor(object, itemPropertyDescriptor);
+			
+		}else if(pkg.getThrottleMediator_PolicyKey().equals(feature)){
+			
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
+			
+		}else if(pkg.getThrottleMediator_OnAcceptBranchsequenceKey().equals(feature)){
+			
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
+			
+		}/*else if(pkg.getThrottleMediator_OnRejectBranchsequenceKey().equals(feature)){
+			
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
+		}*/
 			
 		// Else, default EMF behavior
 		else {

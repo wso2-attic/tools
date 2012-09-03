@@ -7770,13 +7770,49 @@ public interface EsbPackage extends EPackage {
 	int THROTTLE_MEDIATOR__GROUP_ID = MEDIATOR_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Policy Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int THROTTLE_MEDIATOR__POLICY_TYPE = MEDIATOR_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Policy Key</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int THROTTLE_MEDIATOR__POLICY_KEY = MEDIATOR_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Max Concurrent Access Count</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int THROTTLE_MEDIATOR__MAX_CONCURRENT_ACCESS_COUNT = MEDIATOR_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Policy Entries</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int THROTTLE_MEDIATOR__POLICY_ENTRIES = MEDIATOR_FEATURE_COUNT + 4;
+
+	/**
 	 * The feature id for the '<em><b>Policy Configuration</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int THROTTLE_MEDIATOR__POLICY_CONFIGURATION = MEDIATOR_FEATURE_COUNT + 1;
+	int THROTTLE_MEDIATOR__POLICY_CONFIGURATION = MEDIATOR_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>On Accept Branch</b></em>' containment reference.
@@ -7785,7 +7821,7 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int THROTTLE_MEDIATOR__ON_ACCEPT_BRANCH = MEDIATOR_FEATURE_COUNT + 2;
+	int THROTTLE_MEDIATOR__ON_ACCEPT_BRANCH = MEDIATOR_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>On Reject Branch</b></em>' containment reference.
@@ -7794,7 +7830,7 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int THROTTLE_MEDIATOR__ON_REJECT_BRANCH = MEDIATOR_FEATURE_COUNT + 3;
+	int THROTTLE_MEDIATOR__ON_REJECT_BRANCH = MEDIATOR_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Input Connector</b></em>' containment reference.
@@ -7803,7 +7839,7 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int THROTTLE_MEDIATOR__INPUT_CONNECTOR = MEDIATOR_FEATURE_COUNT + 4;
+	int THROTTLE_MEDIATOR__INPUT_CONNECTOR = MEDIATOR_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Output Connector</b></em>' containment reference.
@@ -7812,7 +7848,7 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int THROTTLE_MEDIATOR__OUTPUT_CONNECTOR = MEDIATOR_FEATURE_COUNT + 5;
+	int THROTTLE_MEDIATOR__OUTPUT_CONNECTOR = MEDIATOR_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>On Accept Output Connector</b></em>' containment reference.
@@ -7821,7 +7857,7 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-    int THROTTLE_MEDIATOR__ON_ACCEPT_OUTPUT_CONNECTOR = MEDIATOR_FEATURE_COUNT + 6;
+    int THROTTLE_MEDIATOR__ON_ACCEPT_OUTPUT_CONNECTOR = MEDIATOR_FEATURE_COUNT + 10;
 
     /**
 	 * The feature id for the '<em><b>On Reject Output Connector</b></em>' containment reference.
@@ -7830,7 +7866,7 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-    int THROTTLE_MEDIATOR__ON_REJECT_OUTPUT_CONNECTOR = MEDIATOR_FEATURE_COUNT + 7;
+    int THROTTLE_MEDIATOR__ON_REJECT_OUTPUT_CONNECTOR = MEDIATOR_FEATURE_COUNT + 11;
 
     /**
 	 * The feature id for the '<em><b>Throttle Container</b></em>' containment reference.
@@ -7839,16 +7875,52 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-    int THROTTLE_MEDIATOR__THROTTLE_CONTAINER = MEDIATOR_FEATURE_COUNT + 8;
+    int THROTTLE_MEDIATOR__THROTTLE_CONTAINER = MEDIATOR_FEATURE_COUNT + 12;
 
     /**
+	 * The feature id for the '<em><b>On Accept Branchsequence Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int THROTTLE_MEDIATOR__ON_ACCEPT_BRANCHSEQUENCE_TYPE = MEDIATOR_FEATURE_COUNT + 13;
+
+				/**
+	 * The feature id for the '<em><b>On Accept Branchsequence Key</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int THROTTLE_MEDIATOR__ON_ACCEPT_BRANCHSEQUENCE_KEY = MEDIATOR_FEATURE_COUNT + 14;
+
+				/**
+	 * The feature id for the '<em><b>On Reject Branchsequence Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int THROTTLE_MEDIATOR__ON_REJECT_BRANCHSEQUENCE_TYPE = MEDIATOR_FEATURE_COUNT + 15;
+
+				/**
+	 * The feature id for the '<em><b>On Reject Branchsequence Key</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int THROTTLE_MEDIATOR__ON_REJECT_BRANCHSEQUENCE_KEY = MEDIATOR_FEATURE_COUNT + 16;
+
+				/**
 	 * The number of structural features of the '<em>Throttle Mediator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int THROTTLE_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
+	int THROTTLE_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 17;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ThrottleMediatorInputConnectorImpl <em>Throttle Mediator Input Connector</em>}' class.
@@ -18852,6 +18924,50 @@ public interface EsbPackage extends EPackage {
 	EAttribute getThrottleMediator_GroupId();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.ThrottleMediator#getPolicyType <em>Policy Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Policy Type</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.ThrottleMediator#getPolicyType()
+	 * @see #getThrottleMediator()
+	 * @generated
+	 */
+	EAttribute getThrottleMediator_PolicyType();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.ThrottleMediator#getPolicyKey <em>Policy Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Policy Key</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.ThrottleMediator#getPolicyKey()
+	 * @see #getThrottleMediator()
+	 * @generated
+	 */
+	EReference getThrottleMediator_PolicyKey();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.ThrottleMediator#getMaxConcurrentAccessCount <em>Max Concurrent Access Count</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Max Concurrent Access Count</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.ThrottleMediator#getMaxConcurrentAccessCount()
+	 * @see #getThrottleMediator()
+	 * @generated
+	 */
+	EAttribute getThrottleMediator_MaxConcurrentAccessCount();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.wso2.developerstudio.eclipse.gmf.esb.ThrottleMediator#getPolicyEntries <em>Policy Entries</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Policy Entries</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.ThrottleMediator#getPolicyEntries()
+	 * @see #getThrottleMediator()
+	 * @generated
+	 */
+	EReference getThrottleMediator_PolicyEntries();
+
+	/**
 	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.ThrottleMediator#getPolicyConfiguration <em>Policy Configuration</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -18940,6 +19056,50 @@ public interface EsbPackage extends EPackage {
     EReference getThrottleMediator_ThrottleContainer();
 
     /**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.ThrottleMediator#getOnAcceptBranchsequenceType <em>On Accept Branchsequence Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>On Accept Branchsequence Type</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.ThrottleMediator#getOnAcceptBranchsequenceType()
+	 * @see #getThrottleMediator()
+	 * @generated
+	 */
+	EAttribute getThrottleMediator_OnAcceptBranchsequenceType();
+
+				/**
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.ThrottleMediator#getOnAcceptBranchsequenceKey <em>On Accept Branchsequence Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>On Accept Branchsequence Key</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.ThrottleMediator#getOnAcceptBranchsequenceKey()
+	 * @see #getThrottleMediator()
+	 * @generated
+	 */
+	EReference getThrottleMediator_OnAcceptBranchsequenceKey();
+
+				/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.ThrottleMediator#getOnRejectBranchsequenceType <em>On Reject Branchsequence Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>On Reject Branchsequence Type</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.ThrottleMediator#getOnRejectBranchsequenceType()
+	 * @see #getThrottleMediator()
+	 * @generated
+	 */
+	EAttribute getThrottleMediator_OnRejectBranchsequenceType();
+
+				/**
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.ThrottleMediator#getOnRejectBranchsequenceKey <em>On Reject Branchsequence Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>On Reject Branchsequence Key</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.ThrottleMediator#getOnRejectBranchsequenceKey()
+	 * @see #getThrottleMediator()
+	 * @generated
+	 */
+	EReference getThrottleMediator_OnRejectBranchsequenceKey();
+
+				/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.gmf.esb.ThrottleMediatorInputConnector <em>Throttle Mediator Input Connector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -27134,6 +27294,38 @@ public interface EsbPackage extends EPackage {
 		EAttribute THROTTLE_MEDIATOR__GROUP_ID = eINSTANCE.getThrottleMediator_GroupId();
 
 		/**
+		 * The meta object literal for the '<em><b>Policy Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute THROTTLE_MEDIATOR__POLICY_TYPE = eINSTANCE.getThrottleMediator_PolicyType();
+
+		/**
+		 * The meta object literal for the '<em><b>Policy Key</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference THROTTLE_MEDIATOR__POLICY_KEY = eINSTANCE.getThrottleMediator_PolicyKey();
+
+		/**
+		 * The meta object literal for the '<em><b>Max Concurrent Access Count</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute THROTTLE_MEDIATOR__MAX_CONCURRENT_ACCESS_COUNT = eINSTANCE.getThrottleMediator_MaxConcurrentAccessCount();
+
+		/**
+		 * The meta object literal for the '<em><b>Policy Entries</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference THROTTLE_MEDIATOR__POLICY_ENTRIES = eINSTANCE.getThrottleMediator_PolicyEntries();
+
+		/**
 		 * The meta object literal for the '<em><b>Policy Configuration</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -27198,6 +27390,38 @@ public interface EsbPackage extends EPackage {
         EReference THROTTLE_MEDIATOR__THROTTLE_CONTAINER = eINSTANCE.getThrottleMediator_ThrottleContainer();
 
         /**
+		 * The meta object literal for the '<em><b>On Accept Branchsequence Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute THROTTLE_MEDIATOR__ON_ACCEPT_BRANCHSEQUENCE_TYPE = eINSTANCE.getThrottleMediator_OnAcceptBranchsequenceType();
+
+								/**
+		 * The meta object literal for the '<em><b>On Accept Branchsequence Key</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference THROTTLE_MEDIATOR__ON_ACCEPT_BRANCHSEQUENCE_KEY = eINSTANCE.getThrottleMediator_OnAcceptBranchsequenceKey();
+
+								/**
+		 * The meta object literal for the '<em><b>On Reject Branchsequence Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute THROTTLE_MEDIATOR__ON_REJECT_BRANCHSEQUENCE_TYPE = eINSTANCE.getThrottleMediator_OnRejectBranchsequenceType();
+
+								/**
+		 * The meta object literal for the '<em><b>On Reject Branchsequence Key</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference THROTTLE_MEDIATOR__ON_REJECT_BRANCHSEQUENCE_KEY = eINSTANCE.getThrottleMediator_OnRejectBranchsequenceKey();
+
+								/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ThrottleMediatorInputConnectorImpl <em>Throttle Mediator Input Connector</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->

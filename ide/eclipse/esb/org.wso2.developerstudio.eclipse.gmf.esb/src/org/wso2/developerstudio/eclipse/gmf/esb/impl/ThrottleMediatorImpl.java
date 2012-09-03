@@ -6,15 +6,20 @@
  */
 package org.wso2.developerstudio.eclipse.gmf.esb.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
+import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.ThrottleContainer;
 import org.wso2.developerstudio.eclipse.gmf.esb.ThrottleMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.ThrottleMediatorInputConnector;
@@ -24,6 +29,9 @@ import org.wso2.developerstudio.eclipse.gmf.esb.ThrottleMediatorOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.ThrottleOnAcceptBranch;
 import org.wso2.developerstudio.eclipse.gmf.esb.ThrottleOnRejectBranch;
 import org.wso2.developerstudio.eclipse.gmf.esb.ThrottlePolicyConfiguration;
+import org.wso2.developerstudio.eclipse.gmf.esb.ThrottlePolicyEntry;
+import org.wso2.developerstudio.eclipse.gmf.esb.ThrottlePolicyType;
+import org.wso2.developerstudio.eclipse.gmf.esb.ThrottleSequenceType;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,6 +41,10 @@ import org.wso2.developerstudio.eclipse.gmf.esb.ThrottlePolicyConfiguration;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ThrottleMediatorImpl#getGroupId <em>Group Id</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ThrottleMediatorImpl#getPolicyType <em>Policy Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ThrottleMediatorImpl#getPolicyKey <em>Policy Key</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ThrottleMediatorImpl#getMaxConcurrentAccessCount <em>Max Concurrent Access Count</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ThrottleMediatorImpl#getPolicyEntries <em>Policy Entries</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ThrottleMediatorImpl#getPolicyConfiguration <em>Policy Configuration</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ThrottleMediatorImpl#getOnAcceptBranch <em>On Accept Branch</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ThrottleMediatorImpl#getOnRejectBranch <em>On Reject Branch</em>}</li>
@@ -41,6 +53,10 @@ import org.wso2.developerstudio.eclipse.gmf.esb.ThrottlePolicyConfiguration;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ThrottleMediatorImpl#getOnAcceptOutputConnector <em>On Accept Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ThrottleMediatorImpl#getOnRejectOutputConnector <em>On Reject Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ThrottleMediatorImpl#getThrottleContainer <em>Throttle Container</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ThrottleMediatorImpl#getOnAcceptBranchsequenceType <em>On Accept Branchsequence Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ThrottleMediatorImpl#getOnAcceptBranchsequenceKey <em>On Accept Branchsequence Key</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ThrottleMediatorImpl#getOnRejectBranchsequenceType <em>On Reject Branchsequence Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ThrottleMediatorImpl#getOnRejectBranchsequenceKey <em>On Reject Branchsequence Key</em>}</li>
  * </ul>
  * </p>
  *
@@ -66,6 +82,66 @@ public class ThrottleMediatorImpl extends MediatorImpl implements ThrottleMediat
 	 * @ordered
 	 */
 	protected String groupId = GROUP_ID_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getPolicyType() <em>Policy Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPolicyType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final ThrottlePolicyType POLICY_TYPE_EDEFAULT = ThrottlePolicyType.INLINE;
+
+	/**
+	 * The cached value of the '{@link #getPolicyType() <em>Policy Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPolicyType()
+	 * @generated
+	 * @ordered
+	 */
+	protected ThrottlePolicyType policyType = POLICY_TYPE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getPolicyKey() <em>Policy Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPolicyKey()
+	 * @generated
+	 * @ordered
+	 */
+	protected RegistryKeyProperty policyKey;
+
+	/**
+	 * The default value of the '{@link #getMaxConcurrentAccessCount() <em>Max Concurrent Access Count</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMaxConcurrentAccessCount()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int MAX_CONCURRENT_ACCESS_COUNT_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getMaxConcurrentAccessCount() <em>Max Concurrent Access Count</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMaxConcurrentAccessCount()
+	 * @generated
+	 * @ordered
+	 */
+	protected int maxConcurrentAccessCount = MAX_CONCURRENT_ACCESS_COUNT_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getPolicyEntries() <em>Policy Entries</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPolicyEntries()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ThrottlePolicyEntry> policyEntries;
 
 	/**
 	 * The cached value of the '{@link #getPolicyConfiguration() <em>Policy Configuration</em>}' containment reference.
@@ -148,6 +224,66 @@ public class ThrottleMediatorImpl extends MediatorImpl implements ThrottleMediat
     protected ThrottleContainer throttleContainer;
 
     /**
+	 * The default value of the '{@link #getOnAcceptBranchsequenceType() <em>On Accept Branchsequence Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOnAcceptBranchsequenceType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final ThrottleSequenceType ON_ACCEPT_BRANCHSEQUENCE_TYPE_EDEFAULT = ThrottleSequenceType.ANONYMOUS;
+
+				/**
+	 * The cached value of the '{@link #getOnAcceptBranchsequenceType() <em>On Accept Branchsequence Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOnAcceptBranchsequenceType()
+	 * @generated
+	 * @ordered
+	 */
+	protected ThrottleSequenceType onAcceptBranchsequenceType = ON_ACCEPT_BRANCHSEQUENCE_TYPE_EDEFAULT;
+
+				/**
+	 * The cached value of the '{@link #getOnAcceptBranchsequenceKey() <em>On Accept Branchsequence Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOnAcceptBranchsequenceKey()
+	 * @generated
+	 * @ordered
+	 */
+	protected RegistryKeyProperty onAcceptBranchsequenceKey;
+
+				/**
+	 * The default value of the '{@link #getOnRejectBranchsequenceType() <em>On Reject Branchsequence Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOnRejectBranchsequenceType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final ThrottleSequenceType ON_REJECT_BRANCHSEQUENCE_TYPE_EDEFAULT = ThrottleSequenceType.ANONYMOUS;
+
+				/**
+	 * The cached value of the '{@link #getOnRejectBranchsequenceType() <em>On Reject Branchsequence Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOnRejectBranchsequenceType()
+	 * @generated
+	 * @ordered
+	 */
+	protected ThrottleSequenceType onRejectBranchsequenceType = ON_REJECT_BRANCHSEQUENCE_TYPE_EDEFAULT;
+
+				/**
+	 * The cached value of the '{@link #getOnRejectBranchsequenceKey() <em>On Reject Branchsequence Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOnRejectBranchsequenceKey()
+	 * @generated
+	 * @ordered
+	 */
+	protected RegistryKeyProperty onRejectBranchsequenceKey;
+
+				/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -186,6 +322,103 @@ public class ThrottleMediatorImpl extends MediatorImpl implements ThrottleMediat
 		groupId = newGroupId;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.THROTTLE_MEDIATOR__GROUP_ID, oldGroupId, groupId));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ThrottlePolicyType getPolicyType() {
+		return policyType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPolicyType(ThrottlePolicyType newPolicyType) {
+		ThrottlePolicyType oldPolicyType = policyType;
+		policyType = newPolicyType == null ? POLICY_TYPE_EDEFAULT : newPolicyType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.THROTTLE_MEDIATOR__POLICY_TYPE, oldPolicyType, policyType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RegistryKeyProperty getPolicyKey() {
+		return policyKey;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPolicyKey(RegistryKeyProperty newPolicyKey, NotificationChain msgs) {
+		RegistryKeyProperty oldPolicyKey = policyKey;
+		policyKey = newPolicyKey;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.THROTTLE_MEDIATOR__POLICY_KEY, oldPolicyKey, newPolicyKey);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPolicyKey(RegistryKeyProperty newPolicyKey) {
+		if (newPolicyKey != policyKey) {
+			NotificationChain msgs = null;
+			if (policyKey != null)
+				msgs = ((InternalEObject)policyKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.THROTTLE_MEDIATOR__POLICY_KEY, null, msgs);
+			if (newPolicyKey != null)
+				msgs = ((InternalEObject)newPolicyKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.THROTTLE_MEDIATOR__POLICY_KEY, null, msgs);
+			msgs = basicSetPolicyKey(newPolicyKey, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.THROTTLE_MEDIATOR__POLICY_KEY, newPolicyKey, newPolicyKey));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getMaxConcurrentAccessCount() {
+		return maxConcurrentAccessCount;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMaxConcurrentAccessCount(int newMaxConcurrentAccessCount) {
+		int oldMaxConcurrentAccessCount = maxConcurrentAccessCount;
+		maxConcurrentAccessCount = newMaxConcurrentAccessCount;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.THROTTLE_MEDIATOR__MAX_CONCURRENT_ACCESS_COUNT, oldMaxConcurrentAccessCount, maxConcurrentAccessCount));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ThrottlePolicyEntry> getPolicyEntries() {
+		if (policyEntries == null) {
+			policyEntries = new EObjectContainmentEList<ThrottlePolicyEntry>(ThrottlePolicyEntry.class, this, EsbPackage.THROTTLE_MEDIATOR__POLICY_ENTRIES);
+		}
+		return policyEntries;
 	}
 
 	/**
@@ -537,10 +770,142 @@ public class ThrottleMediatorImpl extends MediatorImpl implements ThrottleMediat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ThrottleSequenceType getOnAcceptBranchsequenceType() {
+		return onAcceptBranchsequenceType;
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOnAcceptBranchsequenceType(ThrottleSequenceType newOnAcceptBranchsequenceType) {
+		ThrottleSequenceType oldOnAcceptBranchsequenceType = onAcceptBranchsequenceType;
+		onAcceptBranchsequenceType = newOnAcceptBranchsequenceType == null ? ON_ACCEPT_BRANCHSEQUENCE_TYPE_EDEFAULT : newOnAcceptBranchsequenceType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.THROTTLE_MEDIATOR__ON_ACCEPT_BRANCHSEQUENCE_TYPE, oldOnAcceptBranchsequenceType, onAcceptBranchsequenceType));
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RegistryKeyProperty getOnAcceptBranchsequenceKey() {
+		return onAcceptBranchsequenceKey;
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetOnAcceptBranchsequenceKey(RegistryKeyProperty newOnAcceptBranchsequenceKey, NotificationChain msgs) {
+		RegistryKeyProperty oldOnAcceptBranchsequenceKey = onAcceptBranchsequenceKey;
+		onAcceptBranchsequenceKey = newOnAcceptBranchsequenceKey;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.THROTTLE_MEDIATOR__ON_ACCEPT_BRANCHSEQUENCE_KEY, oldOnAcceptBranchsequenceKey, newOnAcceptBranchsequenceKey);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOnAcceptBranchsequenceKey(RegistryKeyProperty newOnAcceptBranchsequenceKey) {
+		if (newOnAcceptBranchsequenceKey != onAcceptBranchsequenceKey) {
+			NotificationChain msgs = null;
+			if (onAcceptBranchsequenceKey != null)
+				msgs = ((InternalEObject)onAcceptBranchsequenceKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.THROTTLE_MEDIATOR__ON_ACCEPT_BRANCHSEQUENCE_KEY, null, msgs);
+			if (newOnAcceptBranchsequenceKey != null)
+				msgs = ((InternalEObject)newOnAcceptBranchsequenceKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.THROTTLE_MEDIATOR__ON_ACCEPT_BRANCHSEQUENCE_KEY, null, msgs);
+			msgs = basicSetOnAcceptBranchsequenceKey(newOnAcceptBranchsequenceKey, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.THROTTLE_MEDIATOR__ON_ACCEPT_BRANCHSEQUENCE_KEY, newOnAcceptBranchsequenceKey, newOnAcceptBranchsequenceKey));
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ThrottleSequenceType getOnRejectBranchsequenceType() {
+		return onRejectBranchsequenceType;
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOnRejectBranchsequenceType(ThrottleSequenceType newOnRejectBranchsequenceType) {
+		ThrottleSequenceType oldOnRejectBranchsequenceType = onRejectBranchsequenceType;
+		onRejectBranchsequenceType = newOnRejectBranchsequenceType == null ? ON_REJECT_BRANCHSEQUENCE_TYPE_EDEFAULT : newOnRejectBranchsequenceType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.THROTTLE_MEDIATOR__ON_REJECT_BRANCHSEQUENCE_TYPE, oldOnRejectBranchsequenceType, onRejectBranchsequenceType));
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RegistryKeyProperty getOnRejectBranchsequenceKey() {
+		return onRejectBranchsequenceKey;
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetOnRejectBranchsequenceKey(RegistryKeyProperty newOnRejectBranchsequenceKey, NotificationChain msgs) {
+		RegistryKeyProperty oldOnRejectBranchsequenceKey = onRejectBranchsequenceKey;
+		onRejectBranchsequenceKey = newOnRejectBranchsequenceKey;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.THROTTLE_MEDIATOR__ON_REJECT_BRANCHSEQUENCE_KEY, oldOnRejectBranchsequenceKey, newOnRejectBranchsequenceKey);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOnRejectBranchsequenceKey(RegistryKeyProperty newOnRejectBranchsequenceKey) {
+		if (newOnRejectBranchsequenceKey != onRejectBranchsequenceKey) {
+			NotificationChain msgs = null;
+			if (onRejectBranchsequenceKey != null)
+				msgs = ((InternalEObject)onRejectBranchsequenceKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.THROTTLE_MEDIATOR__ON_REJECT_BRANCHSEQUENCE_KEY, null, msgs);
+			if (newOnRejectBranchsequenceKey != null)
+				msgs = ((InternalEObject)newOnRejectBranchsequenceKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.THROTTLE_MEDIATOR__ON_REJECT_BRANCHSEQUENCE_KEY, null, msgs);
+			msgs = basicSetOnRejectBranchsequenceKey(newOnRejectBranchsequenceKey, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.THROTTLE_MEDIATOR__ON_REJECT_BRANCHSEQUENCE_KEY, newOnRejectBranchsequenceKey, newOnRejectBranchsequenceKey));
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case EsbPackage.THROTTLE_MEDIATOR__POLICY_KEY:
+				return basicSetPolicyKey(null, msgs);
+			case EsbPackage.THROTTLE_MEDIATOR__POLICY_ENTRIES:
+				return ((InternalEList<?>)getPolicyEntries()).basicRemove(otherEnd, msgs);
 			case EsbPackage.THROTTLE_MEDIATOR__POLICY_CONFIGURATION:
 				return basicSetPolicyConfiguration(null, msgs);
 			case EsbPackage.THROTTLE_MEDIATOR__ON_ACCEPT_BRANCH:
@@ -557,6 +922,10 @@ public class ThrottleMediatorImpl extends MediatorImpl implements ThrottleMediat
 				return basicSetOnRejectOutputConnector(null, msgs);
 			case EsbPackage.THROTTLE_MEDIATOR__THROTTLE_CONTAINER:
 				return basicSetThrottleContainer(null, msgs);
+			case EsbPackage.THROTTLE_MEDIATOR__ON_ACCEPT_BRANCHSEQUENCE_KEY:
+				return basicSetOnAcceptBranchsequenceKey(null, msgs);
+			case EsbPackage.THROTTLE_MEDIATOR__ON_REJECT_BRANCHSEQUENCE_KEY:
+				return basicSetOnRejectBranchsequenceKey(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -572,6 +941,14 @@ public class ThrottleMediatorImpl extends MediatorImpl implements ThrottleMediat
 		switch (featureID) {
 			case EsbPackage.THROTTLE_MEDIATOR__GROUP_ID:
 				return getGroupId();
+			case EsbPackage.THROTTLE_MEDIATOR__POLICY_TYPE:
+				return getPolicyType();
+			case EsbPackage.THROTTLE_MEDIATOR__POLICY_KEY:
+				return getPolicyKey();
+			case EsbPackage.THROTTLE_MEDIATOR__MAX_CONCURRENT_ACCESS_COUNT:
+				return getMaxConcurrentAccessCount();
+			case EsbPackage.THROTTLE_MEDIATOR__POLICY_ENTRIES:
+				return getPolicyEntries();
 			case EsbPackage.THROTTLE_MEDIATOR__POLICY_CONFIGURATION:
 				return getPolicyConfiguration();
 			case EsbPackage.THROTTLE_MEDIATOR__ON_ACCEPT_BRANCH:
@@ -588,6 +965,14 @@ public class ThrottleMediatorImpl extends MediatorImpl implements ThrottleMediat
 				return getOnRejectOutputConnector();
 			case EsbPackage.THROTTLE_MEDIATOR__THROTTLE_CONTAINER:
 				return getThrottleContainer();
+			case EsbPackage.THROTTLE_MEDIATOR__ON_ACCEPT_BRANCHSEQUENCE_TYPE:
+				return getOnAcceptBranchsequenceType();
+			case EsbPackage.THROTTLE_MEDIATOR__ON_ACCEPT_BRANCHSEQUENCE_KEY:
+				return getOnAcceptBranchsequenceKey();
+			case EsbPackage.THROTTLE_MEDIATOR__ON_REJECT_BRANCHSEQUENCE_TYPE:
+				return getOnRejectBranchsequenceType();
+			case EsbPackage.THROTTLE_MEDIATOR__ON_REJECT_BRANCHSEQUENCE_KEY:
+				return getOnRejectBranchsequenceKey();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -598,11 +983,25 @@ public class ThrottleMediatorImpl extends MediatorImpl implements ThrottleMediat
 	 * @generated
 	 */
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case EsbPackage.THROTTLE_MEDIATOR__GROUP_ID:
 				setGroupId((String)newValue);
+				return;
+			case EsbPackage.THROTTLE_MEDIATOR__POLICY_TYPE:
+				setPolicyType((ThrottlePolicyType)newValue);
+				return;
+			case EsbPackage.THROTTLE_MEDIATOR__POLICY_KEY:
+				setPolicyKey((RegistryKeyProperty)newValue);
+				return;
+			case EsbPackage.THROTTLE_MEDIATOR__MAX_CONCURRENT_ACCESS_COUNT:
+				setMaxConcurrentAccessCount((Integer)newValue);
+				return;
+			case EsbPackage.THROTTLE_MEDIATOR__POLICY_ENTRIES:
+				getPolicyEntries().clear();
+				getPolicyEntries().addAll((Collection<? extends ThrottlePolicyEntry>)newValue);
 				return;
 			case EsbPackage.THROTTLE_MEDIATOR__POLICY_CONFIGURATION:
 				setPolicyConfiguration((ThrottlePolicyConfiguration)newValue);
@@ -628,6 +1027,18 @@ public class ThrottleMediatorImpl extends MediatorImpl implements ThrottleMediat
 			case EsbPackage.THROTTLE_MEDIATOR__THROTTLE_CONTAINER:
 				setThrottleContainer((ThrottleContainer)newValue);
 				return;
+			case EsbPackage.THROTTLE_MEDIATOR__ON_ACCEPT_BRANCHSEQUENCE_TYPE:
+				setOnAcceptBranchsequenceType((ThrottleSequenceType)newValue);
+				return;
+			case EsbPackage.THROTTLE_MEDIATOR__ON_ACCEPT_BRANCHSEQUENCE_KEY:
+				setOnAcceptBranchsequenceKey((RegistryKeyProperty)newValue);
+				return;
+			case EsbPackage.THROTTLE_MEDIATOR__ON_REJECT_BRANCHSEQUENCE_TYPE:
+				setOnRejectBranchsequenceType((ThrottleSequenceType)newValue);
+				return;
+			case EsbPackage.THROTTLE_MEDIATOR__ON_REJECT_BRANCHSEQUENCE_KEY:
+				setOnRejectBranchsequenceKey((RegistryKeyProperty)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -643,6 +1054,18 @@ public class ThrottleMediatorImpl extends MediatorImpl implements ThrottleMediat
 		switch (featureID) {
 			case EsbPackage.THROTTLE_MEDIATOR__GROUP_ID:
 				setGroupId(GROUP_ID_EDEFAULT);
+				return;
+			case EsbPackage.THROTTLE_MEDIATOR__POLICY_TYPE:
+				setPolicyType(POLICY_TYPE_EDEFAULT);
+				return;
+			case EsbPackage.THROTTLE_MEDIATOR__POLICY_KEY:
+				setPolicyKey((RegistryKeyProperty)null);
+				return;
+			case EsbPackage.THROTTLE_MEDIATOR__MAX_CONCURRENT_ACCESS_COUNT:
+				setMaxConcurrentAccessCount(MAX_CONCURRENT_ACCESS_COUNT_EDEFAULT);
+				return;
+			case EsbPackage.THROTTLE_MEDIATOR__POLICY_ENTRIES:
+				getPolicyEntries().clear();
 				return;
 			case EsbPackage.THROTTLE_MEDIATOR__POLICY_CONFIGURATION:
 				setPolicyConfiguration((ThrottlePolicyConfiguration)null);
@@ -668,6 +1091,18 @@ public class ThrottleMediatorImpl extends MediatorImpl implements ThrottleMediat
 			case EsbPackage.THROTTLE_MEDIATOR__THROTTLE_CONTAINER:
 				setThrottleContainer((ThrottleContainer)null);
 				return;
+			case EsbPackage.THROTTLE_MEDIATOR__ON_ACCEPT_BRANCHSEQUENCE_TYPE:
+				setOnAcceptBranchsequenceType(ON_ACCEPT_BRANCHSEQUENCE_TYPE_EDEFAULT);
+				return;
+			case EsbPackage.THROTTLE_MEDIATOR__ON_ACCEPT_BRANCHSEQUENCE_KEY:
+				setOnAcceptBranchsequenceKey((RegistryKeyProperty)null);
+				return;
+			case EsbPackage.THROTTLE_MEDIATOR__ON_REJECT_BRANCHSEQUENCE_TYPE:
+				setOnRejectBranchsequenceType(ON_REJECT_BRANCHSEQUENCE_TYPE_EDEFAULT);
+				return;
+			case EsbPackage.THROTTLE_MEDIATOR__ON_REJECT_BRANCHSEQUENCE_KEY:
+				setOnRejectBranchsequenceKey((RegistryKeyProperty)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -683,6 +1118,14 @@ public class ThrottleMediatorImpl extends MediatorImpl implements ThrottleMediat
 		switch (featureID) {
 			case EsbPackage.THROTTLE_MEDIATOR__GROUP_ID:
 				return GROUP_ID_EDEFAULT == null ? groupId != null : !GROUP_ID_EDEFAULT.equals(groupId);
+			case EsbPackage.THROTTLE_MEDIATOR__POLICY_TYPE:
+				return policyType != POLICY_TYPE_EDEFAULT;
+			case EsbPackage.THROTTLE_MEDIATOR__POLICY_KEY:
+				return policyKey != null;
+			case EsbPackage.THROTTLE_MEDIATOR__MAX_CONCURRENT_ACCESS_COUNT:
+				return maxConcurrentAccessCount != MAX_CONCURRENT_ACCESS_COUNT_EDEFAULT;
+			case EsbPackage.THROTTLE_MEDIATOR__POLICY_ENTRIES:
+				return policyEntries != null && !policyEntries.isEmpty();
 			case EsbPackage.THROTTLE_MEDIATOR__POLICY_CONFIGURATION:
 				return policyConfiguration != null;
 			case EsbPackage.THROTTLE_MEDIATOR__ON_ACCEPT_BRANCH:
@@ -699,6 +1142,14 @@ public class ThrottleMediatorImpl extends MediatorImpl implements ThrottleMediat
 				return onRejectOutputConnector != null;
 			case EsbPackage.THROTTLE_MEDIATOR__THROTTLE_CONTAINER:
 				return throttleContainer != null;
+			case EsbPackage.THROTTLE_MEDIATOR__ON_ACCEPT_BRANCHSEQUENCE_TYPE:
+				return onAcceptBranchsequenceType != ON_ACCEPT_BRANCHSEQUENCE_TYPE_EDEFAULT;
+			case EsbPackage.THROTTLE_MEDIATOR__ON_ACCEPT_BRANCHSEQUENCE_KEY:
+				return onAcceptBranchsequenceKey != null;
+			case EsbPackage.THROTTLE_MEDIATOR__ON_REJECT_BRANCHSEQUENCE_TYPE:
+				return onRejectBranchsequenceType != ON_REJECT_BRANCHSEQUENCE_TYPE_EDEFAULT;
+			case EsbPackage.THROTTLE_MEDIATOR__ON_REJECT_BRANCHSEQUENCE_KEY:
+				return onRejectBranchsequenceKey != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -716,6 +1167,14 @@ public class ThrottleMediatorImpl extends MediatorImpl implements ThrottleMediat
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (groupId: ");
 		result.append(groupId);
+		result.append(", policyType: ");
+		result.append(policyType);
+		result.append(", maxConcurrentAccessCount: ");
+		result.append(maxConcurrentAccessCount);
+		result.append(", OnAcceptBranchsequenceType: ");
+		result.append(onAcceptBranchsequenceType);
+		result.append(", OnRejectBranchsequenceType: ");
+		result.append(onRejectBranchsequenceType);
 		result.append(')');
 		return result.toString();
 	}

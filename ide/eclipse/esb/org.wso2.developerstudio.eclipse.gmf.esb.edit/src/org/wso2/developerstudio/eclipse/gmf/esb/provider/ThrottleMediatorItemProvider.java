@@ -28,6 +28,8 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.ThrottleMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.ThrottlePolicyType;
+import org.wso2.developerstudio.eclipse.gmf.esb.ThrottleSequenceType;
 
 /**
  * This is the item provider adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.ThrottleMediator} object.
@@ -61,15 +63,37 @@ public class ThrottleMediatorItemProvider
 	 */
 	
 	
+	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+		ThrottleMediator mediator = (ThrottleMediator)object;
 		if (itemPropertyDescriptors != null) {
 			itemPropertyDescriptors.clear();
 		}
-			super.getPropertyDescriptors(object);
-
-			addGroupIdPropertyDescriptor(object);
-			addPolicyTypePropertyDescriptor(object);
+		
+		super.getPropertyDescriptors(object);
+		
+		addGroupIdPropertyDescriptor(object);
+		addPolicyTypePropertyDescriptor(object);
+		addOnAcceptBranchsequenceTypePropertyDescriptor(object);
+		addOnRejectBranchsequenceTypePropertyDescriptor(object);
+		
+		if (mediator.getPolicyType().equals(ThrottlePolicyType.INLINE)) {
 			addMaxConcurrentAccessCountPropertyDescriptor(object);
+			addPolicyEntriesPropertyDescriptor(object);
+		} else {
+			addPolicyKeyPropertyDescriptor(object);
+		}
+		
+		if(mediator.getOnAcceptBranchsequenceType().equals(ThrottleSequenceType.REGISTRY_REFERENCE)){
+			
+			addOnAcceptBranchsequenceKeyPropertyDescriptor(object);
+		}
+		
+		if(mediator.getOnRejectBranchsequenceType().equals(ThrottleSequenceType.REGISTRY_REFERENCE)){
+			
+			addOnRejectBranchsequenceKeyPropertyDescriptor(object);
+		}
+
 		return itemPropertyDescriptors;
 	}
 
@@ -77,7 +101,7 @@ public class ThrottleMediatorItemProvider
 	 * This adds a property descriptor for the Group Id feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addGroupIdPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
@@ -91,34 +115,47 @@ public class ThrottleMediatorItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 "General",
 				 null));
 	}
 	
+	
+	/**
+	 * This adds a property descriptor for the Policy Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
 	protected void addPolicyTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ThrottlePolicyConfiguration_policyType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ThrottlePolicyConfiguration_policyType_feature", "_UI_ThrottlePolicyConfiguration_type"),
-				 EsbPackage.Literals.THROTTLE_POLICY_CONFIGURATION__POLICY_TYPE,
+				 getString("_UI_ThrottleMediator_policyType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ThrottleMediator_policyType_feature", "_UI_ThrottleMediator_type"),
+				 EsbPackage.Literals.THROTTLE_MEDIATOR__POLICY_TYPE,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 "Throttle Policy",
 				 null));
 	}
-	
+
+	/**
+	 * This adds a property descriptor for the Max Concurrent Access Count feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
 	protected void addMaxConcurrentAccessCountPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ThrottlePolicyConfiguration_maxConcurrentAccessCount_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ThrottlePolicyConfiguration_maxConcurrentAccessCount_feature", "_UI_ThrottlePolicyConfiguration_type"),
-				 EsbPackage.Literals.THROTTLE_POLICY_CONFIGURATION__MAX_CONCURRENT_ACCESS_COUNT,
+				 getString("_UI_ThrottleMediator_maxConcurrentAccessCount_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ThrottleMediator_maxConcurrentAccessCount_feature", "_UI_ThrottleMediator_type"),
+				 EsbPackage.Literals.THROTTLE_MEDIATOR__MAX_CONCURRENT_ACCESS_COUNT,
 				 true,
 				 false,
 				 false,
@@ -126,6 +163,133 @@ public class ThrottleMediatorItemProvider
 				 null,
 				 null));
 	}
+	
+	/**
+	 * This adds a property descriptor for the Policy Entries feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addPolicyEntriesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ThrottleMediator_policyEntries_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ThrottleMediator_policyEntries_feature", "_UI_ThrottleMediator_type"),
+				 EsbPackage.Literals.THROTTLE_MEDIATOR__POLICY_ENTRIES,
+				 true,
+				 false,
+				 false,
+				 null,
+				 "Throttle Policy",
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the On Accept Branchsequence Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addOnAcceptBranchsequenceTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ThrottleMediator_OnAcceptBranchsequenceType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ThrottleMediator_OnAcceptBranchsequenceType_feature", "_UI_ThrottleMediator_type"),
+				 EsbPackage.Literals.THROTTLE_MEDIATOR__ON_ACCEPT_BRANCHSEQUENCE_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 "On Acceptance",
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the On Accept Branchsequence Key feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addOnAcceptBranchsequenceKeyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ThrottleMediator_OnAcceptBranchsequenceKey_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ThrottleMediator_OnAcceptBranchsequenceKey_feature", "_UI_ThrottleMediator_type"),
+				 EsbPackage.Literals.THROTTLE_MEDIATOR__ON_ACCEPT_BRANCHSEQUENCE_KEY,
+				 true,
+				 false,
+				 false,
+				 null,
+				 "On Acceptance",
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the On Reject Branchsequence Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addOnRejectBranchsequenceTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ThrottleMediator_OnRejectBranchsequenceType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ThrottleMediator_OnRejectBranchsequenceType_feature", "_UI_ThrottleMediator_type"),
+				 EsbPackage.Literals.THROTTLE_MEDIATOR__ON_REJECT_BRANCHSEQUENCE_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 "On Rejection",
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the On Reject Branchsequence Key feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addOnRejectBranchsequenceKeyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ThrottleMediator_OnRejectBranchsequenceKey_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ThrottleMediator_OnRejectBranchsequenceKey_feature", "_UI_ThrottleMediator_type"),
+				 EsbPackage.Literals.THROTTLE_MEDIATOR__ON_REJECT_BRANCHSEQUENCE_KEY,
+				 true,
+				 false,
+				 false,
+				 null,
+				 "On Rejection",
+				 null));
+	}
+
+	protected void addPolicyKeyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ThrottlePolicyConfiguration_policyKey_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ThrottlePolicyConfiguration_policyKey_feature", "_UI_ThrottlePolicyConfiguration_type"),
+				 EsbPackage.Literals.THROTTLE_MEDIATOR__POLICY_KEY,
+				 true,
+				 false,
+				 false,
+				 null,
+				 "Throttle Policy",
+				 null));
+	}
+
 
 	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
@@ -140,6 +304,8 @@ public class ThrottleMediatorItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(EsbPackage.Literals.THROTTLE_MEDIATOR__POLICY_KEY);
+			childrenFeatures.add(EsbPackage.Literals.THROTTLE_MEDIATOR__POLICY_ENTRIES);
 			childrenFeatures.add(EsbPackage.Literals.THROTTLE_MEDIATOR__POLICY_CONFIGURATION);
 			childrenFeatures.add(EsbPackage.Literals.THROTTLE_MEDIATOR__ON_ACCEPT_BRANCH);
 			childrenFeatures.add(EsbPackage.Literals.THROTTLE_MEDIATOR__ON_REJECT_BRANCH);
@@ -148,6 +314,8 @@ public class ThrottleMediatorItemProvider
 			childrenFeatures.add(EsbPackage.Literals.THROTTLE_MEDIATOR__ON_ACCEPT_OUTPUT_CONNECTOR);
 			childrenFeatures.add(EsbPackage.Literals.THROTTLE_MEDIATOR__ON_REJECT_OUTPUT_CONNECTOR);
 			childrenFeatures.add(EsbPackage.Literals.THROTTLE_MEDIATOR__THROTTLE_CONTAINER);
+			childrenFeatures.add(EsbPackage.Literals.THROTTLE_MEDIATOR__ON_ACCEPT_BRANCHSEQUENCE_KEY);
+			childrenFeatures.add(EsbPackage.Literals.THROTTLE_MEDIATOR__ON_REJECT_BRANCHSEQUENCE_KEY);
 		}
 		return childrenFeatures;
 	}
@@ -205,8 +373,14 @@ public class ThrottleMediatorItemProvider
 
 		switch (notification.getFeatureID(ThrottleMediator.class)) {
 			case EsbPackage.THROTTLE_MEDIATOR__GROUP_ID:
+			case EsbPackage.THROTTLE_MEDIATOR__POLICY_TYPE:
+			case EsbPackage.THROTTLE_MEDIATOR__MAX_CONCURRENT_ACCESS_COUNT:
+			case EsbPackage.THROTTLE_MEDIATOR__ON_ACCEPT_BRANCHSEQUENCE_TYPE:
+			case EsbPackage.THROTTLE_MEDIATOR__ON_REJECT_BRANCHSEQUENCE_TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case EsbPackage.THROTTLE_MEDIATOR__POLICY_KEY:
+			case EsbPackage.THROTTLE_MEDIATOR__POLICY_ENTRIES:
 			case EsbPackage.THROTTLE_MEDIATOR__POLICY_CONFIGURATION:
 			case EsbPackage.THROTTLE_MEDIATOR__ON_ACCEPT_BRANCH:
 			case EsbPackage.THROTTLE_MEDIATOR__ON_REJECT_BRANCH:
@@ -215,6 +389,8 @@ public class ThrottleMediatorItemProvider
 			case EsbPackage.THROTTLE_MEDIATOR__ON_ACCEPT_OUTPUT_CONNECTOR:
 			case EsbPackage.THROTTLE_MEDIATOR__ON_REJECT_OUTPUT_CONNECTOR:
 			case EsbPackage.THROTTLE_MEDIATOR__THROTTLE_CONTAINER:
+			case EsbPackage.THROTTLE_MEDIATOR__ON_ACCEPT_BRANCHSEQUENCE_KEY:
+			case EsbPackage.THROTTLE_MEDIATOR__ON_REJECT_BRANCHSEQUENCE_KEY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -232,6 +408,16 @@ public class ThrottleMediatorItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.THROTTLE_MEDIATOR__POLICY_KEY,
+				 EsbFactory.eINSTANCE.createRegistryKeyProperty()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.THROTTLE_MEDIATOR__POLICY_ENTRIES,
+				 EsbFactory.eINSTANCE.createThrottlePolicyEntry()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -272,6 +458,40 @@ public class ThrottleMediatorItemProvider
 			(createChildParameter
 				(EsbPackage.Literals.THROTTLE_MEDIATOR__THROTTLE_CONTAINER,
 				 EsbFactory.eINSTANCE.createThrottleContainer()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.THROTTLE_MEDIATOR__ON_ACCEPT_BRANCHSEQUENCE_KEY,
+				 EsbFactory.eINSTANCE.createRegistryKeyProperty()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.THROTTLE_MEDIATOR__ON_REJECT_BRANCHSEQUENCE_KEY,
+				 EsbFactory.eINSTANCE.createRegistryKeyProperty()));
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify =
+			childFeature == EsbPackage.Literals.THROTTLE_MEDIATOR__POLICY_KEY ||
+			childFeature == EsbPackage.Literals.THROTTLE_MEDIATOR__ON_ACCEPT_BRANCHSEQUENCE_KEY ||
+			childFeature == EsbPackage.Literals.THROTTLE_MEDIATOR__ON_REJECT_BRANCHSEQUENCE_KEY;
+
+		if (qualify) {
+			return getString
+				("_UI_CreateChild_text2",
+				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 }

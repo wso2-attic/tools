@@ -7369,8 +7369,8 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getThrottleMediator_PolicyConfiguration() {
-		return (EReference)throttleMediatorEClass.getEStructuralFeatures().get(1);
+	public EAttribute getThrottleMediator_PolicyType() {
+		return (EAttribute)throttleMediatorEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -7378,7 +7378,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getThrottleMediator_OnAcceptBranch() {
+	public EReference getThrottleMediator_PolicyKey() {
 		return (EReference)throttleMediatorEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -7387,8 +7387,8 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getThrottleMediator_OnRejectBranch() {
-		return (EReference)throttleMediatorEClass.getEStructuralFeatures().get(3);
+	public EAttribute getThrottleMediator_MaxConcurrentAccessCount() {
+		return (EAttribute)throttleMediatorEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -7396,7 +7396,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getThrottleMediator_InputConnector() {
+	public EReference getThrottleMediator_PolicyEntries() {
 		return (EReference)throttleMediatorEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -7405,8 +7405,44 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getThrottleMediator_OutputConnector() {
+	public EReference getThrottleMediator_PolicyConfiguration() {
 		return (EReference)throttleMediatorEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getThrottleMediator_OnAcceptBranch() {
+		return (EReference)throttleMediatorEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getThrottleMediator_OnRejectBranch() {
+		return (EReference)throttleMediatorEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getThrottleMediator_InputConnector() {
+		return (EReference)throttleMediatorEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getThrottleMediator_OutputConnector() {
+		return (EReference)throttleMediatorEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -7415,7 +7451,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
     public EReference getThrottleMediator_OnAcceptOutputConnector() {
-		return (EReference)throttleMediatorEClass.getEStructuralFeatures().get(6);
+		return (EReference)throttleMediatorEClass.getEStructuralFeatures().get(10);
 	}
 
     /**
@@ -7424,7 +7460,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
     public EReference getThrottleMediator_OnRejectOutputConnector() {
-		return (EReference)throttleMediatorEClass.getEStructuralFeatures().get(7);
+		return (EReference)throttleMediatorEClass.getEStructuralFeatures().get(11);
 	}
 
     /**
@@ -7433,10 +7469,46 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
     public EReference getThrottleMediator_ThrottleContainer() {
-		return (EReference)throttleMediatorEClass.getEStructuralFeatures().get(8);
+		return (EReference)throttleMediatorEClass.getEStructuralFeatures().get(12);
 	}
 
     /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getThrottleMediator_OnAcceptBranchsequenceType() {
+		return (EAttribute)throttleMediatorEClass.getEStructuralFeatures().get(13);
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getThrottleMediator_OnAcceptBranchsequenceKey() {
+		return (EReference)throttleMediatorEClass.getEStructuralFeatures().get(14);
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getThrottleMediator_OnRejectBranchsequenceType() {
+		return (EAttribute)throttleMediatorEClass.getEStructuralFeatures().get(15);
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getThrottleMediator_OnRejectBranchsequenceKey() {
+		return (EReference)throttleMediatorEClass.getEStructuralFeatures().get(16);
+	}
+
+				/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -11290,6 +11362,10 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 
 		throttleMediatorEClass = createEClass(THROTTLE_MEDIATOR);
 		createEAttribute(throttleMediatorEClass, THROTTLE_MEDIATOR__GROUP_ID);
+		createEAttribute(throttleMediatorEClass, THROTTLE_MEDIATOR__POLICY_TYPE);
+		createEReference(throttleMediatorEClass, THROTTLE_MEDIATOR__POLICY_KEY);
+		createEAttribute(throttleMediatorEClass, THROTTLE_MEDIATOR__MAX_CONCURRENT_ACCESS_COUNT);
+		createEReference(throttleMediatorEClass, THROTTLE_MEDIATOR__POLICY_ENTRIES);
 		createEReference(throttleMediatorEClass, THROTTLE_MEDIATOR__POLICY_CONFIGURATION);
 		createEReference(throttleMediatorEClass, THROTTLE_MEDIATOR__ON_ACCEPT_BRANCH);
 		createEReference(throttleMediatorEClass, THROTTLE_MEDIATOR__ON_REJECT_BRANCH);
@@ -11298,6 +11374,10 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEReference(throttleMediatorEClass, THROTTLE_MEDIATOR__ON_ACCEPT_OUTPUT_CONNECTOR);
 		createEReference(throttleMediatorEClass, THROTTLE_MEDIATOR__ON_REJECT_OUTPUT_CONNECTOR);
 		createEReference(throttleMediatorEClass, THROTTLE_MEDIATOR__THROTTLE_CONTAINER);
+		createEAttribute(throttleMediatorEClass, THROTTLE_MEDIATOR__ON_ACCEPT_BRANCHSEQUENCE_TYPE);
+		createEReference(throttleMediatorEClass, THROTTLE_MEDIATOR__ON_ACCEPT_BRANCHSEQUENCE_KEY);
+		createEAttribute(throttleMediatorEClass, THROTTLE_MEDIATOR__ON_REJECT_BRANCHSEQUENCE_TYPE);
+		createEReference(throttleMediatorEClass, THROTTLE_MEDIATOR__ON_REJECT_BRANCHSEQUENCE_KEY);
 
 		throttleMediatorInputConnectorEClass = createEClass(THROTTLE_MEDIATOR_INPUT_CONNECTOR);
 
@@ -12707,6 +12787,10 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 
 		initEClass(throttleMediatorEClass, ThrottleMediator.class, "ThrottleMediator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getThrottleMediator_GroupId(), ecorePackage.getEString(), "groupId", "group_id", 0, 1, ThrottleMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getThrottleMediator_PolicyType(), this.getThrottlePolicyType(), "policyType", "INLINE", 0, 1, ThrottleMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getThrottleMediator_PolicyKey(), this.getRegistryKeyProperty(), null, "policyKey", null, 0, 1, ThrottleMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getThrottleMediator_MaxConcurrentAccessCount(), ecorePackage.getEInt(), "maxConcurrentAccessCount", null, 0, 1, ThrottleMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getThrottleMediator_PolicyEntries(), this.getThrottlePolicyEntry(), null, "policyEntries", null, 0, -1, ThrottleMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getThrottleMediator_PolicyConfiguration(), this.getThrottlePolicyConfiguration(), null, "policyConfiguration", null, 0, 1, ThrottleMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getThrottleMediator_OnAcceptBranch(), this.getThrottleOnAcceptBranch(), null, "onAcceptBranch", null, 0, 1, ThrottleMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getThrottleMediator_OnRejectBranch(), this.getThrottleOnRejectBranch(), null, "onRejectBranch", null, 0, 1, ThrottleMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -12715,6 +12799,10 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEReference(getThrottleMediator_OnAcceptOutputConnector(), this.getThrottleMediatorOnAcceptOutputConnector(), null, "onAcceptOutputConnector", null, 0, 1, ThrottleMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getThrottleMediator_OnRejectOutputConnector(), this.getThrottleMediatorOnRejectOutputConnector(), null, "onRejectOutputConnector", null, 0, 1, ThrottleMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getThrottleMediator_ThrottleContainer(), this.getThrottleContainer(), null, "throttleContainer", null, 0, 1, ThrottleMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getThrottleMediator_OnAcceptBranchsequenceType(), this.getThrottleSequenceType(), "OnAcceptBranchsequenceType", "ANONYMOUS", 0, 1, ThrottleMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getThrottleMediator_OnAcceptBranchsequenceKey(), this.getRegistryKeyProperty(), null, "OnAcceptBranchsequenceKey", null, 0, 1, ThrottleMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getThrottleMediator_OnRejectBranchsequenceType(), this.getThrottleSequenceType(), "OnRejectBranchsequenceType", "ANONYMOUS", 0, 1, ThrottleMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getThrottleMediator_OnRejectBranchsequenceKey(), this.getRegistryKeyProperty(), null, "OnRejectBranchsequenceKey", null, 0, 1, ThrottleMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(throttleMediatorInputConnectorEClass, ThrottleMediatorInputConnector.class, "ThrottleMediatorInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
