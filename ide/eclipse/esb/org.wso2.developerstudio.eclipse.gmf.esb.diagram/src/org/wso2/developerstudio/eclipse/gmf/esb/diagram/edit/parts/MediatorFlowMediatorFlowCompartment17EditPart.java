@@ -9,25 +9,26 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.notation.View;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.MediatorFlowMediatorFlowCompartment16CanonicalEditPolicy;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.MediatorFlowMediatorFlowCompartment16ItemSemanticEditPolicy;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.editpolicy.CustomDragDropEditPolicy;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.MediatorFlowMediatorFlowCompartment17CanonicalEditPolicy;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.MediatorFlowMediatorFlowCompartment17ItemSemanticEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.Messages;
 
 /**
  * @generated
  */
-public class MediatorFlowMediatorFlowCompartment16EditPart extends
+public class MediatorFlowMediatorFlowCompartment17EditPart extends
 		ShapeCompartmentEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 7039;
+	public static final int VISUAL_ID = 7040;
 
 	/**
 	 * @generated
 	 */
-	public MediatorFlowMediatorFlowCompartment16EditPart(View view) {
+	public MediatorFlowMediatorFlowCompartment17EditPart(View view) {
 		super(view);
 	}
 
@@ -35,10 +36,10 @@ public class MediatorFlowMediatorFlowCompartment16EditPart extends
 	 * @generated NOT
 	 */
 	public String getCompartmentName() {
-		//return Messages.MediatorFlowMediatorFlowCompartment16EditPart_title;
-		return "";
+		//return Messages.MediatorFlowMediatorFlowCompartment17EditPart_title;
+		return "Child Mediators";
 	}
-
+	
 	public IFigure createFigure() {
 		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super
 				.createFigure();
@@ -47,24 +48,26 @@ public class MediatorFlowMediatorFlowCompartment16EditPart extends
 		result.setBorder(new MarginBorder(0, 0, 0, 0));
 		result.setToolTip((String) null);
 		return result;
-	}
+	} 
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		installEditPolicy(
 				EditPolicyRoles.SEMANTIC_ROLE,
-				new MediatorFlowMediatorFlowCompartment16ItemSemanticEditPolicy());
+				new MediatorFlowMediatorFlowCompartment17ItemSemanticEditPolicy());
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
 				new CreationEditPolicy());
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
 				new DragDropEditPolicy());
+		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
+				new CustomDragDropEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
-				new MediatorFlowMediatorFlowCompartment16CanonicalEditPolicy());
+				new MediatorFlowMediatorFlowCompartment17CanonicalEditPolicy());
 	}
-
+	
 	public boolean isSelectable() {
 		// TODO This or using ResizableEditpolicy?
 		return false;

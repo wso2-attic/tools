@@ -1,9 +1,13 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
 
+import org.eclipse.draw2d.GridData;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.PositionConstants;
+import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
+import org.eclipse.draw2d.ToolbarLayout;
+import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -11,6 +15,8 @@ import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IBorderItemEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.BorderItemSelectionEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
@@ -18,14 +24,17 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
+import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGroupingShape;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedSizedAbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ShowPropertyViewEditPolicy;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.complexFiguredAbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.RuleMediatorCanonicalEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.RuleMediatorItemSemanticEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
@@ -33,8 +42,10 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry
 /**
  * @generated NOT
  */
-public class RuleMediatorEditPart extends FixedSizedAbstractMediator {
+public class RuleMediatorEditPart extends complexFiguredAbstractMediator {
 
+	public IFigure childMediatorsOutputConnector;
+	
 	/**
 	 * @generated
 	 */
@@ -157,6 +168,10 @@ public class RuleMediatorEditPart extends FixedSizedAbstractMediator {
 
 			return true;
 		}
+		if (childEditPart instanceof RuleMediatorChildMediatorsOutputConnectorEditPart) {
+			childMediatorsOutputConnector = ((RuleMediatorChildMediatorsOutputConnectorEditPart) childEditPart)
+					.getFigure();
+		}
 		/*		if (childEditPart instanceof LogMediatorLogCategoryEditPart) {
 		 ((LogMediatorLogCategoryEditPart) childEditPart)
 		 .setLabel(getPrimaryShape()
@@ -171,6 +186,11 @@ public class RuleMediatorEditPart extends FixedSizedAbstractMediator {
 			return;
 		}
 		super.addChildVisual(childEditPart, -1);
+	}
+	
+	protected NodeFigure createNodePlate() {
+		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
+		return result;
 	}
 
 	/**
@@ -215,6 +235,13 @@ public class RuleMediatorEditPart extends FixedSizedAbstractMediator {
 		return super.getContentPane();
 	}
 
+	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
+		if (editPart instanceof IBorderItemEditPart) {
+			return getBorderedFigure().getBorderItemContainer();
+		}
+		return getContentPane();
+	}
+	
 	/**
 	 * @generated
 	 */
@@ -252,9 +279,9 @@ public class RuleMediatorEditPart extends FixedSizedAbstractMediator {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
-	public class RuleMediatorFigure extends EsbGraphicalShape {
+	public class RuleMediatorFigure extends EsbGroupingShape {
 
 		/**
 		 * @generated
@@ -262,12 +289,45 @@ public class RuleMediatorEditPart extends FixedSizedAbstractMediator {
 		private WrappingLabel fFigureRuleMediatorPropertyValue;
 
 		/**
-		 * @generated
+		 * @generated NOT
 		 */
 		public RuleMediatorFigure() {
 
+			ToolbarLayout layoutThis = new ToolbarLayout();
+			layoutThis.setStretchMinorAxis(true);
+			layoutThis.setMinorAlignment(ToolbarLayout.ALIGN_CENTER);
+
+			layoutThis.setSpacing(0);
+			layoutThis.setVertical(false);
+
+			this.setLayoutManager(layoutThis);
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(250),
+					getMapMode().DPtoLP(100)));
+			this.setOutline(true);
 			this.setBackgroundColor(THIS_BACK);
 			createContents();
+		}
+		
+		public void add(IFigure figure, Object constraint, int index) {
+			if (figure instanceof DefaultSizeNodeFigure) {
+				GridData layoutData = new GridData();
+				layoutData.grabExcessHorizontalSpace = true;
+				layoutData.grabExcessVerticalSpace = true;
+				layoutData.horizontalAlignment = GridData.FILL;
+				layoutData.verticalAlignment = GridData.FILL;
+				super.add(figure, layoutData, index);
+			} else if (figure instanceof RoundedRectangle) {
+				GridData layoutData = new GridData();
+				layoutData.grabExcessHorizontalSpace = true;
+				layoutData.grabExcessVerticalSpace = true;
+				layoutData.horizontalAlignment = GridData.FILL;
+				layoutData.verticalAlignment = GridData.FILL;
+				super.add(figure, layoutData, index);
+			}
+
+			else {
+				super.add(figure, constraint, index);
+			}
 		}
 
 		/**
@@ -278,9 +338,6 @@ public class RuleMediatorEditPart extends FixedSizedAbstractMediator {
 			fFigureRuleMediatorPropertyValue = new WrappingLabel();
 			fFigureRuleMediatorPropertyValue.setText("<...>");
 			fFigureRuleMediatorPropertyValue.setAlignment(SWT.CENTER);
-
-			this.getPropertyValueRectangle1().add(
-					fFigureRuleMediatorPropertyValue);
 
 		}
 

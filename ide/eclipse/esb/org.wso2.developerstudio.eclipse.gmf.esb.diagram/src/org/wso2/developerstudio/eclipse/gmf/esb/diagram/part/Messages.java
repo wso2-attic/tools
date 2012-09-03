@@ -813,6 +813,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String MediatorFlowMediatorFlowCompartment17EditPart_title;
+
+	/**
+	 * @generated
+	 */
 	public static String MediatorFlowMediatorFlowCompartment3EditPart_title;
 
 	/**
@@ -899,6 +904,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_ProxyOutputConnector_3002_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_RuleMediatorChildMediatorsOutputConnector_3640_outgoinglinks;
 
 	/**
 	 * @generated

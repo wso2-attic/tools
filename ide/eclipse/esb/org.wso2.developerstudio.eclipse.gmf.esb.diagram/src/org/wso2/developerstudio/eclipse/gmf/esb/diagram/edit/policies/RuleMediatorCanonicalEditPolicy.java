@@ -23,6 +23,8 @@ import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlow17EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.RuleMediatorChildMediatorsOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.RuleMediatorInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.RuleMediatorOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramUpdater;
@@ -61,6 +63,10 @@ public class RuleMediatorCanonicalEditPolicy extends CanonicalEditPolicy {
 					.getRuleMediator_InputConnector());
 			myFeaturesToSynchronize.add(EsbPackage.eINSTANCE
 					.getRuleMediator_OutputConnector());
+			myFeaturesToSynchronize.add(EsbPackage.eINSTANCE
+					.getRuleMediator_ChildMediatorsOutputConnector());
+			myFeaturesToSynchronize.add(EsbPackage.eINSTANCE
+					.getRuleMediator_MediatorFlow());
 		}
 		return myFeaturesToSynchronize;
 	}
@@ -94,8 +100,14 @@ public class RuleMediatorCanonicalEditPolicy extends CanonicalEditPolicy {
 	 */
 	private boolean isMyDiagramElement(View view) {
 		int visualID = EsbVisualIDRegistry.getVisualID(view);
-		return visualID == RuleMediatorInputConnectorEditPart.VISUAL_ID
-				|| visualID == RuleMediatorOutputConnectorEditPart.VISUAL_ID;
+		switch (visualID) {
+		case RuleMediatorInputConnectorEditPart.VISUAL_ID:
+		case RuleMediatorOutputConnectorEditPart.VISUAL_ID:
+		case RuleMediatorChildMediatorsOutputConnectorEditPart.VISUAL_ID:
+		case MediatorFlow17EditPart.VISUAL_ID:
+			return true;
+		}
+		return false;
 	}
 
 	/**

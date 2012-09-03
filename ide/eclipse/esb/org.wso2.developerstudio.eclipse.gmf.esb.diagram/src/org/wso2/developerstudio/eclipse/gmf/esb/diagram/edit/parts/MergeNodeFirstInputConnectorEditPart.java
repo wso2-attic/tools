@@ -246,6 +246,7 @@ public class MergeNodeFirstInputConnectorEditPart extends
 			types.add(EsbElementTypes.TransactionMediatorOutputConnector_3119);
 			types.add(EsbElementTypes.RMSequenceMediatorOutputConnector_3125);
 			types.add(EsbElementTypes.RuleMediatorOutputConnector_3128);
+			types.add(EsbElementTypes.RuleMediatorChildMediatorsOutputConnector_3640);
 			types.add(EsbElementTypes.OAuthMediatorOutputConnector_3131);
 			types.add(EsbElementTypes.AggregateMediatorOutputConnector_3113);
 			types.add(EsbElementTypes.AggregateMediatorOnCompleteOutputConnector_3132);

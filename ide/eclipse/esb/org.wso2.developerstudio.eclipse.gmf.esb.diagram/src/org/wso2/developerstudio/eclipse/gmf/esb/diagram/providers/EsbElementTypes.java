@@ -991,6 +991,16 @@ public class EsbElementTypes {
 	/**
 	 * @generated
 	 */
+	public static final IElementType RuleMediatorChildMediatorsOutputConnector_3640 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.RuleMediatorChildMediatorsOutputConnector_3640"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType MediatorFlow_3641 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.MediatorFlow_3641"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
 	public static final IElementType OAuthMediator_3524 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.OAuthMediator_3524"); //$NON-NLS-1$
 
 	/**
@@ -1520,6 +1530,13 @@ public class EsbElementTypes {
 			elements.put(RuleMediatorOutputConnector_3128,
 					EsbPackage.eINSTANCE.getRuleMediatorOutputConnector());
 
+			elements.put(RuleMediatorChildMediatorsOutputConnector_3640,
+					EsbPackage.eINSTANCE
+							.getRuleMediatorChildMediatorsOutputConnector());
+
+			elements.put(MediatorFlow_3641,
+					EsbPackage.eINSTANCE.getMediatorFlow());
+
 			elements.put(OAuthMediator_3524,
 					EsbPackage.eINSTANCE.getOAuthMediator());
 
@@ -1910,6 +1927,9 @@ public class EsbElementTypes {
 			KNOWN_ELEMENT_TYPES.add(RuleMediator_3523);
 			KNOWN_ELEMENT_TYPES.add(RuleMediatorInputConnector_3127);
 			KNOWN_ELEMENT_TYPES.add(RuleMediatorOutputConnector_3128);
+			KNOWN_ELEMENT_TYPES
+					.add(RuleMediatorChildMediatorsOutputConnector_3640);
+			KNOWN_ELEMENT_TYPES.add(MediatorFlow_3641);
 			KNOWN_ELEMENT_TYPES.add(OAuthMediator_3524);
 			KNOWN_ELEMENT_TYPES.add(OAuthMediatorInputConnector_3130);
 			KNOWN_ELEMENT_TYPES.add(OAuthMediatorOutputConnector_3131);
@@ -2244,6 +2264,10 @@ public class EsbElementTypes {
 			return RuleMediatorInputConnector_3127;
 		case RuleMediatorOutputConnectorEditPart.VISUAL_ID:
 			return RuleMediatorOutputConnector_3128;
+		case RuleMediatorChildMediatorsOutputConnectorEditPart.VISUAL_ID:
+			return RuleMediatorChildMediatorsOutputConnector_3640;
+		case MediatorFlow17EditPart.VISUAL_ID:
+			return MediatorFlow_3641;
 		case OAuthMediatorEditPart.VISUAL_ID:
 			return OAuthMediator_3524;
 		case OAuthMediatorInputConnectorEditPart.VISUAL_ID:

@@ -40,8 +40,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry
  * @generated NOT
  */
 public class ConditionalRouterMediatorEditPart extends
-	complexFiguredAbstractMediator {
-	
+		complexFiguredAbstractMediator {
+
 	public IFigure additionalOutputConnector;
 
 	/**
@@ -114,7 +114,7 @@ public class ConditionalRouterMediatorEditPart extends
 	 * @generated NOT
 	 */
 	protected IFigure createNodeShape() {
-		return primaryShape = new ConditionalRouterMediatorFigure(){
+		return primaryShape = new ConditionalRouterMediatorFigure() {
 			public void setBounds(org.eclipse.draw2d.geometry.Rectangle rect) {
 				super.setBounds(rect);
 				if (this.getBounds().getLocation().x != 0
@@ -131,8 +131,7 @@ public class ConditionalRouterMediatorEditPart extends
 	public ConditionalRouterMediatorFigure getPrimaryShape() {
 		return (ConditionalRouterMediatorFigure) primaryShape;
 	}
-	
-	
+
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof ConditionalRouterMediatorInputConnectorEditPart) {
 			IFigure borderItemFigure = ((ConditionalRouterMediatorInputConnectorEditPart) childEditPart)
@@ -160,21 +159,20 @@ public class ConditionalRouterMediatorEditPart extends
 		}
 		return false;
 	}
-	
+
 	protected void addChildVisual(EditPart childEditPart, int index) {
 		if (addFixedChild(childEditPart)) {
 			return;
 		}
 		super.addChildVisual(childEditPart, -1);
 	}
-	
+
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
 		if (editPart instanceof IBorderItemEditPart) {
 			return getBorderedFigure().getBorderItemContainer();
 		}
 		return getContentPane();
 	}
-	
 
 	/**
 	 * @generated
@@ -291,7 +289,7 @@ public class ConditionalRouterMediatorEditPart extends
 			this.setBackgroundColor(THIS_BACK);
 			createContents();
 		}
-		
+
 		public void add(IFigure figure, Object constraint, int index) {
 			if (figure instanceof DefaultSizeNodeFigure) {
 				GridData layoutData = new GridData();
@@ -331,7 +329,7 @@ public class ConditionalRouterMediatorEditPart extends
 		public WrappingLabel getFigureConditionalRouterPropertyValue() {
 			return fFigureConditionalRouterPropertyValue;
 		}
-		
+
 		public String getIconPath() {
 			return "icons/ico20/aggregate-mediator.gif";
 		}

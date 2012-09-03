@@ -28,19 +28,19 @@ import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.MediatorFlow16ItemSemanticEditPolicy;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.MediatorFlow17ItemSemanticEditPolicy;
 
 /**
  * @generated
  */
-public class MediatorFlow16EditPart extends ShapeNodeEditPart {
+public class MediatorFlow17EditPart extends ShapeNodeEditPart {
 
-	//Conditional Router
-
+	//Rule Mediator
+	
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3639;
+	public static final int VISUAL_ID = 3641;
 
 	/**
 	 * @generated
@@ -55,7 +55,7 @@ public class MediatorFlow16EditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public MediatorFlow16EditPart(View view) {
+	public MediatorFlow17EditPart(View view) {
 		super(view);
 	}
 
@@ -65,7 +65,7 @@ public class MediatorFlow16EditPart extends ShapeNodeEditPart {
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new MediatorFlow16ItemSemanticEditPolicy());
+				new MediatorFlow17ItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
@@ -120,16 +120,16 @@ public class MediatorFlow16EditPart extends ShapeNodeEditPart {
 	}
 
 	public void refreshOutputConnector(EditPart childEditPart) {
-		if (childEditPart instanceof ConditionalRouterMediatorEditPart) {
-			ConditionalRouterMediatorEditPart conditionalRouterMediatorEditPart = (ConditionalRouterMediatorEditPart) childEditPart;
+		if (childEditPart instanceof RuleMediatorEditPart) {
+			RuleMediatorEditPart ruleMediatorEditPart = (RuleMediatorEditPart) childEditPart;
 			BorderItemLocator locator = new FixedBorderItemLocator(
 					this.getFigure(),
-					conditionalRouterMediatorEditPart.additionalOutputConnector,
+					ruleMediatorEditPart.childMediatorsOutputConnector,
 					PositionConstants.WEST, 0.5);
-			conditionalRouterMediatorEditPart
+			ruleMediatorEditPart
 					.getBorderedFigure()
 					.getBorderItemContainer()
-					.add(conditionalRouterMediatorEditPart.additionalOutputConnector,
+					.add(ruleMediatorEditPart.childMediatorsOutputConnector,
 							locator);
 		} else {
 			//Should handle properly.
@@ -138,11 +138,11 @@ public class MediatorFlow16EditPart extends ShapeNodeEditPart {
 	}
 
 	protected void addChildVisual(EditPart childEditPart, int index) {
-		refreshOutputConnector(((ConditionalRouterMediatorEditPart) childEditPart
+		refreshOutputConnector(((RuleMediatorEditPart) childEditPart
 				.getParent().getParent()));
 		super.addChildVisual(childEditPart, -1);
 	}
-
+	
 	/**
 	 * Creates figure for this edit part.
 	 * 
@@ -184,7 +184,7 @@ public class MediatorFlow16EditPart extends ShapeNodeEditPart {
 		}
 		return super.getContentPane();
 	}
-
+	
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
 		if (editPart instanceof ResizableCompartmentEditPart) {
 			// Compartment should be added to the primary shape.
@@ -252,7 +252,7 @@ public class MediatorFlow16EditPart extends ShapeNodeEditPart {
 			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(5000),
 					getMapMode().DPtoLP(4000)));
 		}
-
+		
 		public void add(IFigure figure, Object constraint, int index) {
 			if (figure instanceof ResizableCompartmentFigure) {
 				GridData layoutData = new GridData();
@@ -267,7 +267,7 @@ public class MediatorFlow16EditPart extends ShapeNodeEditPart {
 		}
 
 	}
-
+	
 	public boolean isSelectable() {
 		// TODO This or using ResizableEditpolicy?
 		return false;

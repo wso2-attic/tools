@@ -13,9 +13,13 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
 import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.MediatorFlow17CreateCommand;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.RuleMediatorChildMediatorsOutputConnectorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.RuleMediatorInputConnectorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.RuleMediatorOutputConnectorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbLinkEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlow17EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.RuleMediatorChildMediatorsOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.RuleMediatorInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.RuleMediatorOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
@@ -47,6 +51,14 @@ public class RuleMediatorItemSemanticEditPolicy extends
 				.getElementType()) {
 			return getGEFWrapper(new RuleMediatorOutputConnectorCreateCommand(
 					req));
+		}
+		if (EsbElementTypes.RuleMediatorChildMediatorsOutputConnector_3640 == req
+				.getElementType()) {
+			return getGEFWrapper(new RuleMediatorChildMediatorsOutputConnectorCreateCommand(
+					req));
+		}
+		if (EsbElementTypes.MediatorFlow_3641 == req.getElementType()) {
+			return getGEFWrapper(new MediatorFlow17CreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}
@@ -111,6 +123,30 @@ public class RuleMediatorItemSemanticEditPolicy extends
 						continue;
 					}
 				}
+				cmd.add(new DestroyElementCommand(new DestroyElementRequest(
+						getEditingDomain(), node.getElement(), false))); // directlyOwned: true
+				// don't need explicit deletion of node as parent's view deletion would clean child views as well 
+				// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), node));
+				break;
+			case RuleMediatorChildMediatorsOutputConnectorEditPart.VISUAL_ID:
+				for (Iterator<?> it = node.getSourceEdges().iterator(); it
+						.hasNext();) {
+					Edge outgoingLink = (Edge) it.next();
+					if (EsbVisualIDRegistry.getVisualID(outgoingLink) == EsbLinkEditPart.VISUAL_ID) {
+						DestroyElementRequest r = new DestroyElementRequest(
+								outgoingLink.getElement(), false);
+						cmd.add(new DestroyElementCommand(r));
+						cmd.add(new DeleteCommand(getEditingDomain(),
+								outgoingLink));
+						continue;
+					}
+				}
+				cmd.add(new DestroyElementCommand(new DestroyElementRequest(
+						getEditingDomain(), node.getElement(), false))); // directlyOwned: true
+				// don't need explicit deletion of node as parent's view deletion would clean child views as well 
+				// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), node));
+				break;
+			case MediatorFlow17EditPart.VISUAL_ID:
 				cmd.add(new DestroyElementCommand(new DestroyElementRequest(
 						getEditingDomain(), node.getElement(), false))); // directlyOwned: true
 				// don't need explicit deletion of node as parent's view deletion would clean child views as well 

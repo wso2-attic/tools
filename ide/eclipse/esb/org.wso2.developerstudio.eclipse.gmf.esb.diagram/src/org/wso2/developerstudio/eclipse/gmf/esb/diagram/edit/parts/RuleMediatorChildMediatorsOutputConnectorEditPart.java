@@ -23,21 +23,21 @@ import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AdditionalOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EastPointerShape;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.ConditionalRouterMediatorOutputConnectorItemSemanticEditPolicy;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.RuleMediatorChildMediatorsOutputConnectorItemSemanticEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 
 /**
  * @generated NOT
  */
-public class ConditionalRouterMediatorOutputConnectorEditPart extends
-		AbstractOutputConnector {
+public class RuleMediatorChildMediatorsOutputConnectorEditPart extends
+	AdditionalOutputConnector {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3637;
+	public static final int VISUAL_ID = 3640;
 
 	/**
 	 * @generated
@@ -52,7 +52,7 @@ public class ConditionalRouterMediatorOutputConnectorEditPart extends
 	/**
 	 * @generated
 	 */
-	public ConditionalRouterMediatorOutputConnectorEditPart(View view) {
+	public RuleMediatorChildMediatorsOutputConnectorEditPart(View view) {
 		super(view);
 	}
 
@@ -65,7 +65,7 @@ public class ConditionalRouterMediatorOutputConnectorEditPart extends
 				getPrimaryDragEditPolicy());
 		installEditPolicy(
 				EditPolicyRoles.SEMANTIC_ROLE,
-				new ConditionalRouterMediatorOutputConnectorItemSemanticEditPolicy());
+				new RuleMediatorChildMediatorsOutputConnectorItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
@@ -137,7 +137,6 @@ public class ConditionalRouterMediatorOutputConnectorEditPart extends
 		figure.add(shape);
 		contentPane = setupContentPane(shape);
 		figure_ = figure;
-
 		createNodeShapeReverse();
 		return figure;
 	}

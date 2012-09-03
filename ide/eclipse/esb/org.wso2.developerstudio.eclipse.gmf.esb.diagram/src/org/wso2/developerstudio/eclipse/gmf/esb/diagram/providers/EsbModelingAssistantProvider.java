@@ -292,9 +292,11 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			return types;
 		}
 		if (editPart instanceof RuleMediatorEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			ArrayList<IElementType> types = new ArrayList<IElementType>(4);
 			types.add(EsbElementTypes.RuleMediatorInputConnector_3127);
 			types.add(EsbElementTypes.RuleMediatorOutputConnector_3128);
+			types.add(EsbElementTypes.RuleMediatorChildMediatorsOutputConnector_3640);
+			types.add(EsbElementTypes.MediatorFlow_3641);
 			return types;
 		}
 		if (editPart instanceof OAuthMediatorEditPart) {
@@ -755,6 +757,55 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			return types;
 		}
 		if (editPart instanceof MediatorFlowMediatorFlowCompartment12EditPart) {
+			ArrayList<IElementType> types = new ArrayList<IElementType>(45);
+			types.add(EsbElementTypes.DropMediator_3491);
+			types.add(EsbElementTypes.PropertyMediator_3492);
+			types.add(EsbElementTypes.ThrottleMediator_3493);
+			types.add(EsbElementTypes.FilterMediator_3494);
+			types.add(EsbElementTypes.LogMediator_3495);
+			types.add(EsbElementTypes.EnrichMediator_3496);
+			types.add(EsbElementTypes.XSLTMediator_3497);
+			types.add(EsbElementTypes.SwitchMediator_3498);
+			types.add(EsbElementTypes.Sequence_3503);
+			types.add(EsbElementTypes.EventMediator_3504);
+			types.add(EsbElementTypes.EntitlementMediator_3505);
+			types.add(EsbElementTypes.ClassMediator_3506);
+			types.add(EsbElementTypes.SpringMediator_3507);
+			types.add(EsbElementTypes.ScriptMediator_3508);
+			types.add(EsbElementTypes.FaultMediator_3509);
+			types.add(EsbElementTypes.XQueryMediator_3510);
+			types.add(EsbElementTypes.CommandMediator_3511);
+			types.add(EsbElementTypes.DBLookupMediator_3512);
+			types.add(EsbElementTypes.DBReportMediator_3513);
+			types.add(EsbElementTypes.SmooksMediator_3514);
+			types.add(EsbElementTypes.SendMediator_3515);
+			types.add(EsbElementTypes.HeaderMediator_3516);
+			types.add(EsbElementTypes.CloneMediator_3517);
+			types.add(EsbElementTypes.CacheMediator_3518);
+			types.add(EsbElementTypes.IterateMediator_3519);
+			types.add(EsbElementTypes.CalloutMediator_3520);
+			types.add(EsbElementTypes.TransactionMediator_3521);
+			types.add(EsbElementTypes.RMSequenceMediator_3522);
+			types.add(EsbElementTypes.RuleMediator_3523);
+			types.add(EsbElementTypes.OAuthMediator_3524);
+			types.add(EsbElementTypes.AggregateMediator_3525);
+			types.add(EsbElementTypes.StoreMediator_3588);
+			types.add(EsbElementTypes.BuilderMediator_3591);
+			types.add(EsbElementTypes.CallTemplateMediator_3594);
+			types.add(EsbElementTypes.PayloadFactoryMediator_3597);
+			types.add(EsbElementTypes.EnqueueMediator_3600);
+			types.add(EsbElementTypes.URLRewriteMediator_3620);
+			types.add(EsbElementTypes.ValidateMediator_3623);
+			types.add(EsbElementTypes.RouterMediator_3628);
+			types.add(EsbElementTypes.ConditionalRouterMediator_3635);
+			types.add(EsbElementTypes.DefaultEndPoint_3609);
+			types.add(EsbElementTypes.AddressEndPoint_3610);
+			types.add(EsbElementTypes.FailoverEndPoint_3611);
+			types.add(EsbElementTypes.WSDLEndPoint_3612);
+			types.add(EsbElementTypes.LoadBalanceEndPoint_3613);
+			return types;
+		}
+		if (editPart instanceof MediatorFlowMediatorFlowCompartment17EditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(45);
 			types.add(EsbElementTypes.DropMediator_3491);
 			types.add(EsbElementTypes.PropertyMediator_3492);
@@ -1409,6 +1460,10 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			return ((RuleMediatorOutputConnectorEditPart) sourceEditPart)
 					.getMARelTypesOnSource();
 		}
+		if (sourceEditPart instanceof RuleMediatorChildMediatorsOutputConnectorEditPart) {
+			return ((RuleMediatorChildMediatorsOutputConnectorEditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
 		if (sourceEditPart instanceof OAuthMediatorOutputConnectorEditPart) {
 			return ((OAuthMediatorOutputConnectorEditPart) sourceEditPart)
 					.getMARelTypesOnSource();
@@ -1890,6 +1945,10 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			return ((RuleMediatorOutputConnectorEditPart) sourceEditPart)
 					.getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
+		if (sourceEditPart instanceof RuleMediatorChildMediatorsOutputConnectorEditPart) {
+			return ((RuleMediatorChildMediatorsOutputConnectorEditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
 		if (sourceEditPart instanceof OAuthMediatorOutputConnectorEditPart) {
 			return ((OAuthMediatorOutputConnectorEditPart) sourceEditPart)
 					.getMARelTypesOnSourceAndTarget(targetEditPart);
@@ -2368,6 +2427,10 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 		}
 		if (sourceEditPart instanceof RuleMediatorOutputConnectorEditPart) {
 			return ((RuleMediatorOutputConnectorEditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof RuleMediatorChildMediatorsOutputConnectorEditPart) {
+			return ((RuleMediatorChildMediatorsOutputConnectorEditPart) sourceEditPart)
 					.getMATypesForTarget(relationshipType);
 		}
 		if (sourceEditPart instanceof OAuthMediatorOutputConnectorEditPart) {

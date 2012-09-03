@@ -455,6 +455,13 @@ public class EsbEditPartFactory implements EditPartFactory {
 			case RuleMediatorOutputConnectorEditPart.VISUAL_ID:
 				return new RuleMediatorOutputConnectorEditPart(view);
 
+			case RuleMediatorChildMediatorsOutputConnectorEditPart.VISUAL_ID:
+				return new RuleMediatorChildMediatorsOutputConnectorEditPart(
+						view);
+
+			case MediatorFlow17EditPart.VISUAL_ID:
+				return new MediatorFlow17EditPart(view);
+
 			case OAuthMediatorEditPart.VISUAL_ID:
 				return new OAuthMediatorEditPart(view);
 
@@ -742,6 +749,9 @@ public class EsbEditPartFactory implements EditPartFactory {
 
 			case MediatorFlowMediatorFlowCompartment12EditPart.VISUAL_ID:
 				return new MediatorFlowMediatorFlowCompartment12EditPart(view);
+
+			case MediatorFlowMediatorFlowCompartment17EditPart.VISUAL_ID:
+				return new MediatorFlowMediatorFlowCompartment17EditPart(view);
 
 			case MediatorFlowMediatorFlowCompartment3EditPart.VISUAL_ID:
 				return new MediatorFlowMediatorFlowCompartment3EditPart(view);
