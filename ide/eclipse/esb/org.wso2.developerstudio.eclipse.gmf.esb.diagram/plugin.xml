@@ -2657,6 +2657,16 @@
             type="synapse/graphical-configuration">
       </handler>
    </extension>
+   
+   	<extension point="org.eclipse.wst.xml.core.catalogContributions"> 
+  		<catalogContribution
+			id="org.wso2.carbonstudio.eclipse.esb.presentation.EsbDiagramEditor"> 
+  		<public 
+ 	 		publicId="http://ws.apache.org/ns/synapse" 
+ 	 		uri="http://synapse.apache.org/ns/2010/04/configuration/synapse_config.xsd"> 
+  		</public> 
+ 	 	</catalogContribution> 
+ 	</extension>
 
 
 
