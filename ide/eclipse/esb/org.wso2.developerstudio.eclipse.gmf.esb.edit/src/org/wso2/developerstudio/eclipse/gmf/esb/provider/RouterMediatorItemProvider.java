@@ -57,16 +57,19 @@ public class RouterMediatorItemProvider
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
-			super.getPropertyDescriptors(object);
-
-			addContinueAfterRoutingPropertyDescriptor(object);
+		if (itemPropertyDescriptors != null) {
+			itemPropertyDescriptors.clear();
 		}
+		super.getPropertyDescriptors(object);
+
+		addContinueAfterRoutingPropertyDescriptor(object);
+		addRouterContainerPropertyDescriptor(object);
+
 		return itemPropertyDescriptors;
 	}
 
@@ -88,6 +91,28 @@ public class RouterMediatorItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Router Container feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRouterContainerPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RouterMediator_routerContainer_feature"),
+				 getString("_UI_RouterMediator_routerContainer_description"),
+				 EsbPackage.Literals.ROUTER_MEDIATOR__ROUTER_CONTAINER,
+				 true,
+				 false,
+				 false,
+				 null,
 				 null,
 				 null));
 	}

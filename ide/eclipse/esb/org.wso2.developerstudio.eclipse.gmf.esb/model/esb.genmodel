@@ -791,7 +791,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//RouterMediator/targetOutputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//RouterMediator/inputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//RouterMediator/outputConnector"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//RouterMediator/routerContainer"/>
+      <genFeatures children="true" createChild="true" propertyDescription="Configure routes"
+          ecoreFeature="ecore:EReference esb.ecore#//RouterMediator/routerContainer"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//RouterRoute">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//RouterRoute/breakAfterRoute"/>
