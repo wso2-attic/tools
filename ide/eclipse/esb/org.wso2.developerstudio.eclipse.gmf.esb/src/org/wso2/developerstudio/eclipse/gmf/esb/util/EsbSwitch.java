@@ -955,12 +955,6 @@ public class EsbSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EsbPackage.AGGREGATE_ON_COMPLETE_BRANCH: {
-				AggregateOnCompleteBranch aggregateOnCompleteBranch = (AggregateOnCompleteBranch)theEObject;
-				T result = caseAggregateOnCompleteBranch(aggregateOnCompleteBranch);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case EsbPackage.ROUTER_MEDIATOR: {
 				RouterMediator routerMediator = (RouterMediator)theEObject;
 				T result = caseRouterMediator(routerMediator);
@@ -3852,21 +3846,6 @@ public class EsbSwitch<T> {
 	 * @generated
 	 */
 	public T caseAggregateMediatorOnCompleteOutputConnector(AggregateMediatorOnCompleteOutputConnector object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Aggregate On Complete Branch</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Aggregate On Complete Branch</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseAggregateOnCompleteBranch(AggregateOnCompleteBranch object) {
 		return null;
 	}
 

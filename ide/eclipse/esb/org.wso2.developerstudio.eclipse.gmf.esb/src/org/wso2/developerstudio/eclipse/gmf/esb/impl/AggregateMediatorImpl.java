@@ -22,11 +22,12 @@ import org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediatorInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediatorOnCompleteOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediatorOutputConnector;
-import org.wso2.developerstudio.eclipse.gmf.esb.AggregateOnCompleteBranch;
+import org.wso2.developerstudio.eclipse.gmf.esb.AggregateSequenceType;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbElement;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.MediatorFlow;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
+import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
 
 /**
  * <!-- begin-user-doc -->
@@ -40,11 +41,13 @@ import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.AggregateMediatorImpl#getCompletionTimeout <em>Completion Timeout</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.AggregateMediatorImpl#getCompletionMinMessages <em>Completion Min Messages</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.AggregateMediatorImpl#getCompletionMaxMessages <em>Completion Max Messages</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.AggregateMediatorImpl#getOnCompleteBranch <em>On Complete Branch</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.AggregateMediatorImpl#getInputConnector <em>Input Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.AggregateMediatorImpl#getOutputConnector <em>Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.AggregateMediatorImpl#getOnCompleteOutputConnector <em>On Complete Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.AggregateMediatorImpl#getMediatorFlow <em>Mediator Flow</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.AggregateMediatorImpl#getAggregationExpression <em>Aggregation Expression</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.AggregateMediatorImpl#getSequenceType <em>Sequence Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.AggregateMediatorImpl#getSequenceKey <em>Sequence Key</em>}</li>
  * </ul>
  * </p>
  *
@@ -142,16 +145,6 @@ public class AggregateMediatorImpl extends MediatorImpl implements AggregateMedi
 	protected int completionMaxMessages = COMPLETION_MAX_MESSAGES_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getOnCompleteBranch() <em>On Complete Branch</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOnCompleteBranch()
-	 * @generated
-	 * @ordered
-	 */
-	protected AggregateOnCompleteBranch onCompleteBranch;
-
-	/**
 	 * The cached value of the '{@link #getInputConnector() <em>Input Connector</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -192,6 +185,46 @@ public class AggregateMediatorImpl extends MediatorImpl implements AggregateMedi
 	protected MediatorFlow mediatorFlow;
 
 	/**
+	 * The cached value of the '{@link #getAggregationExpression() <em>Aggregation Expression</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAggregationExpression()
+	 * @generated
+	 * @ordered
+	 */
+	protected NamespacedProperty aggregationExpression;
+
+	/**
+	 * The default value of the '{@link #getSequenceType() <em>Sequence Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSequenceType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final AggregateSequenceType SEQUENCE_TYPE_EDEFAULT = AggregateSequenceType.ANONYMOUS;
+
+	/**
+	 * The cached value of the '{@link #getSequenceType() <em>Sequence Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSequenceType()
+	 * @generated
+	 * @ordered
+	 */
+	protected AggregateSequenceType sequenceType = SEQUENCE_TYPE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getSequenceKey() <em>Sequence Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSequenceKey()
+	 * @generated
+	 * @ordered
+	 */
+	protected RegistryKeyProperty sequenceKey;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
@@ -202,9 +235,21 @@ public class AggregateMediatorImpl extends MediatorImpl implements AggregateMedi
 		NamespacedProperty correlateOnExpression = EsbFactoryImpl.eINSTANCE.createNamespacedProperty();
 		correlateOnExpression.setPrettyName("Correlation Expression");
 		correlateOnExpression.setPropertyName("expression");
-		setCorrelationExpression(correlateOnExpression);		
-		AggregateOnCompleteBranch onComplete=EsbFactoryImpl.eINSTANCE.createAggregateOnCompleteBranch();
-		setOnCompleteBranch(onComplete);
+		correlateOnExpression.setPropertyValue("/default/expression");
+		setCorrelationExpression(correlateOnExpression);	
+		
+		// Aggregation Expression
+		NamespacedProperty aggregationExpression = EsbFactoryImpl.eINSTANCE.createNamespacedProperty();
+		aggregationExpression.setPrettyName("Aggregation Expression");
+		aggregationExpression.setPropertyName("expression");
+		aggregationExpression.setPropertyValue("/default/expression");
+		setAggregationExpression(aggregationExpression);
+		
+		RegistryKeyProperty sequenceKey = EsbFactoryImpl.eINSTANCE.createRegistryKeyProperty();
+		sequenceKey.setKeyName("Sequence Key");
+		sequenceKey.setPrettyName("Sequence Key");
+		sequenceKey.setKeyValue("/default/key");
+		setSequenceKey(sequenceKey);
 	}
 
 	/**
@@ -343,49 +388,6 @@ public class AggregateMediatorImpl extends MediatorImpl implements AggregateMedi
 		completionMaxMessages = newCompletionMaxMessages;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MAX_MESSAGES, oldCompletionMaxMessages, completionMaxMessages));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AggregateOnCompleteBranch getOnCompleteBranch() {
-		return onCompleteBranch;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetOnCompleteBranch(AggregateOnCompleteBranch newOnCompleteBranch, NotificationChain msgs) {
-		AggregateOnCompleteBranch oldOnCompleteBranch = onCompleteBranch;
-		onCompleteBranch = newOnCompleteBranch;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.AGGREGATE_MEDIATOR__ON_COMPLETE_BRANCH, oldOnCompleteBranch, newOnCompleteBranch);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setOnCompleteBranch(AggregateOnCompleteBranch newOnCompleteBranch) {
-		if (newOnCompleteBranch != onCompleteBranch) {
-			NotificationChain msgs = null;
-			if (onCompleteBranch != null)
-				msgs = ((InternalEObject)onCompleteBranch).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.AGGREGATE_MEDIATOR__ON_COMPLETE_BRANCH, null, msgs);
-			if (newOnCompleteBranch != null)
-				msgs = ((InternalEObject)newOnCompleteBranch).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.AGGREGATE_MEDIATOR__ON_COMPLETE_BRANCH, null, msgs);
-			msgs = basicSetOnCompleteBranch(newOnCompleteBranch, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.AGGREGATE_MEDIATOR__ON_COMPLETE_BRANCH, newOnCompleteBranch, newOnCompleteBranch));
 	}
 
 	/**
@@ -565,14 +567,119 @@ public class AggregateMediatorImpl extends MediatorImpl implements AggregateMedi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public NamespacedProperty getAggregationExpression() {
+		return aggregationExpression;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetAggregationExpression(NamespacedProperty newAggregationExpression, NotificationChain msgs) {
+		NamespacedProperty oldAggregationExpression = aggregationExpression;
+		aggregationExpression = newAggregationExpression;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.AGGREGATE_MEDIATOR__AGGREGATION_EXPRESSION, oldAggregationExpression, newAggregationExpression);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAggregationExpression(NamespacedProperty newAggregationExpression) {
+		if (newAggregationExpression != aggregationExpression) {
+			NotificationChain msgs = null;
+			if (aggregationExpression != null)
+				msgs = ((InternalEObject)aggregationExpression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.AGGREGATE_MEDIATOR__AGGREGATION_EXPRESSION, null, msgs);
+			if (newAggregationExpression != null)
+				msgs = ((InternalEObject)newAggregationExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.AGGREGATE_MEDIATOR__AGGREGATION_EXPRESSION, null, msgs);
+			msgs = basicSetAggregationExpression(newAggregationExpression, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.AGGREGATE_MEDIATOR__AGGREGATION_EXPRESSION, newAggregationExpression, newAggregationExpression));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AggregateSequenceType getSequenceType() {
+		return sequenceType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSequenceType(AggregateSequenceType newSequenceType) {
+		AggregateSequenceType oldSequenceType = sequenceType;
+		sequenceType = newSequenceType == null ? SEQUENCE_TYPE_EDEFAULT : newSequenceType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.AGGREGATE_MEDIATOR__SEQUENCE_TYPE, oldSequenceType, sequenceType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RegistryKeyProperty getSequenceKey() {
+		return sequenceKey;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSequenceKey(RegistryKeyProperty newSequenceKey, NotificationChain msgs) {
+		RegistryKeyProperty oldSequenceKey = sequenceKey;
+		sequenceKey = newSequenceKey;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.AGGREGATE_MEDIATOR__SEQUENCE_KEY, oldSequenceKey, newSequenceKey);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSequenceKey(RegistryKeyProperty newSequenceKey) {
+		if (newSequenceKey != sequenceKey) {
+			NotificationChain msgs = null;
+			if (sequenceKey != null)
+				msgs = ((InternalEObject)sequenceKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.AGGREGATE_MEDIATOR__SEQUENCE_KEY, null, msgs);
+			if (newSequenceKey != null)
+				msgs = ((InternalEObject)newSequenceKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.AGGREGATE_MEDIATOR__SEQUENCE_KEY, null, msgs);
+			msgs = basicSetSequenceKey(newSequenceKey, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.AGGREGATE_MEDIATOR__SEQUENCE_KEY, newSequenceKey, newSequenceKey));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case EsbPackage.AGGREGATE_MEDIATOR__CORRELATION_EXPRESSION:
 				return basicSetCorrelationExpression(null, msgs);
-			case EsbPackage.AGGREGATE_MEDIATOR__ON_COMPLETE_BRANCH:
-				return basicSetOnCompleteBranch(null, msgs);
 			case EsbPackage.AGGREGATE_MEDIATOR__INPUT_CONNECTOR:
 				return basicSetInputConnector(null, msgs);
 			case EsbPackage.AGGREGATE_MEDIATOR__OUTPUT_CONNECTOR:
@@ -581,6 +688,10 @@ public class AggregateMediatorImpl extends MediatorImpl implements AggregateMedi
 				return basicSetOnCompleteOutputConnector(null, msgs);
 			case EsbPackage.AGGREGATE_MEDIATOR__MEDIATOR_FLOW:
 				return basicSetMediatorFlow(null, msgs);
+			case EsbPackage.AGGREGATE_MEDIATOR__AGGREGATION_EXPRESSION:
+				return basicSetAggregationExpression(null, msgs);
+			case EsbPackage.AGGREGATE_MEDIATOR__SEQUENCE_KEY:
+				return basicSetSequenceKey(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -604,8 +715,6 @@ public class AggregateMediatorImpl extends MediatorImpl implements AggregateMedi
 				return getCompletionMinMessages();
 			case EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MAX_MESSAGES:
 				return getCompletionMaxMessages();
-			case EsbPackage.AGGREGATE_MEDIATOR__ON_COMPLETE_BRANCH:
-				return getOnCompleteBranch();
 			case EsbPackage.AGGREGATE_MEDIATOR__INPUT_CONNECTOR:
 				return getInputConnector();
 			case EsbPackage.AGGREGATE_MEDIATOR__OUTPUT_CONNECTOR:
@@ -614,6 +723,12 @@ public class AggregateMediatorImpl extends MediatorImpl implements AggregateMedi
 				return getOnCompleteOutputConnector();
 			case EsbPackage.AGGREGATE_MEDIATOR__MEDIATOR_FLOW:
 				return getMediatorFlow();
+			case EsbPackage.AGGREGATE_MEDIATOR__AGGREGATION_EXPRESSION:
+				return getAggregationExpression();
+			case EsbPackage.AGGREGATE_MEDIATOR__SEQUENCE_TYPE:
+				return getSequenceType();
+			case EsbPackage.AGGREGATE_MEDIATOR__SEQUENCE_KEY:
+				return getSequenceKey();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -643,9 +758,6 @@ public class AggregateMediatorImpl extends MediatorImpl implements AggregateMedi
 			case EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MAX_MESSAGES:
 				setCompletionMaxMessages((Integer)newValue);
 				return;
-			case EsbPackage.AGGREGATE_MEDIATOR__ON_COMPLETE_BRANCH:
-				setOnCompleteBranch((AggregateOnCompleteBranch)newValue);
-				return;
 			case EsbPackage.AGGREGATE_MEDIATOR__INPUT_CONNECTOR:
 				setInputConnector((AggregateMediatorInputConnector)newValue);
 				return;
@@ -657,6 +769,15 @@ public class AggregateMediatorImpl extends MediatorImpl implements AggregateMedi
 				return;
 			case EsbPackage.AGGREGATE_MEDIATOR__MEDIATOR_FLOW:
 				setMediatorFlow((MediatorFlow)newValue);
+				return;
+			case EsbPackage.AGGREGATE_MEDIATOR__AGGREGATION_EXPRESSION:
+				setAggregationExpression((NamespacedProperty)newValue);
+				return;
+			case EsbPackage.AGGREGATE_MEDIATOR__SEQUENCE_TYPE:
+				setSequenceType((AggregateSequenceType)newValue);
+				return;
+			case EsbPackage.AGGREGATE_MEDIATOR__SEQUENCE_KEY:
+				setSequenceKey((RegistryKeyProperty)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -686,9 +807,6 @@ public class AggregateMediatorImpl extends MediatorImpl implements AggregateMedi
 			case EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MAX_MESSAGES:
 				setCompletionMaxMessages(COMPLETION_MAX_MESSAGES_EDEFAULT);
 				return;
-			case EsbPackage.AGGREGATE_MEDIATOR__ON_COMPLETE_BRANCH:
-				setOnCompleteBranch((AggregateOnCompleteBranch)null);
-				return;
 			case EsbPackage.AGGREGATE_MEDIATOR__INPUT_CONNECTOR:
 				setInputConnector((AggregateMediatorInputConnector)null);
 				return;
@@ -700,6 +818,15 @@ public class AggregateMediatorImpl extends MediatorImpl implements AggregateMedi
 				return;
 			case EsbPackage.AGGREGATE_MEDIATOR__MEDIATOR_FLOW:
 				setMediatorFlow((MediatorFlow)null);
+				return;
+			case EsbPackage.AGGREGATE_MEDIATOR__AGGREGATION_EXPRESSION:
+				setAggregationExpression((NamespacedProperty)null);
+				return;
+			case EsbPackage.AGGREGATE_MEDIATOR__SEQUENCE_TYPE:
+				setSequenceType(SEQUENCE_TYPE_EDEFAULT);
+				return;
+			case EsbPackage.AGGREGATE_MEDIATOR__SEQUENCE_KEY:
+				setSequenceKey((RegistryKeyProperty)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -724,8 +851,6 @@ public class AggregateMediatorImpl extends MediatorImpl implements AggregateMedi
 				return completionMinMessages != COMPLETION_MIN_MESSAGES_EDEFAULT;
 			case EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MAX_MESSAGES:
 				return completionMaxMessages != COMPLETION_MAX_MESSAGES_EDEFAULT;
-			case EsbPackage.AGGREGATE_MEDIATOR__ON_COMPLETE_BRANCH:
-				return onCompleteBranch != null;
 			case EsbPackage.AGGREGATE_MEDIATOR__INPUT_CONNECTOR:
 				return inputConnector != null;
 			case EsbPackage.AGGREGATE_MEDIATOR__OUTPUT_CONNECTOR:
@@ -734,6 +859,12 @@ public class AggregateMediatorImpl extends MediatorImpl implements AggregateMedi
 				return onCompleteOutputConnector != null;
 			case EsbPackage.AGGREGATE_MEDIATOR__MEDIATOR_FLOW:
 				return mediatorFlow != null;
+			case EsbPackage.AGGREGATE_MEDIATOR__AGGREGATION_EXPRESSION:
+				return aggregationExpression != null;
+			case EsbPackage.AGGREGATE_MEDIATOR__SEQUENCE_TYPE:
+				return sequenceType != SEQUENCE_TYPE_EDEFAULT;
+			case EsbPackage.AGGREGATE_MEDIATOR__SEQUENCE_KEY:
+				return sequenceKey != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -757,6 +888,8 @@ public class AggregateMediatorImpl extends MediatorImpl implements AggregateMedi
 		result.append(completionMinMessages);
 		result.append(", completionMaxMessages: ");
 		result.append(completionMaxMessages);
+		result.append(", sequenceType: ");
+		result.append(sequenceType);
 		result.append(')');
 		return result.toString();
 	}

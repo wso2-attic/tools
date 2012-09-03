@@ -2546,30 +2546,6 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.AggregateOnCompleteBranch} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected AggregateOnCompleteBranchItemProvider aggregateOnCompleteBranchItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.AggregateOnCompleteBranch}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	
-	@Override
-	public Adapter createAggregateOnCompleteBranchAdapter() {
-		if (aggregateOnCompleteBranchItemProvider == null) {
-			aggregateOnCompleteBranchItemProvider = new AggregateOnCompleteBranchItemProvider(this);
-		}
-
-		return aggregateOnCompleteBranchItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.RouterMediator} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5998,7 +5974,6 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 		if (aggregateMediatorInputConnectorItemProvider != null) aggregateMediatorInputConnectorItemProvider.dispose();
 		if (aggregateMediatorOutputConnectorItemProvider != null) aggregateMediatorOutputConnectorItemProvider.dispose();
 		if (aggregateMediatorOnCompleteOutputConnectorItemProvider != null) aggregateMediatorOnCompleteOutputConnectorItemProvider.dispose();
-		if (aggregateOnCompleteBranchItemProvider != null) aggregateOnCompleteBranchItemProvider.dispose();
 		if (routerMediatorItemProvider != null) routerMediatorItemProvider.dispose();
 		if (routerRouteItemProvider != null) routerRouteItemProvider.dispose();
 		if (routerTargetItemProvider != null) routerTargetItemProvider.dispose();

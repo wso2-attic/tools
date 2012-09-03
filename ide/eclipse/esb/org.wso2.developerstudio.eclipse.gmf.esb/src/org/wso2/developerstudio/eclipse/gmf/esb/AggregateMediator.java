@@ -22,11 +22,13 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator#getCompletionTimeout <em>Completion Timeout</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator#getCompletionMinMessages <em>Completion Min Messages</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator#getCompletionMaxMessages <em>Completion Max Messages</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator#getOnCompleteBranch <em>On Complete Branch</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator#getInputConnector <em>Input Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator#getOutputConnector <em>Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator#getOnCompleteOutputConnector <em>On Complete Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator#getMediatorFlow <em>Mediator Flow</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator#getAggregationExpression <em>Aggregation Expression</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator#getSequenceType <em>Sequence Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator#getSequenceKey <em>Sequence Key</em>}</li>
  * </ul>
  * </p>
  *
@@ -166,32 +168,6 @@ public interface AggregateMediator extends Mediator {
 	void setCompletionMaxMessages(int value);
 
 	/**
-	 * Returns the value of the '<em><b>On Complete Branch</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>On Complete Branch</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>On Complete Branch</em>' containment reference.
-	 * @see #setOnCompleteBranch(AggregateOnCompleteBranch)
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getAggregateMediator_OnCompleteBranch()
-	 * @model containment="true"
-	 * @generated
-	 */
-	AggregateOnCompleteBranch getOnCompleteBranch();
-
-	/**
-	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator#getOnCompleteBranch <em>On Complete Branch</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>On Complete Branch</em>' containment reference.
-	 * @see #getOnCompleteBranch()
-	 * @generated
-	 */
-	void setOnCompleteBranch(AggregateOnCompleteBranch value);
-
-	/**
 	 * Returns the value of the '<em><b>Input Connector</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -294,5 +270,86 @@ public interface AggregateMediator extends Mediator {
 	 * @generated
 	 */
 	void setMediatorFlow(MediatorFlow value);
+
+	/**
+	 * Returns the value of the '<em><b>Aggregation Expression</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Aggregation Expression</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Aggregation Expression</em>' containment reference.
+	 * @see #setAggregationExpression(NamespacedProperty)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getAggregateMediator_AggregationExpression()
+	 * @model containment="true"
+	 * @generated
+	 */
+	NamespacedProperty getAggregationExpression();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator#getAggregationExpression <em>Aggregation Expression</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Aggregation Expression</em>' containment reference.
+	 * @see #getAggregationExpression()
+	 * @generated
+	 */
+	void setAggregationExpression(NamespacedProperty value);
+
+	/**
+	 * Returns the value of the '<em><b>Sequence Type</b></em>' attribute.
+	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.gmf.esb.AggregateSequenceType}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Sequence Type</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Sequence Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.AggregateSequenceType
+	 * @see #setSequenceType(AggregateSequenceType)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getAggregateMediator_SequenceType()
+	 * @model
+	 * @generated
+	 */
+	AggregateSequenceType getSequenceType();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator#getSequenceType <em>Sequence Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Sequence Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.AggregateSequenceType
+	 * @see #getSequenceType()
+	 * @generated
+	 */
+	void setSequenceType(AggregateSequenceType value);
+
+	/**
+	 * Returns the value of the '<em><b>Sequence Key</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Sequence Key</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Sequence Key</em>' containment reference.
+	 * @see #setSequenceKey(RegistryKeyProperty)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getAggregateMediator_SequenceKey()
+	 * @model containment="true"
+	 * @generated
+	 */
+	RegistryKeyProperty getSequenceKey();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator#getSequenceKey <em>Sequence Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Sequence Key</em>' containment reference.
+	 * @see #getSequenceKey()
+	 * @generated
+	 */
+	void setSequenceKey(RegistryKeyProperty value);
 
 } // AggregateMediator

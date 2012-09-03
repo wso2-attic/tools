@@ -731,8 +731,6 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="completionMaxMessages"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="onCompleteBranch" eType="#//AggregateOnCompleteBranch"
-        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="inputConnector" eType="#//AggregateMediatorInputConnector"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outputConnector" eType="#//AggregateMediatorOutputConnector"
@@ -741,18 +739,16 @@
         eType="#//AggregateMediatorOnCompleteOutputConnector" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="mediatorFlow" eType="#//MediatorFlow"
         containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AggregateMediatorInputConnector" eSuperTypes="#//InputConnector"/>
-  <eClassifiers xsi:type="ecore:EClass" name="AggregateMediatorOutputConnector" eSuperTypes="#//OutputConnector"/>
-  <eClassifiers xsi:type="ecore:EClass" name="AggregateMediatorOnCompleteOutputConnector"
-      eSuperTypes="#//OutputConnector"/>
-  <eClassifiers xsi:type="ecore:EClass" name="AggregateOnCompleteBranch">
     <eStructuralFeatures xsi:type="ecore:EReference" name="aggregationExpression"
         eType="#//NamespacedProperty" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sequenceType" eType="#//AggregateSequenceType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sequenceKey" eType="#//RegistryKeyProperty"
         containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AggregateMediatorInputConnector" eSuperTypes="#//InputConnector"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AggregateMediatorOutputConnector" eSuperTypes="#//OutputConnector"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AggregateMediatorOnCompleteOutputConnector"
+      eSuperTypes="#//OutputConnector"/>
   <eClassifiers xsi:type="ecore:EEnum" name="AggregateSequenceType">
     <eLiterals name="ANONYMOUS"/>
     <eLiterals name="REGISTRY_REFERENCE" value="1"/>

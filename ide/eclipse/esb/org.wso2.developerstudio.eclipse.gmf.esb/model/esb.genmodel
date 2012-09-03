@@ -767,24 +767,23 @@
     <genClasses ecoreClass="esb.ecore#//FaultMediatorOutputConnector"/>
     <genClasses ecoreClass="esb.ecore#//AggregateMediator">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//AggregateMediator/aggregateID"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//AggregateMediator/correlationExpression"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//AggregateMediator/correlationExpression"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//AggregateMediator/completionTimeout"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//AggregateMediator/completionMinMessages"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//AggregateMediator/completionMaxMessages"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//AggregateMediator/onCompleteBranch"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//AggregateMediator/inputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//AggregateMediator/outputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//AggregateMediator/onCompleteOutputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//AggregateMediator/mediatorFlow"/>
+      <genFeatures children="true" createChild="true" propertyCategory="onComplete"
+          propertyDescription="" ecoreFeature="ecore:EReference esb.ecore#//AggregateMediator/aggregationExpression"/>
+      <genFeatures createChild="false" propertyCategory="onComplete" ecoreFeature="ecore:EAttribute esb.ecore#//AggregateMediator/sequenceType"/>
+      <genFeatures children="true" createChild="true" propertyCategory="onComplete"
+          ecoreFeature="ecore:EReference esb.ecore#//AggregateMediator/sequenceKey"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//AggregateMediatorInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//AggregateMediatorOutputConnector"/>
     <genClasses ecoreClass="esb.ecore#//AggregateMediatorOnCompleteOutputConnector"/>
-    <genClasses ecoreClass="esb.ecore#//AggregateOnCompleteBranch">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//AggregateOnCompleteBranch/aggregationExpression"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//AggregateOnCompleteBranch/sequenceType"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//AggregateOnCompleteBranch/sequenceKey"/>
-    </genClasses>
     <genClasses ecoreClass="esb.ecore#//RouterMediator">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//RouterMediator/continueAfterRouting"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//RouterMediator/routes"/>

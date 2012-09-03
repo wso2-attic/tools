@@ -976,15 +976,6 @@ public interface EsbFactory extends EFactory {
 	AggregateMediatorOnCompleteOutputConnector createAggregateMediatorOnCompleteOutputConnector();
 
 	/**
-	 * Returns a new object of class '<em>Aggregate On Complete Branch</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Aggregate On Complete Branch</em>'.
-	 * @generated
-	 */
-	AggregateOnCompleteBranch createAggregateOnCompleteBranch();
-
-	/**
 	 * Returns a new object of class '<em>Router Mediator</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

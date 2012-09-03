@@ -7,7 +7,6 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.ui.provider.PropertySource;
 import org.eclipse.ui.views.properties.IPropertyDescriptor;
 import org.wso2.developerstudio.eclipse.esb.core.Activator;
-import org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
@@ -70,8 +69,10 @@ public class EsbPropertySource extends PropertySource {
 			return new CustomPropertyDescriptor(object,itemPropertyDescriptor);
 		} else if(pkg.getHeaderMediator_ValueExpression().equals(feature)){
 			return new CustomPropertyDescriptor(object,itemPropertyDescriptor);
-		} else if(pkg.getAggregateOnCompleteBranch_AggregationExpression().equals(feature)){
-			return new CustomPropertyDescriptor(((AggregateMediator)object).getOnCompleteBranch(), itemPropertyDescriptor);
+		} else if(pkg.getAggregateMediator_AggregationExpression().equals(feature)){
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
+		} else if(pkg.getAggregateMediator_SequenceKey().equals(feature)){
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
 		} else if(pkg.getAggregateMediator_CorrelationExpression().equals(feature)){
 			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
 		} else if(pkg.getRMSequenceMediator_CorrelationXpath().equals(feature)){

@@ -34,7 +34,6 @@ import org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediatorInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediatorOnCompleteOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediatorOutputConnector;
-import org.wso2.developerstudio.eclipse.gmf.esb.AggregateOnCompleteBranch;
 import org.wso2.developerstudio.eclipse.gmf.esb.AggregateSequenceType;
 import org.wso2.developerstudio.eclipse.gmf.esb.AutoscaleInMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.AutoscaleOutMediator;
@@ -1188,13 +1187,6 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	private EClass aggregateMediatorOnCompleteOutputConnectorEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass aggregateOnCompleteBranchEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -5821,7 +5813,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAggregateMediator_OnCompleteBranch() {
+	public EReference getAggregateMediator_InputConnector() {
 		return (EReference)aggregateMediatorEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -5830,7 +5822,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAggregateMediator_InputConnector() {
+	public EReference getAggregateMediator_OutputConnector() {
 		return (EReference)aggregateMediatorEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -5839,7 +5831,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAggregateMediator_OutputConnector() {
+	public EReference getAggregateMediator_OnCompleteOutputConnector() {
 		return (EReference)aggregateMediatorEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -5848,7 +5840,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAggregateMediator_OnCompleteOutputConnector() {
+	public EReference getAggregateMediator_MediatorFlow() {
 		return (EReference)aggregateMediatorEClass.getEStructuralFeatures().get(8);
 	}
 
@@ -5857,8 +5849,26 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAggregateMediator_MediatorFlow() {
+	public EReference getAggregateMediator_AggregationExpression() {
 		return (EReference)aggregateMediatorEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAggregateMediator_SequenceType() {
+		return (EAttribute)aggregateMediatorEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAggregateMediator_SequenceKey() {
+		return (EReference)aggregateMediatorEClass.getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -5886,42 +5896,6 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 */
 	public EClass getAggregateMediatorOnCompleteOutputConnector() {
 		return aggregateMediatorOnCompleteOutputConnectorEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getAggregateOnCompleteBranch() {
-		return aggregateOnCompleteBranchEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getAggregateOnCompleteBranch_AggregationExpression() {
-		return (EReference)aggregateOnCompleteBranchEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getAggregateOnCompleteBranch_SequenceType() {
-		return (EAttribute)aggregateOnCompleteBranchEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getAggregateOnCompleteBranch_SequenceKey() {
-		return (EReference)aggregateOnCompleteBranchEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -11057,22 +11031,19 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEAttribute(aggregateMediatorEClass, AGGREGATE_MEDIATOR__COMPLETION_TIMEOUT);
 		createEAttribute(aggregateMediatorEClass, AGGREGATE_MEDIATOR__COMPLETION_MIN_MESSAGES);
 		createEAttribute(aggregateMediatorEClass, AGGREGATE_MEDIATOR__COMPLETION_MAX_MESSAGES);
-		createEReference(aggregateMediatorEClass, AGGREGATE_MEDIATOR__ON_COMPLETE_BRANCH);
 		createEReference(aggregateMediatorEClass, AGGREGATE_MEDIATOR__INPUT_CONNECTOR);
 		createEReference(aggregateMediatorEClass, AGGREGATE_MEDIATOR__OUTPUT_CONNECTOR);
 		createEReference(aggregateMediatorEClass, AGGREGATE_MEDIATOR__ON_COMPLETE_OUTPUT_CONNECTOR);
 		createEReference(aggregateMediatorEClass, AGGREGATE_MEDIATOR__MEDIATOR_FLOW);
+		createEReference(aggregateMediatorEClass, AGGREGATE_MEDIATOR__AGGREGATION_EXPRESSION);
+		createEAttribute(aggregateMediatorEClass, AGGREGATE_MEDIATOR__SEQUENCE_TYPE);
+		createEReference(aggregateMediatorEClass, AGGREGATE_MEDIATOR__SEQUENCE_KEY);
 
 		aggregateMediatorInputConnectorEClass = createEClass(AGGREGATE_MEDIATOR_INPUT_CONNECTOR);
 
 		aggregateMediatorOutputConnectorEClass = createEClass(AGGREGATE_MEDIATOR_OUTPUT_CONNECTOR);
 
 		aggregateMediatorOnCompleteOutputConnectorEClass = createEClass(AGGREGATE_MEDIATOR_ON_COMPLETE_OUTPUT_CONNECTOR);
-
-		aggregateOnCompleteBranchEClass = createEClass(AGGREGATE_ON_COMPLETE_BRANCH);
-		createEReference(aggregateOnCompleteBranchEClass, AGGREGATE_ON_COMPLETE_BRANCH__AGGREGATION_EXPRESSION);
-		createEAttribute(aggregateOnCompleteBranchEClass, AGGREGATE_ON_COMPLETE_BRANCH__SEQUENCE_TYPE);
-		createEReference(aggregateOnCompleteBranchEClass, AGGREGATE_ON_COMPLETE_BRANCH__SEQUENCE_KEY);
 
 		routerMediatorEClass = createEClass(ROUTER_MEDIATOR);
 		createEAttribute(routerMediatorEClass, ROUTER_MEDIATOR__CONTINUE_AFTER_ROUTING);
@@ -12472,22 +12443,19 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEAttribute(getAggregateMediator_CompletionTimeout(), ecorePackage.getEInt(), "completionTimeout", null, 0, 1, AggregateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAggregateMediator_CompletionMinMessages(), ecorePackage.getEInt(), "completionMinMessages", null, 0, 1, AggregateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAggregateMediator_CompletionMaxMessages(), ecorePackage.getEInt(), "completionMaxMessages", null, 0, 1, AggregateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAggregateMediator_OnCompleteBranch(), this.getAggregateOnCompleteBranch(), null, "onCompleteBranch", null, 0, 1, AggregateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAggregateMediator_InputConnector(), this.getAggregateMediatorInputConnector(), null, "inputConnector", null, 0, 1, AggregateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAggregateMediator_OutputConnector(), this.getAggregateMediatorOutputConnector(), null, "outputConnector", null, 0, 1, AggregateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAggregateMediator_OnCompleteOutputConnector(), this.getAggregateMediatorOnCompleteOutputConnector(), null, "onCompleteOutputConnector", null, 0, 1, AggregateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAggregateMediator_MediatorFlow(), this.getMediatorFlow(), null, "mediatorFlow", null, 0, 1, AggregateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAggregateMediator_AggregationExpression(), this.getNamespacedProperty(), null, "aggregationExpression", null, 0, 1, AggregateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAggregateMediator_SequenceType(), this.getAggregateSequenceType(), "sequenceType", null, 0, 1, AggregateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAggregateMediator_SequenceKey(), this.getRegistryKeyProperty(), null, "sequenceKey", null, 0, 1, AggregateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(aggregateMediatorInputConnectorEClass, AggregateMediatorInputConnector.class, "AggregateMediatorInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(aggregateMediatorOutputConnectorEClass, AggregateMediatorOutputConnector.class, "AggregateMediatorOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(aggregateMediatorOnCompleteOutputConnectorEClass, AggregateMediatorOnCompleteOutputConnector.class, "AggregateMediatorOnCompleteOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(aggregateOnCompleteBranchEClass, AggregateOnCompleteBranch.class, "AggregateOnCompleteBranch", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAggregateOnCompleteBranch_AggregationExpression(), this.getNamespacedProperty(), null, "aggregationExpression", null, 0, 1, AggregateOnCompleteBranch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAggregateOnCompleteBranch_SequenceType(), this.getAggregateSequenceType(), "sequenceType", null, 0, 1, AggregateOnCompleteBranch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAggregateOnCompleteBranch_SequenceKey(), this.getRegistryKeyProperty(), null, "sequenceKey", null, 0, 1, AggregateOnCompleteBranch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(routerMediatorEClass, RouterMediator.class, "RouterMediator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRouterMediator_ContinueAfterRouting(), ecorePackage.getEBoolean(), "continueAfterRouting", null, 0, 1, RouterMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

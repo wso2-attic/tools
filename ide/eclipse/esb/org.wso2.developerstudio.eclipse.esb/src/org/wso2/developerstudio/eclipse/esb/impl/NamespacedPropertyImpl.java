@@ -89,10 +89,10 @@ public class NamespacedPropertyImpl extends ModelObjectImpl implements Namespace
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getPropertyValue()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
-	protected static final String PROPERTY_VALUE_EDEFAULT = null;
+	protected static final String PROPERTY_VALUE_EDEFAULT = "";
 
 	/**
 	 * The cached value of the '{@link #getPropertyValue() <em>Property Value</em>}' attribute.

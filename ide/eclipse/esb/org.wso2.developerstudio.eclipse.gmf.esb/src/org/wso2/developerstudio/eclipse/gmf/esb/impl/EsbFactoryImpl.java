@@ -169,7 +169,6 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 			case EsbPackage.AGGREGATE_MEDIATOR_INPUT_CONNECTOR: return createAggregateMediatorInputConnector();
 			case EsbPackage.AGGREGATE_MEDIATOR_OUTPUT_CONNECTOR: return createAggregateMediatorOutputConnector();
 			case EsbPackage.AGGREGATE_MEDIATOR_ON_COMPLETE_OUTPUT_CONNECTOR: return createAggregateMediatorOnCompleteOutputConnector();
-			case EsbPackage.AGGREGATE_ON_COMPLETE_BRANCH: return createAggregateOnCompleteBranch();
 			case EsbPackage.ROUTER_MEDIATOR: return createRouterMediator();
 			case EsbPackage.ROUTER_ROUTE: return createRouterRoute();
 			case EsbPackage.ROUTER_TARGET: return createRouterTarget();
@@ -1761,16 +1760,6 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	public AggregateMediatorOnCompleteOutputConnector createAggregateMediatorOnCompleteOutputConnector() {
 		AggregateMediatorOnCompleteOutputConnectorImpl aggregateMediatorOnCompleteOutputConnector = new AggregateMediatorOnCompleteOutputConnectorImpl();
 		return aggregateMediatorOnCompleteOutputConnector;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AggregateOnCompleteBranch createAggregateOnCompleteBranch() {
-		AggregateOnCompleteBranchImpl aggregateOnCompleteBranch = new AggregateOnCompleteBranchImpl();
-		return aggregateOnCompleteBranch;
 	}
 
 	/**

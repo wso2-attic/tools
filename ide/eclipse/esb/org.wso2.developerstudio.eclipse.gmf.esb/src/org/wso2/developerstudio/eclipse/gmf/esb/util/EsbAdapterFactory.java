@@ -517,10 +517,6 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 				return createAggregateMediatorOnCompleteOutputConnectorAdapter();
 			}
 			@Override
-			public Adapter caseAggregateOnCompleteBranch(AggregateOnCompleteBranch object) {
-				return createAggregateOnCompleteBranchAdapter();
-			}
-			@Override
 			public Adapter caseRouterMediator(RouterMediator object) {
 				return createRouterMediatorAdapter();
 			}
@@ -2756,20 +2752,6 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAggregateMediatorOnCompleteOutputConnectorAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.AggregateOnCompleteBranch <em>Aggregate On Complete Branch</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.AggregateOnCompleteBranch
-	 * @generated
-	 */
-	public Adapter createAggregateOnCompleteBranchAdapter() {
 		return null;
 	}
 

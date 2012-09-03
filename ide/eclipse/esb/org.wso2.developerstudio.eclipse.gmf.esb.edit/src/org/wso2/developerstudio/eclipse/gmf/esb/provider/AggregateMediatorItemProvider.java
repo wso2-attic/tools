@@ -25,6 +25,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.AggregateSequenceType;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 
@@ -61,18 +62,23 @@ public class AggregateMediatorItemProvider
 	
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+		AggregateMediator mediator = (AggregateMediator) object;
 		if (itemPropertyDescriptors != null) {
 			itemPropertyDescriptors.clear();
 		}
-			super.getPropertyDescriptors(object);
+		super.getPropertyDescriptors(object);
+		addAggregateIDPropertyDescriptor(object);
+		addCorrelationExpressionPropertyDescriptor(object);
+		addCompletionTimeoutPropertyDescriptor(object);
+		addCompletionMinMessagesPropertyDescriptor(object);
+		addCompletionMaxMessagesPropertyDescriptor(object);
+		addAggregationExpressionPropertyDescriptor(object);
+		addSequenceTypePropertyDescriptor(object);
 
-			addAggregateIDPropertyDescriptor(object);
-			addCorrelationExpressionPropertyDescriptor(object);
-			addCompletionTimeoutPropertyDescriptor(object);
-			addCompletionMinMessagesPropertyDescriptor(object);
-			addCompletionMaxMessagesPropertyDescriptor(object);
-			addAggregationExpressionPropertyDescriptor(object);
-		
+		if (mediator.getSequenceType().equals(AggregateSequenceType.REGISTRY_REFERENCE)) {
+			addSequenceKeyPropertyDescriptor(object);
+		}
+
 		return itemPropertyDescriptors;
 	}
 
@@ -181,23 +187,72 @@ public class AggregateMediatorItemProvider
 				 null));
 	}
 	
-	
+
+	/**
+	 * This adds a property descriptor for the Aggregation Expression feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	protected void addAggregationExpressionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_AggregateOnCompleteBranch_aggregationExpression_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AggregateOnCompleteBranch_aggregationExpression_feature", "_UI_AggregateOnCompleteBranch_type"),
-				 EsbPackage.Literals.AGGREGATE_ON_COMPLETE_BRANCH__AGGREGATION_EXPRESSION,
+				 getString("_UI_AggregateMediator_aggregationExpression_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AggregateMediator_aggregationExpression_feature", "_UI_AggregateMediator_type"),
+				 EsbPackage.Literals.AGGREGATE_MEDIATOR__AGGREGATION_EXPRESSION,
 				 true,
 				 false,
 				 false,
 				 null,
-				 null,
+				 getString("_UI_onCompletePropertyCategory"),
 				 null));
 	}
-	
+
+	/**
+	 * This adds a property descriptor for the Sequence Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSequenceTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AggregateMediator_sequenceType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AggregateMediator_sequenceType_feature", "_UI_AggregateMediator_type"),
+				 EsbPackage.Literals.AGGREGATE_MEDIATOR__SEQUENCE_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI_onCompletePropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Sequence Key feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSequenceKeyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AggregateMediator_sequenceKey_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AggregateMediator_sequenceKey_feature", "_UI_AggregateMediator_type"),
+				 EsbPackage.Literals.AGGREGATE_MEDIATOR__SEQUENCE_KEY,
+				 true,
+				 false,
+				 false,
+				 null,
+				 getString("_UI_onCompletePropertyCategory"),
+				 null));
+	}
 
 	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
@@ -213,11 +268,12 @@ public class AggregateMediatorItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(EsbPackage.Literals.AGGREGATE_MEDIATOR__CORRELATION_EXPRESSION);
-			childrenFeatures.add(EsbPackage.Literals.AGGREGATE_MEDIATOR__ON_COMPLETE_BRANCH);
 			childrenFeatures.add(EsbPackage.Literals.AGGREGATE_MEDIATOR__INPUT_CONNECTOR);
 			childrenFeatures.add(EsbPackage.Literals.AGGREGATE_MEDIATOR__OUTPUT_CONNECTOR);
 			childrenFeatures.add(EsbPackage.Literals.AGGREGATE_MEDIATOR__ON_COMPLETE_OUTPUT_CONNECTOR);
 			childrenFeatures.add(EsbPackage.Literals.AGGREGATE_MEDIATOR__MEDIATOR_FLOW);
+			childrenFeatures.add(EsbPackage.Literals.AGGREGATE_MEDIATOR__AGGREGATION_EXPRESSION);
+			childrenFeatures.add(EsbPackage.Literals.AGGREGATE_MEDIATOR__SEQUENCE_KEY);
 		}
 		return childrenFeatures;
 	}
@@ -278,14 +334,16 @@ public class AggregateMediatorItemProvider
 			case EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_TIMEOUT:
 			case EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MIN_MESSAGES:
 			case EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MAX_MESSAGES:
+			case EsbPackage.AGGREGATE_MEDIATOR__SEQUENCE_TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case EsbPackage.AGGREGATE_MEDIATOR__CORRELATION_EXPRESSION:
-			case EsbPackage.AGGREGATE_MEDIATOR__ON_COMPLETE_BRANCH:
 			case EsbPackage.AGGREGATE_MEDIATOR__INPUT_CONNECTOR:
 			case EsbPackage.AGGREGATE_MEDIATOR__OUTPUT_CONNECTOR:
 			case EsbPackage.AGGREGATE_MEDIATOR__ON_COMPLETE_OUTPUT_CONNECTOR:
 			case EsbPackage.AGGREGATE_MEDIATOR__MEDIATOR_FLOW:
+			case EsbPackage.AGGREGATE_MEDIATOR__AGGREGATION_EXPRESSION:
+			case EsbPackage.AGGREGATE_MEDIATOR__SEQUENCE_KEY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -311,11 +369,6 @@ public class AggregateMediatorItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.AGGREGATE_MEDIATOR__ON_COMPLETE_BRANCH,
-				 EsbFactory.eINSTANCE.createAggregateOnCompleteBranch()));
-
-		newChildDescriptors.add
-			(createChildParameter
 				(EsbPackage.Literals.AGGREGATE_MEDIATOR__INPUT_CONNECTOR,
 				 EsbFactory.eINSTANCE.createAggregateMediatorInputConnector()));
 
@@ -333,6 +386,39 @@ public class AggregateMediatorItemProvider
 			(createChildParameter
 				(EsbPackage.Literals.AGGREGATE_MEDIATOR__MEDIATOR_FLOW,
 				 EsbFactory.eINSTANCE.createMediatorFlow()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.AGGREGATE_MEDIATOR__AGGREGATION_EXPRESSION,
+				 EsbFactory.eINSTANCE.createNamespacedProperty()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.AGGREGATE_MEDIATOR__SEQUENCE_KEY,
+				 EsbFactory.eINSTANCE.createRegistryKeyProperty()));
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify =
+			childFeature == EsbPackage.Literals.AGGREGATE_MEDIATOR__CORRELATION_EXPRESSION ||
+			childFeature == EsbPackage.Literals.AGGREGATE_MEDIATOR__AGGREGATION_EXPRESSION;
+
+		if (qualify) {
+			return getString
+				("_UI_CreateChild_text2",
+				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 }
