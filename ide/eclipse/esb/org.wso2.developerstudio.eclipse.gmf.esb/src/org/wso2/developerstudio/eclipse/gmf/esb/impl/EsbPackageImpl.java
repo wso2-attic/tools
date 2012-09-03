@@ -245,6 +245,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.RuleFactValueType;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleFactsConfiguration;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleFragmentType;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleMediatorChildMediatorsOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleMediatorInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleMediatorOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleOptionType;
@@ -1726,6 +1727,13 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	private EClass ruleMediatorOutputConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass ruleMediatorChildMediatorsOutputConnectorEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -8315,6 +8323,24 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getRuleMediator_ChildMediatorsOutputConnector() {
+		return (EReference)ruleMediatorEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRuleMediator_MediatorFlow() {
+		return (EReference)ruleMediatorEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getRuleMediatorInputConnector() {
 		return ruleMediatorInputConnectorEClass;
 	}
@@ -8326,6 +8352,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 */
 	public EClass getRuleMediatorOutputConnector() {
 		return ruleMediatorOutputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRuleMediatorChildMediatorsOutputConnector() {
+		return ruleMediatorChildMediatorsOutputConnectorEClass;
 	}
 
 	/**
@@ -11387,10 +11422,14 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEReference(ruleMediatorEClass, RULE_MEDIATOR__CHILD_MEDIATORS_CONFIGURATION);
 		createEReference(ruleMediatorEClass, RULE_MEDIATOR__INPUT_CONNECTOR);
 		createEReference(ruleMediatorEClass, RULE_MEDIATOR__OUTPUT_CONNECTOR);
+		createEReference(ruleMediatorEClass, RULE_MEDIATOR__CHILD_MEDIATORS_OUTPUT_CONNECTOR);
+		createEReference(ruleMediatorEClass, RULE_MEDIATOR__MEDIATOR_FLOW);
 
 		ruleMediatorInputConnectorEClass = createEClass(RULE_MEDIATOR_INPUT_CONNECTOR);
 
 		ruleMediatorOutputConnectorEClass = createEClass(RULE_MEDIATOR_OUTPUT_CONNECTOR);
+
+		ruleMediatorChildMediatorsOutputConnectorEClass = createEClass(RULE_MEDIATOR_CHILD_MEDIATORS_OUTPUT_CONNECTOR);
 
 		ruleSetConfigurationEClass = createEClass(RULE_SET_CONFIGURATION);
 		createEAttribute(ruleSetConfigurationEClass, RULE_SET_CONFIGURATION__SOURCE_TYPE);
@@ -11930,6 +11969,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		ruleMediatorEClass.getESuperTypes().add(this.getMediator());
 		ruleMediatorInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
 		ruleMediatorOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
+		ruleMediatorChildMediatorsOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
 		ruleSetCreationPropertyEClass.getESuperTypes().add(this.getAbstractNameValueProperty());
 		ruleSessionPropertyEClass.getESuperTypes().add(this.getAbstractNameValueProperty());
 		callTemplateParameterEClass.getESuperTypes().add(this.getEsbNode());
@@ -12799,10 +12839,14 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEReference(getRuleMediator_ChildMediatorsConfiguration(), this.getRuleChildMediatorsConfiguration(), null, "childMediatorsConfiguration", null, 0, 1, RuleMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRuleMediator_InputConnector(), this.getRuleMediatorInputConnector(), null, "inputConnector", null, 0, 1, RuleMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRuleMediator_OutputConnector(), this.getRuleMediatorOutputConnector(), null, "outputConnector", null, 0, 1, RuleMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRuleMediator_ChildMediatorsOutputConnector(), this.getRuleMediatorChildMediatorsOutputConnector(), null, "childMediatorsOutputConnector", null, 0, 1, RuleMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRuleMediator_MediatorFlow(), this.getMediatorFlow(), null, "mediatorFlow", null, 0, 1, RuleMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(ruleMediatorInputConnectorEClass, RuleMediatorInputConnector.class, "RuleMediatorInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(ruleMediatorOutputConnectorEClass, RuleMediatorOutputConnector.class, "RuleMediatorOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(ruleMediatorChildMediatorsOutputConnectorEClass, RuleMediatorChildMediatorsOutputConnector.class, "RuleMediatorChildMediatorsOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(ruleSetConfigurationEClass, RuleSetConfiguration.class, "RuleSetConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRuleSetConfiguration_SourceType(), this.getRuleSourceType(), "sourceType", "INLINE", 0, 1, RuleSetConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

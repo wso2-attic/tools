@@ -15,9 +15,11 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
+import org.wso2.developerstudio.eclipse.gmf.esb.MediatorFlow;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleChildMediatorsConfiguration;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleFactsConfiguration;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleMediatorChildMediatorsOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleMediatorInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleMediatorOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleResultsConfiguration;
@@ -38,6 +40,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.RuleSetConfiguration;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RuleMediatorImpl#getChildMediatorsConfiguration <em>Child Mediators Configuration</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RuleMediatorImpl#getInputConnector <em>Input Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RuleMediatorImpl#getOutputConnector <em>Output Connector</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RuleMediatorImpl#getChildMediatorsOutputConnector <em>Child Mediators Output Connector</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RuleMediatorImpl#getMediatorFlow <em>Mediator Flow</em>}</li>
  * </ul>
  * </p>
  *
@@ -113,6 +117,26 @@ public class RuleMediatorImpl extends MediatorImpl implements RuleMediator {
 	 * @ordered
 	 */
 	protected RuleMediatorOutputConnector outputConnector;
+
+	/**
+	 * The cached value of the '{@link #getChildMediatorsOutputConnector() <em>Child Mediators Output Connector</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getChildMediatorsOutputConnector()
+	 * @generated
+	 * @ordered
+	 */
+	protected RuleMediatorChildMediatorsOutputConnector childMediatorsOutputConnector;
+
+	/**
+	 * The cached value of the '{@link #getMediatorFlow() <em>Mediator Flow</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMediatorFlow()
+	 * @generated
+	 * @ordered
+	 */
+	protected MediatorFlow mediatorFlow;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -440,6 +464,92 @@ public class RuleMediatorImpl extends MediatorImpl implements RuleMediator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public RuleMediatorChildMediatorsOutputConnector getChildMediatorsOutputConnector() {
+		return childMediatorsOutputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetChildMediatorsOutputConnector(RuleMediatorChildMediatorsOutputConnector newChildMediatorsOutputConnector, NotificationChain msgs) {
+		RuleMediatorChildMediatorsOutputConnector oldChildMediatorsOutputConnector = childMediatorsOutputConnector;
+		childMediatorsOutputConnector = newChildMediatorsOutputConnector;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.RULE_MEDIATOR__CHILD_MEDIATORS_OUTPUT_CONNECTOR, oldChildMediatorsOutputConnector, newChildMediatorsOutputConnector);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setChildMediatorsOutputConnector(RuleMediatorChildMediatorsOutputConnector newChildMediatorsOutputConnector) {
+		if (newChildMediatorsOutputConnector != childMediatorsOutputConnector) {
+			NotificationChain msgs = null;
+			if (childMediatorsOutputConnector != null)
+				msgs = ((InternalEObject)childMediatorsOutputConnector).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.RULE_MEDIATOR__CHILD_MEDIATORS_OUTPUT_CONNECTOR, null, msgs);
+			if (newChildMediatorsOutputConnector != null)
+				msgs = ((InternalEObject)newChildMediatorsOutputConnector).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.RULE_MEDIATOR__CHILD_MEDIATORS_OUTPUT_CONNECTOR, null, msgs);
+			msgs = basicSetChildMediatorsOutputConnector(newChildMediatorsOutputConnector, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.RULE_MEDIATOR__CHILD_MEDIATORS_OUTPUT_CONNECTOR, newChildMediatorsOutputConnector, newChildMediatorsOutputConnector));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MediatorFlow getMediatorFlow() {
+		return mediatorFlow;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetMediatorFlow(MediatorFlow newMediatorFlow, NotificationChain msgs) {
+		MediatorFlow oldMediatorFlow = mediatorFlow;
+		mediatorFlow = newMediatorFlow;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.RULE_MEDIATOR__MEDIATOR_FLOW, oldMediatorFlow, newMediatorFlow);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMediatorFlow(MediatorFlow newMediatorFlow) {
+		if (newMediatorFlow != mediatorFlow) {
+			NotificationChain msgs = null;
+			if (mediatorFlow != null)
+				msgs = ((InternalEObject)mediatorFlow).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.RULE_MEDIATOR__MEDIATOR_FLOW, null, msgs);
+			if (newMediatorFlow != null)
+				msgs = ((InternalEObject)newMediatorFlow).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.RULE_MEDIATOR__MEDIATOR_FLOW, null, msgs);
+			msgs = basicSetMediatorFlow(newMediatorFlow, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.RULE_MEDIATOR__MEDIATOR_FLOW, newMediatorFlow, newMediatorFlow));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -458,6 +568,10 @@ public class RuleMediatorImpl extends MediatorImpl implements RuleMediator {
 				return basicSetInputConnector(null, msgs);
 			case EsbPackage.RULE_MEDIATOR__OUTPUT_CONNECTOR:
 				return basicSetOutputConnector(null, msgs);
+			case EsbPackage.RULE_MEDIATOR__CHILD_MEDIATORS_OUTPUT_CONNECTOR:
+				return basicSetChildMediatorsOutputConnector(null, msgs);
+			case EsbPackage.RULE_MEDIATOR__MEDIATOR_FLOW:
+				return basicSetMediatorFlow(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -485,6 +599,10 @@ public class RuleMediatorImpl extends MediatorImpl implements RuleMediator {
 				return getInputConnector();
 			case EsbPackage.RULE_MEDIATOR__OUTPUT_CONNECTOR:
 				return getOutputConnector();
+			case EsbPackage.RULE_MEDIATOR__CHILD_MEDIATORS_OUTPUT_CONNECTOR:
+				return getChildMediatorsOutputConnector();
+			case EsbPackage.RULE_MEDIATOR__MEDIATOR_FLOW:
+				return getMediatorFlow();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -518,6 +636,12 @@ public class RuleMediatorImpl extends MediatorImpl implements RuleMediator {
 				return;
 			case EsbPackage.RULE_MEDIATOR__OUTPUT_CONNECTOR:
 				setOutputConnector((RuleMediatorOutputConnector)newValue);
+				return;
+			case EsbPackage.RULE_MEDIATOR__CHILD_MEDIATORS_OUTPUT_CONNECTOR:
+				setChildMediatorsOutputConnector((RuleMediatorChildMediatorsOutputConnector)newValue);
+				return;
+			case EsbPackage.RULE_MEDIATOR__MEDIATOR_FLOW:
+				setMediatorFlow((MediatorFlow)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -553,6 +677,12 @@ public class RuleMediatorImpl extends MediatorImpl implements RuleMediator {
 			case EsbPackage.RULE_MEDIATOR__OUTPUT_CONNECTOR:
 				setOutputConnector((RuleMediatorOutputConnector)null);
 				return;
+			case EsbPackage.RULE_MEDIATOR__CHILD_MEDIATORS_OUTPUT_CONNECTOR:
+				setChildMediatorsOutputConnector((RuleMediatorChildMediatorsOutputConnector)null);
+				return;
+			case EsbPackage.RULE_MEDIATOR__MEDIATOR_FLOW:
+				setMediatorFlow((MediatorFlow)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -580,6 +710,10 @@ public class RuleMediatorImpl extends MediatorImpl implements RuleMediator {
 				return inputConnector != null;
 			case EsbPackage.RULE_MEDIATOR__OUTPUT_CONNECTOR:
 				return outputConnector != null;
+			case EsbPackage.RULE_MEDIATOR__CHILD_MEDIATORS_OUTPUT_CONNECTOR:
+				return childMediatorsOutputConnector != null;
+			case EsbPackage.RULE_MEDIATOR__MEDIATOR_FLOW:
+				return mediatorFlow != null;
 		}
 		return super.eIsSet(featureID);
 	}

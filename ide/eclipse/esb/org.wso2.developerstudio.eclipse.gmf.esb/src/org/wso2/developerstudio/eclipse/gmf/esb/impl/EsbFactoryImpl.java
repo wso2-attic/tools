@@ -245,6 +245,7 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 			case EsbPackage.RULE_MEDIATOR: return createRuleMediator();
 			case EsbPackage.RULE_MEDIATOR_INPUT_CONNECTOR: return createRuleMediatorInputConnector();
 			case EsbPackage.RULE_MEDIATOR_OUTPUT_CONNECTOR: return createRuleMediatorOutputConnector();
+			case EsbPackage.RULE_MEDIATOR_CHILD_MEDIATORS_OUTPUT_CONNECTOR: return createRuleMediatorChildMediatorsOutputConnector();
 			case EsbPackage.RULE_SET_CONFIGURATION: return createRuleSetConfiguration();
 			case EsbPackage.RULE_SET_CREATION_PROPERTY: return createRuleSetCreationProperty();
 			case EsbPackage.RULE_SESSION_CONFIGURATION: return createRuleSessionConfiguration();
@@ -2565,6 +2566,16 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	public RuleMediatorOutputConnector createRuleMediatorOutputConnector() {
 		RuleMediatorOutputConnectorImpl ruleMediatorOutputConnector = new RuleMediatorOutputConnectorImpl();
 		return ruleMediatorOutputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RuleMediatorChildMediatorsOutputConnector createRuleMediatorChildMediatorsOutputConnector() {
+		RuleMediatorChildMediatorsOutputConnectorImpl ruleMediatorChildMediatorsOutputConnector = new RuleMediatorChildMediatorsOutputConnectorImpl();
+		return ruleMediatorChildMediatorsOutputConnector;
 	}
 
 	/**

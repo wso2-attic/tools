@@ -1660,6 +1660,15 @@ public interface EsbFactory extends EFactory {
 	RuleMediatorOutputConnector createRuleMediatorOutputConnector();
 
 	/**
+	 * Returns a new object of class '<em>Rule Mediator Child Mediators Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Rule Mediator Child Mediators Output Connector</em>'.
+	 * @generated
+	 */
+	RuleMediatorChildMediatorsOutputConnector createRuleMediatorChildMediatorsOutputConnector();
+
+	/**
 	 * Returns a new object of class '<em>Rule Set Configuration</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

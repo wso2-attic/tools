@@ -1387,9 +1387,15 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outputConnector" eType="#//RuleMediatorOutputConnector"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="childMediatorsOutputConnector"
+        eType="#//RuleMediatorChildMediatorsOutputConnector" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mediatorFlow" eType="#//MediatorFlow"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RuleMediatorInputConnector" eSuperTypes="#//InputConnector"/>
   <eClassifiers xsi:type="ecore:EClass" name="RuleMediatorOutputConnector" eSuperTypes="#//OutputConnector"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RuleMediatorChildMediatorsOutputConnector"
+      eSuperTypes="#//OutputConnector"/>
   <eClassifiers xsi:type="ecore:EClass" name="RuleSetConfiguration">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceType" eType="#//RuleSourceType"
         defaultValueLiteral="INLINE"/>

@@ -825,6 +825,10 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 				return createRuleMediatorOutputConnectorAdapter();
 			}
 			@Override
+			public Adapter caseRuleMediatorChildMediatorsOutputConnector(RuleMediatorChildMediatorsOutputConnector object) {
+				return createRuleMediatorChildMediatorsOutputConnectorAdapter();
+			}
+			@Override
 			public Adapter caseRuleSetConfiguration(RuleSetConfiguration object) {
 				return createRuleSetConfigurationAdapter();
 			}
@@ -3830,6 +3834,20 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createRuleMediatorOutputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediatorChildMediatorsOutputConnector <em>Rule Mediator Child Mediators Output Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RuleMediatorChildMediatorsOutputConnector
+	 * @generated
+	 */
+	public Adapter createRuleMediatorChildMediatorsOutputConnectorAdapter() {
 		return null;
 	}
 

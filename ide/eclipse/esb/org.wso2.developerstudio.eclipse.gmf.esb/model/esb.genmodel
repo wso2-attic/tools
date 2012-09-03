@@ -1090,9 +1090,12 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//RuleMediator/childMediatorsConfiguration"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//RuleMediator/inputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//RuleMediator/outputConnector"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//RuleMediator/childMediatorsOutputConnector"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//RuleMediator/mediatorFlow"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//RuleMediatorInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//RuleMediatorOutputConnector"/>
+    <genClasses ecoreClass="esb.ecore#//RuleMediatorChildMediatorsOutputConnector"/>
     <genClasses ecoreClass="esb.ecore#//RuleSetConfiguration">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//RuleSetConfiguration/sourceType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//RuleSetConfiguration/sourceCode"/>

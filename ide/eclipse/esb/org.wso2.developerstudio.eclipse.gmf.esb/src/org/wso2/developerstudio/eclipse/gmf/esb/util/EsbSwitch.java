@@ -1561,6 +1561,14 @@ public class EsbSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case EsbPackage.RULE_MEDIATOR_CHILD_MEDIATORS_OUTPUT_CONNECTOR: {
+				RuleMediatorChildMediatorsOutputConnector ruleMediatorChildMediatorsOutputConnector = (RuleMediatorChildMediatorsOutputConnector)theEObject;
+				T result = caseRuleMediatorChildMediatorsOutputConnector(ruleMediatorChildMediatorsOutputConnector);
+				if (result == null) result = caseOutputConnector(ruleMediatorChildMediatorsOutputConnector);
+				if (result == null) result = caseEsbConnector(ruleMediatorChildMediatorsOutputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case EsbPackage.RULE_SET_CONFIGURATION: {
 				RuleSetConfiguration ruleSetConfiguration = (RuleSetConfiguration)theEObject;
 				T result = caseRuleSetConfiguration(ruleSetConfiguration);
@@ -5001,6 +5009,21 @@ public class EsbSwitch<T> {
 	 * @generated
 	 */
 	public T caseRuleMediatorOutputConnector(RuleMediatorOutputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Rule Mediator Child Mediators Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Rule Mediator Child Mediators Output Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRuleMediatorChildMediatorsOutputConnector(RuleMediatorChildMediatorsOutputConnector object) {
 		return null;
 	}
 
