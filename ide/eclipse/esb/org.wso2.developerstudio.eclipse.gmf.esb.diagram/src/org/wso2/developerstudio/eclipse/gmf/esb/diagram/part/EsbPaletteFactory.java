@@ -108,6 +108,7 @@ public class EsbPaletteFactory {
 		paletteContainer.add(createSwitchMediator7CreationTool());
 		paletteContainer.add(createValidateMediator37CreationTool());
 		paletteContainer.add(createRouterMediator38CreationTool());
+		paletteContainer.add(createConditionalRouterMediator39CreationTool());
 
 		paletteContainer.add(new PaletteSeparator());
 		paletteContainer.add(createXSLTMediator6CreationTool());
@@ -822,6 +823,22 @@ public class EsbPaletteFactory {
 		entry.setId("createRouterMediator38CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(EsbElementTypes
 				.getImageDescriptor(EsbElementTypes.RouterMediator_3628));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createConditionalRouterMediator39CreationTool() {
+		NodeToolEntry entry = new NodeToolEntry(
+				Messages.ConditionalRouterMediator39CreationTool_title,
+				Messages.ConditionalRouterMediator39CreationTool_desc,
+				Collections
+						.singletonList(EsbElementTypes.ConditionalRouterMediator_3635));
+		entry.setId("createConditionalRouterMediator39CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(EsbElementTypes
+				.getImageDescriptor(EsbElementTypes.ConditionalRouterMediator_3635));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

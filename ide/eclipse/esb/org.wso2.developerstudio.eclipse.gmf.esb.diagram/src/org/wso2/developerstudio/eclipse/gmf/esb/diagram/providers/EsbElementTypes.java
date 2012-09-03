@@ -836,6 +836,31 @@ public class EsbElementTypes {
 	/**
 	 * @generated
 	 */
+	public static final IElementType ConditionalRouterMediator_3635 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.ConditionalRouterMediator_3635"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType ConditionalRouterMediatorInputConnector_3636 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.ConditionalRouterMediatorInputConnector_3636"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType ConditionalRouterMediatorOutputConnector_3637 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.ConditionalRouterMediatorOutputConnector_3637"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType ConditionalRouterMediatorAdditionalOutputConnector_3638 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.ConditionalRouterMediatorAdditionalOutputConnector_3638"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType MediatorFlow_3639 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.MediatorFlow_3639"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
 	public static final IElementType DefaultEndPoint_3609 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.DefaultEndPoint_3609"); //$NON-NLS-1$
 
 	/**
@@ -1616,6 +1641,25 @@ public class EsbElementTypes {
 			elements.put(MediatorFlow_3634,
 					EsbPackage.eINSTANCE.getMediatorFlow());
 
+			elements.put(ConditionalRouterMediator_3635,
+					EsbPackage.eINSTANCE.getConditionalRouterMediator());
+
+			elements.put(ConditionalRouterMediatorInputConnector_3636,
+					EsbPackage.eINSTANCE
+							.getConditionalRouterMediatorInputConnector());
+
+			elements.put(ConditionalRouterMediatorOutputConnector_3637,
+					EsbPackage.eINSTANCE
+							.getConditionalRouterMediatorOutputConnector());
+
+			elements.put(
+					ConditionalRouterMediatorAdditionalOutputConnector_3638,
+					EsbPackage.eINSTANCE
+							.getConditionalRouterMediatorAdditionalOutputConnector());
+
+			elements.put(MediatorFlow_3639,
+					EsbPackage.eINSTANCE.getMediatorFlow());
+
 			elements.put(DefaultEndPoint_3609,
 					EsbPackage.eINSTANCE.getDefaultEndPoint());
 
@@ -1905,6 +1949,14 @@ public class EsbElementTypes {
 			KNOWN_ELEMENT_TYPES.add(RouterMediatorContainer_3632);
 			KNOWN_ELEMENT_TYPES.add(RouterTargetContainer_3633);
 			KNOWN_ELEMENT_TYPES.add(MediatorFlow_3634);
+			KNOWN_ELEMENT_TYPES.add(ConditionalRouterMediator_3635);
+			KNOWN_ELEMENT_TYPES
+					.add(ConditionalRouterMediatorInputConnector_3636);
+			KNOWN_ELEMENT_TYPES
+					.add(ConditionalRouterMediatorOutputConnector_3637);
+			KNOWN_ELEMENT_TYPES
+					.add(ConditionalRouterMediatorAdditionalOutputConnector_3638);
+			KNOWN_ELEMENT_TYPES.add(MediatorFlow_3639);
 			KNOWN_ELEMENT_TYPES.add(DefaultEndPoint_3609);
 			KNOWN_ELEMENT_TYPES.add(DefaultEndPointInputConnector_3021);
 			KNOWN_ELEMENT_TYPES.add(DefaultEndPointOutputConnector_3022);
@@ -2268,6 +2320,16 @@ public class EsbElementTypes {
 			return RouterTargetContainer_3633;
 		case MediatorFlow15EditPart.VISUAL_ID:
 			return MediatorFlow_3634;
+		case ConditionalRouterMediatorEditPart.VISUAL_ID:
+			return ConditionalRouterMediator_3635;
+		case ConditionalRouterMediatorInputConnectorEditPart.VISUAL_ID:
+			return ConditionalRouterMediatorInputConnector_3636;
+		case ConditionalRouterMediatorOutputConnectorEditPart.VISUAL_ID:
+			return ConditionalRouterMediatorOutputConnector_3637;
+		case ConditionalRouterMediatorAdditionalOutputConnectorEditPart.VISUAL_ID:
+			return ConditionalRouterMediatorAdditionalOutputConnector_3638;
+		case MediatorFlow16EditPart.VISUAL_ID:
+			return MediatorFlow_3639;
 		case DefaultEndPointEditPart.VISUAL_ID:
 			return DefaultEndPoint_3609;
 		case DefaultEndPointInputConnectorEditPart.VISUAL_ID:

@@ -31,6 +31,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.utils.MediatorFig
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AggregateMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CacheMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloneMediatorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ConditionalRouterMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbLinkEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FilterMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.IterateMediatorEditPart;
@@ -40,6 +41,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowM
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment13EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment14EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment15EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment16EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment2EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment3EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment4EditPart;
@@ -167,11 +169,10 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 								.getParent() instanceof CloneMediatorEditPart)&&(((AbstractMediator) editorPart
 										.getParent().getParent().getParent().getParent().getParent()).reversed))
 										
-														| ((editorPart.getParent() instanceof MediatorFlowMediatorFlowCompartment15EditPart)
+				    	| ((editorPart.getParent() instanceof MediatorFlowMediatorFlowCompartment15EditPart)
 								&&(editorPart.getParent().getParent().getParent().getParent()
 								.getParent() instanceof RouterMediatorEditPart)&&(((AbstractMediator) editorPart
-										.getParent().getParent().getParent().getParent().getParent()).reversed))		
-										
+										.getParent().getParent().getParent().getParent().getParent()).reversed))											
 										
 						| ((editorPart.getParent() instanceof MediatorFlowMediatorFlowCompartment12EditPart)
 								&& (editorPart.getParent().getParent().getParent() instanceof IterateMediatorEditPart) && (((AbstractMediator) editorPart
@@ -182,7 +183,12 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 					                	.getParent().getParent().getParent().getParent().getParent()).reversed))
 					    | ((editorPart.getParent() instanceof MediatorFlowMediatorFlowCompartment13EditPart)
 					    		&& (editorPart.getParent().getParent().getParent() instanceof CacheMediatorEditPart) && (((AbstractMediator) editorPart
-										.getParent().getParent().getParent()).reversed))    
+										.getParent().getParent().getParent()).reversed))   
+										
+						| ((editorPart.getParent() instanceof MediatorFlowMediatorFlowCompartment16EditPart)
+					    		&& (editorPart.getParent().getParent().getParent() instanceof ConditionalRouterMediatorEditPart) && (((AbstractMediator) editorPart
+										.getParent().getParent().getParent()).reversed))
+										
 					    | ((editorPart.getParent() instanceof MediatorFlowMediatorFlowCompartment14EditPart)
 					    		&& (editorPart.getParent().getParent().getParent() instanceof ValidateMediatorEditPart) && (((AbstractMediator) editorPart
 										.getParent().getParent().getParent()).reversed))
@@ -404,7 +410,8 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 				|| (this instanceof CloneMediatorEditPart)
 				|| (this instanceof IterateMediatorEditPart)
 				|| (this instanceof ValidateMediatorEditPart)
-				|| (this instanceof RouterMediatorEditPart)) {
+				|| (this instanceof RouterMediatorEditPart)
+				|| (this instanceof ConditionalRouterMediatorEditPart)) {
 			return true;
 		} else {
 			return false;

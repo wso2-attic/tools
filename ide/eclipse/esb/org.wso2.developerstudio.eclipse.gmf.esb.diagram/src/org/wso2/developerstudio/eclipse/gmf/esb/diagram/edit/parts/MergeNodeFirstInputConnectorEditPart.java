@@ -259,6 +259,8 @@ public class MergeNodeFirstInputConnectorEditPart extends
 			types.add(EsbElementTypes.ValidateMediatorOnFailOutputConnector_3626);
 			types.add(EsbElementTypes.RouterMediatorOutputConnector_3630);
 			types.add(EsbElementTypes.RouterMediatorTargetOutputConnector_3631);
+			types.add(EsbElementTypes.ConditionalRouterMediatorOutputConnector_3637);
+			types.add(EsbElementTypes.ConditionalRouterMediatorAdditionalOutputConnector_3638);
 			types.add(EsbElementTypes.DefaultEndPointOutputConnector_3022);
 			types.add(EsbElementTypes.AddressEndPointOutputConnector_3031);
 			types.add(EsbElementTypes.FailoverEndPointOutputConnector_3090);

@@ -688,6 +688,16 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String ConditionalRouterMediator39CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ConditionalRouterMediator39CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
 	public static String DefaultEndPoint1CreationTool_title;
 
 	/**
@@ -818,6 +828,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String MediatorFlowMediatorFlowCompartment16EditPart_title;
+
+	/**
+	 * @generated
+	 */
 	public static String MediatorFlowMediatorFlowCompartment4EditPart_title;
 
 	/**
@@ -939,6 +954,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_ProxyInputConnector_3003_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_ConditionalRouterMediatorOutputConnector_3637_outgoinglinks;
 
 	/**
 	 * @generated
@@ -1168,6 +1188,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_ConditionalRouterMediatorInputConnector_3636_incominglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_PropertyMediatorInputConnector_3033_incominglinks;
 
 	/**
@@ -1364,6 +1389,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_ScriptMediatorOutputConnector_3065_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_ConditionalRouterMediatorAdditionalOutputConnector_3638_outgoinglinks;
 
 	/**
 	 * @generated

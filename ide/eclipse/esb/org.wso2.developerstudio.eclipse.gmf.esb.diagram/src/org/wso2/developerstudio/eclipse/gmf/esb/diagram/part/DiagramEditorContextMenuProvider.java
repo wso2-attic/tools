@@ -179,7 +179,7 @@ public class DiagramEditorContextMenuProvider extends
 
 		addBranchContextActions.put(CloneMediator.class,
 				new AddBranchCloneMediatorAction(part));
-		
+
 		addBranchContextActions.put(RouterMediator.class,
 				new AddBranchRouterMediatorAction(part));
 

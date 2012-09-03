@@ -47,9 +47,9 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry
 public class RouterMediatorEditPart extends complexFiguredAbstractMediator {
 
 	private int activeCount = 0;
-	
+
 	public ArrayList<IFigure> targetOutputConnectors = new ArrayList<IFigure>();
-	
+
 	/**
 	 * @generated
 	 */
@@ -71,7 +71,7 @@ public class RouterMediatorEditPart extends complexFiguredAbstractMediator {
 	public RouterMediatorEditPart(View view) {
 		super(view);
 	}
-	
+
 	public void activate() {
 		RouterMediatorUtils.addTargetInitially(this, getEditingDomain());
 		super.activate();
@@ -81,7 +81,6 @@ public class RouterMediatorEditPart extends complexFiguredAbstractMediator {
 		}
 		++activeCount;
 	}
-
 
 	/**
 	 * @generated NOT
@@ -141,7 +140,7 @@ public class RouterMediatorEditPart extends complexFiguredAbstractMediator {
 	 * @generated NOT
 	 */
 	protected IFigure createNodeShape() {
-		return primaryShape = new RouterMediatorFigure(){
+		return primaryShape = new RouterMediatorFigure() {
 			public void setBounds(org.eclipse.draw2d.geometry.Rectangle rect) {
 				super.setBounds(rect);
 				if (this.getBounds().getLocation().x != 0
@@ -158,7 +157,7 @@ public class RouterMediatorEditPart extends complexFiguredAbstractMediator {
 	public RouterMediatorFigure getPrimaryShape() {
 		return (RouterMediatorFigure) primaryShape;
 	}
-	
+
 	protected boolean addFixedChild(EditPart childEditPart) {
 		float outputCount = 0;
 		float outputPosition = 0;
@@ -188,24 +187,23 @@ public class RouterMediatorEditPart extends complexFiguredAbstractMediator {
 					.getFigure();
 			targetOutputConnectors.add(targetOutputConnector);
 		}
-	
+
 		return false;
 	}
-	
+
 	protected void addChildVisual(EditPart childEditPart, int index) {
 		if (addFixedChild(childEditPart)) {
 			return;
 		}
 		super.addChildVisual(childEditPart, -1);
 	}
-	
+
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
 		if (editPart instanceof IBorderItemEditPart) {
 			return getBorderedFigure().getBorderItemContainer();
 		}
 		return getContentPane();
 	}
-	
 
 	/**
 	 * @generated
@@ -320,7 +318,7 @@ public class RouterMediatorEditPart extends complexFiguredAbstractMediator {
 			this.setBackgroundColor(THIS_BACK);
 			createContents();
 		}
-		
+
 		public void add(IFigure figure, Object constraint, int index) {
 			if (figure instanceof DefaultSizeNodeFigure) {
 				GridData layoutData = new GridData();
@@ -350,7 +348,7 @@ public class RouterMediatorEditPart extends complexFiguredAbstractMediator {
 
 			fFigureRouterMediatorPropertyValue = new WrappingLabel();
 			fFigureRouterMediatorPropertyValue.setText("<...>");
-			
+
 		}
 
 		/**

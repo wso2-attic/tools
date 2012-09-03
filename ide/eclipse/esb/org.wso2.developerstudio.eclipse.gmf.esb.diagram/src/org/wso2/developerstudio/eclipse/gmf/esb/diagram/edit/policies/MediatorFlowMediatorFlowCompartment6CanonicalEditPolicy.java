@@ -30,6 +30,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CalloutMediat
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ClassMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloneMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CommandMediatorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ConditionalRouterMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DBLookupMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DBReportMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DefaultEndPointEditPart;
@@ -163,6 +164,7 @@ public class MediatorFlowMediatorFlowCompartment6CanonicalEditPolicy extends
 		case URLRewriteMediatorEditPart.VISUAL_ID:
 		case ValidateMediatorEditPart.VISUAL_ID:
 		case RouterMediatorEditPart.VISUAL_ID:
+		case ConditionalRouterMediatorEditPart.VISUAL_ID:
 		case DefaultEndPointEditPart.VISUAL_ID:
 		case AddressEndPointEditPart.VISUAL_ID:
 		case FailoverEndPointEditPart.VISUAL_ID:

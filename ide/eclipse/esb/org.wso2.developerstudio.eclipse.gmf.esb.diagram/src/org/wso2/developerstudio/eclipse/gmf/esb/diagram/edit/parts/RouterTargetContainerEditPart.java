@@ -122,7 +122,7 @@ public class RouterTargetContainerEditPart extends ShapeNodeEditPart {
 		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
 		return result;
 	}
-	
+
 	public void refreshOutputConnector(EditPart childEditPart) {
 		if (childEditPart instanceof RouterMediatorEditPart) {
 			RouterMediatorEditPart routerMediatorEditPart = (RouterMediatorEditPart) childEditPart;
@@ -256,7 +256,7 @@ public class RouterTargetContainerEditPart extends ShapeNodeEditPart {
 		}
 
 	}
-	
+
 	public boolean isSelectable() {
 		// TODO This or using ResizableEditpolicy?
 		return false;

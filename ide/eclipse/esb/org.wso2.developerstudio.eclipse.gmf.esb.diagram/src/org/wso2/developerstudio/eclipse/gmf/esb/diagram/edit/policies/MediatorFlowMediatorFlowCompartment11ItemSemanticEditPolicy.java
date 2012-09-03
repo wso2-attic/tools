@@ -11,6 +11,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.CalloutMed
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.ClassMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.CloneMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.CommandMediatorCreateCommand;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.ConditionalRouterMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.DBLookupMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.DBReportMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.DefaultEndPointCreateCommand;
@@ -181,6 +182,10 @@ public class MediatorFlowMediatorFlowCompartment11ItemSemanticEditPolicy extends
 		}
 		if (EsbElementTypes.RouterMediator_3628 == req.getElementType()) {
 			return getGEFWrapper(new RouterMediatorCreateCommand(req));
+		}
+		if (EsbElementTypes.ConditionalRouterMediator_3635 == req
+				.getElementType()) {
+			return getGEFWrapper(new ConditionalRouterMediatorCreateCommand(req));
 		}
 		if (EsbElementTypes.DefaultEndPoint_3609 == req.getElementType()) {
 			return getGEFWrapper(new DefaultEndPointCreateCommand(req));

@@ -331,6 +331,9 @@ public class MergeNodeOutputConnectorEditPart extends
 		if (targetEditPart instanceof RouterMediatorInputConnectorEditPart) {
 			types.add(EsbElementTypes.EsbLink_4001);
 		}
+		if (targetEditPart instanceof ConditionalRouterMediatorInputConnectorEditPart) {
+			types.add(EsbElementTypes.EsbLink_4001);
+		}
 		if (targetEditPart instanceof DefaultEndPointInputConnectorEditPart) {
 			types.add(EsbElementTypes.EsbLink_4001);
 		}
@@ -408,6 +411,7 @@ public class MergeNodeOutputConnectorEditPart extends
 			types.add(EsbElementTypes.URLRewriteMediatorInputConnector_3621);
 			types.add(EsbElementTypes.ValidateMediatorInputConnector_3624);
 			types.add(EsbElementTypes.RouterMediatorInputConnector_3629);
+			types.add(EsbElementTypes.ConditionalRouterMediatorInputConnector_3636);
 			types.add(EsbElementTypes.DefaultEndPointInputConnector_3021);
 			types.add(EsbElementTypes.AddressEndPointInputConnector_3030);
 			types.add(EsbElementTypes.FailoverEndPointInputConnector_3088);

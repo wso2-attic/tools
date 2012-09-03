@@ -38,7 +38,7 @@ public class MediatorFlowMediatorFlowCompartment15EditPart extends
 		//return Messages.MediatorFlowMediatorFlowCompartment15EditPart_title;
 		return "Target";
 	}
-	
+
 	public IFigure createFigure() {
 		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super
 				.createFigure();
@@ -64,7 +64,7 @@ public class MediatorFlowMediatorFlowCompartment15EditPart extends
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
 				new MediatorFlowMediatorFlowCompartment15CanonicalEditPolicy());
 	}
-	
+
 	public boolean isSelectable() {
 		// TODO This or using ResizableEditpolicy?
 		return false;

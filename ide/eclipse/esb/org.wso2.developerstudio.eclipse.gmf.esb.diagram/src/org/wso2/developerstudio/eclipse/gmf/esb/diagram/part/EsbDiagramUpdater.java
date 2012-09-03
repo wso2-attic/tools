@@ -133,6 +133,8 @@ public class EsbDiagramUpdater {
 			return getRouterMediatorContainer_3632SemanticChildren(view);
 		case RouterTargetContainerEditPart.VISUAL_ID:
 			return getRouterTargetContainer_3633SemanticChildren(view);
+		case ConditionalRouterMediatorEditPart.VISUAL_ID:
+			return getConditionalRouterMediator_3635SemanticChildren(view);
 		case DefaultEndPointEditPart.VISUAL_ID:
 			return getDefaultEndPoint_3609SemanticChildren(view);
 		case AddressEndPointEditPart.VISUAL_ID:
@@ -179,6 +181,8 @@ public class EsbDiagramUpdater {
 			return getMediatorFlowMediatorFlowCompartment_7037SemanticChildren(view);
 		case MediatorFlowMediatorFlowCompartment15EditPart.VISUAL_ID:
 			return getMediatorFlowMediatorFlowCompartment_7038SemanticChildren(view);
+		case MediatorFlowMediatorFlowCompartment16EditPart.VISUAL_ID:
+			return getMediatorFlowMediatorFlowCompartment_7039SemanticChildren(view);
 		case MediatorFlowMediatorFlowCompartment4EditPart.VISUAL_ID:
 			return getMediatorFlowMediatorFlowCompartment_7017SemanticChildren(view);
 		case MediatorFlowMediatorFlowCompartment8EditPart.VISUAL_ID:
@@ -1984,6 +1988,55 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<EsbNodeDescriptor> getConditionalRouterMediator_3635SemanticChildren(
+			View view) {
+		if (!view.isSetElement()) {
+			return Collections.emptyList();
+		}
+		ConditionalRouterMediator modelElement = (ConditionalRouterMediator) view
+				.getElement();
+		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		{
+			ConditionalRouterMediatorInputConnector childElement = modelElement
+					.getInputConnector();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == ConditionalRouterMediatorInputConnectorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+			}
+		}
+		{
+			ConditionalRouterMediatorOutputConnector childElement = modelElement
+					.getOutputConnector();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == ConditionalRouterMediatorOutputConnectorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+			}
+		}
+		{
+			ConditionalRouterMediatorAdditionalOutputConnector childElement = modelElement
+					.getAdditionalOutputConnector();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == ConditionalRouterMediatorAdditionalOutputConnectorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+			}
+		}
+		{
+			MediatorFlow childElement = modelElement.getMediatorFlow();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == MediatorFlow16EditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<EsbNodeDescriptor> getDefaultEndPoint_3609SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
@@ -2567,6 +2620,10 @@ public class EsbDiagramUpdater {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 				continue;
 			}
+			if (visualID == ConditionalRouterMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
 			if (visualID == DefaultEndPointEditPart.VISUAL_ID) {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 				continue;
@@ -2763,6 +2820,10 @@ public class EsbDiagramUpdater {
 				continue;
 			}
 			if (visualID == RouterMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == ConditionalRouterMediatorEditPart.VISUAL_ID) {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -2965,6 +3026,10 @@ public class EsbDiagramUpdater {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 				continue;
 			}
+			if (visualID == ConditionalRouterMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
 			if (visualID == DefaultEndPointEditPart.VISUAL_ID) {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 				continue;
@@ -3161,6 +3226,10 @@ public class EsbDiagramUpdater {
 				continue;
 			}
 			if (visualID == RouterMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == ConditionalRouterMediatorEditPart.VISUAL_ID) {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -3363,6 +3432,10 @@ public class EsbDiagramUpdater {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 				continue;
 			}
+			if (visualID == ConditionalRouterMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
 			if (visualID == DefaultEndPointEditPart.VISUAL_ID) {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 				continue;
@@ -3559,6 +3632,10 @@ public class EsbDiagramUpdater {
 				continue;
 			}
 			if (visualID == RouterMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == ConditionalRouterMediatorEditPart.VISUAL_ID) {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -3761,6 +3838,10 @@ public class EsbDiagramUpdater {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 				continue;
 			}
+			if (visualID == ConditionalRouterMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
 			if (visualID == DefaultEndPointEditPart.VISUAL_ID) {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 				continue;
@@ -3957,6 +4038,10 @@ public class EsbDiagramUpdater {
 				continue;
 			}
 			if (visualID == RouterMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == ConditionalRouterMediatorEditPart.VISUAL_ID) {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -4159,6 +4244,10 @@ public class EsbDiagramUpdater {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 				continue;
 			}
+			if (visualID == ConditionalRouterMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
 			if (visualID == DefaultEndPointEditPart.VISUAL_ID) {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 				continue;
@@ -4355,6 +4444,213 @@ public class EsbDiagramUpdater {
 				continue;
 			}
 			if (visualID == RouterMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == ConditionalRouterMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == DefaultEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == AddressEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == FailoverEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == WSDLEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == LoadBalanceEndPointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbNodeDescriptor> getMediatorFlowMediatorFlowCompartment_7039SemanticChildren(
+			View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.emptyList();
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.emptyList();
+		}
+		MediatorFlow modelElement = (MediatorFlow) containerView.getElement();
+		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		for (Iterator<?> it = modelElement.getChildren().iterator(); it
+				.hasNext();) {
+			EsbElement childElement = (EsbElement) it.next();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == DropMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == PropertyMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == ThrottleMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == FilterMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == LogMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == EnrichMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == XSLTMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == SwitchMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == SequenceEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == EventMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == EntitlementMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == ClassMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == SpringMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == ScriptMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == FaultMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == XQueryMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == CommandMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == DBLookupMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == DBReportMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == SmooksMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == SendMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == HeaderMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == CloneMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == CacheMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == IterateMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == CalloutMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == TransactionMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == RMSequenceMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == RuleMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == OAuthMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == AggregateMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == StoreMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == BuilderMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == CallTemplateMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == PayloadFactoryMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == EnqueueMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == URLRewriteMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == ValidateMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == RouterMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == ConditionalRouterMediatorEditPart.VISUAL_ID) {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -4557,6 +4853,10 @@ public class EsbDiagramUpdater {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 				continue;
 			}
+			if (visualID == ConditionalRouterMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
 			if (visualID == DefaultEndPointEditPart.VISUAL_ID) {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 				continue;
@@ -4753,6 +5053,10 @@ public class EsbDiagramUpdater {
 				continue;
 			}
 			if (visualID == RouterMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == ConditionalRouterMediatorEditPart.VISUAL_ID) {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -4955,6 +5259,10 @@ public class EsbDiagramUpdater {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 				continue;
 			}
+			if (visualID == ConditionalRouterMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
 			if (visualID == DefaultEndPointEditPart.VISUAL_ID) {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 				continue;
@@ -5154,6 +5462,10 @@ public class EsbDiagramUpdater {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 				continue;
 			}
+			if (visualID == ConditionalRouterMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
 			if (visualID == DefaultEndPointEditPart.VISUAL_ID) {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 				continue;
@@ -5350,6 +5662,10 @@ public class EsbDiagramUpdater {
 				continue;
 			}
 			if (visualID == RouterMediatorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == ConditionalRouterMediatorEditPart.VISUAL_ID) {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -5719,6 +6035,16 @@ public class EsbDiagramUpdater {
 			return getRouterTargetContainer_3633ContainedLinks(view);
 		case MediatorFlow15EditPart.VISUAL_ID:
 			return getMediatorFlow_3634ContainedLinks(view);
+		case ConditionalRouterMediatorEditPart.VISUAL_ID:
+			return getConditionalRouterMediator_3635ContainedLinks(view);
+		case ConditionalRouterMediatorInputConnectorEditPart.VISUAL_ID:
+			return getConditionalRouterMediatorInputConnector_3636ContainedLinks(view);
+		case ConditionalRouterMediatorOutputConnectorEditPart.VISUAL_ID:
+			return getConditionalRouterMediatorOutputConnector_3637ContainedLinks(view);
+		case ConditionalRouterMediatorAdditionalOutputConnectorEditPart.VISUAL_ID:
+			return getConditionalRouterMediatorAdditionalOutputConnector_3638ContainedLinks(view);
+		case MediatorFlow16EditPart.VISUAL_ID:
+			return getMediatorFlow_3639ContainedLinks(view);
 		case DefaultEndPointEditPart.VISUAL_ID:
 			return getDefaultEndPoint_3609ContainedLinks(view);
 		case DefaultEndPointInputConnectorEditPart.VISUAL_ID:
@@ -6116,6 +6442,16 @@ public class EsbDiagramUpdater {
 			return getRouterTargetContainer_3633IncomingLinks(view);
 		case MediatorFlow15EditPart.VISUAL_ID:
 			return getMediatorFlow_3634IncomingLinks(view);
+		case ConditionalRouterMediatorEditPart.VISUAL_ID:
+			return getConditionalRouterMediator_3635IncomingLinks(view);
+		case ConditionalRouterMediatorInputConnectorEditPart.VISUAL_ID:
+			return getConditionalRouterMediatorInputConnector_3636IncomingLinks(view);
+		case ConditionalRouterMediatorOutputConnectorEditPart.VISUAL_ID:
+			return getConditionalRouterMediatorOutputConnector_3637IncomingLinks(view);
+		case ConditionalRouterMediatorAdditionalOutputConnectorEditPart.VISUAL_ID:
+			return getConditionalRouterMediatorAdditionalOutputConnector_3638IncomingLinks(view);
+		case MediatorFlow16EditPart.VISUAL_ID:
+			return getMediatorFlow_3639IncomingLinks(view);
 		case DefaultEndPointEditPart.VISUAL_ID:
 			return getDefaultEndPoint_3609IncomingLinks(view);
 		case DefaultEndPointInputConnectorEditPart.VISUAL_ID:
@@ -6513,6 +6849,16 @@ public class EsbDiagramUpdater {
 			return getRouterTargetContainer_3633OutgoingLinks(view);
 		case MediatorFlow15EditPart.VISUAL_ID:
 			return getMediatorFlow_3634OutgoingLinks(view);
+		case ConditionalRouterMediatorEditPart.VISUAL_ID:
+			return getConditionalRouterMediator_3635OutgoingLinks(view);
+		case ConditionalRouterMediatorInputConnectorEditPart.VISUAL_ID:
+			return getConditionalRouterMediatorInputConnector_3636OutgoingLinks(view);
+		case ConditionalRouterMediatorOutputConnectorEditPart.VISUAL_ID:
+			return getConditionalRouterMediatorOutputConnector_3637OutgoingLinks(view);
+		case ConditionalRouterMediatorAdditionalOutputConnectorEditPart.VISUAL_ID:
+			return getConditionalRouterMediatorAdditionalOutputConnector_3638OutgoingLinks(view);
+		case MediatorFlow16EditPart.VISUAL_ID:
+			return getMediatorFlow_3639OutgoingLinks(view);
 		case DefaultEndPointEditPart.VISUAL_ID:
 			return getDefaultEndPoint_3609OutgoingLinks(view);
 		case DefaultEndPointInputConnectorEditPart.VISUAL_ID:
@@ -8059,6 +8405,54 @@ public class EsbDiagramUpdater {
 	 * @generated
 	 */
 	public static List<EsbLinkDescriptor> getMediatorFlow_3634ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getConditionalRouterMediator_3635ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getConditionalRouterMediatorInputConnector_3636ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getConditionalRouterMediatorOutputConnector_3637ContainedLinks(
+			View view) {
+		ConditionalRouterMediatorOutputConnector modelElement = (ConditionalRouterMediatorOutputConnector) view
+				.getElement();
+		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getConditionalRouterMediatorAdditionalOutputConnector_3638ContainedLinks(
+			View view) {
+		ConditionalRouterMediatorAdditionalOutputConnector modelElement = (ConditionalRouterMediatorAdditionalOutputConnector) view
+				.getElement();
+		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getMediatorFlow_3639ContainedLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -9952,6 +10346,53 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<EsbLinkDescriptor> getConditionalRouterMediator_3635IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getConditionalRouterMediatorInputConnector_3636IncomingLinks(
+			View view) {
+		ConditionalRouterMediatorInputConnector modelElement = (ConditionalRouterMediatorInputConnector) view
+				.getElement();
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
+		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
+				crossReferences));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getConditionalRouterMediatorOutputConnector_3637IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getConditionalRouterMediatorAdditionalOutputConnector_3638IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getMediatorFlow_3639IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<EsbLinkDescriptor> getDefaultEndPoint_3609IncomingLinks(
 			View view) {
 		return Collections.emptyList();
@@ -11760,6 +12201,54 @@ public class EsbDiagramUpdater {
 	 * @generated
 	 */
 	public static List<EsbLinkDescriptor> getMediatorFlow_3634OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getConditionalRouterMediator_3635OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getConditionalRouterMediatorInputConnector_3636OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getConditionalRouterMediatorOutputConnector_3637OutgoingLinks(
+			View view) {
+		ConditionalRouterMediatorOutputConnector modelElement = (ConditionalRouterMediatorOutputConnector) view
+				.getElement();
+		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getConditionalRouterMediatorAdditionalOutputConnector_3638OutgoingLinks(
+			View view) {
+		ConditionalRouterMediatorAdditionalOutputConnector modelElement = (ConditionalRouterMediatorAdditionalOutputConnector) view
+				.getElement();
+		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getMediatorFlow_3639OutgoingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
