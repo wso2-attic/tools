@@ -87,6 +87,8 @@ public class RuleMediatorItemProvider
 			childrenFeatures.add(EsbPackage.Literals.RULE_MEDIATOR__CHILD_MEDIATORS_CONFIGURATION);
 			childrenFeatures.add(EsbPackage.Literals.RULE_MEDIATOR__INPUT_CONNECTOR);
 			childrenFeatures.add(EsbPackage.Literals.RULE_MEDIATOR__OUTPUT_CONNECTOR);
+			childrenFeatures.add(EsbPackage.Literals.RULE_MEDIATOR__CHILD_MEDIATORS_OUTPUT_CONNECTOR);
+			childrenFeatures.add(EsbPackage.Literals.RULE_MEDIATOR__MEDIATOR_FLOW);
 		}
 		return childrenFeatures;
 	}
@@ -150,6 +152,8 @@ public class RuleMediatorItemProvider
 			case EsbPackage.RULE_MEDIATOR__CHILD_MEDIATORS_CONFIGURATION:
 			case EsbPackage.RULE_MEDIATOR__INPUT_CONNECTOR:
 			case EsbPackage.RULE_MEDIATOR__OUTPUT_CONNECTOR:
+			case EsbPackage.RULE_MEDIATOR__CHILD_MEDIATORS_OUTPUT_CONNECTOR:
+			case EsbPackage.RULE_MEDIATOR__MEDIATOR_FLOW:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -202,6 +206,16 @@ public class RuleMediatorItemProvider
 			(createChildParameter
 				(EsbPackage.Literals.RULE_MEDIATOR__OUTPUT_CONNECTOR,
 				 EsbFactory.eINSTANCE.createRuleMediatorOutputConnector()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.RULE_MEDIATOR__CHILD_MEDIATORS_OUTPUT_CONNECTOR,
+				 EsbFactory.eINSTANCE.createRuleMediatorChildMediatorsOutputConnector()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.RULE_MEDIATOR__MEDIATOR_FLOW,
+				 EsbFactory.eINSTANCE.createMediatorFlow()));
 	}
 
 }

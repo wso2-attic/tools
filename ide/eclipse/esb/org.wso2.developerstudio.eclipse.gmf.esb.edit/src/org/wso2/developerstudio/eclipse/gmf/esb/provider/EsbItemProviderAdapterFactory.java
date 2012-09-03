@@ -4331,6 +4331,29 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediatorChildMediatorsOutputConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RuleMediatorChildMediatorsOutputConnectorItemProvider ruleMediatorChildMediatorsOutputConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediatorChildMediatorsOutputConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRuleMediatorChildMediatorsOutputConnectorAdapter() {
+		if (ruleMediatorChildMediatorsOutputConnectorItemProvider == null) {
+			ruleMediatorChildMediatorsOutputConnectorItemProvider = new RuleMediatorChildMediatorsOutputConnectorItemProvider(this);
+		}
+
+		return ruleMediatorChildMediatorsOutputConnectorItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.RuleSetConfiguration} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6050,6 +6073,7 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 		if (ruleMediatorItemProvider != null) ruleMediatorItemProvider.dispose();
 		if (ruleMediatorInputConnectorItemProvider != null) ruleMediatorInputConnectorItemProvider.dispose();
 		if (ruleMediatorOutputConnectorItemProvider != null) ruleMediatorOutputConnectorItemProvider.dispose();
+		if (ruleMediatorChildMediatorsOutputConnectorItemProvider != null) ruleMediatorChildMediatorsOutputConnectorItemProvider.dispose();
 		if (ruleSetConfigurationItemProvider != null) ruleSetConfigurationItemProvider.dispose();
 		if (ruleSetCreationPropertyItemProvider != null) ruleSetCreationPropertyItemProvider.dispose();
 		if (ruleSessionConfigurationItemProvider != null) ruleSessionConfigurationItemProvider.dispose();
