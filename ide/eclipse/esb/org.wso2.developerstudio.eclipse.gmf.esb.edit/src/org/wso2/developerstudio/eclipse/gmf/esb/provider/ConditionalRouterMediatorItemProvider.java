@@ -106,6 +106,10 @@ public class ConditionalRouterMediatorItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(EsbPackage.Literals.CONDITIONAL_ROUTER_MEDIATOR__CONDITIONAL_ROUTE_BRANCHES);
+			childrenFeatures.add(EsbPackage.Literals.CONDITIONAL_ROUTER_MEDIATOR__INPUT_CONNECTOR);
+			childrenFeatures.add(EsbPackage.Literals.CONDITIONAL_ROUTER_MEDIATOR__OUTPUT_CONNECTOR);
+			childrenFeatures.add(EsbPackage.Literals.CONDITIONAL_ROUTER_MEDIATOR__ADDITIONAL_OUTPUT_CONNECTOR);
+			childrenFeatures.add(EsbPackage.Literals.CONDITIONAL_ROUTER_MEDIATOR__MEDIATOR_FLOW);
 		}
 		return childrenFeatures;
 	}
@@ -166,6 +170,10 @@ public class ConditionalRouterMediatorItemProvider
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case EsbPackage.CONDITIONAL_ROUTER_MEDIATOR__CONDITIONAL_ROUTE_BRANCHES:
+			case EsbPackage.CONDITIONAL_ROUTER_MEDIATOR__INPUT_CONNECTOR:
+			case EsbPackage.CONDITIONAL_ROUTER_MEDIATOR__OUTPUT_CONNECTOR:
+			case EsbPackage.CONDITIONAL_ROUTER_MEDIATOR__ADDITIONAL_OUTPUT_CONNECTOR:
+			case EsbPackage.CONDITIONAL_ROUTER_MEDIATOR__MEDIATOR_FLOW:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -188,6 +196,26 @@ public class ConditionalRouterMediatorItemProvider
 			(createChildParameter
 				(EsbPackage.Literals.CONDITIONAL_ROUTER_MEDIATOR__CONDITIONAL_ROUTE_BRANCHES,
 				 EsbFactory.eINSTANCE.createConditionalRouteBranch()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.CONDITIONAL_ROUTER_MEDIATOR__INPUT_CONNECTOR,
+				 EsbFactory.eINSTANCE.createConditionalRouterMediatorInputConnector()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.CONDITIONAL_ROUTER_MEDIATOR__OUTPUT_CONNECTOR,
+				 EsbFactory.eINSTANCE.createConditionalRouterMediatorOutputConnector()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.CONDITIONAL_ROUTER_MEDIATOR__ADDITIONAL_OUTPUT_CONNECTOR,
+				 EsbFactory.eINSTANCE.createConditionalRouterMediatorAdditionalOutputConnector()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.CONDITIONAL_ROUTER_MEDIATOR__MEDIATOR_FLOW,
+				 EsbFactory.eINSTANCE.createMediatorFlow()));
 	}
 
 }

@@ -36,7 +36,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
  * @generated
  */
 public class ConditionalRouteBranchItemProvider
-	extends ItemProviderAdapter
+	extends EsbNodeItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -65,29 +65,75 @@ public class ConditionalRouteBranchItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addBreakRoutePropertyDescriptor(object);
+			addBreakAfterRoutePropertyDescriptor(object);
+			addEvaluatorExpressionPropertyDescriptor(object);
+			addTargetSequencePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Break Route feature.
+	 * This adds a property descriptor for the Break After Route feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addBreakRoutePropertyDescriptor(Object object) {
+	protected void addBreakAfterRoutePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ConditionalRouteBranch_breakRoute_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ConditionalRouteBranch_breakRoute_feature", "_UI_ConditionalRouteBranch_type"),
-				 EsbPackage.Literals.CONDITIONAL_ROUTE_BRANCH__BREAK_ROUTE,
+				 getString("_UI_ConditionalRouteBranch_breakAfterRoute_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ConditionalRouteBranch_breakAfterRoute_feature", "_UI_ConditionalRouteBranch_type"),
+				 EsbPackage.Literals.CONDITIONAL_ROUTE_BRANCH__BREAK_AFTER_ROUTE,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Evaluator Expression feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addEvaluatorExpressionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ConditionalRouteBranch_evaluatorExpression_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ConditionalRouteBranch_evaluatorExpression_feature", "_UI_ConditionalRouteBranch_type"),
+				 EsbPackage.Literals.CONDITIONAL_ROUTE_BRANCH__EVALUATOR_EXPRESSION,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Target Sequence feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTargetSequencePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ConditionalRouteBranch_targetSequence_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ConditionalRouteBranch_targetSequence_feature", "_UI_ConditionalRouteBranch_type"),
+				 EsbPackage.Literals.CONDITIONAL_ROUTE_BRANCH__TARGET_SEQUENCE,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}
@@ -114,7 +160,7 @@ public class ConditionalRouteBranchItemProvider
 	@Override
 	public String getText(Object object) {
 		ConditionalRouteBranch conditionalRouteBranch = (ConditionalRouteBranch)object;
-		return getString("_UI_ConditionalRouteBranch_type") + " " + conditionalRouteBranch.isBreakRoute();
+		return getString("_UI_ConditionalRouteBranch_type") + " " + conditionalRouteBranch.isBreakAfterRoute();
 	}
 
 	/**
@@ -130,7 +176,7 @@ public class ConditionalRouteBranchItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ConditionalRouteBranch.class)) {
-			case EsbPackage.CONDITIONAL_ROUTE_BRANCH__BREAK_ROUTE:
+			case EsbPackage.CONDITIONAL_ROUTE_BRANCH__BREAK_AFTER_ROUTE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
@@ -148,18 +194,6 @@ public class ConditionalRouteBranchItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return EsbEditPlugin.INSTANCE;
 	}
 
 }

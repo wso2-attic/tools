@@ -5037,6 +5037,75 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.ConditionalRouterMediatorInputConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ConditionalRouterMediatorInputConnectorItemProvider conditionalRouterMediatorInputConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.ConditionalRouterMediatorInputConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createConditionalRouterMediatorInputConnectorAdapter() {
+		if (conditionalRouterMediatorInputConnectorItemProvider == null) {
+			conditionalRouterMediatorInputConnectorItemProvider = new ConditionalRouterMediatorInputConnectorItemProvider(this);
+		}
+
+		return conditionalRouterMediatorInputConnectorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.ConditionalRouterMediatorOutputConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ConditionalRouterMediatorOutputConnectorItemProvider conditionalRouterMediatorOutputConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.ConditionalRouterMediatorOutputConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createConditionalRouterMediatorOutputConnectorAdapter() {
+		if (conditionalRouterMediatorOutputConnectorItemProvider == null) {
+			conditionalRouterMediatorOutputConnectorItemProvider = new ConditionalRouterMediatorOutputConnectorItemProvider(this);
+		}
+
+		return conditionalRouterMediatorOutputConnectorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.ConditionalRouterMediatorAdditionalOutputConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ConditionalRouterMediatorAdditionalOutputConnectorItemProvider conditionalRouterMediatorAdditionalOutputConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.ConditionalRouterMediatorAdditionalOutputConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createConditionalRouterMediatorAdditionalOutputConnectorAdapter() {
+		if (conditionalRouterMediatorAdditionalOutputConnectorItemProvider == null) {
+			conditionalRouterMediatorAdditionalOutputConnectorItemProvider = new ConditionalRouterMediatorAdditionalOutputConnectorItemProvider(this);
+		}
+
+		return conditionalRouterMediatorAdditionalOutputConnectorItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.SendMediator} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6035,6 +6104,9 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 		if (payloadFactoryArgumentItemProvider != null) payloadFactoryArgumentItemProvider.dispose();
 		if (conditionalRouteBranchItemProvider != null) conditionalRouteBranchItemProvider.dispose();
 		if (conditionalRouterMediatorItemProvider != null) conditionalRouterMediatorItemProvider.dispose();
+		if (conditionalRouterMediatorInputConnectorItemProvider != null) conditionalRouterMediatorInputConnectorItemProvider.dispose();
+		if (conditionalRouterMediatorOutputConnectorItemProvider != null) conditionalRouterMediatorOutputConnectorItemProvider.dispose();
+		if (conditionalRouterMediatorAdditionalOutputConnectorItemProvider != null) conditionalRouterMediatorAdditionalOutputConnectorItemProvider.dispose();
 		if (sendMediatorItemProvider != null) sendMediatorItemProvider.dispose();
 		if (sendContainerItemProvider != null) sendContainerItemProvider.dispose();
 		if (sendMediatorInputConnectorItemProvider != null) sendMediatorInputConnectorItemProvider.dispose();
