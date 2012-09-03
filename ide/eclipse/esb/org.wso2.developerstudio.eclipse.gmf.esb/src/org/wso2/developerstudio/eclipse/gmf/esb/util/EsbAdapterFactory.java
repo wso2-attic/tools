@@ -945,6 +945,18 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 				return createConditionalRouterMediatorAdapter();
 			}
 			@Override
+			public Adapter caseConditionalRouterMediatorInputConnector(ConditionalRouterMediatorInputConnector object) {
+				return createConditionalRouterMediatorInputConnectorAdapter();
+			}
+			@Override
+			public Adapter caseConditionalRouterMediatorOutputConnector(ConditionalRouterMediatorOutputConnector object) {
+				return createConditionalRouterMediatorOutputConnectorAdapter();
+			}
+			@Override
+			public Adapter caseConditionalRouterMediatorAdditionalOutputConnector(ConditionalRouterMediatorAdditionalOutputConnector object) {
+				return createConditionalRouterMediatorAdditionalOutputConnectorAdapter();
+			}
+			@Override
 			public Adapter caseSendMediator(SendMediator object) {
 				return createSendMediatorAdapter();
 			}
@@ -4242,6 +4254,48 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createConditionalRouterMediatorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.ConditionalRouterMediatorInputConnector <em>Conditional Router Mediator Input Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.ConditionalRouterMediatorInputConnector
+	 * @generated
+	 */
+	public Adapter createConditionalRouterMediatorInputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.ConditionalRouterMediatorOutputConnector <em>Conditional Router Mediator Output Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.ConditionalRouterMediatorOutputConnector
+	 * @generated
+	 */
+	public Adapter createConditionalRouterMediatorOutputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.ConditionalRouterMediatorAdditionalOutputConnector <em>Conditional Router Mediator Additional Output Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.ConditionalRouterMediatorAdditionalOutputConnector
+	 * @generated
+	 */
+	public Adapter createConditionalRouterMediatorAdditionalOutputConnectorAdapter() {
 		return null;
 	}
 

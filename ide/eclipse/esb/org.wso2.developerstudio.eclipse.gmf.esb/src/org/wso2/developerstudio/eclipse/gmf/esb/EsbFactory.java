@@ -1930,6 +1930,33 @@ public interface EsbFactory extends EFactory {
 	ConditionalRouterMediator createConditionalRouterMediator();
 
 	/**
+	 * Returns a new object of class '<em>Conditional Router Mediator Input Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Conditional Router Mediator Input Connector</em>'.
+	 * @generated
+	 */
+	ConditionalRouterMediatorInputConnector createConditionalRouterMediatorInputConnector();
+
+	/**
+	 * Returns a new object of class '<em>Conditional Router Mediator Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Conditional Router Mediator Output Connector</em>'.
+	 * @generated
+	 */
+	ConditionalRouterMediatorOutputConnector createConditionalRouterMediatorOutputConnector();
+
+	/**
+	 * Returns a new object of class '<em>Conditional Router Mediator Additional Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Conditional Router Mediator Additional Output Connector</em>'.
+	 * @generated
+	 */
+	ConditionalRouterMediatorAdditionalOutputConnector createConditionalRouterMediatorAdditionalOutputConnector();
+
+	/**
 	 * Returns a new object of class '<em>Send Mediator</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

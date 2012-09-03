@@ -275,6 +275,9 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 			case EsbPackage.PAYLOAD_FACTORY_ARGUMENT: return createPayloadFactoryArgument();
 			case EsbPackage.CONDITIONAL_ROUTE_BRANCH: return createConditionalRouteBranch();
 			case EsbPackage.CONDITIONAL_ROUTER_MEDIATOR: return createConditionalRouterMediator();
+			case EsbPackage.CONDITIONAL_ROUTER_MEDIATOR_INPUT_CONNECTOR: return createConditionalRouterMediatorInputConnector();
+			case EsbPackage.CONDITIONAL_ROUTER_MEDIATOR_OUTPUT_CONNECTOR: return createConditionalRouterMediatorOutputConnector();
+			case EsbPackage.CONDITIONAL_ROUTER_MEDIATOR_ADDITIONAL_OUTPUT_CONNECTOR: return createConditionalRouterMediatorAdditionalOutputConnector();
 			case EsbPackage.SEND_MEDIATOR: return createSendMediator();
 			case EsbPackage.SEND_CONTAINER: return createSendContainer();
 			case EsbPackage.SEND_MEDIATOR_INPUT_CONNECTOR: return createSendMediatorInputConnector();
@@ -2871,11 +2874,45 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public ConditionalRouterMediator createConditionalRouterMediator() {
 		ConditionalRouterMediatorImpl conditionalRouterMediator = new ConditionalRouterMediatorImpl();
+		conditionalRouterMediator.setInputConnector(createConditionalRouterMediatorInputConnector());
+		conditionalRouterMediator.setOutputConnector(createConditionalRouterMediatorOutputConnector());
+		conditionalRouterMediator.setAdditionalOutputConnector(createConditionalRouterMediatorAdditionalOutputConnector());
+		conditionalRouterMediator.setMediatorFlow(createMediatorFlow());
 		return conditionalRouterMediator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ConditionalRouterMediatorInputConnector createConditionalRouterMediatorInputConnector() {
+		ConditionalRouterMediatorInputConnectorImpl conditionalRouterMediatorInputConnector = new ConditionalRouterMediatorInputConnectorImpl();
+		return conditionalRouterMediatorInputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ConditionalRouterMediatorOutputConnector createConditionalRouterMediatorOutputConnector() {
+		ConditionalRouterMediatorOutputConnectorImpl conditionalRouterMediatorOutputConnector = new ConditionalRouterMediatorOutputConnectorImpl();
+		return conditionalRouterMediatorOutputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ConditionalRouterMediatorAdditionalOutputConnector createConditionalRouterMediatorAdditionalOutputConnector() {
+		ConditionalRouterMediatorAdditionalOutputConnectorImpl conditionalRouterMediatorAdditionalOutputConnector = new ConditionalRouterMediatorAdditionalOutputConnectorImpl();
+		return conditionalRouterMediatorAdditionalOutputConnector;
 	}
 
 	/**

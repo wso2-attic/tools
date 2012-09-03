@@ -79,6 +79,9 @@ import org.wso2.developerstudio.eclipse.gmf.esb.CommandPropertyMessageAction;
 import org.wso2.developerstudio.eclipse.gmf.esb.CommandPropertyValueType;
 import org.wso2.developerstudio.eclipse.gmf.esb.ConditionalRouteBranch;
 import org.wso2.developerstudio.eclipse.gmf.esb.ConditionalRouterMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.ConditionalRouterMediatorAdditionalOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.ConditionalRouterMediatorInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.ConditionalRouterMediatorOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.DBLookupMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.DBLookupMediatorInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.DBLookupMediatorOutputConnector;
@@ -1934,6 +1937,27 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	private EClass conditionalRouterMediatorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass conditionalRouterMediatorInputConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass conditionalRouterMediatorOutputConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass conditionalRouterMediatorAdditionalOutputConnectorEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -9100,8 +9124,26 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getConditionalRouteBranch_BreakRoute() {
+	public EAttribute getConditionalRouteBranch_BreakAfterRoute() {
 		return (EAttribute)conditionalRouteBranchEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConditionalRouteBranch_EvaluatorExpression() {
+		return (EReference)conditionalRouteBranchEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConditionalRouteBranch_TargetSequence() {
+		return (EReference)conditionalRouteBranchEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -9129,6 +9171,69 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 */
 	public EReference getConditionalRouterMediator_ConditionalRouteBranches() {
 		return (EReference)conditionalRouterMediatorEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConditionalRouterMediator_InputConnector() {
+		return (EReference)conditionalRouterMediatorEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConditionalRouterMediator_OutputConnector() {
+		return (EReference)conditionalRouterMediatorEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConditionalRouterMediator_AdditionalOutputConnector() {
+		return (EReference)conditionalRouterMediatorEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConditionalRouterMediator_MediatorFlow() {
+		return (EReference)conditionalRouterMediatorEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getConditionalRouterMediatorInputConnector() {
+		return conditionalRouterMediatorInputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getConditionalRouterMediatorOutputConnector() {
+		return conditionalRouterMediatorOutputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getConditionalRouterMediatorAdditionalOutputConnector() {
+		return conditionalRouterMediatorAdditionalOutputConnectorEClass;
 	}
 
 	/**
@@ -11428,11 +11533,23 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEReference(payloadFactoryArgumentEClass, PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_EXPRESSION);
 
 		conditionalRouteBranchEClass = createEClass(CONDITIONAL_ROUTE_BRANCH);
-		createEAttribute(conditionalRouteBranchEClass, CONDITIONAL_ROUTE_BRANCH__BREAK_ROUTE);
+		createEAttribute(conditionalRouteBranchEClass, CONDITIONAL_ROUTE_BRANCH__BREAK_AFTER_ROUTE);
+		createEReference(conditionalRouteBranchEClass, CONDITIONAL_ROUTE_BRANCH__EVALUATOR_EXPRESSION);
+		createEReference(conditionalRouteBranchEClass, CONDITIONAL_ROUTE_BRANCH__TARGET_SEQUENCE);
 
 		conditionalRouterMediatorEClass = createEClass(CONDITIONAL_ROUTER_MEDIATOR);
 		createEAttribute(conditionalRouterMediatorEClass, CONDITIONAL_ROUTER_MEDIATOR__CONTINUE_ROUTE);
 		createEReference(conditionalRouterMediatorEClass, CONDITIONAL_ROUTER_MEDIATOR__CONDITIONAL_ROUTE_BRANCHES);
+		createEReference(conditionalRouterMediatorEClass, CONDITIONAL_ROUTER_MEDIATOR__INPUT_CONNECTOR);
+		createEReference(conditionalRouterMediatorEClass, CONDITIONAL_ROUTER_MEDIATOR__OUTPUT_CONNECTOR);
+		createEReference(conditionalRouterMediatorEClass, CONDITIONAL_ROUTER_MEDIATOR__ADDITIONAL_OUTPUT_CONNECTOR);
+		createEReference(conditionalRouterMediatorEClass, CONDITIONAL_ROUTER_MEDIATOR__MEDIATOR_FLOW);
+
+		conditionalRouterMediatorInputConnectorEClass = createEClass(CONDITIONAL_ROUTER_MEDIATOR_INPUT_CONNECTOR);
+
+		conditionalRouterMediatorOutputConnectorEClass = createEClass(CONDITIONAL_ROUTER_MEDIATOR_OUTPUT_CONNECTOR);
+
+		conditionalRouterMediatorAdditionalOutputConnectorEClass = createEClass(CONDITIONAL_ROUTER_MEDIATOR_ADDITIONAL_OUTPUT_CONNECTOR);
 
 		sendMediatorEClass = createEClass(SEND_MEDIATOR);
 		createEReference(sendMediatorEClass, SEND_MEDIATOR__END_POINT);
@@ -11862,7 +11979,11 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		payloadFactoryMediatorInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
 		payloadFactoryMediatorOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
 		payloadFactoryArgumentEClass.getESuperTypes().add(this.getEsbNode());
+		conditionalRouteBranchEClass.getESuperTypes().add(this.getEsbNode());
 		conditionalRouterMediatorEClass.getESuperTypes().add(this.getMediator());
+		conditionalRouterMediatorInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
+		conditionalRouterMediatorOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
+		conditionalRouterMediatorAdditionalOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
 		sendMediatorEClass.getESuperTypes().add(this.getMediator());
 		sendContainerEClass.getESuperTypes().add(this.getEsbNode());
 		sendMediatorInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
@@ -12827,11 +12948,23 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEReference(getPayloadFactoryArgument_ArgumentExpression(), this.getNamespacedProperty(), null, "argumentExpression", null, 0, 1, PayloadFactoryArgument.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(conditionalRouteBranchEClass, ConditionalRouteBranch.class, "ConditionalRouteBranch", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getConditionalRouteBranch_BreakRoute(), ecorePackage.getEBoolean(), "breakRoute", null, 0, 1, ConditionalRouteBranch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConditionalRouteBranch_BreakAfterRoute(), ecorePackage.getEBoolean(), "breakAfterRoute", null, 0, 1, ConditionalRouteBranch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConditionalRouteBranch_EvaluatorExpression(), this.getEvaluatorExpressionProperty(), null, "evaluatorExpression", null, 0, 1, ConditionalRouteBranch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConditionalRouteBranch_TargetSequence(), this.getRegistryKeyProperty(), null, "targetSequence", null, 0, 1, ConditionalRouteBranch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(conditionalRouterMediatorEClass, ConditionalRouterMediator.class, "ConditionalRouterMediator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getConditionalRouterMediator_ContinueRoute(), ecorePackage.getEBoolean(), "continueRoute", null, 0, 1, ConditionalRouterMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getConditionalRouterMediator_ConditionalRouteBranches(), this.getConditionalRouteBranch(), null, "conditionalRouteBranches", null, 0, -1, ConditionalRouterMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConditionalRouterMediator_InputConnector(), this.getConditionalRouterMediatorInputConnector(), null, "inputConnector", null, 0, 1, ConditionalRouterMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConditionalRouterMediator_OutputConnector(), this.getConditionalRouterMediatorOutputConnector(), null, "outputConnector", null, 0, 1, ConditionalRouterMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConditionalRouterMediator_AdditionalOutputConnector(), this.getConditionalRouterMediatorAdditionalOutputConnector(), null, "additionalOutputConnector", null, 0, 1, ConditionalRouterMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConditionalRouterMediator_MediatorFlow(), this.getMediatorFlow(), null, "mediatorFlow", null, 0, 1, ConditionalRouterMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(conditionalRouterMediatorInputConnectorEClass, ConditionalRouterMediatorInputConnector.class, "ConditionalRouterMediatorInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(conditionalRouterMediatorOutputConnectorEClass, ConditionalRouterMediatorOutputConnector.class, "ConditionalRouterMediatorOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(conditionalRouterMediatorAdditionalOutputConnectorEClass, ConditionalRouterMediatorAdditionalOutputConnector.class, "ConditionalRouterMediatorAdditionalOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(sendMediatorEClass, SendMediator.class, "SendMediator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSendMediator_EndPoint(), this.getEndPoint(), null, "EndPoint", null, 0, -1, SendMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -1772,6 +1772,7 @@ public class EsbSwitch<T> {
 			case EsbPackage.CONDITIONAL_ROUTE_BRANCH: {
 				ConditionalRouteBranch conditionalRouteBranch = (ConditionalRouteBranch)theEObject;
 				T result = caseConditionalRouteBranch(conditionalRouteBranch);
+				if (result == null) result = caseEsbNode(conditionalRouteBranch);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -1781,6 +1782,30 @@ public class EsbSwitch<T> {
 				if (result == null) result = caseMediator(conditionalRouterMediator);
 				if (result == null) result = caseEsbElement(conditionalRouterMediator);
 				if (result == null) result = caseEsbNode(conditionalRouterMediator);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.CONDITIONAL_ROUTER_MEDIATOR_INPUT_CONNECTOR: {
+				ConditionalRouterMediatorInputConnector conditionalRouterMediatorInputConnector = (ConditionalRouterMediatorInputConnector)theEObject;
+				T result = caseConditionalRouterMediatorInputConnector(conditionalRouterMediatorInputConnector);
+				if (result == null) result = caseInputConnector(conditionalRouterMediatorInputConnector);
+				if (result == null) result = caseEsbConnector(conditionalRouterMediatorInputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.CONDITIONAL_ROUTER_MEDIATOR_OUTPUT_CONNECTOR: {
+				ConditionalRouterMediatorOutputConnector conditionalRouterMediatorOutputConnector = (ConditionalRouterMediatorOutputConnector)theEObject;
+				T result = caseConditionalRouterMediatorOutputConnector(conditionalRouterMediatorOutputConnector);
+				if (result == null) result = caseOutputConnector(conditionalRouterMediatorOutputConnector);
+				if (result == null) result = caseEsbConnector(conditionalRouterMediatorOutputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.CONDITIONAL_ROUTER_MEDIATOR_ADDITIONAL_OUTPUT_CONNECTOR: {
+				ConditionalRouterMediatorAdditionalOutputConnector conditionalRouterMediatorAdditionalOutputConnector = (ConditionalRouterMediatorAdditionalOutputConnector)theEObject;
+				T result = caseConditionalRouterMediatorAdditionalOutputConnector(conditionalRouterMediatorAdditionalOutputConnector);
+				if (result == null) result = caseOutputConnector(conditionalRouterMediatorAdditionalOutputConnector);
+				if (result == null) result = caseEsbConnector(conditionalRouterMediatorAdditionalOutputConnector);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -5432,6 +5457,51 @@ public class EsbSwitch<T> {
 	 * @generated
 	 */
 	public T caseConditionalRouterMediator(ConditionalRouterMediator object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Conditional Router Mediator Input Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Conditional Router Mediator Input Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseConditionalRouterMediatorInputConnector(ConditionalRouterMediatorInputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Conditional Router Mediator Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Conditional Router Mediator Output Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseConditionalRouterMediatorOutputConnector(ConditionalRouterMediatorOutputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Conditional Router Mediator Additional Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Conditional Router Mediator Additional Output Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseConditionalRouterMediatorAdditionalOutputConnector(ConditionalRouterMediatorAdditionalOutputConnector object) {
 		return null;
 	}
 

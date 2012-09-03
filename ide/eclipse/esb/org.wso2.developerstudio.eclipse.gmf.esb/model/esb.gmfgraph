@@ -1408,6 +1408,32 @@
             blue="255"/>
       </actualFigure>
     </descriptors>
+    <descriptors
+        name="ConditionalRouterMediatorFigure">
+      <actualFigure
+          xsi:type="gmfgraph:CustomFigure"
+          name="ConditionalRouterGraphicalFigure"
+          qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGroupingShape">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"
+            matchMinorSize="true"
+            forceSingleLine="true"
+            majorAlignment="CENTER"
+            minorAlignment="CENTER"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="230"
+            green="230"
+            blue="230"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="ConditionalRouterPropertyValue"
+            text="&lt;...>"/>
+      </actualFigure>
+      <accessors
+          accessor="getFigureConditionalRouterPropertyValue"
+          figure="//@figures.0/@descriptors.80/@actualFigure/@children.0"/>
+    </descriptors>
   </figures>
   <nodes
       name="EsbServer"
@@ -2105,6 +2131,21 @@
   <nodes
       name="RouterTargetContainer"
       figure="RouterTargetContainerFigure"/>
+  <nodes
+      name="ConditionalRouterMediator"
+      figure="ConditionalRouterMediatorFigure"/>
+  <nodes
+      name="ConditionalRouterMediatorInputConnector"
+      figure="EastPointerFigure"
+      affixedParentSide="WEST"/>
+  <nodes
+      name="ConditionalRouterMediatorOutputConnector"
+      figure="EastPointerFigure"
+      affixedParentSide="EAST"/>
+  <nodes
+      name="ConditionalRouterMediatorAdditionalOutputConnector"
+      figure="EastPointerFigure"
+      affixedParentSide="EAST"/>
   <connections
       name="EsbLink"
       figure="PlainConnectionFigure"/>
