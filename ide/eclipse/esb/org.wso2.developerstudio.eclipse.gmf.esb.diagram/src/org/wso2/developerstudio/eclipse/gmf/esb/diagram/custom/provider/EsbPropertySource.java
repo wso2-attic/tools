@@ -1,6 +1,5 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.provider;
 
-//import jfb.examples.gmf.school.SchoolPackage;
 
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
@@ -145,6 +144,8 @@ public class EsbPropertySource extends PropertySource {
 		} else if (pkg.getCommandMediator_Properties().equals(feature)) {
 			
 			return new CommandMediatorPropertyDescriptor(object,itemPropertyDescriptor);
+		} else if (pkg.getRouterMediator_RouterContainer().equals(feature)) {
+			return new RouterMediatorPropertyDescriptor(object,itemPropertyDescriptor);
 		} 
 			//Throttle Mediator Policy Entries custom property descriptor.
 		else if(pkg.getThrottleMediator_PolicyEntries().equals(feature)){
