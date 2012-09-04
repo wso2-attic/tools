@@ -65,6 +65,8 @@ public class ConnectionCalculator {
 		ArrayList<EsbLinkEditPart> nearLinks = new ArrayList<EsbLinkEditPart>();
 		Point currentFigureLocation = null;
 		double distance = 0.0;
+		double distanceToUpperLine=0.0;
+		double distanceToBottomLine=0.0;
 		EsbLinkEditPart nearestLink = null;
 		EditPart child=null;
 
@@ -166,11 +168,22 @@ public class ConnectionCalculator {
 				}
 			}
 		}
-		for (int q = 0; q < nearLinks.size(); ++q) {
-			distance = (((nearLinks.get(q).getFigure().getBounds().getLeft().y) + (nearLinks
-					.get(q).getFigure().getBounds().getRight().y)) / 2)
-					- currentFigureLocation.y;
-			distance = Math.abs(distance);
+		for (int q = 0; q < nearLinks.size(); ++q) {			
+			if(((nearLinks.get(q).getFigure().getBounds().getLeft().y ) < (currentFigureLocation.y+100))&& (currentFigureLocation.y < (nearLinks.get(q).getFigure().getBounds().getBottomLeft().y)) 
+					||(((nearLinks.get(q).getFigure().getBounds().getLeft().y ) > (currentFigureLocation.y+100))&&(currentFigureLocation.y > (nearLinks.get(q).getFigure().getBounds().getBottomLeft().y)))){				
+				return (EsbLinkEditPart) nearLinks.get(q);
+			}
+			
+			distanceToUpperLine = nearLinks.get(q).getFigure().getBounds().getLeft().y	- currentFigureLocation.y -100;
+			distanceToUpperLine=Math.abs(distanceToUpperLine);
+			distanceToBottomLine = nearLinks.get(q).getFigure().getBounds().getBottomLeft().y - currentFigureLocation.y;
+			distanceToBottomLine = Math.abs(distanceToBottomLine);
+			
+			if(distanceToUpperLine > distanceToBottomLine){
+				distance=distanceToBottomLine;
+			}else{
+				distance=distanceToUpperLine;
+			}
 			if (current == 0.0) {
 				current = distance;
 				nearestLink = (EsbLinkEditPart) nearLinks.get(q);
