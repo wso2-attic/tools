@@ -129,7 +129,7 @@ public class ConnectionCalculator {
 					if ((xLeft < actualCurrentPosition)
 							&& (actualCurrentPosition < xRight)) {
 						nearLinks.add((EsbLinkEditPart) links.get(i));
-					}
+					}					
 				}
 			}
 			}else if(sequences !=null){
@@ -179,7 +179,7 @@ public class ConnectionCalculator {
 				nearestLink = (EsbLinkEditPart) nearLinks.get(q);
 			}
 		}
-		if(current>20){
+		if(current>50){
 			return null;
 		}
 		return nearestLink;
