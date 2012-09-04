@@ -5822,49 +5822,13 @@ public interface EsbPackage extends EPackage {
 	int ROUTER_MEDIATOR_CONTAINER__ROUTER_TARGET_CONTAINER = ESB_NODE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Break After Route</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ROUTER_MEDIATOR_CONTAINER__BREAK_AFTER_ROUTE = ESB_NODE_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Route Expression</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ROUTER_MEDIATOR_CONTAINER__ROUTE_EXPRESSION = ESB_NODE_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Route Pattern</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ROUTER_MEDIATOR_CONTAINER__ROUTE_PATTERN = ESB_NODE_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Target</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ROUTER_MEDIATOR_CONTAINER__TARGET = ESB_NODE_FEATURE_COUNT + 4;
-
-	/**
 	 * The number of structural features of the '<em>Router Mediator Container</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROUTER_MEDIATOR_CONTAINER_FEATURE_COUNT = ESB_NODE_FEATURE_COUNT + 5;
+	int ROUTER_MEDIATOR_CONTAINER_FEATURE_COUNT = ESB_NODE_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RouterTargetContainerImpl <em>Router Target Container</em>}' class.
@@ -5886,13 +5850,49 @@ public interface EsbPackage extends EPackage {
 	int ROUTER_TARGET_CONTAINER__MEDIATOR_FLOW = ESB_NODE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Break After Route</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROUTER_TARGET_CONTAINER__BREAK_AFTER_ROUTE = ESB_NODE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Route Expression</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROUTER_TARGET_CONTAINER__ROUTE_EXPRESSION = ESB_NODE_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Route Pattern</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROUTER_TARGET_CONTAINER__ROUTE_PATTERN = ESB_NODE_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROUTER_TARGET_CONTAINER__TARGET = ESB_NODE_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Router Target Container</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROUTER_TARGET_CONTAINER_FEATURE_COUNT = ESB_NODE_FEATURE_COUNT + 1;
+	int ROUTER_TARGET_CONTAINER_FEATURE_COUNT = ESB_NODE_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -17400,50 +17400,6 @@ public interface EsbPackage extends EPackage {
 	EReference getRouterMediatorContainer_RouterTargetContainer();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.RouterMediatorContainer#isBreakAfterRoute <em>Break After Route</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Break After Route</em>'.
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RouterMediatorContainer#isBreakAfterRoute()
-	 * @see #getRouterMediatorContainer()
-	 * @generated
-	 */
-	EAttribute getRouterMediatorContainer_BreakAfterRoute();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.RouterMediatorContainer#getRouteExpression <em>Route Expression</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Route Expression</em>'.
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RouterMediatorContainer#getRouteExpression()
-	 * @see #getRouterMediatorContainer()
-	 * @generated
-	 */
-	EReference getRouterMediatorContainer_RouteExpression();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.RouterMediatorContainer#getRoutePattern <em>Route Pattern</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Route Pattern</em>'.
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RouterMediatorContainer#getRoutePattern()
-	 * @see #getRouterMediatorContainer()
-	 * @generated
-	 */
-	EAttribute getRouterMediatorContainer_RoutePattern();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.RouterMediatorContainer#getTarget <em>Target</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Target</em>'.
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RouterMediatorContainer#getTarget()
-	 * @see #getRouterMediatorContainer()
-	 * @generated
-	 */
-	EReference getRouterMediatorContainer_Target();
-
-	/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.gmf.esb.RouterTargetContainer <em>Router Target Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -17463,6 +17419,50 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getRouterTargetContainer_MediatorFlow();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.RouterTargetContainer#isBreakAfterRoute <em>Break After Route</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Break After Route</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RouterTargetContainer#isBreakAfterRoute()
+	 * @see #getRouterTargetContainer()
+	 * @generated
+	 */
+	EAttribute getRouterTargetContainer_BreakAfterRoute();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.RouterTargetContainer#getRouteExpression <em>Route Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Route Expression</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RouterTargetContainer#getRouteExpression()
+	 * @see #getRouterTargetContainer()
+	 * @generated
+	 */
+	EReference getRouterTargetContainer_RouteExpression();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.RouterTargetContainer#getRoutePattern <em>Route Pattern</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Route Pattern</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RouterTargetContainer#getRoutePattern()
+	 * @see #getRouterTargetContainer()
+	 * @generated
+	 */
+	EAttribute getRouterTargetContainer_RoutePattern();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.RouterTargetContainer#getTarget <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Target</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RouterTargetContainer#getTarget()
+	 * @see #getRouterTargetContainer()
+	 * @generated
+	 */
+	EReference getRouterTargetContainer_Target();
 
 	/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.gmf.esb.CloneMediator <em>Clone Mediator</em>}'.
@@ -26098,38 +26098,6 @@ public interface EsbPackage extends EPackage {
 		EReference ROUTER_MEDIATOR_CONTAINER__ROUTER_TARGET_CONTAINER = eINSTANCE.getRouterMediatorContainer_RouterTargetContainer();
 
 		/**
-		 * The meta object literal for the '<em><b>Break After Route</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ROUTER_MEDIATOR_CONTAINER__BREAK_AFTER_ROUTE = eINSTANCE.getRouterMediatorContainer_BreakAfterRoute();
-
-		/**
-		 * The meta object literal for the '<em><b>Route Expression</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ROUTER_MEDIATOR_CONTAINER__ROUTE_EXPRESSION = eINSTANCE.getRouterMediatorContainer_RouteExpression();
-
-		/**
-		 * The meta object literal for the '<em><b>Route Pattern</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ROUTER_MEDIATOR_CONTAINER__ROUTE_PATTERN = eINSTANCE.getRouterMediatorContainer_RoutePattern();
-
-		/**
-		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ROUTER_MEDIATOR_CONTAINER__TARGET = eINSTANCE.getRouterMediatorContainer_Target();
-
-		/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RouterTargetContainerImpl <em>Router Target Container</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -26146,6 +26114,38 @@ public interface EsbPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ROUTER_TARGET_CONTAINER__MEDIATOR_FLOW = eINSTANCE.getRouterTargetContainer_MediatorFlow();
+
+		/**
+		 * The meta object literal for the '<em><b>Break After Route</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ROUTER_TARGET_CONTAINER__BREAK_AFTER_ROUTE = eINSTANCE.getRouterTargetContainer_BreakAfterRoute();
+
+		/**
+		 * The meta object literal for the '<em><b>Route Expression</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ROUTER_TARGET_CONTAINER__ROUTE_EXPRESSION = eINSTANCE.getRouterTargetContainer_RouteExpression();
+
+		/**
+		 * The meta object literal for the '<em><b>Route Pattern</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ROUTER_TARGET_CONTAINER__ROUTE_PATTERN = eINSTANCE.getRouterTargetContainer_RoutePattern();
+
+		/**
+		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ROUTER_TARGET_CONTAINER__TARGET = eINSTANCE.getRouterTargetContainer_Target();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CloneMediatorImpl <em>Clone Mediator</em>}' class.

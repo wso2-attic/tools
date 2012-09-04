@@ -18,6 +18,8 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.ui;
 
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.edit.command.AddCommand;
+import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.IDialogConstants;
@@ -33,16 +35,28 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.layout.FormLayout;
 import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.layout.FormAttachment;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Combo;
+import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
+import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.RouterMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.RouterMediatorTargetOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.RouterTargetContainer;
+import org.wso2.developerstudio.eclipse.platform.core.utils.SWTResourceManager;
 
+/*
+ *  Configuration dialog for router mediator routes
+ */
 public class ConfigureRouterMediatorDialog extends Dialog {
-	private Table tblRouters;
+	/**
+	 * UI variables 
+	 */
+	private Table tblRoutes;
 	private Text txtRouteExpression;
 	private Text txtRoutePattern;
 	private Text txtSequenceKey;
@@ -55,9 +69,11 @@ public class ConfigureRouterMediatorDialog extends Dialog {
 	private Combo cmbEndpointType;
 	private Label lblSequenceKey;
 	private Button cmdSetSequenceKey;
+	private Button btnAdd;
+	private Button btnRemove;
 	
 	/**
-	 * Router Mediator
+	 * Router Mediator eclass
 	 */
 	RouterMediator routerMediator;
 	
@@ -97,29 +113,49 @@ public class ConfigureRouterMediatorDialog extends Dialog {
 		fd_lblRouters.top = new FormAttachment(0, 10);
 		fd_lblRouters.left = new FormAttachment(0, 10);
 		lblRouters.setLayoutData(fd_lblRouters);
-		lblRouters.setText("Routers");
+		lblRouters.setText("Routes");
 		
-		tblRouters = new Table(container, SWT.BORDER | SWT.FULL_SELECTION);
+		tblRoutes = new Table(container, SWT.BORDER | SWT.FULL_SELECTION);
 		FormData fd_tblRouters = new FormData();
 		fd_tblRouters.top = new FormAttachment(lblRouters, 9);
 		fd_tblRouters.left = new FormAttachment(0, 10);
 		fd_tblRouters.bottom = new FormAttachment(0, 169);
 		fd_tblRouters.right = new FormAttachment(0, 278);
-		tblRouters.setLayoutData(fd_tblRouters);
+		tblRoutes.setLayoutData(fd_tblRouters);
+		tblRoutes.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				if(tblRoutes.getSelectionIndex()==-1){
+					comConfig.setEnabled(false);
+					btnRemove.setEnabled(false);
+				} else{
+					comConfig.setEnabled(true);
+					btnRemove.setEnabled(true);
+				}
+			}
+		});
 		
-		TableColumn tblclmnNewColumn = new TableColumn(tblRouters, SWT.NONE);
+		TableColumn tblclmnNewColumn = new TableColumn(tblRoutes, SWT.NONE);
 		tblclmnNewColumn.setWidth(100);
 		tblclmnNewColumn.setText("New Column");
 		
-		Button btnAdd = new Button(container, SWT.NONE);
+		btnAdd = new Button(container, SWT.NONE);
 		FormData fd_btnAdd = new FormData();
 		fd_btnAdd.right = new FormAttachment(0, 378);
 		fd_btnAdd.top = new FormAttachment(0, 36);
 		fd_btnAdd.left = new FormAttachment(0, 292);
 		btnAdd.setLayoutData(fd_btnAdd);
 		btnAdd.setText("Add");
+		btnAdd.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				TableItem item = bindRoute(EsbFactory.eINSTANCE
+						.createRouterTargetContainer());
+				tblRoutes.select(tblRoutes.indexOf(item));
+			}
+		});
 		
-		Button btnRemove = new Button(container, SWT.NONE);
+		btnRemove = new Button(container, SWT.NONE);
 		FormData fd_btnRemove = new FormData();
 		fd_btnRemove.right = new FormAttachment(0, 378);
 		fd_btnRemove.top = new FormAttachment(0, 81);
@@ -127,12 +163,26 @@ public class ConfigureRouterMediatorDialog extends Dialog {
 		btnRemove.setLayoutData(fd_btnRemove);
 		btnRemove.setText("Remove");
 		btnRemove.setEnabled(false);
-		
+		btnRemove.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				int selectedIndex = tblRoutes.getSelectionIndex();
+				if (-1 != selectedIndex) {
+					unbindRoute(selectedIndex);
+					// Select the next available candidate for deletion.
+					if (selectedIndex < tblRoutes.getItemCount()) {
+						tblRoutes.select(selectedIndex);
+					} else {
+						tblRoutes.select(selectedIndex - 1);
+					}
+				}
+			}
+		});
 		Label label = new Label(container, SWT.SEPARATOR | SWT.HORIZONTAL);
 		FormData fd_label = new FormData();
 		fd_label.right = new FormAttachment(100, -22);
 		fd_label.left = new FormAttachment(0, 10);
-		fd_label.top = new FormAttachment(tblRouters, 6);
+		fd_label.top = new FormAttachment(tblRoutes, 6);
 		label.setLayoutData(fd_label);
 		
 		comConfig = new Composite(container, SWT.NONE);
@@ -234,10 +284,35 @@ public class ConfigureRouterMediatorDialog extends Dialog {
 		
 		cmdSetEndpointKey = new Button(comConfig, SWT.NONE);
 		cmdSetEndpointKey.setText("..");
-		cmdSetEndpointKey.setEnabled(false);		
-
+		cmdSetEndpointKey.setEnabled(false);
+		
+		EList<RouterTargetContainer> routerTargets = routerMediator.getRouterContainer().getRouterTargetContainer();
+		for (RouterTargetContainer routerTarget : routerTargets) {
+			bindRoute(routerTarget);
+		}
 
 		return container;
+	}
+	
+	private TableItem bindRoute(RouterTargetContainer route) {
+		TableItem item = new TableItem(tblRoutes, SWT.NONE);
+		item.setText("Route");
+		item.setImage(SWTResourceManager
+		.getImage(this.getClass(), "/icons/nodes/router.png"));
+		item.setData(route);
+		return item;
+	}
+	
+	private void unbindRoute(int itemIndex) {
+		TableItem item = tblRoutes.getItem(itemIndex);
+		RouterTargetContainer target = (RouterTargetContainer) item.getData();
+		if (null != target.eContainer()) {
+			RemoveCommand removeCmd = new RemoveCommand(editingDomain,
+					routerMediator.getRouterContainer(), EsbPackage.Literals.ROUTER_MEDIATOR_CONTAINER__ROUTER_TARGET_CONTAINER,
+					target);
+			getResultCommand().append(removeCmd);
+		}
+		tblRoutes.remove(tblRoutes.indexOf(item));
 	}
 
 	/**
@@ -267,6 +342,39 @@ public class ConfigureRouterMediatorDialog extends Dialog {
 		super.configureShell(newShell);
 
 		newShell.setText("Router Mediator Configuration");
+	}
+	
+	@Override
+	protected void okPressed() {
+		for (TableItem item : tblRoutes.getItems()) {
+			RouterTargetContainer target = (RouterTargetContainer) item.getData();
+			// If the route is a new one, add it to the model.
+			if (null == target.eContainer()) {
+				AddCommand addCmd = new AddCommand(editingDomain,
+						routerMediator.getRouterContainer(),
+						EsbPackage.Literals.ROUTER_MEDIATOR_CONTAINER__ROUTER_TARGET_CONTAINER,
+						target);
+				getResultCommand().append(addCmd);
+
+				RouterMediatorTargetOutputConnector targetOutputConnector = EsbFactory.eINSTANCE
+						.createRouterMediatorTargetOutputConnector();
+
+				addCmd = new AddCommand(editingDomain, routerMediator,
+						EsbPackage.Literals.ROUTER_MEDIATOR__TARGET_OUTPUT_CONNECTOR,
+						targetOutputConnector);
+
+				getResultCommand().append(addCmd);
+				//TODO: reorder output connecters and set other properties
+		
+			} else {
+				//TODO: modify properties
+			}
+		}
+		// Apply changes.
+		if (getResultCommand().canExecute()) {
+			editingDomain.getCommandStack().execute(getResultCommand());
+		} 
+		super.okPressed();
 	}
 	
 	/**

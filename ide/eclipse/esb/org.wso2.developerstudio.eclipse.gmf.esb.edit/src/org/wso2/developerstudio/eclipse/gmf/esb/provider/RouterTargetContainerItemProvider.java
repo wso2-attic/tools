@@ -15,12 +15,14 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
@@ -62,8 +64,100 @@ public class RouterTargetContainerItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addBreakAfterRoutePropertyDescriptor(object);
+			addRouteExpressionPropertyDescriptor(object);
+			addRoutePatternPropertyDescriptor(object);
+			addTargetPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Break After Route feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addBreakAfterRoutePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RouterTargetContainer_breakAfterRoute_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RouterTargetContainer_breakAfterRoute_feature", "_UI_RouterTargetContainer_type"),
+				 EsbPackage.Literals.ROUTER_TARGET_CONTAINER__BREAK_AFTER_ROUTE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Route Expression feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRouteExpressionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RouterTargetContainer_routeExpression_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RouterTargetContainer_routeExpression_feature", "_UI_RouterTargetContainer_type"),
+				 EsbPackage.Literals.ROUTER_TARGET_CONTAINER__ROUTE_EXPRESSION,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Route Pattern feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRoutePatternPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RouterTargetContainer_routePattern_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RouterTargetContainer_routePattern_feature", "_UI_RouterTargetContainer_type"),
+				 EsbPackage.Literals.ROUTER_TARGET_CONTAINER__ROUTE_PATTERN,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Target feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTargetPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RouterTargetContainer_Target_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RouterTargetContainer_Target_feature", "_UI_RouterTargetContainer_type"),
+				 EsbPackage.Literals.ROUTER_TARGET_CONTAINER__TARGET,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -115,7 +209,8 @@ public class RouterTargetContainerItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_RouterTargetContainer_type");
+		RouterTargetContainer routerTargetContainer = (RouterTargetContainer)object;
+		return getString("_UI_RouterTargetContainer_type") + " " + routerTargetContainer.isBreakAfterRoute();
 	}
 
 	/**
@@ -130,6 +225,10 @@ public class RouterTargetContainerItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(RouterTargetContainer.class)) {
+			case EsbPackage.ROUTER_TARGET_CONTAINER__BREAK_AFTER_ROUTE:
+			case EsbPackage.ROUTER_TARGET_CONTAINER__ROUTE_PATTERN:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case EsbPackage.ROUTER_TARGET_CONTAINER__MEDIATOR_FLOW:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;

@@ -6073,42 +6073,6 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getRouterMediatorContainer_BreakAfterRoute() {
-		return (EAttribute)routerMediatorContainerEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getRouterMediatorContainer_RouteExpression() {
-		return (EReference)routerMediatorContainerEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getRouterMediatorContainer_RoutePattern() {
-		return (EAttribute)routerMediatorContainerEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getRouterMediatorContainer_Target() {
-		return (EReference)routerMediatorContainerEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getRouterTargetContainer() {
 		return routerTargetContainerEClass;
 	}
@@ -6120,6 +6084,42 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 */
 	public EReference getRouterTargetContainer_MediatorFlow() {
 		return (EReference)routerTargetContainerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getRouterTargetContainer_BreakAfterRoute() {
+		return (EAttribute)routerTargetContainerEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRouterTargetContainer_RouteExpression() {
+		return (EReference)routerTargetContainerEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getRouterTargetContainer_RoutePattern() {
+		return (EAttribute)routerTargetContainerEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRouterTargetContainer_Target() {
+		return (EReference)routerTargetContainerEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -11194,13 +11194,13 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 
 		routerMediatorContainerEClass = createEClass(ROUTER_MEDIATOR_CONTAINER);
 		createEReference(routerMediatorContainerEClass, ROUTER_MEDIATOR_CONTAINER__ROUTER_TARGET_CONTAINER);
-		createEAttribute(routerMediatorContainerEClass, ROUTER_MEDIATOR_CONTAINER__BREAK_AFTER_ROUTE);
-		createEReference(routerMediatorContainerEClass, ROUTER_MEDIATOR_CONTAINER__ROUTE_EXPRESSION);
-		createEAttribute(routerMediatorContainerEClass, ROUTER_MEDIATOR_CONTAINER__ROUTE_PATTERN);
-		createEReference(routerMediatorContainerEClass, ROUTER_MEDIATOR_CONTAINER__TARGET);
 
 		routerTargetContainerEClass = createEClass(ROUTER_TARGET_CONTAINER);
 		createEReference(routerTargetContainerEClass, ROUTER_TARGET_CONTAINER__MEDIATOR_FLOW);
+		createEAttribute(routerTargetContainerEClass, ROUTER_TARGET_CONTAINER__BREAK_AFTER_ROUTE);
+		createEReference(routerTargetContainerEClass, ROUTER_TARGET_CONTAINER__ROUTE_EXPRESSION);
+		createEAttribute(routerTargetContainerEClass, ROUTER_TARGET_CONTAINER__ROUTE_PATTERN);
+		createEReference(routerTargetContainerEClass, ROUTER_TARGET_CONTAINER__TARGET);
 
 		cloneMediatorEClass = createEClass(CLONE_MEDIATOR);
 		createEAttribute(cloneMediatorEClass, CLONE_MEDIATOR__CLONE_ID);
@@ -12621,13 +12621,13 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 
 		initEClass(routerMediatorContainerEClass, RouterMediatorContainer.class, "RouterMediatorContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRouterMediatorContainer_RouterTargetContainer(), this.getRouterTargetContainer(), null, "routerTargetContainer", null, 0, -1, RouterMediatorContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getRouterMediatorContainer_BreakAfterRoute(), ecorePackage.getEBoolean(), "breakAfterRoute", null, 0, 1, RouterMediatorContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRouterMediatorContainer_RouteExpression(), this.getNamespacedProperty(), null, "routeExpression", null, 0, 1, RouterMediatorContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getRouterMediatorContainer_RoutePattern(), ecorePackage.getEString(), "routePattern", null, 0, 1, RouterMediatorContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRouterMediatorContainer_Target(), this.getRouterTarget(), null, "Target", null, 0, 1, RouterMediatorContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(routerTargetContainerEClass, RouterTargetContainer.class, "RouterTargetContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRouterTargetContainer_MediatorFlow(), this.getMediatorFlow(), null, "mediatorFlow", null, 0, 1, RouterTargetContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRouterTargetContainer_BreakAfterRoute(), ecorePackage.getEBoolean(), "breakAfterRoute", null, 0, 1, RouterTargetContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRouterTargetContainer_RouteExpression(), this.getNamespacedProperty(), null, "routeExpression", null, 0, 1, RouterTargetContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRouterTargetContainer_RoutePattern(), ecorePackage.getEString(), "routePattern", null, 0, 1, RouterTargetContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRouterTargetContainer_Target(), this.getRouterTarget(), null, "Target", null, 0, 1, RouterTargetContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(cloneMediatorEClass, CloneMediator.class, "CloneMediator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCloneMediator_CloneID(), ecorePackage.getEString(), "cloneID", null, 0, 1, CloneMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

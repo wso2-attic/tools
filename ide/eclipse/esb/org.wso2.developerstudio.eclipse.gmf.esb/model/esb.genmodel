@@ -806,13 +806,13 @@
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//RouterMediatorContainer">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//RouterMediatorContainer/routerTargetContainer"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//RouterMediatorContainer/breakAfterRoute"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esb.ecore#//RouterMediatorContainer/routeExpression"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//RouterMediatorContainer/routePattern"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esb.ecore#//RouterMediatorContainer/Target"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//RouterTargetContainer">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//RouterTargetContainer/mediatorFlow"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//RouterTargetContainer/breakAfterRoute"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esb.ecore#//RouterTargetContainer/routeExpression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//RouterTargetContainer/routePattern"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esb.ecore#//RouterTargetContainer/Target"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//CloneMediator">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//CloneMediator/cloneID"/>
