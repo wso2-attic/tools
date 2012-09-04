@@ -97,15 +97,15 @@ public class RouterMediatorUtils {
 			}
 		}
 		
-		if(((RouterMediator) parentContainer).getTargets().size() == 0){
-			
-			RouterTarget target = EsbFactory.eINSTANCE.createRouterTarget();
-			AddCommand addTargetCmd = new AddCommand(domain, parentContainer,
-					EsbPackage.Literals.ROUTER_MEDIATOR__TARGETS, target);
-			if(addTargetCmd.canExecute()){
-				domain.getCommandStack().execute(addTargetCmd);
-			}
-		}
+//		if(((RouterMediator) parentContainer).getTargets().size() == 0){
+//			
+//			RouterTarget target = EsbFactory.eINSTANCE.createRouterTarget();
+//			AddCommand addTargetCmd = new AddCommand(domain, parentContainer,
+//					EsbPackage.Literals.ROUTER_MEDIATOR__TARGETS, target);
+//			if(addTargetCmd.canExecute()){
+//				domain.getCommandStack().execute(addTargetCmd);
+//			}
+//		}
 	}
 	
 }

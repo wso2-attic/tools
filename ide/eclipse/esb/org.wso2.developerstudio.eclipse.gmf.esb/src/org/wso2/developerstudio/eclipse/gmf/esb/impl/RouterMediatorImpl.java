@@ -38,8 +38,6 @@ import org.wso2.developerstudio.eclipse.gmf.esb.RouterTarget;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RouterMediatorImpl#isContinueAfterRouting <em>Continue After Routing</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RouterMediatorImpl#getRoutes <em>Routes</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RouterMediatorImpl#getTargets <em>Targets</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RouterMediatorImpl#getTargetOutputConnector <em>Target Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RouterMediatorImpl#getInputConnector <em>Input Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RouterMediatorImpl#getOutputConnector <em>Output Connector</em>}</li>
@@ -69,26 +67,6 @@ public class RouterMediatorImpl extends MediatorImpl implements RouterMediator {
 	 * @ordered
 	 */
 	protected boolean continueAfterRouting = CONTINUE_AFTER_ROUTING_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getRoutes() <em>Routes</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRoutes()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<RouterRoute> routes;
-
-	/**
-	 * The cached value of the '{@link #getTargets() <em>Targets</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTargets()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<RouterTarget> targets;
 
 	/**
 	 * The cached value of the '{@link #getTargetOutputConnector() <em>Target Output Connector</em>}' containment reference list.
@@ -169,30 +147,6 @@ public class RouterMediatorImpl extends MediatorImpl implements RouterMediator {
 		continueAfterRouting = newContinueAfterRouting;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ROUTER_MEDIATOR__CONTINUE_AFTER_ROUTING, oldContinueAfterRouting, continueAfterRouting));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<RouterRoute> getRoutes() {
-		if (routes == null) {
-			routes = new EObjectContainmentEList<RouterRoute>(RouterRoute.class, this, EsbPackage.ROUTER_MEDIATOR__ROUTES);
-		}
-		return routes;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<RouterTarget> getTargets() {
-		if (targets == null) {
-			targets = new EObjectContainmentEList<RouterTarget>(RouterTarget.class, this, EsbPackage.ROUTER_MEDIATOR__TARGETS);
-		}
-		return targets;
 	}
 
 	/**
@@ -345,10 +299,6 @@ public class RouterMediatorImpl extends MediatorImpl implements RouterMediator {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case EsbPackage.ROUTER_MEDIATOR__ROUTES:
-				return ((InternalEList<?>)getRoutes()).basicRemove(otherEnd, msgs);
-			case EsbPackage.ROUTER_MEDIATOR__TARGETS:
-				return ((InternalEList<?>)getTargets()).basicRemove(otherEnd, msgs);
 			case EsbPackage.ROUTER_MEDIATOR__TARGET_OUTPUT_CONNECTOR:
 				return ((InternalEList<?>)getTargetOutputConnector()).basicRemove(otherEnd, msgs);
 			case EsbPackage.ROUTER_MEDIATOR__INPUT_CONNECTOR:
@@ -372,10 +322,6 @@ public class RouterMediatorImpl extends MediatorImpl implements RouterMediator {
 		switch (featureID) {
 			case EsbPackage.ROUTER_MEDIATOR__CONTINUE_AFTER_ROUTING:
 				return isContinueAfterRouting();
-			case EsbPackage.ROUTER_MEDIATOR__ROUTES:
-				return getRoutes();
-			case EsbPackage.ROUTER_MEDIATOR__TARGETS:
-				return getTargets();
 			case EsbPackage.ROUTER_MEDIATOR__TARGET_OUTPUT_CONNECTOR:
 				return getTargetOutputConnector();
 			case EsbPackage.ROUTER_MEDIATOR__INPUT_CONNECTOR:
@@ -400,14 +346,6 @@ public class RouterMediatorImpl extends MediatorImpl implements RouterMediator {
 		switch (featureID) {
 			case EsbPackage.ROUTER_MEDIATOR__CONTINUE_AFTER_ROUTING:
 				setContinueAfterRouting((Boolean)newValue);
-				return;
-			case EsbPackage.ROUTER_MEDIATOR__ROUTES:
-				getRoutes().clear();
-				getRoutes().addAll((Collection<? extends RouterRoute>)newValue);
-				return;
-			case EsbPackage.ROUTER_MEDIATOR__TARGETS:
-				getTargets().clear();
-				getTargets().addAll((Collection<? extends RouterTarget>)newValue);
 				return;
 			case EsbPackage.ROUTER_MEDIATOR__TARGET_OUTPUT_CONNECTOR:
 				getTargetOutputConnector().clear();
@@ -438,12 +376,6 @@ public class RouterMediatorImpl extends MediatorImpl implements RouterMediator {
 			case EsbPackage.ROUTER_MEDIATOR__CONTINUE_AFTER_ROUTING:
 				setContinueAfterRouting(CONTINUE_AFTER_ROUTING_EDEFAULT);
 				return;
-			case EsbPackage.ROUTER_MEDIATOR__ROUTES:
-				getRoutes().clear();
-				return;
-			case EsbPackage.ROUTER_MEDIATOR__TARGETS:
-				getTargets().clear();
-				return;
 			case EsbPackage.ROUTER_MEDIATOR__TARGET_OUTPUT_CONNECTOR:
 				getTargetOutputConnector().clear();
 				return;
@@ -471,10 +403,6 @@ public class RouterMediatorImpl extends MediatorImpl implements RouterMediator {
 		switch (featureID) {
 			case EsbPackage.ROUTER_MEDIATOR__CONTINUE_AFTER_ROUTING:
 				return continueAfterRouting != CONTINUE_AFTER_ROUTING_EDEFAULT;
-			case EsbPackage.ROUTER_MEDIATOR__ROUTES:
-				return routes != null && !routes.isEmpty();
-			case EsbPackage.ROUTER_MEDIATOR__TARGETS:
-				return targets != null && !targets.isEmpty();
 			case EsbPackage.ROUTER_MEDIATOR__TARGET_OUTPUT_CONNECTOR:
 				return targetOutputConnector != null && !targetOutputConnector.isEmpty();
 			case EsbPackage.ROUTER_MEDIATOR__INPUT_CONNECTOR:

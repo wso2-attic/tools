@@ -66,10 +66,8 @@ public class RouterMediatorItemProvider
 			itemPropertyDescriptors.clear();
 		}
 		super.getPropertyDescriptors(object);
-
 		addContinueAfterRoutingPropertyDescriptor(object);
 		addRouterContainerPropertyDescriptor(object);
-
 		return itemPropertyDescriptors;
 	}
 
@@ -130,8 +128,6 @@ public class RouterMediatorItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(EsbPackage.Literals.ROUTER_MEDIATOR__ROUTES);
-			childrenFeatures.add(EsbPackage.Literals.ROUTER_MEDIATOR__TARGETS);
 			childrenFeatures.add(EsbPackage.Literals.ROUTER_MEDIATOR__TARGET_OUTPUT_CONNECTOR);
 			childrenFeatures.add(EsbPackage.Literals.ROUTER_MEDIATOR__INPUT_CONNECTOR);
 			childrenFeatures.add(EsbPackage.Literals.ROUTER_MEDIATOR__OUTPUT_CONNECTOR);
@@ -195,8 +191,6 @@ public class RouterMediatorItemProvider
 			case EsbPackage.ROUTER_MEDIATOR__CONTINUE_AFTER_ROUTING:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case EsbPackage.ROUTER_MEDIATOR__ROUTES:
-			case EsbPackage.ROUTER_MEDIATOR__TARGETS:
 			case EsbPackage.ROUTER_MEDIATOR__TARGET_OUTPUT_CONNECTOR:
 			case EsbPackage.ROUTER_MEDIATOR__INPUT_CONNECTOR:
 			case EsbPackage.ROUTER_MEDIATOR__OUTPUT_CONNECTOR:
@@ -218,16 +212,6 @@ public class RouterMediatorItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(EsbPackage.Literals.ROUTER_MEDIATOR__ROUTES,
-				 EsbFactory.eINSTANCE.createRouterRoute()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(EsbPackage.Literals.ROUTER_MEDIATOR__TARGETS,
-				 EsbFactory.eINSTANCE.createRouterTarget()));
 
 		newChildDescriptors.add
 			(createChildParameter

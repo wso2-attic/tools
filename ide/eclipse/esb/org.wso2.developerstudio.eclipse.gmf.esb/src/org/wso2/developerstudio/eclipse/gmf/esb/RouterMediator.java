@@ -17,8 +17,6 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.RouterMediator#isContinueAfterRouting <em>Continue After Routing</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.RouterMediator#getRoutes <em>Routes</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.RouterMediator#getTargets <em>Targets</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.RouterMediator#getTargetOutputConnector <em>Target Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.RouterMediator#getInputConnector <em>Input Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.RouterMediator#getOutputConnector <em>Output Connector</em>}</li>
@@ -56,38 +54,6 @@ public interface RouterMediator extends Mediator {
 	 * @generated
 	 */
 	void setContinueAfterRouting(boolean value);
-
-	/**
-	 * Returns the value of the '<em><b>Routes</b></em>' containment reference list.
-	 * The list contents are of type {@link org.wso2.developerstudio.eclipse.gmf.esb.RouterRoute}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Routes</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Routes</em>' containment reference list.
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getRouterMediator_Routes()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<RouterRoute> getRoutes();
-
-	/**
-	 * Returns the value of the '<em><b>Targets</b></em>' containment reference list.
-	 * The list contents are of type {@link org.wso2.developerstudio.eclipse.gmf.esb.RouterTarget}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Targets</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Targets</em>' containment reference list.
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getRouterMediator_Targets()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<RouterTarget> getTargets();
 
 	/**
 	 * Returns the value of the '<em><b>Target Output Connector</b></em>' containment reference list.

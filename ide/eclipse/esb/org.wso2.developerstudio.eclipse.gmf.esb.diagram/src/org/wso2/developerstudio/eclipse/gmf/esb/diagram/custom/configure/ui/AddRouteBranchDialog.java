@@ -126,12 +126,12 @@ public class AddRouteBranchDialog extends Dialog {
 
 				RouterTarget target = EsbFactory.eINSTANCE.createRouterTarget();
 
-				AddCommand addTargetCmd = new AddCommand(editingDomain,
-						routerMediator,
-						EsbPackage.Literals.ROUTER_MEDIATOR__TARGETS, target);
-				if (addTargetCmd.canExecute()) {
-					editingDomain.getCommandStack().execute(addTargetCmd);
-				}
+//				AddCommand addTargetCmd = new AddCommand(editingDomain,
+//						routerMediator,
+//						EsbPackage.Literals.ROUTER_MEDIATOR__TARGETS, target);
+//				if (addTargetCmd.canExecute()) {
+//					editingDomain.getCommandStack().execute(addTargetCmd);
+//				}
 
 			}
 		} else {
@@ -169,20 +169,20 @@ public class AddRouteBranchDialog extends Dialog {
 
 				targetOutputConnectors.remove(lastTargetOutputConnector);
 
-				RouterTarget lastCloneTarget = routerMediator.getTargets().get(
-						routerMediator.getTargets().size() - 1);
-
-				routerTargets.add(lastCloneTarget);
-
-				DeleteCommand deleteTarget = new DeleteCommand(editingDomain,
-						routerTargets);
-
-				if (deleteTarget.canExecute()) {
-
-					editingDomain.getCommandStack().execute(deleteTarget);
-				}
-
-				routerTargets.remove(lastCloneTarget);
+//				RouterTarget lastCloneTarget = routerMediator.getTargets().get(
+//						routerMediator.getTargets().size() - 1);
+//
+//				routerTargets.add(lastCloneTarget);
+//
+//				DeleteCommand deleteTarget = new DeleteCommand(editingDomain,
+//						routerTargets);
+//
+//				if (deleteTarget.canExecute()) {
+//
+//					editingDomain.getCommandStack().execute(deleteTarget);
+//				}
+//
+//				routerTargets.remove(lastCloneTarget);
 
 			}
 		}

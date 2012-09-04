@@ -5364,31 +5364,13 @@ public interface EsbPackage extends EPackage {
 	int ROUTER_MEDIATOR__CONTINUE_AFTER_ROUTING = MEDIATOR_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Routes</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ROUTER_MEDIATOR__ROUTES = MEDIATOR_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Targets</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ROUTER_MEDIATOR__TARGETS = MEDIATOR_FEATURE_COUNT + 2;
-
-	/**
 	 * The feature id for the '<em><b>Target Output Connector</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROUTER_MEDIATOR__TARGET_OUTPUT_CONNECTOR = MEDIATOR_FEATURE_COUNT + 3;
+	int ROUTER_MEDIATOR__TARGET_OUTPUT_CONNECTOR = MEDIATOR_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Input Connector</b></em>' containment reference.
@@ -5397,7 +5379,7 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROUTER_MEDIATOR__INPUT_CONNECTOR = MEDIATOR_FEATURE_COUNT + 4;
+	int ROUTER_MEDIATOR__INPUT_CONNECTOR = MEDIATOR_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Output Connector</b></em>' containment reference.
@@ -5406,7 +5388,7 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROUTER_MEDIATOR__OUTPUT_CONNECTOR = MEDIATOR_FEATURE_COUNT + 5;
+	int ROUTER_MEDIATOR__OUTPUT_CONNECTOR = MEDIATOR_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Router Container</b></em>' containment reference.
@@ -5415,7 +5397,7 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROUTER_MEDIATOR__ROUTER_CONTAINER = MEDIATOR_FEATURE_COUNT + 6;
+	int ROUTER_MEDIATOR__ROUTER_CONTAINER = MEDIATOR_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Router Mediator</em>' class.
@@ -5424,7 +5406,7 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROUTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 7;
+	int ROUTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RouterRouteImpl <em>Router Route</em>}' class.
@@ -5840,13 +5822,49 @@ public interface EsbPackage extends EPackage {
 	int ROUTER_MEDIATOR_CONTAINER__ROUTER_TARGET_CONTAINER = ESB_NODE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Break After Route</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROUTER_MEDIATOR_CONTAINER__BREAK_AFTER_ROUTE = ESB_NODE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Route Expression</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROUTER_MEDIATOR_CONTAINER__ROUTE_EXPRESSION = ESB_NODE_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Route Pattern</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROUTER_MEDIATOR_CONTAINER__ROUTE_PATTERN = ESB_NODE_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROUTER_MEDIATOR_CONTAINER__TARGET = ESB_NODE_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Router Mediator Container</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROUTER_MEDIATOR_CONTAINER_FEATURE_COUNT = ESB_NODE_FEATURE_COUNT + 1;
+	int ROUTER_MEDIATOR_CONTAINER_FEATURE_COUNT = ESB_NODE_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RouterTargetContainerImpl <em>Router Target Container</em>}' class.
@@ -17212,28 +17230,6 @@ public interface EsbPackage extends EPackage {
 	EAttribute getRouterMediator_ContinueAfterRouting();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.wso2.developerstudio.eclipse.gmf.esb.RouterMediator#getRoutes <em>Routes</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Routes</em>'.
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RouterMediator#getRoutes()
-	 * @see #getRouterMediator()
-	 * @generated
-	 */
-	EReference getRouterMediator_Routes();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.wso2.developerstudio.eclipse.gmf.esb.RouterMediator#getTargets <em>Targets</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Targets</em>'.
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RouterMediator#getTargets()
-	 * @see #getRouterMediator()
-	 * @generated
-	 */
-	EReference getRouterMediator_Targets();
-
-	/**
 	 * Returns the meta object for the containment reference list '{@link org.wso2.developerstudio.eclipse.gmf.esb.RouterMediator#getTargetOutputConnector <em>Target Output Connector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -17402,6 +17398,50 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getRouterMediatorContainer_RouterTargetContainer();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.RouterMediatorContainer#isBreakAfterRoute <em>Break After Route</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Break After Route</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RouterMediatorContainer#isBreakAfterRoute()
+	 * @see #getRouterMediatorContainer()
+	 * @generated
+	 */
+	EAttribute getRouterMediatorContainer_BreakAfterRoute();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.RouterMediatorContainer#getRouteExpression <em>Route Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Route Expression</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RouterMediatorContainer#getRouteExpression()
+	 * @see #getRouterMediatorContainer()
+	 * @generated
+	 */
+	EReference getRouterMediatorContainer_RouteExpression();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.RouterMediatorContainer#getRoutePattern <em>Route Pattern</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Route Pattern</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RouterMediatorContainer#getRoutePattern()
+	 * @see #getRouterMediatorContainer()
+	 * @generated
+	 */
+	EAttribute getRouterMediatorContainer_RoutePattern();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.RouterMediatorContainer#getTarget <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Target</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RouterMediatorContainer#getTarget()
+	 * @see #getRouterMediatorContainer()
+	 * @generated
+	 */
+	EReference getRouterMediatorContainer_Target();
 
 	/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.gmf.esb.RouterTargetContainer <em>Router Target Container</em>}'.
@@ -25918,22 +25958,6 @@ public interface EsbPackage extends EPackage {
 		EAttribute ROUTER_MEDIATOR__CONTINUE_AFTER_ROUTING = eINSTANCE.getRouterMediator_ContinueAfterRouting();
 
 		/**
-		 * The meta object literal for the '<em><b>Routes</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ROUTER_MEDIATOR__ROUTES = eINSTANCE.getRouterMediator_Routes();
-
-		/**
-		 * The meta object literal for the '<em><b>Targets</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ROUTER_MEDIATOR__TARGETS = eINSTANCE.getRouterMediator_Targets();
-
-		/**
 		 * The meta object literal for the '<em><b>Target Output Connector</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -26072,6 +26096,38 @@ public interface EsbPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ROUTER_MEDIATOR_CONTAINER__ROUTER_TARGET_CONTAINER = eINSTANCE.getRouterMediatorContainer_RouterTargetContainer();
+
+		/**
+		 * The meta object literal for the '<em><b>Break After Route</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ROUTER_MEDIATOR_CONTAINER__BREAK_AFTER_ROUTE = eINSTANCE.getRouterMediatorContainer_BreakAfterRoute();
+
+		/**
+		 * The meta object literal for the '<em><b>Route Expression</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ROUTER_MEDIATOR_CONTAINER__ROUTE_EXPRESSION = eINSTANCE.getRouterMediatorContainer_RouteExpression();
+
+		/**
+		 * The meta object literal for the '<em><b>Route Pattern</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ROUTER_MEDIATOR_CONTAINER__ROUTE_PATTERN = eINSTANCE.getRouterMediatorContainer_RoutePattern();
+
+		/**
+		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ROUTER_MEDIATOR_CONTAINER__TARGET = eINSTANCE.getRouterMediatorContainer_Target();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RouterTargetContainerImpl <em>Router Target Container</em>}' class.
