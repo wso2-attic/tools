@@ -16,9 +16,13 @@
 
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.ui;
 
+import org.eclipse.emf.common.command.CompoundCommand;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.IDialogConstants;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
@@ -43,6 +47,29 @@ public class ConfigureRouterMediatorDialog extends Dialog {
 	private Text txtRoutePattern;
 	private Text txtSequenceKey;
 	private Text txtEndpointKey;
+	private Label lblEndpointKey;
+	private Composite comConfig;
+	private Button cmdSetBreakAfterRoute;
+	private Button cmdSetEndpointKey;
+	private Combo cmbSequenceType;
+	private Combo cmbEndpointType;
+	private Label lblSequenceKey;
+	private Button cmdSetSequenceKey;
+	
+	/**
+	 * Router Mediator
+	 */
+	RouterMediator routerMediator;
+	
+	/**
+	 * Editing domain.
+	 */
+	private TransactionalEditingDomain editingDomain;
+
+	/**
+	 * Command for recording user operations.
+	 */
+	private CompoundCommand resultCommand;
 
 	/**
 	 * Create the dialog.
@@ -51,6 +78,8 @@ public class ConfigureRouterMediatorDialog extends Dialog {
 	public ConfigureRouterMediatorDialog(Shell parentShell,
 			RouterMediator routerMediator, TransactionalEditingDomain editingDomain) {
 		super(parentShell);
+		this.routerMediator = routerMediator;
+		this.editingDomain = editingDomain;
 	}
 
 	/**
@@ -97,6 +126,7 @@ public class ConfigureRouterMediatorDialog extends Dialog {
 		fd_btnRemove.left = new FormAttachment(0, 292);
 		btnRemove.setLayoutData(fd_btnRemove);
 		btnRemove.setText("Remove");
+		btnRemove.setEnabled(false);
 		
 		Label label = new Label(container, SWT.SEPARATOR | SWT.HORIZONTAL);
 		FormData fd_label = new FormData();
@@ -105,7 +135,7 @@ public class ConfigureRouterMediatorDialog extends Dialog {
 		fd_label.top = new FormAttachment(tblRouters, 6);
 		label.setLayoutData(fd_label);
 		
-		Composite comConfig = new Composite(container, SWT.NONE);
+		comConfig = new Composite(container, SWT.NONE);
 		FormData fd_comConfig = new FormData();
 		fd_comConfig.bottom = new FormAttachment(100, -10);
 		fd_comConfig.left = new FormAttachment(0, 11);
@@ -113,8 +143,9 @@ public class ConfigureRouterMediatorDialog extends Dialog {
 		fd_comConfig.top = new FormAttachment(0, 177);
 		comConfig.setLayoutData(fd_comConfig);
 		comConfig.setLayout(new GridLayout(3, false));
+		comConfig.setEnabled(false);
 		
-		Button cmdSetBreakAfterRoute = new Button(comConfig, SWT.CHECK);
+		cmdSetBreakAfterRoute = new Button(comConfig, SWT.CHECK);
 		cmdSetBreakAfterRoute.setText("Break After Route");
 		new Label(comConfig, SWT.NONE);
 		new Label(comConfig, SWT.NONE);
@@ -138,38 +169,73 @@ public class ConfigureRouterMediatorDialog extends Dialog {
 		Label lblSequenceType = new Label(comConfig, SWT.NONE);
 		lblSequenceType.setText("Sequence type");
 		
-		Combo cmbSequenceType = new Combo(comConfig, SWT.READ_ONLY);
+		cmbSequenceType = new Combo(comConfig, SWT.READ_ONLY);
 		cmbSequenceType.setItems(new String[] {"None", "Anonymous", "From Registry"});
 		cmbSequenceType.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		cmbSequenceType.select(0);
+		cmbSequenceType.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				if(cmbSequenceType.getSelectionIndex()==2){
+					lblSequenceKey.setEnabled(true);
+					txtSequenceKey.setEnabled(true);
+					cmdSetSequenceKey.setEnabled(true);
+				} else{
+					lblSequenceKey.setEnabled(false);
+					txtSequenceKey.setEnabled(false);
+					cmdSetSequenceKey.setEnabled(false);
+				}
+			}
+		});
 		new Label(comConfig, SWT.NONE);
 		
-		Label lblSequenceKey = new Label(comConfig, SWT.NONE);
+		lblSequenceKey = new Label(comConfig, SWT.NONE);
 		lblSequenceKey.setText("Sequence key");
+		lblSequenceKey.setEnabled(false);
 		
 		txtSequenceKey = new Text(comConfig, SWT.BORDER);
 		txtSequenceKey.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		txtSequenceKey.setEnabled(false);
 		
-		Button cmdSetSequenceKey = new Button(comConfig, SWT.NONE);
+		cmdSetSequenceKey = new Button(comConfig, SWT.NONE);
 		cmdSetSequenceKey.setText("..");
+		cmdSetSequenceKey.setEnabled(false);
 		
 		Label lblEndpointType = new Label(comConfig, SWT.NONE);
 		lblEndpointType.setText("Endpoint type");
 		
-		Combo cmbEndpointType = new Combo(comConfig, SWT.READ_ONLY);
+		cmbEndpointType = new Combo(comConfig, SWT.READ_ONLY);
 		cmbEndpointType.setItems(new String[] {"None", "Anonymous", "From Registry"});
 		cmbEndpointType.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		cmbEndpointType.select(0);
+		cmbEndpointType.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				if(cmbEndpointType.getSelectionIndex()==2){
+					lblEndpointKey.setEnabled(true);
+					txtEndpointKey.setEnabled(true);
+					cmdSetEndpointKey.setEnabled(true);
+				} else{
+					lblEndpointKey.setEnabled(false);
+					txtEndpointKey.setEnabled(false);
+					cmdSetEndpointKey.setEnabled(false);
+				}
+			}
+		});
 		new Label(comConfig, SWT.NONE);
 		
-		Label lblEndpointKey = new Label(comConfig, SWT.NONE);
+		lblEndpointKey = new Label(comConfig, SWT.NONE);
 		lblEndpointKey.setText("Endpoint key");
+		lblEndpointKey.setEnabled(false);
 		
 		txtEndpointKey = new Text(comConfig, SWT.BORDER);
 		txtEndpointKey.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		txtEndpointKey.setEnabled(false);
 		
-		Button cmdSetEndpointKey = new Button(comConfig, SWT.NONE);
+		cmdSetEndpointKey = new Button(comConfig, SWT.NONE);
 		cmdSetEndpointKey.setText("..");
+		cmdSetEndpointKey.setEnabled(false);		
+
 
 		return container;
 	}
@@ -201,5 +267,18 @@ public class ConfigureRouterMediatorDialog extends Dialog {
 		super.configureShell(newShell);
 
 		newShell.setText("Router Mediator Configuration");
+	}
+	
+	/**
+	 * Utility method for retrieving the result {@link CompoundCommand} which is
+	 * used to record user operations.
+	 * 
+	 * @return result command.
+	 */
+	private CompoundCommand getResultCommand() {
+		if (null == resultCommand) {
+			resultCommand = new CompoundCommand();
+		}
+		return resultCommand;
 	}
 }
