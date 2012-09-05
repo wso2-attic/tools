@@ -2,6 +2,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
 
 import org.eclipse.draw2d.GridData;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.Label;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
@@ -399,6 +400,10 @@ public class CacheMediatorEditPart extends AbstractMediator {
 
 		public String getNodeName() {
 			return "Cache";
+		}
+		
+		public IFigure getToolTip() {
+			return new Label("Evaluate messages based on weather the same message came to the ESB");
 		}
 
 	}

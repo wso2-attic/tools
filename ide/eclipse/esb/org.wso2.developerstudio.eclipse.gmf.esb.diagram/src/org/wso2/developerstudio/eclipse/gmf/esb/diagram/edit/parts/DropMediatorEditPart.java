@@ -332,6 +332,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
  */
 
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.Label;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
@@ -598,6 +599,10 @@ public class DropMediatorEditPart extends FixedSizedAbstractMediator {
 
 		public String getNodeName() {
 			return "Drop";
+		}
+		
+		public IFigure getToolTip() {
+			return new Label("Drops a message");
 		}
 
 	}

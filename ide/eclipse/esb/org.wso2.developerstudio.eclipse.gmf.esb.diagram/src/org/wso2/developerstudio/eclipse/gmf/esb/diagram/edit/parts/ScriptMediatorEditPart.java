@@ -1,6 +1,7 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
 
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.Label;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
@@ -351,6 +352,10 @@ public class ScriptMediatorEditPart extends FixedSizedAbstractMediator {
 
 		public String getNodeName() {
 			return "Script";
+		}
+		
+		public IFigure getToolTip() {
+			return new Label("Executes a mediator written in a Scripting language");
 		}
 
 	}
