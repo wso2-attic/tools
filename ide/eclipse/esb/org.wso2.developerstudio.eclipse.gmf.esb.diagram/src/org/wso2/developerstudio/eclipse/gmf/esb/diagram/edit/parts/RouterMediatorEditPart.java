@@ -18,7 +18,6 @@ import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IBorderItemEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.BorderItemSelectionEditPolicy;
@@ -36,7 +35,6 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.CloneMediatorGrap
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ShowPropertyViewEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.complexFiguredAbstractMediator;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.utils.CloneMediatorUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.utils.RouterMediatorUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.RouterMediatorCanonicalEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.RouterMediatorItemSemanticEditPolicy;
@@ -197,7 +195,18 @@ public class RouterMediatorEditPart extends complexFiguredAbstractMediator {
 			return;
 		}
 		super.addChildVisual(childEditPart, -1);
+		
+		if (childEditPart instanceof RouterMediatorTargetOutputConnectorEditPart) {
+			if (this.reversed) {
+				RouterMediatorUtils.reorderWhenRevered(this);
+			} else {
+				RouterMediatorUtils.reorderWhenForward(this);
+			}
+		}
+		
 	}
+	
+	
 
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
 		if (editPart instanceof IBorderItemEditPart) {

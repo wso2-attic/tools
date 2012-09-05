@@ -1844,6 +1844,12 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	public RouterTargetContainer createRouterTargetContainer() {
 		RouterTargetContainerImpl routerTargetContainer = new RouterTargetContainerImpl();
 		routerTargetContainer.setMediatorFlow(createMediatorFlow());
+		routerTargetContainer.setBreakAfterRoute(true);
+		routerTargetContainer.setTarget(createRouterTarget());
+		routerTargetContainer.setRoutePattern("");
+		NamespacedProperty namespacedProperty = createNamespacedProperty();
+		namespacedProperty.setPropertyValue("/default/expression");
+		routerTargetContainer.setRouteExpression(namespacedProperty);
 		return routerTargetContainer;
 	}
 

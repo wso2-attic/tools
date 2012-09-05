@@ -67,7 +67,7 @@ public class RouterTargetContainerImpl extends EsbNodeImpl implements RouterTarg
 	 */
 	protected boolean breakAfterRoute = BREAK_AFTER_ROUTE_EDEFAULT;
 	/**
-	 * The cached value of the '{@link #getRouteExpression() <em>Route Expression</em>}' reference.
+	 * The cached value of the '{@link #getRouteExpression() <em>Route Expression</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getRouteExpression()
@@ -94,7 +94,7 @@ public class RouterTargetContainerImpl extends EsbNodeImpl implements RouterTarg
 	 */
 	protected String routePattern = ROUTE_PATTERN_EDEFAULT;
 	/**
-	 * The cached value of the '{@link #getTarget() <em>Target</em>}' reference.
+	 * The cached value of the '{@link #getTarget() <em>Target</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getTarget()
@@ -192,14 +192,6 @@ public class RouterTargetContainerImpl extends EsbNodeImpl implements RouterTarg
 	 * @generated
 	 */
 	public NamespacedProperty getRouteExpression() {
-		if (routeExpression != null && routeExpression.eIsProxy()) {
-			InternalEObject oldRouteExpression = (InternalEObject)routeExpression;
-			routeExpression = (NamespacedProperty)eResolveProxy(oldRouteExpression);
-			if (routeExpression != oldRouteExpression) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EsbPackage.ROUTER_TARGET_CONTAINER__ROUTE_EXPRESSION, oldRouteExpression, routeExpression));
-			}
-		}
 		return routeExpression;
 	}
 
@@ -208,8 +200,14 @@ public class RouterTargetContainerImpl extends EsbNodeImpl implements RouterTarg
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NamespacedProperty basicGetRouteExpression() {
-		return routeExpression;
+	public NotificationChain basicSetRouteExpression(NamespacedProperty newRouteExpression, NotificationChain msgs) {
+		NamespacedProperty oldRouteExpression = routeExpression;
+		routeExpression = newRouteExpression;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.ROUTER_TARGET_CONTAINER__ROUTE_EXPRESSION, oldRouteExpression, newRouteExpression);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -218,10 +216,17 @@ public class RouterTargetContainerImpl extends EsbNodeImpl implements RouterTarg
 	 * @generated
 	 */
 	public void setRouteExpression(NamespacedProperty newRouteExpression) {
-		NamespacedProperty oldRouteExpression = routeExpression;
-		routeExpression = newRouteExpression;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ROUTER_TARGET_CONTAINER__ROUTE_EXPRESSION, oldRouteExpression, routeExpression));
+		if (newRouteExpression != routeExpression) {
+			NotificationChain msgs = null;
+			if (routeExpression != null)
+				msgs = ((InternalEObject)routeExpression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.ROUTER_TARGET_CONTAINER__ROUTE_EXPRESSION, null, msgs);
+			if (newRouteExpression != null)
+				msgs = ((InternalEObject)newRouteExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.ROUTER_TARGET_CONTAINER__ROUTE_EXPRESSION, null, msgs);
+			msgs = basicSetRouteExpression(newRouteExpression, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ROUTER_TARGET_CONTAINER__ROUTE_EXPRESSION, newRouteExpression, newRouteExpression));
 	}
 
 	/**
@@ -251,14 +256,6 @@ public class RouterTargetContainerImpl extends EsbNodeImpl implements RouterTarg
 	 * @generated
 	 */
 	public RouterTarget getTarget() {
-		if (target != null && target.eIsProxy()) {
-			InternalEObject oldTarget = (InternalEObject)target;
-			target = (RouterTarget)eResolveProxy(oldTarget);
-			if (target != oldTarget) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EsbPackage.ROUTER_TARGET_CONTAINER__TARGET, oldTarget, target));
-			}
-		}
 		return target;
 	}
 
@@ -267,8 +264,14 @@ public class RouterTargetContainerImpl extends EsbNodeImpl implements RouterTarg
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RouterTarget basicGetTarget() {
-		return target;
+	public NotificationChain basicSetTarget(RouterTarget newTarget, NotificationChain msgs) {
+		RouterTarget oldTarget = target;
+		target = newTarget;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.ROUTER_TARGET_CONTAINER__TARGET, oldTarget, newTarget);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -277,10 +280,17 @@ public class RouterTargetContainerImpl extends EsbNodeImpl implements RouterTarg
 	 * @generated
 	 */
 	public void setTarget(RouterTarget newTarget) {
-		RouterTarget oldTarget = target;
-		target = newTarget;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ROUTER_TARGET_CONTAINER__TARGET, oldTarget, target));
+		if (newTarget != target) {
+			NotificationChain msgs = null;
+			if (target != null)
+				msgs = ((InternalEObject)target).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.ROUTER_TARGET_CONTAINER__TARGET, null, msgs);
+			if (newTarget != null)
+				msgs = ((InternalEObject)newTarget).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.ROUTER_TARGET_CONTAINER__TARGET, null, msgs);
+			msgs = basicSetTarget(newTarget, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ROUTER_TARGET_CONTAINER__TARGET, newTarget, newTarget));
 	}
 
 	/**
@@ -293,6 +303,10 @@ public class RouterTargetContainerImpl extends EsbNodeImpl implements RouterTarg
 		switch (featureID) {
 			case EsbPackage.ROUTER_TARGET_CONTAINER__MEDIATOR_FLOW:
 				return basicSetMediatorFlow(null, msgs);
+			case EsbPackage.ROUTER_TARGET_CONTAINER__ROUTE_EXPRESSION:
+				return basicSetRouteExpression(null, msgs);
+			case EsbPackage.ROUTER_TARGET_CONTAINER__TARGET:
+				return basicSetTarget(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -310,13 +324,11 @@ public class RouterTargetContainerImpl extends EsbNodeImpl implements RouterTarg
 			case EsbPackage.ROUTER_TARGET_CONTAINER__BREAK_AFTER_ROUTE:
 				return isBreakAfterRoute();
 			case EsbPackage.ROUTER_TARGET_CONTAINER__ROUTE_EXPRESSION:
-				if (resolve) return getRouteExpression();
-				return basicGetRouteExpression();
+				return getRouteExpression();
 			case EsbPackage.ROUTER_TARGET_CONTAINER__ROUTE_PATTERN:
 				return getRoutePattern();
 			case EsbPackage.ROUTER_TARGET_CONTAINER__TARGET:
-				if (resolve) return getTarget();
-				return basicGetTarget();
+				return getTarget();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}

@@ -20,6 +20,7 @@ import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.RemoveCommand;
+import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.IDialogConstants;
@@ -31,7 +32,9 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.Button;
@@ -44,8 +47,10 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Combo;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
+import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.RouterMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.RouterMediatorTargetOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.RouterTarget;
 import org.wso2.developerstudio.eclipse.gmf.esb.RouterTargetContainer;
 import org.wso2.developerstudio.eclipse.platform.core.utils.SWTResourceManager;
 
@@ -69,8 +74,12 @@ public class ConfigureRouterMediatorDialog extends Dialog {
 	private Combo cmbEndpointType;
 	private Label lblSequenceKey;
 	private Button cmdSetSequenceKey;
-	private Button btnAdd;
-	private Button btnRemove;
+	private Button cmdRouteAdd;
+	private Button cmdRouteRemove;
+	private Listener updateListener;
+	
+	private boolean updateLock=false;
+
 	
 	/**
 	 * Router Mediator eclass
@@ -107,6 +116,27 @@ public class ConfigureRouterMediatorDialog extends Dialog {
 		Composite container = (Composite) super.createDialogArea(parent);
 		container.setLayout(new FormLayout());
 		
+		updateListener = new Listener() {
+			
+			public void handleEvent(Event e) {
+				if(tblRoutes.getSelectionIndex()!=-1){
+					TableItem item = tblRoutes.getItem(tblRoutes.getSelectionIndex());
+					RouteWrapper wrapper = (RouteWrapper)item.getData();
+					
+					if (!updateLock) {
+						updateLock=true;
+					//	wrapper.setRouteExpression(txtRouteExpression.getText());
+						wrapper.setBreakAfterRoute(cmdSetBreakAfterRoute.getSelection());
+						wrapper.setRoutePattern(txtRoutePattern.getText());
+					//	wrapper.setSequenceKey(txtSequenceKey.getText());
+					//	wrapper.setEndpointKey(txtEndpointKey.getText());
+						updateLock=false;
+					}
+		
+				}
+			}
+		};
+		
 		Label lblRouters = new Label(container, SWT.NONE);
 		FormData fd_lblRouters = new FormData();
 		fd_lblRouters.right = new FormAttachment(0, 75);
@@ -125,13 +155,7 @@ public class ConfigureRouterMediatorDialog extends Dialog {
 		tblRoutes.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				if(tblRoutes.getSelectionIndex()==-1){
-					comConfig.setEnabled(false);
-					btnRemove.setEnabled(false);
-				} else{
-					comConfig.setEnabled(true);
-					btnRemove.setEnabled(true);
-				}
+				updateSelection();
 			}
 		});
 		
@@ -139,32 +163,34 @@ public class ConfigureRouterMediatorDialog extends Dialog {
 		tblclmnNewColumn.setWidth(100);
 		tblclmnNewColumn.setText("New Column");
 		
-		btnAdd = new Button(container, SWT.NONE);
+		cmdRouteAdd = new Button(container, SWT.NONE);
 		FormData fd_btnAdd = new FormData();
 		fd_btnAdd.right = new FormAttachment(0, 378);
 		fd_btnAdd.top = new FormAttachment(0, 36);
 		fd_btnAdd.left = new FormAttachment(0, 292);
-		btnAdd.setLayoutData(fd_btnAdd);
-		btnAdd.setText("Add");
-		btnAdd.addSelectionListener(new SelectionAdapter() {
+		cmdRouteAdd.setLayoutData(fd_btnAdd);
+		cmdRouteAdd.setText("Add");
+		cmdRouteAdd.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				TableItem item = bindRoute(EsbFactory.eINSTANCE
-						.createRouterTargetContainer());
+				RouterTargetContainer routerTargetContainer = EsbFactory.eINSTANCE.createRouterTargetContainer();
+				RouteWrapper wrapper = new RouteWrapper(routerTargetContainer);
+				TableItem item = bindRoute(wrapper);
 				tblRoutes.select(tblRoutes.indexOf(item));
+				updateSelection();
 			}
 		});
 		
-		btnRemove = new Button(container, SWT.NONE);
+		cmdRouteRemove = new Button(container, SWT.NONE);
 		FormData fd_btnRemove = new FormData();
 		fd_btnRemove.right = new FormAttachment(0, 378);
 		fd_btnRemove.top = new FormAttachment(0, 81);
 		fd_btnRemove.left = new FormAttachment(0, 292);
-		btnRemove.setLayoutData(fd_btnRemove);
-		btnRemove.setText("Remove");
-		btnRemove.setEnabled(false);
-		btnRemove.addSelectionListener(new SelectionAdapter() {
-			@Override
+		cmdRouteRemove.setLayoutData(fd_btnRemove);
+		cmdRouteRemove.setText("Remove");
+		cmdRouteRemove.setEnabled(false);
+		cmdRouteRemove.addSelectionListener(new SelectionAdapter() {
+			
 			public void widgetSelected(SelectionEvent e) {
 				int selectedIndex = tblRoutes.getSelectionIndex();
 				if (-1 != selectedIndex) {
@@ -197,6 +223,7 @@ public class ConfigureRouterMediatorDialog extends Dialog {
 		
 		cmdSetBreakAfterRoute = new Button(comConfig, SWT.CHECK);
 		cmdSetBreakAfterRoute.setText("Break After Route");
+		cmdSetBreakAfterRoute.addListener(SWT.Selection, updateListener);
 		new Label(comConfig, SWT.NONE);
 		new Label(comConfig, SWT.NONE);
 		
@@ -205,15 +232,34 @@ public class ConfigureRouterMediatorDialog extends Dialog {
 		
 		txtRouteExpression = new Text(comConfig, SWT.BORDER);
 		txtRouteExpression.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		txtRouteExpression.addListener(SWT.Modify, updateListener);
+		txtRouteExpression.setEditable(false);
 		
 		Button cmdSetRouteExpression = new Button(comConfig, SWT.NONE);
 		cmdSetRouteExpression.setText("..");
+		cmdSetRouteExpression.addSelectionListener(new SelectionAdapter() {
+			
+			public void widgetSelected(SelectionEvent e) {
+				if(tblRoutes.getSelectionIndex()!=-1){
+					TableItem item = tblRoutes.getItem(tblRoutes.getSelectionIndex());
+					RouteWrapper wrapper = (RouteWrapper)item.getData();
+					NamespacedProperty routeExpression = EsbFactory.eINSTANCE.copyNamespacedProperty(wrapper.getRouteExpression());
+					NamespacedPropertyEditorDialog propertyEditor = new NamespacedPropertyEditorDialog(getShell(), routeExpression);
+					propertyEditor.open();
+					wrapper.setRouteExpression(routeExpression);
+					txtRouteExpression.setText(routeExpression.getPropertyValue());
+				}
+				
+				super.widgetSelected(e);
+			}
+		});
 		
 		Label lblRoutePattern = new Label(comConfig, SWT.NONE);
 		lblRoutePattern.setText("Route pattern");
 		
 		txtRoutePattern = new Text(comConfig, SWT.BORDER);
 		txtRoutePattern.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		txtRoutePattern.addListener(SWT.Modify,updateListener);
 		new Label(comConfig, SWT.NONE);
 		
 		Label lblSequenceType = new Label(comConfig, SWT.NONE);
@@ -222,7 +268,8 @@ public class ConfigureRouterMediatorDialog extends Dialog {
 		cmbSequenceType = new Combo(comConfig, SWT.READ_ONLY);
 		cmbSequenceType.setItems(new String[] {"None", "Anonymous", "From Registry"});
 		cmbSequenceType.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		cmbSequenceType.select(0);
+		cmbSequenceType.select(1);
+		cmbSequenceType.setEnabled(false); //TODO: implement sequence type support, 
 		cmbSequenceType.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
@@ -258,6 +305,7 @@ public class ConfigureRouterMediatorDialog extends Dialog {
 		cmbEndpointType.setItems(new String[] {"None", "Anonymous", "From Registry"});
 		cmbEndpointType.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		cmbEndpointType.select(0);
+		cmbEndpointType.setEnabled(false); //TODO: implement endpoint support
 		cmbEndpointType.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
@@ -286,31 +334,76 @@ public class ConfigureRouterMediatorDialog extends Dialog {
 		cmdSetEndpointKey.setText("..");
 		cmdSetEndpointKey.setEnabled(false);
 		
-		EList<RouterTargetContainer> routerTargets = routerMediator.getRouterContainer().getRouterTargetContainer();
-		for (RouterTargetContainer routerTarget : routerTargets) {
-			bindRoute(routerTarget);
-		}
+		populateRoutes();
+		
 
 		return container;
 	}
 	
-	private TableItem bindRoute(RouterTargetContainer route) {
+	private void updateSelection(){
+		if(tblRoutes.getSelectionIndex()==-1){
+			comConfig.setEnabled(false);
+			cmdRouteRemove.setEnabled(false);
+		} else{
+			comConfig.setEnabled(true);
+			cmdRouteRemove.setEnabled(true);
+			
+			if (!updateLock) {
+				updateLock=true;
+				TableItem item = tblRoutes.getItem(tblRoutes.getSelectionIndex());
+				RouteWrapper wrapper = (RouteWrapper) item.getData();
+				txtRouteExpression.setText(wrapper.getRouteExpression().getPropertyValue());
+				cmdSetBreakAfterRoute.setSelection(wrapper.isBreakAfterRoute());
+				txtRoutePattern.setText(wrapper.getRoutePattern());
+				updateLock=false;
+			}
+		}
+	}
+	
+	private void populateRoutes(){
+		EList<RouterTargetContainer> routerTargets = routerMediator.getRouterContainer().getRouterTargetContainer();
+		for (RouterTargetContainer routerTarget : routerTargets) {
+			RouteWrapper wrapper = new RouteWrapper(routerTarget);
+			bindRoute(wrapper);
+		}
+	}
+	
+	private TableItem bindRoute(RouteWrapper wrapper) {
 		TableItem item = new TableItem(tblRoutes, SWT.NONE);
 		item.setText("Route");
 		item.setImage(SWTResourceManager
 		.getImage(this.getClass(), "/icons/nodes/router.png"));
-		item.setData(route);
+		RouterTargetContainer container = wrapper.getContainer();
+		wrapper.setBreakAfterRoute(container.isBreakAfterRoute());
+		wrapper.setRouteExpression(EsbFactory.eINSTANCE.copyNamespacedProperty(container.getRouteExpression()));
+		wrapper.setRoutePattern(container.getRoutePattern());
+		//TODO: Sequence and endpint
+		//wrapper.setSequenceKey(txtSequenceKey.getText());
+		//wrapper.setEndpointKey(txtEndpointKey.getText());
+		
+		item.setData(wrapper);
 		return item;
 	}
 	
 	private void unbindRoute(int itemIndex) {
 		TableItem item = tblRoutes.getItem(itemIndex);
-		RouterTargetContainer target = (RouterTargetContainer) item.getData();
+		RouteWrapper wrapper = (RouteWrapper) item.getData();
+		RouterTargetContainer target = wrapper.getContainer();
 		if (null != target.eContainer()) {
+			int index = routerMediator.getRouterContainer().getRouterTargetContainer().indexOf(target);
+			
 			RemoveCommand removeCmd = new RemoveCommand(editingDomain,
 					routerMediator.getRouterContainer(), EsbPackage.Literals.ROUTER_MEDIATOR_CONTAINER__ROUTER_TARGET_CONTAINER,
 					target);
 			getResultCommand().append(removeCmd);
+			
+			if(index!=-1){
+				removeCmd = new RemoveCommand(editingDomain, routerMediator,
+						EsbPackage.Literals.ROUTER_MEDIATOR__TARGET_OUTPUT_CONNECTOR,
+						routerMediator.getTargetOutputConnector().get(index));
+				getResultCommand().append(removeCmd);
+			}
+
 		}
 		tblRoutes.remove(tblRoutes.indexOf(item));
 	}
@@ -347,7 +440,9 @@ public class ConfigureRouterMediatorDialog extends Dialog {
 	@Override
 	protected void okPressed() {
 		for (TableItem item : tblRoutes.getItems()) {
-			RouterTargetContainer target = (RouterTargetContainer) item.getData();
+			RouteWrapper wrapper = (RouteWrapper) item.getData();
+			RouterTargetContainer target = wrapper.getContainer();
+			
 			// If the route is a new one, add it to the model.
 			if (null == target.eContainer()) {
 				AddCommand addCmd = new AddCommand(editingDomain,
@@ -364,16 +459,49 @@ public class ConfigureRouterMediatorDialog extends Dialog {
 						targetOutputConnector);
 
 				getResultCommand().append(addCmd);
-				//TODO: reorder output connecters and set other properties
 		
-			} else {
-				//TODO: modify properties
+			} 
+			SetCommand setCmd = null;
+			
+			if (!target.getRouteExpression().equals(wrapper.getRouteExpression())) {
+				/*setCmd = new SetCommand(
+						editingDomain,
+						target.getRouteExpression(),
+						EsbPackage.Literals.NAMESPACED_PROPERTY__PROPERTY_VALUE,
+						wrapper.getRouteExpression());*/
+				setCmd = new SetCommand(
+						editingDomain,
+						target,
+						EsbPackage.Literals.ROUTER_TARGET_CONTAINER__ROUTE_EXPRESSION,
+						wrapper.getRouteExpression());
+				getResultCommand().append(setCmd);
 			}
+			
+			if(target.isBreakAfterRoute()!=wrapper.isBreakAfterRoute()){
+				setCmd = new SetCommand(
+						editingDomain,
+						target,
+						EsbPackage.Literals.ROUTER_TARGET_CONTAINER__BREAK_AFTER_ROUTE,
+						wrapper.isBreakAfterRoute());
+				getResultCommand().append(setCmd);
+			}
+			
+			if(!target.getRoutePattern().equals(wrapper.getRoutePattern())){
+				setCmd = new SetCommand(
+						editingDomain,
+						target,
+						EsbPackage.Literals.ROUTER_TARGET_CONTAINER__ROUTE_PATTERN,
+						wrapper.getRoutePattern());
+				getResultCommand().append(setCmd);
+			}
+			
+			//TODO: Sequence and endpint
 		}
 		// Apply changes.
 		if (getResultCommand().canExecute()) {
 			editingDomain.getCommandStack().execute(getResultCommand());
 		} 
+		
 		super.okPressed();
 	}
 	
@@ -388,5 +516,57 @@ public class ConfigureRouterMediatorDialog extends Dialog {
 			resultCommand = new CompoundCommand();
 		}
 		return resultCommand;
+	}
+	
+	
+	class RouteWrapper{
+		
+		public RouteWrapper(RouterTargetContainer container){
+			this.container = container;
+		}
+		public NamespacedProperty getRouteExpression() {
+			return routeExpression;
+		}
+		public void setRouteExpression(NamespacedProperty routeExpression) {
+			this.routeExpression = routeExpression;
+		}
+		public String getRoutePattern() {
+			return routePattern;
+		}
+		public void setRoutePattern(String routePattern) {
+			this.routePattern = routePattern;
+		}
+		public String getSequenceKey() {
+			return sequenceKey;
+		}
+		public void setSequenceKey(String sequenceKey) {
+			this.sequenceKey = sequenceKey;
+		}
+		public String getEndpointKey() {
+			return endpointKey;
+		}
+		public void setEndpointKey(String endpointKey) {
+			this.endpointKey = endpointKey;
+		}
+		public void setContainer(RouterTargetContainer container) {
+			this.container = container;
+		}
+		public RouterTargetContainer getContainer() {
+			return container;
+		}
+		public void setBreakAfterRoute(boolean breakAfterRoute) {
+			this.breakAfterRoute = breakAfterRoute;
+		}
+		public boolean isBreakAfterRoute() {
+			return breakAfterRoute;
+		}
+
+		private boolean breakAfterRoute;
+		private NamespacedProperty routeExpression;
+		private String routePattern;
+		private String sequenceKey;
+		private String endpointKey;
+		private RouterTargetContainer container;
+		
 	}
 }

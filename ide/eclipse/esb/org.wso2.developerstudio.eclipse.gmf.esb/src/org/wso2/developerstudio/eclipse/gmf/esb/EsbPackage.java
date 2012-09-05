@@ -5859,7 +5859,7 @@ public interface EsbPackage extends EPackage {
 	int ROUTER_TARGET_CONTAINER__BREAK_AFTER_ROUTE = ESB_NODE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Route Expression</b></em>' reference.
+	 * The feature id for the '<em><b>Route Expression</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -5877,7 +5877,7 @@ public interface EsbPackage extends EPackage {
 	int ROUTER_TARGET_CONTAINER__ROUTE_PATTERN = ESB_NODE_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * The feature id for the '<em><b>Target</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -17432,10 +17432,10 @@ public interface EsbPackage extends EPackage {
 	EAttribute getRouterTargetContainer_BreakAfterRoute();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.RouterTargetContainer#getRouteExpression <em>Route Expression</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.RouterTargetContainer#getRouteExpression <em>Route Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Route Expression</em>'.
+	 * @return the meta object for the containment reference '<em>Route Expression</em>'.
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RouterTargetContainer#getRouteExpression()
 	 * @see #getRouterTargetContainer()
 	 * @generated
@@ -17454,10 +17454,10 @@ public interface EsbPackage extends EPackage {
 	EAttribute getRouterTargetContainer_RoutePattern();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.RouterTargetContainer#getTarget <em>Target</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.RouterTargetContainer#getTarget <em>Target</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Target</em>'.
+	 * @return the meta object for the containment reference '<em>Target</em>'.
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RouterTargetContainer#getTarget()
 	 * @see #getRouterTargetContainer()
 	 * @generated
@@ -26124,7 +26124,7 @@ public interface EsbPackage extends EPackage {
 		EAttribute ROUTER_TARGET_CONTAINER__BREAK_AFTER_ROUTE = eINSTANCE.getRouterTargetContainer_BreakAfterRoute();
 
 		/**
-		 * The meta object literal for the '<em><b>Route Expression</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Route Expression</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -26140,7 +26140,7 @@ public interface EsbPackage extends EPackage {
 		EAttribute ROUTER_TARGET_CONTAINER__ROUTE_PATTERN = eINSTANCE.getRouterTargetContainer_RoutePattern();
 
 		/**
-		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Target</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

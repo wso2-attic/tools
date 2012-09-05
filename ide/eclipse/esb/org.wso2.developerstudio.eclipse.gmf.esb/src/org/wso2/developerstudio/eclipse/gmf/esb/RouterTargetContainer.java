@@ -81,26 +81,26 @@ public interface RouterTargetContainer extends EsbNode {
 	void setBreakAfterRoute(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Route Expression</b></em>' reference.
+	 * Returns the value of the '<em><b>Route Expression</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Route Expression</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Route Expression</em>' reference.
+	 * @return the value of the '<em>Route Expression</em>' containment reference.
 	 * @see #setRouteExpression(NamespacedProperty)
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getRouterTargetContainer_RouteExpression()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	NamespacedProperty getRouteExpression();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.RouterTargetContainer#getRouteExpression <em>Route Expression</em>}' reference.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.RouterTargetContainer#getRouteExpression <em>Route Expression</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Route Expression</em>' reference.
+	 * @param value the new value of the '<em>Route Expression</em>' containment reference.
 	 * @see #getRouteExpression()
 	 * @generated
 	 */
@@ -133,26 +133,26 @@ public interface RouterTargetContainer extends EsbNode {
 	void setRoutePattern(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Target</b></em>' reference.
+	 * Returns the value of the '<em><b>Target</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Target</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Target</em>' reference.
+	 * @return the value of the '<em>Target</em>' containment reference.
 	 * @see #setTarget(RouterTarget)
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getRouterTargetContainer_Target()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	RouterTarget getTarget();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.RouterTargetContainer#getTarget <em>Target</em>}' reference.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.RouterTargetContainer#getTarget <em>Target</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Target</em>' reference.
+	 * @param value the new value of the '<em>Target</em>' containment reference.
 	 * @see #getTarget()
 	 * @generated
 	 */
