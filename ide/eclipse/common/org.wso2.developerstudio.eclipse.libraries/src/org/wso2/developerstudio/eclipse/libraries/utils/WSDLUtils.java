@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.wso2.developerstudio.eclipse.utils.wst;
+package org.wso2.developerstudio.eclipse.libraries.utils;
 
 import java.io.File;
 import java.io.FileNotFoundException;

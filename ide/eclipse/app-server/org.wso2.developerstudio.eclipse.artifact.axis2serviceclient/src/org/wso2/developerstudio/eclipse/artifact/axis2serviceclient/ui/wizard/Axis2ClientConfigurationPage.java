@@ -59,9 +59,9 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.wst.command.internal.env.core.common.StatusUtils;
 import org.wso2.developerstudio.eclipse.artifact.axis2serviceclient.Activator;
 import org.wso2.developerstudio.eclipse.artifact.axis2serviceclient.utils.WSDL2Utils;
+import org.wso2.developerstudio.eclipse.libraries.utils.WSDLUtils;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
-import org.wso2.developerstudio.eclipse.utils.wst.WSDLUtils;
 
 public class Axis2ClientConfigurationPage extends WizardPage {
 	private Table namespace2packageTable;

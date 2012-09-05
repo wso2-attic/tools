@@ -24,9 +24,9 @@ import javax.wsdl.extensions.schema.SchemaReference;
 
 import org.wso2.developerstudio.eclipse.greg.core.interfaces.GARFileType;
 import org.wso2.developerstudio.eclipse.greg.core.interfaces.IGARImportDependency;
+import org.wso2.developerstudio.eclipse.libraries.utils.WSDLUtils;
 import org.wso2.developerstudio.eclipse.platform.core.utils.XMLUtil;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
-import org.wso2.developerstudio.eclipse.utils.wst.WSDLUtils;
 
 public class GARImportDependencyImpl implements IGARImportDependency {
 	private boolean exclude=false;
