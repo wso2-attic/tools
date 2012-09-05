@@ -8,9 +8,9 @@ Bundle-Vendor: WSO2
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime
 Bundle-ActivationPolicy: lazy
-Import-Package: javax.wsdl,
- javax.wsdl.extensions,
- javax.wsdl.extensions.schema,
+Import-Package: javax.wsdl;version="[1.6.2.wso2v1,1.7.0)",
+ javax.wsdl.extensions;version="[1.6.2.wso2v1,1.7.0)",
+ javax.wsdl.extensions.schema;version="[1.6.2.wso2v1,1.7.0)",
  org.apache.axiom.om,
  org.apache.axiom.om.impl.builder,
  org.apache.axiom.om.util,

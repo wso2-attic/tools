@@ -11,7 +11,7 @@ Require-Bundle: org.eclipse.ui,
  org.wso2.developerstudio.eclipse.libraries
 Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: .
-Import-Package: javax.xml.stream,
+Import-Package: javax.xml.stream;version="1.0.1",
  org.apache.axiom.om,
  org.eclipse.core.filesystem,
  org.eclipse.core.resources,

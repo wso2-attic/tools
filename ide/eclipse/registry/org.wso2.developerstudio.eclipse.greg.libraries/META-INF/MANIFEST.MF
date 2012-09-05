@@ -6,7 +6,7 @@ Bundle-Version: 2.1.0.qualifier
 Bundle-ActivationPolicy: lazy
 Export-Package: org.wso2.developerstudio.eclipse.greg.libraries.utils
 Bundle-ClassPath: .
-Import-Package: javax.wsdl,
+Import-Package: javax.wsdl;version="[1.6.2.wso2v1,1.7.0)",
  javax.wsdl.extensions.soap,
  org.wso2.developerstudio.eclipse.logging.core,
  org.wso2.developerstudio.eclipse.utils.jdt

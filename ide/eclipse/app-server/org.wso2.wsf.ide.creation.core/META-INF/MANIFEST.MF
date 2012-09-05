@@ -28,7 +28,7 @@ Export-Package: org.wso2.wsf.ide.creation.core.command,
  org.wso2.wsf.ide.creation.core.utils
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Bundle-Vendor: WSO2
-Import-Package: javax.wsdl;version="1.6.2.wso2v1",
+Import-Package: javax.wsdl;version="[1.6.2.wso2v1,1.7.0)",
  org.apache.axis2.description,
  org.apache.axis2.util,
  org.apache.axis2.wsdl.codegen,
