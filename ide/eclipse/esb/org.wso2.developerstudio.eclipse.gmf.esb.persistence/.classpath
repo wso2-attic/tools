@@ -63,7 +63,6 @@
 	<classpathentry exported="true" kind="lib" path="lib/org.wso2.carbon.event.ws-3.2.1.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/org.wso2.carbon.identity.entitlement.mediator-3.2.2.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/org.wso2.carbon.identity.oauth.mediator-3.2.1.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/org.wso2.carbon.mediator.command.ui-3.2.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/org.wso2.carbon.mediator.event-3.2.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/org.wso2.carbon.mediator.service-3.2.2.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/org.wso2.carbon.mediator.smooks-3.2.0.jar"/>
@@ -103,6 +102,7 @@
 	<classpathentry exported="true" kind="lib" path="lib/xml-apis-1.3.04.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/XmlSchema-1.4.3.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/xmlunit-1.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/org.wso2.carbon.mediator.router.impl-3.2.3.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/J2SE-1.5"/>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>

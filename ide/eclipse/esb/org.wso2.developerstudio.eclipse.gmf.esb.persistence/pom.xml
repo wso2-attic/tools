@@ -437,13 +437,13 @@
 		<artifactId>geronimo-stax-api_1.0_spec</artifactId>
 		<version>1.0.1</version>
 	</dependency>
-
-	<!-- org.wso2.carbon.mediator.command.ui-3.2.0.jar -->
+	
+	<!-- org.wso2.carbon.mediator.router.impl-3.2.3.jar -->
 	<dependency>
 		<groupId>org.wso2.carbon</groupId>
-		<artifactId>org.wso2.carbon.mediator.command.ui</artifactId>
-		<version>3.2.0</version>
-	</dependency>
+    	<artifactId>org.wso2.carbon.mediator.router.impl</artifactId>
+    	<version>3.2.3</version>
+    </dependency>
 
 	<!-- jline-0.9.94.jar -->
 	<dependency>
