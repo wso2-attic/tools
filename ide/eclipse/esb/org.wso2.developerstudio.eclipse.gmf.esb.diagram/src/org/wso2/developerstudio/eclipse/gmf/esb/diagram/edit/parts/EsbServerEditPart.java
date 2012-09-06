@@ -333,7 +333,7 @@ public class EsbServerEditPart extends AbstractBorderedShapeEditPart {
 					getMapMode().DPtoLP(1800)));
 
 			// Leave more space on left and right for border item placement.
-			MarginBorder marginBorder = new MarginBorder(-7, 20, -5, 20);
+			MarginBorder marginBorder = new MarginBorder(-7, -10, -5, 20);
 			this.setBorder(marginBorder);
 
 		}
@@ -370,6 +370,10 @@ public class EsbServerEditPart extends AbstractBorderedShapeEditPart {
 			graphics.setForegroundColor(fgColor);
 		}
 
+	}
+	
+	public boolean isSelectable() {
+		return false;
 	}
 
 	/**

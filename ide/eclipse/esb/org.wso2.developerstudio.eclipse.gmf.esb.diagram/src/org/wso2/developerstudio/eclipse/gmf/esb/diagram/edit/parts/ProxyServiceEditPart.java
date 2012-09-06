@@ -13,8 +13,12 @@ import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.ToolbarLayout;
 import org.eclipse.draw2d.geometry.Dimension;
+import org.eclipse.draw2d.geometry.Rectangle;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.impl.EAttributeImpl;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
+import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
@@ -32,12 +36,15 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
+import org.eclipse.gmf.runtime.notation.Bounds;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.gmf.runtime.notation.impl.BoundsImpl;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ProxyServiceGroupBox;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ShowPropertyViewEditPolicy;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.utils.MediatorFigureReverser;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.ProxyServiceCanonicalEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.ProxyServiceItemSemanticEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
@@ -67,7 +74,7 @@ public class ProxyServiceEditPart extends AbstractBorderedShapeEditPart {
 	public IFigure outputConnectorFigure;
 
 	public IFigure faultInputnputConnectorFigure;
-
+	
 	/**
 	 * @generated
 	 */
@@ -130,11 +137,37 @@ public class ProxyServiceEditPart extends AbstractBorderedShapeEditPart {
 		return lep;
 	}
 
+	public void notifyChanged(Notification notification) {
+		super.notifyChanged(notification);
+		if (notification.getFeature() instanceof EAttributeImpl) {
+			if(notification.getNotifier() instanceof BoundsImpl){				
+				alignLeft(((BoundsImpl)notification.getNotifier()).getY(),((BoundsImpl)notification.getNotifier()).getWidth(),((BoundsImpl)notification.getNotifier()).getHeight());
+			}
+		}
+	}
+
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected IFigure createNodeShape() {
-		return primaryShape = new ProxyServiceFigure();
+		return primaryShape = new ProxyServiceFigure(){
+			public void setBounds(org.eclipse.draw2d.geometry.Rectangle rect) {
+				super.setBounds(rect);
+				if (this.getBounds().getLocation().x != 0
+						&& this.getBounds().getLocation().y != 0) {
+					alignLeft();
+				}
+			};
+		};
+	}
+	
+	private void alignLeft(){
+		alignLeft(getFigure().getBounds().y,getFigure().getBounds().width,getFigure().getBounds().height);
+	}
+	
+	private void alignLeft(int y, int width, int height){
+		Rectangle constraints = new Rectangle(0, y,width,height);
+		((GraphicalEditPart) getParent()).setLayoutConstraint(this,	getFigure(), constraints);
 	}
 
 	/**
