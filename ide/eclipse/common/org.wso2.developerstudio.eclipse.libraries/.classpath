@@ -30,7 +30,6 @@
 	<classpathentry exported="true" kind="lib" path="lib/rampart-core-1.6.0.wso2v1.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/rampart-policy-1.6.0.wso2v1.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/org.wso2.securevault-1.0.0.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/serializer-2.7.1.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/xercesImpl-2.8.1.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/xml-resolver-1.2.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/org.wso2.carbon.databridge.commons-4.0.0.jar"/>

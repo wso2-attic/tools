@@ -13,6 +13,7 @@
     <name>WSO2 Developer Studio Orbit Parent</name>
     <modules>
 	<module>apache-batik-pdf</module>
+	<module>com-eviware-soapui-eclipse</module>
     </modules>
 
     <repositories>
