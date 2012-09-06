@@ -16,14 +16,27 @@
 
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.ui;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.command.SetCommand;
+import org.eclipse.emf.query.conditions.eobjects.EObjectCondition;
+import org.eclipse.emf.query.conditions.eobjects.EObjectTypeRelationCondition;
+import org.eclipse.emf.query.conditions.eobjects.TypeRelation;
+import org.eclipse.emf.query.statements.FROM;
+import org.eclipse.emf.query.statements.IQueryResult;
+import org.eclipse.emf.query.statements.SELECT;
+import org.eclipse.emf.query.statements.WHERE;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.IDialogConstants;
+import org.eclipse.jface.window.Window;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.graphics.Point;
@@ -45,13 +58,21 @@ import org.eclipse.swt.layout.FormAttachment;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Combo;
+import org.wso2.developerstudio.eclipse.gmf.esb.EndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
+import org.wso2.developerstudio.eclipse.gmf.esb.LocalEntry;
+import org.wso2.developerstudio.eclipse.gmf.esb.MediatorSequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
+import org.wso2.developerstudio.eclipse.gmf.esb.ProxyService;
+import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.RouterMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.RouterMediatorTargetOutputConnector;
-import org.wso2.developerstudio.eclipse.gmf.esb.RouterTarget;
 import org.wso2.developerstudio.eclipse.gmf.esb.RouterTargetContainer;
+import org.wso2.developerstudio.eclipse.gmf.esb.TargetSequenceType;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.provider.NamedEntityDescriptor;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.provider.RegistryKeyPropertyEditorDialog;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.provider.NamedEntityDescriptor.NamedEntityType;
 import org.wso2.developerstudio.eclipse.platform.core.utils.SWTResourceManager;
 
 /*
@@ -79,6 +100,10 @@ public class ConfigureRouterMediatorDialog extends Dialog {
 	private Listener updateListener;
 	
 	private boolean updateLock=false;
+	
+	private final static String CMB_CAPTION_REGISTRY_REFERENCE = "From Registry";
+	private final static String CMB_CAPTION_ANONYMOUS = "Anonymous";
+	private final static String CMB_CAPTION_NONE = "None";
 
 	
 	/**
@@ -125,11 +150,9 @@ public class ConfigureRouterMediatorDialog extends Dialog {
 					
 					if (!updateLock) {
 						updateLock=true;
-					//	wrapper.setRouteExpression(txtRouteExpression.getText());
 						wrapper.setBreakAfterRoute(cmdSetBreakAfterRoute.getSelection());
 						wrapper.setRoutePattern(txtRoutePattern.getText());
-					//	wrapper.setSequenceKey(txtSequenceKey.getText());
-					//	wrapper.setEndpointKey(txtEndpointKey.getText());
+						wrapper.setDynamicSequence(CMB_CAPTION_REGISTRY_REFERENCE.equals(cmbSequenceType.getText()));
 						updateLock=false;
 					}
 		
@@ -266,22 +289,28 @@ public class ConfigureRouterMediatorDialog extends Dialog {
 		lblSequenceType.setText("Sequence type");
 		
 		cmbSequenceType = new Combo(comConfig, SWT.READ_ONLY);
-		cmbSequenceType.setItems(new String[] {"None", "Anonymous", "From Registry"});
+		cmbSequenceType.setItems(new String[] {CMB_CAPTION_ANONYMOUS, CMB_CAPTION_REGISTRY_REFERENCE});
 		cmbSequenceType.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		cmbSequenceType.select(1);
-		cmbSequenceType.setEnabled(false); //TODO: implement sequence type support, 
+		cmbSequenceType.select(0); 
 		cmbSequenceType.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				if(cmbSequenceType.getSelectionIndex()==2){
+				if(tblRoutes.getSelectionIndex()!=-1){
+				TableItem item = tblRoutes.getItem(tblRoutes.getSelectionIndex());
+				RouteWrapper wrapper = (RouteWrapper)item.getData();
+				if(cmbSequenceType.getSelectionIndex()==1){
 					lblSequenceKey.setEnabled(true);
 					txtSequenceKey.setEnabled(true);
 					cmdSetSequenceKey.setEnabled(true);
+					wrapper.setDynamicSequence(true);
 				} else{
 					lblSequenceKey.setEnabled(false);
 					txtSequenceKey.setEnabled(false);
 					cmdSetSequenceKey.setEnabled(false);
+					wrapper.setDynamicSequence(false);
 				}
+				}
+				
 			}
 		});
 		new Label(comConfig, SWT.NONE);
@@ -293,16 +322,40 @@ public class ConfigureRouterMediatorDialog extends Dialog {
 		txtSequenceKey = new Text(comConfig, SWT.BORDER);
 		txtSequenceKey.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		txtSequenceKey.setEnabled(false);
+		txtSequenceKey.setEditable(false);
 		
 		cmdSetSequenceKey = new Button(comConfig, SWT.NONE);
 		cmdSetSequenceKey.setText("..");
 		cmdSetSequenceKey.setEnabled(false);
+		cmdSetSequenceKey.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				if(tblRoutes.getSelectionIndex()!=-1){
+					TableItem item = tblRoutes.getItem(tblRoutes.getSelectionIndex());
+					RouteWrapper wrapper = (RouteWrapper)item.getData();
+					RegistryKeyProperty sequenceKey = EsbFactory.eINSTANCE.copyRegistryKeyProperty(wrapper.getSequenceKey()) ;
+					RegistryKeyPropertyEditorDialog dialog = new RegistryKeyPropertyEditorDialog(getShell(),
+							SWT.TITLE, sequenceKey, findLocalNamedEntities(wrapper.getContainer().getTarget()));
+					dialog.create();
+					dialog.getShell().setSize(520,180);
+					dialog.getShell().setText("Resource Key Editor");
+					dialog.open();
+					
+					if (dialog.getReturnCode()==Window.OK) {
+						wrapper.setSequenceKey(sequenceKey);
+						txtSequenceKey.setText(wrapper.getSequenceKey().getKeyValue());
+					}
+
+				}				
+				super.widgetSelected(e);
+			}
+		});
 		
 		Label lblEndpointType = new Label(comConfig, SWT.NONE);
 		lblEndpointType.setText("Endpoint type");
 		
 		cmbEndpointType = new Combo(comConfig, SWT.READ_ONLY);
-		cmbEndpointType.setItems(new String[] {"None", "Anonymous", "From Registry"});
+		cmbEndpointType.setItems(new String[] {CMB_CAPTION_NONE, CMB_CAPTION_ANONYMOUS, CMB_CAPTION_REGISTRY_REFERENCE});
 		cmbEndpointType.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		cmbEndpointType.select(0);
 		cmbEndpointType.setEnabled(false); //TODO: implement endpoint support
@@ -355,6 +408,18 @@ public class ConfigureRouterMediatorDialog extends Dialog {
 				txtRouteExpression.setText(wrapper.getRouteExpression().getPropertyValue());
 				cmdSetBreakAfterRoute.setSelection(wrapper.isBreakAfterRoute());
 				txtRoutePattern.setText(wrapper.getRoutePattern());
+				txtSequenceKey.setText(wrapper.getContainer().getTarget().getSequenceKey().getKeyValue());
+				if(wrapper.isDynamicSequence()){
+					lblSequenceKey.setEnabled(true);
+					txtSequenceKey.setEnabled(true);
+					cmdSetSequenceKey.setEnabled(true);
+					cmbSequenceType.select(1);
+				} else{
+					lblSequenceKey.setEnabled(false);
+					txtSequenceKey.setEnabled(false);
+					cmdSetSequenceKey.setEnabled(false);
+					cmbSequenceType.select(0);
+				}
 				updateLock=false;
 			}
 		}
@@ -377,10 +442,9 @@ public class ConfigureRouterMediatorDialog extends Dialog {
 		wrapper.setBreakAfterRoute(container.isBreakAfterRoute());
 		wrapper.setRouteExpression(EsbFactory.eINSTANCE.copyNamespacedProperty(container.getRouteExpression()));
 		wrapper.setRoutePattern(container.getRoutePattern());
-		//TODO: Sequence and endpint
-		//wrapper.setSequenceKey(txtSequenceKey.getText());
-		//wrapper.setEndpointKey(txtEndpointKey.getText());
-		
+		wrapper.setSequenceKey(EsbFactory.eINSTANCE.copyRegistryKeyProperty(container.getTarget().getSequenceKey())); /* we read this even for anonymous sequence */
+		wrapper.setDynamicSequence(container.getTarget().getSequenceType()==TargetSequenceType.REGISTRY_REFERENCE);
+		/* TODO: wrapper.setEndpointKey() */
 		item.setData(wrapper);
 		return item;
 	}
@@ -464,11 +528,6 @@ public class ConfigureRouterMediatorDialog extends Dialog {
 			SetCommand setCmd = null;
 			
 			if (!target.getRouteExpression().equals(wrapper.getRouteExpression())) {
-				/*setCmd = new SetCommand(
-						editingDomain,
-						target.getRouteExpression(),
-						EsbPackage.Literals.NAMESPACED_PROPERTY__PROPERTY_VALUE,
-						wrapper.getRouteExpression());*/
 				setCmd = new SetCommand(
 						editingDomain,
 						target,
@@ -495,7 +554,33 @@ public class ConfigureRouterMediatorDialog extends Dialog {
 				getResultCommand().append(setCmd);
 			}
 			
-			//TODO: Sequence and endpint
+			if((target.getTarget().getSequenceType()==TargetSequenceType.REGISTRY_REFERENCE)!=wrapper.isDynamicSequence()){
+				setCmd = new SetCommand(
+						editingDomain,
+						target.getTarget(),
+						EsbPackage.Literals.ABSTRACT_COMMON_TARGET__SEQUENCE_TYPE,
+						wrapper.isDynamicSequence()?TargetSequenceType.REGISTRY_REFERENCE:TargetSequenceType.ANONYMOUS );
+				getResultCommand().append(setCmd);
+
+			}
+			
+			if(wrapper.isDynamicSequence()){
+				setCmd = new SetCommand(
+						editingDomain,
+						target.getTarget(),
+						EsbPackage.Literals.ABSTRACT_COMMON_TARGET__SEQUENCE_KEY,
+						wrapper.getSequenceKey());
+				getResultCommand().append(setCmd);
+			} else{
+				setCmd = new SetCommand(
+						editingDomain,
+						target.getTarget(),
+						EsbPackage.Literals.ABSTRACT_COMMON_TARGET__SEQUENCE_KEY,
+						EsbFactory.eINSTANCE.createRegistryKeyProperty());
+				getResultCommand().append(setCmd);
+			}
+			
+			//TODO: Target endpoints
 		}
 		// Apply changes.
 		if (getResultCommand().canExecute()) {
@@ -536,16 +621,16 @@ public class ConfigureRouterMediatorDialog extends Dialog {
 		public void setRoutePattern(String routePattern) {
 			this.routePattern = routePattern;
 		}
-		public String getSequenceKey() {
+		public RegistryKeyProperty getSequenceKey() {
 			return sequenceKey;
 		}
-		public void setSequenceKey(String sequenceKey) {
+		public void setSequenceKey(RegistryKeyProperty sequenceKey) {
 			this.sequenceKey = sequenceKey;
 		}
-		public String getEndpointKey() {
+		public RegistryKeyProperty getEndpointKey() {
 			return endpointKey;
 		}
-		public void setEndpointKey(String endpointKey) {
+		public void setEndpointKey(RegistryKeyProperty endpointKey) {
 			this.endpointKey = endpointKey;
 		}
 		public void setContainer(RouterTargetContainer container) {
@@ -561,12 +646,102 @@ public class ConfigureRouterMediatorDialog extends Dialog {
 			return breakAfterRoute;
 		}
 
+		public void setDynamicSequence(boolean dynamicSequence) {
+			this.dynamicSequence = dynamicSequence;
+		}
+		public boolean isDynamicSequence() {
+			return dynamicSequence;
+		}
+
+		public void setDynamicEndpoint(boolean dynamicEndpoint) {
+			this.dynamicEndpoint = dynamicEndpoint;
+		}
+		public boolean isDynamicEndpoint() {
+			return dynamicEndpoint;
+		}
+
 		private boolean breakAfterRoute;
 		private NamespacedProperty routeExpression;
 		private String routePattern;
-		private String sequenceKey;
-		private String endpointKey;
+		private RegistryKeyProperty sequenceKey;
+		private boolean dynamicSequence;
+		private RegistryKeyProperty endpointKey;
+		private boolean dynamicEndpoint;
 		private RouterTargetContainer container;
 		
+	}
+	
+	/**
+	 * Utility method for querying current named local entities that can be the
+	 * target of registry key attributes.
+	 * 
+	 * @param obj {@link EObject} which is part of the current resource being edited.
+	 * @return a list of local named entities.
+	 * 
+	 * TODO: move this method to Util/helper class
+	 */
+	private List<NamedEntityDescriptor> findLocalNamedEntities(Object obj) {
+		List<NamedEntityDescriptor> result = new ArrayList<NamedEntityDescriptor>();
+		if (obj instanceof EObject) {
+			EObject rootObj = EcoreUtil.getRootContainer((EObject) obj);
+			
+			// Condition for filtering sequences.
+			EObjectCondition isSequence = new EObjectTypeRelationCondition(EsbPackage.eINSTANCE.getMediatorSequence(),
+					TypeRelation.SAMETYPE_LITERAL);
+			
+			// Condition for filtering endpoints.
+			EObjectCondition isEndpoint = new EObjectTypeRelationCondition(EsbPackage.eINSTANCE.getEndPoint(),
+					TypeRelation.SUBTYPE_LITERAL);
+			
+			// Condition for filtering proxy services.
+			EObjectCondition isProxyService = new EObjectTypeRelationCondition(EsbPackage.eINSTANCE.getProxyService(),
+					TypeRelation.SAMETYPE_LITERAL);
+			
+			// Condition for local entries.
+			EObjectCondition isLocalEntry = new EObjectTypeRelationCondition(EsbPackage.eINSTANCE.getLocalEntry(),
+					TypeRelation.SAMETYPE_LITERAL);
+			
+			// Construct the final query.
+			SELECT stmt = new SELECT(new FROM(rootObj), new WHERE(isSequence.OR(isEndpoint).OR(isProxyService).OR(
+					isLocalEntry)));
+			
+			// Execute.
+			IQueryResult queryResult = stmt.execute();
+			
+			// Extract named entity descriptors.
+			for (EObject object : queryResult.getEObjects()) {
+				switch (object.eClass().getClassifierID()) {
+					case EsbPackage.MEDIATOR_SEQUENCE:
+						MediatorSequence sequence = (MediatorSequence) object;
+						if (!sequence.isAnonymous()) {
+							result.add(new NamedEntityDescriptor(sequence.getSequenceName(), NamedEntityType.SEQUENCE));
+						}
+						break;
+					case EsbPackage.DEFAULT_END_POINT:
+					case EsbPackage.ADDRESS_END_POINT:
+					case EsbPackage.WSDL_END_POINT:
+					case EsbPackage.LOAD_BALANCE_END_POINT:
+					case EsbPackage.FAILOVER_END_POINT:
+					//case EsbPackage.DYNAMIC_LOAD_BALANCE_END_POINT:
+						EndPoint endpoint = (EndPoint) object;
+						if (!endpoint.isAnonymous()) {
+							result.add(new NamedEntityDescriptor(endpoint.getEndPointName(), NamedEntityType.ENDPOINT));
+						}
+						break;
+					case EsbPackage.PROXY_SERVICE:
+						ProxyService proxyService = (ProxyService) object;
+						result.add(new NamedEntityDescriptor(proxyService.getName(), NamedEntityType.PROXY_SERVICE));
+						break;
+					case EsbPackage.LOCAL_ENTRY:
+						LocalEntry localEntry = (LocalEntry) object;
+						result.add(new NamedEntityDescriptor(localEntry.getEntryName(), NamedEntityType.LOCAL_ENTRY));
+						break;
+					default:
+						// TODO: Log the unexpected result.
+				}
+			}
+		}
+		
+		return result;
 	}
 }
