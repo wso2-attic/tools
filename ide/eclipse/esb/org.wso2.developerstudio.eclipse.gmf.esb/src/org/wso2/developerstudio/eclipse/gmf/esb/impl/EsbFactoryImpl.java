@@ -1789,10 +1789,14 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public RouterTarget createRouterTarget() {
 		RouterTargetImpl routerTarget = new RouterTargetImpl();
+		routerTarget.setSequenceType(TargetSequenceType.ANONYMOUS);
+		routerTarget.setSequenceKey(createRegistryKeyProperty());
+		routerTarget.setEndpointType(TargetEndpointType.NONE);
+		routerTarget.setEndpointKey(createRegistryKeyProperty());
 		return routerTarget;
 	}
 
