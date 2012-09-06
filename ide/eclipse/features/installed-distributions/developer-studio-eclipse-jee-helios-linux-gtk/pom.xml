@@ -237,6 +237,10 @@
                             	<feature>
                             		<id>org.smooks.edi.editor-feature.feature.group</id>
                             		<version>${smooks.edi.editor.version}</version>
+                            	</feature>
+                            	<feature>
+                            		<id>org.wso2.developerstudio.eclipse.cep.artifact.feature.feature.group</id>
+                            		<version>${cep.feature.version}</version>
                             	</feature> 
                             </features>
                         </configuration>
