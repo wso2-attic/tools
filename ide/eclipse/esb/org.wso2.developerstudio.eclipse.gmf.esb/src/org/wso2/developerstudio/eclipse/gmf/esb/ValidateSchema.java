@@ -29,52 +29,52 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface ValidateSchema extends EsbNode {
 	/**
-	 * Returns the value of the '<em><b>Validate Static Schema Key</b></em>' reference.
+	 * Returns the value of the '<em><b>Validate Static Schema Key</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Validate Static Schema Key</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Validate Static Schema Key</em>' reference.
+	 * @return the value of the '<em>Validate Static Schema Key</em>' containment reference.
 	 * @see #setValidateStaticSchemaKey(RegistryKeyProperty)
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getValidateSchema_ValidateStaticSchemaKey()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	RegistryKeyProperty getValidateStaticSchemaKey();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ValidateSchema#getValidateStaticSchemaKey <em>Validate Static Schema Key</em>}' reference.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ValidateSchema#getValidateStaticSchemaKey <em>Validate Static Schema Key</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Validate Static Schema Key</em>' reference.
+	 * @param value the new value of the '<em>Validate Static Schema Key</em>' containment reference.
 	 * @see #getValidateStaticSchemaKey()
 	 * @generated
 	 */
 	void setValidateStaticSchemaKey(RegistryKeyProperty value);
 
 	/**
-	 * Returns the value of the '<em><b>Validate Dynamic Schema Key</b></em>' reference.
+	 * Returns the value of the '<em><b>Validate Dynamic Schema Key</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Validate Dynamic Schema Key</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Validate Dynamic Schema Key</em>' reference.
+	 * @return the value of the '<em>Validate Dynamic Schema Key</em>' containment reference.
 	 * @see #setValidateDynamicSchemaKey(NamespacedProperty)
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getValidateSchema_ValidateDynamicSchemaKey()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	NamespacedProperty getValidateDynamicSchemaKey();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ValidateSchema#getValidateDynamicSchemaKey <em>Validate Dynamic Schema Key</em>}' reference.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ValidateSchema#getValidateDynamicSchemaKey <em>Validate Dynamic Schema Key</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Validate Dynamic Schema Key</em>' reference.
+	 * @param value the new value of the '<em>Validate Dynamic Schema Key</em>' containment reference.
 	 * @see #getValidateDynamicSchemaKey()
 	 * @generated
 	 */

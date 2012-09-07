@@ -1324,9 +1324,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EvaluatorExpressionProperty/evaluatorValue"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//ValidateMediator">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ValidateMediator/sourceXpath"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ValidateMediator/features"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ValidateMediator/schemas"/>
+      <genFeatures children="true" createChild="true" propertyCategory="" ecoreFeature="ecore:EReference esb.ecore#//ValidateMediator/sourceXpath"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ValidateMediator/features"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ValidateMediator/schemas"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ValidateMediator/inputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ValidateMediator/outputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ValidateMediator/onFailOutputConnector"/>

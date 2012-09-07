@@ -1828,9 +1828,9 @@
   <eClassifiers xsi:type="ecore:EClass" name="ValidateFeature" eSuperTypes="#//AbstractBooleanFeature"/>
   <eClassifiers xsi:type="ecore:EClass" name="ValidateSchema" eSuperTypes="#//EsbNode">
     <eStructuralFeatures xsi:type="ecore:EReference" name="validateStaticSchemaKey"
-        eType="#//RegistryKeyProperty"/>
+        eType="#//RegistryKeyProperty" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="validateDynamicSchemaKey"
-        eType="#//NamespacedProperty"/>
+        eType="#//NamespacedProperty" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="validateSchemaKeyType"
         eType="#//KeyType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="schemaKey" eType="#//RegistryKeyProperty"/>

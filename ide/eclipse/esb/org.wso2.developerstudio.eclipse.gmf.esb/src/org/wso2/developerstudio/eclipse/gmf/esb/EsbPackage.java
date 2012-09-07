@@ -12631,7 +12631,7 @@ public interface EsbPackage extends EPackage {
 	int VALIDATE_FEATURE_FEATURE_COUNT = ABSTRACT_BOOLEAN_FEATURE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Validate Static Schema Key</b></em>' reference.
+	 * The feature id for the '<em><b>Validate Static Schema Key</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -12640,7 +12640,7 @@ public interface EsbPackage extends EPackage {
 	int VALIDATE_SCHEMA__VALIDATE_STATIC_SCHEMA_KEY = ESB_NODE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Validate Dynamic Schema Key</b></em>' reference.
+	 * The feature id for the '<em><b>Validate Dynamic Schema Key</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -16628,10 +16628,10 @@ public interface EsbPackage extends EPackage {
 	EClass getValidateSchema();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.ValidateSchema#getValidateStaticSchemaKey <em>Validate Static Schema Key</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.ValidateSchema#getValidateStaticSchemaKey <em>Validate Static Schema Key</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Validate Static Schema Key</em>'.
+	 * @return the meta object for the containment reference '<em>Validate Static Schema Key</em>'.
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.ValidateSchema#getValidateStaticSchemaKey()
 	 * @see #getValidateSchema()
 	 * @generated
@@ -16639,10 +16639,10 @@ public interface EsbPackage extends EPackage {
 	EReference getValidateSchema_ValidateStaticSchemaKey();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.ValidateSchema#getValidateDynamicSchemaKey <em>Validate Dynamic Schema Key</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.ValidateSchema#getValidateDynamicSchemaKey <em>Validate Dynamic Schema Key</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Validate Dynamic Schema Key</em>'.
+	 * @return the meta object for the containment reference '<em>Validate Dynamic Schema Key</em>'.
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.ValidateSchema#getValidateDynamicSchemaKey()
 	 * @see #getValidateSchema()
 	 * @generated
@@ -25482,7 +25482,7 @@ public interface EsbPackage extends EPackage {
 		EClass VALIDATE_SCHEMA = eINSTANCE.getValidateSchema();
 
 		/**
-		 * The meta object literal for the '<em><b>Validate Static Schema Key</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Validate Static Schema Key</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -25490,7 +25490,7 @@ public interface EsbPackage extends EPackage {
 		EReference VALIDATE_SCHEMA__VALIDATE_STATIC_SCHEMA_KEY = eINSTANCE.getValidateSchema_ValidateStaticSchemaKey();
 
 		/**
-		 * The meta object literal for the '<em><b>Validate Dynamic Schema Key</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Validate Dynamic Schema Key</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
