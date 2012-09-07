@@ -146,7 +146,9 @@ public class EsbPropertySource extends PropertySource {
 			return new CommandMediatorPropertyDescriptor(object,itemPropertyDescriptor);
 		} else if (pkg.getRouterMediator_RouterContainer().equals(feature)) {
 			return new RouterMediatorPropertyDescriptor(object,itemPropertyDescriptor);
-		} 
+		} else if (pkg.getConditionalRouterMediator_ConditionalRouteBranches().equals(feature)) {
+			return new ConditionalRouterMediatorPropertyDescriptor(object,itemPropertyDescriptor);
+		}
 			//Throttle Mediator Policy Entries custom property descriptor.
 		else if(pkg.getThrottleMediator_PolicyEntries().equals(feature)){
 			

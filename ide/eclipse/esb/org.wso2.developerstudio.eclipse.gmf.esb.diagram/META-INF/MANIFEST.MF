@@ -3,7 +3,10 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.wso2.developerstudio.eclipse.gmf.esb.diagram; singleton:=true
 Bundle-Version: 1.0.0.qualifier
-Bundle-ClassPath: .
+Bundle-ClassPath: .,
+ lib/org.eclipse.wb.swt_1.0.0.r36x201106161135.jar,
+ lib/org.eclipse.wb.swt.layout.grouplayout_1.0.0.r36x201106161145.jar,
+ lib/org.eclipse.wb.swt.widgets.baseline_1.0.0.r36x201106161140.jar
 Bundle-Activator: org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramEditorPlugin
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin

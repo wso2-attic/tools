@@ -16,23 +16,11 @@
 
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.ui;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.command.SetCommand;
-import org.eclipse.emf.query.conditions.eobjects.EObjectCondition;
-import org.eclipse.emf.query.conditions.eobjects.EObjectTypeRelationCondition;
-import org.eclipse.emf.query.conditions.eobjects.TypeRelation;
-import org.eclipse.emf.query.statements.FROM;
-import org.eclipse.emf.query.statements.IQueryResult;
-import org.eclipse.emf.query.statements.SELECT;
-import org.eclipse.emf.query.statements.WHERE;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.IDialogConstants;
@@ -58,21 +46,16 @@ import org.eclipse.swt.layout.FormAttachment;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Combo;
-import org.wso2.developerstudio.eclipse.gmf.esb.EndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
-import org.wso2.developerstudio.eclipse.gmf.esb.LocalEntry;
-import org.wso2.developerstudio.eclipse.gmf.esb.MediatorSequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
-import org.wso2.developerstudio.eclipse.gmf.esb.ProxyService;
 import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.RouterMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.RouterMediatorTargetOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.RouterTargetContainer;
 import org.wso2.developerstudio.eclipse.gmf.esb.TargetSequenceType;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.provider.NamedEntityDescriptor;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.RegistryKeyPropertyUtil;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.provider.RegistryKeyPropertyEditorDialog;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.provider.NamedEntityDescriptor.NamedEntityType;
 import org.wso2.developerstudio.eclipse.platform.core.utils.SWTResourceManager;
 
 /*
@@ -337,7 +320,7 @@ public class ConfigureRouterMediatorDialog extends Dialog {
 					RouteWrapper wrapper = (RouteWrapper)item.getData();
 					RegistryKeyProperty sequenceKey = EsbFactory.eINSTANCE.copyRegistryKeyProperty(wrapper.getSequenceKey()) ;
 					RegistryKeyPropertyEditorDialog dialog = new RegistryKeyPropertyEditorDialog(getShell(),
-							SWT.TITLE, sequenceKey, findLocalNamedEntities(wrapper.getContainer().getTarget()));
+							SWT.TITLE, sequenceKey, RegistryKeyPropertyUtil.findLocalNamedEntities(wrapper.getContainer().getTarget()));
 					dialog.create();
 					dialog.getShell().setSize(520,180);
 					dialog.getShell().setText("Resource Key Editor");
@@ -673,77 +656,5 @@ public class ConfigureRouterMediatorDialog extends Dialog {
 		
 	}
 	
-	/**
-	 * Utility method for querying current named local entities that can be the
-	 * target of registry key attributes.
-	 * 
-	 * @param obj {@link EObject} which is part of the current resource being edited.
-	 * @return a list of local named entities.
-	 * 
-	 * TODO: move this method to Util/helper class
-	 */
-	private List<NamedEntityDescriptor> findLocalNamedEntities(Object obj) {
-		List<NamedEntityDescriptor> result = new ArrayList<NamedEntityDescriptor>();
-		if (obj instanceof EObject) {
-			EObject rootObj = EcoreUtil.getRootContainer((EObject) obj);
-			
-			// Condition for filtering sequences.
-			EObjectCondition isSequence = new EObjectTypeRelationCondition(EsbPackage.eINSTANCE.getMediatorSequence(),
-					TypeRelation.SAMETYPE_LITERAL);
-			
-			// Condition for filtering endpoints.
-			EObjectCondition isEndpoint = new EObjectTypeRelationCondition(EsbPackage.eINSTANCE.getEndPoint(),
-					TypeRelation.SUBTYPE_LITERAL);
-			
-			// Condition for filtering proxy services.
-			EObjectCondition isProxyService = new EObjectTypeRelationCondition(EsbPackage.eINSTANCE.getProxyService(),
-					TypeRelation.SAMETYPE_LITERAL);
-			
-			// Condition for local entries.
-			EObjectCondition isLocalEntry = new EObjectTypeRelationCondition(EsbPackage.eINSTANCE.getLocalEntry(),
-					TypeRelation.SAMETYPE_LITERAL);
-			
-			// Construct the final query.
-			SELECT stmt = new SELECT(new FROM(rootObj), new WHERE(isSequence.OR(isEndpoint).OR(isProxyService).OR(
-					isLocalEntry)));
-			
-			// Execute.
-			IQueryResult queryResult = stmt.execute();
-			
-			// Extract named entity descriptors.
-			for (EObject object : queryResult.getEObjects()) {
-				switch (object.eClass().getClassifierID()) {
-					case EsbPackage.MEDIATOR_SEQUENCE:
-						MediatorSequence sequence = (MediatorSequence) object;
-						if (!sequence.isAnonymous()) {
-							result.add(new NamedEntityDescriptor(sequence.getSequenceName(), NamedEntityType.SEQUENCE));
-						}
-						break;
-					case EsbPackage.DEFAULT_END_POINT:
-					case EsbPackage.ADDRESS_END_POINT:
-					case EsbPackage.WSDL_END_POINT:
-					case EsbPackage.LOAD_BALANCE_END_POINT:
-					case EsbPackage.FAILOVER_END_POINT:
-					//case EsbPackage.DYNAMIC_LOAD_BALANCE_END_POINT:
-						EndPoint endpoint = (EndPoint) object;
-						if (!endpoint.isAnonymous()) {
-							result.add(new NamedEntityDescriptor(endpoint.getEndPointName(), NamedEntityType.ENDPOINT));
-						}
-						break;
-					case EsbPackage.PROXY_SERVICE:
-						ProxyService proxyService = (ProxyService) object;
-						result.add(new NamedEntityDescriptor(proxyService.getName(), NamedEntityType.PROXY_SERVICE));
-						break;
-					case EsbPackage.LOCAL_ENTRY:
-						LocalEntry localEntry = (LocalEntry) object;
-						result.add(new NamedEntityDescriptor(localEntry.getEntryName(), NamedEntityType.LOCAL_ENTRY));
-						break;
-					default:
-						// TODO: Log the unexpected result.
-				}
-			}
-		}
-		
-		return result;
-	}
+	
 }

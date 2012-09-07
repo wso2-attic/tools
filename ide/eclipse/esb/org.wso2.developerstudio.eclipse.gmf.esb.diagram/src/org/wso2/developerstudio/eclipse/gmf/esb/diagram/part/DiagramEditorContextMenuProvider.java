@@ -22,6 +22,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.ClassMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.CloneMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.CommandMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.ConditionalRouterMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.DBLookupMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.DBReportMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.DropMediator;
@@ -60,6 +61,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.AddBran
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.ConfigureCallTemplateMediatorAction;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.ConfigureCloneMediatorAction;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.ConfigureCommandMediatorAction;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.ConfigureConditionalRouterMediatorAction;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.ConfigureEsbNodeAction;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.ConfigureLogMediatorAction;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.ConfigureProxyServiceAction;
@@ -168,6 +170,9 @@ public class DiagramEditorContextMenuProvider extends
 		
 		contextActions.put(RouterMediator.class,
 				new ConfigureRouterMediatorAction(part));
+		
+		contextActions.put(ConditionalRouterMediator.class,
+				new ConfigureConditionalRouterMediatorAction(part));
 
 		//Initialize branch context sensitive actions.
 		addBranchContextActions = new HashMap<Class<? extends EsbNode>, ConfigureEsbNodeAction>();
