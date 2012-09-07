@@ -216,7 +216,7 @@ public class EnrichMediatorItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_EnrichMediator_sourceXML_feature", "_UI_EnrichMediator_type"),
 				 EsbPackage.Literals.ENRICH_MEDIATOR__SOURCE_XML,
 				 true,
-				 false,
+				 true,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 "Source",
