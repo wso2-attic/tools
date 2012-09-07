@@ -18,6 +18,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb.persistence;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.wso2.developerstudio.eclipse.gmf.esb.ConditionalRouterMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.RouterMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.AddressEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator;
@@ -70,6 +71,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.CalloutMedi
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.ClassMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.CloneMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.CommandMediatorTransformer;
+import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.ConditionalRouterMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.DBLookupMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.DBReportMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.DefaultEndPointTransformer;
@@ -170,6 +172,7 @@ public class EsbTransformerRegistry {
 		addTransformer(PayloadFactoryMediator.class, new PayloadFactoryMediatorTransformer());
 		addTransformer(CallTemplateMediator.class, new CallTemplateMediatorTransformer());
 		addTransformer(RouterMediator.class, new RouterMediatorTransformer());
+		addTransformer(ConditionalRouterMediator.class, new ConditionalRouterMediatorTransformer());
 	}
 	
 	/**
