@@ -286,7 +286,7 @@ public class ThrottleMediatorImpl extends MediatorImpl implements ThrottleMediat
 				/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected ThrottleMediatorImpl() {
 		super();

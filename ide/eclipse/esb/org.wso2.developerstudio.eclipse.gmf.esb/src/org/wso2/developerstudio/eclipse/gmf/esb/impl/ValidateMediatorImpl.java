@@ -125,7 +125,7 @@ public class ValidateMediatorImpl extends MediatorImpl implements ValidateMediat
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected ValidateMediatorImpl() {
 		super();

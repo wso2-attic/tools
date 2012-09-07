@@ -1201,8 +1201,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//MessageBuilder/formatterClass"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//PayloadFactoryMediator">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//PayloadFactoryMediator/format"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//PayloadFactoryMediator/args"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute esb.ecore#//PayloadFactoryMediator/format"/>
+      <genFeatures children="true" createChild="true" propertyDescription="Arguments"
+          ecoreFeature="ecore:EReference esb.ecore#//PayloadFactoryMediator/args"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//PayloadFactoryMediator/inputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//PayloadFactoryMediator/outputConnector"/>
     </genClasses>
@@ -1211,7 +1212,7 @@
     <genClasses ecoreClass="esb.ecore#//PayloadFactoryArgument">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//PayloadFactoryArgument/argumentType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//PayloadFactoryArgument/argumentValue"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//PayloadFactoryArgument/argumentExpression"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//PayloadFactoryArgument/argumentExpression"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//ConditionalRouteBranch">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ConditionalRouteBranch/breakAfterRoute"/>
