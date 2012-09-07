@@ -1220,7 +1220,7 @@
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//ConditionalRouterMediator">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ConditionalRouterMediator/continueRoute"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ConditionalRouterMediator/conditionalRouteBranches"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ConditionalRouterMediator/conditionalRouteBranches"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ConditionalRouterMediator/inputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ConditionalRouterMediator/outputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ConditionalRouterMediator/additionalOutputConnector"/>

@@ -57,16 +57,19 @@ public class ConditionalRouterMediatorItemProvider
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
-			super.getPropertyDescriptors(object);
-
-			addContinueRoutePropertyDescriptor(object);
+		if (itemPropertyDescriptors != null) {
+			itemPropertyDescriptors.clear();
 		}
+		super.getPropertyDescriptors(object);
+
+		addContinueRoutePropertyDescriptor(object);
+		addConditionalRouteBranchesPropertyDescriptor(object);
+
 		return itemPropertyDescriptors;
 	}
 
@@ -88,6 +91,28 @@ public class ConditionalRouterMediatorItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Conditional Route Branches feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addConditionalRouteBranchesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ConditionalRouterMediator_conditionalRouteBranches_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ConditionalRouterMediator_conditionalRouteBranches_feature", "_UI_ConditionalRouterMediator_type"),
+				 EsbPackage.Literals.CONDITIONAL_ROUTER_MEDIATOR__CONDITIONAL_ROUTE_BRANCHES,
+				 true,
+				 false,
+				 false,
+				 null,
 				 null,
 				 null));
 	}
