@@ -33,6 +33,7 @@ import org.apache.synapse.mediators.filters.SwitchMediator;
 import org.apache.synapse.util.xpath.SynapseXPath;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.validation.internal.service.GetLiveConstraintsOperation;
 import org.wso2.developerstudio.eclipse.gmf.esb.AddressEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPointAddressingVersion;
@@ -78,7 +79,9 @@ public class AddressEndPointTransformer extends AbstractEsbNodeTransformer {
 			.get(info.getParentSequence().getList().size() - 1);
 		}
 		}
-		else {
+		else if(info.getParentSequence().getChild(info.getParentSequence().getList().size()-1) instanceof org.apache.synapse.mediators.builtin.SendMediator){
+			sendMediator=(SendMediator) info.getParentSequence().getChild(info.getParentSequence().getList().size()-1);
+		} else{
 			sendMediator = new SendMediator();
 			info.getParentSequence().addChild(sendMediator);
 		}

@@ -17,6 +17,8 @@ package org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence;
 
 import java.util.List;
 
+import org.apache.axiom.om.OMElement;
+import org.apache.axiom.om.util.AXIOMUtil;
 import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.apache.synapse.util.xpath.SynapseXPath;
@@ -88,7 +90,8 @@ public class EnrichMediatorTransformer extends AbstractEsbNodeTransformer {
 				case INLINE:
 					source.setSourceType(org.apache.synapse.mediators.elementary.EnrichMediator.INLINE);
 					String str = visualEnrich.getSourceXML();
-					if (str!=null) source.setInlineKey(str);
+					OMElement payload = AXIOMUtil.stringToOM(str); 
+					if (str!=null) source.setInlineOMNode(payload);
 					break;
 				case CUSTOM:
 					source.setSourceType(org.apache.synapse.mediators.elementary.EnrichMediator.CUSTOM);
@@ -96,8 +99,12 @@ public class EnrichMediatorTransformer extends AbstractEsbNodeTransformer {
 					//visualXPath.getNamespaces();
 					//OMNamespace ns = new OMN
 					SynapseXPath xPath = new SynapseXPath(visualSourceXPath.getPropertyValue());
+					if(visualSourceXPath.getNamespaces().keySet().size() !=0){
+					String prefix = visualSourceXPath.getNamespaces().keySet().toArray()[0].toString();
+					String namespace = visualSourceXPath.getNamespaces().values().toArray()[0].toString();
+					xPath.addNamespace(prefix,namespace);
+					}
 					source.setXpath(xPath);
-					//TODO: complete Xpath support :)
 					break;
 			}
 			
@@ -118,6 +125,11 @@ public class EnrichMediatorTransformer extends AbstractEsbNodeTransformer {
 					target.setTargetType(org.apache.synapse.mediators.elementary.EnrichMediator.CUSTOM);
 					NamespacedProperty visualTargetXPath =visualEnrich.getTargetXpath();
 					SynapseXPath xPath = new SynapseXPath(visualTargetXPath.getPropertyValue());
+					if(visualTargetXPath.getNamespaces().keySet().size() !=0){
+					String prefix = visualTargetXPath.getNamespaces().keySet().toArray()[0].toString();
+					String namespace = visualTargetXPath.getNamespaces().values().toArray()[0].toString();
+					xPath.addNamespace(prefix,namespace);
+					}
 					target.setXpath(xPath);
 					break;
 			}
