@@ -454,6 +454,17 @@ public interface EsbFactory extends EFactory {
 			NamespacedProperty namespacedProperty);
 
 	/**
+	 * Utility method for creating a copy of the given
+	 * {@link EvaluatorExpressionProperty}.
+	 * 
+	 * @param evaluatorExpressionProperty
+	 *            original {@link EvaluatorExpressionProperty} instance.
+	 * @return copy of the original {@link EvaluatorExpressionProperty} instance.
+	 */
+	EvaluatorExpressionProperty copyEvaluatorExpressionProperty(
+			EvaluatorExpressionProperty evaluatorExpressionProperty);
+			
+	/**
 	 * Returns a new object of class '<em>Enrich Mediator</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

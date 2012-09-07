@@ -1623,8 +1623,10 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConditionalRouteBranch" eSuperTypes="#//EsbNode">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="breakAfterRoute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="evaluatorExpression" eType="#//EvaluatorExpressionProperty"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="targetSequence" eType="#//RegistryKeyProperty"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="evaluatorExpression" eType="#//EvaluatorExpressionProperty"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="targetSequence" eType="#//RegistryKeyProperty"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConditionalRouterMediator" eSuperTypes="#//Mediator">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="continueRoute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>

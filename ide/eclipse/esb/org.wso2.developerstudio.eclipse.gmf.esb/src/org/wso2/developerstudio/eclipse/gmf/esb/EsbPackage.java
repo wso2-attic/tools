@@ -10914,7 +10914,7 @@ public interface EsbPackage extends EPackage {
 	int CONDITIONAL_ROUTE_BRANCH__BREAK_AFTER_ROUTE = ESB_NODE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Evaluator Expression</b></em>' reference.
+	 * The feature id for the '<em><b>Evaluator Expression</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -10923,7 +10923,7 @@ public interface EsbPackage extends EPackage {
 	int CONDITIONAL_ROUTE_BRANCH__EVALUATOR_EXPRESSION = ESB_NODE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Target Sequence</b></em>' reference.
+	 * The feature id for the '<em><b>Target Sequence</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -21162,10 +21162,10 @@ public interface EsbPackage extends EPackage {
 	EAttribute getConditionalRouteBranch_BreakAfterRoute();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.ConditionalRouteBranch#getEvaluatorExpression <em>Evaluator Expression</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.ConditionalRouteBranch#getEvaluatorExpression <em>Evaluator Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Evaluator Expression</em>'.
+	 * @return the meta object for the containment reference '<em>Evaluator Expression</em>'.
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.ConditionalRouteBranch#getEvaluatorExpression()
 	 * @see #getConditionalRouteBranch()
 	 * @generated
@@ -21173,10 +21173,10 @@ public interface EsbPackage extends EPackage {
 	EReference getConditionalRouteBranch_EvaluatorExpression();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.ConditionalRouteBranch#getTargetSequence <em>Target Sequence</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.ConditionalRouteBranch#getTargetSequence <em>Target Sequence</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Target Sequence</em>'.
+	 * @return the meta object for the containment reference '<em>Target Sequence</em>'.
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.ConditionalRouteBranch#getTargetSequence()
 	 * @see #getConditionalRouteBranch()
 	 * @generated
@@ -29104,7 +29104,7 @@ public interface EsbPackage extends EPackage {
 		EAttribute CONDITIONAL_ROUTE_BRANCH__BREAK_AFTER_ROUTE = eINSTANCE.getConditionalRouteBranch_BreakAfterRoute();
 
 		/**
-		 * The meta object literal for the '<em><b>Evaluator Expression</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Evaluator Expression</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -29112,7 +29112,7 @@ public interface EsbPackage extends EPackage {
 		EReference CONDITIONAL_ROUTE_BRANCH__EVALUATOR_EXPRESSION = eINSTANCE.getConditionalRouteBranch_EvaluatorExpression();
 
 		/**
-		 * The meta object literal for the '<em><b>Target Sequence</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Target Sequence</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

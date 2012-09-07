@@ -2874,10 +2874,18 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public ConditionalRouteBranch createConditionalRouteBranch() {
 		ConditionalRouteBranchImpl conditionalRouteBranch = new ConditionalRouteBranchImpl();
+		conditionalRouteBranch.setBreakAfterRoute(false);
+		RegistryKeyProperty registryKeyProperty = createRegistryKeyProperty();
+		registryKeyProperty.setKeyName("Target");
+		registryKeyProperty.setKeyValue("default");
+		EvaluatorExpressionProperty evaluatorExpressionProperty = createEvaluatorExpressionProperty();
+		evaluatorExpressionProperty.setEvaluatorValue("<equal/>");
+		conditionalRouteBranch.setEvaluatorExpression(evaluatorExpressionProperty);
+		conditionalRouteBranch.setTargetSequence(registryKeyProperty);
 		return conditionalRouteBranch;
 	}
 
@@ -4653,6 +4661,18 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	@Deprecated
 	public static EsbPackage getPackage() {
 		return EsbPackage.eINSTANCE;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public EvaluatorExpressionProperty copyEvaluatorExpressionProperty(
+			EvaluatorExpressionProperty evaluatorExpressionProperty) {
+		EvaluatorExpressionProperty copy = createEvaluatorExpressionProperty();
+		copy.setEvaluatorName(evaluatorExpressionProperty.getEvaluatorName());
+		copy.setEvaluatorValue(evaluatorExpressionProperty.getEvaluatorValue());
+		copy.setPrettyName(evaluatorExpressionProperty.getPrettyName());
+		return copy;
 	}
 
 } //EsbFactoryImpl
