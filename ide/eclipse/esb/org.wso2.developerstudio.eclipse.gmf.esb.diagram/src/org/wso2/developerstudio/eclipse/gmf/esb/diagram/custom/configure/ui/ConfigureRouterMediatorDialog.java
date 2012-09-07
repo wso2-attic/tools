@@ -173,7 +173,7 @@ public class ConfigureRouterMediatorDialog extends Dialog {
 		fd_tblRouters.top = new FormAttachment(lblRouters, 9);
 		fd_tblRouters.left = new FormAttachment(0, 10);
 		fd_tblRouters.bottom = new FormAttachment(0, 169);
-		fd_tblRouters.right = new FormAttachment(0, 278);
+		
 		tblRoutes.setLayoutData(fd_tblRouters);
 		tblRoutes.addSelectionListener(new SelectionAdapter() {
 			@Override
@@ -187,11 +187,12 @@ public class ConfigureRouterMediatorDialog extends Dialog {
 		tblclmnNewColumn.setText("New Column");
 		
 		cmdRouteAdd = new Button(container, SWT.NONE);
-		FormData fd_btnAdd = new FormData();
-		fd_btnAdd.right = new FormAttachment(0, 378);
-		fd_btnAdd.top = new FormAttachment(0, 36);
-		fd_btnAdd.left = new FormAttachment(0, 292);
-		cmdRouteAdd.setLayoutData(fd_btnAdd);
+		FormData fd_cmdRouteAdd = new FormData();
+		fd_tblRouters.right = new FormAttachment(cmdRouteAdd, -6);
+		
+		fd_cmdRouteAdd.top = new FormAttachment(0, 36);
+		fd_cmdRouteAdd.left = new FormAttachment(0, 334);
+		cmdRouteAdd.setLayoutData(fd_cmdRouteAdd);
 		cmdRouteAdd.setText("Add");
 		cmdRouteAdd.addSelectionListener(new SelectionAdapter() {
 			@Override
@@ -205,11 +206,11 @@ public class ConfigureRouterMediatorDialog extends Dialog {
 		});
 		
 		cmdRouteRemove = new Button(container, SWT.NONE);
-		FormData fd_btnRemove = new FormData();
-		fd_btnRemove.right = new FormAttachment(0, 378);
-		fd_btnRemove.top = new FormAttachment(0, 81);
-		fd_btnRemove.left = new FormAttachment(0, 292);
-		cmdRouteRemove.setLayoutData(fd_btnRemove);
+		FormData fd_cmdRouteRemove = new FormData();
+		fd_cmdRouteRemove.top = new FormAttachment(cmdRouteAdd, 6);
+		fd_cmdRouteRemove.right = new FormAttachment(cmdRouteAdd, 0, SWT.RIGHT);
+		fd_cmdRouteRemove.left = new FormAttachment(0, 334);
+		cmdRouteRemove.setLayoutData(fd_cmdRouteRemove);
 		cmdRouteRemove.setText("Remove");
 		cmdRouteRemove.setEnabled(false);
 		cmdRouteRemove.addSelectionListener(new SelectionAdapter() {
@@ -228,6 +229,7 @@ public class ConfigureRouterMediatorDialog extends Dialog {
 			}
 		});
 		Label label = new Label(container, SWT.SEPARATOR | SWT.HORIZONTAL);
+		fd_cmdRouteAdd.right = new FormAttachment(label, 0, SWT.RIGHT);
 		FormData fd_label = new FormData();
 		fd_label.right = new FormAttachment(100, -22);
 		fd_label.left = new FormAttachment(0, 10);
