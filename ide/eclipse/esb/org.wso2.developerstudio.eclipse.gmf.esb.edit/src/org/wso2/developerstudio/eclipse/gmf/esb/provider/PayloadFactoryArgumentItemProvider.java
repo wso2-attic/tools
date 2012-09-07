@@ -67,6 +67,7 @@ public class PayloadFactoryArgumentItemProvider
 
 			addArgumentTypePropertyDescriptor(object);
 			addArgumentValuePropertyDescriptor(object);
+			addArgumentExpressionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -111,6 +112,28 @@ public class PayloadFactoryArgumentItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Argument Expression feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addArgumentExpressionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_PayloadFactoryArgument_argumentExpression_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PayloadFactoryArgument_argumentExpression_feature", "_UI_PayloadFactoryArgument_type"),
+				 EsbPackage.Literals.PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_EXPRESSION,
+				 true,
+				 false,
+				 false,
+				 null,
 				 null,
 				 null));
 	}

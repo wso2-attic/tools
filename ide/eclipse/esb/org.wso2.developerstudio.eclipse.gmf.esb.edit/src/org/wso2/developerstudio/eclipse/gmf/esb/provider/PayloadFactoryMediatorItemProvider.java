@@ -57,15 +57,18 @@ public class PayloadFactoryMediatorItemProvider
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
-			super.getPropertyDescriptors(object);
-
-			addFormatPropertyDescriptor(object);
+		if (itemPropertyDescriptors != null) {
+			itemPropertyDescriptors.clear();
 		}
+		super.getPropertyDescriptors(object);
+
+		addFormatPropertyDescriptor(object);
+		addArgsPropertyDescriptor(object);
+
 		return itemPropertyDescriptors;
 	}
 
@@ -84,9 +87,31 @@ public class PayloadFactoryMediatorItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_PayloadFactoryMediator_format_feature", "_UI_PayloadFactoryMediator_type"),
 				 EsbPackage.Literals.PAYLOAD_FACTORY_MEDIATOR__FORMAT,
 				 true,
-				 false,
+				 true,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Args feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addArgsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_PayloadFactoryMediator_args_feature"),
+				 getString("_UI_PayloadFactoryMediator_args_description"),
+				 EsbPackage.Literals.PAYLOAD_FACTORY_MEDIATOR__ARGS,
+				 true,
+				 false,
+				 false,
+				 null,
 				 null,
 				 null));
 	}
@@ -138,12 +163,11 @@ public class PayloadFactoryMediatorItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		PayloadFactoryMediator payloadFactoryMediator = (PayloadFactoryMediator)object;
-		return getString("_UI_PayloadFactoryMediator_type") + " " + payloadFactoryMediator.isReverse();
+		return getString("_UI_PayloadFactoryMediator_type");
 	}
 
 	/**
