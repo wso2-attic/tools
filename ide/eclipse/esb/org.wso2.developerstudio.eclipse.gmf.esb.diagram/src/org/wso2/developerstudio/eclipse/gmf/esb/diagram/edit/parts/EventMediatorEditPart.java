@@ -354,7 +354,7 @@ public class EventMediatorEditPart extends FixedSizedAbstractMediator {
 		public String getNodeName() {
 			return "Event";
 		}
-		
+
 		public IFigure getToolTip() {
 			return new Label("Send event notifications to an event source");
 		}

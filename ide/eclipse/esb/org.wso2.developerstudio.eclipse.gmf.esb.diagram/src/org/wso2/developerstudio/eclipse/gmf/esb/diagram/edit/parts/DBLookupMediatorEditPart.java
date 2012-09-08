@@ -353,7 +353,7 @@ public class DBLookupMediatorEditPart extends FixedSizedAbstractMediator {
 		public String getNodeName() {
 			return "DBLookup";
 		}
-		
+
 		public IFigure getToolTip() {
 			return new Label("Retrieve information from a database");
 		}

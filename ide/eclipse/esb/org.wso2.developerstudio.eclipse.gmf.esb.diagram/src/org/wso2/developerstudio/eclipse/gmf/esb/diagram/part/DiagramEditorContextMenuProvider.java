@@ -167,10 +167,10 @@ public class DiagramEditorContextMenuProvider extends
 
 		contextActions.put(CallTemplateMediator.class,
 				new ConfigureCallTemplateMediatorAction(part));
-		
+
 		contextActions.put(RouterMediator.class,
 				new ConfigureRouterMediatorAction(part));
-		
+
 		contextActions.put(ConditionalRouterMediator.class,
 				new ConfigureConditionalRouterMediatorAction(part));
 

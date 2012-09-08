@@ -353,7 +353,7 @@ public class CalloutMediatorEditPart extends FixedSizedAbstractMediator {
 		public String getNodeName() {
 			return "Callout";
 		}
-		
+
 		public IFigure getToolTip() {
 			return new Label("Blocking web services calls");
 		}

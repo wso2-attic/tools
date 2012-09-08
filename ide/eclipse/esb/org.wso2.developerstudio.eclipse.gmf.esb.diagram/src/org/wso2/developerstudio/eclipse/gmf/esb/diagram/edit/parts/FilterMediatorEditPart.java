@@ -415,9 +415,10 @@ public class FilterMediatorEditPart extends complexFiguredAbstractMediator {
 		public String getNodeName() {
 			return "Filter";
 		}
-		
+
 		public IFigure getToolTip() {
-			return new Label("Filter a messages using XPath, If else kind of logic");
+			return new Label(
+					"Filter a messages using XPath, If else kind of logic");
 		}
 
 	}

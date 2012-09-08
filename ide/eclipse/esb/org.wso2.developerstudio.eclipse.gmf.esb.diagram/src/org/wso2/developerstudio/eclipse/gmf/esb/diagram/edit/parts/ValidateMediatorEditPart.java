@@ -343,7 +343,7 @@ public class ValidateMediatorEditPart extends complexFiguredAbstractMediator {
 		public String getNodeName() {
 			return "Validate";
 		}
-		
+
 		public IFigure getToolTip() {
 			return new Label("Schema validation for messages");
 		}

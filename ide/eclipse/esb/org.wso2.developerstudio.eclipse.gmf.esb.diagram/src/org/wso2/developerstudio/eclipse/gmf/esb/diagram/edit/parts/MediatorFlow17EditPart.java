@@ -36,7 +36,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.MediatorFl
 public class MediatorFlow17EditPart extends ShapeNodeEditPart {
 
 	//Rule Mediator
-	
+
 	/**
 	 * @generated
 	 */
@@ -142,7 +142,7 @@ public class MediatorFlow17EditPart extends ShapeNodeEditPart {
 				.getParent().getParent()));
 		super.addChildVisual(childEditPart, -1);
 	}
-	
+
 	/**
 	 * Creates figure for this edit part.
 	 * 
@@ -184,7 +184,7 @@ public class MediatorFlow17EditPart extends ShapeNodeEditPart {
 		}
 		return super.getContentPane();
 	}
-	
+
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
 		if (editPart instanceof ResizableCompartmentEditPart) {
 			// Compartment should be added to the primary shape.
@@ -252,7 +252,7 @@ public class MediatorFlow17EditPart extends ShapeNodeEditPart {
 			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(5000),
 					getMapMode().DPtoLP(4000)));
 		}
-		
+
 		public void add(IFigure figure, Object constraint, int index) {
 			if (figure instanceof ResizableCompartmentFigure) {
 				GridData layoutData = new GridData();
@@ -267,7 +267,7 @@ public class MediatorFlow17EditPart extends ShapeNodeEditPart {
 		}
 
 	}
-	
+
 	public boolean isSelectable() {
 		// TODO This or using ResizableEditpolicy?
 		return false;

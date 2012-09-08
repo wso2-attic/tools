@@ -354,7 +354,7 @@ public class EntitlementMediatorEditPart extends FixedSizedAbstractMediator {
 		public String getNodeName() {
 			return "Entitlement";
 		}
-		
+
 		public IFigure getToolTip() {
 			return new Label("Fine grain authorization");
 		}

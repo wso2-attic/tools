@@ -353,7 +353,7 @@ public class ClassMediatorEditPart extends FixedSizedAbstractMediator {
 		public String getNodeName() {
 			return "Class";
 		}
-		
+
 		public IFigure getToolTip() {
 			return new Label("Create and execute a custom mediator");
 		}

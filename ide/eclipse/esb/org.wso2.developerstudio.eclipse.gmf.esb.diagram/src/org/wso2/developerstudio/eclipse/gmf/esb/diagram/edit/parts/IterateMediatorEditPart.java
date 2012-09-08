@@ -405,7 +405,7 @@ public class IterateMediatorEditPart extends complexFiguredAbstractMediator {
 		public String getNodeName() {
 			return "Iterate";
 		}
-		
+
 		public IFigure getToolTip() {
 			return new Label("Splits a message");
 		}

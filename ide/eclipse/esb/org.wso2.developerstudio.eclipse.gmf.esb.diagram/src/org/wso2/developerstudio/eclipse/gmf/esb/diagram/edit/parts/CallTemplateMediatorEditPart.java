@@ -325,7 +325,7 @@ public class CallTemplateMediatorEditPart extends FixedSizedAbstractMediator {
 		public String getNodeName() {
 			return "CallTemplate";
 		}
-		
+
 		public IFigure getToolTip() {
 			return new Label("CallTemplate");
 		}

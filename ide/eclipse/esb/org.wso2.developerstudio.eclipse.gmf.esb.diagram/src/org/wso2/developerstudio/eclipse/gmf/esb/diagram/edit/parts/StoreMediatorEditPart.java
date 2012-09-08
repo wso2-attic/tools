@@ -338,9 +338,10 @@ public class StoreMediatorEditPart extends FixedSizedAbstractMediator {
 		public String getNodeName() {
 			return "Store";
 		}
-		
+
 		public IFigure getToolTip() {
-			return new Label("Create Mediator to Store messages in a Message store");
+			return new Label(
+					"Create Mediator to Store messages in a Message store");
 		}
 
 	}

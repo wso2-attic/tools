@@ -362,7 +362,7 @@ public class XQueryMediatorEditPart extends FixedSizedAbstractMediator {
 		public String getNodeName() {
 			return "XQuery";
 		}
-		
+
 		public IFigure getToolTip() {
 			return new Label("XQuey");
 		}

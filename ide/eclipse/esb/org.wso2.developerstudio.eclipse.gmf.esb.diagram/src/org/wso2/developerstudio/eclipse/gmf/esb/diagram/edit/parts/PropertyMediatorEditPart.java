@@ -756,9 +756,10 @@ public class PropertyMediatorEditPart extends FixedSizedAbstractMediator {
 		public String getNodeName() {
 			return "Property";
 		}
-		
+
 		public IFigure getToolTip() {
-			return new Label("Set or remove properties associated with the message");
+			return new Label(
+					"Set or remove properties associated with the message");
 		}
 
 	}

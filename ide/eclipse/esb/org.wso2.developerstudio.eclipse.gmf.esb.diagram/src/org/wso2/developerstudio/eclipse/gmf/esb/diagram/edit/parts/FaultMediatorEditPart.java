@@ -363,7 +363,7 @@ public class FaultMediatorEditPart extends FixedSizedAbstractMediator {
 		public String getNodeName() {
 			return "Fault";
 		}
-		
+
 		public IFigure getToolTip() {
 			return new Label("Create SOAP Faults");
 		}

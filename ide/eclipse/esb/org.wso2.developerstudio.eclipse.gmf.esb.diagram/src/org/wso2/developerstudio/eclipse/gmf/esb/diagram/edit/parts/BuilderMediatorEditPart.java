@@ -333,7 +333,7 @@ public class BuilderMediatorEditPart extends FixedSizedAbstractMediator {
 		public String getNodeName() {
 			return "Builder";
 		}
-		
+
 		public IFigure getToolTip() {
 			return new Label("Builder");
 		}

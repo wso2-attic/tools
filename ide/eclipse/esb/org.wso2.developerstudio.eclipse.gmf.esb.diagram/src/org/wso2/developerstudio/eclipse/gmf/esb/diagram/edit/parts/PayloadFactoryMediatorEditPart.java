@@ -325,7 +325,7 @@ public class PayloadFactoryMediatorEditPart extends FixedSizedAbstractMediator {
 		public String getNodeName() {
 			return "PayloadFactory";
 		}
-		
+
 		public IFigure getToolTip() {
 			return new Label("PayloadFactory");
 		}

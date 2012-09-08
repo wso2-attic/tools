@@ -353,7 +353,7 @@ public class HeaderMediatorEditPart extends FixedSizedAbstractMediator {
 		public String getNodeName() {
 			return "Header";
 		}
-		
+
 		public IFigure getToolTip() {
 			return new Label("Sets or remove SOAP headers");
 		}

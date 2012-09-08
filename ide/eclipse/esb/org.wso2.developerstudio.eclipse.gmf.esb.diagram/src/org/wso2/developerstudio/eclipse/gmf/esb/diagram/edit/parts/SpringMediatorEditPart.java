@@ -353,7 +353,7 @@ public class SpringMediatorEditPart extends FixedSizedAbstractMediator {
 		public String getNodeName() {
 			return "Spring";
 		}
-		
+
 		public IFigure getToolTip() {
 			return new Label("Create a mediator managed by Spring");
 		}

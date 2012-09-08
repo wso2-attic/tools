@@ -289,7 +289,7 @@ public class EnqueueMediatorEditPart extends FixedSizedAbstractMediator {
 		public String getNodeName() {
 			return "Enqueue";
 		}
-		
+
 		public IFigure getToolTip() {
 			return new Label("Create a enqueue meadiator");
 		}

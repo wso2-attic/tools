@@ -46,7 +46,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry
 public class RuleMediatorEditPart extends complexFiguredAbstractMediator {
 
 	public IFigure childMediatorsOutputConnector;
-	
+
 	/**
 	 * @generated
 	 */
@@ -188,7 +188,7 @@ public class RuleMediatorEditPart extends complexFiguredAbstractMediator {
 		}
 		super.addChildVisual(childEditPart, -1);
 	}
-	
+
 	protected NodeFigure createNodePlate() {
 		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
 		return result;
@@ -242,7 +242,7 @@ public class RuleMediatorEditPart extends complexFiguredAbstractMediator {
 		}
 		return getContentPane();
 	}
-	
+
 	/**
 	 * @generated
 	 */
@@ -308,7 +308,7 @@ public class RuleMediatorEditPart extends complexFiguredAbstractMediator {
 			this.setBackgroundColor(THIS_BACK);
 			createContents();
 		}
-		
+
 		public void add(IFigure figure, Object constraint, int index) {
 			if (figure instanceof DefaultSizeNodeFigure) {
 				GridData layoutData = new GridData();
@@ -356,7 +356,7 @@ public class RuleMediatorEditPart extends complexFiguredAbstractMediator {
 		public String getNodeName() {
 			return "Rule";
 		}
-		
+
 		public IFigure getToolTip() {
 			return new Label("Executes Rules");
 		}

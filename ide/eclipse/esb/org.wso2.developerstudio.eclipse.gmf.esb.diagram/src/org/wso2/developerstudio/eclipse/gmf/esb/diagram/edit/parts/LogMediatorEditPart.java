@@ -354,7 +354,7 @@ public class LogMediatorEditPart extends FixedSizedAbstractMediator {
 		public String getNodeName() {
 			return "Log";
 		}
-		
+
 		public IFigure getToolTip() {
 			return new Label("Logs a message");
 		}

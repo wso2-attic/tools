@@ -299,7 +299,7 @@ public class RMSequenceMediatorEditPart extends FixedSizedAbstractMediator {
 		public String getNodeName() {
 			return "RMSequence";
 		}
-		
+
 		public IFigure getToolTip() {
 			return new Label("Reliable messaging");
 		}

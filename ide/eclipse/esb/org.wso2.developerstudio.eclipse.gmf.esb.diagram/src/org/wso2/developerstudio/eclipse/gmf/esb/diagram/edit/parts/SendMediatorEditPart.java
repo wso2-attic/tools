@@ -346,7 +346,7 @@ public class SendMediatorEditPart extends FixedSizedAbstractMediator {
 		public String getNodeName() {
 			return "Send";
 		}
-		
+
 		public IFigure getToolTip() {
 			return new Label("Send a message out");
 		}

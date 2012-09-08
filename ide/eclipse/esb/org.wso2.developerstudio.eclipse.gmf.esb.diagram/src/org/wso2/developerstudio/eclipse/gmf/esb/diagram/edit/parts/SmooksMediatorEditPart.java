@@ -298,7 +298,7 @@ public class SmooksMediatorEditPart extends FixedSizedAbstractMediator {
 		public String getNodeName() {
 			return "Smooks";
 		}
-		
+
 		public IFigure getToolTip() {
 			return new Label("Create a smooks meadiator");
 		}

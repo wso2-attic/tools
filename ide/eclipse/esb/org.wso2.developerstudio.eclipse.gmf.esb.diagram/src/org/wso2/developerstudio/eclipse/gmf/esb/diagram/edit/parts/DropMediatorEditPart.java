@@ -600,7 +600,7 @@ public class DropMediatorEditPart extends FixedSizedAbstractMediator {
 		public String getNodeName() {
 			return "Drop";
 		}
-		
+
 		public IFigure getToolTip() {
 			return new Label("Drops a message");
 		}

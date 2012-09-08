@@ -195,7 +195,7 @@ public class RouterMediatorEditPart extends complexFiguredAbstractMediator {
 			return;
 		}
 		super.addChildVisual(childEditPart, -1);
-		
+
 		if (childEditPart instanceof RouterMediatorTargetOutputConnectorEditPart) {
 			if (this.reversed) {
 				RouterMediatorUtils.reorderWhenRevered(this);
@@ -203,10 +203,8 @@ public class RouterMediatorEditPart extends complexFiguredAbstractMediator {
 				RouterMediatorUtils.reorderWhenForward(this);
 			}
 		}
-		
+
 	}
-	
-	
 
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
 		if (editPart instanceof IBorderItemEditPart) {
@@ -375,7 +373,7 @@ public class RouterMediatorEditPart extends complexFiguredAbstractMediator {
 		public String getNodeName() {
 			return "Router";
 		}
-		
+
 		public IFigure getToolTip() {
 			return new Label("Route messages based on XPath filtering");
 		}

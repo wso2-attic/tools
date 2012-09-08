@@ -404,7 +404,7 @@ public class ThrottleMediatorEditPart extends AbstractMediator {
 		public String getNodeName() {
 			return "Throttle";
 		}
-		
+
 		public IFigure getToolTip() {
 			return new Label("Limit the number of messages");
 		}

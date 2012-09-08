@@ -371,7 +371,7 @@ public class EsbServerEditPart extends AbstractBorderedShapeEditPart {
 		}
 
 	}
-	
+
 	public boolean isSelectable() {
 		return false;
 	}

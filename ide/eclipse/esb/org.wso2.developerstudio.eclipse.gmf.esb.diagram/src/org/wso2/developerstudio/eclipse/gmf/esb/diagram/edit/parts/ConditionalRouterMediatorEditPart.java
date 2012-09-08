@@ -338,7 +338,7 @@ public class ConditionalRouterMediatorEditPart extends
 		public String getNodeName() {
 			return "Condit...";
 		}
-		
+
 		public IFigure getToolTip() {
 			return new Label("Route messages based on 'Condition'");
 		}

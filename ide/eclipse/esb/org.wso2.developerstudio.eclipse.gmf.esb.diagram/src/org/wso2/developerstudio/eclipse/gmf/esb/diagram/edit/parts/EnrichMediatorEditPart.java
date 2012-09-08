@@ -352,7 +352,7 @@ public class EnrichMediatorEditPart extends FixedSizedAbstractMediator {
 		public String getNodeName() {
 			return "Enrich";
 		}
-		
+
 		public IFigure getToolTip() {
 			return new Label("Enriches a message");
 		}

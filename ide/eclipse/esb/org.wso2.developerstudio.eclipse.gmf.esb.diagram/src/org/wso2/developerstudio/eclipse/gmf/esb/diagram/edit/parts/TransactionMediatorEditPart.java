@@ -302,7 +302,7 @@ public class TransactionMediatorEditPart extends FixedSizedAbstractMediator {
 		public String getNodeName() {
 			return "Transaction";
 		}
-		
+
 		public IFigure getToolTip() {
 			return new Label("Executes a set of mediators transactionally");
 		}

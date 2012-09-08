@@ -353,7 +353,7 @@ public class DBReportMediatorEditPart extends FixedSizedAbstractMediator {
 		public String getNodeName() {
 			return "DBReport";
 		}
-		
+
 		public IFigure getToolTip() {
 			return new Label("Writes data to a database");
 		}

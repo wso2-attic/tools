@@ -389,7 +389,7 @@ public class SwitchMediatorEditPart extends complexFiguredAbstractMediator {
 		public String getNodeName() {
 			return "Switch";
 		}
-		
+
 		public IFigure getToolTip() {
 			return new Label("Filter messages using XPath, Switch logic");
 		}

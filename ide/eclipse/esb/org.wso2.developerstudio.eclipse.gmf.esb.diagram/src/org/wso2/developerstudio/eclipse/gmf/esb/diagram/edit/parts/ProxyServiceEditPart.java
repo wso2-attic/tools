@@ -74,7 +74,7 @@ public class ProxyServiceEditPart extends AbstractBorderedShapeEditPart {
 	public IFigure outputConnectorFigure;
 
 	public IFigure faultInputnputConnectorFigure;
-	
+
 	/**
 	 * @generated
 	 */
@@ -140,8 +140,10 @@ public class ProxyServiceEditPart extends AbstractBorderedShapeEditPart {
 	public void notifyChanged(Notification notification) {
 		super.notifyChanged(notification);
 		if (notification.getFeature() instanceof EAttributeImpl) {
-			if(notification.getNotifier() instanceof BoundsImpl){				
-				alignLeft(((BoundsImpl)notification.getNotifier()).getY(),((BoundsImpl)notification.getNotifier()).getWidth(),((BoundsImpl)notification.getNotifier()).getHeight());
+			if (notification.getNotifier() instanceof BoundsImpl) {
+				alignLeft(((BoundsImpl) notification.getNotifier()).getY(),
+						((BoundsImpl) notification.getNotifier()).getWidth(),
+						((BoundsImpl) notification.getNotifier()).getHeight());
 			}
 		}
 	}
@@ -150,7 +152,7 @@ public class ProxyServiceEditPart extends AbstractBorderedShapeEditPart {
 	 * @generated NOT
 	 */
 	protected IFigure createNodeShape() {
-		return primaryShape = new ProxyServiceFigure(){
+		return primaryShape = new ProxyServiceFigure() {
 			public void setBounds(org.eclipse.draw2d.geometry.Rectangle rect) {
 				super.setBounds(rect);
 				if (this.getBounds().getLocation().x != 0
@@ -160,14 +162,16 @@ public class ProxyServiceEditPart extends AbstractBorderedShapeEditPart {
 			};
 		};
 	}
-	
-	private void alignLeft(){
-		alignLeft(getFigure().getBounds().y,getFigure().getBounds().width,getFigure().getBounds().height);
+
+	private void alignLeft() {
+		alignLeft(getFigure().getBounds().y, getFigure().getBounds().width,
+				getFigure().getBounds().height);
 	}
-	
-	private void alignLeft(int y, int width, int height){
-		Rectangle constraints = new Rectangle(0, y,width,height);
-		((GraphicalEditPart) getParent()).setLayoutConstraint(this,	getFigure(), constraints);
+
+	private void alignLeft(int y, int width, int height) {
+		Rectangle constraints = new Rectangle(0, y, width, height);
+		((GraphicalEditPart) getParent()).setLayoutConstraint(this,
+				getFigure(), constraints);
 	}
 
 	/**

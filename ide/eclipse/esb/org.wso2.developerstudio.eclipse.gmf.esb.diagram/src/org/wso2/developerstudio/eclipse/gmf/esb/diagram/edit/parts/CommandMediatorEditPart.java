@@ -353,7 +353,7 @@ public class CommandMediatorEditPart extends FixedSizedAbstractMediator {
 		public String getNodeName() {
 			return "Command";
 		}
-		
+
 		public IFigure getToolTip() {
 			return new Label("Executes a custom command");
 		}

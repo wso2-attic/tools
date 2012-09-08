@@ -353,9 +353,10 @@ public class ScriptMediatorEditPart extends FixedSizedAbstractMediator {
 		public String getNodeName() {
 			return "Script";
 		}
-		
+
 		public IFigure getToolTip() {
-			return new Label("Executes a mediator written in a Scripting language");
+			return new Label(
+					"Executes a mediator written in a Scripting language");
 		}
 
 	}

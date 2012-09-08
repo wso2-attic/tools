@@ -294,7 +294,7 @@ public class XSLTMediatorEditPart extends FixedSizedAbstractMediator {
 		public String getNodeName() {
 			return "XSLT";
 		}
-		
+
 		public IFigure getToolTip() {
 			return new Label("XSLT transformations");
 		}

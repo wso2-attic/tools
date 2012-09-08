@@ -401,9 +401,10 @@ public class CacheMediatorEditPart extends AbstractMediator {
 		public String getNodeName() {
 			return "Cache";
 		}
-		
+
 		public IFigure getToolTip() {
-			return new Label("Evaluate messages based on weather the same message came to the ESB");
+			return new Label(
+					"Evaluate messages based on weather the same message came to the ESB");
 		}
 
 	}

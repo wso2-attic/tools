@@ -353,7 +353,7 @@ public class OAuthMediatorEditPart extends FixedSizedAbstractMediator {
 		public String getNodeName() {
 			return "OAuth";
 		}
-		
+
 		public IFigure getToolTip() {
 			return new Label("2-legged OAuth support");
 		}

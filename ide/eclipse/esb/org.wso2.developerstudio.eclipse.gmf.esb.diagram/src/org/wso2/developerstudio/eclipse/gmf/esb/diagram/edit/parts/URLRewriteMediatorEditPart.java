@@ -302,7 +302,7 @@ public class URLRewriteMediatorEditPart extends FixedSizedAbstractMediator {
 		public String getNodeName() {
 			return "URLRewrite";
 		}
-		
+
 		public IFigure getToolTip() {
 			return new Label("URLRewrite");
 		}
