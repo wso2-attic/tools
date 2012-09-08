@@ -1513,6 +1513,21 @@
                                   href="esb.gmfgraph#RuleMediatorOutputConnector"/>
                             </ownedChild>
                           </children>
+                          <children>
+                            <containmentFeature
+                                href="esb.ecore#//RuleMediator/childMediatorsOutputConnector"/>
+                            <ownedChild>
+                              <domainMetaElement
+                                  href="esb.ecore#//RuleMediatorChildMediatorsOutputConnector"/>
+                              <diagramNode
+                                  href="esb.gmfgraph#RuleMediatorChildMediatorsOutputConnector"/>
+                            </ownedChild>
+                          </children>
+                          <children
+                              referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild">
+                            <containmentFeature
+                                href="esb.ecore#//RuleMediator/mediatorFlow"/>
+                          </children>
                         </ownedChild>
                       </children>
                       <children

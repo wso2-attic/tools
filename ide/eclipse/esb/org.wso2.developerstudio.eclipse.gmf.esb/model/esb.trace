@@ -784,6 +784,16 @@
         visualID="7039"
         queryText="true"/>
   </childNodeTraces>
+  <childNodeTraces
+      visualID="3640"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'RuleMediatorChildMediatorsOutputConnector') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'RuleMediator') and _containmentMF_.name = 'childMediatorsOutputConnector')"/>
+  <childNodeTraces
+      visualID="3641"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'MediatorFlow') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'RuleMediator') and _containmentMF_.name = 'mediatorFlow')">
+    <compartmentTraces
+        visualID="7040"
+        queryText="true"/>
+  </childNodeTraces>
   <linkTraces
       visualID="4001"
       queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http:///org/wso2/developerstudio/eclipse/gmf/esb' and _eClass_.name = 'EsbLink')"/>

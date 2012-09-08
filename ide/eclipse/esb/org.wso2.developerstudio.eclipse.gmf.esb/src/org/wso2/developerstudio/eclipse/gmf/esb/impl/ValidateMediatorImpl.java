@@ -129,12 +129,6 @@ public class ValidateMediatorImpl extends MediatorImpl implements ValidateMediat
 	 */
 	protected ValidateMediatorImpl() {
 		super();
-		
-		NamespacedProperty sourceXPath = EsbFactoryImpl.eINSTANCE.createNamespacedProperty();
-		sourceXPath.setPrettyName("Source XPath");
-		sourceXPath.setPropertyName("source");
-		setSourceXpath(sourceXPath);
-		
 	}
 
 	/**

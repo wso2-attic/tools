@@ -2146,6 +2146,10 @@
       name="ConditionalRouterMediatorAdditionalOutputConnector"
       figure="EastPointerFigure"
       affixedParentSide="EAST"/>
+  <nodes
+      name="RuleMediatorChildMediatorsOutputConnector"
+      figure="EastPointerFigure"
+      affixedParentSide="EAST"/>
   <connections
       name="EsbLink"
       figure="PlainConnectionFigure"/>

@@ -2555,6 +2555,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 		RuleMediatorImpl ruleMediator = new RuleMediatorImpl();
 		ruleMediator.setInputConnector(createRuleMediatorInputConnector());
 		ruleMediator.setOutputConnector(createRuleMediatorOutputConnector());
+		ruleMediator.setChildMediatorsOutputConnector(createRuleMediatorChildMediatorsOutputConnector());
+		ruleMediator.setMediatorFlow(createMediatorFlow());
 		return ruleMediator;
 	}
 
