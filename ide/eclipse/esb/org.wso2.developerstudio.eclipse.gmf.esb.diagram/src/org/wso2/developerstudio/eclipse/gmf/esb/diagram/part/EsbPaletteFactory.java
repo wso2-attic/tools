@@ -60,14 +60,14 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementType
 public class EsbPaletteFactory {
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	public void fillPalette(PaletteRoot paletteRoot) {
 		paletteRoot.add(createNodes1Group());
 		paletteRoot.add(createMediators2Group());
 		paletteRoot.add(createEndPoints3Group());
 		paletteRoot.add(createLinks4Group());
-		paletteRoot.add(createHelpers5Group());
+		//paletteRoot.add(createHelpers5Group());
 	}
 
 	/**

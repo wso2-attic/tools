@@ -33,10 +33,11 @@ public class MediatorFlowMediatorFlowCompartment17EditPart extends
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	public String getCompartmentName() {
-		return Messages.MediatorFlowMediatorFlowCompartment17EditPart_title;
+		//return Messages.MediatorFlowMediatorFlowCompartment17EditPart_title;
+		return "Child Mediators";
 	}
 
 	public IFigure createFigure() {
