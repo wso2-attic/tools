@@ -26,17 +26,17 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.ISharedImages;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PlatformUI;
-import org.wso2.developerstudio.eclipse.gmf.esb.RouterMediator;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.ui.ConfigureRouterMediatorDialog;
+import org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.ui.ConfigurePayloadFactoryMediatorDialog;
 
-public class ConfigureRouterMediatorAction extends ConfigureEsbNodeAction{
+public class ConfigurePayloadFactoryMediatorAction extends ConfigureEsbNodeAction{
 
 	
-	public ConfigureRouterMediatorAction(IWorkbenchPart part) {
+	public ConfigurePayloadFactoryMediatorAction(IWorkbenchPart part) {
 		super(part);
-		setId("configure-router-mediator-action-id");
+		setId("configure-payloadfactory-mediator-action-id");
 		setText("Configure...");
-		setToolTipText("Configure Router mediator.");
+		setToolTipText("Configure PayloadFactory mediator.");
 		ISharedImages workbenchImages = PlatformUI.getWorkbench().getSharedImages();		
 		setImageDescriptor(workbenchImages.getImageDescriptor(ISharedImages.IMG_TOOL_NEW_WIZARD));
 	}
@@ -46,11 +46,11 @@ public class ConfigureRouterMediatorAction extends ConfigureEsbNodeAction{
 		Assert.isNotNull(selectedEP, "Empty selection.");
 		
 		EObject selectedObj = ((View) selectedEP.getModel()).getElement();
-		Assert.isTrue(selectedObj instanceof RouterMediator, "Invalid selection.");
+		Assert.isTrue(selectedObj instanceof PayloadFactoryMediator, "Invalid selection.");
 
 		Display display = Display.getDefault();
 		Shell shell = new Shell(display);		
-		ConfigureRouterMediatorDialog configurationDialog = new ConfigureRouterMediatorDialog(shell,  (RouterMediator) selectedObj,
+		ConfigurePayloadFactoryMediatorDialog configurationDialog = new ConfigurePayloadFactoryMediatorDialog(shell,  (PayloadFactoryMediator) selectedObj,
 				getEditingDomain());
 		configurationDialog.setBlockOnOpen(true);
 		configurationDialog.open();
