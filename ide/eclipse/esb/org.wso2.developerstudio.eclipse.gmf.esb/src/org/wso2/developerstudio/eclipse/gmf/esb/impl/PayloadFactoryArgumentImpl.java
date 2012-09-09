@@ -60,10 +60,10 @@ public class PayloadFactoryArgumentImpl extends EsbNodeImpl implements PayloadFa
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getArgumentValue()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
-	protected static final String ARGUMENT_VALUE_EDEFAULT = null;
+	protected static final String ARGUMENT_VALUE_EDEFAULT = "default";
 
 	/**
 	 * The cached value of the '{@link #getArgumentValue() <em>Argument Value</em>}' attribute.
@@ -88,10 +88,15 @@ public class PayloadFactoryArgumentImpl extends EsbNodeImpl implements PayloadFa
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected PayloadFactoryArgumentImpl() {
 		super();
+		NamespacedProperty argumentExpression = EsbFactoryImpl.eINSTANCE.createNamespacedProperty();
+		argumentExpression.setPrettyName("Argument Expression");
+		argumentExpression.setPropertyName("Argument Expression");
+		argumentExpression.setPropertyValue("/default/expression");
+		setArgumentExpression(argumentExpression);
 	}
 
 	/**

@@ -98,7 +98,7 @@ public class PayloadFactoryMediatorItemProvider
 	 * This adds a property descriptor for the Args feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addArgsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
@@ -106,7 +106,7 @@ public class PayloadFactoryMediatorItemProvider
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
 				 getString("_UI_PayloadFactoryMediator_args_feature"),
-				 getString("_UI_PayloadFactoryMediator_args_description"),
+				 "Arguments",
 				 EsbPackage.Literals.PAYLOAD_FACTORY_MEDIATOR__ARGS,
 				 true,
 				 false,
