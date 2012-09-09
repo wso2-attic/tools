@@ -17,7 +17,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.ValidateSchema;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
 
 public class ValidateMediatorTransformer  extends AbstractEsbNodeTransformer {
-
+	
 	public void transform(TransformationInfo information, EsbNode subject)
 			throws Exception {
 		information.getParentSequence().addChild(createValidateMediator(subject, information));
@@ -88,9 +88,16 @@ public class ValidateMediatorTransformer  extends AbstractEsbNodeTransformer {
 			}
 		}
 		validateMediator.setSchemaKeys(valueList);
-
+	
+		//TODO implement feature transformation logic
+		
+		/*for(ValidateFeature feature : visualValidateMediator.getFeatures()){
+			
+			System.out.println(feature.getFeatureName()+" "+ feature.isFeatureEnabled());
+	        validateMediator.addFeature("test", feature.isFeatureEnabled());
+			
+		}*/
+		
 		return validateMediator;
-
 	}
-
 }

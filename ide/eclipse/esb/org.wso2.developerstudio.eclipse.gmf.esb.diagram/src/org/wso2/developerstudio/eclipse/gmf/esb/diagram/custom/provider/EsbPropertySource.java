@@ -11,7 +11,7 @@ import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 
 public class EsbPropertySource extends PropertySource {
-	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
+	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
 
 	public EsbPropertySource(Object object,
 			IItemPropertySource itemPropertySource) {
@@ -174,12 +174,12 @@ public class EsbPropertySource extends PropertySource {
 			
 		}else if(pkg.getValidateMediator_Schemas().equals(feature)){
 			
-			return new ValidateSchemasPropertyDescriptor(object,itemPropertyDescriptor);
+			return new ValidateSchemasPropertyDescriptor(object, itemPropertyDescriptor);
 			
-		}/*else if(pkg.getValidateMediator_Features().equals(feature)){
+		}else if(pkg.getValidateMediator_Features().equals(feature)){
 			
-			
-		}*/
+			return new ValidateFeaturePropertyDescriptor(object, itemPropertyDescriptor);
+		}
 			
 		// Else, default EMF behavior
 		else {

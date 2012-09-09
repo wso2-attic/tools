@@ -9,11 +9,11 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.wso2.developerstudio.eclipse.gmf.esb.ValidateMediator;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.ui.ValidateSchemasDialog;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.ui.ValidateFeatureDialog;
 
-public class ValidateSchemasPropertyDescriptor extends PropertyDescriptor {
+public class ValidateFeaturePropertyDescriptor extends PropertyDescriptor {
 
-	public ValidateSchemasPropertyDescriptor(Object object,
+	public ValidateFeaturePropertyDescriptor(Object object,
 			IItemPropertyDescriptor itemPropertyDescriptor) {
 		super(object, itemPropertyDescriptor);
 		
@@ -27,9 +27,10 @@ public class ValidateSchemasPropertyDescriptor extends PropertyDescriptor {
 				Shell shell = new Shell(display);
 				
 				ValidateMediator  validateMediator = (ValidateMediator)object;
-				ValidateSchemasDialog schemadialog = new ValidateSchemasDialog(shell,validateMediator);
-				schemadialog.setBlockOnOpen(true);
-				schemadialog.open();
+
+				ValidateFeatureDialog featureDialog = new ValidateFeatureDialog(shell,validateMediator);
+				featureDialog.setBlockOnOpen(true);
+				featureDialog.open();
 				return null;
 			}
 		};
