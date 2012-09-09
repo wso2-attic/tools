@@ -41,41 +41,41 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.provider.NamedEnt
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.provider.RegistryKeyPropertyEditorDialog;
 
 public class ValidateSchemasDialog extends Dialog {
-	
+
 	private Shell parentShell;
-	
+
 	private Table schemaTable;
-	
+
 	private Button addBtn;
-	
+
 	private Button removeBtn;
-	
+
 	private TableEditor typeEditor;
-	
+
 	private TableEditor keyEditor;
-	
+
 	private Combo cmbType;
-	
+
 	private Text keyText;
-	
+
 	private ValidateMediator validateMediatoer;
-	
+
 	private TransactionalEditingDomain editingDomain;
-	
+
 	private CompoundCommand resultCommand;
-	
-	
-	public ValidateSchemasDialog(Shell parentShell,ValidateMediator validateMediator) {
+
+	public ValidateSchemasDialog(Shell parentShell,
+			ValidateMediator validateMediator) {
 		super(parentShell);
-		
+
 		this.validateMediatoer = validateMediator;
 		this.editingDomain = TransactionUtil.getEditingDomain(validateMediator);
 		this.parentShell = parentShell;
-		
+
 	}
-	
+
 	protected Control createDialogArea(Composite parent) {
-		
+
 		Composite container = (Composite) super.createDialogArea(parent);
 		container.setSize(SWT.DEFAULT, 1000);
 
@@ -91,34 +91,33 @@ public class ValidateSchemasDialog extends Dialog {
 
 		TableColumn keyTypeColumn = new TableColumn(schemaTable, SWT.LEFT);
 		TableColumn staticKey = new TableColumn(schemaTable, SWT.LEFT);
-		
+
 		keyTypeColumn.setText("Key Type");
 		keyTypeColumn.setWidth(150);
-		
+
 		staticKey.setText("Schema Key");
 		staticKey.setWidth(150);
-		
+
 		schemaTable.setHeaderVisible(true);
 		schemaTable.setLinesVisible(true);
-		
+
 		addBtn = new Button(container, SWT.NONE);
 		addBtn.setText("Add...");
 		addBtn.addListener(SWT.Selection, new Listener() {
-			
-			
+
 			public void handleEvent(Event event) {
-				
-				TableItem item = bindSchema(EsbFactory.eINSTANCE.createValidateSchema());
+
+				TableItem item = bindSchema(EsbFactory.eINSTANCE
+						.createValidateSchema());
 				schemaTable.select(schemaTable.indexOf(item));
-				
+
 			}
 		});
-		
+
 		removeBtn = new Button(container, SWT.NONE);
 		removeBtn.setText("Remove");
 		removeBtn.addListener(SWT.Selection, new Listener() {
-			
-			
+
 			public void handleEvent(Event event) {
 				int selectedIndex = schemaTable.getSelectionIndex();
 				if (-1 != selectedIndex) {
@@ -132,16 +131,16 @@ public class ValidateSchemasDialog extends Dialog {
 						schemaTable.select(selectedIndex - 1);
 					}
 				}
-				
+
 			}
 		});
-		
+
 		Listener policyEntryTableListner = new Listener() {
 
 			public void handleEvent(Event evt) {
 				if (null != evt.item) {
 					if (evt.item instanceof TableItem) {
-						
+
 						TableItem item = (TableItem) evt.item;
 						editItem(item);
 
@@ -149,48 +148,48 @@ public class ValidateSchemasDialog extends Dialog {
 				}
 			}
 		};
-		
+
 		schemaTable.addListener(SWT.Selection, policyEntryTableListner);
-		
-		for(ValidateSchema schema: validateMediatoer.getSchemas()){
-			
+
+		for (ValidateSchema schema : validateMediatoer.getSchemas()) {
+
 			bindSchema(schema);
 		}
-		
+
 		setupTableEditor(schemaTable);
-		
+
 		// Layout related configurations
 		FormData schemaTableLayoutData = new FormData(SWT.DEFAULT, 150);
 		schemaTableLayoutData.top = new FormAttachment(0, 0);
 		schemaTableLayoutData.left = new FormAttachment(0, 0);
 		schemaTable.setLayoutData(schemaTableLayoutData);
-		
+
 		FormData frmData = new FormData();
-		frmData.left = new FormAttachment(schemaTable,5);
-		frmData.right = new FormAttachment(100,0);
-	    addBtn.setLayoutData(frmData);
-	    
-	    frmData = new FormData();
-	    frmData.top = new FormAttachment(addBtn,5);
-	    frmData.left = new FormAttachment(schemaTable,5);
-	    removeBtn.setLayoutData(frmData);
-		 
+		frmData.left = new FormAttachment(schemaTable, 5);
+		frmData.right = new FormAttachment(100, 0);
+		addBtn.setLayoutData(frmData);
+
+		frmData = new FormData();
+		frmData.top = new FormAttachment(addBtn, 5);
+		frmData.left = new FormAttachment(schemaTable, 5);
+		removeBtn.setLayoutData(frmData);
+
 		return parent;
-		
+
 	}
-	
-	
-	private TableItem bindSchema(ValidateSchema schema){
-		
-		TableItem item = new TableItem(schemaTable, SWT.NONE);		
-		item.setText(new String [] {schema.getValidateSchemaKeyType().toString(),
-				schema.getValidateStaticSchemaKey().getKeyValue()});
-		
+
+	private TableItem bindSchema(ValidateSchema schema) {
+
+		TableItem item = new TableItem(schemaTable, SWT.NONE);
+		item.setText(new String[] {
+				schema.getValidateSchemaKeyType().toString(),
+				schema.getValidateStaticSchemaKey().getKeyValue() });
+
 		item.setData(schema);
 		return item;
-		
+
 	}
-	
+
 	private void unbindSchema(int itemIndex) {
 
 		TableItem item = schemaTable.getItem(itemIndex);
@@ -209,34 +208,37 @@ public class ValidateSchemasDialog extends Dialog {
 		schemaTable.remove(schemaTable.indexOf(item));
 
 	}
-	
-	
+
 	private CompoundCommand getResultCommand() {
 		if (null == resultCommand) {
 			resultCommand = new CompoundCommand();
 		}
 		return resultCommand;
 	}
-	
+
 	private void editItem(final TableItem item) {
-		
-		typeEditor = initTableEditor(typeEditor,item.getParent());
-	    keyEditor = initTableEditor(keyEditor, item.getParent());
-		
+
+		ValidateSchema schema = (ValidateSchema) item.getData();
+
+		typeEditor = initTableEditor(typeEditor, item.getParent());
+		keyEditor = initTableEditor(keyEditor, item.getParent());
+
 		cmbType = new Combo(item.getParent(), SWT.READ_ONLY);
-		cmbType.setItems(new String [] {KeyType.STATIC.getLiteral(),KeyType.DYNAMIC.getLiteral()});
-		cmbType.setText(item.getText(0));
+		cmbType.setItems(new String[] { KeyType.STATIC.getLiteral(),
+				KeyType.DYNAMIC.getLiteral() });
+		if (schema.getValidateSchemaKeyType() != null) {
+
+			cmbType.setText(schema.getValidateSchemaKeyType().getLiteral());
+
+		}
 		cmbType.addListener(SWT.Selection, new Listener() {
-			
-			
+
 			public void handleEvent(Event event) {
-				
+
 				item.setText(0, cmbType.getText());
 			}
 		});
-		
-		
-		
+
 		keyText = new Text(item.getParent(), SWT.NONE);
 		keyText.addMouseListener(new MouseAdapter() {
 
@@ -278,13 +280,12 @@ public class ValidateSchemasDialog extends Dialog {
 			}
 
 		});
-		
-		typeEditor.setEditor(cmbType,item,0);
-		keyEditor.setEditor(keyText,item,1);
-		
-		
+
+		typeEditor.setEditor(cmbType, item, 0);
+		keyEditor.setEditor(keyText, item, 1);
+
 	}
-	
+
 	private TableEditor initTableEditor(TableEditor editor, Table table) {
 		if (null != editor) {
 			Control lastCtrl = editor.getEditor();
@@ -297,7 +298,7 @@ public class ValidateSchemasDialog extends Dialog {
 		editor.grabHorizontal = true;
 		return editor;
 	}
-	
+
 	private void setupTableEditor(final Table table) {
 		final TableEditor cellEditor = new TableEditor(table);
 		cellEditor.grabHorizontal = true;
@@ -328,7 +329,7 @@ public class ValidateSchemasDialog extends Dialog {
 						break;
 					}
 				}
-				
+
 				// Setup a new editor control.
 				if (-1 != selectedColumn) {
 					Text editorControl = new Text(table, SWT.NONE);
@@ -358,88 +359,96 @@ public class ValidateSchemasDialog extends Dialog {
 			}
 		});
 	}
-	
-	public void okPressed(){
-		
-		for (TableItem item : schemaTable.getItems()){
-			
-			ValidateSchema schema = (ValidateSchema)item.getData();
-			
-			if(schema.eContainer() == null){
-				
-				if(item.getText(0).equals(KeyType.STATIC.getLiteral())){
-					
+
+	public void okPressed() {
+
+		for (TableItem item : schemaTable.getItems()) {
+
+			ValidateSchema schema = (ValidateSchema) item.getData();
+
+			if (schema.eContainer() == null) {
+
+				if (item.getText(0).equals(KeyType.STATIC.getLiteral())) {
+
 					schema.setValidateSchemaKeyType(KeyType.STATIC);
-					RegistryKeyProperty regKeyProp = EsbFactory.eINSTANCE.createRegistryKeyProperty();
+					RegistryKeyProperty regKeyProp = EsbFactory.eINSTANCE
+							.createRegistryKeyProperty();
 					regKeyProp.setKeyValue(item.getText(1));
 					schema.setValidateStaticSchemaKey(regKeyProp);
-					
-				}else{
-					
+
+				} else {
+
 					schema.setValidateSchemaKeyType(KeyType.DYNAMIC);
-					NamespacedProperty nsProp = EsbFactory.eINSTANCE.createNamespacedProperty();
+					NamespacedProperty nsProp = EsbFactory.eINSTANCE
+							.createNamespacedProperty();
 					nsProp.setPropertyValue(item.getText(1));
 					schema.setValidateDynamicSchemaKey(nsProp);
-					
+
 				}
-				
-				AddCommand addCmd = new AddCommand(editingDomain, validateMediatoer,
-						EsbPackage.Literals.VALIDATE_MEDIATOR__SCHEMAS,schema);
+
+				AddCommand addCmd = new AddCommand(editingDomain,
+						validateMediatoer,
+						EsbPackage.Literals.VALIDATE_MEDIATOR__SCHEMAS, schema);
 				getResultCommand().append(addCmd);
-				
-			}else{
-				
-				String schemaKeyType = schema.getValidateSchemaKeyType().getLiteral();
-				
-				//if(!schemaKeyType.equals(item.getText(0))){
-					
-					KeyType keyType = null;
-					if(item.getText(0).equals(KeyType.STATIC.getLiteral())){
-						
-						keyType = KeyType.STATIC;
-						SetCommand setTypeCmd = new SetCommand(editingDomain,schema,
-								EsbPackage.Literals.VALIDATE_SCHEMA__VALIDATE_SCHEMA_KEY_TYPE,
-								keyType);
-						getResultCommand().append(setTypeCmd);
-						
-						if(schema.getValidateStaticSchemaKey() != null &&
-								!schema.getValidateStaticSchemaKey().getKeyValue().equals(item.getText(1))){
-							
-							RegistryKeyProperty regKeyProp = EsbFactory.eINSTANCE.createRegistryKeyProperty();
-							regKeyProp.setKeyValue(item.getText(1));
-							SetCommand setCmd = new SetCommand(editingDomain, schema,
-									EsbPackage.Literals.VALIDATE_SCHEMA__VALIDATE_STATIC_SCHEMA_KEY,regKeyProp);
-							getResultCommand().append(setCmd);
-						}
-					}else{
-						
-						keyType = KeyType.DYNAMIC;
-						
-						SetCommand setTypeCmd = new SetCommand(editingDomain,schema,
-								EsbPackage.Literals.VALIDATE_SCHEMA__VALIDATE_SCHEMA_KEY_TYPE,
-								keyType);
-						getResultCommand().append(setTypeCmd);
-						
-						if(schema.getValidateDynamicSchemaKey() != null &&
-								!schema.getValidateDynamicSchemaKey().getPropertyValue().equals(item.getText(1))){
-							
-							NamespacedProperty nsProp = EsbFactory.eINSTANCE.createNamespacedProperty();
-							nsProp.setPropertyValue(item.getText(1));
-							SetCommand setCmd = new SetCommand(editingDomain, schema,
-									EsbPackage.Literals.VALIDATE_SCHEMA__VALIDATE_DYNAMIC_SCHEMA_KEY,nsProp);
-							getResultCommand().append(setCmd);
-						}
-						
+
+			} else {
+
+				if (item.getText(0).equals(KeyType.STATIC.getLiteral())) {
+
+					SetCommand setTypeCmd = new SetCommand(
+							editingDomain,
+							schema,
+							EsbPackage.Literals.VALIDATE_SCHEMA__VALIDATE_SCHEMA_KEY_TYPE,
+							KeyType.STATIC);
+					getResultCommand().append(setTypeCmd);
+
+					if (schema.getValidateStaticSchemaKey() != null
+							&& !schema.getValidateStaticSchemaKey()
+									.getKeyValue().equals(item.getText(1))) {
+
+						RegistryKeyProperty regKeyProp = EsbFactory.eINSTANCE
+								.createRegistryKeyProperty();
+						regKeyProp.setKeyValue(item.getText(1));
+						SetCommand setCmd = new SetCommand(
+								editingDomain,
+								schema,
+								EsbPackage.Literals.VALIDATE_SCHEMA__VALIDATE_STATIC_SCHEMA_KEY,
+								regKeyProp);
+						getResultCommand().append(setCmd);
 					}
-					
+				} else {
+
+					SetCommand setTypeCmd = new SetCommand(
+							editingDomain,
+							schema,
+							EsbPackage.Literals.VALIDATE_SCHEMA__VALIDATE_SCHEMA_KEY_TYPE,
+							KeyType.DYNAMIC);
+					getResultCommand().append(setTypeCmd);
+
+					if (schema.getValidateDynamicSchemaKey() != null
+							&& !schema.getValidateDynamicSchemaKey()
+									.getPropertyValue().equals(item.getText(1))) {
+
+						NamespacedProperty nsProp = EsbFactory.eINSTANCE
+								.createNamespacedProperty();
+						nsProp.setPropertyValue(item.getText(1));
+						SetCommand setCmd = new SetCommand(
+								editingDomain,
+								schema,
+								EsbPackage.Literals.VALIDATE_SCHEMA__VALIDATE_DYNAMIC_SCHEMA_KEY,
+								nsProp);
+						getResultCommand().append(setCmd);
+					}
+
+				}
+
 			}
 		}
-		
+
 		// Apply changes.
 		if (getResultCommand().canExecute()) {
 			editingDomain.getCommandStack().execute(getResultCommand());
-		} 
-		
+		}
 
 		super.okPressed();
 	}
