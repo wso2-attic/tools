@@ -51,7 +51,6 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.EvaluatorExpressionProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.RegistryKeyPropertyUtil;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.ui.ConfigureRouterMediatorDialog.RouteWrapper;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.provider.RegistryKeyPropertyEditorDialog;
 import org.wso2.developerstudio.eclipse.platform.core.utils.SWTResourceManager;
 
