@@ -79,7 +79,8 @@ public class AddressEndPointTransformer extends AbstractEsbNodeTransformer {
 			.get(info.getParentSequence().getList().size() - 1);
 		}
 		}
-		else if(info.getParentSequence().getChild(info.getParentSequence().getList().size()-1) instanceof org.apache.synapse.mediators.builtin.SendMediator){
+		else if((info.getParentSequence().getList().size() !=0) &&
+				(info.getParentSequence().getChild(info.getParentSequence().getList().size()-1) instanceof org.apache.synapse.mediators.builtin.SendMediator)){
 			sendMediator=(SendMediator) info.getParentSequence().getChild(info.getParentSequence().getList().size()-1);
 		} else{
 			sendMediator = new SendMediator();
