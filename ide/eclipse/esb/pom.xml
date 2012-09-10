@@ -26,7 +26,6 @@
         <module>org.wso2.developerstudio.eclipse.gmf.esb</module>
 	<module>org.wso2.developerstudio.eclipse.gmf.esb.edit</module>
 	<module>org.wso2.developerstudio.eclipse.gmf.esb.persistence</module>
-	<module>org.wso2.developerstudio.eclipse.gmf.esb.sequence.diagram</module>
 	<module>org.wso2.developerstudio.eclipse.gmf.esb.diagram</module>
     </modules>
     <!--repositories>
