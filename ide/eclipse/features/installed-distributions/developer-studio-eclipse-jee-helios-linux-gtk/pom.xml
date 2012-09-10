@@ -241,7 +241,15 @@
                             	<feature>
                             		<id>org.wso2.developerstudio.eclipse.cep.artifact.feature.feature.group</id>
                             		<version>${cep.feature.version}</version>
-                            	</feature> 
+                            	</feature>
+                            	<feature>
+                            		<id>org.wso2.soapui.feature.feature.group</id>
+                            		<version>${soapui.feature.version}</version>
+                            	</feature>
+                            	<feature>
+                            		<id>org.wso2.tcpmon.feature.feature.group</id>
+                            		<version>${tcpmon.feature.version}</version>
+                            	</feature>							
                             </features>
                         </configuration>
                     </execution>
