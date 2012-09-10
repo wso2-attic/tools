@@ -3,7 +3,9 @@ package org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.synapse.config.xml.AnonymousListMediator;
 import org.apache.synapse.endpoints.Endpoint;
+import org.apache.synapse.mediators.ListMediator;
 import org.apache.synapse.mediators.Value;
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.apache.synapse.util.xpath.SynapseXPath;
@@ -55,11 +57,11 @@ public class ValidateMediatorTransformer  extends AbstractEsbNodeTransformer {
 
 		NamespacedProperty sourceXPath = visualValidateMediator
 				.getSourceXpath();
-		if (sourceXPath.getPropertyValue() != null
+/*		if (sourceXPath.getPropertyValue() != null
 				&& !sourceXPath.getPropertyValue().equals("")) {
 			validateMediator.setSource(new SynapseXPath(sourceXPath
 					.getPropertyValue()));
-		}
+		}*/
 
 		List<Value> valueList = new ArrayList<Value>();
 		for (ValidateSchema schema : visualValidateMediator.getSchemas()) {
@@ -87,7 +89,17 @@ public class ValidateMediatorTransformer  extends AbstractEsbNodeTransformer {
 
 			}
 		}
-		validateMediator.setSchemaKeys(valueList);
+		validateMediator.setSchemaKeys(valueList);		
+		
+		ListMediator onFailMediatorList = new AnonymousListMediator();
+		TransformationInfo newOnFailInfo = new TransformationInfo();
+		newOnFailInfo.setTraversalDirection(TransformationInfo.TRAVERSAL_DIRECTION_IN);
+		newOnFailInfo.setSynapseConfiguration(information.getSynapseConfiguration());
+		newOnFailInfo.setOriginInSequence(information.getOriginInSequence());
+		newOnFailInfo.setOriginOutSequence(information.getOriginOutSequence());
+		newOnFailInfo.setParentSequence(onFailMediatorList);
+		doTransform(newOnFailInfo, visualValidateMediator.getOnFailOutputConnector());
+		validateMediator.addAll(onFailMediatorList.getList());
 	
 		//TODO implement feature transformation logic
 		
