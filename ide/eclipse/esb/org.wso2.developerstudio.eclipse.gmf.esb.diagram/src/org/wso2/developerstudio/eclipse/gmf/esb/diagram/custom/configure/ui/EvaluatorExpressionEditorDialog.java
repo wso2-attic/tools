@@ -29,11 +29,12 @@ import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.Point;
+import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
-import org.eclipse.wb.swt.layout.grouplayout.GroupLayout;
-import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Text;
 import org.wso2.developerstudio.eclipse.gmf.esb.EvaluatorExpressionProperty;
@@ -72,34 +73,17 @@ public class EvaluatorExpressionEditorDialog extends Dialog {
 	
 	protected Control createDialogArea(Composite parent) {
 		Composite container = (Composite) super.createDialogArea(parent);
+		container.setLayout(new GridLayout(1, false));
+		
+		Label lblEvaluatorExpression = new Label(container, SWT.NONE);
+		lblEvaluatorExpression.setText("Evaluator Expression");
+		
 
-		Group grpXmlEditor = new Group(container, SWT.NONE);
-		grpXmlEditor.setText("Evaluator Expression");
-		GroupLayout gl_container = new GroupLayout(container);
-		gl_container.setHorizontalGroup(gl_container.createParallelGroup(
-				GroupLayout.LEADING).add(
-				gl_container
-						.createSequentialGroup()
-						.addContainerGap()
-						.add(grpXmlEditor, GroupLayout.PREFERRED_SIZE, 423,
-								GroupLayout.PREFERRED_SIZE)
-						.addContainerGap(13, Short.MAX_VALUE)));
-		gl_container.setVerticalGroup(gl_container.createParallelGroup(
-				GroupLayout.LEADING).add(
-				gl_container
-						.createSequentialGroup()
-						.addContainerGap()
-						.add(grpXmlEditor, GroupLayout.PREFERRED_SIZE,
-								GroupLayout.DEFAULT_SIZE,
-								GroupLayout.PREFERRED_SIZE)
-						.addContainerGap(GroupLayout.DEFAULT_SIZE,
-								Short.MAX_VALUE)));
-
-		eETextField = new Text(grpXmlEditor, SWT.BORDER | SWT.H_SCROLL
+		eETextField = new Text(container, SWT.BORDER | SWT.H_SCROLL
 				| SWT.V_SCROLL | SWT.CANCEL | SWT.MULTI);
-		eETextField.setBounds(10, 22, 403, 155);
+		eETextField.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 
-		container.setLayout(gl_container);
+
 		eETextField.addSelectionListener(new SelectionAdapter() {
 			
 			public void widgetSelected(SelectionEvent e) {
