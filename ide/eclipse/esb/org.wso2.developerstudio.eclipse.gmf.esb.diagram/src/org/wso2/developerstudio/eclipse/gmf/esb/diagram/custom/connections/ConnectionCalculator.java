@@ -192,7 +192,7 @@ public class ConnectionCalculator {
 				nearestLink = (EsbLinkEditPart) nearLinks.get(q);
 			}
 		}
-		if(current>50){
+		if(current>35){
 			return null;
 		}
 		return nearestLink;
