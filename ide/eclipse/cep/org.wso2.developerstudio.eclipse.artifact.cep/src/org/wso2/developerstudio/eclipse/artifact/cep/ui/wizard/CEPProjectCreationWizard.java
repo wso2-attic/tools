@@ -89,7 +89,7 @@ public class CEPProjectCreationWizard extends AbstractWSO2ProjectCreationWizard 
 				File pomfile = project.getFile("pom.xml").getLocation()
 						.toFile();
 				getModel().getMavenInfo().setPackageName(
-						"cep" + File.separator + "bucket");
+						"cep/bucket");
 				createPOM(pomfile);
 				ProjectUtils.addNatureToProject(project, false,
 						"org.wso2.developerstudio.eclipse.cep.project.nature");
