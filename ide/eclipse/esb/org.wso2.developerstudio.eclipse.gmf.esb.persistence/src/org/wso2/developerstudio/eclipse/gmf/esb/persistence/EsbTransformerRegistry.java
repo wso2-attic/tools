@@ -60,6 +60,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.StoreMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.ThrottleMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.TransactionMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.URLRewriteMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.ValidateMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.WSDLEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.XQueryMediator;
@@ -105,6 +106,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.StoreMediat
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.SwitchMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.ThrottleMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.TransactionMediatorTransformer;
+import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.URLReWriterMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.ValidateMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.WSDLEndPointTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.XQueryMediatorTransformer;
@@ -176,6 +178,7 @@ public class EsbTransformerRegistry {
 		addTransformer(RouterMediator.class, new RouterMediatorTransformer());
 		addTransformer(ConditionalRouterMediator.class, new ConditionalRouterMediatorTransformer());
 		addTransformer(ValidateMediator.class, new ValidateMediatorTransformer());
+		addTransformer(URLRewriteMediator.class, new URLReWriterMediatorTransformer());
 	}
 	
 	/**

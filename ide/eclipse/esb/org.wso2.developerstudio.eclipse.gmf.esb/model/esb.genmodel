@@ -1311,7 +1311,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//URLRewriteRule/rewriteRuleAction"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//URLRewriteMediator">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//URLRewriteMediator/urlRewriteRules"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//URLRewriteMediator/urlRewriteRules"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//URLRewriteMediator/InProperty"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//URLRewriteMediator/outProperty"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//URLRewriteMediator/inputConnector"/>

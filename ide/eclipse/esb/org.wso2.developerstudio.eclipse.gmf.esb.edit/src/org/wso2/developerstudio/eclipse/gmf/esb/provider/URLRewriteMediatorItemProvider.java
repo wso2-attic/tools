@@ -61,13 +61,37 @@ public class URLRewriteMediatorItemProvider
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
+		
+		if (itemPropertyDescriptors != null) {
+			itemPropertyDescriptors.clear();
+		}
 			super.getPropertyDescriptors(object);
-
+			addUrlRewriteRulesPropertyDescriptor(object);
 			addInPropertyPropertyDescriptor(object);
 			addOutPropertyPropertyDescriptor(object);
-		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Url Rewrite Rules feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addUrlRewriteRulesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_URLRewriteMediator_urlRewriteRules_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_URLRewriteMediator_urlRewriteRules_feature", "_UI_URLRewriteMediator_type"),
+				 EsbPackage.Literals.URL_REWRITE_MEDIATOR__URL_REWRITE_RULES,
+				 true,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**

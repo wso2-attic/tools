@@ -179,6 +179,10 @@ public class EsbPropertySource extends PropertySource {
 		}else if(pkg.getValidateMediator_Features().equals(feature)){
 			
 			return new ValidateFeaturePropertyDescriptor(object, itemPropertyDescriptor);
+		}else if(pkg.getURLRewriteMediator_UrlRewriteRules().equals(feature)){
+			
+			return new URLRewiterConfigurationPropertyDescriptor(object, itemPropertyDescriptor);
+			
 		}
 			
 		// Else, default EMF behavior
