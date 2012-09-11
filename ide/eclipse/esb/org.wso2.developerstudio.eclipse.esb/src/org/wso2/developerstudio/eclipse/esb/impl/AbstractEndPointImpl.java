@@ -424,7 +424,7 @@ public abstract class AbstractEndPointImpl extends EndPointImpl implements Abstr
 	    	}	    		    	
 	    	
 	    	// Action.
-	    	Element actionElem = getChildElement(timeOutElem, "action");
+	    	Element actionElem = getChildElement(timeOutElem, "responseAction");
 	    	if (null != actionElem) {
 	    		String actionString = actionElem.getTextContent();
 	    		EndPointTimeOutAction action = EndPointTimeOutAction.get(actionString);
@@ -551,7 +551,7 @@ public abstract class AbstractEndPointImpl extends EndPointImpl implements Abstr
     		durationElem.setTextContent(Long.toString(getTimeOutDuration()));
     		
     		// Action
-    		Element actionElem = createChildElement(timeOutElem, "action");
+    		Element actionElem = createChildElement(timeOutElem, "responseAction");
     		actionElem.setTextContent(getTimeOutAction().getLiteral());
     	}
     	
