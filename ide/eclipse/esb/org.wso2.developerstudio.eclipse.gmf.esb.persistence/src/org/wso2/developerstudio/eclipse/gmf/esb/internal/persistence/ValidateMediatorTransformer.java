@@ -14,11 +14,17 @@ import org.eclipse.emf.ecore.EObject;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.KeyType;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
+import org.wso2.developerstudio.eclipse.gmf.esb.ValidateFeature;
 import org.wso2.developerstudio.eclipse.gmf.esb.ValidateMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.ValidateSchema;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
+import org.wso2.developerstudio.eclipse.gmf.esb.persistence.Activator;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 
 public class ValidateMediatorTransformer  extends AbstractEsbNodeTransformer {
+	
+	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
 	
 	public void transform(TransformationInfo information, EsbNode subject)
 			throws Exception {
@@ -103,12 +109,16 @@ public class ValidateMediatorTransformer  extends AbstractEsbNodeTransformer {
 	
 		//TODO implement feature transformation logic
 		
-		/*for(ValidateFeature feature : visualValidateMediator.getFeatures()){
+		
+		for(ValidateFeature feature : visualValidateMediator.getFeatures()){
+			try{
+	        validateMediator.addFeature(feature.getFeatureName(), feature.isFeatureEnabled());
+			}
+			catch (Exception e) {
+			log.error(e);
+			}
 			
-			System.out.println(feature.getFeatureName()+" "+ feature.isFeatureEnabled());
-	        validateMediator.addFeature("test", feature.isFeatureEnabled());
-			
-		}*/
+		}
 		
 		return validateMediator;
 	}

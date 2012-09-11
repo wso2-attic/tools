@@ -115,4 +115,6 @@ Require-Bundle: org.wso2.developerstudio.eclipse.gmf.esb,
  org.eclipse.emf.transaction;bundle-version="1.4.0"
 Export-Package: org.wso2.developerstudio.eclipse.gmf.esb.persistence
 Import-Package: org.eclipse.jface.dialogs,
- org.eclipse.swt.widgets
+ org.eclipse.swt.widgets,
+ org.eclipse.ui.plugin,
+ org.wso2.developerstudio.eclipse.logging.core
