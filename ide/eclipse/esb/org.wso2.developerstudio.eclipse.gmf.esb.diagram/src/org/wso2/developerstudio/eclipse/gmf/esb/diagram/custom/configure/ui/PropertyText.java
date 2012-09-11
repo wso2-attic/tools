@@ -18,6 +18,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.ui;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.eclipse.jface.window.Window;
@@ -59,6 +60,7 @@ public class PropertyText extends Composite {
 	
 	private GridData gridDataTextControl;
 	private GridData gridDataActionButton;
+	private List<ModifyListener> modifyListeners;
 	
 	/**
 	 * @param parent
@@ -76,7 +78,7 @@ public class PropertyText extends Composite {
 		setLayout(gridLayout);
 		
 		properties = new HashMap<Integer, Object>();
-		
+		modifyListeners = new ArrayList<ModifyListener>();
 		textControl = new Text(this,style);
 		gridDataTextControl = new GridData(SWT.FILL, SWT.TOP, true, false, 1, 1);
 		gridDataTextControl.heightHint = 22;
@@ -84,7 +86,7 @@ public class PropertyText extends Composite {
 		textControl.setEditable(editable);
 		textControl.addModifyListener(new ModifyListener() {
 			
-			public void modifyText(ModifyEvent arg0) {
+			public void modifyText(ModifyEvent e) {
 				if(editable){
 					int index = 0;
 					if (bind) {
@@ -96,10 +98,12 @@ public class PropertyText extends Composite {
 					Object object = properties.get(index);
 					if(object instanceof String){
 						properties.put(index, textControl.getText());
-						setProperty(object);
+						setProperty(textControl.getText());
 					}
 				}
-				
+				for(ModifyListener modifyListener : modifyListeners){
+					modifyListener.modifyText(e);
+				}
 			}
 		});
 		
@@ -169,7 +173,7 @@ public class PropertyText extends Composite {
 	}
 	
 	public void addModifyListener(ModifyListener modifyListener){
-		textControl.addModifyListener(modifyListener);
+		modifyListeners.add(modifyListener);
 	}
 	
 	public void removeModifyListener(ModifyListener modifyListener){

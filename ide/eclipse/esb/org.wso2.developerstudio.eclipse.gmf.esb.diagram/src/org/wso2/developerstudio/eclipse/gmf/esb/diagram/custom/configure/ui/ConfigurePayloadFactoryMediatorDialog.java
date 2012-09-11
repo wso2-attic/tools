@@ -256,7 +256,7 @@ public class ConfigurePayloadFactoryMediatorDialog extends Dialog {
 					wrapper.setExpression(true);
 					item.setText(1,wrapper.getArgumentExpression().getPropertyValue());
 				} else{
-					wrapper.setExpression(true);
+					wrapper.setExpression(false);
 					item.setText(1,wrapper.getArgumentValue());
 				}
 			}
