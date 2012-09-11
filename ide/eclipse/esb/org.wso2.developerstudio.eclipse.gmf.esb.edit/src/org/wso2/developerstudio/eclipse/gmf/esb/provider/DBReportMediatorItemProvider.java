@@ -57,16 +57,18 @@ public class DBReportMediatorItemProvider
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
-			super.getPropertyDescriptors(object);
-
-			addConnectionUseTransactionPropertyDescriptor(object);
+		
+		if (itemPropertyDescriptors != null) {
+			itemPropertyDescriptors.clear();
 		}
+			super.getPropertyDescriptors(object);
+			addConnectionUseTransactionPropertyDescriptor(object);
+			
 		return itemPropertyDescriptors;
 	}
 
@@ -74,7 +76,7 @@ public class DBReportMediatorItemProvider
 	 * This adds a property descriptor for the Connection Use Transaction feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addConnectionUseTransactionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
@@ -88,7 +90,7 @@ public class DBReportMediatorItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
+				 "Connection",
 				 null));
 	}
 

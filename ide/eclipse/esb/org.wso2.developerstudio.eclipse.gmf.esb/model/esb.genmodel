@@ -1062,7 +1062,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//AbstractSqlExecutorMediator/propertyTestwhileidle"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//AbstractSqlExecutorMediator/propertyValidationquery"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//AbstractSqlExecutorMediator/propertyInitialsize"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//AbstractSqlExecutorMediator/sqlStatements"/>
+      <genFeatures children="true" createChild="true" propertyDescription="SQL Statements"
+          ecoreFeature="ecore:EReference esb.ecore#//AbstractSqlExecutorMediator/sqlStatements"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//SqlStatement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//SqlStatement/queryString"/>

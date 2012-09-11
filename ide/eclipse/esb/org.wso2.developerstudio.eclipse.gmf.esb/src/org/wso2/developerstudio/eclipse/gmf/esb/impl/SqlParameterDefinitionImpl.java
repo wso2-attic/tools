@@ -63,10 +63,10 @@ public class SqlParameterDefinitionImpl extends EObjectImpl implements SqlParame
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getValueType()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
-	protected static final SqlParameterValueType VALUE_TYPE_EDEFAULT = SqlParameterValueType.LITERAL;
+	protected static final SqlParameterValueType VALUE_TYPE_EDEFAULT = SqlParameterValueType.EXPRESSION;
 
 	/**
 	 * The cached value of the '{@link #getValueType() <em>Value Type</em>}' attribute.
@@ -111,10 +111,18 @@ public class SqlParameterDefinitionImpl extends EObjectImpl implements SqlParame
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected SqlParameterDefinitionImpl() {
 		super();
+		NamespacedProperty valueExpression = EsbFactoryImpl.eINSTANCE.createNamespacedProperty();
+		valueExpression.setPropertyName("Expression");
+		valueExpression.setPrettyName("Expression");
+		valueExpression.setPropertyValue("/default/expression");
+		setValueExpression(valueExpression);
+		setValueLiteral("default");
+		setDataType(DATA_TYPE_EDEFAULT);
+		
 	}
 
 	/**

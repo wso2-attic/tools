@@ -68,6 +68,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.Configu
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.ConfigurePayloadFactoryMediatorAction;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.ConfigureProxyServiceAction;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.ConfigureRouterMediatorAction;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.ConfigureSqlStatementsAction;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.ConfigureSwitchMediatorAction;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.ConfigureXQueryMediatorAction;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.direction.DirectionAggregateMediatorAction;
@@ -178,6 +179,12 @@ public class DiagramEditorContextMenuProvider extends
 		
 		contextActions.put(PayloadFactoryMediator.class,
 				new ConfigurePayloadFactoryMediatorAction(part));
+		
+		contextActions.put(DBLookupMediator.class,
+				new ConfigureSqlStatementsAction(part));
+		
+		contextActions.put(DBReportMediator.class,
+				new ConfigureSqlStatementsAction(part));
 
 		//Initialize branch context sensitive actions.
 		addBranchContextActions = new HashMap<Class<? extends EsbNode>, ConfigureEsbNodeAction>();

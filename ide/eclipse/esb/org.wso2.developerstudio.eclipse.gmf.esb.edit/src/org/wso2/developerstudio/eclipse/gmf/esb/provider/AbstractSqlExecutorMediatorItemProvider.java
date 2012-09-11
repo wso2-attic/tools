@@ -29,6 +29,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.AbstractSqlExecutorMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.SqlExecutorConnectionType;
+import org.wso2.developerstudio.eclipse.gmf.esb.SqlExecutorDatasourceType;
 
 /**
  * This is the item provider adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.AbstractSqlExecutorMediator} object.
@@ -61,39 +62,53 @@ public class AbstractSqlExecutorMediatorItemProvider
 	 * @generated NOT
 	 */
 	
+	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
-			super.getPropertyDescriptors(object);
-			
-			addConnectionTypePropertyDescriptor(object);
-			
-			AbstractSqlExecutorMediator sqlExeMediator = (AbstractSqlExecutorMediator) object;
-			if (sqlExeMediator.getConnectionType().equals(SqlExecutorConnectionType.DB_CONNECTION)){
-				addConnectionDbDriverPropertyDescriptor(object);
-			} else if (sqlExeMediator.getConnectionType().equals(SqlExecutorConnectionType.DATA_SOURCE)){
-				addConnectionDsTypePropertyDescriptor(object);
-				addConnectionDsInitialContextPropertyDescriptor(object);
-				addConnectionDsNamePropertyDescriptor(object);
-			}
-			
-			addConnectionURLPropertyDescriptor(object);
-			addConnectionUsernamePropertyDescriptor(object);
-			addConnectionPasswordPropertyDescriptor(object);
-			
-			addPropertyAutocommitPropertyDescriptor(object);
-			addPropertyIsolationPropertyDescriptor(object);
-			addPropertyMaxactivePropertyDescriptor(object);
-			addPropertyMaxidlePropertyDescriptor(object);
-			addPropertyMaxopenstatementsPropertyDescriptor(object);
-			addPropertyMaxwaitPropertyDescriptor(object);
-			addPropertyMinidlePropertyDescriptor(object);
-			addPropertyPoolstatementsPropertyDescriptor(object);
-			addPropertyTestonborrowPropertyDescriptor(object);
-			addPropertyTestwhileidlePropertyDescriptor(object);
-			addPropertyValidationqueryPropertyDescriptor(object);
-			addPropertyInitialsizePropertyDescriptor(object);
+		AbstractSqlExecutorMediator sqlExecutor = (AbstractSqlExecutorMediator) object;
+		if (itemPropertyDescriptors != null) {
+			itemPropertyDescriptors.clear();
 		}
+		super.getPropertyDescriptors(object);
+
+		addConnectionTypePropertyDescriptor(object);
+		if (sqlExecutor.getConnectionType().equals(SqlExecutorConnectionType.DATA_SOURCE)) {
+			addConnectionDsTypePropertyDescriptor(object);
+			if (sqlExecutor.getConnectionDsType().equals(SqlExecutorDatasourceType.EXTERNAL)) {
+				addConnectionDsInitialContextPropertyDescriptor(object);
+				addSqlConnectionPropertyDescriptors(object);
+			}
+			addConnectionDsNamePropertyDescriptor(object);
+		} else {
+			addConnectionDbDriverPropertyDescriptor(object);
+			addSqlConnectionPropertyDescriptors(object);
+		}
+		
+		addSqlStatementsPropertyDescriptor(object);
+		
 		return itemPropertyDescriptors;
+	}
+	
+	/**
+	 * Property descriptors for connection pool and external datasource 
+	 * @param object
+	 */
+	private void addSqlConnectionPropertyDescriptors(Object object) {
+		addConnectionURLPropertyDescriptor(object);
+		addConnectionUsernamePropertyDescriptor(object);
+		addConnectionPasswordPropertyDescriptor(object);
+		
+		addPropertyAutocommitPropertyDescriptor(object);
+		addPropertyIsolationPropertyDescriptor(object);
+		addPropertyMaxactivePropertyDescriptor(object);
+		addPropertyMaxidlePropertyDescriptor(object);
+		addPropertyMaxopenstatementsPropertyDescriptor(object);
+		addPropertyMaxwaitPropertyDescriptor(object);
+		addPropertyMinidlePropertyDescriptor(object);
+		addPropertyPoolstatementsPropertyDescriptor(object);
+		addPropertyTestonborrowPropertyDescriptor(object);
+		addPropertyTestwhileidlePropertyDescriptor(object);
+		addPropertyValidationqueryPropertyDescriptor(object);
+		addPropertyInitialsizePropertyDescriptor(object);
 	}
 
 	/**
@@ -533,6 +548,28 @@ public class AbstractSqlExecutorMediatorItemProvider
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 "Properties",
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Sql Statements feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addSqlStatementsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AbstractSqlExecutorMediator_sqlStatements_feature"),
+				 getString("_UI_AbstractSqlExecutorMediator_sqlStatements_description"),
+				 EsbPackage.Literals.ABSTRACT_SQL_EXECUTOR_MEDIATOR__SQL_STATEMENTS,
+				 true,
+				 false,
+				 false,
+				 null,
+				 "Statements",
 				 null));
 	}
 
