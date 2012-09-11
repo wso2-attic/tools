@@ -53,6 +53,9 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.MediatorFl
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.Messages;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbPaletteFactory.NodeToolEntry;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 
 /**
  * @generated
@@ -64,6 +67,7 @@ public class MediatorFlowMediatorFlowCompartmentEditPart extends
 	AbstractBorderItemEditPart sourceOutputConnector = null;
 	AbstractBorderItemEditPart outputConnectorEditPart = null;
 	ShapeNodeEditPart sourceEditPart = null;
+	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
 
 	/**
 	 * @generated
@@ -188,8 +192,12 @@ public class MediatorFlowMediatorFlowCompartmentEditPart extends
 					String label = ((NodeToolEntry) ((ToolEntryEditPart) editpart)
 							.getModel()).getLabel();
 					if ((!label.equals("")) && (!label.equals("Sequence"))) {
-						((Sequence) ((View) sequenceEditPart.getModel())
-								.getElement()).setName(label);
+						try{
+							((Sequence) ((View) sequenceEditPart.getModel())
+								.getElement()).setName(label);		
+						}catch(java.lang.IllegalStateException e){
+							log.error("This is occured while undo operation..", e);
+						}
 					}
 				} else if (((ToolEntryEditPart) editpart).getModel() instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceEditPart.NodeToolEntry) {
 					String label = ((org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceEditPart.NodeToolEntry) ((ToolEntryEditPart) editpart)

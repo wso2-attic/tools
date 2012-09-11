@@ -143,7 +143,7 @@ public class MediatorFlowEditPart extends ShapeNodeEditPart {
 							inputLocator);
 		} else {
 			//Should handle properly.
-			throw new ClassCastException();
+			//throw new ClassCastException();
 		}
 	}
 

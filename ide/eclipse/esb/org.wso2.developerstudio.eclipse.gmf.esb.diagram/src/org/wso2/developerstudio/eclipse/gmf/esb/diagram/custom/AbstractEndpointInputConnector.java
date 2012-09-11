@@ -104,7 +104,7 @@ public abstract class AbstractEndpointInputConnector extends AbstractBorderItemE
 					
 					EditPart sourceOutputConnector = ((EsbLinkEditPart) this.getTargetConnections()
 							.get(0)).getSource();
-					if(sourceOutputConnector.getParent() instanceof SequenceEditPart){
+					if((sourceOutputConnector !=null)&&(sourceOutputConnector.getParent() instanceof SequenceEditPart)){
 						if(((EsbLinkEditPart)((AbstractInputConnector)sourceOutputConnector.getParent().getChildren().get(1)).getTargetConnections().get(0)).getSource() instanceof AbstractEndpointOutputConnector){
 						((SequenceEditPart)sourceOutputConnector.getParent()).moveConnectorsRightSide();
 						}
