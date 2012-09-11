@@ -102,14 +102,21 @@ public class ConfigureSqlStatementsDialog extends Dialog {
 	private Combo cmbParameterType;
 	private Combo cmbPropertyType;
 	private PropertyText propertyValue;
+	private Text txtResultName;
+	private Text txtResultColumn;
 	
 	private Listener updateListener;
 	private boolean updateLock=false;
 	private boolean resultsEnabled;
 	
+	/**
+	 * Table editors
+	 */
 	private TableEditor parameterTypeEditor;
 	private TableEditor propertyTypeEditor;
 	private TableEditor propertyValueEditor;
+	private TableEditor resultNameEditor;
+	private TableEditor resultColumnEditor;
 	
 	private final static String LITERAL_VALUE = "Value";
 	private final static String LITERAL_EXPRESSION = "Expression";
@@ -118,6 +125,8 @@ public class ConfigureSqlStatementsDialog extends Dialog {
 	/**
 	 * Create the dialog.
 	 * @param parentShell
+	 * @param sqlExecutorMediator
+	 * @param editingDomain
 	 */
 	public ConfigureSqlStatementsDialog(Shell parentShell,
 			AbstractSqlExecutorMediator sqlExecutorMediator, TransactionalEditingDomain editingDomain) {
@@ -325,6 +334,25 @@ public class ConfigureSqlStatementsDialog extends Dialog {
 		cmdRemoveParameter.setText("Remove");
 		cmdRemoveParameter.setLayoutData(new GridData(SWT.FILL, SWT.TOP, true, false, 1, 4));
 		cmdRemoveParameter.setEnabled(false);
+		cmdRemoveParameter.addSelectionListener(new SelectionAdapter() {
+			
+			public void widgetSelected(SelectionEvent e) {
+				int selectedIndex = tblParameters.getSelectionIndex();
+				if (-1 != selectedIndex) {
+					unbindParameter(selectedIndex);
+					// Select the next available candidate for deletion.
+					if (selectedIndex < tblParameters.getItemCount()) {
+						tblParameters.select(selectedIndex);
+					} else {
+						tblParameters.select(selectedIndex - 1);
+					}
+					initTableEditor(parameterTypeEditor,tblParameters);
+					initTableEditor(propertyTypeEditor,tblParameters);
+					initTableEditor(propertyValueEditor,tblParameters);
+				}
+				cmdRemoveParameter.setEnabled(tblParameters.getSelectionIndex()!=-1);
+			}
+		});
 		
 		Label lblResults = new Label(grpStatement, SWT.NONE);
 		lblResults.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false, 3, 1));
@@ -339,6 +367,20 @@ public class ConfigureSqlStatementsDialog extends Dialog {
 		tblResults.setHeaderVisible(true);
 		tblResults.setLinesVisible(true);
 		tblResults.setEnabled(resultsEnabled);
+		tblResults.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				if (null != e.item) {
+					if (e.item instanceof TableItem) {
+						TableItem item = (TableItem) e.item;
+						editResult(item);
+						cmdRemoveResult.setEnabled(true);
+					}
+				} else{
+					cmdRemoveResult.setEnabled(false);
+				}
+			}
+		});
 		
 		TableColumn clmnResultsResultName = new TableColumn(tblResults, SWT.NONE);
 		clmnResultsResultName.setMoveable(true);
@@ -353,12 +395,49 @@ public class ConfigureSqlStatementsDialog extends Dialog {
 		cmdAddResult.setLayoutData(new GridData(SWT.FILL, SWT.TOP, true, false, 1, 1));
 		cmdAddResult.setText("Add");
 		cmdAddResult.setEnabled(resultsEnabled);
+		cmdAddResult.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				
+				int selectedIndex = tblStatements.getSelectionIndex();
+				if (-1 != selectedIndex) {
+					TableItem item = tblStatements.getItem(selectedIndex);
+					StatementWrapper wrapper = (StatementWrapper) item.getData();
+					SqlResultMapping result = EsbFactory.eINSTANCE.createSqlResultMapping();
+					result.setPropertyName("property_name");
+					result.setColumnId("column_name_or_index");
+					ResultWrapper resultWrapper = new ResultWrapper(result);
+					resultWrapper.setPropertyName(result.getPropertyName());
+					resultWrapper.setColumnId(result.getColumnId());
+					bindResult(resultWrapper);
+					wrapper.getResults().add(resultWrapper);
+				}
+				
+			}
+		});
 		
 		cmdRemoveResult = new Button(grpStatement, SWT.NONE);
 		cmdRemoveResult.setText("Remove");
 		cmdRemoveResult.setLayoutData(new GridData(SWT.FILL, SWT.TOP, true, false, 1, 4));
 		cmdRemoveResult.setEnabled(false);
-		
+		cmdRemoveResult.addSelectionListener(new SelectionAdapter() {
+			
+			public void widgetSelected(SelectionEvent e) {
+				int selectedIndex = tblResults.getSelectionIndex();
+				if (-1 != selectedIndex) {
+					unbindResult(selectedIndex);
+					// Select the next available candidate for deletion.
+					if (selectedIndex < tblResults.getItemCount()) {
+						tblResults.select(selectedIndex);
+					} else {
+						tblResults.select(selectedIndex - 1);
+					}
+					initTableEditor(resultNameEditor,tblResults);
+					initTableEditor(resultColumnEditor,tblResults);
+				}
+				cmdRemoveResult.setEnabled(tblResults.getSelectionIndex()!=-1);
+			}
+		});
 		for(SqlStatement statement  :sqlExecutorMediator.getSqlStatements()){
 			bindStatement(new StatementWrapper(statement));
 		}
@@ -371,6 +450,12 @@ public class ConfigureSqlStatementsDialog extends Dialog {
 		initTableEditor(parameterTypeEditor,tblParameters);
 		initTableEditor(propertyTypeEditor,tblParameters);
 		initTableEditor(propertyValueEditor,tblParameters);
+		initTableEditor(resultNameEditor,tblResults);
+		initTableEditor(resultColumnEditor,tblResults);
+		cmdRemoveParameter.setEnabled(false);
+		cmdRemoveResult.setEnabled(false);
+		tblParameters.removeAll();
+		tblResults.removeAll();
 		if(tblStatements.getSelectionIndex()==-1){
 			grpStatement.setEnabled(false);
 			cmdRemoveStatement.setEnabled(false);
@@ -382,14 +467,12 @@ public class ConfigureSqlStatementsDialog extends Dialog {
 			StatementWrapper wrapper = (StatementWrapper) item.getData();
 			txtSQL.setText(wrapper.getQueryString());
 			
-			tblParameters.removeAll();
 			for(ParameterWrapper parmWrapper : wrapper.getParameters()){
 				bindParameter(parmWrapper);
-
 			}
 			
 			for(ResultWrapper resultWrapper : wrapper.getResults() ){
-				//TODO:
+				bindResult(resultWrapper);
 			}
 		}
 	}
@@ -439,7 +522,10 @@ public class ConfigureSqlStatementsDialog extends Dialog {
 		}
 		
 		for(SqlResultMapping result: statement.getResults()){
-			//TODO:
+			ResultWrapper resultWrapper = new ResultWrapper(result);
+			resultWrapper.setPropertyName(result.getPropertyName());
+			resultWrapper.setColumnId(result.getColumnId());
+			wrapper.getResults().add(resultWrapper);
 		}
 		
 		item.setData(wrapper);
@@ -477,16 +563,60 @@ public class ConfigureSqlStatementsDialog extends Dialog {
 		return item;
 	}
 	
+	private void unbindParameter(int itemIndex) {
+		if (tblStatements.getSelectionIndex() != -1) {
+			TableItem statementItem = tblStatements.getItem(tblStatements.getSelectionIndex());
+			StatementWrapper wrapper = (StatementWrapper) statementItem.getData();
+			SqlStatement statement = wrapper.getStatement();
+			TableItem item = tblParameters.getItem(itemIndex);
+			ParameterWrapper parmWrapper = (ParameterWrapper) item.getData();
+			SqlParameterDefinition parameter = parmWrapper.getParameter();
+			if (null != parameter.eContainer()) {
+				RemoveCommand removeCmd = new RemoveCommand(editingDomain, statement,
+						EsbPackage.Literals.SQL_STATEMENT__PARAMETERS, parameter);
+				getResultCommand().append(removeCmd);
+			}
+			wrapper.getParameters().remove(parmWrapper);
+			tblParameters.remove(tblParameters.indexOf(item));
+		}
+	}
+	
+	private TableItem bindResult(ResultWrapper wrapper){
+		TableItem item = new TableItem(tblResults, SWT.NONE);
+		item.setText(0,wrapper.getPropertyName());
+		item.setText(1,wrapper.getColumnId());
+		item.setData(wrapper);
+		return item;
+	}
+	
+	private void unbindResult(int itemIndex) {
+		if (tblStatements.getSelectionIndex() != -1) {
+			TableItem statementItem = tblStatements.getItem(tblStatements.getSelectionIndex());
+			StatementWrapper wrapper = (StatementWrapper) statementItem.getData();
+			SqlStatement statement = wrapper.getStatement();
+			TableItem item = tblResults.getItem(itemIndex);
+			ResultWrapper resultWrapper = (ResultWrapper) item.getData();
+			SqlResultMapping result = resultWrapper.getResult();
+			if (null != result.eContainer()) {
+				RemoveCommand removeCmd = new RemoveCommand(editingDomain, statement,
+						EsbPackage.Literals.SQL_STATEMENT__RESULTS, result);
+				getResultCommand().append(removeCmd);
+			}
+			wrapper.getResults().remove(resultWrapper);
+			tblResults.remove(tblResults.indexOf(item));
+		}
+	}
+	
 	private void editParameter(final TableItem item) {
+		final ParameterWrapper wrapper = (ParameterWrapper) item.getData();
+		
 		parameterTypeEditor = initTableEditor(parameterTypeEditor,
 				item.getParent());
-		final ParameterWrapper wrapper = (ParameterWrapper) item.getData();
 		cmbParameterType = new Combo(item.getParent(), SWT.READ_ONLY);
 		List<SqlParameterDataType> values = SqlParameterDataType.VALUES;
 		for (SqlParameterDataType sqlParameterDataType : values) {
 			cmbParameterType.add(sqlParameterDataType.getLiteral());
 		}
-		//cmbParameterType.setItems(new String[] { SqlParameterDataType.VALUES });
 		cmbParameterType.setText(item.getText(0));
 		parameterTypeEditor.setEditor(cmbParameterType, item, 0);
 		item.getParent().redraw();
@@ -512,10 +642,10 @@ public class ConfigureSqlStatementsDialog extends Dialog {
 				item.setText(1, cmbPropertyType.getText());
 				if(cmbPropertyType.getSelectionIndex()==1){
 					wrapper.setExpression(true);
-					item.setText(1,wrapper.getValueExpression().getPropertyValue());
+					item.setText(2,wrapper.getValueExpression().getPropertyValue());
 				} else{
 					wrapper.setExpression(false);
-					item.setText(1,wrapper.getValueLiteral());
+					item.setText(2,wrapper.getValueLiteral());
 				}
 			}
 		});
@@ -539,7 +669,39 @@ public class ConfigureSqlStatementsDialog extends Dialog {
 				}
 			}
 		});
-		
+	}
+	
+	private void editResult(final TableItem item) {
+		final ResultWrapper wrapper = (ResultWrapper) item.getData();
+
+		resultNameEditor = initTableEditor(resultNameEditor, item.getParent());
+		txtResultName = new Text(item.getParent(), SWT.NONE);
+		txtResultName.setText(item.getText(0));
+		resultNameEditor.setEditor(txtResultName, item, 0);
+		item.getParent().redraw();
+		item.getParent().layout();
+		txtResultName.addModifyListener(new ModifyListener() {
+
+			public void modifyText(ModifyEvent e) {
+				item.setText(0,txtResultName.getText());
+				wrapper.setPropertyName(txtResultName.getText());
+			}
+		});
+
+		resultColumnEditor = initTableEditor(resultColumnEditor, item.getParent());
+		txtResultColumn = new Text(item.getParent(), SWT.NONE);
+		txtResultColumn.setText(item.getText(1));
+		resultColumnEditor.setEditor(txtResultColumn, item, 1);
+		item.getParent().redraw();
+		item.getParent().layout();
+		txtResultColumn.addModifyListener(new ModifyListener() {
+
+			public void modifyText(ModifyEvent e) {
+				item.setText(1,txtResultColumn.getText());
+				wrapper.setColumnId(txtResultColumn.getText());
+			}
+		});
+
 	}
 	
 	private TableEditor initTableEditor(TableEditor editor, Table table) {
@@ -564,12 +726,10 @@ public class ConfigureSqlStatementsDialog extends Dialog {
 			AddCommand addCmd = null;
 			
 			if (null == statement.eContainer()) {
-				
 				addCmd = new AddCommand(editingDomain,
 						sqlExecutorMediator, EsbPackage.Literals.ABSTRACT_SQL_EXECUTOR_MEDIATOR__SQL_STATEMENTS,
 						statement);
 				getResultCommand().append(addCmd);
-
 			}
 			
 			SetCommand setCommand=null;
@@ -589,10 +749,78 @@ public class ConfigureSqlStatementsDialog extends Dialog {
 							parameter);
 					getResultCommand().append(addCmd);
 				}
+				
+				if ((parameter.getValueType() == SqlParameterValueType.EXPRESSION) != parmWrapper
+						.isExpression()) {
+					setCommand = new SetCommand(
+							editingDomain,
+							parameter,
+							EsbPackage.Literals.SQL_PARAMETER_DEFINITION__VALUE_TYPE,
+							parmWrapper.isExpression()?SqlParameterValueType.EXPRESSION:SqlParameterValueType.LITERAL );
+					getResultCommand().append(setCommand);
+				}
+				
+				if(parmWrapper.isExpression()){
+					parmWrapper.setValueLiteral("default");
+				} else{
+					parmWrapper.getValueExpression().setPropertyValue("/default/expression");
+				}
+				
+				if(!parameter.getValueExpression().equals(parmWrapper.getValueExpression())){
+					setCommand = new SetCommand(
+							editingDomain,
+							parameter,
+							EsbPackage.Literals.SQL_PARAMETER_DEFINITION__VALUE_EXPRESSION,
+							parmWrapper.getValueExpression() );
+					getResultCommand().append(setCommand);
+				}
+				
+				if(!parameter.getValueLiteral().equals(parmWrapper.getValueLiteral())){
+					setCommand = new SetCommand(
+							editingDomain,
+							parameter,
+							EsbPackage.Literals.SQL_PARAMETER_DEFINITION__VALUE_LITERAL,
+							parmWrapper.getValueLiteral() );
+					getResultCommand().append(setCommand);
+				}
+				
+				if(!parameter.getDataType().equals(parmWrapper.getDataType())){
+					setCommand = new SetCommand(
+							editingDomain,
+							parameter,
+							EsbPackage.Literals.SQL_PARAMETER_DEFINITION__DATA_TYPE,
+							parmWrapper.getDataType() );
+					getResultCommand().append(setCommand);
+				}
 			}
 			
 			for(ResultWrapper resultWrapper : wrapper.getResults() ){
-				//TODO:
+				SqlResultMapping result = resultWrapper.getResult();
+				
+				if(null==result.eContainer()){
+					addCmd = new AddCommand(editingDomain,
+							statement, EsbPackage.Literals.SQL_STATEMENT__RESULTS,
+							result);
+					getResultCommand().append(addCmd);
+				}
+				
+				if(!result.getPropertyName().equals(resultWrapper.getPropertyName())){
+					setCommand = new SetCommand(
+							editingDomain,
+							result,
+							EsbPackage.Literals.SQL_RESULT_MAPPING__PROPERTY_NAME,
+							resultWrapper.getPropertyName() );
+					getResultCommand().append(setCommand);
+				}
+				
+				if(!result.getColumnId().equals(resultWrapper.getColumnId())){
+					setCommand = new SetCommand(
+							editingDomain,
+							result,
+							EsbPackage.Literals.SQL_RESULT_MAPPING__COLUMN_ID,
+							resultWrapper.getColumnId());
+					getResultCommand().append(setCommand);
+				}
 			}
 			
 		}
