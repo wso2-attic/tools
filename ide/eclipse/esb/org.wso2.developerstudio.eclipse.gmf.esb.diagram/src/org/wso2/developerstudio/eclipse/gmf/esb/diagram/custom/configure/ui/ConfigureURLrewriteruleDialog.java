@@ -7,6 +7,8 @@ import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.IDialogConstants;
+import org.eclipse.swt.custom.CCombo;
+import org.eclipse.swt.custom.TableEditor;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.graphics.Point;
@@ -34,7 +36,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.URLRewriteMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.URLRewriteRule;
 import org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbFactoryImpl;
 import org.eclipse.swt.widgets.Label;
-import org.eclipse.wb.swt.SWTResourceManager;
+
 
 public class ConfigureURLrewriteruleDialog extends Dialog {
 	private final FormToolkit formToolkit = new FormToolkit(Display.getDefault());
@@ -173,8 +175,32 @@ public class ConfigureURLrewriteruleDialog extends Dialog {
 		btnNewButton.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
+				TableItem item = new TableItem(table_1, SWT.NONE);
+				 TableEditor editor = new TableEditor(table_1);
+				 
+			      CCombo combo = createCombo(new String[]{});
+			      editor.grabHorizontal = true;
+			      editor.setEditor(combo, item, 0);
+			      editor = new TableEditor(table_1);
 				
-				
+			      
+			      
+			      
+			}
+
+			private CCombo createCombo(String[] values) {
+				CCombo combo = new CCombo(table_1, SWT.NONE);
+				for (String value : values) {
+					combo.add(value);
+				}
+			      combo.add("Replace");
+			      combo.add("Remove");
+			      combo.add("Append");
+			      combo.add("Prepend");
+			      combo.add("Set");
+			      combo.select(0);
+			      combo.setEditable(false);
+				return combo;
 			}
 		});
 		FormData fd_btnNewButton = new FormData();
@@ -193,9 +219,32 @@ public class ConfigureURLrewriteruleDialog extends Dialog {
 		btnNewButton_1.setText("Remove Action");
 		
 		Label lblNewLabel = new Label(container, SWT.NONE);
-		lblNewLabel.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_BACKGROUND));
 		FormData fd_lblNewLabel = new FormData();
 		fd_lblNewLabel.bottom = new FormAttachment(table_1, -6);
+		
+		TableColumn tblclmnNewColumn_1 = new TableColumn(table_1, SWT.NONE);
+		tblclmnNewColumn_1.setWidth(100);
+		tblclmnNewColumn_1.setText("Action");
+		
+		TableColumn tblclmnNewColumn_2 = new TableColumn(table_1, SWT.NONE);
+		tblclmnNewColumn_2.setWidth(100);
+		tblclmnNewColumn_2.setText("Fragment");
+		
+		TableColumn tblclmnNewColumn_3 = new TableColumn(table_1, SWT.NONE);
+		tblclmnNewColumn_3.setWidth(83);
+		tblclmnNewColumn_3.setText("Option");
+		
+		TableColumn tblclmnNewColumn_4 = new TableColumn(table_1, SWT.NONE);
+		tblclmnNewColumn_4.setWidth(100);
+		tblclmnNewColumn_4.setText("Value/Expression");
+		
+		TableColumn tblclmnNewColumn_5 = new TableColumn(table_1, SWT.NONE);
+		tblclmnNewColumn_5.setWidth(145);
+		tblclmnNewColumn_5.setText("Namespace Editor");
+		
+		TableColumn tblclmnNewColumn_6 = new TableColumn(table_1, SWT.NONE);
+		tblclmnNewColumn_6.setWidth(100);
+		tblclmnNewColumn_6.setText("Regex");
 		fd_lblNewLabel.left = new FormAttachment(0, 10);
 		lblNewLabel.setLayoutData(fd_lblNewLabel);
 		formToolkit.adapt(lblNewLabel, true, true);
