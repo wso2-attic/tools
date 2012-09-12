@@ -1190,7 +1190,7 @@
     <genClasses ecoreClass="esb.ecore#//StoreMediatorInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//StoreMediatorOutputConnector"/>
     <genClasses ecoreClass="esb.ecore#//BuilderMediator">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//BuilderMediator/messageBuilders"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//BuilderMediator/messageBuilders"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//BuilderMediator/inputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//BuilderMediator/outputConnector"/>
     </genClasses>

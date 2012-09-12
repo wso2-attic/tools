@@ -157,33 +157,43 @@ public class EsbPropertySource extends PropertySource {
 			
 			return new ThrottlePolicyEntryPropertyDescriptor(object, itemPropertyDescriptor);
 			
+			//Throttle Mediator Policy key custom property descriptor.
 		}else if(pkg.getThrottleMediator_PolicyKey().equals(feature)){
 			
 			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
-			
+			//Throttle Mediator On Accept branch custom property descriptor.
 		}else if(pkg.getThrottleMediator_OnAcceptBranchsequenceKey().equals(feature)){
 			
 			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
 			
+			//Throttle Mediator On Reject branch custom property descriptor.
 		}else if(pkg.getThrottleMediator_OnRejectBranchsequenceKey().equals(feature)){
 			
 			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
 			
-			//Validate Mediator Custom property descriptors.
+			//Validate Mediator Source path Custom property descriptors.
 		}else if(pkg.getValidateMediator_SourceXpath().equals(feature)){
 			
 			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
 			
+			//Validate Mediator Schema Custom property descriptors.
 		}else if(pkg.getValidateMediator_Schemas().equals(feature)){
 			
 			return new ValidateSchemasPropertyDescriptor(object, itemPropertyDescriptor);
 			
+			//Validate Mediator Features Custom property descriptors.
 		}else if(pkg.getValidateMediator_Features().equals(feature)){
 			
 			return new ValidateFeaturePropertyDescriptor(object, itemPropertyDescriptor);
+			
 		}else if(pkg.getURLRewriteMediator_UrlRewriteRules().equals(feature)){
 			
 			return new URLRewiterConfigurationPropertyDescriptor(object, itemPropertyDescriptor);
+			
+			//Builder Mediator message builder custom property descriptor.
+		}else if(pkg.getBuilderMediator_MessageBuilders().equals(feature)){
+			
+			return new MessageBuilderPropertyDescriptor(object, itemPropertyDescriptor);
 			
 		}
 			
