@@ -23,7 +23,8 @@ import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractInputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.WestPointerShape;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.ProxyFaultInputConnectorItemSemanticEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
@@ -31,7 +32,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementType
 /**
  * @generated NOT
  */
-public class ProxyFaultInputConnectorEditPart extends AbstractInputConnector {
+public class ProxyFaultInputConnectorEditPart extends AbstractInputConnectorEditPart {
 
 	/**
 	 * @generated

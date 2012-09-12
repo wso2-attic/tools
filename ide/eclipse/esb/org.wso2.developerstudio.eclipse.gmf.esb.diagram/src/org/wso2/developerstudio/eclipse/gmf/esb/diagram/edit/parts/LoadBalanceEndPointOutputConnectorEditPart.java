@@ -27,7 +27,7 @@ import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpointAdditionalOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpointAdditionalOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.DefaultSizeCaseBranchPointerNodeFigure;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EastPointerShape;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractPointerShape;
@@ -38,7 +38,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementType
  * @generated NOT
  */
 public class LoadBalanceEndPointOutputConnectorEditPart extends
-		AbstractEndpointAdditionalOutputConnector {
+		AbstractEndpointAdditionalOutputConnectorEditPart {
 
 	/**
 	 * @generated

@@ -30,7 +30,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.FailoverEndPointOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPointOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpoint;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpointAdditionalOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpointAdditionalOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 
 public class AddbranchEndpointDialog extends Dialog{
@@ -147,9 +147,9 @@ public class AddbranchEndpointDialog extends Dialog{
 		List<BorderItemLocator> outputLocators = new ArrayList<BorderItemLocator>();
 		float pos = 0;
 		for (int i = 0; i < editpart.getChildren().size(); ++i) {
-			if (editpart.getChildren().get(i) instanceof AbstractEndpointAdditionalOutputConnector) {
+			if (editpart.getChildren().get(i) instanceof AbstractEndpointAdditionalOutputConnectorEditPart) {
 				pos = pos + (1 / (number + 1));
-				IFigure borderItemFigure = ((AbstractEndpointAdditionalOutputConnector) editpart
+				IFigure borderItemFigure = ((AbstractEndpointAdditionalOutputConnectorEditPart) editpart
 						.getChildren().get(i)).getFigure();
 				outputConnectors.add(borderItemFigure);
 				BorderItemLocator locator = new FixedBorderItemLocator(

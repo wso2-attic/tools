@@ -40,8 +40,8 @@ import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IFileEditorInput;
 import org.wso2.developerstudio.eclipse.gmf.esb.AddressEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpoint;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpointInputConnector;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpointInputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ToolPalleteDetails;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AddressEndPointEditPart;
@@ -1109,8 +1109,8 @@ public class EsbPaletteFactory {
 						for (int i = 0; i < ((AbstractMediator) getTargetEditPart())
 								.getChildren().size(); ++i) {
 							if (((AbstractMediator) getTargetEditPart())
-									.getChildren().get(i) instanceof AbstractInputConnector) {
-								return ((AbstractInputConnector) ((AbstractMediator) getTargetEditPart())
+									.getChildren().get(i) instanceof AbstractMediatorInputConnectorEditPart) {
+								return ((AbstractMediatorInputConnectorEditPart) ((AbstractMediator) getTargetEditPart())
 										.getChildren().get(i))
 										.getCommand(getTargetRequest());
 							}
@@ -1119,8 +1119,8 @@ public class EsbPaletteFactory {
 						for (int j = 0; j < ((AbstractEndpoint) getTargetEditPart())
 								.getChildren().size(); ++j) {
 							if (((AbstractEndpoint) getTargetEditPart())
-									.getChildren().get(j) instanceof AbstractEndpointInputConnector) {
-								return ((AbstractEndpointInputConnector) ((AbstractEndpoint) getTargetEditPart())
+									.getChildren().get(j) instanceof AbstractEndpointInputConnectorEditPart) {
+								return ((AbstractEndpointInputConnectorEditPart) ((AbstractEndpoint) getTargetEditPart())
 										.getChildren().get(j))
 										.getCommand(getTargetRequest());
 							}

@@ -45,7 +45,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.SwitchCaseBranchOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.SwitchCaseContainer;
 import org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediator;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.CloneMediatorGraphicalShape;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;

@@ -63,36 +63,36 @@ public abstract class AbstractEndpoint extends BorderedBorderItemEditPart {
 			float inputPosition = 0, additionalOutputPosition=0;
 
 			for (int i = 0; i < selectedEP.getChildren().size(); ++i) {
-				if (selectedEP.getChildren().get(i) instanceof AbstractEndpointInputConnector) {
+				if (selectedEP.getChildren().get(i) instanceof AbstractEndpointInputConnectorEditPart) {
 					++inputCount;
 				}
 				
 			}
 
 			for (int i = 0; i < selectedEP.getChildren().size(); ++i) {
-				if (selectedEP.getChildren().get(i) instanceof AbstractEndpointOutputConnector) {
+				if (selectedEP.getChildren().get(i) instanceof AbstractEndpointOutputConnectorEditPart) {
 					++outputCount;
 				}
 			}
 			
 			for (int i = 0; i < selectedEP.getChildren().size(); ++i) {
-				if (selectedEP.getChildren().get(i) instanceof AbstractEndpointAdditionalOutputConnector) {
+				if (selectedEP.getChildren().get(i) instanceof AbstractEndpointAdditionalOutputConnectorEditPart) {
 					++additionalOutputCount;
 				}
 			}
 			
 			for (int i = 0; i < selectedEP.getChildren().size(); ++i) {
-				if (selectedEP.getChildren().get(i) instanceof AbstractEndpointInputConnector) {
+				if (selectedEP.getChildren().get(i) instanceof AbstractEndpointInputConnectorEditPart) {
 
-					inputConnector = ((AbstractEndpointInputConnector) selectedEP.getChildren().get(i))
+					inputConnector = ((AbstractEndpointInputConnectorEditPart) selectedEP.getChildren().get(i))
 							.getFigure();
 					inputConnectors.add(inputConnector);
-					NodeFigure figureInput = ((AbstractEndpointInputConnector) selectedEP.getChildren()
+					NodeFigure figureInput = ((AbstractEndpointInputConnectorEditPart) selectedEP.getChildren()
 							.get(i)).getNodeFigureInput();
 					inputPosition = (float) 0.5;
 
 					figureInput.removeAll();
-					figureInput.add(((AbstractEndpointInputConnector) selectedEP.getChildren().get(i))
+					figureInput.add(((AbstractEndpointInputConnectorEditPart) selectedEP.getChildren().get(i))
 							.getPrimaryShapeReverse());
 
 					BorderItemLocator inputLocator = new FixedBorderItemLocator(
@@ -103,10 +103,10 @@ public abstract class AbstractEndpoint extends BorderedBorderItemEditPart {
 
 				}
 
-				if (selectedEP.getChildren().get(i) instanceof AbstractEndpointOutputConnector) {
+				if (selectedEP.getChildren().get(i) instanceof AbstractEndpointOutputConnectorEditPart) {
 					
 					Collection<EObject> collection=new ArrayList<EObject>();
-					collection.add(((org.eclipse.gmf.runtime.notation.impl.NodeImpl)((AbstractEndpointOutputConnector)selectedEP.getChildren().get(i)).getModel()).getElement());
+					collection.add(((org.eclipse.gmf.runtime.notation.impl.NodeImpl)((AbstractEndpointOutputConnectorEditPart)selectedEP.getChildren().get(i)).getModel()).getElement());
 					DeleteCommand deleteCommand =new DeleteCommand(getEditingDomain(),collection );
 					if(deleteCommand.canExecute()){
 						getEditingDomain().getCommandStack().execute(deleteCommand);
@@ -114,8 +114,8 @@ public abstract class AbstractEndpoint extends BorderedBorderItemEditPart {
 
 				}
 				
-				if (selectedEP.getChildren().get(i) instanceof AbstractEndpointAdditionalOutputConnector) {
-					additionalOutputConnector = ((AbstractEndpointAdditionalOutputConnector) selectedEP.getChildren().get(i))
+				if (selectedEP.getChildren().get(i) instanceof AbstractEndpointAdditionalOutputConnectorEditPart) {
+					additionalOutputConnector = ((AbstractEndpointAdditionalOutputConnectorEditPart) selectedEP.getChildren().get(i))
 					.getFigure();					
 					additionalOutputConnectors.add(additionalOutputConnector);
 					

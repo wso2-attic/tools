@@ -61,8 +61,8 @@ import org.eclipse.ui.part.FileEditorInput;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractInputConnector;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorInputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedSizedAbstractMediator;
@@ -795,13 +795,13 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 	public void moveConnectorsRightSide() {
 
 		for (int i = 0; i < this.getChildren().size(); ++i) {
-			if (this.getChildren().get(i) instanceof AbstractInputConnector) {
-				IFigure inputConnector = ((AbstractInputConnector) this
+			if (this.getChildren().get(i) instanceof AbstractMediatorInputConnectorEditPart) {
+				IFigure inputConnector = ((AbstractMediatorInputConnectorEditPart) this
 						.getChildren().get(i)).getFigure();
-				NodeFigure figureInput = ((AbstractInputConnector) this
+				NodeFigure figureInput = ((AbstractMediatorInputConnectorEditPart) this
 						.getChildren().get(i)).getNodeFigureInput();
 				figureInput.removeAll();
-				figureInput.add(((AbstractInputConnector) this.getChildren()
+				figureInput.add(((AbstractMediatorInputConnectorEditPart) this.getChildren()
 						.get(i)).getPrimaryShapeReverse());
 				BorderItemLocator inputLocator = new FixedBorderItemLocator(
 						this.getMainFigure(), inputConnector,
@@ -815,13 +815,13 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 		}
 
 		for (int i = 0; i < this.getChildren().size(); ++i) {
-			if (this.getChildren().get(i) instanceof AbstractOutputConnector) {
-				IFigure outputConnector = ((AbstractOutputConnector) this
+			if (this.getChildren().get(i) instanceof AbstractMediatorOutputConnectorEditPart) {
+				IFigure outputConnector = ((AbstractMediatorOutputConnectorEditPart) this
 						.getChildren().get(i)).getFigure();
-				NodeFigure figureOutput = ((AbstractOutputConnector) this
+				NodeFigure figureOutput = ((AbstractMediatorOutputConnectorEditPart) this
 						.getChildren().get(i)).getNodeFigureOutput();
 				figureOutput.removeAll();
-				figureOutput.add(((AbstractOutputConnector) this.getChildren()
+				figureOutput.add(((AbstractMediatorOutputConnectorEditPart) this.getChildren()
 						.get(i)).getPrimaryShapeForward());
 				BorderItemLocator outputLocator = new FixedBorderItemLocator(
 						this.getMainFigure(), outputConnector,

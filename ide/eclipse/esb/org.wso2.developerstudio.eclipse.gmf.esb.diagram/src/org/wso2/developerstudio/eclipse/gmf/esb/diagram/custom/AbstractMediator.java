@@ -6,20 +6,12 @@ import java.util.List;
 
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.PositionConstants;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.commands.CompoundCommand;
-import org.eclipse.gmf.runtime.common.core.command.ICommand;
 import org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand;
-import org.eclipse.gmf.runtime.diagram.ui.commands.DeferredCreateConnectionViewAndElementCommand;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderItemEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
-import org.eclipse.gmf.runtime.diagram.ui.requests.CreateConnectionViewAndElementRequest;
-import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
-import org.eclipse.gmf.runtime.emf.type.core.IHintedType;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint;
@@ -55,26 +47,18 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowM
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.RouterMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.RuleMediatorEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SendMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceOutputConnectorEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequencesInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequencesOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ThrottleMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ValidateMediatorEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 
 public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 
 	public boolean isForward = true;
 	private int i = 0;
-	
-	private AbstractBorderedShapeEditPart sourceEditPart = null;
-	private AbstractOutputConnector sourceOutputConnector = null;
-	private AbstractInputConnector inputConnector = null;
-	private AbstractOutputConnector outputConnectorEditPart = null;
 
 	/*
 	 * activete method is called twice for a mediator.so that we use this
@@ -133,16 +117,16 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 	
 	private boolean shouldReverse() {
 		for(int i=0;i<this.getChildren().size();++i){
-			if (this.getChildren().get(i) instanceof AbstractInputConnector) {
-				AbstractInputConnector inputConnector = (AbstractInputConnector) this.getChildren().get(i);
+			if (this.getChildren().get(i) instanceof AbstractMediatorInputConnectorEditPart) {
+				AbstractMediatorInputConnectorEditPart inputConnector = (AbstractMediatorInputConnectorEditPart) this.getChildren().get(i);
 				if (inputConnector.getTargetConnections().size() != 0) {
 					EditPart link = ((EsbLinkEditPart) inputConnector
 							.getTargetConnections().get(0)).getSource();
-					if ((link instanceof AbstractOutputConnector)
-							&& (((AbstractOutputConnector) link).getParent() instanceof AbstractMediator)
-							&& (((AbstractMediator) ((AbstractOutputConnector) link)
+					if ((link instanceof AbstractMediatorOutputConnectorEditPart)
+							&& (((AbstractMediatorOutputConnectorEditPart) link).getParent() instanceof AbstractMediator)
+							&& (((AbstractMediator) ((AbstractMediatorOutputConnectorEditPart) link)
 									.getParent()).reversed)
-							|| (link instanceof AbstractEndpointOutputConnector)) {
+							|| (link instanceof AbstractEndpointOutputConnectorEditPart)) {
 						return true;
 					}
 				}
@@ -214,29 +198,29 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 			float inputPosition = 0, outputPosition = 0;
 
 			for (int i = 0; i < selectedEP.getChildren().size(); ++i) {
-				if (selectedEP.getChildren().get(i) instanceof AbstractInputConnector) {
+				if (selectedEP.getChildren().get(i) instanceof AbstractMediatorInputConnectorEditPart) {
 					++inputCount;
 				}
 			}
 
 			for (int i = 0; i < selectedEP.getChildren().size(); ++i) {
-				if (selectedEP.getChildren().get(i) instanceof AbstractOutputConnector) {
+				if (selectedEP.getChildren().get(i) instanceof AbstractMediatorOutputConnectorEditPart) {
 					++outputCount;
 				}
 			}
 
 			for (int i = 0; i < selectedEP.getChildren().size(); ++i) {
-				if (selectedEP.getChildren().get(i) instanceof AbstractInputConnector) {
+				if (selectedEP.getChildren().get(i) instanceof AbstractMediatorInputConnectorEditPart) {
 
-					inputConnector = ((AbstractInputConnector) selectedEP.getChildren().get(i))
+					inputConnector = ((AbstractMediatorInputConnectorEditPart) selectedEP.getChildren().get(i))
 							.getFigure();
 					inputConnectors.add(inputConnector);
-					NodeFigure figureInput = ((AbstractInputConnector) selectedEP.getChildren()
+					NodeFigure figureInput = ((AbstractMediatorInputConnectorEditPart) selectedEP.getChildren()
 							.get(i)).getNodeFigureInput();
 					inputPosition = inputPosition + (1 / (inputCount + 1));
 
 					figureInput.removeAll();
-					figureInput.add(((AbstractInputConnector) selectedEP.getChildren().get(i))
+					figureInput.add(((AbstractMediatorInputConnectorEditPart) selectedEP.getChildren().get(i))
 							.getPrimaryShapeReverse());
 
 					BorderItemLocator inputLocator = new FixedBorderItemLocator(
@@ -247,18 +231,18 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 
 				}
 
-				if (selectedEP.getChildren().get(i) instanceof AbstractOutputConnector) {
+				if (selectedEP.getChildren().get(i) instanceof AbstractMediatorOutputConnectorEditPart) {
 
-					outputConnector = ((AbstractOutputConnector) selectedEP.getChildren().get(i))
+					outputConnector = ((AbstractMediatorOutputConnectorEditPart) selectedEP.getChildren().get(i))
 							.getFigure();
 					outputConnectors.add(outputConnector);
-					NodeFigure figureOutput = ((AbstractOutputConnector) selectedEP.getChildren()
+					NodeFigure figureOutput = ((AbstractMediatorOutputConnectorEditPart) selectedEP.getChildren()
 							.get(i)).getNodeFigureOutput();
 
 					outputPosition = outputPosition + (1 / (outputCount + 1));
 
 					figureOutput.removeAll();
-					figureOutput.add(((AbstractOutputConnector) selectedEP.getChildren().get(i))
+					figureOutput.add(((AbstractMediatorOutputConnectorEditPart) selectedEP.getChildren().get(i))
 							.getPrimaryShapeReverse());
 
 					BorderItemLocator outputLocator = new FixedBorderItemLocator(
@@ -296,119 +280,118 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 	}	
 	
 	protected void getMostSuitableElementToConnect() {
+
 		ArrayList<EsbLinkEditPart> ESBLinkEditpart = new ArrayList<EsbLinkEditPart>();
+		ArrayList<AbstractConnectorEditPart> outputConnectorEditpart = new ArrayList<AbstractConnectorEditPart>();
+		ArrayList<AbstractConnectorEditPart> inputConnectorEditpart = new ArrayList<AbstractConnectorEditPart>();
+		AbstractMediatorOutputConnectorEditPart nearestOutputConnector = null;
+		AbstractInputConnectorEditPart nearestInputConnector = null;
+		AbstractConnectorEditPart outputConnector = null;
+		AbstractConnectorEditPart inputConnector = null;
+		AbstractMediatorInputConnectorEditPart currentInputConnector = null;
+		AbstractMediatorOutputConnectorEditPart currentOutputConnector = null;
+		boolean previouslyConnected = false;
+
 		for (int i = 0; i < getViewer().getEditPartRegistry().size(); ++i) {
 			if (getViewer().getEditPartRegistry().values().toArray()[i] instanceof EsbLinkEditPart) {
 				ESBLinkEditpart.add((EsbLinkEditPart) getViewer()
 						.getEditPartRegistry().values().toArray()[i]);
+			} else if (getViewer().getEditPartRegistry().values().toArray()[i] instanceof AbstractMediatorOutputConnectorEditPart) {
+				if (((AbstractMediatorOutputConnectorEditPart) getViewer()
+						.getEditPartRegistry().values().toArray()[i])
+						.getParent().getParent().equals(this.getParent())) {
+					outputConnectorEditpart
+							.add((AbstractMediatorOutputConnectorEditPart) getViewer()
+									.getEditPartRegistry().values().toArray()[i]);
+				}
+			} else if (getViewer().getEditPartRegistry().values().toArray()[i] instanceof AbstractInputConnectorEditPart) {
+				if (((AbstractInputConnectorEditPart) getViewer()
+						.getEditPartRegistry().values().toArray()[i])
+						.getParent().getParent().equals(this.getParent())) {
+					inputConnectorEditpart
+							.add((AbstractInputConnectorEditPart) getViewer()
+									.getEditPartRegistry().values().toArray()[i]);
+				}
+
 			}
 		}
 		EsbLinkEditPart nearestESBLink = ConnectionCalculator
-				.getNearestLinkEditPart(ESBLinkEditpart, this);	
-		
-		
-		AbstractBorderItemEditPart outputConnector = null;
-		AbstractBorderItemEditPart inputConnector = null;
-		AbstractInputConnector currentInputConnector = null;
-		AbstractOutputConnector currentOutputConnector = null;
-		if (nearestESBLink != null) {			
-			outputConnector = (AbstractBorderItemEditPart) nearestESBLink
-					.getSource();
-			inputConnector = (AbstractBorderItemEditPart) nearestESBLink
-					.getTarget();
-			
-			if((!(outputConnector instanceof ProxyOutputConnectorEditPart)) && (!(outputConnector instanceof SequencesOutputConnectorEditPart)) && (! outputConnector.getParent().getParent().equals(this.getParent()))){
-				nearestESBLink=null;
+				.getNearestLinkEditPart(ESBLinkEditpart, this);
+
+		if (nearestESBLink == null) {
+
+			nearestOutputConnector = (AbstractMediatorOutputConnectorEditPart) ConnectionCalculator
+					.getNearestConnectorEditPart(outputConnectorEditpart, this);
+			if ((nearestOutputConnector != null)) {// &&(!(this.getParent()
+													// instanceof
+													// MediatorFlowMediatorFlowCompartment6EditPart))){
+				previouslyConnected = connectToNearestConnector(nearestOutputConnector);
+				AbstractMediatorOutputConnectorEditPart updatedOutputConnector = null;
+				updatedOutputConnector = EditorUtils
+						.getMediatorOutputConnector(this);
+				updateCurrentStates(updatedOutputConnector);
+			}
+
+			nearestInputConnector = (AbstractInputConnectorEditPart) ConnectionCalculator
+					.getNearestConnectorEditPart(inputConnectorEditpart, this);
+			if ((nearestInputConnector != null)) {// &&(!(this.getParent()
+													// instanceof
+													// MediatorFlowMediatorFlowCompartment6EditPart))){
+				connectToNearestConnector(nearestInputConnector);
+			}
+		}
+
+		if (!previouslyConnected) {
+			if (nearestESBLink != null) {
+				outputConnector = (AbstractConnectorEditPart) nearestESBLink
+						.getSource();
+				inputConnector = (AbstractConnectorEditPart) nearestESBLink
+						.getTarget();
+
+				if ((!(outputConnector instanceof ProxyOutputConnectorEditPart))
+						&& (!(outputConnector instanceof SequencesOutputConnectorEditPart))
+						&& (!outputConnector.getParent().getParent()
+								.equals(this.getParent()))) {
+					nearestESBLink = null;
+					connectNormally();
+				}
+			} else {
 				connectNormally();
 			}
-			
-		}else{
-			connectNormally();
-		}		
 
-		for (int p = 0; p < this.getChildren().size(); ++p) {
-			if (this.getChildren().get(p) instanceof AbstractInputConnector) {
-				currentInputConnector = (AbstractInputConnector) this
-						.getChildren().get(p);
-			}
-		}
+			currentInputConnector = EditorUtils.getMediatorInputConnector(this);
+			currentOutputConnector = EditorUtils
+					.getMediatorOutputConnector(this);
 
-		for (int j = 0; j < this.getChildren().size(); ++j) {
-			if (this.getChildren().get(j) instanceof AbstractOutputConnector) {
-				currentOutputConnector = (AbstractOutputConnector) this
-						.getChildren().get(j);
-			}
-		}
+			if (nearestESBLink != null) {
+				Collection col = new ArrayList();
+				col.add(((org.eclipse.gmf.runtime.notation.impl.ConnectorImpl) nearestESBLink
+						.getModel()).getElement());
 
-		if (nearestESBLink != null) {
-			Collection col = new ArrayList();
-			col.add(((org.eclipse.gmf.runtime.notation.impl.ConnectorImpl) nearestESBLink
-					.getModel()).getElement());
+				org.eclipse.emf.edit.command.DeleteCommand del = new org.eclipse.emf.edit.command.DeleteCommand(
+						getEditingDomain(), col);
+				if (del.canExecute()) {
+					getEditingDomain().getCommandStack().execute(del);
+				}
 
-			org.eclipse.emf.edit.command.DeleteCommand del = new org.eclipse.emf.edit.command.DeleteCommand(
-					getEditingDomain(), col);
-			if (del.canExecute()) {
-				getEditingDomain().getCommandStack().execute(del);
 			}
 
-		}
-
-		if (nearestESBLink != null) {
-			DeleteCommand delCmd = new DeleteCommand(ConnectionCalculator
-					.getNearestLinkEditPart(ESBLinkEditpart, this)
-					.getNotationView());
-			CompoundCommand dl = new CompoundCommand("Delete Link");
-			dl.add(new ICommandProxy(delCmd));
-			if (delCmd.canExecute()) {
-				getDiagramEditDomain().getDiagramCommandStack().execute(dl);
+			if (nearestESBLink != null) {
+				DeleteCommand delCmd = new DeleteCommand(ConnectionCalculator
+						.getNearestLinkEditPart(ESBLinkEditpart, this)
+						.getNotationView());
+				CompoundCommand dl = new CompoundCommand("Delete Link");
+				dl.add(new ICommandProxy(delCmd));
+				if (delCmd.canExecute()) {
+					getDiagramEditDomain().getDiagramCommandStack().execute(dl);
+				}
 			}
+
+			ConnectionUtils.createConnection(currentInputConnector,
+					outputConnector);
+			ConnectionUtils.createConnection(inputConnector,
+					currentOutputConnector);
 		}
-
-		if (outputConnector != null && currentInputConnector != null
-				&& (outputConnector.getParent() instanceof ShapeNodeEditPart)) {
-			CompoundCommand cc = new CompoundCommand("Create Link");
-
-			ICommand createSubTopicsCmd = new DeferredCreateConnectionViewAndElementCommand(
-					new CreateConnectionViewAndElementRequest(
-							EsbElementTypes.EsbLink_4001,
-							((IHintedType) EsbElementTypes.EsbLink_4001)
-									.getSemanticHint(),
-							((ShapeNodeEditPart) outputConnector.getParent())
-									.getDiagramPreferencesHint()),
-					new EObjectAdapter((EObject) outputConnector.getModel()),
-					new EObjectAdapter((EObject) currentInputConnector
-							.getModel()),
-					((ShapeNodeEditPart) outputConnector.getParent())
-							.getViewer());
-
-			cc.add(new ICommandProxy(createSubTopicsCmd));
-			getDiagramEditDomain().getDiagramCommandStack().execute(cc);
-
-		}
-
-		if (currentOutputConnector != null
-				&& inputConnector != null
-				&& (currentOutputConnector.getParent() instanceof AbstractMediator)) {
-			CompoundCommand cc = new CompoundCommand("Create Link");
-
-			ICommand createSubTopicsCmd = new DeferredCreateConnectionViewAndElementCommand(
-					new CreateConnectionViewAndElementRequest(
-							EsbElementTypes.EsbLink_4001,
-							((IHintedType) EsbElementTypes.EsbLink_4001)
-									.getSemanticHint(),
-							((AbstractMediator) currentOutputConnector
-									.getParent()).getDiagramPreferencesHint()),
-					new EObjectAdapter((EObject) currentOutputConnector
-							.getModel()), new EObjectAdapter(
-							(EObject) inputConnector.getModel()),
-					((AbstractMediator) currentOutputConnector.getParent())
-							.getViewer());
-
-			cc.add(new ICommandProxy(createSubTopicsCmd));
-			getDiagramEditDomain().getDiagramCommandStack().execute(cc);
-
-		}
-
 	}
 	
 	private void connectNormally(){
@@ -418,6 +401,16 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 			((MediatorFlowMediatorFlowCompartment5EditPart)this.getParent()).connectNormally(this);
 		}else if(this.getParent() instanceof MediatorFlowMediatorFlowCompartment6EditPart){
 			((MediatorFlowMediatorFlowCompartment6EditPart)this.getParent()).connectNormally(this);
+		}
+	}
+	
+	private void updateCurrentStates(AbstractMediatorOutputConnectorEditPart currentOutputConnector){
+		if(this.getParent() instanceof MediatorFlowMediatorFlowCompartmentEditPart){
+			((MediatorFlowMediatorFlowCompartmentEditPart)this.getParent()).setOutputConnectorEditPart(currentOutputConnector);
+			((MediatorFlowMediatorFlowCompartmentEditPart)this.getParent()).setSourceEditPart(this);
+		}else if(this.getParent() instanceof MediatorFlowMediatorFlowCompartment5EditPart){
+			((MediatorFlowMediatorFlowCompartment5EditPart)this.getParent()).setOutputConnectorEditPart(currentOutputConnector);
+			((MediatorFlowMediatorFlowCompartment5EditPart)this.getParent()).setSourceEditPart(this);
 		}
 	}
 
@@ -436,5 +429,26 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 		} else {
 			return false;
 		}
+	}
+	
+	private boolean connectToNearestConnector(AbstractConnectorEditPart nearestConnector){
+		AbstractConnectorEditPart currentInputConnector = null;
+		AbstractConnectorEditPart currentOutputConnector=null;
+		AbstractConnectorEditPart target=null;
+		AbstractConnectorEditPart source=null;
+		
+		currentInputConnector=EditorUtils.getInputConnector(this);
+		currentOutputConnector=EditorUtils.getOutputConnector(this);
+
+		
+		if(nearestConnector instanceof AbstractOutputConnectorEditPart){
+			source=nearestConnector;
+			target=currentInputConnector;
+		}else if(nearestConnector instanceof AbstractInputConnectorEditPart){
+			source=currentOutputConnector;
+			target=nearestConnector;
+		}
+		
+		return ConnectionUtils.createConnection(target, source);
 	}
 }

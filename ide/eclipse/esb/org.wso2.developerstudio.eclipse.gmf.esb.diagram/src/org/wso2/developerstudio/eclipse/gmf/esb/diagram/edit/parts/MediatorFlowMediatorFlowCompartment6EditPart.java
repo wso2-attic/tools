@@ -25,11 +25,12 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpoint;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpointInputConnector;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpointOutputConnector;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpointInputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpointOutputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractInputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediator;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.editpolicy.CustomDragDropEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.utils.SwitchMediatorUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.MediatorFlowMediatorFlowCompartment6CanonicalEditPolicy;
@@ -171,26 +172,26 @@ public class MediatorFlowMediatorFlowCompartment6EditPart extends
 				|| (child instanceof AbstractEndpoint)) {
 
 			for (int i = 0; i < child.getChildren().size(); ++i) {
-				if (child.getChildren().get(i) instanceof AbstractInputConnector) {
-					sourceInputConnector = (AbstractInputConnector) child
+				if (child.getChildren().get(i) instanceof AbstractMediatorInputConnectorEditPart) {
+					sourceInputConnector = (AbstractMediatorInputConnectorEditPart) child
 							.getChildren().get(i);
 				}
-				if (child.getChildren().get(i) instanceof AbstractOutputConnector) {
-					sourceOutputConnector = (AbstractOutputConnector) child
+				if (child.getChildren().get(i) instanceof AbstractMediatorOutputConnectorEditPart) {
+					sourceOutputConnector = (AbstractMediatorOutputConnectorEditPart) child
 							.getChildren().get(i);
 				}
-				if (child.getChildren().get(i) instanceof AbstractEndpointInputConnector) {
-					sourceInputConnector = (AbstractEndpointInputConnector) child
+				if (child.getChildren().get(i) instanceof AbstractEndpointInputConnectorEditPart) {
+					sourceInputConnector = (AbstractEndpointInputConnectorEditPart) child
 							.getChildren().get(i);
 				}
-				if (child.getChildren().get(i) instanceof AbstractEndpointOutputConnector) {
-					sourceOutputConnector = (AbstractEndpointOutputConnector) child
+				if (child.getChildren().get(i) instanceof AbstractEndpointOutputConnectorEditPart) {
+					sourceOutputConnector = (AbstractEndpointOutputConnectorEditPart) child
 							.getChildren().get(i);
 				}
 
 			}
 			if (inputConnectorEditPart == null) {
-				inputConnectorEditPart = ((AbstractInputConnector) this
+				inputConnectorEditPart = ((AbstractInputConnectorEditPart) this
 						.getParent().getParent().getParent().getParent()
 						.getChildren().get(3));
 			}
@@ -217,6 +218,14 @@ public class MediatorFlowMediatorFlowCompartment6EditPart extends
 
 			inputConnectorEditPart = sourceInputConnector;
 		}
+	}
+	
+	public void setInputConnectorEditPart(AbstractBorderItemEditPart inputConnectorEditPart){
+		this.inputConnectorEditPart=inputConnectorEditPart;
+	}
+	
+	public void setSourceEditPart(ShapeNodeEditPart sourceEditPart){
+		this.sourceEditPart=sourceEditPart;
 	}
 
 }

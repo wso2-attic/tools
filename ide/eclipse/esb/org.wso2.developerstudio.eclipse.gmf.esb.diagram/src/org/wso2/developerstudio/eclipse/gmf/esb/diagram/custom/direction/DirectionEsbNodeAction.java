@@ -15,9 +15,9 @@ import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.ui.IWorkbenchPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.Mediator;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediator;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AggregateMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AggregateMediatorOnCompleteOutputConnectorEditPart;
@@ -60,29 +60,29 @@ public class DirectionEsbNodeAction  extends AbstractActionHandler {
 		
 		
 		for (int i = 0; i < selectedEP.getChildren().size(); ++i) {
-			if (selectedEP.getChildren().get(i) instanceof AbstractInputConnector) {
+			if (selectedEP.getChildren().get(i) instanceof AbstractMediatorInputConnectorEditPart) {
 				++inputCount;
 			}
 			}
 		
 		for (int i = 0; i < selectedEP.getChildren().size(); ++i) {
-			if (selectedEP.getChildren().get(i) instanceof AbstractOutputConnector) {
+			if (selectedEP.getChildren().get(i) instanceof AbstractMediatorOutputConnectorEditPart) {
 				++outputCount;
 			}
 			}
 
 		for (int i = 0; i < selectedEP.getChildren().size(); ++i) {
-			if (selectedEP.getChildren().get(i) instanceof AbstractInputConnector) {
+			if (selectedEP.getChildren().get(i) instanceof AbstractMediatorInputConnectorEditPart) {
 
-				inputConnector = ((AbstractInputConnector) selectedEP
+				inputConnector = ((AbstractMediatorInputConnectorEditPart) selectedEP
 						.getChildren().get(i)).getFigure();
 				inputConnectors.add(inputConnector);
-				NodeFigure figureInput = ((AbstractInputConnector) selectedEP
+				NodeFigure figureInput = ((AbstractMediatorInputConnectorEditPart) selectedEP
 						.getChildren().get(i)).getNodeFigureInput();				
 				inputPosition=inputPosition+(1/(inputCount+1));				
 				if (selectedEP.getIsForward()) {
 					figureInput.removeAll();
-					figureInput.add(((AbstractInputConnector) selectedEP
+					figureInput.add(((AbstractMediatorInputConnectorEditPart) selectedEP
 							.getChildren().get(i)).getPrimaryShapeReverse());
 
 					
@@ -95,7 +95,7 @@ public class DirectionEsbNodeAction  extends AbstractActionHandler {
 				
 				if(!selectedEP.getIsForward()){
 					figureInput.removeAll();
-					figureInput.add(((AbstractInputConnector) selectedEP
+					figureInput.add(((AbstractMediatorInputConnectorEditPart) selectedEP
 							.getChildren().get(i)).getPrimaryShapeForward());
 					BorderItemLocator inputLocator = new FixedBorderItemLocator(
 							selectedEP.getMainFigure(), inputConnector,
@@ -106,12 +106,12 @@ public class DirectionEsbNodeAction  extends AbstractActionHandler {
 				
 			}
 
-			if (selectedEP.getChildren().get(i) instanceof AbstractOutputConnector) {
+			if (selectedEP.getChildren().get(i) instanceof AbstractMediatorOutputConnectorEditPart) {
 
-				outputConnector = ((AbstractOutputConnector) selectedEP
+				outputConnector = ((AbstractMediatorOutputConnectorEditPart) selectedEP
 						.getChildren().get(i)).getFigure();
 				outputConnectors.add(outputConnector);
-				NodeFigure figureOutput = ((AbstractOutputConnector) selectedEP
+				NodeFigure figureOutput = ((AbstractMediatorOutputConnectorEditPart) selectedEP
 						.getChildren().get(i)).getNodeFigureOutput();
 				
 				outputPosition=outputPosition+(1/(outputCount+1));
@@ -119,7 +119,7 @@ public class DirectionEsbNodeAction  extends AbstractActionHandler {
 
 				if (selectedEP.getIsForward()) {
 					figureOutput.removeAll();
-					figureOutput.add(((AbstractOutputConnector) selectedEP
+					figureOutput.add(((AbstractMediatorOutputConnectorEditPart) selectedEP
 							.getChildren().get(i)).getPrimaryShapeReverse());
 
 					BorderItemLocator outputLocator = new FixedBorderItemLocator(
@@ -131,7 +131,7 @@ public class DirectionEsbNodeAction  extends AbstractActionHandler {
 				}
 				if(!selectedEP.getIsForward()){
 					figureOutput.removeAll();
-					figureOutput.add(((AbstractOutputConnector) selectedEP
+					figureOutput.add(((AbstractMediatorOutputConnectorEditPart) selectedEP
 							.getChildren().get(i)).getPrimaryShapeForward());
 					BorderItemLocator outputLocator = new FixedBorderItemLocator(
 							selectedEP.getMainFigure(), outputConnector,
