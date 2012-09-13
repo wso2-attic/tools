@@ -82,7 +82,7 @@ public class EndpointProjectFieldController extends AbstractFieldController {
 			if (value == null || value.toString().trim().isEmpty()) {
 				throw new FieldValidationException("Address url cannot be empty");
 			} else{
-				CommonFieldValidator.isValidUrl(value.toString().trim(), "WSDL url");
+				CommonFieldValidator.isValidUrl(value.toString().trim(), "Address url");
 			}	
 		} else if (modelProperty.equals("templ.wsdl.ep.uri") && isWSDlEP) {	
 			if (value == null || value.toString().trim().isEmpty()) {

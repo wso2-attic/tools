@@ -83,16 +83,63 @@ public static void validateProjectField(Object value) throws FieldValidationExce
 }
 
 public static void isValidUrl(String url,String field) throws FieldValidationException{
-	if(url.contains(":")){
+	if(url.contains(":") && !url.startsWith(":") ){
 		if(url.startsWith("http:") || url.startsWith("https:") || url.startsWith("ftp:")){
 			UrlValidator urlValidator = new UrlValidator(UrlValidator.ALLOW_LOCAL_URLS);
 			if(!urlValidator.isValid(url)){
-				throw new FieldValidationException( field + ": Invalid URL provided");
+				if(!isParameter(url,true)){
+					throw new FieldValidationException( field + ": Invalid URL provided");
+				}
+				
 			}
 		}
 	} else{
-		throw new FieldValidationException( field + ": Invalid URL provided");
+		if(url.startsWith(":")){
+			throw new FieldValidationException( field + ": Invalid URL provided");
+		} else{
+			if(!isParameter(url,false)){
+				throw new FieldValidationException( field + ": Invalid URL provided");
+			}
+		}
 	}
+}
+
+private static boolean isParameter(String field,boolean partial){
+	Pattern pattern = Pattern.compile("\\$\\{(.*?)\\}");
+	Matcher matcher = pattern.matcher(field);
+	boolean find=false;
+	if(partial){
+		while(matcher.find())
+		{
+			find=true;
+			if(!isValidArtifactName(matcher.group(1).trim())){
+				return false;
+			}
+		}
+	} else{
+		if( matcher.matches()){
+			find= !matcher.group(1).trim().isEmpty();
+		} else{
+			int seq=0;
+			matcher.reset();
+			while(matcher.find())
+			{
+				find=true;
+				String parameter = matcher.group(1).trim();
+				if(!isValidArtifactName(parameter)){
+					return false;
+				}
+				if(++seq==1){
+					if(!field.startsWith("${" + parameter + "}")){
+						return false;
+					}
+				}
+				
+			}
+		}
+		
+	}
+	return find;
 }
 
 	public static boolean isValidArtifactName(String name){
