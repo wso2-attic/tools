@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+	<classpathentry exported="true" kind="lib" path="lib/axis2-json-1.6.1-wso2v5.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/org.wso2.carbon.relay-4.0.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/org.wso2.carbon.relay.mediators.builder-4.0.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/synapse-extensions-2.1.0-wso2v4.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/saxon-xqj-8.9.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/stax-api-1.0-2.jar"/>

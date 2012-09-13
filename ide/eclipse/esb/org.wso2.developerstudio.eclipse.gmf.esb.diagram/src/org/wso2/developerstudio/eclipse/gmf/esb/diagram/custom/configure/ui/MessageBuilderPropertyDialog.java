@@ -98,7 +98,7 @@ public class MessageBuilderPropertyDialog extends Dialog {
 
 		for (MessageBuilder mBuilder : builderMediator.getMessageBuilders()) {
 
-				bindBuilder(mBuilder);
+			bindBuilder(mBuilder);
 		}
 
 		Group configGrp = new Group(container, SWT.NONE);
@@ -122,7 +122,6 @@ public class MessageBuilderPropertyDialog extends Dialog {
 		cTypeTxt.setLayoutData(gd2);
 		cTypeTxt.addModifyListener(new ModifyListener() {
 
-			
 			public void modifyText(ModifyEvent e) {
 
 				setBuilderType();
@@ -137,7 +136,6 @@ public class MessageBuilderPropertyDialog extends Dialog {
 		builderClassTxt.setLayoutData(gd2);
 		builderClassTxt.addModifyListener(new ModifyListener() {
 
-			
 			public void modifyText(ModifyEvent e) {
 
 				setBuilderClass();
@@ -152,13 +150,12 @@ public class MessageBuilderPropertyDialog extends Dialog {
 		formatterClassTxt.setLayoutData(gd2);
 		formatterClassTxt.addModifyListener(new ModifyListener() {
 
-			
 			public void modifyText(ModifyEvent e) {
 
 				setFormatterClass();
 			}
 		});
-		
+
 		if (builderTable.getItemCount() > 0) {
 			builderTable.select(0);
 			TableItem item = builderTable.getItem(builderTable
@@ -193,6 +190,7 @@ public class MessageBuilderPropertyDialog extends Dialog {
 		return parent;
 
 	}
+
 	/**
 	 * 
 	 * Adding Message builder to builder table.
@@ -215,7 +213,7 @@ public class MessageBuilderPropertyDialog extends Dialog {
 		setCurrentSelectedItem(item);
 
 	}
-	
+
 	/**
 	 * 
 	 * Remove Message builder from builder table.
@@ -236,7 +234,7 @@ public class MessageBuilderPropertyDialog extends Dialog {
 			}
 		}
 	}
-	
+
 	/**
 	 * create Listener for table
 	 * 
@@ -273,8 +271,8 @@ public class MessageBuilderPropertyDialog extends Dialog {
 
 		MessageBuilder builder = getcurrentMesssageBuilder();
 
-		if (builder != null &&  builder.eContainer() != null ) {
-			
+		if (builder != null && builder.eContainer() != null) {
+
 			RemoveCommand removeCmd = new RemoveCommand(editingDomain,
 					builderMediator,
 					EsbPackage.Literals.BUILDER_MEDIATOR__MESSAGE_BUILDERS,
@@ -341,27 +339,27 @@ public class MessageBuilderPropertyDialog extends Dialog {
 		if (builder != null) {
 
 			if (builder.getContentType() != null) {
-				
+
 				cTypeTxt.setText(builder.getContentType());
-				
+
 			} else {
 
 				cTypeTxt.setText("");
 			}
 
 			if (builder.getBuilderClass() != null) {
-				
+
 				builderClassTxt.setText(builder.getBuilderClass());
-				
+
 			} else {
 
 				builderClassTxt.setText("");
 			}
 
 			if (builder.getFormatterClass() != null) {
-				
+
 				formatterClassTxt.setText(builder.getFormatterClass());
-				
+
 			} else {
 
 				formatterClassTxt.setText("");
@@ -390,6 +388,11 @@ public class MessageBuilderPropertyDialog extends Dialog {
 
 	public void setCurrentSelectedItem(TableItem currentSelectedItem) {
 		this.currentSelectedItem = currentSelectedItem;
+	}
+
+	public void okPressed() {
+
+		super.okPressed();
 	}
 
 }

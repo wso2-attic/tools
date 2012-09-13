@@ -63,11 +63,11 @@ public class ValidateMediatorTransformer  extends AbstractEsbNodeTransformer {
 
 		NamespacedProperty sourceXPath = visualValidateMediator
 				.getSourceXpath();
-/*		if (sourceXPath.getPropertyValue() != null
+		if (sourceXPath.getPropertyValue() != null
 				&& !sourceXPath.getPropertyValue().equals("")) {
 			validateMediator.setSource(new SynapseXPath(sourceXPath
 					.getPropertyValue()));
-		}*/
+		}
 
 		List<Value> valueList = new ArrayList<Value>();
 		for (ValidateSchema schema : visualValidateMediator.getSchemas()) {

@@ -133,7 +133,7 @@ public class EsbPaletteFactory {
 		paletteContainer.add(createOAuthMediator29CreationTool());
 		paletteContainer.add(createRuleMediator30CreationTool());
 		paletteContainer.add(createStoreMediator31CreationTool());
-		//paletteContainer.add(createBuilderMediator32CreationTool());
+		paletteContainer.add(createBuilderMediator32CreationTool());
 
 		paletteContainer.add(new PaletteSeparator());
 		paletteContainer.add(createClassMediator10CreationTool());
