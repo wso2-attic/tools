@@ -37,7 +37,9 @@ public class EndPointsList extends AbstractListDataProvider {
 					if(project.hasNature("org.wso2.developerstudio.eclipse.esb.project.nature")){
 						IResource resources[] = project.members();
 						for (IResource res : resources) {
-							addToList(res,list);
+							if(res.getName().endsWith(".xml")){
+								addToList(res,list);
+							}
 						}
 				}
 			}

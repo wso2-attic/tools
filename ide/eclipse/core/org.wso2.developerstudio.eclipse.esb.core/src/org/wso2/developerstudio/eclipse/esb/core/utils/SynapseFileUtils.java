@@ -96,22 +96,23 @@ public class SynapseFileUtils {
 		return editorList;
 	}
 	
-	public static boolean isSynapseConfGiven(File synapseFile,
-			SynapseEntryType type) throws XMLStreamException, IOException,
-			OMException, Exception {
+	public static boolean isSynapseConfGiven(File synapseFile, SynapseEntryType type)
+			throws XMLStreamException, IOException, OMException, Exception {
 
-		OMElement documentElement = new StAXOMBuilder(new FileInputStream(synapseFile))
-				.getDocumentElement();
-		
-		String localTagName = getLocalTagName(type);
-		String localName = documentElement.getLocalName();
-		if(localName.equals(localTagName)){
-			return false;
-		}
-		if (localName.equals("synapse") || localName.equals("definitions")) {
-			return true;
+		if (synapseFile.getName().endsWith(".xml")) {
+			OMElement documentElement = new StAXOMBuilder(new FileInputStream(synapseFile))
+					.getDocumentElement();
+
+			String localTagName = getLocalTagName(type);
+			String localName = documentElement.getLocalName();
+			if (localName.equals(localTagName)) {
+				return false;
+			}
+			if (localName.equals("synapse") || localName.equals("definitions")) {
+				return true;
+			}
 		}
 		return false;
-		
+
 	}
 }
