@@ -15,14 +15,18 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorO
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.complexFiguredAbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbLinkEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment5EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment6EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyFaultInputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyInputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceFaultContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequencesEditPart;
 
 /*
- * This calss is used to handle automatic connection creation stuffs. 
+ * This class is used to handle automatic connection creation stuffs. 
  * 
  */
 public class ConnectionCalculator {
@@ -202,7 +206,8 @@ public class ConnectionCalculator {
 								actualCurrentPosition, childEditPart);
 
 						if ((figure instanceof EastPointerFigure)
-								|| (figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorInputConnectorEditPart.EastPointerFigure)) {
+								|| (figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorInputConnectorEditPart.EastPointerFigure)
+								|| (figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyOutputConnectorEditPart.EastPointerFigure)) {
 							EastDistance = Math.abs(xLeft
 									- actualCurrentPosition);
 							if (((connectors.get(i) instanceof AbstractOutputConnectorEditPart) && (xLeft < actualCurrentPosition))
@@ -214,7 +219,9 @@ public class ConnectionCalculator {
 								}
 							}
 						} else if ((figure instanceof WestPointerFigure)
-								|| (figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorInputConnectorEditPart.WestPointerFigure)) {
+								|| (figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorInputConnectorEditPart.WestPointerFigure)
+								|| (figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyInputConnectorEditPart.WestPointerFigure)
+								|| (figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpointOutputConnectorEditPart.WestPointerFigure)) {
 							WestDistance = Math.abs(xLeft
 									- actualCurrentPosition);
 							if (((connectors.get(i) instanceof AbstractOutputConnectorEditPart) && (xLeft > actualCurrentPosition))
@@ -232,16 +239,35 @@ public class ConnectionCalculator {
 		}
 
 		if (nearForwardConnector != null) {
-			yDistance1 = Math
-					.abs((nearForwardConnector.getFigure().getBounds().y + proxyService
-							.getFigure().getBounds().getLocation().y)
-							- currentFigureLocation.y + 30);
+			if (nearForwardConnector instanceof ProxyOutputConnectorEditPart) {
+				yDistance1 = Math.abs(nearForwardConnector.getFigure()
+						.getBounds().y - currentFigureLocation.y);
+			} else {
+				yDistance1 = Math.abs((nearForwardConnector.getFigure()
+						.getBounds().y + proxyService.getFigure().getBounds()
+						.getLocation().y)
+						- currentFigureLocation.y + 30);
+			}
 		}
 		if (nearReverseConnector != null) {
-			yDistance2 = Math
-					.abs((nearReverseConnector.getFigure().getBounds().y + proxyService
-							.getFigure().getBounds().getLocation().y)
-							- currentFigureLocation.y + 30);
+			if ((nearReverseConnector instanceof ProxyFaultInputConnectorEditPart)
+					|| (nearReverseConnector instanceof ProxyInputConnectorEditPart)) {
+				yDistance2 = Math.abs(nearReverseConnector.getFigure()
+						.getBounds().y - currentFigureLocation.y);
+			} else {
+				if(childEditPart.getParent() instanceof MediatorFlowMediatorFlowCompartment6EditPart){
+					yDistance2 = Math.abs((nearReverseConnector.getFigure()
+							.getBounds().y + proxyService.getFigure().getBounds()
+							.getLocation().y)
+							- currentFigureLocation.y + 150);
+				}
+				else{
+				yDistance2 = Math.abs((nearReverseConnector.getFigure()
+						.getBounds().y + proxyService.getFigure().getBounds()
+						.getLocation().y)
+						- currentFigureLocation.y + 30);
+				}
+			}
 		}
 		if ((yDistance1 != 0)
 				&& ((yDistance2 == 0) || (yDistance1 < yDistance2))) {

@@ -23,7 +23,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementType
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EastPointerShape;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.WestPointerShape;
 
-public abstract class AdditionalOutputConnector extends AbstractBorderItemEditPart{
+public abstract class AdditionalOutputConnector extends AbstractConnectorEditPart{
 
 
 	public final boolean isInput=false;

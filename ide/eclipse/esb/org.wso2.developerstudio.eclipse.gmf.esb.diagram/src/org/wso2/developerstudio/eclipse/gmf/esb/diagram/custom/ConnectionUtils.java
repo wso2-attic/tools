@@ -25,34 +25,40 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateConnectionViewAndElementRequest;
 import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.emf.type.core.IHintedType;
+import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorOutputConnectorEditPart.EastPointerFigure;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 
 public class ConnectionUtils {
 
-	public static boolean createConnection(
-			AbstractConnectorEditPart target,
+	public static boolean createConnection(AbstractConnectorEditPart target,
 			AbstractConnectorEditPart source) {
 		if (source != null && target != null
 				&& (source.getParent() instanceof ShapeNodeEditPart)) {
-			CompoundCommand cc = new CompoundCommand("Create Link");
 
-			ICommand createSubTopicsCmd = new DeferredCreateConnectionViewAndElementCommand(
-					new CreateConnectionViewAndElementRequest(
-							EsbElementTypes.EsbLink_4001,
-							((IHintedType) EsbElementTypes.EsbLink_4001)
-									.getSemanticHint(),
-							((ShapeNodeEditPart) source.getParent())
-									.getDiagramPreferencesHint()),
-					new EObjectAdapter((EObject) source.getModel()),
-					new EObjectAdapter((EObject) target.getModel()),
-					((ShapeNodeEditPart) source.getParent()).getViewer());
+			if (!((target instanceof ProxyInputConnectorEditPart) && (((DefaultSizeNodeFigure) source
+					.getFigure()).getChildren().get(0) instanceof EastPointerFigure))) {
+				CompoundCommand cc = new CompoundCommand("Create Link");
 
-			cc.add(new ICommandProxy(createSubTopicsCmd));
-			target.getDiagramEditDomain().getDiagramCommandStack().execute(cc);
+				ICommand createSubTopicsCmd = new DeferredCreateConnectionViewAndElementCommand(
+						new CreateConnectionViewAndElementRequest(
+								EsbElementTypes.EsbLink_4001,
+								((IHintedType) EsbElementTypes.EsbLink_4001)
+										.getSemanticHint(),
+								((ShapeNodeEditPart) source.getParent())
+										.getDiagramPreferencesHint()),
+						new EObjectAdapter((EObject) source.getModel()),
+						new EObjectAdapter((EObject) target.getModel()),
+						((ShapeNodeEditPart) source.getParent()).getViewer());
 
-			return true;
+				cc.add(new ICommandProxy(createSubTopicsCmd));
+				target.getDiagramEditDomain().getDiagramCommandStack()
+						.execute(cc);
+
+				return true;
+			}
 		}
 		return false;
 	}
-
 }

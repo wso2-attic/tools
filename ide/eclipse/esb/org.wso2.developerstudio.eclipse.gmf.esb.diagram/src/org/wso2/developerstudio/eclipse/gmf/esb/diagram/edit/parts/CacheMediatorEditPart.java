@@ -36,6 +36,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGroupingShape;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedSizedAbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ShowPropertyViewEditPolicy;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.complexFiguredAbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.CacheMediatorCanonicalEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.CacheMediatorItemSemanticEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
@@ -43,7 +44,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry
 /**
  * @generated NOT
  */
-public class CacheMediatorEditPart extends AbstractMediator {
+public class CacheMediatorEditPart extends complexFiguredAbstractMediator {
 
 	public IFigure onHitOutputConnector;
 

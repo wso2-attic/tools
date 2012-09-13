@@ -284,7 +284,7 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 		ArrayList<EsbLinkEditPart> ESBLinkEditpart = new ArrayList<EsbLinkEditPart>();
 		ArrayList<AbstractConnectorEditPart> outputConnectorEditpart = new ArrayList<AbstractConnectorEditPart>();
 		ArrayList<AbstractConnectorEditPart> inputConnectorEditpart = new ArrayList<AbstractConnectorEditPart>();
-		AbstractMediatorOutputConnectorEditPart nearestOutputConnector = null;
+		AbstractOutputConnectorEditPart nearestOutputConnector = null;
 		AbstractInputConnectorEditPart nearestInputConnector = null;
 		AbstractConnectorEditPart outputConnector = null;
 		AbstractConnectorEditPart inputConnector = null;
@@ -296,13 +296,19 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 			if (getViewer().getEditPartRegistry().values().toArray()[i] instanceof EsbLinkEditPart) {
 				ESBLinkEditpart.add((EsbLinkEditPart) getViewer()
 						.getEditPartRegistry().values().toArray()[i]);
-			} else if (getViewer().getEditPartRegistry().values().toArray()[i] instanceof AbstractMediatorOutputConnectorEditPart) {
-				if (((AbstractMediatorOutputConnectorEditPart) getViewer()
+			} else if (getViewer().getEditPartRegistry().values().toArray()[i] instanceof AbstractOutputConnectorEditPart) {
+				if (((AbstractOutputConnectorEditPart) getViewer()
 						.getEditPartRegistry().values().toArray()[i])
 						.getParent().getParent().equals(this.getParent())) {
 					outputConnectorEditpart
-							.add((AbstractMediatorOutputConnectorEditPart) getViewer()
+							.add((AbstractOutputConnectorEditPart) getViewer()
 									.getEditPartRegistry().values().toArray()[i]);
+				}else if(((AbstractOutputConnectorEditPart) getViewer()
+						.getEditPartRegistry().values().toArray()[i])
+						.getParent().equals(this.getParent().getParent().getParent().getParent().getParent())){
+					outputConnectorEditpart
+					.add((AbstractOutputConnectorEditPart) getViewer()
+							.getEditPartRegistry().values().toArray()[i]);
 				}
 			} else if (getViewer().getEditPartRegistry().values().toArray()[i] instanceof AbstractInputConnectorEditPart) {
 				if (((AbstractInputConnectorEditPart) getViewer()
@@ -311,6 +317,12 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 					inputConnectorEditpart
 							.add((AbstractInputConnectorEditPart) getViewer()
 									.getEditPartRegistry().values().toArray()[i]);
+				}else if(((AbstractInputConnectorEditPart) getViewer()
+						.getEditPartRegistry().values().toArray()[i])
+						.getParent().equals(this.getParent().getParent().getParent().getParent().getParent())){
+					inputConnectorEditpart
+					.add((AbstractInputConnectorEditPart) getViewer()
+							.getEditPartRegistry().values().toArray()[i]);
 				}
 
 			}
@@ -320,7 +332,7 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 
 		if (nearestESBLink == null) {
 
-			nearestOutputConnector = (AbstractMediatorOutputConnectorEditPart) ConnectionCalculator
+			nearestOutputConnector = (AbstractOutputConnectorEditPart) ConnectionCalculator
 					.getNearestConnectorEditPart(outputConnectorEditpart, this);
 			if ((nearestOutputConnector != null)) {// &&(!(this.getParent()
 													// instanceof

@@ -35,6 +35,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FilterMediatorGraphicalShape;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.complexFiguredAbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.utils.MediatorFigureReverser;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.ThrottleMediatorCanonicalEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.ThrottleMediatorItemSemanticEditPolicy;
@@ -43,7 +44,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry
 /**
  * @generated NOT
  */
-public class ThrottleMediatorEditPart extends AbstractMediator {
+public class ThrottleMediatorEditPart extends complexFiguredAbstractMediator {
 
 	public IFigure onAcceptOutputConnector;
 	public IFigure onRejectOutputConnector;
