@@ -90,7 +90,6 @@
 						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.ds.artifact.feature:${ds.tools.artifact.feature.version}</featureArtifactDef>
 						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.usermgt.core.feature:${usermgt.tools.feature.version}</featureArtifactDef>
 						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.carbon.uibundle.artifact.feature:${carbon.tools.feature.version}</featureArtifactDef>
-						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.carbon.uibundle.feature:${carbon.tools.feature.version}</featureArtifactDef>
 
 						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.capp.framework.feature:${capp.tools.feature.version}</featureArtifactDef>
 						<!--featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.capp.artifacts.feature:${capp.tools.feature.version}</featureArtifactDef-->
@@ -274,7 +273,6 @@
 							<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.ds.feature:${ds.tools.feature.version}</featureArtifactDef>
 							<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.ds.artifact.feature:${ds.tools.artifact.feature.version}</featureArtifactDef>
 							<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.carbon.uibundle.artifact.feature:${carbon.tools.feature.version}</featureArtifactDef>
-							<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.carbon.uibundle.feature:${carbon.tools.feature.version}</featureArtifactDef>
 						        
 						        <!--featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.capp.feature:${capp.tools.feature.version}</featureArtifactDef-->
 							<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.bpel.connector.feature:${bps.connector.tools.feature.version}</featureArtifactDef>
