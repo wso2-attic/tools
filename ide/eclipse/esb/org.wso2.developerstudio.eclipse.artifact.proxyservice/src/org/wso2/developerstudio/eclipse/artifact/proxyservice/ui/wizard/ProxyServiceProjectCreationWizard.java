@@ -26,6 +26,7 @@ import java.util.regex.Pattern;
 import javax.xml.namespace.QName;
 
 import org.apache.axiom.om.OMElement;
+import org.apache.commons.lang.StringUtils;
 import org.apache.maven.model.Plugin;
 import org.apache.maven.model.PluginExecution;
 import org.apache.maven.model.Repository;
@@ -253,14 +254,15 @@ public class ProxyServiceProjectCreationWizard extends AbstractWSO2ProjectCreati
 	public String createProxyTemplate(String templateContent, String type) throws IOException{
 		templateContent = templateContent.replaceAll("\\{", "<");
 		templateContent = templateContent.replaceAll("\\}", ">");
-		String newContent= templateContent.replaceAll("<proxy.name>", psModel.getProxyServiceName());
+
+		String newContent= StringUtils.replace(templateContent,"<proxy.name>", psModel.getProxyServiceName());
 		
 		if(TargetEPType.REGISTRY==psModel.getTargetEPType()){
-			newContent = newContent.replaceAll("<endpoint.key.def>", " endpoint=\"" + psModel.getEndPointkey() + "\"");
-			newContent = newContent.replaceAll("<endpoint.def>","");
+			newContent = StringUtils.replace(newContent,"<endpoint.key.def>", " endpoint=\"" + psModel.getEndPointkey() + "\"");
+			newContent = StringUtils.replace(newContent,"<endpoint.def>","");
 		} else if(TargetEPType.PREDEFINED==psModel.getTargetEPType()){
-			newContent = newContent.replaceAll("<endpoint.key.def>", " endpoint=\"" + psModel.getPredefinedEndPoint() + "\"");
-			newContent = newContent.replaceAll("<endpoint.def>","");
+			newContent = StringUtils.replace(newContent,"<endpoint.key.def>", " endpoint=\"" + psModel.getPredefinedEndPoint() + "\"");
+			newContent = StringUtils.replace(newContent,"<endpoint.def>","");
 		} else{
 			String endPointDef = "<endpoint\n";
 			endPointDef +="\t\tname=\"endpoint_urn_uuid_";
@@ -268,25 +270,25 @@ public class ProxyServiceProjectCreationWizard extends AbstractWSO2ProjectCreati
 			endPointDef +="\">\n\t\t<address uri=\"";
 			endPointDef += psModel.getEndPointUrl();
 			endPointDef +="\" />\n\t\t</endpoint>";
-			newContent = newContent.replaceAll("<endpoint.key.def>","");
-			newContent = newContent.replaceAll("<endpoint.def>",endPointDef);
+			newContent = StringUtils.replace(newContent,"<endpoint.key.def>","");
+			newContent = StringUtils.replace(newContent,"<endpoint.def>",endPointDef);
 		}
 		
 		if(type.equals(PsArtifactConstants.CUSTOM_PROXY)){
 		//TODO: add additional conf
 		}else if(type.equals(PsArtifactConstants.LOGGING_PROXY)){
-			newContent = newContent.replaceAll("<reqloglevel>", psModel.getRequestLogLevel());
-			newContent = newContent.replaceAll("<resloglevel>", psModel.getResponseLogLevel());
+			newContent = StringUtils.replace(newContent,"<reqloglevel>", psModel.getRequestLogLevel());
+			newContent = StringUtils.replace(newContent,"<resloglevel>", psModel.getResponseLogLevel());
 		}else if(type.equals(PsArtifactConstants.PASS_THROUGH_PROXY)){
 		//TODO: add additional conf 
 		}else if(type.equals(PsArtifactConstants.SECURE_PROXY)){
-			newContent = newContent.replaceAll("<sec.policy>", psModel.getSecPolicy());
+			newContent = StringUtils.replace(newContent,"<sec.policy>", psModel.getSecPolicy());
 		}else if(type.equals(PsArtifactConstants.TRANSFORMER_PROXY)){
-			newContent = newContent.replaceAll("<xslt.key>", psModel.getRequestXSLT());
+			newContent = StringUtils.replace(newContent,"<xslt.key>", psModel.getRequestXSLT());
 		}else if(type.equals(PsArtifactConstants.WSDL_BASED_PROXY)){
-			newContent = newContent.replaceAll("<wsdl.service>", psModel.getWsdlService());
-			newContent = newContent.replaceAll("<wsdl.port>", psModel.getWsdlPort());
-			newContent = newContent.replaceAll("<wsdl.url>", psModel.getWsdlUri());
+			newContent = StringUtils.replace(newContent,"<wsdl.service>", psModel.getWsdlService());
+			newContent = StringUtils.replace(newContent,"<wsdl.port>", psModel.getWsdlPort());
+			newContent = StringUtils.replace(newContent,"<wsdl.url>", psModel.getWsdlUri());
 		}
         return newContent;
 	}

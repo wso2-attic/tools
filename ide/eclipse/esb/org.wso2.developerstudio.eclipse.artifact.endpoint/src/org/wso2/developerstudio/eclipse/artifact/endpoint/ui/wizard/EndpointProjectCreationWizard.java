@@ -27,6 +27,7 @@ import java.util.regex.Pattern;
 import javax.xml.namespace.QName;
 
 import org.apache.axiom.om.OMElement;
+import org.apache.commons.lang.StringUtils;
 import org.apache.maven.model.Plugin;
 import org.apache.maven.model.PluginExecution;
 import org.apache.maven.model.Repository;
@@ -435,16 +436,16 @@ public class EndpointProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 //		}
 		templateContent = templateContent.replaceAll("\\{", "<");
 		templateContent = templateContent.replaceAll("\\}", ">");
-		String newContent = templateContent.replaceAll("<ep.name>", epModel.getEpName());
+		String newContent = StringUtils.replace(templateContent,"<ep.name>", epModel.getEpName());
 		if(type.equals(EpArtifactConstants.ADDRESS_EP)){
-			newContent = newContent.replaceAll("<address.uri>", epModel.getAddressEPURI());
+			newContent = StringUtils.replace(newContent,"<address.uri>", epModel.getAddressEPURI());
 		}else if(type.equals(EpArtifactConstants.WSDL_EP)){
-			newContent = newContent.replaceAll("<wsdl.uri>", epModel.getWsdlEPURI());
-			newContent = newContent.replaceAll("<service.name>", epModel.getWsdlEPService());
-			newContent = newContent.replaceAll("<service.port>", epModel.getWsdlEPPort());
+			newContent = StringUtils.replace(newContent,"<wsdl.uri>", epModel.getWsdlEPURI());
+			newContent = StringUtils.replace(newContent,"<service.name>", epModel.getWsdlEPService());
+			newContent = StringUtils.replace(newContent,"<service.port>", epModel.getWsdlEPPort());
 		}else if(type.equals(EpArtifactConstants.TEMPLATE_EP)){
-			newContent = newContent.replaceAll("<ep.uri>", epModel.getTemplateEPURI());
-			newContent = newContent.replaceAll("<ep.template>", epModel.getTemplateEPTargetTemp());
+			newContent = StringUtils.replace(newContent,"<ep.uri>", epModel.getTemplateEPURI());
+			newContent = StringUtils.replace(newContent,"<ep.template>", epModel.getTemplateEPTargetTemp());
 		}
         return newContent;
 	}
