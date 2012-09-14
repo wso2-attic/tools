@@ -35,10 +35,11 @@ public class MediatorFlowMediatorFlowCompartment4EditPart extends
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	public String getCompartmentName() {
-		return Messages.MediatorFlowMediatorFlowCompartment4EditPart_title;
+		//return Messages.MediatorFlowMediatorFlowCompartment4EditPart_title;
+		return "Default";
 	}
 
 	/**
@@ -47,7 +48,7 @@ public class MediatorFlowMediatorFlowCompartment4EditPart extends
 	public IFigure createFigure() {
 		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super
 				.createFigure();
-		result.setTitleVisibility(false);
+		result.setTitleVisibility(true);
 		// Override default border.
 		result.setBorder(new MarginBorder(0, 0, 0, 0));
 		result.setToolTip((String) null);
