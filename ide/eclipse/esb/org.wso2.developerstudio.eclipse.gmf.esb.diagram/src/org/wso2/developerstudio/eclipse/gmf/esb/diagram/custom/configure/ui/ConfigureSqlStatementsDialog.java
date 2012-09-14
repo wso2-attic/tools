@@ -184,12 +184,17 @@ public class ConfigureSqlStatementsDialog extends Dialog {
 		fd_tblStatements.left = new FormAttachment(0, 10);
 		fd_tblStatements.right = new FormAttachment(0, 461);
 		tblStatements.setLayoutData(fd_tblStatements);
+		tblStatements.setHeaderVisible(true);
 		tblStatements.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				updateSelection();
 			}
 		});
+		
+		TableColumn tblclmnStatements = new TableColumn(tblStatements, SWT.NONE);
+		tblclmnStatements.setWidth(445);
+		tblclmnStatements.setText("Statements");
 		
 		cmdAddStatement = new Button(container, SWT.NONE);
 		FormData fd_cmdAddStatement = new FormData();
@@ -388,7 +393,7 @@ public class ConfigureSqlStatementsDialog extends Dialog {
 		clmnResultsResultName.setText("Result Name");
 		
 		TableColumn clmnResultsColumn = new TableColumn(tblResults, SWT.NONE);
-		clmnResultsColumn.setWidth(200);
+		clmnResultsColumn.setWidth(325);
 		clmnResultsColumn.setText("Column");
 		
 		cmdAddResult = new Button(grpStatement, SWT.NONE);

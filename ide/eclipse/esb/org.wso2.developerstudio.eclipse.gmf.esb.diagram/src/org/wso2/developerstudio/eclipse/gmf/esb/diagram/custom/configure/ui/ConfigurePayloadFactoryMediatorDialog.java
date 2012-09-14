@@ -145,7 +145,7 @@ public class ConfigurePayloadFactoryMediatorDialog extends Dialog {
 		tblclmnArgumentType.setText("Type");
 		
 		TableColumn tblclmnArgumentValue = new TableColumn(tblArguments, SWT.NONE);
-		tblclmnArgumentValue.setWidth(100);
+		tblclmnArgumentValue.setWidth(260);
 		tblclmnArgumentValue.setText("Value");
 		
 		cmdAddArgument = new Button(container, SWT.NONE);

@@ -156,6 +156,7 @@ public class ConfigureRouterMediatorDialog extends Dialog {
 		fd_tblRouters.top = new FormAttachment(lblRouters, 9);
 		fd_tblRouters.left = new FormAttachment(0, 10);
 		fd_tblRouters.bottom = new FormAttachment(0, 169);
+		tblRoutes.setHeaderVisible(true);
 		
 		tblRoutes.setLayoutData(fd_tblRouters);
 		tblRoutes.addSelectionListener(new SelectionAdapter() {
@@ -165,9 +166,9 @@ public class ConfigureRouterMediatorDialog extends Dialog {
 			}
 		});
 		
-		TableColumn tblclmnNewColumn = new TableColumn(tblRoutes, SWT.NONE);
-		tblclmnNewColumn.setWidth(100);
-		tblclmnNewColumn.setText("New Column");
+		TableColumn tblclmnRoutes = new TableColumn(tblRoutes, SWT.NONE);
+		tblclmnRoutes.setWidth(315);
+		tblclmnRoutes.setText("Routes");
 		
 		cmdRouteAdd = new Button(container, SWT.NONE);
 		FormData fd_cmdRouteAdd = new FormData();
@@ -422,7 +423,7 @@ public class ConfigureRouterMediatorDialog extends Dialog {
 		TableItem item = new TableItem(tblRoutes, SWT.NONE);
 		item.setText("Route");
 		item.setImage(SWTResourceManager
-		.getImage(this.getClass(), "/icons/nodes/router.png"));
+		.getImage(this.getClass(), "/icons/custom/12px/router.png"));
 		RouterTargetContainer container = wrapper.getContainer();
 		wrapper.setBreakAfterRoute(container.isBreakAfterRoute());
 		wrapper.setRouteExpression(EsbFactory.eINSTANCE.copyNamespacedProperty(container.getRouteExpression()));

@@ -120,6 +120,7 @@ public class ConfigureConditionalRouterMediatorDialog extends Dialog {
 		fd_tblRoutes.top = new FormAttachment(lblRoutes, 9);
 		fd_tblRoutes.left = new FormAttachment(0, 10);
 		tblRoutes.setLayoutData(fd_tblRoutes);
+		tblRoutes.setHeaderVisible(true);
 		tblRoutes.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
@@ -127,9 +128,10 @@ public class ConfigureConditionalRouterMediatorDialog extends Dialog {
 			}
 		});
 		
-		TableColumn tblclmnNewColumn = new TableColumn(tblRoutes, SWT.NONE);
-		tblclmnNewColumn.setWidth(100);
-		tblclmnNewColumn.setText("New Column");
+		TableColumn tblclmnRoutes = new TableColumn(tblRoutes, SWT.NONE);
+		tblclmnRoutes.setWidth(315);
+		tblclmnRoutes.setText("Routes");
+		
 		
 		Button cmdRouteAdd = new Button(container, SWT.NONE);
 		fd_tblRoutes.right = new FormAttachment(cmdRouteAdd, -6);
@@ -194,16 +196,18 @@ public class ConfigureConditionalRouterMediatorDialog extends Dialog {
 		lblEvaluatorExpression = new Label(comConfig, SWT.NONE);
 		lblEvaluatorExpression.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false, 3, 1));
 		lblEvaluatorExpression.setText("Evaluator expression");
-		lblEvaluatorExpression.setEnabled(false);
+		
 		
 		txtEvaluatorExpression = new Text(comConfig, SWT.BORDER | SWT.MULTI);
 		GridData gd_txtEvaluatorExpression = new GridData(SWT.FILL, SWT.CENTER, true, false, 2, 1);
 		gd_txtEvaluatorExpression.widthHint = 397;
 		gd_txtEvaluatorExpression.heightHint = 126;
 		txtEvaluatorExpression.setLayoutData(gd_txtEvaluatorExpression);
+		txtEvaluatorExpression.setEditable(false);
 		
 		cmdSetEvaluatorExpression = new Button(comConfig, SWT.NONE);
 		cmdSetEvaluatorExpression.setText("..");
+		cmdSetEvaluatorExpression.setLayoutData(new GridData(SWT.LEFT, SWT.TOP, false, false));
 		cmdSetEvaluatorExpression.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
@@ -221,6 +225,9 @@ public class ConfigureConditionalRouterMediatorDialog extends Dialog {
 					if (dialog.getReturnCode() == Window.OK) {
 						wrapper.setEvaluatorExpression(evaluatorExpression);
 						txtEvaluatorExpression.setText(evaluatorExpression.getEvaluatorValue());
+						item.setText("Route ["
+								+ evaluatorExpression.getEvaluatorValue().replaceAll(
+										System.getProperty("line.separator", "\n"), "") + "]");
 					}
 				}
 				super.widgetSelected(e);
@@ -296,11 +303,13 @@ public class ConfigureConditionalRouterMediatorDialog extends Dialog {
 		TableItem item = new TableItem(tblRoutes, SWT.NONE);
 		item.setText("Route");
 		item.setImage(SWTResourceManager
-		.getImage(this.getClass(), "/icons/nodes/conditional-router.png"));
+		.getImage(this.getClass(), "/icons/custom/12px/conditional-router.png"));
 		ConditionalRouteBranch conditionalRoute = wrapper.getConditionalRoute();
 		wrapper.setBreakAfterRoute(conditionalRoute.isBreakAfterRoute());
 		wrapper.setEvaluatorExpression(EsbFactory.eINSTANCE.copyEvaluatorExpressionProperty(conditionalRoute.getEvaluatorExpression()));
-		wrapper.setTargetSequence(EsbFactory.eINSTANCE.copyRegistryKeyProperty(conditionalRoute.getTargetSequence())); 
+		wrapper.setTargetSequence(EsbFactory.eINSTANCE.copyRegistryKeyProperty(conditionalRoute.getTargetSequence()));
+		item.setText("Route [" + wrapper.getEvaluatorExpression().getEvaluatorValue().replaceAll(
+				System.getProperty("line.separator", "\n"), "") + "]");
 		item.setData(wrapper);
 		return item;
 	}
