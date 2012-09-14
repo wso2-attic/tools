@@ -167,10 +167,6 @@
                             		<version>${carbon.tools.feature.version}</version>
                             	</feature>
                             	<feature>
-                            		<id>org.wso2.developerstudio.eclipse.carbon.uibundle.feature.feature.group</id>
-                            		<version>${carbon.tools.feature.version}</version>
-                            	</feature>
-                            	<feature>
                             		<id>org.wso2.developerstudio.eclipse.capp.framework.feature.feature.group</id>
                             		<version>${capp.tools.feature.version}</version>
                             	</feature>
