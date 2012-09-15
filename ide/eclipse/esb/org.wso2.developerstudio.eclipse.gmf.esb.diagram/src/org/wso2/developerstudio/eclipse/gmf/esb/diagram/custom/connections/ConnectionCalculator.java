@@ -13,9 +13,9 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractInputConn
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorOutputConnectorEditPart.EastPointerFigure;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorOutputConnectorEditPart.WestPointerFigure;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractOutputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.complexFiguredAbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbLinkEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment5EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment6EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyFaultInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyInputConnectorEditPart;
@@ -221,7 +221,8 @@ public class ConnectionCalculator {
 						} else if ((figure instanceof WestPointerFigure)
 								|| (figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorInputConnectorEditPart.WestPointerFigure)
 								|| (figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyInputConnectorEditPart.WestPointerFigure)
-								|| (figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpointOutputConnectorEditPart.WestPointerFigure)) {
+								|| (figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpointOutputConnectorEditPart.WestPointerFigure)
+								|| (figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyFaultInputConnectorEditPart.WestPointerFigure)) {
 							WestDistance = Math.abs(xLeft
 									- actualCurrentPosition);
 							if (((connectors.get(i) instanceof AbstractOutputConnectorEditPart) && (xLeft > actualCurrentPosition))
@@ -236,6 +237,86 @@ public class ConnectionCalculator {
 					}
 				}
 			}
+			
+			else if (sequences != null) {
+				/*
+				 * When we get the current location of the added figure, it will
+				 * give the location related to the Sequences figure. So we have
+				 * to add the Sequences figure location to get the absolute
+				 * location.
+				 */
+				currentFigureLocation.y = currentFigureLocation.y
+						+ sequences.getFigure().getBounds().getLocation().y
+						+ 30;
+				currentFigureLocation.y = getYAbsolutePosition(
+						currentFigureLocation.y, childEditPart);
+
+				if ((connectors.size() != 0)) {
+					if (connectors.get(0) instanceof AbstractInputConnectorEditPart) {
+						currentConnector = EditorUtils
+								.getInputConnector(childEditPart);
+					} else {
+						currentConnector = EditorUtils
+								.getOutputConnector(childEditPart);
+					}
+				}
+
+				for (int i = 0; i < connectors.size(); ++i) {
+
+					IFigure figure = (IFigure) ((DefaultSizeNodeFigure) connectors
+							.get(i).getFigure()).getChildren().get(0);
+
+					if (!connectors.get(i).equals(currentConnector)) {
+						int xLeft = connectors.get(i).getFigure().getBounds()
+								.getLeft().x;
+
+						/*
+						 * When we get the current location of the added figure,
+						 * it will give the location related to the Sequences
+						 * figure. So we have to add the Sequences figure
+						 * location to get the absolute location.
+						 */
+						int actualCurrentPosition = currentFigureLocation.x
+								+ sequences.getFigure().getBounds()
+										.getLocation().x + 75;
+						actualCurrentPosition = getXAbsolutePosition(
+								actualCurrentPosition, childEditPart);
+
+						if ((figure instanceof EastPointerFigure)
+								|| (figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorInputConnectorEditPart.EastPointerFigure)
+								|| (figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyOutputConnectorEditPart.EastPointerFigure)
+								|| (figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequencesOutputConnectorEditPart.EastPointerFigure)
+								|| (figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequencesInputConnectorEditPart.EastPointerFigure)) {
+							EastDistance = Math.abs(xLeft
+									- actualCurrentPosition);
+							if (((connectors.get(i) instanceof AbstractOutputConnectorEditPart) && (xLeft < actualCurrentPosition))
+									|| ((connectors.get(i) instanceof AbstractInputConnectorEditPart) && (xLeft > actualCurrentPosition))) {
+								if ((EastCurrent == 0)
+										|| (EastCurrent > EastDistance)) {
+									EastCurrent = EastDistance;
+									nearForwardConnector = connectors.get(i);
+								}
+							}
+						} else if ((figure instanceof WestPointerFigure)
+								|| (figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorInputConnectorEditPart.WestPointerFigure)
+								|| (figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyInputConnectorEditPart.WestPointerFigure)
+								|| (figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpointOutputConnectorEditPart.WestPointerFigure)) {
+							WestDistance = Math.abs(xLeft
+									- actualCurrentPosition);
+							if (((connectors.get(i) instanceof AbstractOutputConnectorEditPart) && (xLeft > actualCurrentPosition))
+									|| ((connectors.get(i) instanceof AbstractInputConnectorEditPart) && (xLeft < actualCurrentPosition))) {
+								if ((WestCurrent == 0)
+										|| (WestCurrent > WestDistance)) {
+									WestCurrent = WestDistance;
+									nearReverseConnector = connectors.get(i);
+								}
+							}
+						}
+
+					}
+				}
+			}
+			
 		}
 
 		if (nearForwardConnector != null) {
@@ -243,10 +324,18 @@ public class ConnectionCalculator {
 				yDistance1 = Math.abs(nearForwardConnector.getFigure()
 						.getBounds().y - currentFigureLocation.y);
 			} else {
+				if(proxyService !=null){
 				yDistance1 = Math.abs((nearForwardConnector.getFigure()
 						.getBounds().y + proxyService.getFigure().getBounds()
 						.getLocation().y)
 						- currentFigureLocation.y + 30);
+				}
+				else if(sequences !=null){
+					yDistance1 = Math.abs((nearForwardConnector.getFigure()
+							.getBounds().y + sequences.getFigure().getBounds()
+							.getLocation().y)
+							- currentFigureLocation.y + 30);
+				}
 			}
 		}
 		if (nearReverseConnector != null) {
@@ -258,14 +347,23 @@ public class ConnectionCalculator {
 				if(childEditPart.getParent() instanceof MediatorFlowMediatorFlowCompartment6EditPart){
 					yDistance2 = Math.abs((nearReverseConnector.getFigure()
 							.getBounds().y + proxyService.getFigure().getBounds()
-							.getLocation().y)
-							- currentFigureLocation.y + 150);
+							.getBottom().y)
+							- currentFigureLocation.y - 50);
 				}
 				else{
+					if(proxyService !=null){
 				yDistance2 = Math.abs((nearReverseConnector.getFigure()
 						.getBounds().y + proxyService.getFigure().getBounds()
 						.getLocation().y)
 						- currentFigureLocation.y + 30);
+					}
+
+					else if(sequences !=null){
+						yDistance2 = Math.abs((nearForwardConnector.getFigure()
+								.getBounds().y + sequences.getFigure().getBounds()
+								.getLocation().y)
+								- currentFigureLocation.y + 30);
+					}
 				}
 			}
 		}
@@ -282,6 +380,7 @@ public class ConnectionCalculator {
 		}
 
 		proxyService = null;
+		sequences=null;
 		return nearConnector;
 	}
 

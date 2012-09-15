@@ -11,6 +11,8 @@ import org.eclipse.gef.commands.CompoundCommand;
 import org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
@@ -44,6 +46,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowM
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment8EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment9EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartmentEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyFaultInputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.RouterMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.RuleMediatorEditPart;
@@ -293,36 +297,65 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 		boolean previouslyConnected = false;
 
 		for (int i = 0; i < getViewer().getEditPartRegistry().size(); ++i) {
-			if (getViewer().getEditPartRegistry().values().toArray()[i] instanceof EsbLinkEditPart) {
-				ESBLinkEditpart.add((EsbLinkEditPart) getViewer()
-						.getEditPartRegistry().values().toArray()[i]);
-			} else if (getViewer().getEditPartRegistry().values().toArray()[i] instanceof AbstractOutputConnectorEditPart) {
-				if (((AbstractOutputConnectorEditPart) getViewer()
-						.getEditPartRegistry().values().toArray()[i])
-						.getParent().getParent().equals(this.getParent())) {
+
+			EditPart element = (EditPart) getViewer().getEditPartRegistry()
+					.values().toArray()[i];
+
+			if (element instanceof EsbLinkEditPart) {
+				ESBLinkEditpart.add((EsbLinkEditPart) element);
+			} else if (element instanceof AbstractOutputConnectorEditPart) {
+
+				if (((AbstractOutputConnectorEditPart) element).getParent()
+						.getParent().equals(this.getParent())) {
 					outputConnectorEditpart
-							.add((AbstractOutputConnectorEditPart) getViewer()
-									.getEditPartRegistry().values().toArray()[i]);
-				}else if(((AbstractOutputConnectorEditPart) getViewer()
-						.getEditPartRegistry().values().toArray()[i])
-						.getParent().equals(this.getParent().getParent().getParent().getParent().getParent())){
+							.add((AbstractOutputConnectorEditPart) element);
+
+				} else if (((AbstractOutputConnectorEditPart) element)
+						.getParent().equals(
+								this.getParent().getParent().getParent()
+										.getParent().getParent())) {
+					/*
+					 * for proxy service output Connector
+					 */
 					outputConnectorEditpart
-					.add((AbstractOutputConnectorEditPart) getViewer()
-							.getEditPartRegistry().values().toArray()[i]);
+							.add((AbstractOutputConnectorEditPart) element);
+
+				} else if (((AbstractOutputConnectorEditPart) element)
+						.getParent().equals(
+								this.getParent().getParent().getParent())) {
+					/*
+					 * for sequences output Connector
+					 */
+
+					outputConnectorEditpart
+							.add((AbstractOutputConnectorEditPart) element);
+
 				}
-			} else if (getViewer().getEditPartRegistry().values().toArray()[i] instanceof AbstractInputConnectorEditPart) {
-				if (((AbstractInputConnectorEditPart) getViewer()
-						.getEditPartRegistry().values().toArray()[i])
-						.getParent().getParent().equals(this.getParent())) {
+			} else if (element instanceof AbstractInputConnectorEditPart) {
+				if (((AbstractInputConnectorEditPart) element).getParent()
+						.getParent().equals(this.getParent())) {
 					inputConnectorEditpart
-							.add((AbstractInputConnectorEditPart) getViewer()
-									.getEditPartRegistry().values().toArray()[i]);
-				}else if(((AbstractInputConnectorEditPart) getViewer()
-						.getEditPartRegistry().values().toArray()[i])
-						.getParent().equals(this.getParent().getParent().getParent().getParent().getParent())){
+							.add((AbstractInputConnectorEditPart) element);
+				} else if (((AbstractInputConnectorEditPart) element)
+						.getParent().equals(
+								this.getParent().getParent().getParent()
+										.getParent().getParent())) {
+					/*
+					 * for proxy service input Connector
+					 */
+					if (((this.getParent() instanceof MediatorFlowMediatorFlowCompartment6EditPart) && ((AbstractInputConnectorEditPart) element instanceof ProxyFaultInputConnectorEditPart))
+							|| ((this.getParent() instanceof MediatorFlowMediatorFlowCompartmentEditPart) && ((AbstractInputConnectorEditPart) element instanceof ProxyInputConnectorEditPart))) {
+						inputConnectorEditpart
+								.add((AbstractInputConnectorEditPart) element);
+					}
+				} else if (((AbstractInputConnectorEditPart) element)
+						.getParent().equals(
+								this.getParent().getParent().getParent())) {
+					/*
+					 * for sequences input Connector
+					 */
 					inputConnectorEditpart
-					.add((AbstractInputConnectorEditPart) getViewer()
-							.getEditPartRegistry().values().toArray()[i]);
+							.add((AbstractInputConnectorEditPart) element);
 				}
 
 			}
