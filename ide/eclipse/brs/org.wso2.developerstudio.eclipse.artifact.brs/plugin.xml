@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+<extension
+         point="org.eclipse.ui.newWizards">
+         <wizard name="Business Rules Service Project" category="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.eclipse.artifact.businessruleservice.category"
+			class="org.wso2.developerstudio.eclipse.artifact.brs.ui.wizard.ProjectCreationWizard"
+			wizardManifest="project_wizard.xml"
+			id="org.wso2.developerstudio.eclipse.artifact.businessruleservice.wizard"
+			project="true"
+			icon="icons/brs-16x16.png">
+			<description>Business Rule Service Project</description>
+		</wizard>
+         <category
+               id="org.wso2.developerstudio.eclipse.artifact.businessruleservice.category"
+               name="Business Rules Server"
+               parentCategory="org.wso2.developerstudio.eclipse.capp.project">
+         </category>
+   </extension>
+   <extension point="org.eclipse.core.resources.natures"
+		id="org.wso2.developerstudio.eclipse.artifact.businessruleservice.project.nature" name="Rule Service Project Nature">
+		<runtime>
+			<run
+				class="org.wso2.developerstudio.eclipse.artifact.brs.project.nature.RuleServiceProjectNature">
+			</run>
+		</runtime>
+	</extension>
+	<extension point="org.eclipse.ui.ide.projectNatureImages">
+		<image id="org.wso2.developerstudio.eclipse.artifact.businessruleservice.project.natureImage"
+			natureId="org.wso2.developerstudio.eclipse.artifact.businessruleservice.project.nature" icon="icons/brs-12x12.png">
+		</image>
+	</extension>
+	<extension
+       point="org.eclipse.ui.editors">
+    <editor
+          class="org.wso2.developerstudio.eclipse.artifact.brs.editor.RuleServiceEditor"
+          extensions="rsl"
+          id="org.wso2.developerstudio.eclipse.artifact.businessruleservice.editor.RuleServiceEditor"
+          name="BRS Project rsl Editor">
+       <contentTypeBinding
+             contentTypeId="org.wso2.developerstudio.eclipse.artifact.businessruleservice.contenttype.rsl">
+       </contentTypeBinding>
+    </editor>
+ </extension>
+<extension point="org.eclipse.core.contenttype.contentTypes">
+   <content-type base-type="org.eclipse.core.runtime.xml"
+                 file-extensions="rsl"
+                 id="org.wso2.developerstudio.eclipse.artifact.businessruleservice.contenttype.rsl"
+                 name="BRS File"
+                 priority="normal">
+      <describer class="org.eclipse.core.runtime.content
+                        .XMLRootElementContentDescriber">
+         
+      </describer>
+   </content-type>
+</extension>
+
+ 
+</plugin>
