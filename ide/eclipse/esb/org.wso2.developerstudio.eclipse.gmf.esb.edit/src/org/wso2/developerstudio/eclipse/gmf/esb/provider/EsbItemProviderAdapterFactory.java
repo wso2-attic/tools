@@ -4354,30 +4354,6 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.RuleSetConfiguration} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected RuleSetConfigurationItemProvider ruleSetConfigurationItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.RuleSetConfiguration}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	
-	@Override
-	public Adapter createRuleSetConfigurationAdapter() {
-		if (ruleSetConfigurationItemProvider == null) {
-			ruleSetConfigurationItemProvider = new RuleSetConfigurationItemProvider(this);
-		}
-
-		return ruleSetConfigurationItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.RuleSetCreationProperty} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4399,30 +4375,6 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 		}
 
 		return ruleSetCreationPropertyItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.RuleSessionConfiguration} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected RuleSessionConfigurationItemProvider ruleSessionConfigurationItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.RuleSessionConfiguration}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	
-	@Override
-	public Adapter createRuleSessionConfigurationAdapter() {
-		if (ruleSessionConfigurationItemProvider == null) {
-			ruleSessionConfigurationItemProvider = new RuleSessionConfigurationItemProvider(this);
-		}
-
-		return ruleSessionConfigurationItemProvider;
 	}
 
 	/**
@@ -6074,9 +6026,7 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 		if (ruleMediatorInputConnectorItemProvider != null) ruleMediatorInputConnectorItemProvider.dispose();
 		if (ruleMediatorOutputConnectorItemProvider != null) ruleMediatorOutputConnectorItemProvider.dispose();
 		if (ruleMediatorChildMediatorsOutputConnectorItemProvider != null) ruleMediatorChildMediatorsOutputConnectorItemProvider.dispose();
-		if (ruleSetConfigurationItemProvider != null) ruleSetConfigurationItemProvider.dispose();
 		if (ruleSetCreationPropertyItemProvider != null) ruleSetCreationPropertyItemProvider.dispose();
-		if (ruleSessionConfigurationItemProvider != null) ruleSessionConfigurationItemProvider.dispose();
 		if (ruleSessionPropertyItemProvider != null) ruleSessionPropertyItemProvider.dispose();
 		if (ruleFactsConfigurationItemProvider != null) ruleFactsConfigurationItemProvider.dispose();
 		if (ruleFactItemProvider != null) ruleFactItemProvider.dispose();

@@ -253,9 +253,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.RuleResult;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleResultType;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleResultValueType;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleResultsConfiguration;
-import org.wso2.developerstudio.eclipse.gmf.esb.RuleSessionConfiguration;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleSessionProperty;
-import org.wso2.developerstudio.eclipse.gmf.esb.RuleSetConfiguration;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleSetCreationProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleSourceType;
 import org.wso2.developerstudio.eclipse.gmf.esb.ScriptLanguage;
@@ -1740,21 +1738,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass ruleSetConfigurationEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass ruleSetCreationPropertyEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass ruleSessionConfigurationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -8350,8 +8334,8 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRuleMediator_RuleSetConfiguration() {
-		return (EReference)ruleMediatorEClass.getEStructuralFeatures().get(0);
+	public EAttribute getRuleMediator_RuleSetURI() {
+		return (EAttribute)ruleMediatorEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -8359,8 +8343,8 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRuleMediator_RuleSessionConfiguration() {
-		return (EReference)ruleMediatorEClass.getEStructuralFeatures().get(1);
+	public EAttribute getRuleMediator_RuleSetSourceType() {
+		return (EAttribute)ruleMediatorEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -8368,8 +8352,8 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRuleMediator_FactsConfiguration() {
-		return (EReference)ruleMediatorEClass.getEStructuralFeatures().get(2);
+	public EAttribute getRuleMediator_RuleSetSourceCode() {
+		return (EAttribute)ruleMediatorEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -8377,7 +8361,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRuleMediator_ResultsConfiguration() {
+	public EReference getRuleMediator_RuleSetSourceKey() {
 		return (EReference)ruleMediatorEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -8386,7 +8370,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRuleMediator_ChildMediatorsConfiguration() {
+	public EReference getRuleMediator_RuleSetProperties() {
 		return (EReference)ruleMediatorEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -8395,8 +8379,8 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRuleMediator_InputConnector() {
-		return (EReference)ruleMediatorEClass.getEStructuralFeatures().get(5);
+	public EAttribute getRuleMediator_StatefulSession() {
+		return (EAttribute)ruleMediatorEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -8404,7 +8388,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRuleMediator_OutputConnector() {
+	public EReference getRuleMediator_RuleSessionProperties() {
 		return (EReference)ruleMediatorEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -8413,7 +8397,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRuleMediator_ChildMediatorsOutputConnector() {
+	public EReference getRuleMediator_FactsConfiguration() {
 		return (EReference)ruleMediatorEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -8422,8 +8406,53 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRuleMediator_MediatorFlow() {
+	public EReference getRuleMediator_ResultsConfiguration() {
 		return (EReference)ruleMediatorEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRuleMediator_ChildMediatorsConfiguration() {
+		return (EReference)ruleMediatorEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRuleMediator_InputConnector() {
+		return (EReference)ruleMediatorEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRuleMediator_OutputConnector() {
+		return (EReference)ruleMediatorEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRuleMediator_ChildMediatorsOutputConnector() {
+		return (EReference)ruleMediatorEClass.getEStructuralFeatures().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRuleMediator_MediatorFlow() {
+		return (EReference)ruleMediatorEClass.getEStructuralFeatures().get(13);
 	}
 
 	/**
@@ -8458,80 +8487,8 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getRuleSetConfiguration() {
-		return ruleSetConfigurationEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getRuleSetConfiguration_SourceType() {
-		return (EAttribute)ruleSetConfigurationEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getRuleSetConfiguration_SourceCode() {
-		return (EAttribute)ruleSetConfigurationEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getRuleSetConfiguration_SourceKey() {
-		return (EReference)ruleSetConfigurationEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getRuleSetConfiguration_Properties() {
-		return (EReference)ruleSetConfigurationEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getRuleSetCreationProperty() {
 		return ruleSetCreationPropertyEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getRuleSessionConfiguration() {
-		return ruleSessionConfigurationEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getRuleSessionConfiguration_StatefulSession() {
-		return (EAttribute)ruleSessionConfigurationEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getRuleSessionConfiguration_Properties() {
-		return (EReference)ruleSessionConfigurationEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -11515,8 +11472,13 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		dbReportMediatorOutputConnectorEClass = createEClass(DB_REPORT_MEDIATOR_OUTPUT_CONNECTOR);
 
 		ruleMediatorEClass = createEClass(RULE_MEDIATOR);
-		createEReference(ruleMediatorEClass, RULE_MEDIATOR__RULE_SET_CONFIGURATION);
-		createEReference(ruleMediatorEClass, RULE_MEDIATOR__RULE_SESSION_CONFIGURATION);
+		createEAttribute(ruleMediatorEClass, RULE_MEDIATOR__RULE_SET_URI);
+		createEAttribute(ruleMediatorEClass, RULE_MEDIATOR__RULE_SET_SOURCE_TYPE);
+		createEAttribute(ruleMediatorEClass, RULE_MEDIATOR__RULE_SET_SOURCE_CODE);
+		createEReference(ruleMediatorEClass, RULE_MEDIATOR__RULE_SET_SOURCE_KEY);
+		createEReference(ruleMediatorEClass, RULE_MEDIATOR__RULE_SET_PROPERTIES);
+		createEAttribute(ruleMediatorEClass, RULE_MEDIATOR__STATEFUL_SESSION);
+		createEReference(ruleMediatorEClass, RULE_MEDIATOR__RULE_SESSION_PROPERTIES);
 		createEReference(ruleMediatorEClass, RULE_MEDIATOR__FACTS_CONFIGURATION);
 		createEReference(ruleMediatorEClass, RULE_MEDIATOR__RESULTS_CONFIGURATION);
 		createEReference(ruleMediatorEClass, RULE_MEDIATOR__CHILD_MEDIATORS_CONFIGURATION);
@@ -11531,17 +11493,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 
 		ruleMediatorChildMediatorsOutputConnectorEClass = createEClass(RULE_MEDIATOR_CHILD_MEDIATORS_OUTPUT_CONNECTOR);
 
-		ruleSetConfigurationEClass = createEClass(RULE_SET_CONFIGURATION);
-		createEAttribute(ruleSetConfigurationEClass, RULE_SET_CONFIGURATION__SOURCE_TYPE);
-		createEAttribute(ruleSetConfigurationEClass, RULE_SET_CONFIGURATION__SOURCE_CODE);
-		createEReference(ruleSetConfigurationEClass, RULE_SET_CONFIGURATION__SOURCE_KEY);
-		createEReference(ruleSetConfigurationEClass, RULE_SET_CONFIGURATION__PROPERTIES);
-
 		ruleSetCreationPropertyEClass = createEClass(RULE_SET_CREATION_PROPERTY);
-
-		ruleSessionConfigurationEClass = createEClass(RULE_SESSION_CONFIGURATION);
-		createEAttribute(ruleSessionConfigurationEClass, RULE_SESSION_CONFIGURATION__STATEFUL_SESSION);
-		createEReference(ruleSessionConfigurationEClass, RULE_SESSION_CONFIGURATION__PROPERTIES);
 
 		ruleSessionPropertyEClass = createEClass(RULE_SESSION_PROPERTY);
 
@@ -12942,8 +12894,13 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEClass(dbReportMediatorOutputConnectorEClass, DBReportMediatorOutputConnector.class, "DBReportMediatorOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(ruleMediatorEClass, RuleMediator.class, "RuleMediator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRuleMediator_RuleSetConfiguration(), this.getRuleSetConfiguration(), null, "ruleSetConfiguration", null, 0, 1, RuleMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRuleMediator_RuleSessionConfiguration(), this.getRuleSessionConfiguration(), null, "ruleSessionConfiguration", null, 0, 1, RuleMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRuleMediator_RuleSetURI(), ecorePackage.getEString(), "RuleSetURI", "", 0, 1, RuleMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRuleMediator_RuleSetSourceType(), this.getRuleSourceType(), "ruleSetSourceType", "INLINE", 0, 1, RuleMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRuleMediator_RuleSetSourceCode(), ecorePackage.getEString(), "ruleSetSourceCode", "<code/>", 0, 1, RuleMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRuleMediator_RuleSetSourceKey(), this.getRegistryKeyProperty(), null, "ruleSetSourceKey", null, 0, 1, RuleMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRuleMediator_RuleSetProperties(), this.getRuleSetCreationProperty(), null, "ruleSetProperties", null, 0, -1, RuleMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRuleMediator_StatefulSession(), ecorePackage.getEBoolean(), "statefulSession", "true", 0, 1, RuleMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRuleMediator_RuleSessionProperties(), this.getRuleSessionProperty(), null, "RuleSessionProperties", null, 0, -1, RuleMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRuleMediator_FactsConfiguration(), this.getRuleFactsConfiguration(), null, "factsConfiguration", null, 0, 1, RuleMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRuleMediator_ResultsConfiguration(), this.getRuleResultsConfiguration(), null, "resultsConfiguration", null, 0, 1, RuleMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRuleMediator_ChildMediatorsConfiguration(), this.getRuleChildMediatorsConfiguration(), null, "childMediatorsConfiguration", null, 0, 1, RuleMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -12958,17 +12915,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 
 		initEClass(ruleMediatorChildMediatorsOutputConnectorEClass, RuleMediatorChildMediatorsOutputConnector.class, "RuleMediatorChildMediatorsOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(ruleSetConfigurationEClass, RuleSetConfiguration.class, "RuleSetConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getRuleSetConfiguration_SourceType(), this.getRuleSourceType(), "sourceType", "INLINE", 0, 1, RuleSetConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getRuleSetConfiguration_SourceCode(), ecorePackage.getEString(), "sourceCode", "<code/>", 0, 1, RuleSetConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRuleSetConfiguration_SourceKey(), this.getRegistryKeyProperty(), null, "sourceKey", null, 0, 1, RuleSetConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRuleSetConfiguration_Properties(), this.getRuleSetCreationProperty(), null, "properties", null, 0, -1, RuleSetConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(ruleSetCreationPropertyEClass, RuleSetCreationProperty.class, "RuleSetCreationProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(ruleSessionConfigurationEClass, RuleSessionConfiguration.class, "RuleSessionConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getRuleSessionConfiguration_StatefulSession(), ecorePackage.getEBoolean(), "statefulSession", "true", 0, 1, RuleSessionConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRuleSessionConfiguration_Properties(), this.getRuleSessionProperty(), null, "properties", null, 0, -1, RuleSessionConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(ruleSessionPropertyEClass, RuleSessionProperty.class, "RuleSessionProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

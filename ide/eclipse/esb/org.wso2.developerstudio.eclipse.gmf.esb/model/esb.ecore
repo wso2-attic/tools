@@ -1391,10 +1391,20 @@
   <eClassifiers xsi:type="ecore:EClass" name="DBReportMediatorInputConnector" eSuperTypes="#//InputConnector"/>
   <eClassifiers xsi:type="ecore:EClass" name="DBReportMediatorOutputConnector" eSuperTypes="#//OutputConnector"/>
   <eClassifiers xsi:type="ecore:EClass" name="RuleMediator" eSuperTypes="#//Mediator">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ruleSetConfiguration" eType="#//RuleSetConfiguration"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="RuleSetURI" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ruleSetSourceType" eType="#//RuleSourceType"
+        defaultValueLiteral="INLINE"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ruleSetSourceCode" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="&lt;code/>"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ruleSetSourceKey" eType="#//RegistryKeyProperty"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ruleSessionConfiguration"
-        eType="#//RuleSessionConfiguration" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ruleSetProperties" upperBound="-1"
+        eType="#//RuleSetCreationProperty" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="statefulSession" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="RuleSessionProperties"
+        upperBound="-1" eType="#//RuleSessionProperty" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="factsConfiguration" eType="#//RuleFactsConfiguration"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="resultsConfiguration" eType="#//RuleResultsConfiguration"
@@ -1414,27 +1424,11 @@
   <eClassifiers xsi:type="ecore:EClass" name="RuleMediatorOutputConnector" eSuperTypes="#//OutputConnector"/>
   <eClassifiers xsi:type="ecore:EClass" name="RuleMediatorChildMediatorsOutputConnector"
       eSuperTypes="#//OutputConnector"/>
-  <eClassifiers xsi:type="ecore:EClass" name="RuleSetConfiguration">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceType" eType="#//RuleSourceType"
-        defaultValueLiteral="INLINE"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceCode" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        defaultValueLiteral="&lt;code/>"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sourceKey" eType="#//RegistryKeyProperty"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
-        eType="#//RuleSetCreationProperty" containment="true"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="RuleSourceType">
     <eLiterals name="INLINE"/>
     <eLiterals name="REGISTRY_REFERENCE" value="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RuleSetCreationProperty" eSuperTypes="#//AbstractNameValueProperty"/>
-  <eClassifiers xsi:type="ecore:EClass" name="RuleSessionConfiguration">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="statefulSession" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
-        defaultValueLiteral="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
-        eType="#//RuleSessionProperty" containment="true"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RuleSessionProperty" eSuperTypes="#//AbstractNameValueProperty"/>
   <eClassifiers xsi:type="ecore:EClass" name="RuleFactsConfiguration">
     <eStructuralFeatures xsi:type="ecore:EReference" name="facts" upperBound="-1"

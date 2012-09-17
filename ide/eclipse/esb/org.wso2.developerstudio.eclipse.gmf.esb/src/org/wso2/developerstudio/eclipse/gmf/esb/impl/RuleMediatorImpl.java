@@ -6,16 +6,22 @@
  */
 package org.wso2.developerstudio.eclipse.gmf.esb.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.MediatorFlow;
+import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleChildMediatorsConfiguration;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleFactsConfiguration;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator;
@@ -23,8 +29,9 @@ import org.wso2.developerstudio.eclipse.gmf.esb.RuleMediatorChildMediatorsOutput
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleMediatorInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleMediatorOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleResultsConfiguration;
-import org.wso2.developerstudio.eclipse.gmf.esb.RuleSessionConfiguration;
-import org.wso2.developerstudio.eclipse.gmf.esb.RuleSetConfiguration;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleSessionProperty;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleSetCreationProperty;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleSourceType;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,8 +40,13 @@ import org.wso2.developerstudio.eclipse.gmf.esb.RuleSetConfiguration;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RuleMediatorImpl#getRuleSetConfiguration <em>Rule Set Configuration</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RuleMediatorImpl#getRuleSessionConfiguration <em>Rule Session Configuration</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RuleMediatorImpl#getRuleSetURI <em>Rule Set URI</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RuleMediatorImpl#getRuleSetSourceType <em>Rule Set Source Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RuleMediatorImpl#getRuleSetSourceCode <em>Rule Set Source Code</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RuleMediatorImpl#getRuleSetSourceKey <em>Rule Set Source Key</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RuleMediatorImpl#getRuleSetProperties <em>Rule Set Properties</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RuleMediatorImpl#isStatefulSession <em>Stateful Session</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RuleMediatorImpl#getRuleSessionProperties <em>Rule Session Properties</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RuleMediatorImpl#getFactsConfiguration <em>Facts Configuration</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RuleMediatorImpl#getResultsConfiguration <em>Results Configuration</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RuleMediatorImpl#getChildMediatorsConfiguration <em>Child Mediators Configuration</em>}</li>
@@ -49,24 +61,114 @@ import org.wso2.developerstudio.eclipse.gmf.esb.RuleSetConfiguration;
  */
 public class RuleMediatorImpl extends MediatorImpl implements RuleMediator {
 	/**
-	 * The cached value of the '{@link #getRuleSetConfiguration() <em>Rule Set Configuration</em>}' containment reference.
+	 * The default value of the '{@link #getRuleSetURI() <em>Rule Set URI</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRuleSetConfiguration()
+	 * @see #getRuleSetURI()
 	 * @generated
 	 * @ordered
 	 */
-	protected RuleSetConfiguration ruleSetConfiguration;
+	protected static final String RULE_SET_URI_EDEFAULT = "";
 
 	/**
-	 * The cached value of the '{@link #getRuleSessionConfiguration() <em>Rule Session Configuration</em>}' containment reference.
+	 * The cached value of the '{@link #getRuleSetURI() <em>Rule Set URI</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRuleSessionConfiguration()
+	 * @see #getRuleSetURI()
 	 * @generated
 	 * @ordered
 	 */
-	protected RuleSessionConfiguration ruleSessionConfiguration;
+	protected String ruleSetURI = RULE_SET_URI_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getRuleSetSourceType() <em>Rule Set Source Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRuleSetSourceType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final RuleSourceType RULE_SET_SOURCE_TYPE_EDEFAULT = RuleSourceType.INLINE;
+
+	/**
+	 * The cached value of the '{@link #getRuleSetSourceType() <em>Rule Set Source Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRuleSetSourceType()
+	 * @generated
+	 * @ordered
+	 */
+	protected RuleSourceType ruleSetSourceType = RULE_SET_SOURCE_TYPE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getRuleSetSourceCode() <em>Rule Set Source Code</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRuleSetSourceCode()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String RULE_SET_SOURCE_CODE_EDEFAULT = "<code/>";
+
+	/**
+	 * The cached value of the '{@link #getRuleSetSourceCode() <em>Rule Set Source Code</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRuleSetSourceCode()
+	 * @generated
+	 * @ordered
+	 */
+	protected String ruleSetSourceCode = RULE_SET_SOURCE_CODE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getRuleSetSourceKey() <em>Rule Set Source Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRuleSetSourceKey()
+	 * @generated
+	 * @ordered
+	 */
+	protected RegistryKeyProperty ruleSetSourceKey;
+
+	/**
+	 * The cached value of the '{@link #getRuleSetProperties() <em>Rule Set Properties</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRuleSetProperties()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<RuleSetCreationProperty> ruleSetProperties;
+
+	/**
+	 * The default value of the '{@link #isStatefulSession() <em>Stateful Session</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isStatefulSession()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean STATEFUL_SESSION_EDEFAULT = true;
+
+	/**
+	 * The cached value of the '{@link #isStatefulSession() <em>Stateful Session</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isStatefulSession()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean statefulSession = STATEFUL_SESSION_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getRuleSessionProperties() <em>Rule Session Properties</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRuleSessionProperties()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<RuleSessionProperty> ruleSessionProperties;
 
 	/**
 	 * The cached value of the '{@link #getFactsConfiguration() <em>Facts Configuration</em>}' containment reference.
@@ -141,10 +243,15 @@ public class RuleMediatorImpl extends MediatorImpl implements RuleMediator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected RuleMediatorImpl() {
 		super();
+		RegistryKeyProperty ruleSetSourceKey = EsbFactory.eINSTANCE.createRegistryKeyProperty();
+		ruleSetSourceKey.setKeyName("ruleSet-SourceKey");
+		ruleSetSourceKey.setPrettyName("ruleSet-SourceKey");
+		ruleSetSourceKey.setKeyValue("/default/key");
+		setRuleSetSourceKey(ruleSetSourceKey);
 	}
 
 	/**
@@ -163,8 +270,8 @@ public class RuleMediatorImpl extends MediatorImpl implements RuleMediator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleSetConfiguration getRuleSetConfiguration() {
-		return ruleSetConfiguration;
+	public String getRuleSetURI() {
+		return ruleSetURI;
 	}
 
 	/**
@@ -172,11 +279,74 @@ public class RuleMediatorImpl extends MediatorImpl implements RuleMediator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRuleSetConfiguration(RuleSetConfiguration newRuleSetConfiguration, NotificationChain msgs) {
-		RuleSetConfiguration oldRuleSetConfiguration = ruleSetConfiguration;
-		ruleSetConfiguration = newRuleSetConfiguration;
+	public void setRuleSetURI(String newRuleSetURI) {
+		String oldRuleSetURI = ruleSetURI;
+		ruleSetURI = newRuleSetURI;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.RULE_MEDIATOR__RULE_SET_URI, oldRuleSetURI, ruleSetURI));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RuleSourceType getRuleSetSourceType() {
+		return ruleSetSourceType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRuleSetSourceType(RuleSourceType newRuleSetSourceType) {
+		RuleSourceType oldRuleSetSourceType = ruleSetSourceType;
+		ruleSetSourceType = newRuleSetSourceType == null ? RULE_SET_SOURCE_TYPE_EDEFAULT : newRuleSetSourceType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.RULE_MEDIATOR__RULE_SET_SOURCE_TYPE, oldRuleSetSourceType, ruleSetSourceType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getRuleSetSourceCode() {
+		return ruleSetSourceCode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRuleSetSourceCode(String newRuleSetSourceCode) {
+		String oldRuleSetSourceCode = ruleSetSourceCode;
+		ruleSetSourceCode = newRuleSetSourceCode;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.RULE_MEDIATOR__RULE_SET_SOURCE_CODE, oldRuleSetSourceCode, ruleSetSourceCode));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RegistryKeyProperty getRuleSetSourceKey() {
+		return ruleSetSourceKey;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetRuleSetSourceKey(RegistryKeyProperty newRuleSetSourceKey, NotificationChain msgs) {
+		RegistryKeyProperty oldRuleSetSourceKey = ruleSetSourceKey;
+		ruleSetSourceKey = newRuleSetSourceKey;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.RULE_MEDIATOR__RULE_SET_CONFIGURATION, oldRuleSetConfiguration, newRuleSetConfiguration);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.RULE_MEDIATOR__RULE_SET_SOURCE_KEY, oldRuleSetSourceKey, newRuleSetSourceKey);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -187,18 +357,18 @@ public class RuleMediatorImpl extends MediatorImpl implements RuleMediator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRuleSetConfiguration(RuleSetConfiguration newRuleSetConfiguration) {
-		if (newRuleSetConfiguration != ruleSetConfiguration) {
+	public void setRuleSetSourceKey(RegistryKeyProperty newRuleSetSourceKey) {
+		if (newRuleSetSourceKey != ruleSetSourceKey) {
 			NotificationChain msgs = null;
-			if (ruleSetConfiguration != null)
-				msgs = ((InternalEObject)ruleSetConfiguration).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.RULE_MEDIATOR__RULE_SET_CONFIGURATION, null, msgs);
-			if (newRuleSetConfiguration != null)
-				msgs = ((InternalEObject)newRuleSetConfiguration).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.RULE_MEDIATOR__RULE_SET_CONFIGURATION, null, msgs);
-			msgs = basicSetRuleSetConfiguration(newRuleSetConfiguration, msgs);
+			if (ruleSetSourceKey != null)
+				msgs = ((InternalEObject)ruleSetSourceKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.RULE_MEDIATOR__RULE_SET_SOURCE_KEY, null, msgs);
+			if (newRuleSetSourceKey != null)
+				msgs = ((InternalEObject)newRuleSetSourceKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.RULE_MEDIATOR__RULE_SET_SOURCE_KEY, null, msgs);
+			msgs = basicSetRuleSetSourceKey(newRuleSetSourceKey, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.RULE_MEDIATOR__RULE_SET_CONFIGURATION, newRuleSetConfiguration, newRuleSetConfiguration));
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.RULE_MEDIATOR__RULE_SET_SOURCE_KEY, newRuleSetSourceKey, newRuleSetSourceKey));
 	}
 
 	/**
@@ -206,23 +376,11 @@ public class RuleMediatorImpl extends MediatorImpl implements RuleMediator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleSessionConfiguration getRuleSessionConfiguration() {
-		return ruleSessionConfiguration;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetRuleSessionConfiguration(RuleSessionConfiguration newRuleSessionConfiguration, NotificationChain msgs) {
-		RuleSessionConfiguration oldRuleSessionConfiguration = ruleSessionConfiguration;
-		ruleSessionConfiguration = newRuleSessionConfiguration;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.RULE_MEDIATOR__RULE_SESSION_CONFIGURATION, oldRuleSessionConfiguration, newRuleSessionConfiguration);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+	public EList<RuleSetCreationProperty> getRuleSetProperties() {
+		if (ruleSetProperties == null) {
+			ruleSetProperties = new EObjectContainmentEList<RuleSetCreationProperty>(RuleSetCreationProperty.class, this, EsbPackage.RULE_MEDIATOR__RULE_SET_PROPERTIES);
 		}
-		return msgs;
+		return ruleSetProperties;
 	}
 
 	/**
@@ -230,18 +388,32 @@ public class RuleMediatorImpl extends MediatorImpl implements RuleMediator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRuleSessionConfiguration(RuleSessionConfiguration newRuleSessionConfiguration) {
-		if (newRuleSessionConfiguration != ruleSessionConfiguration) {
-			NotificationChain msgs = null;
-			if (ruleSessionConfiguration != null)
-				msgs = ((InternalEObject)ruleSessionConfiguration).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.RULE_MEDIATOR__RULE_SESSION_CONFIGURATION, null, msgs);
-			if (newRuleSessionConfiguration != null)
-				msgs = ((InternalEObject)newRuleSessionConfiguration).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.RULE_MEDIATOR__RULE_SESSION_CONFIGURATION, null, msgs);
-			msgs = basicSetRuleSessionConfiguration(newRuleSessionConfiguration, msgs);
-			if (msgs != null) msgs.dispatch();
+	public boolean isStatefulSession() {
+		return statefulSession;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setStatefulSession(boolean newStatefulSession) {
+		boolean oldStatefulSession = statefulSession;
+		statefulSession = newStatefulSession;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.RULE_MEDIATOR__STATEFUL_SESSION, oldStatefulSession, statefulSession));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<RuleSessionProperty> getRuleSessionProperties() {
+		if (ruleSessionProperties == null) {
+			ruleSessionProperties = new EObjectContainmentEList<RuleSessionProperty>(RuleSessionProperty.class, this, EsbPackage.RULE_MEDIATOR__RULE_SESSION_PROPERTIES);
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.RULE_MEDIATOR__RULE_SESSION_CONFIGURATION, newRuleSessionConfiguration, newRuleSessionConfiguration));
+		return ruleSessionProperties;
 	}
 
 	/**
@@ -554,10 +726,12 @@ public class RuleMediatorImpl extends MediatorImpl implements RuleMediator {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case EsbPackage.RULE_MEDIATOR__RULE_SET_CONFIGURATION:
-				return basicSetRuleSetConfiguration(null, msgs);
-			case EsbPackage.RULE_MEDIATOR__RULE_SESSION_CONFIGURATION:
-				return basicSetRuleSessionConfiguration(null, msgs);
+			case EsbPackage.RULE_MEDIATOR__RULE_SET_SOURCE_KEY:
+				return basicSetRuleSetSourceKey(null, msgs);
+			case EsbPackage.RULE_MEDIATOR__RULE_SET_PROPERTIES:
+				return ((InternalEList<?>)getRuleSetProperties()).basicRemove(otherEnd, msgs);
+			case EsbPackage.RULE_MEDIATOR__RULE_SESSION_PROPERTIES:
+				return ((InternalEList<?>)getRuleSessionProperties()).basicRemove(otherEnd, msgs);
 			case EsbPackage.RULE_MEDIATOR__FACTS_CONFIGURATION:
 				return basicSetFactsConfiguration(null, msgs);
 			case EsbPackage.RULE_MEDIATOR__RESULTS_CONFIGURATION:
@@ -585,10 +759,20 @@ public class RuleMediatorImpl extends MediatorImpl implements RuleMediator {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case EsbPackage.RULE_MEDIATOR__RULE_SET_CONFIGURATION:
-				return getRuleSetConfiguration();
-			case EsbPackage.RULE_MEDIATOR__RULE_SESSION_CONFIGURATION:
-				return getRuleSessionConfiguration();
+			case EsbPackage.RULE_MEDIATOR__RULE_SET_URI:
+				return getRuleSetURI();
+			case EsbPackage.RULE_MEDIATOR__RULE_SET_SOURCE_TYPE:
+				return getRuleSetSourceType();
+			case EsbPackage.RULE_MEDIATOR__RULE_SET_SOURCE_CODE:
+				return getRuleSetSourceCode();
+			case EsbPackage.RULE_MEDIATOR__RULE_SET_SOURCE_KEY:
+				return getRuleSetSourceKey();
+			case EsbPackage.RULE_MEDIATOR__RULE_SET_PROPERTIES:
+				return getRuleSetProperties();
+			case EsbPackage.RULE_MEDIATOR__STATEFUL_SESSION:
+				return isStatefulSession();
+			case EsbPackage.RULE_MEDIATOR__RULE_SESSION_PROPERTIES:
+				return getRuleSessionProperties();
 			case EsbPackage.RULE_MEDIATOR__FACTS_CONFIGURATION:
 				return getFactsConfiguration();
 			case EsbPackage.RULE_MEDIATOR__RESULTS_CONFIGURATION:
@@ -613,14 +797,32 @@ public class RuleMediatorImpl extends MediatorImpl implements RuleMediator {
 	 * @generated
 	 */
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case EsbPackage.RULE_MEDIATOR__RULE_SET_CONFIGURATION:
-				setRuleSetConfiguration((RuleSetConfiguration)newValue);
+			case EsbPackage.RULE_MEDIATOR__RULE_SET_URI:
+				setRuleSetURI((String)newValue);
 				return;
-			case EsbPackage.RULE_MEDIATOR__RULE_SESSION_CONFIGURATION:
-				setRuleSessionConfiguration((RuleSessionConfiguration)newValue);
+			case EsbPackage.RULE_MEDIATOR__RULE_SET_SOURCE_TYPE:
+				setRuleSetSourceType((RuleSourceType)newValue);
+				return;
+			case EsbPackage.RULE_MEDIATOR__RULE_SET_SOURCE_CODE:
+				setRuleSetSourceCode((String)newValue);
+				return;
+			case EsbPackage.RULE_MEDIATOR__RULE_SET_SOURCE_KEY:
+				setRuleSetSourceKey((RegistryKeyProperty)newValue);
+				return;
+			case EsbPackage.RULE_MEDIATOR__RULE_SET_PROPERTIES:
+				getRuleSetProperties().clear();
+				getRuleSetProperties().addAll((Collection<? extends RuleSetCreationProperty>)newValue);
+				return;
+			case EsbPackage.RULE_MEDIATOR__STATEFUL_SESSION:
+				setStatefulSession((Boolean)newValue);
+				return;
+			case EsbPackage.RULE_MEDIATOR__RULE_SESSION_PROPERTIES:
+				getRuleSessionProperties().clear();
+				getRuleSessionProperties().addAll((Collection<? extends RuleSessionProperty>)newValue);
 				return;
 			case EsbPackage.RULE_MEDIATOR__FACTS_CONFIGURATION:
 				setFactsConfiguration((RuleFactsConfiguration)newValue);
@@ -656,11 +858,26 @@ public class RuleMediatorImpl extends MediatorImpl implements RuleMediator {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case EsbPackage.RULE_MEDIATOR__RULE_SET_CONFIGURATION:
-				setRuleSetConfiguration((RuleSetConfiguration)null);
+			case EsbPackage.RULE_MEDIATOR__RULE_SET_URI:
+				setRuleSetURI(RULE_SET_URI_EDEFAULT);
 				return;
-			case EsbPackage.RULE_MEDIATOR__RULE_SESSION_CONFIGURATION:
-				setRuleSessionConfiguration((RuleSessionConfiguration)null);
+			case EsbPackage.RULE_MEDIATOR__RULE_SET_SOURCE_TYPE:
+				setRuleSetSourceType(RULE_SET_SOURCE_TYPE_EDEFAULT);
+				return;
+			case EsbPackage.RULE_MEDIATOR__RULE_SET_SOURCE_CODE:
+				setRuleSetSourceCode(RULE_SET_SOURCE_CODE_EDEFAULT);
+				return;
+			case EsbPackage.RULE_MEDIATOR__RULE_SET_SOURCE_KEY:
+				setRuleSetSourceKey((RegistryKeyProperty)null);
+				return;
+			case EsbPackage.RULE_MEDIATOR__RULE_SET_PROPERTIES:
+				getRuleSetProperties().clear();
+				return;
+			case EsbPackage.RULE_MEDIATOR__STATEFUL_SESSION:
+				setStatefulSession(STATEFUL_SESSION_EDEFAULT);
+				return;
+			case EsbPackage.RULE_MEDIATOR__RULE_SESSION_PROPERTIES:
+				getRuleSessionProperties().clear();
 				return;
 			case EsbPackage.RULE_MEDIATOR__FACTS_CONFIGURATION:
 				setFactsConfiguration((RuleFactsConfiguration)null);
@@ -696,10 +913,20 @@ public class RuleMediatorImpl extends MediatorImpl implements RuleMediator {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case EsbPackage.RULE_MEDIATOR__RULE_SET_CONFIGURATION:
-				return ruleSetConfiguration != null;
-			case EsbPackage.RULE_MEDIATOR__RULE_SESSION_CONFIGURATION:
-				return ruleSessionConfiguration != null;
+			case EsbPackage.RULE_MEDIATOR__RULE_SET_URI:
+				return RULE_SET_URI_EDEFAULT == null ? ruleSetURI != null : !RULE_SET_URI_EDEFAULT.equals(ruleSetURI);
+			case EsbPackage.RULE_MEDIATOR__RULE_SET_SOURCE_TYPE:
+				return ruleSetSourceType != RULE_SET_SOURCE_TYPE_EDEFAULT;
+			case EsbPackage.RULE_MEDIATOR__RULE_SET_SOURCE_CODE:
+				return RULE_SET_SOURCE_CODE_EDEFAULT == null ? ruleSetSourceCode != null : !RULE_SET_SOURCE_CODE_EDEFAULT.equals(ruleSetSourceCode);
+			case EsbPackage.RULE_MEDIATOR__RULE_SET_SOURCE_KEY:
+				return ruleSetSourceKey != null;
+			case EsbPackage.RULE_MEDIATOR__RULE_SET_PROPERTIES:
+				return ruleSetProperties != null && !ruleSetProperties.isEmpty();
+			case EsbPackage.RULE_MEDIATOR__STATEFUL_SESSION:
+				return statefulSession != STATEFUL_SESSION_EDEFAULT;
+			case EsbPackage.RULE_MEDIATOR__RULE_SESSION_PROPERTIES:
+				return ruleSessionProperties != null && !ruleSessionProperties.isEmpty();
 			case EsbPackage.RULE_MEDIATOR__FACTS_CONFIGURATION:
 				return factsConfiguration != null;
 			case EsbPackage.RULE_MEDIATOR__RESULTS_CONFIGURATION:
@@ -716,6 +943,28 @@ public class RuleMediatorImpl extends MediatorImpl implements RuleMediator {
 				return mediatorFlow != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (RuleSetURI: ");
+		result.append(ruleSetURI);
+		result.append(", ruleSetSourceType: ");
+		result.append(ruleSetSourceType);
+		result.append(", ruleSetSourceCode: ");
+		result.append(ruleSetSourceCode);
+		result.append(", statefulSession: ");
+		result.append(statefulSession);
+		result.append(')');
+		return result.toString();
 	}
 
 } //RuleMediatorImpl

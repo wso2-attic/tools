@@ -829,16 +829,8 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 				return createRuleMediatorChildMediatorsOutputConnectorAdapter();
 			}
 			@Override
-			public Adapter caseRuleSetConfiguration(RuleSetConfiguration object) {
-				return createRuleSetConfigurationAdapter();
-			}
-			@Override
 			public Adapter caseRuleSetCreationProperty(RuleSetCreationProperty object) {
 				return createRuleSetCreationPropertyAdapter();
-			}
-			@Override
-			public Adapter caseRuleSessionConfiguration(RuleSessionConfiguration object) {
-				return createRuleSessionConfigurationAdapter();
 			}
 			@Override
 			public Adapter caseRuleSessionProperty(RuleSessionProperty object) {
@@ -3852,20 +3844,6 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleSetConfiguration <em>Rule Set Configuration</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RuleSetConfiguration
-	 * @generated
-	 */
-	public Adapter createRuleSetConfigurationAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleSetCreationProperty <em>Rule Set Creation Property</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -3876,20 +3854,6 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createRuleSetCreationPropertyAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleSessionConfiguration <em>Rule Session Configuration</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RuleSessionConfiguration
-	 * @generated
-	 */
-	public Adapter createRuleSessionConfigurationAdapter() {
 		return null;
 	}
 

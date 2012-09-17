@@ -1569,22 +1569,10 @@ public class EsbSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EsbPackage.RULE_SET_CONFIGURATION: {
-				RuleSetConfiguration ruleSetConfiguration = (RuleSetConfiguration)theEObject;
-				T result = caseRuleSetConfiguration(ruleSetConfiguration);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case EsbPackage.RULE_SET_CREATION_PROPERTY: {
 				RuleSetCreationProperty ruleSetCreationProperty = (RuleSetCreationProperty)theEObject;
 				T result = caseRuleSetCreationProperty(ruleSetCreationProperty);
 				if (result == null) result = caseAbstractNameValueProperty(ruleSetCreationProperty);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case EsbPackage.RULE_SESSION_CONFIGURATION: {
-				RuleSessionConfiguration ruleSessionConfiguration = (RuleSessionConfiguration)theEObject;
-				T result = caseRuleSessionConfiguration(ruleSessionConfiguration);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -5028,21 +5016,6 @@ public class EsbSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Rule Set Configuration</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Rule Set Configuration</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseRuleSetConfiguration(RuleSetConfiguration object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Rule Set Creation Property</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -5054,21 +5027,6 @@ public class EsbSwitch<T> {
 	 * @generated
 	 */
 	public T caseRuleSetCreationProperty(RuleSetCreationProperty object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Rule Session Configuration</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Rule Session Configuration</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseRuleSessionConfiguration(RuleSessionConfiguration object) {
 		return null;
 	}
 

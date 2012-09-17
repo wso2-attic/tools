@@ -15,17 +15,20 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleSourceType;
 
 /**
  * This is the item provider adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator} object.
@@ -55,16 +58,228 @@ public class RuleMediatorItemProvider
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
-			super.getPropertyDescriptors(object);
-
+		RuleMediator ruleMediator = (RuleMediator) object;
+		if (itemPropertyDescriptors != null) {
+			itemPropertyDescriptors.clear();
 		}
+		super.getPropertyDescriptors(object);
+
+		addRuleSetURIPropertyDescriptor(object);
+		addRuleSetSourceTypePropertyDescriptor(object);
+		if (ruleMediator.getRuleSetSourceType() == RuleSourceType.REGISTRY_REFERENCE) {
+			addRuleSetSourceKeyPropertyDescriptor(object);
+		} else {
+			addRuleSetSourceCodePropertyDescriptor(object);
+		}
+		addRuleSetPropertiesPropertyDescriptor(object);
+		addStatefulSessionPropertyDescriptor(object);
+		addRuleSessionPropertiesPropertyDescriptor(object);
+		addFactsConfigurationPropertyDescriptor(object);
+		addResultsConfigurationPropertyDescriptor(object);
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Rule Set URI feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRuleSetURIPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RuleMediator_RuleSetURI_feature"),
+				 getString("_UI_RuleMediator_RuleSetURI_description"),
+				 EsbPackage.Literals.RULE_MEDIATOR__RULE_SET_URI,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI_RuleSetPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Rule Set Source Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRuleSetSourceTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RuleMediator_ruleSetSourceType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RuleMediator_ruleSetSourceType_feature", "_UI_RuleMediator_type"),
+				 EsbPackage.Literals.RULE_MEDIATOR__RULE_SET_SOURCE_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI_RuleSetPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Rule Set Source Code feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRuleSetSourceCodePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RuleMediator_ruleSetSourceCode_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RuleMediator_ruleSetSourceCode_feature", "_UI_RuleMediator_type"),
+				 EsbPackage.Literals.RULE_MEDIATOR__RULE_SET_SOURCE_CODE,
+				 true,
+				 true,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI_RuleSetPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Rule Set Source Key feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRuleSetSourceKeyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RuleMediator_ruleSetSourceKey_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RuleMediator_ruleSetSourceKey_feature", "_UI_RuleMediator_type"),
+				 EsbPackage.Literals.RULE_MEDIATOR__RULE_SET_SOURCE_KEY,
+				 true,
+				 false,
+				 false,
+				 null,
+				 getString("_UI_RuleSetPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Rule Set Properties feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRuleSetPropertiesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RuleMediator_ruleSetProperties_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RuleMediator_ruleSetProperties_feature", "_UI_RuleMediator_type"),
+				 EsbPackage.Literals.RULE_MEDIATOR__RULE_SET_PROPERTIES,
+				 true,
+				 false,
+				 false,
+				 null,
+				 getString("_UI_RuleSetPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Stateful Session feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addStatefulSessionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RuleMediator_statefulSession_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RuleMediator_statefulSession_feature", "_UI_RuleMediator_type"),
+				 EsbPackage.Literals.RULE_MEDIATOR__STATEFUL_SESSION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 getString("_UI_RuleSessionPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Rule Session Properties feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRuleSessionPropertiesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RuleMediator_RuleSessionProperties_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RuleMediator_RuleSessionProperties_feature", "_UI_RuleMediator_type"),
+				 EsbPackage.Literals.RULE_MEDIATOR__RULE_SESSION_PROPERTIES,
+				 true,
+				 false,
+				 false,
+				 null,
+				 getString("_UI_RuleSessionPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Facts Configuration feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addFactsConfigurationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RuleMediator_factsConfiguration_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RuleMediator_factsConfiguration_feature", "_UI_RuleMediator_type"),
+				 EsbPackage.Literals.RULE_MEDIATOR__FACTS_CONFIGURATION,
+				 true,
+				 false,
+				 false,
+				 null,
+				 getString("_UI_FactsPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Results Configuration feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addResultsConfigurationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RuleMediator_resultsConfiguration_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RuleMediator_resultsConfiguration_feature", "_UI_RuleMediator_type"),
+				 EsbPackage.Literals.RULE_MEDIATOR__RESULTS_CONFIGURATION,
+				 true,
+				 false,
+				 false,
+				 null,
+				 getString("_UI_ResultsPropertyCategory"),
+				 null));
 	}
 
 	/**
@@ -80,8 +295,9 @@ public class RuleMediatorItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(EsbPackage.Literals.RULE_MEDIATOR__RULE_SET_CONFIGURATION);
-			childrenFeatures.add(EsbPackage.Literals.RULE_MEDIATOR__RULE_SESSION_CONFIGURATION);
+			childrenFeatures.add(EsbPackage.Literals.RULE_MEDIATOR__RULE_SET_SOURCE_KEY);
+			childrenFeatures.add(EsbPackage.Literals.RULE_MEDIATOR__RULE_SET_PROPERTIES);
+			childrenFeatures.add(EsbPackage.Literals.RULE_MEDIATOR__RULE_SESSION_PROPERTIES);
 			childrenFeatures.add(EsbPackage.Literals.RULE_MEDIATOR__FACTS_CONFIGURATION);
 			childrenFeatures.add(EsbPackage.Literals.RULE_MEDIATOR__RESULTS_CONFIGURATION);
 			childrenFeatures.add(EsbPackage.Literals.RULE_MEDIATOR__CHILD_MEDIATORS_CONFIGURATION);
@@ -145,8 +361,15 @@ public class RuleMediatorItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(RuleMediator.class)) {
-			case EsbPackage.RULE_MEDIATOR__RULE_SET_CONFIGURATION:
-			case EsbPackage.RULE_MEDIATOR__RULE_SESSION_CONFIGURATION:
+			case EsbPackage.RULE_MEDIATOR__RULE_SET_URI:
+			case EsbPackage.RULE_MEDIATOR__RULE_SET_SOURCE_TYPE:
+			case EsbPackage.RULE_MEDIATOR__RULE_SET_SOURCE_CODE:
+			case EsbPackage.RULE_MEDIATOR__STATEFUL_SESSION:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case EsbPackage.RULE_MEDIATOR__RULE_SET_SOURCE_KEY:
+			case EsbPackage.RULE_MEDIATOR__RULE_SET_PROPERTIES:
+			case EsbPackage.RULE_MEDIATOR__RULE_SESSION_PROPERTIES:
 			case EsbPackage.RULE_MEDIATOR__FACTS_CONFIGURATION:
 			case EsbPackage.RULE_MEDIATOR__RESULTS_CONFIGURATION:
 			case EsbPackage.RULE_MEDIATOR__CHILD_MEDIATORS_CONFIGURATION:
@@ -174,13 +397,18 @@ public class RuleMediatorItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.RULE_MEDIATOR__RULE_SET_CONFIGURATION,
-				 EsbFactory.eINSTANCE.createRuleSetConfiguration()));
+				(EsbPackage.Literals.RULE_MEDIATOR__RULE_SET_SOURCE_KEY,
+				 EsbFactory.eINSTANCE.createRegistryKeyProperty()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.RULE_MEDIATOR__RULE_SESSION_CONFIGURATION,
-				 EsbFactory.eINSTANCE.createRuleSessionConfiguration()));
+				(EsbPackage.Literals.RULE_MEDIATOR__RULE_SET_PROPERTIES,
+				 EsbFactory.eINSTANCE.createRuleSetCreationProperty()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.RULE_MEDIATOR__RULE_SESSION_PROPERTIES,
+				 EsbFactory.eINSTANCE.createRuleSessionProperty()));
 
 		newChildDescriptors.add
 			(createChildParameter

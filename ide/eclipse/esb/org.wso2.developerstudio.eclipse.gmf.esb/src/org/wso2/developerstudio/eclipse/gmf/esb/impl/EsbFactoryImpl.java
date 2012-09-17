@@ -246,9 +246,7 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 			case EsbPackage.RULE_MEDIATOR_INPUT_CONNECTOR: return createRuleMediatorInputConnector();
 			case EsbPackage.RULE_MEDIATOR_OUTPUT_CONNECTOR: return createRuleMediatorOutputConnector();
 			case EsbPackage.RULE_MEDIATOR_CHILD_MEDIATORS_OUTPUT_CONNECTOR: return createRuleMediatorChildMediatorsOutputConnector();
-			case EsbPackage.RULE_SET_CONFIGURATION: return createRuleSetConfiguration();
 			case EsbPackage.RULE_SET_CREATION_PROPERTY: return createRuleSetCreationProperty();
-			case EsbPackage.RULE_SESSION_CONFIGURATION: return createRuleSessionConfiguration();
 			case EsbPackage.RULE_SESSION_PROPERTY: return createRuleSessionProperty();
 			case EsbPackage.RULE_FACTS_CONFIGURATION: return createRuleFactsConfiguration();
 			case EsbPackage.RULE_FACT: return createRuleFact();
@@ -2557,6 +2555,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 		ruleMediator.setOutputConnector(createRuleMediatorOutputConnector());
 		ruleMediator.setChildMediatorsOutputConnector(createRuleMediatorChildMediatorsOutputConnector());
 		ruleMediator.setMediatorFlow(createMediatorFlow());
+		ruleMediator.setFactsConfiguration(createRuleFactsConfiguration());
+		ruleMediator.setResultsConfiguration(createRuleResultsConfiguration());
 		return ruleMediator;
 	}
 
@@ -2595,29 +2595,9 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RuleSetConfiguration createRuleSetConfiguration() {
-		RuleSetConfigurationImpl ruleSetConfiguration = new RuleSetConfigurationImpl();
-		return ruleSetConfiguration;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public RuleSetCreationProperty createRuleSetCreationProperty() {
 		RuleSetCreationPropertyImpl ruleSetCreationProperty = new RuleSetCreationPropertyImpl();
 		return ruleSetCreationProperty;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RuleSessionConfiguration createRuleSessionConfiguration() {
-		RuleSessionConfigurationImpl ruleSessionConfiguration = new RuleSessionConfigurationImpl();
-		return ruleSessionConfiguration;
 	}
 
 	/**

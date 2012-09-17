@@ -1095,10 +1095,22 @@
     <genClasses ecoreClass="esb.ecore#//DBReportMediatorInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//DBReportMediatorOutputConnector"/>
     <genClasses ecoreClass="esb.ecore#//RuleMediator">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//RuleMediator/ruleSetConfiguration"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//RuleMediator/ruleSessionConfiguration"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//RuleMediator/factsConfiguration"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//RuleMediator/resultsConfiguration"/>
+      <genFeatures createChild="false" propertyCategory="Rule Set" propertyDescription="URI"
+          ecoreFeature="ecore:EAttribute esb.ecore#//RuleMediator/RuleSetURI"/>
+      <genFeatures createChild="false" propertyCategory="Rule Set" propertyDescription=""
+          ecoreFeature="ecore:EAttribute esb.ecore#//RuleMediator/ruleSetSourceType"/>
+      <genFeatures createChild="false" propertyCategory="Rule Set" propertyMultiLine="true"
+          ecoreFeature="ecore:EAttribute esb.ecore#//RuleMediator/ruleSetSourceCode"/>
+      <genFeatures children="true" createChild="true" propertyCategory="Rule Set"
+          ecoreFeature="ecore:EReference esb.ecore#//RuleMediator/ruleSetSourceKey"/>
+      <genFeatures children="true" createChild="true" propertyCategory="Rule Set"
+          ecoreFeature="ecore:EReference esb.ecore#//RuleMediator/ruleSetProperties"/>
+      <genFeatures createChild="false" propertyCategory="Rule Session" ecoreFeature="ecore:EAttribute esb.ecore#//RuleMediator/statefulSession"/>
+      <genFeatures children="true" createChild="true" propertyCategory="Rule Session"
+          propertyDescription="" ecoreFeature="ecore:EReference esb.ecore#//RuleMediator/RuleSessionProperties"/>
+      <genFeatures children="true" createChild="true" propertyCategory="Facts" propertyDescription=""
+          ecoreFeature="ecore:EReference esb.ecore#//RuleMediator/factsConfiguration"/>
+      <genFeatures children="true" createChild="true" propertyCategory="Results" ecoreFeature="ecore:EReference esb.ecore#//RuleMediator/resultsConfiguration"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//RuleMediator/childMediatorsConfiguration"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//RuleMediator/inputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//RuleMediator/outputConnector"/>
@@ -1108,17 +1120,7 @@
     <genClasses ecoreClass="esb.ecore#//RuleMediatorInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//RuleMediatorOutputConnector"/>
     <genClasses ecoreClass="esb.ecore#//RuleMediatorChildMediatorsOutputConnector"/>
-    <genClasses ecoreClass="esb.ecore#//RuleSetConfiguration">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//RuleSetConfiguration/sourceType"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//RuleSetConfiguration/sourceCode"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//RuleSetConfiguration/sourceKey"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//RuleSetConfiguration/properties"/>
-    </genClasses>
     <genClasses ecoreClass="esb.ecore#//RuleSetCreationProperty"/>
-    <genClasses ecoreClass="esb.ecore#//RuleSessionConfiguration">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//RuleSessionConfiguration/statefulSession"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//RuleSessionConfiguration/properties"/>
-    </genClasses>
     <genClasses ecoreClass="esb.ecore#//RuleSessionProperty"/>
     <genClasses ecoreClass="esb.ecore#//RuleFactsConfiguration">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//RuleFactsConfiguration/facts"/>

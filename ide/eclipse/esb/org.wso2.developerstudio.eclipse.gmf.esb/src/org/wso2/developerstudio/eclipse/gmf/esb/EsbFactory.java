@@ -1680,15 +1680,6 @@ public interface EsbFactory extends EFactory {
 	RuleMediatorChildMediatorsOutputConnector createRuleMediatorChildMediatorsOutputConnector();
 
 	/**
-	 * Returns a new object of class '<em>Rule Set Configuration</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Rule Set Configuration</em>'.
-	 * @generated
-	 */
-	RuleSetConfiguration createRuleSetConfiguration();
-
-	/**
 	 * Returns a new object of class '<em>Rule Set Creation Property</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1696,15 +1687,6 @@ public interface EsbFactory extends EFactory {
 	 * @generated
 	 */
 	RuleSetCreationProperty createRuleSetCreationProperty();
-
-	/**
-	 * Returns a new object of class '<em>Rule Session Configuration</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Rule Session Configuration</em>'.
-	 * @generated
-	 */
-	RuleSessionConfiguration createRuleSessionConfiguration();
 
 	/**
 	 * Returns a new object of class '<em>Rule Session Property</em>'.
