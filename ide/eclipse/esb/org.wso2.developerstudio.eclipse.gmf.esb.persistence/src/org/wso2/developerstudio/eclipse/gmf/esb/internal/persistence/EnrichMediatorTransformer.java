@@ -15,7 +15,9 @@
  */
 package org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence;
 
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.util.AXIOMUtil;
@@ -47,14 +49,12 @@ public class EnrichMediatorTransformer extends AbstractEsbNodeTransformer {
 
 	public void createSynapseObject(TransformationInfo info, EObject subject,
 			List<Endpoint> endPoints) {
-		// TODO Auto-generated method stub
 		
 	}
 
 
 	public void transformWithinSequence(TransformationInfo information,
 			EsbNode subject, SequenceMediator sequence) throws Exception {
-		// TODO Auto-generated method stub
 		sequence.addChild(createEnrichMediator(subject));
 		doTransformWithinSequence(information,((EnrichMediator) subject).getOutputConnector().getOutgoingLink(),sequence);
 		
@@ -96,13 +96,13 @@ public class EnrichMediatorTransformer extends AbstractEsbNodeTransformer {
 				case CUSTOM:
 					source.setSourceType(org.apache.synapse.mediators.elementary.EnrichMediator.CUSTOM);
 					NamespacedProperty visualSourceXPath =visualEnrich.getSourceXpath();
-					//visualXPath.getNamespaces();
-					//OMNamespace ns = new OMN
+					
 					SynapseXPath xPath = new SynapseXPath(visualSourceXPath.getPropertyValue());
-					if(visualSourceXPath.getNamespaces().keySet().size() !=0){
-					String prefix = visualSourceXPath.getNamespaces().keySet().toArray()[0].toString();
-					String namespace = visualSourceXPath.getNamespaces().values().toArray()[0].toString();
-					xPath.addNamespace(prefix,namespace);
+					Map<String, String> map = visualSourceXPath.getNamespaces();
+					Iterator<Map.Entry<String, String>> entries = map.entrySet().iterator();
+					while (entries.hasNext()) {
+					    Map.Entry<String, String> entry = entries.next();
+					    xPath.addNamespace(entry.getKey(),entry.getValue());
 					}
 					source.setXpath(xPath);
 					break;
@@ -124,11 +124,13 @@ public class EnrichMediatorTransformer extends AbstractEsbNodeTransformer {
 				case CUSTOM:
 					target.setTargetType(org.apache.synapse.mediators.elementary.EnrichMediator.CUSTOM);
 					NamespacedProperty visualTargetXPath =visualEnrich.getTargetXpath();
+					
 					SynapseXPath xPath = new SynapseXPath(visualTargetXPath.getPropertyValue());
-					if(visualTargetXPath.getNamespaces().keySet().size() !=0){
-					String prefix = visualTargetXPath.getNamespaces().keySet().toArray()[0].toString();
-					String namespace = visualTargetXPath.getNamespaces().values().toArray()[0].toString();
-					xPath.addNamespace(prefix,namespace);
+					Map<String, String> map = visualTargetXPath.getNamespaces();
+					Iterator<Map.Entry<String, String>> entries = map.entrySet().iterator();
+					while (entries.hasNext()) {
+					    Map.Entry<String, String> entry = entries.next();
+					    xPath.addNamespace(entry.getKey(),entry.getValue());
 					}
 					target.setXpath(xPath);
 					break;

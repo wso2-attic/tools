@@ -27,11 +27,9 @@ public class EsbPropertySource extends PropertySource {
 			return new LogConfigurationPropertyDescriptor(object,
 					itemPropertyDescriptor);
 		} else if (pkg.getEnrichMediator_SourceXpath().equals(feature)) {
-			return new EnrichSourceXPathPropertyDescriptor(object,
-					itemPropertyDescriptor);
+			return new CustomPropertyDescriptor(object,itemPropertyDescriptor);
 		} else if (pkg.getEnrichMediator_TargetXpath().equals(feature)) {
-			return new EnrichTargetXPathPropertyDescriptor(object,
-					itemPropertyDescriptor);
+			return new CustomPropertyDescriptor(object,itemPropertyDescriptor);
 		} else if (pkg.getFilterMediator_Xpath().equals(feature)) {
 			return new FilterXPathPropertyDescriptor(object,
 					itemPropertyDescriptor);
