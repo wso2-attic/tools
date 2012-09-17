@@ -65,8 +65,12 @@ public class SmooksMediatorTransformer extends AbstractEsbNodeTransformer {
 		org.wso2.carbon.mediator.transform.SmooksMediator smooksMediator=new org.wso2.carbon.mediator.transform.SmooksMediator();
 		{
 			Input input = new Input();
-			input.setExpression(new SynapseXPath(visualSmooks.getInputExpression()
-					.getPropertyValue()));
+			NamespacedProperty inputExp = visualSmooks.getInputExpression();
+			SynapseXPath inputExpression = new SynapseXPath(inputExp.getPropertyValue());
+			for (Entry<String, String> entry : inputExp.getNamespaces().entrySet()) {
+				inputExpression.addNamespace(entry.getKey(), entry.getValue());
+			}
+			input.setExpression(inputExpression);
 			input.setType((visualSmooks.getInputType().equals(SmooksIODataType.XML)) ? TYPES.XML
 					: TYPES.TEXT);
 			smooksMediator.setInput(input);
