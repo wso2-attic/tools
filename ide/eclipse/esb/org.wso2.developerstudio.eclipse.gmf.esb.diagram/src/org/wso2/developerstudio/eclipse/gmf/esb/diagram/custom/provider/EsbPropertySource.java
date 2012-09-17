@@ -128,6 +128,10 @@ public class EsbPropertySource extends PropertySource {
 			return new CustomPropertyDescriptor(object,itemPropertyDescriptor);
 		} else if(pkg.getRuleMediator_RuleSetSourceKey().equals(feature)){
 			return new CustomPropertyDescriptor(object,itemPropertyDescriptor);
+		} else if(pkg.getRuleMediator_FactsConfiguration().equals(feature)){
+			return new RuleMediatorFactsPropertyDescriptor(object,itemPropertyDescriptor);
+		} else if(pkg.getRuleMediator_ResultsConfiguration().equals(feature)){
+			return new RuleMediatorResultsPropertyDescriptor(object,itemPropertyDescriptor);
 		} else if (pkg.getStoreMediator_OnStoreSequence().equals(feature)) {
 				return new CustomPropertyDescriptor(object,itemPropertyDescriptor);
 				

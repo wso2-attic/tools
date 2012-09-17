@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
@@ -165,10 +166,21 @@ public class RuleResultImpl extends EObjectImpl implements RuleResult {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected RuleResultImpl() {
 		super();
+		NamespacedProperty valueExpression = EsbFactory.eINSTANCE.createNamespacedProperty();
+		valueExpression.setPropertyName("expression");
+		valueExpression.setPrettyName("expression");
+		valueExpression.setPropertyValue("/default/expression");
+		setValueExpression(valueExpression);
+		
+		RegistryKeyProperty valueKey = EsbFactory.eINSTANCE.createRegistryKeyProperty();
+		valueKey.setKeyName("valueKey");
+		valueKey.setPrettyName("valueKey");
+		valueKey.setKeyValue("/default/key");
+		setValueKey(valueKey);
 	}
 
 	/**
