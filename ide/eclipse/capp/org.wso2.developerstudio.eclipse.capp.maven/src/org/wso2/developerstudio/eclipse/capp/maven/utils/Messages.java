@@ -30,6 +30,7 @@ public final class Messages extends NLS {
 	public static String WSO2_ESB_SEQUENCE_VERSION;
 	public static String WSO2_ESB_SYNAPSE_VERSION;
 	public static String WSO2_GENERAL_PROJECT_VERSION;
+	public static String MAVEN_CAR_DEPLOY_VERSION;
 	
 	static {
 		// initialize resource bundle
