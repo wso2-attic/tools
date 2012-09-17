@@ -20,10 +20,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -45,17 +43,13 @@ import org.eclipse.jdt.launching.IJavaLaunchConfigurationConstants;
 import org.eclipse.jdt.launching.IRuntimeClasspathEntry;
 import org.eclipse.jdt.launching.IVMInstall;
 import org.eclipse.jdt.launching.JavaRuntime;
-import org.eclipse.jst.server.generic.core.internal.CorePlugin;
 import org.eclipse.jst.server.generic.core.internal.GenericServer;
 import org.eclipse.jst.server.generic.core.internal.GenericServerBehaviour;
-import org.eclipse.jst.server.generic.core.internal.GenericServerCoreMessages;
 import org.eclipse.jst.server.generic.core.internal.GenericServerRuntime;
 import org.eclipse.jst.server.generic.core.internal.Trace;
-import org.eclipse.osgi.util.NLS;
 import org.eclipse.wst.server.core.IModule;
 import org.eclipse.wst.server.core.IServer;
 import org.eclipse.wst.server.core.ServerPort;
-import org.eclipse.wst.server.core.internal.DeletedModule;
 import org.eclipse.wst.server.core.util.SocketUtil;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
@@ -395,6 +389,14 @@ public abstract class CarbonServerBehaviour extends GenericServerBehaviour imple
 	
 	protected abstract String getCarbonXmlFilePath();
 	
+	/**
+	 * Added to support C4 but will keep the Backward compatibility
+	 * @return
+	 */
+	protected String getCatelinaXmlFilePath() {
+		return null;
+	}
+	
 	protected abstract String getTransportXmlFilePath();
 	
 	protected abstract String getAxis2FilePath();
@@ -446,6 +448,11 @@ public abstract class CarbonServerBehaviour extends GenericServerBehaviour imple
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	protected void addServletTransportPorts(List<Integer> ports,
+			String transportsXmlPath, String catelinaXmlPath) {
+		//Empty implementation to support C4 but not to break other versions
 	}
 	
 }

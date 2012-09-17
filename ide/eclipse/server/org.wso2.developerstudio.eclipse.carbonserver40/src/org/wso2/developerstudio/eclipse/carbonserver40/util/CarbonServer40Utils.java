@@ -242,6 +242,10 @@ public class CarbonServer40Utils {
 		return FileUtils.addNodesToPath(getConfPathFromLocalWorkspaceRepo(workspaceRepo),new String[]{"carbon.xml"});
 	}
 	
+	public static String getCatelinaXmlPathFromLocalWorkspaceRepo(String workspaceRepo){
+		return FileUtils.addNodesToPath(getConfPathFromLocalWorkspaceRepo(workspaceRepo),new String[]{"tomcat","catalina-server.xml"});
+	}
+	
 	public static String getConfPathFromLocalWorkspaceRepo(String workspaceRepo){
 		return FileUtils.addNodesToPath(workspaceRepo,new String[]{"repository","conf"});
 	}
@@ -341,7 +345,7 @@ public class CarbonServer40Utils {
 	}
 
 	
-	public static boolean updateAndSaveTransportsPorts(String carbonXml, IServer server){
+	public static boolean updateAndSaveTransportsPorts(String carbonXml, String catelinaXml, IServer server){
 //		return true;
 		loadServerInstanceProperties(server);
 		NamespaceContext cntx =  CarbonServer40Utils.getCarbonNamespace();
@@ -349,17 +353,22 @@ public class CarbonServer40Utils {
 		ServerPort[] serverPorts=CarbonServerManager.getInstance().getServerPorts(server);
     	try {
     		File xmlDocument = new File(carbonXml);
-    		if (xmlDocument.exists()) {
+    		File catelinaXmlDocument = new File(catelinaXml);
+    		if (xmlDocument.exists() && catelinaXmlDocument.exists()) {
 				DocumentBuilder builder = DocumentBuilderFactory.newInstance()
 						.newDocumentBuilder();
+				DocumentBuilder catelinaBuilder = DocumentBuilderFactory.newInstance()
+				.newDocumentBuilder();
 				Document document = builder.parse(xmlDocument);
+				Document catelinaDocument = catelinaBuilder.parse(catelinaXmlDocument);
 				XPath xPath = factory.newXPath();
+				XPath catelinaXPath = factory.newXPath();
 				xPath.setNamespaceContext(cntx);
-				Node httpNode = (Node) xPath.evaluate(
-						"/Server/Ports/ServletTransports/HTTP", document,
+				Node httpNode = (Node) catelinaXPath.evaluate(
+						"/Server/Service/Connector[1]/@port", catelinaDocument,
 						XPathConstants.NODE);
-				Node httpsNode = (Node) xPath.evaluate(
-						"/Server/Ports/ServletTransports/HTTPS", document,
+				Node httpsNode = (Node) catelinaXPath.evaluate(
+						"/Server/Service/Connector[@sslProtocol=\"TLS\"]/@port", catelinaDocument,
 						XPathConstants.NODE);
 				Node offSet=(Node) xPath.evaluate("/Server/Ports/Offset", document,XPathConstants.NODE);
 				for (ServerPort serverPort : serverPorts) {
@@ -383,12 +392,22 @@ public class CarbonServer40Utils {
 				}
 				Transformer t = TransformerFactory.newInstance()
 						.newTransformer();
+				Transformer t1 = TransformerFactory.newInstance()
+				.newTransformer();
 				File confPath = new File((new File(carbonXml)).getParent());
-				if (!confPath.exists())
+				File catelinaConfPath = new File((new File(catelinaXml)).getParent());
+				if (!confPath.exists()){
 					confPath.mkdirs();
+				}
+				if (!catelinaConfPath.exists()){
+					catelinaConfPath.mkdirs();
+				}
 				Result result = new StreamResult(new File(carbonXml));
+				Result result1 = new StreamResult(new File(catelinaXml));
 				Source source = new DOMSource(document);
+				Source source1 = new DOMSource(catelinaDocument);
 				t.transform(source, result);
+				t1.transform(source1, result1);
 				return true;
 			}
 	    } catch (FileNotFoundException e) {
@@ -420,7 +439,7 @@ public class CarbonServer40Utils {
 	public static boolean updateTransportPorts(IServer server){
 //		return true;
 		String serverLocalWorkspacePath = CarbonServerManager.getServerLocalWorkspacePath(server);
-		return CarbonServer40Utils.updateAndSaveTransportsPorts(CarbonServer40Utils.getCarbonXmlPathFromLocalWorkspaceRepo(serverLocalWorkspacePath),server); 
+		return CarbonServer40Utils.updateAndSaveTransportsPorts(CarbonServer40Utils.getCarbonXmlPathFromLocalWorkspaceRepo(serverLocalWorkspacePath), CarbonServer40Utils.getCatelinaXmlPathFromLocalWorkspaceRepo(serverLocalWorkspacePath),server); 
 	}
 	
 	private static boolean isHotUpdateEnabled(IServer server){

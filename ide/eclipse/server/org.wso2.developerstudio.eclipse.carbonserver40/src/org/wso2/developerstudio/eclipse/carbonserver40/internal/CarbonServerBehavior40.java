@@ -197,6 +197,13 @@ public class CarbonServerBehavior40 extends CarbonServerBehaviour{
 		IPath serverHome = CarbonServerManager.getServerHome(getServer());
     	return CarbonServer40Utils.getServerXmlPathFromLocalWorkspaceRepo(serverHome.toOSString());
 	}
+	
+	protected String getCatelinaXmlFilePath() {
+		IPath serverHome = CarbonServerManager.getServerHome(getServer());
+    	return CarbonServer40Utils.getCatelinaXmlPathFromLocalWorkspaceRepo(serverHome.toOSString());
+	}
+	
+	
 	protected String getTransportXmlFilePath() {
 		IPath serverHome = CarbonServerManager.getServerHome(getServer());
     	String transportsXmlPath = CarbonServer40Utils.getTransportsXmlPathFromLocalWorkspaceRepo(serverHome.toOSString());
@@ -210,32 +217,38 @@ public class CarbonServerBehavior40 extends CarbonServerBehaviour{
 		List<Integer> ports=new ArrayList<Integer>();
     	
     	String axis2FilePath = getAxis2FilePath();
-    	String transportsXmlPath = getTransportXmlFilePath();
+//    	String transportsXmlPath = getTransportXmlFilePath();
     	String carbonXmlPath = getCarbonXmlFilePath();
+    	String catelinaXmlFilePath = getCatelinaXmlFilePath();
     	
 //		addServletTransportsPorts(ports, transportsXmlPath);
-    	addServletTransportPorts(ports, carbonXmlPath);
+    	addServletTransportPorts(ports, carbonXmlPath,catelinaXmlFilePath);
 		addAxis2XmlPorts(ports, axis2FilePath);
 		
 		return ports.toArray(new Integer[]{});
 	}
 	
-	protected void addServletTransportPorts(List<Integer> ports, String carbonXmlPath) {
+	protected void addServletTransportPorts(List<Integer> ports, String carbonXmlPath, String catelinaXmlPath) {
 		int port=0;
 		XPathFactory factory = XPathFactory.newInstance();
 		NamespaceContext cntx =  CarbonServer40Utils.getCarbonNamespace();
 		File xmlDocument = new File(carbonXmlPath);
+		File catelineXmlDocument = new File(catelinaXmlPath);
     	try {
 			InputSource inputSource =  new InputSource(new FileInputStream(xmlDocument));
+			InputSource catelineSource =  new InputSource(new FileInputStream(catelineXmlDocument));
 			DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+			DocumentBuilder catelineBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
             Document document = builder.parse(xmlDocument);
+            Document catelinaDocument = catelineBuilder.parse(catelineXmlDocument);
 			XPath xPath=factory.newXPath();
+			XPath catelineXPath=factory.newXPath();
 			xPath.setNamespaceContext(cntx);
 			
 			int offSet = Integer.parseInt((String)xPath.evaluate("/Server/Ports/Offset", document, XPathConstants.STRING));
 //			XPathExpression  xPathExpression=xPath.compile("/:Server/:Ports/:ServletTransports/:HTTPS");
 //			String evaluate = xPathExpression.evaluate(inputSource);
-			String evaluate = (String)xPath.evaluate("/Server/Ports/ServletTransports/HTTPS", document, XPathConstants.STRING);
+			String evaluate = (String)catelineXPath.evaluate("/Server/Service/Connector[@sslProtocol=\"TLS\"]/@port", catelinaDocument, XPathConstants.STRING);
 			
 			if(!evaluate.equals("")){
 				port = Integer.parseInt(evaluate)+offSet;
@@ -244,7 +257,7 @@ public class CarbonServerBehavior40 extends CarbonServerBehaviour{
 			}
 			ports.add(port);
 			inputSource =  new InputSource(new FileInputStream(xmlDocument));
-			evaluate = (String) xPath.evaluate("/Server/Ports/ServletTransports/HTTP", document, XPathConstants.STRING);
+			evaluate = (String)catelineXPath.evaluate("/Server/Service/Connector[1]/@port", catelinaDocument, XPathConstants.STRING);
 
 //			xPathExpression=xPath.compile("/:Server/:Ports/:ServletTransports/:HTTP");
 //			evaluate = xPathExpression.evaluate(inputSource);
