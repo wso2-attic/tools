@@ -60,11 +60,12 @@ public class BuilderMediatorItemProvider
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
-			super.getPropertyDescriptors(object);
-
-			addMessageBuildersPropertyDescriptor(object);
+		if (itemPropertyDescriptors != null) {
+			itemPropertyDescriptors.clear();
 		}
+		super.getPropertyDescriptors(object);
+		addMessageBuildersPropertyDescriptor(object);
+
 		return itemPropertyDescriptors;
 	}
 
