@@ -17,6 +17,7 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence;
 
 import java.util.List;
+import java.util.Map.Entry;
 
 import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.mediators.base.SequenceMediator;
@@ -27,6 +28,7 @@ import org.wso2.carbon.mediator.transform.Input;
 import org.wso2.carbon.mediator.transform.Output;
 import org.wso2.carbon.mediator.transform.SmooksMediator.TYPES;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
+import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.OutputMethod;
 import org.wso2.developerstudio.eclipse.gmf.esb.SmooksIODataType;
 import org.wso2.developerstudio.eclipse.gmf.esb.SmooksMediator;
@@ -75,8 +77,12 @@ public class SmooksMediatorTransformer extends AbstractEsbNodeTransformer {
 				output.setProperty(visualSmooks.getOutputProperty());
 			} else if (visualSmooks.getOutputMethod().equals(OutputMethod.EXPRESSION)) {
 				output.setAction(visualSmooks.getOutputAction().getLiteral().toLowerCase());
-				output.setExpression(new SynapseXPath(visualSmooks.getOutputExpression()
-						.getPropertyValue()));
+				NamespacedProperty namespacedProperty = visualSmooks.getOutputExpression();
+				SynapseXPath expression = new SynapseXPath(namespacedProperty.getPropertyValue());
+				for (Entry<String, String> entry : namespacedProperty.getNamespaces().entrySet()) {
+					expression.addNamespace(entry.getKey(), entry.getValue());
+				}
+				output.setExpression(expression);
 			}
 			smooksMediator.setOutput(output);
 			smooksMediator.setConfigKey(visualSmooks.getConfigurationKey().getKeyValue());
