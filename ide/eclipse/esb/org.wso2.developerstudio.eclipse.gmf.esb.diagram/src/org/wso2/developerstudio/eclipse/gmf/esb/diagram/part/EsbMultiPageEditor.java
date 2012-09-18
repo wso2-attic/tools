@@ -292,7 +292,7 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
     protected void createPages() {
         createPage0();
         createPage1();
-        createPage2();
+        //createPage2();
     }
     
 	/**
