@@ -20,7 +20,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.emf.common.command.CompoundCommand;
+import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.RemoveCommand;
+import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.dialogs.TitleAreaDialog;
@@ -43,6 +45,7 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Text;
+import org.wso2.developerstudio.eclipse.esb.core.Activator;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
@@ -51,12 +54,20 @@ import org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleResult;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleResultType;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleResultValueType;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 
 /**
  * RuleMediator results configuration *dialog
  *
  */
 public class ConfigureRuleMediatorResultsDialog extends TitleAreaDialog {
+	
+	/**
+	 * logger
+	 */
+	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
+	
 	/**
 	 * Domain model
 	 */
@@ -94,7 +105,8 @@ public class ConfigureRuleMediatorResultsDialog extends TitleAreaDialog {
 	private final static String LITERAL_VALUE = "Literal";
 	private final static String LITERAL_EXPRESSION = "Expression";
 	private final static String LITERAL_KEY = "Key";
-
+	
+	private List<String> resultTypes = new ArrayList<String>();
 	
 	public ConfigureRuleMediatorResultsDialog(Shell parentShell,RuleMediator ruleMediator, TransactionalEditingDomain editingDomain) {
 		super(parentShell);
@@ -188,6 +200,24 @@ public class ConfigureRuleMediatorResultsDialog extends TitleAreaDialog {
 				}
 			}
 		});
+		
+		for(RuleResultType ruleResultType : RuleResultType.VALUES){
+			if(ruleResultType!=RuleResultType.CUSTOM){
+				resultTypes.add(ruleResultType.getLiteral());
+			}
+		}
+		
+		for(RuleResult result : ruleMediator.getResultsConfiguration().getResults()){
+			ResultWrapper wrapper = new ResultWrapper(result);
+			wrapper.setResultName(result.getResultName());
+			wrapper.setResultCustomType(result.getResultCustomType());
+			wrapper.setResultType(result.getResultType());
+			wrapper.setValueType(result.getValueType());
+			wrapper.setValueLiteral(result.getValueLiteral());
+			wrapper.setValueExpression(EsbFactory.eINSTANCE.copyNamespacedProperty(result.getValueExpression()));
+			wrapper.setValueKey(EsbFactory.eINSTANCE.copyRegistryKeyProperty(result.getValueKey()));
+			bindResult(wrapper);
+		}
 
 		return area;
 	}
@@ -213,12 +243,7 @@ public class ConfigureRuleMediatorResultsDialog extends TitleAreaDialog {
 	}
 	
 	protected void editItem(final TableItem item) {
-		List<String> resultTypes = new ArrayList<String>();
-		for(RuleResultType ruleResultType : RuleResultType.VALUES){
-			if(ruleResultType!=RuleResultType.CUSTOM){
-				resultTypes.add(ruleResultType.getLiteral());
-			}
-		}
+
 		final ResultWrapper wrapper = (ResultWrapper) item.getData();
 		
 		typeEditor = initTableEditor(typeEditor,
@@ -229,7 +254,7 @@ public class ConfigureRuleMediatorResultsDialog extends TitleAreaDialog {
 		typeEditor.setEditor(cmbType, item, 0);
 		item.getParent().redraw();
 		item.getParent().layout();
-		cmbType.addListener(SWT.Selection, new Listener() {
+		Listener cmbTypeListener = new Listener() {
 			public void handleEvent(Event evt) {
 				String text = cmbType.getText();
 				item.setText(0, text);
@@ -249,7 +274,9 @@ public class ConfigureRuleMediatorResultsDialog extends TitleAreaDialog {
 				}
 				
 			}
-		});
+		};
+		cmbType.addListener(SWT.Selection, cmbTypeListener);
+		cmbType.addListener(SWT.Modify, cmbTypeListener);
 		
 		nameEditor = initTableEditor(nameEditor,
 				item.getParent());
@@ -261,7 +288,7 @@ public class ConfigureRuleMediatorResultsDialog extends TitleAreaDialog {
 		txtName.addModifyListener(new ModifyListener() {
 			
 			public void modifyText(ModifyEvent e) {
-				item.setText(0, txtName.getText());
+				item.setText(1, txtName.getText());
 				wrapper.setResultName(txtName.getText());
 			}
 		});
@@ -363,7 +390,7 @@ public class ConfigureRuleMediatorResultsDialog extends TitleAreaDialog {
 			item.setText(0, wrapper.getResultType().getLiteral());
 		}
 		item.setText(1, wrapper.getResultName());
-		if(wrapper.getValueType()==RuleResultValueType.REGISTRY_REFERENCE){
+		if(wrapper.getValueType()==RuleResultValueType.EXPRESSION){
 			item.setText(2,LITERAL_EXPRESSION);
 			item.setText(3,wrapper.getValueExpression().getPropertyValue());
 		} else if(wrapper.getValueType()==RuleResultValueType.REGISTRY_REFERENCE){
@@ -392,11 +419,101 @@ public class ConfigureRuleMediatorResultsDialog extends TitleAreaDialog {
 		
 		if (null != result.eContainer()) {
 			RemoveCommand removeCmd = new RemoveCommand(editingDomain,
-					ruleMediator.getResultsConfiguration(), EsbPackage.Literals.RULE_MEDIATOR__RESULTS_CONFIGURATION,
+					ruleMediator.getResultsConfiguration(), EsbPackage.Literals.RULE_RESULTS_CONFIGURATION__RESULTS,
 					result);
 			getResultCommand().append(removeCmd);
 		}
 		tblResults.remove(tblResults.indexOf(item));
+	}
+	
+	@Override
+	protected void okPressed() {
+		for (TableItem item : tblResults.getItems()) {
+			ResultWrapper wrapper = (ResultWrapper) item.getData();
+			RuleResult result = wrapper.getResult();
+			AddCommand addCmd = null;
+
+			if (null == result.eContainer()) {
+				addCmd = new AddCommand(editingDomain, ruleMediator.getResultsConfiguration(),
+						EsbPackage.Literals.RULE_RESULTS_CONFIGURATION__RESULTS, result);
+				getResultCommand().append(addCmd);
+			}
+
+			SetCommand setCommand = null;
+			
+			if(!result.getResultName().equals(wrapper.getResultName())){
+				setCommand = new SetCommand(editingDomain, result,
+						EsbPackage.Literals.RULE_RESULT__RESULT_NAME, wrapper.getResultName());
+				getResultCommand().append(setCommand);
+			}
+			
+			if (!(result.getResultType().equals(wrapper.getResultType()) && result.getResultCustomType()
+					.equals(wrapper.getResultCustomType()))) {
+				String customResultType = "custom_type";
+				RuleResultType resultType = RuleResultType.CUSTOM;
+				if (wrapper.getResultType() == RuleResultType.CUSTOM) {
+					customResultType = wrapper.getResultCustomType();
+				} else {
+					resultType = wrapper.getResultType();
+				}
+
+				setCommand = new SetCommand(editingDomain, result,
+						EsbPackage.Literals.RULE_RESULT__RESULT_CUSTOM_TYPE, customResultType);
+				getResultCommand().append(setCommand);
+
+				setCommand = new SetCommand(editingDomain, result,
+						EsbPackage.Literals.RULE_RESULT__RESULT_TYPE, resultType);
+				getResultCommand().append(setCommand);
+			}
+			
+			if(!result.getValueType().equals(wrapper.getValueType())){
+				if(wrapper.getValueType()==RuleResultValueType.REGISTRY_REFERENCE){
+					wrapper.setValueLiteral("default");
+					wrapper.getValueExpression().setPropertyValue("/default/expression");
+				} else if(wrapper.getValueType()==RuleResultValueType.EXPRESSION){
+					wrapper.getValueKey().setKeyValue("/default/key");
+					wrapper.setValueLiteral("default");
+				} else{
+					wrapper.getValueExpression().setPropertyValue("/default/expression");
+					wrapper.setValueLiteral("default");
+				}
+				
+				setCommand = new SetCommand(editingDomain, result,
+						EsbPackage.Literals.RULE_RESULT__VALUE_TYPE, wrapper.getValueType());
+				getResultCommand().append(setCommand);
+			}
+			
+			if(!result.getValueLiteral().equals( wrapper.getValueLiteral())){
+				setCommand = new SetCommand(editingDomain, result,
+						EsbPackage.Literals.RULE_RESULT__VALUE_LITERAL, wrapper.getValueLiteral());
+				getResultCommand().append(setCommand);
+			}
+			
+			if(!result.getValueExpression().equals(wrapper.getValueExpression())){
+				setCommand = new SetCommand(editingDomain, result,
+						EsbPackage.Literals.RULE_RESULT__VALUE_EXPRESSION, wrapper.getValueExpression());
+				getResultCommand().append(setCommand);
+			}
+			
+			if(!result.getValueKey().equals(wrapper.getValueKey())){
+				setCommand = new SetCommand(editingDomain, result,
+						EsbPackage.Literals.RULE_RESULT__VALUE_KEY, wrapper.getValueKey());
+				getResultCommand().append(setCommand);
+			}
+
+		}
+
+		// Apply changes.
+		if (getResultCommand().canExecute()) {
+			editingDomain.getCommandStack().execute(getResultCommand());
+		} else {
+			if(getResultCommand().getCommandList().size()>1){
+				log.error("RuleMediator results configuration : cannot save results", new Exception(
+						"Cannot execute command stack "));
+			}
+		}
+
+		super.okPressed();
 	}
 	
 	/**

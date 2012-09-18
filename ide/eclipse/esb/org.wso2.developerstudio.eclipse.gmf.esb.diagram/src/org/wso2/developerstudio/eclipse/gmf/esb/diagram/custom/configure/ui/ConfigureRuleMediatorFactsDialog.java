@@ -21,7 +21,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.emf.common.command.CompoundCommand;
+import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.RemoveCommand;
+import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.dialogs.TitleAreaDialog;
@@ -44,6 +46,7 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Text;
+import org.wso2.developerstudio.eclipse.esb.core.Activator;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
@@ -52,12 +55,20 @@ import org.wso2.developerstudio.eclipse.gmf.esb.RuleFact;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleFactType;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleFactValueType;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 
 /**
  * RuleMediator facts configuration *dialog
  *
  */
 public class ConfigureRuleMediatorFactsDialog extends TitleAreaDialog {
+	
+	/**
+	 * logger
+	 */
+	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
+	
 	/**
 	 * Domain model
 	 */
@@ -95,6 +106,8 @@ public class ConfigureRuleMediatorFactsDialog extends TitleAreaDialog {
 	private final static String LITERAL_VALUE = "Literal";
 	private final static String LITERAL_EXPRESSION = "Expression";
 	private final static String LITERAL_KEY = "Key";
+	
+	private List<String> factTypes = new ArrayList<String>();
 
 	
 	public ConfigureRuleMediatorFactsDialog(Shell parentShell,RuleMediator ruleMediator, TransactionalEditingDomain editingDomain) {
@@ -190,17 +203,30 @@ public class ConfigureRuleMediatorFactsDialog extends TitleAreaDialog {
 				}
 			}
 		});
-
-		return area;
-	}
-	
-	protected void editItem(final TableItem item) {
-		List<String> factTypes = new ArrayList<String>();
+		
 		for(RuleFactType ruleFactType : RuleFactType.VALUES){
 			if(ruleFactType!=RuleFactType.CUSTOM){
 				factTypes.add(ruleFactType.getLiteral());
 			}
 		}
+		
+		for(RuleFact fact : ruleMediator.getFactsConfiguration().getFacts()){
+			FactWrapper wrapper = new FactWrapper(fact);
+			wrapper.setFactName(fact.getFactName());
+			wrapper.setFactCustomType(fact.getFactCustomType());
+			wrapper.setFactType(fact.getFactType());
+			wrapper.setValueType(fact.getValueType());
+			wrapper.setValueLiteral(fact.getValueLiteral());
+			wrapper.setValueExpression(EsbFactory.eINSTANCE.copyNamespacedProperty(fact.getValueExpression()));
+			wrapper.setValueKey(EsbFactory.eINSTANCE.copyRegistryKeyProperty(fact.getValueKey()));
+			bindFact(wrapper);
+		}
+
+		return area;
+	}
+	
+	protected void editItem(final TableItem item) {
+		
 		final FactWrapper wrapper = (FactWrapper) item.getData();
 		
 		typeEditor = initTableEditor(typeEditor,
@@ -211,7 +237,8 @@ public class ConfigureRuleMediatorFactsDialog extends TitleAreaDialog {
 		typeEditor.setEditor(cmbType, item, 0);
 		item.getParent().redraw();
 		item.getParent().layout();
-		cmbType.addListener(SWT.Selection, new Listener() {
+		
+		Listener cmbTypeListener = new Listener() {
 			public void handleEvent(Event evt) {
 				String text = cmbType.getText();
 				item.setText(0, text);
@@ -231,7 +258,10 @@ public class ConfigureRuleMediatorFactsDialog extends TitleAreaDialog {
 				}
 				
 			}
-		});
+		};
+		
+		cmbType.addListener(SWT.Selection, cmbTypeListener);
+		cmbType.addListener(SWT.Modify, cmbTypeListener);
 		
 		nameEditor = initTableEditor(nameEditor,
 				item.getParent());
@@ -243,7 +273,7 @@ public class ConfigureRuleMediatorFactsDialog extends TitleAreaDialog {
 		txtName.addModifyListener(new ModifyListener() {
 			
 			public void modifyText(ModifyEvent e) {
-				item.setText(0, txtName.getText());
+				item.setText(1, txtName.getText());
 				wrapper.setFactName(txtName.getText());
 			}
 		});
@@ -366,7 +396,7 @@ public class ConfigureRuleMediatorFactsDialog extends TitleAreaDialog {
 			item.setText(0, wrapper.getFactType().getLiteral());
 		}
 		item.setText(1, wrapper.getFactName());
-		if(wrapper.getValueType()==RuleFactValueType.REGISTRY_REFERENCE){
+		if(wrapper.getValueType()==RuleFactValueType.EXPRESSION){
 			item.setText(2,LITERAL_EXPRESSION);
 			item.setText(3,wrapper.getValueExpression().getPropertyValue());
 		} else if(wrapper.getValueType()==RuleFactValueType.REGISTRY_REFERENCE){
@@ -395,11 +425,101 @@ public class ConfigureRuleMediatorFactsDialog extends TitleAreaDialog {
 		
 		if (null != fact.eContainer()) {
 			RemoveCommand removeCmd = new RemoveCommand(editingDomain,
-					ruleMediator.getFactsConfiguration(), EsbPackage.Literals.RULE_MEDIATOR__FACTS_CONFIGURATION,
+					ruleMediator.getFactsConfiguration(), EsbPackage.Literals.RULE_FACTS_CONFIGURATION__FACTS,
 					fact);
 			getResultCommand().append(removeCmd);
 		}
 		tblFacts.remove(tblFacts.indexOf(item));
+	}
+	
+	@Override
+	protected void okPressed() {
+		for (TableItem item : tblFacts.getItems()) {
+			FactWrapper wrapper = (FactWrapper) item.getData();
+			RuleFact fact = wrapper.getFact();
+			AddCommand addCmd = null;
+
+			if (null == fact.eContainer()) {
+				addCmd = new AddCommand(editingDomain, ruleMediator.getFactsConfiguration(),
+						EsbPackage.Literals.RULE_FACTS_CONFIGURATION__FACTS, fact);
+				getResultCommand().append(addCmd);
+			}
+
+			SetCommand setCommand = null;
+			
+			if(!fact.getFactName().equals(wrapper.getFactName())){
+				setCommand = new SetCommand(editingDomain, fact,
+						EsbPackage.Literals.RULE_FACT__FACT_NAME, wrapper.getFactName());
+				getResultCommand().append(setCommand);
+			}
+			
+			if (!(fact.getFactType().equals(wrapper.getFactType()) && fact.getFactCustomType()
+					.equals(wrapper.getFactCustomType()))) {
+				String customFactType = "custom_type";
+				RuleFactType factType = RuleFactType.CUSTOM;
+				if (wrapper.getFactType() == RuleFactType.CUSTOM) {
+					customFactType = wrapper.getFactCustomType();
+				} else {
+					factType = wrapper.getFactType();
+				}
+
+				setCommand = new SetCommand(editingDomain, fact,
+						EsbPackage.Literals.RULE_FACT__FACT_CUSTOM_TYPE, customFactType);
+				getResultCommand().append(setCommand);
+
+				setCommand = new SetCommand(editingDomain, fact,
+						EsbPackage.Literals.RULE_FACT__FACT_TYPE, factType);
+				getResultCommand().append(setCommand);
+			}
+			
+			if(!fact.getValueType().equals(wrapper.getValueType())){
+				if(wrapper.getValueType()==RuleFactValueType.REGISTRY_REFERENCE){
+					wrapper.setValueLiteral("default");
+					wrapper.getValueExpression().setPropertyValue("/default/expression");
+				} else if(wrapper.getValueType()==RuleFactValueType.EXPRESSION){
+					wrapper.getValueKey().setKeyValue("/default/key");
+					wrapper.setValueLiteral("default");
+				} else{
+					wrapper.getValueExpression().setPropertyValue("/default/expression");
+					wrapper.setValueLiteral("default");
+				}
+				
+				setCommand = new SetCommand(editingDomain, fact,
+						EsbPackage.Literals.RULE_FACT__VALUE_TYPE, wrapper.getValueType());
+				getResultCommand().append(setCommand);
+			}
+			
+			if(!fact.getValueLiteral().equals( wrapper.getValueLiteral())){
+				setCommand = new SetCommand(editingDomain, fact,
+						EsbPackage.Literals.RULE_FACT__VALUE_LITERAL, wrapper.getValueLiteral());
+				getResultCommand().append(setCommand);
+			}
+			
+			if(!fact.getValueExpression().equals(wrapper.getValueExpression())){
+				setCommand = new SetCommand(editingDomain, fact,
+						EsbPackage.Literals.RULE_FACT__VALUE_EXPRESSION, wrapper.getValueExpression());
+				getResultCommand().append(setCommand);
+			}
+			
+			if(!fact.getValueKey().equals(wrapper.getValueKey())){
+				setCommand = new SetCommand(editingDomain, fact,
+						EsbPackage.Literals.RULE_FACT__VALUE_KEY, wrapper.getValueKey());
+				getResultCommand().append(setCommand);
+			}
+
+		}
+
+		// Apply changes.
+		if (getResultCommand().canExecute()) {
+			editingDomain.getCommandStack().execute(getResultCommand());
+		} else {
+			if(getResultCommand().getCommandList().size()>1){
+				log.error("RuleMediator facts configuration : cannot save facts", new Exception(
+						"Cannot execute command stack "));
+			}
+		}
+
+		super.okPressed();
 	}
 	
 	/**

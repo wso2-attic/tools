@@ -28,6 +28,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleFact;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleFactsConfiguration;
 
 /**
@@ -118,12 +119,22 @@ public class RuleFactsConfigurationItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_RuleFactsConfiguration_type");
+		String text = "";
+		if(object instanceof RuleFactsConfiguration){
+			RuleFactsConfiguration factsConfiguration = (RuleFactsConfiguration) object;
+			StringBuilder builder = new StringBuilder();
+			for(RuleFact fact : factsConfiguration.getFacts()){
+				builder.append(fact.getFactName());
+				builder.append(",");
+			}
+			text = builder.toString().replaceAll(",$", "");
+		}
+		return text;
 	}
 
 	/**

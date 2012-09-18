@@ -28,6 +28,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleResult;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleResultsConfiguration;
 
 /**
@@ -118,12 +119,22 @@ public class RuleResultsConfigurationItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_RuleResultsConfiguration_type");
+		String text = "";
+		if(object instanceof RuleResultsConfiguration){
+			RuleResultsConfiguration resultsConfiguration = (RuleResultsConfiguration) object;
+			StringBuilder builder = new StringBuilder();
+			for(RuleResult result : resultsConfiguration.getResults()){
+				builder.append(result.getResultName());
+				builder.append(",");
+			}
+			text = builder.toString().replaceAll(",$", "");
+		}
+		return text;
 	}
 
 	/**
