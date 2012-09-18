@@ -52,7 +52,7 @@ public class XSLTMediatorTransformer extends AbstractEsbNodeTransformer {
 		if(sourceXPath.getPropertyValue()!=null && !sourceXPath.getPropertyValue().equals("")){
 			xsltMediator.setSource(new SynapseXPath(sourceXPath.getPropertyValue()));
 		}
-		String key = visualXSLT.getXsltKey().getKeyValue();
+		String key = visualXSLT.getXsltStaticSchemaKey().getKeyValue();
 		if(key!=null && !key.equals("")){
 			xsltMediator.setXsltKey(new Value(key));
 		}

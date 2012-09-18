@@ -294,7 +294,7 @@ public class ConfigureXSLTMediatorDialog extends Dialog {
 			txtSourceXPath.setText(sourceXPath.getPropertyValue());
 		}
 		
-		RegistryKeyProperty registryKey = mediator.getXsltKey();
+		RegistryKeyProperty registryKey = mediator.getXsltStaticSchemaKey();
 		if(registryKey.getKeyValue()!=null){
 			txtXsltKey.setText(registryKey.getKeyValue());
 		}
@@ -373,7 +373,7 @@ public class ConfigureXSLTMediatorDialog extends Dialog {
 		RegistryKeyProperty registryKey = EsbFactory.eINSTANCE.createRegistryKeyProperty();
 		registryKey.setKeyName(txtXsltKey.getText());
 		registryKey.setKeyValue(txtXsltKey.getText());
-		SetCommand setRegKeyCmd = new SetCommand(domain, mediator,EsbPackage.Literals.XSLT_MEDIATOR__XSLT_KEY, registryKey);
+		SetCommand setRegKeyCmd = new SetCommand(domain, mediator,EsbPackage.Literals.XSLT_MEDIATOR__XSLT_STATIC_SCHEMA_KEY, registryKey);
 		getResultCommand().append(setRegKeyCmd);
 		
 		for(TableItem item:tblFeatures.getItems()){

@@ -48,9 +48,6 @@ public class EsbPropertySource extends PropertySource {
 		} else if (pkg.getXSLTMediator_SourceXPath().equals(feature)) {
 			return new XSLTSourceXPathPropertyDescriptor(object,
 					itemPropertyDescriptor);
-		} else if (pkg.getXSLTMediator_XsltKey().equals(feature)) {
-			return new XSLTKeyPropertyDescriptor(object,
-					itemPropertyDescriptor);
 		} else if (pkg.getSwitchMediator_SourceXpath().equals(feature)) {
 			return new SwitchSourceXPathPropertyDescriptor(object,
 					itemPropertyDescriptor);
@@ -99,7 +96,7 @@ public class EsbPropertySource extends PropertySource {
 		} else if(pkg.getXSLTMediator_SourceXPath().equals(feature)){
 			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
 		} else if(pkg.getXSLTMediator_XsltStaticSchemaKey().equals(feature)){
-			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);			
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
 		} else if(pkg.getXQueryMediator_TargetXPath().equals(feature)){
 			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
 		} else if(pkg.getXQueryMediator_DynamicScriptKey().equals(feature)){
