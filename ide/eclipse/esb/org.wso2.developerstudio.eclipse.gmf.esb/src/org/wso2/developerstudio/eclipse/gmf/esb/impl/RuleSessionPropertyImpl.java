@@ -24,10 +24,12 @@ public class RuleSessionPropertyImpl extends AbstractNameValuePropertyImpl imple
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected RuleSessionPropertyImpl() {
 		super();
+		setPropertyName("property_name");
+		setPropertyValue("property_value");
 	}
 
 	/**

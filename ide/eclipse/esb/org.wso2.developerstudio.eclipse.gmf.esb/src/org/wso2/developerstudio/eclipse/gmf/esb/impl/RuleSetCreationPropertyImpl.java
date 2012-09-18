@@ -24,10 +24,13 @@ public class RuleSetCreationPropertyImpl extends AbstractNameValuePropertyImpl i
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected RuleSetCreationPropertyImpl() {
 		super();
+		
+		setPropertyName("property_name");
+		setPropertyValue("property_value");
 	}
 
 	/**
