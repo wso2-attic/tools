@@ -19,7 +19,9 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMNode;
+import org.apache.axiom.om.util.AXIOMUtil;
 import org.apache.synapse.SynapseArtifact;
 import org.apache.synapse.config.SynapseConfigUtils;
 import org.apache.synapse.core.axis2.ProxyService;
@@ -142,7 +144,8 @@ public class ProxyServiceTransformer extends AbstractEsbNodeTransformer {
 			
 			//Proxy Service Parameterts.
 			for(int i=0;i<visualService.getServiceParameters().size();++i){
-			proxyService.addParameter(visualService.getServiceParameters().get(i).getName(), visualService.getServiceParameters().get(i).getValue());
+				OMElement payload = AXIOMUtil.stringToOM(visualService.getServiceParameters().get(i).getValue()); 
+				proxyService.addParameter(visualService.getServiceParameters().get(i).getName(),payload);
 			}
 			
 
