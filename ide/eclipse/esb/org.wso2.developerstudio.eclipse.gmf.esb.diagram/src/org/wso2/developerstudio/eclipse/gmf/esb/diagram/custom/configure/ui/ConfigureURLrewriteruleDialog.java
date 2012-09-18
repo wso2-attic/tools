@@ -290,6 +290,7 @@ public class ConfigureURLrewriteruleDialog extends Dialog {
 				 actionWrapper.setOption(urlRewriteRuleAction.getRuleOption().getValue());
 				 actionWrapper.setRegex(urlRewriteRuleAction.getActionRegex());
 				 actionWrapper.setValue(urlRewriteRuleAction.getActionValue());
+				 actionWrapper.setUrlRewriteRuleAction(urlRewriteRuleAction);
 				 actionWrapperslist.add(actionWrapper);
 			}
 			 rulesWrapper.setActions(actionWrapperslist);
@@ -323,6 +324,10 @@ public class ConfigureURLrewriteruleDialog extends Dialog {
    private void createActionContorls(final UrlActionWrapper action,final Shell newshell,final boolean newAction){
 		
 
+	      if(newAction){
+	        URLRewriteRuleAction ruleAction = EsbFactory.eINSTANCE.createURLRewriteRuleAction();
+	        action.setUrlRewriteRuleAction(ruleAction);
+	      }
 	 	  final TableItem item = new TableItem(tableActions, SWT.NONE);
 		  TableEditor editor = new TableEditor(tableActions);
 	      editor.grabHorizontal = true;
@@ -492,51 +497,9 @@ public class ConfigureURLrewriteruleDialog extends Dialog {
 			 UrlRewriteRulesWrapper wraprule = (UrlRewriteRulesWrapper) tableItem.getData();
 			 URLRewriteRule rule = wraprule.getUrlRule();
 			 EList<URLRewriteRuleAction> rewriteRuleAction = rule.getRewriteRuleAction();
-			 
-			 if(null != rule.eContainer()){
-				 
-	             SetCommand command = new SetCommand(editingDomain, rule, EsbPackage.Literals.URL_REWRITE_RULE__URL_REWRITE_RULE_CONDITION, wraprule.getCondition());
-	             getResultCommand().append(command);	 
-	             for (URLRewriteRuleAction urlRewriteRuleAction : rewriteRuleAction) {
-					   RemoveCommand removeCmd = new RemoveCommand(editingDomain,
-					   rule, EsbPackage.Literals.URL_REWRITE_RULE__REWRITE_RULE_ACTION,urlRewriteRuleAction);
-						getResultCommand().append(removeCmd); 
-						System.out.println(removeCmd.canExecute());
-				} 
-	             List<UrlActionWrapper> actions = wraprule.getActions();
-				 for (UrlActionWrapper urlActionWrapper : actions) {
-					 URLRewriteRuleAction ruleAction = EsbFactory.eINSTANCE.createURLRewriteRuleAction();
-					 if(urlActionWrapper.getNsproperty()!=null){
-					 NamespacedProperty  property = EsbFactory.eINSTANCE.createNamespacedProperty();
-					 property.setNamespaces(urlActionWrapper.getNsproperty().getNamespaces());
-					 property.setPrettyName("ns");
-					 property.setPropertyName("ns");
-					 property.setPropertyValue(urlActionWrapper.getNsproperty().getPropertyValue());
-					 ruleAction.setActionExpression(property);
-					 }
-					 ruleAction.setActionRegex(urlActionWrapper.getRegex());
-					 ruleAction.setActionValue(urlActionWrapper.getValue());
-					 ruleAction.setRuleAction(RuleActionType.get(urlActionWrapper.getAction()));
-					 ruleAction.setRuleFragment(RuleFragmentType.get(urlActionWrapper.getFragment()));
-					 ruleAction.setRuleOption(RuleOptionType.get(urlActionWrapper.getOption()));
-
-					 if(null != rule.eContainer()){
-						  AddCommand addCmd = new AddCommand(editingDomain,rule,
-								 EsbPackage.Literals.URL_REWRITE_RULE__REWRITE_RULE_ACTION,ruleAction);
-							     getResultCommand().append(addCmd);	
-							     System.out.println(addCmd.canExecute()); 
-					 }else{
-						 rewriteRuleAction.add(ruleAction); 
-					 }
-				   } 
- 
-		 	        SetCommand command2 = new SetCommand(editingDomain,
-					urlMediator, EsbPackage.Literals.URL_REWRITE_MEDIATOR__URL_REWRITE_RULES,rule);
-					getResultCommand().append(command2);  
-					System.out.println(command2.canExecute()); 
-					
-			 } else{
-				 rule.setUrlRewriteRuleCondition(EsbFactory.eINSTANCE.copyEvaluatorExpressionProperty(wraprule.getCondition()));
+			 //adding a new rule 
+			 if(null == rule.eContainer()){
+				 rule.setUrlRewriteRuleCondition(wraprule.getCondition());
 				 List<UrlActionWrapper> actions = wraprule.getActions();
 				 for (UrlActionWrapper urlActionWrapper : actions) {
 					 URLRewriteRuleAction ruleAction = EsbFactory.eINSTANCE.createURLRewriteRuleAction();
@@ -553,23 +516,107 @@ public class ConfigureURLrewriteruleDialog extends Dialog {
 					 ruleAction.setRuleAction(RuleActionType.get(urlActionWrapper.getAction()));
 					 ruleAction.setRuleFragment(RuleFragmentType.get(urlActionWrapper.getFragment()));
 					 ruleAction.setRuleOption(RuleOptionType.get(urlActionWrapper.getOption()));
- 
-				       rewriteRuleAction.add(ruleAction); 
-					 }
-			 
+				     rewriteRuleAction.add(ruleAction); 
+				   } 
+
 				 AddCommand addCmd = new AddCommand(editingDomain,urlMediator,
 				 EsbPackage.Literals.URL_REWRITE_MEDIATOR__URL_REWRITE_RULES,rule);
 				 getResultCommand().append(addCmd);	
-				 System.out.println(addCmd.canExecute());
+			 }else{// Editing the existing rule 
+				 
+				  
+			 //check the condition changes
+				if (!rule.getUrlRewriteRuleCondition().getEvaluatorValue()
+						.equals(wraprule.getCondition().getEvaluatorValue())) {
+					
+					SetCommand command = new SetCommand(
+							editingDomain,
+							rule,
+							EsbPackage.Literals.URL_REWRITE_RULE__URL_REWRITE_RULE_CONDITION,
+							wraprule.getCondition());
+					getResultCommand().append(command);
+					}
+							
+				 List<UrlActionWrapper> actions = wraprule.getActions();
+				// RemoveCommand removeCommand =  new RemoveCommand(editingDomain, rewriteRuleAction, actions);
+				 //getResultCommand().append(removeCommand);	
+				// List<URLRewriteRuleAction> actionsList = new ArrayList<URLRewriteRuleAction>();
+				 for (UrlActionWrapper urlActionWrapper : actions) {
+					  URLRewriteRuleAction ruleAction = urlActionWrapper.getUrlRewriteRuleAction();
+					  if(null==ruleAction.eContainer()){
+						  if(urlActionWrapper.getNsproperty()!=null){
+								 NamespacedProperty  property = EsbFactory.eINSTANCE.createNamespacedProperty();
+								 property.setNamespaces(urlActionWrapper.getNsproperty().getNamespaces());
+								 property.setPrettyName("ns");
+								 property.setPropertyName("ns");
+								 property.setPropertyValue(urlActionWrapper.getNsproperty().getPropertyValue());
+								 ruleAction.setActionExpression(property);
+								 ruleAction.setActionRegex(urlActionWrapper.getRegex());
+								 ruleAction.setActionValue(urlActionWrapper.getValue());
+								 ruleAction.setRuleAction(RuleActionType.get(urlActionWrapper.getAction()));
+								 ruleAction.setRuleFragment(RuleFragmentType.get(urlActionWrapper.getFragment()));
+								 ruleAction.setRuleOption(RuleOptionType.get(urlActionWrapper.getOption()));
+						        }  
+						AddCommand addCommand = new AddCommand(
+								editingDomain,
+								rule,
+								EsbPackage.Literals.URL_REWRITE_RULE__REWRITE_RULE_ACTION,
+								ruleAction);
+						getResultCommand().append(addCommand);  
+					  }else{
+						 SetCommand setCommand = new SetCommand(
+								editingDomain,
+								ruleAction,
+								EsbPackage.Literals.URL_REWRITE_RULE_ACTION__ACTION_EXPRESSION,
+								urlActionWrapper.getNsproperty());
+						getResultCommand().append(setCommand);
+						 
+						setCommand = new SetCommand(
+								editingDomain,
+								ruleAction,
+								EsbPackage.Literals.URL_REWRITE_RULE_ACTION__ACTION_REGEX,
+								urlActionWrapper.getRegex());
+						getResultCommand().append(setCommand);
+						 
+						setCommand = new SetCommand(
+								editingDomain,
+								ruleAction,
+								EsbPackage.Literals.URL_REWRITE_RULE_ACTION__ACTION_VALUE,
+								urlActionWrapper.getValue());
+						getResultCommand().append(setCommand);
+								        
+						 setCommand = new SetCommand(
+								editingDomain,
+								ruleAction,
+								EsbPackage.Literals.URL_REWRITE_RULE_ACTION__RULE_ACTION,
+								RuleActionType.get(urlActionWrapper.getAction()));
+						getResultCommand().append(setCommand);
+						
+						setCommand = new SetCommand(
+								editingDomain,
+								ruleAction,
+								EsbPackage.Literals.URL_REWRITE_RULE_ACTION__RULE_FRAGMENT,
+								RuleFragmentType.get(urlActionWrapper.getFragment()));
+								getResultCommand().append(setCommand);
+								
+						setCommand = new SetCommand(
+								editingDomain,
+								ruleAction,
+								EsbPackage.Literals.URL_REWRITE_RULE_ACTION__RULE_OPTION,
+								RuleOptionType.get(urlActionWrapper.getOption()));
+								getResultCommand().append(setCommand);	
+ 				  }	 
+				   } 
+				  
+				 
 			 }
-				     
-		 	}
+			
 			// Apply changes.
 			if (getResultCommand().canExecute()) {
 				editingDomain.getCommandStack().execute(getResultCommand());
-			} 
-
-			super.okPressed();
+			}	
+		} 
+		super.okPressed();
 	}
 }
 
@@ -612,6 +659,7 @@ class UrlActionWrapper{
    public NamespacedProperty getNsproperty() {
 		return nsproperty;
 	}
+
 	public void setNsproperty(NamespacedProperty nsproperty) {
 		this.nsproperty = nsproperty;
 	}
@@ -646,13 +694,19 @@ public String getValue() {
 public void setValue(String value) {
 	this.value = value;
 }
+public void setUrlRewriteRuleAction(URLRewriteRuleAction urlRewriteRuleAction) {
+	this.urlRewriteRuleAction = urlRewriteRuleAction;
+}
+public URLRewriteRuleAction getUrlRewriteRuleAction() {
+	return urlRewriteRuleAction;
+}
 private NamespacedProperty nsproperty;
 private int action;
   private int option;
   private int fragment;
   private String regex;
   private String value;
-
+  private URLRewriteRuleAction urlRewriteRuleAction;
  
 }
 
