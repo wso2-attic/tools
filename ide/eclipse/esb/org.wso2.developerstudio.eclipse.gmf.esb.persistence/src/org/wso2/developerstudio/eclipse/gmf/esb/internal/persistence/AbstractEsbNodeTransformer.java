@@ -67,10 +67,12 @@ public abstract class AbstractEsbNodeTransformer implements EsbNodeTransformer {
 				Assert.isNotNull(inputConnector, "Input connector should not be null.");
 				
 				if(inputConnector instanceof SequencesInputConnector){
-					if(info.currentSequence.getOutputConnector().getOutgoingLink()!=null){
-					EsbNode esbNode=(EsbNode)info.currentSequence.getOutputConnector().getOutgoingLink().getTarget().eContainer();
-					EsbNodeTransformer transformer = EsbTransformerRegistry.getInstance().getTransformer(esbNode);					
-					transformer.transform(info, esbNode);
+					if(info.currentSequence!=null){
+						if(info.currentSequence.getOutputConnector().getOutgoingLink()!=null){
+							EsbNode esbNode=(EsbNode)info.currentSequence.getOutputConnector().getOutgoingLink().getTarget().eContainer();
+							EsbNodeTransformer transformer = EsbTransformerRegistry.getInstance().getTransformer(esbNode);					
+							transformer.transform(info, esbNode);
+						}
 					}
 					else{
 						if (info.getParentSequence()!=null){ 

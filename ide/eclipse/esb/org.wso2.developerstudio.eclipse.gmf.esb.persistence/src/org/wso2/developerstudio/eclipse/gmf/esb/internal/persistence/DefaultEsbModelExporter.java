@@ -33,10 +33,13 @@ import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
 import org.apache.axiom.om.OMElement;
+import org.apache.axiom.om.impl.llom.OMElementImpl;
 import org.apache.axis2.util.XMLPrettyPrinter;
 import org.apache.synapse.config.SynapseConfiguration;
 import org.apache.synapse.config.SynapseConfigurationBuilder;
+import org.apache.synapse.config.xml.SequenceMediatorSerializer;
 import org.apache.synapse.config.xml.SynapseXMLConfigurationSerializer;
+import org.apache.synapse.mediators.base.SequenceMediator;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.ecore.EObject;
@@ -52,6 +55,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbServer;
 import org.wso2.developerstudio.eclipse.gmf.esb.MessageMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyService;
+import org.wso2.developerstudio.eclipse.gmf.esb.Sequences;
 import org.wso2.developerstudio.eclipse.gmf.esb.Task;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.EsbModelTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
@@ -141,15 +145,41 @@ public class DefaultEsbModelExporter implements EsbModelTransformer {
 			}
 			
 			
-			
 		}
 		return configuration;
+	}
+	
+	private SequenceMediator transformSequence(EsbServer serverModel)
+			throws Exception {
+		List<EsbElement> childNodes = serverModel.getChildren();
+		SequenceMediator sequence = new SequenceMediator();
+		TransformationInfo info = new TransformationInfo();
+		for (EsbElement childNode : childNodes) {
+			if (childNode instanceof Sequences) {
+				Sequences visualSequence = (Sequences) childNode;
+				SequenceTransformer transformer = new SequenceTransformer();
+				transformer.transformWithinSequence(info, visualSequence,
+						sequence);
+			}
+		}
+		return sequence;
 	}
 
 	public String designToSource(EsbServer serverModel) throws Exception {
 		SynapseXMLConfigurationSerializer serializer = new SynapseXMLConfigurationSerializer();
-		OMElement configOM = serializer
-				.serializeConfiguration(transform(serverModel));
+		SequenceMediatorSerializer sequenceSerializer =new SequenceMediatorSerializer();
+		OMElement configOM=null;
+		for (EsbElement child : serverModel.getChildren()) {
+			if (child instanceof Sequences) {
+				configOM = sequenceSerializer.serializeAnonymousSequence(null,
+						transformSequence(serverModel));
+				break;
+			} else {
+				configOM = serializer
+						.serializeConfiguration(transform(serverModel));
+				break;
+			}
+		}		
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		DefaultEsbModelExporter.prettify(configOM, baos);
 		// demo();
