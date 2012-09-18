@@ -1,24 +1,57 @@
+/*
+ * Copyright 2012 WSO2, Inc. (http://wso2.com)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence;
 
 import java.util.List;
+import java.util.Map.Entry;
 
+import org.apache.axiom.om.OMElement;
+import org.apache.axiom.om.util.AXIOMUtil;
+import org.apache.synapse.config.xml.AnonymousListMediator;
 import org.apache.synapse.endpoints.Endpoint;
+import org.apache.synapse.mediators.ListMediator;
 import org.apache.synapse.mediators.base.SequenceMediator;
+import org.apache.synapse.util.xpath.SynapseXPath;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EObject;
+import org.wso2.carbon.rulecep.commons.descriptions.PropertyDescription;
+import org.wso2.carbon.rulecep.commons.descriptions.ResourceDescription;
+import org.wso2.carbon.rulecep.commons.descriptions.rule.RuleSetDescription;
+import org.wso2.carbon.rulecep.commons.descriptions.rule.SessionDescription;
 import org.wso2.carbon.rulecep.commons.descriptions.rule.mediator.RuleMediatorDescription;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
-import org.wso2.developerstudio.eclipse.gmf.esb.OAuthMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleFact;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleFactType;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleFactValueType;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator;
-import org.wso2.developerstudio.eclipse.gmf.esb.ThrottleMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleResult;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleResultType;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleResultValueType;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleSessionProperty;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleSetCreationProperty;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleSourceType;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
 
 public class RuleMediatorTransformer extends AbstractEsbNodeTransformer {
 
 	public void transform(TransformationInfo information, EsbNode subject)
 			throws Exception {
-		// TODO Auto-generated method stub
-		information.getParentSequence().addChild(createRuleMediator(subject));
+		information.getParentSequence().addChild(createRuleMediator(information,subject));
 		// Transform the Rule mediator output data flow path.
 		doTransform(information,
 				((RuleMediator) subject).getOutputConnector());
@@ -28,32 +61,113 @@ public class RuleMediatorTransformer extends AbstractEsbNodeTransformer {
 
 	public void createSynapseObject(TransformationInfo info, EObject subject,
 			List<Endpoint> endPoints) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	public void transformWithinSequence(TransformationInfo information,
 			EsbNode subject, SequenceMediator sequence) throws Exception {
-		// TODO Auto-generated method stub
-		sequence.addChild(createRuleMediator(subject));
+		sequence.addChild(createRuleMediator(information,subject));
 		doTransformWithinSequence(information,((RuleMediator) subject).getOutputConnector().getOutgoingLink(),sequence);
-		
 		
 	}
 	
-	private org.wso2.carbon.rule.mediator.RuleMediator createRuleMediator(EsbNode subject) throws Exception{
+	private org.wso2.carbon.rule.mediator.RuleMediator createRuleMediator(
+			TransformationInfo information, EsbNode subject) throws Exception {
 		// Check subject.
-		Assert.isTrue(subject instanceof RuleMediator, "Invalid subject.");
-		RuleMediator visualOauth = (RuleMediator) subject;
+		Assert.isTrue(subject instanceof RuleMediator,
+				"Unsupported mediator passed in for serialization.");
+		RuleMediator visualRule = (RuleMediator) subject;
 
-		
-		RuleMediatorDescription description=new RuleMediatorDescription();
-		// Configure property mediator.
-		org.wso2.carbon.rule.mediator.RuleMediator RuleMediator = new org.wso2.carbon.rule.mediator.RuleMediator(description);
-		{
-			
+		RuleMediatorDescription description = new RuleMediatorDescription();
+
+		/* RuleSets */
+		RuleSetDescription ruleSetDescription = new RuleSetDescription();
+		ruleSetDescription.setBindURI(visualRule.getRuleSetURI());
+		if (visualRule.getRuleSetSourceType() == RuleSourceType.REGISTRY_REFERENCE) {
+			ruleSetDescription.setKey(visualRule.getRuleSetSourceKey().getKeyValue());
+		} else {
+			OMElement source = AXIOMUtil.stringToOM(visualRule.getRuleSetSourceCode());
+			ruleSetDescription.setRuleSource(source);
 		}
-		return RuleMediator;
+		for (RuleSetCreationProperty property : visualRule.getRuleSetProperties()) {
+			ruleSetDescription.addCreationProperty(new PropertyDescription(property
+					.getPropertyName(), property.getPropertyValue()));
+		}
+		description.setRuleSetDescription(ruleSetDescription);
+
+		/* RuleSessions */
+		SessionDescription sessionDescription = new SessionDescription();
+		sessionDescription
+				.setSessionType((visualRule.isStatefulSession()) ? SessionDescription.STATEFUL_SESSION
+						: SessionDescription.STATELESS_SESSION);
+		for (RuleSessionProperty property : visualRule.getRuleSessionProperties()) {
+			sessionDescription.addSessionPropertyDescription(new PropertyDescription(property
+					.getPropertyName(), property.getPropertyValue()));
+		}
+		description.setSessionDescription(sessionDescription);
+
+		/* RuleFacts */
+		for (RuleFact fact : visualRule.getFactsConfiguration().getFacts()) {
+			ResourceDescription resourceDescription = new ResourceDescription();
+			resourceDescription.setName(fact.getFactName());
+			if (fact.getFactType() == RuleFactType.CUSTOM) {
+				resourceDescription.setType(fact.getFactCustomType());
+			} else {
+				resourceDescription.setType(fact.getFactType().getLiteral());
+			}
+			if (fact.getValueType() == RuleFactValueType.REGISTRY_REFERENCE) {
+				resourceDescription.setKey(fact.getValueKey().getKeyValue());
+			} else if (fact.getValueType() == RuleFactValueType.EXPRESSION) {
+				NamespacedProperty namespacedProperty = fact.getValueExpression();
+				SynapseXPath expression = new SynapseXPath(namespacedProperty.getPropertyValue());
+				for (Entry<String, String> entry : namespacedProperty.getNamespaces().entrySet()) {
+					expression.addNamespace(entry.getKey(), entry.getValue());
+				}
+				resourceDescription.setExpression(expression);
+			} else {
+				resourceDescription.setValue(fact.getValueType());
+			}
+			description.addFactDescription(resourceDescription);
+		}
+
+		/* RuleResults */
+		for (RuleResult result : visualRule.getResultsConfiguration().getResults()) {
+			ResourceDescription resourceDescription = new ResourceDescription();
+			resourceDescription.setName(result.getResultName());
+			if (result.getResultType() == RuleResultType.CUSTOM) {
+				resourceDescription.setType(result.getResultCustomType());
+			} else {
+				resourceDescription.setType(result.getResultType().getLiteral());
+			}
+			if (result.getValueType() == RuleResultValueType.REGISTRY_REFERENCE) {
+				resourceDescription.setKey(result.getValueKey().getKeyValue());
+			} else if (result.getValueType() == RuleResultValueType.EXPRESSION) {
+				NamespacedProperty namespacedProperty = result.getValueExpression();
+				SynapseXPath expression = new SynapseXPath(namespacedProperty.getPropertyValue());
+				for (Entry<String, String> entry : namespacedProperty.getNamespaces().entrySet()) {
+					expression.addNamespace(entry.getKey(), entry.getValue());
+				}
+				resourceDescription.setExpression(expression);
+			} else {
+				resourceDescription.setValue(result.getValueType());
+			}
+			description.addResultDescription(resourceDescription);
+		}
+
+		org.wso2.carbon.rule.mediator.RuleMediator ruleMediator = new org.wso2.carbon.rule.mediator.RuleMediator(
+				description);
+
+		ListMediator childMediatorList = new AnonymousListMediator();
+		TransformationInfo newOnCompleteInfo = new TransformationInfo();
+		newOnCompleteInfo.setTraversalDirection(TransformationInfo.TRAVERSAL_DIRECTION_IN);
+		newOnCompleteInfo.setSynapseConfiguration(information.getSynapseConfiguration());
+		newOnCompleteInfo.setOriginInSequence(information.getOriginInSequence());
+		newOnCompleteInfo.setOriginOutSequence(information.getOriginOutSequence());
+		newOnCompleteInfo.setParentSequence(childMediatorList);
+		doTransform(newOnCompleteInfo, visualRule.getChildMediatorsOutputConnector());
+		ruleMediator.addAll(childMediatorList.getList());
+
+		return ruleMediator;
 	}
 
 
