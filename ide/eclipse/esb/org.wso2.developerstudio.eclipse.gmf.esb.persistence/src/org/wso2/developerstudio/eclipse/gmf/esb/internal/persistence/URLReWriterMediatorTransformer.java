@@ -61,16 +61,16 @@ public class URLReWriterMediatorTransformer extends AbstractEsbNodeTransformer{
 		        	 rewriteAction.setActionType(urlRewriteRuleAction.getRuleAction().getValue());
 		        	 rewriteAction.setFragmentIndex(urlRewriteRuleAction.getRuleFragment().getValue());
 		        	 rewriteAction.setRegex(urlRewriteRuleAction.getActionRegex());
-		        	 rewriteAction.setValue(urlRewriteRuleAction.getActionValue());
-		        	/* if(null!=urlRewriteRuleAction.getActionExpression().getPropertyValue()){
-		        	 rewriteAction.setXpath(new SynapseXPath(urlRewriteRuleAction.getActionExpression().getPropertyValue()));
-		        	 }*/
+		        	 if(null==urlRewriteRuleAction.getActionValue()){
+		        		 rewriteAction.setXpath(new SynapseXPath(urlRewriteRuleAction.getActionExpression().getPropertyValue()));
+		        	 }else{
+		        		 rewriteAction.setValue(urlRewriteRuleAction.getActionValue()); 
+		        	 }
 					 rule.getActions().add(rewriteAction);
 				}
 		         rule.setCondition(evaluator);
 		         urlReWriterMediator.addRule(rule);
 			}
-			
 		}
 		return urlReWriterMediator;
 	}

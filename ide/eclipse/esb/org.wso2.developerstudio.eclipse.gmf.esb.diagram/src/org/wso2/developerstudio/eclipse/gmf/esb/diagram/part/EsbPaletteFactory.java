@@ -116,7 +116,7 @@ public class EsbPaletteFactory {
 		paletteContainer.add(createFaultMediator13CreationTool());
 		paletteContainer.add(createHeaderMediator20CreationTool());
 		paletteContainer.add(createPayloadFactoryMediator34CreationTool());
-		//paletteContainer.add(createURLRewriteMediator36CreationTool());
+		paletteContainer.add(createURLRewriteMediator36CreationTool());
 
 		paletteContainer.add(new PaletteSeparator());
 		paletteContainer.add(createDBLookupMediator16CreationTool());

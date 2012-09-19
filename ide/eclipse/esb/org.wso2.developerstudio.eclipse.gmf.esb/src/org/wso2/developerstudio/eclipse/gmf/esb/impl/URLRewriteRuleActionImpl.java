@@ -8,6 +8,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -100,7 +101,7 @@ public class URLRewriteRuleActionImpl extends EsbNodeImpl implements URLRewriteR
 	protected RuleOptionType ruleOption = RULE_OPTION_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getActionExpression() <em>Action Expression</em>}' reference.
+	 * The cached value of the '{@link #getActionExpression() <em>Action Expression</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getActionExpression()
@@ -237,14 +238,6 @@ public class URLRewriteRuleActionImpl extends EsbNodeImpl implements URLRewriteR
 	 * @generated
 	 */
 	public NamespacedProperty getActionExpression() {
-		if (actionExpression != null && actionExpression.eIsProxy()) {
-			InternalEObject oldActionExpression = (InternalEObject)actionExpression;
-			actionExpression = (NamespacedProperty)eResolveProxy(oldActionExpression);
-			if (actionExpression != oldActionExpression) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EsbPackage.URL_REWRITE_RULE_ACTION__ACTION_EXPRESSION, oldActionExpression, actionExpression));
-			}
-		}
 		return actionExpression;
 	}
 
@@ -253,8 +246,14 @@ public class URLRewriteRuleActionImpl extends EsbNodeImpl implements URLRewriteR
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NamespacedProperty basicGetActionExpression() {
-		return actionExpression;
+	public NotificationChain basicSetActionExpression(NamespacedProperty newActionExpression, NotificationChain msgs) {
+		NamespacedProperty oldActionExpression = actionExpression;
+		actionExpression = newActionExpression;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.URL_REWRITE_RULE_ACTION__ACTION_EXPRESSION, oldActionExpression, newActionExpression);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -263,10 +262,17 @@ public class URLRewriteRuleActionImpl extends EsbNodeImpl implements URLRewriteR
 	 * @generated
 	 */
 	public void setActionExpression(NamespacedProperty newActionExpression) {
-		NamespacedProperty oldActionExpression = actionExpression;
-		actionExpression = newActionExpression;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.URL_REWRITE_RULE_ACTION__ACTION_EXPRESSION, oldActionExpression, actionExpression));
+		if (newActionExpression != actionExpression) {
+			NotificationChain msgs = null;
+			if (actionExpression != null)
+				msgs = ((InternalEObject)actionExpression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.URL_REWRITE_RULE_ACTION__ACTION_EXPRESSION, null, msgs);
+			if (newActionExpression != null)
+				msgs = ((InternalEObject)newActionExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.URL_REWRITE_RULE_ACTION__ACTION_EXPRESSION, null, msgs);
+			msgs = basicSetActionExpression(newActionExpression, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.URL_REWRITE_RULE_ACTION__ACTION_EXPRESSION, newActionExpression, newActionExpression));
 	}
 
 	/**
@@ -317,6 +323,20 @@ public class URLRewriteRuleActionImpl extends EsbNodeImpl implements URLRewriteR
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case EsbPackage.URL_REWRITE_RULE_ACTION__ACTION_EXPRESSION:
+				return basicSetActionExpression(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case EsbPackage.URL_REWRITE_RULE_ACTION__RULE_ACTION:
@@ -326,8 +346,7 @@ public class URLRewriteRuleActionImpl extends EsbNodeImpl implements URLRewriteR
 			case EsbPackage.URL_REWRITE_RULE_ACTION__RULE_OPTION:
 				return getRuleOption();
 			case EsbPackage.URL_REWRITE_RULE_ACTION__ACTION_EXPRESSION:
-				if (resolve) return getActionExpression();
-				return basicGetActionExpression();
+				return getActionExpression();
 			case EsbPackage.URL_REWRITE_RULE_ACTION__ACTION_VALUE:
 				return getActionValue();
 			case EsbPackage.URL_REWRITE_RULE_ACTION__ACTION_REGEX:

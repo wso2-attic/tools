@@ -120,26 +120,26 @@ public interface URLRewriteRuleAction extends EsbNode {
 	void setRuleOption(RuleOptionType value);
 
 	/**
-	 * Returns the value of the '<em><b>Action Expression</b></em>' reference.
+	 * Returns the value of the '<em><b>Action Expression</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Action Expression</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Action Expression</em>' reference.
+	 * @return the value of the '<em>Action Expression</em>' containment reference.
 	 * @see #setActionExpression(NamespacedProperty)
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getURLRewriteRuleAction_ActionExpression()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	NamespacedProperty getActionExpression();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.URLRewriteRuleAction#getActionExpression <em>Action Expression</em>}' reference.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.URLRewriteRuleAction#getActionExpression <em>Action Expression</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Action Expression</em>' reference.
+	 * @param value the new value of the '<em>Action Expression</em>' containment reference.
 	 * @see #getActionExpression()
 	 * @generated
 	 */

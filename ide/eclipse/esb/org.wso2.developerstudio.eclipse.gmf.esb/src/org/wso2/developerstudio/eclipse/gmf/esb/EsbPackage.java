@@ -12228,7 +12228,7 @@ public interface EsbPackage extends EPackage {
 	int URL_REWRITE_RULE_ACTION__RULE_OPTION = ESB_NODE_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Action Expression</b></em>' reference.
+	 * The feature id for the '<em><b>Action Expression</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -21880,10 +21880,10 @@ public interface EsbPackage extends EPackage {
 	EAttribute getURLRewriteRuleAction_RuleOption();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.URLRewriteRuleAction#getActionExpression <em>Action Expression</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.URLRewriteRuleAction#getActionExpression <em>Action Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Action Expression</em>'.
+	 * @return the meta object for the containment reference '<em>Action Expression</em>'.
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.URLRewriteRuleAction#getActionExpression()
 	 * @see #getURLRewriteRuleAction()
 	 * @generated
@@ -29656,7 +29656,7 @@ public interface EsbPackage extends EPackage {
 		EAttribute URL_REWRITE_RULE_ACTION__RULE_OPTION = eINSTANCE.getURLRewriteRuleAction_RuleOption();
 
 		/**
-		 * The meta object literal for the '<em><b>Action Expression</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Action Expression</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
