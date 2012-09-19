@@ -95,7 +95,7 @@ public class CacheMediatorItemProvider
 	 * This adds a property descriptor for the Cache Id feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addCacheIdPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
@@ -109,7 +109,7 @@ public class CacheMediatorItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 "General",
 				 null));
 	}
 
@@ -117,7 +117,7 @@ public class CacheMediatorItemProvider
 	 * This adds a property descriptor for the Cache Scope feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addCacheScopePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
@@ -131,7 +131,7 @@ public class CacheMediatorItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 "General",
 				 null));
 	}
 
@@ -139,7 +139,7 @@ public class CacheMediatorItemProvider
 	 * This adds a property descriptor for the Cache Action feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addCacheActionPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
@@ -153,7 +153,7 @@ public class CacheMediatorItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 "General",
 				 null));
 	}
 
@@ -161,7 +161,7 @@ public class CacheMediatorItemProvider
 	 * This adds a property descriptor for the Hash Generator feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addHashGeneratorPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
@@ -175,7 +175,7 @@ public class CacheMediatorItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 "General",
 				 null));
 	}
 
@@ -183,7 +183,7 @@ public class CacheMediatorItemProvider
 	 * This adds a property descriptor for the Cache Timeout feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addCacheTimeoutPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
@@ -197,7 +197,7 @@ public class CacheMediatorItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
+				 "General",
 				 null));
 	}
 
@@ -205,7 +205,7 @@ public class CacheMediatorItemProvider
 	 * This adds a property descriptor for the Max Message Size feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addMaxMessageSizePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
@@ -219,7 +219,7 @@ public class CacheMediatorItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
+				 "General",
 				 null));
 	}
 
@@ -227,7 +227,7 @@ public class CacheMediatorItemProvider
 	 * This adds a property descriptor for the Implementation Type feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addImplementationTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
@@ -241,7 +241,7 @@ public class CacheMediatorItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 "Implementation",
 				 null));
 	}
 
@@ -249,7 +249,7 @@ public class CacheMediatorItemProvider
 	 * This adds a property descriptor for the Max Entry Count feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addMaxEntryCountPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
@@ -263,7 +263,7 @@ public class CacheMediatorItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
+				 "General",
 				 null));
 	}
 	
@@ -271,7 +271,7 @@ public class CacheMediatorItemProvider
 	 * This adds a property descriptor for the Sequence Type feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addSequenceTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
@@ -285,7 +285,7 @@ public class CacheMediatorItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 "General",
 				 null));
 	}
 
@@ -293,7 +293,7 @@ public class CacheMediatorItemProvider
 	 * This adds a property descriptor for the Sequence Key feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addSequenceKeyPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
@@ -307,7 +307,7 @@ public class CacheMediatorItemProvider
 				 false,
 				 true,
 				 null,
-				 null,
+				 "General",
 				 null));
 	}
 	

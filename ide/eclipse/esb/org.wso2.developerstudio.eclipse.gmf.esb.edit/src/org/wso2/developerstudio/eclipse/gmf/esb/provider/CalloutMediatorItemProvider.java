@@ -75,7 +75,7 @@ public class CalloutMediatorItemProvider
 			addPathToAxis2RepositoryPropertyDescriptor(object);
 			addPayloadTypePropertyDescriptor(object);
 			addResultTypePropertyDescriptor(object);
-			addPassHeadersPropertyDescriptor(object);
+			//addPassHeadersPropertyDescriptor(object);
 			
 			addPayloadTypePropertyDescriptor(object);
 			if (calloutMediator.getPayloadType().equals(CalloutPayloadType.MESSAGE_ELEMENT)) {
@@ -197,7 +197,7 @@ public class CalloutMediatorItemProvider
 				 false,
 				 false,
 				 null,
-				 "Payload",
+				 "Source",
 				 null));
 	}
 	
@@ -213,7 +213,7 @@ public class CalloutMediatorItemProvider
 				 false,
 				 false,
 				 null,
-				 "Payload",
+				 "Source",
 				 null));
 	}
 	
@@ -229,7 +229,7 @@ public class CalloutMediatorItemProvider
 				 false,
 				 false,
 				 null,
-				 "Result",
+				 "Target",
 				 null));
 	}
 	
@@ -253,7 +253,7 @@ public class CalloutMediatorItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 "Payload",
+				 "Source",
 				 null));
 	}
 
@@ -275,7 +275,7 @@ public class CalloutMediatorItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 "Result",
+				 "Target",
 				 null));
 	}
 
@@ -283,7 +283,7 @@ public class CalloutMediatorItemProvider
 	 * This adds a property descriptor for the Result Context Property feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addResultContextPropertyPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
@@ -297,7 +297,7 @@ public class CalloutMediatorItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 "Target",
 				 null));
 	}
 
