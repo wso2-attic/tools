@@ -184,6 +184,7 @@ public class ConfigureRuleMediatorResultsDialog extends TitleAreaDialog {
 		cmdResultRemove = new Button(container, SWT.NONE);
 		cmdResultRemove.setBounds(526, 45, 86, 29);
 		cmdResultRemove.setText("Remove");
+		cmdResultRemove.setEnabled(false);
 		cmdResultRemove.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
