@@ -30,13 +30,13 @@ public class EsbPropertySource extends PropertySource {
 			return new CustomPropertyDescriptor(object,itemPropertyDescriptor);
 		} else if (pkg.getEnrichMediator_TargetXpath().equals(feature)) {
 			return new CustomPropertyDescriptor(object,itemPropertyDescriptor);
-		} else if (pkg.getFilterMediator_Xpath().equals(feature)) {
+		} /*else if (pkg.getFilterMediator_Xpath().equals(feature)) {
 			return new FilterXPathPropertyDescriptor(object,
 					itemPropertyDescriptor);
-		} else if (pkg.getFilterMediator_Source().equals(feature)) {
+		}*//* else if (pkg.getFilterMediator_Source().equals(feature)) {
 			return new FilterSourcePropertyDescriptor(object,
 					itemPropertyDescriptor);
-		} else if (pkg.getXSLTMediator_Properties().equals(feature)) {
+		}*/ else if (pkg.getXSLTMediator_Properties().equals(feature)) {
 			return new XSLTPropertiesPropertyDescriptor(object,
 					itemPropertyDescriptor);
 		} else if (pkg.getXSLTMediator_Resources().equals(feature)) {
@@ -134,8 +134,12 @@ public class EsbPropertySource extends PropertySource {
 		}else if(pkg.getRuleMediator_RuleSetProperties().equals(feature)){
 			return new RuleMediatorRuleSetPropertyDescriptor(object,itemPropertyDescriptor);
 		} else if (pkg.getStoreMediator_OnStoreSequence().equals(feature)) {
-				return new CustomPropertyDescriptor(object,itemPropertyDescriptor);
-				
+			return new CustomPropertyDescriptor(object,itemPropertyDescriptor);
+		} else if(pkg.getFilterMediator_Xpath().equals(feature)){
+		    return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
+		} else if(pkg.getFilterMediator_Source().equals(feature)){
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
+			
 			//CallTemplate Mediator Template parameter custom property descriptor.
 		} else if(pkg.getCallTemplateMediator_TemplateParameters().equals(feature)){
 			return new CallTemplateParamCustomPropertyDescriptor(object, itemPropertyDescriptor);
