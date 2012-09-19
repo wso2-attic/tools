@@ -1,6 +1,8 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence;
 
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.mediators.ListMediator;
@@ -19,7 +21,7 @@ public class SendMediatorTransformer extends AbstractEsbNodeTransformer {
 			throws Exception {		
 		information.getParentSequence().addChild(createSendMediator(subject));
 		
-		TransformationInfo tmpInformation=new TransformationInfo();
+		TransformationInfo tmpInformation = new TransformationInfo();
 		tmpInformation.setParentSequence(information.getParentSequence());
 		tmpInformation.setTraversalDirection(information.getTraversalDirection());
 		tmpInformation.setOriginInSequence(information.getOriginInSequence());
@@ -54,21 +56,55 @@ public class SendMediatorTransformer extends AbstractEsbNodeTransformer {
 		Assert.isTrue(subject instanceof SendMediator, "Invalid subject.");
 		SendMediator visualSend = (SendMediator) subject;
 
-		// Configure property mediator.
+		// Configure send mediator.
 		org.apache.synapse.mediators.builtin.SendMediator sendMediator = new org.apache.synapse.mediators.builtin.SendMediator();
-		{			
-			if(visualSend.getReceivingSequenceType().getLiteral().equals("Static")){
-			Value receivingSequence = new Value(visualSend.getStaticReceivingSequence().getKeyValue());
-			sendMediator.setReceivingSequence(receivingSequence);
-			}			
-			if(visualSend.getReceivingSequenceType().getLiteral().equals("Dynamic")){
-			SynapseXPath expression=new SynapseXPath(visualSend.getDynamicReceivingSequence().getPropertyValue());	
-			Value receivingSequence = new Value(expression);
-			sendMediator.setReceivingSequence(receivingSequence);
-			}		
-		
+		{
+			if (visualSend.getReceivingSequenceType().getLiteral()
+					.equals("Static")) {
+
+				if (visualSend.getStaticReceivingSequence() != null
+						&& visualSend.getStaticReceivingSequence()
+								.getKeyValue() != null) {
+
+					Value receivingSequence = new Value(visualSend
+							.getStaticReceivingSequence().getKeyValue());
+					sendMediator.setReceivingSequence(receivingSequence);
+				}
+
+			}
+
+			if (visualSend.getReceivingSequenceType().getLiteral()
+					.equals("Dynamic")) {
+
+				if (visualSend.getDynamicReceivingSequence() != null
+						&& visualSend.getDynamicReceivingSequence()
+								.getPropertyValue() != null) {
+
+					SynapseXPath expression = new SynapseXPath(visualSend
+							.getDynamicReceivingSequence().getPropertyValue());
+
+					if (visualSend.getDynamicReceivingSequence()
+							.getNamespaces() != null) {
+
+						Map<String, String> map = visualSend
+								.getDynamicReceivingSequence().getNamespaces();
+						Iterator<Map.Entry<String, String>> entries = map
+								.entrySet().iterator();
+
+						while (entries.hasNext()) {
+							Map.Entry<String, String> entry = entries.next();
+							expression.addNamespace(entry.getKey(),
+									entry.getValue());
+						}
+
+						Value receivingSequence = new Value(expression);
+						sendMediator.setReceivingSequence(receivingSequence);
+					}
+				}
+
+			}
+			return sendMediator;
 		}
-		return sendMediator;
 	}
 
 }

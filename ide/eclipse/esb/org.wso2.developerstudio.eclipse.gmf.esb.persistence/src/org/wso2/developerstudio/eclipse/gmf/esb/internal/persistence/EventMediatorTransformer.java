@@ -28,13 +28,11 @@ public class EventMediatorTransformer extends AbstractEsbNodeTransformer {
 
 	public void createSynapseObject(TransformationInfo info, EObject subject,
 			List<Endpoint> endPoints) {
-		// TODO Auto-generated method stub
 
 	}
 
 	public void transformWithinSequence(TransformationInfo information,
 			EsbNode subject, SequenceMediator sequence) throws Exception {
-		// TODO Auto-generated method stub
 		sequence.addChild(createEventMediator(information, subject));
 		doTransformWithinSequence(information, ((EventMediator) subject)
 				.getOutputConnector().getOutgoingLink(), sequence);
