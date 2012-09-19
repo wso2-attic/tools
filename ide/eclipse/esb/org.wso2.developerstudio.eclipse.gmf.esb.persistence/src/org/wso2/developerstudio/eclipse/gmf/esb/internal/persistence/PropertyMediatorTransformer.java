@@ -17,6 +17,8 @@ package org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.regex.Pattern;
+import java.util.regex.PatternSyntaxException;
 
 import org.apache.synapse.SynapseArtifact;
 import org.apache.synapse.config.xml.XMLConfigConstants;
@@ -25,11 +27,14 @@ import org.apache.synapse.mediators.base.SequenceMediator;
 import org.apache.synapse.util.xpath.SynapseXPath;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EObject;
+import org.wso2.developerstudio.eclipse.esb.core.Activator;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.PropertyAction;
 import org.wso2.developerstudio.eclipse.gmf.esb.PropertyMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.EsbNodeTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 
 /**
  * {@link EsbNodeTransformer} responsible for transforming
@@ -37,6 +42,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
  * corresponding synapse artifact(s).
  */
 public class PropertyMediatorTransformer extends AbstractEsbNodeTransformer {
+	
+	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
 	/**
 	 * {@inheritDoc}
 	 */
@@ -163,6 +170,20 @@ public class PropertyMediatorTransformer extends AbstractEsbNodeTransformer {
 				propMediator.setScope(XMLConfigConstants.SCOPE_TRANSPORT);
 				break;
 			}
+			
+			if (visualProp.getValueStringPattern() != null && !visualProp.getValueStringPattern().equals("")) {
+				try {
+
+					Pattern pattern = Pattern.compile(visualProp
+							.getValueStringPattern());
+					propMediator.setPattern(pattern);
+				} catch (PatternSyntaxException e) {
+
+					log.error(e);
+				}
+			}
+			
+			propMediator.setGroup(visualProp.getValueStringCapturingGroup());
 
 		}
 		return propMediator;
