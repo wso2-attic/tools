@@ -86,7 +86,7 @@ public class AggregateMediatorItemProvider
 	 * This adds a property descriptor for the Aggregate ID feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addAggregateIDPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
@@ -100,7 +100,7 @@ public class AggregateMediatorItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 "Basic",
 				 null));
 	}
 	
@@ -117,7 +117,7 @@ public class AggregateMediatorItemProvider
 				 false,
 				 false,
 				 null,
-				 null,
+				 "Basic",
 				 null));
 	}
 
@@ -125,7 +125,7 @@ public class AggregateMediatorItemProvider
 	 * This adds a property descriptor for the Completion Timeout feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addCompletionTimeoutPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
@@ -139,7 +139,7 @@ public class AggregateMediatorItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
+				 "Basic",
 				 null));
 	}
 
@@ -147,7 +147,7 @@ public class AggregateMediatorItemProvider
 	 * This adds a property descriptor for the Completion Min Messages feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addCompletionMinMessagesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
@@ -161,7 +161,7 @@ public class AggregateMediatorItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
+				 "Basic",
 				 null));
 	}
 
@@ -169,7 +169,7 @@ public class AggregateMediatorItemProvider
 	 * This adds a property descriptor for the Completion Max Messages feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addCompletionMaxMessagesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
@@ -183,7 +183,7 @@ public class AggregateMediatorItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
+				 "Basic",
 				 null));
 	}
 	
