@@ -51,16 +51,45 @@ public class FilterMediatorTransformer extends AbstractEsbNodeTransformer {
 		// Build filter mediator.
 		org.apache.synapse.mediators.filters.FilterMediator filterMediator = new org.apache.synapse.mediators.filters.FilterMediator();
 		if (visualFilter.getConditionType() == FilterConditionType.XPATH) {
-			//TODO: validate xpaths before adding
-			String xPath = visualFilter.getXpath().getPropertyValue();
-			if(xPath!=null){
-				filterMediator.setXpath(new SynapseXPath(xPath));
-			}
-		} else {
-			String source = visualFilter.getSource().getPropertyValue();
-			if(source!=null){
-				filterMediator.setSource(new SynapseXPath(source));
-			}
+			//TODO: validate xpaths before adding			
+			
+			if (visualFilter.getXpath() != null
+					&& visualFilter.getXpath().getPropertyValue() != null
+					&& !visualFilter.getXpath().getPropertyValue().equals("")) {
+
+				SynapseXPath xPath = new SynapseXPath(visualFilter.getXpath()
+						.getPropertyValue());
+
+				for (int i = 0; i < visualFilter.getXpath().getNamespaces()
+						.keySet().size(); ++i) {
+					String prefix = (String) visualFilter.getXpath()
+							.getNamespaces().keySet().toArray()[i];
+					String namespaceUri = visualFilter.getXpath()
+							.getNamespaces().get(prefix);
+					xPath.addNamespace(prefix, namespaceUri);
+				}
+				filterMediator.setXpath(xPath);
+			}		
+			
+		} else {			
+			if (visualFilter.getSource() != null
+					&& visualFilter.getSource().getPropertyValue() != null
+					&& !visualFilter.getSource().getPropertyValue().equals("")) {
+
+				SynapseXPath source = new SynapseXPath(visualFilter.getSource()
+						.getPropertyValue());
+
+				for (int i = 0; i < visualFilter.getSource().getNamespaces()
+						.keySet().size(); ++i) {
+					String prefix = (String) visualFilter.getSource()
+							.getNamespaces().keySet().toArray()[i];
+					String namespaceUri = visualFilter.getSource()
+							.getNamespaces().get(prefix);
+					source.addNamespace(prefix, namespaceUri);
+				}
+				filterMediator.setSource(source);
+			}	
+			
 			filterMediator.setRegex(Pattern.compile(visualFilter.getRegex()));
 		}
 		info.getParentSequence().addChild(filterMediator);
@@ -106,15 +135,41 @@ public class FilterMediatorTransformer extends AbstractEsbNodeTransformer {
 		org.apache.synapse.mediators.filters.FilterMediator filterMediator = new org.apache.synapse.mediators.filters.FilterMediator();
 		if (visualFilter.getConditionType() == FilterConditionType.XPATH) {
 			//TODO: validate xpaths before adding
-			String xPath = visualFilter.getXpath().getPropertyValue();
-			if(xPath!=null){
-				filterMediator.setXpath(new SynapseXPath(xPath));
+			if (visualFilter.getXpath() != null
+					&& visualFilter.getXpath().getPropertyValue() != null
+					&& !visualFilter.getXpath().getPropertyValue().equals("")) {
+
+				SynapseXPath xPath = new SynapseXPath(visualFilter.getXpath()
+						.getPropertyValue());
+
+				for (int i = 0; i < visualFilter.getXpath().getNamespaces()
+						.keySet().size(); ++i) {
+					String prefix = (String) visualFilter.getXpath()
+							.getNamespaces().keySet().toArray()[i];
+					String namespaceUri = visualFilter.getXpath()
+							.getNamespaces().get(prefix);
+					xPath.addNamespace(prefix, namespaceUri);
+				}
+				filterMediator.setXpath(xPath);
 			}
-		} else {
-			String source = visualFilter.getSource().getPropertyValue();
-			if(source!=null){
-				filterMediator.setSource(new SynapseXPath(source));
-			}
+		} else {			
+			if (visualFilter.getSource() != null
+					&& visualFilter.getSource().getPropertyValue() != null
+					&& !visualFilter.getSource().getPropertyValue().equals("")) {
+
+				SynapseXPath source = new SynapseXPath(visualFilter.getSource()
+						.getPropertyValue());
+
+				for (int i = 0; i < visualFilter.getSource().getNamespaces()
+						.keySet().size(); ++i) {
+					String prefix = (String) visualFilter.getSource()
+							.getNamespaces().keySet().toArray()[i];
+					String namespaceUri = visualFilter.getSource()
+							.getNamespaces().get(prefix);
+					source.addNamespace(prefix, namespaceUri);
+				}
+				filterMediator.setSource(source);
+			}			
 			filterMediator.setRegex(Pattern.compile(visualFilter.getRegex()));
 		}
 		sequence.addChild(filterMediator);
