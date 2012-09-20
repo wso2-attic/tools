@@ -1,5 +1,7 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.part;
 
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.util.URI;
@@ -7,6 +9,7 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.osgi.util.NLS;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
+import org.wso2.developerstudio.eclipse.platform.core.utils.Constants;
 
 /**
  * @generated
@@ -69,19 +72,27 @@ public class EsbCreationWizardPage extends WizardNewFileCreationPage {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected boolean validatePage() {
 		if (!super.validatePage()) {
 			return false;
-		}
-		String extension = getExtension();
-		if (extension != null
-				&& !getFilePath().toString().endsWith("." + extension)) {
-			setErrorMessage(NLS.bind(
-					Messages.EsbCreationWizardPageExtensionError, extension));
+		};
+		if (!validateProjectNature()) {
+			setErrorMessage("Please select a ESB Config project");
 			return false;
-		}
+		};
 		return true;
+	}
+	
+	protected boolean validateProjectNature() {
+		try {
+			IProject project = ResourcesPlugin.getWorkspace().getRoot()
+					.getProject(getContainerFullPath().segment(0));
+			return project.hasNature(Constants.ESB_PROJECT_NATURE);
+		} catch (Exception e) {
+			// ignore
+		}
+		return false;
 	}
 }

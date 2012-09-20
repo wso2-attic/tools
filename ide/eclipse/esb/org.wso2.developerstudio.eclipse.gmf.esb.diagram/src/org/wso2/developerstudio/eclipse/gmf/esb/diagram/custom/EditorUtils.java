@@ -20,6 +20,9 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 
 public class EditorUtils {
 	
+	public static final String DIAGRAM_FILE_EXTENSION = ".esb_diagram";
+	public static final String DOMAIN_FILE_EXTENSION = ".esb";
+	
 	public static AbstractInputConnectorEditPart getInputConnector(ShapeNodeEditPart parent){
 		for(int i=0;i<parent.getChildren().size();++i){					
 			if(parent.getChildren().get(i) instanceof AbstractInputConnectorEditPart){
