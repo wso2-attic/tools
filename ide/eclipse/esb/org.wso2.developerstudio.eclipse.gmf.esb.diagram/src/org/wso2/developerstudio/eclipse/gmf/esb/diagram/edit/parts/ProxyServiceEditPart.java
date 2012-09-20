@@ -2,6 +2,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
 
 import java.beans.PropertyChangeListener;
 
+import org.eclipse.draw2d.FigureCanvas;
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.GridData;
 import org.eclipse.draw2d.IFigure;
@@ -147,6 +148,8 @@ public class ProxyServiceEditPart extends AbstractBorderedShapeEditPart {
 				alignLeft(((BoundsImpl) notification.getNotifier()).getY(),
 						((BoundsImpl) notification.getNotifier()).getWidth(),
 						((BoundsImpl) notification.getNotifier()).getHeight());
+				 FigureCanvas canvas = (FigureCanvas) getViewer().getControl();
+				 canvas.getViewport().repaint();
 			}
 		}
 	}
