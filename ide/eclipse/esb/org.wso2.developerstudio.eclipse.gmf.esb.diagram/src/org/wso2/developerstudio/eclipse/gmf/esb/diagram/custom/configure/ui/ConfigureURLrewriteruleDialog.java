@@ -206,7 +206,7 @@ public class ConfigureURLrewriteruleDialog extends Dialog {
 				   TableItem item = tableRules.getItem(tableRules.getSelectionIndex());
 				   UrlRewriteRulesWrapper wraprule =  (UrlRewriteRulesWrapper) item.getData();
 				   UrlActionWrapper urlActionWrapper = new UrlActionWrapper();
-				   createActionContorls(urlActionWrapper,newshell,true);
+				   bindActionTotable(new TableItem(tableActions, SWT.NONE),urlActionWrapper,true);
 				   wraprule.getActions().add(urlActionWrapper);
 		     }
 		});
@@ -282,17 +282,19 @@ public class ConfigureURLrewriteruleDialog extends Dialog {
 		            txtRuleEditor.setText(wraprule.getCondition().getEvaluatorValue());
 		            List<UrlActionWrapper> actions = wraprule.getActions();
 		            for (UrlActionWrapper urlActionWrapper : actions) {
-		                createActionContorls(urlActionWrapper, newshell, false);
+		            	bindActionTotable(new TableItem(tableActions, SWT.NONE), urlActionWrapper, false);
+		               // createActionContorls(urlActionWrapper, newshell, false);
 					}
 		        }	
 		});
+		
 		
 		 tableActions.addSelectionListener(new SelectionAdapter() {
 				@Override
 				public void widgetSelected(SelectionEvent e) {
 					if (null != e.item) {
 						if (e.item instanceof TableItem) {
-						  
+							createActionContorls((TableItem) e.item,newshell);
 						}
 					} else{
  
@@ -370,43 +372,61 @@ public class ConfigureURLrewriteruleDialog extends Dialog {
 	}
 	
 	
-   private void createActionContorls(final UrlActionWrapper action,final Shell newshell,final boolean newAction){
+	public void bindActionTotable(TableItem item,UrlActionWrapper action,boolean newAction){
+		item.setData(action);
+		if(newAction){
+		   URLRewriteRuleAction ruleAction = EsbFactory.eINSTANCE.createURLRewriteRuleAction();
+		   action.setUrlRewriteRuleAction(ruleAction);
+		   action.setAction(0);
+		   action.setFragment(0);
+		   action.setOption(0);
+		   action.setValue("");
+		   action.setRegex("");
+		}
+		item.setText(0,RuleActionType.get(action.getAction()).getLiteral());
+		item.setText(1,RuleFragmentType.get(action.getFragment()).getLiteral());
+		item.setText(2,RuleOptionType.get(action.getOption()).getLiteral());
+		String val = action.getValue();
+		if(action.getOption()==1){
+	     item.setText(3,action.getNsproperty().getPropertyValue());	
+		}else{
+		 item.setText(3,action.getValue());	
+		}
+		item.setText(5,action.getRegex());	
+	}
+	
+	
+   private void createActionContorls(final TableItem item,final Shell newshell){
 		
-	      if(newAction){
-	        URLRewriteRuleAction ruleAction = EsbFactory.eINSTANCE.createURLRewriteRuleAction();
-	        action.setUrlRewriteRuleAction(ruleAction);
-	      }
-
-	      final TableItem item = new TableItem(tableActions, SWT.NONE);
-	      item.setText(RuleActionType.get(action.getAction()).getLiteral());
-
-		  TableEditor editor = new TableEditor(tableActions);
-	      editor.grabHorizontal = true;
-	      final Combo  comboAction = createCombo(new String[]{"Replace","Remove","Append","Prepend","Set"});
-	      editor.setEditor(comboAction, item, 0);
-	      if(newAction){
-	    	  comboAction.select(0);
-	      }else{
-	    	 comboAction.select(action.getAction());
-	    	  //item.setText(RuleActionType.get(action.getAction()).getLiteral());
-	      }
-	     
+	    final UrlActionWrapper action =(UrlActionWrapper)item.getData();
+	   	actionEditor = new TableEditor(tableActions);
+	   	actionEditor.grabHorizontal = true;
+		final Combo comboAction = createCombo(new String[] {
+				RuleActionType.get(0).getLiteral(),
+				RuleActionType.get(1).getLiteral(),
+				RuleActionType.get(2).getLiteral(),
+				RuleActionType.get(3).getLiteral(),
+				RuleActionType.get(4).getLiteral() });
+		actionEditor.setEditor(comboAction, item, 0);
+		 
 	      comboAction.addSelectionListener(new SelectionAdapter() {
 	          public void widgetSelected(SelectionEvent e) {
 	            item.setText(0, comboAction.getText());
 	            action.setAction(comboAction.getSelectionIndex());
 	            }
 	        }); 
-	    //  final TableItem item = new TableItem(tableActions, SWT.NONE);
-	       fragmentEditor = new TableEditor(tableActions);
-	       fragmentEditor.grabHorizontal = true;
-	      final Combo   comboFragment = createCombo(new String[]{"protocol","host","port","path","query","ref","user","full"});
+	      fragmentEditor = new TableEditor(tableActions);
+	      fragmentEditor.grabHorizontal = true;
+		  final Combo comboFragment = createCombo(new String[] {
+				RuleFragmentType.get(0).getLiteral(),
+				RuleFragmentType.get(1).getLiteral(),
+				RuleFragmentType.get(2).getLiteral(),
+				RuleFragmentType.get(3).getLiteral(),
+				RuleFragmentType.get(4).getLiteral(),
+				RuleFragmentType.get(5).getLiteral(),
+				RuleFragmentType.get(6).getLiteral(),
+				RuleFragmentType.get(7).getLiteral() });
 	      fragmentEditor.setEditor(comboFragment, item, 1);
-	      if(newAction){
-	    	  comboFragment.select(0);
-		   }else{
-			   comboFragment.select(action.getFragment());
-		   }
 	      comboFragment.addSelectionListener(new SelectionAdapter() {
 	          public void widgetSelected(SelectionEvent e) {
 	            item.setText(1, comboFragment.getText());
@@ -414,55 +434,42 @@ public class ConfigureURLrewriteruleDialog extends Dialog {
 	            }
 	        });
 	      
+	    
 	      optionEditor = new TableEditor(tableActions);
 	      optionEditor.grabHorizontal = true;
-	      final Combo  comboOption = createCombo(new String[]{"value","Expression"});
+	      final Combo comboOption = createCombo(new String[] {
+				RuleOptionType.get(0).getLiteral(),
+				RuleOptionType.get(1).getLiteral() });
 	      optionEditor.setEditor(comboOption, item, 2);
-	      if(newAction){
-	    	  comboOption.select(0);
-		   }else{
-			   comboOption.select(action.getOption());
-		    }
-	      comboOption.addSelectionListener(new SelectionAdapter() {
-	          public void widgetSelected(SelectionEvent e) {
-	            item.setText(2, comboOption.getText());
-	            action.setOption(comboOption.getSelectionIndex());
-	            }
-	        });
+	      comboOption.select(action.getOption());
 	      
 	      valueEditor = new TableEditor(tableActions);
-	      final Text text;
-	      if("value".equals(comboOption.getText())){
-           text = new Text(tableActions, SWT.NONE);  
-           if(!newAction){
-        	   text.setText(action.getValue());
-           }
+	      final Text text = new Text(tableActions, SWT.NONE);  ;
+	      if(action.getOption()==0){
+	       text.setText(action.getValue());
            text.addModifyListener(new ModifyListener() {
-
 			public void modifyText(ModifyEvent arg0) {
 				action.setValue(text.getText());
 		        item.setText(3, text.getText());
 			}
 		});
 	      }else{
-	       text = new Text(tableActions, SWT.READ_ONLY);
-	       if(!newAction){
+	      
+	       if(null!=action.getNsproperty()){
 	    	 text.setText(action.getNsproperty().getPropertyValue());
+	    	 text.setEditable(false);
 	        }
 	      }
-	      
 	      valueEditor.grabHorizontal = true;
 	      valueEditor.setEditor(text, item, 3);
-	      valueEditor.horizontalAlignment = SWT.LEFT;
-	      
+	      valueEditor.horizontalAlignment = SWT.LEFT;     
 	      valueEditorbtn = new TableEditor(tableActions);
-	      Button button = new Button(tableActions, SWT.PUSH);
-	      if("value".equals(comboOption.getText())){
-	         button.setEnabled(false);
-		   } 			      
-	      button.setText("ns editor");
-	      button.pack();
-	      button.addSelectionListener(new SelectionAdapter() {
+	      
+	      final Button btnNS = new Button(tableActions, SWT.PUSH);
+	      btnNS.setEnabled(false);
+	      btnNS.setText("ns editor");
+	      btnNS.pack();
+	      btnNS.addSelectionListener(new SelectionAdapter() {
 	     public void widgetSelected(SelectionEvent e) {  
 	    	 NamespacedProperty namespacedProperty=action.getNsproperty();
 	    	 if(namespacedProperty==null){
@@ -477,32 +484,41 @@ public class ConfigureURLrewriteruleDialog extends Dialog {
 	     	  }
 		   });
 
-	      valueEditorbtn.minimumWidth = button.getSize().x;
+	      valueEditorbtn.minimumWidth = btnNS.getSize().x;
 	      valueEditorbtn.horizontalAlignment = SWT.LEFT;
-	      valueEditorbtn.setEditor(button, item, 4);
+	      valueEditorbtn.setEditor(btnNS, item, 4);
+	      if(action.getOption()==1){
+	    	  btnNS.setEnabled(true);
+	      }
+	      
+	      comboOption.addSelectionListener(new SelectionAdapter() {
+	          public void widgetSelected(SelectionEvent e) {
+	            item.setText(2, comboOption.getText());
+	            action.setOption(comboOption.getSelectionIndex());
+	             if(comboOption.getSelectionIndex()==0){
+	            	 btnNS.setEnabled(false);
+	             }else{
+	            	 btnNS.setEnabled(true);
+	             	}
+	     		 
+	            }
+	        });
 
 	      regEditor = new TableEditor(tableActions);
 	      final Text text2 = new Text(tableActions, SWT.NONE);
-	      if(!newAction){
-	    	  text2.setText(action.getRegex());
-	      }
 	      text2.addModifyListener(new ModifyListener() {
-			
-		 
 			public void modifyText(ModifyEvent arg0) {
 				item.setText(5, text2.getText());
 		        action.setRegex(text2.getText());
 			}
 		 });
-      
 	      regEditor.grabHorizontal = true;
 	      regEditor.setEditor(text2, item, 5);
 	      tableActions.redraw();
-	      //item.setData(action);
 	}
 	
 	private Combo createCombo(String[] values) {
-		Combo combo = new Combo(tableActions, SWT.NONE);
+		Combo combo = new Combo(tableActions, SWT.READ_ONLY);
 		int i=0;
 		for (String value : values) {
 			combo.add(value,i);
