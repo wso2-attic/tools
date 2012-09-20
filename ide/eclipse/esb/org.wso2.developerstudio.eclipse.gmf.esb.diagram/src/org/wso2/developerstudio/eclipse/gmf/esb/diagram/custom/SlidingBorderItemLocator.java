@@ -87,7 +87,8 @@ public class SlidingBorderItemLocator extends BorderItemLocator {
 			y += parentFigureHeight / 2 - borderItemSize.height / 2;
 		} else if (side == PositionConstants.EAST) {
 			x = parentFigureX + parentFigureWidth - getBorderItemOffset().width;
-			y += parentFigureHeight / 2 - borderItemSize.height / 2;
+			y = borderItem.getBounds().getLocation().y;
+			//y += parentFigureHeight / 2 - borderItemSize.height / 2;
 		} else if (side == PositionConstants.NORTH) {
 			x += parentFigureWidth / 2 - borderItemSize.width / 2;
 			y = parentFigureY - borderItemSize.height + getBorderItemOffset().height;
@@ -96,6 +97,7 @@ public class SlidingBorderItemLocator extends BorderItemLocator {
 			y = parentFigureY + parentFigureHeight - getBorderItemOffset().height;
 		}
 		return new Point(x, y);
+		
 	}
 
 	/**
