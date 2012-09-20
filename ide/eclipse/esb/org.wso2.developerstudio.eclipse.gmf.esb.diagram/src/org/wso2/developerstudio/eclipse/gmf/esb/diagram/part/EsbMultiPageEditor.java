@@ -35,6 +35,9 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.query.statements.FROM;
+import org.eclipse.gef.EditPart;
+import org.eclipse.gmf.runtime.notation.impl.DecorationNodeImpl;
+import org.eclipse.gmf.runtime.notation.impl.NodeImpl;
 import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
@@ -62,6 +65,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.ProxyService;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.SequenceDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequences;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbLinkEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.SequenceInfo;
 
 
@@ -449,20 +454,25 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 
 		}
 		
-		List<EsbElement> childNodes = new ArrayList<EsbElement>();
-		List<EsbElement> rootChildNodes = ((EsbDiagram) graphicalEditor
-				.getDiagram().getElement()).getServer().getChildren();
-		for(int i=0;i<rootChildNodes.size();++i){
-			if(rootChildNodes.get(i) instanceof ProxyService){
-				childNodes.addAll(((ProxyService)rootChildNodes.get(i)).getContainer().getSequenceAndEndpointContainer().getMediatorFlow().getChildren());
-				childNodes.addAll(((ProxyService)rootChildNodes.get(i)).getContainer().getSequenceAndEndpointContainer().getMediatorFlow().getChildren());
-				
-				childNodes.addAll(((ProxyService)rootChildNodes.get(i)).getContainer().getFaultContainer().getMediatorFlow().getChildren());
+		List<Sequence> childNodes = new ArrayList<Sequence>();		
+		
+		for (int i = 0; i < graphicalEditor.getDiagramEditPart().getViewer()
+				.getEditPartRegistry().size(); ++i) {
+
+			EditPart element = (EditPart) graphicalEditor.getDiagramEditPart()
+					.getViewer().getEditPartRegistry().values().toArray()[i];
+			if (element instanceof SequenceEditPart) {
+				if (((NodeImpl) ((SequenceEditPart) element).getModel())
+						.getElement() instanceof Sequence) {
+					childNodes
+							.add((Sequence) ((NodeImpl) ((SequenceEditPart) element)
+									.getModel()).getElement());
+				}
 			}
 		}		
-		for (EsbElement childNode : childNodes) {
-			if (childNode instanceof Sequence) {
-				String name = ((Sequence) childNode).getName();
+		
+		for (Sequence childNode : childNodes) {
+				String name = childNode.getName();
 				IPath location = new Path("platform:/resource/"
 						+ activeProject.getName() + "/" + "sequence_"
 						+ name + ".esb_diagram");
@@ -498,8 +508,6 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 //						SequenceInfo.sequenceMap.put(name, incomingLink);
 //					}
 				}
-			}
-
 		}
     }
 
