@@ -167,8 +167,7 @@ public class EsbCreationWizard extends Wizard implements INewWizard {
 			esbProjectArtifact.fromFile(esbProject.getFile("artifact.xml")
 					.getLocation().toFile());
 
-			IContainer location = esbProject.getFolder("src" + File.separator
-					+ "main" + File.separator + "synapse-config");
+			IContainer location = esbProject.getFolder("src/main/synapse-config");
 
 			fileCreationLocationDiagram = URI.createPlatformResourceURI(
 					location.getFullPath().toString() + "/"
@@ -179,7 +178,7 @@ public class EsbCreationWizard extends Wizard implements INewWizard {
 
 			String relativePathDiagram = FileUtils.getRelativePath(esbProject
 					.getLocation().toFile(), new File(location.getLocation()
-					.toFile(), diagramModelFilePage.getFileName()));
+					.toFile(), diagramModelFilePage.getFileName()+ DIAGRAM_FILE_EXTENSION));
 			esbProjectArtifact
 					.addESBArtifact(createArtifact(diagramModelFilePage
 							.getFileName(), "test",

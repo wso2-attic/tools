@@ -15,6 +15,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.AddressEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndpointFlow;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.MediatorFlow;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartmentEditPart;
 
 /**
  * @generated
@@ -45,7 +46,14 @@ public class AddressEndPointCreateCommand extends EditElementCommand {
 	 * @generated
 	 */
 	public boolean canExecute() {
-		return true;
+		//EObject owner = getElementToEdit();
+		
+		//if(owner instanceof MediatorFlowMediatorFlowCompartmentEditPart){
+	
+			return true;
+		//}
+		//System.out.println("owner" + owner);
+		//return false;
 
 	}
 

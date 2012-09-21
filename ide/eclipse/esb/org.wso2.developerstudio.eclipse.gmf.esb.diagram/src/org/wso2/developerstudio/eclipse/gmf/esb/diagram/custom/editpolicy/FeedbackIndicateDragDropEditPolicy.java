@@ -18,6 +18,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.editpolicy;
 
 import java.awt.MouseInfo;
 import java.awt.Point;
+import java.util.List;
 
 import org.eclipse.draw2d.FigureCanvas;
 import org.eclipse.draw2d.IFigure;
@@ -25,12 +26,16 @@ import org.eclipse.draw2d.ImageFigure;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
+import org.eclipse.gef.commands.UnexecutableCommand;
 import org.eclipse.gef.requests.ChangeBoundsRequest;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeCompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateUnspecifiedTypeRequest;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Control;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment5EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartmentEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 import org.wso2.developerstudio.eclipse.platform.core.utils.SWTResourceManager;
 
 /**
@@ -126,6 +131,31 @@ public class FeedbackIndicateDragDropEditPolicy extends DragDropEditPolicy {
 		org.eclipse.swt.graphics.Point p = canvas.toDisplay(0, 0);
 		feedbackFigure.setBounds(new Rectangle((x - p.x) + horizontal, (y - p.y) + vertical,
 				feedbackImage.getBounds().width, feedbackImage.getBounds().height));
+	}
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	public Command getCommand(Request request) {
+
+		if (request instanceof CreateUnspecifiedTypeRequest) {
+			/*
+			 * Allowing endpoints only in proxy-service sequence & endpoints
+			 * compartment
+			 */
+			if (!(getHost() instanceof MediatorFlowMediatorFlowCompartmentEditPart || getHost() instanceof MediatorFlowMediatorFlowCompartment5EditPart)) {
+				List elementTypes = ((CreateUnspecifiedTypeRequest) request).getElementTypes();
+				if (elementTypes.size() == 1) {
+					Object object = elementTypes.get(0);
+					if (object == EsbElementTypes.AddressEndPoint_3610
+							|| object == EsbElementTypes.DefaultEndPoint_3609
+							|| object == EsbElementTypes.WSDLEndPoint_3612) {
+						return UnexecutableCommand.INSTANCE;
+					}
+				}
+			}
+		}
+		return super.getCommand(request);
 	}
 
 }
