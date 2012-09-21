@@ -137,7 +137,7 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
      */
     void createPage0() {
         try {
-            graphicalEditor = new EsbDiagramEditor();
+            graphicalEditor = new EsbDiagramEditor(this);
             addPage(DESIGN_VIEW_PAGE_INDEX, graphicalEditor, getEditorInput());
             setPageText(DESIGN_VIEW_PAGE_INDEX, "Design"); //$NON-NLS-1$
         } catch (PartInitException e) {

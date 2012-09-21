@@ -53,6 +53,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbNavigatorIt
 public class EsbDiagramEditor extends DiagramDocumentEditor implements
 		IGotoMarker {
 
+	private EsbMultiPageEditor esbEditor;
 	/**
 	 * @generated
 	 */
@@ -66,8 +67,9 @@ public class EsbDiagramEditor extends DiagramDocumentEditor implements
 	/**
 	 * @generated
 	 */
-	public EsbDiagramEditor() {
+	public EsbDiagramEditor(EsbMultiPageEditor esbEditor) {
 		super(true);
+		this.esbEditor = esbEditor;
 	}
 
 	/**
@@ -297,6 +299,10 @@ public class EsbDiagramEditor extends DiagramDocumentEditor implements
 				this, viewer).setParent(getKeyHandler());
 		viewer.setKeyHandler(new DirectEditKeyHandler(viewer)
 				.setParent(viewerKeyHandler));
+		
+		//This enables the property view to be informed of selection changes in our graphical view, 
+		//when our view is the active workbench part.
+		esbEditor.getSite().setSelectionProvider(viewer);
 
 		DiagramEditorContextMenuProvider provider = new DiagramEditorContextMenuProvider(
 				this, getDiagramGraphicalViewer());
