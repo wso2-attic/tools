@@ -40,7 +40,7 @@ public enum RuleFragmentType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	HOST(1, "HOST", "host"),
+	HOST(2, "HOST", "host"),
 
 	/**
 	 * The '<em><b>PORT</b></em>' literal object.
@@ -50,7 +50,7 @@ public enum RuleFragmentType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PORT(2, "PORT", "port"),
+	PORT(6, "PORT", "port"),
 
 	/**
 	 * The '<em><b>PATH</b></em>' literal object.
@@ -90,7 +90,7 @@ public enum RuleFragmentType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	USER(6, "USER", "user"),
+	USER(1, "USER", "user"),
 
 	/**
 	 * The '<em><b>FULL</b></em>' literal object.
@@ -130,7 +130,7 @@ public enum RuleFragmentType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int HOST_VALUE = 1;
+	public static final int HOST_VALUE = 2;
 
 	/**
 	 * The '<em><b>PORT</b></em>' literal value.
@@ -145,7 +145,7 @@ public enum RuleFragmentType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int PORT_VALUE = 2;
+	public static final int PORT_VALUE = 6;
 
 	/**
 	 * The '<em><b>PATH</b></em>' literal value.
@@ -205,7 +205,7 @@ public enum RuleFragmentType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int USER_VALUE = 6;
+	public static final int USER_VALUE = 1;
 
 	/**
 	 * The '<em><b>FULL</b></em>' literal value.

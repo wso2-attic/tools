@@ -106,7 +106,7 @@ public class ConfigureURLrewriteruleDialog extends Dialog {
 			    UrlRewriteRulesWrapper wraprule =  (UrlRewriteRulesWrapper) item.getData();
 			    wraprule.setCondition(property);
 				}
-				}
+			  }
 			}
 		});
 		//txtRuleEditor.setText("");
@@ -222,10 +222,11 @@ public class ConfigureURLrewriteruleDialog extends Dialog {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				int[] selectionIndices = tableActions.getSelectionIndices();
+			    int selectedIndex = tableActions.getSelectionIndex();
+			    unbindAction(tableActions.getItem(selectedIndex));
 				tableActions.remove(selectionIndices);
 			    updateSelection();
 			    tableActions.redraw();
-		           int selectedIndex = tableActions.getSelectionIndex();
 					if (-1 != selectedIndex) {
 						if (selectedIndex < tableActions.getItemCount()) {
 							tableActions.select(selectedIndex);
@@ -283,12 +284,9 @@ public class ConfigureURLrewriteruleDialog extends Dialog {
 		            List<UrlActionWrapper> actions = wraprule.getActions();
 		            for (UrlActionWrapper urlActionWrapper : actions) {
 		            	bindActionTotable(new TableItem(tableActions, SWT.NONE), urlActionWrapper, false);
-		               // createActionContorls(urlActionWrapper, newshell, false);
 					}
 		        }	
 		});
-		
-		
 		 tableActions.addSelectionListener(new SelectionAdapter() {
 				@Override
 				public void widgetSelected(SelectionEvent e) {
@@ -301,9 +299,7 @@ public class ConfigureURLrewriteruleDialog extends Dialog {
 					}
 				}
 			});
-		
-		
-		
+
 		EList<URLRewriteRule> urlRewriteRules = urlMediator.getUrlRewriteRules();
 		for (URLRewriteRule urlRewriteRule : urlRewriteRules) {
 			
@@ -396,9 +392,26 @@ public class ConfigureURLrewriteruleDialog extends Dialog {
 	}
 	
 	
+    public void unbindAction(TableItem item){
+    	UrlActionWrapper action = (UrlActionWrapper)item.getData();
+        TableItem itemRules = tableRules.getItem(tableRules.getSelectionIndex());
+        UrlRewriteRulesWrapper rulesWrapper  = (UrlRewriteRulesWrapper)itemRules.getData();
+        List<UrlActionWrapper> actionsList = rulesWrapper.getActions();
+        int val = actionsList.indexOf(action);
+        actionsList.remove(val);
+        if(action.getUrlRewriteRuleAction().eContainer()!=null){
+          RemoveCommand removeCommand =  
+        	  new RemoveCommand(editingDomain, rulesWrapper.getUrlRule(),
+        			  EsbPackage.Literals.URL_REWRITE_RULE__REWRITE_RULE_ACTION, action.getUrlRewriteRuleAction());
+          System.out.println(removeCommand.canExecute());
+          getResultCommand().append(removeCommand);		
+        }
+    }
+	
    private void createActionContorls(final TableItem item,final Shell newshell){
 		
-	    final UrlActionWrapper action =(UrlActionWrapper)item.getData();
+	   updateSelection();
+	   final UrlActionWrapper action =(UrlActionWrapper)item.getData();
 	   	actionEditor = new TableEditor(tableActions);
 	   	actionEditor.grabHorizontal = true;
 		final Combo comboAction = createCombo(new String[] {
@@ -408,7 +421,7 @@ public class ConfigureURLrewriteruleDialog extends Dialog {
 				RuleActionType.get(3).getLiteral(),
 				RuleActionType.get(4).getLiteral() });
 		actionEditor.setEditor(comboAction, item, 0);
-		 
+		comboAction.select(action.getAction());
 	      comboAction.addSelectionListener(new SelectionAdapter() {
 	          public void widgetSelected(SelectionEvent e) {
 	            item.setText(0, comboAction.getText());
@@ -427,6 +440,7 @@ public class ConfigureURLrewriteruleDialog extends Dialog {
 				RuleFragmentType.get(6).getLiteral(),
 				RuleFragmentType.get(7).getLiteral() });
 	      fragmentEditor.setEditor(comboFragment, item, 1);
+	      comboFragment.select(action.getFragment());
 	      comboFragment.addSelectionListener(new SelectionAdapter() {
 	          public void widgetSelected(SelectionEvent e) {
 	            item.setText(1, comboFragment.getText());
@@ -500,20 +514,20 @@ public class ConfigureURLrewriteruleDialog extends Dialog {
 	             }else{
 	            	 btnNS.setEnabled(true);
 	             	}
-	     		 
 	            }
 	        });
 
 	      regEditor = new TableEditor(tableActions);
-	      final Text text2 = new Text(tableActions, SWT.NONE);
-	      text2.addModifyListener(new ModifyListener() {
+	      final Text txtreg = new Text(tableActions, SWT.NONE);
+	      txtreg.setText(action.getRegex());
+	      txtreg.addModifyListener(new ModifyListener() {
 			public void modifyText(ModifyEvent arg0) {
-				item.setText(5, text2.getText());
-		        action.setRegex(text2.getText());
+				item.setText(5, txtreg.getText());
+		        action.setRegex(txtreg.getText());
 			}
 		 });
 	      regEditor.grabHorizontal = true;
-	      regEditor.setEditor(text2, item, 5);
+	      regEditor.setEditor(txtreg, item, 5);
 	      tableActions.redraw();
 	}
 	
@@ -603,9 +617,9 @@ public class ConfigureURLrewriteruleDialog extends Dialog {
 					}
 							
 				 List<UrlActionWrapper> actions = wraprule.getActions();
-				// RemoveCommand removeCommand =  new RemoveCommand(editingDomain, rewriteRuleAction, actions);
+				  //RemoveCommand removeCommand =  new RemoveCommand(editingDomain, rewriteRuleAction, actions);
 				 //getResultCommand().append(removeCommand);	
-				// List<URLRewriteRuleAction> actionsList = new ArrayList<URLRewriteRuleAction>();
+				//List<URLRewriteRuleAction> actionsList = new ArrayList<URLRewriteRuleAction>();
 				 for (UrlActionWrapper urlActionWrapper : actions) {
 					  URLRewriteRuleAction ruleAction = urlActionWrapper.getUrlRewriteRuleAction();
 					  if(null==ruleAction.eContainer()){
@@ -670,10 +684,9 @@ public class ConfigureURLrewriteruleDialog extends Dialog {
 								EsbPackage.Literals.URL_REWRITE_RULE_ACTION__RULE_OPTION,
 								RuleOptionType.get(urlActionWrapper.getOption()));
 								getResultCommand().append(setCommand);	
- 				  }	 
-		       }
-			 }
-			
+					  	}	 
+				 	}
+			 	}
 			// Apply changes.
 			if (getResultCommand().canExecute()) {
 				editingDomain.getCommandStack().execute(getResultCommand());
@@ -719,6 +732,11 @@ class UrlRewriteRulesWrapper{
 
 class UrlActionWrapper{
 
+  private int index;
+  public UrlActionWrapper() {
+	  
+}
+	
    public NamespacedProperty getNsproperty() {
 		return nsproperty;
 	}

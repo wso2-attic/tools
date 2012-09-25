@@ -30,7 +30,7 @@ public enum RuleActionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	REPLACE(0, "REPLACE", "Replace"),
+	REPLACE(3, "REPLACE", "Replace"),
 
 	/**
 	 * The '<em><b>REMOVE</b></em>' literal object.
@@ -40,7 +40,7 @@ public enum RuleActionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	REMOVE(1, "REMOVE", "Remove"),
+	REMOVE(4, "REMOVE", "Remove"),
 
 	/**
 	 * The '<em><b>APPEND</b></em>' literal object.
@@ -50,7 +50,7 @@ public enum RuleActionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	APPEND(2, "APPEND", "Append"),
+	APPEND(1, "APPEND", "Append"),
 
 	/**
 	 * The '<em><b>PREPEND</b></em>' literal object.
@@ -60,7 +60,7 @@ public enum RuleActionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	PREPEND(3, "PREPEND", "Prepend"),
+	PREPEND(2, "PREPEND", "Prepend"),
 
 	/**
 	 * The '<em><b>SET</b></em>' literal object.
@@ -70,7 +70,7 @@ public enum RuleActionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SET(4, "SET", "Set");
+	SET(0, "SET", "Set");
 
 	/**
 	 * The '<em><b>REPLACE</b></em>' literal value.
@@ -85,7 +85,7 @@ public enum RuleActionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int REPLACE_VALUE = 0;
+	public static final int REPLACE_VALUE = 3;
 
 	/**
 	 * The '<em><b>REMOVE</b></em>' literal value.
@@ -100,7 +100,7 @@ public enum RuleActionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int REMOVE_VALUE = 1;
+	public static final int REMOVE_VALUE = 4;
 
 	/**
 	 * The '<em><b>APPEND</b></em>' literal value.
@@ -115,7 +115,7 @@ public enum RuleActionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int APPEND_VALUE = 2;
+	public static final int APPEND_VALUE = 1;
 
 	/**
 	 * The '<em><b>PREPEND</b></em>' literal value.
@@ -130,7 +130,7 @@ public enum RuleActionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int PREPEND_VALUE = 3;
+	public static final int PREPEND_VALUE = 2;
 
 	/**
 	 * The '<em><b>SET</b></em>' literal value.
@@ -145,7 +145,7 @@ public enum RuleActionType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int SET_VALUE = 4;
+	public static final int SET_VALUE = 0;
 
 	/**
 	 * An array of all the '<em><b>Rule Action Type</b></em>' enumerators.

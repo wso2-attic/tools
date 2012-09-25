@@ -1765,20 +1765,20 @@
         defaultValueLiteral=""/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="RuleActionType">
-    <eLiterals name="REPLACE" literal="Replace"/>
-    <eLiterals name="REMOVE" value="1" literal="Remove"/>
-    <eLiterals name="APPEND" value="2" literal="Append"/>
-    <eLiterals name="PREPEND" value="3" literal="Prepend"/>
-    <eLiterals name="SET" value="4" literal="Set"/>
+    <eLiterals name="REPLACE" value="3" literal="Replace"/>
+    <eLiterals name="REMOVE" value="4" literal="Remove"/>
+    <eLiterals name="APPEND" value="1" literal="Append"/>
+    <eLiterals name="PREPEND" value="2" literal="Prepend"/>
+    <eLiterals name="SET" literal="Set"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="RuleFragmentType">
     <eLiterals name="PROTOCOL" literal="protocol"/>
-    <eLiterals name="HOST" value="1" literal="host"/>
-    <eLiterals name="PORT" value="2" literal="port"/>
+    <eLiterals name="HOST" value="2" literal="host"/>
+    <eLiterals name="PORT" value="6" literal="port"/>
     <eLiterals name="PATH" value="3" literal="path"/>
     <eLiterals name="QUERY" value="4" literal="query"/>
     <eLiterals name="REF" value="5" literal="ref"/>
-    <eLiterals name="USER" value="6" literal="user"/>
+    <eLiterals name="USER" value="1" literal="user"/>
     <eLiterals name="FULL" value="7" literal="full"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="URLRewriteRule" eSuperTypes="#//EsbNode">
