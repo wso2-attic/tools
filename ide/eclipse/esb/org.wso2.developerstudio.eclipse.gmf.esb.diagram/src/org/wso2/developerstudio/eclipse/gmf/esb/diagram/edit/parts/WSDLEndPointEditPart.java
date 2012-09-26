@@ -1,9 +1,11 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
 
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.Label;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
@@ -27,6 +29,7 @@ import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
+import org.wso2.developerstudio.eclipse.gmf.esb.AddressEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.FailoverEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.WSDLEndPoint;
@@ -339,6 +342,25 @@ public class WSDLEndPointEditPart extends AbstractEndpoint {
 		return getChildBySemanticHint(EsbVisualIDRegistry
 				.getType(WSDLEndPointEndPointNameEditPart.VISUAL_ID));
 	}
+	
+	protected void refreshVisuals() {
+		super.refreshVisuals();
+		WSDLEndPoint wsdlEp = (WSDLEndPoint) resolveSemanticElement();
+
+		if (wsdlEp != null) {
+			if (wsdlEp.getWsdlUri() != null) {
+				getPrimaryShape().setToolTip(new Label(wsdlEp.getWsdlUri()));
+			}
+			
+		}
+    }
+ 
+    protected void handleNotificationEvent(Notification notification) {
+        super.handleNotificationEvent(notification);
+        if (notification.getNotifier() instanceof WSDLEndPoint){
+            refreshVisuals();
+        }
+    }
 
 	/**
 	 * @generated
