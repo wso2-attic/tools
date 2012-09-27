@@ -28,7 +28,7 @@
 
     <modelVersion>4.0.0</modelVersion>
     <artifactId>org.wso2.developerstudio.eclipse.brs.artifact.feature</artifactId>
-    <version>${brs.feature.version}</version>
+    <!--version>${brs.feature.version}</version-->
     <packaging>pom</packaging>
     <name>Business Process Server Artifact</name>
     <url>http://wso2.org</url>
