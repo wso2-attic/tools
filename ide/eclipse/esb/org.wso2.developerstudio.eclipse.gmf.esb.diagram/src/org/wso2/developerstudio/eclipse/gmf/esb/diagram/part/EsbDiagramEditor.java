@@ -65,7 +65,7 @@ public class EsbDiagramEditor extends DiagramDocumentEditor implements
 	public static final String CONTEXT_ID = "org.wso2.developerstudio.eclipse.gmf.esb.diagram.ui.diagramContext"; //$NON-NLS-1$
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	public EsbDiagramEditor(EsbMultiPageEditor esbEditor) {
 		super(true);
