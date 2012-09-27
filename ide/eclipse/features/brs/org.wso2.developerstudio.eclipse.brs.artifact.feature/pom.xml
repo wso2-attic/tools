@@ -22,17 +22,17 @@
 
     <parent>
         <groupId>org.wso2.developerstudio</groupId>
-        <artifactId>wso2-eclipse-developerstudio-cep-feature</artifactId>
+        <artifactId>wso2-eclipse-developerstudio-brs-feature</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>org.wso2.developerstudio.eclipse.cep.artifact.feature</artifactId>
-    <version>${cep.feature.version}</version>
+    <artifactId>org.wso2.developerstudio.eclipse.brs.artifact.feature</artifactId>
+    <version>${brs.feature.version}</version>
     <packaging>pom</packaging>
-    <name>Complex Event Server Artifact</name>
+    <name>Business Process Server Artifact</name>
     <url>http://wso2.org</url>
-    <description>This feature contains WSO2 Developer Studio CEP artifact Feature</description>
+    <description>This feature contains WSO2 Developer Studio BRS artifact Feature</description>
     <build>
         <plugins>
             <plugin>
@@ -50,7 +50,7 @@
                             <id>${project.artifactId}</id>
                             <propertiesFile>../../feature.properties</propertiesFile>
                             <bundles>
-                                <bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.artifact.cep:${cep.artifact.version}</bundleDef>
+                                <bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.artifact.brs:${brs.artifact.version}</bundleDef>
                             </bundles>
                         </configuration>
                     </execution>
