@@ -48,6 +48,7 @@
 		<module>esb</module>
 		<module>gs</module>
 		<module>cep</module>
+		<module>brs</module>
 		<module>capp</module>
 		<module>connectors</module>
 		<module>distribution</module>
@@ -225,6 +226,7 @@
 	<appserver.artifacts.version>2.1.0-SNAPSHOT</appserver.artifacts.version> 
 	<appserver.jaxrs.artifacts.version>1.0.0-SNAPSHOT</appserver.jaxrs.artifacts.version>
 	<cep.artifact.version>1.0.0-SNAPSHOT</cep.artifact.version>
+	<brs.artifact.version>1.0.0-SNAPSHOT</brs.artifact.version>
     	<user.mgt.tools.version>2.1.0-SNAPSHOT</user.mgt.tools.version>
         <carbon.tools.version>2.1.0-SNAPSHOT</carbon.tools.version>
         <ds.tools.version>2.1.0-SNAPSHOT</ds.tools.version>  
@@ -286,6 +288,7 @@
 	<esb.graphical.editor.feature.version>1.0.0-SNAPSHOT</esb.graphical.editor.feature.version>
 	<ds.content.assist.feature.version>1.0.0-SNAPSHOT</ds.content.assist.feature.version>
 	<cep.feature.version>1.0.0-SNAPSHOT</cep.feature.version>
+	<brs.feature.version>1.0.0-SNAPSHOT</brs.feature.version>
 	<soapui.feature.version>4.0.1</soapui.feature.version>
 	<tcpmon.feature.version>1.0.0</tcpmon.feature.version>
     </properties>
