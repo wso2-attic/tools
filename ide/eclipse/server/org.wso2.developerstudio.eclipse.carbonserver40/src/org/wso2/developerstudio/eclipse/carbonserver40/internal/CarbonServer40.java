@@ -16,8 +16,22 @@
 
 package org.wso2.developerstudio.eclipse.carbonserver40.internal;
 
+import java.net.URL;
+
 import org.wso2.developerstudio.eclipse.carbonserver.base.impl.CarbonServer;
 
 public class CarbonServer40 extends CarbonServer{
+	
+	private static final String ATTR_URL="SERVER_URL";
+	
+	public URL getServerURL(){
+		String urlAttr = getAttribute(ATTR_URL, "");
+		try {
+			URL url = new URL(urlAttr);
+			return url;
+		} catch (Exception e) {
+			return null;
+		}
+	}
 
 }

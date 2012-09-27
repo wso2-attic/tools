@@ -84,11 +84,11 @@ public class ServiceModuleOperations {
 		wsasServerInformation.getChangedProjects().remove(project);
 		List<ICarbonServerModulePublisher> projectPublishers = CarbonServer.getProjectPublishers(server);
 		if (projectPublishers!=null && !projectPublishers.isEmpty()){
-			File carbonHome = new File(CarbonServerManager.getServerHome(server).toOSString());
-			File deployPath = new File(CarbonServer40Utils.getRepositoryPathFromLocalWorkspaceRepo(CarbonServerManager.getServerLocalWorkspacePath(server)));
+//			File carbonHome = new File(CarbonServerManager.getServerHome(server).toOSString());
+//			File deployPath = new File(CarbonServer40Utils.getRepositoryPathFromLocalWorkspaceRepo(CarbonServerManager.getServerLocalWorkspacePath(server)));
 			for (ICarbonServerModulePublisher publisher : projectPublishers) {
 	            try {
-	                publisher.hotUpdate(project, server, carbonHome, deployPath);
+	                publisher.hotUpdate(project, server, null, null);
                 } catch (Exception e) {
 	                log.error(e);
                 }
@@ -145,11 +145,11 @@ public class ServiceModuleOperations {
 	public void publishServiceModule(String webTempFolder, String Service){
 		List<ICarbonServerModulePublisher> projectPublishers = CarbonServer.getProjectPublishers(server);
 		if (projectPublishers!=null && !projectPublishers.isEmpty()){
-			File carbonHome = new File(CarbonServerManager.getServerHome(server).toOSString());
-			File deployPath = new File(CarbonServer40Utils.getRepositoryPathFromLocalWorkspaceRepo(CarbonServerManager.getServerLocalWorkspacePath(server)));
+//			File carbonHome = new File(CarbonServerManager.getServerHome(server).toOSString());
+//			File deployPath = new File(CarbonServer40Utils.getRepositoryPathFromLocalWorkspaceRepo(CarbonServerManager.getServerLocalWorkspacePath(server)));
 			for (ICarbonServerModulePublisher publisher : projectPublishers) {
 	            try {
-	                publisher.publish(project, server, carbonHome, deployPath);
+	                publisher.publish(project, server, null, null);
                 } catch (Exception e) {
 	                log.error(e);
                 }
@@ -229,11 +229,11 @@ public class ServiceModuleOperations {
 	public void unpublishServiceModule(String webTempFolder, String Service){
 		List<ICarbonServerModulePublisher> projectPublishers = CarbonServer.getProjectPublishers(server);
 		if (projectPublishers!=null && !projectPublishers.isEmpty()){
-			File carbonHome = new File(CarbonServerManager.getServerHome(server).toOSString());
-			File deployPath = new File(CarbonServer40Utils.getRepositoryPathFromLocalWorkspaceRepo(CarbonServerManager.getServerLocalWorkspacePath(server)));
+//			File carbonHome = new File(CarbonServerManager.getServerHome(server).toOSString());
+//			File deployPath = new File(CarbonServer40Utils.getRepositoryPathFromLocalWorkspaceRepo(CarbonServerManager.getServerLocalWorkspacePath(server)));
 			for (ICarbonServerModulePublisher publisher : projectPublishers) {
 	            try {
-	                publisher.unpublish(project, server, carbonHome, deployPath);
+	                publisher.unpublish(project, server, null, null);
                 } catch (Exception e) {
 	                log.error(e);
                 }

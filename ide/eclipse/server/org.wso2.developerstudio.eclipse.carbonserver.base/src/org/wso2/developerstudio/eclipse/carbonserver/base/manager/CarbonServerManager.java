@@ -764,8 +764,8 @@ public final class CarbonServerManager implements IServerManager {
 		}
 		Credentials credentials = null;
 		if (result!=null) {
-			credentials = new Credentials(result.get("username"), result
-					.get("password"));
+			credentials = new Credentials(result.get("esb.username"), result
+					.get("esb.password"));
 		}
 		return credentials;
 	}

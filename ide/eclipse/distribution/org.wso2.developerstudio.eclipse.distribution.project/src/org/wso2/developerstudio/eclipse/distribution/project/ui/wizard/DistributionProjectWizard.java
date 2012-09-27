@@ -79,12 +79,15 @@ public class DistributionProjectWizard extends
 			Plugin plugin = MavenUtils.createPluginEntry(mavenProject,
 					"org.wso2.maven", "maven-car-plugin", MavenConstants.MAVEN_CAR_VERSION, true);
 			PluginExecution pluginExecution;
+			
 
 			pluginExecution = new PluginExecution();
 			pluginExecution.addGoal("car");
 			pluginExecution.setPhase("package");
 			pluginExecution.setId("car");
 			plugin.addExecution(pluginExecution);
+			
+			MavenUtils.createPluginEntry(mavenProject, "org.wso2.maven", "maven-car-deploy-plugin", MavenConstants.MAVEN_CAR_DEPLOY_VERSION, true);
 
 			Repository repo = new Repository();
 			repo.setUrl("http://dist.wso2.org/maven2");

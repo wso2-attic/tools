@@ -73,8 +73,8 @@ public class CAppProjectRemotePublisher implements ICarbonServerModulePublisher{
 			// Display.getDefault().asyncExec(new Runnable(){
 			public void run() {
 				try {
-					unpublish(project, server, serverHome, deployLocation);
-					Thread.sleep(10000);
+/*					unpublish(project, server, serverHome, deployLocation);
+					Thread.sleep(10000);*/
 					publish(project, server, serverHome, deployLocation);
 				} catch (Exception e) {
 				}

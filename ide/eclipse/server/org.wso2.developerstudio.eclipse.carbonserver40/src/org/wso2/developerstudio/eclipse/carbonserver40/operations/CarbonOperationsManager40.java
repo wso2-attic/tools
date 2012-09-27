@@ -257,6 +257,9 @@ public class CarbonOperationsManager40 implements ICarbonOperationManager {
 					}
 					result=cookie;
 					break;
+				case ICarbonOperationManager.OPERATION_SERVER_URL:
+					result=CarbonServer40Utils.getServerURL(server);
+					break;
 					
 				default:
 					throw new NoSuchCarbonOperationDefinedException();

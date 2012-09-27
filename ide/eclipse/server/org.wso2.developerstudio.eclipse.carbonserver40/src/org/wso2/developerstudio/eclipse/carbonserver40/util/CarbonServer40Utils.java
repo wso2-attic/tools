@@ -25,8 +25,8 @@ import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
+import java.net.MalformedURLException;
 import java.net.URL;
-import java.security.GeneralSecurityException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -51,8 +51,6 @@ import javax.xml.xpath.XPathExpression;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
 
-import org.apache.commons.httpclient.contrib.ssl.EasySSLProtocolSocketFactory;
-import org.apache.commons.httpclient.protocol.Protocol;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Platform;
@@ -66,6 +64,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.wso2.developerstudio.eclipse.carbonserver.base.manager.CarbonServerManager;
 import org.wso2.developerstudio.eclipse.carbonserver40.Activator;
+import org.wso2.developerstudio.eclipse.carbonserver40.internal.CarbonServer40;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
@@ -669,6 +668,25 @@ public class CarbonServer40Utils {
 		credentials.put(CarbonServerConstants.ESB_USERNAME, username);
 		credentials.put(CarbonServerConstants.ESB_PASSWORD, password);
 		return credentials;
+	}
+	
+	public static URL getServerURL(IServer server){
+		CarbonServer40 serverDelegate=(CarbonServer40)server.loadAdapter(CarbonServer40.class, null);
+//		return serverDelegate.getServerURL();
+		
+		ServerPort[] serverPorts = getServerPorts(server);
+		for (ServerPort serverPort : serverPorts) {
+			if(serverPort.getName().equals("Carbon web console port (HTTPS)") && serverPort.getProtocol().equals("https")){
+				try {
+					return new URL(serverPort.getProtocol()+"://localhost:"+serverPort.getPort());
+				} catch (MalformedURLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+		
+		return null;
 	}
 	
 	public static String getServerCookie(IServer server, String httpsPort) throws Exception{

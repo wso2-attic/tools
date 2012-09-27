@@ -33,7 +33,6 @@ import org.eclipse.wst.server.core.IModule;
 import org.eclipse.wst.server.core.IServer;
 import org.eclipse.wst.server.core.IServerListener;
 import org.eclipse.wst.server.core.ServerPort;
-import org.wso2.developerstudio.eclipse.carbonserver.base.exception.CarbonServerNotRunningException;
 import org.wso2.developerstudio.eclipse.carbonserver.base.exception.NoSuchCarbonOperationDefinedException;
 import org.wso2.developerstudio.eclipse.carbonserver.base.impl.CarbonServer;
 import org.wso2.developerstudio.eclipse.carbonserver.base.interfaces.ICarbonServerMonitor;
@@ -256,6 +255,9 @@ public class CarbonOperationsManager30 implements ICarbonOperationManager {
 						}
 					}
 					result=cookie;
+					break;
+				case ICarbonOperationManager.OPERATION_SERVER_URL:
+					result=CarbonServer30Utils.getServerURL(server);
 					break;
 					
 				default:

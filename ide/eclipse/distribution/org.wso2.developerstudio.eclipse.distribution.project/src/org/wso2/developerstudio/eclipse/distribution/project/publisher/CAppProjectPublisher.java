@@ -17,6 +17,7 @@
 package org.wso2.developerstudio.eclipse.distribution.project.publisher;
 
 import java.io.File;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -30,6 +31,9 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.wst.server.core.IServer;
 import org.wso2.developerstudio.eclipse.carbonserver.base.interfaces.ICarbonServerModulePublisher;
+import org.wso2.developerstudio.eclipse.carbonserver.base.interfaces.ICredentials;
+import org.wso2.developerstudio.eclipse.carbonserver.base.manager.CarbonServerManager;
+import org.wso2.developerstudio.eclipse.carbonserver.base.utils.CAppDeployer;
 import org.wso2.developerstudio.eclipse.distribution.project.export.CarExportHandler;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.utils.data.ITemporaryFileTag;
@@ -62,10 +66,20 @@ public class CAppProjectPublisher implements ICarbonServerModulePublisher {
 //	            CAppUtils.generateCAR(repoLocation.toString(), project, false);
 //	    		IResource cAppFile = ExportUtil.BuildCAppProject(project);
 //	    		File carfile = cAppFile.getLocation().toFile();
+//	    		CarExportHandler handler=new CarExportHandler();
+//	    		List<IResource> exportArtifact = handler.exportArtifact(project);
+//	    		File file = exportArtifact.get(0).getLocation().toFile();
+//	    		FileUtils.copy(file, new File(repoLocation+File.separator+file.getName()));
+	    		
+	    		URL serverURL = CarbonServerManager.getServerURL(server);
+	    		ICredentials serverCredentials = CarbonServerManager.getServerCredentials(server);
+	    		File tempDir = FileUtils.createTempDirectory();
+	    		CAppDeployer cappDeployer = new CAppDeployer();
+//	            File carFile = CAppUtils.generateCAR(tempDir.getPath(), project, false);
 	    		CarExportHandler handler=new CarExportHandler();
 	    		List<IResource> exportArtifact = handler.exportArtifact(project);
-	    		File file = exportArtifact.get(0).getLocation().toFile();
-	    		FileUtils.copy(file, new File(repoLocation+File.separator+file.getName()));
+	    		cappDeployer.deployCApp(serverCredentials.getUsername(), serverCredentials.getPassword(), serverURL.toString(), ((IFile)exportArtifact.get(0)).getLocation().toFile());
+	    		
 	            tag.clearAndEnd();
 	        } catch (Exception e) {
 	        	setException(e);
@@ -122,23 +136,35 @@ public class CAppProjectPublisher implements ICarbonServerModulePublisher {
 
     public void unpublish(IProject project, IServer server, File serverHome, File deployLocation)throws Exception {
 	    if (project.hasNature("org.wso2.developerstudio.eclipse.distribution.project.nature")){
-	    	IFile file = project.getFile("pom.xml");
+//	    	IFile file = project.getFile("pom.xml");
+//	    	
+//	    	MavenProject mavenProject = MavenUtils.getMavenProject(file.getLocation().toFile());
+//	    	
+//	    	String version = mavenProject.getVersion();
+//	    	
+//	    	File repoLocation=deployLocation;
+//	    	String[] repoPath=new String[]{"carbonapps"};
+//	    	for (String path : repoPath) {
+//	            repoLocation=new File(repoLocation,path);
+//            }
+//			try {
+//				File carFile = new File(repoLocation+File.separator+project.getName()+"_"+version+".car");
+//				carFile.delete();
+//            } catch (Exception e) {
+//            	throw e;
+//            }
 	    	
-	    	MavenProject mavenProject = MavenUtils.getMavenProject(file.getLocation().toFile());
-	    	
-	    	String version = mavenProject.getVersion();
-	    	
-	    	File repoLocation=deployLocation;
-	    	String[] repoPath=new String[]{"carbonapps"};
-	    	for (String path : repoPath) {
-	            repoLocation=new File(repoLocation,path);
-            }
-			try {
-				File carFile = new File(repoLocation+File.separator+project.getName()+"_"+version+".car");
-				carFile.delete();
-            } catch (Exception e) {
-            	throw e;
-            }
+			URL serverURL = CarbonServerManager.getServerURL(server);
+			ICredentials serverCredentials = CarbonServerManager.getServerCredentials(server);
+			CAppDeployer cappDeployer = new CAppDeployer();
+//			Artifact superArtifact = CAppEnvironment.getcAppManager().getSuperArtifact(project);
+			CarExportHandler handler=new CarExportHandler();
+			List<IResource> exportArtifact = handler.exportArtifact(project);
+			File carFile = ((IFile)exportArtifact.get(0)).getLocation().toFile();
+			CAppDeployer.unDeployCAR(serverURL.toString(), 
+									 serverCredentials.getUsername(), 
+									 serverCredentials.getPassword(), 
+									 project.getName());
 	    }
     }
 
@@ -157,9 +183,9 @@ public class CAppProjectPublisher implements ICarbonServerModulePublisher {
             			if (list.contains(project)){
             				return;
             			}
-            			unpublish(project, server, serverHome, deployLocation);
+//            			unpublish(project, server, serverHome, deployLocation);
             		}
-	            	Thread.sleep(9000);
+//	            	Thread.sleep(9000);
         			publish(project, server, serverHome, deployLocation);
             	} catch (Exception e) {
                 }

@@ -16,6 +16,13 @@
 
 package org.wso2.developerstudio.eclipse.carbonserver31.operations;
 
+import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 import org.eclipse.ant.core.AntRunner;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
@@ -26,7 +33,6 @@ import org.eclipse.wst.server.core.IModule;
 import org.eclipse.wst.server.core.IServer;
 import org.eclipse.wst.server.core.IServerListener;
 import org.eclipse.wst.server.core.ServerPort;
-import org.wso2.developerstudio.eclipse.carbonserver.base.exception.CarbonServerNotRunningException;
 import org.wso2.developerstudio.eclipse.carbonserver.base.exception.NoSuchCarbonOperationDefinedException;
 import org.wso2.developerstudio.eclipse.carbonserver.base.impl.CarbonServer;
 import org.wso2.developerstudio.eclipse.carbonserver.base.interfaces.ICarbonServerMonitor;
@@ -37,13 +43,6 @@ import org.wso2.developerstudio.eclipse.carbonserver31.util.CarbonServer31Utils;
 import org.wso2.developerstudio.eclipse.carbonserver31.util.CarbonServerConstants;
 import org.wso2.developerstudio.eclipse.server.base.core.ServerController;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
-
-import java.io.File;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 public class CarbonOperationsManager31 implements ICarbonOperationManager {
 
@@ -256,6 +255,9 @@ public class CarbonOperationsManager31 implements ICarbonOperationManager {
 						}
 					}
 					result=cookie;
+					break;
+				case ICarbonOperationManager.OPERATION_SERVER_URL:
+					result=CarbonServer31Utils.getServerURL(server);
 					break;
 					
 				default:
