@@ -27,12 +27,14 @@ import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCr
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.pages.MavenDetailsPage;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.pages.ProjectOptionsDataPage;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
+import org.wso2.developerstudio.eclipse.utils.jdt.JavaUtils;
 import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 
 public class ProjectCreationWizard extends AbstractWSO2ProjectCreationWizard {
 
 	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
 	private static final String PROJECT_WIZARD_WINDOW_TITLE = "Business Rules Service Project";
+	private static final String FORM_EDITOR_TITLE = "service";
 	private IProject project;
 	private final RuleServiceModel rsModel;
 
@@ -41,7 +43,7 @@ public class ProjectCreationWizard extends AbstractWSO2ProjectCreationWizard {
 		setModel(rsModel);
 		setWindowTitle(PROJECT_WIZARD_WINDOW_TITLE);
 		setDefaultPageImageDescriptor(RuleServiceImageUtils.getInstance()
-		                              .getImageDescriptor("brs-wizard.png"));
+				.getImageDescriptor("rule-service-create.gif"));
 	}
 
 	@Override
@@ -63,25 +65,41 @@ public class ProjectCreationWizard extends AbstractWSO2ProjectCreationWizard {
 		if (getModel().getSelectedOption().equals(RuleServiceArtifactConstants.WIZARD_OPTION_NEW_PROJECT)) {
 			try {
 				project = createNewProject();
+				IFolder resourceFolder = ProjectUtils.getWorkspaceFolder(project, "src", "main", "java");
+				JavaUtils.addJavaSupportAndSourceFolder(project, resourceFolder);
+				IFolder ruleserviceFolder = ProjectUtils.getWorkspaceFolder(project, "src", "main", "ruleservice");
+				if(!ruleserviceFolder.exists()){
+					ruleserviceFolder.create(false, true, null);
+				}
+				IFolder confFolder = ProjectUtils.getWorkspaceFolder(project, "src", "main", "ruleservice","Conf");
+
+				if(!confFolder.exists()){
+					confFolder.create(false, true, null);
+				}
+				IFolder libFolder = ProjectUtils.getWorkspaceFolder(project, "src", "main", "ruleservice","lib");
+
+				if(!libFolder.exists()){
+					libFolder.create(false, true, null);
+				}
 				openFile = addBRSTemplate(project);
 			} catch (CoreException e) {
 				e.printStackTrace();
 				MessageDialog.openQuestion(getShell(), "WARNING",
-						"New project not created.");
+				"New project not created.");
 			} catch (Exception e) {
 				e.printStackTrace();
 				MessageDialog.openQuestion(getShell(), "WARNING",
-						"Template file not created.");
+				"Template file not created.");
 				log.error("An error occurred generating a project: ", e);
 			}
 		}
 		else if (getModel().getSelectedOption().equals(RuleServiceArtifactConstants.WIZARD_OPTION_IMPORT_PROJECT)) {
 			IProject existingProject =
-					ResourcesPlugin.getWorkspace().getRoot()
-					.getProject(rsModel.getProjectName());
+				ResourcesPlugin.getWorkspace().getRoot()
+				.getProject(rsModel.getProjectName());
 			if (existingProject.exists()) {
 				if (!MessageDialog.openQuestion(getShell(), "WARNING",
-						"Do you like to override exsiting project in the workspace")) {
+				"Do you like to override exsiting project in the workspace")) {
 					return false;
 				} else
 					return true;
@@ -91,11 +109,11 @@ public class ProjectCreationWizard extends AbstractWSO2ProjectCreationWizard {
 				openFile = copyImportFile(project);
 			} catch (CoreException e) {
 				MessageDialog.openQuestion(getShell(), "WARNING",
-						"New project not created.");
+				"New project not created.");
 				e.printStackTrace();
 			} catch (IOException e) {
 				MessageDialog.openQuestion(getShell(), "WARNING",
-						"File not imported");
+				"File not imported");
 				e.printStackTrace();
 			}
 		}
@@ -103,10 +121,10 @@ public class ProjectCreationWizard extends AbstractWSO2ProjectCreationWizard {
 
 		try {
 			File pomFile = project.getFile("pom.xml").getLocation().toFile();
-			getModel().getMavenInfo().setPackageName("service/ruleservice");
+			getModel().getMavenInfo().setPackageName("service/rule");
 			createPOM(pomFile);
 			ProjectUtils.addNatureToProject(project, false,
-			                                RuleServiceArtifactConstants.RULE_SERVICE_PROJECT_NATURE_ID);
+					RuleServiceArtifactConstants.RULE_SERVICE_PROJECT_NATURE_ID);
 			getModel().addToWorkingSet(project);
 			project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 		} catch (CoreException e1) {
@@ -119,13 +137,13 @@ public class ProjectCreationWizard extends AbstractWSO2ProjectCreationWizard {
 
 		refreshDistProjects();
 		IFile rslFile =
-				ResourcesPlugin.getWorkspace()
-				.getRoot()
-				.getFileForLocation(Path.fromOSString(openFile.getAbsolutePath()));
+			ResourcesPlugin.getWorkspace()
+			.getRoot()
+			.getFileForLocation(Path.fromOSString(openFile.getAbsolutePath()));
 
 		try {
 			IDE.openEditor(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage(),
-			               rslFile);
+					rslFile);
 		} catch (PartInitException e) {
 			e.printStackTrace();
 		}
@@ -135,32 +153,31 @@ public class ProjectCreationWizard extends AbstractWSO2ProjectCreationWizard {
 	private File addBRSTemplate(IProject project) throws Exception {
 		String eol = System.getProperty("line.separator");
 		File ruleServiceTemplateFile =
-				new RuleServiceTemplateUtils().getResourceFile("templates/schema.rsl");
+			new RuleServiceTemplateUtils().getResourceFile("templates/schema.rsl");
 		String templateContent = FileUtils.getContentAsString(ruleServiceTemplateFile);
 
 		templateContent = templateContent.replaceAll("\\{", "<");
 		templateContent = templateContent.replaceAll("\\}", ">");
 		templateContent = templateContent.replaceAll("<service.name>", rsModel.getServiceName());
 		templateContent = templateContent.replaceAll("<service.ns>", rsModel.getNameSpace());
-		IFolder projetFolder = project.getFolder("src/main/ruleservice");
+		IFolder projetFolder = project.getFolder("src/main/ruleservice/META-INF");
 		File template =
-				new File(projetFolder.getLocation().toFile(), rsModel.getServiceName() +
-						".rsl");
+			new File(projetFolder.getLocation().toFile(),FORM_EDITOR_TITLE +
+			".rsl");
 		templateContent = XMLUtil.prettify(templateContent);
 		templateContent = templateContent.replace(RuleServiceArtifactConstants.XML_ENCODING, "");
 		templateContent = templateContent.replaceAll("^" + eol, "");
+		//templateContent.trim();
 		FileUtils.createFile(template, templateContent);
 		return template;
 	}
 
 	public File copyImportFile(IProject importproject) throws IOException {
 		File importFile = getModel().getImportFile();
-		IFolder brsResourceFolder =
-				ProjectUtils.getWorkspaceFolder(importproject,
-						"src/main/ruleservice");
+		IFolder metaFolder = ProjectUtils.getWorkspaceFolder(importproject, "src", "main", "ruleservice","META-INF");
 		File brsResourceFile =
-				new File(brsResourceFolder.getLocation().toFile(),
-				         importFile.getName());
+			new File(metaFolder.getLocation().toFile(),
+					importFile.getName());
 		FileUtils.copy(importFile, brsResourceFile);
 		return brsResourceFile;
 	}

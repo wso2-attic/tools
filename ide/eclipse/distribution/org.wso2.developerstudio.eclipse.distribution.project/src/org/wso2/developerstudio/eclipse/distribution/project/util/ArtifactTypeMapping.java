@@ -44,6 +44,7 @@ public final class ArtifactTypeMapping {
 		type.put("wso2/gadget","dar");
 		type.put("lib/registry/handlers","jar");
 		type.put("lib/synapse/mediator","jar");
+		type.put("service/rule", "aar");
 		
 		subType.put("jar","jar");
 		subType.put("bundle","jar");

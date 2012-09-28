@@ -1,6 +1,9 @@
 package org.wso2.developerstudio.eclipse.artifact.brs.ui.dialog;
 
+import java.util.List;
+
 import org.eclipse.jface.dialogs.Dialog;
+import org.eclipse.jface.window.Window;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CTabFolder;
 import org.eclipse.swt.custom.CTabItem;
@@ -23,10 +26,16 @@ import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Listener;
+import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 import org.wso2.carbon.rule.common.Rule;
 import org.wso2.carbon.rule.common.RuleService;
+import org.wso2.developerstudio.eclipse.greg.base.model.RegistryResourceNode;
+import org.wso2.developerstudio.eclipse.greg.base.persistent.RegistryURLInfo;
+import org.wso2.developerstudio.eclipse.greg.base.persistent.RegistryUrlStore;
+import org.wso2.developerstudio.eclipse.greg.base.ui.dialog.RegistryTreeBrowserDialog;
+import org.wso2.developerstudio.eclipse.platform.core.utils.ResourceManager;
 
 /* creates the dialog which accepts rule information */
 public class RuleServiceDialog extends Dialog {
@@ -40,6 +49,7 @@ public class RuleServiceDialog extends Dialog {
 	private String name;
 	private CTabItem inlineTab, uriTab, registerTab, fileTab;
 	private static final String[] FILTER_EXTS = { "*.txt", "*.rsl", ".drl" };
+	private static final String SYMBOLIC_NAME = "org.wso2.developerstudio.eclipse.artifact.proxyservice";
 
 	public RuleServiceDialog(Shell parentShell, RuleService ruleservice) {
 		super(parentShell);
@@ -53,6 +63,7 @@ public class RuleServiceDialog extends Dialog {
 		final Combo resourceCombo;
 		final CTabFolder sourceTabFolder;
 		final StyledText inlineText;
+		Button cmdEndPointConRegBrowse,cmdEndPointGovRegBrowse;
 
 		container = (Composite) super.createDialogArea(parent);
 		container.getShell().setText("Input Dialog");
@@ -81,7 +92,7 @@ public class RuleServiceDialog extends Dialog {
 		Label resourceLabel = new Label(container, SWT.NULL);
 		resourceLabel.setText("Resource Type");
 		resourceCombo = new Combo(container, SWT.READ_ONLY);
-		resourceCombo.setItems(new String[] { "Regular", "Dtable" });
+		resourceCombo.setItems(new String[] { "regular", "dtable" });
 		resourceCombo.setText(updateResourceCombo());
 		resourceCombo.setLayoutData(new GridData(GridData.FILL, GridData.CENTER, true, false));
 
@@ -123,9 +134,9 @@ public class RuleServiceDialog extends Dialog {
 		inlineText.setLayoutData(inlineTextGridData);
 		Font font = new Font(sourceTabFolder.getDisplay(), "Courier New", 12, SWT.NORMAL);
 		inlineText.setFont(font);
-		Color backGroundColor = Display.getDefault().getSystemColor(SWT.COLOR_GRAY);
+		//Color backGroundColor = Display.getDefault().getSystemColor(SWT.COLOR_GRAY);
 		Color foreGroundColor = Display.getDefault().getSystemColor(SWT.COLOR_BLUE);
-		inlineText.setBackground(backGroundColor);
+		//inlineText.setBackground(backGroundColor);
 		inlineText.setForeground(foreGroundColor);
 
 		inlineText.addModifyListener(new ModifyListener() {
@@ -165,7 +176,7 @@ public class RuleServiceDialog extends Dialog {
 		registerTab = new CTabItem(sourceTabFolder, SWT.NULL);
 		registerTab.setText("Registry");
 		GridLayout registerTabLayout = new GridLayout();
-		registerTabLayout.numColumns = 2;
+		registerTabLayout.numColumns = 4;
 		Composite registerTabComposite = new Composite(sourceTabFolder, SWT.BORDER);
 		registerTabComposite.setLayout(registerTabLayout);
 		Label registerLabel = new Label(registerTabComposite, SWT.NULL);
@@ -177,6 +188,41 @@ public class RuleServiceDialog extends Dialog {
 		registerGridData.horizontalAlignment = GridData.FILL;
 		registerGridData.verticalAlignment = GridData.FILL;
 		registerText.setLayoutData(registerGridData);
+		cmdEndPointConRegBrowse = new Button(registerTabComposite, SWT.NONE);
+		cmdEndPointConRegBrowse.setLayoutData(new GridData(SWT.CENTER,
+				SWT.CENTER, false, false, 1, 1));
+		cmdEndPointConRegBrowse.setImage(ResourceManager.getPluginImage(SYMBOLIC_NAME, "icons/registry-16x16.png"));
+		cmdEndPointConRegBrowse.setToolTipText("Configuration registry");
+		cmdEndPointConRegBrowse.addSelectionListener(new SelectionListener() {
+
+			@Override
+			public void widgetSelected(SelectionEvent evt) {
+				selectRegistryResource(registerText, 2);
+			}
+
+			@Override
+			public void widgetDefaultSelected(SelectionEvent evt) {
+				widgetSelected(evt);
+			}
+		});
+
+		cmdEndPointGovRegBrowse = new Button(registerTabComposite, SWT.NONE);
+		cmdEndPointGovRegBrowse.setLayoutData(new GridData(SWT.LEFT,
+				SWT.CENTER, false, false, 1, 1));
+		cmdEndPointGovRegBrowse.setImage(ResourceManager.getPluginImage(SYMBOLIC_NAME, "icons/registry_picker.gif"));
+		cmdEndPointGovRegBrowse.setToolTipText("Governance registry");
+		cmdEndPointGovRegBrowse.addSelectionListener(new SelectionListener() {
+
+			@Override
+			public void widgetSelected(SelectionEvent evt) {
+				selectRegistryResource(registerText, 3);
+			}
+
+			@Override
+			public void widgetDefaultSelected(SelectionEvent evt) {
+				widgetSelected(evt);
+			}
+		});
 
 		registerText.addModifyListener(new ModifyListener() {
 			@Override
@@ -245,6 +291,39 @@ public class RuleServiceDialog extends Dialog {
 		setDialogLocation();
 
 		return container;
+	}
+
+	private void selectRegistryResource(Text textBox, int defaultPathId) {
+		RegistryResourceNode selectedRegistryResourceNode = null;
+		RegistryTreeBrowserDialog registryTreeBrowserDialog = new RegistryTreeBrowserDialog(getShell(),
+				RegistryTreeBrowserDialog.SELECT_REGISTRY_RESOURCE,
+				defaultPathId);
+		registryTreeBrowserDialog.create();
+		List<RegistryURLInfo> allRegistryUrls = RegistryUrlStore.getInstance()
+		.getAllRegistryUrls();
+		for (RegistryURLInfo registryURLInfo : allRegistryUrls) {
+			registryTreeBrowserDialog.addRegistryNode(registryURLInfo, null);
+		}
+		if (registryTreeBrowserDialog.open() == Window.OK) {
+			selectedRegistryResourceNode = registryTreeBrowserDialog
+			.getSelectedRegistryResourceNodeResource();
+			String resourcePath = selectedRegistryResourceNode
+			.getRegistryResourcePath();
+			if (resourcePath.startsWith("/_system/config")) {
+				textBox.setText(resourcePath.replaceFirst("/_system/config",
+				"conf:"));
+
+			} else if (resourcePath.startsWith("/_system/governance")) {
+				textBox.setText(resourcePath.replaceFirst(
+						"/_system/governance", "gov:"));
+
+			} else {
+				MessageBox msgBox = new MessageBox(getShell(),
+						SWT.ICON_INFORMATION);
+				msgBox.setMessage("invalid selection.");
+				msgBox.open();
+			}
+		}
 	}
 
 	public void editEditorInputTable(int tableindex) {

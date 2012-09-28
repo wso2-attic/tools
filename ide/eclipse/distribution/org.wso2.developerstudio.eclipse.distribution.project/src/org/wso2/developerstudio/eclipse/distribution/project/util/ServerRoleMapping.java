@@ -47,6 +47,7 @@ public class ServerRoleMapping {
 		serverRole.put("synapse/local-entry", "EnterpriseServiceBus");
 		serverRole.put("synapse/event-source", "EnterpriseServiceBus");
 		serverRole.put("synapse/task", "EnterpriseServiceBus");
+		serverRole.put("service/rule", "BusinessRulesServer");
 	}
 
 	public static String getServerRole(String packaging) {

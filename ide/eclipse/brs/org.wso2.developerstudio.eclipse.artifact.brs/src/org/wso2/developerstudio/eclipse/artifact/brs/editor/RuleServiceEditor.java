@@ -46,9 +46,9 @@ public class RuleServiceEditor extends FormEditor {
 	protected void addPages() {
 
 		ruleServiceEditorPage =
-				new RuleServiceEditorPage(this,
-				                          RuleServiceArtifactConstants.RULE_SERVICE_EDITOR_ID,
-				                          RuleServiceArtifactConstants.UI_EDITOR_NAME);
+			new RuleServiceEditorPage(this,
+					RuleServiceArtifactConstants.RULE_SERVICE_EDITOR_ID,
+					RuleServiceArtifactConstants.UI_EDITOR_NAME);
 
 
 		sourceEditor = new StructuredTextEditor();
@@ -80,7 +80,7 @@ public class RuleServiceEditor extends FormEditor {
 		} catch (Exception e) {
 			log.error("An unexpected error has occurred", e);
 			MessageDialog.openQuestion((Shell) getSite(), "WARNING",
-			                           e.getMessage());
+					e.getMessage());
 		}
 
 	}
@@ -97,7 +97,7 @@ public class RuleServiceEditor extends FormEditor {
 			}  catch (Exception e) {
 				log.error("An unexpected error has occurred", e);
 				MessageDialog.openQuestion((Shell) getSite(), "WARNING",
-				                           e.getMessage());
+						e.getMessage());
 			}
 
 		} else if (sourceDirty) {
@@ -110,7 +110,7 @@ public class RuleServiceEditor extends FormEditor {
 			}  catch (Exception e) {
 				log.error("An unexpected error has occurred", e);
 				MessageDialog.openQuestion((Shell) getSite(), "WARNING",
-				                           e.getMessage());
+						e.getMessage());
 			}
 		}
 	}
@@ -188,6 +188,7 @@ public class RuleServiceEditor extends FormEditor {
 		ruleServiceEditorPage.saveRSL();
 		try {
 			content = new Scanner(getFile().getContents()).useDelimiter("\\A").next();
+			//content.trim();
 		} catch (CoreException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

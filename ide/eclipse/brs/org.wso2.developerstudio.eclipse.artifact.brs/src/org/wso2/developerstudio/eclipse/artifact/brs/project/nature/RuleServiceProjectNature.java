@@ -40,7 +40,7 @@ public class RuleServiceProjectNature extends AbstractWSO2ProjectNature{
 	public void updatePom() throws Exception{
 		File mavenProjectPomLocation=getProject().getFile("pom.xml").getLocation().toFile();
 		MavenProject mavenProject=MavenUtils.getMavenProject(mavenProjectPomLocation);
-		Plugin pluginEntry=MavenUtils.createPluginEntry(mavenProject, "org.wso2.maven", "maven-brs-plugin", MavenConstants.MAVEN_DATASERVICE_PLUGIN_VERSION, true);
+		Plugin pluginEntry=MavenUtils.createPluginEntry(mavenProject, "org.wso2.maven", "maven-brs-plugin", MavenConstants.MAVEN_BRS_PLUGIN_VERSION, true);
 		Xpp3Dom configurationNode=MavenUtils.createMainConfigurationNode(pluginEntry);
 		Xpp3Dom artifactNode=MavenUtils.createXpp3Node(configurationNode, "artifact");
 

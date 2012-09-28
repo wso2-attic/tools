@@ -18,15 +18,12 @@ import javax.xml.stream.XMLStreamReader;
 
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.impl.builder.StAXOMBuilder;
-import org.apache.maven.project.MavenProject;
 import org.apache.xml.serialize.OutputFormat;
 import org.apache.xml.serialize.XMLSerializer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
-import org.eclipse.jface.action.Action;
-import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.ColumnLabelProvider;
 import org.eclipse.jface.viewers.TableViewer;
@@ -41,16 +38,13 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.DirectoryDialog;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Listener;
-import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.IFileEditorInput;
-import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.forms.IManagedForm;
 import org.eclipse.ui.forms.editor.FormEditor;
 import org.eclipse.ui.forms.editor.FormPage;
@@ -66,8 +60,6 @@ import org.wso2.carbon.rule.common.exception.RuleConfigurationException;
 import org.wso2.developerstudio.eclipse.artifact.brs.ui.dialog.OperationDialog;
 import org.wso2.developerstudio.eclipse.artifact.brs.ui.dialog.RuleServiceDialog;
 import org.wso2.developerstudio.eclipse.artifact.brs.utils.RuleServiceArtifactConstants;
-import org.wso2.developerstudio.eclipse.platform.core.project.export.util.ExportUtil;
-import org.wso2.developerstudio.eclipse.platform.core.utils.SWTResourceManager;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
@@ -87,9 +79,6 @@ public class RuleServiceEditorPage extends FormPage {
 	private Text txtTargetNameSpace;
 	private TableViewer viewer;
 	private TableViewer operationTableViewer;
-	private Action refreshAction;
-	private Action exportAction;
-	private MavenProject parentPrj;
 	private Table inputTable;
 	private Table operationTable;
 	private int tableIndex;
@@ -105,7 +94,7 @@ public class RuleServiceEditorPage extends FormPage {
 	public void initContent() throws XMLStreamException, IOException, RuleConfigurationException {
 		String outputFileLocation;
 		rslFileRes = ((IFileEditorInput) (getEditor().getEditorInput()))
-				.getFile();
+		.getFile();
 		outputFileLocation=rslFileRes.getLocation().toFile().getAbsolutePath();
 		brsTemplateFile=new File(outputFileLocation);
 		ruleservice=readRSLFile(outputFileLocation);
@@ -136,21 +125,20 @@ public class RuleServiceEditorPage extends FormPage {
 		toolkit = managedform.getToolkit();
 		form = managedform.getForm();
 		form.setText(RuleServiceArtifactConstants.FORM_NAME);
-		form.getToolBarManager().add(getRefreshAction());
-		form.getToolBarManager().add(getExportAction());
+
 		body = form.getBody();
 		toolkit.decorateFormHeading(form.getForm());
 		toolkit.paintBordersFor(body);
 
 		managedform.getForm().getBody().setLayout(new GridLayout(4, false));
 		managedform.getToolkit().createLabel(managedform.getForm().getBody(),
-		                                     "Service name", SWT.NONE);
+				"Service name", SWT.NONE);
 		txtServiceName = managedform.getToolkit().createText(
-		                                                     managedform.getForm().getBody(),
-		                                                     ruleservice.getName(), SWT.NONE);
+				managedform.getForm().getBody(),
+				ruleservice.getName(), SWT.NONE);
 		setServiceName(ruleservice.getName());
 		GridData gd_txtServiceName = new GridData(SWT.LEFT, SWT.CENTER, true,
-		                                          false, 3, 1);
+				false, 3, 1);
 		gd_txtServiceName.widthHint = 460;
 		txtServiceName.setLayoutData(gd_txtServiceName);
 		txtServiceName.addModifyListener(new ModifyListener() {
@@ -164,13 +152,13 @@ public class RuleServiceEditorPage extends FormPage {
 		});
 
 		managedform.getToolkit().createLabel(managedform.getForm().getBody(),
-		                                     "Target Name Space", SWT.NONE);
+				"Target Name Space", SWT.NONE);
 		txtTargetNameSpace = managedform.getToolkit().createText(
-		                                                         managedform.getForm().getBody(),
-		                                                         ruleservice.getTargetNamespace(), SWT.NONE);
+				managedform.getForm().getBody(),
+				ruleservice.getTargetNamespace(), SWT.NONE);
 		setTargetNameSpace(ruleservice.getTargetNamespace());
 		GridData gd_txtTargetNameSpace = new GridData(SWT.LEFT, SWT.CENTER,
-		                                              true, false, 3, 1);
+				true, false, 3, 1);
 		gd_txtTargetNameSpace.widthHint = 460;
 		txtTargetNameSpace.setLayoutData(gd_txtTargetNameSpace);
 		txtTargetNameSpace.addModifyListener(new ModifyListener() {
@@ -184,21 +172,17 @@ public class RuleServiceEditorPage extends FormPage {
 		});
 
 		managedform.getToolkit().createLabel(managedform.getForm().getBody(),
-		                                     "Scope", SWT.NONE);
+				"Scope", SWT.NONE);
 		comboScope = new Combo(managedform.getForm().getBody(), SWT.READ_ONLY);
-		comboScope.setItems(new String[] { "Request", "Transport Session", "Soap Session","Application"," "});
-		setScope(ruleservice.getScope());
+		comboScope.setItems(new String[] { "Request", "Transport Session", "Soap Session","Application"});
+
 		GridData gd_txtScope = new GridData(SWT.LEFT, SWT.CENTER, true, false,
-		                                    3, 1);
+				3, 1);
 		gd_txtScope.widthHint = 465;
 		comboScope.setLayoutData(gd_txtScope);
-		String scope=ruleservice.getScope();
 
-		if(scope!=null){
-			comboScope.setText(ruleservice.getScope());
-		}
-		else
-			comboScope.setText(" ");
+		comboScope.setText("Request");
+		setScope(comboScope.getText().trim());
 		comboScope.addSelectionListener(new SelectionListener() {
 
 			@Override
@@ -219,10 +203,10 @@ public class RuleServiceEditorPage extends FormPage {
 		operationLabel.setLayoutData(operationData);
 
 		Section sctnDependencies = managedform.getToolkit().createSection(
-		                                                                  managedform.getForm().getBody(),
-		                                                                  Section.TWISTIE | Section.TITLE_BAR);
+				managedform.getForm().getBody(),
+				Section.TWISTIE | Section.TITLE_BAR);
 		GridData gd_sctnNewSection = new GridData(SWT.FILL, SWT.CENTER, true,
-		                                          false, 4, 1);
+				false, 4, 1);
 		sctnDependencies.setText("Rules");
 		sctnDependencies.setLayoutData(gd_sctnNewSection);
 		sctnDependencies.setExpanded(true);
@@ -299,10 +283,10 @@ public class RuleServiceEditorPage extends FormPage {
 		space2.setLayoutData(space2nData);
 
 		Section operationsctnDependencies = managedform.getToolkit().createSection(
-		                                                                           managedform.getForm().getBody(),
-		                                                                           Section.TWISTIE | Section.TITLE_BAR);
+				managedform.getForm().getBody(),
+				Section.TWISTIE | Section.TITLE_BAR);
 		GridData gd_operationsctnNewSection = new GridData(SWT.FILL, SWT.CENTER, true,
-		                                                   false, 4, 1);
+				false, 4, 1);
 		operationsctnDependencies.setText("Operation:");
 		operationsctnDependencies.setLayoutData(gd_operationsctnNewSection);
 		operationsctnDependencies.setExpanded(true);
@@ -392,7 +376,7 @@ public class RuleServiceEditorPage extends FormPage {
 		setPageDirty(false);
 		try {
 			rslFileRes.getProject().refreshLocal(IResource.DEPTH_INFINITE,
-			                                     new NullProgressMonitor());
+					new NullProgressMonitor());
 		} catch (CoreException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -409,12 +393,13 @@ public class RuleServiceEditorPage extends FormPage {
 			e.printStackTrace();
 		}
 		templateContent = templateContent.replace(
-		                                          RuleServiceArtifactConstants.XML_ENCODING, "");
-		FileUtils.writeContent(brsTemplateFile, templateContent);
+				RuleServiceArtifactConstants.XML_ENCODING, "");
+		FileUtils.writeContent(brsTemplateFile, templateContent.trim());
+
 	}
 
 	private String format(String unformattedXML)
-			throws SAXException, IOException {
+	throws SAXException, IOException {
 		Document document = null;
 		try {
 			document = parseXMLFile(unformattedXML);
@@ -433,11 +418,11 @@ public class RuleServiceEditorPage extends FormPage {
 	}
 
 	private Document parseXMLFile(String input)
-			throws ParserConfigurationException, SAXException, IOException {
+	throws ParserConfigurationException, SAXException, IOException {
 		DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory
-				.newInstance();
+		.newInstance();
 		DocumentBuilder documentBuilder = documentBuilderFactory
-				.newDocumentBuilder();
+		.newDocumentBuilder();
 		InputSource inputSource = new InputSource(new StringReader(input));
 		return documentBuilder.parse(inputSource);
 	}
@@ -468,80 +453,6 @@ public class RuleServiceEditorPage extends FormPage {
 		return ruleserviceFromFile;
 	}
 
-	public Action getRefreshAction() {
-
-		if (refreshAction == null) {
-			refreshAction = new Action("Refresh",
-			                           ImageDescriptor.createFromImage(SWTResourceManager
-			                                                           .getImage(this.getClass(), "/icons/refresh.png"))) {
-				@Override
-				public void run() {
-
-					try {
-						refreshForm();
-					} catch (XMLStreamException e) {
-						e.printStackTrace();
-					} catch (FactoryConfigurationError e) {
-						e.printStackTrace();
-					} catch (IOException e) {
-						e.printStackTrace();
-					} catch (RuleConfigurationException e) {
-						e.printStackTrace();
-					}
-
-					setPageDirty(false);
-					updateDirtyState();
-				};
-			};
-			refreshAction.setToolTipText("Refresh");
-		}
-
-		return refreshAction;
-	}
-
-	public Action getExportAction() {
-
-		if (exportAction == null) {
-			exportAction = new Action("Create Archive",
-			                          ImageDescriptor.createFromImage(SWTResourceManager
-			                                                          .getImage(this.getClass(), "/icons/car.png"))) {
-				@Override
-				public void run() {
-					try {
-						exportCar();
-					} catch (Exception e) {
-
-						e.printStackTrace();
-					}
-				};
-			};
-			exportAction.setToolTipText("Create Archive");
-		}
-
-		return exportAction;
-	}
-
-	public void exportCar() throws Exception {
-
-		MessageBox exportMsg = new MessageBox(PlatformUI.getWorkbench()
-		                                      .getActiveWorkbenchWindow().getShell(), SWT.ICON_INFORMATION);
-		exportMsg.setText("Wso2 Platform BRS");
-		String finalFileName = String.format("%s_%s.car", parentPrj.getModel()
-		                                     .getArtifactId(), parentPrj.getVersion());
-		saveRSL();
-		IResource carbonArchive = ExportUtil.BuildCAppProject(rslFileRes
-		                                                      .getProject());
-		DirectoryDialog dirDlg = new DirectoryDialog(PlatformUI.getWorkbench()
-		                                             .getActiveWorkbenchWindow().getShell());
-		String dirName = dirDlg.open();
-		if (dirName != null) {
-			File destFileName = new File(dirName, finalFileName);
-
-			FileUtils.copy(carbonArchive.getLocation().toFile(), destFileName);
-
-		}
-
-	}
 
 	public void updateDirtyState() {
 		((RuleServiceEditor) getEditor()).updateDirtyState();
@@ -550,7 +461,7 @@ public class RuleServiceEditorPage extends FormPage {
 	public void createInputTable(Composite composite,IManagedForm managedform){
 
 		final Table table=managedform.getToolkit().createTable(composite, SWT.MULTI | SWT.H_SCROLL
-		                                                       | SWT.V_SCROLL | SWT.FULL_SELECTION | SWT.BORDER| SWT.VIRTUAL);
+				| SWT.V_SCROLL | SWT.FULL_SELECTION | SWT.BORDER| SWT.VIRTUAL);
 
 		table.setHeaderVisible(true);
 		table.setLinesVisible(true);
@@ -614,7 +525,7 @@ public class RuleServiceEditorPage extends FormPage {
 
 	public void createOperationTable(Composite composite,IManagedForm managedform){
 		final Table table=managedform.getToolkit().createTable(composite, SWT.MULTI | SWT.H_SCROLL
-		                                                       | SWT.V_SCROLL | SWT.FULL_SELECTION | SWT.BORDER| SWT.VIRTUAL);
+				| SWT.V_SCROLL | SWT.FULL_SELECTION | SWT.BORDER| SWT.VIRTUAL);
 
 		table.setHeaderVisible(true);
 		table.setLinesVisible(true);

@@ -8,7 +8,7 @@
 			wizardManifest="project_wizard.xml"
 			id="org.wso2.developerstudio.eclipse.artifact.businessruleservice.wizard"
 			project="true"
-			icon="icons/brs-16x16.png">
+			icon="icons/rule-service.gif">
 			<description>Business Rule Service Project</description>
 		</wizard>
          <category
@@ -27,7 +27,7 @@
 	</extension>
 	<extension point="org.eclipse.ui.ide.projectNatureImages">
 		<image id="org.wso2.developerstudio.eclipse.artifact.businessruleservice.project.natureImage"
-			natureId="org.wso2.developerstudio.eclipse.artifact.businessruleservice.project.nature" icon="icons/brs-12x12.png">
+			natureId="org.wso2.developerstudio.eclipse.artifact.businessruleservice.project.nature" icon="icons/rule-service.gif">
 		</image>
 	</extension>
 	<extension
@@ -54,6 +54,14 @@
       </describer>
    </content-type>
 </extension>
+ <extension
+         point="org.wso2.developerstudio.eclipse.project.export.handler">
+      <handler
+            class="org.wso2.developerstudio.eclipse.artifact.brs.export.BRSExportHandler"
+            id="org.wso2.developerstudio.eclipse.artifact.brs.export.handler"
+            type="service/rule">
+      </handler>
+   </extension>
 
  
 </plugin>

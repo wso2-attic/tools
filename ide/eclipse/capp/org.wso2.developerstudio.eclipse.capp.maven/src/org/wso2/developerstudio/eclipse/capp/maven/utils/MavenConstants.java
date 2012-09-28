@@ -28,4 +28,5 @@ public class MavenConstants {
 	public static final String WSO2_ESB_SYNAPSE_VERSION = Messages.WSO2_ESB_SYNAPSE_VERSION;
 	public static final String WSO2_GENERAL_PROJECT_VERSION = Messages.WSO2_GENERAL_PROJECT_VERSION;
 	public static final String MAVEN_CAR_DEPLOY_VERSION = Messages.MAVEN_CAR_DEPLOY_VERSION;
+	public static final String MAVEN_BRS_PLUGIN_VERSION=Messages.MAVEN_BRS_VERSION;
 }
