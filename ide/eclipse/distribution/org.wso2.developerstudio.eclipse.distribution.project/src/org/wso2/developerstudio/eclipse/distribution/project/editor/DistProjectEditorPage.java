@@ -114,7 +114,7 @@ public class DistProjectEditorPage extends FormPage {
 			"EnterpriseServiceBus", "MashupServer",
 			"ApplicationServer", "DataServicesServer",
 			"BusinessRulesServer", "IdentityServer",
-			"BusinessActivityMonitor","ComplexEventProcessingServer" };
+			"BusinessActivityMonitor","ComplexEventProcessor" };
 	
 	private String projectName = "";
 	private String groupId = "";

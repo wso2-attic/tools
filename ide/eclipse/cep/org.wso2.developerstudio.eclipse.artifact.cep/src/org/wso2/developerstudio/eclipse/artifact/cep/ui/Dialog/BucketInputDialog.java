@@ -950,15 +950,18 @@ public class BucketInputDialog extends TitleAreaDialog {
 		if (input.getInputMapping() instanceof XMLInputMapping) {
 			setSelectedInputMapping(CEPConstants.CEP_CONF_ELE_XML_MAPPING);
 			if (((XMLInputMapping) input.getInputMapping())
-					.getXpathDefinitionList() != null) {
+					.getXpathDefinitionList() != null && ((XMLInputMapping) input.getInputMapping())
+				.getXpathDefinitionList().size()>0) {
+				
 				xpathList = ((XMLInputMapping) input.getInputMapping())
 						.getXpathDefinitionList();
 				for (XpathDefinition xpathdefinition : xpathList) {
 					xpathPrefixes.put(xpathdefinition.getPrefix(),
 							xpathdefinition.getNamespace());
 				}
+			  
 			}
-			if (((XMLInputMapping) input.getInputMapping()).getProperties() != null) {
+			if (((XMLInputMapping) input.getInputMapping()).getProperties() != null && ((XMLInputMapping) input.getInputMapping()).getProperties().size()>0) {
 
 				propertyList = ((XMLInputMapping) input.getInputMapping())
 						.getProperties();
@@ -972,7 +975,7 @@ public class BucketInputDialog extends TitleAreaDialog {
 		} else if (input.getInputMapping() instanceof MapInputMapping) {
 			setSelectedInputMapping(CEPConstants.CEP_CONF_ELE_MAP_MAPPING);
 			setIstream(input.getInputMapping().getStream());
-			if (((MapInputMapping) input.getInputMapping()).getProperties() != null) {
+			if (((MapInputMapping) input.getInputMapping()).getProperties() != null && ((MapInputMapping) input.getInputMapping()).getProperties().size()>0) {
 				mapPropertyList = ((MapInputMapping) input.getInputMapping())
 						.getProperties();
 				for (MapInputProperty property : mapPropertyList) {
@@ -983,7 +986,7 @@ public class BucketInputDialog extends TitleAreaDialog {
 		} else if (input.getInputMapping() instanceof TupleInputMapping) {
 			setSelectedInputMapping(CEPConstants.CEP_CONF_ELE_TUPLE_MAPPING);
 			setIstream(input.getInputMapping().getStream());
-			if (((TupleInputMapping) input.getInputMapping()).getProperties() != null) {
+			if (((TupleInputMapping) input.getInputMapping()).getProperties() != null && ((TupleInputMapping) input.getInputMapping()).getProperties().size() >0) {
 				tuplePropertyList = ((TupleInputMapping) input
 						.getInputMapping()).getProperties();
 				for (TupleInputProperty property : tuplePropertyList) {

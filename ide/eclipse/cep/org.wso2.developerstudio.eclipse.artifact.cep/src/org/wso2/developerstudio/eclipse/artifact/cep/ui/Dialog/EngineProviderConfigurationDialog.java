@@ -19,6 +19,7 @@ package org.wso2.developerstudio.eclipse.artifact.cep.ui.Dialog;
 import org.eclipse.jface.dialogs.TitleAreaDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.ScrolledComposite;
+import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
@@ -37,17 +38,20 @@ public class EngineProviderConfigurationDialog extends TitleAreaDialog {
 
 	public EngineProviderConfigurationDialog(Shell parentShell) {
 		super(parentShell);
+
 	}
 
 	@Override
 	public void create() {
 		super.create();
 		setTitle("Engine Provider Configuration");
+
 	}
 
 	@Override
 	protected Control createDialogArea(Composite parent) {
 		GridData grData = null;
+
 		final ScrolledComposite scrolledContainer = new ScrolledComposite(
 				parent, SWT.H_SCROLL | SWT.V_SCROLL | SWT.BORDER | SWT.FILL);
 
@@ -57,8 +61,10 @@ public class EngineProviderConfigurationDialog extends TitleAreaDialog {
 		scrolledContainer.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 		final Composite container = new Composite(scrolledContainer, SWT.NONE);
 		scrolledContainer.setContent(container);
+
 		GridLayout layout = new GridLayout();
 		layout.numColumns = 3;
+
 		container.setLayout(layout);
 		Label lbPrefix = new Label(container, SWT.NULL);
 		lbPrefix.setText("Name");
@@ -72,13 +78,13 @@ public class EngineProviderConfigurationDialog extends TitleAreaDialog {
 		txtValue = new Text(container, SWT.BORDER | SWT.SINGLE);
 		grData = new GridData(GridData.FILL_HORIZONTAL);
 		grData.horizontalSpan = 2;
+
 		txtValue.setLayoutData(grData);
 		txtValue.setText(value);
-		container.layout();
-		scrolledContainer.setMinSize(container.computeSize(SWT.DEFAULT,
-				SWT.DEFAULT));
-		container.layout();
 
+		container.layout();
+		scrolledContainer.setSize(100, 80);
+		container.layout();
 		return super.createDialogArea(scrolledContainer);
 	}
 
@@ -89,6 +95,12 @@ public class EngineProviderConfigurationDialog extends TitleAreaDialog {
 		} else {
 			super.cancelPressed();
 		}
+	}
+
+	@Override
+	protected Point getInitialSize() {
+		Point size = new Point(350, 250);
+		return size;
 	}
 
 	private boolean finalizePage() {

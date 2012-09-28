@@ -37,7 +37,6 @@ import javax.xml.stream.XMLStreamReader;
 
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.impl.builder.StAXOMBuilder;
-
 import org.apache.xml.serialize.OutputFormat;
 import org.apache.xml.serialize.XMLSerializer;
 import org.eclipse.core.resources.IFile;
@@ -58,29 +57,27 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
-
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Listener;
-
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.IFileEditorInput;
-
 import org.eclipse.ui.forms.IManagedForm;
 import org.eclipse.ui.forms.editor.FormEditor;
 import org.eclipse.ui.forms.editor.FormPage;
+import org.eclipse.ui.forms.events.ExpansionEvent;
+import org.eclipse.ui.forms.events.IExpansionListener;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.forms.widgets.Section;
 import org.w3c.dom.Document;
-
 import org.wso2.carbon.cep.core.Bucket;
 import org.wso2.carbon.cep.core.Query;
 import org.wso2.carbon.cep.core.exception.CEPConfigurationException;
 import org.wso2.carbon.cep.core.internal.config.BucketHelper;
 import org.wso2.carbon.cep.core.mapping.input.Input;
-import org.wso2.carbon.cep.core.mapping.input.mapping.TupleInputMapping;
 import org.wso2.developerstudio.eclipse.artifact.cep.Activator;
 import org.wso2.developerstudio.eclipse.artifact.cep.model.EngineProviderPropertyModel;
 import org.wso2.developerstudio.eclipse.artifact.cep.ui.Dialog.BucketInputDialog;
@@ -130,6 +127,10 @@ public class CEPProjectEditorPage extends FormPage {
 	private String bucketDescription;
 	private String bucketNameSpace;
 	private String bucketEngineProvider;
+
+	private Button deleteButtonProperty, addButtonproperty, editButtonProperty,
+			addButton, editButton, deleteButton, addButtonQuery,
+			editButtonQuery, deleteButtonQuery;
 
 	private String[] arrayCEPEngine = {
 			CEPArtifactConstants.WIZARD_OPTION_DROOLS_FUSION_CEP_RUNTIME,
@@ -339,15 +340,21 @@ public class CEPProjectEditorPage extends FormPage {
 		GridData gdBtnProperty = new GridData(SWT.LEFT, SWT.CENTER, false,
 				false, 1, 1);
 		gdBtnProperty.widthHint = 100;
-		Button addButtonproperty = managedForm.getToolkit().createButton(
+		addButtonproperty = managedForm.getToolkit().createButton(
 				compositeProperty, "Add...", SWT.PUSH);
 		addButtonproperty.setLayoutData(gdBtnProperty);
 
 		addButtonproperty.addSelectionListener(new SelectionListener() {
 			@Override
 			public void widgetSelected(SelectionEvent arg0) {
+				Shell temp = managedForm.getForm().getBody().getShell();
+				GridLayout layout = new GridLayout();
+				layout.marginHeight = 2;
+				layout.marginBottom = 2;
+
+				temp.setLayout(layout);
 				EngineProviderConfigurationDialog dialog = new EngineProviderConfigurationDialog(
-						managedForm.getForm().getBody().getShell());
+						temp);
 				dialog.create();
 				if (dialog.open() == Window.OK) {
 					EngineProviderPropertyModel p = dialog.getPropertModel();
@@ -362,10 +369,11 @@ public class CEPProjectEditorPage extends FormPage {
 
 			}
 		});
-		Button editButtonProperty = managedForm.getToolkit().createButton(
+		editButtonProperty = managedForm.getToolkit().createButton(
 				compositeProperty, "Edit...", SWT.PUSH);
 		addButtonproperty.setLayoutData(new GridData(SWT.FILL, SWT.CENTER,
 				false, false, 1, 1));
+		editButtonProperty.setEnabled(false);
 
 		editButtonProperty.addSelectionListener(new SelectionListener() {
 			@Override
@@ -385,6 +393,8 @@ public class CEPProjectEditorPage extends FormPage {
 				}
 				setPageDirty(true);
 				updateDirtyState();
+				editButtonProperty.setEnabled(false);
+				deleteButtonProperty.setEnabled(false);
 			}
 
 			@Override
@@ -393,12 +403,13 @@ public class CEPProjectEditorPage extends FormPage {
 			}
 		});
 
-		Button deleteButtonProperty = managedForm.getToolkit().createButton(
+		deleteButtonProperty = managedForm.getToolkit().createButton(
 				compositeProperty, "Delete", SWT.PUSH);
 		editButtonProperty.setLayoutData(new GridData(SWT.FILL, SWT.CENTER,
 				false, false, 1, 1));
 		deleteButtonProperty.setLayoutData(new GridData(SWT.FILL, SWT.CENTER,
 				false, false, 1, 1));
+		deleteButtonProperty.setEnabled(false);
 		deleteButtonProperty.addSelectionListener(new SelectionListener() {
 			@Override
 			public void widgetSelected(SelectionEvent arg0) {
@@ -408,6 +419,8 @@ public class CEPProjectEditorPage extends FormPage {
 				viewerProperty.refresh();
 				setPageDirty(true);
 				updateDirtyState();
+				deleteButtonProperty.setEnabled(false);
+				editButtonProperty.setEnabled(false);
 			}
 
 			@Override
@@ -415,7 +428,22 @@ public class CEPProjectEditorPage extends FormPage {
 
 			}
 		});
+		propertyTable.addSelectionListener(new SelectionListener() {
 
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				if (propertyList.size() > 0) {
+					editButtonProperty.setEnabled(true);
+					deleteButtonProperty.setEnabled(true);
+				}
+
+			}
+
+			@Override
+			public void widgetDefaultSelected(SelectionEvent e) {
+
+			}
+		});
 		Section bucketInputs = managedForm.getToolkit().createSection(
 				managedForm.getForm().getBody(),
 				Section.TWISTIE | Section.TITLE_BAR);
@@ -433,7 +461,7 @@ public class CEPProjectEditorPage extends FormPage {
 
 		GridData gdBtn = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
 		gdBtn.widthHint = 100;
-		Button addButton = managedForm.getToolkit().createButton(compositeone,
+		addButton = managedForm.getToolkit().createButton(compositeone,
 				"Add...", SWT.PUSH);
 		addButton.setLayoutData(gdBtn);
 
@@ -456,11 +484,11 @@ public class CEPProjectEditorPage extends FormPage {
 
 			}
 		});
-		Button editButton = managedForm.getToolkit().createButton(compositeone,
+		editButton = managedForm.getToolkit().createButton(compositeone,
 				"Edit...", SWT.PUSH);
 		addButton.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false,
 				false, 1, 1));
-
+		editButton.setEnabled(false);
 		editButton.addSelectionListener(new SelectionListener() {
 			@Override
 			public void widgetSelected(SelectionEvent arg0) {
@@ -477,6 +505,8 @@ public class CEPProjectEditorPage extends FormPage {
 				}
 				setPageDirty(true);
 				updateDirtyState();
+				editButton.setEnabled(false);
+				deleteButton.setEnabled(false);
 			}
 
 			@Override
@@ -485,12 +515,13 @@ public class CEPProjectEditorPage extends FormPage {
 			}
 		});
 
-		Button deleteButton = managedForm.getToolkit().createButton(
-				compositeone, "Delete", SWT.PUSH);
+		deleteButton = managedForm.getToolkit().createButton(compositeone,
+				"Delete", SWT.PUSH);
 		editButton.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false,
 				false, 1, 1));
 		deleteButton.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false,
 				false, 1, 1));
+		deleteButton.setEnabled(false);
 		deleteButton.addSelectionListener(new SelectionListener() {
 			@Override
 			public void widgetSelected(SelectionEvent arg0) {
@@ -500,6 +531,8 @@ public class CEPProjectEditorPage extends FormPage {
 				viewer.refresh();
 				setPageDirty(true);
 				updateDirtyState();
+				deleteButton.setEnabled(false);
+				editButton.setEnabled(false);
 			}
 
 			@Override
@@ -507,6 +540,23 @@ public class CEPProjectEditorPage extends FormPage {
 
 			}
 		});
+
+		inputTable.addSelectionListener(new SelectionListener() {
+
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				if (inputList.size() > 0) {
+					editButton.setEnabled(true);
+					deleteButton.setEnabled(true);
+				}
+			}
+
+			@Override
+			public void widgetDefaultSelected(SelectionEvent e) {
+
+			}
+		});
+
 		Section bucketQueries = managedForm.getToolkit().createSection(
 				managedForm.getForm().getBody(),
 				Section.TWISTIE | Section.TITLE_BAR);
@@ -521,8 +571,8 @@ public class CEPProjectEditorPage extends FormPage {
 		compositetwo.setLayout(new GridLayout(3, false));
 		initQueryTable(compositetwo, managedForm);
 		gdBtn.widthHint = 100;
-		Button addButtonQuery = managedForm.getToolkit().createButton(
-				compositetwo, "Add...", SWT.PUSH);
+		addButtonQuery = managedForm.getToolkit().createButton(compositetwo,
+				"Add...", SWT.PUSH);
 		addButtonQuery.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false,
 				false, 1, 1));
 		addButtonQuery.addSelectionListener(new SelectionListener() {
@@ -545,10 +595,11 @@ public class CEPProjectEditorPage extends FormPage {
 
 			}
 		});
-		Button editButtonQuery = managedForm.getToolkit().createButton(
-				compositetwo, "Edit...", SWT.PUSH);
+		editButtonQuery = managedForm.getToolkit().createButton(compositetwo,
+				"Edit...", SWT.PUSH);
 		editButtonQuery.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false,
 				false, 1, 1));
+		editButtonQuery.setEnabled(false);
 		editButtonQuery.addSelectionListener(new SelectionListener() {
 			@Override
 			public void widgetSelected(SelectionEvent arg0) {
@@ -564,7 +615,8 @@ public class CEPProjectEditorPage extends FormPage {
 				}
 				setPageDirty(true);
 				updateDirtyState();
-
+				editButtonQuery.setEnabled(false);
+				deleteButtonQuery.setEnabled(false);
 			}
 
 			@Override
@@ -573,10 +625,11 @@ public class CEPProjectEditorPage extends FormPage {
 			}
 		});
 
-		Button deleteButtonQuery = managedForm.getToolkit().createButton(
-				compositetwo, "Delete", SWT.PUSH);
+		deleteButtonQuery = managedForm.getToolkit().createButton(compositetwo,
+				"Delete", SWT.PUSH);
 		deleteButtonQuery.setLayoutData(new GridData(SWT.FILL, SWT.CENTER,
 				false, false, 1, 1));
+		deleteButtonQuery.setEnabled(false);
 		deleteButtonQuery.addSelectionListener(new SelectionListener() {
 			@Override
 			public void widgetSelected(SelectionEvent arg0) {
@@ -586,12 +639,82 @@ public class CEPProjectEditorPage extends FormPage {
 				viewerQuery.refresh();
 				setPageDirty(true);
 				updateDirtyState();
+				deleteButtonQuery.setEnabled(false);
+				editButtonQuery.setEnabled(false);
 			}
 
 			@Override
 			public void widgetDefaultSelected(SelectionEvent arg0) {
 
 			}
+		});
+
+		queryTable.addSelectionListener(new SelectionListener() {
+
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				if (queryList.size() > 0) {
+					editButtonQuery.setEnabled(true);
+					deleteButtonQuery.setEnabled(true);
+				}
+
+			}
+
+			@Override
+			public void widgetDefaultSelected(SelectionEvent e) {
+
+			}
+		});
+
+		engineProperties.addExpansionListener(new IExpansionListener() {
+
+			@Override
+			public void expansionStateChanged(ExpansionEvent arg0) {
+
+				if (propertyTable.getItemCount() == 0) {
+					propertyTable.setItemCount(3);
+				}
+			}
+
+			@Override
+			public void expansionStateChanging(ExpansionEvent arg0) {
+
+			}
+
+		});
+
+		bucketInputs.addExpansionListener(new IExpansionListener() {
+
+			@Override
+			public void expansionStateChanged(ExpansionEvent arg0) {
+
+				if (inputTable.getItemCount() == 0) {
+					inputTable.setItemCount(3);
+				}
+			}
+
+			@Override
+			public void expansionStateChanging(ExpansionEvent arg0) {
+
+			}
+
+		});
+
+		bucketQueries.addExpansionListener(new IExpansionListener() {
+
+			@Override
+			public void expansionStateChanged(ExpansionEvent arg0) {
+
+				if (queryTable.getItemCount() == 0) {
+					queryTable.setItemCount(3);
+				}
+			}
+
+			@Override
+			public void expansionStateChanging(ExpansionEvent arg0) {
+
+			}
+
 		});
 
 		if (isCreatedProject == true || isNewProject == true) {
@@ -958,6 +1081,15 @@ public class CEPProjectEditorPage extends FormPage {
 
 			viewerQuery.setInput(queryList.toArray());
 			viewerQuery.refresh();
+		}
+		if (inputTable.getItemCount() == 0) {
+			inputTable.setItemCount(3);
+		}
+		if (queryTable.getItemCount() == 0) {
+			queryTable.setItemCount(3);
+		}
+		if (propertyTable.getItemCount() == 0) {
+			propertyTable.setItemCount(3);
 		}
 
 	}

@@ -5,7 +5,9 @@ Bundle-SymbolicName: org.wso2.developerstudio.eclipse.artifact.cep;singleton:=tr
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: org.wso2.developerstudio.eclipse.artifact.cep.Activator
 Require-Bundle: org.eclipse.ui,
- org.eclipse.core.runtime
+ org.eclipse.core.runtime,
+ org.eclipse.ui.forms,
+ org.wso2.developerstudio.eclipse.platform.ui
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: org.apache.axiom.om,

@@ -27,7 +27,7 @@ public class ServerRoleMapping {
 		serverRole.put("service/axis2", "ApplicationServer");
 		serverRole.put("webapp/jaxws", "ApplicationServer");
 		serverRole.put("service/dataservice", "DataServicesServer");
-		serverRole.put("cep/bucket","ComplexEventProcessingServer");
+		serverRole.put("cep/bucket","ComplexEventProcessor");
 		serverRole.put("synapse/sequence", "EnterpriseServiceBus");
 		serverRole.put("synapse/endpoint", "EnterpriseServiceBus");
 		serverRole.put("synapse/proxy-service", "EnterpriseServiceBus");

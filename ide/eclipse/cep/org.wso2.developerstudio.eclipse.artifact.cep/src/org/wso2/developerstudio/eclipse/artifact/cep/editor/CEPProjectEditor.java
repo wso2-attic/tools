@@ -44,6 +44,7 @@ public class CEPProjectEditor extends FormEditor {
 	private boolean sourceDirty;
 	private int formEditorIndex;
 	private int sourceEditorIndex;
+	private int count = 0;
 
 	protected void addPages() {
 		cepProjectEditorPage = new CEPProjectEditorPage(this,
@@ -69,7 +70,7 @@ public class CEPProjectEditor extends FormEditor {
 			});
 
 			if (getFile() != null) {
-				setTitle(getFile().toString().replaceFirst("^L/", ""));
+				setTitle("CEP Editor");
 			}
 		} catch (PartInitException e) {
 			log.error("Page init error has occurred", e);
@@ -85,6 +86,7 @@ public class CEPProjectEditor extends FormEditor {
 				updateSourceFromDesign();
 				sourceDirty = false;
 				dirty = false;
+
 				updateDirtyState();
 			} catch (Exception e) {
 				log.error("An unexpected error has occurred", e);
@@ -103,7 +105,8 @@ public class CEPProjectEditor extends FormEditor {
 	}
 
 	protected void pageChange(int newPageIndex) {
-		if ((newPageIndex == sourceEditorIndex)) {
+		count++;
+		if ((newPageIndex == sourceEditorIndex) && (dirty)) {
 			sourceDirty = false;
 			dirty = false;
 			updateSourceFromDesign();
@@ -114,6 +117,13 @@ public class CEPProjectEditor extends FormEditor {
 			updateDesignFromSource();
 			updateDirtyState();
 		}
+		if (count == 2) {
+			updateSourceFromDesign();
+			sourceDirty = false;
+			updateDirtyState();
+
+		}
+
 		super.pageChange(newPageIndex);
 		final IFormPage page = getActivePageInstance();
 		if (page != null) {

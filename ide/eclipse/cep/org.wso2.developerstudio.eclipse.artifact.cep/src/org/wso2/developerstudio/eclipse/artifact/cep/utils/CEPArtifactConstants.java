@@ -20,7 +20,7 @@ import org.eclipse.osgi.util.NLS;
 
 public class CEPArtifactConstants extends NLS {
 
-	public static final String BUNDLE_NAME = "org.wso2.developerstudio.eclipse.artifact.cep.utils.cepartifactconstants";
+	public static final String BUNDLE_NAME = "cepartifactconstants";
 
 	// project wizard page properties
 	public static String WIZARD_OPTION_BUCKET_NAME;
