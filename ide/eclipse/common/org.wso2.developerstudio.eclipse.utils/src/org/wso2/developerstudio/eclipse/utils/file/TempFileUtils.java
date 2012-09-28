@@ -63,13 +63,9 @@ public class TempFileUtils {
 	public static void cleanUp(){
 		for (Iterator iterator = tempFiles.iterator(); iterator.hasNext();) {
 	        File file = (File) iterator.next();
-	        try {
-	        	if(file.exists()){
-	        		FileUtils.deleteDirectory(file);
-	        	}
-            } catch (IOException e) {
-	            log.error("Failed to cleanup the temp file", e);
-            }
+	        if(file.exists()){
+				FileUtils.deleteQuietly(file);
+			}
         }
 	}
 
