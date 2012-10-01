@@ -16,14 +16,18 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
+import org.apache.axiom.om.util.AXIOMUtil;
 import org.apache.synapse.SynapseArtifact;
 import org.apache.synapse.config.xml.XMLConfigConstants;
 import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.mediators.base.SequenceMediator;
+import org.apache.synapse.util.AXIOMUtils;
 import org.apache.synapse.util.xpath.SynapseXPath;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EObject;
@@ -142,8 +146,7 @@ public class PropertyMediatorTransformer extends AbstractEsbNodeTransformer {
 						XMLConfigConstants.DATA_TYPES.LONG.toString());
 				break;
 			case OM:
-				propMediator.setValue(visualProp.getValueLiteral(),
-						XMLConfigConstants.DATA_TYPES.OM.toString());
+				propMediator.setValueElement(AXIOMUtil.stringToOM(visualProp.getValueOM()));
 				break;
 			case SHORT:
 				propMediator.setValue(visualProp.getValueLiteral(),
@@ -153,6 +156,56 @@ public class PropertyMediatorTransformer extends AbstractEsbNodeTransformer {
 				propMediator.setValue(visualProp.getValueLiteral(),
 						XMLConfigConstants.DATA_TYPES.STRING.toString());
 				break;
+			}
+			}else {
+				if(visualProp.getValueExpression() != null){
+				SynapseXPath xpath = new SynapseXPath(visualProp.getValueExpression().getPropertyValue());
+				
+				if (visualProp.getValueExpression().getNamespaces() != null) {
+					Map<String, String> map = visualProp.getValueExpression().getNamespaces();
+					Iterator<Map.Entry<String, String>> entries = map
+							.entrySet().iterator();
+					while (entries.hasNext()) {
+						Map.Entry<String, String> entry = entries.next();
+						xpath.addNamespace(entry.getKey(),
+								entry.getValue());
+					}
+				}
+				
+				switch (visualProp.getPropertyDataType()) {
+				case BOOLEAN:
+					propMediator.setExpression(xpath,
+							XMLConfigConstants.DATA_TYPES.BOOLEAN.toString());
+					break;
+				case FLOAT:
+					propMediator.setExpression(xpath,
+							XMLConfigConstants.DATA_TYPES.FLOAT.toString());
+					break;
+				case DOUBLE:
+					propMediator.setExpression(xpath,
+							XMLConfigConstants.DATA_TYPES.DOUBLE.toString());
+					break;
+				case INTEGER:
+					propMediator.setExpression(xpath,
+							XMLConfigConstants.DATA_TYPES.INTEGER.toString());
+					break;
+				case LONG:
+					propMediator.setExpression(xpath,
+							XMLConfigConstants.DATA_TYPES.LONG.toString());
+					break;
+				case OM:
+					propMediator.setExpression(xpath,
+							XMLConfigConstants.DATA_TYPES.OM.toString());
+					break;
+				case SHORT:
+					propMediator.setExpression(xpath,
+							XMLConfigConstants.DATA_TYPES.SHORT.toString());
+					break;
+				case STRING:
+					propMediator.setExpression(xpath,
+							XMLConfigConstants.DATA_TYPES.STRING.toString());
+					break;
+				}
 			}
 			}
 			}
