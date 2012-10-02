@@ -54,6 +54,7 @@
                                 <bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.gmf.esb.diagram:${esb.graphical.editor.tools.version}</bundleDef>
                                 <bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.gmf.esb.edit:${esb.graphical.editor.tools.version}</bundleDef>
                                 <bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.gmf.esb.persistence:${esb.graphical.editor.tools.version}</bundleDef>
+				<bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.gmf.esb.deserializer:${esb.graphical.editor.tools.version}</bundleDef>
                             </bundles>
                         </configuration>
                     </execution>
