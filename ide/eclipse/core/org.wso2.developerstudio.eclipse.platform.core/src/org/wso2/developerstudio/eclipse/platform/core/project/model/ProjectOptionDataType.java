@@ -18,7 +18,7 @@ package org.wso2.developerstudio.eclipse.platform.core.project.model;
 
 public enum ProjectOptionDataType {
 	STRING, LABEL, TITLED_LABEL, FILE, DIR, FILE_DIR, INTEGER, REGISTRY, OPTION, CHOICE, LIST,
-	LINK, WORKSPACE_FILE, WORKSAPCE_FOLDER, WORKSPACE, COMPOSITE,UNKNOWN;
+	LINK, WORKSPACE_FILE, WORKSAPCE_FOLDER, WORKSPACE, COMPOSITE,UNKNOWN,REGISTRY_TEXT;
 													 
 	public static ProjectOptionDataType getType(String type) {
 		if (type == null) {
@@ -39,6 +39,8 @@ public enum ProjectOptionDataType {
 			return FILE_DIR;
 		} else if (type.equals("registry")) {
 			return REGISTRY;
+		} else if (type.equals("registry+text")) {
+			return REGISTRY_TEXT;
 		} else if (type.equals("option")) {
 			return OPTION;
 		} else if (type.equals("choice")) {

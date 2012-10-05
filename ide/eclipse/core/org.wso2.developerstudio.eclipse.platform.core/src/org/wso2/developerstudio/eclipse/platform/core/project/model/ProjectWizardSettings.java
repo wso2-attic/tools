@@ -205,6 +205,7 @@ public class ProjectWizardSettings extends AbstractXMLDoc {
 						case OPTION:
 							break;
 						case REGISTRY:
+						case REGISTRY_TEXT:
 							updateSelectedRegistryOptionType(dataElement,projectOptionData);
 							break;
 						case STRING:

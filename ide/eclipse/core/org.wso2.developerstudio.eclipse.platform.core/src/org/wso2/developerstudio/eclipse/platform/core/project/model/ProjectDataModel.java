@@ -34,7 +34,7 @@ public abstract class ProjectDataModel extends Observable {
 	private File importFile;
 	private IWorkingSet[] selectedWorkingSets;
 	private String selectedOption;
-    private String groupId="org.wso2.carbon";
+    private String groupId="com.example";
 
 	public String getProjectName() {
 		return projectName;
