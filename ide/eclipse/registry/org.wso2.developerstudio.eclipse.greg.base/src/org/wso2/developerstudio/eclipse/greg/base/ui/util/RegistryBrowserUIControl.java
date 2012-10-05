@@ -100,8 +100,14 @@ public class RegistryBrowserUIControl implements UIControl {
 			final int selectedOption,
 			final ProjectDataModel model,
 			final String pathBindingProperty) {
-//		RegistryResourceNode selectedRegistryResourceNode = null;
-		final RegistryFieldControlData regFiledControlData = new RegistryFieldControlData(txtValue);
+		IFieldControlData regFiledControlData =null;
+
+		if(txtValue.getEditable()){
+			regFiledControlData = new RegistryTextFieldControlData(txtValue);
+		} else{
+			regFiledControlData = new RegistryFieldControlData(txtValue);
+		}
+		
 		btnRegBrowse = new Button(container, SWT.None);
 		btnRegBrowse.setText(buttonCaption);
 		btnRegBrowse.addSelectionListener(new SelectionListener() {
@@ -247,6 +253,57 @@ public class RegistryBrowserUIControl implements UIControl {
 //			return selectedRegistryNode;
 //		}
 		
+	}
+	
+	private static class RegistryTextFieldControlData implements IFieldControlData {
+		private Control control;
+		private IOnAction onAction;
+
+		public Object getData() {
+			return getControl().getData();
+		}
+
+		public void setData(Object data) {
+			if (data != null) {
+				if (data instanceof RegistryResourceNode) {
+					((Text) getControl()).setText(((RegistryResourceNode) data)
+							.getRegistryResourcePath());
+					getControl().setData(data);
+				} else {
+					((Text) getControl()).setText(data.toString());
+					getControl().setData(data.toString());
+				}
+			} else {
+				((Text) getControl()).setText("");
+				getControl().setData(null);
+			}
+		}
+
+		public Control getControl() {
+			return this.control;
+		}
+
+		public IOnAction getOnAction() {
+			return onAction;
+		}
+
+		public void setOnAction(IOnAction action) {
+			this.onAction = action;
+			final Text ctrl = (Text) getControl();
+			ctrl.addModifyListener(new ModifyListener() {
+
+				public void modifyText(ModifyEvent evt) {
+					getControl().setData(ctrl.getText());
+					getOnAction().onModifyAction();
+				}
+			});
+
+		}
+
+		public RegistryTextFieldControlData(Control control) {
+			this.control = control;
+		}
+
 	}
 }
 
