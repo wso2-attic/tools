@@ -71,6 +71,7 @@ import org.wso2.developerstudio.eclipse.platform.core.registry.util.RegistryReso
 import org.wso2.developerstudio.eclipse.platform.core.templates.ArtifactTemplate;
 import org.wso2.developerstudio.eclipse.platform.core.templates.ArtifactTemplateHandler;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
+import org.wso2.developerstudio.eclipse.esb.core.utils.EsbTemplateFormatter;
 
 public class NewResourceTemplateDialog extends Dialog {
 	private static IDeveloperStudioLog log = Logger
@@ -315,8 +316,7 @@ public class NewResourceTemplateDialog extends Dialog {
 				templateString = FileUtils.getContentAsString(esbArtifactTemplate.getTemplateUrl());
 			}
 			String name = txtResourceName.getText();
-			
-			String content=MessageFormat.format(templateString,name);
+			String content = EsbTemplateFormatter.stripParameters(templateString, name);
 			String projectName = cmbProject.getText();
 			IProject project = ResourcesPlugin.getWorkspace().getRoot()
 					.getProject(projectName);
