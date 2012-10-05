@@ -81,7 +81,9 @@ public class ProjectContentProvider extends EmptyNavigatorContentProvider {
     public void resourceChanged(IResourceChangeEvent arg0) {
     	Display.getDefault().asyncExec(new Runnable(){
             public void run() {
-                viewer.refresh();	    
+            	if(viewer!=null){
+            		viewer.refresh();
+            	}    
             }
     	});
     }

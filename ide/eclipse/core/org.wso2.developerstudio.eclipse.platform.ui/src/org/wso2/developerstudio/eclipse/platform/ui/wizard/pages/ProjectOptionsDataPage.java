@@ -299,6 +299,9 @@ public class ProjectOptionsDataPage extends WizardPage implements Observer {
 				case REGISTRY:
 					createRegistryBrowseField(container, noOfColumns+1, finalOptionData);
 					break;
+				case REGISTRY_TEXT:
+					createRegistryBrowseTextField(container, noOfColumns+1, finalOptionData);
+					break;
 				case OPTION:
 					createTypeOptionField(container, noOfColumns, finalOptionData);
 					break;
@@ -424,6 +427,67 @@ public class ProjectOptionsDataPage extends WizardPage implements Observer {
 	} catch (Exception e) {
 		log.error("An unexpected error has occurred", e);
 	}
+
+	}
+	
+	private void createRegistryBrowseTextField(Composite container, int noOfColumns,
+			final ProjectOptionData optionData) {
+		final IFieldControlData txtReg = WSO2UIToolkit.createRegistryBrowserControl(
+				"registry.browser", container, noOfColumns, optionData.getVerticalIndent(),
+				optionData.getHorizontalIndent(), false, getControl().getParent().getShell(),
+				optionData.getCaption(), "Browse...", optionData.getRegistyResourceSelectionType(),
+				getModel(), optionData.getRegistyPathBindingProperty());
+
+		FieldExecutor fieldExecutor = new CommonFieldExecutor(optionData, getModel(),
+				txtReg.getControl()) {
+
+			public void validate() throws FieldValidationException {
+				if (optionData.getFieldController() != null) {
+					optionData.getFieldController().validate(optionData.getModelProperty(),
+							txtReg.getData(), getModel());
+				}
+			}
+
+			public void setFieldValue(ProjectDataModel model) throws Exception {
+				String modelPropertyValue = "";
+				Object modelPropertyValueObj = getModelPropertyValue();
+				if (modelPropertyValueObj != null) {
+					modelPropertyValue = modelPropertyValueObj.toString();
+				}
+				txtReg.setData(modelPropertyValue);
+			}
+		};
+		txtReg.setOnAction(new IOnAction() {
+
+			public void onSelectionAction() {
+			}
+
+			public void onModifyAction() {
+				try {
+					String modelProperty = optionData.getModelProperty();
+					Object currentModelPropertyValue = getModel().getModelPropertyValue(
+							modelProperty);
+					if (currentModelPropertyValue != null
+							&& currentModelPropertyValue.toString().equals(txtReg.getData())) {
+						return;
+					}
+					if (getModel().setModelPropertyValue(modelProperty, txtReg.getData())) {
+						updateField(modelProperty);
+					}
+				} catch (ObserverFailedException e) {
+					log.error("ObserverFailed:", e);
+				} catch (Exception e) {
+					log.error("An unexpected error has occurred", e);
+				}
+				doPostFieldModificationAction(optionData);
+			}
+		});
+		fieldControllers.put(optionData.getModelProperty(), fieldExecutor);
+		try {
+			updateField(optionData.getModelProperty());
+		} catch (Exception e) {
+			log.error("An unexpected error has occurred", e);
+		}
 
 	}
 	
