@@ -30,6 +30,7 @@ import org.apache.synapse.mediators.base.SequenceMediator;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.CallTemplateMediator;
@@ -142,10 +143,17 @@ public class ProxyServiceTransformer extends AbstractEsbNodeTransformer {
 			info.getSynapseConfiguration().addProxyService(
 					visualService.getName(), proxyService);
 			
-			//Proxy Service Parameterts.
+			//Proxy Service Parameters.
 			for(int i=0;i<visualService.getServiceParameters().size();++i){
-				OMElement payload = AXIOMUtil.stringToOM(visualService.getServiceParameters().get(i).getValue()); 
-				proxyService.addParameter(visualService.getServiceParameters().get(i).getName(),payload);
+				String value = visualService.getServiceParameters().get(i).getValue();
+				if (validateXML(value)) {
+					OMElement payload = AXIOMUtil.stringToOM(value);
+					proxyService.addParameter(
+							visualService.getServiceParameters().get(i).getName(), payload);
+				} else {
+					proxyService.addParameter(
+							visualService.getServiceParameters().get(i).getName(), value);
+				}
 			}
 			
 
@@ -308,6 +316,17 @@ public class ProxyServiceTransformer extends AbstractEsbNodeTransformer {
 			
 		}
 		return null;
+	}
+	
+	private boolean validateXML(String xmlString) {
+		try {
+			OMElement element = AXIOMUtil.stringToOM(xmlString);
+			element.build();
+		} catch (Exception e) {
+			 //ignore. Then parameter value would be a string.
+			return false;
+		}
+		return true;
 	}
 
 }
