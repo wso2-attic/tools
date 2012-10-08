@@ -5,4 +5,12 @@ Bundle-SymbolicName: org.wso2.developerstudio.eclipse.gmf.esb.deserializer
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: WSO2
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Import-Package: org.wso2.developerstudio.eclipse.gmf.esb
+Import-Package: org.apache.commons.lang,
+ org.eclipse.core.runtime,
+ org.eclipse.emf.common.util,
+ org.eclipse.emf.ecore,
+ org.wso2.developerstudio.eclipse.gmf.esb
+Bundle-ClassPath: lib/synapse-core-2.1.0-wso2v4.jar,
+ .,
+ lib/axiom-api-1.2.14-SNAPSHOT.jar,
+ lib/jaxen-1.1.1.jar

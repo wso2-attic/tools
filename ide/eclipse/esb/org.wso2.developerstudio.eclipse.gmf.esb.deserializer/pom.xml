@@ -459,8 +459,17 @@
 		<version>1.6</version>
 	</dependency>
 
-	<!-- axiom-api-1.2.11-SNAPSHOT.jar <dependency> <groupId>org.apache.ws.commons.axiom</groupId> 
-		<artifactId>axiom-api</artifactId> <version>1.2.11-SNAPSHOT</version> </dependency> -->
+	<!-- axiom-api-1.2.11-SNAPSHOT.jar 
+	<dependency>
+		 <groupId>org.apache.ws.commons.axiom</groupId> 
+		 <artifactId>axiom-api</artifactId> 
+		 <version>1.2.11-SNAPSHOT</version>
+	 </dependency> -->
+	 <dependency>
+  <groupId>org.apache.ws.commons.axiom</groupId>
+  <artifactId>axiom-api</artifactId>
+  <version>1.2.14-SNAPSHOT</version>
+</dependency>
 
 	<!-- synapse-extensions-2.1.0.wso2v4.jar -->
 	<dependency> <groupId>org.apache.synapse</groupId> 
