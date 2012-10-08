@@ -31,12 +31,18 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.query.statements.FROM;
 import org.eclipse.gef.EditPart;
-import org.eclipse.gmf.runtime.notation.impl.DecorationNodeImpl;
+import org.eclipse.gef.commands.CompoundCommand;
+import org.eclipse.gmf.runtime.common.core.command.ICommand;
+import org.eclipse.gmf.runtime.diagram.ui.commands.DeferredCreateConnectionViewAndElementCommand;
+import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
+import org.eclipse.gmf.runtime.diagram.ui.requests.CreateConnectionViewAndElementRequest;
+import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
+import org.eclipse.gmf.runtime.emf.type.core.IHintedType;
 import org.eclipse.gmf.runtime.notation.impl.NodeImpl;
 import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.swt.SWT;
@@ -61,12 +67,21 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbElement;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbLink;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbServer;
-import org.wso2.developerstudio.eclipse.gmf.esb.ProxyService;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
-import org.wso2.developerstudio.eclipse.gmf.esb.SequenceDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequences;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbLinkEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbServerContentsCompartmentEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbServerEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.LogMediatorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.LogMediatorInputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartmentEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyOutputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceContainerEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceSequenceAndEndpointContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
+import org.wso2.developerstudio.eclipse.gmf.esb.persistence.EsbModelTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.SequenceInfo;
 
 
@@ -337,6 +352,12 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 //		if (null != sourceEditor.getObject()) {
 //			rebuildModelObject(objectSourceEditor.getObject());
 //		}
+		
+		String xmlSource = sourceEditor.getDocument().get();
+		if(xmlSource!=null && xmlSource.equals(xmlSource)){
+			  rebuildModelObject(xmlSource);
+		} 
+		
 	}
 
 	/**
@@ -510,6 +531,32 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 				}
 		}
     }
+    
+    
+	void rebuildModelObject(String xml){
+		try {
+			EsbDiagram esbDiagram = (EsbDiagram) graphicalEditor.getDiagram().getElement();
+			EsbServer esbServer = esbDiagram.getServer();
+			EsbServer sourceToDesign=EsbModelTransformer.instance.sourceToDesign(xml,esbServer);			
 
+			LogMediatorEditPart logEditPart=(LogMediatorEditPart) ((MediatorFlowMediatorFlowCompartmentEditPart)((MediatorFlowEditPart)((ProxyServiceSequenceAndEndpointContainerEditPart)((ProxyServiceContainerEditPart)((ProxyServiceEditPart)((EditPart)((EsbServerEditPart)graphicalEditor.getDiagramEditPart().getChildren().get(0)).getChildren().get(0)).getChildren().get(0)).getChildren().get(4)).getChildren().get(0)).getChildren().get(0)).getChildren().get(0)).getChildren().get(0);
+						
+			LogMediatorInputConnectorEditPart logInputConnectorEditpart=(LogMediatorInputConnectorEditPart) logEditPart.getChildren().get(1);
+			
+			CompoundCommand cc = new CompoundCommand("Create Subtopic and Link");
 
+			ProxyServiceEditPart proxyServiceEditPart=(ProxyServiceEditPart)    ((EsbServerContentsCompartmentEditPart)((EsbServerEditPart)graphicalEditor.getDiagramEditPart().getChildren().get(0)).getChildren().get(0)).getChildren().get(0);
+				
+			ICommand createSubTopicsCmd = new DeferredCreateConnectionViewAndElementCommand(new CreateConnectionViewAndElementRequest(EsbElementTypes.EsbLink_4001,
+					((IHintedType) EsbElementTypes.EsbLink_4001).getSemanticHint(), proxyServiceEditPart.getDiagramPreferencesHint()), new EObjectAdapter((EObject) ((ProxyOutputConnectorEditPart)proxyServiceEditPart.getChildren().get(1)).getModel()),
+					 new EObjectAdapter((EObject) (logInputConnectorEditpart).getModel()), proxyServiceEditPart.getViewer());
+
+			cc.add(new ICommandProxy(createSubTopicsCmd));
+
+			proxyServiceEditPart.getDiagramEditDomain().getDiagramCommandStack().execute(cc);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }

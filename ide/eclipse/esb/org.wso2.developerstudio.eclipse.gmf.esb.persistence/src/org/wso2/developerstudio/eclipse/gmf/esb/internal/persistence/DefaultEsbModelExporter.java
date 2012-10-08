@@ -35,6 +35,7 @@ import javax.xml.transform.stream.StreamSource;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.impl.llom.OMElementImpl;
 import org.apache.axis2.util.XMLPrettyPrinter;
+import org.apache.synapse.Mediator;
 import org.apache.synapse.config.SynapseConfiguration;
 import org.apache.synapse.config.SynapseConfigurationBuilder;
 import org.apache.synapse.config.xml.SequenceMediatorSerializer;
@@ -53,6 +54,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbElement;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbServer;
+import org.wso2.developerstudio.eclipse.gmf.esb.LogMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.MessageMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyService;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequences;
@@ -263,14 +265,12 @@ public class DefaultEsbModelExporter implements EsbModelTransformer {
 			if(child instanceof ProxyService ){
 			RemoveCommand removeCmd = new RemoveCommand(domain, esbServer,EsbPackage.Literals.ESB_SERVER__CHILDREN,child) ;
 			resultCommand.append(removeCmd);
-			}
-			
+			}		
 		}
 		
 		if (resultCommand.canExecute()) {
 			domain.getCommandStack().execute(resultCommand);
-		}
-		
+		}		
 		
 		resultCommand = new CompoundCommand();
 		for(org.apache.synapse.core.axis2.ProxyService proxyService:synapseCofig.getProxyServices()){
@@ -279,11 +279,27 @@ public class DefaultEsbModelExporter implements EsbModelTransformer {
 			proxy.setTransports(join(proxyService.getTransports(),","));
 			proxy.setInputConnector(EsbFactory.eINSTANCE.createProxyInputConnector() );
 			proxy.setOutputConnector(EsbFactory.eINSTANCE.createProxyOutputConnector());
-			AddCommand addCmd = new AddCommand(domain,esbServer,EsbPackage.Literals.ESB_SERVER__CHILDREN, proxy);
+			
+			LogMediator log=null;
+			for(int i=0;i<proxyService.getTargetInLineInSequence().getList().size();++i){
+				Mediator mediator=proxyService.getTargetInLineInSequence().getList().get(i);
+				LogMediator logMediator = null;
+				if(mediator instanceof org.apache.synapse.mediators.builtin.LogMediator){				
+					 log = EsbFactory.eINSTANCE.createLogMediator();
+						log.setInputConnector(EsbFactory.eINSTANCE.createLogMediatorInputConnector());
+						log.setOutputConnector(EsbFactory.eINSTANCE.createLogMediatorOutputConnector());					
+				}				
+			}
+			
+			AddCommand addCmd = new AddCommand(domain,proxy.getContainer().getSequenceAndEndpointContainer().getMediatorFlow(),EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN, log);
 			domain.getCommandStack().execute(addCmd);
-		}
-		if (resultCommand.canExecute()) {
-			domain.getCommandStack().execute(resultCommand);
+			
+			addCmd = new AddCommand(domain,esbServer,EsbPackage.Literals.ESB_SERVER__CHILDREN, proxy);
+			domain.getCommandStack().execute(addCmd);
+			
+			if (resultCommand.canExecute()) {
+				domain.getCommandStack().execute(resultCommand);
+			}
 		}
 	}
 	

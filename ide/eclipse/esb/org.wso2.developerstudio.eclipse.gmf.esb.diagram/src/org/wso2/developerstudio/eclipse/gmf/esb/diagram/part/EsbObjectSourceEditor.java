@@ -85,7 +85,7 @@ public class EsbObjectSourceEditor {
 
 			public boolean isEditable() {
 				/*Source view is currently read-only*/
-				return false;
+				return true;
 			}
 		};
 		this.input = new FileEditorInput(dummyFile);
@@ -173,7 +173,7 @@ public class EsbObjectSourceEditor {
 	 * 
 	 * @return {@link IDocument} corresponding to current {@link IEditorInput}.
 	 */
-	private IDocument getDocument() {
+	public IDocument getDocument() {
 		return editor.getDocumentProvider().getDocument(editor.getEditorInput());
 	}
 	
