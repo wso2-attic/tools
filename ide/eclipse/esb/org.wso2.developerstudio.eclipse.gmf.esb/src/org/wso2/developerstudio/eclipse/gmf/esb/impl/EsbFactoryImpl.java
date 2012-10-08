@@ -2865,7 +2865,7 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 		registryKeyProperty.setKeyName("Target");
 		registryKeyProperty.setKeyValue("default");
 		EvaluatorExpressionProperty evaluatorExpressionProperty = createEvaluatorExpressionProperty();
-		evaluatorExpressionProperty.setEvaluatorValue("<equal/>");
+		evaluatorExpressionProperty.setEvaluatorValue("<equal  type=\"param\" source=\"foo\" value=\"bar\"/>");
 		conditionalRouteBranch.setEvaluatorExpression(evaluatorExpressionProperty);
 		conditionalRouteBranch.setTargetSequence(registryKeyProperty);
 		return conditionalRouteBranch;
