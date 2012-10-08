@@ -1,7 +1,5 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.ui;
 
-import java.util.ArrayList;
-
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.RemoveCommand;
@@ -37,8 +35,6 @@ import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.ValidateMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.ValidateSchema;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.provider.NamedEntityDescriptor;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.provider.RegistryKeyPropertyEditorDialog;
 
 public class ValidateSchemasDialog extends Dialog {
 
@@ -52,12 +48,12 @@ public class ValidateSchemasDialog extends Dialog {
 
 	private TableEditor typeEditor;
 
-	private TableEditor keyEditor;
+	private TableEditor keyPropertyEditor;
 
 	private Combo cmbType;
 
-	private Text keyText;
-
+	private PropertyText keyPropertyText;
+	
 	private ValidateMediator validateMediatoer;
 
 	private TransactionalEditingDomain editingDomain;
@@ -181,6 +177,7 @@ public class ValidateSchemasDialog extends Dialog {
 	private TableItem bindSchema(ValidateSchema schema) {
 
 		TableItem item = new TableItem(schemaTable, SWT.NONE);
+
 		item.setText(new String[] {
 				schema.getValidateSchemaKeyType().toString(),
 				schema.getValidateStaticSchemaKey().getKeyValue() });
@@ -218,71 +215,41 @@ public class ValidateSchemasDialog extends Dialog {
 
 	private void editItem(final TableItem item) {
 
-		ValidateSchema schema = (ValidateSchema) item.getData();
+		final ValidateSchema schema = (ValidateSchema) item.getData();
 
 		typeEditor = initTableEditor(typeEditor, item.getParent());
-		keyEditor = initTableEditor(keyEditor, item.getParent());
+		keyPropertyEditor = initTableEditor(keyPropertyEditor, item.getParent());
 
 		cmbType = new Combo(item.getParent(), SWT.READ_ONLY);
-		cmbType.setItems(new String[] { KeyType.STATIC.getLiteral(),
-				KeyType.DYNAMIC.getLiteral() });
-		if (schema.getValidateSchemaKeyType() != null) {
-
-			cmbType.setText(schema.getValidateSchemaKeyType().getLiteral());
-
-		}
+		cmbType.setItems(new String[] { KeyType.STATIC.getLiteral(), KeyType.DYNAMIC.getLiteral() });
+		cmbType.setText(item.getText(0));
 		cmbType.addListener(SWT.Selection, new Listener() {
 
 			public void handleEvent(Event event) {
 
-				item.setText(0, cmbType.getText());
+					item.setText(0,cmbType.getText());
 			}
 		});
 
-		keyText = new Text(item.getParent(), SWT.NONE);
-		keyText.addMouseListener(new MouseAdapter() {
+		
+		keyPropertyText = new PropertyText(item.getParent(), SWT.NONE, cmbType);
+		
+		keyPropertyText.addProperties(schema.getValidateStaticSchemaKey(),schema.getValidateDynamicSchemaKey());
+		item.getParent().redraw();
+		item.getParent().layout();
+		
+		keyPropertyText.addModifyListener(new ModifyListener() {
+			
+			public void modifyText(ModifyEvent e) {
 
-			public void mouseDown(MouseEvent e) {
-
-				if (item.getText(0).equals(KeyType.STATIC.getLiteral())) {
-
-					RegistryKeyProperty registryPropertyKey = EsbFactory.eINSTANCE
-							.createRegistryKeyProperty();
-
-					RegistryKeyPropertyEditorDialog rkpe = new RegistryKeyPropertyEditorDialog(
-							parentShell, SWT.NULL, registryPropertyKey,
-							new ArrayList<NamedEntityDescriptor>());
-					rkpe.open();
-
-					if (registryPropertyKey.getKeyValue() != null) {
-
-						item.setText(1, registryPropertyKey.getKeyValue());
-						keyText.setText(item.getText(1));
-
-					}
-				} else {
-
-					NamespacedProperty sourceXPath = EsbFactory.eINSTANCE
-							.createNamespacedProperty();
-
-					NamespacedPropertyEditorDialog nsped = new NamespacedPropertyEditorDialog(
-							parentShell, sourceXPath);
-					nsped.open();
-
-					if (sourceXPath.getPropertyValue() != null) {
-
-						item.setText(1, sourceXPath.getPropertyValue());
-						keyText.setText(item.getText(1));
-					}
-
-				}
-
+				item.setText(1,keyPropertyText.getText());
+				
 			}
-
 		});
-
+		
 		typeEditor.setEditor(cmbType, item, 0);
-		keyEditor.setEditor(keyText, item, 1);
+		keyPropertyEditor.setEditor(keyPropertyText, item, 1);
+		
 
 	}
 
@@ -451,6 +418,11 @@ public class ValidateSchemasDialog extends Dialog {
 		}
 
 		super.okPressed();
+	}
+	
+	protected void configureShell(Shell shell) {
+		super.configureShell(shell);
+		shell.setText("Configure Schema Keys.");
 	}
 
 }

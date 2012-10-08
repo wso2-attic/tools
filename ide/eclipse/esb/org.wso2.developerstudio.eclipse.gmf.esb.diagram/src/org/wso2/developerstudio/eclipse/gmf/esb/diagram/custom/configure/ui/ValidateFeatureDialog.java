@@ -349,4 +349,9 @@ public class ValidateFeatureDialog extends Dialog {
 		super.okPressed();
 
 	}
+
+	protected void configureShell(Shell shell) {
+		super.configureShell(shell);
+		shell.setText("Configure Features.");
+	}
 }

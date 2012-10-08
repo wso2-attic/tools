@@ -98,8 +98,11 @@ public class ValidateSchemaImpl extends EsbNodeImpl implements ValidateSchema {
 		super();
 		setValidateSchemaKeyType(KeyType.STATIC);
 		
-		//NamespacedProperty sourceXPath = EsbFactory.eINSTANCE.createNamespacedProperty();
-		//sourceXPath.setPropertyValue("default/path");
+		NamespacedProperty valueExpression = EsbFactory.eINSTANCE.createNamespacedProperty();
+		valueExpression.setPropertyName("expression");
+		valueExpression.setPrettyName("expression");
+		valueExpression.setPropertyValue("/default/expression");
+		setValidateDynamicSchemaKey(valueExpression);
 		
 		RegistryKeyProperty registryPropertyKey = EsbFactory.eINSTANCE.createRegistryKeyProperty();
 		registryPropertyKey.setKeyName("keyName");
