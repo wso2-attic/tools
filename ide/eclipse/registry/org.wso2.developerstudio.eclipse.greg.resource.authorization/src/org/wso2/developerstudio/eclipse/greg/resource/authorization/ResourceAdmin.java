@@ -375,8 +375,13 @@ public class ResourceAdmin {
 	
 	public boolean checkWritePermissionPerResource(String resourcePath) 
 		throws Exception{
-		PermissionBean resPer;
-		resPer = getStub().getPermissions(resourcePath);
-		return resPer.getPutAllowed();
+		PermissionBean resPer = null;
+		try {
+			resPer = getStub().getPermissions(resourcePath);
+			return resPer.getPutAllowed();
+		} catch (Exception e) {
+//			log.error("Error occured while trying the get the resource permissions",e);
+		}
+		return false;
 	}
 }

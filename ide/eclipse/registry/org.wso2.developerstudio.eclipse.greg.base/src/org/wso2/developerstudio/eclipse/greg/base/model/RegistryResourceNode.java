@@ -706,6 +706,7 @@ public class RegistryResourceNode {
 				hasWritePermissions=rsAd.checkWritePermissionPerResource(this.getRegistryResourcePath());
 				return hasWritePermissions;
 		} catch (Exception e) {
+			log.error("Error occured while trying to get the permissions", e);
 		}
 		return false;
 	}
