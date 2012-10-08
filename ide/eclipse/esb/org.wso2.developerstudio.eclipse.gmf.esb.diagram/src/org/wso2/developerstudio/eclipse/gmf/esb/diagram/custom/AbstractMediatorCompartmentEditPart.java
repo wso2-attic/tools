@@ -12,7 +12,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbPaletteFactory.N
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 
-public class AbstractMediatorCompartmentEditPart extends ShapeCompartmentEditPart{
+public class AbstractMediatorCompartmentEditPart extends AbstractMediatorFlowCompartmentEditPart{
 
 	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
 	

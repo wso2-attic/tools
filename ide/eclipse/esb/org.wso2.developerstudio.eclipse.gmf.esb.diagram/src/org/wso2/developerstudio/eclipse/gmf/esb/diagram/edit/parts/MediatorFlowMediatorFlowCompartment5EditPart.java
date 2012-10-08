@@ -42,6 +42,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.WSDLEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpointInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpointOutputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorFlowCompartmentEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorOutputConnectorEditPart;
@@ -58,7 +59,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementType
  * @generated NOT
  */
 public class MediatorFlowMediatorFlowCompartment5EditPart extends
-		ShapeCompartmentEditPart {
+	AbstractMediatorFlowCompartmentEditPart {
 
 	/* 	Sequences  */
 

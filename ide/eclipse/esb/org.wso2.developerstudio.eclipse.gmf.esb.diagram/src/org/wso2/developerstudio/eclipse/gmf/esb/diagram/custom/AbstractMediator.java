@@ -61,6 +61,9 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 
 	public boolean isForward = true;
 	private int i = 0;
+	
+	private AbstractInputConnectorEditPart connectedInputConnector;
+	private AbstractOutputConnectorEditPart connectedOutputConnector;
 
 	/*
 	 * activete method is called twice for a mediator.so that we use this
@@ -83,6 +86,22 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 
 	public void setIsForward(boolean isForward_) {
 		isForward = isForward_;
+	}
+	
+	public AbstractInputConnectorEditPart getConnectedInputConnector(){
+		return connectedInputConnector;
+	}
+	
+	public AbstractOutputConnectorEditPart getConnectedOutputConnector(){
+		return connectedOutputConnector;
+	}
+	
+	public void setConnectedInputConnector(AbstractInputConnectorEditPart connectedInputConnector){
+		this.connectedInputConnector=connectedInputConnector;
+	}
+	
+	public void setConnectedOutputConnector(AbstractOutputConnectorEditPart connectedOutputConnector){
+		this.connectedOutputConnector=connectedOutputConnector;
 	}
 
 	public void activate() {
