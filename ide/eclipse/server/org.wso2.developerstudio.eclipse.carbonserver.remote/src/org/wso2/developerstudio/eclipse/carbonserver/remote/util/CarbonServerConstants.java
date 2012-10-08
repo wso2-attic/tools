@@ -75,7 +75,7 @@ public class CarbonServerConstants {
 	public static final String ESB_ORIGINAL_TRANSPORT_HTTP="esb.original.transport.http";
 	public static final String ESB_ORIGINAL_TRANSPORT_HTTPS="esb.original.transport.https";
 	
-	public static final String USERNAME="username";
-	public static final String PASSWORD="password";
+	public static final String USERNAME="esb.username";
+	public static final String PASSWORD="esb.password";
 
 }
