@@ -131,8 +131,8 @@
 			categoryId="org.wso2.developerstudio.eclipse.libraries.category.general,org.wso2.developerstudio.eclipse.libraries.category.axis2" />
 		<library jar="lib/httpcore-4.1.0.alpha1-wso2v1.jar"
 			categoryId="org.wso2.developerstudio.eclipse.libraries.category.axis2" />
-		<library jar="lib/jettison-1.1.jar"
-			categoryId="org.wso2.developerstudio.eclipse.libraries.category.is" />
+		<!--library jar="lib/jettison-1.1.jar"
+			categoryId="org.wso2.developerstudio.eclipse.libraries.category.is" /-->
 		<library jar="lib/jettison-1.2.jar"
 			categoryId="org.wso2.developerstudio.eclipse.libraries.category.is" />
 		<library jar="lib/joda-time-1.6.0.wso2v1.jar"
@@ -159,8 +159,8 @@
 			categoryId="org.wso2.developerstudio.eclipse.libraries.category.axis2" />
 		<library jar="lib/wsdl4j-1.6.2.wso2v1.jar"
 			categoryId="org.wso2.developerstudio.eclipse.libraries.category.axis2" />
-		<library jar="lib/wss4j-1.5.10.wso2v2.jar"
-			categoryId="org.wso2.developerstudio.eclipse.libraries.category.axis2" />
+		<!--library jar="lib/wss4j-1.5.10.wso2v2.jar"
+			categoryId="org.wso2.developerstudio.eclipse.libraries.category.axis2" /-->
 		<library jar="lib/XmlSchema_1.4.7.wso2v2.jar"
 			categoryId="org.wso2.developerstudio.eclipse.libraries.category.general,org.wso2.developerstudio.eclipse.libraries.category.axis2" />
 		<library jar="lib/org.wso2.carbon.authenticator.proxy-3.1.0.jar"
