@@ -92,7 +92,6 @@ public class CarbonServerScriptParser {
 	private File getScriptFile(){
 		File scriptFile=null;
 		String osNameProperty = System.getProperty(OS_NAME_PROPERTY);
-		System.out.println(osNameProperty);
 		
 		if(!osNameProperty.startsWith("Windows")){
 			scriptFile=new File(serverLocation+File.separator+"bin"+File.separator+"wso2server.sh");
