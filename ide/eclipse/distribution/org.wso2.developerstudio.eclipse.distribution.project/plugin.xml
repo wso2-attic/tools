@@ -171,14 +171,14 @@
 				</enablement>
                </objectContribution>
         </extension>
-         <extension
+         <!--<extension
                point="org.wso2.developerstudio.eclipse.project.export.handler">
             <handler
                   class="org.wso2.developerstudio.eclipse.distribution.project.export.CarExportHandler"
                   id="org.wso2.developerstudio.eclipse.distribution.project.export.handler"
                   type="carbon/application">
             </handler>
-         </extension>
+         </extension>-->
          
           <extension
        point="org.wso2.developerstudio.eclipse.carbonserver.publisher">
