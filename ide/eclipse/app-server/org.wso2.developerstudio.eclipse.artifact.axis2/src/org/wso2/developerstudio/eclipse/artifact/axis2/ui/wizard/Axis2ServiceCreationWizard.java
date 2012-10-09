@@ -171,6 +171,8 @@ public class Axis2ServiceCreationWizard  extends AbstractWSO2ProjectCreationWiza
 			log.error("CoreException has occurred", e);
 		} catch (IOException e) {
 			log.error("I/O error has occurred", e);
+		} catch (InvocationTargetException e) {
+			log.error("An error occurred while generating codes", e.getTargetException());
 		} catch (Exception e) {
 			log.error("An unexpected error has occurred", e);
 		}
