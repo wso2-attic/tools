@@ -44,8 +44,10 @@ public class RegistryHeartBeatTester implements Runnable {
 			List<RegistryNode> urlInfoList = urlNodeList.getUrlInfoList();
 			boolean registryEnabledStateChanged=false;
 			int index=0;
-			while (urlInfoList.size()<index) {
-				registryEnabledStateChanged = registryEnabledStateChanged || validateRegistryNode(urlInfoList.get(index));
+			while (index<urlInfoList.size()) {
+				if (validateRegistryNode(urlInfoList.get(index)) && !registryEnabledStateChanged) {
+					registryEnabledStateChanged = true;
+				}
 				index++;
 			}
 //			for (RegistryNode registryNode : urlInfoList) {
@@ -68,10 +70,13 @@ public class RegistryHeartBeatTester implements Runnable {
 
 	private boolean validateRegistryNode(RegistryNode registryNode) {
 		boolean registryEnabledStateChanged=false;
-		boolean currentEnableState = registryNode.isEnabled();
+		boolean previousEnableState = false;
+		if (registryNode.isEnabled()) {
+			previousEnableState=true;
+		}
 		if(registryNode.isUserEnabled()){
-		if (currentEnableState || !originalState.containsKey(registryNode)){
-			originalState.put(registryNode, currentEnableState);
+		if (previousEnableState || !originalState.containsKey(registryNode)){
+			originalState.put(registryNode, previousEnableState);
 		}
 		if (!Utils.isValidServerURL(registryNode.getServerUrl())){
 			registryNode.setEnabled(false);
@@ -79,6 +84,7 @@ public class RegistryHeartBeatTester implements Runnable {
 			int indexOf = allRegistryUrls.indexOf(registryNode.getRegistryUrlInfo());
 			RegistryURLInfo registryURLInfo = allRegistryUrls.get(indexOf);
 			registryURLInfo.setEnabled(false);
+			registryNode.getRegistryUrlInfo().setEnabled(false);
 			urlStore.persist();
 			registryNode.getRegistry().clearSessionProperties();
 		}else{
@@ -91,7 +97,7 @@ public class RegistryHeartBeatTester implements Runnable {
 				urlStore.persist();
 			}
 		}
-		if (currentEnableState!=registryNode.isEnabled()){
+		if (previousEnableState != registryNode.isEnabled()){
 			if (registryNode.isEnabled()){
 				registryNode.setIterativeRefresh(true);
 			}

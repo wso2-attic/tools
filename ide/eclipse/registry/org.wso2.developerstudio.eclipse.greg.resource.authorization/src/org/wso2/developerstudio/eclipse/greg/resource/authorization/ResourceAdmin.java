@@ -162,7 +162,7 @@ public class ResourceAdmin {
 			Exception {
 		if (stub!=null){
 			try {
-				stub.getPermissions("/");
+				stub.getMediatypeDefinitions()/*getPermissions("/")*/;
 			} catch (Exception e) {
 				//Assume session time out is the reason for the exception
 				stub=null;
