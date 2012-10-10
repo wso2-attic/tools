@@ -728,17 +728,20 @@ public class CarbonServer32Utils {
 //		return serverDelegate.getServerURL();
 		
 		ServerPort[] serverPorts = getServerPorts(server);
+		int httpsPort = 9443;
+		int offset = 0;
 		for (ServerPort serverPort : serverPorts) {
 			if(serverPort.getName().equals("Carbon web console port (HTTPS)") && serverPort.getProtocol().equals("https")){
-				try {
-					return new URL(serverPort.getProtocol()+"://localhost:"+serverPort.getPort());
-				} catch (MalformedURLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				httpsPort=serverPort.getPort();
+			}else if(serverPort.getName().equals("Carbon Server Offset")){
+				offset=serverPort.getPort();
 			}
 		}
-		
+		try {
+			return new URL("https://localhost:"+(httpsPort+offset));
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
 		return null;
 	}
 }
