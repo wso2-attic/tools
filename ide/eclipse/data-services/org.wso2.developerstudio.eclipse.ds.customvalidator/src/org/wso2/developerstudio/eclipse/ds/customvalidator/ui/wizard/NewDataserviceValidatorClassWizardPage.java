@@ -39,7 +39,7 @@ public class NewDataserviceValidatorClassWizardPage extends NewClassWizardPage{
 									"axis2-1.6.0.wso2v1.jar",
 									"commons-codec-1.3.0.wso2v1.jar",
 									"commons-httpclient-3.1.0.wso2v1.jar",
-									"commons-io-1.4.0.wso2v1.jar",
+									"commons-io_2.0.0.wso2v2.jar",
 									"commons-logging-1.1.1.jar",
 									"geronimo-stax-api_1.0_spec_1.0.1.wso2v1.jar",
 									"httpcore-4.1.0.alpha1-wso2v1.jar",

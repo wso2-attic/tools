@@ -22,6 +22,6 @@ import org.wso2.developerstudio.eclipse.libraries.utils.LibraryUtils;
 
 public class RegistryFilterUtils {
 	public static File getRegistryCoreLibraryPath(){
-		return LibraryUtils.getDependencyPath("org.wso2.carbon.registry.core-3.0.0.jar");
+		return LibraryUtils.getDependencyPath("org.wso2.carbon.registry.core_4.0.1.jar");
 	}
 }

@@ -71,7 +71,7 @@ public class NewRegistryFilterClassWizardPage extends NewClassWizardPage{
 	}
 	
 	public String createClass() throws CoreException, InterruptedException{
-		addSynapseLibrary();
+		addRegistryCoreLibrary();
 		addOtherDependencies();
 		createType(new NullProgressMonitor());
 		IDE.openEditor(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage(), (IFile)getCreatedType().getResource());
@@ -87,7 +87,7 @@ public class NewRegistryFilterClassWizardPage extends NewClassWizardPage{
 		}
 	}
 	
-	private void addSynapseLibrary() throws JavaModelException {
+	private void addRegistryCoreLibrary() throws JavaModelException {
 	    IJavaProject javaProject = getJavaProject();
 		JavaUtils.addJarLibraryToProject(javaProject, RegistryFilterUtils.getRegistryCoreLibraryPath());
     }
