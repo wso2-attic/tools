@@ -160,7 +160,8 @@ Bundle-ClassPath: .,
  lib/geronimo-stax-api_1.0_spec_1.0.1.wso2v2.jar,
  lib/axis2_1.6.1.wso2v6.jar,
  lib/axiom_1.2.11.wso2v3.jar,
- lib/org.wso2.carbon.registry.core_4.0.1.jar
+ lib/org.wso2.carbon.registry.core_4.0.1.jar,
+ lib/org.wso2.carbon.securevault_4.0.0.jar
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.jdt.ui,
