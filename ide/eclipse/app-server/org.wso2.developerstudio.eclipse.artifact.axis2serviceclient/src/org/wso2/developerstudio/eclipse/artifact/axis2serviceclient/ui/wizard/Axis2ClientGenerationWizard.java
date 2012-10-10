@@ -123,10 +123,10 @@ public class Axis2ClientGenerationWizard extends Wizard implements INewWizard,
 				monitor.subTask("Adding dependent libraries to the project...");
 				JavaUtils.addJarLibraryToProject(model.getSelectedProject(),
 						LibraryUtils
-								.getDependencyPath("axis2-1.6.0.wso2v1.jar"));
+								.getDependencyPath("axis2_1.6.1.wso2v6.jar"));
 				JavaUtils.addJarLibraryToProject(model.getSelectedProject(),
 						LibraryUtils
-								.getDependencyPath("axiom-1.2.9.wso2v1.jar"));
+								.getDependencyPath("axiom_1.2.11.wso2v3.jar"));
 				monitor.worked(10);
 				monitor.subTask("Refreshing project...");
 				model.getSelectedProject().refreshLocal(
