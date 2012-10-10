@@ -331,7 +331,8 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 		// Invoke the appropriate handler method.
 		switch (pageIndex) {
 		case DESIGN_VIEW_PAGE_INDEX: {
-			handleDesignViewActivatedEvent();
+			/** Temporary deactivate method call - functionality not completed yet.**/
+			//handleDesignViewActivatedEvent(); 
 			break;
 		}
 		case SOURCE_VIEW_PAGE_INDEX: {
