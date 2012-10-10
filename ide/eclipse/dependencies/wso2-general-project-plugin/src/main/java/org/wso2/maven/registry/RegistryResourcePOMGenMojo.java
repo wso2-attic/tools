@@ -163,12 +163,11 @@ public class RegistryResourcePOMGenMojo extends AbstractPOMGenMojo {
 			}
 			if (file.isFile()) {
 				FileUtils.copy(file,
-				               new File(projectLocation, "resources" + File.separator +
-				                                         file.getName()));
+				               new File(projectLocation, "resources" + File.separator + ((RegistryItem)registryItem).getFile()));
 			} else {
 				FileUtils.copyDirectory(file,
 				                        new File(projectLocation, "resources" + File.separator +
-				                                                  file.getName()));
+				                        		((RegistryCollection)registryItem).getDirectory()));
 			}
         }
 		

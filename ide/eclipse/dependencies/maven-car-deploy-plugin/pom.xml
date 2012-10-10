@@ -249,7 +249,7 @@
 		<dependency>
 			<groupId>org.wso2.maven</groupId>
 			<artifactId>org.wso2.maven.capp</artifactId>
-			<version>2.0.0</version>
+			<version>2.0.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.wso2.maven</groupId>
@@ -259,16 +259,6 @@
 		<dependency>
 			<groupId>org.wso2.maven</groupId>
 			<artifactId>org.wso2.maven.utils</artifactId>
-			<version>2.0.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.wso2.maven</groupId>
-			<artifactId>maven-synapse-plugin</artifactId>
-			<version>2.0.0</version>
-		</dependency>
-		<dependency>
-			<groupId>org.wso2.maven</groupId>
-			<artifactId>maven-stratos-plugin</artifactId>
 			<version>2.0.0</version>
 		</dependency>
 		<dependency>
