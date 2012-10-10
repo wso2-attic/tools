@@ -7,7 +7,7 @@ Bundle-Activator: org.wso2.developerstudio.eclipse.usermgt.remote.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime
 Bundle-ActivationPolicy: lazy
-Import-Package: javax.activation;version="1.2.9.wso2v1",
+Import-Package: javax.activation;version="1.1.0",
  javax.wsdl;version="[1.6.2.wso2v1,1.7.0)",
  javax.xml.stream;version="1.0.1.wso2v1",
  org.apache.axiom.om,
@@ -37,6 +37,6 @@ Import-Package: javax.activation;version="1.2.9.wso2v1",
  org.wso2.developerstudio.eclipse.logging.core,
  org.wso2.developerstudio.eclipse.utils.jdt
 Bundle-ClassPath: .,
- lib/org.wso2.carbon.user.mgt.stub-3.2.0.jar
+ lib/org.wso2.carbon.user.mgt.stub_4.0.0.jar
 Export-Package: org.wso2.carbon.core.services.authentication,
  org.wso2.developerstudio.eclipse.usermgt.remote

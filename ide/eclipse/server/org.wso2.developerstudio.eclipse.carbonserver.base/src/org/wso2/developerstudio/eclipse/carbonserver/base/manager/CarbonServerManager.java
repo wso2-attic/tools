@@ -673,7 +673,8 @@ public final class CarbonServerManager implements IServerManager {
 	}
 	
 	private void init(){
-		createWorkspaceListener();
+//		Disabled the Workspace Listener to avoid automatic deployment of C-Apps upon changes happens to C-App to avoid unnecessary side effects
+//		createWorkspaceListener();
 	}
 	
 	private void createWorkspaceListener(){
