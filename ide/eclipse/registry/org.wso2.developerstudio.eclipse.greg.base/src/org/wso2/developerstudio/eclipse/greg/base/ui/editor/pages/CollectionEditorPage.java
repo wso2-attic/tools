@@ -172,9 +172,17 @@ public class CollectionEditorPage extends FormPage implements
 					setCurrentLifeCycle(registry.getLifeCycleName(regResource));
 					setCurrentLifeCycleState(registry.getLifeCycleState(regResource));
 
-			        setCurrentMyRating(registry.getRating(selectedPath, registry.getUserName()));
-			        setMyRating(getCurrentMyRating());
-			        setAverageRating(registry.getAverageRating(selectedPath));
+					try {
+						setCurrentMyRating(registry.getRating(selectedPath, registry.getUserName()));
+						setMyRating(getCurrentMyRating());
+						setAverageRating(registry.getAverageRating(selectedPath));
+					} catch (Exception e) {
+						log.error("Error occured while retriveing the Rating for the user", e);
+						setCurrentMyRating(0);
+						setMyRating(0);
+						setAverageRating(0);
+					}
+			        
 
 		        } catch (Exception e) {
 			        MessageDialogUtils.error(getSite().getShell(),
