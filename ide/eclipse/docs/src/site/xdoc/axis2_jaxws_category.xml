@@ -13,7 +13,7 @@ permissions and ~ limitations under the License.
         "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<body>
-		<h1>Apache Axis2 and JAX-WS Tools</h1>
+		<h1>Apache Axis2 and JAX-WS/JAX-RS Tools</h1>
 		<h2>Content</h2>
 		<div class="toc">
 			<ul>
@@ -40,6 +40,9 @@ permissions and ~ limitations under the License.
 				</li>
 				<li>
 					<a href="#JAX-WSArtifact">JAX-WS Artifact</a>
+				</li>
+				<li>
+					<a href="#JAX-RSArtifact">JAX RESTful Artifact</a>
 				</li>
 			</ul>
 		</div>
@@ -427,6 +430,71 @@ permissions and ~ limitations under the License.
 				<img alt="New Server Runtime" src="images/jaxws8.png"></img>
 				<br></br>
 				<br></br>
-			</p>								
+			</p>	
+
+	<h2 id="JAX-RSArtifact">JAX RESTful Web Service Project</h2>
+        <p>
+        To create a JAX RESTful Web Service Project, Go to the J2EE  perspective, and select <strong>File->New->Project</strong> and select <strong>WSO2</strong> category, then under WSO2 category <strong>Service Hosting->Project Types->JAX RESTful Web Service Project</strong> from the wizard dialog
+        </p>
+		<p>
+			<img alt="New Server Runtime" src="images/jaxrs1.png"></img>
+		</p>
+
+		<p>you can create a basic JAX RESTful Web Service Project. You can develop a 
+		JAX-RS-enabled Web service as a Java class inside this project. 
+		</p>
+			<p>
+				<br></br>
+				<img alt="New Server Runtime" src="images/jaxrs2.png"></img>
+				<br></br>
+			</p>
+			
+			<p>
+			Once you create the <strong>JAX RESTful service</strong> project, to create a 
+			<strong>JAX RESTful service</strong> class, right click on the created JAX RESTful service project and 
+			go to <strong>New -> JAX RESTful Service Class</strong>.
+			</p>
+			
+			<p>
+				<br></br>
+				<img alt="New Server Runtime" src="images/jaxrs3.png"></img>
+				<br></br>
+			</p>
+			
+			<p>
+			In the service creation class dialog, you will have to specify the 
+			<strong>bean</strong> class as well as the <strong>interface</strong> class. Give 
+			necessary information and click <strong>Finish</strong>.
+			</p>
+			
+			<p>
+				<br></br>
+				<img alt="New Server Runtime" src="images/jaxrs4.png"></img>
+				<br></br>
+			</p>
+			
+			<p>
+			Now you will see that the interface class and the bean class has been created inside the 
+			JAX RESTful service project project that you have created. 
+			</p>
+			<p>
+				<br></br>
+				<img alt="New Server Runtime" src="images/jaxrs5.png"></img>
+				<br></br>
+			</p>
+			
+			
+			<p>You can export JAX RESTful service project as a web application (war) file or you can add it as dependency of 
+			Carbon Application project which can deploy on WSO2 Application Server.
+			<br/>
+			To create a deployable  archive (WAR) , Right-click on project, select  
+			<strong>Export Project as Deployable Archive</strong>, then choose destination location.
+			</p>
+			<p>
+				<br></br>
+				<img alt="New Server Runtime" src="images/jaxrs6.png"></img>
+				<br></br>
+				<br></br>
+			</p>										
 	</body>
 </html>
