@@ -350,7 +350,7 @@ public class OAuthMediatorEditPart extends FixedSizedAbstractMediator {
 		}
 
 		public String getIconPath() {
-			return "icons/ico20/log-mediator.gif";
+			return "icons/ico20/oauth-mediator.gif";
 		}
 
 		public String getNodeName() {

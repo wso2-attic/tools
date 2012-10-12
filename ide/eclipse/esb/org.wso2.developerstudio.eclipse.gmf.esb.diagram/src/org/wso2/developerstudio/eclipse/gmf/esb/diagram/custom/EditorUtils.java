@@ -16,7 +16,9 @@
 
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom;
 
+import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceEditPart;
 
 public class EditorUtils {
 	
@@ -76,4 +78,47 @@ public class EditorUtils {
 		}
 		return null;
 	}
+	
+	/*
+	 * You can get the MediatorEditPart of the entered ConnectorEditPart using this method.
+	 */
+	public static AbstractMediator getMediator(AbstractConnectorEditPart connector){
+		EditPart temp=connector;
+		while((temp !=null)&&(!(temp instanceof AbstractMediator))){
+			temp=temp.getParent();			
+		}
+		if(temp instanceof AbstractMediator){
+			return (AbstractMediator) temp;
+		}
+		else{
+			return null;
+		}
+	}
+	
+	public static AbstractEndpoint getEndpoint(AbstractConnectorEditPart connector){
+		EditPart temp=connector;
+		while((temp !=null)&&(!(temp instanceof AbstractEndpoint))){
+			temp=temp.getParent();			
+		}
+		if(temp instanceof AbstractEndpoint){
+			return (AbstractEndpoint) temp;
+		}
+		else{
+			return null;
+		}
+	}
+	
+	public static ProxyServiceEditPart getProxy(AbstractConnectorEditPart connector){
+		EditPart temp=connector;
+		while((temp !=null)&&(!(temp instanceof ProxyServiceEditPart))){
+			temp=temp.getParent();			
+		}
+		if(temp instanceof ProxyServiceEditPart){
+			return (ProxyServiceEditPart) temp;
+		}
+		else{
+			return null;
+		}
+	}
+	
 }

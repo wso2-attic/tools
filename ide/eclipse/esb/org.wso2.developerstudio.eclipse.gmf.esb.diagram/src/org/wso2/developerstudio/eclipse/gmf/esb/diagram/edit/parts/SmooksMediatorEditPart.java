@@ -295,7 +295,7 @@ public class SmooksMediatorEditPart extends FixedSizedAbstractMediator {
 		}
 
 		public String getIconPath() {
-			return "icons/ico20/log-mediator.gif";
+			return "icons/ico20/smooks-mediator.gif";
 		}
 
 		public String getNodeName() {

@@ -322,7 +322,7 @@ public class PayloadFactoryMediatorEditPart extends FixedSizedAbstractMediator {
 		}
 
 		public String getIconPath() {
-			return "icons/ico20/log-mediator.gif";
+			return "icons/ico20/payloadFactory-mediator.gif";
 		}
 
 		public String getNodeName() {

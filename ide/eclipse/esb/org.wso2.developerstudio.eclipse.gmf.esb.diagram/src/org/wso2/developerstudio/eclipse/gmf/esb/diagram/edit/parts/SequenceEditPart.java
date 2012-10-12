@@ -778,7 +778,7 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 		}
 
 		public String getIconPath() {
-			return "icons/ico20/sequence.gif";
+			return "icons/ico20/sequence-mediator.gif";
 		}
 
 		public String getNodeName() {

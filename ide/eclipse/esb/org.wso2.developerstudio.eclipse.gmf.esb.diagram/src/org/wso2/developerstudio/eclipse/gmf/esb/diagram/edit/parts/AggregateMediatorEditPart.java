@@ -402,8 +402,8 @@ public class AggregateMediatorEditPart extends complexFiguredAbstractMediator {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
-	static final Color THIS_BACK = new Color(null, 230, 230, 230);
+	static final Color THIS_BACK = new Color(null, 255, 255, 255);
 
 }

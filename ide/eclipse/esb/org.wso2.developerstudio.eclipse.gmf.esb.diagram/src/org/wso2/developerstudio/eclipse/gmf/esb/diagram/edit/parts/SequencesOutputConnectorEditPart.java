@@ -434,4 +434,22 @@ public class SequencesOutputConnectorEditPart extends AbstractOutputConnectorEdi
 	 */
 	static final Color THIS_BACK = new Color(null, 50, 50, 50);
 
+	@Override
+	public NodeFigure getNodeFigureOutput() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public IFigure createNodeShapeReverse() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public IFigure createNodeShapeForward() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

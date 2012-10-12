@@ -32,7 +32,7 @@ public class EsbGraphicalShape extends RoundedRectangle {
 		this.setFill(false);
 		this.setOutline(false);
 		//this.setBackgroundColor(get);
-		this.setPreferredSize(new Dimension(104, 44));
+		this.setPreferredSize(new Dimension(104, 70));
 		createContents();
 	}
 
@@ -54,7 +54,31 @@ public class EsbGraphicalShape extends RoundedRectangle {
 		constraintGraphicalNodeContainer0.verticalSpan = 1;
 		constraintGraphicalNodeContainer0.grabExcessHorizontalSpace = false;
 		constraintGraphicalNodeContainer0.grabExcessVerticalSpace = false;
-		this.add(graphicalNodeContainer0, constraintGraphicalNodeContainer0);
+		//this.add(graphicalNodeContainer0, constraintGraphicalNodeContainer0);
+		
+		
+		GridData constraintMainImageRectangle = new GridData();
+		constraintMainImageRectangle.verticalAlignment = GridData.FILL;
+		constraintMainImageRectangle.horizontalAlignment = GridData.FILL;
+		constraintMainImageRectangle.horizontalIndent = 0;
+		constraintMainImageRectangle.horizontalSpan = 1;
+		constraintMainImageRectangle.verticalSpan = 2;
+		constraintMainImageRectangle.grabExcessHorizontalSpace = true;
+		constraintMainImageRectangle.grabExcessVerticalSpace = true;
+		
+		
+		
+		ImageDescriptor mainImgDesc = EsbDiagramEditorPlugin
+				.getBundledImageDescriptor(getIconPath());
+		ImageFigure mainImg = new ImageFigure(mainImgDesc.createImage());
+		mainImg.setSize(new Dimension(100, 70));
+		RectangleFigure mainImageRectangle = new RectangleFigure();
+		mainImageRectangle.setOutline(false);
+		mainImageRectangle.setBackgroundColor(new Color(null, 255, 255, 255));
+		mainImageRectangle.setPreferredSize(new Dimension(100, 70));
+		mainImageRectangle.add(mainImg);
+		this.add(mainImageRectangle, constraintMainImageRectangle);		
+		
 
 		GridLayout layoutGraphicalNodeContainer0 = new GridLayout();
 		layoutGraphicalNodeContainer0.numColumns = 2;
@@ -84,7 +108,7 @@ public class EsbGraphicalShape extends RoundedRectangle {
 		constraintImageRectangle1.verticalSpan = 2;
 		constraintImageRectangle1.grabExcessHorizontalSpace = true;
 		constraintImageRectangle1.grabExcessVerticalSpace = true;
-		graphicalNodeContainer0.add(imageRectangle1, constraintImageRectangle1);
+		//graphicalNodeContainer0.add(imageRectangle1, constraintImageRectangle1);
 
 		imageRectangle1.setLayoutManager(new StackLayout());
 
@@ -104,8 +128,8 @@ public class EsbGraphicalShape extends RoundedRectangle {
 		constraintEsbNodeTypeNameRectangle1.verticalSpan = 1;
 		constraintEsbNodeTypeNameRectangle1.grabExcessHorizontalSpace = true;
 		constraintEsbNodeTypeNameRectangle1.grabExcessVerticalSpace = true;
-		graphicalNodeContainer0.add(esbNodeTypeNameRectangle1,
-				constraintEsbNodeTypeNameRectangle1);
+		//graphicalNodeContainer0.add(esbNodeTypeNameRectangle1,
+				//constraintEsbNodeTypeNameRectangle1);
 
 		esbNodeTypeNameRectangle1.setLayoutManager(new StackLayout());
 		

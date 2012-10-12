@@ -299,7 +299,7 @@ public class URLRewriteMediatorEditPart extends FixedSizedAbstractMediator {
 		}
 
 		public String getIconPath() {
-			return "icons/ico20/throttle-mediator.gif";
+			return "icons/ico20/urlRewrite-mediator.gif";
 		}
 
 		public String getNodeName() {

@@ -299,7 +299,7 @@ public class TransactionMediatorEditPart extends FixedSizedAbstractMediator {
 		}
 
 		public String getIconPath() {
-			return "icons/ico20/throttle-mediator.gif";
+			return "icons/ico20/transaction-mediator.gif";
 		}
 
 		public String getNodeName() {

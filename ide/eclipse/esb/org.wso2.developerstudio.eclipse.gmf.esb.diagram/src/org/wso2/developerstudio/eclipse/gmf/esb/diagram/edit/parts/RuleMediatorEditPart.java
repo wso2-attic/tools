@@ -353,7 +353,7 @@ public class RuleMediatorEditPart extends complexFiguredAbstractMediator {
 		}
 
 		public String getIconPath() {
-			return "icons/ico20/log-mediator.gif";
+			return "icons/ico20/rule-mediator.gif";
 		}
 
 		public String getNodeName() {
@@ -367,8 +367,8 @@ public class RuleMediatorEditPart extends complexFiguredAbstractMediator {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
-	static final Color THIS_BACK = new Color(null, 230, 230, 230);
+	static final Color THIS_BACK = new Color(null, 255, 255, 255);
 
 }

@@ -534,28 +534,66 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
     }
     
     
-	void rebuildModelObject(String xml){
+	void rebuildModelObject(String xml) {
 		try {
-			EsbDiagram esbDiagram = (EsbDiagram) graphicalEditor.getDiagram().getElement();
+			EsbDiagram esbDiagram = (EsbDiagram) graphicalEditor.getDiagram()
+					.getElement();
 			EsbServer esbServer = esbDiagram.getServer();
-			EsbServer sourceToDesign=EsbModelTransformer.instance.sourceToDesign(xml,esbServer);			
+			EsbServer sourceToDesign = EsbModelTransformer.instance
+					.sourceToDesign(xml, esbServer);
 
-			LogMediatorEditPart logEditPart=(LogMediatorEditPart) ((MediatorFlowMediatorFlowCompartmentEditPart)((MediatorFlowEditPart)((ProxyServiceSequenceAndEndpointContainerEditPart)((ProxyServiceContainerEditPart)((ProxyServiceEditPart)((EditPart)((EsbServerEditPart)graphicalEditor.getDiagramEditPart().getChildren().get(0)).getChildren().get(0)).getChildren().get(0)).getChildren().get(4)).getChildren().get(0)).getChildren().get(0)).getChildren().get(0)).getChildren().get(0);
-						
-			LogMediatorInputConnectorEditPart logInputConnectorEditpart=(LogMediatorInputConnectorEditPart) logEditPart.getChildren().get(1);
-			
-			CompoundCommand cc = new CompoundCommand("Create Subtopic and Link");
+			if (((EditPart) ((EsbServerEditPart) graphicalEditor
+					.getDiagramEditPart().getChildren().get(0)).getChildren()
+					.get(0)).getChildren().size() != 0) {
 
-			ProxyServiceEditPart proxyServiceEditPart=(ProxyServiceEditPart)    ((EsbServerContentsCompartmentEditPart)((EsbServerEditPart)graphicalEditor.getDiagramEditPart().getChildren().get(0)).getChildren().get(0)).getChildren().get(0);
-				
-			ICommand createSubTopicsCmd = new DeferredCreateConnectionViewAndElementCommand(new CreateConnectionViewAndElementRequest(EsbElementTypes.EsbLink_4001,
-					((IHintedType) EsbElementTypes.EsbLink_4001).getSemanticHint(), proxyServiceEditPart.getDiagramPreferencesHint()), new EObjectAdapter((EObject) ((ProxyOutputConnectorEditPart)proxyServiceEditPart.getChildren().get(1)).getModel()),
-					 new EObjectAdapter((EObject) (logInputConnectorEditpart).getModel()), proxyServiceEditPart.getViewer());
+				if (((EditPart) ((EsbServerEditPart) graphicalEditor
+						.getDiagramEditPart().getChildren().get(0))
+						.getChildren().get(0)).getChildren().get(0) instanceof ProxyServiceEditPart) {
 
-			cc.add(new ICommandProxy(createSubTopicsCmd));
+					
+					MediatorFlowMediatorFlowCompartmentEditPart compartmentEditPart=((MediatorFlowMediatorFlowCompartmentEditPart) ((MediatorFlowEditPart) ((ProxyServiceSequenceAndEndpointContainerEditPart) ((ProxyServiceContainerEditPart) ((ProxyServiceEditPart) ((EditPart) ((EsbServerEditPart) graphicalEditor
+							.getDiagramEditPart().getChildren().get(0))
+							.getChildren().get(0)).getChildren().get(0))
+							.getChildren().get(4)).getChildren().get(0))
+							.getChildren().get(0)).getChildren().get(0));
+					
+					if(compartmentEditPart.getChildren().size()!=0){
+					
+					LogMediatorEditPart logEditPart = (LogMediatorEditPart)compartmentEditPart
+							.getChildren().get(0);
 
-			proxyServiceEditPart.getDiagramEditDomain().getDiagramCommandStack().execute(cc);
-			
+					LogMediatorInputConnectorEditPart logInputConnectorEditpart = (LogMediatorInputConnectorEditPart) logEditPart
+							.getChildren().get(1);
+
+					CompoundCommand cc = new CompoundCommand(
+							"Create Subtopic and Link");
+
+					ProxyServiceEditPart proxyServiceEditPart = (ProxyServiceEditPart) ((EsbServerContentsCompartmentEditPart) ((EsbServerEditPart) graphicalEditor
+							.getDiagramEditPart().getChildren().get(0))
+							.getChildren().get(0)).getChildren().get(0);
+
+					ICommand createSubTopicsCmd = new DeferredCreateConnectionViewAndElementCommand(
+							new CreateConnectionViewAndElementRequest(
+									EsbElementTypes.EsbLink_4001,
+									((IHintedType) EsbElementTypes.EsbLink_4001)
+											.getSemanticHint(),
+									proxyServiceEditPart
+											.getDiagramPreferencesHint()),
+							new EObjectAdapter(
+									(EObject) ((ProxyOutputConnectorEditPart) proxyServiceEditPart
+											.getChildren().get(1)).getModel()),
+							new EObjectAdapter(
+									(EObject) (logInputConnectorEditpart)
+											.getModel()),
+							proxyServiceEditPart.getViewer());
+
+					cc.add(new ICommandProxy(createSubTopicsCmd));
+
+					proxyServiceEditPart.getDiagramEditDomain()
+							.getDiagramCommandStack().execute(cc);
+				}
+				}
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

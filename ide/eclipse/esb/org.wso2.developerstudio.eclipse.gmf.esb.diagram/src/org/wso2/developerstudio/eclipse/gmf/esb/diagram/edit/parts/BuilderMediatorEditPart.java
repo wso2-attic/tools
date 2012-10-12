@@ -334,7 +334,7 @@ public class BuilderMediatorEditPart extends FixedSizedAbstractMediator {
 		}
 
 		public String getIconPath() {
-			return "icons/ico20/log-mediator.gif";
+			return "icons/ico20/builder-mediator.gif";
 		}
 
 		public String getNodeName() {

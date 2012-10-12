@@ -130,7 +130,7 @@ public class SequenceInputConnectorEditPart extends AbstractMediatorInputConnect
 	protected NodeFigure createNodeFigure() {
 		NodeFigure figure = createNodePlate();
 		figure.setLayoutManager(new StackLayout());
-		IFigure shape = createNodeShape();
+		IFigure shape = createNodeShapeForward();
 		figure.add(shape);
 		contentPane = setupContentPane(shape);
 		figure_ = figure;
