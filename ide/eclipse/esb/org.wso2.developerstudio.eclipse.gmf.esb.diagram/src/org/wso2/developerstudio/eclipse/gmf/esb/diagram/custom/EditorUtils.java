@@ -19,6 +19,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequencesEditPart;
 
 public class EditorUtils {
 	
@@ -115,6 +116,19 @@ public class EditorUtils {
 		}
 		if(temp instanceof ProxyServiceEditPart){
 			return (ProxyServiceEditPart) temp;
+		}
+		else{
+			return null;
+		}
+	}
+	
+	public static SequencesEditPart getSequence(AbstractConnectorEditPart connector){
+		EditPart temp=connector;
+		while((temp !=null)&&(!(temp instanceof SequencesEditPart))){
+			temp=temp.getParent();			
+		}
+		if(temp instanceof SequencesEditPart){
+			return (SequencesEditPart) temp;
 		}
 		else{
 			return null;

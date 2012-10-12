@@ -60,6 +60,8 @@ public abstract class AbstractOutputConnectorEditPart extends
 				figureInput.add(createNodeShapeForward());
 			}else if(EditorUtils.getEndpoint(this) !=null){
 				figureInput.add(createNodeShapeReverse());
+			}else if(EditorUtils.getSequence(this) !=null){
+				figureInput.add(createNodeShapeForward());
 			}
 		}		
 	}
