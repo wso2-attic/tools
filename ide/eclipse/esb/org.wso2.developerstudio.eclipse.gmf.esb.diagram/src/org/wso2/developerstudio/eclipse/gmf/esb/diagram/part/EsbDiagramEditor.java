@@ -174,12 +174,6 @@ public class EsbDiagramEditor extends DiagramDocumentEditor implements
 		performSaveAs(new NullProgressMonitor());
 	}
 
-	//	
-	//	public void performSave(IProgressMonitor progressMonitor) {
-	//	super.doSave(progressMonitor);	
-	//	System.out.println("hi");
-	//	}
-
 	/**
 	 * @generated
 	 */

@@ -2,16 +2,21 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.part;
 
 import java.io.File;
 import java.lang.reflect.InvocationTargetException;
+import java.util.Map;
 
+import org.apache.maven.project.MavenProject;
 import org.eclipse.core.resources.IContainer;
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IConfigurationElement;
+import org.eclipse.core.runtime.IExecutableExtension;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -25,14 +30,14 @@ import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBArtifact;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
+import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
-import static org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils.DIAGRAM_FILE_EXTENSION;
-import static org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils.DOMAIN_FILE_EXTENSION;
+import static org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils.*;
 
 /**
- * @generated
+ * @generated NOT
  */
-public class EsbCreationWizard extends Wizard implements INewWizard {
+public class EsbCreationWizard extends Wizard implements INewWizard, IExecutableExtension {
 
 	/**
 	 * @generated
@@ -71,6 +76,10 @@ public class EsbCreationWizard extends Wizard implements INewWizard {
 	private URI fileCreationLocationDiagram;
 
 	private URI fileCreationLocationDomain;
+	
+	private IContainer location;
+	
+	private WizardMode wizardMode = WizardMode.DEFAULT;
 
 	/**
 	 * @generated
@@ -158,7 +167,9 @@ public class EsbCreationWizard extends Wizard implements INewWizard {
 	 */
 	public boolean performFinish() {
 		try {
-
+			
+			IRunnableWithProgress op = null;
+			
 			IPath containerFullPath = diagramModelFilePage.getContainerFullPath();
 			
 			esbProject = ResourcesPlugin.getWorkspace().getRoot().getProject(containerFullPath.segment(0));
@@ -166,50 +177,43 @@ public class EsbCreationWizard extends Wizard implements INewWizard {
 			esbProjectArtifact = new ESBProjectArtifact();
 			esbProjectArtifact.fromFile(esbProject.getFile("artifact.xml")
 					.getLocation().toFile());
+			
+			location = esbProject.getFolder(SYNAPSE_RESOURCE_DIR);
+			String type = null;
+			
+			switch (wizardMode) {
+			case SEQUENCE:
+				location = esbProject.getFolder(SEQUENCE_RESOURCE_DIR);
+				op = createSequenceDiagram();
+				type = "synapse/graphical-sequence";
+				break;
 
-			IContainer location = esbProject.getFolder("src/main/synapse-config");
-
-			fileCreationLocationDiagram = URI.createPlatformResourceURI(
-					location.getFullPath().toString() + "/"
-							+ diagramModelFilePage.getFileName() + DIAGRAM_FILE_EXTENSION, false);
-			fileCreationLocationDomain = URI.createPlatformResourceURI(
-					location.getFullPath().toString() + "/"
-							+ diagramModelFilePage.getFileName() + DOMAIN_FILE_EXTENSION, false);
+			default:
+				fileCreationLocationDiagram = URI.createPlatformResourceURI(
+						location.getFullPath().toString() + "/"
+								+ diagramModelFilePage.getFileName() + DIAGRAM_FILE_EXTENSION, false);
+				fileCreationLocationDomain = URI.createPlatformResourceURI(
+						location.getFullPath().toString() + "/"
+								+ diagramModelFilePage.getFileName() + DOMAIN_FILE_EXTENSION, false);
+				op = createSynapseDiagram();
+				type = "synapse/graphical-configuration";
+				break;
+			}
 
 			String relativePathDiagram = FileUtils.getRelativePath(esbProject
 					.getLocation().toFile(), new File(location.getLocation()
 					.toFile(), diagramModelFilePage.getFileName()+ DIAGRAM_FILE_EXTENSION));
 			esbProjectArtifact
 					.addESBArtifact(createArtifact(diagramModelFilePage
-							.getFileName(), "test",
-							"1.0.0", relativePathDiagram));
+							.getFileName(),  getMavenGroupID(esbProject),
+							"1.0.0", relativePathDiagram, type));
 
 			esbProjectArtifact.toFile();
 			esbProject.refreshLocal(IResource.DEPTH_INFINITE,
 					new NullProgressMonitor());
 			
-			//IProject currentProject = ResourcesPlugin.getWorkspace().
-			IRunnableWithProgress op = new WorkspaceModifyOperation(null) {
-
-				protected void execute(IProgressMonitor monitor)
-						throws CoreException, InterruptedException {
-					/*diagram = EsbDiagramEditorUtil.createDiagram(
-							diagramModelFilePage.getURI(),
-							domainModelFilePage.getURI(), monitor);  */
-					diagram = EsbDiagramEditorUtil.createDiagram(
-							fileCreationLocationDiagram,
-							fileCreationLocationDomain, monitor);
-					if (isOpenNewlyCreatedDiagramEditor() && diagram != null) {
-						try {
-							EsbDiagramEditorUtil.openDiagram(diagram);
-						} catch (PartInitException e) {
-							ErrorDialog.openError(getContainer().getShell(),
-									Messages.EsbCreationWizardOpenEditorError,
-									null, e.getStatus());
-						}
-					}
-				}
-			};
+			
+			
 			try {
 				getContainer().run(false, true, op);
 			} catch (InterruptedException e) {
@@ -236,15 +240,117 @@ public class EsbCreationWizard extends Wizard implements INewWizard {
 		return true;
 	}
 
+	private IRunnableWithProgress createSynapseDiagram() {
+		IRunnableWithProgress op = new WorkspaceModifyOperation(null) {
+
+			protected void execute(IProgressMonitor monitor)
+					throws CoreException, InterruptedException {
+				/*diagram = EsbDiagramEditorUtil.createDiagram(
+						diagramModelFilePage.getURI(),
+						domainModelFilePage.getURI(), monitor);  */
+				diagram = EsbDiagramEditorUtil.createDiagram(
+						fileCreationLocationDiagram,
+						fileCreationLocationDomain, monitor);
+				if (isOpenNewlyCreatedDiagramEditor() && diagram != null) {
+					try {
+						EsbDiagramEditorUtil.openDiagram(diagram);
+					} catch (PartInitException e) {
+						ErrorDialog.openError(getContainer().getShell(),
+								Messages.EsbCreationWizardOpenEditorError,
+								null, e.getStatus());
+					}
+				}
+			}
+		};
+		return op;
+	}
+	
+	
+	private IRunnableWithProgress createSequenceDiagram() {
+		IRunnableWithProgress op = new WorkspaceModifyOperation(null) {
+
+			protected void execute(IProgressMonitor monitor) throws CoreException,
+					InterruptedException {
+				IPath Seqlocation = new Path(location.getFullPath().toString() + "/"
+						+ "sequence_" + diagramModelFilePage.getFileName() + DIAGRAM_FILE_EXTENSION);
+				IFile file = esbProject.getFile(SEQUENCE_RESOURCE_DIR + "/" + Seqlocation.lastSegment());
+
+				if (!file.exists()) {
+					diagram = EsbDiagramEditorUtil.createSequenceDiagram(
+							URI.createPlatformResourceURI(location.getFullPath().toString() + "/"
+									+ "sequence_" + diagramModelFilePage.getFileName()
+									+ DIAGRAM_FILE_EXTENSION,false),
+									URI.createPlatformResourceURI(location.getFullPath().toString() + "/"
+									+ "sequence_" + diagramModelFilePage.getFileName()
+									+ DOMAIN_FILE_EXTENSION,false), new NullProgressMonitor());
+					try {
+						EsbDiagramEditorUtil.openDiagram(diagram);
+
+					} catch (PartInitException e) {
+						ErrorDialog.openError(getContainer().getShell(),
+								Messages.EsbCreationWizardOpenEditorError, null, e.getStatus());
+					}
+				}
+			}
+		};
+		return op;
+	}
+
 	private ESBArtifact createArtifact(String name, String groupId,
-			String version, String path) {
+			String version, String path, String type) {
 		ESBArtifact artifact = new ESBArtifact();
 		artifact.setName(name);
 		artifact.setVersion(version);
-		artifact.setType("synapse/graphical-configuration");
+		artifact.setType(type);
 		artifact.setServerRole("EnterpriseServiceBus");
 		artifact.setGroupId(groupId);
 		artifact.setFile(path);
 		return artifact;
 	}
+
+	public void setInitializationData(IConfigurationElement config, String propertyName, Object data)
+			throws CoreException {
+		try {
+			if (propertyName != null) {
+				if ("class".equals(propertyName)) {
+					if (data instanceof Map) {
+						String type = (String) ((Map) data).get("mode");
+						wizardMode = WizardMode.valueOf(type.toUpperCase());
+					}
+				}
+			}
+		} catch (Exception e) {
+			//ignore. Then wizard mode would be default.
+		}
+	}
+	
+	private String getMavenGroupID(IProject project){
+		String groupID = "com.example";
+		try {
+			MavenProject mavenProject = MavenUtils.getMavenProject(project.getFile("pom.xml").getLocation().toFile());
+			groupID = mavenProject.getGroupId();
+		} catch (Exception e) {
+			//ignore. Then group id would be default. 
+		}
+		
+		return groupID;
+	}
+	
+	public enum WizardMode {
+		DEFAULT("DEFAULT"),
+	    PROXY("PROXY"),
+	    SEQUENCE("SEQUENCE");
+		
+		private final String mode;
+
+	    private WizardMode(final String text) {
+	        this.mode = text;
+	    }
+
+	    @Override
+	    public String toString() {
+	        return mode;
+	    }
+	}
+	
 }

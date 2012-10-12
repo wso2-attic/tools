@@ -80,6 +80,7 @@ import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.common.util.URI;
+import static org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils.*;
 
 /**
  * @generated NOT
@@ -455,22 +456,21 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 			IProject currentProject) {
 		Resource diagram;
 
-		IPath location = new Path("platform:/resource/"
-				+ currentProject.getName() + "/" + fileURI1);
+		String basePath = "platform:/resource/"
+						+ currentProject.getName() + "/" + SEQUENCE_RESOURCE_DIR + "/";
+		IPath location = new Path(basePath + fileURI1);
 		IFile file = currentProject.getFile(location.lastSegment());
 
 		if (!file.exists()) {
 			diagram = EsbDiagramEditorUtil.createSequenceDiagram(
-					URI.createURI("platform:/resource/"
-							+ currentProject.getName() + "/" + fileURI1),
-					URI.createURI("platform:/resource/"
-							+ currentProject.getName() + "/" + fileURI2),
+					URI.createURI(basePath + fileURI1),
+					URI.createURI(basePath + fileURI2),
 					new NullProgressMonitor());
 			try {
 				EsbDiagramEditorUtil.openDiagram(diagram);
 
 			} catch (PartInitException e) {
-				e.printStackTrace();
+				log.error("Cannot init editor", e);
 			}
 			return diagram != null;
 		}
@@ -529,9 +529,7 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 						return "Sequence name cannot be empty";
 					} else if (str.indexOf(0x20) != -1) {
 						return "Sequence name cannot contain spaces";
-					} else if (str.indexOf(0x20) != -1) {
-						return "Sequence name cannot contain spaces";
-					}
+					} 
 					return null;
 				}
 

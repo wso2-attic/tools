@@ -8,6 +8,7 @@ import java.util.regex.Pattern;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.gef.EditPartViewer;
 import org.eclipse.gef.Tool;
@@ -53,6 +54,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceE
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceFaultContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
+import static org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils.*;
 
 /**
  * @generated
@@ -957,15 +959,16 @@ public class EsbPaletteFactory {
 			IFile file = input.getFile();
 			IProject activeProject = file.getProject();
 			try {
-				for (int j = 0; j < activeProject.members().length; ++j) {
+				IResource[] SequenceMembers = activeProject.getFolder(SEQUENCE_RESOURCE_DIR).members();
+				for (int j = 0; j < SequenceMembers.length; ++j) {
 
 					Pattern p = Pattern.compile(".esb_diagram");
-					Matcher m = p.matcher(activeProject.members()[j].getName());
+					Matcher m = p.matcher(SequenceMembers[j].getName());
 					StringBuffer sb = new StringBuffer();
 					boolean result = m.find();
 
 					if (result) {
-						String[] splittedFilename = activeProject.members()[j]
+						String[] splittedFilename = SequenceMembers[j]
 								.getName().split(".esb_diagram");
 						if (splittedFilename[0] != null) {
 							String[] tempName = splittedFilename[0]

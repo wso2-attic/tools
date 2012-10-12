@@ -83,7 +83,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceEditP
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.EsbModelTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.SequenceInfo;
-
+import static org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils.*;
 
 /**
  * The main editor class which contains design view and source view
@@ -495,10 +495,9 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 		
 		for (Sequence childNode : childNodes) {
 				String name = childNode.getName();
-				IPath location = new Path("platform:/resource/"
-						+ activeProject.getName() + "/" + "sequence_"
+				IPath location = new Path(SEQUENCE_RESOURCE_DIR + "/" + "sequence_"
 						+ name + ".esb_diagram");
-				IFile file = activeProject.getFile(location.lastSegment());
+				IFile file = activeProject.getFile(location);
 
 				ResourceSet resourceSet = new ResourceSetImpl();
 				Resource resource = null;

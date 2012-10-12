@@ -6,6 +6,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
@@ -20,6 +21,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbServer;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbObjectSourceEditor;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.EsbModelTransformer;
 import org.wso2.developerstudio.eclipse.platform.core.project.export.ProjectArtifactHandler;
+import static org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils.*;
 
 public class SynapseArtfactExportHandler extends ProjectArtifactHandler {
 
@@ -29,9 +31,15 @@ public class SynapseArtfactExportHandler extends ProjectArtifactHandler {
 
 		clearTarget(project);
 		List<IResource> esbMembers = new ArrayList<IResource>();
-		IResource[] members = project.getFolder(
-				"src" + File.separator + "main" + File.separator
-						+ "synapse-config").members();
+		/*TODO: list artifacts by reading artifact.xml instead of file system scan */
+		IResource[] synapseMembers = project.getFolder(SYNAPSE_RESOURCE_DIR).members();
+		IResource[] sequenceMembers = project.getFolder(SEQUENCE_RESOURCE_DIR).members();
+		IResource[] members = new IResource[synapseMembers.length+sequenceMembers.length];
+		if(synapseMembers.length>0)
+			System.arraycopy(synapseMembers, 0, members, 0, synapseMembers.length);
+		if(sequenceMembers.length>0)
+			System.arraycopy(sequenceMembers, 0, members, synapseMembers.length, sequenceMembers.length);
+		
 		for (int i = 0; i < members.length; ++i) {
 			if (members[i].toString().matches(".*esb_diagram")) {
 
