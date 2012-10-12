@@ -38,10 +38,14 @@ public class ESBProjectNature extends AbstractWSO2ProjectNature {
 		String[] childrenList = { "endpoints", "proxy-services", "sequences", "local-entries" };
 		IFolder parentFolder =
 		        ProjectUtils.getWorkspaceFolder(getProject(), "src", "main", "synapse-config");
+		IFolder graphicalResFolder =
+	        ProjectUtils.getWorkspaceFolder(getProject(), "src", "main", "graphical-synapse-config");
 		ProjectUtils.createFolder(parentFolder);
+		ProjectUtils.createFolder(graphicalResFolder);
 		getProject().refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 		for (String child : childrenList) {
 			createChildren(parentFolder, child);
+			createChildren(graphicalResFolder, child);
 		}
 		updatePom();
 	}
