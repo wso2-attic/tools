@@ -38,6 +38,7 @@ import org.apache.axis2.util.XMLPrettyPrinter;
 import org.apache.synapse.Mediator;
 import org.apache.synapse.config.SynapseConfiguration;
 import org.apache.synapse.config.SynapseConfigurationBuilder;
+import org.apache.synapse.config.xml.ProxyServiceSerializer;
 import org.apache.synapse.config.xml.SequenceMediatorSerializer;
 import org.apache.synapse.config.xml.SynapseXMLConfigurationSerializer;
 import org.apache.synapse.mediators.base.SequenceMediator;
@@ -166,6 +167,23 @@ public class DefaultEsbModelExporter implements EsbModelTransformer {
 		}
 		return sequence;
 	}
+	
+	private org.apache.synapse.core.axis2.ProxyService transformProxyService(
+			ProxyService visualService ) throws Exception {
+		TransformationInfo info = new TransformationInfo();
+		SynapseConfiguration configuration = new SynapseConfiguration();;
+		info.setSynapseConfiguration(configuration);
+		org.apache.synapse.core.axis2.ProxyService proxy = new org.apache.synapse.core.axis2.ProxyService(
+				visualService.getName());
+		ProxyServiceTransformer transformer = new ProxyServiceTransformer();
+		info.setTraversalDirection(TransformationInfo.TRAVERSAL_DIRECTION_IN);
+		transformer.transform(info, visualService );
+		org.apache.synapse.core.axis2.ProxyService proxyService = configuration.getProxyService(visualService.getName());
+		if(proxyService!=null){
+			proxy = proxyService;
+		}
+		return proxy;
+	}
 
 	public String designToSource(EsbServer serverModel) throws Exception {
 		SynapseXMLConfigurationSerializer serializer = new SynapseXMLConfigurationSerializer();
@@ -175,6 +193,10 @@ public class DefaultEsbModelExporter implements EsbModelTransformer {
 			if (child instanceof Sequences) {
 				configOM = sequenceSerializer.serializeAnonymousSequence(null,
 						transformSequence(serverModel));
+				break;
+			} if (child instanceof ProxyService && serverModel.getChildren().size()==1) { 
+				/* there should be better way to distinguish between Proxy diagram and Synapse diagram   */
+				configOM = ProxyServiceSerializer.serializeProxy(null, transformProxyService((ProxyService)child));
 				break;
 			} else {
 				configOM = serializer

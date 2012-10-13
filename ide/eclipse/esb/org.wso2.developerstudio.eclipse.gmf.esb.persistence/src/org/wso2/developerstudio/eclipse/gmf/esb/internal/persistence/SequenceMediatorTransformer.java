@@ -18,6 +18,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbSequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbServer;
+import org.wso2.developerstudio.eclipse.gmf.esb.ScriptMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.SequenceInfo;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
@@ -75,10 +76,13 @@ public class SequenceMediatorTransformer extends AbstractEsbNodeTransformer {
 							"Diagram Incomplete ! ",
 							"If there are two Sequences connected to an Endpoint's in and out terminals, the Sequence which is connected to the in terminal must have a Send mediator as the last mediator of the Sequence.");
 		}
-		
+		/* Disabling sequence serialation
 		information.currentSequence=visualSequence;
 		information.setCurrentReferredSequence(sequence);
-		doTransformWithinSequence(information, SequenceInfo.sequenceMap.get(visualSequence.getName()),sequence);
+	
+		doTransformWithinSequence(information, SequenceInfo.sequenceMap.get(visualSequence.getName()),sequence); */
+		doTransform(information,
+				((Sequence)subject).getOutputConnector());
 		
 	}
 
