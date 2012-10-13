@@ -40,6 +40,7 @@ import org.apache.synapse.config.SynapseConfigurationBuilder;
 import org.apache.synapse.config.xml.ProxyServiceSerializer;
 import org.apache.synapse.config.xml.SequenceMediatorSerializer;
 import org.apache.synapse.config.xml.SynapseXMLConfigurationSerializer;
+import org.apache.synapse.mediators.Value;
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.common.command.CompoundCommand;
@@ -154,11 +155,12 @@ public class DefaultEsbModelExporter implements EsbModelTransformer {
 	private SequenceMediator transformSequence(EsbServer serverModel)
 			throws Exception {
 		List<EsbElement> childNodes = serverModel.getChildren();
-		SequenceMediator sequence = new SequenceMediator();
+		SequenceMediator sequence = new SequenceMediator();		
 		TransformationInfo info = new TransformationInfo();
 		for (EsbElement childNode : childNodes) {
 			if (childNode instanceof Sequences) {
 				Sequences visualSequence = (Sequences) childNode;
+				sequence.setName(visualSequence.getName());
 				SequenceTransformer transformer = new SequenceTransformer();
 				transformer.transformWithinSequence(info, visualSequence,
 						sequence);
@@ -186,12 +188,11 @@ public class DefaultEsbModelExporter implements EsbModelTransformer {
 
 	public String designToSource(EsbServer serverModel) throws Exception {
 		SynapseXMLConfigurationSerializer serializer = new SynapseXMLConfigurationSerializer();
-		SequenceMediatorSerializer sequenceSerializer =new SequenceMediatorSerializer();
+		SequenceMediatorSerializer sequenceSerializer =new SequenceMediatorSerializer();		
 		OMElement configOM=null;
 		for (EsbElement child : serverModel.getChildren()) {
 			if (child instanceof Sequences) {
-				configOM = sequenceSerializer.serializeAnonymousSequence(null,
-						transformSequence(serverModel));
+				configOM = sequenceSerializer.serializeMediator(null, transformSequence(serverModel));
 				break;
 			} if (child instanceof ProxyService && serverModel.getChildren().size()==1) { 
 				/* there should be better way to distinguish between Proxy diagram and Synapse diagram   */

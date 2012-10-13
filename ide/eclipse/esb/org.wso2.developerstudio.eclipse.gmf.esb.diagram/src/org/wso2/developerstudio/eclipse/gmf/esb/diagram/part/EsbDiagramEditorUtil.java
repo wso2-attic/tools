@@ -227,7 +227,7 @@ public class EsbDiagramEditorUtil {
 	 * @generated NOT
 	 */
 	public static Resource createDiagram(URI diagramURI, URI modelURI,
-			IProgressMonitor progressMonitor,final String type) {
+			IProgressMonitor progressMonitor,final String type, final String name) {
 		final TransactionalEditingDomain editingDomain = GMFEditingDomainFactory.INSTANCE
 				.createEditingDomain();
 		progressMonitor.beginTask(
@@ -248,6 +248,7 @@ public class EsbDiagramEditorUtil {
 				EsbServer esbServer = model.getServer();
 				if("sequence".equals(type)){
 					Sequences sequences = EsbFactory.eINSTANCE.createSequences();
+					sequences.setName(name);
 					EStructuralFeature target = esbServer.eClass()
 						.getEStructuralFeature("children");
 					esbServer.eSet(target, Arrays.asList(sequences));

@@ -288,7 +288,7 @@ public class EsbCreationWizard extends Wizard implements INewWizard, IExecutable
 									+ DIAGRAM_FILE_EXTENSION,false),
 									URI.createPlatformResourceURI(location.getFullPath().toString() + "/"
 									+ extentionPrefix + diagramModelFilePage.getFileName()
-									+ DOMAIN_FILE_EXTENSION,false), new NullProgressMonitor(),type);
+									+ DOMAIN_FILE_EXTENSION,false), new NullProgressMonitor(),type,diagramModelFilePage.getFileName());
 					try {
 						EsbDiagramEditorUtil.openDiagram(diagram);
 

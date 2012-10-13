@@ -28,6 +28,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.SequencesOutputConnector;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SequencesImpl#getOutputConnector <em>Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SequencesImpl#getInputConnector <em>Input Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SequencesImpl#getMediatorFlow <em>Mediator Flow</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SequencesImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -62,6 +63,25 @@ public class SequencesImpl extends EsbElementImpl implements Sequences {
 	 * @ordered
 	 */
 	protected MediatorFlow mediatorFlow;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -123,6 +143,27 @@ public class SequencesImpl extends EsbElementImpl implements Sequences {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.SEQUENCES__MEDIATOR_FLOW, newMediatorFlow, newMediatorFlow));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.SEQUENCES__NAME, oldName, name));
 	}
 
 	/**
@@ -243,6 +284,8 @@ public class SequencesImpl extends EsbElementImpl implements Sequences {
 				return getInputConnector();
 			case EsbPackage.SEQUENCES__MEDIATOR_FLOW:
 				return getMediatorFlow();
+			case EsbPackage.SEQUENCES__NAME:
+				return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -263,6 +306,9 @@ public class SequencesImpl extends EsbElementImpl implements Sequences {
 				return;
 			case EsbPackage.SEQUENCES__MEDIATOR_FLOW:
 				setMediatorFlow((MediatorFlow)newValue);
+				return;
+			case EsbPackage.SEQUENCES__NAME:
+				setName((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -285,6 +331,9 @@ public class SequencesImpl extends EsbElementImpl implements Sequences {
 			case EsbPackage.SEQUENCES__MEDIATOR_FLOW:
 				setMediatorFlow((MediatorFlow)null);
 				return;
+			case EsbPackage.SEQUENCES__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -303,8 +352,26 @@ public class SequencesImpl extends EsbElementImpl implements Sequences {
 				return inputConnector != null;
 			case EsbPackage.SEQUENCES__MEDIATOR_FLOW:
 				return mediatorFlow != null;
+			case EsbPackage.SEQUENCES__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (name: ");
+		result.append(name);
+		result.append(')');
+		return result.toString();
 	}
 
 } //SequencesImpl

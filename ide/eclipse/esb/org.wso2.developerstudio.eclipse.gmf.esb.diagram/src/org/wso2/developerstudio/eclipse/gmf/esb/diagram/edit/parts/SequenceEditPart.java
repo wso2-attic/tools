@@ -447,12 +447,12 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 		/*
 		 * File creations.
 		 */
-		createFiles("sequence_" + name + ".esb_diagram", "sequence_" + name
+		createFiles(name,"sequence_" + name + ".esb_diagram", "sequence_" + name
 				+ ".esb", activeProject);
 
 	}
 
-	public boolean createFiles(String fileURI1, String fileURI2,
+	public boolean createFiles(String name,String fileURI1, String fileURI2,
 			IProject currentProject) {
 		Resource diagram;
 
@@ -464,7 +464,7 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 			diagram = EsbDiagramEditorUtil.createDiagram(
 					URI.createURI(basePath + fileURI1),
 					URI.createURI(basePath + fileURI2),
-					new NullProgressMonitor(),"sequence");
+					new NullProgressMonitor(),"sequence",name);
 			try {
 				EsbDiagramEditorUtil.openDiagram(diagram);
 

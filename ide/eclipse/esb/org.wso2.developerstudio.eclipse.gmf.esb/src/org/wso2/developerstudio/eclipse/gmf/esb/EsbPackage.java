@@ -12126,13 +12126,22 @@ public interface EsbPackage extends EPackage {
 	int SEQUENCES__MEDIATOR_FLOW = ESB_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEQUENCES__NAME = ESB_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Sequences</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEQUENCES_FEATURE_COUNT = ESB_ELEMENT_FEATURE_COUNT + 3;
+	int SEQUENCES_FEATURE_COUNT = ESB_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SequencesOutputConnectorImpl <em>Sequences Output Connector</em>}' class.
@@ -21795,6 +21804,17 @@ public interface EsbPackage extends EPackage {
 	EReference getSequences_MediatorFlow();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.Sequences#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.Sequences#getName()
+	 * @see #getSequences()
+	 * @generated
+	 */
+	EAttribute getSequences_Name();
+
+	/**
 	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.Sequences#getOutputConnector <em>Output Connector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -29584,6 +29604,14 @@ public interface EsbPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SEQUENCES__MEDIATOR_FLOW = eINSTANCE.getSequences_MediatorFlow();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SEQUENCES__NAME = eINSTANCE.getSequences_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Output Connector</b></em>' containment reference feature.
