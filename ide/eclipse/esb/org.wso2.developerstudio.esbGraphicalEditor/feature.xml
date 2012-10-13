@@ -2,7 +2,7 @@
 <feature
       id="org.wso2.developerstudio.esbGraphicalEditor"
       label="EsbGraphicalEditor"
-      version="0.3.0"
+      version="1.0.0.qualifier"
       provider-name="wso2">
 
    <description url="http://www.wso2.org">
