@@ -59,6 +59,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbElement;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbServer;
+import org.wso2.developerstudio.eclipse.gmf.esb.ProxyService;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequences;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbDiagramEditPart;
 
@@ -225,8 +226,8 @@ public class EsbDiagramEditorUtil {
 	 * This method should be called within a workspace modify operation since it creates resources.
 	 * @generated NOT
 	 */
-	public static Resource createSequenceDiagram(URI diagramURI, URI modelURI,
-			IProgressMonitor progressMonitor) {
+	public static Resource createDiagram(URI diagramURI, URI modelURI,
+			IProgressMonitor progressMonitor,final String type) {
 		final TransactionalEditingDomain editingDomain = GMFEditingDomainFactory.INSTANCE
 				.createEditingDomain();
 		progressMonitor.beginTask(
@@ -245,12 +246,18 @@ public class EsbDiagramEditorUtil {
 					throws ExecutionException {
 				EsbDiagram model = createInitialModel();
 				EsbServer esbServer = model.getServer();
-				Sequences sequences = EsbFactory.eINSTANCE.createSequences();
-
-				EStructuralFeature target = esbServer.eClass()
+				if("sequence".equals(type)){
+					Sequences sequences = EsbFactory.eINSTANCE.createSequences();
+					EStructuralFeature target = esbServer.eClass()
 						.getEStructuralFeature("children");
-				esbServer.eSet(target, Arrays.asList(sequences));
-
+					esbServer.eSet(target, Arrays.asList(sequences));
+				}else if("proxy".equals(type)){
+					ProxyService proxyServices = EsbFactory.eINSTANCE.createProxyService();
+					EStructuralFeature target = esbServer.eClass()
+							.getEStructuralFeature("children");
+					esbServer.eSet(target, Arrays.asList(proxyServices));
+				}
+				
 				attachModelToResource(model, modelResource);
 
 				Diagram diagram = ViewService.createDiagram(model,

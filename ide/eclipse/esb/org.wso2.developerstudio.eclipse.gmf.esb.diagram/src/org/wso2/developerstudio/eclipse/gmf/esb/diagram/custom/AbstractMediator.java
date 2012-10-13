@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import org.eclipse.draw2d.Figure;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.gef.EditPart;
@@ -13,9 +14,12 @@ import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
+import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.EsbLink;
 import org.wso2.developerstudio.eclipse.gmf.esb.Mediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.OutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.SequenceInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.SequenceOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.connections.ConnectionCalculator;
@@ -263,8 +267,14 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 					outputPosition = outputPosition + (1 / (outputCount + 1));
 
 					figureOutput.removeAll();
+					EsbLink link=((OutputConnector)((Node)((AbstractMediatorOutputConnectorEditPart) selectedEP.getChildren().get(i)).getModel()).getElement()).getOutgoingLink();
+					if(link ==null){
 					figureOutput.add(((AbstractMediatorOutputConnectorEditPart) selectedEP.getChildren().get(i))
 							.getPrimaryShapeReverse());
+					}else{
+						Figure emptyFigure = new Figure();
+						figureOutput.add(emptyFigure);
+					}
 
 					BorderItemLocator outputLocator = new FixedBorderItemLocator(
 							selectedEP.getMainFigure(), outputConnector, PositionConstants.WEST,

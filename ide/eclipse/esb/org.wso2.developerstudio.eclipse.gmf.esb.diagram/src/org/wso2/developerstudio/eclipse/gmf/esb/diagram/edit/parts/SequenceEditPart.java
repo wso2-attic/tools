@@ -462,10 +462,10 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 		IFile file = currentProject.getFile(location.lastSegment());
 
 		if (!file.exists()) {
-			diagram = EsbDiagramEditorUtil.createSequenceDiagram(
+			diagram = EsbDiagramEditorUtil.createDiagram(
 					URI.createURI(basePath + fileURI1),
 					URI.createURI(basePath + fileURI2),
-					new NullProgressMonitor());
+					new NullProgressMonitor(),"sequence");
 			try {
 				EsbDiagramEditorUtil.openDiagram(diagram);
 

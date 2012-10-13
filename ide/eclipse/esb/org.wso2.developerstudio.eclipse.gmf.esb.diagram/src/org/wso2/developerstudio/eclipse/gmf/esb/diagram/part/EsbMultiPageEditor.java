@@ -331,8 +331,7 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 		// Invoke the appropriate handler method.
 		switch (pageIndex) {
 		case DESIGN_VIEW_PAGE_INDEX: {
-			/** Temporary deactivate method call - functionality not completed yet.**/
-			//handleDesignViewActivatedEvent(); 
+			handleDesignViewActivatedEvent(); 
 			break;
 		}
 		case SOURCE_VIEW_PAGE_INDEX: {
@@ -558,8 +557,10 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 					
 					if(compartmentEditPart.getChildren().size()!=0){
 					
-					LogMediatorEditPart logEditPart = (LogMediatorEditPart)compartmentEditPart
+					if(compartmentEditPart.getChildren().get(0) instanceof LogMediatorEditPart){
+						LogMediatorEditPart logEditPart = (LogMediatorEditPart)compartmentEditPart
 							.getChildren().get(0);
+					
 
 					LogMediatorInputConnectorEditPart logInputConnectorEditpart = (LogMediatorInputConnectorEditPart) logEditPart
 							.getChildren().get(1);
@@ -590,6 +591,7 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 
 					proxyServiceEditPart.getDiagramEditDomain()
 							.getDiagramCommandStack().execute(cc);
+				}
 				}
 				}
 			}

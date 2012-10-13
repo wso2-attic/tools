@@ -2730,7 +2730,35 @@
 					</or>
 				</enablement>
 			</commonWizard>
-	</extension>
+	</extension>	
+	
+  <extension point="org.eclipse.ui.newWizards" id="creation-wizard">
+  	  <wizard
+  	     name="Proxy (Graphical)"
+  	     icon="icons/obj16/EsbDiagramFile.gif"
+  	     category="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.eclipse.message.mediation/org.wso2.developerstudio.eclipse.message.mediation.features"
+  	     id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.ProxyCreationWizardID">
+  	  	 <description>Creates New Proxy (Graphical)</description>
+  	  	 <class class="org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbCreationWizard">
+      			<parameter name="mode" value="proxy" />
+      	</class>
+      </wizard>
+   </extension>
+   
+   <extension point="org.eclipse.ui.navigator.navigatorContent">	
+			<commonWizard type="new"
+			    menuGroupId="2org.wso2.developerstudio.eclipse.artifact.esb"
+				wizardId="org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.ProxyCreationWizardID">
+				<enablement>
+					<or>
+						<adapt type="org.eclipse.core.resources.IProject">
+							<test property="org.eclipse.core.resources.projectNature"
+								value="org.wso2.developerstudio.eclipse.esb.project.nature" />
+						</adapt>
+					</or>
+				</enablement>
+			</commonWizard>
+	</extension>	
 
    <!-- optionally, specify keybindings -->
 </plugin>

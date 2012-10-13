@@ -184,8 +184,14 @@ public class EsbCreationWizard extends Wizard implements INewWizard, IExecutable
 			switch (wizardMode) {
 			case SEQUENCE:
 				location = esbProject.getFolder(SEQUENCE_RESOURCE_DIR);
-				op = createSequenceDiagram();
+				op = createDiagram("sequence_",SEQUENCE_RESOURCE_DIR,"sequence");
 				type = "synapse/graphical-sequence";
+				break;
+				
+			case PROXY:
+				location = esbProject.getFolder(PROXY_RESOURCE_DIR);
+				op = createDiagram("proxy_",PROXY_RESOURCE_DIR,"proxy");
+				type = "synapse/graphical-proxy";
 				break;
 
 			default:
@@ -266,23 +272,23 @@ public class EsbCreationWizard extends Wizard implements INewWizard, IExecutable
 	}
 	
 	
-	private IRunnableWithProgress createSequenceDiagram() {
+	private IRunnableWithProgress createDiagram(final String extentionPrefix,final String dir,final String type) {
 		IRunnableWithProgress op = new WorkspaceModifyOperation(null) {
 
 			protected void execute(IProgressMonitor monitor) throws CoreException,
 					InterruptedException {
-				IPath Seqlocation = new Path(location.getFullPath().toString() + "/"
-						+ "sequence_" + diagramModelFilePage.getFileName() + DIAGRAM_FILE_EXTENSION);
-				IFile file = esbProject.getFile(SEQUENCE_RESOURCE_DIR + "/" + Seqlocation.lastSegment());
+				IPath fileLocation = new Path(location.getFullPath().toString() + "/"
+						+ extentionPrefix + diagramModelFilePage.getFileName() + DIAGRAM_FILE_EXTENSION);
+				IFile file = esbProject.getFile(dir + "/" + fileLocation.lastSegment());
 
 				if (!file.exists()) {
-					diagram = EsbDiagramEditorUtil.createSequenceDiagram(
+					diagram = EsbDiagramEditorUtil.createDiagram(
 							URI.createPlatformResourceURI(location.getFullPath().toString() + "/"
-									+ "sequence_" + diagramModelFilePage.getFileName()
+									+ extentionPrefix + diagramModelFilePage.getFileName()
 									+ DIAGRAM_FILE_EXTENSION,false),
 									URI.createPlatformResourceURI(location.getFullPath().toString() + "/"
-									+ "sequence_" + diagramModelFilePage.getFileName()
-									+ DOMAIN_FILE_EXTENSION,false), new NullProgressMonitor());
+									+ extentionPrefix + diagramModelFilePage.getFileName()
+									+ DOMAIN_FILE_EXTENSION,false), new NullProgressMonitor(),type);
 					try {
 						EsbDiagramEditorUtil.openDiagram(diagram);
 
