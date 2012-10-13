@@ -21,6 +21,7 @@ import java.util.List;
 import org.apache.synapse.config.xml.AnonymousListMediator;
 import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.mediators.ListMediator;
+import org.apache.synapse.mediators.Value;
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.apache.synapse.util.xpath.SynapseXPath;
 import org.eclipse.core.runtime.Assert;
@@ -71,10 +72,10 @@ public class AggregateMediatorTransformer extends AbstractEsbNodeTransformer {
 		org.apache.synapse.mediators.eip.aggregator.AggregateMediator aggregateMediator = new org.apache.synapse.mediators.eip.aggregator.AggregateMediator();
 		{
 			aggregateMediator.setCompletionTimeoutMillis(visualAggregate.getCompletionTimeout()*1000 );
-			aggregateMediator.setMaxMessagesToComplete(visualAggregate
-					.getCompletionMaxMessages());
-			aggregateMediator.setMinMessagesToComplete(visualAggregate
-					.getCompletionMinMessages());
+			aggregateMediator.setMaxMessagesToComplete(new Value(""+visualAggregate
+					.getCompletionMaxMessages()));
+			aggregateMediator.setMinMessagesToComplete(new Value(""+visualAggregate
+					.getCompletionMinMessages()));
 			if (visualAggregate.getCorrelationExpression() != null
 					&& visualAggregate.getCorrelationExpression()
 							.getPropertyValue() != null

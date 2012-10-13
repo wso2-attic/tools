@@ -33,7 +33,6 @@ import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
 import org.apache.axiom.om.OMElement;
-import org.apache.axiom.om.impl.llom.OMElementImpl;
 import org.apache.axis2.util.XMLPrettyPrinter;
 import org.apache.synapse.Mediator;
 import org.apache.synapse.config.SynapseConfiguration;
