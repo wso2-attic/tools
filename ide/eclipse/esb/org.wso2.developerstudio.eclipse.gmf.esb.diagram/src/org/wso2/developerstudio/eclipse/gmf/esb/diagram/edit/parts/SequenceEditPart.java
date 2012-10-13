@@ -458,8 +458,7 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 
 		String basePath = "platform:/resource/"
 						+ currentProject.getName() + "/" + SEQUENCE_RESOURCE_DIR + "/";
-		IPath location = new Path(basePath + fileURI1);
-		IFile file = currentProject.getFile(location.lastSegment());
+		IFile file = currentProject.getFile(SEQUENCE_RESOURCE_DIR + "/" + fileURI1);
 
 		if (!file.exists()) {
 			diagram = EsbDiagramEditorUtil.createDiagram(

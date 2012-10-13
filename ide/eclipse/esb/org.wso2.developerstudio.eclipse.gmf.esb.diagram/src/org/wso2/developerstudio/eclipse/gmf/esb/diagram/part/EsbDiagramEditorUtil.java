@@ -253,6 +253,8 @@ public class EsbDiagramEditorUtil {
 					esbServer.eSet(target, Arrays.asList(sequences));
 				}else if("proxy".equals(type)){
 					ProxyService proxyServices = EsbFactory.eINSTANCE.createProxyService();
+					String proxyName = diagramName.replaceAll("^proxy_","").replaceAll(".esb_diagram$","");
+					proxyServices.setName(proxyName);
 					EStructuralFeature target = esbServer.eClass()
 							.getEStructuralFeature("children");
 					esbServer.eSet(target, Arrays.asList(proxyServices));
