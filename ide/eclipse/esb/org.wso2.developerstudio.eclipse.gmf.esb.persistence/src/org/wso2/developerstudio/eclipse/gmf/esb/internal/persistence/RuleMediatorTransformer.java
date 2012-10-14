@@ -17,35 +17,25 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence;
 
 import java.util.List;
-import java.util.Map.Entry;
 
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.util.AXIOMUtil;
-import org.apache.synapse.config.xml.AnonymousListMediator;
 import org.apache.synapse.endpoints.Endpoint;
-import org.apache.synapse.mediators.ListMediator;
 import org.apache.synapse.mediators.base.SequenceMediator;
-import org.apache.synapse.util.xpath.SynapseXPath;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EObject;
-//import org.wso2.carbon.rulecep.commons.descriptions.PropertyDescription;
-//import org.wso2.carbon.rulecep.commons.descriptions.ResourceDescription;
-//import org.wso2.carbon.rulecep.commons.descriptions.rule.RuleSetDescription;
-//import org.wso2.carbon.rulecep.commons.descriptions.rule.SessionDescription;
-//import org.wso2.carbon.rulecep.commons.descriptions.rule.mediator.RuleMediatorDescription;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
-import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
-import org.wso2.developerstudio.eclipse.gmf.esb.RuleFact;
-import org.wso2.developerstudio.eclipse.gmf.esb.RuleFactType;
-import org.wso2.developerstudio.eclipse.gmf.esb.RuleFactValueType;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator;
-import org.wso2.developerstudio.eclipse.gmf.esb.RuleResult;
-import org.wso2.developerstudio.eclipse.gmf.esb.RuleResultType;
-import org.wso2.developerstudio.eclipse.gmf.esb.RuleResultValueType;
-import org.wso2.developerstudio.eclipse.gmf.esb.RuleSessionProperty;
-import org.wso2.developerstudio.eclipse.gmf.esb.RuleSetCreationProperty;
-import org.wso2.developerstudio.eclipse.gmf.esb.RuleSourceType;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
+
+import org.wso2.carbon.rule.common.Input;
+import org.wso2.carbon.rule.common.Output;
+import org.wso2.carbon.rule.common.RuleSet;
+import org.wso2.carbon.rule.common.util.Constants;
+import org.wso2.carbon.rule.kernel.engine.RuleEngine;
+import org.wso2.carbon.rule.kernel.engine.RuleSession;
+import org.wso2.carbon.rule.mediator.config.Source;
+import org.wso2.carbon.rule.mediator.config.Target;
 
 public class RuleMediatorTransformer extends AbstractEsbNodeTransformer {
 
@@ -54,9 +44,7 @@ public class RuleMediatorTransformer extends AbstractEsbNodeTransformer {
 		information.getParentSequence().addChild(createRuleMediator(information,subject));
 		// Transform the Rule mediator output data flow path.
 		doTransform(information,
-				((RuleMediator) subject).getOutputConnector());
-
-		
+				((RuleMediator) subject).getOutputConnector());		
 	}
 
 	public void createSynapseObject(TransformationInfo info, EObject subject,
@@ -77,10 +65,24 @@ public class RuleMediatorTransformer extends AbstractEsbNodeTransformer {
 		Assert.isTrue(subject instanceof RuleMediator,
 				"Unsupported mediator passed in for serialization.");
 		RuleMediator visualRule = (RuleMediator) subject;
+		org.wso2.carbon.rule.mediator.RuleMediator ruleMediator = new org.wso2.carbon.rule.mediator.RuleMediator(null, null, null, null, null, null);
+		OMElement payload = AXIOMUtil.stringToOM("<brs:rule xmlns:brs=\""+"http://wso2.org/carbon/rules\""+"></brs:rule>");
+		ruleMediator.setRuleOMElement(payload);
+		return ruleMediator;
+	}
+	
+	
+	
+/*	private org.wso2.carbon.rule.mediator.RuleMediator createRuleMediator(
+			TransformationInfo information, EsbNode subject) throws Exception {
+		// Check subject.
+		Assert.isTrue(subject instanceof RuleMediator,
+				"Unsupported mediator passed in for serialization.");
+		RuleMediator visualRule = (RuleMediator) subject;
 
 		RuleMediatorDescription description = new RuleMediatorDescription();
 
-		/* RuleSets */
+		 RuleSets 
 		RuleSetDescription ruleSetDescription = new RuleSetDescription();
 		ruleSetDescription.setBindURI(visualRule.getRuleSetURI());
 		if (visualRule.getRuleSetSourceType() == RuleSourceType.REGISTRY_REFERENCE) {
@@ -95,7 +97,7 @@ public class RuleMediatorTransformer extends AbstractEsbNodeTransformer {
 		}
 		description.setRuleSetDescription(ruleSetDescription);
 
-		/* RuleSessions */
+		 RuleSessions 
 		SessionDescription sessionDescription = new SessionDescription();
 		sessionDescription
 				.setSessionType((visualRule.isStatefulSession()) ? SessionDescription.STATEFUL_SESSION
@@ -106,7 +108,7 @@ public class RuleMediatorTransformer extends AbstractEsbNodeTransformer {
 		}
 		description.setSessionDescription(sessionDescription);
 
-		/* RuleFacts */
+		 RuleFacts 
 		for (RuleFact fact : visualRule.getFactsConfiguration().getFacts()) {
 			ResourceDescription resourceDescription = new ResourceDescription();
 			resourceDescription.setName(fact.getFactName());
@@ -130,7 +132,7 @@ public class RuleMediatorTransformer extends AbstractEsbNodeTransformer {
 			description.addFactDescription(resourceDescription);
 		}
 
-		/* RuleResults */
+		 RuleResults 
 		for (RuleResult result : visualRule.getResultsConfiguration().getResults()) {
 			ResourceDescription resourceDescription = new ResourceDescription();
 			resourceDescription.setName(result.getResultName());
@@ -170,5 +172,5 @@ public class RuleMediatorTransformer extends AbstractEsbNodeTransformer {
 		return ruleMediator;
 	}
 
-
+*/
 }

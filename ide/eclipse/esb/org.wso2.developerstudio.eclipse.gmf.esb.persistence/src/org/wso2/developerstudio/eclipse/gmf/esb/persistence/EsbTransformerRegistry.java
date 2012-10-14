@@ -98,7 +98,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.PropertyMed
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.ProxyServiceTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.RMSequenceMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.RouterMediatorTransformer;
-//import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.RuleMediatorTransformer;
+import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.RuleMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.ScriptMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.SendMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.SequenceMediatorTransformer;
@@ -166,7 +166,7 @@ public class EsbTransformerRegistry {
 		addTransformer(CloneMediator.class, new CloneMediatorTransformer());
 		addTransformer(ThrottleMediator.class, new ThrottleMediatorTransformer());
 		addTransformer(OAuthMediator.class, new OAuthMediatorTransformer());
-//		addTransformer(RuleMediator.class, new RuleMediatorTransformer());
+		addTransformer(RuleMediator.class, new RuleMediatorTransformer());
 		addTransformer(SendMediator.class, new SendMediatorTransformer());
 		addTransformer(SpringMediator.class, new SpringMediatorTransformer());
 		addTransformer(ScriptMediator.class, new ScriptMediatorTransformer());
