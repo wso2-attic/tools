@@ -81,77 +81,77 @@ import org.wso2.developerstudio.eclipse.esb.provider.EsbEditPlugin;
  */
 public class EsbModelWizard extends Wizard implements INewWizard {
 	/**
-     * The supported extensions for created files.
-     * <!-- begin-user-doc -->
+	 * The supported extensions for created files.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public static final List<String> FILE_EXTENSIONS =
 		Collections.unmodifiableList(Arrays.asList(EsbEditorPlugin.INSTANCE.getString("_UI_EsbEditorFilenameExtensions").split("\\s*,\\s*")));
 
 	/**
-     * A formatted list of supported file extensions, suitable for display.
-     * <!-- begin-user-doc -->
+	 * A formatted list of supported file extensions, suitable for display.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public static final String FORMATTED_FILE_EXTENSIONS =
 		EsbEditorPlugin.INSTANCE.getString("_UI_EsbEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
 
 	/**
-     * This caches an instance of the model package.
-     * <!-- begin-user-doc -->
+	 * This caches an instance of the model package.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected EsbPackage esbPackage = EsbPackage.eINSTANCE;
 
 	/**
-     * This caches an instance of the model factory.
-     * <!-- begin-user-doc -->
+	 * This caches an instance of the model factory.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected EsbFactory esbFactory = esbPackage.getEsbFactory();
 
 	/**
-     * This is the file creation page.
-     * <!-- begin-user-doc -->
+	 * This is the file creation page.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected EsbModelWizardNewFileCreationPage newFileCreationPage;
 
 	/**
-     * This is the initial object creation page.
-     * <!-- begin-user-doc -->
+	 * This is the initial object creation page.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected EsbModelWizardInitialObjectCreationPage initialObjectCreationPage;
 
 	/**
-     * Remember the selection during initialization for populating the default container.
-     * <!-- begin-user-doc -->
+	 * Remember the selection during initialization for populating the default container.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected IStructuredSelection selection;
 
 	/**
-     * Remember the workbench during initialization.
-     * <!-- begin-user-doc -->
+	 * Remember the workbench during initialization.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected IWorkbench workbench;
 	
 	/**
-     * Caches the names of the types that can be created as the root object.
-     * <!-- begin-user-doc -->
+	 * Caches the names of the types that can be created as the root object.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected List<String> initialObjectNames;
 
 	/**
@@ -172,26 +172,26 @@ public class EsbModelWizard extends Wizard implements INewWizard {
 	}
 	
 	/**
-     * Returns the names of the types that can be created as the root object.
-     * <!-- begin-user-doc -->
+	 * Returns the names of the types that can be created as the root object.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	protected Collection<String> getInitialObjectNames() {
-        if (initialObjectNames == null) {
-            initialObjectNames = new ArrayList<String>();
-            for (EClassifier eClassifier : esbPackage.getEClassifiers()) {
-                if (eClassifier instanceof EClass) {
-                    EClass eClass = (EClass)eClassifier;
-                    if (!eClass.isAbstract()) {
-                        initialObjectNames.add(eClass.getName());
-                    }
-                }
-            }
-            Collections.sort(initialObjectNames, CommonPlugin.INSTANCE.getComparator());
-        }
-        return initialObjectNames;
-    }
+		if (initialObjectNames == null) {
+			initialObjectNames = new ArrayList<String>();
+			for (EClassifier eClassifier : esbPackage.getEClassifiers()) {
+				if (eClassifier instanceof EClass) {
+					EClass eClass = (EClass)eClassifier;
+					if (!eClass.isAbstract()) {
+						initialObjectNames.add(eClass.getName());
+					}
+				}
+			}
+			Collections.sort(initialObjectNames, CommonPlugin.INSTANCE.getComparator());
+		}
+		return initialObjectNames;
+	}
 
 	/**
 	 * Utility method for obtaining the lebel to model class mapping.
@@ -301,50 +301,51 @@ public class EsbModelWizard extends Wizard implements INewWizard {
 	}
 
 	/**
-     * This is the one page of the wizard.
-     * <!-- begin-user-doc -->
+	 * This is the one page of the wizard.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public class EsbModelWizardNewFileCreationPage extends WizardNewFileCreationPage {
 		/**
-         * Pass in the selection.
-         * <!-- begin-user-doc -->
+		 * Pass in the selection.
+		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-         * @generated
-         */
+		 * @generated
+		 */
 		public EsbModelWizardNewFileCreationPage(String pageId, IStructuredSelection selection) {
-            super(pageId, selection);
-        }
+			super(pageId, selection);
+		}
 
 		/**
-         * The framework calls this to see if the file is correct.
-         * <!-- begin-user-doc -->
+		 * The framework calls this to see if the file is correct.
+		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-         * @generated
-         */
+		 * @generated
+		 */
 		
+		@Override
 		protected boolean validatePage() {
-            if (super.validatePage()) {
-                String extension = new Path(getFileName()).getFileExtension();
-                if (extension == null || !FILE_EXTENSIONS.contains(extension)) {
-                    String key = FILE_EXTENSIONS.size() > 1 ? "_WARN_FilenameExtensions" : "_WARN_FilenameExtension";
-                    setErrorMessage(EsbEditorPlugin.INSTANCE.getString(key, new Object [] { FORMATTED_FILE_EXTENSIONS }));
-                    return false;
-                }
-                return true;
-            }
-            return false;
-        }
+			if (super.validatePage()) {
+				String extension = new Path(getFileName()).getFileExtension();
+				if (extension == null || !FILE_EXTENSIONS.contains(extension)) {
+					String key = FILE_EXTENSIONS.size() > 1 ? "_WARN_FilenameExtensions" : "_WARN_FilenameExtension";
+					setErrorMessage(EsbEditorPlugin.INSTANCE.getString(key, new Object [] { FORMATTED_FILE_EXTENSIONS }));
+					return false;
+				}
+				return true;
+			}
+			return false;
+		}
 
 		/**
-         * <!-- begin-user-doc -->
+		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-         * @generated
-         */
+		 * @generated
+		 */
 		public IFile getModelFile() {
-            return ResourcesPlugin.getWorkspace().getRoot().getFile(getContainerFullPath().append(getFileName()));
-        }
+			return ResourcesPlugin.getWorkspace().getRoot().getFile(getContainerFullPath().append(getFileName()));
+		}
 	}
 
 	/**
@@ -354,35 +355,35 @@ public class EsbModelWizard extends Wizard implements INewWizard {
 	 */
 	public class EsbModelWizardInitialObjectCreationPage extends WizardPage {
 		/**
-         * <!-- begin-user-doc -->
+		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-         * @generated
-         */
+		 * @generated
+		 */
 		protected Combo initialObjectField;
 
 		/**
-         * @generated
-         * <!-- begin-user-doc -->
+		 * @generated
+		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-         */
+		 */
 		protected List<String> encodings;
 
 		/**
-         * <!-- begin-user-doc -->
+		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-         * @generated
-         */
+		 * @generated
+		 */
 		protected Combo encodingField;
 
 		/**
-         * Pass in the selection.
-         * <!-- begin-user-doc -->
+		 * Pass in the selection.
+		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-         * @generated
-         */
+		 * @generated
+		 */
 		public EsbModelWizardInitialObjectCreationPage(String pageId) {
-            super(pageId);
-        }
+			super(pageId);
+		}
 
 		/**
 		 * <!-- begin-user-doc -->
@@ -456,16 +457,16 @@ public class EsbModelWizard extends Wizard implements INewWizard {
 		}
 
 		/**
-         * <!-- begin-user-doc -->
+		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-         * @generated
-         */
+		 * @generated
+		 */
 		protected ModifyListener validator =
 			new ModifyListener() {
-                public void modifyText(ModifyEvent e) {
-                    setPageComplete(validatePage());
-                }
-            };
+				public void modifyText(ModifyEvent e) {
+					setPageComplete(validatePage());
+				}
+			};
 
 		/**
 		 * <!-- begin-user-doc -->
@@ -476,24 +477,25 @@ public class EsbModelWizard extends Wizard implements INewWizard {
 		}
 
 		/**
-         * <!-- begin-user-doc -->
+		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-         * @generated
-         */
+		 * @generated
+		 */
 		
+		@Override
 		public void setVisible(boolean visible) {
-            super.setVisible(visible);
-            if (visible) {
-                if (initialObjectField.getItemCount() == 1) {
-                    initialObjectField.clearSelection();
-                    encodingField.setFocus();
-                }
-                else {
-                    encodingField.clearSelection();
-                    initialObjectField.setFocus();
-                }
-            }
-        }
+			super.setVisible(visible);
+			if (visible) {
+				if (initialObjectField.getItemCount() == 1) {
+					initialObjectField.clearSelection();
+					encodingField.setFocus();
+				}
+				else {
+					encodingField.clearSelection();
+					initialObjectField.setFocus();
+				}
+			}
+		}
 
 		/**
 		 * <!-- begin-user-doc -->
@@ -511,109 +513,110 @@ public class EsbModelWizard extends Wizard implements INewWizard {
 		}
 
 		/**
-         * <!-- begin-user-doc -->
+		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-         * @generated
-         */
+		 * @generated
+		 */
 		public String getEncoding() {
-            return encodingField.getText();
-        }
+			return encodingField.getText();
+		}
 
 		/**
-         * Returns the label for the specified type name.
-         * <!-- begin-user-doc -->
+		 * Returns the label for the specified type name.
+		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-         * @generated
-         */
+		 * @generated
+		 */
 		protected String getLabel(String typeName) {
-            try {
-                return EsbEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
-            }
-            catch(MissingResourceException mre) {
-                EsbEditorPlugin.INSTANCE.log(mre);
-            }
-            return typeName;
-        }
+			try {
+				return EsbEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
+			}
+			catch(MissingResourceException mre) {
+				EsbEditorPlugin.INSTANCE.log(mre);
+			}
+			return typeName;
+		}
 
 		/**
-         * <!-- begin-user-doc -->
+		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-         * @generated
-         */
+		 * @generated
+		 */
 		protected Collection<String> getEncodings() {
-            if (encodings == null) {
-                encodings = new ArrayList<String>();
-                for (StringTokenizer stringTokenizer = new StringTokenizer(EsbEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens(); ) {
-                    encodings.add(stringTokenizer.nextToken());
-                }
-            }
-            return encodings;
-        }
+			if (encodings == null) {
+				encodings = new ArrayList<String>();
+				for (StringTokenizer stringTokenizer = new StringTokenizer(EsbEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens(); ) {
+					encodings.add(stringTokenizer.nextToken());
+				}
+			}
+			return encodings;
+		}
 	}
 
 	/**
-     * The framework calls this to create the contents of the wizard.
-     * <!-- begin-user-doc -->
+	 * The framework calls this to create the contents of the wizard.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 		
+	@Override
 	public void addPages() {
-        // Create a page, set the title, and the initial model file name.
-        //
-        newFileCreationPage = new EsbModelWizardNewFileCreationPage("Whatever", selection);
-        newFileCreationPage.setTitle(EsbEditorPlugin.INSTANCE.getString("_UI_EsbModelWizard_label"));
-        newFileCreationPage.setDescription(EsbEditorPlugin.INSTANCE.getString("_UI_EsbModelWizard_description"));
-        newFileCreationPage.setFileName(EsbEditorPlugin.INSTANCE.getString("_UI_EsbEditorFilenameDefaultBase") + "." + FILE_EXTENSIONS.get(0));
-        addPage(newFileCreationPage);
+		// Create a page, set the title, and the initial model file name.
+		//
+		newFileCreationPage = new EsbModelWizardNewFileCreationPage("Whatever", selection);
+		newFileCreationPage.setTitle(EsbEditorPlugin.INSTANCE.getString("_UI_EsbModelWizard_label"));
+		newFileCreationPage.setDescription(EsbEditorPlugin.INSTANCE.getString("_UI_EsbModelWizard_description"));
+		newFileCreationPage.setFileName(EsbEditorPlugin.INSTANCE.getString("_UI_EsbEditorFilenameDefaultBase") + "." + FILE_EXTENSIONS.get(0));
+		addPage(newFileCreationPage);
 
-        // Try and get the resource selection to determine a current directory for the file dialog.
-        //
-        if (selection != null && !selection.isEmpty()) {
-            // Get the resource...
-            //
-            Object selectedElement = selection.iterator().next();
-            if (selectedElement instanceof IResource) {
-                // Get the resource parent, if its a file.
-                //
-                IResource selectedResource = (IResource)selectedElement;
-                if (selectedResource.getType() == IResource.FILE) {
-                    selectedResource = selectedResource.getParent();
-                }
+		// Try and get the resource selection to determine a current directory for the file dialog.
+		//
+		if (selection != null && !selection.isEmpty()) {
+			// Get the resource...
+			//
+			Object selectedElement = selection.iterator().next();
+			if (selectedElement instanceof IResource) {
+				// Get the resource parent, if its a file.
+				//
+				IResource selectedResource = (IResource)selectedElement;
+				if (selectedResource.getType() == IResource.FILE) {
+					selectedResource = selectedResource.getParent();
+				}
 
-                // This gives us a directory...
-                //
-                if (selectedResource instanceof IFolder || selectedResource instanceof IProject) {
-                    // Set this for the container.
-                    //
-                    newFileCreationPage.setContainerFullPath(selectedResource.getFullPath());
+				// This gives us a directory...
+				//
+				if (selectedResource instanceof IFolder || selectedResource instanceof IProject) {
+					// Set this for the container.
+					//
+					newFileCreationPage.setContainerFullPath(selectedResource.getFullPath());
 
-                    // Make up a unique new name here.
-                    //
-                    String defaultModelBaseFilename = EsbEditorPlugin.INSTANCE.getString("_UI_EsbEditorFilenameDefaultBase");
-                    String defaultModelFilenameExtension = FILE_EXTENSIONS.get(0);
-                    String modelFilename = defaultModelBaseFilename + "." + defaultModelFilenameExtension;
-                    for (int i = 1; ((IContainer)selectedResource).findMember(modelFilename) != null; ++i) {
-                        modelFilename = defaultModelBaseFilename + i + "." + defaultModelFilenameExtension;
-                    }
-                    newFileCreationPage.setFileName(modelFilename);
-                }
-            }
-        }
-        initialObjectCreationPage = new EsbModelWizardInitialObjectCreationPage("Whatever2");
-        initialObjectCreationPage.setTitle(EsbEditorPlugin.INSTANCE.getString("_UI_EsbModelWizard_label"));
-        initialObjectCreationPage.setDescription(EsbEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
-        addPage(initialObjectCreationPage);
-    }
+					// Make up a unique new name here.
+					//
+					String defaultModelBaseFilename = EsbEditorPlugin.INSTANCE.getString("_UI_EsbEditorFilenameDefaultBase");
+					String defaultModelFilenameExtension = FILE_EXTENSIONS.get(0);
+					String modelFilename = defaultModelBaseFilename + "." + defaultModelFilenameExtension;
+					for (int i = 1; ((IContainer)selectedResource).findMember(modelFilename) != null; ++i) {
+						modelFilename = defaultModelBaseFilename + i + "." + defaultModelFilenameExtension;
+					}
+					newFileCreationPage.setFileName(modelFilename);
+				}
+			}
+		}
+		initialObjectCreationPage = new EsbModelWizardInitialObjectCreationPage("Whatever2");
+		initialObjectCreationPage.setTitle(EsbEditorPlugin.INSTANCE.getString("_UI_EsbModelWizard_label"));
+		initialObjectCreationPage.setDescription(EsbEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
+		addPage(initialObjectCreationPage);
+	}
 
 	/**
-     * Get the file from the page.
-     * <!-- begin-user-doc -->
+	 * Get the file from the page.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-     * @generated
-     */
+	 * @generated
+	 */
 	public IFile getModelFile() {
-        return newFileCreationPage.getModelFile();
-    }
+		return newFileCreationPage.getModelFile();
+	}
 
 }
