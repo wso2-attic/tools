@@ -4608,6 +4608,7 @@
           visualID="3641"
           editPartClassName="MediatorFlow17EditPart"
           itemSemanticEditPolicyClassName="MediatorFlow17ItemSemanticEditPolicy"
+          notationViewFactoryClassName="MediatorFlowViewFactory"
           canonicalEditPolicyClassName="MediatorFlow17CanonicalEditPolicy"
           compartments="/0/@diagram/@compartments.9"
           graphicalNodeEditPolicyClassName="MediatorFlow17GraphicalNodeEditPolicy"
@@ -7521,13 +7522,716 @@
               href="esb.genmodel#//esb/Sequences/outputConnector"/>
         </modelFacet>
       </childNodes>
+      <childNodes
+          visualID="3642"
+          editPartClassName="EndpointDiagramEditPart"
+          itemSemanticEditPolicyClassName="EndpointDiagramItemSemanticEditPolicy"
+          canonicalEditPolicyClassName="EndpointDiagramCanonicalEditPolicy"
+          compartments="/0/@diagram/@compartments.19"
+          graphicalNodeEditPolicyClassName="EndpointDiagramGraphicalNodeEditPolicy"
+          createCommandClassName="EndpointDiagramCreateCommand"
+          containers="/0/@diagram/@topLevelNodes.0">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <elementType
+            xsi:type="gmfgen:MetamodelType"
+            editHelperClassName="EndpointDiagramEditHelper"/>
+        <viewmap
+            xsi:type="gmfgen:FigureViewmap"
+            figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
+        <modelFacet>
+          <metaClass
+              href="esb.genmodel#//esb/EndpointDiagram"/>
+          <containmentMetaFeature
+              href="esb.genmodel#//esb/EsbServer/children"/>
+          <childMetaFeature
+              href="esb.genmodel#//esb/EsbServer/children"/>
+        </modelFacet>
+      </childNodes>
+      <childNodes
+          visualID="3643"
+          editPartClassName="DefaultEndPoint2EditPart"
+          itemSemanticEditPolicyClassName="DefaultEndPoint2ItemSemanticEditPolicy"
+          canonicalEditPolicyClassName="DefaultEndPoint2CanonicalEditPolicy"
+          childNodes="/0/@diagram/@childNodes.201 /0/@diagram/@childNodes.202"
+          graphicalNodeEditPolicyClassName="DefaultEndPoint2GraphicalNodeEditPolicy"
+          createCommandClassName="DefaultEndPoint2CreateCommand"
+          containers="/0/@diagram/@compartments.19">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <elementType
+            xsi:type="gmfgen:SpecializationType"
+            metamodelType="/0/@diagram/@childNodes.163/@elementType"/>
+        <viewmap
+            xsi:type="gmfgen:InnerClassViewmap"
+            className="DefaultEndPointFigure"
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class DefaultEndPointFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureDefaultEndPointNamePropertyLabel; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public DefaultEndPointFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureDefaultEndPointNamePropertyLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureDefaultEndPointNamePropertyLabel.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureDefaultEndPointNamePropertyLabel);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureDefaultEndPointNamePropertyLabel() {&#xA;&#x9;&#x9;return fFigureDefaultEndPointNamePropertyLabel;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 248, 151, 40);&#xA;&#xA;">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedBackground="true"/>
+        </viewmap>
+        <modelFacet>
+          <metaClass
+              href="esb.genmodel#//esb/DefaultEndPoint"/>
+          <containmentMetaFeature
+              href="esb.genmodel#//esb/EndpointDiagram/child"/>
+          <childMetaFeature
+              href="esb.genmodel#//esb/EndpointDiagram/child"/>
+        </modelFacet>
+        <labels
+            visualID="5160"
+            editPartClassName="DefaultEndPointEndPointName2EditPart"
+            itemSemanticEditPolicyClassName="DefaultEndPointEndPointName2ItemSemanticEditPolicy"
+            readOnly="true">
+          <diagramRunTimeClass
+              href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+          <viewmap
+              xsi:type="gmfgen:ParentAssignedViewmap"
+              getterName="getFigureDefaultEndPointNamePropertyLabel"
+              figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+          <modelFacet
+              xsi:type="gmfgen:FeatureLabelModelFacet"
+              parser="/0/@labelParsers/@implementations.0">
+            <metaFeatures
+                href="esb.genmodel#//esb/EndPoint/endPointName"/>
+          </modelFacet>
+        </labels>
+      </childNodes>
+      <childNodes
+          xsi:type="gmfgen:GenChildSideAffixedNode"
+          visualID="3644"
+          editPartClassName="DefaultEndPointInputConnector2EditPart"
+          itemSemanticEditPolicyClassName="DefaultEndPointInputConnector2ItemSemanticEditPolicy"
+          canonicalEditPolicyClassName="DefaultEndPointInputConnector2CanonicalEditPolicy"
+          graphicalNodeEditPolicyClassName="DefaultEndPointInputConnector2GraphicalNodeEditPolicy"
+          createCommandClassName="DefaultEndPointInputConnector2CreateCommand"
+          containers="/0/@diagram/@childNodes.200"
+          preferredSideName="WEST">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <elementType
+            xsi:type="gmfgen:SpecializationType"
+            metamodelType="/0/@diagram/@childNodes.164/@elementType"/>
+        <viewmap
+            xsi:type="gmfgen:InnerClassViewmap"
+            className="EastPointerFigure"
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class EastPointerFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EastPointerShape {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public EastPointerFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(12)&#xA;, getMapMode().DPtoLP(10)&#xA;));&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 50, 50, 50);&#xA;&#xA;">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedBackground="true"/>
+          <attributes
+              xsi:type="gmfgen:DefaultSizeAttributes"
+              width="12"
+              height="10"/>
+        </viewmap>
+        <modelFacet>
+          <metaClass
+              href="esb.genmodel#//esb/DefaultEndPointInputConnector"/>
+          <containmentMetaFeature
+              href="esb.genmodel#//esb/DefaultEndPoint/inputConnector"/>
+          <childMetaFeature
+              href="esb.genmodel#//esb/DefaultEndPoint/inputConnector"/>
+        </modelFacet>
+      </childNodes>
+      <childNodes
+          xsi:type="gmfgen:GenChildSideAffixedNode"
+          visualID="3645"
+          editPartClassName="DefaultEndPointOutputConnector2EditPart"
+          itemSemanticEditPolicyClassName="DefaultEndPointOutputConnector2ItemSemanticEditPolicy"
+          canonicalEditPolicyClassName="DefaultEndPointOutputConnector2CanonicalEditPolicy"
+          graphicalNodeEditPolicyClassName="DefaultEndPointOutputConnector2GraphicalNodeEditPolicy"
+          createCommandClassName="DefaultEndPointOutputConnector2CreateCommand"
+          containers="/0/@diagram/@childNodes.200"
+          preferredSideName="WEST">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <elementType
+            xsi:type="gmfgen:SpecializationType"
+            metamodelType="/0/@diagram/@childNodes.165/@elementType"/>
+        <viewmap
+            xsi:type="gmfgen:InnerClassViewmap"
+            className="WestPointerFigure"
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class WestPointerFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.WestPointerShape {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public WestPointerFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(12)&#xA;, getMapMode().DPtoLP(10)&#xA;));&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 50, 50, 50);&#xA;&#xA;">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedBackground="true"/>
+          <attributes
+              xsi:type="gmfgen:DefaultSizeAttributes"
+              width="12"
+              height="10"/>
+        </viewmap>
+        <modelFacet>
+          <metaClass
+              href="esb.genmodel#//esb/DefaultEndPointOutputConnector"/>
+          <containmentMetaFeature
+              href="esb.genmodel#//esb/DefaultEndPoint/outputConnector"/>
+          <childMetaFeature
+              href="esb.genmodel#//esb/DefaultEndPoint/outputConnector"/>
+        </modelFacet>
+      </childNodes>
+      <childNodes
+          visualID="3646"
+          editPartClassName="AddressEndPoint2EditPart"
+          itemSemanticEditPolicyClassName="AddressEndPoint2ItemSemanticEditPolicy"
+          canonicalEditPolicyClassName="AddressEndPoint2CanonicalEditPolicy"
+          childNodes="/0/@diagram/@childNodes.204 /0/@diagram/@childNodes.205"
+          graphicalNodeEditPolicyClassName="AddressEndPoint2GraphicalNodeEditPolicy"
+          createCommandClassName="AddressEndPoint2CreateCommand"
+          containers="/0/@diagram/@compartments.19">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <elementType
+            xsi:type="gmfgen:SpecializationType"
+            metamodelType="/0/@diagram/@childNodes.166/@elementType"/>
+        <viewmap
+            xsi:type="gmfgen:InnerClassViewmap"
+            className="AddressEndPointFigure"
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class AddressEndPointFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureAddressEndPointNamePropertyLabel; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public AddressEndPointFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureAddressEndPointNamePropertyLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureAddressEndPointNamePropertyLabel.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureAddressEndPointNamePropertyLabel);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureAddressEndPointNamePropertyLabel() {&#xA;&#x9;&#x9;return fFigureAddressEndPointNamePropertyLabel;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 248, 151, 40);&#xA;&#xA;">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedBackground="true"/>
+        </viewmap>
+        <modelFacet>
+          <metaClass
+              href="esb.genmodel#//esb/AddressEndPoint"/>
+          <containmentMetaFeature
+              href="esb.genmodel#//esb/EndpointDiagram/child"/>
+          <childMetaFeature
+              href="esb.genmodel#//esb/EndpointDiagram/child"/>
+        </modelFacet>
+        <labels
+            visualID="5161"
+            editPartClassName="AddressEndPointEndPointName2EditPart"
+            itemSemanticEditPolicyClassName="AddressEndPointEndPointName2ItemSemanticEditPolicy"
+            readOnly="true">
+          <diagramRunTimeClass
+              href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+          <viewmap
+              xsi:type="gmfgen:ParentAssignedViewmap"
+              getterName="getFigureAddressEndPointNamePropertyLabel"
+              figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+          <modelFacet
+              xsi:type="gmfgen:FeatureLabelModelFacet"
+              parser="/0/@labelParsers/@implementations.0">
+            <metaFeatures
+                href="esb.genmodel#//esb/EndPoint/endPointName"/>
+          </modelFacet>
+        </labels>
+      </childNodes>
+      <childNodes
+          xsi:type="gmfgen:GenChildSideAffixedNode"
+          visualID="3647"
+          editPartClassName="AddressEndPointInputConnector2EditPart"
+          itemSemanticEditPolicyClassName="AddressEndPointInputConnector2ItemSemanticEditPolicy"
+          canonicalEditPolicyClassName="AddressEndPointInputConnector2CanonicalEditPolicy"
+          graphicalNodeEditPolicyClassName="AddressEndPointInputConnector2GraphicalNodeEditPolicy"
+          createCommandClassName="AddressEndPointInputConnector2CreateCommand"
+          containers="/0/@diagram/@childNodes.203"
+          preferredSideName="WEST">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <elementType
+            xsi:type="gmfgen:SpecializationType"
+            metamodelType="/0/@diagram/@childNodes.167/@elementType"/>
+        <viewmap
+            xsi:type="gmfgen:InnerClassViewmap"
+            className="EastPointerFigure"
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class EastPointerFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EastPointerShape {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public EastPointerFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(12)&#xA;, getMapMode().DPtoLP(10)&#xA;));&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 50, 50, 50);&#xA;&#xA;">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedBackground="true"/>
+          <attributes
+              xsi:type="gmfgen:DefaultSizeAttributes"
+              width="12"
+              height="10"/>
+        </viewmap>
+        <modelFacet>
+          <metaClass
+              href="esb.genmodel#//esb/AddressEndPointInputConnector"/>
+          <containmentMetaFeature
+              href="esb.genmodel#//esb/AddressEndPoint/inputConnector"/>
+          <childMetaFeature
+              href="esb.genmodel#//esb/AddressEndPoint/inputConnector"/>
+        </modelFacet>
+      </childNodes>
+      <childNodes
+          xsi:type="gmfgen:GenChildSideAffixedNode"
+          visualID="3648"
+          editPartClassName="AddressEndPointOutputConnector2EditPart"
+          itemSemanticEditPolicyClassName="AddressEndPointOutputConnector2ItemSemanticEditPolicy"
+          canonicalEditPolicyClassName="AddressEndPointOutputConnector2CanonicalEditPolicy"
+          graphicalNodeEditPolicyClassName="AddressEndPointOutputConnector2GraphicalNodeEditPolicy"
+          createCommandClassName="AddressEndPointOutputConnector2CreateCommand"
+          containers="/0/@diagram/@childNodes.203"
+          preferredSideName="WEST">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <elementType
+            xsi:type="gmfgen:SpecializationType"
+            metamodelType="/0/@diagram/@childNodes.168/@elementType"/>
+        <viewmap
+            xsi:type="gmfgen:InnerClassViewmap"
+            className="WestPointerFigure"
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class WestPointerFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.WestPointerShape {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public WestPointerFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(12)&#xA;, getMapMode().DPtoLP(10)&#xA;));&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 50, 50, 50);&#xA;&#xA;">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedBackground="true"/>
+          <attributes
+              xsi:type="gmfgen:DefaultSizeAttributes"
+              width="12"
+              height="10"/>
+        </viewmap>
+        <modelFacet>
+          <metaClass
+              href="esb.genmodel#//esb/AddressEndPointOutputConnector"/>
+          <containmentMetaFeature
+              href="esb.genmodel#//esb/AddressEndPoint/outputConnector"/>
+          <childMetaFeature
+              href="esb.genmodel#//esb/AddressEndPoint/outputConnector"/>
+        </modelFacet>
+      </childNodes>
+      <childNodes
+          visualID="3649"
+          editPartClassName="FailoverEndPoint2EditPart"
+          itemSemanticEditPolicyClassName="FailoverEndPoint2ItemSemanticEditPolicy"
+          canonicalEditPolicyClassName="FailoverEndPoint2CanonicalEditPolicy"
+          childNodes="/0/@diagram/@childNodes.207 /0/@diagram/@childNodes.208 /0/@diagram/@childNodes.209"
+          graphicalNodeEditPolicyClassName="FailoverEndPoint2GraphicalNodeEditPolicy"
+          createCommandClassName="FailoverEndPoint2CreateCommand"
+          containers="/0/@diagram/@compartments.19">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <elementType
+            xsi:type="gmfgen:SpecializationType"
+            metamodelType="/0/@diagram/@childNodes.169/@elementType"/>
+        <viewmap
+            xsi:type="gmfgen:InnerClassViewmap"
+            className="FailoverEndPointFigure"
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class FailoverEndPointFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureFailoverEndPointNamePropertyLabel; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public FailoverEndPointFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureFailoverEndPointNamePropertyLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureFailoverEndPointNamePropertyLabel.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureFailoverEndPointNamePropertyLabel);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureFailoverEndPointNamePropertyLabel() {&#xA;&#x9;&#x9;return fFigureFailoverEndPointNamePropertyLabel;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 40, 151, 248);&#xA;&#xA;">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedBackground="true"/>
+        </viewmap>
+        <modelFacet>
+          <metaClass
+              href="esb.genmodel#//esb/FailoverEndPoint"/>
+          <containmentMetaFeature
+              href="esb.genmodel#//esb/EndpointDiagram/child"/>
+          <childMetaFeature
+              href="esb.genmodel#//esb/EndpointDiagram/child"/>
+        </modelFacet>
+        <labels
+            visualID="5162"
+            editPartClassName="FailoverEndPointEndPointName2EditPart"
+            itemSemanticEditPolicyClassName="FailoverEndPointEndPointName2ItemSemanticEditPolicy"
+            readOnly="true">
+          <diagramRunTimeClass
+              href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+          <viewmap
+              xsi:type="gmfgen:ParentAssignedViewmap"
+              getterName="getFigureFailoverEndPointNamePropertyLabel"
+              figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+          <modelFacet
+              xsi:type="gmfgen:FeatureLabelModelFacet"
+              parser="/0/@labelParsers/@implementations.0">
+            <metaFeatures
+                href="esb.genmodel#//esb/EndPoint/endPointName"/>
+          </modelFacet>
+        </labels>
+      </childNodes>
+      <childNodes
+          xsi:type="gmfgen:GenChildSideAffixedNode"
+          visualID="3650"
+          editPartClassName="FailoverEndPointInputConnector2EditPart"
+          itemSemanticEditPolicyClassName="FailoverEndPointInputConnector2ItemSemanticEditPolicy"
+          canonicalEditPolicyClassName="FailoverEndPointInputConnector2CanonicalEditPolicy"
+          graphicalNodeEditPolicyClassName="FailoverEndPointInputConnector2GraphicalNodeEditPolicy"
+          createCommandClassName="FailoverEndPointInputConnector2CreateCommand"
+          containers="/0/@diagram/@childNodes.206"
+          preferredSideName="WEST">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <elementType
+            xsi:type="gmfgen:SpecializationType"
+            metamodelType="/0/@diagram/@childNodes.170/@elementType"/>
+        <viewmap
+            xsi:type="gmfgen:InnerClassViewmap"
+            className="EastPointerFigure"
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class EastPointerFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EastPointerShape {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public EastPointerFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(12)&#xA;, getMapMode().DPtoLP(10)&#xA;));&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 50, 50, 50);&#xA;&#xA;">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedBackground="true"/>
+          <attributes
+              xsi:type="gmfgen:DefaultSizeAttributes"
+              width="12"
+              height="10"/>
+        </viewmap>
+        <modelFacet>
+          <metaClass
+              href="esb.genmodel#//esb/FailoverEndPointInputConnector"/>
+          <containmentMetaFeature
+              href="esb.genmodel#//esb/FailoverEndPoint/inputConnector"/>
+          <childMetaFeature
+              href="esb.genmodel#//esb/FailoverEndPoint/inputConnector"/>
+        </modelFacet>
+      </childNodes>
+      <childNodes
+          xsi:type="gmfgen:GenChildSideAffixedNode"
+          visualID="3651"
+          editPartClassName="FailoverEndPointOutputConnector2EditPart"
+          itemSemanticEditPolicyClassName="FailoverEndPointOutputConnector2ItemSemanticEditPolicy"
+          canonicalEditPolicyClassName="FailoverEndPointOutputConnector2CanonicalEditPolicy"
+          graphicalNodeEditPolicyClassName="FailoverEndPointOutputConnector2GraphicalNodeEditPolicy"
+          createCommandClassName="FailoverEndPointOutputConnector2CreateCommand"
+          containers="/0/@diagram/@childNodes.206"
+          preferredSideName="EAST">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <elementType
+            xsi:type="gmfgen:SpecializationType"
+            metamodelType="/0/@diagram/@childNodes.171/@elementType"/>
+        <viewmap
+            xsi:type="gmfgen:InnerClassViewmap"
+            className="EastPointerFigure"
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class EastPointerFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EastPointerShape {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public EastPointerFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(12)&#xA;, getMapMode().DPtoLP(10)&#xA;));&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 50, 50, 50);&#xA;&#xA;">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedBackground="true"/>
+          <attributes
+              xsi:type="gmfgen:DefaultSizeAttributes"
+              width="12"
+              height="10"/>
+        </viewmap>
+        <modelFacet>
+          <metaClass
+              href="esb.genmodel#//esb/FailoverEndPointOutputConnector"/>
+          <containmentMetaFeature
+              href="esb.genmodel#//esb/FailoverEndPoint/OutputConnector"/>
+          <childMetaFeature
+              href="esb.genmodel#//esb/FailoverEndPoint/OutputConnector"/>
+        </modelFacet>
+      </childNodes>
+      <childNodes
+          xsi:type="gmfgen:GenChildSideAffixedNode"
+          visualID="3652"
+          editPartClassName="FailoverEndPointWestOutputConnector2EditPart"
+          itemSemanticEditPolicyClassName="FailoverEndPointWestOutputConnector2ItemSemanticEditPolicy"
+          canonicalEditPolicyClassName="FailoverEndPointWestOutputConnector2CanonicalEditPolicy"
+          graphicalNodeEditPolicyClassName="FailoverEndPointWestOutputConnector2GraphicalNodeEditPolicy"
+          createCommandClassName="FailoverEndPointWestOutputConnector2CreateCommand"
+          containers="/0/@diagram/@childNodes.206"
+          preferredSideName="WEST">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <elementType
+            xsi:type="gmfgen:SpecializationType"
+            metamodelType="/0/@diagram/@childNodes.172/@elementType"/>
+        <viewmap
+            xsi:type="gmfgen:InnerClassViewmap"
+            className="WestPointerFigure"
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class WestPointerFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.WestPointerShape {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public WestPointerFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(12)&#xA;, getMapMode().DPtoLP(10)&#xA;));&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 50, 50, 50);&#xA;&#xA;">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedBackground="true"/>
+          <attributes
+              xsi:type="gmfgen:DefaultSizeAttributes"
+              width="12"
+              height="10"/>
+        </viewmap>
+        <modelFacet>
+          <metaClass
+              href="esb.genmodel#//esb/FailoverEndPointWestOutputConnector"/>
+          <containmentMetaFeature
+              href="esb.genmodel#//esb/FailoverEndPoint/westOutputConnector"/>
+          <childMetaFeature
+              href="esb.genmodel#//esb/FailoverEndPoint/westOutputConnector"/>
+        </modelFacet>
+      </childNodes>
+      <childNodes
+          visualID="3653"
+          editPartClassName="WSDLEndPoint2EditPart"
+          itemSemanticEditPolicyClassName="WSDLEndPoint2ItemSemanticEditPolicy"
+          canonicalEditPolicyClassName="WSDLEndPoint2CanonicalEditPolicy"
+          childNodes="/0/@diagram/@childNodes.211 /0/@diagram/@childNodes.212"
+          graphicalNodeEditPolicyClassName="WSDLEndPoint2GraphicalNodeEditPolicy"
+          createCommandClassName="WSDLEndPoint2CreateCommand"
+          containers="/0/@diagram/@compartments.19">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <elementType
+            xsi:type="gmfgen:SpecializationType"
+            metamodelType="/0/@diagram/@childNodes.173/@elementType"/>
+        <viewmap
+            xsi:type="gmfgen:InnerClassViewmap"
+            className="WSDLEndPointFigure"
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class WSDLEndPointFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureWSDLEndPointNamePropertyLabel; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public WSDLEndPointFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureWSDLEndPointNamePropertyLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureWSDLEndPointNamePropertyLabel.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureWSDLEndPointNamePropertyLabel);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureWSDLEndPointNamePropertyLabel() {&#xA;&#x9;&#x9;return fFigureWSDLEndPointNamePropertyLabel;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 40, 151, 248);&#xA;&#xA;">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedBackground="true"/>
+        </viewmap>
+        <modelFacet>
+          <metaClass
+              href="esb.genmodel#//esb/WSDLEndPoint"/>
+          <containmentMetaFeature
+              href="esb.genmodel#//esb/EndpointDiagram/child"/>
+          <childMetaFeature
+              href="esb.genmodel#//esb/EndpointDiagram/child"/>
+        </modelFacet>
+        <labels
+            visualID="5163"
+            editPartClassName="WSDLEndPointEndPointName2EditPart"
+            itemSemanticEditPolicyClassName="WSDLEndPointEndPointName2ItemSemanticEditPolicy"
+            readOnly="true">
+          <diagramRunTimeClass
+              href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+          <viewmap
+              xsi:type="gmfgen:ParentAssignedViewmap"
+              getterName="getFigureWSDLEndPointNamePropertyLabel"
+              figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+          <modelFacet
+              xsi:type="gmfgen:FeatureLabelModelFacet"
+              parser="/0/@labelParsers/@implementations.0">
+            <metaFeatures
+                href="esb.genmodel#//esb/EndPoint/endPointName"/>
+          </modelFacet>
+        </labels>
+      </childNodes>
+      <childNodes
+          xsi:type="gmfgen:GenChildSideAffixedNode"
+          visualID="3654"
+          editPartClassName="WSDLEndPointInputConnector2EditPart"
+          itemSemanticEditPolicyClassName="WSDLEndPointInputConnector2ItemSemanticEditPolicy"
+          canonicalEditPolicyClassName="WSDLEndPointInputConnector2CanonicalEditPolicy"
+          graphicalNodeEditPolicyClassName="WSDLEndPointInputConnector2GraphicalNodeEditPolicy"
+          createCommandClassName="WSDLEndPointInputConnector2CreateCommand"
+          containers="/0/@diagram/@childNodes.210"
+          preferredSideName="WEST">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <elementType
+            xsi:type="gmfgen:SpecializationType"
+            metamodelType="/0/@diagram/@childNodes.174/@elementType"/>
+        <viewmap
+            xsi:type="gmfgen:InnerClassViewmap"
+            className="EastPointerFigure"
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class EastPointerFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EastPointerShape {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public EastPointerFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(12)&#xA;, getMapMode().DPtoLP(10)&#xA;));&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 50, 50, 50);&#xA;&#xA;">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedBackground="true"/>
+          <attributes
+              xsi:type="gmfgen:DefaultSizeAttributes"
+              width="12"
+              height="10"/>
+        </viewmap>
+        <modelFacet>
+          <metaClass
+              href="esb.genmodel#//esb/WSDLEndPointInputConnector"/>
+          <containmentMetaFeature
+              href="esb.genmodel#//esb/WSDLEndPoint/inputConnector"/>
+          <childMetaFeature
+              href="esb.genmodel#//esb/WSDLEndPoint/inputConnector"/>
+        </modelFacet>
+      </childNodes>
+      <childNodes
+          xsi:type="gmfgen:GenChildSideAffixedNode"
+          visualID="3655"
+          editPartClassName="WSDLEndPointOutputConnector2EditPart"
+          itemSemanticEditPolicyClassName="WSDLEndPointOutputConnector2ItemSemanticEditPolicy"
+          canonicalEditPolicyClassName="WSDLEndPointOutputConnector2CanonicalEditPolicy"
+          graphicalNodeEditPolicyClassName="WSDLEndPointOutputConnector2GraphicalNodeEditPolicy"
+          createCommandClassName="WSDLEndPointOutputConnector2CreateCommand"
+          containers="/0/@diagram/@childNodes.210"
+          preferredSideName="WEST">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <elementType
+            xsi:type="gmfgen:SpecializationType"
+            metamodelType="/0/@diagram/@childNodes.175/@elementType"/>
+        <viewmap
+            xsi:type="gmfgen:InnerClassViewmap"
+            className="WestPointerFigure"
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class WestPointerFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.WestPointerShape {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public WestPointerFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(12)&#xA;, getMapMode().DPtoLP(10)&#xA;));&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 50, 50, 50);&#xA;&#xA;">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedBackground="true"/>
+          <attributes
+              xsi:type="gmfgen:DefaultSizeAttributes"
+              width="12"
+              height="10"/>
+        </viewmap>
+        <modelFacet>
+          <metaClass
+              href="esb.genmodel#//esb/WSDLEndPointOutputConnector"/>
+          <containmentMetaFeature
+              href="esb.genmodel#//esb/WSDLEndPoint/outputConnector"/>
+          <childMetaFeature
+              href="esb.genmodel#//esb/WSDLEndPoint/outputConnector"/>
+        </modelFacet>
+      </childNodes>
+      <childNodes
+          visualID="3656"
+          editPartClassName="LoadBalanceEndPoint2EditPart"
+          itemSemanticEditPolicyClassName="LoadBalanceEndPoint2ItemSemanticEditPolicy"
+          canonicalEditPolicyClassName="LoadBalanceEndPoint2CanonicalEditPolicy"
+          childNodes="/0/@diagram/@childNodes.214 /0/@diagram/@childNodes.215 /0/@diagram/@childNodes.216"
+          graphicalNodeEditPolicyClassName="LoadBalanceEndPoint2GraphicalNodeEditPolicy"
+          createCommandClassName="LoadBalanceEndPoint2CreateCommand"
+          containers="/0/@diagram/@compartments.19">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <elementType
+            xsi:type="gmfgen:SpecializationType"
+            metamodelType="/0/@diagram/@childNodes.176/@elementType"/>
+        <viewmap
+            xsi:type="gmfgen:InnerClassViewmap"
+            className="LoadBalanceEndPointFigure"
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class LoadBalanceEndPointFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureLoadBalanceEndPointNamePropertyLabel; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public LoadBalanceEndPointFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureLoadBalanceEndPointNamePropertyLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureLoadBalanceEndPointNamePropertyLabel.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureLoadBalanceEndPointNamePropertyLabel);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureLoadBalanceEndPointNamePropertyLabel() {&#xA;&#x9;&#x9;return fFigureLoadBalanceEndPointNamePropertyLabel;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 40, 151, 248);&#xA;&#xA;">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedBackground="true"/>
+        </viewmap>
+        <modelFacet>
+          <metaClass
+              href="esb.genmodel#//esb/LoadBalanceEndPoint"/>
+          <containmentMetaFeature
+              href="esb.genmodel#//esb/EndpointDiagram/child"/>
+          <childMetaFeature
+              href="esb.genmodel#//esb/EndpointDiagram/child"/>
+        </modelFacet>
+        <labels
+            visualID="5164"
+            editPartClassName="LoadBalanceEndPointEndPointName2EditPart"
+            itemSemanticEditPolicyClassName="LoadBalanceEndPointEndPointName2ItemSemanticEditPolicy"
+            readOnly="true">
+          <diagramRunTimeClass
+              href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+          <viewmap
+              xsi:type="gmfgen:ParentAssignedViewmap"
+              getterName="getFigureLoadBalanceEndPointNamePropertyLabel"
+              figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+          <modelFacet
+              xsi:type="gmfgen:FeatureLabelModelFacet"
+              parser="/0/@labelParsers/@implementations.0">
+            <metaFeatures
+                href="esb.genmodel#//esb/EndPoint/endPointName"/>
+          </modelFacet>
+        </labels>
+      </childNodes>
+      <childNodes
+          xsi:type="gmfgen:GenChildSideAffixedNode"
+          visualID="3657"
+          editPartClassName="LoadBalanceEndPointInputConnector2EditPart"
+          itemSemanticEditPolicyClassName="LoadBalanceEndPointInputConnector2ItemSemanticEditPolicy"
+          canonicalEditPolicyClassName="LoadBalanceEndPointInputConnector2CanonicalEditPolicy"
+          graphicalNodeEditPolicyClassName="LoadBalanceEndPointInputConnector2GraphicalNodeEditPolicy"
+          createCommandClassName="LoadBalanceEndPointInputConnector2CreateCommand"
+          containers="/0/@diagram/@childNodes.213"
+          preferredSideName="WEST">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <elementType
+            xsi:type="gmfgen:SpecializationType"
+            metamodelType="/0/@diagram/@childNodes.177/@elementType"/>
+        <viewmap
+            xsi:type="gmfgen:InnerClassViewmap"
+            className="EastPointerFigure"
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class EastPointerFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EastPointerShape {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public EastPointerFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(12)&#xA;, getMapMode().DPtoLP(10)&#xA;));&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 50, 50, 50);&#xA;&#xA;">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedBackground="true"/>
+          <attributes
+              xsi:type="gmfgen:DefaultSizeAttributes"
+              width="12"
+              height="10"/>
+        </viewmap>
+        <modelFacet>
+          <metaClass
+              href="esb.genmodel#//esb/LoadBalanceEndPointInputConnector"/>
+          <containmentMetaFeature
+              href="esb.genmodel#//esb/LoadBalanceEndPoint/inputConnector"/>
+          <childMetaFeature
+              href="esb.genmodel#//esb/LoadBalanceEndPoint/inputConnector"/>
+        </modelFacet>
+      </childNodes>
+      <childNodes
+          xsi:type="gmfgen:GenChildSideAffixedNode"
+          visualID="3658"
+          editPartClassName="LoadBalanceEndPointOutputConnector2EditPart"
+          itemSemanticEditPolicyClassName="LoadBalanceEndPointOutputConnector2ItemSemanticEditPolicy"
+          canonicalEditPolicyClassName="LoadBalanceEndPointOutputConnector2CanonicalEditPolicy"
+          graphicalNodeEditPolicyClassName="LoadBalanceEndPointOutputConnector2GraphicalNodeEditPolicy"
+          createCommandClassName="LoadBalanceEndPointOutputConnector2CreateCommand"
+          containers="/0/@diagram/@childNodes.213"
+          preferredSideName="EAST">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <elementType
+            xsi:type="gmfgen:SpecializationType"
+            metamodelType="/0/@diagram/@childNodes.178/@elementType"/>
+        <viewmap
+            xsi:type="gmfgen:InnerClassViewmap"
+            className="EastPointerFigure"
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class EastPointerFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EastPointerShape {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public EastPointerFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(12)&#xA;, getMapMode().DPtoLP(10)&#xA;));&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 50, 50, 50);&#xA;&#xA;">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedBackground="true"/>
+          <attributes
+              xsi:type="gmfgen:DefaultSizeAttributes"
+              width="12"
+              height="10"/>
+        </viewmap>
+        <modelFacet>
+          <metaClass
+              href="esb.genmodel#//esb/LoadBalanceEndPointOutputConnector"/>
+          <containmentMetaFeature
+              href="esb.genmodel#//esb/LoadBalanceEndPoint/outputConnector"/>
+          <childMetaFeature
+              href="esb.genmodel#//esb/LoadBalanceEndPoint/outputConnector"/>
+        </modelFacet>
+      </childNodes>
+      <childNodes
+          xsi:type="gmfgen:GenChildSideAffixedNode"
+          visualID="3659"
+          editPartClassName="LoadBalanceEndPointWestOutputConnector2EditPart"
+          itemSemanticEditPolicyClassName="LoadBalanceEndPointWestOutputConnector2ItemSemanticEditPolicy"
+          canonicalEditPolicyClassName="LoadBalanceEndPointWestOutputConnector2CanonicalEditPolicy"
+          graphicalNodeEditPolicyClassName="LoadBalanceEndPointWestOutputConnector2GraphicalNodeEditPolicy"
+          createCommandClassName="LoadBalanceEndPointWestOutputConnector2CreateCommand"
+          containers="/0/@diagram/@childNodes.213"
+          preferredSideName="WEST">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <elementType
+            xsi:type="gmfgen:SpecializationType"
+            metamodelType="/0/@diagram/@childNodes.179/@elementType"/>
+        <viewmap
+            xsi:type="gmfgen:InnerClassViewmap"
+            className="WestPointerFigure"
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class WestPointerFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.WestPointerShape {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public WestPointerFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(12)&#xA;, getMapMode().DPtoLP(10)&#xA;));&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 50, 50, 50);&#xA;&#xA;">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedBackground="true"/>
+          <attributes
+              xsi:type="gmfgen:DefaultSizeAttributes"
+              width="12"
+              height="10"/>
+        </viewmap>
+        <modelFacet>
+          <metaClass
+              href="esb.genmodel#//esb/LoadBalanceEndPointWestOutputConnector"/>
+          <containmentMetaFeature
+              href="esb.genmodel#//esb/LoadBalanceEndPoint/westOutputConnector"/>
+          <childMetaFeature
+              href="esb.genmodel#//esb/LoadBalanceEndPoint/westOutputConnector"/>
+        </modelFacet>
+      </childNodes>
       <topLevelNodes
           visualID="2001"
           editPartClassName="EsbServerEditPart"
           itemSemanticEditPolicyClassName="EsbServerItemSemanticEditPolicy"
           notationViewFactoryClassName="EsbServerViewFactory"
           canonicalEditPolicyClassName="EsbServerCanonicalEditPolicy"
-          childNodes="/0/@diagram/@childNodes.188"
+          childNodes="/0/@diagram/@childNodes.188 /0/@diagram/@childNodes.199"
           compartments="/0/@diagram/@compartments.0"
           graphicalNodeEditPolicyClassName="EsbServerGraphicalNodeEditPolicy"
           createCommandClassName="EsbServerCreateCommand">
@@ -7748,6 +8452,7 @@
           visualID="7040"
           editPartClassName="MediatorFlowMediatorFlowCompartment17EditPart"
           itemSemanticEditPolicyClassName="MediatorFlowMediatorFlowCompartment17ItemSemanticEditPolicy"
+          notationViewFactoryClassName="MediatorFlowMediatorFlowCompartmentViewFactory"
           canonicalEditPolicyClassName="MediatorFlowMediatorFlowCompartment17CanonicalEditPolicy"
           childNodes="/0/@diagram/@childNodes.7 /0/@diagram/@childNodes.9 /0/@diagram/@childNodes.12 /0/@diagram/@childNodes.20 /0/@diagram/@childNodes.28 /0/@diagram/@childNodes.31 /0/@diagram/@childNodes.34 /0/@diagram/@childNodes.37 /0/@diagram/@childNodes.45 /0/@diagram/@childNodes.48 /0/@diagram/@childNodes.51 /0/@diagram/@childNodes.54 /0/@diagram/@childNodes.57 /0/@diagram/@childNodes.60 /0/@diagram/@childNodes.63 /0/@diagram/@childNodes.66 /0/@diagram/@childNodes.69 /0/@diagram/@childNodes.72 /0/@diagram/@childNodes.75 /0/@diagram/@childNodes.78 /0/@diagram/@childNodes.81 /0/@diagram/@childNodes.86 /0/@diagram/@childNodes.89 /0/@diagram/@childNodes.96 /0/@diagram/@childNodes.101 /0/@diagram/@childNodes.106 /0/@diagram/@childNodes.109 /0/@diagram/@childNodes.112 /0/@diagram/@childNodes.115 /0/@diagram/@childNodes.120 /0/@diagram/@childNodes.123 /0/@diagram/@childNodes.128 /0/@diagram/@childNodes.131 /0/@diagram/@childNodes.134 /0/@diagram/@childNodes.137 /0/@diagram/@childNodes.140 /0/@diagram/@childNodes.143 /0/@diagram/@childNodes.146 /0/@diagram/@childNodes.151 /0/@diagram/@childNodes.158 /0/@diagram/@childNodes.163 /0/@diagram/@childNodes.166 /0/@diagram/@childNodes.169 /0/@diagram/@childNodes.173 /0/@diagram/@childNodes.176"
           title="MediatorFlowCompartment"
@@ -7909,6 +8614,21 @@
           title="MediatorFlowCompartment"
           canCollapse="false"
           node="/0/@diagram/@childNodes.196"
+          listLayout="false">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:FigureViewmap"
+            figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
+      </compartments>
+      <compartments
+          visualID="7041"
+          editPartClassName="EndpointDiagramEndpointCompartmentEditPart"
+          itemSemanticEditPolicyClassName="EndpointDiagramEndpointCompartmentItemSemanticEditPolicy"
+          canonicalEditPolicyClassName="EndpointDiagramEndpointCompartmentCanonicalEditPolicy"
+          childNodes="/0/@diagram/@childNodes.200 /0/@diagram/@childNodes.203 /0/@diagram/@childNodes.206 /0/@diagram/@childNodes.210 /0/@diagram/@childNodes.213"
+          title="EndpointCompartment"
+          node="/0/@diagram/@childNodes.199"
           listLayout="false">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -8147,27 +8867,27 @@
               xsi:type="gmfgen:ToolEntry"
               title="DefaultEndPoint"
               description="Create new DefaultEndPoint"
-              genNodes="/0/@diagram/@childNodes.163"/>
+              genNodes="/0/@diagram/@childNodes.163 /0/@diagram/@childNodes.200"/>
           <entries
               xsi:type="gmfgen:ToolEntry"
               title="AddressEndPoint"
               description="Create new AddressEndPoint"
-              genNodes="/0/@diagram/@childNodes.166"/>
+              genNodes="/0/@diagram/@childNodes.166 /0/@diagram/@childNodes.203"/>
           <entries
               xsi:type="gmfgen:ToolEntry"
               title="FailoverEndPoint"
               description="Create new FailoverEndPoint"
-              genNodes="/0/@diagram/@childNodes.169"/>
+              genNodes="/0/@diagram/@childNodes.169 /0/@diagram/@childNodes.206"/>
           <entries
               xsi:type="gmfgen:ToolEntry"
               title="WSDLEndPoint"
               description="Create new WSDLEndPoint"
-              genNodes="/0/@diagram/@childNodes.173"/>
+              genNodes="/0/@diagram/@childNodes.173 /0/@diagram/@childNodes.210"/>
           <entries
               xsi:type="gmfgen:ToolEntry"
               title="LoadBalanceEndPoint"
               description="Create new LoadBalanceEndPoint"
-              genNodes="/0/@diagram/@childNodes.176"/>
+              genNodes="/0/@diagram/@childNodes.176 /0/@diagram/@childNodes.213"/>
         </groups>
         <groups
             title="Links"
@@ -10982,6 +11702,60 @@
           parent="/0/@diagram/@topLevelNodes.0"
           child="/0/@diagram/@childNodes.195"/>
       <childReferences
+          parent="/0/@diagram/@childNodes.200"
+          child="/0/@diagram/@childNodes.201"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.200"
+          child="/0/@diagram/@childNodes.202"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.199"
+          child="/0/@diagram/@childNodes.200"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.203"
+          child="/0/@diagram/@childNodes.204"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.203"
+          child="/0/@diagram/@childNodes.205"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.199"
+          child="/0/@diagram/@childNodes.203"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.206"
+          child="/0/@diagram/@childNodes.207"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.206"
+          child="/0/@diagram/@childNodes.208"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.206"
+          child="/0/@diagram/@childNodes.209"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.199"
+          child="/0/@diagram/@childNodes.206"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.210"
+          child="/0/@diagram/@childNodes.211"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.210"
+          child="/0/@diagram/@childNodes.212"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.199"
+          child="/0/@diagram/@childNodes.210"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.213"
+          child="/0/@diagram/@childNodes.214"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.213"
+          child="/0/@diagram/@childNodes.215"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.213"
+          child="/0/@diagram/@childNodes.216"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.199"
+          child="/0/@diagram/@childNodes.213"/>
+      <childReferences
+          parent="/0/@diagram/@topLevelNodes.0"
+          child="/0/@diagram/@childNodes.199"/>
+      <childReferences
           parent="/0/@diagram"
           child="/0/@diagram/@topLevelNodes.0"/>
       <childReferences
@@ -11597,6 +12371,66 @@
           groupIcon="icons/linkTargetNavigatorGroup.gif"/>
       <childReferences
           parent="/0/@diagram/@childNodes.197"
+          child="/0/@diagram/@links.0"
+          referenceType="in_source"
+          groupName="incoming links"
+          groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
+      <childReferences
+          parent="/0/@diagram/@links.0"
+          child="/0/@diagram/@childNodes.201"
+          referenceType="out_target"
+          groupName="target"
+          groupIcon="icons/linkTargetNavigatorGroup.gif"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.201"
+          child="/0/@diagram/@links.0"
+          referenceType="in_source"
+          groupName="incoming links"
+          groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
+      <childReferences
+          parent="/0/@diagram/@links.0"
+          child="/0/@diagram/@childNodes.204"
+          referenceType="out_target"
+          groupName="target"
+          groupIcon="icons/linkTargetNavigatorGroup.gif"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.204"
+          child="/0/@diagram/@links.0"
+          referenceType="in_source"
+          groupName="incoming links"
+          groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
+      <childReferences
+          parent="/0/@diagram/@links.0"
+          child="/0/@diagram/@childNodes.207"
+          referenceType="out_target"
+          groupName="target"
+          groupIcon="icons/linkTargetNavigatorGroup.gif"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.207"
+          child="/0/@diagram/@links.0"
+          referenceType="in_source"
+          groupName="incoming links"
+          groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
+      <childReferences
+          parent="/0/@diagram/@links.0"
+          child="/0/@diagram/@childNodes.211"
+          referenceType="out_target"
+          groupName="target"
+          groupIcon="icons/linkTargetNavigatorGroup.gif"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.211"
+          child="/0/@diagram/@links.0"
+          referenceType="in_source"
+          groupName="incoming links"
+          groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
+      <childReferences
+          parent="/0/@diagram/@links.0"
+          child="/0/@diagram/@childNodes.214"
+          referenceType="out_target"
+          groupName="target"
+          groupIcon="icons/linkTargetNavigatorGroup.gif"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.214"
           child="/0/@diagram/@links.0"
           referenceType="in_source"
           groupName="incoming links"
@@ -12381,6 +13215,90 @@
           referenceType="out_target"
           groupName="outgoing links"
           groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
+      <childReferences
+          parent="/0/@diagram/@links.0"
+          child="/0/@diagram/@childNodes.202"
+          referenceType="in_source"
+          groupName="source"
+          groupIcon="icons/linkSourceNavigatorGroup.gif"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.202"
+          child="/0/@diagram/@links.0"
+          referenceType="out_target"
+          groupName="outgoing links"
+          groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
+      <childReferences
+          parent="/0/@diagram/@links.0"
+          child="/0/@diagram/@childNodes.205"
+          referenceType="in_source"
+          groupName="source"
+          groupIcon="icons/linkSourceNavigatorGroup.gif"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.205"
+          child="/0/@diagram/@links.0"
+          referenceType="out_target"
+          groupName="outgoing links"
+          groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
+      <childReferences
+          parent="/0/@diagram/@links.0"
+          child="/0/@diagram/@childNodes.208"
+          referenceType="in_source"
+          groupName="source"
+          groupIcon="icons/linkSourceNavigatorGroup.gif"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.208"
+          child="/0/@diagram/@links.0"
+          referenceType="out_target"
+          groupName="outgoing links"
+          groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
+      <childReferences
+          parent="/0/@diagram/@links.0"
+          child="/0/@diagram/@childNodes.209"
+          referenceType="in_source"
+          groupName="source"
+          groupIcon="icons/linkSourceNavigatorGroup.gif"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.209"
+          child="/0/@diagram/@links.0"
+          referenceType="out_target"
+          groupName="outgoing links"
+          groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
+      <childReferences
+          parent="/0/@diagram/@links.0"
+          child="/0/@diagram/@childNodes.212"
+          referenceType="in_source"
+          groupName="source"
+          groupIcon="icons/linkSourceNavigatorGroup.gif"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.212"
+          child="/0/@diagram/@links.0"
+          referenceType="out_target"
+          groupName="outgoing links"
+          groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
+      <childReferences
+          parent="/0/@diagram/@links.0"
+          child="/0/@diagram/@childNodes.215"
+          referenceType="in_source"
+          groupName="source"
+          groupIcon="icons/linkSourceNavigatorGroup.gif"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.215"
+          child="/0/@diagram/@links.0"
+          referenceType="out_target"
+          groupName="outgoing links"
+          groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
+      <childReferences
+          parent="/0/@diagram/@links.0"
+          child="/0/@diagram/@childNodes.216"
+          referenceType="in_source"
+          groupName="source"
+          groupIcon="icons/linkSourceNavigatorGroup.gif"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.216"
+          child="/0/@diagram/@links.0"
+          referenceType="out_target"
+          groupName="outgoing links"
+          groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
     </navigator>
     <diagramUpdater/>
     <propertySheet>
@@ -12419,7 +13337,7 @@
         extensibleViaService="true">
       <implementations
           xsi:type="gmfgen:PredefinedParser"
-          uses="/0/@diagram/@childNodes.9/@labels.0/@modelFacet /0/@diagram/@childNodes.28/@labels.0/@modelFacet /0/@diagram/@childNodes.31/@labels.0/@modelFacet /0/@diagram/@childNodes.45/@labels.0/@modelFacet /0/@diagram/@childNodes.48/@labels.0/@modelFacet /0/@diagram/@childNodes.51/@labels.0/@modelFacet /0/@diagram/@childNodes.54/@labels.0/@modelFacet /0/@diagram/@childNodes.57/@labels.0/@modelFacet /0/@diagram/@childNodes.60/@labels.0/@modelFacet /0/@diagram/@childNodes.63/@labels.0/@modelFacet /0/@diagram/@childNodes.66/@labels.0/@modelFacet /0/@diagram/@childNodes.69/@labels.0/@modelFacet /0/@diagram/@childNodes.72/@labels.0/@modelFacet /0/@diagram/@childNodes.75/@labels.0/@modelFacet /0/@diagram/@childNodes.86/@labels.0/@modelFacet /0/@diagram/@childNodes.106/@labels.0/@modelFacet /0/@diagram/@childNodes.120/@labels.0/@modelFacet /0/@diagram/@childNodes.163/@labels.0/@modelFacet /0/@diagram/@childNodes.166/@labels.0/@modelFacet /0/@diagram/@childNodes.169/@labels.0/@modelFacet /0/@diagram/@childNodes.173/@labels.0/@modelFacet /0/@diagram/@childNodes.176/@labels.0/@modelFacet /0/@diagram/@childNodes.123/@labels.0/@modelFacet /0/@diagram/@childNodes.101/@labels.0/@modelFacet /0/@diagram/@childNodes.96/@labels.0/@modelFacet /0/@diagram/@childNodes.89/@labels.0/@modelFacet /0/@diagram/@childNodes.20/@labels.0/@modelFacet /0/@diagram/@childNodes.12/@labels.0/@modelFacet /0/@diagram/@childNodes.0/@labels.0/@modelFacet"/>
+          uses="/0/@diagram/@childNodes.9/@labels.0/@modelFacet /0/@diagram/@childNodes.28/@labels.0/@modelFacet /0/@diagram/@childNodes.31/@labels.0/@modelFacet /0/@diagram/@childNodes.45/@labels.0/@modelFacet /0/@diagram/@childNodes.48/@labels.0/@modelFacet /0/@diagram/@childNodes.51/@labels.0/@modelFacet /0/@diagram/@childNodes.54/@labels.0/@modelFacet /0/@diagram/@childNodes.57/@labels.0/@modelFacet /0/@diagram/@childNodes.60/@labels.0/@modelFacet /0/@diagram/@childNodes.63/@labels.0/@modelFacet /0/@diagram/@childNodes.66/@labels.0/@modelFacet /0/@diagram/@childNodes.69/@labels.0/@modelFacet /0/@diagram/@childNodes.72/@labels.0/@modelFacet /0/@diagram/@childNodes.75/@labels.0/@modelFacet /0/@diagram/@childNodes.86/@labels.0/@modelFacet /0/@diagram/@childNodes.106/@labels.0/@modelFacet /0/@diagram/@childNodes.120/@labels.0/@modelFacet /0/@diagram/@childNodes.163/@labels.0/@modelFacet /0/@diagram/@childNodes.166/@labels.0/@modelFacet /0/@diagram/@childNodes.169/@labels.0/@modelFacet /0/@diagram/@childNodes.173/@labels.0/@modelFacet /0/@diagram/@childNodes.176/@labels.0/@modelFacet /0/@diagram/@childNodes.123/@labels.0/@modelFacet /0/@diagram/@childNodes.101/@labels.0/@modelFacet /0/@diagram/@childNodes.96/@labels.0/@modelFacet /0/@diagram/@childNodes.89/@labels.0/@modelFacet /0/@diagram/@childNodes.20/@labels.0/@modelFacet /0/@diagram/@childNodes.12/@labels.0/@modelFacet /0/@diagram/@childNodes.0/@labels.0/@modelFacet /0/@diagram/@childNodes.200/@labels.0/@modelFacet /0/@diagram/@childNodes.203/@labels.0/@modelFacet /0/@diagram/@childNodes.206/@labels.0/@modelFacet /0/@diagram/@childNodes.210/@labels.0/@modelFacet /0/@diagram/@childNodes.213/@labels.0/@modelFacet"/>
     </labelParsers>
     <contextMenus
         context="/0/@diagram">

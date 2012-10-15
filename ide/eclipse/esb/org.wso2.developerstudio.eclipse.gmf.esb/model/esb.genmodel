@@ -1347,5 +1347,9 @@
     <genClasses ecoreClass="esb.ecore#//ValidateMediatorInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//ValidateMediatorOutputConnector"/>
     <genClasses ecoreClass="esb.ecore#//ValidateMediatorOnFailOutputConnector"/>
+    <genClasses ecoreClass="esb.ecore#//EndpointDiagram">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//EndpointDiagram/child"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EndpointDiagram/name"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

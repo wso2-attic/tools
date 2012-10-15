@@ -1835,4 +1835,9 @@
   <eClassifiers xsi:type="ecore:EClass" name="ValidateMediatorOutputConnector" eSuperTypes="#//OutputConnector"/>
   <eClassifiers xsi:type="ecore:EClass" name="ValidateMediatorOnFailOutputConnector"
       eSuperTypes="#//OutputConnector"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EndpointDiagram" eSuperTypes="#//EsbElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="child" eType="#//EndPoint"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
 </ecore:EPackage>

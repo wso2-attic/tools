@@ -897,6 +897,15 @@ public interface EsbFactory extends EFactory {
 	ValidateMediatorOnFailOutputConnector createValidateMediatorOnFailOutputConnector();
 
 	/**
+	 * Returns a new object of class '<em>Endpoint Diagram</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Endpoint Diagram</em>'.
+	 * @generated
+	 */
+	EndpointDiagram createEndpointDiagram();
+
+	/**
 	 * Returns a new object of class '<em>Script Mediator</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

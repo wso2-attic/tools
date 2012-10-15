@@ -97,6 +97,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EndPointAddressingVersion;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPointAttachmentOptimization;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPointMessageFormat;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPointTimeOutAction;
+import org.wso2.developerstudio.eclipse.gmf.esb.EndpointDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndpointFlow;
 import org.wso2.developerstudio.eclipse.gmf.esb.EnqueueMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.EnqueueMediatorInputConnector;
@@ -1116,6 +1117,13 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	private EClass validateMediatorOnFailOutputConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass endpointDiagramEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -5465,6 +5473,33 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 */
 	public EClass getValidateMediatorOnFailOutputConnector() {
 		return validateMediatorOnFailOutputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getEndpointDiagram() {
+		return endpointDiagramEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEndpointDiagram_Child() {
+		return (EReference)endpointDiagramEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getEndpointDiagram_Name() {
+		return (EAttribute)endpointDiagramEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -11757,6 +11792,10 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 
 		validateMediatorOnFailOutputConnectorEClass = createEClass(VALIDATE_MEDIATOR_ON_FAIL_OUTPUT_CONNECTOR);
 
+		endpointDiagramEClass = createEClass(ENDPOINT_DIAGRAM);
+		createEReference(endpointDiagramEClass, ENDPOINT_DIAGRAM__CHILD);
+		createEAttribute(endpointDiagramEClass, ENDPOINT_DIAGRAM__NAME);
+
 		// Create enums
 		proxyWsdlTypeEEnum = createEEnum(PROXY_WSDL_TYPE);
 		filterConditionTypeEEnum = createEEnum(FILTER_CONDITION_TYPE);
@@ -12090,6 +12129,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		validateMediatorInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
 		validateMediatorOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
 		validateMediatorOnFailOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
+		endpointDiagramEClass.getESuperTypes().add(this.getEsbElement());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(esbDiagramEClass, EsbDiagram.class, "EsbDiagram", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -13179,6 +13219,10 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEClass(validateMediatorOutputConnectorEClass, ValidateMediatorOutputConnector.class, "ValidateMediatorOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(validateMediatorOnFailOutputConnectorEClass, ValidateMediatorOnFailOutputConnector.class, "ValidateMediatorOnFailOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(endpointDiagramEClass, EndpointDiagram.class, "EndpointDiagram", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getEndpointDiagram_Child(), this.getEndPoint(), null, "child", null, 0, 1, EndpointDiagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEndpointDiagram_Name(), ecorePackage.getEString(), "name", null, 0, 1, EndpointDiagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(proxyWsdlTypeEEnum, ProxyWsdlType.class, "ProxyWsdlType");

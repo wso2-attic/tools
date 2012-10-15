@@ -1434,6 +1434,12 @@
           accessor="getFigureConditionalRouterPropertyValue"
           figure="//@figures.0/@descriptors.80/@actualFigure/@children.0"/>
     </descriptors>
+    <descriptors
+        name="EndpointDiagramFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name="EndpointDiagramFigure"/>
+    </descriptors>
   </figures>
   <nodes
       name="EsbServer"
@@ -2150,6 +2156,9 @@
       name="RuleMediatorChildMediatorsOutputConnector"
       figure="EastPointerFigure"
       affixedParentSide="EAST"/>
+  <nodes
+      name="EndpointDiagram"
+      figure="EndpointDiagramFigure"/>
   <connections
       name="EsbLink"
       figure="PlainConnectionFigure"/>
@@ -2164,6 +2173,7 @@
   <compartments
       name="EndpointCompartment"
       figure="CompartmentFigure"
+      collapsible="true"
       needsTitle="true"/>
   <compartments
       name="SeqContentsCompartment"

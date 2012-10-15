@@ -1093,6 +1093,10 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 				return createValidateMediatorOnFailOutputConnectorAdapter();
 			}
 			@Override
+			public Adapter caseEndpointDiagram(EndpointDiagram object) {
+				return createEndpointDiagramAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -2608,6 +2612,20 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createValidateMediatorOnFailOutputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.EndpointDiagram <em>Endpoint Diagram</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EndpointDiagram
+	 * @generated
+	 */
+	public Adapter createEndpointDiagramAdapter() {
 		return null;
 	}
 

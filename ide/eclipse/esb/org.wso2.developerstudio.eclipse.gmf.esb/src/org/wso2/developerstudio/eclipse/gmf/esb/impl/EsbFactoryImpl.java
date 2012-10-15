@@ -312,6 +312,7 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 			case EsbPackage.VALIDATE_MEDIATOR_INPUT_CONNECTOR: return createValidateMediatorInputConnector();
 			case EsbPackage.VALIDATE_MEDIATOR_OUTPUT_CONNECTOR: return createValidateMediatorOutputConnector();
 			case EsbPackage.VALIDATE_MEDIATOR_ON_FAIL_OUTPUT_CONNECTOR: return createValidateMediatorOnFailOutputConnector();
+			case EsbPackage.ENDPOINT_DIAGRAM: return createEndpointDiagram();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -1651,6 +1652,16 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	public ValidateMediatorOnFailOutputConnector createValidateMediatorOnFailOutputConnector() {
 		ValidateMediatorOnFailOutputConnectorImpl validateMediatorOnFailOutputConnector = new ValidateMediatorOnFailOutputConnectorImpl();
 		return validateMediatorOnFailOutputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EndpointDiagram createEndpointDiagram() {
+		EndpointDiagramImpl endpointDiagram = new EndpointDiagramImpl();
+		return endpointDiagram;
 	}
 
 	/**
