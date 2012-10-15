@@ -15,6 +15,7 @@
  */
 package org.wso2.developerstudio.eclipse.esb.impl;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -590,8 +591,30 @@ public class TaskImpl extends ConfigurationElementImpl implements Task {
 
 	@Override
 	public Map<String, ObjectValidator> validate() {
-		// TODO Auto-generated method stub
-		return null;
+		ObjectValidator objectValidator = new ObjectValidator();
+		Map<String, String> validateMap = new HashMap<String, String>();
+		Map<String, ObjectValidator> mediatorValidateMap = new HashMap<String, ObjectValidator>();
+    	if(null==getTaskName() || getTaskName().trim().isEmpty()){
+    		validateMap.put("Task Name", "Task Name is empty");
+    	}
+    	
+    	if(getTaskGroup()==null || getTaskGroup().trim().isEmpty()){
+    		validateMap.put("Task Group", "Task Group is empty");
+    	}
+    	
+    	if(getTaskImplementationClass()==null || getTaskImplementationClass().getTaskImplementation()== null || getTaskImplementationClass().getTaskImplementation().trim().isEmpty()){
+    		validateMap.put("Task Implementation", "Task Implementation is empty");
+    	}
+    	
+    	if(getTriggerType().equals(TaskTriggerType.CRON)){
+    		if(getCron()==null || getCron().trim().isEmpty()){
+        		validateMap.put("Task Trigger Cron", "Task Trigger Cron is empty");
+        	}
+    	}
+	    
+	    objectValidator.setMediatorErrorMap(validateMap);
+	    mediatorValidateMap.put("Scheduled Task", objectValidator);
+	    return mediatorValidateMap;
 	}
 	
 	@Override
