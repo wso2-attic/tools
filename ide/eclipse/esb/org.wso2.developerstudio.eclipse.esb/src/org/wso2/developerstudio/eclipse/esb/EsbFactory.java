@@ -120,6 +120,15 @@ public interface EsbFactory extends EFactory {
 	RegistryKeyProperty createRegistryKeyProperty();
 
 	/**
+	 * Returns a new object of class '<em>Name Value Type Property</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Name Value Type Property</em>'.
+	 * @generated
+	 */
+	NameValueTypeProperty createNameValueTypeProperty();
+
+	/**
 	 * Utility method for creating a copy of the given
 	 * {@link RegistryKeyProperty}.
 	 * 
@@ -225,6 +234,33 @@ public interface EsbFactory extends EFactory {
 	 * @generated
 	 */
 	EvaluatorExpressionProperty createEvaluatorExpressionProperty();
+
+	/**
+	 * Returns a new object of class '<em>Task Implementation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Task Implementation</em>'.
+	 * @generated
+	 */
+	TaskImplementation createTaskImplementation();
+
+	/**
+	 * Returns a new object of class '<em>Task Property</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Task Property</em>'.
+	 * @generated
+	 */
+	TaskProperty createTaskProperty();
+
+	/**
+	 * Returns a new object of class '<em>Task</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Task</em>'.
+	 * @generated
+	 */
+	Task createTask();
 
 	/**
 	 * Utility method for creating a copy of the given

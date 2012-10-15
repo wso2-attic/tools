@@ -118,6 +118,18 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="propertyExpression" eType="#//NamespacedProperty"
         containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NameValueTypeProperty" eSuperTypes="#//ModelObject">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="PropertyName" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="PropertyType" lowerBound="1"
+        eType="#//TaskPropertyType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="PropertyValue" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TaskPropertyType">
+    <eLiterals name="Literal"/>
+    <eLiterals name="XML" value="1"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="PropertyValueType">
     <eLiterals name="VALUE"/>
     <eLiterals name="EXPRESSION" value="1"/>
@@ -411,5 +423,31 @@
   <eClassifiers xsi:type="ecore:EEnum" name="EndPointMessageFormatRestType">
     <eLiterals name="GET" literal="get"/>
     <eLiterals name="POST" value="1" literal="rest"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TaskImplementation" eSuperTypes="#//ModelObject">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="TaskImplementation" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="org.apache.synapse.startup.tasks.MessageInjector"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="TaskProperties" upperBound="-1"
+        eType="#//TaskProperty" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TaskProperty" eSuperTypes="#//NameValueTypeProperty"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Task" eSuperTypes="#//ConfigurationElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="TaskName" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="TaskGroup" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="synapse.simple.quartz"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="TaskImplementationClass"
+        eType="#//TaskImplementation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="TriggerType" lowerBound="1"
+        eType="#//TaskTriggerType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Count" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Interval" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Cron" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="PinnedServers" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TaskTriggerType">
+    <eLiterals name="Simple"/>
+    <eLiterals name="Cron" value="1"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -203,6 +203,7 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 			case EsbPackage.MEDIATOR_SEQUENCE: return createMediatorSequence();
 			case EsbPackage.NAMESPACED_PROPERTY: return createNamespacedProperty();
 			case EsbPackage.REGISTRY_KEY_PROPERTY: return createRegistryKeyProperty();
+			case EsbPackage.NAME_VALUE_TYPE_PROPERTY: return createNameValueTypeProperty();
 			case EsbPackage.DEFAULT_END_POINT: return createDefaultEndPoint();
 			case EsbPackage.ADDRESS_END_POINT: return createAddressEndPoint();
 			case EsbPackage.WSDL_END_POINT: return createWsdlEndPoint();
@@ -223,6 +224,9 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 			case EsbPackage.PROXY_FAULT_SEQUENCE_CONFIGURATION: return createProxyFaultSequenceConfiguration();
 			case EsbPackage.LOCAL_ENTRY: return createLocalEntry();
 			case EsbPackage.EVALUATOR_EXPRESSION_PROPERTY: return createEvaluatorExpressionProperty();
+			case EsbPackage.TASK_IMPLEMENTATION: return createTaskImplementation();
+			case EsbPackage.TASK_PROPERTY: return createTaskProperty();
+			case EsbPackage.TASK: return createTask();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -238,6 +242,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 		switch (eDataType.getClassifierID()) {
 			case EsbPackage.MODEL_OBJECT_STATE:
 				return createModelObjectStateFromString(eDataType, initialValue);
+			case EsbPackage.TASK_PROPERTY_TYPE:
+				return createTaskPropertyTypeFromString(eDataType, initialValue);
 			case EsbPackage.PROPERTY_VALUE_TYPE:
 				return createPropertyValueTypeFromString(eDataType, initialValue);
 			case EsbPackage.TARGET_SEQUENCE_TYPE:
@@ -270,6 +276,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 				return createEsbVersionFromString(eDataType, initialValue);
 			case EsbPackage.END_POINT_MESSAGE_FORMAT_REST_TYPE:
 				return createEndPointMessageFormatRestTypeFromString(eDataType, initialValue);
+			case EsbPackage.TASK_TRIGGER_TYPE:
+				return createTaskTriggerTypeFromString(eDataType, initialValue);
 			case EsbPackage.MAP:
 				return createMapFromString(eDataType, initialValue);
 			default:
@@ -287,6 +295,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 		switch (eDataType.getClassifierID()) {
 			case EsbPackage.MODEL_OBJECT_STATE:
 				return convertModelObjectStateToString(eDataType, instanceValue);
+			case EsbPackage.TASK_PROPERTY_TYPE:
+				return convertTaskPropertyTypeToString(eDataType, instanceValue);
 			case EsbPackage.PROPERTY_VALUE_TYPE:
 				return convertPropertyValueTypeToString(eDataType, instanceValue);
 			case EsbPackage.TARGET_SEQUENCE_TYPE:
@@ -319,6 +329,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 				return convertEsbVersionToString(eDataType, instanceValue);
 			case EsbPackage.END_POINT_MESSAGE_FORMAT_REST_TYPE:
 				return convertEndPointMessageFormatRestTypeToString(eDataType, instanceValue);
+			case EsbPackage.TASK_TRIGGER_TYPE:
+				return convertTaskTriggerTypeToString(eDataType, instanceValue);
 			case EsbPackage.MAP:
 				return convertMapToString(eDataType, instanceValue);
 			default:
@@ -554,6 +566,16 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NameValueTypeProperty createNameValueTypeProperty() {
+		NameValueTypePropertyImpl nameValueTypeProperty = new NameValueTypePropertyImpl();
+		return nameValueTypeProperty;
+	}
+
+	/**
 	 * {@inheritDoc}
 	 */
 	public RegistryKeyProperty copyRegistryKeyProperty(
@@ -663,6 +685,36 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	public EvaluatorExpressionProperty createEvaluatorExpressionProperty() {
 		EvaluatorExpressionPropertyImpl evaluatorExpressionProperty = new EvaluatorExpressionPropertyImpl();
 		return evaluatorExpressionProperty;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TaskImplementation createTaskImplementation() {
+		TaskImplementationImpl taskImplementation = new TaskImplementationImpl();
+		return taskImplementation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TaskProperty createTaskProperty() {
+		TaskPropertyImpl taskProperty = new TaskPropertyImpl();
+		return taskProperty;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Task createTask() {
+		TaskImpl task = new TaskImpl();
+		return task;
 	}
 
 	/**
@@ -802,6 +854,26 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TaskPropertyType createTaskPropertyTypeFromString(EDataType eDataType, String initialValue) {
+		TaskPropertyType result = TaskPropertyType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertTaskPropertyTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -933,6 +1005,26 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	}
 
     /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TaskTriggerType createTaskTriggerTypeFromString(EDataType eDataType, String initialValue) {
+		TaskTriggerType result = TaskTriggerType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertTaskTriggerTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+				/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */

@@ -593,7 +593,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getAbstractEndPoint()
 	 * @generated
 	 */
-    int ABSTRACT_END_POINT = 20;
+    int ABSTRACT_END_POINT = 21;
 
     /**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.impl.AbstractDefaultEndPointImpl <em>Abstract Default End Point</em>}' class.
@@ -603,7 +603,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getAbstractDefaultEndPoint()
 	 * @generated
 	 */
-    int ABSTRACT_DEFAULT_END_POINT = 21;
+    int ABSTRACT_DEFAULT_END_POINT = 22;
 
     /**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.impl.DefaultEndPointImpl <em>Default End Point</em>}' class.
@@ -613,7 +613,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getDefaultEndPoint()
 	 * @generated
 	 */
-    int DEFAULT_END_POINT = 22;
+    int DEFAULT_END_POINT = 23;
 
     /**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.impl.AddressEndPointImpl <em>Address End Point</em>}' class.
@@ -623,7 +623,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getAddressEndPoint()
 	 * @generated
 	 */
-    int ADDRESS_END_POINT = 23;
+    int ADDRESS_END_POINT = 24;
 
     /**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.impl.WsdlEndPointImpl <em>Wsdl End Point</em>}' class.
@@ -633,7 +633,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getWsdlEndPoint()
 	 * @generated
 	 */
-    int WSDL_END_POINT = 24;
+    int WSDL_END_POINT = 25;
 
     /**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.impl.ParentEndPointImpl <em>Parent End Point</em>}' class.
@@ -643,7 +643,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getParentEndPoint()
 	 * @generated
 	 */
-    int PARENT_END_POINT = 25;
+    int PARENT_END_POINT = 26;
 
     /**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.impl.FailoverEndPointImpl <em>Failover End Point</em>}' class.
@@ -653,7 +653,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getFailoverEndPoint()
 	 * @generated
 	 */
-    int FAILOVER_END_POINT = 26;
+    int FAILOVER_END_POINT = 27;
 
     /**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.impl.LoadBalanceEndPointImpl <em>Load Balance End Point</em>}' class.
@@ -663,7 +663,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getLoadBalanceEndPoint()
 	 * @generated
 	 */
-    int LOAD_BALANCE_END_POINT = 27;
+    int LOAD_BALANCE_END_POINT = 28;
 
     /**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.impl.EndPointReferenceImpl <em>End Point Reference</em>}' class.
@@ -1045,7 +1045,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getAbstractBooleanFeature()
 	 * @generated
 	 */
-	int ABSTRACT_BOOLEAN_FEATURE = 17;
+	int ABSTRACT_BOOLEAN_FEATURE = 18;
 
 				/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.impl.AbstractLocationKeyResourceImpl <em>Abstract Location Key Resource</em>}' class.
@@ -1055,7 +1055,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getAbstractLocationKeyResource()
 	 * @generated
 	 */
-	int ABSTRACT_LOCATION_KEY_RESOURCE = 18;
+	int ABSTRACT_LOCATION_KEY_RESOURCE = 19;
 
 				/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.impl.AbstractCommonTargetImpl <em>Abstract Common Target</em>}' class.
@@ -1065,7 +1065,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getAbstractCommonTarget()
 	 * @generated
 	 */
-	int ABSTRACT_COMMON_TARGET = 19;
+	int ABSTRACT_COMMON_TARGET = 20;
 
 				/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.impl.XPathEndPointReferenceImpl <em>XPath End Point Reference</em>}' class.
@@ -1075,7 +1075,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getXPathEndPointReference()
 	 * @generated
 	 */
-    int XPATH_END_POINT_REFERENCE = 30;
+    int XPATH_END_POINT_REFERENCE = 31;
 
     /**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.impl.MediatorBranchImpl <em>Mediator Branch</em>}' class.
@@ -1637,6 +1637,106 @@ int ABSTRACT_NAME_VALUE_EXPRESSION_PROPERTY__PROPERTY_EXPRESSION = MODEL_OBJECT_
 	 * @ordered
 	 */
 int ABSTRACT_NAME_VALUE_EXPRESSION_PROPERTY_FEATURE_COUNT = MODEL_OBJECT_FEATURE_COUNT + 4;
+
+	/**
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.impl.NameValueTypePropertyImpl <em>Name Value Type Property</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.wso2.developerstudio.eclipse.esb.impl.NameValueTypePropertyImpl
+	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getNameValueTypeProperty()
+	 * @generated
+	 */
+	int NAME_VALUE_TYPE_PROPERTY = 17;
+
+	/**
+	 * The feature id for the '<em><b>Object State</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAME_VALUE_TYPE_PROPERTY__OBJECT_STATE = MODEL_OBJECT__OBJECT_STATE;
+
+	/**
+	 * The feature id for the '<em><b>Source Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAME_VALUE_TYPE_PROPERTY__SOURCE_TEXT = MODEL_OBJECT__SOURCE_TEXT;
+
+	/**
+	 * The feature id for the '<em><b>Default Namespace</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAME_VALUE_TYPE_PROPERTY__DEFAULT_NAMESPACE = MODEL_OBJECT__DEFAULT_NAMESPACE;
+
+	/**
+	 * The feature id for the '<em><b>Additional Namespaces</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAME_VALUE_TYPE_PROPERTY__ADDITIONAL_NAMESPACES = MODEL_OBJECT__ADDITIONAL_NAMESPACES;
+
+	/**
+	 * The feature id for the '<em><b>Current Esb Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAME_VALUE_TYPE_PROPERTY__CURRENT_ESB_VERSION = MODEL_OBJECT__CURRENT_ESB_VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAME_VALUE_TYPE_PROPERTY__COMMENT = MODEL_OBJECT__COMMENT;
+
+	/**
+	 * The feature id for the '<em><b>Property Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAME_VALUE_TYPE_PROPERTY__PROPERTY_NAME = MODEL_OBJECT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Property Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAME_VALUE_TYPE_PROPERTY__PROPERTY_TYPE = MODEL_OBJECT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Property Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAME_VALUE_TYPE_PROPERTY__PROPERTY_VALUE = MODEL_OBJECT_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Name Value Type Property</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAME_VALUE_TYPE_PROPERTY_FEATURE_COUNT = MODEL_OBJECT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -3563,7 +3663,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getDynamicLoadBalanceEndPoint()
 	 * @generated
 	 */
-	int DYNAMIC_LOAD_BALANCE_END_POINT = 28;
+	int DYNAMIC_LOAD_BALANCE_END_POINT = 29;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -3690,7 +3790,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getDynamicLoadBalanceProperty()
 	 * @generated
 	 */
-	int DYNAMIC_LOAD_BALANCE_PROPERTY = 29;
+	int DYNAMIC_LOAD_BALANCE_PROPERTY = 30;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -3853,7 +3953,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getRegistryKeyEndPointReference()
 	 * @generated
 	 */
-	int REGISTRY_KEY_END_POINT_REFERENCE = 31;
+	int REGISTRY_KEY_END_POINT_REFERENCE = 32;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -3935,7 +4035,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getProxyService()
 	 * @generated
 	 */
-	int PROXY_SERVICE = 32;
+	int PROXY_SERVICE = 33;
 
 				/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.impl.ProxyWsdlConfigurationImpl <em>Proxy Wsdl Configuration</em>}' class.
@@ -3945,7 +4045,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getProxyWsdlConfiguration()
 	 * @generated
 	 */
-	int PROXY_WSDL_CONFIGURATION = 33;
+	int PROXY_WSDL_CONFIGURATION = 34;
 
 				/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.impl.ProxyWsdlResourceImpl <em>Proxy Wsdl Resource</em>}' class.
@@ -3955,7 +4055,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getProxyWsdlResource()
 	 * @generated
 	 */
-	int PROXY_WSDL_RESOURCE = 34;
+	int PROXY_WSDL_RESOURCE = 35;
 
 				/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.impl.ProxyServiceParameterImpl <em>Proxy Service Parameter</em>}' class.
@@ -3965,7 +4065,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getProxyServiceParameter()
 	 * @generated
 	 */
-	int PROXY_SERVICE_PARAMETER = 35;
+	int PROXY_SERVICE_PARAMETER = 36;
 
 				/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.impl.ProxyServicePolicyImpl <em>Proxy Service Policy</em>}' class.
@@ -3975,7 +4075,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getProxyServicePolicy()
 	 * @generated
 	 */
-	int PROXY_SERVICE_POLICY = 36;
+	int PROXY_SERVICE_POLICY = 37;
 
 				/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.impl.AbstractProxySequenceConfigurationImpl <em>Abstract Proxy Sequence Configuration</em>}' class.
@@ -3985,7 +4085,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getAbstractProxySequenceConfiguration()
 	 * @generated
 	 */
-	int ABSTRACT_PROXY_SEQUENCE_CONFIGURATION = 37;
+	int ABSTRACT_PROXY_SEQUENCE_CONFIGURATION = 38;
 
 				/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.impl.ProxyInSequenceConfigurationImpl <em>Proxy In Sequence Configuration</em>}' class.
@@ -3995,7 +4095,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getProxyInSequenceConfiguration()
 	 * @generated
 	 */
-	int PROXY_IN_SEQUENCE_CONFIGURATION = 38;
+	int PROXY_IN_SEQUENCE_CONFIGURATION = 39;
 
 				/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.impl.ProxyEndpointConfigurationImpl <em>Proxy Endpoint Configuration</em>}' class.
@@ -4005,7 +4105,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getProxyEndpointConfiguration()
 	 * @generated
 	 */
-	int PROXY_ENDPOINT_CONFIGURATION = 39;
+	int PROXY_ENDPOINT_CONFIGURATION = 40;
 
 				/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.impl.ProxyOutSequenceConfigurationImpl <em>Proxy Out Sequence Configuration</em>}' class.
@@ -4015,7 +4115,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getProxyOutSequenceConfiguration()
 	 * @generated
 	 */
-	int PROXY_OUT_SEQUENCE_CONFIGURATION = 40;
+	int PROXY_OUT_SEQUENCE_CONFIGURATION = 41;
 
 				/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.impl.ProxyFaultSequenceConfigurationImpl <em>Proxy Fault Sequence Configuration</em>}' class.
@@ -4025,7 +4125,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getProxyFaultSequenceConfiguration()
 	 * @generated
 	 */
-	int PROXY_FAULT_SEQUENCE_CONFIGURATION = 41;
+	int PROXY_FAULT_SEQUENCE_CONFIGURATION = 42;
 
 				/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -5070,7 +5170,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getLocalEntry()
 	 * @generated
 	 */
-	int LOCAL_ENTRY = 42;
+	int LOCAL_ENTRY = 43;
 
 				/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -5188,7 +5288,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getEvaluatorExpressionProperty()
 	 * @generated
 	 */
-	int EVALUATOR_EXPRESSION_PROPERTY = 43;
+	int EVALUATOR_EXPRESSION_PROPERTY = 44;
 
 				/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -5281,6 +5381,342 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	int EVALUATOR_EXPRESSION_PROPERTY_FEATURE_COUNT = MODEL_OBJECT_FEATURE_COUNT + 3;
 
 				/**
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.impl.TaskImplementationImpl <em>Task Implementation</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.wso2.developerstudio.eclipse.esb.impl.TaskImplementationImpl
+	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getTaskImplementation()
+	 * @generated
+	 */
+	int TASK_IMPLEMENTATION = 45;
+
+				/**
+	 * The feature id for the '<em><b>Object State</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_IMPLEMENTATION__OBJECT_STATE = MODEL_OBJECT__OBJECT_STATE;
+
+				/**
+	 * The feature id for the '<em><b>Source Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_IMPLEMENTATION__SOURCE_TEXT = MODEL_OBJECT__SOURCE_TEXT;
+
+				/**
+	 * The feature id for the '<em><b>Default Namespace</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_IMPLEMENTATION__DEFAULT_NAMESPACE = MODEL_OBJECT__DEFAULT_NAMESPACE;
+
+				/**
+	 * The feature id for the '<em><b>Additional Namespaces</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_IMPLEMENTATION__ADDITIONAL_NAMESPACES = MODEL_OBJECT__ADDITIONAL_NAMESPACES;
+
+				/**
+	 * The feature id for the '<em><b>Current Esb Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_IMPLEMENTATION__CURRENT_ESB_VERSION = MODEL_OBJECT__CURRENT_ESB_VERSION;
+
+				/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_IMPLEMENTATION__COMMENT = MODEL_OBJECT__COMMENT;
+
+				/**
+	 * The feature id for the '<em><b>Task Implementation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_IMPLEMENTATION__TASK_IMPLEMENTATION = MODEL_OBJECT_FEATURE_COUNT + 0;
+
+				/**
+	 * The feature id for the '<em><b>Task Properties</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_IMPLEMENTATION__TASK_PROPERTIES = MODEL_OBJECT_FEATURE_COUNT + 1;
+
+				/**
+	 * The number of structural features of the '<em>Task Implementation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_IMPLEMENTATION_FEATURE_COUNT = MODEL_OBJECT_FEATURE_COUNT + 2;
+
+				/**
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.impl.TaskPropertyImpl <em>Task Property</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.wso2.developerstudio.eclipse.esb.impl.TaskPropertyImpl
+	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getTaskProperty()
+	 * @generated
+	 */
+	int TASK_PROPERTY = 46;
+
+				/**
+	 * The feature id for the '<em><b>Object State</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_PROPERTY__OBJECT_STATE = NAME_VALUE_TYPE_PROPERTY__OBJECT_STATE;
+
+				/**
+	 * The feature id for the '<em><b>Source Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_PROPERTY__SOURCE_TEXT = NAME_VALUE_TYPE_PROPERTY__SOURCE_TEXT;
+
+				/**
+	 * The feature id for the '<em><b>Default Namespace</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_PROPERTY__DEFAULT_NAMESPACE = NAME_VALUE_TYPE_PROPERTY__DEFAULT_NAMESPACE;
+
+				/**
+	 * The feature id for the '<em><b>Additional Namespaces</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_PROPERTY__ADDITIONAL_NAMESPACES = NAME_VALUE_TYPE_PROPERTY__ADDITIONAL_NAMESPACES;
+
+				/**
+	 * The feature id for the '<em><b>Current Esb Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_PROPERTY__CURRENT_ESB_VERSION = NAME_VALUE_TYPE_PROPERTY__CURRENT_ESB_VERSION;
+
+				/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_PROPERTY__COMMENT = NAME_VALUE_TYPE_PROPERTY__COMMENT;
+
+				/**
+	 * The feature id for the '<em><b>Property Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_PROPERTY__PROPERTY_NAME = NAME_VALUE_TYPE_PROPERTY__PROPERTY_NAME;
+
+				/**
+	 * The feature id for the '<em><b>Property Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_PROPERTY__PROPERTY_TYPE = NAME_VALUE_TYPE_PROPERTY__PROPERTY_TYPE;
+
+				/**
+	 * The feature id for the '<em><b>Property Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_PROPERTY__PROPERTY_VALUE = NAME_VALUE_TYPE_PROPERTY__PROPERTY_VALUE;
+
+				/**
+	 * The number of structural features of the '<em>Task Property</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_PROPERTY_FEATURE_COUNT = NAME_VALUE_TYPE_PROPERTY_FEATURE_COUNT + 0;
+
+				/**
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.impl.TaskImpl <em>Task</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.wso2.developerstudio.eclipse.esb.impl.TaskImpl
+	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getTask()
+	 * @generated
+	 */
+	int TASK = 47;
+
+				/**
+	 * The feature id for the '<em><b>Object State</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__OBJECT_STATE = CONFIGURATION_ELEMENT__OBJECT_STATE;
+
+				/**
+	 * The feature id for the '<em><b>Source Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__SOURCE_TEXT = CONFIGURATION_ELEMENT__SOURCE_TEXT;
+
+				/**
+	 * The feature id for the '<em><b>Default Namespace</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__DEFAULT_NAMESPACE = CONFIGURATION_ELEMENT__DEFAULT_NAMESPACE;
+
+				/**
+	 * The feature id for the '<em><b>Additional Namespaces</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__ADDITIONAL_NAMESPACES = CONFIGURATION_ELEMENT__ADDITIONAL_NAMESPACES;
+
+				/**
+	 * The feature id for the '<em><b>Current Esb Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__CURRENT_ESB_VERSION = CONFIGURATION_ELEMENT__CURRENT_ESB_VERSION;
+
+				/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__COMMENT = CONFIGURATION_ELEMENT__COMMENT;
+
+				/**
+	 * The feature id for the '<em><b>Task Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__TASK_NAME = CONFIGURATION_ELEMENT_FEATURE_COUNT + 0;
+
+				/**
+	 * The feature id for the '<em><b>Task Group</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__TASK_GROUP = CONFIGURATION_ELEMENT_FEATURE_COUNT + 1;
+
+				/**
+	 * The feature id for the '<em><b>Task Implementation Class</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__TASK_IMPLEMENTATION_CLASS = CONFIGURATION_ELEMENT_FEATURE_COUNT + 2;
+
+				/**
+	 * The feature id for the '<em><b>Trigger Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__TRIGGER_TYPE = CONFIGURATION_ELEMENT_FEATURE_COUNT + 3;
+
+				/**
+	 * The feature id for the '<em><b>Count</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__COUNT = CONFIGURATION_ELEMENT_FEATURE_COUNT + 4;
+
+				/**
+	 * The feature id for the '<em><b>Interval</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__INTERVAL = CONFIGURATION_ELEMENT_FEATURE_COUNT + 5;
+
+				/**
+	 * The feature id for the '<em><b>Cron</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__CRON = CONFIGURATION_ELEMENT_FEATURE_COUNT + 6;
+
+				/**
+	 * The feature id for the '<em><b>Pinned Servers</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK__PINNED_SERVERS = CONFIGURATION_ELEMENT_FEATURE_COUNT + 7;
+
+				/**
+	 * The number of structural features of the '<em>Task</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_FEATURE_COUNT = CONFIGURATION_ELEMENT_FEATURE_COUNT + 8;
+
+				/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.ModelObjectState <em>Model Object State</em>}' enum.
 	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5288,9 +5724,19 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getModelObjectState()
 	 * @generated
 	 */
-    int MODEL_OBJECT_STATE = 44;
+    int MODEL_OBJECT_STATE = 48;
 
     /**
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.TaskPropertyType <em>Task Property Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.wso2.developerstudio.eclipse.esb.TaskPropertyType
+	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getTaskPropertyType()
+	 * @generated
+	 */
+	int TASK_PROPERTY_TYPE = 49;
+
+				/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.PropertyValueType <em>Property Value Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5298,7 +5744,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getPropertyValueType()
 	 * @generated
 	 */
-	int PROPERTY_VALUE_TYPE = 45;
+	int PROPERTY_VALUE_TYPE = 50;
 
 				/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.EndPointAddressingVersion <em>End Point Addressing Version</em>}' enum.
@@ -5308,7 +5754,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getEndPointAddressingVersion()
 	 * @generated
 	 */
-    int END_POINT_ADDRESSING_VERSION = 48;
+    int END_POINT_ADDRESSING_VERSION = 53;
 
     /**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.EndPointTimeOutAction <em>End Point Time Out Action</em>}' enum.
@@ -5318,7 +5764,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getEndPointTimeOutAction()
 	 * @generated
 	 */
-    int END_POINT_TIME_OUT_ACTION = 49;
+    int END_POINT_TIME_OUT_ACTION = 54;
 
     /**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.EndPointMessageFormat <em>End Point Message Format</em>}' enum.
@@ -5328,7 +5774,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getEndPointMessageFormat()
 	 * @generated
 	 */
-    int END_POINT_MESSAGE_FORMAT = 50;
+    int END_POINT_MESSAGE_FORMAT = 55;
 
     /**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.EndPointAttachmentOptimization <em>End Point Attachment Optimization</em>}' enum.
@@ -5338,7 +5784,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getEndPointAttachmentOptimization()
 	 * @generated
 	 */
-    int END_POINT_ATTACHMENT_OPTIMIZATION = 51;
+    int END_POINT_ATTACHMENT_OPTIMIZATION = 56;
 
     /**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.EndPointWsdlType <em>End Point Wsdl Type</em>}' enum.
@@ -5348,7 +5794,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getEndPointWsdlType()
 	 * @generated
 	 */
-    int END_POINT_WSDL_TYPE = 52;
+    int END_POINT_WSDL_TYPE = 57;
 
     /**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.LoadBalanceAlgorithm <em>Load Balance Algorithm</em>}' enum.
@@ -5358,7 +5804,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getLoadBalanceAlgorithm()
 	 * @generated
 	 */
-    int LOAD_BALANCE_ALGORITHM = 53;
+    int LOAD_BALANCE_ALGORITHM = 58;
 
     /**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.LoadBalanceSessionType <em>Load Balance Session Type</em>}' enum.
@@ -5368,7 +5814,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getLoadBalanceSessionType()
 	 * @generated
 	 */
-    int LOAD_BALANCE_SESSION_TYPE = 54;
+    int LOAD_BALANCE_SESSION_TYPE = 59;
 
     /**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.ProxyWsdlType <em>Proxy Wsdl Type</em>}' enum.
@@ -5378,7 +5824,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getProxyWsdlType()
 	 * @generated
 	 */
-	int PROXY_WSDL_TYPE = 55;
+	int PROXY_WSDL_TYPE = 60;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.ProxySequenceType <em>Proxy Sequence Type</em>}' enum.
@@ -5388,7 +5834,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getProxySequenceType()
 	 * @generated
 	 */
-	int PROXY_SEQUENCE_TYPE = 56;
+	int PROXY_SEQUENCE_TYPE = 61;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.ProxyEndpointType <em>Proxy Endpoint Type</em>}' enum.
@@ -5398,7 +5844,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getProxyEndpointType()
 	 * @generated
 	 */
-	int PROXY_ENDPOINT_TYPE = 57;
+	int PROXY_ENDPOINT_TYPE = 62;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.LocalEntryValueType <em>Local Entry Value Type</em>}' enum.
@@ -5408,7 +5854,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getLocalEntryValueType()
 	 * @generated
 	 */
-	int LOCAL_ENTRY_VALUE_TYPE = 58;
+	int LOCAL_ENTRY_VALUE_TYPE = 63;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.EsbVersion <em>Version</em>}' enum.
@@ -5418,7 +5864,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getEsbVersion()
 	 * @generated
 	 */
-	int ESB_VERSION = 59;
+	int ESB_VERSION = 64;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.EndPointMessageFormatRestType <em>End Point Message Format Rest Type</em>}' enum.
@@ -5428,9 +5874,19 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getEndPointMessageFormatRestType()
 	 * @generated
 	 */
-    int END_POINT_MESSAGE_FORMAT_REST_TYPE = 60;
+    int END_POINT_MESSAGE_FORMAT_REST_TYPE = 65;
 
     /**
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.TaskTriggerType <em>Task Trigger Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.wso2.developerstudio.eclipse.esb.TaskTriggerType
+	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getTaskTriggerType()
+	 * @generated
+	 */
+	int TASK_TRIGGER_TYPE = 66;
+
+				/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.TargetSequenceType <em>Target Sequence Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5438,7 +5894,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getTargetSequenceType()
 	 * @generated
 	 */
-	int TARGET_SEQUENCE_TYPE = 46;
+	int TARGET_SEQUENCE_TYPE = 51;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.TargetEndpointType <em>Target Endpoint Type</em>}' enum.
@@ -5448,7 +5904,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getTargetEndpointType()
 	 * @generated
 	 */
-	int TARGET_ENDPOINT_TYPE = 47;
+	int TARGET_ENDPOINT_TYPE = 52;
 
 	/**
 	 * The meta object id for the '<em>Map</em>' data type.
@@ -5458,7 +5914,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getMap()
 	 * @generated
 	 */
-	int MAP = 61;
+	int MAP = 67;
 
 	/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.esb.ModelObject <em>Model Object</em>}'.
@@ -6203,6 +6659,146 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	EAttribute getEvaluatorExpressionProperty_EvaluatorValue();
 
 				/**
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.esb.TaskImplementation <em>Task Implementation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Task Implementation</em>'.
+	 * @see org.wso2.developerstudio.eclipse.esb.TaskImplementation
+	 * @generated
+	 */
+	EClass getTaskImplementation();
+
+				/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.esb.TaskImplementation#getTaskImplementation <em>Task Implementation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Task Implementation</em>'.
+	 * @see org.wso2.developerstudio.eclipse.esb.TaskImplementation#getTaskImplementation()
+	 * @see #getTaskImplementation()
+	 * @generated
+	 */
+	EAttribute getTaskImplementation_TaskImplementation();
+
+				/**
+	 * Returns the meta object for the containment reference list '{@link org.wso2.developerstudio.eclipse.esb.TaskImplementation#getTaskProperties <em>Task Properties</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Task Properties</em>'.
+	 * @see org.wso2.developerstudio.eclipse.esb.TaskImplementation#getTaskProperties()
+	 * @see #getTaskImplementation()
+	 * @generated
+	 */
+	EReference getTaskImplementation_TaskProperties();
+
+				/**
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.esb.TaskProperty <em>Task Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Task Property</em>'.
+	 * @see org.wso2.developerstudio.eclipse.esb.TaskProperty
+	 * @generated
+	 */
+	EClass getTaskProperty();
+
+				/**
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.esb.Task <em>Task</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Task</em>'.
+	 * @see org.wso2.developerstudio.eclipse.esb.Task
+	 * @generated
+	 */
+	EClass getTask();
+
+				/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.esb.Task#getTaskName <em>Task Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Task Name</em>'.
+	 * @see org.wso2.developerstudio.eclipse.esb.Task#getTaskName()
+	 * @see #getTask()
+	 * @generated
+	 */
+	EAttribute getTask_TaskName();
+
+				/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.esb.Task#getTaskGroup <em>Task Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Task Group</em>'.
+	 * @see org.wso2.developerstudio.eclipse.esb.Task#getTaskGroup()
+	 * @see #getTask()
+	 * @generated
+	 */
+	EAttribute getTask_TaskGroup();
+
+				/**
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.esb.Task#getTaskImplementationClass <em>Task Implementation Class</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Task Implementation Class</em>'.
+	 * @see org.wso2.developerstudio.eclipse.esb.Task#getTaskImplementationClass()
+	 * @see #getTask()
+	 * @generated
+	 */
+	EReference getTask_TaskImplementationClass();
+
+				/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.esb.Task#getTriggerType <em>Trigger Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Trigger Type</em>'.
+	 * @see org.wso2.developerstudio.eclipse.esb.Task#getTriggerType()
+	 * @see #getTask()
+	 * @generated
+	 */
+	EAttribute getTask_TriggerType();
+
+				/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.esb.Task#getCount <em>Count</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Count</em>'.
+	 * @see org.wso2.developerstudio.eclipse.esb.Task#getCount()
+	 * @see #getTask()
+	 * @generated
+	 */
+	EAttribute getTask_Count();
+
+				/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.esb.Task#getInterval <em>Interval</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Interval</em>'.
+	 * @see org.wso2.developerstudio.eclipse.esb.Task#getInterval()
+	 * @see #getTask()
+	 * @generated
+	 */
+	EAttribute getTask_Interval();
+
+				/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.esb.Task#getCron <em>Cron</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Cron</em>'.
+	 * @see org.wso2.developerstudio.eclipse.esb.Task#getCron()
+	 * @see #getTask()
+	 * @generated
+	 */
+	EAttribute getTask_Cron();
+
+				/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.esb.Task#getPinnedServers <em>Pinned Servers</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Pinned Servers</em>'.
+	 * @see org.wso2.developerstudio.eclipse.esb.Task#getPinnedServers()
+	 * @see #getTask()
+	 * @generated
+	 */
+	EAttribute getTask_PinnedServers();
+
+				/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.esb.ProxyWsdlConfiguration <em>Proxy Wsdl Configuration</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6278,6 +6874,16 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
     EEnum getModelObjectState();
 
     /**
+	 * Returns the meta object for enum '{@link org.wso2.developerstudio.eclipse.esb.TaskPropertyType <em>Task Property Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Task Property Type</em>'.
+	 * @see org.wso2.developerstudio.eclipse.esb.TaskPropertyType
+	 * @generated
+	 */
+	EEnum getTaskPropertyType();
+
+				/**
 	 * Returns the meta object for enum '{@link org.wso2.developerstudio.eclipse.esb.PropertyValueType <em>Property Value Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6623,6 +7229,49 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @generated
 	 */
 	EReference getAbstractNameValueExpressionProperty_PropertyExpression();
+
+	/**
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.esb.NameValueTypeProperty <em>Name Value Type Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Name Value Type Property</em>'.
+	 * @see org.wso2.developerstudio.eclipse.esb.NameValueTypeProperty
+	 * @generated
+	 */
+	EClass getNameValueTypeProperty();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.esb.NameValueTypeProperty#getPropertyName <em>Property Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Property Name</em>'.
+	 * @see org.wso2.developerstudio.eclipse.esb.NameValueTypeProperty#getPropertyName()
+	 * @see #getNameValueTypeProperty()
+	 * @generated
+	 */
+	EAttribute getNameValueTypeProperty_PropertyName();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.esb.NameValueTypeProperty#getPropertyType <em>Property Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Property Type</em>'.
+	 * @see org.wso2.developerstudio.eclipse.esb.NameValueTypeProperty#getPropertyType()
+	 * @see #getNameValueTypeProperty()
+	 * @generated
+	 */
+	EAttribute getNameValueTypeProperty_PropertyType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.esb.NameValueTypeProperty#getPropertyValue <em>Property Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Property Value</em>'.
+	 * @see org.wso2.developerstudio.eclipse.esb.NameValueTypeProperty#getPropertyValue()
+	 * @see #getNameValueTypeProperty()
+	 * @generated
+	 */
+	EAttribute getNameValueTypeProperty_PropertyValue();
 
 	/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.esb.AbstractBooleanFeature <em>Abstract Boolean Feature</em>}'.
@@ -7415,6 +8064,16 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
     EEnum getEndPointMessageFormatRestType();
 
     /**
+	 * Returns the meta object for enum '{@link org.wso2.developerstudio.eclipse.esb.TaskTriggerType <em>Task Trigger Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Task Trigger Type</em>'.
+	 * @see org.wso2.developerstudio.eclipse.esb.TaskTriggerType
+	 * @generated
+	 */
+	EEnum getTaskTriggerType();
+
+				/**
 	 * Returns the meta object for enum '{@link org.wso2.developerstudio.eclipse.esb.TargetSequenceType <em>Target Sequence Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8054,6 +8713,116 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 		EAttribute EVALUATOR_EXPRESSION_PROPERTY__EVALUATOR_VALUE = eINSTANCE.getEvaluatorExpressionProperty_EvaluatorValue();
 
 								/**
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.esb.impl.TaskImplementationImpl <em>Task Implementation</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.wso2.developerstudio.eclipse.esb.impl.TaskImplementationImpl
+		 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getTaskImplementation()
+		 * @generated
+		 */
+		EClass TASK_IMPLEMENTATION = eINSTANCE.getTaskImplementation();
+
+								/**
+		 * The meta object literal for the '<em><b>Task Implementation</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TASK_IMPLEMENTATION__TASK_IMPLEMENTATION = eINSTANCE.getTaskImplementation_TaskImplementation();
+
+								/**
+		 * The meta object literal for the '<em><b>Task Properties</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TASK_IMPLEMENTATION__TASK_PROPERTIES = eINSTANCE.getTaskImplementation_TaskProperties();
+
+								/**
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.esb.impl.TaskPropertyImpl <em>Task Property</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.wso2.developerstudio.eclipse.esb.impl.TaskPropertyImpl
+		 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getTaskProperty()
+		 * @generated
+		 */
+		EClass TASK_PROPERTY = eINSTANCE.getTaskProperty();
+
+								/**
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.esb.impl.TaskImpl <em>Task</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.wso2.developerstudio.eclipse.esb.impl.TaskImpl
+		 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getTask()
+		 * @generated
+		 */
+		EClass TASK = eINSTANCE.getTask();
+
+								/**
+		 * The meta object literal for the '<em><b>Task Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TASK__TASK_NAME = eINSTANCE.getTask_TaskName();
+
+								/**
+		 * The meta object literal for the '<em><b>Task Group</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TASK__TASK_GROUP = eINSTANCE.getTask_TaskGroup();
+
+								/**
+		 * The meta object literal for the '<em><b>Task Implementation Class</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TASK__TASK_IMPLEMENTATION_CLASS = eINSTANCE.getTask_TaskImplementationClass();
+
+								/**
+		 * The meta object literal for the '<em><b>Trigger Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TASK__TRIGGER_TYPE = eINSTANCE.getTask_TriggerType();
+
+								/**
+		 * The meta object literal for the '<em><b>Count</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TASK__COUNT = eINSTANCE.getTask_Count();
+
+								/**
+		 * The meta object literal for the '<em><b>Interval</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TASK__INTERVAL = eINSTANCE.getTask_Interval();
+
+								/**
+		 * The meta object literal for the '<em><b>Cron</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TASK__CRON = eINSTANCE.getTask_Cron();
+
+								/**
+		 * The meta object literal for the '<em><b>Pinned Servers</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TASK__PINNED_SERVERS = eINSTANCE.getTask_PinnedServers();
+
+								/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.esb.impl.ProxyWsdlConfigurationImpl <em>Proxy Wsdl Configuration</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -8114,6 +8883,16 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
         EEnum MODEL_OBJECT_STATE = eINSTANCE.getModelObjectState();
 
         /**
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.esb.TaskPropertyType <em>Task Property Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.wso2.developerstudio.eclipse.esb.TaskPropertyType
+		 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getTaskPropertyType()
+		 * @generated
+		 */
+		EEnum TASK_PROPERTY_TYPE = eINSTANCE.getTaskPropertyType();
+
+								/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.esb.PropertyValueType <em>Property Value Type</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -8862,6 +9641,40 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 		EReference ABSTRACT_NAME_VALUE_EXPRESSION_PROPERTY__PROPERTY_EXPRESSION = eINSTANCE.getAbstractNameValueExpressionProperty_PropertyExpression();
 
 		/**
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.esb.impl.NameValueTypePropertyImpl <em>Name Value Type Property</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.wso2.developerstudio.eclipse.esb.impl.NameValueTypePropertyImpl
+		 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getNameValueTypeProperty()
+		 * @generated
+		 */
+		EClass NAME_VALUE_TYPE_PROPERTY = eINSTANCE.getNameValueTypeProperty();
+
+		/**
+		 * The meta object literal for the '<em><b>Property Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NAME_VALUE_TYPE_PROPERTY__PROPERTY_NAME = eINSTANCE.getNameValueTypeProperty_PropertyName();
+
+		/**
+		 * The meta object literal for the '<em><b>Property Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NAME_VALUE_TYPE_PROPERTY__PROPERTY_TYPE = eINSTANCE.getNameValueTypeProperty_PropertyType();
+
+		/**
+		 * The meta object literal for the '<em><b>Property Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NAME_VALUE_TYPE_PROPERTY__PROPERTY_VALUE = eINSTANCE.getNameValueTypeProperty_PropertyValue();
+
+		/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.esb.impl.AbstractBooleanFeatureImpl <em>Abstract Boolean Feature</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -9050,6 +9863,16 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
         EEnum END_POINT_MESSAGE_FORMAT_REST_TYPE = eINSTANCE.getEndPointMessageFormatRestType();
 
         /**
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.esb.TaskTriggerType <em>Task Trigger Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.wso2.developerstudio.eclipse.esb.TaskTriggerType
+		 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getTaskTriggerType()
+		 * @generated
+		 */
+		EEnum TASK_TRIGGER_TYPE = eINSTANCE.getTaskTriggerType();
+
+								/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.esb.TargetSequenceType <em>Target Sequence Type</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->

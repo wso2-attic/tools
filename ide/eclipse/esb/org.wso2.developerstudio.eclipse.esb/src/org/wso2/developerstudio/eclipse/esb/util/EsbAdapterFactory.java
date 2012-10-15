@@ -147,6 +147,10 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 				return createAbstractNameValueExpressionPropertyAdapter();
 			}
 			@Override
+			public Adapter caseNameValueTypeProperty(NameValueTypeProperty object) {
+				return createNameValueTypePropertyAdapter();
+			}
+			@Override
 			public Adapter caseAbstractBooleanFeature(AbstractBooleanFeature object) {
 				return createAbstractBooleanFeatureAdapter();
 			}
@@ -253,6 +257,18 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseEvaluatorExpressionProperty(EvaluatorExpressionProperty object) {
 				return createEvaluatorExpressionPropertyAdapter();
+			}
+			@Override
+			public Adapter caseTaskImplementation(TaskImplementation object) {
+				return createTaskImplementationAdapter();
+			}
+			@Override
+			public Adapter caseTaskProperty(TaskProperty object) {
+				return createTaskPropertyAdapter();
+			}
+			@Override
+			public Adapter caseTask(Task object) {
+				return createTaskAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -528,6 +544,48 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 	}
 
 				/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.esb.TaskImplementation <em>Task Implementation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.esb.TaskImplementation
+	 * @generated
+	 */
+	public Adapter createTaskImplementationAdapter() {
+		return null;
+	}
+
+				/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.esb.TaskProperty <em>Task Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.esb.TaskProperty
+	 * @generated
+	 */
+	public Adapter createTaskPropertyAdapter() {
+		return null;
+	}
+
+				/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.esb.Task <em>Task</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.esb.Task
+	 * @generated
+	 */
+	public Adapter createTaskAdapter() {
+		return null;
+	}
+
+				/**
 	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.esb.MediatorBranch <em>Mediator Branch</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -636,6 +694,20 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAbstractNameValueExpressionPropertyAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.esb.NameValueTypeProperty <em>Name Value Type Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.esb.NameValueTypeProperty
+	 * @generated
+	 */
+	public Adapter createNameValueTypePropertyAdapter() {
 		return null;
 	}
 

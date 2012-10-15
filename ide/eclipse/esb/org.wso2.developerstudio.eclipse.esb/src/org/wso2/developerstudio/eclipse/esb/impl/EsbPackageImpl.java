@@ -63,6 +63,7 @@ import org.wso2.developerstudio.eclipse.esb.MediatorBranch;
 import org.wso2.developerstudio.eclipse.esb.MediatorSequence;
 import org.wso2.developerstudio.eclipse.esb.ModelObject;
 import org.wso2.developerstudio.eclipse.esb.ModelObjectState;
+import org.wso2.developerstudio.eclipse.esb.NameValueTypeProperty;
 import org.wso2.developerstudio.eclipse.esb.Namespace;
 import org.wso2.developerstudio.eclipse.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.esb.ParentEndPoint;
@@ -85,6 +86,12 @@ import org.wso2.developerstudio.eclipse.esb.RegistryKeyProperty;
 import org.wso2.developerstudio.eclipse.esb.SynapseConfiguration;
 import org.wso2.developerstudio.eclipse.esb.TargetEndpointType;
 import org.wso2.developerstudio.eclipse.esb.TargetSequenceType;
+import org.wso2.developerstudio.eclipse.esb.Task;
+import org.wso2.developerstudio.eclipse.esb.TaskGroup;
+import org.wso2.developerstudio.eclipse.esb.TaskImplementation;
+import org.wso2.developerstudio.eclipse.esb.TaskProperty;
+import org.wso2.developerstudio.eclipse.esb.TaskPropertyType;
+import org.wso2.developerstudio.eclipse.esb.TaskTriggerType;
 import org.wso2.developerstudio.eclipse.esb.UnknownObject;
 import org.wso2.developerstudio.eclipse.esb.WsdlEndPoint;
 import org.wso2.developerstudio.eclipse.esb.XPathEndPointReference;
@@ -276,12 +283,40 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 
 				/**
 	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass taskImplementationEClass = null;
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass taskPropertyEClass = null;
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass taskEClass = null;
+
+				/**
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
 	 * @generated
 	 */
     private EEnum modelObjectStateEEnum = null;
 
     /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum taskPropertyTypeEEnum = null;
+
+				/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -447,6 +482,13 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass nameValueTypePropertyEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass abstractBooleanFeatureEClass = null;
 
 	/**
@@ -513,6 +555,13 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
     private EEnum endPointMessageFormatRestTypeEEnum = null;
 
     /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum taskTriggerTypeEEnum = null;
+
+				/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1288,6 +1337,123 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getTaskImplementation() {
+		return taskImplementationEClass;
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTaskImplementation_TaskImplementation() {
+		return (EAttribute)taskImplementationEClass.getEStructuralFeatures().get(0);
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTaskImplementation_TaskProperties() {
+		return (EReference)taskImplementationEClass.getEStructuralFeatures().get(1);
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTaskProperty() {
+		return taskPropertyEClass;
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTask() {
+		return taskEClass;
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTask_TaskName() {
+		return (EAttribute)taskEClass.getEStructuralFeatures().get(0);
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTask_TaskGroup() {
+		return (EAttribute)taskEClass.getEStructuralFeatures().get(1);
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTask_TaskImplementationClass() {
+		return (EReference)taskEClass.getEStructuralFeatures().get(2);
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTask_TriggerType() {
+		return (EAttribute)taskEClass.getEStructuralFeatures().get(3);
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTask_Count() {
+		return (EAttribute)taskEClass.getEStructuralFeatures().get(4);
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTask_Interval() {
+		return (EAttribute)taskEClass.getEStructuralFeatures().get(5);
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTask_Cron() {
+		return (EAttribute)taskEClass.getEStructuralFeatures().get(6);
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTask_PinnedServers() {
+		return (EAttribute)taskEClass.getEStructuralFeatures().get(7);
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getProxyWsdlConfiguration() {
 		return proxyWsdlConfigurationEClass;
 	}
@@ -1338,6 +1504,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	}
 
     /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getTaskPropertyType() {
+		return taskPropertyTypeEEnum;
+	}
+
+				/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1569,6 +1744,42 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 */
 	public EReference getAbstractNameValueExpressionProperty_PropertyExpression() {
 		return (EReference)abstractNameValueExpressionPropertyEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getNameValueTypeProperty() {
+		return nameValueTypePropertyEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getNameValueTypeProperty_PropertyName() {
+		return (EAttribute)nameValueTypePropertyEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getNameValueTypeProperty_PropertyType() {
+		return (EAttribute)nameValueTypePropertyEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getNameValueTypeProperty_PropertyValue() {
+		return (EAttribute)nameValueTypePropertyEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -2242,6 +2453,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getTaskTriggerType() {
+		return taskTriggerTypeEEnum;
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getTargetSequenceType() {
 		return targetSequenceTypeEEnum;
 	}
@@ -2362,6 +2582,11 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEAttribute(abstractNameValueExpressionPropertyEClass, ABSTRACT_NAME_VALUE_EXPRESSION_PROPERTY__PROPERTY_VALUE_TYPE);
 		createEAttribute(abstractNameValueExpressionPropertyEClass, ABSTRACT_NAME_VALUE_EXPRESSION_PROPERTY__PROPERTY_VALUE);
 		createEReference(abstractNameValueExpressionPropertyEClass, ABSTRACT_NAME_VALUE_EXPRESSION_PROPERTY__PROPERTY_EXPRESSION);
+
+		nameValueTypePropertyEClass = createEClass(NAME_VALUE_TYPE_PROPERTY);
+		createEAttribute(nameValueTypePropertyEClass, NAME_VALUE_TYPE_PROPERTY__PROPERTY_NAME);
+		createEAttribute(nameValueTypePropertyEClass, NAME_VALUE_TYPE_PROPERTY__PROPERTY_TYPE);
+		createEAttribute(nameValueTypePropertyEClass, NAME_VALUE_TYPE_PROPERTY__PROPERTY_VALUE);
 
 		abstractBooleanFeatureEClass = createEClass(ABSTRACT_BOOLEAN_FEATURE);
 		createEAttribute(abstractBooleanFeatureEClass, ABSTRACT_BOOLEAN_FEATURE__FEATURE_NAME);
@@ -2504,8 +2729,25 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEAttribute(evaluatorExpressionPropertyEClass, EVALUATOR_EXPRESSION_PROPERTY__EVALUATOR_NAME);
 		createEAttribute(evaluatorExpressionPropertyEClass, EVALUATOR_EXPRESSION_PROPERTY__EVALUATOR_VALUE);
 
+		taskImplementationEClass = createEClass(TASK_IMPLEMENTATION);
+		createEAttribute(taskImplementationEClass, TASK_IMPLEMENTATION__TASK_IMPLEMENTATION);
+		createEReference(taskImplementationEClass, TASK_IMPLEMENTATION__TASK_PROPERTIES);
+
+		taskPropertyEClass = createEClass(TASK_PROPERTY);
+
+		taskEClass = createEClass(TASK);
+		createEAttribute(taskEClass, TASK__TASK_NAME);
+		createEAttribute(taskEClass, TASK__TASK_GROUP);
+		createEReference(taskEClass, TASK__TASK_IMPLEMENTATION_CLASS);
+		createEAttribute(taskEClass, TASK__TRIGGER_TYPE);
+		createEAttribute(taskEClass, TASK__COUNT);
+		createEAttribute(taskEClass, TASK__INTERVAL);
+		createEAttribute(taskEClass, TASK__CRON);
+		createEAttribute(taskEClass, TASK__PINNED_SERVERS);
+
 		// Create enums
 		modelObjectStateEEnum = createEEnum(MODEL_OBJECT_STATE);
+		taskPropertyTypeEEnum = createEEnum(TASK_PROPERTY_TYPE);
 		propertyValueTypeEEnum = createEEnum(PROPERTY_VALUE_TYPE);
 		targetSequenceTypeEEnum = createEEnum(TARGET_SEQUENCE_TYPE);
 		targetEndpointTypeEEnum = createEEnum(TARGET_ENDPOINT_TYPE);
@@ -2522,6 +2764,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		localEntryValueTypeEEnum = createEEnum(LOCAL_ENTRY_VALUE_TYPE);
 		esbVersionEEnum = createEEnum(ESB_VERSION);
 		endPointMessageFormatRestTypeEEnum = createEEnum(END_POINT_MESSAGE_FORMAT_REST_TYPE);
+		taskTriggerTypeEEnum = createEEnum(TASK_TRIGGER_TYPE);
 
 		// Create data types
 		mapEDataType = createEDataType(MAP);
@@ -2573,6 +2816,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		registryKeyPropertyEClass.getESuperTypes().add(this.getModelObject());
 		abstractNameValuePropertyEClass.getESuperTypes().add(this.getModelObject());
 		abstractNameValueExpressionPropertyEClass.getESuperTypes().add(this.getModelObject());
+		nameValueTypePropertyEClass.getESuperTypes().add(this.getModelObject());
 		abstractBooleanFeatureEClass.getESuperTypes().add(this.getModelObject());
 		abstractLocationKeyResourceEClass.getESuperTypes().add(this.getModelObject());
 		abstractCommonTargetEClass.getESuperTypes().add(this.getModelObject());
@@ -2600,6 +2844,9 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		proxyFaultSequenceConfigurationEClass.getESuperTypes().add(this.getAbstractProxySequenceConfiguration());
 		localEntryEClass.getESuperTypes().add(this.getConfigurationElement());
 		evaluatorExpressionPropertyEClass.getESuperTypes().add(this.getModelObject());
+		taskImplementationEClass.getESuperTypes().add(this.getModelObject());
+		taskPropertyEClass.getESuperTypes().add(this.getNameValueTypeProperty());
+		taskEClass.getESuperTypes().add(this.getConfigurationElement());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(modelObjectEClass, ModelObject.class, "ModelObject", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2682,6 +2929,11 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEAttribute(getAbstractNameValueExpressionProperty_PropertyValueType(), this.getPropertyValueType(), "propertyValueType", "VALUE", 0, 1, AbstractNameValueExpressionProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAbstractNameValueExpressionProperty_PropertyValue(), ecorePackage.getEString(), "propertyValue", "property_value", 0, 1, AbstractNameValueExpressionProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAbstractNameValueExpressionProperty_PropertyExpression(), this.getNamespacedProperty(), null, "propertyExpression", null, 0, 1, AbstractNameValueExpressionProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(nameValueTypePropertyEClass, NameValueTypeProperty.class, "NameValueTypeProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getNameValueTypeProperty_PropertyName(), ecorePackage.getEString(), "PropertyName", null, 1, 1, NameValueTypeProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNameValueTypeProperty_PropertyType(), this.getTaskPropertyType(), "PropertyType", null, 1, 1, NameValueTypeProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNameValueTypeProperty_PropertyValue(), ecorePackage.getEString(), "PropertyValue", null, 1, 1, NameValueTypeProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(abstractBooleanFeatureEClass, AbstractBooleanFeature.class, "AbstractBooleanFeature", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAbstractBooleanFeature_FeatureName(), ecorePackage.getEString(), "featureName", "feature_name", 0, 1, AbstractBooleanFeature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2824,12 +3076,32 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEAttribute(getEvaluatorExpressionProperty_EvaluatorName(), ecorePackage.getEString(), "evaluatorName", null, 0, 1, EvaluatorExpressionProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEvaluatorExpressionProperty_EvaluatorValue(), ecorePackage.getEString(), "evaluatorValue", null, 0, 1, EvaluatorExpressionProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(taskImplementationEClass, TaskImplementation.class, "TaskImplementation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTaskImplementation_TaskImplementation(), ecorePackage.getEString(), "TaskImplementation", "org.apache.synapse.startup.tasks.MessageInjector", 1, 1, TaskImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTaskImplementation_TaskProperties(), this.getTaskProperty(), null, "TaskProperties", null, 0, -1, TaskImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(taskPropertyEClass, TaskProperty.class, "TaskProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(taskEClass, Task.class, "Task", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTask_TaskName(), ecorePackage.getEString(), "TaskName", null, 1, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTask_TaskGroup(), ecorePackage.getEString(), "TaskGroup", "synapse.simple.quartz", 1, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTask_TaskImplementationClass(), this.getTaskImplementation(), null, "TaskImplementationClass", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTask_TriggerType(), this.getTaskTriggerType(), "TriggerType", null, 1, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTask_Count(), ecorePackage.getELong(), "Count", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTask_Interval(), ecorePackage.getELong(), "Interval", null, 1, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTask_Cron(), ecorePackage.getEString(), "Cron", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTask_PinnedServers(), ecorePackage.getEString(), "PinnedServers", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		// Initialize enums and add enum literals
 		initEEnum(modelObjectStateEEnum, ModelObjectState.class, "ModelObjectState");
 		addEEnumLiteral(modelObjectStateEEnum, ModelObjectState.NORMAL);
 		addEEnumLiteral(modelObjectStateEEnum, ModelObjectState.WORKING);
 		addEEnumLiteral(modelObjectStateEEnum, ModelObjectState.INCOMPLETE);
 		addEEnumLiteral(modelObjectStateEEnum, ModelObjectState.INVALID);
+
+		initEEnum(taskPropertyTypeEEnum, TaskPropertyType.class, "TaskPropertyType");
+		addEEnumLiteral(taskPropertyTypeEEnum, TaskPropertyType.LITERAL);
+		addEEnumLiteral(taskPropertyTypeEEnum, TaskPropertyType.XML);
 
 		initEEnum(propertyValueTypeEEnum, PropertyValueType.class, "PropertyValueType");
 		addEEnumLiteral(propertyValueTypeEEnum, PropertyValueType.VALUE);
@@ -2908,6 +3180,10 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEEnum(endPointMessageFormatRestTypeEEnum, EndPointMessageFormatRestType.class, "EndPointMessageFormatRestType");
 		addEEnumLiteral(endPointMessageFormatRestTypeEEnum, EndPointMessageFormatRestType.GET);
 		addEEnumLiteral(endPointMessageFormatRestTypeEEnum, EndPointMessageFormatRestType.POST);
+
+		initEEnum(taskTriggerTypeEEnum, TaskTriggerType.class, "TaskTriggerType");
+		addEEnumLiteral(taskTriggerTypeEEnum, TaskTriggerType.SIMPLE);
+		addEEnumLiteral(taskTriggerTypeEEnum, TaskTriggerType.CRON);
 
 		// Initialize data types
 		initEDataType(mapEDataType, Map.class, "Map", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
