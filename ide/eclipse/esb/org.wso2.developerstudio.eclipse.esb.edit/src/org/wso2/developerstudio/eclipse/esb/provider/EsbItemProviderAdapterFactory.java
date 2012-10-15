@@ -261,6 +261,29 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.NameValueTypeProperty} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected NameValueTypePropertyItemProvider nameValueTypePropertyItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.NameValueTypeProperty}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createNameValueTypePropertyAdapter() {
+		if (nameValueTypePropertyItemProvider == null) {
+			nameValueTypePropertyItemProvider = new NameValueTypePropertyItemProvider(this);
+		}
+
+		return nameValueTypePropertyItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.ProxyService} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -522,6 +545,75 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 		}
 
 		return evaluatorExpressionPropertyItemProvider;
+	}
+
+				/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.TaskImplementation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TaskImplementationItemProvider taskImplementationItemProvider;
+
+				/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.TaskImplementation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTaskImplementationAdapter() {
+		if (taskImplementationItemProvider == null) {
+			taskImplementationItemProvider = new TaskImplementationItemProvider(this);
+		}
+
+		return taskImplementationItemProvider;
+	}
+
+				/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.TaskProperty} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TaskPropertyItemProvider taskPropertyItemProvider;
+
+				/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.TaskProperty}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTaskPropertyAdapter() {
+		if (taskPropertyItemProvider == null) {
+			taskPropertyItemProvider = new TaskPropertyItemProvider(this);
+		}
+
+		return taskPropertyItemProvider;
+	}
+
+				/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.Task} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TaskItemProvider taskItemProvider;
+
+				/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.Task}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTaskAdapter() {
+		if (taskItemProvider == null) {
+			taskItemProvider = new TaskItemProvider(this);
+		}
+
+		return taskItemProvider;
 	}
 
 				/**
@@ -849,6 +941,7 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 		if (mediatorSequenceItemProvider != null) mediatorSequenceItemProvider.dispose();
 		if (namespacedPropertyItemProvider != null) namespacedPropertyItemProvider.dispose();
 		if (registryKeyPropertyItemProvider != null) registryKeyPropertyItemProvider.dispose();
+		if (nameValueTypePropertyItemProvider != null) nameValueTypePropertyItemProvider.dispose();
 		if (defaultEndPointItemProvider != null) defaultEndPointItemProvider.dispose();
 		if (addressEndPointItemProvider != null) addressEndPointItemProvider.dispose();
 		if (wsdlEndPointItemProvider != null) wsdlEndPointItemProvider.dispose();
@@ -869,6 +962,9 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 		if (proxyFaultSequenceConfigurationItemProvider != null) proxyFaultSequenceConfigurationItemProvider.dispose();
 		if (localEntryItemProvider != null) localEntryItemProvider.dispose();
 		if (evaluatorExpressionPropertyItemProvider != null) evaluatorExpressionPropertyItemProvider.dispose();
+		if (taskImplementationItemProvider != null) taskImplementationItemProvider.dispose();
+		if (taskPropertyItemProvider != null) taskPropertyItemProvider.dispose();
+		if (taskItemProvider != null) taskItemProvider.dispose();
 	}
 
 }

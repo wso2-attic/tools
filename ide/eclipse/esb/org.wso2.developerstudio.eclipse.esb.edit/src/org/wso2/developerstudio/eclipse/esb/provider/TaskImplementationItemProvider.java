@@ -1,12 +1,12 @@
-/*
+/**
  * Copyright 2009-2010 WSO2, Inc. (http://wso2.com)
- *
+ * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
+ * 
  * http://www.apache.org/licenses/LICENSE-2.0
- *
+ * 
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -21,7 +21,9 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -31,19 +33,19 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+
 import org.wso2.developerstudio.eclipse.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.esb.ModelObjectState;
-import org.wso2.developerstudio.eclipse.esb.SynapseConfiguration;
-import org.wso2.developerstudio.eclipse.esb.mediators.MediatorsFactory;
+import org.wso2.developerstudio.eclipse.esb.TaskImplementation;
 
 /**
- * This is the item provider adapter for a {@link org.wso2.developerstudio.eclipse.esb.SynapseConfiguration} object.
+ * This is the item provider adapter for a {@link org.wso2.developerstudio.eclipse.esb.TaskImplementation} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class SynapseConfigurationItemProvider
+public class TaskImplementationItemProvider
 	extends ModelObjectItemProvider
 	implements
 		IEditingDomainItemProvider,
@@ -57,7 +59,7 @@ public class SynapseConfigurationItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SynapseConfigurationItemProvider(AdapterFactory adapterFactory) {
+	public TaskImplementationItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -67,31 +69,30 @@ public class SynapseConfigurationItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addSchemaLocationPropertyDescriptor(object);
+			addTaskImplementationPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Schema Location feature.
+	 * This adds a property descriptor for the Task Implementation feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addSchemaLocationPropertyDescriptor(Object object) {
+	protected void addTaskImplementationPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SynapseConfiguration_schemaLocation_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SynapseConfiguration_schemaLocation_feature", "_UI_SynapseConfiguration_type"),
-				 EsbPackage.Literals.SYNAPSE_CONFIGURATION__SCHEMA_LOCATION,
+				 getString("_UI_TaskImplementation_TaskImplementation_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TaskImplementation_TaskImplementation_feature", "_UI_TaskImplementation_type"),
+				 EsbPackage.Literals.TASK_IMPLEMENTATION__TASK_IMPLEMENTATION,
 				 true,
 				 false,
 				 false,
@@ -108,12 +109,11 @@ public class SynapseConfigurationItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
 	@Override
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(EsbPackage.Literals.SYNAPSE_CONFIGURATION__CONFIGURATION_ELEMENTS);
+			childrenFeatures.add(EsbPackage.Literals.TASK_IMPLEMENTATION__TASK_PROPERTIES);
 		}
 		return childrenFeatures;
 	}
@@ -123,7 +123,6 @@ public class SynapseConfigurationItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
 	@Override
 	protected EStructuralFeature getChildFeature(Object object, Object child) {
 		// Check the type of the specified child object and return the proper feature to use for
@@ -133,25 +132,29 @@ public class SynapseConfigurationItemProvider
 	}
 
 	/**
-	 * This returns SynapseConfiguration.gif.
+	 * This returns TaskImplementation.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SynapseConfiguration"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/TaskImplementation"));
 	}
 
 	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 */
-	
+	@Override
 	public String getText(Object object) {
-		return getString("_UI_SynapseConfiguration_type");
+		String labelValue = ((TaskImplementation)object).getTaskImplementation();
+		String label = labelValue == null ? null : labelValue.toString();
+		return label == null || label.length() == 0 ?
+			getString("_UI_TaskImplementation_type") :
+			getString("_UI_TaskImplementation_type") + " : " + label;
 	}
 
 	/**
@@ -161,16 +164,15 @@ public class SynapseConfigurationItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(SynapseConfiguration.class)) {
-			case EsbPackage.SYNAPSE_CONFIGURATION__SCHEMA_LOCATION:
+		switch (notification.getFeatureID(TaskImplementation.class)) {
+			case EsbPackage.TASK_IMPLEMENTATION__TASK_IMPLEMENTATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case EsbPackage.SYNAPSE_CONFIGURATION__CONFIGURATION_ELEMENTS:
+			case EsbPackage.TASK_IMPLEMENTATION__TASK_PROPERTIES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -182,58 +184,16 @@ public class SynapseConfigurationItemProvider
 	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
 	 */
-	
+	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
-		super.collectNewChildDescriptors(newChildDescriptors, object);				
-		newChildDescriptors.add
-			(createChildParameter
-				(EsbPackage.Literals.SYNAPSE_CONFIGURATION__CONFIGURATION_ELEMENTS,
-				 EsbFactory.eINSTANCE.createMediatorSequence()));
+		super.collectNewChildDescriptors(newChildDescriptors, object);
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.SYNAPSE_CONFIGURATION__CONFIGURATION_ELEMENTS,
-				 EsbFactory.eINSTANCE.createDefaultEndPoint()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(EsbPackage.Literals.SYNAPSE_CONFIGURATION__CONFIGURATION_ELEMENTS,
-				 EsbFactory.eINSTANCE.createAddressEndPoint()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(EsbPackage.Literals.SYNAPSE_CONFIGURATION__CONFIGURATION_ELEMENTS,
-				 EsbFactory.eINSTANCE.createWsdlEndPoint()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(EsbPackage.Literals.SYNAPSE_CONFIGURATION__CONFIGURATION_ELEMENTS,
-				 EsbFactory.eINSTANCE.createFailoverEndPoint()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(EsbPackage.Literals.SYNAPSE_CONFIGURATION__CONFIGURATION_ELEMENTS,
-				 EsbFactory.eINSTANCE.createLoadBalanceEndPoint()));
-		
-		newChildDescriptors.add
-		(createChildParameter
-			(EsbPackage.Literals.SYNAPSE_CONFIGURATION__CONFIGURATION_ELEMENTS,
-			 EsbFactory.eINSTANCE.createDynamicLoadBalanceEndPoint()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(EsbPackage.Literals.SYNAPSE_CONFIGURATION__CONFIGURATION_ELEMENTS,
-				 EsbFactory.eINSTANCE.createProxyService()));
-		
-		newChildDescriptors.add
-		(createChildParameter
-			(EsbPackage.Literals.SYNAPSE_CONFIGURATION__CONFIGURATION_ELEMENTS,
-			 EsbFactory.eINSTANCE.createLocalEntry()));
-		
-		newChildDescriptors.add
-		(createChildParameter
-			(EsbPackage.Literals.SYNAPSE_CONFIGURATION__CONFIGURATION_ELEMENTS,
-			 EsbFactory.eINSTANCE.createTask()));
+				(EsbPackage.Literals.TASK_IMPLEMENTATION__TASK_PROPERTIES,
+				 EsbFactory.eINSTANCE.createTaskProperty()));
 	}
+
 }
