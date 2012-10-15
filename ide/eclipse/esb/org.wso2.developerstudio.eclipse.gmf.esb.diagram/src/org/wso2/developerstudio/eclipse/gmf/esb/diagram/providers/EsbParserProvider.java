@@ -13,6 +13,7 @@ import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.ui.services.parser.ParserHintAdapter;
 import org.eclipse.gmf.runtime.notation.View;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AddressEndPointEndPointName2EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AddressEndPointEndPointNameEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AggregateMediatorAggregateIDEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CacheMediatorCacheIdEditPart;
@@ -22,15 +23,18 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloneMediator
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CommandMediatorClassNameEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DBLookupMediatorConnectionURLEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DBReportMediatorConnectionURLEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DefaultEndPointEndPointName2EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DefaultEndPointEndPointNameEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EnrichMediatorSourceTypeEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EntitlementMediatorServerURLEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EventMediatorTopicTypeEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FailoverEndPointEndPointName2EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FailoverEndPointEndPointNameEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FaultMediatorFaultStringTypeEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FilterMediatorConditionTypeEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.HeaderMediatorValueLiteralEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.IterateMediatorIterateIDEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.LoadBalanceEndPointEndPointName2EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.LoadBalanceEndPointEndPointNameEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.LogMediatorLogCategoryEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.OAuthMediatorRemoteServiceUrlEditPart;
@@ -40,6 +44,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ScriptMediato
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceNameEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SpringMediatorBeanNameEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ThrottleMediatorGroupIdEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.WSDLEndPointEndPointName2EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.WSDLEndPointEndPointNameEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.XQueryMediatorScriptKeyTypeEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.parsers.MessageFormatParser;
@@ -576,6 +581,96 @@ public class EsbParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
+	private IParser defaultEndPointEndPointName_5160Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getDefaultEndPointEndPointName_5160Parser() {
+		if (defaultEndPointEndPointName_5160Parser == null) {
+			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
+					.getEndPoint_EndPointName() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			defaultEndPointEndPointName_5160Parser = parser;
+		}
+		return defaultEndPointEndPointName_5160Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser addressEndPointEndPointName_5161Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getAddressEndPointEndPointName_5161Parser() {
+		if (addressEndPointEndPointName_5161Parser == null) {
+			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
+					.getEndPoint_EndPointName() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			addressEndPointEndPointName_5161Parser = parser;
+		}
+		return addressEndPointEndPointName_5161Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser failoverEndPointEndPointName_5162Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getFailoverEndPointEndPointName_5162Parser() {
+		if (failoverEndPointEndPointName_5162Parser == null) {
+			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
+					.getEndPoint_EndPointName() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			failoverEndPointEndPointName_5162Parser = parser;
+		}
+		return failoverEndPointEndPointName_5162Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser wSDLEndPointEndPointName_5163Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getWSDLEndPointEndPointName_5163Parser() {
+		if (wSDLEndPointEndPointName_5163Parser == null) {
+			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
+					.getEndPoint_EndPointName() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			wSDLEndPointEndPointName_5163Parser = parser;
+		}
+		return wSDLEndPointEndPointName_5163Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser loadBalanceEndPointEndPointName_5164Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getLoadBalanceEndPointEndPointName_5164Parser() {
+		if (loadBalanceEndPointEndPointName_5164Parser == null) {
+			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
+					.getEndPoint_EndPointName() };
+			MessageFormatParser parser = new MessageFormatParser(features);
+			loadBalanceEndPointEndPointName_5164Parser = parser;
+		}
+		return loadBalanceEndPointEndPointName_5164Parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case ProxyServiceNameEditPart.VISUAL_ID:
@@ -636,6 +731,16 @@ public class EsbParserProvider extends AbstractProvider implements
 			return getWSDLEndPointEndPointName_5158Parser();
 		case LoadBalanceEndPointEndPointNameEditPart.VISUAL_ID:
 			return getLoadBalanceEndPointEndPointName_5159Parser();
+		case DefaultEndPointEndPointName2EditPart.VISUAL_ID:
+			return getDefaultEndPointEndPointName_5160Parser();
+		case AddressEndPointEndPointName2EditPart.VISUAL_ID:
+			return getAddressEndPointEndPointName_5161Parser();
+		case FailoverEndPointEndPointName2EditPart.VISUAL_ID:
+			return getFailoverEndPointEndPointName_5162Parser();
+		case WSDLEndPointEndPointName2EditPart.VISUAL_ID:
+			return getWSDLEndPointEndPointName_5163Parser();
+		case LoadBalanceEndPointEndPointName2EditPart.VISUAL_ID:
+			return getLoadBalanceEndPointEndPointName_5164Parser();
 		}
 		return null;
 	}

@@ -176,13 +176,13 @@ public class DiagramEditorContextMenuProvider extends
 
 		contextActions.put(ConditionalRouterMediator.class,
 				new ConfigureConditionalRouterMediatorAction(part));
-		
+
 		contextActions.put(PayloadFactoryMediator.class,
 				new ConfigurePayloadFactoryMediatorAction(part));
-		
+
 		contextActions.put(DBLookupMediator.class,
 				new ConfigureSqlStatementsAction(part));
-		
+
 		contextActions.put(DBReportMediator.class,
 				new ConfigureSqlStatementsAction(part));
 

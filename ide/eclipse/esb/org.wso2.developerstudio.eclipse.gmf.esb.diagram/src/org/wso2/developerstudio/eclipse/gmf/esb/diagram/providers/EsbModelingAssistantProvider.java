@@ -41,8 +41,9 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			return types;
 		}
 		if (editPart instanceof EsbServerEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
 			types.add(EsbElementTypes.MessageMediator_3045);
+			types.add(EsbElementTypes.EndpointDiagram_3642);
 			return types;
 		}
 		if (editPart instanceof ProxyServiceEditPart) {
@@ -453,6 +454,38 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(EsbElementTypes.MediatorFlow_3615);
 			types.add(EsbElementTypes.SequencesInputConnector_3616);
 			types.add(EsbElementTypes.SequencesOutputConnector_3617);
+			return types;
+		}
+		if (editPart instanceof DefaultEndPoint2EditPart) {
+			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			types.add(EsbElementTypes.DefaultEndPointInputConnector_3644);
+			types.add(EsbElementTypes.DefaultEndPointOutputConnector_3645);
+			return types;
+		}
+		if (editPart instanceof AddressEndPoint2EditPart) {
+			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			types.add(EsbElementTypes.AddressEndPointInputConnector_3647);
+			types.add(EsbElementTypes.AddressEndPointOutputConnector_3648);
+			return types;
+		}
+		if (editPart instanceof FailoverEndPoint2EditPart) {
+			ArrayList<IElementType> types = new ArrayList<IElementType>(3);
+			types.add(EsbElementTypes.FailoverEndPointInputConnector_3650);
+			types.add(EsbElementTypes.FailoverEndPointOutputConnector_3651);
+			types.add(EsbElementTypes.FailoverEndPointWestOutputConnector_3652);
+			return types;
+		}
+		if (editPart instanceof WSDLEndPoint2EditPart) {
+			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			types.add(EsbElementTypes.WSDLEndPointInputConnector_3654);
+			types.add(EsbElementTypes.WSDLEndPointOutputConnector_3655);
+			return types;
+		}
+		if (editPart instanceof LoadBalanceEndPoint2EditPart) {
+			ArrayList<IElementType> types = new ArrayList<IElementType>(3);
+			types.add(EsbElementTypes.LoadBalanceEndPointInputConnector_3657);
+			types.add(EsbElementTypes.LoadBalanceEndPointOutputConnector_3658);
+			types.add(EsbElementTypes.LoadBalanceEndPointWestOutputConnector_3659);
 			return types;
 		}
 		if (editPart instanceof EsbServerContentsCompartmentEditPart) {
@@ -1295,6 +1328,15 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(EsbElementTypes.LoadBalanceEndPoint_3613);
 			return types;
 		}
+		if (editPart instanceof EndpointDiagramEndpointCompartmentEditPart) {
+			ArrayList<IElementType> types = new ArrayList<IElementType>(5);
+			types.add(EsbElementTypes.DefaultEndPoint_3643);
+			types.add(EsbElementTypes.AddressEndPoint_3646);
+			types.add(EsbElementTypes.FailoverEndPoint_3649);
+			types.add(EsbElementTypes.WSDLEndPoint_3653);
+			types.add(EsbElementTypes.LoadBalanceEndPoint_3656);
+			return types;
+		}
 		return Collections.EMPTY_LIST;
 	}
 
@@ -1564,6 +1606,34 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			return ((SequencesOutputConnectorEditPart) sourceEditPart)
 					.getMARelTypesOnSource();
 		}
+		if (sourceEditPart instanceof DefaultEndPointOutputConnector2EditPart) {
+			return ((DefaultEndPointOutputConnector2EditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
+		if (sourceEditPart instanceof AddressEndPointOutputConnector2EditPart) {
+			return ((AddressEndPointOutputConnector2EditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
+		if (sourceEditPart instanceof FailoverEndPointOutputConnector2EditPart) {
+			return ((FailoverEndPointOutputConnector2EditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
+		if (sourceEditPart instanceof FailoverEndPointWestOutputConnector2EditPart) {
+			return ((FailoverEndPointWestOutputConnector2EditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
+		if (sourceEditPart instanceof WSDLEndPointOutputConnector2EditPart) {
+			return ((WSDLEndPointOutputConnector2EditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
+		if (sourceEditPart instanceof LoadBalanceEndPointOutputConnector2EditPart) {
+			return ((LoadBalanceEndPointOutputConnector2EditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
+		if (sourceEditPart instanceof LoadBalanceEndPointWestOutputConnector2EditPart) {
+			return ((LoadBalanceEndPointWestOutputConnector2EditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
 		return Collections.EMPTY_LIST;
 	}
 
@@ -1775,6 +1845,26 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 		}
 		if (targetEditPart instanceof SequencesInputConnectorEditPart) {
 			return ((SequencesInputConnectorEditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof DefaultEndPointInputConnector2EditPart) {
+			return ((DefaultEndPointInputConnector2EditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof AddressEndPointInputConnector2EditPart) {
+			return ((AddressEndPointInputConnector2EditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof FailoverEndPointInputConnector2EditPart) {
+			return ((FailoverEndPointInputConnector2EditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof WSDLEndPointInputConnector2EditPart) {
+			return ((WSDLEndPointInputConnector2EditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof LoadBalanceEndPointInputConnector2EditPart) {
+			return ((LoadBalanceEndPointInputConnector2EditPart) targetEditPart)
 					.getMARelTypesOnTarget();
 		}
 		return Collections.EMPTY_LIST;
@@ -2049,6 +2139,34 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			return ((SequencesOutputConnectorEditPart) sourceEditPart)
 					.getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
+		if (sourceEditPart instanceof DefaultEndPointOutputConnector2EditPart) {
+			return ((DefaultEndPointOutputConnector2EditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof AddressEndPointOutputConnector2EditPart) {
+			return ((AddressEndPointOutputConnector2EditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof FailoverEndPointOutputConnector2EditPart) {
+			return ((FailoverEndPointOutputConnector2EditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof FailoverEndPointWestOutputConnector2EditPart) {
+			return ((FailoverEndPointWestOutputConnector2EditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof WSDLEndPointOutputConnector2EditPart) {
+			return ((WSDLEndPointOutputConnector2EditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof LoadBalanceEndPointOutputConnector2EditPart) {
+			return ((LoadBalanceEndPointOutputConnector2EditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof LoadBalanceEndPointWestOutputConnector2EditPart) {
+			return ((LoadBalanceEndPointWestOutputConnector2EditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
 		return Collections.EMPTY_LIST;
 	}
 
@@ -2261,6 +2379,26 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 		}
 		if (targetEditPart instanceof SequencesInputConnectorEditPart) {
 			return ((SequencesInputConnectorEditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof DefaultEndPointInputConnector2EditPart) {
+			return ((DefaultEndPointInputConnector2EditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof AddressEndPointInputConnector2EditPart) {
+			return ((AddressEndPointInputConnector2EditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof FailoverEndPointInputConnector2EditPart) {
+			return ((FailoverEndPointInputConnector2EditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof WSDLEndPointInputConnector2EditPart) {
+			return ((WSDLEndPointInputConnector2EditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof LoadBalanceEndPointInputConnector2EditPart) {
+			return ((LoadBalanceEndPointInputConnector2EditPart) targetEditPart)
 					.getMATypesForSource(relationshipType);
 		}
 		return Collections.EMPTY_LIST;
@@ -2531,6 +2669,34 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 		}
 		if (sourceEditPart instanceof SequencesOutputConnectorEditPart) {
 			return ((SequencesOutputConnectorEditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof DefaultEndPointOutputConnector2EditPart) {
+			return ((DefaultEndPointOutputConnector2EditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof AddressEndPointOutputConnector2EditPart) {
+			return ((AddressEndPointOutputConnector2EditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof FailoverEndPointOutputConnector2EditPart) {
+			return ((FailoverEndPointOutputConnector2EditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof FailoverEndPointWestOutputConnector2EditPart) {
+			return ((FailoverEndPointWestOutputConnector2EditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof WSDLEndPointOutputConnector2EditPart) {
+			return ((WSDLEndPointOutputConnector2EditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof LoadBalanceEndPointOutputConnector2EditPart) {
+			return ((LoadBalanceEndPointOutputConnector2EditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof LoadBalanceEndPointWestOutputConnector2EditPart) {
+			return ((LoadBalanceEndPointWestOutputConnector2EditPart) sourceEditPart)
 					.getMATypesForTarget(relationshipType);
 		}
 		return Collections.EMPTY_LIST;

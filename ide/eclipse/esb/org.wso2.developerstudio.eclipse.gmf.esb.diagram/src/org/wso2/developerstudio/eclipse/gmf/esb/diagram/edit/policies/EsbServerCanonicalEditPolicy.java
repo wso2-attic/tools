@@ -2,10 +2,12 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
+import java.util.Set;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -21,6 +23,7 @@ import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EndpointDiagramEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MessageMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramUpdater;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor;
@@ -30,6 +33,11 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry
  * @generated
  */
 public class EsbServerCanonicalEditPolicy extends CanonicalEditPolicy {
+
+	/**
+	 * @generated
+	 */
+	private Set<EStructuralFeature> myFeaturesToSynchronize;
 
 	/**
 	 * @generated
@@ -46,8 +54,15 @@ public class EsbServerCanonicalEditPolicy extends CanonicalEditPolicy {
 	/**
 	 * @generated
 	 */
-	protected EStructuralFeature getFeatureToSynchronize() {
-		return EsbPackage.eINSTANCE.getEsbServer_MessageMediator();
+	protected Set getFeaturesToSynchronize() {
+		if (myFeaturesToSynchronize == null) {
+			myFeaturesToSynchronize = new HashSet<EStructuralFeature>();
+			myFeaturesToSynchronize.add(EsbPackage.eINSTANCE
+					.getEsbServer_MessageMediator());
+			myFeaturesToSynchronize.add(EsbPackage.eINSTANCE
+					.getEsbServer_Children());
+		}
+		return myFeaturesToSynchronize;
 	}
 
 	/**
@@ -78,8 +93,9 @@ public class EsbServerCanonicalEditPolicy extends CanonicalEditPolicy {
 	 * @generated
 	 */
 	private boolean isMyDiagramElement(View view) {
-		return MessageMediatorEditPart.VISUAL_ID == EsbVisualIDRegistry
-				.getVisualID(view);
+		int visualID = EsbVisualIDRegistry.getVisualID(view);
+		return visualID == MessageMediatorEditPart.VISUAL_ID
+				|| visualID == EndpointDiagramEditPart.VISUAL_ID;
 	}
 
 	/**

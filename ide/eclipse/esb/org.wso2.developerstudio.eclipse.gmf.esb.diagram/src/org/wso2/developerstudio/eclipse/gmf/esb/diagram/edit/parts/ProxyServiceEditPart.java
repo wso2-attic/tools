@@ -148,8 +148,8 @@ public class ProxyServiceEditPart extends AbstractBorderedShapeEditPart {
 				alignLeft(((BoundsImpl) notification.getNotifier()).getY(),
 						((BoundsImpl) notification.getNotifier()).getWidth(),
 						((BoundsImpl) notification.getNotifier()).getHeight());
-				 FigureCanvas canvas = (FigureCanvas) getViewer().getControl();
-				 canvas.getViewport().repaint();
+				FigureCanvas canvas = (FigureCanvas) getViewer().getControl();
+				canvas.getViewport().repaint();
 			}
 		}
 	}

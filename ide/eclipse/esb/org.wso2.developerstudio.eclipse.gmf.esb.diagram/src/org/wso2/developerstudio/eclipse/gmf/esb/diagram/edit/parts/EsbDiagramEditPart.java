@@ -52,17 +52,17 @@ public class EsbDiagramEditPart extends DiagramEditPart {
 				new EsbDiagramCanonicalEditPolicy());
 		final FigureCanvas canvas = (FigureCanvas) getViewer().getControl();
 		canvas.addControlListener(new ControlListener() {
-			
+
 			public void controlResized(ControlEvent e) {
 				canvas.getViewport().repaint();
-				
+
 			}
-			
+
 			public void controlMoved(ControlEvent e) {
 				canvas.getViewport().repaint();
 			}
 		});
-		
+
 		canvas.getHorizontalBar().addSelectionListener(new SelectionAdapter() {
 
 			public void widgetSelected(SelectionEvent e) {
@@ -77,7 +77,7 @@ public class EsbDiagramEditPart extends DiagramEditPart {
 				super.widgetSelected(e);
 			}
 		});
-		
+
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.POPUPBAR_ROLE);
 	}
 

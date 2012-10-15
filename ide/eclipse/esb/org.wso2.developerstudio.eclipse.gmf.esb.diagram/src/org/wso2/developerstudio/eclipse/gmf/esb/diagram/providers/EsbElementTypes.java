@@ -201,6 +201,96 @@ public class EsbElementTypes {
 	/**
 	 * @generated
 	 */
+	public static final IElementType EndpointDiagram_3642 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.EndpointDiagram_3642"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType DefaultEndPoint_3643 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.DefaultEndPoint_3643"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType DefaultEndPointInputConnector_3644 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.DefaultEndPointInputConnector_3644"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType DefaultEndPointOutputConnector_3645 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.DefaultEndPointOutputConnector_3645"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType AddressEndPoint_3646 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.AddressEndPoint_3646"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType AddressEndPointInputConnector_3647 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.AddressEndPointInputConnector_3647"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType AddressEndPointOutputConnector_3648 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.AddressEndPointOutputConnector_3648"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType FailoverEndPoint_3649 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.FailoverEndPoint_3649"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType FailoverEndPointInputConnector_3650 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.FailoverEndPointInputConnector_3650"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType FailoverEndPointOutputConnector_3651 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.FailoverEndPointOutputConnector_3651"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType FailoverEndPointWestOutputConnector_3652 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.FailoverEndPointWestOutputConnector_3652"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType WSDLEndPoint_3653 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.WSDLEndPoint_3653"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType WSDLEndPointInputConnector_3654 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.WSDLEndPointInputConnector_3654"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType WSDLEndPointOutputConnector_3655 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.WSDLEndPointOutputConnector_3655"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType LoadBalanceEndPoint_3656 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.LoadBalanceEndPoint_3656"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType LoadBalanceEndPointInputConnector_3657 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.LoadBalanceEndPointInputConnector_3657"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType LoadBalanceEndPointOutputConnector_3658 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.LoadBalanceEndPointOutputConnector_3658"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType LoadBalanceEndPointWestOutputConnector_3659 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.LoadBalanceEndPointWestOutputConnector_3659"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
 	public static final IElementType LogMediatorInputConnector_3018 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.LogMediatorInputConnector_3018"); //$NON-NLS-1$
 
 	/**
@@ -1786,6 +1876,63 @@ public class EsbElementTypes {
 			elements.put(SequencesOutputConnector_3617,
 					EsbPackage.eINSTANCE.getSequencesOutputConnector());
 
+			elements.put(EndpointDiagram_3642,
+					EsbPackage.eINSTANCE.getEndpointDiagram());
+
+			elements.put(DefaultEndPoint_3643,
+					EsbPackage.eINSTANCE.getDefaultEndPoint());
+
+			elements.put(DefaultEndPointInputConnector_3644,
+					EsbPackage.eINSTANCE.getDefaultEndPointInputConnector());
+
+			elements.put(DefaultEndPointOutputConnector_3645,
+					EsbPackage.eINSTANCE.getDefaultEndPointOutputConnector());
+
+			elements.put(AddressEndPoint_3646,
+					EsbPackage.eINSTANCE.getAddressEndPoint());
+
+			elements.put(AddressEndPointInputConnector_3647,
+					EsbPackage.eINSTANCE.getAddressEndPointInputConnector());
+
+			elements.put(AddressEndPointOutputConnector_3648,
+					EsbPackage.eINSTANCE.getAddressEndPointOutputConnector());
+
+			elements.put(FailoverEndPoint_3649,
+					EsbPackage.eINSTANCE.getFailoverEndPoint());
+
+			elements.put(FailoverEndPointInputConnector_3650,
+					EsbPackage.eINSTANCE.getFailoverEndPointInputConnector());
+
+			elements.put(FailoverEndPointOutputConnector_3651,
+					EsbPackage.eINSTANCE.getFailoverEndPointOutputConnector());
+
+			elements.put(FailoverEndPointWestOutputConnector_3652,
+					EsbPackage.eINSTANCE
+							.getFailoverEndPointWestOutputConnector());
+
+			elements.put(WSDLEndPoint_3653,
+					EsbPackage.eINSTANCE.getWSDLEndPoint());
+
+			elements.put(WSDLEndPointInputConnector_3654,
+					EsbPackage.eINSTANCE.getWSDLEndPointInputConnector());
+
+			elements.put(WSDLEndPointOutputConnector_3655,
+					EsbPackage.eINSTANCE.getWSDLEndPointOutputConnector());
+
+			elements.put(LoadBalanceEndPoint_3656,
+					EsbPackage.eINSTANCE.getLoadBalanceEndPoint());
+
+			elements.put(LoadBalanceEndPointInputConnector_3657,
+					EsbPackage.eINSTANCE.getLoadBalanceEndPointInputConnector());
+
+			elements.put(LoadBalanceEndPointOutputConnector_3658,
+					EsbPackage.eINSTANCE
+							.getLoadBalanceEndPointOutputConnector());
+
+			elements.put(LoadBalanceEndPointWestOutputConnector_3659,
+					EsbPackage.eINSTANCE
+							.getLoadBalanceEndPointWestOutputConnector());
+
 			elements.put(EsbLink_4001, EsbPackage.eINSTANCE.getEsbLink());
 		}
 		return (ENamedElement) elements.get(type);
@@ -2014,6 +2161,25 @@ public class EsbElementTypes {
 			KNOWN_ELEMENT_TYPES.add(MediatorFlow_3615);
 			KNOWN_ELEMENT_TYPES.add(SequencesInputConnector_3616);
 			KNOWN_ELEMENT_TYPES.add(SequencesOutputConnector_3617);
+			KNOWN_ELEMENT_TYPES.add(EndpointDiagram_3642);
+			KNOWN_ELEMENT_TYPES.add(DefaultEndPoint_3643);
+			KNOWN_ELEMENT_TYPES.add(DefaultEndPointInputConnector_3644);
+			KNOWN_ELEMENT_TYPES.add(DefaultEndPointOutputConnector_3645);
+			KNOWN_ELEMENT_TYPES.add(AddressEndPoint_3646);
+			KNOWN_ELEMENT_TYPES.add(AddressEndPointInputConnector_3647);
+			KNOWN_ELEMENT_TYPES.add(AddressEndPointOutputConnector_3648);
+			KNOWN_ELEMENT_TYPES.add(FailoverEndPoint_3649);
+			KNOWN_ELEMENT_TYPES.add(FailoverEndPointInputConnector_3650);
+			KNOWN_ELEMENT_TYPES.add(FailoverEndPointOutputConnector_3651);
+			KNOWN_ELEMENT_TYPES.add(FailoverEndPointWestOutputConnector_3652);
+			KNOWN_ELEMENT_TYPES.add(WSDLEndPoint_3653);
+			KNOWN_ELEMENT_TYPES.add(WSDLEndPointInputConnector_3654);
+			KNOWN_ELEMENT_TYPES.add(WSDLEndPointOutputConnector_3655);
+			KNOWN_ELEMENT_TYPES.add(LoadBalanceEndPoint_3656);
+			KNOWN_ELEMENT_TYPES.add(LoadBalanceEndPointInputConnector_3657);
+			KNOWN_ELEMENT_TYPES.add(LoadBalanceEndPointOutputConnector_3658);
+			KNOWN_ELEMENT_TYPES
+					.add(LoadBalanceEndPointWestOutputConnector_3659);
 			KNOWN_ELEMENT_TYPES.add(EsbLink_4001);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
@@ -2426,6 +2592,42 @@ public class EsbElementTypes {
 			return SequencesInputConnector_3616;
 		case SequencesOutputConnectorEditPart.VISUAL_ID:
 			return SequencesOutputConnector_3617;
+		case EndpointDiagramEditPart.VISUAL_ID:
+			return EndpointDiagram_3642;
+		case DefaultEndPoint2EditPart.VISUAL_ID:
+			return DefaultEndPoint_3643;
+		case DefaultEndPointInputConnector2EditPart.VISUAL_ID:
+			return DefaultEndPointInputConnector_3644;
+		case DefaultEndPointOutputConnector2EditPart.VISUAL_ID:
+			return DefaultEndPointOutputConnector_3645;
+		case AddressEndPoint2EditPart.VISUAL_ID:
+			return AddressEndPoint_3646;
+		case AddressEndPointInputConnector2EditPart.VISUAL_ID:
+			return AddressEndPointInputConnector_3647;
+		case AddressEndPointOutputConnector2EditPart.VISUAL_ID:
+			return AddressEndPointOutputConnector_3648;
+		case FailoverEndPoint2EditPart.VISUAL_ID:
+			return FailoverEndPoint_3649;
+		case FailoverEndPointInputConnector2EditPart.VISUAL_ID:
+			return FailoverEndPointInputConnector_3650;
+		case FailoverEndPointOutputConnector2EditPart.VISUAL_ID:
+			return FailoverEndPointOutputConnector_3651;
+		case FailoverEndPointWestOutputConnector2EditPart.VISUAL_ID:
+			return FailoverEndPointWestOutputConnector_3652;
+		case WSDLEndPoint2EditPart.VISUAL_ID:
+			return WSDLEndPoint_3653;
+		case WSDLEndPointInputConnector2EditPart.VISUAL_ID:
+			return WSDLEndPointInputConnector_3654;
+		case WSDLEndPointOutputConnector2EditPart.VISUAL_ID:
+			return WSDLEndPointOutputConnector_3655;
+		case LoadBalanceEndPoint2EditPart.VISUAL_ID:
+			return LoadBalanceEndPoint_3656;
+		case LoadBalanceEndPointInputConnector2EditPart.VISUAL_ID:
+			return LoadBalanceEndPointInputConnector_3657;
+		case LoadBalanceEndPointOutputConnector2EditPart.VISUAL_ID:
+			return LoadBalanceEndPointOutputConnector_3658;
+		case LoadBalanceEndPointWestOutputConnector2EditPart.VISUAL_ID:
+			return LoadBalanceEndPointWestOutputConnector_3659;
 		case EsbLinkEditPart.VISUAL_ID:
 			return EsbLink_4001;
 		}

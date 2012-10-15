@@ -31,7 +31,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementType
 /**
  * @generated NOT
  */
-public class LogMediatorOutputConnectorEditPart extends AbstractMediatorOutputConnectorEditPart {
+public class LogMediatorOutputConnectorEditPart extends
+		AbstractMediatorOutputConnectorEditPart {
 
 	/**
 	 * @generated

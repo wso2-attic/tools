@@ -159,6 +159,16 @@ public class EsbDiagramUpdater {
 			return getMergeNode_3013SemanticChildren(view);
 		case SequencesEditPart.VISUAL_ID:
 			return getSequences_3614SemanticChildren(view);
+		case DefaultEndPoint2EditPart.VISUAL_ID:
+			return getDefaultEndPoint_3643SemanticChildren(view);
+		case AddressEndPoint2EditPart.VISUAL_ID:
+			return getAddressEndPoint_3646SemanticChildren(view);
+		case FailoverEndPoint2EditPart.VISUAL_ID:
+			return getFailoverEndPoint_3649SemanticChildren(view);
+		case WSDLEndPoint2EditPart.VISUAL_ID:
+			return getWSDLEndPoint_3653SemanticChildren(view);
+		case LoadBalanceEndPoint2EditPart.VISUAL_ID:
+			return getLoadBalanceEndPoint_3656SemanticChildren(view);
 		case EsbServerContentsCompartmentEditPart.VISUAL_ID:
 			return getEsbServerContentsCompartment_7001SemanticChildren(view);
 		case MediatorFlowMediatorFlowCompartmentEditPart.VISUAL_ID:
@@ -195,6 +205,8 @@ public class EsbDiagramUpdater {
 			return getMediatorFlowMediatorFlowCompartment_7019SemanticChildren(view);
 		case MediatorFlowMediatorFlowCompartment5EditPart.VISUAL_ID:
 			return getMediatorFlowMediatorFlowCompartment_7035SemanticChildren(view);
+		case EndpointDiagramEndpointCompartmentEditPart.VISUAL_ID:
+			return getEndpointDiagramEndpointCompartment_7041SemanticChildren(view);
 		}
 		return Collections.emptyList();
 	}
@@ -215,6 +227,16 @@ public class EsbDiagramUpdater {
 					childElement);
 			if (visualID == MessageMediatorEditPart.VISUAL_ID) {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
+			}
+		}
+		for (Iterator<?> it = modelElement.getChildren().iterator(); it
+				.hasNext();) {
+			EsbElement childElement = (EsbElement) it.next();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == EndpointDiagramEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
 			}
 		}
 		return result;
@@ -2423,6 +2445,184 @@ public class EsbDiagramUpdater {
 			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
 					childElement);
 			if (visualID == SequencesOutputConnectorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbNodeDescriptor> getDefaultEndPoint_3643SemanticChildren(
+			View view) {
+		if (!view.isSetElement()) {
+			return Collections.emptyList();
+		}
+		DefaultEndPoint modelElement = (DefaultEndPoint) view.getElement();
+		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		{
+			DefaultEndPointInputConnector childElement = modelElement
+					.getInputConnector();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == DefaultEndPointInputConnector2EditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+			}
+		}
+		{
+			DefaultEndPointOutputConnector childElement = modelElement
+					.getOutputConnector();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == DefaultEndPointOutputConnector2EditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbNodeDescriptor> getAddressEndPoint_3646SemanticChildren(
+			View view) {
+		if (!view.isSetElement()) {
+			return Collections.emptyList();
+		}
+		AddressEndPoint modelElement = (AddressEndPoint) view.getElement();
+		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		{
+			AddressEndPointInputConnector childElement = modelElement
+					.getInputConnector();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == AddressEndPointInputConnector2EditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+			}
+		}
+		{
+			AddressEndPointOutputConnector childElement = modelElement
+					.getOutputConnector();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == AddressEndPointOutputConnector2EditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbNodeDescriptor> getFailoverEndPoint_3649SemanticChildren(
+			View view) {
+		if (!view.isSetElement()) {
+			return Collections.emptyList();
+		}
+		FailoverEndPoint modelElement = (FailoverEndPoint) view.getElement();
+		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		{
+			FailoverEndPointInputConnector childElement = modelElement
+					.getInputConnector();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == FailoverEndPointInputConnector2EditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+			}
+		}
+		for (Iterator<?> it = modelElement.getOutputConnector().iterator(); it
+				.hasNext();) {
+			FailoverEndPointOutputConnector childElement = (FailoverEndPointOutputConnector) it
+					.next();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == FailoverEndPointOutputConnector2EditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
+		{
+			FailoverEndPointWestOutputConnector childElement = modelElement
+					.getWestOutputConnector();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == FailoverEndPointWestOutputConnector2EditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbNodeDescriptor> getWSDLEndPoint_3653SemanticChildren(
+			View view) {
+		if (!view.isSetElement()) {
+			return Collections.emptyList();
+		}
+		WSDLEndPoint modelElement = (WSDLEndPoint) view.getElement();
+		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		{
+			WSDLEndPointInputConnector childElement = modelElement
+					.getInputConnector();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == WSDLEndPointInputConnector2EditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+			}
+		}
+		{
+			WSDLEndPointOutputConnector childElement = modelElement
+					.getOutputConnector();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == WSDLEndPointOutputConnector2EditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbNodeDescriptor> getLoadBalanceEndPoint_3656SemanticChildren(
+			View view) {
+		if (!view.isSetElement()) {
+			return Collections.emptyList();
+		}
+		LoadBalanceEndPoint modelElement = (LoadBalanceEndPoint) view
+				.getElement();
+		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		{
+			LoadBalanceEndPointInputConnector childElement = modelElement
+					.getInputConnector();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == LoadBalanceEndPointInputConnector2EditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+			}
+		}
+		for (Iterator<?> it = modelElement.getOutputConnector().iterator(); it
+				.hasNext();) {
+			LoadBalanceEndPointOutputConnector childElement = (LoadBalanceEndPointOutputConnector) it
+					.next();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == LoadBalanceEndPointOutputConnector2EditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+		}
+		{
+			LoadBalanceEndPointWestOutputConnector childElement = modelElement
+					.getWestOutputConnector();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == LoadBalanceEndPointWestOutputConnector2EditPart.VISUAL_ID) {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 			}
 		}
@@ -5918,6 +6118,44 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<EsbNodeDescriptor> getEndpointDiagramEndpointCompartment_7041SemanticChildren(
+			View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.emptyList();
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.emptyList();
+		}
+		EndpointDiagram modelElement = (EndpointDiagram) containerView
+				.getElement();
+		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		{
+			EndPoint childElement = modelElement.getChild();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == DefaultEndPoint2EditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+			}
+			if (visualID == AddressEndPoint2EditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+			}
+			if (visualID == FailoverEndPoint2EditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+			}
+			if (visualID == WSDLEndPoint2EditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+			}
+			if (visualID == LoadBalanceEndPoint2EditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<EsbNodeDescriptor> getEsbDiagram_1000SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
@@ -6343,6 +6581,42 @@ public class EsbDiagramUpdater {
 			return getSequencesInputConnector_3616ContainedLinks(view);
 		case SequencesOutputConnectorEditPart.VISUAL_ID:
 			return getSequencesOutputConnector_3617ContainedLinks(view);
+		case EndpointDiagramEditPart.VISUAL_ID:
+			return getEndpointDiagram_3642ContainedLinks(view);
+		case DefaultEndPoint2EditPart.VISUAL_ID:
+			return getDefaultEndPoint_3643ContainedLinks(view);
+		case DefaultEndPointInputConnector2EditPart.VISUAL_ID:
+			return getDefaultEndPointInputConnector_3644ContainedLinks(view);
+		case DefaultEndPointOutputConnector2EditPart.VISUAL_ID:
+			return getDefaultEndPointOutputConnector_3645ContainedLinks(view);
+		case AddressEndPoint2EditPart.VISUAL_ID:
+			return getAddressEndPoint_3646ContainedLinks(view);
+		case AddressEndPointInputConnector2EditPart.VISUAL_ID:
+			return getAddressEndPointInputConnector_3647ContainedLinks(view);
+		case AddressEndPointOutputConnector2EditPart.VISUAL_ID:
+			return getAddressEndPointOutputConnector_3648ContainedLinks(view);
+		case FailoverEndPoint2EditPart.VISUAL_ID:
+			return getFailoverEndPoint_3649ContainedLinks(view);
+		case FailoverEndPointInputConnector2EditPart.VISUAL_ID:
+			return getFailoverEndPointInputConnector_3650ContainedLinks(view);
+		case FailoverEndPointOutputConnector2EditPart.VISUAL_ID:
+			return getFailoverEndPointOutputConnector_3651ContainedLinks(view);
+		case FailoverEndPointWestOutputConnector2EditPart.VISUAL_ID:
+			return getFailoverEndPointWestOutputConnector_3652ContainedLinks(view);
+		case WSDLEndPoint2EditPart.VISUAL_ID:
+			return getWSDLEndPoint_3653ContainedLinks(view);
+		case WSDLEndPointInputConnector2EditPart.VISUAL_ID:
+			return getWSDLEndPointInputConnector_3654ContainedLinks(view);
+		case WSDLEndPointOutputConnector2EditPart.VISUAL_ID:
+			return getWSDLEndPointOutputConnector_3655ContainedLinks(view);
+		case LoadBalanceEndPoint2EditPart.VISUAL_ID:
+			return getLoadBalanceEndPoint_3656ContainedLinks(view);
+		case LoadBalanceEndPointInputConnector2EditPart.VISUAL_ID:
+			return getLoadBalanceEndPointInputConnector_3657ContainedLinks(view);
+		case LoadBalanceEndPointOutputConnector2EditPart.VISUAL_ID:
+			return getLoadBalanceEndPointOutputConnector_3658ContainedLinks(view);
+		case LoadBalanceEndPointWestOutputConnector2EditPart.VISUAL_ID:
+			return getLoadBalanceEndPointWestOutputConnector_3659ContainedLinks(view);
 		case EsbLinkEditPart.VISUAL_ID:
 			return getEsbLink_4001ContainedLinks(view);
 		}
@@ -6754,6 +7028,42 @@ public class EsbDiagramUpdater {
 			return getSequencesInputConnector_3616IncomingLinks(view);
 		case SequencesOutputConnectorEditPart.VISUAL_ID:
 			return getSequencesOutputConnector_3617IncomingLinks(view);
+		case EndpointDiagramEditPart.VISUAL_ID:
+			return getEndpointDiagram_3642IncomingLinks(view);
+		case DefaultEndPoint2EditPart.VISUAL_ID:
+			return getDefaultEndPoint_3643IncomingLinks(view);
+		case DefaultEndPointInputConnector2EditPart.VISUAL_ID:
+			return getDefaultEndPointInputConnector_3644IncomingLinks(view);
+		case DefaultEndPointOutputConnector2EditPart.VISUAL_ID:
+			return getDefaultEndPointOutputConnector_3645IncomingLinks(view);
+		case AddressEndPoint2EditPart.VISUAL_ID:
+			return getAddressEndPoint_3646IncomingLinks(view);
+		case AddressEndPointInputConnector2EditPart.VISUAL_ID:
+			return getAddressEndPointInputConnector_3647IncomingLinks(view);
+		case AddressEndPointOutputConnector2EditPart.VISUAL_ID:
+			return getAddressEndPointOutputConnector_3648IncomingLinks(view);
+		case FailoverEndPoint2EditPart.VISUAL_ID:
+			return getFailoverEndPoint_3649IncomingLinks(view);
+		case FailoverEndPointInputConnector2EditPart.VISUAL_ID:
+			return getFailoverEndPointInputConnector_3650IncomingLinks(view);
+		case FailoverEndPointOutputConnector2EditPart.VISUAL_ID:
+			return getFailoverEndPointOutputConnector_3651IncomingLinks(view);
+		case FailoverEndPointWestOutputConnector2EditPart.VISUAL_ID:
+			return getFailoverEndPointWestOutputConnector_3652IncomingLinks(view);
+		case WSDLEndPoint2EditPart.VISUAL_ID:
+			return getWSDLEndPoint_3653IncomingLinks(view);
+		case WSDLEndPointInputConnector2EditPart.VISUAL_ID:
+			return getWSDLEndPointInputConnector_3654IncomingLinks(view);
+		case WSDLEndPointOutputConnector2EditPart.VISUAL_ID:
+			return getWSDLEndPointOutputConnector_3655IncomingLinks(view);
+		case LoadBalanceEndPoint2EditPart.VISUAL_ID:
+			return getLoadBalanceEndPoint_3656IncomingLinks(view);
+		case LoadBalanceEndPointInputConnector2EditPart.VISUAL_ID:
+			return getLoadBalanceEndPointInputConnector_3657IncomingLinks(view);
+		case LoadBalanceEndPointOutputConnector2EditPart.VISUAL_ID:
+			return getLoadBalanceEndPointOutputConnector_3658IncomingLinks(view);
+		case LoadBalanceEndPointWestOutputConnector2EditPart.VISUAL_ID:
+			return getLoadBalanceEndPointWestOutputConnector_3659IncomingLinks(view);
 		case EsbLinkEditPart.VISUAL_ID:
 			return getEsbLink_4001IncomingLinks(view);
 		}
@@ -7165,6 +7475,42 @@ public class EsbDiagramUpdater {
 			return getSequencesInputConnector_3616OutgoingLinks(view);
 		case SequencesOutputConnectorEditPart.VISUAL_ID:
 			return getSequencesOutputConnector_3617OutgoingLinks(view);
+		case EndpointDiagramEditPart.VISUAL_ID:
+			return getEndpointDiagram_3642OutgoingLinks(view);
+		case DefaultEndPoint2EditPart.VISUAL_ID:
+			return getDefaultEndPoint_3643OutgoingLinks(view);
+		case DefaultEndPointInputConnector2EditPart.VISUAL_ID:
+			return getDefaultEndPointInputConnector_3644OutgoingLinks(view);
+		case DefaultEndPointOutputConnector2EditPart.VISUAL_ID:
+			return getDefaultEndPointOutputConnector_3645OutgoingLinks(view);
+		case AddressEndPoint2EditPart.VISUAL_ID:
+			return getAddressEndPoint_3646OutgoingLinks(view);
+		case AddressEndPointInputConnector2EditPart.VISUAL_ID:
+			return getAddressEndPointInputConnector_3647OutgoingLinks(view);
+		case AddressEndPointOutputConnector2EditPart.VISUAL_ID:
+			return getAddressEndPointOutputConnector_3648OutgoingLinks(view);
+		case FailoverEndPoint2EditPart.VISUAL_ID:
+			return getFailoverEndPoint_3649OutgoingLinks(view);
+		case FailoverEndPointInputConnector2EditPart.VISUAL_ID:
+			return getFailoverEndPointInputConnector_3650OutgoingLinks(view);
+		case FailoverEndPointOutputConnector2EditPart.VISUAL_ID:
+			return getFailoverEndPointOutputConnector_3651OutgoingLinks(view);
+		case FailoverEndPointWestOutputConnector2EditPart.VISUAL_ID:
+			return getFailoverEndPointWestOutputConnector_3652OutgoingLinks(view);
+		case WSDLEndPoint2EditPart.VISUAL_ID:
+			return getWSDLEndPoint_3653OutgoingLinks(view);
+		case WSDLEndPointInputConnector2EditPart.VISUAL_ID:
+			return getWSDLEndPointInputConnector_3654OutgoingLinks(view);
+		case WSDLEndPointOutputConnector2EditPart.VISUAL_ID:
+			return getWSDLEndPointOutputConnector_3655OutgoingLinks(view);
+		case LoadBalanceEndPoint2EditPart.VISUAL_ID:
+			return getLoadBalanceEndPoint_3656OutgoingLinks(view);
+		case LoadBalanceEndPointInputConnector2EditPart.VISUAL_ID:
+			return getLoadBalanceEndPointInputConnector_3657OutgoingLinks(view);
+		case LoadBalanceEndPointOutputConnector2EditPart.VISUAL_ID:
+			return getLoadBalanceEndPointOutputConnector_3658OutgoingLinks(view);
+		case LoadBalanceEndPointWestOutputConnector2EditPart.VISUAL_ID:
+			return getLoadBalanceEndPointWestOutputConnector_3659OutgoingLinks(view);
 		case EsbLinkEditPart.VISUAL_ID:
 			return getEsbLink_4001OutgoingLinks(view);
 		}
@@ -7441,6 +7787,178 @@ public class EsbDiagramUpdater {
 	public static List<EsbLinkDescriptor> getSequencesOutputConnector_3617ContainedLinks(
 			View view) {
 		SequencesOutputConnector modelElement = (SequencesOutputConnector) view
+				.getElement();
+		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getEndpointDiagram_3642ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getDefaultEndPoint_3643ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getDefaultEndPointInputConnector_3644ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getDefaultEndPointOutputConnector_3645ContainedLinks(
+			View view) {
+		DefaultEndPointOutputConnector modelElement = (DefaultEndPointOutputConnector) view
+				.getElement();
+		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getAddressEndPoint_3646ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getAddressEndPointInputConnector_3647ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getAddressEndPointOutputConnector_3648ContainedLinks(
+			View view) {
+		AddressEndPointOutputConnector modelElement = (AddressEndPointOutputConnector) view
+				.getElement();
+		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getFailoverEndPoint_3649ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getFailoverEndPointInputConnector_3650ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getFailoverEndPointOutputConnector_3651ContainedLinks(
+			View view) {
+		FailoverEndPointOutputConnector modelElement = (FailoverEndPointOutputConnector) view
+				.getElement();
+		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getFailoverEndPointWestOutputConnector_3652ContainedLinks(
+			View view) {
+		FailoverEndPointWestOutputConnector modelElement = (FailoverEndPointWestOutputConnector) view
+				.getElement();
+		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getWSDLEndPoint_3653ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getWSDLEndPointInputConnector_3654ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getWSDLEndPointOutputConnector_3655ContainedLinks(
+			View view) {
+		WSDLEndPointOutputConnector modelElement = (WSDLEndPointOutputConnector) view
+				.getElement();
+		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getLoadBalanceEndPoint_3656ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getLoadBalanceEndPointInputConnector_3657ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getLoadBalanceEndPointOutputConnector_3658ContainedLinks(
+			View view) {
+		LoadBalanceEndPointOutputConnector modelElement = (LoadBalanceEndPointOutputConnector) view
+				.getElement();
+		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getLoadBalanceEndPointWestOutputConnector_3659ContainedLinks(
+			View view) {
+		LoadBalanceEndPointWestOutputConnector modelElement = (LoadBalanceEndPointWestOutputConnector) view
 				.getElement();
 		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
@@ -9339,6 +9857,185 @@ public class EsbDiagramUpdater {
 	 * @generated
 	 */
 	public static List<EsbLinkDescriptor> getSequencesOutputConnector_3617IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getEndpointDiagram_3642IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getDefaultEndPoint_3643IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getDefaultEndPointInputConnector_3644IncomingLinks(
+			View view) {
+		DefaultEndPointInputConnector modelElement = (DefaultEndPointInputConnector) view
+				.getElement();
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
+		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
+				crossReferences));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getDefaultEndPointOutputConnector_3645IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getAddressEndPoint_3646IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getAddressEndPointInputConnector_3647IncomingLinks(
+			View view) {
+		AddressEndPointInputConnector modelElement = (AddressEndPointInputConnector) view
+				.getElement();
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
+		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
+				crossReferences));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getAddressEndPointOutputConnector_3648IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getFailoverEndPoint_3649IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getFailoverEndPointInputConnector_3650IncomingLinks(
+			View view) {
+		FailoverEndPointInputConnector modelElement = (FailoverEndPointInputConnector) view
+				.getElement();
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
+		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
+				crossReferences));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getFailoverEndPointOutputConnector_3651IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getFailoverEndPointWestOutputConnector_3652IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getWSDLEndPoint_3653IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getWSDLEndPointInputConnector_3654IncomingLinks(
+			View view) {
+		WSDLEndPointInputConnector modelElement = (WSDLEndPointInputConnector) view
+				.getElement();
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
+		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
+				crossReferences));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getWSDLEndPointOutputConnector_3655IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getLoadBalanceEndPoint_3656IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getLoadBalanceEndPointInputConnector_3657IncomingLinks(
+			View view) {
+		LoadBalanceEndPointInputConnector modelElement = (LoadBalanceEndPointInputConnector) view
+				.getElement();
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
+		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement,
+				crossReferences));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getLoadBalanceEndPointOutputConnector_3658IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getLoadBalanceEndPointWestOutputConnector_3659IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -11273,6 +11970,178 @@ public class EsbDiagramUpdater {
 	public static List<EsbLinkDescriptor> getSequencesOutputConnector_3617OutgoingLinks(
 			View view) {
 		SequencesOutputConnector modelElement = (SequencesOutputConnector) view
+				.getElement();
+		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getEndpointDiagram_3642OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getDefaultEndPoint_3643OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getDefaultEndPointInputConnector_3644OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getDefaultEndPointOutputConnector_3645OutgoingLinks(
+			View view) {
+		DefaultEndPointOutputConnector modelElement = (DefaultEndPointOutputConnector) view
+				.getElement();
+		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getAddressEndPoint_3646OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getAddressEndPointInputConnector_3647OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getAddressEndPointOutputConnector_3648OutgoingLinks(
+			View view) {
+		AddressEndPointOutputConnector modelElement = (AddressEndPointOutputConnector) view
+				.getElement();
+		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getFailoverEndPoint_3649OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getFailoverEndPointInputConnector_3650OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getFailoverEndPointOutputConnector_3651OutgoingLinks(
+			View view) {
+		FailoverEndPointOutputConnector modelElement = (FailoverEndPointOutputConnector) view
+				.getElement();
+		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getFailoverEndPointWestOutputConnector_3652OutgoingLinks(
+			View view) {
+		FailoverEndPointWestOutputConnector modelElement = (FailoverEndPointWestOutputConnector) view
+				.getElement();
+		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getWSDLEndPoint_3653OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getWSDLEndPointInputConnector_3654OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getWSDLEndPointOutputConnector_3655OutgoingLinks(
+			View view) {
+		WSDLEndPointOutputConnector modelElement = (WSDLEndPointOutputConnector) view
+				.getElement();
+		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getLoadBalanceEndPoint_3656OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getLoadBalanceEndPointInputConnector_3657OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getLoadBalanceEndPointOutputConnector_3658OutgoingLinks(
+			View view) {
+		LoadBalanceEndPointOutputConnector modelElement = (LoadBalanceEndPointOutputConnector) view
+				.getElement();
+		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getLoadBalanceEndPointWestOutputConnector_3659OutgoingLinks(
+			View view) {
+		LoadBalanceEndPointWestOutputConnector modelElement = (LoadBalanceEndPointWestOutputConnector) view
 				.getElement();
 		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));

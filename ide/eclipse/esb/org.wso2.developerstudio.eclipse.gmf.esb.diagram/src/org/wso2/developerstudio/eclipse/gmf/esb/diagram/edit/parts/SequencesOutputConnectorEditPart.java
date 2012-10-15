@@ -40,7 +40,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementType
 /**
  * @generated NOT
  */
-public class SequencesOutputConnectorEditPart extends AbstractOutputConnectorEditPart {
+public class SequencesOutputConnectorEditPart extends
+		AbstractOutputConnectorEditPart {
 
 	/**
 	 * @generated
@@ -56,9 +57,9 @@ public class SequencesOutputConnectorEditPart extends AbstractOutputConnectorEdi
 	 * @generated
 	 */
 	protected IFigure primaryShape;
-	
+
 	public NodeFigure figure_;
-	
+
 	protected IFigure primaryShapeForward;
 
 	/**
@@ -67,15 +68,15 @@ public class SequencesOutputConnectorEditPart extends AbstractOutputConnectorEdi
 	public SequencesOutputConnectorEditPart(View view) {
 		super(view);
 	}
-		
+
 	public NodeFigure getNodeFigureOutput() {
 		return figure_;
 	}
-	
+
 	public IFigure createNodeShapeReverse() {
 		return null;
 	}
-	
+
 	public IFigure createNodeShapeForward() {
 		return primaryShapeForward = new EastPointerFigure();
 	}
@@ -159,7 +160,7 @@ public class SequencesOutputConnectorEditPart extends AbstractOutputConnectorEdi
 		IFigure shape = createNodeShape();
 		figure.add(shape);
 		contentPane = setupContentPane(shape);
-		figure_=figure;
+		figure_ = figure;
 		return figure;
 	}
 
@@ -445,12 +446,12 @@ public class SequencesOutputConnectorEditPart extends AbstractOutputConnectorEdi
 		 */
 		public EastPointerFigure() {
 
-/*			this.setBackgroundColor(THIS_BACK);
-			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(12),
-					getMapMode().DPtoLP(10)));*/
+			/*			this.setBackgroundColor(THIS_BACK);
+			 this.setPreferredSize(new Dimension(getMapMode().DPtoLP(12),
+			 getMapMode().DPtoLP(10)));*/
 			this.addMouseMotionListener(new LinkActivateListener(
 					getEditDomain()));
-			
+
 			GridLayout layoutThis = new GridLayout();
 			layoutThis.numColumns = 1;
 			layoutThis.makeColumnsEqualWidth = true;
@@ -463,9 +464,9 @@ public class SequencesOutputConnectorEditPart extends AbstractOutputConnectorEdi
 			this.setOutline(false);
 			// this.setBackgroundColor(get);
 			this.setPreferredSize(new Dimension(22, 18));
-			createContents();			
+			createContents();
 		}
-		
+
 		public void createContents() {
 			GridData constraintImageRectangle11 = new GridData();
 			constraintImageRectangle11.verticalAlignment = GridData.FILL;

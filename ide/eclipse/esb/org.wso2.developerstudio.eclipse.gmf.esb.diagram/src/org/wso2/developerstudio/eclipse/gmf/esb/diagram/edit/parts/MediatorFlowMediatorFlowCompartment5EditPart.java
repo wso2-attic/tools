@@ -59,7 +59,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementType
  * @generated NOT
  */
 public class MediatorFlowMediatorFlowCompartment5EditPart extends
-	AbstractMediatorFlowCompartmentEditPart {
+		AbstractMediatorFlowCompartmentEditPart {
 
 	/* 	Sequences  */
 
@@ -72,7 +72,7 @@ public class MediatorFlowMediatorFlowCompartment5EditPart extends
 	AbstractBorderItemEditPart sourceOutputConnector = null;
 	AbstractBorderItemEditPart outputConnectorEditPart = null;
 	ShapeNodeEditPart sourceEditPart = null;
-	
+
 	/**
 	 * @generated
 	 */
@@ -434,13 +434,14 @@ public class MediatorFlowMediatorFlowCompartment5EditPart extends
 
 		}
 	}
-	
-	public void setOutputConnectorEditPart(AbstractBorderItemEditPart outputConnectorEditPart){
-		this.outputConnectorEditPart=outputConnectorEditPart;
+
+	public void setOutputConnectorEditPart(
+			AbstractBorderItemEditPart outputConnectorEditPart) {
+		this.outputConnectorEditPart = outputConnectorEditPart;
 	}
-	
-	public void setSourceEditPart(ShapeNodeEditPart sourceEditPart){
-		this.sourceEditPart=sourceEditPart;
+
+	public void setSourceEditPart(ShapeNodeEditPart sourceEditPart) {
+		this.sourceEditPart = sourceEditPart;
 	}
 
 }

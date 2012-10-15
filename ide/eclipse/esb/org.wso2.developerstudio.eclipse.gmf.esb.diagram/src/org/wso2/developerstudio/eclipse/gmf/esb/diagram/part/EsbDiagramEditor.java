@@ -65,6 +65,13 @@ public class EsbDiagramEditor extends DiagramDocumentEditor implements
 	public static final String CONTEXT_ID = "org.wso2.developerstudio.eclipse.gmf.esb.diagram.ui.diagramContext"; //$NON-NLS-1$
 
 	/**
+	 * @generated
+	 */
+	public EsbDiagramEditor() {
+		super(true);
+	}
+
+	/**
 	 * @generated NOT
 	 */
 	public EsbDiagramEditor(EsbMultiPageEditor esbEditor) {
@@ -293,7 +300,7 @@ public class EsbDiagramEditor extends DiagramDocumentEditor implements
 				this, viewer).setParent(getKeyHandler());
 		viewer.setKeyHandler(new DirectEditKeyHandler(viewer)
 				.setParent(viewerKeyHandler));
-		
+
 		//This enables the property view to be informed of selection changes in our graphical view, 
 		//when our view is the active workbench part.
 		esbEditor.getSite().setSelectionProvider(viewer);

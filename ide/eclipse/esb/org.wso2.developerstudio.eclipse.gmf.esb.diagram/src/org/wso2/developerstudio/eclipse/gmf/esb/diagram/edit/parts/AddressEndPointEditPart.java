@@ -337,7 +337,7 @@ public class AddressEndPointEditPart extends AbstractEndpoint {
 		return getChildBySemanticHint(EsbVisualIDRegistry
 				.getType(AddressEndPointEndPointNameEditPart.VISUAL_ID));
 	}
-	
+
 	protected void refreshVisuals() {
 		super.refreshVisuals();
 		AddressEndPoint addEp = (AddressEndPoint) resolveSemanticElement();
@@ -346,17 +346,16 @@ public class AddressEndPointEditPart extends AbstractEndpoint {
 			if (addEp.getURI() != null) {
 				getPrimaryShape().setToolTip(new Label(addEp.getURI()));
 			}
-			
-		}
-    }
- 
-    protected void handleNotificationEvent(Notification notification) {
-        super.handleNotificationEvent(notification);
-        if (notification.getNotifier() instanceof AddressEndPoint){
-            refreshVisuals();
-        }
-    }
 
+		}
+	}
+
+	protected void handleNotificationEvent(Notification notification) {
+		super.handleNotificationEvent(notification);
+		if (notification.getNotifier() instanceof AddressEndPoint) {
+			refreshVisuals();
+		}
+	}
 
 	/**
 	 * @generated

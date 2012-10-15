@@ -77,14 +77,16 @@ public class EsbCreationWizardPage extends WizardNewFileCreationPage {
 	protected boolean validatePage() {
 		if (!super.validatePage()) {
 			return false;
-		};
+		}
+		;
 		if (!validateProjectNature()) {
 			setErrorMessage("Please select a ESB Config project");
 			return false;
-		};
+		}
+		;
 		return true;
 	}
-	
+
 	protected boolean validateProjectNature() {
 		try {
 			IProject project = ResourcesPlugin.getWorkspace().getRoot()

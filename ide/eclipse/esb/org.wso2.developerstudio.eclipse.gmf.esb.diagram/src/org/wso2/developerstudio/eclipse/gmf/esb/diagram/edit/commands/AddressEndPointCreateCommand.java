@@ -45,6 +45,7 @@ public class AddressEndPointCreateCommand extends EditElementCommand {
 	 */
 	public boolean canExecute() {
 		return true;
+
 	}
 
 	/**

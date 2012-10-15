@@ -62,7 +62,7 @@ import org.wso2.developerstudio.eclipse.logging.core.Logger;
  * @generated NOT
  */
 public class MediatorFlowMediatorFlowCompartmentEditPart extends
-	AbstractMediatorFlowCompartmentEditPart {
+		AbstractMediatorFlowCompartmentEditPart {
 
 	BorderedNodeFigure borderedNodeFigure;
 	AbstractBorderItemEditPart sourceOutputConnector = null;
@@ -193,11 +193,12 @@ public class MediatorFlowMediatorFlowCompartmentEditPart extends
 					String label = ((NodeToolEntry) ((ToolEntryEditPart) editpart)
 							.getModel()).getLabel();
 					if ((!label.equals("")) && (!label.equals("Sequence"))) {
-						try{
+						try {
 							((Sequence) ((View) sequenceEditPart.getModel())
-								.getElement()).setName(label);		
-						}catch(java.lang.IllegalStateException e){
-							log.error("This is occured while undo operation..", e);
+									.getElement()).setName(label);
+						} catch (java.lang.IllegalStateException e) {
+							log.error("This is occured while undo operation..",
+									e);
 						}
 					}
 				} else if (((ToolEntryEditPart) editpart).getModel() instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceEditPart.NodeToolEntry) {
@@ -344,7 +345,7 @@ public class MediatorFlowMediatorFlowCompartmentEditPart extends
 		EditPart proxyservice = child.getParent().getParent().getParent()
 				.getParent().getParent().getParent().getParent();
 		super.removeChild(child);
-		mediatorFlow.refreshConnector(proxyservice);		
+		mediatorFlow.refreshConnector(proxyservice);
 	}
 
 	/**
@@ -415,12 +416,13 @@ public class MediatorFlowMediatorFlowCompartmentEditPart extends
 
 		}
 	}
-	
-	public void setOutputConnectorEditPart(AbstractBorderItemEditPart outputConnectorEditPart){
-		this.outputConnectorEditPart=outputConnectorEditPart;
+
+	public void setOutputConnectorEditPart(
+			AbstractBorderItemEditPart outputConnectorEditPart) {
+		this.outputConnectorEditPart = outputConnectorEditPart;
 	}
-	
-	public void setSourceEditPart(ShapeNodeEditPart sourceEditPart){
-		this.sourceEditPart=sourceEditPart;
+
+	public void setSourceEditPart(ShapeNodeEditPart sourceEditPart) {
+		this.sourceEditPart = sourceEditPart;
 	}
 }

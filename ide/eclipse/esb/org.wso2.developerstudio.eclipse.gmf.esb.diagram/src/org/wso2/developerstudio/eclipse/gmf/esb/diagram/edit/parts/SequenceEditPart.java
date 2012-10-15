@@ -447,24 +447,25 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 		/*
 		 * File creations.
 		 */
-		createFiles(name,"sequence_" + name + ".esb_diagram", "sequence_" + name
-				+ ".esb", activeProject);
+		createFiles(name, "sequence_" + name + ".esb_diagram", "sequence_"
+				+ name + ".esb", activeProject);
 
 	}
 
-	public boolean createFiles(String name,String fileURI1, String fileURI2,
+	public boolean createFiles(String name, String fileURI1, String fileURI2,
 			IProject currentProject) {
 		Resource diagram;
 
-		String basePath = "platform:/resource/"
-						+ currentProject.getName() + "/" + SEQUENCE_RESOURCE_DIR + "/";
-		IFile file = currentProject.getFile(SEQUENCE_RESOURCE_DIR + "/" + fileURI1);
+		String basePath = "platform:/resource/" + currentProject.getName()
+				+ "/" + SEQUENCE_RESOURCE_DIR + "/";
+		IFile file = currentProject.getFile(SEQUENCE_RESOURCE_DIR + "/"
+				+ fileURI1);
 
 		if (!file.exists()) {
 			diagram = EsbDiagramEditorUtil.createDiagram(
 					URI.createURI(basePath + fileURI1),
 					URI.createURI(basePath + fileURI2),
-					new NullProgressMonitor(),"sequence",name);
+					new NullProgressMonitor(), "sequence", name);
 			try {
 				EsbDiagramEditorUtil.openDiagram(diagram);
 
@@ -528,7 +529,7 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 						return "Sequence name cannot be empty";
 					} else if (str.indexOf(0x20) != -1) {
 						return "Sequence name cannot contain spaces";
-					} 
+					}
 					return null;
 				}
 
@@ -801,8 +802,8 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 				NodeFigure figureInput = ((AbstractMediatorInputConnectorEditPart) this
 						.getChildren().get(i)).getNodeFigureInput();
 				figureInput.removeAll();
-				figureInput.add(((AbstractMediatorInputConnectorEditPart) this.getChildren()
-						.get(i)).getPrimaryShapeReverse());
+				figureInput.add(((AbstractMediatorInputConnectorEditPart) this
+						.getChildren().get(i)).getPrimaryShapeReverse());
 				BorderItemLocator inputLocator = new FixedBorderItemLocator(
 						this.getMainFigure(), inputConnector,
 						PositionConstants.EAST, 0.30);
@@ -821,8 +822,9 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 				NodeFigure figureOutput = ((AbstractMediatorOutputConnectorEditPart) this
 						.getChildren().get(i)).getNodeFigureOutput();
 				figureOutput.removeAll();
-				figureOutput.add(((AbstractMediatorOutputConnectorEditPart) this.getChildren()
-						.get(i)).getPrimaryShapeForward());
+				figureOutput
+						.add(((AbstractMediatorOutputConnectorEditPart) this
+								.getChildren().get(i)).getPrimaryShapeForward());
 				BorderItemLocator outputLocator = new FixedBorderItemLocator(
 						this.getMainFigure(), outputConnector,
 						PositionConstants.EAST, 0.70);

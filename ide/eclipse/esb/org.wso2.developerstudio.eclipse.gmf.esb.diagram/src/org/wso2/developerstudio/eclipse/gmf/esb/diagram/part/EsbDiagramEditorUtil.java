@@ -55,6 +55,7 @@ import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.FileEditorInput;
+import org.wso2.developerstudio.eclipse.gmf.esb.EndpointDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbElement;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
@@ -227,7 +228,8 @@ public class EsbDiagramEditorUtil {
 	 * @generated NOT
 	 */
 	public static Resource createDiagram(URI diagramURI, URI modelURI,
-			IProgressMonitor progressMonitor,final String type, final String name) {
+			IProgressMonitor progressMonitor, final String type,
+			final String name) {
 		final TransactionalEditingDomain editingDomain = GMFEditingDomainFactory.INSTANCE
 				.createEditingDomain();
 		progressMonitor.beginTask(
@@ -246,21 +248,31 @@ public class EsbDiagramEditorUtil {
 					throws ExecutionException {
 				EsbDiagram model = createInitialModel();
 				EsbServer esbServer = model.getServer();
-				if("sequence".equals(type)){
-					Sequences sequences = EsbFactory.eINSTANCE.createSequences();
+				if ("sequence".equals(type)) {
+					Sequences sequences = EsbFactory.eINSTANCE
+							.createSequences();
 					sequences.setName(name);
 					EStructuralFeature target = esbServer.eClass()
-						.getEStructuralFeature("children");
+							.getEStructuralFeature("children");
 					esbServer.eSet(target, Arrays.asList(sequences));
-				}else if("proxy".equals(type)){
-					ProxyService proxyServices = EsbFactory.eINSTANCE.createProxyService();
-					String proxyName = diagramName.replaceAll("^proxy_","").replaceAll(".esb_diagram$","");
+				} else if ("proxy".equals(type)) {
+					ProxyService proxyServices = EsbFactory.eINSTANCE
+							.createProxyService();
+					String proxyName = diagramName.replaceAll("^proxy_", "")
+							.replaceAll(".esb_diagram$", "");
 					proxyServices.setName(proxyName);
 					EStructuralFeature target = esbServer.eClass()
 							.getEStructuralFeature("children");
 					esbServer.eSet(target, Arrays.asList(proxyServices));
+				} else if ("endpoint".equals(type)) {
+					EndpointDiagram endpoints = EsbFactory.eINSTANCE
+							.createEndpointDiagram();
+					endpoints.setName(name);
+					EStructuralFeature target = esbServer.eClass()
+							.getEStructuralFeature("children");
+					esbServer.eSet(target, Arrays.asList(endpoints));
 				}
-				
+
 				attachModelToResource(model, modelResource);
 
 				Diagram diagram = ViewService.createDiagram(model,

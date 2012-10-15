@@ -37,7 +37,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementType
 /**
  * @generated NOT
  */
-public class SequencesInputConnectorEditPart extends AbstractInputConnectorEditPart {
+public class SequencesInputConnectorEditPart extends
+		AbstractInputConnectorEditPart {
 
 	/**
 	 * @generated
@@ -284,10 +285,10 @@ public class SequencesInputConnectorEditPart extends AbstractInputConnectorEditP
 		 */
 		public EastPointerFigure() {
 
-/*			this.setBackgroundColor(THIS_BACK);
-			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(12),
-					getMapMode().DPtoLP(10)));*/
-			
+			/*			this.setBackgroundColor(THIS_BACK);
+			 this.setPreferredSize(new Dimension(getMapMode().DPtoLP(12),
+			 getMapMode().DPtoLP(10)));*/
+
 			GridLayout layoutThis = new GridLayout();
 			layoutThis.numColumns = 1;
 			layoutThis.makeColumnsEqualWidth = true;
@@ -302,7 +303,7 @@ public class SequencesInputConnectorEditPart extends AbstractInputConnectorEditP
 			this.setPreferredSize(new Dimension(22, 18));
 			createContents();
 		}
-		
+
 		public void createContents() {
 			GridData constraintImageRectangle11 = new GridData();
 			constraintImageRectangle11.verticalAlignment = GridData.FILL;

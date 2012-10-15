@@ -42,7 +42,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementType
  * @generated NOT
  */
 public class MediatorFlowMediatorFlowCompartment6EditPart extends
-	AbstractMediatorFlowCompartmentEditPart {
+		AbstractMediatorFlowCompartmentEditPart {
 
 	//ProxyService FaultSequence.
 
@@ -218,13 +218,14 @@ public class MediatorFlowMediatorFlowCompartment6EditPart extends
 			inputConnectorEditPart = sourceInputConnector;
 		}
 	}
-	
-	public void setInputConnectorEditPart(AbstractBorderItemEditPart inputConnectorEditPart){
-		this.inputConnectorEditPart=inputConnectorEditPart;
+
+	public void setInputConnectorEditPart(
+			AbstractBorderItemEditPart inputConnectorEditPart) {
+		this.inputConnectorEditPart = inputConnectorEditPart;
 	}
-	
-	public void setSourceEditPart(ShapeNodeEditPart sourceEditPart){
-		this.sourceEditPart=sourceEditPart;
+
+	public void setSourceEditPart(ShapeNodeEditPart sourceEditPart) {
+		this.sourceEditPart = sourceEditPart;
 	}
 
 }

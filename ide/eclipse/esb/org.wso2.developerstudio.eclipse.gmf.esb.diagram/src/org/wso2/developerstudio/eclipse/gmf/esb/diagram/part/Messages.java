@@ -863,12 +863,22 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String EndpointDiagramEndpointCompartmentEditPart_title;
+
+	/**
+	 * @generated
+	 */
 	public static String CommandName_OpenDiagram;
 
 	/**
 	 * @generated
 	 */
 	public static String NavigatorGroupName_SwitchDefaultBranchOutputConnector_3044_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_LoadBalanceEndPointInputConnector_3657_incominglinks;
 
 	/**
 	 * @generated
@@ -948,6 +958,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_LoadBalanceEndPointWestOutputConnector_3659_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_LoadBalanceEndPointWestOutputConnector_3098_outgoinglinks;
 
 	/**
@@ -974,6 +989,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_DefaultEndPointOutputConnector_3022_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_AddressEndPointOutputConnector_3648_outgoinglinks;
 
 	/**
 	 * @generated
@@ -1078,6 +1098,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_FailoverEndPointWestOutputConnector_3652_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_StoreMediatorOutputConnector_3590_outgoinglinks;
 
 	/**
@@ -1094,6 +1119,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_CallTemplateMediatorInputConnector_3595_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_FailoverEndPointInputConnector_3650_incominglinks;
 
 	/**
 	 * @generated
@@ -1143,6 +1173,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_DefaultEndPointInputConnector_3644_incominglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_PayloadFactoryMediatorOutputConnector_3599_outgoinglinks;
 
 	/**
@@ -1154,6 +1189,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_CloneMediatorInputConnector_3103_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_WSDLEndPointInputConnector_3654_incominglinks;
 
 	/**
 	 * @generated
@@ -1228,7 +1268,17 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_DefaultEndPointOutputConnector_3645_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_OAuthMediatorOutputConnector_3131_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_LoadBalanceEndPointOutputConnector_3658_outgoinglinks;
 
 	/**
 	 * @generated
@@ -1254,6 +1304,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_BuilderMediatorInputConnector_3592_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_FailoverEndPointOutputConnector_3651_outgoinglinks;
 
 	/**
 	 * @generated
@@ -1363,6 +1418,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_AddressEndPointInputConnector_3647_incominglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_ValidateMediatorOnFailOutputConnector_3626_outgoinglinks;
 
 	/**
@@ -1424,6 +1484,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_CacheMediatorInputConnector_3106_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_WSDLEndPointOutputConnector_3655_outgoinglinks;
 
 	/**
 	 * @generated

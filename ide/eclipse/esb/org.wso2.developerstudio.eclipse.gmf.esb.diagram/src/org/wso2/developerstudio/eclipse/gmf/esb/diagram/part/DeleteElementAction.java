@@ -69,6 +69,7 @@ public class DeleteElementAction extends AbstractDeleteFromAction {
 	protected String getCommandLabel() {
 		return DiagramUIMessages.DiagramEditor_Delete_from_Model;
 	}
+
 	/**
 	 * @generated NOT
 	 */
@@ -81,10 +82,10 @@ public class DeleteElementAction extends AbstractDeleteFromAction {
 		CompositeTransactionalCommand command = new CompositeTransactionalCommand(
 				getEditingDomain(), getCommandLabel());
 		while (editParts.hasNext()) {
-			EditPart editPart = (EditPart) editParts.next();			
+			EditPart editPart = (EditPart) editParts.next();
 			Command curCommand = editPart.getCommand(request);
-			if (curCommand != null) {				
-				updateConnectedConnectors(editPart);				
+			if (curCommand != null) {
+				updateConnectedConnectors(editPart);
 				command.compose(new CommandProxy(curCommand));
 			}
 		}
@@ -93,25 +94,22 @@ public class DeleteElementAction extends AbstractDeleteFromAction {
 		}
 		return new ICommandProxy(command);
 	}
-	
-	
+
 	private void updateConnectedConnectors(EditPart editPart) {
 		if (editPart instanceof AbstractMediator) {
 			AbstractInputConnectorEditPart currentInputConnector = EditorUtils
 					.getInputConnector((ShapeNodeEditPart) editPart);
 			AbstractOutputConnectorEditPart currentOutputConnector = EditorUtils
 					.getOutputConnector((ShapeNodeEditPart) editPart);
-			if(currentOutputConnector
-					.getSourceConnections().size() !=0){
-			((AbstractMediator) editPart)
-					.setConnectedInputConnector((AbstractInputConnectorEditPart) ((EsbLinkEditPart) currentOutputConnector
-							.getSourceConnections().get(0)).getTarget());
+			if (currentOutputConnector.getSourceConnections().size() != 0) {
+				((AbstractMediator) editPart)
+						.setConnectedInputConnector((AbstractInputConnectorEditPart) ((EsbLinkEditPart) currentOutputConnector
+								.getSourceConnections().get(0)).getTarget());
 			}
-			if(currentInputConnector
-					.getTargetConnections().size() !=0){
-			((AbstractMediator) editPart)
-					.setConnectedOutputConnector((AbstractOutputConnectorEditPart) ((EsbLinkEditPart) currentInputConnector
-							.getTargetConnections().get(0)).getSource());
+			if (currentInputConnector.getTargetConnections().size() != 0) {
+				((AbstractMediator) editPart)
+						.setConnectedOutputConnector((AbstractOutputConnectorEditPart) ((EsbLinkEditPart) currentInputConnector
+								.getTargetConnections().get(0)).getSource());
 			}
 		}
 	}

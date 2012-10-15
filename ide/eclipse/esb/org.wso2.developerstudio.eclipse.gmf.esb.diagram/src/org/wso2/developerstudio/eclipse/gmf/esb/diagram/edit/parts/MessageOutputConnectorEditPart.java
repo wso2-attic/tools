@@ -360,6 +360,21 @@ public class MessageOutputConnectorEditPart extends AbstractBorderItemEditPart {
 		if (targetEditPart instanceof SequencesInputConnectorEditPart) {
 			types.add(EsbElementTypes.EsbLink_4001);
 		}
+		if (targetEditPart instanceof DefaultEndPointInputConnector2EditPart) {
+			types.add(EsbElementTypes.EsbLink_4001);
+		}
+		if (targetEditPart instanceof AddressEndPointInputConnector2EditPart) {
+			types.add(EsbElementTypes.EsbLink_4001);
+		}
+		if (targetEditPart instanceof FailoverEndPointInputConnector2EditPart) {
+			types.add(EsbElementTypes.EsbLink_4001);
+		}
+		if (targetEditPart instanceof WSDLEndPointInputConnector2EditPart) {
+			types.add(EsbElementTypes.EsbLink_4001);
+		}
+		if (targetEditPart instanceof LoadBalanceEndPointInputConnector2EditPart) {
+			types.add(EsbElementTypes.EsbLink_4001);
+		}
 		return types;
 	}
 
@@ -420,6 +435,11 @@ public class MessageOutputConnectorEditPart extends AbstractBorderItemEditPart {
 			types.add(EsbElementTypes.MergeNodeFirstInputConnector_3014);
 			types.add(EsbElementTypes.MergeNodeSecondInputConnector_3015);
 			types.add(EsbElementTypes.SequencesInputConnector_3616);
+			types.add(EsbElementTypes.DefaultEndPointInputConnector_3644);
+			types.add(EsbElementTypes.AddressEndPointInputConnector_3647);
+			types.add(EsbElementTypes.FailoverEndPointInputConnector_3650);
+			types.add(EsbElementTypes.WSDLEndPointInputConnector_3654);
+			types.add(EsbElementTypes.LoadBalanceEndPointInputConnector_3657);
 		}
 		return types;
 	}

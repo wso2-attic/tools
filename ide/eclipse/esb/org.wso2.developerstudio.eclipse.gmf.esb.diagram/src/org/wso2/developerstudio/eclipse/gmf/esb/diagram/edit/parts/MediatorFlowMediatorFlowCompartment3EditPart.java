@@ -24,7 +24,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbPaletteFactory.N
  * @generated NOT
  */
 public class MediatorFlowMediatorFlowCompartment3EditPart extends
-	AbstractMediatorCompartmentEditPart {
+		AbstractMediatorCompartmentEditPart {
 
 	/**
 	 * @generated

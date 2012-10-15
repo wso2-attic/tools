@@ -18,7 +18,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.MediatorFl
  * @generated NOT
  */
 public class MediatorFlowMediatorFlowCompartment13EditPart extends
-	AbstractMediatorCompartmentEditPart {
+		AbstractMediatorCompartmentEditPart {
 
 	/**
 	 * @generated
@@ -72,7 +72,7 @@ public class MediatorFlowMediatorFlowCompartment13EditPart extends
 		// TODO This or using ResizableEditpolicy?
 		return false;
 	}
-	
+
 	/**
 	 * @generated
 	 */

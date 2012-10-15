@@ -47,7 +47,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementType
 /**
  * @generated NOT
  */
-public class ProxyOutputConnectorEditPart extends AbstractOutputConnectorEditPart {
+public class ProxyOutputConnectorEditPart extends
+		AbstractOutputConnectorEditPart {
 
 	/**
 	 * @generated
@@ -63,7 +64,7 @@ public class ProxyOutputConnectorEditPart extends AbstractOutputConnectorEditPar
 	 * @generated
 	 */
 	protected IFigure primaryShape;
-	
+
 	protected IFigure primaryShapeForward;
 
 	public final boolean isInput = false;
@@ -421,7 +422,7 @@ public class ProxyOutputConnectorEditPart extends AbstractOutputConnectorEditPar
 			});
 			createContents();
 		}
-		
+
 		public void createContents() {
 			GridData constraintImageRectangle11 = new GridData();
 			constraintImageRectangle11.verticalAlignment = GridData.FILL;
@@ -459,5 +460,5 @@ public class ProxyOutputConnectorEditPart extends AbstractOutputConnectorEditPar
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
 }

@@ -849,10 +849,12 @@ public class EsbPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createDefaultEndPoint1CreationTool() {
+		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+		types.add(EsbElementTypes.DefaultEndPoint_3609);
+		types.add(EsbElementTypes.DefaultEndPoint_3643);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.DefaultEndPoint1CreationTool_title,
-				Messages.DefaultEndPoint1CreationTool_desc,
-				Collections.singletonList(EsbElementTypes.DefaultEndPoint_3609));
+				Messages.DefaultEndPoint1CreationTool_desc, types);
 		entry.setId("createDefaultEndPoint1CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(EsbElementTypes
 				.getImageDescriptor(EsbElementTypes.DefaultEndPoint_3609));
@@ -864,10 +866,12 @@ public class EsbPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createAddressEndPoint2CreationTool() {
+		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+		types.add(EsbElementTypes.AddressEndPoint_3610);
+		types.add(EsbElementTypes.AddressEndPoint_3646);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.AddressEndPoint2CreationTool_title,
-				Messages.AddressEndPoint2CreationTool_desc,
-				Collections.singletonList(EsbElementTypes.AddressEndPoint_3610));
+				Messages.AddressEndPoint2CreationTool_desc, types);
 		entry.setId("createAddressEndPoint2CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(EsbElementTypes
 				.getImageDescriptor(EsbElementTypes.AddressEndPoint_3610));
@@ -879,11 +883,12 @@ public class EsbPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createFailoverEndPoint3CreationTool() {
+		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+		types.add(EsbElementTypes.FailoverEndPoint_3611);
+		types.add(EsbElementTypes.FailoverEndPoint_3649);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.FailoverEndPoint3CreationTool_title,
-				Messages.FailoverEndPoint3CreationTool_desc,
-				Collections
-						.singletonList(EsbElementTypes.FailoverEndPoint_3611));
+				Messages.FailoverEndPoint3CreationTool_desc, types);
 		entry.setId("createFailoverEndPoint3CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(EsbElementTypes
 				.getImageDescriptor(EsbElementTypes.FailoverEndPoint_3611));
@@ -895,10 +900,12 @@ public class EsbPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createWSDLEndPoint4CreationTool() {
+		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+		types.add(EsbElementTypes.WSDLEndPoint_3612);
+		types.add(EsbElementTypes.WSDLEndPoint_3653);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.WSDLEndPoint4CreationTool_title,
-				Messages.WSDLEndPoint4CreationTool_desc,
-				Collections.singletonList(EsbElementTypes.WSDLEndPoint_3612));
+				Messages.WSDLEndPoint4CreationTool_desc, types);
 		entry.setId("createWSDLEndPoint4CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(EsbElementTypes
 				.getImageDescriptor(EsbElementTypes.WSDLEndPoint_3612));
@@ -910,11 +917,12 @@ public class EsbPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createLoadBalanceEndPoint5CreationTool() {
+		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+		types.add(EsbElementTypes.LoadBalanceEndPoint_3613);
+		types.add(EsbElementTypes.LoadBalanceEndPoint_3656);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.LoadBalanceEndPoint5CreationTool_title,
-				Messages.LoadBalanceEndPoint5CreationTool_desc,
-				Collections
-						.singletonList(EsbElementTypes.LoadBalanceEndPoint_3613));
+				Messages.LoadBalanceEndPoint5CreationTool_desc, types);
 		entry.setId("createLoadBalanceEndPoint5CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(EsbElementTypes
 				.getImageDescriptor(EsbElementTypes.LoadBalanceEndPoint_3613));
@@ -959,7 +967,8 @@ public class EsbPaletteFactory {
 			IFile file = input.getFile();
 			IProject activeProject = file.getProject();
 			try {
-				IResource[] SequenceMembers = activeProject.getFolder(SEQUENCE_RESOURCE_DIR).members();
+				IResource[] SequenceMembers = activeProject.getFolder(
+						SEQUENCE_RESOURCE_DIR).members();
 				for (int j = 0; j < SequenceMembers.length; ++j) {
 
 					Pattern p = Pattern.compile(".esb_diagram");

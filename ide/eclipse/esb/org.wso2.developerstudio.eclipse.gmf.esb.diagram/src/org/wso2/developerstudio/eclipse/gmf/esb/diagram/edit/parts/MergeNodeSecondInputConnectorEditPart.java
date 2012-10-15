@@ -272,6 +272,13 @@ public class MergeNodeSecondInputConnectorEditPart extends
 			types.add(EsbElementTypes.MessageOutputConnector_3047);
 			types.add(EsbElementTypes.MergeNodeOutputConnector_3016);
 			types.add(EsbElementTypes.SequencesOutputConnector_3617);
+			types.add(EsbElementTypes.DefaultEndPointOutputConnector_3645);
+			types.add(EsbElementTypes.AddressEndPointOutputConnector_3648);
+			types.add(EsbElementTypes.FailoverEndPointOutputConnector_3651);
+			types.add(EsbElementTypes.FailoverEndPointWestOutputConnector_3652);
+			types.add(EsbElementTypes.WSDLEndPointOutputConnector_3655);
+			types.add(EsbElementTypes.LoadBalanceEndPointOutputConnector_3658);
+			types.add(EsbElementTypes.LoadBalanceEndPointWestOutputConnector_3659);
 		}
 		return types;
 	}
