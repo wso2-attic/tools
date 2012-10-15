@@ -2309,6 +2309,29 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.EndpointDiagram} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EndpointDiagramItemProvider endpointDiagramItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.EndpointDiagram}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEndpointDiagramAdapter() {
+		if (endpointDiagramItemProvider == null) {
+			endpointDiagramItemProvider = new EndpointDiagramItemProvider(this);
+		}
+
+		return endpointDiagramItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.ScriptMediator} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6092,6 +6115,7 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 		if (validateMediatorInputConnectorItemProvider != null) validateMediatorInputConnectorItemProvider.dispose();
 		if (validateMediatorOutputConnectorItemProvider != null) validateMediatorOutputConnectorItemProvider.dispose();
 		if (validateMediatorOnFailOutputConnectorItemProvider != null) validateMediatorOnFailOutputConnectorItemProvider.dispose();
+		if (endpointDiagramItemProvider != null) endpointDiagramItemProvider.dispose();
 	}
 
 }
