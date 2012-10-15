@@ -980,6 +980,15 @@ public class ModelObjectResolverFactoryImpl implements
 			}
 		});
 		
+		/**
+		 * Resolver Corresponding to <task/> tag.
+		 */
+		localNameToResolverMap.put("task", new ModelObjectResolver() {			
+			public ModelObject resolve(Element elem, ModelObject parent) {
+			return getEsbFactory().createTask();
+			}
+		});
+		
 		
 	}
 }

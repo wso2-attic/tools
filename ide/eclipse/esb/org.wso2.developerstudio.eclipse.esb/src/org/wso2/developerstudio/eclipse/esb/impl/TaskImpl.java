@@ -15,6 +15,7 @@
  */
 package org.wso2.developerstudio.eclipse.esb.impl;
 
+import java.util.List;
 import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -591,6 +592,49 @@ public class TaskImpl extends ConfigurationElementImpl implements Task {
 	public Map<String, ObjectValidator> validate() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	@Override
+	protected void doLoad(Element self) throws Exception {
+		setTaskName(self.getAttribute("name"));
+		setTaskGroup(self.getAttribute("class"));
+		setPinnedServers(self.getAttribute("pinnedServers"));
+		
+		Element trigger = getChildElement(self, "trigger");
+		if(trigger.getAttribute("cron")==null){
+			setTriggerType(TaskTriggerType.SIMPLE);
+			setCount(Long.parseLong(trigger.getAttribute("count")));
+			setInterval(Long.parseLong(trigger.getAttribute("interval")));
+		}else{
+			setTriggerType(TaskTriggerType.CRON);
+			setCron(trigger.getAttribute("cron"));
+		}
+		
+		List<Element> properties = getChildElements(self, "property");
+		TaskImplementation taskImpl=new TaskImplementationImpl();
+		taskImpl.setTaskImplementation(self.getAttribute("class"));
+		
+		for (Element element : properties) {
+			TaskProperty taskProperty=new TaskPropertyImpl();
+			taskProperty.setPropertyName(element.getAttribute("name"));
+			
+			if(element.getAttribute("value")!=null){
+				taskProperty.setPropertyType(TaskPropertyType.LITERAL);
+				taskProperty.setPropertyValue(element.getAttribute("value"));
+			}else{
+				taskProperty.setPropertyType(TaskPropertyType.XML);
+				List<Element> childElements = getChildElements(element);
+				if (childElements.size()>0) {
+					taskProperty.setPropertyValue(EsbUtils.renderElement(childElements.get(0), true, true));
+				}
+			}
+			taskImpl.getTaskProperties().add(taskProperty);
+		}
+		
+		setTaskImplementationClass(taskImpl);
+		
+		
+		super.doLoad(self);
 	}
 
 	@Override
