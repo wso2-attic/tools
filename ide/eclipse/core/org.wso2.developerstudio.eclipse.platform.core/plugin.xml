@@ -512,6 +512,21 @@
 		<wizardLink category="dashboard.category.cep" id="dashboard.wizardLink.cep"
 			wizard="org.wso2.developerstudio.eclipse.artifact.newcepartifact">
 		</wizardLink>
+		
+		<!-- BRS -->
+		 <wizardCategory
+          category="org.wso2.developerstudio.eclipse.artifact.businessruleservice.category">
+    	</wizardCategory>
+    	<category
+          id="dashboard.category.brs"
+          showTitle="true"
+          title="Business Rules Server">
+    	</category>
+    	<wizardLink
+          category="dashboard.category.brs"
+          id="dashboard.wizardLink.brs"
+          wizard="org.wso2.developerstudio.eclipse.artifact.businessruleservice.wizard">
+    	</wizardLink>
 
 	</extension>
 </plugin>
