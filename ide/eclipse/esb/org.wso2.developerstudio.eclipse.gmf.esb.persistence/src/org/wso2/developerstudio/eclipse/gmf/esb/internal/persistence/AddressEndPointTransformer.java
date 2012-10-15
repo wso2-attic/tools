@@ -24,6 +24,7 @@ import org.apache.synapse.SynapseArtifact;
 import org.apache.synapse.config.xml.AnonymousListMediator;
 import org.apache.synapse.config.xml.SwitchCase;
 import org.apache.synapse.endpoints.AddressEndpoint;
+import org.apache.synapse.endpoints.DefaultEndpoint;
 import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.endpoints.EndpointDefinition;
 import org.apache.synapse.mediators.base.SequenceMediator;
@@ -35,6 +36,7 @@ import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.validation.internal.service.GetLiveConstraintsOperation;
 import org.wso2.developerstudio.eclipse.gmf.esb.AddressEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.DefaultEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPointAddressingVersion;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
@@ -261,6 +263,49 @@ public class AddressEndPointTransformer extends AbstractEsbNodeTransformer {
 
 		// return synapseAddEP;
 	}
+	
+	public AddressEndpoint create(AddressEndPoint visualEndPoint,String name){ 
+		AddressEndPoint addressEndPoint = visualEndPoint;	
+		AddressEndpoint synapseAddEP = new AddressEndpoint();
+		synapseAddEP.setName(name);
+		EndpointDefinition synapseEPDef = new EndpointDefinition();
+		synapseEPDef.setAddress(addressEndPoint.getURI());
+		// TODO: Configure endpoint with values extracted from the visual model.
+
+		// synapseEPDef.setCharSetEncoding(charSetEncoding);
+		if (addressEndPoint.isAddressingEnabled()) {
+			synapseEPDef.setAddressingOn(true);
+			synapseEPDef.setUseSeparateListener(addressEndPoint
+					.isAddressingSeparateListener());
+			synapseEPDef
+					.setAddressingVersion((addressEndPoint
+							.getAddressingVersion() == EndPointAddressingVersion.FINAL) ? "final"
+							: "submission");
+		}
+		if (addressEndPoint.isReliableMessagingEnabled()) {
+			synapseEPDef.setReliableMessagingOn(addressEndPoint
+					.isReliableMessagingEnabled());
+			// synapseEPDef.setWsRMPolicyKey(visualEndPoint.getReliableMessagingPolicy().getKeyValue());
+		}
+
+		if (addressEndPoint.isSecurityEnabled()) {
+			synapseEPDef.setSecurityOn(true);
+			// synapseEPDef.setWsSecPolicyKey(visualEndPoint.getSecurityPolicy().getKeyValue());
+		}
+
+		synapseEPDef.setRetryDurationOnTimeout((int) (addressEndPoint
+				.getRetryDelay()));
+		if (ValidationUtil.isInt(addressEndPoint.getRetryErrorCodes()))
+			synapseEPDef.addRetryDisabledErrorCode(ValidationUtil
+					.getInt(addressEndPoint.getRetryErrorCodes()));
+		if (ValidationUtil.isInt(addressEndPoint.getSuspendErrorCodes()))
+			synapseEPDef.addSuspendErrorCode(ValidationUtil
+					.getInt(addressEndPoint.getSuspendErrorCodes()));
+
+		synapseAddEP.setDefinition(synapseEPDef);
+		
+		return synapseAddEP;
+	} 
 
 	public void transformWithinSequence(TransformationInfo information,
 			EsbNode subject, SequenceMediator sequence) throws Exception {

@@ -39,7 +39,7 @@ public class WSDLEndPointTransformer extends AbstractEsbNodeTransformer{
 			sendMediator = new SendMediator();
 			information.getParentSequence().addChild(sendMediator);
 		}		
-		sendMediator.setEndpoint(create(visualEndPoint));	
+		sendMediator.setEndpoint(create(visualEndPoint,null));	
 		
 		if(visualEndPoint.getOutputConnector().getOutgoingLink() !=null){
 		if((!(visualEndPoint.getOutputConnector().getOutgoingLink().getTarget() instanceof SequenceInputConnector))||
@@ -67,7 +67,7 @@ public class WSDLEndPointTransformer extends AbstractEsbNodeTransformer{
 		Assert.isTrue(subject instanceof WSDLEndPoint, "Invalid subject");
 		WSDLEndPoint visualEndPoint = (WSDLEndPoint) subject;
 		
-		Endpoint endPoint =(Endpoint)create(visualEndPoint);
+		Endpoint endPoint =(Endpoint)create(visualEndPoint,null);
 		endPoints.add(endPoint);		
 		//Next node may be a Failover endPoint. So that this should be edited to be compatible with that also.
 		info.setParentSequence(info.getOriginOutSequence());
@@ -96,12 +96,13 @@ public class WSDLEndPointTransformer extends AbstractEsbNodeTransformer{
 
 	}
 	
-	private WSDLEndpoint create(WSDLEndPoint visualEndPoint){
+	public WSDLEndpoint create(WSDLEndPoint visualEndPoint,String name){
 		WSDLEndpoint synapseWSDLEP = new WSDLEndpoint();
 		EndpointDefinition synapseEPDef = new EndpointDefinition();
 		synapseWSDLEP.setWsdlURI(visualEndPoint.getWsdlUri());
 		synapseWSDLEP.setServiceName(visualEndPoint.getService());
 		synapseWSDLEP.setPortName(visualEndPoint.getPort());
+		synapseWSDLEP.setName(name);
 		
 		if (visualEndPoint.isAddressingEnabled()) {
 			synapseEPDef.setAddressingOn(true);

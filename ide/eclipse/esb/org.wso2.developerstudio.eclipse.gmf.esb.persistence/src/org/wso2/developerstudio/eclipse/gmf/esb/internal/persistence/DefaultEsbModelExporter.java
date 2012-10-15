@@ -40,6 +40,7 @@ import org.apache.synapse.config.SynapseConfigurationBuilder;
 import org.apache.synapse.config.xml.ProxyServiceSerializer;
 import org.apache.synapse.config.xml.SequenceMediatorSerializer;
 import org.apache.synapse.config.xml.SynapseXMLConfigurationSerializer;
+import org.apache.synapse.config.xml.endpoints.EndpointSerializer;
 import org.apache.synapse.mediators.Value;
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.eclipse.core.runtime.Assert;
@@ -50,6 +51,10 @@ import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
+import org.wso2.developerstudio.eclipse.gmf.esb.AddressEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.DefaultEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.EndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.EndpointDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbElement;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
@@ -60,6 +65,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.MessageMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyService;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequences;
 import org.wso2.developerstudio.eclipse.gmf.esb.Task;
+import org.wso2.developerstudio.eclipse.gmf.esb.WSDLEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.EsbModelTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
 
@@ -185,6 +191,23 @@ public class DefaultEsbModelExporter implements EsbModelTransformer {
 		}
 		return proxy;
 	}
+	
+	
+	private org.apache.synapse.endpoints.Endpoint transformEndpoint(
+			EndpointDiagram visualEndpoint ) throws Exception {		
+		if(((EndpointDiagram) visualEndpoint).getChild() instanceof WSDLEndPoint){
+			WSDLEndPointTransformer transformer= new WSDLEndPointTransformer();
+			return transformer.create((WSDLEndPoint) ((EndpointDiagram) visualEndpoint).getChild(),visualEndpoint.getName());
+		}else if(((EndpointDiagram) visualEndpoint).getChild() instanceof DefaultEndPoint){
+			DefaultEndPointTransformer transformer= new DefaultEndPointTransformer();
+			return transformer.create((DefaultEndPoint) ((EndpointDiagram) visualEndpoint).getChild(),visualEndpoint.getName());
+		}else if(((EndpointDiagram) visualEndpoint).getChild() instanceof AddressEndPoint){
+			AddressEndPointTransformer transformer= new AddressEndPointTransformer();
+			return transformer.create((AddressEndPoint) ((EndpointDiagram) visualEndpoint).getChild(),visualEndpoint.getName());
+		}else{
+			return null;
+		}		
+	}	
 
 	public String designToSource(EsbServer serverModel) throws Exception {
 		SynapseXMLConfigurationSerializer serializer = new SynapseXMLConfigurationSerializer();
@@ -194,11 +217,15 @@ public class DefaultEsbModelExporter implements EsbModelTransformer {
 			if (child instanceof Sequences) {
 				configOM = sequenceSerializer.serializeMediator(null, transformSequence(serverModel));
 				break;
-			} if (child instanceof ProxyService && serverModel.getChildren().size()==1) { 
+			}else if (child instanceof ProxyService && serverModel.getChildren().size()==1) { 
 				/* there should be better way to distinguish between Proxy diagram and Synapse diagram   */
 				configOM = ProxyServiceSerializer.serializeProxy(null, transformProxyService((ProxyService)child));
 				break;
-			} else {
+			}else if(child instanceof EndpointDiagram){
+				configOM = EndpointSerializer.getElementFromEndpoint(transformEndpoint((EndpointDiagram)child)); 
+				break;
+			}
+			else {
 				configOM = serializer
 						.serializeConfiguration(transform(serverModel));
 				break;

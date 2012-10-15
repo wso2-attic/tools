@@ -175,7 +175,7 @@ public class DefaultEndPointTransformer extends AbstractEsbNodeTransformer {
 			List<Endpoint> endPoints) {
 		Assert.isTrue(subject instanceof EndPoint, "Invalid subject");
 		DefaultEndPoint visualEP = (DefaultEndPoint) subject;
-		Endpoint endPoint=(Endpoint)create(visualEP);
+		Endpoint endPoint=(Endpoint)create(visualEP,null);
 		endPoints.add(endPoint);
 		
 		//Next node may be a Failover endPoint. So that this should be edited to be compatible with that also.
@@ -210,9 +210,10 @@ public class DefaultEndPointTransformer extends AbstractEsbNodeTransformer {
 	
 	
 	
-	private DefaultEndpoint create(DefaultEndPoint visualEndPoint){ 
+	public DefaultEndpoint create(DefaultEndPoint visualEndPoint,String name){ 
 		
 		DefaultEndpoint synapseEP = new DefaultEndpoint();
+		synapseEP.setName(name);
 		EndpointDefinition synapseEPDef = new EndpointDefinition();
 		// synapseEPDef.setCharSetEncoding(charSetEncoding);
 		if (visualEndPoint.isAddressingEnabled()) {
