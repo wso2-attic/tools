@@ -19,6 +19,7 @@ import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -30,7 +31,10 @@ import org.wso2.developerstudio.eclipse.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.esb.Task;
 import org.wso2.developerstudio.eclipse.esb.TaskGroup;
 import org.wso2.developerstudio.eclipse.esb.TaskImplementation;
+import org.wso2.developerstudio.eclipse.esb.TaskProperty;
+import org.wso2.developerstudio.eclipse.esb.TaskPropertyType;
 import org.wso2.developerstudio.eclipse.esb.TaskTriggerType;
+import org.wso2.developerstudio.eclipse.esb.util.EsbUtils;
 import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
 
 /**
@@ -591,11 +595,37 @@ public class TaskImpl extends ConfigurationElementImpl implements Task {
 
 	@Override
 	protected Element doSave(Element parent) throws Exception {
-		// TODO Auto-generated method stub
+		Element self = createChildElement(parent, "task");
 		
-		createChildElement(parent, "task");
+		self.setAttribute("name", getTaskName());
+		self.setAttribute("class", getTaskImplementationClass().getTaskImplementation());
+		self.setAttribute("group", getTaskGroup());
+		self.setAttribute("pinnedServers", getPinnedServers());
 		
-		return null;
+		Element triggerNode = createChildElement(self, "trigger");
+		if(getTriggerType().equals(TaskTriggerType.SIMPLE)){
+			triggerNode.setAttribute("count", ""+getCount());
+			triggerNode.setAttribute("interval", ""+getInterval());
+		}else{
+			triggerNode.setAttribute("cron", getCron());
+		}
+		
+		EList<TaskProperty> taskProperties = getTaskImplementationClass().getTaskProperties();
+		
+		for (TaskProperty taskProperty : taskProperties) {
+			Element property = createChildElement(self, "http://www.wso2.org/products/wso2commons/tasks", "task", "property");
+			property.setAttribute("name", taskProperty.getPropertyName());
+			if(taskProperty.getPropertyType().equals(TaskPropertyType.LITERAL)){
+				property.setAttribute("value", taskProperty.getPropertyValue());
+			}else{
+				Element formatElem = EsbUtils.parseElement(taskProperty.getPropertyValue(),true);
+	            formatElem = (Element) self.getOwnerDocument().importNode(formatElem, true);
+	            property.appendChild(formatElem);
+			}
+			
+		}
+		
+		return self;
 	}
 
 } //TaskImpl
