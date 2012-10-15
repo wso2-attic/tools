@@ -9,6 +9,7 @@
  	<extension-point 
  		id="org.wso2.developerstudio.eclipse.project.export.handler" name="Export Handler" 
  		schema="schema/org.wso2.developerstudio.eclipse.project.export.exsd"/>
+  <extension-point id="org.wso2.developerstudio.eclipse.platform.core.intro.ui.dashboard" name="Dashboard" schema="schema/org.wso2.developerstudio.eclipse.platform.core.intro.ui.dashboard.exsd"/>
 	<extension point="org.eclipse.ui.intro.configExtension">
 		<configExtension content="intro/welcome.xml"
 			configId="org.eclipse.ui.intro.universalConfig">
@@ -347,4 +348,170 @@
 				</enablement>
 		</deleteParticipant>
    </extension>
+
+	<extension
+		point="org.wso2.developerstudio.eclipse.platform.core.intro.ui.dashboard">
+		<wizardCategory category="org.wso2.developerstudio.eclipse.web.apps" />
+		<wizardCategory category="org.wso2.developerstudio.eclipse.message.mediation" />
+		<wizardCategory category="org.wso2.developerstudio.eclipse.repository" />
+		<wizardCategory category="org.wso2.developerstudio.eclipse.business.processes" />
+		<wizardCategory category="org.wso2.developerstudio.eclipse.portal.services" />
+		<wizardCategory category="org.wso2.developerstudio.eclipse.carbon.ui" />
+		<wizardCategory category="org.wso2.developerstudio.eclipse.extensions" />
+		<wizardCategory
+			category="org.wso2.developerstudio.eclipse.service.hosting.project.types" />
+		<wizardCategory
+			category="org.wso2.developerstudio.eclipse.service.hosting.features" />
+		<wizardCategory
+			category="org.wso2.developerstudio.eclipse.extensions.project.types" />
+		<wizardCategory category="org.wso2.developerstudio.eclipse.extensions.features" />
+		<wizardCategory
+			category="org.wso2.developerstudio.eclipse.message.mediation.project.types" />
+		<wizardCategory
+			category="org.wso2.developerstudio.eclipse.message.mediation.features" />
+		<wizardCategory
+			category="org.wso2.developerstudio.eclipse.artifact.cep.category" />
+			
+		<category id="dashboard.category.appserv" showTitle="true"
+			title="Application Server">
+		</category>
+		<category id="dashboard.category.esb" showTitle="true"
+			title="Enterprise Service Bus">
+		</category>
+		<category id="dashboard.category.greg" showTitle="true"
+			title="Governance Registry">
+		</category>
+		<category id="odashboard.category.ds" showTitle="true"
+			title="Data Services Server">
+		</category>
+		<category id="dashboard.category.carbon" showTitle="true"
+			title="Carbon">
+		</category>
+		<category id="dashboard.category.bps" showTitle="true"
+			title="Business Process Server">
+		</category>
+		<category id="dashboard.category.gadget" showTitle="true"
+			title="Gadget Server">
+		</category>
+		<category id="dashboard.category.cep" showTitle="true"
+			title="Complex Event Processing Server">
+		</category>
+
+		<!-- appserv -->
+		<wizardLink category="dashboard.category.appserv" id="1dashboard.wizardLink.axis2"
+			wizard="org.wso2.developerstudio.eclipse.artifact.newaxis2artifact">
+		</wizardLink>
+
+		<wizardLink category="dashboard.category.appserv" id="2dashboard.wizardLink.jaxws"
+			wizard="org.wso2.developerstudio.eclipse.artifact.newjaxwsartifact">
+		</wizardLink>
+
+		<wizardLink category="dashboard.category.appserv" id="3dashboard.wizardLink.war"
+			wizard="org.wso2.developerstudio.eclipse.artifact.newwarartifact">
+		</wizardLink>
+
+		<wizardLink category="dashboard.category.appserv"
+			id="4dashboard.wizardLink.axis2.gen.stub.client"
+			wizard="org.wso2.developerstudio.eclipse.artifact.generation.axis2serviceclient">
+		</wizardLink>
+
+		<wizardLink category="dashboard.category.appserv" id="5dashboard.wizardLink.axis2.get.stub"
+			wizard="org.wso2.developerstudio.eclipse.artifact.generation.axis2service">
+		</wizardLink>
+
+		<wizardLink category="dashboard.category.appserv" id="6dashboard.wizardLink.jaxrs"
+			wizard="org.wso2.developerstudio.eclipse.artifact.newjaxrsartifact">
+		</wizardLink>
+
+		<!-- ESB -->
+		<wizardLink category="dashboard.category.esb" id="1dashboard.wizardLink.esb.project"
+			wizard="org.wso2.developerstudio.eclipse.artifact.newesbproject">
+		</wizardLink>
+
+		<wizardLink category="dashboard.category.esb" id="2dashboard.wizardLink.esb.proxy"
+			wizard="org.wso2.developerstudio.eclipse.artifact.newproxyservice">
+		</wizardLink>
+
+		<wizardLink category="dashboard.category.esb" id="3dashboard.wizardLink.esb.endpoint"
+			wizard="org.wso2.developerstudio.eclipse.artifact.newendpointartifact">
+		</wizardLink>
+
+		<wizardLink category="dashboard.category.esb" id="4dashboard.wizardLink.esb.localentry"
+			wizard="org.wso2.developerstudio.eclipse.artifact.newlocalentry">
+		</wizardLink>
+
+		<wizardLink category="dashboard.category.esb" id="5dashboard.wizardLink.esb.mediator"
+			wizard="org.wso2.developerstudio.eclipse.artifact.newmediatorartifact">
+		</wizardLink>
+
+		<wizardLink category="dashboard.category.esb" id="6dashboard.wizardLink.esb.sequence"
+			wizard="org.wso2.developerstudio.eclipse.artifact.newsequenceartifact">
+		</wizardLink>
+
+		<wizardLink category="dashboard.category.esb" id="7dashboard.wizardLink.esb.synapse"
+			wizard="org.wso2.developerstudio.eclipse.artifact.synapseartifact">
+		</wizardLink>
+
+		<!-- greg -->
+
+		<wizardLink category="dashboard.category.greg"
+			id="dashboard.wizardLink.registry.pespective"
+			wizard="org.wso2.developerstudio.registry.remote.registry.perspective.action">
+		</wizardLink>
+
+		<wizardLink category="dashboard.category.greg" id="dashboard.wizardLink.general.project"
+			wizard="org.wso2.developerstudio.eclipse.general.project">
+		</wizardLink>
+
+		<wizardLink category="dashboard.category.greg"
+			id="dashboard.wizardLink.registry.resource" wizard="org.wso2.developerstudio.eclipse.artifact.newregistryresource">
+		</wizardLink>
+
+		<wizardLink category="dashboard.category.greg" id="dashboard.wizardLink.registry.filter"
+			wizard="org.wso2.developerstudio.eclipse.artifact.newregistryfilter">
+		</wizardLink>
+
+		<wizardLink category="dashboard.category.greg"
+			id="dashboard.wizardLink.registry.handler" wizard="org.wso2.developerstudio.eclipse.artifact.newregistryhandler">
+		</wizardLink>
+
+		<customAction
+			class="org.wso2.developerstudio.eclipse.platform.core.intro.action.ShowRegistryPerspective"
+			id="org.wso2.developerstudio.registry.remote.registry.perspective.action">
+		</customAction>
+
+		<!-- data service -->
+		<wizardLink category="odashboard.category.ds" id="dashboard.wizardLink.ds.project"
+			wizard="org.wso2.developerstudio.eclipse.artifact.newdsartifact">
+		</wizardLink>
+
+		<wizardLink category="odashboard.category.ds" id="dashboard.wizardLink.ds.validiator"
+			wizard="org.wso2.developerstudio.eclipse.artifact.newvalidiatorartifact">
+		</wizardLink>
+
+		<!-- carbon -->
+		<wizardLink category="dashboard.category.carbon" id="dashboard.wizardLink.carbon.ui"
+			wizard="org.wso2.developerstudio.eclipse.artifact.carbonUIartifact">
+		</wizardLink>
+
+		<wizardLink category="dashboard.category.carbon" id="dashboard.wizardLink.carbon.javalib"
+			wizard="org.wso2.developerstudio.eclipse.artifact.newlibraryartifact">
+		</wizardLink>
+
+		<!-- BPS -->
+		<wizardLink category="dashboard.category.bps" id="dashboard.wizardLink.bpel"
+			wizard="org.wso2.developerstudio.eclipse.artifact.newbpelartifact">
+		</wizardLink>
+
+		<!-- Gadget -->
+		<wizardLink category="dashboard.category.gadget" id="dashboard.wizardLink.gadget"
+			wizard="org.wso2.developerstudio.eclipse.artifact.newgadgetartifact">
+		</wizardLink>
+
+		<!-- CEP -->
+		<wizardLink category="dashboard.category.cep" id="dashboard.wizardLink.cep"
+			wizard="org.wso2.developerstudio.eclipse.artifact.newcepartifact">
+		</wizardLink>
+
+	</extension>
 </plugin>

@@ -18,6 +18,7 @@ package org.wso2.developerstudio.eclipse.platform.core.intro.ui;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -31,8 +32,6 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.graphics.GC;
-import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
@@ -42,7 +41,6 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.ISelectionListener;
 import org.eclipse.ui.ISelectionService;
 import org.eclipse.ui.IWorkbenchPart;
-import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.IWorkbenchWizard;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.forms.IManagedForm;
@@ -65,69 +63,31 @@ import org.wso2.developerstudio.eclipse.samples.contributor.IDeveloperStudioSamp
 import org.wso2.developerstudio.eclipse.samples.utils.ExtensionPointHandler;
 import org.wso2.developerstudio.eclipse.samples.wizards.ProjectCreationWizard;
 
+/**
+ * Developer studio main dash-board page
+ *
+ */
 public class DashboardPage extends FormPage {
 	
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	
-	private static Map<String, String[]> wizardCategoryMap=new HashMap<String, String[]>(); 
+	private static Map<String, String[]> wizardCategoryMap=new LinkedHashMap<String, String[]>(); 
 	private  Map<String, IWizardDescriptor> wizardDescriptor; 
-	private  Map<String, Action> customActions = new HashMap<String, Action>(); 
+	private  Map<String, Action> customActions = new LinkedHashMap<String, Action>(); 
 	private static final String PROJECT_EXPLORER_PARTID = "org.eclipse.ui.navigator.ProjectExplorer";
 	private static final String PACKAGE_EXPLORER_PARTID = "org.eclipse.jdt.ui.PackageExplorer";
 	private ISelectionListener selectionListener = null;
 	private ISelection selection = null;
+	private static List<DashboardCategory> categories;
 	
 	static{
-		/*TODO: implement custom extension point to obtain configuration */
-		wizardCategoryMap.put("Application Server", new String[] {
-				"org.wso2.developerstudio.eclipse.artifact.newaxis2artifact",
-				"org.wso2.developerstudio.eclipse.artifact.newjaxwsartifact",
-				"org.wso2.developerstudio.eclipse.artifact.newwarartifact",
-				"org.wso2.developerstudio.eclipse.artifact.generation.axis2serviceclient",
-				"org.wso2.developerstudio.eclipse.artifact.generation.axis2service",
-				"org.wso2.developerstudio.eclipse.artifact.newjaxrsartifact"
-				});
 		
-		wizardCategoryMap.put("Business Process Server", new String[] {
-				"org.wso2.developerstudio.eclipse.artifact.newbpelartifact"
-				});
+		categories = DashboardContributionsHandler.getCategories();
+		for (DashboardCategory category : categories) {
+			wizardCategoryMap.put(category.getName(),category.getWizards().toArray(new String[] {}));
+		}
 		
-		wizardCategoryMap.put("Carbon", new String[] {
-				"org.wso2.developerstudio.eclipse.artifact.carbonUIartifact",
-				"org.wso2.developerstudio.eclipse.artifact.newlibraryartifact"
-				});
-		
-		wizardCategoryMap.put( "Data Services Server", new String[] {
-				"org.wso2.developerstudio.eclipse.artifact.newdsartifact",
-				"org.wso2.developerstudio.eclipse.artifact.newvalidiatorartifact"
-				});
-		
-		wizardCategoryMap.put("Enterprise Service Bus", new String[]{
-				"org.wso2.developerstudio.eclipse.artifact.newesbproject",
-				"org.wso2.developerstudio.eclipse.artifact.newendpointartifact", 
-				"org.wso2.developerstudio.eclipse.artifact.newlocalentry",
-				"org.wso2.developerstudio.eclipse.artifact.newmediatorartifact",
-				"org.wso2.developerstudio.eclipse.artifact.newproxyservice",
-				"org.wso2.developerstudio.eclipse.artifact.newsequenceartifact",
-				"org.wso2.developerstudio.eclipse.artifact.synapseartifact"
-				});
-		
-		wizardCategoryMap.put("Governance Registry", new String[]{
-				"org.wso2.developerstudio.registry.remote.registry.pespective.action",
-				"org.wso2.developerstudio.eclipse.general.project",
-				"org.wso2.developerstudio.eclipse.artifact.newregistryresource",
-				"org.wso2.developerstudio.eclipse.artifact.newregistryfilter",
-				"org.wso2.developerstudio.eclipse.artifact.newregistryhandler"
-				});
-		
-		wizardCategoryMap.put("Gadget Server", new String[]{ 
-				"org.wso2.developerstudio.eclipse.artifact.newgadgetartifact"
-				});
-		
-		wizardCategoryMap.put("Complex Event Processing Server", new String[]{ 
-				"org.wso2.developerstudio.eclipse.artifact.newcepartifact"
-				});
-		
+		/* Dashboard items for core features not handle by DashboardContributionsHandler */
 		wizardCategoryMap.put("Distribution", new String[]{
 				"org.wso2.developerstudio.eclipse.distribution.project",
 				});
@@ -184,7 +144,7 @@ public class DashboardPage extends FormPage {
 		getSite().getWorkbenchWindow().getSelectionService().addSelectionListener(PROJECT_EXPLORER_PARTID,selectionListener);
 		getSite().getWorkbenchWindow().getSelectionService().addSelectionListener(PACKAGE_EXPLORER_PARTID,selectionListener);
 		
-		managedForm.getForm().setImage(resize(SWTResourceManager.getImage(this.getClass(), "/intro/css/graphics/cApp-wizard.png"),32,32));
+		managedForm.getForm().setImage(DashboardUtil.resizeImage(SWTResourceManager.getImage(this.getClass(), "/intro/css/graphics/cApp-wizard.png"),32,32));
 		FormToolkit toolkit = managedForm.getToolkit();
 		ScrolledForm form = managedForm.getForm();
 		form.setText("WSO2 Developer Studio");
@@ -205,37 +165,11 @@ public class DashboardPage extends FormPage {
 		
 		wizardDescriptor = getWizardDescriptors();
 		
-		customActions.put("org.wso2.developerstudio.registry.remote.registry.pespective.action", new Action() {
-			public void run() {
-				 try {
-					 	IWorkbenchWindow window=PlatformUI.getWorkbench().getActiveWorkbenchWindow();
-			        	PlatformUI.getWorkbench().showPerspective("org.wso2.developerstudio.registry.remote.registry.pespective", window);
-					} catch (Exception e) {
-						log.error("Cannot open registry perspective",e);
-					}
-			}
-			public String getText() {
-				return "Switch to registry perspective";
-			}
-			public ImageDescriptor getImageDescriptor() {
-				return ImageDescriptor.createFromImage(resize(SWTResourceManager
-						.getImage(this.getClass(), "/intro/css/graphics/registry.png"),
-						16, 16));
-			}
-			public String getDescription() {
-				return "Switch to registry perspective";
-			}
-		});
+		customActions = DashboardContributionsHandler.getCustomActions();
 
-		createCategory(managedForm,composite,"Application Server");
-		createCategory(managedForm,composite,"Enterprise Service Bus");
-		createCategory(managedForm,composite,"Governance Registry");
-		createCategory(managedForm,composite,"Data Services Server");
-		createCategory(managedForm,composite,"Carbon");
-		createCategory(managedForm,composite,"Business Process Server");
-		createCategory(managedForm,composite,"Gadget Server");
-		createCategory(managedForm,composite,"Complex Event Processing Server");
-		
+		for (DashboardCategory category : categories) {
+			createCategory(managedForm,composite,category.getName());
+		}
 
 		sctnCreate.setExpanded(true);
 		Section sctnDistribution = managedForm.getToolkit().createSection(managedForm.getForm().getBody(), Section.TWISTIE | Section.TITLE_BAR);
@@ -247,7 +181,7 @@ public class DashboardPage extends FormPage {
 		managedForm.getToolkit().paintBordersFor(comDistribution);
 		sctnDistribution.setClient(comDistribution);
 		comDistribution.setLayout(new GridLayout(1, false));
-		ImageDescriptor distImageDesc = ImageDescriptor.createFromImage(resize(SWTResourceManager
+		ImageDescriptor distImageDesc = ImageDescriptor.createFromImage(DashboardUtil.resizeImage(SWTResourceManager
 				.getImage(this.getClass(), "/intro/css/graphics/distribution-project-wizard.png"),
 				32, 32));
 		createTitlelessCategory(managedForm,comDistribution,"Distribution",distImageDesc);
@@ -262,7 +196,7 @@ public class DashboardPage extends FormPage {
 		managedForm.getToolkit().paintBordersFor(comMaven);
 		sctnMaven.setClient(comMaven);
 		comMaven.setLayout(new GridLayout(1, false));
-		ImageDescriptor mavenImageDesc = ImageDescriptor.createFromImage(resize(SWTResourceManager
+		ImageDescriptor mavenImageDesc = ImageDescriptor.createFromImage(DashboardUtil.resizeImage(SWTResourceManager
 				.getImage(this.getClass(), "/intro/css/graphics/maven-24x24.png"),
 				32, 32));
 		createTitlelessCategory(managedForm,comMaven,"Maven",mavenImageDesc);
@@ -284,23 +218,12 @@ public class DashboardPage extends FormPage {
 	
 	private Map<String, IWizardDescriptor> getWizardDescriptors() {
 		Map<String, IWizardDescriptor> descriptorMap = new HashMap<String, IWizardDescriptor>();
-		List<IWizardDescriptor> descriptors = getWizardDescriptor(
-		        "org.wso2.developerstudio.eclipse.capp.distribution",
-				"org.wso2.developerstudio.eclipse.web.apps",
-				"org.wso2.developerstudio.eclipse.message.mediation",
-				"org.wso2.developerstudio.eclipse.repository",
-				"org.wso2.developerstudio.eclipse.business.processes",
-				"org.wso2.developerstudio.eclipse.portal.services",
-				"org.wso2.developerstudio.eclipse.carbon.ui",
-				"org.wso2.developerstudio.eclipse.extensions",
-				"org.wso2.developerstudio.eclipse.service.hosting.project.types",
-				"org.wso2.developerstudio.eclipse.service.hosting.features",
-				"org.wso2.developerstudio.eclipse.extensions.project.types",
-				"org.wso2.developerstudio.eclipse.extensions.features",
-				"org.wso2.developerstudio.eclipse.message.mediation.project.types",
-				"org.wso2.developerstudio.eclipse.message.mediation.features",
-				"org.wso2.developerstudio.eclipse.maven.features",
-				"org.wso2.developerstudio.eclipse.artifact.cep.category");
+		List<String> categoryContributions = DashboardContributionsHandler
+				.getCategoryContributions();
+		categoryContributions.add("org.wso2.developerstudio.eclipse.capp.distribution");
+		categoryContributions.add("org.wso2.developerstudio.eclipse.maven.features");
+		/* Dashboard items for core features not handle by DashboardContributionsHandler */
+		List<IWizardDescriptor> descriptors = getWizardDescriptor(categoryContributions.toArray(new String[] {}));
 		
 		for (IWizardDescriptor descriptor : descriptors) {
 			descriptorMap.put(descriptor.getId(), descriptor);
@@ -460,7 +383,7 @@ public class DashboardPage extends FormPage {
 		ImageHyperlink sampleLink = managedForm.getToolkit().createImageHyperlink(composite, SWT.NONE);
 		ImageDescriptor descriptionImage = contributor.getWizardPageImage();
 		if(descriptionImage!=null){
-			sampleLink.setImage(resize(descriptionImage.createImage(),32,32));
+			sampleLink.setImage(DashboardUtil.resizeImage(descriptionImage.createImage(),32,32));
 		}
 		managedForm.getToolkit().paintBordersFor(sampleLink);
 		sampleLink.setText(contributor.getCaption());
@@ -483,16 +406,7 @@ public class DashboardPage extends FormPage {
 		});
 	}
 	
-	private Image resize(Image image, int width, int height) {
-		Image scaled = new Image(Display.getDefault(), width, height);
-		GC gc = new GC(scaled);
-		gc.setAntialias(SWT.ON);
-		gc.setInterpolation(SWT.HIGH);
-		gc.drawImage(image, 0, 0, image.getBounds().width, image.getBounds().height, 0, 0, width,
-		             height);
-		gc.dispose();
-		return scaled;
-	}
+
 	
 	private void createProject(IDeveloperStudioSampleContributor contributor){
 		Shell shell = Display.getCurrent().getActiveShell();
