@@ -51,5 +51,6 @@ public class PlatformMediaTypeConstants {
 	 public final static String MEDIA_TYPE_XSLT = "application/xslt+xml";
 	 public final static String MEDIA_TYPE_WSPOLICY = "application/wspolicy+xml";
 	 public final static String MEDIA_TYPE_SMOOKS="application/vnd+wso2.smooks";
-
+	 
+	public final static String MEDIA_TYPE_DRL="application/drl";
 }

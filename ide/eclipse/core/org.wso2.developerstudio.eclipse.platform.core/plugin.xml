@@ -231,6 +231,11 @@
 			id="org.wso2.developerstudio.eclipse.platform.core.mediatype.phps"
 			mediaType="application/x-httpd-php-source" name="PHPS Media type"
 			priority="2" />
+			 <resolver
+			class="org.wso2.developerstudio.eclipse.platform.core.internal.impl.mediatypes.DRLMediaTypeResolver"
+			extensions="drl"
+			id="org.wso2.developerstudio.eclipse.platform.core.mediatype.drl"
+			mediaType="application/drl" name="Rule Media type" priority="2" />
 		<resolver
 			class="org.wso2.developerstudio.eclipse.platform.core.internal.impl.mediatypes.MIDMediaTypeResolver"
 			extensions="mid"
