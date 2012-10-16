@@ -136,7 +136,7 @@ public class NameValueTypePropertyItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_NameValueTypeProperty_PropertyValue_feature", "_UI_NameValueTypeProperty_type"),
 				 EsbPackage.Literals.NAME_VALUE_TYPE_PROPERTY__PROPERTY_VALUE,
 				 true,
-				 false,
+				 true,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
