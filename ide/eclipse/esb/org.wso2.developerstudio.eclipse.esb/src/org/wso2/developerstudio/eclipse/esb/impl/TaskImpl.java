@@ -665,7 +665,6 @@ public class TaskImpl extends ConfigurationElementImpl implements Task {
 		Element self = createChildElement(parent, "task");
 		
 		self.setAttribute("name", getTaskName());
-		self.setAttribute("class", getTaskImplementationClass().getTaskImplementation());
 		self.setAttribute("group", getTaskGroup());
 		self.setAttribute("pinnedServers", getPinnedServers());
 		
@@ -677,19 +676,30 @@ public class TaskImpl extends ConfigurationElementImpl implements Task {
 			triggerNode.setAttribute("cron", getCron());
 		}
 		
-		EList<TaskProperty> taskProperties = getTaskImplementationClass().getTaskProperties();
+		EList<TaskProperty> taskProperties = null;
+		if (getTaskImplementationClass() != null) {
+			self.setAttribute("class", getTaskImplementationClass().getTaskImplementation());
+			taskProperties = getTaskImplementationClass().getTaskProperties();
+		}
 		
-		for (TaskProperty taskProperty : taskProperties) {
-			Element property = createChildElement(self, "http://www.wso2.org/products/wso2commons/tasks", "task", "property");
-			property.setAttribute("name", taskProperty.getPropertyName());
-			if(taskProperty.getPropertyType().equals(TaskPropertyType.LITERAL)){
-				property.setAttribute("value", taskProperty.getPropertyValue());
-			}else{
-				Element formatElem = EsbUtils.parseElement(taskProperty.getPropertyValue(),true);
-	            formatElem = (Element) self.getOwnerDocument().importNode(formatElem, true);
-	            property.appendChild(formatElem);
+		if (taskProperties != null) {
+			for (TaskProperty taskProperty : taskProperties) {
+				Element property = createChildElement(self,
+						"http://www.wso2.org/products/wso2commons/tasks",
+						"task", "property");
+				property.setAttribute("name", taskProperty.getPropertyName());
+				if (taskProperty.getPropertyType().equals(
+						TaskPropertyType.LITERAL)) {
+					property.setAttribute("value",
+							taskProperty.getPropertyValue());
+				} else {
+					Element formatElem = EsbUtils.parseElement(
+							taskProperty.getPropertyValue(), true);
+					formatElem = (Element) self.getOwnerDocument().importNode(
+							formatElem, true);
+					property.appendChild(formatElem);
+				}
 			}
-			
 		}
 		
 		return self;
