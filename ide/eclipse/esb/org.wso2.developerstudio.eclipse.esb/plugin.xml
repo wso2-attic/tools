@@ -262,6 +262,19 @@
 							<feature name="location" />
 						</event>											
 					</target>
+					<target class="Task">
+						<event name="Set">
+							<feature name="TaskName" />
+							<feature name="TaskGroup" />
+							<feature name="Cron"/>
+							<feature name="Interval"/>
+						</event>											
+					</target>
+					<target class="TaskImplementation">
+						<event name="Set">
+							<feature name="TaskImplementation" />
+						</event>											
+					</target>
 					<target class="EndPoint">
 						<event name="Set">
 							<feature name="endpointName" />

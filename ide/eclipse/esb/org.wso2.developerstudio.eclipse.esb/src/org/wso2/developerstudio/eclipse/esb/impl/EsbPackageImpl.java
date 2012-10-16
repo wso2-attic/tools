@@ -87,7 +87,6 @@ import org.wso2.developerstudio.eclipse.esb.SynapseConfiguration;
 import org.wso2.developerstudio.eclipse.esb.TargetEndpointType;
 import org.wso2.developerstudio.eclipse.esb.TargetSequenceType;
 import org.wso2.developerstudio.eclipse.esb.Task;
-import org.wso2.developerstudio.eclipse.esb.TaskGroup;
 import org.wso2.developerstudio.eclipse.esb.TaskImplementation;
 import org.wso2.developerstudio.eclipse.esb.TaskProperty;
 import org.wso2.developerstudio.eclipse.esb.TaskPropertyType;

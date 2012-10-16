@@ -31,7 +31,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.w3c.dom.Element;
 import org.wso2.developerstudio.eclipse.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.esb.Task;
-import org.wso2.developerstudio.eclipse.esb.TaskGroup;
 import org.wso2.developerstudio.eclipse.esb.TaskImplementation;
 import org.wso2.developerstudio.eclipse.esb.TaskProperty;
 import org.wso2.developerstudio.eclipse.esb.TaskPropertyType;
@@ -213,10 +212,13 @@ public class TaskImpl extends ConfigurationElementImpl implements Task {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected TaskImpl() {
 		super();
+		
+		setTaskName("Task1");
+		setCron("");
 	}
 
 	/**
@@ -624,10 +626,20 @@ public class TaskImpl extends ConfigurationElementImpl implements Task {
 		setPinnedServers(self.getAttribute("pinnedServers"));
 		
 		Element trigger = getChildElement(self, "trigger");
-		if(trigger.getAttribute("cron")==null){
+		if(trigger.getAttribute("cron")==null || trigger.getAttribute("cron").trim().isEmpty()){
 			setTriggerType(TaskTriggerType.SIMPLE);
-			setCount(Long.parseLong(trigger.getAttribute("count")));
-			setInterval(Long.parseLong(trigger.getAttribute("interval")));
+			try {
+				setCount(Long.parseLong(trigger.getAttribute("count")));
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				setInterval(Long.parseLong(trigger.getAttribute("interval")));
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}else{
 			setTriggerType(TaskTriggerType.CRON);
 			setCron(trigger.getAttribute("cron"));
