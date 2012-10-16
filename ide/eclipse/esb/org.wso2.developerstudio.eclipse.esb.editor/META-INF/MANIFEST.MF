@@ -10,7 +10,8 @@ Bundle-ClassPath: lib/org.eclipse.wb.swt.layout.grouplayout_1.0.0.r36x2011061611
 Bundle-Activator: org.wso2.developerstudio.eclipse.esb.presentation.EsbEditorPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Export-Package: org.wso2.developerstudio.eclipse.esb.presentation
+Export-Package: org.wso2.developerstudio.eclipse.esb.presentation,
+ org.wso2.developerstudio.eclipse.esb.presentation.ui
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources,
  org.wso2.developerstudio.eclipse.esb.edit,
