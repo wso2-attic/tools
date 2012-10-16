@@ -125,7 +125,7 @@ public class NameValueTypePropertyItemProvider
 	 * This adds a property descriptor for the Property Value feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addPropertyValuePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
