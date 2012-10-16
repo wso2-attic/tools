@@ -51,7 +51,6 @@
 	<classpathentry exported="true" kind="lib" path="lib/abdera_1.0.0.wso2v3.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/org.wso2.carbon.registry.api_4.0.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/XmlSchema_1.4.7.wso2v2.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/org.wso2.carbon.rule.common-4.0.0-SNAPSHOT.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/org.wso2.carbon.cep.core-4.0.1.jar" sourcepath="/home/isuru/carbon/platform/branches/4.0.0/components/cep/org.wso2.carbon.cep.core"/>
 	<classpathentry exported="true" kind="lib" path="lib/xml-apis-1.4.01.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/org.eclipse.osgi_3.6.0.v20100517.jar"/>
