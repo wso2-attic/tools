@@ -35,8 +35,10 @@ import javax.xml.transform.stream.StreamSource;
 import org.apache.axiom.om.OMElement;
 import org.apache.axis2.util.XMLPrettyPrinter;
 import org.apache.synapse.Mediator;
+import org.apache.synapse.config.Entry;
 import org.apache.synapse.config.SynapseConfiguration;
 import org.apache.synapse.config.SynapseConfigurationBuilder;
+import org.apache.synapse.config.xml.EntrySerializer;
 import org.apache.synapse.config.xml.ProxyServiceSerializer;
 import org.apache.synapse.config.xml.SequenceMediatorSerializer;
 import org.apache.synapse.config.xml.SynapseXMLConfigurationSerializer;
@@ -60,6 +62,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbElement;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbServer;
+import org.wso2.developerstudio.eclipse.gmf.esb.LocalEntry;
 import org.wso2.developerstudio.eclipse.gmf.esb.LogMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.MessageMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyService;
@@ -207,6 +210,12 @@ public class DefaultEsbModelExporter implements EsbModelTransformer {
 		}else{
 			return null;
 		}		
+	}
+	
+	private org.apache.synapse.config.Entry transformLocalEntry(
+			LocalEntry visualLocalEntry ) throws Exception {	
+		LocalEntryTransformer transformer=new LocalEntryTransformer();
+		return transformer.createEntry(visualLocalEntry);
 	}	
 
 	public String designToSource(EsbServer serverModel) throws Exception {
@@ -223,6 +232,9 @@ public class DefaultEsbModelExporter implements EsbModelTransformer {
 				break;
 			}else if(child instanceof EndpointDiagram){
 				configOM = EndpointSerializer.getElementFromEndpoint(transformEndpoint((EndpointDiagram)child)); 
+				break;
+			}else if(child instanceof LocalEntry){
+				configOM = EntrySerializer.serializeEntry(transformLocalEntry((LocalEntry)child), null);
 				break;
 			}
 			else {
