@@ -19,6 +19,8 @@ package org.wso2.developerstudio.eclipse.esb.project.provider;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.core.runtime.content.IContentDescription;
+import org.eclipse.core.runtime.content.IContentType;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.TreeSelection;
@@ -54,12 +56,19 @@ public class NavigatorActionProvider extends CommonActionProvider {
 			if (firstElement instanceof IFile) {
 				IFile file = (IFile) firstElement;
 				try {
-					String id = file.getContentDescription().getContentType().getId();
-					if ("org.wso2.developerstudio.eclipse.esb.contenttype.esbconfxml".equals(id)) {
-						openEditorAction.setSelection(file);
-						actionBars.setGlobalActionHandler(ICommonActionConstants.OPEN,
-								openEditorAction);
+					IContentDescription contentDescription = file.getContentDescription();
+					if (contentDescription != null) {
+						IContentType contentType = contentDescription.getContentType();
+						if (contentType.getId() != null) {
+							if ("org.wso2.developerstudio.eclipse.esb.contenttype.esbconfxml"
+									.equals(contentType.getId())) {
+								openEditorAction.setSelection(file);
+								actionBars.setGlobalActionHandler(ICommonActionConstants.OPEN,
+										openEditorAction);
+							}
+						}
 					}
+					
 				} catch (CoreException e) {
 					/* ignore */
 				}
