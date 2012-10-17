@@ -1460,6 +1460,26 @@
           accessor="getFigureNamedEndPointNamePropertyLabel"
           figure="//@figures.0/@descriptors.82/@actualFigure/@children.0"/>
     </descriptors>
+    <descriptors
+        name="LocalEntryFigure">
+      <actualFigure
+          xsi:type="gmfgraph:CustomFigure"
+          name="LocalEntryGraphicalFigure"
+          qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="40"
+            green="151"
+            blue="248"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="LocalEntryNamePropertyLabel"
+            text="&lt;...>"/>
+      </actualFigure>
+      <accessors
+          accessor="getFigureLocalEntryNamePropertyLabel"
+          figure="//@figures.0/@descriptors.83/@actualFigure/@children.0"/>
+    </descriptors>
   </figures>
   <nodes
       name="EsbServer"
@@ -2190,6 +2210,9 @@
       name="NamedEndpointOutputConnector"
       figure="WestPointerFigure"
       affixedParentSide="WEST"/>
+  <nodes
+      name="LocalEntry"
+      figure="LocalEntryFigure"/>
   <connections
       name="EsbLink"
       figure="PlainConnectionFigure"/>

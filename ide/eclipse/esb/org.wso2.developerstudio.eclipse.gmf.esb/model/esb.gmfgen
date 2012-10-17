@@ -8354,6 +8354,36 @@
               href="esb.genmodel#//esb/LoadBalanceEndPoint/westOutputConnector"/>
         </modelFacet>
       </childNodes>
+      <childNodes
+          visualID="3663"
+          editPartClassName="LocalEntryEditPart"
+          itemSemanticEditPolicyClassName="LocalEntryItemSemanticEditPolicy"
+          canonicalEditPolicyClassName="LocalEntryCanonicalEditPolicy"
+          graphicalNodeEditPolicyClassName="LocalEntryGraphicalNodeEditPolicy"
+          createCommandClassName="LocalEntryCreateCommand"
+          containers="/0/@diagram/@compartments.0">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <elementType
+            xsi:type="gmfgen:MetamodelType"
+            editHelperClassName="LocalEntryEditHelper"/>
+        <viewmap
+            xsi:type="gmfgen:InnerClassViewmap"
+            className="LocalEntryFigure"
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class LocalEntryFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureLocalEntryNamePropertyLabel; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public LocalEntryFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureLocalEntryNamePropertyLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureLocalEntryNamePropertyLabel.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureLocalEntryNamePropertyLabel);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureLocalEntryNamePropertyLabel() {&#xA;&#x9;&#x9;return fFigureLocalEntryNamePropertyLabel;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 40, 151, 248);&#xA;&#xA;">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedBackground="true"/>
+        </viewmap>
+        <modelFacet>
+          <metaClass
+              href="esb.genmodel#//esb/LocalEntry"/>
+          <containmentMetaFeature
+              href="esb.genmodel#//esb/EsbServer/children"/>
+          <childMetaFeature
+              href="esb.genmodel#//esb/EsbServer/children"/>
+        </modelFacet>
+      </childNodes>
       <topLevelNodes
           visualID="2001"
           editPartClassName="EsbServerEditPart"
@@ -8428,7 +8458,7 @@
           itemSemanticEditPolicyClassName="EsbServerContentsCompartmentItemSemanticEditPolicy"
           notationViewFactoryClassName="EsbServerContentsCompartmentViewFactory"
           canonicalEditPolicyClassName="EsbServerContentsCompartmentCanonicalEditPolicy"
-          childNodes="/0/@diagram/@childNodes.0 /0/@diagram/@childNodes.194 /0/@diagram/@childNodes.198"
+          childNodes="/0/@diagram/@childNodes.0 /0/@diagram/@childNodes.194 /0/@diagram/@childNodes.198 /0/@diagram/@childNodes.220"
           title="ContentsCompartment"
           canCollapse="false"
           needsTitle="false"
@@ -11947,6 +11977,9 @@
       <childReferences
           parent="/0/@diagram/@topLevelNodes.0"
           child="/0/@diagram/@childNodes.202"/>
+      <childReferences
+          parent="/0/@diagram/@topLevelNodes.0"
+          child="/0/@diagram/@childNodes.220"/>
       <childReferences
           parent="/0/@diagram"
           child="/0/@diagram/@topLevelNodes.0"/>

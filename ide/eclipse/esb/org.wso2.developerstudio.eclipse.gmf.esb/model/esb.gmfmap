@@ -2640,8 +2640,19 @@
           </compartments>
         </ownedChild>
       </children>
+      <children
+          compartment="//@nodes.0/@ownedChild/@compartments.0">
+        <containmentFeature
+            href="esb.ecore#//EsbServer/children"/>
+        <ownedChild>
+          <domainMetaElement
+              href="esb.ecore#//LocalEntry"/>
+          <diagramNode
+              href="esb.gmfgraph#LocalEntry"/>
+        </ownedChild>
+      </children>
       <compartments
-          children="//@nodes.0/@ownedChild/@children.2 //@nodes.0/@ownedChild/@children.0 //@nodes.0/@ownedChild/@children.3">
+          children="//@nodes.0/@ownedChild/@children.2 //@nodes.0/@ownedChild/@children.0 //@nodes.0/@ownedChild/@children.3 //@nodes.0/@ownedChild/@children.5">
         <compartment
             href="esb.gmfgraph#ContentsCompartment"/>
       </compartments>
