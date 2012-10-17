@@ -28,6 +28,10 @@ public class ArtifactTemplateHandler {
 				Bundle bundle = Platform.getBundle(e.getContributor().getName());
 				proxyTemplate.setTemplateFileName(fileName);
 				proxyTemplate.setTemplateBundle(bundle);
+				String isCustom = e.getAttribute("custom");
+				if(null!=isCustom){
+					proxyTemplate.setCustom(Boolean.valueOf(isCustom));
+				}
 				IMediaTypeResolverProvider mediaTypeResolver = MediaManager.getMediaTypeResolver(proxyTemplate.getTemplateUrl());
 				if (mediaTypeResolver!=null) {
 					proxyTemplate

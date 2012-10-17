@@ -15,6 +15,7 @@ public class ArtifactTemplate {
 	private Bundle templateBundle;
 	private String mediaType;
 	private String defaultExtension;
+	private boolean custom;
 	
 	public ArtifactTemplate(String id, String name){
 		this.id = id;
@@ -72,6 +73,14 @@ public class ArtifactTemplate {
 			}
 		}
 		return defaultExtension;
+	}
+
+	public void setCustom(boolean custom) {
+		this.custom = custom;
+	}
+
+	public boolean isCustom() {
+		return custom;
 	}
 	
 }
