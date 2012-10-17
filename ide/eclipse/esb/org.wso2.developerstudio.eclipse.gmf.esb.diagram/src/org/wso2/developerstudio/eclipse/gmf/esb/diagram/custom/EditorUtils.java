@@ -30,6 +30,7 @@ public class EditorUtils {
 	public static final String SEQUENCE_RESOURCE_DIR = "src/main/graphical-synapse-config/sequences";
 	public static final String PROXY_RESOURCE_DIR = "src/main/graphical-synapse-config/proxy-services";
 	public static final String ENDPOINT_RESOURCE_DIR = "src/main/graphical-synapse-config/endpoints";
+	public static final String LOCAL_ENTRY_RESOURCE_DIR = "src/main/graphical-synapse-config/local-entries";	
 	
 	public static AbstractInputConnectorEditPart getInputConnector(ShapeNodeEditPart parent){
 		for(int i=0;i<parent.getChildren().size();++i){					

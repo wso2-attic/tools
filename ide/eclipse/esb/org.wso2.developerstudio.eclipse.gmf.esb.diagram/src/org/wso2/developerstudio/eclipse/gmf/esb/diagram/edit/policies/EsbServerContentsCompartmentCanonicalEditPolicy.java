@@ -21,6 +21,7 @@ import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.LocalEntryEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MergeNodeEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequencesEditPart;
@@ -82,9 +83,14 @@ public class EsbServerContentsCompartmentCanonicalEditPolicy extends
 	 */
 	private boolean isMyDiagramElement(View view) {
 		int visualID = EsbVisualIDRegistry.getVisualID(view);
-		return visualID == ProxyServiceEditPart.VISUAL_ID
-				|| visualID == MergeNodeEditPart.VISUAL_ID
-				|| visualID == SequencesEditPart.VISUAL_ID;
+		switch (visualID) {
+		case ProxyServiceEditPart.VISUAL_ID:
+		case MergeNodeEditPart.VISUAL_ID:
+		case SequencesEditPart.VISUAL_ID:
+		case LocalEntryEditPart.VISUAL_ID:
+			return true;
+		}
+		return false;
 	}
 
 	/**

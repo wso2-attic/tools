@@ -495,10 +495,11 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			return types;
 		}
 		if (editPart instanceof EsbServerContentsCompartmentEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(3);
+			ArrayList<IElementType> types = new ArrayList<IElementType>(4);
 			types.add(EsbElementTypes.ProxyService_3001);
 			types.add(EsbElementTypes.MergeNode_3013);
 			types.add(EsbElementTypes.Sequences_3614);
+			types.add(EsbElementTypes.LocalEntry_3663);
 			return types;
 		}
 		if (editPart instanceof MediatorFlowMediatorFlowCompartmentEditPart) {

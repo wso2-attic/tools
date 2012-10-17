@@ -1050,7 +1050,8 @@ public class EsbPaletteFactory {
 					.get(ToolPalleteDetails.DEFINED_ENDPOINT))
 					.add(createDefinedEndpointCreationTool(definedEndpoints
 							.get(k)));
-			NamedEndpointEditPart.definedEndpointsNames.add(definedEndpoints.get(k));
+			NamedEndpointEditPart.definedEndpointsNames.add(definedEndpoints
+					.get(k));
 		}
 
 	}
@@ -1121,8 +1122,7 @@ public class EsbPaletteFactory {
 	}
 
 	private ToolEntry createDefinedEndpointCreationTool(String name) {
-		NodeToolEntry entry = new NodeToolEntry(
-				name,
+		NodeToolEntry entry = new NodeToolEntry(name,
 				Messages.NamedEndpoint6CreationTool_desc,
 				Collections.singletonList(EsbElementTypes.NamedEndpoint_3660));
 		entry.setId("createNamedEndpoint6CreationTool"); //$NON-NLS-1$

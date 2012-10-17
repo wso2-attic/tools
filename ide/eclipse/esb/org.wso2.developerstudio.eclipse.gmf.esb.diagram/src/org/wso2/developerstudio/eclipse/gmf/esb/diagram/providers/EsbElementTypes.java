@@ -291,6 +291,11 @@ public class EsbElementTypes {
 	/**
 	 * @generated
 	 */
+	public static final IElementType LocalEntry_3663 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.LocalEntry_3663"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
 	public static final IElementType LogMediatorInputConnector_3018 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.LogMediatorInputConnector_3018"); //$NON-NLS-1$
 
 	/**
@@ -1957,6 +1962,8 @@ public class EsbElementTypes {
 					EsbPackage.eINSTANCE
 							.getLoadBalanceEndPointWestOutputConnector());
 
+			elements.put(LocalEntry_3663, EsbPackage.eINSTANCE.getLocalEntry());
+
 			elements.put(EsbLink_4001, EsbPackage.eINSTANCE.getEsbLink());
 		}
 		return (ENamedElement) elements.get(type);
@@ -2207,6 +2214,7 @@ public class EsbElementTypes {
 			KNOWN_ELEMENT_TYPES.add(LoadBalanceEndPointOutputConnector_3658);
 			KNOWN_ELEMENT_TYPES
 					.add(LoadBalanceEndPointWestOutputConnector_3659);
+			KNOWN_ELEMENT_TYPES.add(LocalEntry_3663);
 			KNOWN_ELEMENT_TYPES.add(EsbLink_4001);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
@@ -2661,6 +2669,8 @@ public class EsbElementTypes {
 			return LoadBalanceEndPointOutputConnector_3658;
 		case LoadBalanceEndPointWestOutputConnector2EditPart.VISUAL_ID:
 			return LoadBalanceEndPointWestOutputConnector_3659;
+		case LocalEntryEditPart.VISUAL_ID:
+			return LocalEntry_3663;
 		case EsbLinkEditPart.VISUAL_ID:
 			return EsbLink_4001;
 		}

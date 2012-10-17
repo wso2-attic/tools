@@ -133,12 +133,13 @@ public class MediatorFlowMediatorFlowCompartmentEditPart extends
 											.getFigure(),
 									PositionConstants.EAST, 10, 5));
 		} else if (childEditPart instanceof NamedEndpointEditPart) {
-			borderedNodeFigure.getBorderItemContainer().add(
-					((NamedEndpointEditPart) childEditPart).getFigure(),
-					new SlidingBorderItemLocator(borderedNodeFigure
-							.getMainFigure(),
-							((NamedEndpointEditPart) childEditPart).getFigure(),
-							PositionConstants.EAST, 10, 5));
+			borderedNodeFigure.getBorderItemContainer()
+					.add(((NamedEndpointEditPart) childEditPart).getFigure(),
+							new SlidingBorderItemLocator(borderedNodeFigure
+									.getMainFigure(),
+									((NamedEndpointEditPart) childEditPart)
+											.getFigure(),
+									PositionConstants.EAST, 10, 5));
 		}
 
 		else {
@@ -361,7 +362,7 @@ public class MediatorFlowMediatorFlowCompartmentEditPart extends
 						getEditingDomain().getCommandStack().execute(addCmd);
 					}
 				}
-			}		
+			}
 
 			NamedEndpointEditPart namedEndPointEditPart = (NamedEndpointEditPart) child;
 			EditPart editpart = (EditPart) ((StructuredSelection) namedEndPointEditPart
@@ -381,21 +382,19 @@ public class MediatorFlowMediatorFlowCompartmentEditPart extends
 						}
 					}
 				} /*
-				 * else if (((ToolEntryEditPart) editpart).getModel() instanceof
-				 * org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.
-				 * SequenceEditPart.NodeToolEntry) { String label =
-				 * ((org.wso2.developerstudio
-				 * .eclipse.gmf.esb.diagram.edit.parts.
-				 * SequenceEditPart.NodeToolEntry) ((ToolEntryEditPart)
-				 * editpart) .getModel()).getLabel(); if ((!label.equals("")) &&
-				 * (!label.equals("Sequence"))) { ((Sequence) ((View)
-				 * namedEndPointEditPart.getModel())
-				 * .getElement()).setName(label); } }
-				 */
+					 * else if (((ToolEntryEditPart) editpart).getModel() instanceof
+					 * org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.
+					 * SequenceEditPart.NodeToolEntry) { String label =
+					 * ((org.wso2.developerstudio
+					 * .eclipse.gmf.esb.diagram.edit.parts.
+					 * SequenceEditPart.NodeToolEntry) ((ToolEntryEditPart)
+					 * editpart) .getModel()).getLabel(); if ((!label.equals("")) &&
+					 * (!label.equals("Sequence"))) { ((Sequence) ((View)
+					 * namedEndPointEditPart.getModel())
+					 * .getElement()).setName(label); } }
+					 */
 			}
-		
-			
-			
+
 		}
 	}
 

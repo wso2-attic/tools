@@ -801,6 +801,9 @@ public class EsbEditPartFactory implements EditPartFactory {
 			case LoadBalanceEndPointWestOutputConnector2EditPart.VISUAL_ID:
 				return new LoadBalanceEndPointWestOutputConnector2EditPart(view);
 
+			case LocalEntryEditPart.VISUAL_ID:
+				return new LocalEntryEditPart(view);
+
 			case EsbServerContentsCompartmentEditPart.VISUAL_ID:
 				return new EsbServerContentsCompartmentEditPart(view);
 

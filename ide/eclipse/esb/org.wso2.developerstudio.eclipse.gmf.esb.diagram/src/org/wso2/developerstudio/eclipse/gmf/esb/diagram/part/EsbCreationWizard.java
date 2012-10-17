@@ -204,6 +204,13 @@ public class EsbCreationWizard extends Wizard implements INewWizard,
 						"endpoint");
 				type = "synapse/graphical-endpoint";
 				break;
+				
+			case LOCALENTRY:
+				location = esbProject.getFolder(LOCAL_ENTRY_RESOURCE_DIR);
+				op = createDiagram("localentry_", LOCAL_ENTRY_RESOURCE_DIR,
+						"localentry");
+				type = "synapse/graphical-localentry";
+				break;
 
 			default:
 				fileCreationLocationDiagram = URI.createPlatformResourceURI(
@@ -371,7 +378,7 @@ public class EsbCreationWizard extends Wizard implements INewWizard,
 
 	public enum WizardMode {
 		DEFAULT("DEFAULT"), PROXY("PROXY"), SEQUENCE("SEQUENCE"), ENDPOINT(
-				"ENDPOINT");
+				"ENDPOINT"),LOCALENTRY("LOCALENTRY");
 
 		private final String mode;
 

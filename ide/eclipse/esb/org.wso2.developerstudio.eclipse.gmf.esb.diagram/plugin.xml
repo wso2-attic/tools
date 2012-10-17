@@ -223,7 +223,7 @@
       <viewProvider class="org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbViewProvider">
          <Priority name="Lowest"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Esb"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2001,3001,3002,3003,3489,3486,3487,3608,3491,3008,3492,3033,3034,3493,3121,3122,3581,3582,3583,3584,3585,3494,3010,3534,3011,3012,3531,3535,3536,3495,3018,3019,3496,3036,3037,3497,3039,3040,3498,3042,3043,3044,3499,3500,3501,3502,3503,3049,3050,3504,3052,3053,3505,3055,3056,3506,3058,3059,3507,3061,3062,3508,3064,3065,3509,3067,3068,3510,3070,3071,3511,3073,3074,3512,3076,3077,3513,3079,3080,3514,3082,3083,3515,3085,3086,3539,3562,3516,3100,3101,3517,3103,3104,3133,3603,3604,3605,3518,3106,3107,3618,3619,3519,3109,3110,3606,3607,3520,3115,3116,3521,3118,3119,3522,3124,3125,3523,3127,3128,3640,3641,3524,3130,3131,3525,3112,3113,3132,3526,3588,3589,3590,3591,3592,3593,3594,3595,3596,3597,3598,3599,3600,3601,3602,3620,3621,3622,3623,3624,3625,3626,3627,3628,3629,3630,3631,3632,3633,3634,3635,3636,3637,3638,3639,3609,3021,3022,3610,3030,3031,3611,3088,3090,3097,3612,3092,3093,3660,3661,3662,3613,3095,3096,3098,3527,3528,3537,3538,3586,3587,3488,3530,3045,3046,3047,3013,3014,3015,3016,3614,3615,3616,3617,3642,3643,3644,3645,3646,3647,3648,3649,3650,3651,3652,3653,3654,3655,3656,3657,3658,3659"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2001,3001,3002,3003,3489,3486,3487,3608,3491,3008,3492,3033,3034,3493,3121,3122,3581,3582,3583,3584,3585,3494,3010,3534,3011,3012,3531,3535,3536,3495,3018,3019,3496,3036,3037,3497,3039,3040,3498,3042,3043,3044,3499,3500,3501,3502,3503,3049,3050,3504,3052,3053,3505,3055,3056,3506,3058,3059,3507,3061,3062,3508,3064,3065,3509,3067,3068,3510,3070,3071,3511,3073,3074,3512,3076,3077,3513,3079,3080,3514,3082,3083,3515,3085,3086,3539,3562,3516,3100,3101,3517,3103,3104,3133,3603,3604,3605,3518,3106,3107,3618,3619,3519,3109,3110,3606,3607,3520,3115,3116,3521,3118,3119,3522,3124,3125,3523,3127,3128,3640,3641,3524,3130,3131,3525,3112,3113,3132,3526,3588,3589,3590,3591,3592,3593,3594,3595,3596,3597,3598,3599,3600,3601,3602,3620,3621,3622,3623,3624,3625,3626,3627,3628,3629,3630,3631,3632,3633,3634,3635,3636,3637,3638,3639,3609,3021,3022,3610,3030,3031,3611,3088,3090,3097,3612,3092,3093,3660,3661,3662,3613,3095,3096,3098,3527,3528,3537,3538,3586,3587,3488,3530,3045,3046,3047,3013,3014,3015,3016,3614,3615,3616,3617,3642,3643,3644,3645,3646,3647,3648,3649,3650,3651,3652,3653,3654,3655,3656,3657,3658,3659,3663"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4001"/>
       </viewProvider>
    </extension>
@@ -236,7 +236,7 @@
             <method name="getType()" value="Esb"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
-            <method name="getType()" value="2001,3001,3002,3003,3489,3486,3487,3608,3491,3008,3492,3033,3034,3493,3121,3122,3581,3582,3583,3584,3585,3494,3010,3534,3011,3012,3531,3535,3536,3495,3018,3019,3496,3036,3037,3497,3039,3040,3498,3042,3043,3044,3499,3500,3501,3502,3503,3049,3050,3504,3052,3053,3505,3055,3056,3506,3058,3059,3507,3061,3062,3508,3064,3065,3509,3067,3068,3510,3070,3071,3511,3073,3074,3512,3076,3077,3513,3079,3080,3514,3082,3083,3515,3085,3086,3539,3562,3516,3100,3101,3517,3103,3104,3133,3603,3604,3605,3518,3106,3107,3618,3619,3519,3109,3110,3606,3607,3520,3115,3116,3521,3118,3119,3522,3124,3125,3523,3127,3128,3640,3641,3524,3130,3131,3525,3112,3113,3132,3526,3588,3589,3590,3591,3592,3593,3594,3595,3596,3597,3598,3599,3600,3601,3602,3620,3621,3622,3623,3624,3625,3626,3627,3628,3629,3630,3631,3632,3633,3634,3635,3636,3637,3638,3639,3609,3021,3022,3610,3030,3031,3611,3088,3090,3097,3612,3092,3093,3660,3661,3662,3613,3095,3096,3098,3527,3528,3537,3538,3586,3587,3488,3530,3045,3046,3047,3013,3014,3015,3016,3614,3615,3616,3617,3642,3643,3644,3645,3646,3647,3648,3649,3650,3651,3652,3653,3654,3655,3656,3657,3658,3659"/>
+            <method name="getType()" value="2001,3001,3002,3003,3489,3486,3487,3608,3491,3008,3492,3033,3034,3493,3121,3122,3581,3582,3583,3584,3585,3494,3010,3534,3011,3012,3531,3535,3536,3495,3018,3019,3496,3036,3037,3497,3039,3040,3498,3042,3043,3044,3499,3500,3501,3502,3503,3049,3050,3504,3052,3053,3505,3055,3056,3506,3058,3059,3507,3061,3062,3508,3064,3065,3509,3067,3068,3510,3070,3071,3511,3073,3074,3512,3076,3077,3513,3079,3080,3514,3082,3083,3515,3085,3086,3539,3562,3516,3100,3101,3517,3103,3104,3133,3603,3604,3605,3518,3106,3107,3618,3619,3519,3109,3110,3606,3607,3520,3115,3116,3521,3118,3119,3522,3124,3125,3523,3127,3128,3640,3641,3524,3130,3131,3525,3112,3113,3132,3526,3588,3589,3590,3591,3592,3593,3594,3595,3596,3597,3598,3599,3600,3601,3602,3620,3621,3622,3623,3624,3625,3626,3627,3628,3629,3630,3631,3632,3633,3634,3635,3636,3637,3638,3639,3609,3021,3022,3610,3030,3031,3611,3088,3090,3097,3612,3092,3093,3660,3661,3662,3613,3095,3096,3098,3527,3528,3537,3538,3586,3587,3488,3530,3045,3046,3047,3013,3014,3015,3016,3614,3615,3616,3617,3642,3643,3644,3645,3646,3647,3648,3649,3650,3651,3652,3653,3654,3655,3656,3657,3658,3659,3663"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
             <method name="getType()" value="4001"/>
@@ -2459,6 +2459,16 @@
       </metamodel>
       <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
          <metamodelType
+               id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.LocalEntry_3663"
+               name="%metatype.name.LocalEntry_3663"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="LocalEntry"
+               edithelper="org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.helpers.LocalEntryEditHelper">
+            <param name="semanticHint" value="3663"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+         <metamodelType
                id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.EsbLink_4001"
                name="%metatype.name.EsbLink_4001"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
@@ -2701,6 +2711,7 @@
          <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.LoadBalanceEndPointInputConnector_3657"/>
          <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.LoadBalanceEndPointOutputConnector_3658"/>
          <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.LoadBalanceEndPointWestOutputConnector_3659"/>
+         <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.LocalEntry_3663"/>
          <elementType ref="org.wso2.developerstudio.eclipse.gmf.esb.diagram.EsbLink_4001"/>
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
       </binding>
@@ -3001,6 +3012,36 @@
 				</enablement>
 			</commonWizard>
 	</extension>	
+	
+		<extension point="org.eclipse.ui.newWizards" id="creation-wizard">
+  	  <wizard
+  	     name="LocalEntry (Graphical)"
+  	     icon="icons/obj16/EsbDiagramFile.gif"
+  	     category="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.eclipse.message.mediation/org.wso2.developerstudio.eclipse.message.mediation.features"
+  	     id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.LocalEntryCreationWizardID">
+  	  	 <description>Creates New LocalEntry (Graphical)</description>
+  	  	 <class class="org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbCreationWizard">
+      			<parameter name="mode" value="localEntry" />
+      	</class>
+      </wizard>
+   </extension>
+   
+   <extension point="org.eclipse.ui.navigator.navigatorContent">	
+			<commonWizard type="new"
+			    menuGroupId="2org.wso2.developerstudio.eclipse.artifact.esb"
+				wizardId="org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.LocalEntryCreationWizardID">
+				<enablement>
+					<or>
+						<adapt type="org.eclipse.core.resources.IProject">
+							<test property="org.eclipse.core.resources.projectNature"
+								value="org.wso2.developerstudio.eclipse.esb.project.nature" />
+						</adapt>
+					</or>
+				</enablement>
+			</commonWizard>
+	</extension>
+	
+	
 
    <!-- optionally, specify keybindings -->
 </plugin>

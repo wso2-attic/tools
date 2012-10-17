@@ -1,6 +1,5 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
 
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -105,11 +104,11 @@ public class NamedEndpointEditPart extends AbstractEndpoint {
 	 * @generated
 	 */
 	protected IFigure primaryShape;
-	
+
 	public static ArrayList<String> definedEndpointsNames = new ArrayList<String>();
-	
+
 	private static IDeveloperStudioLog log = Logger
-	.getLog("org.wso2.developerstudio.eclipse.gmf.esb.diagram");
+			.getLog("org.wso2.developerstudio.eclipse.gmf.esb.diagram");
 
 	/**
 	 * @generated
@@ -175,7 +174,7 @@ public class NamedEndpointEditPart extends AbstractEndpoint {
 	 * @generated NOT
 	 */
 	protected IFigure createNodeShape() {
-		return primaryShape = new NamedEndpointFigure(){
+		return primaryShape = new NamedEndpointFigure() {
 			public void setBounds(org.eclipse.draw2d.geometry.Rectangle rect) {
 				super.setBounds(rect);
 				if (!connected) {
@@ -192,8 +191,7 @@ public class NamedEndpointEditPart extends AbstractEndpoint {
 	public NamedEndpointFigure getPrimaryShape() {
 		return (NamedEndpointFigure) primaryShape;
 	}
-	
-	
+
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof NamedEndpointInputConnectorEditPart) {
 			double position;
@@ -238,14 +236,14 @@ public class NamedEndpointEditPart extends AbstractEndpoint {
 		}
 		super.addChildVisual(childEditPart, -1);
 	}
-	
+
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
 		if (editPart instanceof IBorderItemEditPart) {
 			return getBorderedFigure().getBorderItemContainer();
 		}
 		return getContentPane();
-	}	
-	
+	}
+
 	/**
 	 * @generated
 	 */
@@ -331,7 +329,7 @@ public class NamedEndpointEditPart extends AbstractEndpoint {
 			((Shape) primaryShape).setLineStyle(style);
 		}
 	}
-	
+
 	public void createDialogBox() {
 
 		final EObject diagram = ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) getModel())
@@ -341,7 +339,8 @@ public class NamedEndpointEditPart extends AbstractEndpoint {
 				.getElement();
 
 		// For validation: user should not enter "" value for name.
-		if ((((NamedEndpoint) endpoint).getName() == null)||((NamedEndpoint) endpoint).getName().trim().equals("")) {
+		if ((((NamedEndpoint) endpoint).getName() == null)
+				|| ((NamedEndpoint) endpoint).getName().trim().equals("")) {
 			IInputValidator validator = new IInputValidator() {
 
 				public String isValid(String str) {
@@ -354,8 +353,8 @@ public class NamedEndpointEditPart extends AbstractEndpoint {
 				}
 
 			};
-/*			String defaultName = "Default"
-					+ (((EsbDiagram) diagram).getTest() + 1);*/
+			/*			String defaultName = "Default"
+			 + (((EsbDiagram) diagram).getTest() + 1);*/
 			String defaultName = "Default";
 			final InputDialog endpointNameInput = new InputDialog(new Shell(),
 					"Enter Endpoint Name", "Endpoint Name", defaultName,
@@ -367,28 +366,28 @@ public class NamedEndpointEditPart extends AbstractEndpoint {
 					public void run() {
 						String endpointName = endpointNameInput.getValue();
 						TransactionalEditingDomain editingDomain = getEditingDomain();
-/*						SetRequest setRequestSequenceCount = new SetRequest(
-								editingDomain, diagram, EsbPackage.eINSTANCE
-										.getEsbDiagram_Test(),
-								((EsbDiagram) diagram).getTest() + 1);
-						SetValueCommand operationSequenceCount = new SetValueCommand(
-								setRequestSequenceCount) {
+						/*						SetRequest setRequestSequenceCount = new SetRequest(
+						 editingDomain, diagram, EsbPackage.eINSTANCE
+						 .getEsbDiagram_Test(),
+						 ((EsbDiagram) diagram).getTest() + 1);
+						 SetValueCommand operationSequenceCount = new SetValueCommand(
+						 setRequestSequenceCount) {
 
-							public boolean canUndo() {
-								return true;
-							}
+						 public boolean canUndo() {
+						 return true;
+						 }
 
-							public boolean canRedo() {
-								return true;
-							}
-						};
+						 public boolean canRedo() {
+						 return true;
+						 }
+						 };
 
-						ICommandProxy commandSequenceCount = new ICommandProxy(
-								operationSequenceCount);
-						if (commandSequenceCount.canExecute()) {
-							getEditDomain().getCommandStack().execute(
-									commandSequenceCount);
-						}*/
+						 ICommandProxy commandSequenceCount = new ICommandProxy(
+						 operationSequenceCount);
+						 if (commandSequenceCount.canExecute()) {
+						 getEditDomain().getCommandStack().execute(
+						 commandSequenceCount);
+						 }*/
 
 						SetRequest setRequest = new SetRequest(editingDomain,
 								endpoint, EsbPackage.eINSTANCE
@@ -415,7 +414,7 @@ public class NamedEndpointEditPart extends AbstractEndpoint {
 			openWithSeparateEditor();
 		}
 	}
-	
+
 	public void openWithSeparateEditor() {
 		IEditorPart editorPart = null;
 		IProject activeProject = null;
@@ -471,7 +470,7 @@ public class NamedEndpointEditPart extends AbstractEndpoint {
 				+ name + ".esb", activeProject);
 
 	}
-	
+
 	public boolean createFiles(String name, String fileURI1, String fileURI2,
 			IProject currentProject) {
 		Resource diagram;
@@ -508,7 +507,7 @@ public class NamedEndpointEditPart extends AbstractEndpoint {
 			return true;
 		}
 	}
-	
+
 	private PaletteContainer createDefinedEndpointsGroup() {
 		PaletteDrawer paletteContainer = new PaletteDrawer("DefinedEndpoints");
 		paletteContainer.setId("DefinedEndpoints"); //$NON-NLS-1$
@@ -517,8 +516,7 @@ public class NamedEndpointEditPart extends AbstractEndpoint {
 	}
 
 	private ToolEntry createNamedEndpoint6CreationTool(String name) {
-		NodeToolEntry entry = new NodeToolEntry(
-				name,
+		NodeToolEntry entry = new NodeToolEntry(name,
 				Messages.NamedEndpoint6CreationTool_desc,
 				Collections.singletonList(EsbElementTypes.NamedEndpoint_3660));
 		entry.setId("createNamedEndpoint6CreationTool"); //$NON-NLS-1$
@@ -580,7 +578,7 @@ public class NamedEndpointEditPart extends AbstractEndpoint {
 		}
 
 	}
-	
+
 	public static class NodeToolEntry extends PaletteToolEntry {
 
 		private final List<IElementType> elementTypes;

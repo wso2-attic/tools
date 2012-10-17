@@ -953,6 +953,10 @@ public class EsbVisualIDRegistry {
 					domainElement.eClass())) {
 				return SequencesEditPart.VISUAL_ID;
 			}
+			if (EsbPackage.eINSTANCE.getLocalEntry().isSuperTypeOf(
+					domainElement.eClass())) {
+				return LocalEntryEditPart.VISUAL_ID;
+			}
 			break;
 		case MediatorFlowMediatorFlowCompartmentEditPart.VISUAL_ID:
 			if (EsbPackage.eINSTANCE.getDropMediator().isSuperTypeOf(
@@ -5018,6 +5022,9 @@ public class EsbVisualIDRegistry {
 				return true;
 			}
 			if (SequencesEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (LocalEntryEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;

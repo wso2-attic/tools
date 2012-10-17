@@ -60,6 +60,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbElement;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbServer;
+import org.wso2.developerstudio.eclipse.gmf.esb.LocalEntry;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyService;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequences;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbDiagramEditPart;
@@ -271,6 +272,13 @@ public class EsbDiagramEditorUtil {
 					EStructuralFeature target = esbServer.eClass()
 							.getEStructuralFeature("children");
 					esbServer.eSet(target, Arrays.asList(endpoints));
+				} else if ("localentry".equals(type)) {
+					LocalEntry localentry = EsbFactory.eINSTANCE
+							.createLocalEntry();
+					localentry.setEntryName(name);
+					EStructuralFeature target = esbServer.eClass()
+							.getEStructuralFeature("children");
+					esbServer.eSet(target, Arrays.asList(localentry));
 				}
 
 				attachModelToResource(model, modelResource);

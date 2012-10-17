@@ -2693,6 +2693,10 @@ public class EsbDiagramUpdater {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 				continue;
 			}
+			if (visualID == LocalEntryEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
 		}
 		return result;
 	}
@@ -6724,6 +6728,8 @@ public class EsbDiagramUpdater {
 			return getLoadBalanceEndPointOutputConnector_3658ContainedLinks(view);
 		case LoadBalanceEndPointWestOutputConnector2EditPart.VISUAL_ID:
 			return getLoadBalanceEndPointWestOutputConnector_3659ContainedLinks(view);
+		case LocalEntryEditPart.VISUAL_ID:
+			return getLocalEntry_3663ContainedLinks(view);
 		case EsbLinkEditPart.VISUAL_ID:
 			return getEsbLink_4001ContainedLinks(view);
 		}
@@ -7177,6 +7183,8 @@ public class EsbDiagramUpdater {
 			return getLoadBalanceEndPointOutputConnector_3658IncomingLinks(view);
 		case LoadBalanceEndPointWestOutputConnector2EditPart.VISUAL_ID:
 			return getLoadBalanceEndPointWestOutputConnector_3659IncomingLinks(view);
+		case LocalEntryEditPart.VISUAL_ID:
+			return getLocalEntry_3663IncomingLinks(view);
 		case EsbLinkEditPart.VISUAL_ID:
 			return getEsbLink_4001IncomingLinks(view);
 		}
@@ -7630,6 +7638,8 @@ public class EsbDiagramUpdater {
 			return getLoadBalanceEndPointOutputConnector_3658OutgoingLinks(view);
 		case LoadBalanceEndPointWestOutputConnector2EditPart.VISUAL_ID:
 			return getLoadBalanceEndPointWestOutputConnector_3659OutgoingLinks(view);
+		case LocalEntryEditPart.VISUAL_ID:
+			return getLocalEntry_3663OutgoingLinks(view);
 		case EsbLinkEditPart.VISUAL_ID:
 			return getEsbLink_4001OutgoingLinks(view);
 		}
@@ -8082,6 +8092,14 @@ public class EsbDiagramUpdater {
 		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getLocalEntry_3663ContainedLinks(
+			View view) {
+		return Collections.emptyList();
 	}
 
 	/**
@@ -10183,6 +10201,14 @@ public class EsbDiagramUpdater {
 	 * @generated
 	 */
 	public static List<EsbLinkDescriptor> getLoadBalanceEndPointWestOutputConnector_3659IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getLocalEntry_3663IncomingLinks(
 			View view) {
 		return Collections.emptyList();
 	}
@@ -12324,6 +12350,14 @@ public class EsbDiagramUpdater {
 		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getLocalEntry_3663OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
 	}
 
 	/**
