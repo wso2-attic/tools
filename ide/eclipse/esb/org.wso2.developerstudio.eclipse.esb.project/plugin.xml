@@ -90,5 +90,29 @@
 			</includes>
 		</viewerContentBinding>
 	</extension>
+	
+	<extension point="org.eclipse.ui.navigator.viewer" id="esb-navigator-viewbinding">
+      	<viewerActionBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+         	<includes>
+            	<actionExtension pattern="org.wso2.developerstudio.eclipse.esb.project.navigatorActionProvider"/>
+         	</includes>
+      	</viewerActionBinding>
+      	<viewerActionBinding viewerId="org.eclipse.ui.navigator.PackageExplorer">
+         	<includes>
+            	<actionExtension pattern="org.wso2.developerstudio.eclipse.esb.project.navigatorActionProvider"/>
+         	</includes>
+      	</viewerActionBinding>
+	</extension>
+
+
+	<extension point="org.eclipse.ui.navigator.navigatorContent">  
+        <actionProvider
+             class="org.wso2.developerstudio.eclipse.esb.project.provider.NavigatorActionProvider"
+             id="org.wso2.developerstudio.eclipse.esb.project.navigatorActionProvider"> 
+			<enablement>
+     			<adapt type="org.eclipse.core.resources.IFile" /> 
+          	</enablement>
+  		</actionProvider>
+	</extension>
    
 </plugin>
