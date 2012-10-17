@@ -772,7 +772,7 @@ public class AdvancedConfigComposite extends AbstractComposite {
 			showControls(lblSecPolicy, txtSecPolicy, cmdSecPolicyConRegBrowse,
 					cmdSecPolicyGovRegBrowse);
 			optListener.widgetSelected(null);
-		} else if (templateId.equals(PsArtifactConstants.CUSTOM_PROXY_TEMPL_ID)) {
+		} else if (templateId.equals(PsArtifactConstants.CUSTOM_PROXY_TEMPL_ID) || selectedTemplate.isCustom()) {
 			hideControls(lblSecPolicy, txtSecPolicy, cmdSecPolicyConRegBrowse,
 					cmdSecPolicyGovRegBrowse);
 			hideControls(lblReqLogLevel, cmbReqLogLevel, lblResLogLevel,

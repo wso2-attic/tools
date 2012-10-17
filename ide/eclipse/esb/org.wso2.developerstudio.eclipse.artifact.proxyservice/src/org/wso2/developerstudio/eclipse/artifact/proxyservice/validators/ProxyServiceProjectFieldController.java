@@ -43,7 +43,8 @@ public class ProxyServiceProjectFieldController extends AbstractFieldController 
 		ArtifactTemplate selectedTemplate = (ArtifactTemplate)model.getModelPropertyValue("ps.type"); 
 		if(selectedTemplate!=null){
 			optWsdlbasedProxy = selectedTemplate.getId().equalsIgnoreCase(PsArtifactConstants.WSDL_BASED_PROXY_TEMPL_ID);
-			optCustomProxy = selectedTemplate.getId().equalsIgnoreCase(PsArtifactConstants.CUSTOM_PROXY_TEMPL_ID);	
+			optCustomProxy = (selectedTemplate.isCustom() || selectedTemplate.getId()
+					.equalsIgnoreCase(PsArtifactConstants.CUSTOM_PROXY_TEMPL_ID));
 		}
 		if (modelProperty.equals("ps.name")) {
 			CommonFieldValidator.validateArtifactName(value);
@@ -167,7 +168,6 @@ public class ProxyServiceProjectFieldController extends AbstractFieldController 
 			readOnlyField = true;
 		}
 	    return readOnlyField;
-	}
-
+	}	
 
 }
