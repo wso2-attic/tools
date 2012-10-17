@@ -651,6 +651,15 @@ public class EsbEditPartFactory implements EditPartFactory {
 			case WSDLEndPointOutputConnectorEditPart.VISUAL_ID:
 				return new WSDLEndPointOutputConnectorEditPart(view);
 
+			case NamedEndpointEditPart.VISUAL_ID:
+				return new NamedEndpointEditPart(view);
+
+			case NamedEndpointInputConnectorEditPart.VISUAL_ID:
+				return new NamedEndpointInputConnectorEditPart(view);
+
+			case NamedEndpointOutputConnectorEditPart.VISUAL_ID:
+				return new NamedEndpointOutputConnectorEditPart(view);
+
 			case LoadBalanceEndPointEditPart.VISUAL_ID:
 				return new LoadBalanceEndPointEditPart(view);
 

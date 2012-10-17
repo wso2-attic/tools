@@ -197,10 +197,11 @@ public class EsbCreationWizard extends Wizard implements INewWizard,
 				op = createDiagram("proxy_", PROXY_RESOURCE_DIR, "proxy");
 				type = "synapse/graphical-proxy";
 				break;
-				
+
 			case ENDPOINT:
 				location = esbProject.getFolder(ENDPOINT_RESOURCE_DIR);
-				op = createDiagram("endpoint_", ENDPOINT_RESOURCE_DIR, "endpoint");
+				op = createDiagram("endpoint_", ENDPOINT_RESOURCE_DIR,
+						"endpoint");
 				type = "synapse/graphical-endpoint";
 				break;
 
@@ -369,7 +370,8 @@ public class EsbCreationWizard extends Wizard implements INewWizard,
 	}
 
 	public enum WizardMode {
-		DEFAULT("DEFAULT"), PROXY("PROXY"), SEQUENCE("SEQUENCE"), ENDPOINT("ENDPOINT");
+		DEFAULT("DEFAULT"), PROXY("PROXY"), SEQUENCE("SEQUENCE"), ENDPOINT(
+				"ENDPOINT");
 
 		private final String mode;
 

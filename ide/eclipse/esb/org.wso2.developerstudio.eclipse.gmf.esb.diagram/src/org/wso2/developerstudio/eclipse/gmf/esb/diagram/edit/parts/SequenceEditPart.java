@@ -66,7 +66,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorO
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedSizedAbstractMediator;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.SequenceOpenEditPolicy;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.OpenSeparatelyEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.SequenceStorage;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ToolPalleteDetails;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.editpolicy.FeedbackIndicateDragDropEditPolicy;
@@ -143,7 +143,7 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 
 		// For handle Double click Event.
 		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
-				new SequenceOpenEditPolicy());
+				new OpenSeparatelyEditPolicy());
 
 		// XXX need an SCR to runtime to have another abstract superclass that
 		// would let children add reasonable editpolicies

@@ -47,6 +47,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ToolPalleteDetails;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AddressEndPointEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AddressEndPointInputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.NamedEndpointEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyFaultInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceContainerEditPart;
@@ -160,6 +161,7 @@ public class EsbPaletteFactory {
 		//	paletteContainer.add(createFailoverEndPoint3CreationTool());
 		paletteContainer.add(createWSDLEndPoint4CreationTool());
 		//	paletteContainer.add(createLoadBalanceEndPoint5CreationTool());
+		paletteContainer.add(createNamedEndpoint6CreationTool());
 		return paletteContainer;
 	}
 
@@ -933,6 +935,21 @@ public class EsbPaletteFactory {
 	/**
 	 * @generated
 	 */
+	private ToolEntry createNamedEndpoint6CreationTool() {
+		NodeToolEntry entry = new NodeToolEntry(
+				Messages.NamedEndpoint6CreationTool_title,
+				Messages.NamedEndpoint6CreationTool_desc,
+				Collections.singletonList(EsbElementTypes.NamedEndpoint_3660));
+		entry.setId("createNamedEndpoint6CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(EsbElementTypes
+				.getImageDescriptor(EsbElementTypes.NamedEndpoint_3660));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
 	private ToolEntry createEsbLink1CreationTool() {
 		LinkToolEntry entry = new LinkToolEntry(
 				Messages.EsbLink1CreationTool_title,
@@ -961,37 +978,38 @@ public class EsbPaletteFactory {
 	}
 
 	public void addDefinedSequences(IEditorPart editor) {
-		ArrayList<String> definedSequences = new ArrayList<String>();
-		if (editor != null) {
-			IFileEditorInput input = (IFileEditorInput) editor.getEditorInput();
-			IFile file = input.getFile();
-			IProject activeProject = file.getProject();
-			try {
-				IResource[] SequenceMembers = activeProject.getFolder(
-						SEQUENCE_RESOURCE_DIR).members();
-				for (int j = 0; j < SequenceMembers.length; ++j) {
+		ArrayList<String> definedSequences = addDefinedArtifacts(editor,
+				SEQUENCE_RESOURCE_DIR, "sequence_");
+		/*		if (editor != null) {
+		 IFileEditorInput input = (IFileEditorInput) editor.getEditorInput();
+		 IFile file = input.getFile();
+		 IProject activeProject = file.getProject();
+		 try {
+		 IResource[] SequenceMembers = activeProject.getFolder(
+		 SEQUENCE_RESOURCE_DIR).members();
+		 for (int j = 0; j < SequenceMembers.length; ++j) {
 
-					Pattern p = Pattern.compile(".esb_diagram");
-					Matcher m = p.matcher(SequenceMembers[j].getName());
-					StringBuffer sb = new StringBuffer();
-					boolean result = m.find();
+		 Pattern p = Pattern.compile(".esb_diagram");
+		 Matcher m = p.matcher(SequenceMembers[j].getName());
+		 StringBuffer sb = new StringBuffer();
+		 boolean result = m.find();
 
-					if (result) {
-						String[] splittedFilename = SequenceMembers[j]
-								.getName().split(".esb_diagram");
-						if (splittedFilename[0] != null) {
-							String[] tempName = splittedFilename[0]
-									.split("sequence_");
-							definedSequences.add(tempName[1].trim());
-						}
-					}
-				}
-			} catch (CoreException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+		 if (result) {
+		 String[] splittedFilename = SequenceMembers[j]
+		 .getName().split(".esb_diagram");
+		 if (splittedFilename[0] != null) {
+		 String[] tempName = splittedFilename[0]
+		 .split("sequence_");
+		 definedSequences.add(tempName[1].trim());
+		 }
+		 }
+		 }
+		 } catch (CoreException e) {
+		 // TODO Auto-generated catch block
+		 e.printStackTrace();
+		 }
 
-		}
+		 }*/
 
 		if ((((DiagramEditDomain) ((EsbDiagramEditor) editor)
 				.getDiagramEditDomain()).getPaletteViewer().getPaletteRoot()
@@ -1013,9 +1031,75 @@ public class EsbPaletteFactory {
 
 	}
 
+	public void addDefinedEndpoints(IEditorPart editor) {
+		ArrayList<String> definedEndpoints = addDefinedArtifacts(editor,
+				ENDPOINT_RESOURCE_DIR, "endpoint_");
+
+		if ((((DiagramEditDomain) ((EsbDiagramEditor) editor)
+				.getDiagramEditDomain()).getPaletteViewer().getPaletteRoot()
+				.getChildren().size() - 1) != ToolPalleteDetails.DEFINED_ENDPOINT) {
+			((DiagramEditDomain) ((EsbDiagramEditor) editor)
+					.getDiagramEditDomain()).getPaletteViewer()
+					.getPaletteRoot().add(createDefinedEndpointGroup());
+		}
+
+		for (int k = 0; k < definedEndpoints.size(); ++k) {
+			((PaletteContainer) ((DiagramEditDomain) ((EsbDiagramEditor) editor)
+					.getDiagramEditDomain()).getPaletteViewer()
+					.getPaletteRoot().getChildren()
+					.get(ToolPalleteDetails.DEFINED_ENDPOINT))
+					.add(createDefinedEndpointCreationTool(definedEndpoints
+							.get(k)));
+			NamedEndpointEditPart.definedEndpointsNames.add(definedEndpoints.get(k));
+		}
+
+	}
+
+	private ArrayList<String> addDefinedArtifacts(IEditorPart editor,
+			String dir, String artifactPrefix) {
+		ArrayList<String> definedArtifacts = new ArrayList<String>();
+		if (editor != null) {
+			IFileEditorInput input = (IFileEditorInput) editor.getEditorInput();
+			IFile file = input.getFile();
+			IProject activeProject = file.getProject();
+			try {
+				IResource[] Members = activeProject.getFolder(dir).members();
+				for (int j = 0; j < Members.length; ++j) {
+
+					Pattern p = Pattern.compile(".esb_diagram");
+					Matcher m = p.matcher(Members[j].getName());
+					StringBuffer sb = new StringBuffer();
+					boolean result = m.find();
+
+					if (result) {
+						String[] splittedFilename = Members[j].getName().split(
+								".esb_diagram");
+						if (splittedFilename[0] != null) {
+							String[] tempName = splittedFilename[0]
+									.split(artifactPrefix);
+							definedArtifacts.add(tempName[1].trim());
+						}
+					}
+				}
+			} catch (CoreException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		}
+		return definedArtifacts;
+	}
+
 	private PaletteContainer createSequenceGroup() {
 		PaletteDrawer paletteContainer = new PaletteDrawer("Sequences");
 		paletteContainer.setId("Sequences"); //$NON-NLS-1$
+
+		return paletteContainer;
+	}
+
+	private PaletteContainer createDefinedEndpointGroup() {
+		PaletteDrawer paletteContainer = new PaletteDrawer("DefinedEndpoints");
+		paletteContainer.setId("DefinedEndpoints"); //$NON-NLS-1$
 
 		return paletteContainer;
 	}
@@ -1033,6 +1117,18 @@ public class EsbPaletteFactory {
 				.getImageDescriptor(EsbElementTypes.Sequence_3503));
 		entry.setLargeIcon(entry.getSmallIcon());
 
+		return entry;
+	}
+
+	private ToolEntry createDefinedEndpointCreationTool(String name) {
+		NodeToolEntry entry = new NodeToolEntry(
+				name,
+				Messages.NamedEndpoint6CreationTool_desc,
+				Collections.singletonList(EsbElementTypes.NamedEndpoint_3660));
+		entry.setId("createNamedEndpoint6CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(EsbElementTypes
+				.getImageDescriptor(EsbElementTypes.NamedEndpoint_3660));
+		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 

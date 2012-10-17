@@ -364,7 +364,7 @@ public class WSDLEndPoint2EditPart extends AbstractBorderedShapeEditPart {
 		public WrappingLabel getFigureWSDLEndPointNamePropertyLabel() {
 			return fFigureWSDLEndPointNamePropertyLabel;
 		}
-		
+
 		public String getIconPath() {
 			return "icons/ico20/wsdl-endpoint.gif";
 		}
@@ -426,212 +426,212 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry
  * @generated NOT
  */
 /*
-public class WSDLEndPoint2EditPart extends AbstractEndpoint {
+ public class WSDLEndPoint2EditPart extends AbstractEndpoint {
 
  *//**
  * @generated
  */
 /*
-public static final int VISUAL_ID = 3385;
+ public static final int VISUAL_ID = 3385;
 
  *//**
  * @generated
  */
 /*
-protected IFigure contentPane;
+ protected IFigure contentPane;
 
  *//**
  * @generated
  */
 /*
-protected IFigure primaryShape;
+ protected IFigure primaryShape;
 
  *//**
  * @generated
  */
 /*
-public WSDLEndPoint2EditPart(View view) {
-super(view);
-}
+ public WSDLEndPoint2EditPart(View view) {
+ super(view);
+ }
 
  *//**
  * @generated NOT
  */
 /*
-protected void createDefaultEditPolicies() {
-installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
-super.createDefaultEditPolicies();
-installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new WSDLEndPoint2ItemSemanticEditPolicy());
-installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
-installEditPolicy(EditPolicyRoles.CANONICAL_ROLE, new WSDLEndPoint2CanonicalEditPolicy());
-installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-// For handle Double click Event.
-installEditPolicy(EditPolicyRoles.OPEN_ROLE, new ShowPropertyViewEditPolicy());
-// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
-// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
-}
+ protected void createDefaultEditPolicies() {
+ installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
+ super.createDefaultEditPolicies();
+ installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new WSDLEndPoint2ItemSemanticEditPolicy());
+ installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
+ installEditPolicy(EditPolicyRoles.CANONICAL_ROLE, new WSDLEndPoint2CanonicalEditPolicy());
+ installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
+ // For handle Double click Event.
+ installEditPolicy(EditPolicyRoles.OPEN_ROLE, new ShowPropertyViewEditPolicy());
+ // XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
+ // removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
+ }
 
  *//**
  * @generated
  */
 /*
-protected LayoutEditPolicy createLayoutEditPolicy() {
-org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep =
-                                                                       new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
+ protected LayoutEditPolicy createLayoutEditPolicy() {
+ org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep =
+ new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
-	                                                                       protected EditPolicy createChildEditPolicy(EditPart child) {
-		                                                                       View childView =
-		                                                                                        (View) child.getModel();
-		                                                                       switch (EsbVisualIDRegistry.getVisualID(childView)) {
-			                                                                       case WSDLEndPointInputConnectorEditPart.VISUAL_ID:
-			                                                                       case WSDLEndPointOutputConnectorEditPart.VISUAL_ID:
-				                                                                       return new BorderItemSelectionEditPolicy();
-		                                                                       }
-		                                                                       EditPolicy result =
-		                                                                                           child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
-		                                                                       if (result == null) {
-			                                                                       result =
-			                                                                                new NonResizableEditPolicy();
-		                                                                       }
-		                                                                       return result;
-	                                                                       }
+ protected EditPolicy createChildEditPolicy(EditPart child) {
+ View childView =
+ (View) child.getModel();
+ switch (EsbVisualIDRegistry.getVisualID(childView)) {
+ case WSDLEndPointInputConnectorEditPart.VISUAL_ID:
+ case WSDLEndPointOutputConnectorEditPart.VISUAL_ID:
+ return new BorderItemSelectionEditPolicy();
+ }
+ EditPolicy result =
+ child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+ if (result == null) {
+ result =
+ new NonResizableEditPolicy();
+ }
+ return result;
+ }
 
-	                                                                       protected Command getMoveChildrenCommand(Request request) {
-		                                                                       return null;
-	                                                                       }
+ protected Command getMoveChildrenCommand(Request request) {
+ return null;
+ }
 
-	                                                                       protected Command getCreateCommand(CreateRequest request) {
-		                                                                       return null;
-	                                                                       }
-                                                                       };
-return lep;
-}
-
- *//**
- * @generated
- */
-/*
-protected IFigure createNodeShape() {
-return primaryShape = new WSDLEndPointFigure();
-}
+ protected Command getCreateCommand(CreateRequest request) {
+ return null;
+ }
+ };
+ return lep;
+ }
 
  *//**
  * @generated
  */
 /*
-public WSDLEndPointFigure getPrimaryShape() {
-return (WSDLEndPointFigure) primaryShape;
-}
+ protected IFigure createNodeShape() {
+ return primaryShape = new WSDLEndPointFigure();
+ }
+
+ *//**
+ * @generated
+ */
+/*
+ public WSDLEndPointFigure getPrimaryShape() {
+ return (WSDLEndPointFigure) primaryShape;
+ }
 
  *//**
  * @generated NOT
  */
 /*
-protected boolean addFixedChild(EditPart childEditPart) {
-if (childEditPart instanceof WSDLEndPointEndPointName2EditPart) {
-	((WSDLEndPointEndPointName2EditPart) childEditPart).setLabel(getPrimaryShape().getFigureWSDLEndPointNamePropertyLabel());
-	return true;
-}
-if (childEditPart instanceof WSDLEndPointInputConnectorEditPart) {
-	double position;
-	EObject parentEndpoint =
-	                         ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (childEditPart.getParent()).getModel()).getElement();
-	if (((WSDLEndPoint) parentEndpoint).getInputConnector().getIncomingLinks().size() != 0) {
-		EObject source =
-		                 ((WSDLEndPoint) parentEndpoint).getInputConnector()
-		                                                .getIncomingLinks().get(0)
-		                                                .getSource().eContainer();
-		position =
-		           ((source instanceof LoadBalanceEndPoint) || (source instanceof FailoverEndPoint))
-		                                                                                            ? 0.5
-		                                                                                            : 0.25;
-	} else {
-		position = 0.25;
-	}
-	IFigure borderItemFigure =
-	                           ((WSDLEndPointInputConnectorEditPart) childEditPart).getFigure();
-	BorderItemLocator locator =
-	                            new FixedBorderItemLocator(getMainFigure(),
-	                                                       borderItemFigure,
-	                                                       PositionConstants.WEST, position);
-	getBorderedFigure().getBorderItemContainer().add(borderItemFigure, locator);
-	return true;
-}
-if (childEditPart instanceof WSDLEndPointOutputConnectorEditPart) {
-	IFigure borderItemFigure =
-	                           ((WSDLEndPointOutputConnectorEditPart) childEditPart).getFigure();
-	BorderItemLocator locator =
-	                            new FixedBorderItemLocator(getMainFigure(),
-	                                                       borderItemFigure,
-	                                                       PositionConstants.WEST, 0.75);
-	getBorderedFigure().getBorderItemContainer().add(borderItemFigure, locator);
-	return true;
-}
-return false;
-}
+ protected boolean addFixedChild(EditPart childEditPart) {
+ if (childEditPart instanceof WSDLEndPointEndPointName2EditPart) {
+ ((WSDLEndPointEndPointName2EditPart) childEditPart).setLabel(getPrimaryShape().getFigureWSDLEndPointNamePropertyLabel());
+ return true;
+ }
+ if (childEditPart instanceof WSDLEndPointInputConnectorEditPart) {
+ double position;
+ EObject parentEndpoint =
+ ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (childEditPart.getParent()).getModel()).getElement();
+ if (((WSDLEndPoint) parentEndpoint).getInputConnector().getIncomingLinks().size() != 0) {
+ EObject source =
+ ((WSDLEndPoint) parentEndpoint).getInputConnector()
+ .getIncomingLinks().get(0)
+ .getSource().eContainer();
+ position =
+ ((source instanceof LoadBalanceEndPoint) || (source instanceof FailoverEndPoint))
+ ? 0.5
+ : 0.25;
+ } else {
+ position = 0.25;
+ }
+ IFigure borderItemFigure =
+ ((WSDLEndPointInputConnectorEditPart) childEditPart).getFigure();
+ BorderItemLocator locator =
+ new FixedBorderItemLocator(getMainFigure(),
+ borderItemFigure,
+ PositionConstants.WEST, position);
+ getBorderedFigure().getBorderItemContainer().add(borderItemFigure, locator);
+ return true;
+ }
+ if (childEditPart instanceof WSDLEndPointOutputConnectorEditPart) {
+ IFigure borderItemFigure =
+ ((WSDLEndPointOutputConnectorEditPart) childEditPart).getFigure();
+ BorderItemLocator locator =
+ new FixedBorderItemLocator(getMainFigure(),
+ borderItemFigure,
+ PositionConstants.WEST, 0.75);
+ getBorderedFigure().getBorderItemContainer().add(borderItemFigure, locator);
+ return true;
+ }
+ return false;
+ }
 
  *//**
  * @generated
  */
 /*
-protected boolean removeFixedChild(EditPart childEditPart) {
-if (childEditPart instanceof WSDLEndPointEndPointName2EditPart) {
-	return true;
-}
-if (childEditPart instanceof WSDLEndPointInputConnectorEditPart) {
-	getBorderedFigure().getBorderItemContainer()
-	                   .remove(((WSDLEndPointInputConnectorEditPart) childEditPart).getFigure());
-	return true;
-}
-if (childEditPart instanceof WSDLEndPointOutputConnectorEditPart) {
-	getBorderedFigure().getBorderItemContainer()
-	                   .remove(((WSDLEndPointOutputConnectorEditPart) childEditPart).getFigure());
-	return true;
-}
-return false;
-}
+ protected boolean removeFixedChild(EditPart childEditPart) {
+ if (childEditPart instanceof WSDLEndPointEndPointName2EditPart) {
+ return true;
+ }
+ if (childEditPart instanceof WSDLEndPointInputConnectorEditPart) {
+ getBorderedFigure().getBorderItemContainer()
+ .remove(((WSDLEndPointInputConnectorEditPart) childEditPart).getFigure());
+ return true;
+ }
+ if (childEditPart instanceof WSDLEndPointOutputConnectorEditPart) {
+ getBorderedFigure().getBorderItemContainer()
+ .remove(((WSDLEndPointOutputConnectorEditPart) childEditPart).getFigure());
+ return true;
+ }
+ return false;
+ }
 
  *//**
  * @generated
  */
 /*
-protected void addChildVisual(EditPart childEditPart, int index) {
-if (addFixedChild(childEditPart)) {
-	return;
-}
-super.addChildVisual(childEditPart, -1);
-}
+ protected void addChildVisual(EditPart childEditPart, int index) {
+ if (addFixedChild(childEditPart)) {
+ return;
+ }
+ super.addChildVisual(childEditPart, -1);
+ }
 
  *//**
  * @generated
  */
 /*
-protected void removeChildVisual(EditPart childEditPart) {
-if (removeFixedChild(childEditPart)) {
-	return;
-}
-super.removeChildVisual(childEditPart);
-}
+ protected void removeChildVisual(EditPart childEditPart) {
+ if (removeFixedChild(childEditPart)) {
+ return;
+ }
+ super.removeChildVisual(childEditPart);
+ }
 
  *//**
  * @generated
  */
 /*
-protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
-if (editPart instanceof IBorderItemEditPart) {
-	return getBorderedFigure().getBorderItemContainer();
-}
-return getContentPane();
-}
+ protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
+ if (editPart instanceof IBorderItemEditPart) {
+ return getBorderedFigure().getBorderItemContainer();
+ }
+ return getContentPane();
+ }
 
  *//**
  * @generated
  */
 /*
-protected NodeFigure createNodePlate() {
-DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
-return result;
-}
+ protected NodeFigure createNodePlate() {
+ DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
+ return result;
+ }
 
  *//**
  * Creates figure for this edit part.
@@ -642,14 +642,14 @@ return result;
  * @generated
  */
 /*
-protected NodeFigure createMainFigure() {
-NodeFigure figure = createNodePlate();
-figure.setLayoutManager(new StackLayout());
-IFigure shape = createNodeShape();
-figure.add(shape);
-contentPane = setupContentPane(shape);
-return figure;
-}
+ protected NodeFigure createMainFigure() {
+ NodeFigure figure = createNodePlate();
+ figure.setLayoutManager(new StackLayout());
+ IFigure shape = createNodeShape();
+ figure.add(shape);
+ contentPane = setupContentPane(shape);
+ return figure;
+ }
 
  *//**
  * Default implementation treats passed figure as content pane.
@@ -658,142 +658,142 @@ return figure;
  * @generated
  */
 /*
-protected IFigure setupContentPane(IFigure nodeShape) {
-if (nodeShape.getLayoutManager() == null) {
-	ConstrainedToolbarLayout layout = new ConstrainedToolbarLayout();
-	layout.setSpacing(5);
-	nodeShape.setLayoutManager(layout);
-}
-return nodeShape; // use nodeShape itself as contentPane
-}
+ protected IFigure setupContentPane(IFigure nodeShape) {
+ if (nodeShape.getLayoutManager() == null) {
+ ConstrainedToolbarLayout layout = new ConstrainedToolbarLayout();
+ layout.setSpacing(5);
+ nodeShape.setLayoutManager(layout);
+ }
+ return nodeShape; // use nodeShape itself as contentPane
+ }
 
  *//**
  * @generated
  */
 /*
-public IFigure getContentPane() {
-if (contentPane != null) {
-	return contentPane;
-}
-return super.getContentPane();
-}
+ public IFigure getContentPane() {
+ if (contentPane != null) {
+ return contentPane;
+ }
+ return super.getContentPane();
+ }
 
  *//**
  * @generated
  */
 /*
-protected void setForegroundColor(Color color) {
-if (primaryShape != null) {
-	primaryShape.setForegroundColor(color);
-}
-}
+ protected void setForegroundColor(Color color) {
+ if (primaryShape != null) {
+ primaryShape.setForegroundColor(color);
+ }
+ }
 
  *//**
  * @generated
  */
 /*
-protected void setBackgroundColor(Color color) {
-if (primaryShape != null) {
-	primaryShape.setBackgroundColor(color);
-}
-}
+ protected void setBackgroundColor(Color color) {
+ if (primaryShape != null) {
+ primaryShape.setBackgroundColor(color);
+ }
+ }
 
  *//**
  * @generated
  */
 /*
-protected void setLineWidth(int width) {
-if (primaryShape instanceof Shape) {
-	((Shape) primaryShape).setLineWidth(width);
-}
-}
+ protected void setLineWidth(int width) {
+ if (primaryShape instanceof Shape) {
+ ((Shape) primaryShape).setLineWidth(width);
+ }
+ }
 
  *//**
  * @generated
  */
 /*
-protected void setLineType(int style) {
-if (primaryShape instanceof Shape) {
-	((Shape) primaryShape).setLineStyle(style);
-}
-}
+ protected void setLineType(int style) {
+ if (primaryShape instanceof Shape) {
+ ((Shape) primaryShape).setLineStyle(style);
+ }
+ }
 
  *//**
  * @generated
  */
 /*
-public EditPart getPrimaryChildEditPart() {
-return getChildBySemanticHint(EsbVisualIDRegistry.getType(WSDLEndPointEndPointName2EditPart.VISUAL_ID));
-}
+ public EditPart getPrimaryChildEditPart() {
+ return getChildBySemanticHint(EsbVisualIDRegistry.getType(WSDLEndPointEndPointName2EditPart.VISUAL_ID));
+ }
 
  *//**
  * @generated
  */
 /*
-public class WSDLEndPointFigure extends EsbGraphicalShape {
+ public class WSDLEndPointFigure extends EsbGraphicalShape {
 
  *//**
  * @generated
  */
 /*
-private WrappingLabel fFigureWSDLEndPointNamePropertyLabel;
+ private WrappingLabel fFigureWSDLEndPointNamePropertyLabel;
 
  *//**
  * @generated
  */
 /*
-public WSDLEndPointFigure() {
+ public WSDLEndPointFigure() {
 
-this.setBackgroundColor(THIS_BACK);
-createContents();
-}
+ this.setBackgroundColor(THIS_BACK);
+ createContents();
+ }
 
  *//**
  * @generated NOT
  */
 /*
-private void createContents() {
+ private void createContents() {
 
-fFigureWSDLEndPointNamePropertyLabel = new WrappingLabel();
-fFigureWSDLEndPointNamePropertyLabel.setText("<...>");
-fFigureWSDLEndPointNamePropertyLabel.setAlignment(SWT.CENTER);
-this.getPropertyValueRectangle1().add(fFigureWSDLEndPointNamePropertyLabel);
+ fFigureWSDLEndPointNamePropertyLabel = new WrappingLabel();
+ fFigureWSDLEndPointNamePropertyLabel.setText("<...>");
+ fFigureWSDLEndPointNamePropertyLabel.setAlignment(SWT.CENTER);
+ this.getPropertyValueRectangle1().add(fFigureWSDLEndPointNamePropertyLabel);
 
-}
-
- *//**
- * @generated
- */
-/*
-public WrappingLabel getFigureWSDLEndPointNamePropertyLabel() {
-return fFigureWSDLEndPointNamePropertyLabel;
-}
-
-public String getIconPath() {
-return "icons/ico20/wsdl-endpoint.gif";
-}
-
-public String getNodeName() {
-return "WSDL-EP";
-}
-
-public Color getBackgroundColor() {
-return THIS_BACK;
-}
-
-public Color getLabelBackColor() {
-return THIS_LABEL_BACK;
-}
-
-}
+ }
 
  *//**
  * @generated
  */
 /*
-static final Color THIS_BACK = new Color(null, 40, 151, 248);
+ public WrappingLabel getFigureWSDLEndPointNamePropertyLabel() {
+ return fFigureWSDLEndPointNamePropertyLabel;
+ }
 
-static final Color THIS_LABEL_BACK = new Color(null, 255, 225, 194);
+ public String getIconPath() {
+ return "icons/ico20/wsdl-endpoint.gif";
+ }
 
-}
+ public String getNodeName() {
+ return "WSDL-EP";
+ }
+
+ public Color getBackgroundColor() {
+ return THIS_BACK;
+ }
+
+ public Color getLabelBackColor() {
+ return THIS_LABEL_BACK;
+ }
+
+ }
+
+ *//**
+ * @generated
+ */
+/*
+ static final Color THIS_BACK = new Color(null, 40, 151, 248);
+
+ static final Color THIS_LABEL_BACK = new Color(null, 255, 225, 194);
+
+ }
  */

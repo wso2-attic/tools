@@ -57,12 +57,11 @@ public class EndpointDiagramEditPart extends ShapeNodeEditPart {
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new EndpointDiagramItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-		disableUnnecessaryToolPaletteItems();
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
-	
-	private void disableUnnecessaryToolPaletteItems(){
+
+	private void disableUnnecessaryToolPaletteItems() {
 		/* disabling Tool item from palette*/
 		PaletteContainer nodes = ((PaletteContainer) getEditDomain()
 				.getPaletteViewer().getPaletteRoot().getChildren().get(1));

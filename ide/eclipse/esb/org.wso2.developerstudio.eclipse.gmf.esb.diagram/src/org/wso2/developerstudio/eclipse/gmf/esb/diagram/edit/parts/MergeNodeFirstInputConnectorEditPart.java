@@ -267,6 +267,7 @@ public class MergeNodeFirstInputConnectorEditPart extends
 			types.add(EsbElementTypes.FailoverEndPointOutputConnector_3090);
 			types.add(EsbElementTypes.FailoverEndPointWestOutputConnector_3097);
 			types.add(EsbElementTypes.WSDLEndPointOutputConnector_3093);
+			types.add(EsbElementTypes.NamedEndpointOutputConnector_3662);
 			types.add(EsbElementTypes.LoadBalanceEndPointOutputConnector_3096);
 			types.add(EsbElementTypes.LoadBalanceEndPointWestOutputConnector_3098);
 			types.add(EsbElementTypes.MessageOutputConnector_3047);

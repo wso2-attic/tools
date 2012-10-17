@@ -46,6 +46,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.HeaderMediato
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.IterateMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.LoadBalanceEndPointEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.LogMediatorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.NamedEndpointEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.OAuthMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.PayloadFactoryMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.PropertyMediatorEditPart;
@@ -169,6 +170,7 @@ public class MediatorFlowMediatorFlowCompartment9CanonicalEditPolicy extends
 		case AddressEndPointEditPart.VISUAL_ID:
 		case FailoverEndPointEditPart.VISUAL_ID:
 		case WSDLEndPointEditPart.VISUAL_ID:
+		case NamedEndpointEditPart.VISUAL_ID:
 		case LoadBalanceEndPointEditPart.VISUAL_ID:
 			return true;
 		}

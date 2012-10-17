@@ -8,4 +8,5 @@ public interface ToolPalleteDetails {
 	public int LINKS=4;
 	//public int HELPERS=5;
 	public int SEQUENCE=5;
+	public int DEFINED_ENDPOINT=6;
 }

@@ -37,6 +37,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.FailoverEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.FailoverEndPointOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPointOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.NamedEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.WSDLEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpoint;
@@ -131,6 +132,13 @@ public class MediatorFlowMediatorFlowCompartmentEditPart extends
 									((DefaultEndPointEditPart) childEditPart)
 											.getFigure(),
 									PositionConstants.EAST, 10, 5));
+		} else if (childEditPart instanceof NamedEndpointEditPart) {
+			borderedNodeFigure.getBorderItemContainer().add(
+					((NamedEndpointEditPart) childEditPart).getFigure(),
+					new SlidingBorderItemLocator(borderedNodeFigure
+							.getMainFigure(),
+							((NamedEndpointEditPart) childEditPart).getFigure(),
+							PositionConstants.EAST, 10, 5));
 		}
 
 		else {
@@ -336,6 +344,58 @@ public class MediatorFlowMediatorFlowCompartmentEditPart extends
 					}
 				}
 			}
+		} else if (child instanceof NamedEndpointEditPart) {
+			NamedEndpointEditPart endpointEditPart = (NamedEndpointEditPart) child;
+			EObject parentEndpoint = ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (endpointEditPart)
+					.getModel()).getElement();
+			if (((NamedEndpoint) parentEndpoint).getInputConnector()
+					.getIncomingLinks().size() == 0) {
+				if (((NamedEndpoint) parentEndpoint).getOutputConnector() == null) {
+					SetCommand addCmd = new SetCommand(
+							getEditingDomain(),
+							parentEndpoint,
+							EsbPackage.Literals.NAMED_ENDPOINT__OUTPUT_CONNECTOR,
+							EsbFactory.eINSTANCE
+									.createNamedEndpointOutputConnector());
+					if (addCmd.canExecute()) {
+						getEditingDomain().getCommandStack().execute(addCmd);
+					}
+				}
+			}		
+
+			NamedEndpointEditPart namedEndPointEditPart = (NamedEndpointEditPart) child;
+			EditPart editpart = (EditPart) ((StructuredSelection) namedEndPointEditPart
+					.getViewer().getEditDomain().getPaletteViewer()
+					.getSelection()).getFirstElement();
+			if (editpart instanceof ToolEntryEditPart) {
+				if (((ToolEntryEditPart) editpart).getModel() instanceof NodeToolEntry) {
+					String label = ((NodeToolEntry) ((ToolEntryEditPart) editpart)
+							.getModel()).getLabel();
+					if ((!label.equals("")) && (!label.equals("NamedEndpoint"))) {
+						try {
+							((NamedEndpoint) ((View) namedEndPointEditPart
+									.getModel()).getElement()).setName(label);
+						} catch (java.lang.IllegalStateException e) {
+							log.error("This is occured while undo operation..",
+									e);
+						}
+					}
+				} /*
+				 * else if (((ToolEntryEditPart) editpart).getModel() instanceof
+				 * org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.
+				 * SequenceEditPart.NodeToolEntry) { String label =
+				 * ((org.wso2.developerstudio
+				 * .eclipse.gmf.esb.diagram.edit.parts.
+				 * SequenceEditPart.NodeToolEntry) ((ToolEntryEditPart)
+				 * editpart) .getModel()).getLabel(); if ((!label.equals("")) &&
+				 * (!label.equals("Sequence"))) { ((Sequence) ((View)
+				 * namedEndPointEditPart.getModel())
+				 * .getElement()).setName(label); } }
+				 */
+			}
+		
+			
+			
 		}
 	}
 

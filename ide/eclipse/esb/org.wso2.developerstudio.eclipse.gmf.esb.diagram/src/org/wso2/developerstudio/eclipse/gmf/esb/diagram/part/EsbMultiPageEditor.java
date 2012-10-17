@@ -162,8 +162,9 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
                             "ErrorCreatingNestedEditor", null, e.getStatus());
         }
         
-        new EsbPaletteFactory().addDefinedSequences(getEditor(0));
-        
+        EsbPaletteFactory esbPaletteFactory=new EsbPaletteFactory();
+        esbPaletteFactory.addDefinedSequences(getEditor(0));
+        esbPaletteFactory.addDefinedEndpoints(getEditor(0));
     }
 
     /**

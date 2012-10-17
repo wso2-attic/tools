@@ -347,6 +347,9 @@ public class FailoverEndPointWestOutputConnector2EditPart extends
 		if (targetEditPart instanceof WSDLEndPointInputConnectorEditPart) {
 			types.add(EsbElementTypes.EsbLink_4001);
 		}
+		if (targetEditPart instanceof NamedEndpointInputConnectorEditPart) {
+			types.add(EsbElementTypes.EsbLink_4001);
+		}
 		if (targetEditPart instanceof LoadBalanceEndPointInputConnectorEditPart) {
 			types.add(EsbElementTypes.EsbLink_4001);
 		}
@@ -432,6 +435,7 @@ public class FailoverEndPointWestOutputConnector2EditPart extends
 			types.add(EsbElementTypes.AddressEndPointInputConnector_3030);
 			types.add(EsbElementTypes.FailoverEndPointInputConnector_3088);
 			types.add(EsbElementTypes.WSDLEndPointInputConnector_3092);
+			types.add(EsbElementTypes.NamedEndpointInputConnector_3661);
 			types.add(EsbElementTypes.LoadBalanceEndPointInputConnector_3095);
 			types.add(EsbElementTypes.MessageInputConnector_3046);
 			types.add(EsbElementTypes.MergeNodeFirstInputConnector_3014);

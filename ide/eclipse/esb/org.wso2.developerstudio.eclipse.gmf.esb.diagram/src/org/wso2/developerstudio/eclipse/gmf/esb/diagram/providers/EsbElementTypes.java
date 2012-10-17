@@ -626,6 +626,21 @@ public class EsbElementTypes {
 	/**
 	 * @generated
 	 */
+	public static final IElementType NamedEndpoint_3660 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.NamedEndpoint_3660"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType NamedEndpointInputConnector_3661 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.NamedEndpointInputConnector_3661"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType NamedEndpointOutputConnector_3662 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.NamedEndpointOutputConnector_3662"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
 	public static final IElementType LoadBalanceEndPoint_3613 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.LoadBalanceEndPoint_3613"); //$NON-NLS-1$
 
 	/**
@@ -1807,6 +1822,15 @@ public class EsbElementTypes {
 			elements.put(WSDLEndPointOutputConnector_3093,
 					EsbPackage.eINSTANCE.getWSDLEndPointOutputConnector());
 
+			elements.put(NamedEndpoint_3660,
+					EsbPackage.eINSTANCE.getNamedEndpoint());
+
+			elements.put(NamedEndpointInputConnector_3661,
+					EsbPackage.eINSTANCE.getNamedEndpointInputConnector());
+
+			elements.put(NamedEndpointOutputConnector_3662,
+					EsbPackage.eINSTANCE.getNamedEndpointOutputConnector());
+
 			elements.put(LoadBalanceEndPoint_3613,
 					EsbPackage.eINSTANCE.getLoadBalanceEndPoint());
 
@@ -2137,6 +2161,9 @@ public class EsbElementTypes {
 			KNOWN_ELEMENT_TYPES.add(WSDLEndPoint_3612);
 			KNOWN_ELEMENT_TYPES.add(WSDLEndPointInputConnector_3092);
 			KNOWN_ELEMENT_TYPES.add(WSDLEndPointOutputConnector_3093);
+			KNOWN_ELEMENT_TYPES.add(NamedEndpoint_3660);
+			KNOWN_ELEMENT_TYPES.add(NamedEndpointInputConnector_3661);
+			KNOWN_ELEMENT_TYPES.add(NamedEndpointOutputConnector_3662);
 			KNOWN_ELEMENT_TYPES.add(LoadBalanceEndPoint_3613);
 			KNOWN_ELEMENT_TYPES.add(LoadBalanceEndPointInputConnector_3095);
 			KNOWN_ELEMENT_TYPES.add(LoadBalanceEndPointOutputConnector_3096);
@@ -2546,6 +2573,12 @@ public class EsbElementTypes {
 			return WSDLEndPointInputConnector_3092;
 		case WSDLEndPointOutputConnectorEditPart.VISUAL_ID:
 			return WSDLEndPointOutputConnector_3093;
+		case NamedEndpointEditPart.VISUAL_ID:
+			return NamedEndpoint_3660;
+		case NamedEndpointInputConnectorEditPart.VISUAL_ID:
+			return NamedEndpointInputConnector_3661;
+		case NamedEndpointOutputConnectorEditPart.VISUAL_ID:
+			return NamedEndpointOutputConnector_3662;
 		case LoadBalanceEndPointEditPart.VISUAL_ID:
 			return LoadBalanceEndPoint_3613;
 		case LoadBalanceEndPointInputConnectorEditPart.VISUAL_ID:
