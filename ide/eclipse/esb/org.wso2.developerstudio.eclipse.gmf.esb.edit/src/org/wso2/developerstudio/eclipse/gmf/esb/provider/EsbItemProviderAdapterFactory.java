@@ -2401,6 +2401,29 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.Template} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TemplateItemProvider templateItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.Template}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTemplateAdapter() {
+		if (templateItemProvider == null) {
+			templateItemProvider = new TemplateItemProvider(this);
+		}
+
+		return templateItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.ScriptMediator} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6188,6 +6211,7 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 		if (namedEndpointItemProvider != null) namedEndpointItemProvider.dispose();
 		if (namedEndpointInputConnectorItemProvider != null) namedEndpointInputConnectorItemProvider.dispose();
 		if (namedEndpointOutputConnectorItemProvider != null) namedEndpointOutputConnectorItemProvider.dispose();
+		if (templateItemProvider != null) templateItemProvider.dispose();
 	}
 
 }

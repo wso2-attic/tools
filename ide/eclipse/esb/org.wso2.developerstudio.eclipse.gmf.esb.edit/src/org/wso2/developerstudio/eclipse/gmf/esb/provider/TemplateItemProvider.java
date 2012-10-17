@@ -15,26 +15,28 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
-import org.wso2.developerstudio.eclipse.gmf.esb.MediatorFlow;
+import org.wso2.developerstudio.eclipse.gmf.esb.Template;
 
 /**
- * This is the item provider adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.MediatorFlow} object.
+ * This is the item provider adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.Template} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class MediatorFlowItemProvider
-	extends EsbNodeItemProvider
+public class TemplateItemProvider
+	extends EsbElementItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -47,7 +49,7 @@ public class MediatorFlowItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MediatorFlowItemProvider(AdapterFactory adapterFactory) {
+	public TemplateItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -62,8 +64,54 @@ public class MediatorFlowItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addNamePropertyDescriptor(object);
+			addTemplateTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Template_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Template_name_feature", "_UI_Template_type"),
+				 EsbPackage.Literals.TEMPLATE__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Template Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTemplateTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Template_templateType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Template_templateType_feature", "_UI_Template_type"),
+				 EsbPackage.Literals.TEMPLATE__TEMPLATE_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -78,7 +126,7 @@ public class MediatorFlowItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN);
+			childrenFeatures.add(EsbPackage.Literals.TEMPLATE__CHILD);
 		}
 		return childrenFeatures;
 	}
@@ -97,14 +145,14 @@ public class MediatorFlowItemProvider
 	}
 
 	/**
-	 * This returns MediatorFlow.gif.
+	 * This returns Template.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/MediatorFlow"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Template"));
 	}
 
 	/**
@@ -115,7 +163,10 @@ public class MediatorFlowItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_MediatorFlow_type");
+		String label = ((Template)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Template_type") :
+			getString("_UI_Template_type") + " " + label;
 	}
 
 	/**
@@ -129,8 +180,12 @@ public class MediatorFlowItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(MediatorFlow.class)) {
-			case EsbPackage.MEDIATOR_FLOW__CHILDREN:
+		switch (notification.getFeatureID(Template.class)) {
+			case EsbPackage.TEMPLATE__NAME:
+			case EsbPackage.TEMPLATE__TEMPLATE_TYPE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case EsbPackage.TEMPLATE__CHILD:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -150,282 +205,282 @@ public class MediatorFlowItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
+				(EsbPackage.Literals.TEMPLATE__CHILD,
 				 EsbFactory.eINSTANCE.createProxyService()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
+				(EsbPackage.Literals.TEMPLATE__CHILD,
 				 EsbFactory.eINSTANCE.createMessageMediator()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
+				(EsbPackage.Literals.TEMPLATE__CHILD,
 				 EsbFactory.eINSTANCE.createDefaultEndPoint()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
+				(EsbPackage.Literals.TEMPLATE__CHILD,
 				 EsbFactory.eINSTANCE.createAddressEndPoint()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
+				(EsbPackage.Literals.TEMPLATE__CHILD,
 				 EsbFactory.eINSTANCE.createDropMediator()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
+				(EsbPackage.Literals.TEMPLATE__CHILD,
 				 EsbFactory.eINSTANCE.createFilterMediator()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
+				(EsbPackage.Literals.TEMPLATE__CHILD,
 				 EsbFactory.eINSTANCE.createMergeNode()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
+				(EsbPackage.Literals.TEMPLATE__CHILD,
 				 EsbFactory.eINSTANCE.createLogMediator()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
+				(EsbPackage.Literals.TEMPLATE__CHILD,
 				 EsbFactory.eINSTANCE.createPropertyMediator()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
+				(EsbPackage.Literals.TEMPLATE__CHILD,
 				 EsbFactory.eINSTANCE.createEnrichMediator()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
+				(EsbPackage.Literals.TEMPLATE__CHILD,
 				 EsbFactory.eINSTANCE.createXSLTMediator()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
+				(EsbPackage.Literals.TEMPLATE__CHILD,
 				 EsbFactory.eINSTANCE.createSwitchMediator()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
+				(EsbPackage.Literals.TEMPLATE__CHILD,
 				 EsbFactory.eINSTANCE.createSequence()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
+				(EsbPackage.Literals.TEMPLATE__CHILD,
 				 EsbFactory.eINSTANCE.createEventMediator()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
+				(EsbPackage.Literals.TEMPLATE__CHILD,
 				 EsbFactory.eINSTANCE.createEntitlementMediator()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
+				(EsbPackage.Literals.TEMPLATE__CHILD,
 				 EsbFactory.eINSTANCE.createEnqueueMediator()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
+				(EsbPackage.Literals.TEMPLATE__CHILD,
 				 EsbFactory.eINSTANCE.createClassMediator()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
+				(EsbPackage.Literals.TEMPLATE__CHILD,
 				 EsbFactory.eINSTANCE.createSpringMediator()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
+				(EsbPackage.Literals.TEMPLATE__CHILD,
 				 EsbFactory.eINSTANCE.createScriptMediator()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
+				(EsbPackage.Literals.TEMPLATE__CHILD,
 				 EsbFactory.eINSTANCE.createFaultMediator()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
+				(EsbPackage.Literals.TEMPLATE__CHILD,
 				 EsbFactory.eINSTANCE.createAggregateMediator()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
+				(EsbPackage.Literals.TEMPLATE__CHILD,
 				 EsbFactory.eINSTANCE.createRouterMediator()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
+				(EsbPackage.Literals.TEMPLATE__CHILD,
 				 EsbFactory.eINSTANCE.createCloneMediator()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
+				(EsbPackage.Literals.TEMPLATE__CHILD,
 				 EsbFactory.eINSTANCE.createIterateMediator()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
+				(EsbPackage.Literals.TEMPLATE__CHILD,
 				 EsbFactory.eINSTANCE.createCacheMediator()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
+				(EsbPackage.Literals.TEMPLATE__CHILD,
 				 EsbFactory.eINSTANCE.createXQueryMediator()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
+				(EsbPackage.Literals.TEMPLATE__CHILD,
 				 EsbFactory.eINSTANCE.createCalloutMediator()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
+				(EsbPackage.Literals.TEMPLATE__CHILD,
 				 EsbFactory.eINSTANCE.createRMSequenceMediator()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
+				(EsbPackage.Literals.TEMPLATE__CHILD,
 				 EsbFactory.eINSTANCE.createTransactionMediator()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
+				(EsbPackage.Literals.TEMPLATE__CHILD,
 				 EsbFactory.eINSTANCE.createOAuthMediator()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
+				(EsbPackage.Literals.TEMPLATE__CHILD,
 				 EsbFactory.eINSTANCE.createAutoscaleInMediator()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
+				(EsbPackage.Literals.TEMPLATE__CHILD,
 				 EsbFactory.eINSTANCE.createAutoscaleOutMediator()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
+				(EsbPackage.Literals.TEMPLATE__CHILD,
 				 EsbFactory.eINSTANCE.createHeaderMediator()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
+				(EsbPackage.Literals.TEMPLATE__CHILD,
 				 EsbFactory.eINSTANCE.createThrottleMediator()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
+				(EsbPackage.Literals.TEMPLATE__CHILD,
 				 EsbFactory.eINSTANCE.createCommandMediator()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
+				(EsbPackage.Literals.TEMPLATE__CHILD,
 				 EsbFactory.eINSTANCE.createDBLookupMediator()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
+				(EsbPackage.Literals.TEMPLATE__CHILD,
 				 EsbFactory.eINSTANCE.createDBReportMediator()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
+				(EsbPackage.Literals.TEMPLATE__CHILD,
 				 EsbFactory.eINSTANCE.createRuleMediator()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
+				(EsbPackage.Literals.TEMPLATE__CHILD,
 				 EsbFactory.eINSTANCE.createCallTemplateMediator()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
+				(EsbPackage.Literals.TEMPLATE__CHILD,
 				 EsbFactory.eINSTANCE.createSmooksMediator()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
+				(EsbPackage.Literals.TEMPLATE__CHILD,
 				 EsbFactory.eINSTANCE.createStoreMediator()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
+				(EsbPackage.Literals.TEMPLATE__CHILD,
 				 EsbFactory.eINSTANCE.createBuilderMediator()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
+				(EsbPackage.Literals.TEMPLATE__CHILD,
 				 EsbFactory.eINSTANCE.createPayloadFactoryMediator()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
+				(EsbPackage.Literals.TEMPLATE__CHILD,
 				 EsbFactory.eINSTANCE.createConditionalRouterMediator()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
+				(EsbPackage.Literals.TEMPLATE__CHILD,
 				 EsbFactory.eINSTANCE.createSendMediator()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
+				(EsbPackage.Literals.TEMPLATE__CHILD,
 				 EsbFactory.eINSTANCE.createParentEndPoint()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
+				(EsbPackage.Literals.TEMPLATE__CHILD,
 				 EsbFactory.eINSTANCE.createFailoverEndPoint()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
+				(EsbPackage.Literals.TEMPLATE__CHILD,
 				 EsbFactory.eINSTANCE.createWSDLEndPoint()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
+				(EsbPackage.Literals.TEMPLATE__CHILD,
 				 EsbFactory.eINSTANCE.createLoadBalanceEndPoint()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
+				(EsbPackage.Literals.TEMPLATE__CHILD,
 				 EsbFactory.eINSTANCE.createLocalEntry()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
+				(EsbPackage.Literals.TEMPLATE__CHILD,
 				 EsbFactory.eINSTANCE.createSequences()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
+				(EsbPackage.Literals.TEMPLATE__CHILD,
 				 EsbFactory.eINSTANCE.createURLRewriteMediator()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
+				(EsbPackage.Literals.TEMPLATE__CHILD,
 				 EsbFactory.eINSTANCE.createValidateMediator()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
+				(EsbPackage.Literals.TEMPLATE__CHILD,
 				 EsbFactory.eINSTANCE.createEndpointDiagram()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
+				(EsbPackage.Literals.TEMPLATE__CHILD,
 				 EsbFactory.eINSTANCE.createNamedEndpoint()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN,
+				(EsbPackage.Literals.TEMPLATE__CHILD,
 				 EsbFactory.eINSTANCE.createTemplate()));
 	}
 

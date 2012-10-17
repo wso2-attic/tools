@@ -13,13 +13,16 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.wso2.developerstudio.eclipse.gmf.esb.ArtifactType;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbServer;
@@ -60,8 +63,31 @@ public class EsbServerItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EsbServer_type_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EsbServer_type_feature", "_UI_EsbServer_type"),
+				 EsbPackage.Literals.ESB_SERVER__TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -118,7 +144,11 @@ public class EsbServerItemProvider
 	
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_EsbServer_type");
+		ArtifactType labelValue = ((EsbServer)object).getType();
+		String label = labelValue == null ? null : labelValue.toString();
+		return label == null || label.length() == 0 ?
+			getString("_UI_EsbServer_type") :
+			getString("_UI_EsbServer_type") + " " + label;
 	}
 
 	/**
@@ -134,6 +164,9 @@ public class EsbServerItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(EsbServer.class)) {
+			case EsbPackage.ESB_SERVER__TYPE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case EsbPackage.ESB_SERVER__CHILDREN:
 			case EsbPackage.ESB_SERVER__MESSAGE_MEDIATOR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
@@ -428,6 +461,11 @@ public class EsbServerItemProvider
 			(createChildParameter
 				(EsbPackage.Literals.ESB_SERVER__CHILDREN,
 				 EsbFactory.eINSTANCE.createNamedEndpoint()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.ESB_SERVER__CHILDREN,
+				 EsbFactory.eINSTANCE.createTemplate()));
 
 		newChildDescriptors.add
 			(createChildParameter
