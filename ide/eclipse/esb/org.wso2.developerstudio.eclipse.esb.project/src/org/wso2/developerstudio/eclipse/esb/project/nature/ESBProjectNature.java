@@ -35,7 +35,8 @@ public class ESBProjectNature extends AbstractWSO2ProjectNature {
 
 	
 	public void configure() throws CoreException {
-		String[] childrenList = { "endpoints", "proxy-services", "sequences", "local-entries" };
+		String[] childrenList = { "endpoints", "proxy-services", "sequences", "local-entries",
+				"tasks", "templates" };
 		IFolder parentFolder =
 		        ProjectUtils.getWorkspaceFolder(getProject(), "src", "main", "synapse-config");
 		IFolder graphicalResFolder =
