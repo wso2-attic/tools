@@ -55,6 +55,7 @@ import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.FileEditorInput;
+import org.wso2.developerstudio.eclipse.gmf.esb.ArtifactType;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndpointDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbElement;
@@ -256,6 +257,7 @@ public class EsbDiagramEditorUtil {
 					EStructuralFeature target = esbServer.eClass()
 							.getEStructuralFeature("children");
 					esbServer.eSet(target, Arrays.asList(sequences));
+					esbServer.setType(ArtifactType.SEQUENCE);
 				} else if ("proxy".equals(type)) {
 					ProxyService proxyServices = EsbFactory.eINSTANCE
 							.createProxyService();
@@ -265,6 +267,7 @@ public class EsbDiagramEditorUtil {
 					EStructuralFeature target = esbServer.eClass()
 							.getEStructuralFeature("children");
 					esbServer.eSet(target, Arrays.asList(proxyServices));
+					esbServer.setType(ArtifactType.PROXY);
 				} else if ("endpoint".equals(type)) {
 					EndpointDiagram endpoints = EsbFactory.eINSTANCE
 							.createEndpointDiagram();
@@ -272,6 +275,7 @@ public class EsbDiagramEditorUtil {
 					EStructuralFeature target = esbServer.eClass()
 							.getEStructuralFeature("children");
 					esbServer.eSet(target, Arrays.asList(endpoints));
+					esbServer.setType(ArtifactType.ENDPOINT);
 				} else if ("localentry".equals(type)) {
 					LocalEntry localentry = EsbFactory.eINSTANCE
 							.createLocalEntry();
@@ -279,6 +283,7 @@ public class EsbDiagramEditorUtil {
 					EStructuralFeature target = esbServer.eClass()
 							.getEStructuralFeature("children");
 					esbServer.eSet(target, Arrays.asList(localentry));
+					esbServer.setType(ArtifactType.LOCAL_ENTRY);
 				}
 
 				attachModelToResource(model, modelResource);

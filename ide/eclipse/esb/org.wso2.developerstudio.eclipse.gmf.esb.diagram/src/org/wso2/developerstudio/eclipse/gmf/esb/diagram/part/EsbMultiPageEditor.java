@@ -13,6 +13,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.part;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -62,6 +63,7 @@ import org.eclipse.ui.WorkbenchException;
 import org.eclipse.ui.ide.FileStoreEditorInput;
 import org.eclipse.ui.ide.IDE;
 import org.eclipse.ui.ide.IGotoMarker;
+import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.MultiPageEditorPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbElement;
@@ -69,6 +71,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbLink;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbServer;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequences;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbServerContentsCompartmentEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbServerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.LogMediatorEditPart;
@@ -83,6 +86,9 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceEditP
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.EsbModelTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.SequenceInfo;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
+
 import static org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils.*;
 
 /**
@@ -127,6 +133,8 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 	 * Used to hold temporary files.
 	 */
 	private Set<IFile> tempFiles = new HashSet<IFile>();
+	
+	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
 
     /**
      * Creates a multi-page editor
@@ -380,7 +388,40 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 	}
     
     
+	private void updateAssociatedXMLFile(IProgressMonitor monitor) {
+		EsbDiagram diagram = (EsbDiagram) graphicalEditor.getDiagram().getElement();
+		EsbServer server = diagram.getServer();
+		IEditorInput editorInput = getEditorInput();
+		
+		if (editorInput instanceof IFileEditorInput) {
+			IFile diagramFile = ((FileEditorInput) editorInput).getFile();
+			String xmlFilePath = diagramFile.getFullPath().toString();
+			xmlFilePath = xmlFilePath
+					.replaceFirst("/graphical-synapse-config/", "/synapse-config/")
+					.replaceFirst("/endpoints/endpoint_", "/endpoints/")
+					.replaceFirst("/local-entries/localentry_", "/local-entries/")
+					.replaceFirst("/proxy-services/proxy_", "/proxy-services/")
+					.replaceFirst("/sequences/sequence_", "/sequences/")
+					.replaceAll(".esb_diagram$", ".xml");
+			IFile xmlFile = diagramFile.getWorkspace().getRoot().getFile(new Path(xmlFilePath));
+			try {
+				String source = EsbModelTransformer.instance.designToSource(server);
+				if (source == null) {
+					log.warn("Could get source");
+					return;
+				}
+				InputStream is = new ByteArrayInputStream(source.getBytes());
+				if (xmlFile.exists()) {
+					xmlFile.setContents(is, true, true, monitor);
+				} else {
+					xmlFile.create(is, true, monitor);
+				}
 
+			} catch (Exception e) {
+				log.warn("Could not save file " + xmlFile);
+			}
+		}
+	}
     
 
 	/**
@@ -388,6 +429,7 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
      */
     public void doSave(IProgressMonitor monitor) {
         getEditor(0).doSave(monitor);
+        updateAssociatedXMLFile(monitor);
     }
     
 	/**

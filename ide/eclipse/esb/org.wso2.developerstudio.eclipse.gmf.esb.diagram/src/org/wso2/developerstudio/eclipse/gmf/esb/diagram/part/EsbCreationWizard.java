@@ -1,6 +1,8 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.part;
 
+import java.io.ByteArrayInputStream;
 import java.io.File;
+import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Map;
 
@@ -30,6 +32,12 @@ import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBArtifact;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
+import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
+import org.wso2.developerstudio.eclipse.gmf.esb.EsbServer;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
+import org.wso2.developerstudio.eclipse.gmf.esb.persistence.EsbModelTransformer;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 import static org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils.*;
@@ -81,6 +89,8 @@ public class EsbCreationWizard extends Wizard implements INewWizard,
 	private IContainer location;
 
 	private WizardMode wizardMode = WizardMode.DEFAULT;
+	
+	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
 
 	/**
 	 * @generated
@@ -278,6 +288,7 @@ public class EsbCreationWizard extends Wizard implements INewWizard,
 				diagram = EsbDiagramEditorUtil.createDiagram(
 						fileCreationLocationDiagram,
 						fileCreationLocationDomain, monitor);
+				createXMLfile(diagramModelFilePage.getFileName(),diagram, SYNAPSE_RESOURCE_DIR);
 				if (isOpenNewlyCreatedDiagramEditor() && diagram != null) {
 					try {
 						EsbDiagramEditorUtil.openDiagram(diagram);
@@ -321,6 +332,7 @@ public class EsbCreationWizard extends Wizard implements INewWizard,
 									+ DOMAIN_FILE_EXTENSION, false),
 							new NullProgressMonitor(), type,
 							diagramModelFilePage.getFileName());
+					createXMLfile(diagramModelFilePage.getFileName(),diagram,dir);
 					try {
 						EsbDiagramEditorUtil.openDiagram(diagram);
 
@@ -333,6 +345,26 @@ public class EsbCreationWizard extends Wizard implements INewWizard,
 			}
 		};
 		return op;
+	}
+
+	protected void createXMLfile(String name, Resource resource, String dir) {
+		
+		String xmlFilePath = dir.replaceAll("/graphical-synapse-config","/synapse-config") + "/"+ name + ".xml";
+		IFile xmlFile = esbProject.getFile(xmlFilePath);
+		EsbDiagram diagram = (EsbDiagram) ((org.eclipse.gmf.runtime.notation.impl.DiagramImpl) resource
+				.getContents().get(0)).getElement();
+		EsbServer server = diagram.getServer();
+
+		String newSource = null;
+		try {
+			newSource = EsbModelTransformer.instance
+					.designToSource(server);
+			InputStream is = new ByteArrayInputStream(newSource.getBytes());
+			xmlFile.create(is, true, null);
+		} catch (Exception e) {
+			log.warn("Could not create file " + xmlFile);
+		}
+		
 	}
 
 	private ESBArtifact createArtifact(String name, String groupId,
