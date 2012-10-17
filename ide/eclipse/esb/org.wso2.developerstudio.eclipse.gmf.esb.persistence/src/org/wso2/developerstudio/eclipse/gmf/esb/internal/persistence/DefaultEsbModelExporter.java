@@ -43,6 +43,7 @@ import org.apache.synapse.config.xml.ProxyServiceSerializer;
 import org.apache.synapse.config.xml.SequenceMediatorSerializer;
 import org.apache.synapse.config.xml.SynapseXMLConfigurationSerializer;
 import org.apache.synapse.config.xml.endpoints.EndpointSerializer;
+import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.mediators.Value;
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.eclipse.core.runtime.Assert;
@@ -241,8 +242,12 @@ public class DefaultEsbModelExporter implements EsbModelTransformer {
 				break;
 			case ENDPOINT:
 				if (child instanceof EndpointDiagram) {
-					configOM = EndpointSerializer
-							.getElementFromEndpoint(transformEndpoint((EndpointDiagram) child));
+					Endpoint transformEndpoint = transformEndpoint((EndpointDiagram) child);
+					if(transformEndpoint!=null){
+						configOM = EndpointSerializer
+						.getElementFromEndpoint(transformEndpoint);
+					}
+
 				}
 				break;
 			case LOCAL_ENTRY:
