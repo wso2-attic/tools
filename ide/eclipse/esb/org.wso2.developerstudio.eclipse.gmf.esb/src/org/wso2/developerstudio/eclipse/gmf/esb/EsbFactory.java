@@ -933,6 +933,15 @@ public interface EsbFactory extends EFactory {
 	NamedEndpointOutputConnector createNamedEndpointOutputConnector();
 
 	/**
+	 * Returns a new object of class '<em>Template</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Template</em>'.
+	 * @generated
+	 */
+	Template createTemplate();
+
+	/**
 	 * Returns a new object of class '<em>Script Mediator</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

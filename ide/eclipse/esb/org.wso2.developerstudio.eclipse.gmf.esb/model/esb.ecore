@@ -15,6 +15,16 @@
         eType="#//EsbElement" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="messageMediator" eType="#//MessageMediator"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//ArtifactType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ArtifactType">
+    <eLiterals name="SYNAPSE_CONFIG"/>
+    <eLiterals name="PROXY" value="1"/>
+    <eLiterals name="SEQUENCE" value="2"/>
+    <eLiterals name="ENDPOINT" value="3"/>
+    <eLiterals name="LOCAL_ENTRY" value="4"/>
+    <eLiterals name="TASK" value="5"/>
+    <eLiterals name="TEMPLATE" value="6"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Mediator" abstract="true" eSuperTypes="#//EsbElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Reverse" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
@@ -1849,4 +1859,14 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NamedEndpointInputConnector" eSuperTypes="#//InputConnector"/>
   <eClassifiers xsi:type="ecore:EClass" name="NamedEndpointOutputConnector" eSuperTypes="#//OutputConnector"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Template" eSuperTypes="#//EsbElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="templateType" eType="#//TemplateType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="child" eType="#//EsbElement"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TemplateType">
+    <eLiterals name="SEQUENCE"/>
+    <eLiterals name="ENDPOINT" value="1"/>
+  </eClassifiers>
 </ecore:EPackage>

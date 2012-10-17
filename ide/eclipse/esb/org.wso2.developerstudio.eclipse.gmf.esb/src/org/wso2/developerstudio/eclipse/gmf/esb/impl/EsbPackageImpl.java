@@ -35,6 +35,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediatorInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediatorOnCompleteOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediatorOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.AggregateSequenceType;
+import org.wso2.developerstudio.eclipse.gmf.esb.ArtifactType;
 import org.wso2.developerstudio.eclipse.gmf.esb.AutoscaleInMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.AutoscaleOutMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.BuilderMediator;
@@ -310,6 +311,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediatorInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediatorOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.TargetEndpointType;
 import org.wso2.developerstudio.eclipse.gmf.esb.TargetSequenceType;
+import org.wso2.developerstudio.eclipse.gmf.esb.Template;
+import org.wso2.developerstudio.eclipse.gmf.esb.TemplateType;
 import org.wso2.developerstudio.eclipse.gmf.esb.Task;
 import org.wso2.developerstudio.eclipse.gmf.esb.ThrottleAccessType;
 import org.wso2.developerstudio.eclipse.gmf.esb.ThrottleConditionType;
@@ -1148,6 +1151,20 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	private EClass namedEndpointOutputConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass templateEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum artifactTypeEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -2673,6 +2690,13 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EEnum templateTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EDataType mapEDataType = null;
 
 	/**
@@ -2806,6 +2830,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 */
 	public EReference getEsbServer_MessageMediator() {
 		return (EReference)esbServerEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getEsbServer_Type() {
+		return (EAttribute)esbServerEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -5578,6 +5611,51 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 */
 	public EClass getNamedEndpointOutputConnector() {
 		return namedEndpointOutputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTemplate() {
+		return templateEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTemplate_Name() {
+		return (EAttribute)templateEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTemplate_TemplateType() {
+		return (EAttribute)templateEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTemplate_Child() {
+		return (EReference)templateEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getArtifactType() {
+		return artifactTypeEEnum;
 	}
 
 	/**
@@ -10769,6 +10847,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getTemplateType() {
+		return templateTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EDataType getMap() {
 		return mapEDataType;
 	}
@@ -10812,6 +10899,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		esbServerEClass = createEClass(ESB_SERVER);
 		createEReference(esbServerEClass, ESB_SERVER__CHILDREN);
 		createEReference(esbServerEClass, ESB_SERVER__MESSAGE_MEDIATOR);
+		createEAttribute(esbServerEClass, ESB_SERVER__TYPE);
 
 		mediatorEClass = createEClass(MEDIATOR);
 		createEAttribute(mediatorEClass, MEDIATOR__REVERSE);
@@ -11883,7 +11971,13 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 
 		namedEndpointOutputConnectorEClass = createEClass(NAMED_ENDPOINT_OUTPUT_CONNECTOR);
 
+		templateEClass = createEClass(TEMPLATE);
+		createEAttribute(templateEClass, TEMPLATE__NAME);
+		createEAttribute(templateEClass, TEMPLATE__TEMPLATE_TYPE);
+		createEReference(templateEClass, TEMPLATE__CHILD);
+
 		// Create enums
+		artifactTypeEEnum = createEEnum(ARTIFACT_TYPE);
 		proxyWsdlTypeEEnum = createEEnum(PROXY_WSDL_TYPE);
 		filterConditionTypeEEnum = createEEnum(FILTER_CONDITION_TYPE);
 		logCategoryEEnum = createEEnum(LOG_CATEGORY);
@@ -11953,6 +12047,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		localEntryValueTypeEEnum = createEEnum(LOCAL_ENTRY_VALUE_TYPE);
 		ruleActionTypeEEnum = createEEnum(RULE_ACTION_TYPE);
 		ruleFragmentTypeEEnum = createEEnum(RULE_FRAGMENT_TYPE);
+		templateTypeEEnum = createEEnum(TEMPLATE_TYPE);
 
 		// Create data types
 		mapEDataType = createEDataType(MAP);
@@ -12220,6 +12315,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		namedEndpointEClass.getESuperTypes().add(this.getAbstractEndPoint());
 		namedEndpointInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
 		namedEndpointOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
+		templateEClass.getESuperTypes().add(this.getEsbElement());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(esbDiagramEClass, EsbDiagram.class, "EsbDiagram", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -12233,6 +12329,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEClass(esbServerEClass, EsbServer.class, "EsbServer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEsbServer_Children(), this.getEsbElement(), null, "children", null, 0, -1, EsbServer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEsbServer_MessageMediator(), this.getMessageMediator(), null, "messageMediator", null, 0, 1, EsbServer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEsbServer_Type(), this.getArtifactType(), "type", null, 0, 1, EsbServer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(mediatorEClass, Mediator.class, "Mediator", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMediator_Reverse(), ecorePackage.getEBoolean(), "Reverse", "false", 0, 1, Mediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -13323,7 +13420,21 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 
 		initEClass(namedEndpointOutputConnectorEClass, NamedEndpointOutputConnector.class, "NamedEndpointOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		initEClass(templateEClass, Template.class, "Template", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTemplate_Name(), ecorePackage.getEString(), "name", null, 0, 1, Template.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTemplate_TemplateType(), this.getTemplateType(), "templateType", null, 0, 1, Template.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTemplate_Child(), this.getEsbElement(), null, "child", null, 0, 1, Template.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		// Initialize enums and add enum literals
+		initEEnum(artifactTypeEEnum, ArtifactType.class, "ArtifactType");
+		addEEnumLiteral(artifactTypeEEnum, ArtifactType.SYNAPSE_CONFIG);
+		addEEnumLiteral(artifactTypeEEnum, ArtifactType.PROXY);
+		addEEnumLiteral(artifactTypeEEnum, ArtifactType.SEQUENCE);
+		addEEnumLiteral(artifactTypeEEnum, ArtifactType.ENDPOINT);
+		addEEnumLiteral(artifactTypeEEnum, ArtifactType.LOCAL_ENTRY);
+		addEEnumLiteral(artifactTypeEEnum, ArtifactType.TASK);
+		addEEnumLiteral(artifactTypeEEnum, ArtifactType.TEMPLATE);
+
 		initEEnum(proxyWsdlTypeEEnum, ProxyWsdlType.class, "ProxyWsdlType");
 		addEEnumLiteral(proxyWsdlTypeEEnum, ProxyWsdlType.NONE);
 		addEEnumLiteral(proxyWsdlTypeEEnum, ProxyWsdlType.INLINE);
@@ -13694,6 +13805,10 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		addEEnumLiteral(ruleFragmentTypeEEnum, RuleFragmentType.REF);
 		addEEnumLiteral(ruleFragmentTypeEEnum, RuleFragmentType.USER);
 		addEEnumLiteral(ruleFragmentTypeEEnum, RuleFragmentType.FULL);
+
+		initEEnum(templateTypeEEnum, TemplateType.class, "TemplateType");
+		addEEnumLiteral(templateTypeEEnum, TemplateType.SEQUENCE);
+		addEEnumLiteral(templateTypeEEnum, TemplateType.ENDPOINT);
 
 		// Initialize data types
 		initEDataType(mapEDataType, Map.class, "Map", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

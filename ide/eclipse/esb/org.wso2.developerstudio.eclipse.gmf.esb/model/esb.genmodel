@@ -7,6 +7,15 @@
   <foreignModel>esb.ecore</foreignModel>
   <genPackages prefix="Esb" basePackage="org.wso2.developerstudio.eclipse.gmf" disposableProviderFactory="true"
       ecorePackage="esb.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//ArtifactType">
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ArtifactType/SYNAPSE_CONFIG"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ArtifactType/PROXY"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ArtifactType/SEQUENCE"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ArtifactType/ENDPOINT"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ArtifactType/LOCAL_ENTRY"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ArtifactType/TASK"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ArtifactType/TEMPLATE"/>
+    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//ProxyWsdlType">
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ProxyWsdlType/NONE"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ProxyWsdlType/INLINE"/>
@@ -378,6 +387,10 @@
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//RuleFragmentType/USER"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//RuleFragmentType/FULL"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//TemplateType">
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//TemplateType/SEQUENCE"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//TemplateType/ENDPOINT"/>
+    </genEnums>
     <genDataTypes ecoreDataType="esb.ecore#//Map">
       <genTypeParameters ecoreTypeParameter="esb.ecore#//Map/K"/>
       <genTypeParameters ecoreTypeParameter="esb.ecore#//Map/V"/>
@@ -391,6 +404,7 @@
     <genClasses ecoreClass="esb.ecore#//EsbServer">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//EsbServer/children"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//EsbServer/messageMediator"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EsbServer/type"/>
     </genClasses>
     <genClasses image="false" ecoreClass="esb.ecore#//Mediator">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//Mediator/Reverse"/>
@@ -1358,5 +1372,10 @@
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//NamedEndpointInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//NamedEndpointOutputConnector"/>
+    <genClasses ecoreClass="esb.ecore#//Template">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//Template/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//Template/templateType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//Template/child"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

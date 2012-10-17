@@ -2120,6 +2120,14 @@ public class EsbSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case EsbPackage.TEMPLATE: {
+				Template template = (Template)theEObject;
+				T result = caseTemplate(template);
+				if (result == null) result = caseEsbElement(template);
+				if (result == null) result = caseEsbNode(template);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -3786,6 +3794,21 @@ public class EsbSwitch<T> {
 	 * @generated
 	 */
 	public T caseNamedEndpointOutputConnector(NamedEndpointOutputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Template</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Template</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTemplate(Template object) {
 		return null;
 	}
 

@@ -316,6 +316,7 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 			case EsbPackage.NAMED_ENDPOINT: return createNamedEndpoint();
 			case EsbPackage.NAMED_ENDPOINT_INPUT_CONNECTOR: return createNamedEndpointInputConnector();
 			case EsbPackage.NAMED_ENDPOINT_OUTPUT_CONNECTOR: return createNamedEndpointOutputConnector();
+			case EsbPackage.TEMPLATE: return createTemplate();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -330,6 +331,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
+			case EsbPackage.ARTIFACT_TYPE:
+				return createArtifactTypeFromString(eDataType, initialValue);
 			case EsbPackage.PROXY_WSDL_TYPE:
 				return createProxyWsdlTypeFromString(eDataType, initialValue);
 			case EsbPackage.FILTER_CONDITION_TYPE:
@@ -468,6 +471,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 				return createRuleActionTypeFromString(eDataType, initialValue);
 			case EsbPackage.RULE_FRAGMENT_TYPE:
 				return createRuleFragmentTypeFromString(eDataType, initialValue);
+			case EsbPackage.TEMPLATE_TYPE:
+				return createTemplateTypeFromString(eDataType, initialValue);
 			case EsbPackage.MAP:
 				return createMapFromString(eDataType, initialValue);
 			default:
@@ -484,6 +489,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
+			case EsbPackage.ARTIFACT_TYPE:
+				return convertArtifactTypeToString(eDataType, instanceValue);
 			case EsbPackage.PROXY_WSDL_TYPE:
 				return convertProxyWsdlTypeToString(eDataType, instanceValue);
 			case EsbPackage.FILTER_CONDITION_TYPE:
@@ -622,6 +629,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 				return convertRuleActionTypeToString(eDataType, instanceValue);
 			case EsbPackage.RULE_FRAGMENT_TYPE:
 				return convertRuleFragmentTypeToString(eDataType, instanceValue);
+			case EsbPackage.TEMPLATE_TYPE:
+				return convertTemplateTypeToString(eDataType, instanceValue);
 			case EsbPackage.MAP:
 				return convertMapToString(eDataType, instanceValue);
 			default:
@@ -1696,6 +1705,36 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	public NamedEndpointOutputConnector createNamedEndpointOutputConnector() {
 		NamedEndpointOutputConnectorImpl namedEndpointOutputConnector = new NamedEndpointOutputConnectorImpl();
 		return namedEndpointOutputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Template createTemplate() {
+		TemplateImpl template = new TemplateImpl();
+		return template;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ArtifactType createArtifactTypeFromString(EDataType eDataType, String initialValue) {
+		ArtifactType result = ArtifactType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertArtifactTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**
@@ -4649,6 +4688,26 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	 * @generated
 	 */
 	public String convertRuleFragmentTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TemplateType createTemplateTypeFromString(EDataType eDataType, String initialValue) {
+		TemplateType result = TemplateType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertTemplateTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
