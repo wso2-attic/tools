@@ -20,6 +20,7 @@ import java.util.Map;
 
 import org.wso2.developerstudio.eclipse.gmf.esb.BuilderMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.ConditionalRouterMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.NamedEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.RouterMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.AddressEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator;
@@ -92,6 +93,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.IterateMedi
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.LoadBalanceEndPointTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.LogMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.MessageMediatorTransformer;
+import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.NamedEndPointTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.OAuthMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.PayloadFactoryMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.PropertyMediatorTransformer;
@@ -182,6 +184,7 @@ public class EsbTransformerRegistry {
 		addTransformer(ValidateMediator.class, new ValidateMediatorTransformer());
 		addTransformer(URLRewriteMediator.class, new URLReWriterMediatorTransformer());
 		addTransformer(BuilderMediator.class, new BuilderMediatorTransformer());
+		addTransformer(NamedEndpoint.class, new NamedEndPointTransformer());
 	}
 	
 	/**
