@@ -25,18 +25,18 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.wso2.developerstudio.eclipse.gmf.esb.EndpointDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
+import org.wso2.developerstudio.eclipse.gmf.esb.NamedEndpoint;
 
 /**
- * This is the item provider adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.EndpointDiagram} object.
+ * This is the item provider adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.NamedEndpoint} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class EndpointDiagramItemProvider
-	extends EsbElementItemProvider
+public class NamedEndpointItemProvider
+	extends AbstractEndPointItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -49,7 +49,7 @@ public class EndpointDiagramItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EndpointDiagramItemProvider(AdapterFactory adapterFactory) {
+	public NamedEndpointItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -80,9 +80,9 @@ public class EndpointDiagramItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_EndpointDiagram_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EndpointDiagram_name_feature", "_UI_EndpointDiagram_type"),
-				 EsbPackage.Literals.ENDPOINT_DIAGRAM__NAME,
+				 getString("_UI_NamedEndpoint_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NamedEndpoint_name_feature", "_UI_NamedEndpoint_type"),
+				 EsbPackage.Literals.NAMED_ENDPOINT__NAME,
 				 true,
 				 false,
 				 false,
@@ -103,7 +103,8 @@ public class EndpointDiagramItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(EsbPackage.Literals.ENDPOINT_DIAGRAM__CHILD);
+			childrenFeatures.add(EsbPackage.Literals.NAMED_ENDPOINT__INPUT_CONNECTOR);
+			childrenFeatures.add(EsbPackage.Literals.NAMED_ENDPOINT__OUTPUT_CONNECTOR);
 		}
 		return childrenFeatures;
 	}
@@ -122,14 +123,14 @@ public class EndpointDiagramItemProvider
 	}
 
 	/**
-	 * This returns EndpointDiagram.gif.
+	 * This returns NamedEndpoint.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/EndpointDiagram"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/NamedEndpoint"));
 	}
 
 	/**
@@ -140,10 +141,10 @@ public class EndpointDiagramItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((EndpointDiagram)object).getName();
+		String label = ((NamedEndpoint)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_EndpointDiagram_type") :
-			getString("_UI_EndpointDiagram_type") + " " + label;
+			getString("_UI_NamedEndpoint_type") :
+			getString("_UI_NamedEndpoint_type") + " " + label;
 	}
 
 	/**
@@ -157,11 +158,12 @@ public class EndpointDiagramItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(EndpointDiagram.class)) {
-			case EsbPackage.ENDPOINT_DIAGRAM__NAME:
+		switch (notification.getFeatureID(NamedEndpoint.class)) {
+			case EsbPackage.NAMED_ENDPOINT__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case EsbPackage.ENDPOINT_DIAGRAM__CHILD:
+			case EsbPackage.NAMED_ENDPOINT__INPUT_CONNECTOR:
+			case EsbPackage.NAMED_ENDPOINT__OUTPUT_CONNECTOR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -181,38 +183,13 @@ public class EndpointDiagramItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.ENDPOINT_DIAGRAM__CHILD,
-				 EsbFactory.eINSTANCE.createDefaultEndPoint()));
+				(EsbPackage.Literals.NAMED_ENDPOINT__INPUT_CONNECTOR,
+				 EsbFactory.eINSTANCE.createNamedEndpointInputConnector()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.ENDPOINT_DIAGRAM__CHILD,
-				 EsbFactory.eINSTANCE.createAddressEndPoint()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(EsbPackage.Literals.ENDPOINT_DIAGRAM__CHILD,
-				 EsbFactory.eINSTANCE.createParentEndPoint()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(EsbPackage.Literals.ENDPOINT_DIAGRAM__CHILD,
-				 EsbFactory.eINSTANCE.createFailoverEndPoint()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(EsbPackage.Literals.ENDPOINT_DIAGRAM__CHILD,
-				 EsbFactory.eINSTANCE.createWSDLEndPoint()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(EsbPackage.Literals.ENDPOINT_DIAGRAM__CHILD,
-				 EsbFactory.eINSTANCE.createLoadBalanceEndPoint()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(EsbPackage.Literals.ENDPOINT_DIAGRAM__CHILD,
-				 EsbFactory.eINSTANCE.createNamedEndpoint()));
+				(EsbPackage.Literals.NAMED_ENDPOINT__OUTPUT_CONNECTOR,
+				 EsbFactory.eINSTANCE.createNamedEndpointOutputConnector()));
 	}
 
 }

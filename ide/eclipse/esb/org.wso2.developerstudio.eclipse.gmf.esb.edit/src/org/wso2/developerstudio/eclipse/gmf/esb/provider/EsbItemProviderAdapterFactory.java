@@ -2332,6 +2332,75 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.NamedEndpoint} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected NamedEndpointItemProvider namedEndpointItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.NamedEndpoint}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createNamedEndpointAdapter() {
+		if (namedEndpointItemProvider == null) {
+			namedEndpointItemProvider = new NamedEndpointItemProvider(this);
+		}
+
+		return namedEndpointItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.NamedEndpointInputConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected NamedEndpointInputConnectorItemProvider namedEndpointInputConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.NamedEndpointInputConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createNamedEndpointInputConnectorAdapter() {
+		if (namedEndpointInputConnectorItemProvider == null) {
+			namedEndpointInputConnectorItemProvider = new NamedEndpointInputConnectorItemProvider(this);
+		}
+
+		return namedEndpointInputConnectorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.NamedEndpointOutputConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected NamedEndpointOutputConnectorItemProvider namedEndpointOutputConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.NamedEndpointOutputConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createNamedEndpointOutputConnectorAdapter() {
+		if (namedEndpointOutputConnectorItemProvider == null) {
+			namedEndpointOutputConnectorItemProvider = new NamedEndpointOutputConnectorItemProvider(this);
+		}
+
+		return namedEndpointOutputConnectorItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.ScriptMediator} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6116,6 +6185,9 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 		if (validateMediatorOutputConnectorItemProvider != null) validateMediatorOutputConnectorItemProvider.dispose();
 		if (validateMediatorOnFailOutputConnectorItemProvider != null) validateMediatorOnFailOutputConnectorItemProvider.dispose();
 		if (endpointDiagramItemProvider != null) endpointDiagramItemProvider.dispose();
+		if (namedEndpointItemProvider != null) namedEndpointItemProvider.dispose();
+		if (namedEndpointInputConnectorItemProvider != null) namedEndpointInputConnectorItemProvider.dispose();
+		if (namedEndpointOutputConnectorItemProvider != null) namedEndpointOutputConnectorItemProvider.dispose();
 	}
 
 }

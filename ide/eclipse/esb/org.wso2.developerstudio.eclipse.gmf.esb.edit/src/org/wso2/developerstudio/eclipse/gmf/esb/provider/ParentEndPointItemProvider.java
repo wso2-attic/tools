@@ -180,6 +180,11 @@ public class ParentEndPointItemProvider
 			(createChildParameter
 				(EsbPackage.Literals.PARENT_END_POINT__CHILDREN,
 				 EsbFactory.eINSTANCE.createLoadBalanceEndPoint()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.PARENT_END_POINT__CHILDREN,
+				 EsbFactory.eINSTANCE.createNamedEndpoint()));
 	}
 
 }
