@@ -2916,11 +2916,15 @@
  	
  	<extension point="org.eclipse.ui.navigator.navigatorContent">	
 			<commonWizard type="new"
-			    menuGroupId="2org.wso2.developerstudio.eclipse.artifact.esb"
+			    menuGroupId="2org.wso2.developerstudio.eclipse.artifact.esb.diagram"
 				wizardId="org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbCreationWizardID">
 				<enablement>
 					<or>
 						<adapt type="org.eclipse.core.resources.IProject">
+							<test property="org.eclipse.core.resources.projectNature"
+								value="org.wso2.developerstudio.eclipse.esb.project.nature" />
+						</adapt>
+						<adapt type="org.eclipse.core.resources.IFolder">
 							<test property="org.eclipse.core.resources.projectNature"
 								value="org.wso2.developerstudio.eclipse.esb.project.nature" />
 						</adapt>
@@ -2944,11 +2948,15 @@
    
     	<extension point="org.eclipse.ui.navigator.navigatorContent">	
 			<commonWizard type="new"
-			    menuGroupId="2org.wso2.developerstudio.eclipse.artifact.esb"
+			    menuGroupId="2org.wso2.developerstudio.eclipse.artifact.esb.diagram"
 				wizardId="org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.SequenceCreationWizardID">
 				<enablement>
 					<or>
 						<adapt type="org.eclipse.core.resources.IProject">
+							<test property="org.eclipse.core.resources.projectNature"
+								value="org.wso2.developerstudio.eclipse.esb.project.nature" />
+						</adapt>
+						<adapt type="org.eclipse.core.resources.IFolder">
 							<test property="org.eclipse.core.resources.projectNature"
 								value="org.wso2.developerstudio.eclipse.esb.project.nature" />
 						</adapt>
@@ -2972,11 +2980,15 @@
    
    <extension point="org.eclipse.ui.navigator.navigatorContent">	
 			<commonWizard type="new"
-			    menuGroupId="2org.wso2.developerstudio.eclipse.artifact.esb"
+			    menuGroupId="2org.wso2.developerstudio.eclipse.artifact.esb.diagram"
 				wizardId="org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.ProxyCreationWizardID">
 				<enablement>
 					<or>
 						<adapt type="org.eclipse.core.resources.IProject">
+							<test property="org.eclipse.core.resources.projectNature"
+								value="org.wso2.developerstudio.eclipse.esb.project.nature" />
+						</adapt>
+						<adapt type="org.eclipse.core.resources.IFolder">
 							<test property="org.eclipse.core.resources.projectNature"
 								value="org.wso2.developerstudio.eclipse.esb.project.nature" />
 						</adapt>
@@ -3000,11 +3012,15 @@
    
    <extension point="org.eclipse.ui.navigator.navigatorContent">	
 			<commonWizard type="new"
-			    menuGroupId="2org.wso2.developerstudio.eclipse.artifact.esb"
+			    menuGroupId="2org.wso2.developerstudio.eclipse.artifact.esb.diagram"
 				wizardId="org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EndpointCreationWizardID">
 				<enablement>
 					<or>
 						<adapt type="org.eclipse.core.resources.IProject">
+							<test property="org.eclipse.core.resources.projectNature"
+								value="org.wso2.developerstudio.eclipse.esb.project.nature" />
+						</adapt>
+						<adapt type="org.eclipse.core.resources.IFolder">
 							<test property="org.eclipse.core.resources.projectNature"
 								value="org.wso2.developerstudio.eclipse.esb.project.nature" />
 						</adapt>
@@ -3028,11 +3044,15 @@
    
    <extension point="org.eclipse.ui.navigator.navigatorContent">	
 			<commonWizard type="new"
-			    menuGroupId="2org.wso2.developerstudio.eclipse.artifact.esb"
+			    menuGroupId="2org.wso2.developerstudio.eclipse.artifact.esb.diagram"
 				wizardId="org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.LocalEntryCreationWizardID">
 				<enablement>
 					<or>
 						<adapt type="org.eclipse.core.resources.IProject">
+							<test property="org.eclipse.core.resources.projectNature"
+								value="org.wso2.developerstudio.eclipse.esb.project.nature" />
+						</adapt>
+						<adapt type="org.eclipse.core.resources.IFolder">
 							<test property="org.eclipse.core.resources.projectNature"
 								value="org.wso2.developerstudio.eclipse.esb.project.nature" />
 						</adapt>
