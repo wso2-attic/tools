@@ -54,6 +54,7 @@ import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.wso2.developerstudio.eclipse.gmf.esb.AddressEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.ArtifactType;
 import org.wso2.developerstudio.eclipse.gmf.esb.DefaultEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndpointDiagram;
@@ -220,32 +221,50 @@ public class DefaultEsbModelExporter implements EsbModelTransformer {
 
 	public String designToSource(EsbServer serverModel) throws Exception {
 		SynapseXMLConfigurationSerializer serializer = new SynapseXMLConfigurationSerializer();
-		SequenceMediatorSerializer sequenceSerializer =new SequenceMediatorSerializer();		
-		OMElement configOM=null;
-		for (EsbElement child : serverModel.getChildren()) {
-			if (child instanceof Sequences) {
-				configOM = sequenceSerializer.serializeMediator(null, transformSequence(serverModel));
+		SequenceMediatorSerializer sequenceSerializer = new SequenceMediatorSerializer();
+		OMElement configOM = null;
+
+		if (serverModel.getChildren().size() == 1) {
+			EsbElement child = serverModel.getChildren().get(0);
+			switch (serverModel.getType()) {
+			case SEQUENCE:
+				if (child instanceof Sequences) {
+					configOM = sequenceSerializer.serializeMediator(null,
+							transformSequence(serverModel));
+				}
 				break;
-			}else if (child instanceof ProxyService && serverModel.getChildren().size()==1) { 
-				/* there should be better way to distinguish between Proxy diagram and Synapse diagram   */
-				configOM = ProxyServiceSerializer.serializeProxy(null, transformProxyService((ProxyService)child));
+			case PROXY:
+				if (child instanceof ProxyService) {
+					configOM = ProxyServiceSerializer.serializeProxy(null,
+							transformProxyService((ProxyService) child));
+				}
 				break;
-			}else if(child instanceof EndpointDiagram){
-				configOM = EndpointSerializer.getElementFromEndpoint(transformEndpoint((EndpointDiagram)child)); 
+			case ENDPOINT:
+				if (child instanceof EndpointDiagram) {
+					configOM = EndpointSerializer
+							.getElementFromEndpoint(transformEndpoint((EndpointDiagram) child));
+				}
 				break;
-			}else if(child instanceof LocalEntry){
-				configOM = EntrySerializer.serializeEntry(transformLocalEntry((LocalEntry)child), null);
+			case LOCAL_ENTRY:
+				if (child instanceof LocalEntry) {
+					configOM = EntrySerializer.serializeEntry(
+							transformLocalEntry((LocalEntry) child), null);
+				}
+				break;
+			case SYNAPSE_CONFIG:
+			default:
+				configOM = serializer.serializeConfiguration(transform(serverModel));
 				break;
 			}
-			else {
-				configOM = serializer
-						.serializeConfiguration(transform(serverModel));
-				break;
-			}
-		}		
+		} else {
+			configOM = serializer.serializeConfiguration(transform(serverModel));
+		}
+
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-		DefaultEsbModelExporter.prettify(configOM, baos);
-		// demo();
+		if (configOM != null) {
+			DefaultEsbModelExporter.prettify(configOM, baos);
+		}
+
 		sourceXML = baos.toString("UTF-8");
 		return baos.toString("UTF-8");
 	}
@@ -303,7 +322,10 @@ public class DefaultEsbModelExporter implements EsbModelTransformer {
 
 	public EsbServer sourceToDesign(String source,EsbServer esbServer) throws Exception {
 		if(!sourceXML.equals(source)){
-			updateDesign(source,esbServer);
+			/*FIXME : enable sourceToDesign to other artifact types*/
+			if(esbServer.getType()==ArtifactType.SYNAPSE_CONFIG){
+				updateDesign(source,esbServer);
+			}
 			sourceXML = source;
 		}
 		 
