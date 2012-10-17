@@ -2094,6 +2094,32 @@ public class EsbSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case EsbPackage.NAMED_ENDPOINT: {
+				NamedEndpoint namedEndpoint = (NamedEndpoint)theEObject;
+				T result = caseNamedEndpoint(namedEndpoint);
+				if (result == null) result = caseAbstractEndPoint(namedEndpoint);
+				if (result == null) result = caseEndPoint(namedEndpoint);
+				if (result == null) result = caseEsbElement(namedEndpoint);
+				if (result == null) result = caseEsbNode(namedEndpoint);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.NAMED_ENDPOINT_INPUT_CONNECTOR: {
+				NamedEndpointInputConnector namedEndpointInputConnector = (NamedEndpointInputConnector)theEObject;
+				T result = caseNamedEndpointInputConnector(namedEndpointInputConnector);
+				if (result == null) result = caseInputConnector(namedEndpointInputConnector);
+				if (result == null) result = caseEsbConnector(namedEndpointInputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.NAMED_ENDPOINT_OUTPUT_CONNECTOR: {
+				NamedEndpointOutputConnector namedEndpointOutputConnector = (NamedEndpointOutputConnector)theEObject;
+				T result = caseNamedEndpointOutputConnector(namedEndpointOutputConnector);
+				if (result == null) result = caseOutputConnector(namedEndpointOutputConnector);
+				if (result == null) result = caseEsbConnector(namedEndpointOutputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -3715,6 +3741,51 @@ public class EsbSwitch<T> {
 	 * @generated
 	 */
 	public T caseEndpointDiagram(EndpointDiagram object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Named Endpoint</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Named Endpoint</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNamedEndpoint(NamedEndpoint object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Named Endpoint Input Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Named Endpoint Input Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNamedEndpointInputConnector(NamedEndpointInputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Named Endpoint Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Named Endpoint Output Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNamedEndpointOutputConnector(NamedEndpointOutputConnector object) {
 		return null;
 	}
 

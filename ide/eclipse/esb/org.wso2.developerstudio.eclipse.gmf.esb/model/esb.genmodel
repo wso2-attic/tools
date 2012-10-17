@@ -1351,5 +1351,12 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//EndpointDiagram/child"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EndpointDiagram/name"/>
     </genClasses>
+    <genClasses ecoreClass="esb.ecore#//NamedEndpoint">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//NamedEndpoint/inputConnector"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//NamedEndpoint/outputConnector"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//NamedEndpoint/name"/>
+    </genClasses>
+    <genClasses ecoreClass="esb.ecore#//NamedEndpointInputConnector"/>
+    <genClasses ecoreClass="esb.ecore#//NamedEndpointOutputConnector"/>
   </genPackages>
 </genmodel:GenModel>

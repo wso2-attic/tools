@@ -189,6 +189,9 @@ import org.wso2.developerstudio.eclipse.gmf.esb.MessageBuilder;
 import org.wso2.developerstudio.eclipse.gmf.esb.MessageInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.MessageMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.MessageOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.NamedEndpoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.NamedEndpointInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.NamedEndpointOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.OAuthMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.OAuthMediatorInputConnector;
@@ -1124,6 +1127,27 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	private EClass endpointDiagramEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass namedEndpointEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass namedEndpointInputConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass namedEndpointOutputConnectorEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -5500,6 +5524,60 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 */
 	public EAttribute getEndpointDiagram_Name() {
 		return (EAttribute)endpointDiagramEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getNamedEndpoint() {
+		return namedEndpointEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getNamedEndpoint_InputConnector() {
+		return (EReference)namedEndpointEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getNamedEndpoint_OutputConnector() {
+		return (EReference)namedEndpointEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getNamedEndpoint_Name() {
+		return (EAttribute)namedEndpointEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getNamedEndpointInputConnector() {
+		return namedEndpointInputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getNamedEndpointOutputConnector() {
+		return namedEndpointOutputConnectorEClass;
 	}
 
 	/**
@@ -11796,6 +11874,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEReference(endpointDiagramEClass, ENDPOINT_DIAGRAM__CHILD);
 		createEAttribute(endpointDiagramEClass, ENDPOINT_DIAGRAM__NAME);
 
+		namedEndpointEClass = createEClass(NAMED_ENDPOINT);
+		createEReference(namedEndpointEClass, NAMED_ENDPOINT__INPUT_CONNECTOR);
+		createEReference(namedEndpointEClass, NAMED_ENDPOINT__OUTPUT_CONNECTOR);
+		createEAttribute(namedEndpointEClass, NAMED_ENDPOINT__NAME);
+
+		namedEndpointInputConnectorEClass = createEClass(NAMED_ENDPOINT_INPUT_CONNECTOR);
+
+		namedEndpointOutputConnectorEClass = createEClass(NAMED_ENDPOINT_OUTPUT_CONNECTOR);
+
 		// Create enums
 		proxyWsdlTypeEEnum = createEEnum(PROXY_WSDL_TYPE);
 		filterConditionTypeEEnum = createEEnum(FILTER_CONDITION_TYPE);
@@ -12130,6 +12217,9 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		validateMediatorOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
 		validateMediatorOnFailOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
 		endpointDiagramEClass.getESuperTypes().add(this.getEsbElement());
+		namedEndpointEClass.getESuperTypes().add(this.getAbstractEndPoint());
+		namedEndpointInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
+		namedEndpointOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(esbDiagramEClass, EsbDiagram.class, "EsbDiagram", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -13223,6 +13313,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEClass(endpointDiagramEClass, EndpointDiagram.class, "EndpointDiagram", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEndpointDiagram_Child(), this.getEndPoint(), null, "child", null, 0, 1, EndpointDiagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEndpointDiagram_Name(), ecorePackage.getEString(), "name", null, 0, 1, EndpointDiagram.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(namedEndpointEClass, NamedEndpoint.class, "NamedEndpoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getNamedEndpoint_InputConnector(), this.getNamedEndpointInputConnector(), null, "inputConnector", null, 0, 1, NamedEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNamedEndpoint_OutputConnector(), this.getNamedEndpointOutputConnector(), null, "outputConnector", null, 0, 1, NamedEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNamedEndpoint_Name(), ecorePackage.getEString(), "name", null, 0, 1, NamedEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(namedEndpointInputConnectorEClass, NamedEndpointInputConnector.class, "NamedEndpointInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(namedEndpointOutputConnectorEClass, NamedEndpointOutputConnector.class, "NamedEndpointOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(proxyWsdlTypeEEnum, ProxyWsdlType.class, "ProxyWsdlType");

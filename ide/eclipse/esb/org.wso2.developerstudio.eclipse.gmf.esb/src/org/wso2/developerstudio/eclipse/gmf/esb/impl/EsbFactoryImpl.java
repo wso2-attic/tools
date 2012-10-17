@@ -313,6 +313,9 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 			case EsbPackage.VALIDATE_MEDIATOR_OUTPUT_CONNECTOR: return createValidateMediatorOutputConnector();
 			case EsbPackage.VALIDATE_MEDIATOR_ON_FAIL_OUTPUT_CONNECTOR: return createValidateMediatorOnFailOutputConnector();
 			case EsbPackage.ENDPOINT_DIAGRAM: return createEndpointDiagram();
+			case EsbPackage.NAMED_ENDPOINT: return createNamedEndpoint();
+			case EsbPackage.NAMED_ENDPOINT_INPUT_CONNECTOR: return createNamedEndpointInputConnector();
+			case EsbPackage.NAMED_ENDPOINT_OUTPUT_CONNECTOR: return createNamedEndpointOutputConnector();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -1662,6 +1665,37 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	public EndpointDiagram createEndpointDiagram() {
 		EndpointDiagramImpl endpointDiagram = new EndpointDiagramImpl();
 		return endpointDiagram;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public NamedEndpoint createNamedEndpoint() {
+		NamedEndpointImpl namedEndpoint = new NamedEndpointImpl();
+		namedEndpoint.setInputConnector(createNamedEndpointInputConnector());
+		return namedEndpoint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NamedEndpointInputConnector createNamedEndpointInputConnector() {
+		NamedEndpointInputConnectorImpl namedEndpointInputConnector = new NamedEndpointInputConnectorImpl();
+		return namedEndpointInputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NamedEndpointOutputConnector createNamedEndpointOutputConnector() {
+		NamedEndpointOutputConnectorImpl namedEndpointOutputConnector = new NamedEndpointOutputConnectorImpl();
+		return namedEndpointOutputConnector;
 	}
 
 	/**

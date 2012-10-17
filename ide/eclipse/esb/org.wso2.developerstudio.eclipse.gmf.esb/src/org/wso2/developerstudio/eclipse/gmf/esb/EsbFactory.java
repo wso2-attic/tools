@@ -906,6 +906,33 @@ public interface EsbFactory extends EFactory {
 	EndpointDiagram createEndpointDiagram();
 
 	/**
+	 * Returns a new object of class '<em>Named Endpoint</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Named Endpoint</em>'.
+	 * @generated
+	 */
+	NamedEndpoint createNamedEndpoint();
+
+	/**
+	 * Returns a new object of class '<em>Named Endpoint Input Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Named Endpoint Input Connector</em>'.
+	 * @generated
+	 */
+	NamedEndpointInputConnector createNamedEndpointInputConnector();
+
+	/**
+	 * Returns a new object of class '<em>Named Endpoint Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Named Endpoint Output Connector</em>'.
+	 * @generated
+	 */
+	NamedEndpointOutputConnector createNamedEndpointOutputConnector();
+
+	/**
 	 * Returns a new object of class '<em>Script Mediator</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

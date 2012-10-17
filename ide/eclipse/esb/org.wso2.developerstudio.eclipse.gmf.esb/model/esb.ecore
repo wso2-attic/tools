@@ -1840,4 +1840,13 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NamedEndpoint" eSuperTypes="#//AbstractEndPoint">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inputConnector" eType="#//NamedEndpointInputConnector"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outputConnector" eType="#//NamedEndpointOutputConnector"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NamedEndpointInputConnector" eSuperTypes="#//InputConnector"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NamedEndpointOutputConnector" eSuperTypes="#//OutputConnector"/>
 </ecore:EPackage>

@@ -189,7 +189,7 @@
           itemSemanticEditPolicyClassName="ProxyServiceContainerItemSemanticEditPolicy"
           notationViewFactoryClassName="ProxyServiceContainerViewFactory"
           canonicalEditPolicyClassName="ProxyServiceContainerCanonicalEditPolicy"
-          childNodes="/0/@diagram/@childNodes.5 /0/@diagram/@childNodes.186"
+          childNodes="/0/@diagram/@childNodes.5 /0/@diagram/@childNodes.189"
           graphicalNodeEditPolicyClassName="ProxyServiceContainerGraphicalNodeEditPolicy"
           createCommandClassName="ProxyServiceContainerCreateCommand"
           containers="/0/@diagram/@childNodes.0">
@@ -674,7 +674,7 @@
           itemSemanticEditPolicyClassName="ThrottleContainerItemSemanticEditPolicy"
           notationViewFactoryClassName="ThrottleContainerViewFactory"
           canonicalEditPolicyClassName="ThrottleContainerCanonicalEditPolicy"
-          childNodes="/0/@diagram/@childNodes.18 /0/@diagram/@childNodes.184"
+          childNodes="/0/@diagram/@childNodes.18 /0/@diagram/@childNodes.187"
           graphicalNodeEditPolicyClassName="ThrottleContainerGraphicalNodeEditPolicy"
           createCommandClassName="ThrottleContainerCreateCommand"
           containers="/0/@diagram/@childNodes.12">
@@ -968,7 +968,7 @@
           itemSemanticEditPolicyClassName="FilterContainerItemSemanticEditPolicy"
           notationViewFactoryClassName="FilterContainerViewFactory"
           canonicalEditPolicyClassName="FilterContainerCanonicalEditPolicy"
-          childNodes="/0/@diagram/@childNodes.26 /0/@diagram/@childNodes.182"
+          childNodes="/0/@diagram/@childNodes.26 /0/@diagram/@childNodes.185"
           graphicalNodeEditPolicyClassName="FilterContainerGraphicalNodeEditPolicy"
           createCommandClassName="FilterContainerCreateCommand"
           containers="/0/@diagram/@childNodes.20">
@@ -1600,7 +1600,7 @@
           itemSemanticEditPolicyClassName="SwitchMediatorContainerItemSemanticEditPolicy"
           notationViewFactoryClassName="SwitchMediatorContainerViewFactory"
           canonicalEditPolicyClassName="SwitchMediatorContainerCanonicalEditPolicy"
-          childNodes="/0/@diagram/@childNodes.43 /0/@diagram/@childNodes.180"
+          childNodes="/0/@diagram/@childNodes.43 /0/@diagram/@childNodes.183"
           graphicalNodeEditPolicyClassName="SwitchMediatorContainerGraphicalNodeEditPolicy"
           createCommandClassName="SwitchMediatorContainerCreateCommand"
           containers="/0/@diagram/@childNodes.37">
@@ -6720,12 +6720,118 @@
         </modelFacet>
       </childNodes>
       <childNodes
+          visualID="3660"
+          editPartClassName="NamedEndpointEditPart"
+          itemSemanticEditPolicyClassName="NamedEndpointItemSemanticEditPolicy"
+          notationViewFactoryClassName="NamedEndpointViewFactory"
+          canonicalEditPolicyClassName="NamedEndpointCanonicalEditPolicy"
+          childNodes="/0/@diagram/@childNodes.177 /0/@diagram/@childNodes.178"
+          graphicalNodeEditPolicyClassName="NamedEndpointGraphicalNodeEditPolicy"
+          createCommandClassName="NamedEndpointCreateCommand"
+          containers="/0/@diagram/@compartments.13 /0/@diagram/@compartments.12 /0/@diagram/@compartments.11 /0/@diagram/@compartments.10 /0/@diagram/@compartments.9 /0/@diagram/@compartments.8 /0/@diagram/@compartments.7 /0/@diagram/@compartments.6 /0/@diagram/@compartments.4 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <elementType
+            xsi:type="gmfgen:MetamodelType"
+            editHelperClassName="NamedEndpointEditHelper"/>
+        <viewmap
+            xsi:type="gmfgen:InnerClassViewmap"
+            className="NamedEndpointFigure"
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class NamedEndpointFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureNamedEndPointNamePropertyLabel; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public NamedEndpointFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureNamedEndPointNamePropertyLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureNamedEndPointNamePropertyLabel.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureNamedEndPointNamePropertyLabel);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureNamedEndPointNamePropertyLabel() {&#xA;&#x9;&#x9;return fFigureNamedEndPointNamePropertyLabel;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 40, 151, 248);&#xA;&#xA;">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedBackground="true"/>
+        </viewmap>
+        <modelFacet>
+          <metaClass
+              href="esb.genmodel#//esb/NamedEndpoint"/>
+          <containmentMetaFeature
+              href="esb.genmodel#//esb/MediatorFlow/children"/>
+          <childMetaFeature
+              href="esb.genmodel#//esb/MediatorFlow/children"/>
+        </modelFacet>
+      </childNodes>
+      <childNodes
+          xsi:type="gmfgen:GenChildSideAffixedNode"
+          visualID="3661"
+          editPartClassName="NamedEndpointInputConnectorEditPart"
+          itemSemanticEditPolicyClassName="NamedEndpointInputConnectorItemSemanticEditPolicy"
+          notationViewFactoryClassName="NamedEndpointInputConnectorViewFactory"
+          canonicalEditPolicyClassName="NamedEndpointInputConnectorCanonicalEditPolicy"
+          graphicalNodeEditPolicyClassName="NamedEndpointInputConnectorGraphicalNodeEditPolicy"
+          createCommandClassName="NamedEndpointInputConnectorCreateCommand"
+          containers="/0/@diagram/@childNodes.176"
+          preferredSideName="WEST">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <elementType
+            xsi:type="gmfgen:MetamodelType"
+            editHelperClassName="NamedEndpointInputConnectorEditHelper"/>
+        <viewmap
+            xsi:type="gmfgen:InnerClassViewmap"
+            className="EastPointerFigure"
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class EastPointerFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EastPointerShape {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public EastPointerFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(12)&#xA;, getMapMode().DPtoLP(10)&#xA;));&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 50, 50, 50);&#xA;&#xA;">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedBackground="true"/>
+          <attributes
+              xsi:type="gmfgen:DefaultSizeAttributes"
+              width="12"
+              height="10"/>
+        </viewmap>
+        <modelFacet>
+          <metaClass
+              href="esb.genmodel#//esb/NamedEndpointInputConnector"/>
+          <containmentMetaFeature
+              href="esb.genmodel#//esb/NamedEndpoint/inputConnector"/>
+          <childMetaFeature
+              href="esb.genmodel#//esb/NamedEndpoint/inputConnector"/>
+        </modelFacet>
+      </childNodes>
+      <childNodes
+          xsi:type="gmfgen:GenChildSideAffixedNode"
+          visualID="3662"
+          editPartClassName="NamedEndpointOutputConnectorEditPart"
+          itemSemanticEditPolicyClassName="NamedEndpointOutputConnectorItemSemanticEditPolicy"
+          notationViewFactoryClassName="NamedEndpointOutputConnectorViewFactory"
+          canonicalEditPolicyClassName="NamedEndpointOutputConnectorCanonicalEditPolicy"
+          graphicalNodeEditPolicyClassName="NamedEndpointOutputConnectorGraphicalNodeEditPolicy"
+          createCommandClassName="NamedEndpointOutputConnectorCreateCommand"
+          containers="/0/@diagram/@childNodes.176"
+          preferredSideName="WEST">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <elementType
+            xsi:type="gmfgen:MetamodelType"
+            editHelperClassName="NamedEndpointOutputConnectorEditHelper"/>
+        <viewmap
+            xsi:type="gmfgen:InnerClassViewmap"
+            className="WestPointerFigure"
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class WestPointerFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.WestPointerShape {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public WestPointerFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(12)&#xA;, getMapMode().DPtoLP(10)&#xA;));&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 50, 50, 50);&#xA;&#xA;">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedBackground="true"/>
+          <attributes
+              xsi:type="gmfgen:DefaultSizeAttributes"
+              width="12"
+              height="10"/>
+        </viewmap>
+        <modelFacet>
+          <metaClass
+              href="esb.genmodel#//esb/NamedEndpointOutputConnector"/>
+          <containmentMetaFeature
+              href="esb.genmodel#//esb/NamedEndpoint/outputConnector"/>
+          <childMetaFeature
+              href="esb.genmodel#//esb/NamedEndpoint/outputConnector"/>
+        </modelFacet>
+      </childNodes>
+      <childNodes
           visualID="3613"
           editPartClassName="LoadBalanceEndPointEditPart"
           itemSemanticEditPolicyClassName="LoadBalanceEndPointItemSemanticEditPolicy"
           notationViewFactoryClassName="LoadBalanceEndPointViewFactory"
           canonicalEditPolicyClassName="LoadBalanceEndPointCanonicalEditPolicy"
-          childNodes="/0/@diagram/@childNodes.177 /0/@diagram/@childNodes.178 /0/@diagram/@childNodes.179"
+          childNodes="/0/@diagram/@childNodes.180 /0/@diagram/@childNodes.181 /0/@diagram/@childNodes.182"
           graphicalNodeEditPolicyClassName="LoadBalanceEndPointGraphicalNodeEditPolicy"
           createCommandClassName="LoadBalanceEndPointCreateCommand"
           containers="/0/@diagram/@compartments.13 /0/@diagram/@compartments.12 /0/@diagram/@compartments.11 /0/@diagram/@compartments.10 /0/@diagram/@compartments.9 /0/@diagram/@compartments.8 /0/@diagram/@compartments.7 /0/@diagram/@compartments.6 /0/@diagram/@compartments.4 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18">
@@ -6779,7 +6885,7 @@
           canonicalEditPolicyClassName="LoadBalanceEndPointInputConnectorCanonicalEditPolicy"
           graphicalNodeEditPolicyClassName="LoadBalanceEndPointInputConnectorGraphicalNodeEditPolicy"
           createCommandClassName="LoadBalanceEndPointInputConnectorCreateCommand"
-          containers="/0/@diagram/@childNodes.176"
+          containers="/0/@diagram/@childNodes.179"
           preferredSideName="WEST">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -6816,7 +6922,7 @@
           canonicalEditPolicyClassName="LoadBalanceEndPointOutputConnectorCanonicalEditPolicy"
           graphicalNodeEditPolicyClassName="LoadBalanceEndPointOutputConnectorGraphicalNodeEditPolicy"
           createCommandClassName="LoadBalanceEndPointOutputConnectorCreateCommand"
-          containers="/0/@diagram/@childNodes.176"
+          containers="/0/@diagram/@childNodes.179"
           preferredSideName="EAST">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -6853,7 +6959,7 @@
           canonicalEditPolicyClassName="LoadBalanceEndPointWestOutputConnectorCanonicalEditPolicy"
           graphicalNodeEditPolicyClassName="LoadBalanceEndPointWestOutputConnectorGraphicalNodeEditPolicy"
           createCommandClassName="LoadBalanceEndPointWestOutputConnectorCreateCommand"
-          containers="/0/@diagram/@childNodes.176"
+          containers="/0/@diagram/@childNodes.179"
           preferredSideName="WEST">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -6887,7 +6993,7 @@
           itemSemanticEditPolicyClassName="SwitchDefaultContainerItemSemanticEditPolicy"
           notationViewFactoryClassName="SwitchDefaultContainerViewFactory"
           canonicalEditPolicyClassName="SwitchDefaultContainerCanonicalEditPolicy"
-          childNodes="/0/@diagram/@childNodes.181"
+          childNodes="/0/@diagram/@childNodes.184"
           graphicalNodeEditPolicyClassName="SwitchDefaultContainerGraphicalNodeEditPolicy"
           createCommandClassName="SwitchDefaultContainerCreateCommand"
           containers="/0/@diagram/@childNodes.42">
@@ -6922,7 +7028,7 @@
           compartments="/0/@diagram/@compartments.14"
           graphicalNodeEditPolicyClassName="MediatorFlow4GraphicalNodeEditPolicy"
           createCommandClassName="MediatorFlow4CreateCommand"
-          containers="/0/@diagram/@childNodes.180">
+          containers="/0/@diagram/@childNodes.183">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <elementType
@@ -6951,7 +7057,7 @@
           itemSemanticEditPolicyClassName="FilterFailContainerItemSemanticEditPolicy"
           notationViewFactoryClassName="FilterFailContainerViewFactory"
           canonicalEditPolicyClassName="FilterFailContainerCanonicalEditPolicy"
-          childNodes="/0/@diagram/@childNodes.183"
+          childNodes="/0/@diagram/@childNodes.186"
           graphicalNodeEditPolicyClassName="FilterFailContainerGraphicalNodeEditPolicy"
           createCommandClassName="FilterFailContainerCreateCommand"
           containers="/0/@diagram/@childNodes.25">
@@ -6986,7 +7092,7 @@
           compartments="/0/@diagram/@compartments.15"
           graphicalNodeEditPolicyClassName="MediatorFlow8GraphicalNodeEditPolicy"
           createCommandClassName="MediatorFlow8CreateCommand"
-          containers="/0/@diagram/@childNodes.182">
+          containers="/0/@diagram/@childNodes.185">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <elementType
@@ -7015,7 +7121,7 @@
           itemSemanticEditPolicyClassName="ThrottleOnRejectContainerItemSemanticEditPolicy"
           notationViewFactoryClassName="ThrottleOnRejectContainerViewFactory"
           canonicalEditPolicyClassName="ThrottleOnRejectContainerCanonicalEditPolicy"
-          childNodes="/0/@diagram/@childNodes.185"
+          childNodes="/0/@diagram/@childNodes.188"
           graphicalNodeEditPolicyClassName="ThrottleOnRejectContainerGraphicalNodeEditPolicy"
           createCommandClassName="ThrottleOnRejectContainerCreateCommand"
           containers="/0/@diagram/@childNodes.17">
@@ -7050,7 +7156,7 @@
           compartments="/0/@diagram/@compartments.16"
           graphicalNodeEditPolicyClassName="MediatorFlow10GraphicalNodeEditPolicy"
           createCommandClassName="MediatorFlow10CreateCommand"
-          containers="/0/@diagram/@childNodes.184">
+          containers="/0/@diagram/@childNodes.187">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <elementType
@@ -7079,7 +7185,7 @@
           itemSemanticEditPolicyClassName="ProxyServiceFaultContainerItemSemanticEditPolicy"
           notationViewFactoryClassName="ProxyServiceFaultContainerViewFactory"
           canonicalEditPolicyClassName="ProxyServiceFaultContainerCanonicalEditPolicy"
-          childNodes="/0/@diagram/@childNodes.187"
+          childNodes="/0/@diagram/@childNodes.190"
           graphicalNodeEditPolicyClassName="ProxyServiceFaultContainerGraphicalNodeEditPolicy"
           createCommandClassName="ProxyServiceFaultContainerCreateCommand"
           containers="/0/@diagram/@childNodes.4">
@@ -7114,7 +7220,7 @@
           compartments="/0/@diagram/@compartments.17"
           graphicalNodeEditPolicyClassName="MediatorFlow6GraphicalNodeEditPolicy"
           createCommandClassName="MediatorFlow6CreateCommand"
-          containers="/0/@diagram/@childNodes.186">
+          containers="/0/@diagram/@childNodes.189">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <elementType
@@ -7144,7 +7250,7 @@
           itemSemanticEditPolicyClassName="MessageMediatorItemSemanticEditPolicy"
           notationViewFactoryClassName="MessageMediatorViewFactory"
           canonicalEditPolicyClassName="MessageMediatorCanonicalEditPolicy"
-          childNodes="/0/@diagram/@childNodes.189 /0/@diagram/@childNodes.190"
+          childNodes="/0/@diagram/@childNodes.192 /0/@diagram/@childNodes.193"
           graphicalNodeEditPolicyClassName="MessageMediatorGraphicalNodeEditPolicy"
           createCommandClassName="MessageMediatorCreateCommand"
           containers="/0/@diagram/@topLevelNodes.0"
@@ -7180,7 +7286,7 @@
           canonicalEditPolicyClassName="MessageInputConnectorCanonicalEditPolicy"
           graphicalNodeEditPolicyClassName="MessageInputConnectorGraphicalNodeEditPolicy"
           createCommandClassName="MessageInputConnectorCreateCommand"
-          containers="/0/@diagram/@childNodes.188"
+          containers="/0/@diagram/@childNodes.191"
           preferredSideName="EAST">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -7217,7 +7323,7 @@
           canonicalEditPolicyClassName="MessageOutputConnectorCanonicalEditPolicy"
           graphicalNodeEditPolicyClassName="MessageOutputConnectorGraphicalNodeEditPolicy"
           createCommandClassName="MessageOutputConnectorCreateCommand"
-          containers="/0/@diagram/@childNodes.188"
+          containers="/0/@diagram/@childNodes.191"
           preferredSideName="EAST">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -7251,7 +7357,7 @@
           itemSemanticEditPolicyClassName="MergeNodeItemSemanticEditPolicy"
           notationViewFactoryClassName="MergeNodeViewFactory"
           canonicalEditPolicyClassName="MergeNodeCanonicalEditPolicy"
-          childNodes="/0/@diagram/@childNodes.192 /0/@diagram/@childNodes.193 /0/@diagram/@childNodes.194"
+          childNodes="/0/@diagram/@childNodes.195 /0/@diagram/@childNodes.196 /0/@diagram/@childNodes.197"
           graphicalNodeEditPolicyClassName="MergeNodeGraphicalNodeEditPolicy"
           createCommandClassName="MergeNodeCreateCommand"
           containers="/0/@diagram/@compartments.0">
@@ -7282,7 +7388,7 @@
           canonicalEditPolicyClassName="MergeNodeFirstInputConnectorCanonicalEditPolicy"
           graphicalNodeEditPolicyClassName="MergeNodeFirstInputConnectorGraphicalNodeEditPolicy"
           createCommandClassName="MergeNodeFirstInputConnectorCreateCommand"
-          containers="/0/@diagram/@childNodes.191"
+          containers="/0/@diagram/@childNodes.194"
           preferredSideName="WEST">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -7319,7 +7425,7 @@
           canonicalEditPolicyClassName="MergeNodeSecondInputConnectorCanonicalEditPolicy"
           graphicalNodeEditPolicyClassName="MergeNodeSecondInputConnectorGraphicalNodeEditPolicy"
           createCommandClassName="MergeNodeSecondInputConnectorCreateCommand"
-          containers="/0/@diagram/@childNodes.191"
+          containers="/0/@diagram/@childNodes.194"
           preferredSideName="WEST">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -7356,7 +7462,7 @@
           canonicalEditPolicyClassName="MergeNodeOutputConnectorCanonicalEditPolicy"
           graphicalNodeEditPolicyClassName="MergeNodeOutputConnectorGraphicalNodeEditPolicy"
           createCommandClassName="MergeNodeOutputConnectorCreateCommand"
-          containers="/0/@diagram/@childNodes.191"
+          containers="/0/@diagram/@childNodes.194"
           preferredSideName="EAST">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -7390,7 +7496,7 @@
           itemSemanticEditPolicyClassName="SequencesItemSemanticEditPolicy"
           notationViewFactoryClassName="SequencesViewFactory"
           canonicalEditPolicyClassName="SequencesCanonicalEditPolicy"
-          childNodes="/0/@diagram/@childNodes.196 /0/@diagram/@childNodes.197 /0/@diagram/@childNodes.198"
+          childNodes="/0/@diagram/@childNodes.199 /0/@diagram/@childNodes.200 /0/@diagram/@childNodes.201"
           graphicalNodeEditPolicyClassName="SequencesGraphicalNodeEditPolicy"
           createCommandClassName="SequencesCreateCommand"
           containers="/0/@diagram/@compartments.0">
@@ -7425,7 +7531,7 @@
           compartments="/0/@diagram/@compartments.18"
           graphicalNodeEditPolicyClassName="MediatorFlow5GraphicalNodeEditPolicy"
           createCommandClassName="MediatorFlow5CreateCommand"
-          containers="/0/@diagram/@childNodes.195">
+          containers="/0/@diagram/@childNodes.198">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <elementType
@@ -7457,7 +7563,7 @@
           canonicalEditPolicyClassName="SequencesInputConnectorCanonicalEditPolicy"
           graphicalNodeEditPolicyClassName="SequencesInputConnectorGraphicalNodeEditPolicy"
           createCommandClassName="SequencesInputConnectorCreateCommand"
-          containers="/0/@diagram/@childNodes.195"
+          containers="/0/@diagram/@childNodes.198"
           preferredSideName="WEST">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -7494,7 +7600,7 @@
           canonicalEditPolicyClassName="SequencesOutputConnectorCanonicalEditPolicy"
           graphicalNodeEditPolicyClassName="SequencesOutputConnectorGraphicalNodeEditPolicy"
           createCommandClassName="SequencesOutputConnectorCreateCommand"
-          containers="/0/@diagram/@childNodes.195"
+          containers="/0/@diagram/@childNodes.198"
           preferredSideName="EAST">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -7526,6 +7632,7 @@
           visualID="3642"
           editPartClassName="EndpointDiagramEditPart"
           itemSemanticEditPolicyClassName="EndpointDiagramItemSemanticEditPolicy"
+          notationViewFactoryClassName="EndpointDiagramViewFactory"
           canonicalEditPolicyClassName="EndpointDiagramCanonicalEditPolicy"
           compartments="/0/@diagram/@compartments.19"
           graphicalNodeEditPolicyClassName="EndpointDiagramGraphicalNodeEditPolicy"
@@ -7552,8 +7659,9 @@
           visualID="3643"
           editPartClassName="DefaultEndPoint2EditPart"
           itemSemanticEditPolicyClassName="DefaultEndPoint2ItemSemanticEditPolicy"
+          notationViewFactoryClassName="DefaultEndPointViewFactory"
           canonicalEditPolicyClassName="DefaultEndPoint2CanonicalEditPolicy"
-          childNodes="/0/@diagram/@childNodes.201 /0/@diagram/@childNodes.202"
+          childNodes="/0/@diagram/@childNodes.204 /0/@diagram/@childNodes.205"
           graphicalNodeEditPolicyClassName="DefaultEndPoint2GraphicalNodeEditPolicy"
           createCommandClassName="DefaultEndPoint2CreateCommand"
           containers="/0/@diagram/@compartments.19">
@@ -7582,6 +7690,7 @@
             visualID="5160"
             editPartClassName="DefaultEndPointEndPointName2EditPart"
             itemSemanticEditPolicyClassName="DefaultEndPointEndPointName2ItemSemanticEditPolicy"
+            notationViewFactoryClassName="DefaultEndPointEndPointNameViewFactory"
             readOnly="true">
           <diagramRunTimeClass
               href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -7602,10 +7711,11 @@
           visualID="3644"
           editPartClassName="DefaultEndPointInputConnector2EditPart"
           itemSemanticEditPolicyClassName="DefaultEndPointInputConnector2ItemSemanticEditPolicy"
+          notationViewFactoryClassName="DefaultEndPointInputConnectorViewFactory"
           canonicalEditPolicyClassName="DefaultEndPointInputConnector2CanonicalEditPolicy"
           graphicalNodeEditPolicyClassName="DefaultEndPointInputConnector2GraphicalNodeEditPolicy"
           createCommandClassName="DefaultEndPointInputConnector2CreateCommand"
-          containers="/0/@diagram/@childNodes.200"
+          containers="/0/@diagram/@childNodes.203"
           preferredSideName="WEST">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -7638,10 +7748,11 @@
           visualID="3645"
           editPartClassName="DefaultEndPointOutputConnector2EditPart"
           itemSemanticEditPolicyClassName="DefaultEndPointOutputConnector2ItemSemanticEditPolicy"
+          notationViewFactoryClassName="DefaultEndPointOutputConnectorViewFactory"
           canonicalEditPolicyClassName="DefaultEndPointOutputConnector2CanonicalEditPolicy"
           graphicalNodeEditPolicyClassName="DefaultEndPointOutputConnector2GraphicalNodeEditPolicy"
           createCommandClassName="DefaultEndPointOutputConnector2CreateCommand"
-          containers="/0/@diagram/@childNodes.200"
+          containers="/0/@diagram/@childNodes.203"
           preferredSideName="WEST">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -7673,8 +7784,9 @@
           visualID="3646"
           editPartClassName="AddressEndPoint2EditPart"
           itemSemanticEditPolicyClassName="AddressEndPoint2ItemSemanticEditPolicy"
+          notationViewFactoryClassName="AddressEndPointViewFactory"
           canonicalEditPolicyClassName="AddressEndPoint2CanonicalEditPolicy"
-          childNodes="/0/@diagram/@childNodes.204 /0/@diagram/@childNodes.205"
+          childNodes="/0/@diagram/@childNodes.207 /0/@diagram/@childNodes.208"
           graphicalNodeEditPolicyClassName="AddressEndPoint2GraphicalNodeEditPolicy"
           createCommandClassName="AddressEndPoint2CreateCommand"
           containers="/0/@diagram/@compartments.19">
@@ -7703,6 +7815,7 @@
             visualID="5161"
             editPartClassName="AddressEndPointEndPointName2EditPart"
             itemSemanticEditPolicyClassName="AddressEndPointEndPointName2ItemSemanticEditPolicy"
+            notationViewFactoryClassName="AddressEndPointEndPointNameViewFactory"
             readOnly="true">
           <diagramRunTimeClass
               href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -7723,10 +7836,11 @@
           visualID="3647"
           editPartClassName="AddressEndPointInputConnector2EditPart"
           itemSemanticEditPolicyClassName="AddressEndPointInputConnector2ItemSemanticEditPolicy"
+          notationViewFactoryClassName="AddressEndPointInputConnectorViewFactory"
           canonicalEditPolicyClassName="AddressEndPointInputConnector2CanonicalEditPolicy"
           graphicalNodeEditPolicyClassName="AddressEndPointInputConnector2GraphicalNodeEditPolicy"
           createCommandClassName="AddressEndPointInputConnector2CreateCommand"
-          containers="/0/@diagram/@childNodes.203"
+          containers="/0/@diagram/@childNodes.206"
           preferredSideName="WEST">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -7759,10 +7873,11 @@
           visualID="3648"
           editPartClassName="AddressEndPointOutputConnector2EditPart"
           itemSemanticEditPolicyClassName="AddressEndPointOutputConnector2ItemSemanticEditPolicy"
+          notationViewFactoryClassName="AddressEndPointOutputConnectorViewFactory"
           canonicalEditPolicyClassName="AddressEndPointOutputConnector2CanonicalEditPolicy"
           graphicalNodeEditPolicyClassName="AddressEndPointOutputConnector2GraphicalNodeEditPolicy"
           createCommandClassName="AddressEndPointOutputConnector2CreateCommand"
-          containers="/0/@diagram/@childNodes.203"
+          containers="/0/@diagram/@childNodes.206"
           preferredSideName="WEST">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -7794,8 +7909,9 @@
           visualID="3649"
           editPartClassName="FailoverEndPoint2EditPart"
           itemSemanticEditPolicyClassName="FailoverEndPoint2ItemSemanticEditPolicy"
+          notationViewFactoryClassName="FailoverEndPointViewFactory"
           canonicalEditPolicyClassName="FailoverEndPoint2CanonicalEditPolicy"
-          childNodes="/0/@diagram/@childNodes.207 /0/@diagram/@childNodes.208 /0/@diagram/@childNodes.209"
+          childNodes="/0/@diagram/@childNodes.210 /0/@diagram/@childNodes.211 /0/@diagram/@childNodes.212"
           graphicalNodeEditPolicyClassName="FailoverEndPoint2GraphicalNodeEditPolicy"
           createCommandClassName="FailoverEndPoint2CreateCommand"
           containers="/0/@diagram/@compartments.19">
@@ -7824,6 +7940,7 @@
             visualID="5162"
             editPartClassName="FailoverEndPointEndPointName2EditPart"
             itemSemanticEditPolicyClassName="FailoverEndPointEndPointName2ItemSemanticEditPolicy"
+            notationViewFactoryClassName="FailoverEndPointEndPointNameViewFactory"
             readOnly="true">
           <diagramRunTimeClass
               href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -7844,10 +7961,11 @@
           visualID="3650"
           editPartClassName="FailoverEndPointInputConnector2EditPart"
           itemSemanticEditPolicyClassName="FailoverEndPointInputConnector2ItemSemanticEditPolicy"
+          notationViewFactoryClassName="FailoverEndPointInputConnectorViewFactory"
           canonicalEditPolicyClassName="FailoverEndPointInputConnector2CanonicalEditPolicy"
           graphicalNodeEditPolicyClassName="FailoverEndPointInputConnector2GraphicalNodeEditPolicy"
           createCommandClassName="FailoverEndPointInputConnector2CreateCommand"
-          containers="/0/@diagram/@childNodes.206"
+          containers="/0/@diagram/@childNodes.209"
           preferredSideName="WEST">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -7880,10 +7998,11 @@
           visualID="3651"
           editPartClassName="FailoverEndPointOutputConnector2EditPart"
           itemSemanticEditPolicyClassName="FailoverEndPointOutputConnector2ItemSemanticEditPolicy"
+          notationViewFactoryClassName="FailoverEndPointOutputConnectorViewFactory"
           canonicalEditPolicyClassName="FailoverEndPointOutputConnector2CanonicalEditPolicy"
           graphicalNodeEditPolicyClassName="FailoverEndPointOutputConnector2GraphicalNodeEditPolicy"
           createCommandClassName="FailoverEndPointOutputConnector2CreateCommand"
-          containers="/0/@diagram/@childNodes.206"
+          containers="/0/@diagram/@childNodes.209"
           preferredSideName="EAST">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -7916,10 +8035,11 @@
           visualID="3652"
           editPartClassName="FailoverEndPointWestOutputConnector2EditPart"
           itemSemanticEditPolicyClassName="FailoverEndPointWestOutputConnector2ItemSemanticEditPolicy"
+          notationViewFactoryClassName="FailoverEndPointWestOutputConnectorViewFactory"
           canonicalEditPolicyClassName="FailoverEndPointWestOutputConnector2CanonicalEditPolicy"
           graphicalNodeEditPolicyClassName="FailoverEndPointWestOutputConnector2GraphicalNodeEditPolicy"
           createCommandClassName="FailoverEndPointWestOutputConnector2CreateCommand"
-          containers="/0/@diagram/@childNodes.206"
+          containers="/0/@diagram/@childNodes.209"
           preferredSideName="WEST">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -7951,8 +8071,9 @@
           visualID="3653"
           editPartClassName="WSDLEndPoint2EditPart"
           itemSemanticEditPolicyClassName="WSDLEndPoint2ItemSemanticEditPolicy"
+          notationViewFactoryClassName="WSDLEndPointViewFactory"
           canonicalEditPolicyClassName="WSDLEndPoint2CanonicalEditPolicy"
-          childNodes="/0/@diagram/@childNodes.211 /0/@diagram/@childNodes.212"
+          childNodes="/0/@diagram/@childNodes.214 /0/@diagram/@childNodes.215"
           graphicalNodeEditPolicyClassName="WSDLEndPoint2GraphicalNodeEditPolicy"
           createCommandClassName="WSDLEndPoint2CreateCommand"
           containers="/0/@diagram/@compartments.19">
@@ -7981,6 +8102,7 @@
             visualID="5163"
             editPartClassName="WSDLEndPointEndPointName2EditPart"
             itemSemanticEditPolicyClassName="WSDLEndPointEndPointName2ItemSemanticEditPolicy"
+            notationViewFactoryClassName="WSDLEndPointEndPointNameViewFactory"
             readOnly="true">
           <diagramRunTimeClass
               href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -8001,10 +8123,11 @@
           visualID="3654"
           editPartClassName="WSDLEndPointInputConnector2EditPart"
           itemSemanticEditPolicyClassName="WSDLEndPointInputConnector2ItemSemanticEditPolicy"
+          notationViewFactoryClassName="WSDLEndPointInputConnectorViewFactory"
           canonicalEditPolicyClassName="WSDLEndPointInputConnector2CanonicalEditPolicy"
           graphicalNodeEditPolicyClassName="WSDLEndPointInputConnector2GraphicalNodeEditPolicy"
           createCommandClassName="WSDLEndPointInputConnector2CreateCommand"
-          containers="/0/@diagram/@childNodes.210"
+          containers="/0/@diagram/@childNodes.213"
           preferredSideName="WEST">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -8037,10 +8160,11 @@
           visualID="3655"
           editPartClassName="WSDLEndPointOutputConnector2EditPart"
           itemSemanticEditPolicyClassName="WSDLEndPointOutputConnector2ItemSemanticEditPolicy"
+          notationViewFactoryClassName="WSDLEndPointOutputConnectorViewFactory"
           canonicalEditPolicyClassName="WSDLEndPointOutputConnector2CanonicalEditPolicy"
           graphicalNodeEditPolicyClassName="WSDLEndPointOutputConnector2GraphicalNodeEditPolicy"
           createCommandClassName="WSDLEndPointOutputConnector2CreateCommand"
-          containers="/0/@diagram/@childNodes.210"
+          containers="/0/@diagram/@childNodes.213"
           preferredSideName="WEST">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -8072,8 +8196,9 @@
           visualID="3656"
           editPartClassName="LoadBalanceEndPoint2EditPart"
           itemSemanticEditPolicyClassName="LoadBalanceEndPoint2ItemSemanticEditPolicy"
+          notationViewFactoryClassName="LoadBalanceEndPointViewFactory"
           canonicalEditPolicyClassName="LoadBalanceEndPoint2CanonicalEditPolicy"
-          childNodes="/0/@diagram/@childNodes.214 /0/@diagram/@childNodes.215 /0/@diagram/@childNodes.216"
+          childNodes="/0/@diagram/@childNodes.217 /0/@diagram/@childNodes.218 /0/@diagram/@childNodes.219"
           graphicalNodeEditPolicyClassName="LoadBalanceEndPoint2GraphicalNodeEditPolicy"
           createCommandClassName="LoadBalanceEndPoint2CreateCommand"
           containers="/0/@diagram/@compartments.19">
@@ -8081,7 +8206,7 @@
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <elementType
             xsi:type="gmfgen:SpecializationType"
-            metamodelType="/0/@diagram/@childNodes.176/@elementType"/>
+            metamodelType="/0/@diagram/@childNodes.179/@elementType"/>
         <viewmap
             xsi:type="gmfgen:InnerClassViewmap"
             className="LoadBalanceEndPointFigure"
@@ -8102,6 +8227,7 @@
             visualID="5164"
             editPartClassName="LoadBalanceEndPointEndPointName2EditPart"
             itemSemanticEditPolicyClassName="LoadBalanceEndPointEndPointName2ItemSemanticEditPolicy"
+            notationViewFactoryClassName="LoadBalanceEndPointEndPointNameViewFactory"
             readOnly="true">
           <diagramRunTimeClass
               href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -8122,16 +8248,17 @@
           visualID="3657"
           editPartClassName="LoadBalanceEndPointInputConnector2EditPart"
           itemSemanticEditPolicyClassName="LoadBalanceEndPointInputConnector2ItemSemanticEditPolicy"
+          notationViewFactoryClassName="LoadBalanceEndPointInputConnectorViewFactory"
           canonicalEditPolicyClassName="LoadBalanceEndPointInputConnector2CanonicalEditPolicy"
           graphicalNodeEditPolicyClassName="LoadBalanceEndPointInputConnector2GraphicalNodeEditPolicy"
           createCommandClassName="LoadBalanceEndPointInputConnector2CreateCommand"
-          containers="/0/@diagram/@childNodes.213"
+          containers="/0/@diagram/@childNodes.216"
           preferredSideName="WEST">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <elementType
             xsi:type="gmfgen:SpecializationType"
-            metamodelType="/0/@diagram/@childNodes.177/@elementType"/>
+            metamodelType="/0/@diagram/@childNodes.180/@elementType"/>
         <viewmap
             xsi:type="gmfgen:InnerClassViewmap"
             className="EastPointerFigure"
@@ -8158,16 +8285,17 @@
           visualID="3658"
           editPartClassName="LoadBalanceEndPointOutputConnector2EditPart"
           itemSemanticEditPolicyClassName="LoadBalanceEndPointOutputConnector2ItemSemanticEditPolicy"
+          notationViewFactoryClassName="LoadBalanceEndPointOutputConnectorViewFactory"
           canonicalEditPolicyClassName="LoadBalanceEndPointOutputConnector2CanonicalEditPolicy"
           graphicalNodeEditPolicyClassName="LoadBalanceEndPointOutputConnector2GraphicalNodeEditPolicy"
           createCommandClassName="LoadBalanceEndPointOutputConnector2CreateCommand"
-          containers="/0/@diagram/@childNodes.213"
+          containers="/0/@diagram/@childNodes.216"
           preferredSideName="EAST">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <elementType
             xsi:type="gmfgen:SpecializationType"
-            metamodelType="/0/@diagram/@childNodes.178/@elementType"/>
+            metamodelType="/0/@diagram/@childNodes.181/@elementType"/>
         <viewmap
             xsi:type="gmfgen:InnerClassViewmap"
             className="EastPointerFigure"
@@ -8194,16 +8322,17 @@
           visualID="3659"
           editPartClassName="LoadBalanceEndPointWestOutputConnector2EditPart"
           itemSemanticEditPolicyClassName="LoadBalanceEndPointWestOutputConnector2ItemSemanticEditPolicy"
+          notationViewFactoryClassName="LoadBalanceEndPointWestOutputConnectorViewFactory"
           canonicalEditPolicyClassName="LoadBalanceEndPointWestOutputConnector2CanonicalEditPolicy"
           graphicalNodeEditPolicyClassName="LoadBalanceEndPointWestOutputConnector2GraphicalNodeEditPolicy"
           createCommandClassName="LoadBalanceEndPointWestOutputConnector2CreateCommand"
-          containers="/0/@diagram/@childNodes.213"
+          containers="/0/@diagram/@childNodes.216"
           preferredSideName="WEST">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <elementType
             xsi:type="gmfgen:SpecializationType"
-            metamodelType="/0/@diagram/@childNodes.179/@elementType"/>
+            metamodelType="/0/@diagram/@childNodes.182/@elementType"/>
         <viewmap
             xsi:type="gmfgen:InnerClassViewmap"
             className="WestPointerFigure"
@@ -8231,7 +8360,7 @@
           itemSemanticEditPolicyClassName="EsbServerItemSemanticEditPolicy"
           notationViewFactoryClassName="EsbServerViewFactory"
           canonicalEditPolicyClassName="EsbServerCanonicalEditPolicy"
-          childNodes="/0/@diagram/@childNodes.188 /0/@diagram/@childNodes.199"
+          childNodes="/0/@diagram/@childNodes.191 /0/@diagram/@childNodes.202"
           compartments="/0/@diagram/@compartments.0"
           graphicalNodeEditPolicyClassName="EsbServerGraphicalNodeEditPolicy"
           createCommandClassName="EsbServerCreateCommand">
@@ -8299,7 +8428,7 @@
           itemSemanticEditPolicyClassName="EsbServerContentsCompartmentItemSemanticEditPolicy"
           notationViewFactoryClassName="EsbServerContentsCompartmentViewFactory"
           canonicalEditPolicyClassName="EsbServerContentsCompartmentCanonicalEditPolicy"
-          childNodes="/0/@diagram/@childNodes.0 /0/@diagram/@childNodes.191 /0/@diagram/@childNodes.195"
+          childNodes="/0/@diagram/@childNodes.0 /0/@diagram/@childNodes.194 /0/@diagram/@childNodes.198"
           title="ContentsCompartment"
           canCollapse="false"
           needsTitle="false"
@@ -8317,7 +8446,7 @@
           itemSemanticEditPolicyClassName="MediatorFlowMediatorFlowCompartmentItemSemanticEditPolicy"
           notationViewFactoryClassName="MediatorFlowMediatorFlowCompartmentViewFactory"
           canonicalEditPolicyClassName="MediatorFlowMediatorFlowCompartmentCanonicalEditPolicy"
-          childNodes="/0/@diagram/@childNodes.7 /0/@diagram/@childNodes.9 /0/@diagram/@childNodes.12 /0/@diagram/@childNodes.20 /0/@diagram/@childNodes.28 /0/@diagram/@childNodes.31 /0/@diagram/@childNodes.34 /0/@diagram/@childNodes.37 /0/@diagram/@childNodes.45 /0/@diagram/@childNodes.48 /0/@diagram/@childNodes.51 /0/@diagram/@childNodes.54 /0/@diagram/@childNodes.57 /0/@diagram/@childNodes.60 /0/@diagram/@childNodes.63 /0/@diagram/@childNodes.66 /0/@diagram/@childNodes.69 /0/@diagram/@childNodes.72 /0/@diagram/@childNodes.75 /0/@diagram/@childNodes.78 /0/@diagram/@childNodes.81 /0/@diagram/@childNodes.86 /0/@diagram/@childNodes.89 /0/@diagram/@childNodes.96 /0/@diagram/@childNodes.101 /0/@diagram/@childNodes.106 /0/@diagram/@childNodes.109 /0/@diagram/@childNodes.112 /0/@diagram/@childNodes.115 /0/@diagram/@childNodes.120 /0/@diagram/@childNodes.123 /0/@diagram/@childNodes.128 /0/@diagram/@childNodes.131 /0/@diagram/@childNodes.134 /0/@diagram/@childNodes.137 /0/@diagram/@childNodes.140 /0/@diagram/@childNodes.143 /0/@diagram/@childNodes.146 /0/@diagram/@childNodes.151 /0/@diagram/@childNodes.158 /0/@diagram/@childNodes.163 /0/@diagram/@childNodes.166 /0/@diagram/@childNodes.169 /0/@diagram/@childNodes.173 /0/@diagram/@childNodes.176"
+          childNodes="/0/@diagram/@childNodes.7 /0/@diagram/@childNodes.9 /0/@diagram/@childNodes.12 /0/@diagram/@childNodes.20 /0/@diagram/@childNodes.28 /0/@diagram/@childNodes.31 /0/@diagram/@childNodes.34 /0/@diagram/@childNodes.37 /0/@diagram/@childNodes.45 /0/@diagram/@childNodes.48 /0/@diagram/@childNodes.51 /0/@diagram/@childNodes.54 /0/@diagram/@childNodes.57 /0/@diagram/@childNodes.60 /0/@diagram/@childNodes.63 /0/@diagram/@childNodes.66 /0/@diagram/@childNodes.69 /0/@diagram/@childNodes.72 /0/@diagram/@childNodes.75 /0/@diagram/@childNodes.78 /0/@diagram/@childNodes.81 /0/@diagram/@childNodes.86 /0/@diagram/@childNodes.89 /0/@diagram/@childNodes.96 /0/@diagram/@childNodes.101 /0/@diagram/@childNodes.106 /0/@diagram/@childNodes.109 /0/@diagram/@childNodes.112 /0/@diagram/@childNodes.115 /0/@diagram/@childNodes.120 /0/@diagram/@childNodes.123 /0/@diagram/@childNodes.128 /0/@diagram/@childNodes.131 /0/@diagram/@childNodes.134 /0/@diagram/@childNodes.137 /0/@diagram/@childNodes.140 /0/@diagram/@childNodes.143 /0/@diagram/@childNodes.146 /0/@diagram/@childNodes.151 /0/@diagram/@childNodes.158 /0/@diagram/@childNodes.163 /0/@diagram/@childNodes.166 /0/@diagram/@childNodes.169 /0/@diagram/@childNodes.173 /0/@diagram/@childNodes.176 /0/@diagram/@childNodes.179"
           title="MediatorFlowCompartment"
           canCollapse="false"
           node="/0/@diagram/@childNodes.6"
@@ -8334,7 +8463,7 @@
           itemSemanticEditPolicyClassName="MediatorFlowMediatorFlowCompartment9ItemSemanticEditPolicy"
           notationViewFactoryClassName="MediatorFlowMediatorFlowCompartmentViewFactory"
           canonicalEditPolicyClassName="MediatorFlowMediatorFlowCompartment9CanonicalEditPolicy"
-          childNodes="/0/@diagram/@childNodes.7 /0/@diagram/@childNodes.9 /0/@diagram/@childNodes.12 /0/@diagram/@childNodes.20 /0/@diagram/@childNodes.28 /0/@diagram/@childNodes.31 /0/@diagram/@childNodes.34 /0/@diagram/@childNodes.37 /0/@diagram/@childNodes.45 /0/@diagram/@childNodes.48 /0/@diagram/@childNodes.51 /0/@diagram/@childNodes.54 /0/@diagram/@childNodes.57 /0/@diagram/@childNodes.60 /0/@diagram/@childNodes.63 /0/@diagram/@childNodes.66 /0/@diagram/@childNodes.69 /0/@diagram/@childNodes.72 /0/@diagram/@childNodes.75 /0/@diagram/@childNodes.78 /0/@diagram/@childNodes.81 /0/@diagram/@childNodes.86 /0/@diagram/@childNodes.89 /0/@diagram/@childNodes.96 /0/@diagram/@childNodes.101 /0/@diagram/@childNodes.106 /0/@diagram/@childNodes.109 /0/@diagram/@childNodes.112 /0/@diagram/@childNodes.115 /0/@diagram/@childNodes.120 /0/@diagram/@childNodes.123 /0/@diagram/@childNodes.128 /0/@diagram/@childNodes.131 /0/@diagram/@childNodes.134 /0/@diagram/@childNodes.137 /0/@diagram/@childNodes.140 /0/@diagram/@childNodes.143 /0/@diagram/@childNodes.146 /0/@diagram/@childNodes.151 /0/@diagram/@childNodes.158 /0/@diagram/@childNodes.163 /0/@diagram/@childNodes.166 /0/@diagram/@childNodes.169 /0/@diagram/@childNodes.173 /0/@diagram/@childNodes.176"
+          childNodes="/0/@diagram/@childNodes.7 /0/@diagram/@childNodes.9 /0/@diagram/@childNodes.12 /0/@diagram/@childNodes.20 /0/@diagram/@childNodes.28 /0/@diagram/@childNodes.31 /0/@diagram/@childNodes.34 /0/@diagram/@childNodes.37 /0/@diagram/@childNodes.45 /0/@diagram/@childNodes.48 /0/@diagram/@childNodes.51 /0/@diagram/@childNodes.54 /0/@diagram/@childNodes.57 /0/@diagram/@childNodes.60 /0/@diagram/@childNodes.63 /0/@diagram/@childNodes.66 /0/@diagram/@childNodes.69 /0/@diagram/@childNodes.72 /0/@diagram/@childNodes.75 /0/@diagram/@childNodes.78 /0/@diagram/@childNodes.81 /0/@diagram/@childNodes.86 /0/@diagram/@childNodes.89 /0/@diagram/@childNodes.96 /0/@diagram/@childNodes.101 /0/@diagram/@childNodes.106 /0/@diagram/@childNodes.109 /0/@diagram/@childNodes.112 /0/@diagram/@childNodes.115 /0/@diagram/@childNodes.120 /0/@diagram/@childNodes.123 /0/@diagram/@childNodes.128 /0/@diagram/@childNodes.131 /0/@diagram/@childNodes.134 /0/@diagram/@childNodes.137 /0/@diagram/@childNodes.140 /0/@diagram/@childNodes.143 /0/@diagram/@childNodes.146 /0/@diagram/@childNodes.151 /0/@diagram/@childNodes.158 /0/@diagram/@childNodes.163 /0/@diagram/@childNodes.166 /0/@diagram/@childNodes.169 /0/@diagram/@childNodes.173 /0/@diagram/@childNodes.176 /0/@diagram/@childNodes.179"
           title="MediatorFlowCompartment"
           canCollapse="false"
           node="/0/@diagram/@childNodes.19"
@@ -8351,7 +8480,7 @@
           itemSemanticEditPolicyClassName="MediatorFlowMediatorFlowCompartment7ItemSemanticEditPolicy"
           notationViewFactoryClassName="MediatorFlowMediatorFlowCompartmentViewFactory"
           canonicalEditPolicyClassName="MediatorFlowMediatorFlowCompartment7CanonicalEditPolicy"
-          childNodes="/0/@diagram/@childNodes.7 /0/@diagram/@childNodes.9 /0/@diagram/@childNodes.12 /0/@diagram/@childNodes.20 /0/@diagram/@childNodes.28 /0/@diagram/@childNodes.31 /0/@diagram/@childNodes.34 /0/@diagram/@childNodes.37 /0/@diagram/@childNodes.45 /0/@diagram/@childNodes.48 /0/@diagram/@childNodes.51 /0/@diagram/@childNodes.54 /0/@diagram/@childNodes.57 /0/@diagram/@childNodes.60 /0/@diagram/@childNodes.63 /0/@diagram/@childNodes.66 /0/@diagram/@childNodes.69 /0/@diagram/@childNodes.72 /0/@diagram/@childNodes.75 /0/@diagram/@childNodes.78 /0/@diagram/@childNodes.81 /0/@diagram/@childNodes.86 /0/@diagram/@childNodes.89 /0/@diagram/@childNodes.96 /0/@diagram/@childNodes.101 /0/@diagram/@childNodes.106 /0/@diagram/@childNodes.109 /0/@diagram/@childNodes.112 /0/@diagram/@childNodes.115 /0/@diagram/@childNodes.120 /0/@diagram/@childNodes.123 /0/@diagram/@childNodes.128 /0/@diagram/@childNodes.131 /0/@diagram/@childNodes.134 /0/@diagram/@childNodes.137 /0/@diagram/@childNodes.140 /0/@diagram/@childNodes.143 /0/@diagram/@childNodes.146 /0/@diagram/@childNodes.151 /0/@diagram/@childNodes.158 /0/@diagram/@childNodes.163 /0/@diagram/@childNodes.166 /0/@diagram/@childNodes.169 /0/@diagram/@childNodes.173 /0/@diagram/@childNodes.176"
+          childNodes="/0/@diagram/@childNodes.7 /0/@diagram/@childNodes.9 /0/@diagram/@childNodes.12 /0/@diagram/@childNodes.20 /0/@diagram/@childNodes.28 /0/@diagram/@childNodes.31 /0/@diagram/@childNodes.34 /0/@diagram/@childNodes.37 /0/@diagram/@childNodes.45 /0/@diagram/@childNodes.48 /0/@diagram/@childNodes.51 /0/@diagram/@childNodes.54 /0/@diagram/@childNodes.57 /0/@diagram/@childNodes.60 /0/@diagram/@childNodes.63 /0/@diagram/@childNodes.66 /0/@diagram/@childNodes.69 /0/@diagram/@childNodes.72 /0/@diagram/@childNodes.75 /0/@diagram/@childNodes.78 /0/@diagram/@childNodes.81 /0/@diagram/@childNodes.86 /0/@diagram/@childNodes.89 /0/@diagram/@childNodes.96 /0/@diagram/@childNodes.101 /0/@diagram/@childNodes.106 /0/@diagram/@childNodes.109 /0/@diagram/@childNodes.112 /0/@diagram/@childNodes.115 /0/@diagram/@childNodes.120 /0/@diagram/@childNodes.123 /0/@diagram/@childNodes.128 /0/@diagram/@childNodes.131 /0/@diagram/@childNodes.134 /0/@diagram/@childNodes.137 /0/@diagram/@childNodes.140 /0/@diagram/@childNodes.143 /0/@diagram/@childNodes.146 /0/@diagram/@childNodes.151 /0/@diagram/@childNodes.158 /0/@diagram/@childNodes.163 /0/@diagram/@childNodes.166 /0/@diagram/@childNodes.169 /0/@diagram/@childNodes.173 /0/@diagram/@childNodes.176 /0/@diagram/@childNodes.179"
           title="MediatorFlowCompartment"
           canCollapse="false"
           node="/0/@diagram/@childNodes.27"
@@ -8368,7 +8497,7 @@
           itemSemanticEditPolicyClassName="MediatorFlowMediatorFlowCompartment2ItemSemanticEditPolicy"
           notationViewFactoryClassName="MediatorFlowMediatorFlowCompartmentViewFactory"
           canonicalEditPolicyClassName="MediatorFlowMediatorFlowCompartment2CanonicalEditPolicy"
-          childNodes="/0/@diagram/@childNodes.7 /0/@diagram/@childNodes.9 /0/@diagram/@childNodes.12 /0/@diagram/@childNodes.20 /0/@diagram/@childNodes.28 /0/@diagram/@childNodes.31 /0/@diagram/@childNodes.34 /0/@diagram/@childNodes.37 /0/@diagram/@childNodes.45 /0/@diagram/@childNodes.48 /0/@diagram/@childNodes.51 /0/@diagram/@childNodes.54 /0/@diagram/@childNodes.57 /0/@diagram/@childNodes.60 /0/@diagram/@childNodes.63 /0/@diagram/@childNodes.66 /0/@diagram/@childNodes.69 /0/@diagram/@childNodes.72 /0/@diagram/@childNodes.75 /0/@diagram/@childNodes.78 /0/@diagram/@childNodes.81 /0/@diagram/@childNodes.86 /0/@diagram/@childNodes.89 /0/@diagram/@childNodes.96 /0/@diagram/@childNodes.101 /0/@diagram/@childNodes.106 /0/@diagram/@childNodes.109 /0/@diagram/@childNodes.112 /0/@diagram/@childNodes.115 /0/@diagram/@childNodes.120 /0/@diagram/@childNodes.123 /0/@diagram/@childNodes.128 /0/@diagram/@childNodes.131 /0/@diagram/@childNodes.134 /0/@diagram/@childNodes.137 /0/@diagram/@childNodes.140 /0/@diagram/@childNodes.143 /0/@diagram/@childNodes.146 /0/@diagram/@childNodes.151 /0/@diagram/@childNodes.158 /0/@diagram/@childNodes.163 /0/@diagram/@childNodes.166 /0/@diagram/@childNodes.169 /0/@diagram/@childNodes.173 /0/@diagram/@childNodes.176"
+          childNodes="/0/@diagram/@childNodes.7 /0/@diagram/@childNodes.9 /0/@diagram/@childNodes.12 /0/@diagram/@childNodes.20 /0/@diagram/@childNodes.28 /0/@diagram/@childNodes.31 /0/@diagram/@childNodes.34 /0/@diagram/@childNodes.37 /0/@diagram/@childNodes.45 /0/@diagram/@childNodes.48 /0/@diagram/@childNodes.51 /0/@diagram/@childNodes.54 /0/@diagram/@childNodes.57 /0/@diagram/@childNodes.60 /0/@diagram/@childNodes.63 /0/@diagram/@childNodes.66 /0/@diagram/@childNodes.69 /0/@diagram/@childNodes.72 /0/@diagram/@childNodes.75 /0/@diagram/@childNodes.78 /0/@diagram/@childNodes.81 /0/@diagram/@childNodes.86 /0/@diagram/@childNodes.89 /0/@diagram/@childNodes.96 /0/@diagram/@childNodes.101 /0/@diagram/@childNodes.106 /0/@diagram/@childNodes.109 /0/@diagram/@childNodes.112 /0/@diagram/@childNodes.115 /0/@diagram/@childNodes.120 /0/@diagram/@childNodes.123 /0/@diagram/@childNodes.128 /0/@diagram/@childNodes.131 /0/@diagram/@childNodes.134 /0/@diagram/@childNodes.137 /0/@diagram/@childNodes.140 /0/@diagram/@childNodes.143 /0/@diagram/@childNodes.146 /0/@diagram/@childNodes.151 /0/@diagram/@childNodes.158 /0/@diagram/@childNodes.163 /0/@diagram/@childNodes.166 /0/@diagram/@childNodes.169 /0/@diagram/@childNodes.173 /0/@diagram/@childNodes.176 /0/@diagram/@childNodes.179"
           title="MediatorFlowCompartment"
           canCollapse="false"
           needsTitle="false"
@@ -8403,7 +8532,7 @@
           itemSemanticEditPolicyClassName="MediatorFlowMediatorFlowCompartment11ItemSemanticEditPolicy"
           notationViewFactoryClassName="MediatorFlowMediatorFlowCompartmentViewFactory"
           canonicalEditPolicyClassName="MediatorFlowMediatorFlowCompartment11CanonicalEditPolicy"
-          childNodes="/0/@diagram/@childNodes.7 /0/@diagram/@childNodes.9 /0/@diagram/@childNodes.12 /0/@diagram/@childNodes.20 /0/@diagram/@childNodes.28 /0/@diagram/@childNodes.31 /0/@diagram/@childNodes.34 /0/@diagram/@childNodes.37 /0/@diagram/@childNodes.45 /0/@diagram/@childNodes.48 /0/@diagram/@childNodes.51 /0/@diagram/@childNodes.54 /0/@diagram/@childNodes.57 /0/@diagram/@childNodes.60 /0/@diagram/@childNodes.63 /0/@diagram/@childNodes.66 /0/@diagram/@childNodes.69 /0/@diagram/@childNodes.72 /0/@diagram/@childNodes.75 /0/@diagram/@childNodes.78 /0/@diagram/@childNodes.81 /0/@diagram/@childNodes.86 /0/@diagram/@childNodes.89 /0/@diagram/@childNodes.96 /0/@diagram/@childNodes.101 /0/@diagram/@childNodes.106 /0/@diagram/@childNodes.109 /0/@diagram/@childNodes.112 /0/@diagram/@childNodes.115 /0/@diagram/@childNodes.120 /0/@diagram/@childNodes.123 /0/@diagram/@childNodes.128 /0/@diagram/@childNodes.131 /0/@diagram/@childNodes.134 /0/@diagram/@childNodes.137 /0/@diagram/@childNodes.140 /0/@diagram/@childNodes.143 /0/@diagram/@childNodes.146 /0/@diagram/@childNodes.151 /0/@diagram/@childNodes.158 /0/@diagram/@childNodes.163 /0/@diagram/@childNodes.166 /0/@diagram/@childNodes.169 /0/@diagram/@childNodes.173 /0/@diagram/@childNodes.176"
+          childNodes="/0/@diagram/@childNodes.7 /0/@diagram/@childNodes.9 /0/@diagram/@childNodes.12 /0/@diagram/@childNodes.20 /0/@diagram/@childNodes.28 /0/@diagram/@childNodes.31 /0/@diagram/@childNodes.34 /0/@diagram/@childNodes.37 /0/@diagram/@childNodes.45 /0/@diagram/@childNodes.48 /0/@diagram/@childNodes.51 /0/@diagram/@childNodes.54 /0/@diagram/@childNodes.57 /0/@diagram/@childNodes.60 /0/@diagram/@childNodes.63 /0/@diagram/@childNodes.66 /0/@diagram/@childNodes.69 /0/@diagram/@childNodes.72 /0/@diagram/@childNodes.75 /0/@diagram/@childNodes.78 /0/@diagram/@childNodes.81 /0/@diagram/@childNodes.86 /0/@diagram/@childNodes.89 /0/@diagram/@childNodes.96 /0/@diagram/@childNodes.101 /0/@diagram/@childNodes.106 /0/@diagram/@childNodes.109 /0/@diagram/@childNodes.112 /0/@diagram/@childNodes.115 /0/@diagram/@childNodes.120 /0/@diagram/@childNodes.123 /0/@diagram/@childNodes.128 /0/@diagram/@childNodes.131 /0/@diagram/@childNodes.134 /0/@diagram/@childNodes.137 /0/@diagram/@childNodes.140 /0/@diagram/@childNodes.143 /0/@diagram/@childNodes.146 /0/@diagram/@childNodes.151 /0/@diagram/@childNodes.158 /0/@diagram/@childNodes.163 /0/@diagram/@childNodes.166 /0/@diagram/@childNodes.169 /0/@diagram/@childNodes.173 /0/@diagram/@childNodes.176 /0/@diagram/@childNodes.179"
           title="MediatorFlowCompartment"
           canCollapse="false"
           node="/0/@diagram/@childNodes.95"
@@ -8420,7 +8549,7 @@
           itemSemanticEditPolicyClassName="MediatorFlowMediatorFlowCompartment13ItemSemanticEditPolicy"
           notationViewFactoryClassName="MediatorFlowMediatorFlowCompartmentViewFactory"
           canonicalEditPolicyClassName="MediatorFlowMediatorFlowCompartment13CanonicalEditPolicy"
-          childNodes="/0/@diagram/@childNodes.7 /0/@diagram/@childNodes.9 /0/@diagram/@childNodes.12 /0/@diagram/@childNodes.20 /0/@diagram/@childNodes.28 /0/@diagram/@childNodes.31 /0/@diagram/@childNodes.34 /0/@diagram/@childNodes.37 /0/@diagram/@childNodes.45 /0/@diagram/@childNodes.48 /0/@diagram/@childNodes.51 /0/@diagram/@childNodes.54 /0/@diagram/@childNodes.57 /0/@diagram/@childNodes.60 /0/@diagram/@childNodes.63 /0/@diagram/@childNodes.66 /0/@diagram/@childNodes.69 /0/@diagram/@childNodes.72 /0/@diagram/@childNodes.75 /0/@diagram/@childNodes.78 /0/@diagram/@childNodes.81 /0/@diagram/@childNodes.86 /0/@diagram/@childNodes.89 /0/@diagram/@childNodes.96 /0/@diagram/@childNodes.101 /0/@diagram/@childNodes.106 /0/@diagram/@childNodes.109 /0/@diagram/@childNodes.112 /0/@diagram/@childNodes.115 /0/@diagram/@childNodes.120 /0/@diagram/@childNodes.123 /0/@diagram/@childNodes.128 /0/@diagram/@childNodes.131 /0/@diagram/@childNodes.134 /0/@diagram/@childNodes.137 /0/@diagram/@childNodes.140 /0/@diagram/@childNodes.143 /0/@diagram/@childNodes.146 /0/@diagram/@childNodes.151 /0/@diagram/@childNodes.158 /0/@diagram/@childNodes.163 /0/@diagram/@childNodes.166 /0/@diagram/@childNodes.169 /0/@diagram/@childNodes.173 /0/@diagram/@childNodes.176"
+          childNodes="/0/@diagram/@childNodes.7 /0/@diagram/@childNodes.9 /0/@diagram/@childNodes.12 /0/@diagram/@childNodes.20 /0/@diagram/@childNodes.28 /0/@diagram/@childNodes.31 /0/@diagram/@childNodes.34 /0/@diagram/@childNodes.37 /0/@diagram/@childNodes.45 /0/@diagram/@childNodes.48 /0/@diagram/@childNodes.51 /0/@diagram/@childNodes.54 /0/@diagram/@childNodes.57 /0/@diagram/@childNodes.60 /0/@diagram/@childNodes.63 /0/@diagram/@childNodes.66 /0/@diagram/@childNodes.69 /0/@diagram/@childNodes.72 /0/@diagram/@childNodes.75 /0/@diagram/@childNodes.78 /0/@diagram/@childNodes.81 /0/@diagram/@childNodes.86 /0/@diagram/@childNodes.89 /0/@diagram/@childNodes.96 /0/@diagram/@childNodes.101 /0/@diagram/@childNodes.106 /0/@diagram/@childNodes.109 /0/@diagram/@childNodes.112 /0/@diagram/@childNodes.115 /0/@diagram/@childNodes.120 /0/@diagram/@childNodes.123 /0/@diagram/@childNodes.128 /0/@diagram/@childNodes.131 /0/@diagram/@childNodes.134 /0/@diagram/@childNodes.137 /0/@diagram/@childNodes.140 /0/@diagram/@childNodes.143 /0/@diagram/@childNodes.146 /0/@diagram/@childNodes.151 /0/@diagram/@childNodes.158 /0/@diagram/@childNodes.163 /0/@diagram/@childNodes.166 /0/@diagram/@childNodes.169 /0/@diagram/@childNodes.173 /0/@diagram/@childNodes.176 /0/@diagram/@childNodes.179"
           title="MediatorFlowCompartment"
           canCollapse="false"
           node="/0/@diagram/@childNodes.100"
@@ -8437,7 +8566,7 @@
           itemSemanticEditPolicyClassName="MediatorFlowMediatorFlowCompartment12ItemSemanticEditPolicy"
           notationViewFactoryClassName="MediatorFlowMediatorFlowCompartmentViewFactory"
           canonicalEditPolicyClassName="MediatorFlowMediatorFlowCompartment12CanonicalEditPolicy"
-          childNodes="/0/@diagram/@childNodes.7 /0/@diagram/@childNodes.9 /0/@diagram/@childNodes.12 /0/@diagram/@childNodes.20 /0/@diagram/@childNodes.28 /0/@diagram/@childNodes.31 /0/@diagram/@childNodes.34 /0/@diagram/@childNodes.37 /0/@diagram/@childNodes.45 /0/@diagram/@childNodes.48 /0/@diagram/@childNodes.51 /0/@diagram/@childNodes.54 /0/@diagram/@childNodes.57 /0/@diagram/@childNodes.60 /0/@diagram/@childNodes.63 /0/@diagram/@childNodes.66 /0/@diagram/@childNodes.69 /0/@diagram/@childNodes.72 /0/@diagram/@childNodes.75 /0/@diagram/@childNodes.78 /0/@diagram/@childNodes.81 /0/@diagram/@childNodes.86 /0/@diagram/@childNodes.89 /0/@diagram/@childNodes.96 /0/@diagram/@childNodes.101 /0/@diagram/@childNodes.106 /0/@diagram/@childNodes.109 /0/@diagram/@childNodes.112 /0/@diagram/@childNodes.115 /0/@diagram/@childNodes.120 /0/@diagram/@childNodes.123 /0/@diagram/@childNodes.128 /0/@diagram/@childNodes.131 /0/@diagram/@childNodes.134 /0/@diagram/@childNodes.137 /0/@diagram/@childNodes.140 /0/@diagram/@childNodes.143 /0/@diagram/@childNodes.146 /0/@diagram/@childNodes.151 /0/@diagram/@childNodes.158 /0/@diagram/@childNodes.163 /0/@diagram/@childNodes.166 /0/@diagram/@childNodes.169 /0/@diagram/@childNodes.173 /0/@diagram/@childNodes.176"
+          childNodes="/0/@diagram/@childNodes.7 /0/@diagram/@childNodes.9 /0/@diagram/@childNodes.12 /0/@diagram/@childNodes.20 /0/@diagram/@childNodes.28 /0/@diagram/@childNodes.31 /0/@diagram/@childNodes.34 /0/@diagram/@childNodes.37 /0/@diagram/@childNodes.45 /0/@diagram/@childNodes.48 /0/@diagram/@childNodes.51 /0/@diagram/@childNodes.54 /0/@diagram/@childNodes.57 /0/@diagram/@childNodes.60 /0/@diagram/@childNodes.63 /0/@diagram/@childNodes.66 /0/@diagram/@childNodes.69 /0/@diagram/@childNodes.72 /0/@diagram/@childNodes.75 /0/@diagram/@childNodes.78 /0/@diagram/@childNodes.81 /0/@diagram/@childNodes.86 /0/@diagram/@childNodes.89 /0/@diagram/@childNodes.96 /0/@diagram/@childNodes.101 /0/@diagram/@childNodes.106 /0/@diagram/@childNodes.109 /0/@diagram/@childNodes.112 /0/@diagram/@childNodes.115 /0/@diagram/@childNodes.120 /0/@diagram/@childNodes.123 /0/@diagram/@childNodes.128 /0/@diagram/@childNodes.131 /0/@diagram/@childNodes.134 /0/@diagram/@childNodes.137 /0/@diagram/@childNodes.140 /0/@diagram/@childNodes.143 /0/@diagram/@childNodes.146 /0/@diagram/@childNodes.151 /0/@diagram/@childNodes.158 /0/@diagram/@childNodes.163 /0/@diagram/@childNodes.166 /0/@diagram/@childNodes.169 /0/@diagram/@childNodes.173 /0/@diagram/@childNodes.176 /0/@diagram/@childNodes.179"
           title="MediatorFlowCompartment"
           canCollapse="false"
           node="/0/@diagram/@childNodes.105"
@@ -8454,7 +8583,7 @@
           itemSemanticEditPolicyClassName="MediatorFlowMediatorFlowCompartment17ItemSemanticEditPolicy"
           notationViewFactoryClassName="MediatorFlowMediatorFlowCompartmentViewFactory"
           canonicalEditPolicyClassName="MediatorFlowMediatorFlowCompartment17CanonicalEditPolicy"
-          childNodes="/0/@diagram/@childNodes.7 /0/@diagram/@childNodes.9 /0/@diagram/@childNodes.12 /0/@diagram/@childNodes.20 /0/@diagram/@childNodes.28 /0/@diagram/@childNodes.31 /0/@diagram/@childNodes.34 /0/@diagram/@childNodes.37 /0/@diagram/@childNodes.45 /0/@diagram/@childNodes.48 /0/@diagram/@childNodes.51 /0/@diagram/@childNodes.54 /0/@diagram/@childNodes.57 /0/@diagram/@childNodes.60 /0/@diagram/@childNodes.63 /0/@diagram/@childNodes.66 /0/@diagram/@childNodes.69 /0/@diagram/@childNodes.72 /0/@diagram/@childNodes.75 /0/@diagram/@childNodes.78 /0/@diagram/@childNodes.81 /0/@diagram/@childNodes.86 /0/@diagram/@childNodes.89 /0/@diagram/@childNodes.96 /0/@diagram/@childNodes.101 /0/@diagram/@childNodes.106 /0/@diagram/@childNodes.109 /0/@diagram/@childNodes.112 /0/@diagram/@childNodes.115 /0/@diagram/@childNodes.120 /0/@diagram/@childNodes.123 /0/@diagram/@childNodes.128 /0/@diagram/@childNodes.131 /0/@diagram/@childNodes.134 /0/@diagram/@childNodes.137 /0/@diagram/@childNodes.140 /0/@diagram/@childNodes.143 /0/@diagram/@childNodes.146 /0/@diagram/@childNodes.151 /0/@diagram/@childNodes.158 /0/@diagram/@childNodes.163 /0/@diagram/@childNodes.166 /0/@diagram/@childNodes.169 /0/@diagram/@childNodes.173 /0/@diagram/@childNodes.176"
+          childNodes="/0/@diagram/@childNodes.7 /0/@diagram/@childNodes.9 /0/@diagram/@childNodes.12 /0/@diagram/@childNodes.20 /0/@diagram/@childNodes.28 /0/@diagram/@childNodes.31 /0/@diagram/@childNodes.34 /0/@diagram/@childNodes.37 /0/@diagram/@childNodes.45 /0/@diagram/@childNodes.48 /0/@diagram/@childNodes.51 /0/@diagram/@childNodes.54 /0/@diagram/@childNodes.57 /0/@diagram/@childNodes.60 /0/@diagram/@childNodes.63 /0/@diagram/@childNodes.66 /0/@diagram/@childNodes.69 /0/@diagram/@childNodes.72 /0/@diagram/@childNodes.75 /0/@diagram/@childNodes.78 /0/@diagram/@childNodes.81 /0/@diagram/@childNodes.86 /0/@diagram/@childNodes.89 /0/@diagram/@childNodes.96 /0/@diagram/@childNodes.101 /0/@diagram/@childNodes.106 /0/@diagram/@childNodes.109 /0/@diagram/@childNodes.112 /0/@diagram/@childNodes.115 /0/@diagram/@childNodes.120 /0/@diagram/@childNodes.123 /0/@diagram/@childNodes.128 /0/@diagram/@childNodes.131 /0/@diagram/@childNodes.134 /0/@diagram/@childNodes.137 /0/@diagram/@childNodes.140 /0/@diagram/@childNodes.143 /0/@diagram/@childNodes.146 /0/@diagram/@childNodes.151 /0/@diagram/@childNodes.158 /0/@diagram/@childNodes.163 /0/@diagram/@childNodes.166 /0/@diagram/@childNodes.169 /0/@diagram/@childNodes.173 /0/@diagram/@childNodes.176 /0/@diagram/@childNodes.179"
           title="MediatorFlowCompartment"
           canCollapse="false"
           node="/0/@diagram/@childNodes.119"
@@ -8471,7 +8600,7 @@
           itemSemanticEditPolicyClassName="MediatorFlowMediatorFlowCompartment3ItemSemanticEditPolicy"
           notationViewFactoryClassName="MediatorFlowMediatorFlowCompartmentViewFactory"
           canonicalEditPolicyClassName="MediatorFlowMediatorFlowCompartment3CanonicalEditPolicy"
-          childNodes="/0/@diagram/@childNodes.7 /0/@diagram/@childNodes.9 /0/@diagram/@childNodes.12 /0/@diagram/@childNodes.20 /0/@diagram/@childNodes.28 /0/@diagram/@childNodes.31 /0/@diagram/@childNodes.34 /0/@diagram/@childNodes.37 /0/@diagram/@childNodes.45 /0/@diagram/@childNodes.48 /0/@diagram/@childNodes.51 /0/@diagram/@childNodes.54 /0/@diagram/@childNodes.57 /0/@diagram/@childNodes.60 /0/@diagram/@childNodes.63 /0/@diagram/@childNodes.66 /0/@diagram/@childNodes.69 /0/@diagram/@childNodes.72 /0/@diagram/@childNodes.75 /0/@diagram/@childNodes.78 /0/@diagram/@childNodes.81 /0/@diagram/@childNodes.86 /0/@diagram/@childNodes.89 /0/@diagram/@childNodes.96 /0/@diagram/@childNodes.101 /0/@diagram/@childNodes.106 /0/@diagram/@childNodes.109 /0/@diagram/@childNodes.112 /0/@diagram/@childNodes.115 /0/@diagram/@childNodes.120 /0/@diagram/@childNodes.123 /0/@diagram/@childNodes.128 /0/@diagram/@childNodes.131 /0/@diagram/@childNodes.134 /0/@diagram/@childNodes.137 /0/@diagram/@childNodes.140 /0/@diagram/@childNodes.143 /0/@diagram/@childNodes.146 /0/@diagram/@childNodes.151 /0/@diagram/@childNodes.158 /0/@diagram/@childNodes.163 /0/@diagram/@childNodes.166 /0/@diagram/@childNodes.169 /0/@diagram/@childNodes.173 /0/@diagram/@childNodes.176"
+          childNodes="/0/@diagram/@childNodes.7 /0/@diagram/@childNodes.9 /0/@diagram/@childNodes.12 /0/@diagram/@childNodes.20 /0/@diagram/@childNodes.28 /0/@diagram/@childNodes.31 /0/@diagram/@childNodes.34 /0/@diagram/@childNodes.37 /0/@diagram/@childNodes.45 /0/@diagram/@childNodes.48 /0/@diagram/@childNodes.51 /0/@diagram/@childNodes.54 /0/@diagram/@childNodes.57 /0/@diagram/@childNodes.60 /0/@diagram/@childNodes.63 /0/@diagram/@childNodes.66 /0/@diagram/@childNodes.69 /0/@diagram/@childNodes.72 /0/@diagram/@childNodes.75 /0/@diagram/@childNodes.78 /0/@diagram/@childNodes.81 /0/@diagram/@childNodes.86 /0/@diagram/@childNodes.89 /0/@diagram/@childNodes.96 /0/@diagram/@childNodes.101 /0/@diagram/@childNodes.106 /0/@diagram/@childNodes.109 /0/@diagram/@childNodes.112 /0/@diagram/@childNodes.115 /0/@diagram/@childNodes.120 /0/@diagram/@childNodes.123 /0/@diagram/@childNodes.128 /0/@diagram/@childNodes.131 /0/@diagram/@childNodes.134 /0/@diagram/@childNodes.137 /0/@diagram/@childNodes.140 /0/@diagram/@childNodes.143 /0/@diagram/@childNodes.146 /0/@diagram/@childNodes.151 /0/@diagram/@childNodes.158 /0/@diagram/@childNodes.163 /0/@diagram/@childNodes.166 /0/@diagram/@childNodes.169 /0/@diagram/@childNodes.173 /0/@diagram/@childNodes.176 /0/@diagram/@childNodes.179"
           title="MediatorFlowCompartment"
           canCollapse="false"
           needsTitle="false"
@@ -8489,7 +8618,7 @@
           itemSemanticEditPolicyClassName="MediatorFlowMediatorFlowCompartment14ItemSemanticEditPolicy"
           notationViewFactoryClassName="MediatorFlowMediatorFlowCompartmentViewFactory"
           canonicalEditPolicyClassName="MediatorFlowMediatorFlowCompartment14CanonicalEditPolicy"
-          childNodes="/0/@diagram/@childNodes.7 /0/@diagram/@childNodes.9 /0/@diagram/@childNodes.12 /0/@diagram/@childNodes.20 /0/@diagram/@childNodes.28 /0/@diagram/@childNodes.31 /0/@diagram/@childNodes.34 /0/@diagram/@childNodes.37 /0/@diagram/@childNodes.45 /0/@diagram/@childNodes.48 /0/@diagram/@childNodes.51 /0/@diagram/@childNodes.54 /0/@diagram/@childNodes.57 /0/@diagram/@childNodes.60 /0/@diagram/@childNodes.63 /0/@diagram/@childNodes.66 /0/@diagram/@childNodes.69 /0/@diagram/@childNodes.72 /0/@diagram/@childNodes.75 /0/@diagram/@childNodes.78 /0/@diagram/@childNodes.81 /0/@diagram/@childNodes.86 /0/@diagram/@childNodes.89 /0/@diagram/@childNodes.96 /0/@diagram/@childNodes.101 /0/@diagram/@childNodes.106 /0/@diagram/@childNodes.109 /0/@diagram/@childNodes.112 /0/@diagram/@childNodes.115 /0/@diagram/@childNodes.120 /0/@diagram/@childNodes.123 /0/@diagram/@childNodes.128 /0/@diagram/@childNodes.131 /0/@diagram/@childNodes.134 /0/@diagram/@childNodes.137 /0/@diagram/@childNodes.140 /0/@diagram/@childNodes.143 /0/@diagram/@childNodes.146 /0/@diagram/@childNodes.151 /0/@diagram/@childNodes.158 /0/@diagram/@childNodes.163 /0/@diagram/@childNodes.166 /0/@diagram/@childNodes.169 /0/@diagram/@childNodes.173 /0/@diagram/@childNodes.176"
+          childNodes="/0/@diagram/@childNodes.7 /0/@diagram/@childNodes.9 /0/@diagram/@childNodes.12 /0/@diagram/@childNodes.20 /0/@diagram/@childNodes.28 /0/@diagram/@childNodes.31 /0/@diagram/@childNodes.34 /0/@diagram/@childNodes.37 /0/@diagram/@childNodes.45 /0/@diagram/@childNodes.48 /0/@diagram/@childNodes.51 /0/@diagram/@childNodes.54 /0/@diagram/@childNodes.57 /0/@diagram/@childNodes.60 /0/@diagram/@childNodes.63 /0/@diagram/@childNodes.66 /0/@diagram/@childNodes.69 /0/@diagram/@childNodes.72 /0/@diagram/@childNodes.75 /0/@diagram/@childNodes.78 /0/@diagram/@childNodes.81 /0/@diagram/@childNodes.86 /0/@diagram/@childNodes.89 /0/@diagram/@childNodes.96 /0/@diagram/@childNodes.101 /0/@diagram/@childNodes.106 /0/@diagram/@childNodes.109 /0/@diagram/@childNodes.112 /0/@diagram/@childNodes.115 /0/@diagram/@childNodes.120 /0/@diagram/@childNodes.123 /0/@diagram/@childNodes.128 /0/@diagram/@childNodes.131 /0/@diagram/@childNodes.134 /0/@diagram/@childNodes.137 /0/@diagram/@childNodes.140 /0/@diagram/@childNodes.143 /0/@diagram/@childNodes.146 /0/@diagram/@childNodes.151 /0/@diagram/@childNodes.158 /0/@diagram/@childNodes.163 /0/@diagram/@childNodes.166 /0/@diagram/@childNodes.169 /0/@diagram/@childNodes.173 /0/@diagram/@childNodes.176 /0/@diagram/@childNodes.179"
           title="MediatorFlowCompartment"
           canCollapse="false"
           node="/0/@diagram/@childNodes.150"
@@ -8506,7 +8635,7 @@
           itemSemanticEditPolicyClassName="MediatorFlowMediatorFlowCompartment15ItemSemanticEditPolicy"
           notationViewFactoryClassName="MediatorFlowMediatorFlowCompartmentViewFactory"
           canonicalEditPolicyClassName="MediatorFlowMediatorFlowCompartment15CanonicalEditPolicy"
-          childNodes="/0/@diagram/@childNodes.7 /0/@diagram/@childNodes.9 /0/@diagram/@childNodes.12 /0/@diagram/@childNodes.20 /0/@diagram/@childNodes.28 /0/@diagram/@childNodes.31 /0/@diagram/@childNodes.34 /0/@diagram/@childNodes.37 /0/@diagram/@childNodes.45 /0/@diagram/@childNodes.48 /0/@diagram/@childNodes.51 /0/@diagram/@childNodes.54 /0/@diagram/@childNodes.57 /0/@diagram/@childNodes.60 /0/@diagram/@childNodes.63 /0/@diagram/@childNodes.66 /0/@diagram/@childNodes.69 /0/@diagram/@childNodes.72 /0/@diagram/@childNodes.75 /0/@diagram/@childNodes.78 /0/@diagram/@childNodes.81 /0/@diagram/@childNodes.86 /0/@diagram/@childNodes.89 /0/@diagram/@childNodes.96 /0/@diagram/@childNodes.101 /0/@diagram/@childNodes.106 /0/@diagram/@childNodes.109 /0/@diagram/@childNodes.112 /0/@diagram/@childNodes.115 /0/@diagram/@childNodes.120 /0/@diagram/@childNodes.123 /0/@diagram/@childNodes.128 /0/@diagram/@childNodes.131 /0/@diagram/@childNodes.134 /0/@diagram/@childNodes.137 /0/@diagram/@childNodes.140 /0/@diagram/@childNodes.143 /0/@diagram/@childNodes.146 /0/@diagram/@childNodes.151 /0/@diagram/@childNodes.158 /0/@diagram/@childNodes.163 /0/@diagram/@childNodes.166 /0/@diagram/@childNodes.169 /0/@diagram/@childNodes.173 /0/@diagram/@childNodes.176"
+          childNodes="/0/@diagram/@childNodes.7 /0/@diagram/@childNodes.9 /0/@diagram/@childNodes.12 /0/@diagram/@childNodes.20 /0/@diagram/@childNodes.28 /0/@diagram/@childNodes.31 /0/@diagram/@childNodes.34 /0/@diagram/@childNodes.37 /0/@diagram/@childNodes.45 /0/@diagram/@childNodes.48 /0/@diagram/@childNodes.51 /0/@diagram/@childNodes.54 /0/@diagram/@childNodes.57 /0/@diagram/@childNodes.60 /0/@diagram/@childNodes.63 /0/@diagram/@childNodes.66 /0/@diagram/@childNodes.69 /0/@diagram/@childNodes.72 /0/@diagram/@childNodes.75 /0/@diagram/@childNodes.78 /0/@diagram/@childNodes.81 /0/@diagram/@childNodes.86 /0/@diagram/@childNodes.89 /0/@diagram/@childNodes.96 /0/@diagram/@childNodes.101 /0/@diagram/@childNodes.106 /0/@diagram/@childNodes.109 /0/@diagram/@childNodes.112 /0/@diagram/@childNodes.115 /0/@diagram/@childNodes.120 /0/@diagram/@childNodes.123 /0/@diagram/@childNodes.128 /0/@diagram/@childNodes.131 /0/@diagram/@childNodes.134 /0/@diagram/@childNodes.137 /0/@diagram/@childNodes.140 /0/@diagram/@childNodes.143 /0/@diagram/@childNodes.146 /0/@diagram/@childNodes.151 /0/@diagram/@childNodes.158 /0/@diagram/@childNodes.163 /0/@diagram/@childNodes.166 /0/@diagram/@childNodes.169 /0/@diagram/@childNodes.173 /0/@diagram/@childNodes.176 /0/@diagram/@childNodes.179"
           title="MediatorFlowCompartment"
           canCollapse="false"
           node="/0/@diagram/@childNodes.157"
@@ -8523,7 +8652,7 @@
           itemSemanticEditPolicyClassName="MediatorFlowMediatorFlowCompartment16ItemSemanticEditPolicy"
           notationViewFactoryClassName="MediatorFlowMediatorFlowCompartmentViewFactory"
           canonicalEditPolicyClassName="MediatorFlowMediatorFlowCompartment16CanonicalEditPolicy"
-          childNodes="/0/@diagram/@childNodes.7 /0/@diagram/@childNodes.9 /0/@diagram/@childNodes.12 /0/@diagram/@childNodes.20 /0/@diagram/@childNodes.28 /0/@diagram/@childNodes.31 /0/@diagram/@childNodes.34 /0/@diagram/@childNodes.37 /0/@diagram/@childNodes.45 /0/@diagram/@childNodes.48 /0/@diagram/@childNodes.51 /0/@diagram/@childNodes.54 /0/@diagram/@childNodes.57 /0/@diagram/@childNodes.60 /0/@diagram/@childNodes.63 /0/@diagram/@childNodes.66 /0/@diagram/@childNodes.69 /0/@diagram/@childNodes.72 /0/@diagram/@childNodes.75 /0/@diagram/@childNodes.78 /0/@diagram/@childNodes.81 /0/@diagram/@childNodes.86 /0/@diagram/@childNodes.89 /0/@diagram/@childNodes.96 /0/@diagram/@childNodes.101 /0/@diagram/@childNodes.106 /0/@diagram/@childNodes.109 /0/@diagram/@childNodes.112 /0/@diagram/@childNodes.115 /0/@diagram/@childNodes.120 /0/@diagram/@childNodes.123 /0/@diagram/@childNodes.128 /0/@diagram/@childNodes.131 /0/@diagram/@childNodes.134 /0/@diagram/@childNodes.137 /0/@diagram/@childNodes.140 /0/@diagram/@childNodes.143 /0/@diagram/@childNodes.146 /0/@diagram/@childNodes.151 /0/@diagram/@childNodes.158 /0/@diagram/@childNodes.163 /0/@diagram/@childNodes.166 /0/@diagram/@childNodes.169 /0/@diagram/@childNodes.173 /0/@diagram/@childNodes.176"
+          childNodes="/0/@diagram/@childNodes.7 /0/@diagram/@childNodes.9 /0/@diagram/@childNodes.12 /0/@diagram/@childNodes.20 /0/@diagram/@childNodes.28 /0/@diagram/@childNodes.31 /0/@diagram/@childNodes.34 /0/@diagram/@childNodes.37 /0/@diagram/@childNodes.45 /0/@diagram/@childNodes.48 /0/@diagram/@childNodes.51 /0/@diagram/@childNodes.54 /0/@diagram/@childNodes.57 /0/@diagram/@childNodes.60 /0/@diagram/@childNodes.63 /0/@diagram/@childNodes.66 /0/@diagram/@childNodes.69 /0/@diagram/@childNodes.72 /0/@diagram/@childNodes.75 /0/@diagram/@childNodes.78 /0/@diagram/@childNodes.81 /0/@diagram/@childNodes.86 /0/@diagram/@childNodes.89 /0/@diagram/@childNodes.96 /0/@diagram/@childNodes.101 /0/@diagram/@childNodes.106 /0/@diagram/@childNodes.109 /0/@diagram/@childNodes.112 /0/@diagram/@childNodes.115 /0/@diagram/@childNodes.120 /0/@diagram/@childNodes.123 /0/@diagram/@childNodes.128 /0/@diagram/@childNodes.131 /0/@diagram/@childNodes.134 /0/@diagram/@childNodes.137 /0/@diagram/@childNodes.140 /0/@diagram/@childNodes.143 /0/@diagram/@childNodes.146 /0/@diagram/@childNodes.151 /0/@diagram/@childNodes.158 /0/@diagram/@childNodes.163 /0/@diagram/@childNodes.166 /0/@diagram/@childNodes.169 /0/@diagram/@childNodes.173 /0/@diagram/@childNodes.176 /0/@diagram/@childNodes.179"
           title="MediatorFlowCompartment"
           canCollapse="false"
           node="/0/@diagram/@childNodes.162"
@@ -8540,11 +8669,11 @@
           itemSemanticEditPolicyClassName="MediatorFlowMediatorFlowCompartment4ItemSemanticEditPolicy"
           notationViewFactoryClassName="MediatorFlowMediatorFlowCompartmentViewFactory"
           canonicalEditPolicyClassName="MediatorFlowMediatorFlowCompartment4CanonicalEditPolicy"
-          childNodes="/0/@diagram/@childNodes.7 /0/@diagram/@childNodes.9 /0/@diagram/@childNodes.12 /0/@diagram/@childNodes.20 /0/@diagram/@childNodes.28 /0/@diagram/@childNodes.31 /0/@diagram/@childNodes.34 /0/@diagram/@childNodes.37 /0/@diagram/@childNodes.45 /0/@diagram/@childNodes.48 /0/@diagram/@childNodes.51 /0/@diagram/@childNodes.54 /0/@diagram/@childNodes.57 /0/@diagram/@childNodes.60 /0/@diagram/@childNodes.63 /0/@diagram/@childNodes.66 /0/@diagram/@childNodes.69 /0/@diagram/@childNodes.72 /0/@diagram/@childNodes.75 /0/@diagram/@childNodes.78 /0/@diagram/@childNodes.81 /0/@diagram/@childNodes.86 /0/@diagram/@childNodes.89 /0/@diagram/@childNodes.96 /0/@diagram/@childNodes.101 /0/@diagram/@childNodes.106 /0/@diagram/@childNodes.109 /0/@diagram/@childNodes.112 /0/@diagram/@childNodes.115 /0/@diagram/@childNodes.120 /0/@diagram/@childNodes.123 /0/@diagram/@childNodes.128 /0/@diagram/@childNodes.131 /0/@diagram/@childNodes.134 /0/@diagram/@childNodes.137 /0/@diagram/@childNodes.140 /0/@diagram/@childNodes.143 /0/@diagram/@childNodes.146 /0/@diagram/@childNodes.151 /0/@diagram/@childNodes.158 /0/@diagram/@childNodes.163 /0/@diagram/@childNodes.166 /0/@diagram/@childNodes.169 /0/@diagram/@childNodes.173 /0/@diagram/@childNodes.176"
+          childNodes="/0/@diagram/@childNodes.7 /0/@diagram/@childNodes.9 /0/@diagram/@childNodes.12 /0/@diagram/@childNodes.20 /0/@diagram/@childNodes.28 /0/@diagram/@childNodes.31 /0/@diagram/@childNodes.34 /0/@diagram/@childNodes.37 /0/@diagram/@childNodes.45 /0/@diagram/@childNodes.48 /0/@diagram/@childNodes.51 /0/@diagram/@childNodes.54 /0/@diagram/@childNodes.57 /0/@diagram/@childNodes.60 /0/@diagram/@childNodes.63 /0/@diagram/@childNodes.66 /0/@diagram/@childNodes.69 /0/@diagram/@childNodes.72 /0/@diagram/@childNodes.75 /0/@diagram/@childNodes.78 /0/@diagram/@childNodes.81 /0/@diagram/@childNodes.86 /0/@diagram/@childNodes.89 /0/@diagram/@childNodes.96 /0/@diagram/@childNodes.101 /0/@diagram/@childNodes.106 /0/@diagram/@childNodes.109 /0/@diagram/@childNodes.112 /0/@diagram/@childNodes.115 /0/@diagram/@childNodes.120 /0/@diagram/@childNodes.123 /0/@diagram/@childNodes.128 /0/@diagram/@childNodes.131 /0/@diagram/@childNodes.134 /0/@diagram/@childNodes.137 /0/@diagram/@childNodes.140 /0/@diagram/@childNodes.143 /0/@diagram/@childNodes.146 /0/@diagram/@childNodes.151 /0/@diagram/@childNodes.158 /0/@diagram/@childNodes.163 /0/@diagram/@childNodes.166 /0/@diagram/@childNodes.169 /0/@diagram/@childNodes.173 /0/@diagram/@childNodes.176 /0/@diagram/@childNodes.179"
           title="MediatorFlowCompartment"
           canCollapse="false"
           needsTitle="false"
-          node="/0/@diagram/@childNodes.181"
+          node="/0/@diagram/@childNodes.184"
           listLayout="false">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -8558,10 +8687,10 @@
           itemSemanticEditPolicyClassName="MediatorFlowMediatorFlowCompartment8ItemSemanticEditPolicy"
           notationViewFactoryClassName="MediatorFlowMediatorFlowCompartmentViewFactory"
           canonicalEditPolicyClassName="MediatorFlowMediatorFlowCompartment8CanonicalEditPolicy"
-          childNodes="/0/@diagram/@childNodes.7 /0/@diagram/@childNodes.9 /0/@diagram/@childNodes.12 /0/@diagram/@childNodes.20 /0/@diagram/@childNodes.28 /0/@diagram/@childNodes.31 /0/@diagram/@childNodes.34 /0/@diagram/@childNodes.37 /0/@diagram/@childNodes.45 /0/@diagram/@childNodes.48 /0/@diagram/@childNodes.51 /0/@diagram/@childNodes.54 /0/@diagram/@childNodes.57 /0/@diagram/@childNodes.60 /0/@diagram/@childNodes.63 /0/@diagram/@childNodes.66 /0/@diagram/@childNodes.69 /0/@diagram/@childNodes.72 /0/@diagram/@childNodes.75 /0/@diagram/@childNodes.78 /0/@diagram/@childNodes.81 /0/@diagram/@childNodes.86 /0/@diagram/@childNodes.89 /0/@diagram/@childNodes.96 /0/@diagram/@childNodes.101 /0/@diagram/@childNodes.106 /0/@diagram/@childNodes.109 /0/@diagram/@childNodes.112 /0/@diagram/@childNodes.115 /0/@diagram/@childNodes.120 /0/@diagram/@childNodes.123 /0/@diagram/@childNodes.128 /0/@diagram/@childNodes.131 /0/@diagram/@childNodes.134 /0/@diagram/@childNodes.137 /0/@diagram/@childNodes.140 /0/@diagram/@childNodes.143 /0/@diagram/@childNodes.146 /0/@diagram/@childNodes.151 /0/@diagram/@childNodes.158 /0/@diagram/@childNodes.163 /0/@diagram/@childNodes.166 /0/@diagram/@childNodes.169 /0/@diagram/@childNodes.173 /0/@diagram/@childNodes.176"
+          childNodes="/0/@diagram/@childNodes.7 /0/@diagram/@childNodes.9 /0/@diagram/@childNodes.12 /0/@diagram/@childNodes.20 /0/@diagram/@childNodes.28 /0/@diagram/@childNodes.31 /0/@diagram/@childNodes.34 /0/@diagram/@childNodes.37 /0/@diagram/@childNodes.45 /0/@diagram/@childNodes.48 /0/@diagram/@childNodes.51 /0/@diagram/@childNodes.54 /0/@diagram/@childNodes.57 /0/@diagram/@childNodes.60 /0/@diagram/@childNodes.63 /0/@diagram/@childNodes.66 /0/@diagram/@childNodes.69 /0/@diagram/@childNodes.72 /0/@diagram/@childNodes.75 /0/@diagram/@childNodes.78 /0/@diagram/@childNodes.81 /0/@diagram/@childNodes.86 /0/@diagram/@childNodes.89 /0/@diagram/@childNodes.96 /0/@diagram/@childNodes.101 /0/@diagram/@childNodes.106 /0/@diagram/@childNodes.109 /0/@diagram/@childNodes.112 /0/@diagram/@childNodes.115 /0/@diagram/@childNodes.120 /0/@diagram/@childNodes.123 /0/@diagram/@childNodes.128 /0/@diagram/@childNodes.131 /0/@diagram/@childNodes.134 /0/@diagram/@childNodes.137 /0/@diagram/@childNodes.140 /0/@diagram/@childNodes.143 /0/@diagram/@childNodes.146 /0/@diagram/@childNodes.151 /0/@diagram/@childNodes.158 /0/@diagram/@childNodes.163 /0/@diagram/@childNodes.166 /0/@diagram/@childNodes.169 /0/@diagram/@childNodes.173 /0/@diagram/@childNodes.176 /0/@diagram/@childNodes.179"
           title="MediatorFlowCompartment"
           canCollapse="false"
-          node="/0/@diagram/@childNodes.183"
+          node="/0/@diagram/@childNodes.186"
           listLayout="false">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -8575,10 +8704,10 @@
           itemSemanticEditPolicyClassName="MediatorFlowMediatorFlowCompartment10ItemSemanticEditPolicy"
           notationViewFactoryClassName="MediatorFlowMediatorFlowCompartmentViewFactory"
           canonicalEditPolicyClassName="MediatorFlowMediatorFlowCompartment10CanonicalEditPolicy"
-          childNodes="/0/@diagram/@childNodes.7 /0/@diagram/@childNodes.9 /0/@diagram/@childNodes.12 /0/@diagram/@childNodes.20 /0/@diagram/@childNodes.28 /0/@diagram/@childNodes.31 /0/@diagram/@childNodes.34 /0/@diagram/@childNodes.37 /0/@diagram/@childNodes.45 /0/@diagram/@childNodes.48 /0/@diagram/@childNodes.51 /0/@diagram/@childNodes.54 /0/@diagram/@childNodes.57 /0/@diagram/@childNodes.60 /0/@diagram/@childNodes.63 /0/@diagram/@childNodes.66 /0/@diagram/@childNodes.69 /0/@diagram/@childNodes.72 /0/@diagram/@childNodes.75 /0/@diagram/@childNodes.78 /0/@diagram/@childNodes.81 /0/@diagram/@childNodes.86 /0/@diagram/@childNodes.89 /0/@diagram/@childNodes.96 /0/@diagram/@childNodes.101 /0/@diagram/@childNodes.106 /0/@diagram/@childNodes.109 /0/@diagram/@childNodes.112 /0/@diagram/@childNodes.115 /0/@diagram/@childNodes.120 /0/@diagram/@childNodes.123 /0/@diagram/@childNodes.128 /0/@diagram/@childNodes.131 /0/@diagram/@childNodes.134 /0/@diagram/@childNodes.137 /0/@diagram/@childNodes.140 /0/@diagram/@childNodes.143 /0/@diagram/@childNodes.146 /0/@diagram/@childNodes.151 /0/@diagram/@childNodes.158 /0/@diagram/@childNodes.163 /0/@diagram/@childNodes.166 /0/@diagram/@childNodes.169 /0/@diagram/@childNodes.173 /0/@diagram/@childNodes.176"
+          childNodes="/0/@diagram/@childNodes.7 /0/@diagram/@childNodes.9 /0/@diagram/@childNodes.12 /0/@diagram/@childNodes.20 /0/@diagram/@childNodes.28 /0/@diagram/@childNodes.31 /0/@diagram/@childNodes.34 /0/@diagram/@childNodes.37 /0/@diagram/@childNodes.45 /0/@diagram/@childNodes.48 /0/@diagram/@childNodes.51 /0/@diagram/@childNodes.54 /0/@diagram/@childNodes.57 /0/@diagram/@childNodes.60 /0/@diagram/@childNodes.63 /0/@diagram/@childNodes.66 /0/@diagram/@childNodes.69 /0/@diagram/@childNodes.72 /0/@diagram/@childNodes.75 /0/@diagram/@childNodes.78 /0/@diagram/@childNodes.81 /0/@diagram/@childNodes.86 /0/@diagram/@childNodes.89 /0/@diagram/@childNodes.96 /0/@diagram/@childNodes.101 /0/@diagram/@childNodes.106 /0/@diagram/@childNodes.109 /0/@diagram/@childNodes.112 /0/@diagram/@childNodes.115 /0/@diagram/@childNodes.120 /0/@diagram/@childNodes.123 /0/@diagram/@childNodes.128 /0/@diagram/@childNodes.131 /0/@diagram/@childNodes.134 /0/@diagram/@childNodes.137 /0/@diagram/@childNodes.140 /0/@diagram/@childNodes.143 /0/@diagram/@childNodes.146 /0/@diagram/@childNodes.151 /0/@diagram/@childNodes.158 /0/@diagram/@childNodes.163 /0/@diagram/@childNodes.166 /0/@diagram/@childNodes.169 /0/@diagram/@childNodes.173 /0/@diagram/@childNodes.176 /0/@diagram/@childNodes.179"
           title="MediatorFlowCompartment"
           canCollapse="false"
-          node="/0/@diagram/@childNodes.185"
+          node="/0/@diagram/@childNodes.188"
           listLayout="false">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -8592,11 +8721,11 @@
           itemSemanticEditPolicyClassName="MediatorFlowMediatorFlowCompartment6ItemSemanticEditPolicy"
           notationViewFactoryClassName="MediatorFlowMediatorFlowCompartmentViewFactory"
           canonicalEditPolicyClassName="MediatorFlowMediatorFlowCompartment6CanonicalEditPolicy"
-          childNodes="/0/@diagram/@childNodes.7 /0/@diagram/@childNodes.9 /0/@diagram/@childNodes.12 /0/@diagram/@childNodes.20 /0/@diagram/@childNodes.28 /0/@diagram/@childNodes.31 /0/@diagram/@childNodes.34 /0/@diagram/@childNodes.37 /0/@diagram/@childNodes.45 /0/@diagram/@childNodes.48 /0/@diagram/@childNodes.51 /0/@diagram/@childNodes.54 /0/@diagram/@childNodes.57 /0/@diagram/@childNodes.60 /0/@diagram/@childNodes.63 /0/@diagram/@childNodes.66 /0/@diagram/@childNodes.69 /0/@diagram/@childNodes.72 /0/@diagram/@childNodes.75 /0/@diagram/@childNodes.78 /0/@diagram/@childNodes.81 /0/@diagram/@childNodes.86 /0/@diagram/@childNodes.89 /0/@diagram/@childNodes.96 /0/@diagram/@childNodes.101 /0/@diagram/@childNodes.106 /0/@diagram/@childNodes.109 /0/@diagram/@childNodes.112 /0/@diagram/@childNodes.115 /0/@diagram/@childNodes.120 /0/@diagram/@childNodes.123 /0/@diagram/@childNodes.128 /0/@diagram/@childNodes.131 /0/@diagram/@childNodes.134 /0/@diagram/@childNodes.137 /0/@diagram/@childNodes.140 /0/@diagram/@childNodes.143 /0/@diagram/@childNodes.146 /0/@diagram/@childNodes.151 /0/@diagram/@childNodes.158 /0/@diagram/@childNodes.163 /0/@diagram/@childNodes.166 /0/@diagram/@childNodes.169 /0/@diagram/@childNodes.173 /0/@diagram/@childNodes.176"
+          childNodes="/0/@diagram/@childNodes.7 /0/@diagram/@childNodes.9 /0/@diagram/@childNodes.12 /0/@diagram/@childNodes.20 /0/@diagram/@childNodes.28 /0/@diagram/@childNodes.31 /0/@diagram/@childNodes.34 /0/@diagram/@childNodes.37 /0/@diagram/@childNodes.45 /0/@diagram/@childNodes.48 /0/@diagram/@childNodes.51 /0/@diagram/@childNodes.54 /0/@diagram/@childNodes.57 /0/@diagram/@childNodes.60 /0/@diagram/@childNodes.63 /0/@diagram/@childNodes.66 /0/@diagram/@childNodes.69 /0/@diagram/@childNodes.72 /0/@diagram/@childNodes.75 /0/@diagram/@childNodes.78 /0/@diagram/@childNodes.81 /0/@diagram/@childNodes.86 /0/@diagram/@childNodes.89 /0/@diagram/@childNodes.96 /0/@diagram/@childNodes.101 /0/@diagram/@childNodes.106 /0/@diagram/@childNodes.109 /0/@diagram/@childNodes.112 /0/@diagram/@childNodes.115 /0/@diagram/@childNodes.120 /0/@diagram/@childNodes.123 /0/@diagram/@childNodes.128 /0/@diagram/@childNodes.131 /0/@diagram/@childNodes.134 /0/@diagram/@childNodes.137 /0/@diagram/@childNodes.140 /0/@diagram/@childNodes.143 /0/@diagram/@childNodes.146 /0/@diagram/@childNodes.151 /0/@diagram/@childNodes.158 /0/@diagram/@childNodes.163 /0/@diagram/@childNodes.166 /0/@diagram/@childNodes.169 /0/@diagram/@childNodes.173 /0/@diagram/@childNodes.176 /0/@diagram/@childNodes.179"
           title="MediatorFlowCompartment"
           canCollapse="false"
           needsTitle="false"
-          node="/0/@diagram/@childNodes.187"
+          node="/0/@diagram/@childNodes.190"
           listLayout="false">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -8610,10 +8739,10 @@
           itemSemanticEditPolicyClassName="MediatorFlowMediatorFlowCompartment5ItemSemanticEditPolicy"
           notationViewFactoryClassName="MediatorFlowMediatorFlowCompartmentViewFactory"
           canonicalEditPolicyClassName="MediatorFlowMediatorFlowCompartment5CanonicalEditPolicy"
-          childNodes="/0/@diagram/@childNodes.7 /0/@diagram/@childNodes.9 /0/@diagram/@childNodes.12 /0/@diagram/@childNodes.20 /0/@diagram/@childNodes.28 /0/@diagram/@childNodes.31 /0/@diagram/@childNodes.34 /0/@diagram/@childNodes.37 /0/@diagram/@childNodes.45 /0/@diagram/@childNodes.48 /0/@diagram/@childNodes.51 /0/@diagram/@childNodes.54 /0/@diagram/@childNodes.57 /0/@diagram/@childNodes.60 /0/@diagram/@childNodes.63 /0/@diagram/@childNodes.66 /0/@diagram/@childNodes.69 /0/@diagram/@childNodes.72 /0/@diagram/@childNodes.75 /0/@diagram/@childNodes.78 /0/@diagram/@childNodes.81 /0/@diagram/@childNodes.86 /0/@diagram/@childNodes.89 /0/@diagram/@childNodes.96 /0/@diagram/@childNodes.101 /0/@diagram/@childNodes.106 /0/@diagram/@childNodes.109 /0/@diagram/@childNodes.112 /0/@diagram/@childNodes.115 /0/@diagram/@childNodes.120 /0/@diagram/@childNodes.123 /0/@diagram/@childNodes.128 /0/@diagram/@childNodes.131 /0/@diagram/@childNodes.134 /0/@diagram/@childNodes.137 /0/@diagram/@childNodes.140 /0/@diagram/@childNodes.143 /0/@diagram/@childNodes.146 /0/@diagram/@childNodes.151 /0/@diagram/@childNodes.158 /0/@diagram/@childNodes.163 /0/@diagram/@childNodes.166 /0/@diagram/@childNodes.169 /0/@diagram/@childNodes.173 /0/@diagram/@childNodes.176"
+          childNodes="/0/@diagram/@childNodes.7 /0/@diagram/@childNodes.9 /0/@diagram/@childNodes.12 /0/@diagram/@childNodes.20 /0/@diagram/@childNodes.28 /0/@diagram/@childNodes.31 /0/@diagram/@childNodes.34 /0/@diagram/@childNodes.37 /0/@diagram/@childNodes.45 /0/@diagram/@childNodes.48 /0/@diagram/@childNodes.51 /0/@diagram/@childNodes.54 /0/@diagram/@childNodes.57 /0/@diagram/@childNodes.60 /0/@diagram/@childNodes.63 /0/@diagram/@childNodes.66 /0/@diagram/@childNodes.69 /0/@diagram/@childNodes.72 /0/@diagram/@childNodes.75 /0/@diagram/@childNodes.78 /0/@diagram/@childNodes.81 /0/@diagram/@childNodes.86 /0/@diagram/@childNodes.89 /0/@diagram/@childNodes.96 /0/@diagram/@childNodes.101 /0/@diagram/@childNodes.106 /0/@diagram/@childNodes.109 /0/@diagram/@childNodes.112 /0/@diagram/@childNodes.115 /0/@diagram/@childNodes.120 /0/@diagram/@childNodes.123 /0/@diagram/@childNodes.128 /0/@diagram/@childNodes.131 /0/@diagram/@childNodes.134 /0/@diagram/@childNodes.137 /0/@diagram/@childNodes.140 /0/@diagram/@childNodes.143 /0/@diagram/@childNodes.146 /0/@diagram/@childNodes.151 /0/@diagram/@childNodes.158 /0/@diagram/@childNodes.163 /0/@diagram/@childNodes.166 /0/@diagram/@childNodes.169 /0/@diagram/@childNodes.173 /0/@diagram/@childNodes.176 /0/@diagram/@childNodes.179"
           title="MediatorFlowCompartment"
           canCollapse="false"
-          node="/0/@diagram/@childNodes.196"
+          node="/0/@diagram/@childNodes.199"
           listLayout="false">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -8625,10 +8754,11 @@
           visualID="7041"
           editPartClassName="EndpointDiagramEndpointCompartmentEditPart"
           itemSemanticEditPolicyClassName="EndpointDiagramEndpointCompartmentItemSemanticEditPolicy"
+          notationViewFactoryClassName="EndpointDiagramEndpointCompartmentViewFactory"
           canonicalEditPolicyClassName="EndpointDiagramEndpointCompartmentCanonicalEditPolicy"
-          childNodes="/0/@diagram/@childNodes.200 /0/@diagram/@childNodes.203 /0/@diagram/@childNodes.206 /0/@diagram/@childNodes.210 /0/@diagram/@childNodes.213"
+          childNodes="/0/@diagram/@childNodes.203 /0/@diagram/@childNodes.206 /0/@diagram/@childNodes.209 /0/@diagram/@childNodes.213 /0/@diagram/@childNodes.216"
           title="EndpointCompartment"
-          node="/0/@diagram/@childNodes.199"
+          node="/0/@diagram/@childNodes.202"
           listLayout="false">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -8655,7 +8785,7 @@
               xsi:type="gmfgen:ToolEntry"
               title="MessageMediator"
               description="Create new MessageMediator"
-              genNodes="/0/@diagram/@childNodes.188"/>
+              genNodes="/0/@diagram/@childNodes.191"/>
           <entries
               xsi:type="gmfgen:ToolEntry"
               title="Sequence"
@@ -8867,27 +8997,32 @@
               xsi:type="gmfgen:ToolEntry"
               title="DefaultEndPoint"
               description="Create new DefaultEndPoint"
-              genNodes="/0/@diagram/@childNodes.163 /0/@diagram/@childNodes.200"/>
+              genNodes="/0/@diagram/@childNodes.163 /0/@diagram/@childNodes.203"/>
           <entries
               xsi:type="gmfgen:ToolEntry"
               title="AddressEndPoint"
               description="Create new AddressEndPoint"
-              genNodes="/0/@diagram/@childNodes.166 /0/@diagram/@childNodes.203"/>
+              genNodes="/0/@diagram/@childNodes.166 /0/@diagram/@childNodes.206"/>
           <entries
               xsi:type="gmfgen:ToolEntry"
               title="FailoverEndPoint"
               description="Create new FailoverEndPoint"
-              genNodes="/0/@diagram/@childNodes.169 /0/@diagram/@childNodes.206"/>
+              genNodes="/0/@diagram/@childNodes.169 /0/@diagram/@childNodes.209"/>
           <entries
               xsi:type="gmfgen:ToolEntry"
               title="WSDLEndPoint"
               description="Create new WSDLEndPoint"
-              genNodes="/0/@diagram/@childNodes.173 /0/@diagram/@childNodes.210"/>
+              genNodes="/0/@diagram/@childNodes.173 /0/@diagram/@childNodes.213"/>
           <entries
               xsi:type="gmfgen:ToolEntry"
               title="LoadBalanceEndPoint"
               description="Create new LoadBalanceEndPoint"
-              genNodes="/0/@diagram/@childNodes.176 /0/@diagram/@childNodes.213"/>
+              genNodes="/0/@diagram/@childNodes.179 /0/@diagram/@childNodes.216"/>
+          <entries
+              xsi:type="gmfgen:ToolEntry"
+              title="NamedEndpoint"
+              description="Create new NamedEndpoint"
+              genNodes="/0/@diagram/@childNodes.176"/>
         </groups>
         <groups
             title="Links"
@@ -8907,7 +9042,7 @@
               xsi:type="gmfgen:ToolEntry"
               title="MergeNode"
               description="Create New MergeNode"
-              genNodes="/0/@diagram/@childNodes.191"/>
+              genNodes="/0/@diagram/@childNodes.194"/>
         </groups>
       </palette>
       <preferencePages
@@ -10163,11 +10298,20 @@
           parent="/0/@diagram/@childNodes.176"
           child="/0/@diagram/@childNodes.178"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.176"
-          child="/0/@diagram/@childNodes.179"/>
-      <childReferences
           parent="/0/@diagram/@childNodes.162"
           child="/0/@diagram/@childNodes.176"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.179"
+          child="/0/@diagram/@childNodes.180"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.179"
+          child="/0/@diagram/@childNodes.181"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.179"
+          child="/0/@diagram/@childNodes.182"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.162"
+          child="/0/@diagram/@childNodes.179"/>
       <childReferences
           parent="/0/@diagram/@childNodes.158"
           child="/0/@diagram/@childNodes.162"/>
@@ -10189,6 +10333,9 @@
       <childReferences
           parent="/0/@diagram/@childNodes.157"
           child="/0/@diagram/@childNodes.176"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.157"
+          child="/0/@diagram/@childNodes.179"/>
       <childReferences
           parent="/0/@diagram/@childNodes.156"
           child="/0/@diagram/@childNodes.157"/>
@@ -10220,6 +10367,9 @@
           parent="/0/@diagram/@childNodes.150"
           child="/0/@diagram/@childNodes.176"/>
       <childReferences
+          parent="/0/@diagram/@childNodes.150"
+          child="/0/@diagram/@childNodes.179"/>
+      <childReferences
           parent="/0/@diagram/@childNodes.146"
           child="/0/@diagram/@childNodes.150"/>
       <childReferences
@@ -10246,6 +10396,9 @@
       <childReferences
           parent="/0/@diagram/@childNodes.127"
           child="/0/@diagram/@childNodes.176"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.127"
+          child="/0/@diagram/@childNodes.179"/>
       <childReferences
           parent="/0/@diagram/@childNodes.123"
           child="/0/@diagram/@childNodes.127"/>
@@ -10294,6 +10447,9 @@
       <childReferences
           parent="/0/@diagram/@childNodes.119"
           child="/0/@diagram/@childNodes.176"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.119"
+          child="/0/@diagram/@childNodes.179"/>
       <childReferences
           parent="/0/@diagram/@childNodes.115"
           child="/0/@diagram/@childNodes.119"/>
@@ -10348,6 +10504,9 @@
       <childReferences
           parent="/0/@diagram/@childNodes.105"
           child="/0/@diagram/@childNodes.176"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.105"
+          child="/0/@diagram/@childNodes.179"/>
       <childReferences
           parent="/0/@diagram/@childNodes.101"
           child="/0/@diagram/@childNodes.105"/>
@@ -10414,6 +10573,9 @@
       <childReferences
           parent="/0/@diagram/@childNodes.100"
           child="/0/@diagram/@childNodes.176"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.100"
+          child="/0/@diagram/@childNodes.179"/>
       <childReferences
           parent="/0/@diagram/@childNodes.96"
           child="/0/@diagram/@childNodes.100"/>
@@ -10483,6 +10645,9 @@
       <childReferences
           parent="/0/@diagram/@childNodes.95"
           child="/0/@diagram/@childNodes.176"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.95"
+          child="/0/@diagram/@childNodes.179"/>
       <childReferences
           parent="/0/@diagram/@childNodes.94"
           child="/0/@diagram/@childNodes.95"/>
@@ -10562,152 +10727,158 @@
           parent="/0/@diagram/@childNodes.44"
           child="/0/@diagram/@childNodes.176"/>
       <childReferences
+          parent="/0/@diagram/@childNodes.44"
+          child="/0/@diagram/@childNodes.179"/>
+      <childReferences
           parent="/0/@diagram/@childNodes.43"
           child="/0/@diagram/@childNodes.44"/>
       <childReferences
           parent="/0/@diagram/@childNodes.42"
           child="/0/@diagram/@childNodes.43"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.181"
+          parent="/0/@diagram/@childNodes.184"
           child="/0/@diagram/@childNodes.7"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.181"
+          parent="/0/@diagram/@childNodes.184"
           child="/0/@diagram/@childNodes.9"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.181"
+          parent="/0/@diagram/@childNodes.184"
           child="/0/@diagram/@childNodes.12"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.181"
+          parent="/0/@diagram/@childNodes.184"
           child="/0/@diagram/@childNodes.20"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.181"
+          parent="/0/@diagram/@childNodes.184"
           child="/0/@diagram/@childNodes.28"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.181"
+          parent="/0/@diagram/@childNodes.184"
           child="/0/@diagram/@childNodes.31"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.181"
+          parent="/0/@diagram/@childNodes.184"
           child="/0/@diagram/@childNodes.34"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.181"
+          parent="/0/@diagram/@childNodes.184"
           child="/0/@diagram/@childNodes.37"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.181"
+          parent="/0/@diagram/@childNodes.184"
           child="/0/@diagram/@childNodes.45"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.181"
+          parent="/0/@diagram/@childNodes.184"
           child="/0/@diagram/@childNodes.48"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.181"
+          parent="/0/@diagram/@childNodes.184"
           child="/0/@diagram/@childNodes.51"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.181"
+          parent="/0/@diagram/@childNodes.184"
           child="/0/@diagram/@childNodes.54"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.181"
+          parent="/0/@diagram/@childNodes.184"
           child="/0/@diagram/@childNodes.57"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.181"
+          parent="/0/@diagram/@childNodes.184"
           child="/0/@diagram/@childNodes.60"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.181"
+          parent="/0/@diagram/@childNodes.184"
           child="/0/@diagram/@childNodes.63"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.181"
+          parent="/0/@diagram/@childNodes.184"
           child="/0/@diagram/@childNodes.66"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.181"
+          parent="/0/@diagram/@childNodes.184"
           child="/0/@diagram/@childNodes.69"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.181"
+          parent="/0/@diagram/@childNodes.184"
           child="/0/@diagram/@childNodes.72"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.181"
+          parent="/0/@diagram/@childNodes.184"
           child="/0/@diagram/@childNodes.75"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.181"
+          parent="/0/@diagram/@childNodes.184"
           child="/0/@diagram/@childNodes.78"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.181"
+          parent="/0/@diagram/@childNodes.184"
           child="/0/@diagram/@childNodes.81"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.181"
+          parent="/0/@diagram/@childNodes.184"
           child="/0/@diagram/@childNodes.86"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.181"
+          parent="/0/@diagram/@childNodes.184"
           child="/0/@diagram/@childNodes.89"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.181"
+          parent="/0/@diagram/@childNodes.184"
           child="/0/@diagram/@childNodes.96"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.181"
+          parent="/0/@diagram/@childNodes.184"
           child="/0/@diagram/@childNodes.101"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.181"
+          parent="/0/@diagram/@childNodes.184"
           child="/0/@diagram/@childNodes.106"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.181"
+          parent="/0/@diagram/@childNodes.184"
           child="/0/@diagram/@childNodes.109"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.181"
+          parent="/0/@diagram/@childNodes.184"
           child="/0/@diagram/@childNodes.112"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.181"
+          parent="/0/@diagram/@childNodes.184"
           child="/0/@diagram/@childNodes.115"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.181"
+          parent="/0/@diagram/@childNodes.184"
           child="/0/@diagram/@childNodes.120"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.181"
+          parent="/0/@diagram/@childNodes.184"
           child="/0/@diagram/@childNodes.123"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.181"
+          parent="/0/@diagram/@childNodes.184"
           child="/0/@diagram/@childNodes.128"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.181"
+          parent="/0/@diagram/@childNodes.184"
           child="/0/@diagram/@childNodes.131"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.181"
+          parent="/0/@diagram/@childNodes.184"
           child="/0/@diagram/@childNodes.134"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.181"
+          parent="/0/@diagram/@childNodes.184"
           child="/0/@diagram/@childNodes.137"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.181"
+          parent="/0/@diagram/@childNodes.184"
           child="/0/@diagram/@childNodes.140"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.181"
+          parent="/0/@diagram/@childNodes.184"
           child="/0/@diagram/@childNodes.143"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.181"
+          parent="/0/@diagram/@childNodes.184"
           child="/0/@diagram/@childNodes.146"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.181"
+          parent="/0/@diagram/@childNodes.184"
           child="/0/@diagram/@childNodes.151"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.181"
+          parent="/0/@diagram/@childNodes.184"
           child="/0/@diagram/@childNodes.158"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.181"
+          parent="/0/@diagram/@childNodes.184"
           child="/0/@diagram/@childNodes.163"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.181"
+          parent="/0/@diagram/@childNodes.184"
           child="/0/@diagram/@childNodes.166"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.181"
+          parent="/0/@diagram/@childNodes.184"
           child="/0/@diagram/@childNodes.169"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.181"
+          parent="/0/@diagram/@childNodes.184"
           child="/0/@diagram/@childNodes.173"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.181"
+          parent="/0/@diagram/@childNodes.184"
           child="/0/@diagram/@childNodes.176"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.180"
-          child="/0/@diagram/@childNodes.181"/>
+          parent="/0/@diagram/@childNodes.184"
+          child="/0/@diagram/@childNodes.179"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.183"
+          child="/0/@diagram/@childNodes.184"/>
       <childReferences
           parent="/0/@diagram/@childNodes.42"
-          child="/0/@diagram/@childNodes.180"/>
+          child="/0/@diagram/@childNodes.183"/>
       <childReferences
           parent="/0/@diagram/@childNodes.37"
           child="/0/@diagram/@childNodes.42"/>
@@ -10826,152 +10997,158 @@
           parent="/0/@diagram/@childNodes.27"
           child="/0/@diagram/@childNodes.176"/>
       <childReferences
+          parent="/0/@diagram/@childNodes.27"
+          child="/0/@diagram/@childNodes.179"/>
+      <childReferences
           parent="/0/@diagram/@childNodes.26"
           child="/0/@diagram/@childNodes.27"/>
       <childReferences
           parent="/0/@diagram/@childNodes.25"
           child="/0/@diagram/@childNodes.26"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.183"
+          parent="/0/@diagram/@childNodes.186"
           child="/0/@diagram/@childNodes.7"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.183"
+          parent="/0/@diagram/@childNodes.186"
           child="/0/@diagram/@childNodes.9"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.183"
+          parent="/0/@diagram/@childNodes.186"
           child="/0/@diagram/@childNodes.12"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.183"
+          parent="/0/@diagram/@childNodes.186"
           child="/0/@diagram/@childNodes.20"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.183"
+          parent="/0/@diagram/@childNodes.186"
           child="/0/@diagram/@childNodes.28"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.183"
+          parent="/0/@diagram/@childNodes.186"
           child="/0/@diagram/@childNodes.31"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.183"
+          parent="/0/@diagram/@childNodes.186"
           child="/0/@diagram/@childNodes.34"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.183"
+          parent="/0/@diagram/@childNodes.186"
           child="/0/@diagram/@childNodes.37"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.183"
+          parent="/0/@diagram/@childNodes.186"
           child="/0/@diagram/@childNodes.45"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.183"
+          parent="/0/@diagram/@childNodes.186"
           child="/0/@diagram/@childNodes.48"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.183"
+          parent="/0/@diagram/@childNodes.186"
           child="/0/@diagram/@childNodes.51"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.183"
+          parent="/0/@diagram/@childNodes.186"
           child="/0/@diagram/@childNodes.54"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.183"
+          parent="/0/@diagram/@childNodes.186"
           child="/0/@diagram/@childNodes.57"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.183"
+          parent="/0/@diagram/@childNodes.186"
           child="/0/@diagram/@childNodes.60"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.183"
+          parent="/0/@diagram/@childNodes.186"
           child="/0/@diagram/@childNodes.63"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.183"
+          parent="/0/@diagram/@childNodes.186"
           child="/0/@diagram/@childNodes.66"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.183"
+          parent="/0/@diagram/@childNodes.186"
           child="/0/@diagram/@childNodes.69"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.183"
+          parent="/0/@diagram/@childNodes.186"
           child="/0/@diagram/@childNodes.72"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.183"
+          parent="/0/@diagram/@childNodes.186"
           child="/0/@diagram/@childNodes.75"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.183"
+          parent="/0/@diagram/@childNodes.186"
           child="/0/@diagram/@childNodes.78"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.183"
+          parent="/0/@diagram/@childNodes.186"
           child="/0/@diagram/@childNodes.81"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.183"
+          parent="/0/@diagram/@childNodes.186"
           child="/0/@diagram/@childNodes.86"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.183"
+          parent="/0/@diagram/@childNodes.186"
           child="/0/@diagram/@childNodes.89"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.183"
+          parent="/0/@diagram/@childNodes.186"
           child="/0/@diagram/@childNodes.96"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.183"
+          parent="/0/@diagram/@childNodes.186"
           child="/0/@diagram/@childNodes.101"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.183"
+          parent="/0/@diagram/@childNodes.186"
           child="/0/@diagram/@childNodes.106"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.183"
+          parent="/0/@diagram/@childNodes.186"
           child="/0/@diagram/@childNodes.109"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.183"
+          parent="/0/@diagram/@childNodes.186"
           child="/0/@diagram/@childNodes.112"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.183"
+          parent="/0/@diagram/@childNodes.186"
           child="/0/@diagram/@childNodes.115"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.183"
+          parent="/0/@diagram/@childNodes.186"
           child="/0/@diagram/@childNodes.120"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.183"
+          parent="/0/@diagram/@childNodes.186"
           child="/0/@diagram/@childNodes.123"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.183"
+          parent="/0/@diagram/@childNodes.186"
           child="/0/@diagram/@childNodes.128"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.183"
+          parent="/0/@diagram/@childNodes.186"
           child="/0/@diagram/@childNodes.131"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.183"
+          parent="/0/@diagram/@childNodes.186"
           child="/0/@diagram/@childNodes.134"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.183"
+          parent="/0/@diagram/@childNodes.186"
           child="/0/@diagram/@childNodes.137"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.183"
+          parent="/0/@diagram/@childNodes.186"
           child="/0/@diagram/@childNodes.140"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.183"
+          parent="/0/@diagram/@childNodes.186"
           child="/0/@diagram/@childNodes.143"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.183"
+          parent="/0/@diagram/@childNodes.186"
           child="/0/@diagram/@childNodes.146"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.183"
+          parent="/0/@diagram/@childNodes.186"
           child="/0/@diagram/@childNodes.151"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.183"
+          parent="/0/@diagram/@childNodes.186"
           child="/0/@diagram/@childNodes.158"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.183"
+          parent="/0/@diagram/@childNodes.186"
           child="/0/@diagram/@childNodes.163"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.183"
+          parent="/0/@diagram/@childNodes.186"
           child="/0/@diagram/@childNodes.166"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.183"
+          parent="/0/@diagram/@childNodes.186"
           child="/0/@diagram/@childNodes.169"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.183"
+          parent="/0/@diagram/@childNodes.186"
           child="/0/@diagram/@childNodes.173"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.183"
+          parent="/0/@diagram/@childNodes.186"
           child="/0/@diagram/@childNodes.176"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.182"
-          child="/0/@diagram/@childNodes.183"/>
+          parent="/0/@diagram/@childNodes.186"
+          child="/0/@diagram/@childNodes.179"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.185"
+          child="/0/@diagram/@childNodes.186"/>
       <childReferences
           parent="/0/@diagram/@childNodes.25"
-          child="/0/@diagram/@childNodes.182"/>
+          child="/0/@diagram/@childNodes.185"/>
       <childReferences
           parent="/0/@diagram/@childNodes.20"
           child="/0/@diagram/@childNodes.25"/>
@@ -11102,152 +11279,158 @@
           parent="/0/@diagram/@childNodes.19"
           child="/0/@diagram/@childNodes.176"/>
       <childReferences
+          parent="/0/@diagram/@childNodes.19"
+          child="/0/@diagram/@childNodes.179"/>
+      <childReferences
           parent="/0/@diagram/@childNodes.18"
           child="/0/@diagram/@childNodes.19"/>
       <childReferences
           parent="/0/@diagram/@childNodes.17"
           child="/0/@diagram/@childNodes.18"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.185"
+          parent="/0/@diagram/@childNodes.188"
           child="/0/@diagram/@childNodes.7"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.185"
+          parent="/0/@diagram/@childNodes.188"
           child="/0/@diagram/@childNodes.9"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.185"
+          parent="/0/@diagram/@childNodes.188"
           child="/0/@diagram/@childNodes.12"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.185"
+          parent="/0/@diagram/@childNodes.188"
           child="/0/@diagram/@childNodes.20"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.185"
+          parent="/0/@diagram/@childNodes.188"
           child="/0/@diagram/@childNodes.28"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.185"
+          parent="/0/@diagram/@childNodes.188"
           child="/0/@diagram/@childNodes.31"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.185"
+          parent="/0/@diagram/@childNodes.188"
           child="/0/@diagram/@childNodes.34"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.185"
+          parent="/0/@diagram/@childNodes.188"
           child="/0/@diagram/@childNodes.37"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.185"
+          parent="/0/@diagram/@childNodes.188"
           child="/0/@diagram/@childNodes.45"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.185"
+          parent="/0/@diagram/@childNodes.188"
           child="/0/@diagram/@childNodes.48"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.185"
+          parent="/0/@diagram/@childNodes.188"
           child="/0/@diagram/@childNodes.51"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.185"
+          parent="/0/@diagram/@childNodes.188"
           child="/0/@diagram/@childNodes.54"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.185"
+          parent="/0/@diagram/@childNodes.188"
           child="/0/@diagram/@childNodes.57"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.185"
+          parent="/0/@diagram/@childNodes.188"
           child="/0/@diagram/@childNodes.60"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.185"
+          parent="/0/@diagram/@childNodes.188"
           child="/0/@diagram/@childNodes.63"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.185"
+          parent="/0/@diagram/@childNodes.188"
           child="/0/@diagram/@childNodes.66"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.185"
+          parent="/0/@diagram/@childNodes.188"
           child="/0/@diagram/@childNodes.69"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.185"
+          parent="/0/@diagram/@childNodes.188"
           child="/0/@diagram/@childNodes.72"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.185"
+          parent="/0/@diagram/@childNodes.188"
           child="/0/@diagram/@childNodes.75"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.185"
+          parent="/0/@diagram/@childNodes.188"
           child="/0/@diagram/@childNodes.78"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.185"
+          parent="/0/@diagram/@childNodes.188"
           child="/0/@diagram/@childNodes.81"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.185"
+          parent="/0/@diagram/@childNodes.188"
           child="/0/@diagram/@childNodes.86"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.185"
+          parent="/0/@diagram/@childNodes.188"
           child="/0/@diagram/@childNodes.89"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.185"
+          parent="/0/@diagram/@childNodes.188"
           child="/0/@diagram/@childNodes.96"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.185"
+          parent="/0/@diagram/@childNodes.188"
           child="/0/@diagram/@childNodes.101"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.185"
+          parent="/0/@diagram/@childNodes.188"
           child="/0/@diagram/@childNodes.106"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.185"
+          parent="/0/@diagram/@childNodes.188"
           child="/0/@diagram/@childNodes.109"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.185"
+          parent="/0/@diagram/@childNodes.188"
           child="/0/@diagram/@childNodes.112"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.185"
+          parent="/0/@diagram/@childNodes.188"
           child="/0/@diagram/@childNodes.115"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.185"
+          parent="/0/@diagram/@childNodes.188"
           child="/0/@diagram/@childNodes.120"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.185"
+          parent="/0/@diagram/@childNodes.188"
           child="/0/@diagram/@childNodes.123"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.185"
+          parent="/0/@diagram/@childNodes.188"
           child="/0/@diagram/@childNodes.128"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.185"
+          parent="/0/@diagram/@childNodes.188"
           child="/0/@diagram/@childNodes.131"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.185"
+          parent="/0/@diagram/@childNodes.188"
           child="/0/@diagram/@childNodes.134"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.185"
+          parent="/0/@diagram/@childNodes.188"
           child="/0/@diagram/@childNodes.137"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.185"
+          parent="/0/@diagram/@childNodes.188"
           child="/0/@diagram/@childNodes.140"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.185"
+          parent="/0/@diagram/@childNodes.188"
           child="/0/@diagram/@childNodes.143"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.185"
+          parent="/0/@diagram/@childNodes.188"
           child="/0/@diagram/@childNodes.146"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.185"
+          parent="/0/@diagram/@childNodes.188"
           child="/0/@diagram/@childNodes.151"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.185"
+          parent="/0/@diagram/@childNodes.188"
           child="/0/@diagram/@childNodes.158"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.185"
+          parent="/0/@diagram/@childNodes.188"
           child="/0/@diagram/@childNodes.163"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.185"
+          parent="/0/@diagram/@childNodes.188"
           child="/0/@diagram/@childNodes.166"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.185"
+          parent="/0/@diagram/@childNodes.188"
           child="/0/@diagram/@childNodes.169"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.185"
+          parent="/0/@diagram/@childNodes.188"
           child="/0/@diagram/@childNodes.173"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.185"
+          parent="/0/@diagram/@childNodes.188"
           child="/0/@diagram/@childNodes.176"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.184"
-          child="/0/@diagram/@childNodes.185"/>
+          parent="/0/@diagram/@childNodes.188"
+          child="/0/@diagram/@childNodes.179"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.187"
+          child="/0/@diagram/@childNodes.188"/>
       <childReferences
           parent="/0/@diagram/@childNodes.17"
-          child="/0/@diagram/@childNodes.184"/>
+          child="/0/@diagram/@childNodes.187"/>
       <childReferences
           parent="/0/@diagram/@childNodes.12"
           child="/0/@diagram/@childNodes.17"/>
@@ -11381,152 +11564,158 @@
           parent="/0/@diagram/@childNodes.6"
           child="/0/@diagram/@childNodes.176"/>
       <childReferences
+          parent="/0/@diagram/@childNodes.6"
+          child="/0/@diagram/@childNodes.179"/>
+      <childReferences
           parent="/0/@diagram/@childNodes.5"
           child="/0/@diagram/@childNodes.6"/>
       <childReferences
           parent="/0/@diagram/@childNodes.4"
           child="/0/@diagram/@childNodes.5"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.187"
+          parent="/0/@diagram/@childNodes.190"
           child="/0/@diagram/@childNodes.7"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.187"
+          parent="/0/@diagram/@childNodes.190"
           child="/0/@diagram/@childNodes.9"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.187"
+          parent="/0/@diagram/@childNodes.190"
           child="/0/@diagram/@childNodes.12"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.187"
+          parent="/0/@diagram/@childNodes.190"
           child="/0/@diagram/@childNodes.20"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.187"
+          parent="/0/@diagram/@childNodes.190"
           child="/0/@diagram/@childNodes.28"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.187"
+          parent="/0/@diagram/@childNodes.190"
           child="/0/@diagram/@childNodes.31"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.187"
+          parent="/0/@diagram/@childNodes.190"
           child="/0/@diagram/@childNodes.34"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.187"
+          parent="/0/@diagram/@childNodes.190"
           child="/0/@diagram/@childNodes.37"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.187"
+          parent="/0/@diagram/@childNodes.190"
           child="/0/@diagram/@childNodes.45"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.187"
+          parent="/0/@diagram/@childNodes.190"
           child="/0/@diagram/@childNodes.48"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.187"
+          parent="/0/@diagram/@childNodes.190"
           child="/0/@diagram/@childNodes.51"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.187"
+          parent="/0/@diagram/@childNodes.190"
           child="/0/@diagram/@childNodes.54"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.187"
+          parent="/0/@diagram/@childNodes.190"
           child="/0/@diagram/@childNodes.57"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.187"
+          parent="/0/@diagram/@childNodes.190"
           child="/0/@diagram/@childNodes.60"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.187"
+          parent="/0/@diagram/@childNodes.190"
           child="/0/@diagram/@childNodes.63"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.187"
+          parent="/0/@diagram/@childNodes.190"
           child="/0/@diagram/@childNodes.66"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.187"
+          parent="/0/@diagram/@childNodes.190"
           child="/0/@diagram/@childNodes.69"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.187"
+          parent="/0/@diagram/@childNodes.190"
           child="/0/@diagram/@childNodes.72"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.187"
+          parent="/0/@diagram/@childNodes.190"
           child="/0/@diagram/@childNodes.75"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.187"
+          parent="/0/@diagram/@childNodes.190"
           child="/0/@diagram/@childNodes.78"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.187"
+          parent="/0/@diagram/@childNodes.190"
           child="/0/@diagram/@childNodes.81"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.187"
+          parent="/0/@diagram/@childNodes.190"
           child="/0/@diagram/@childNodes.86"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.187"
+          parent="/0/@diagram/@childNodes.190"
           child="/0/@diagram/@childNodes.89"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.187"
+          parent="/0/@diagram/@childNodes.190"
           child="/0/@diagram/@childNodes.96"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.187"
+          parent="/0/@diagram/@childNodes.190"
           child="/0/@diagram/@childNodes.101"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.187"
+          parent="/0/@diagram/@childNodes.190"
           child="/0/@diagram/@childNodes.106"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.187"
+          parent="/0/@diagram/@childNodes.190"
           child="/0/@diagram/@childNodes.109"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.187"
+          parent="/0/@diagram/@childNodes.190"
           child="/0/@diagram/@childNodes.112"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.187"
+          parent="/0/@diagram/@childNodes.190"
           child="/0/@diagram/@childNodes.115"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.187"
+          parent="/0/@diagram/@childNodes.190"
           child="/0/@diagram/@childNodes.120"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.187"
+          parent="/0/@diagram/@childNodes.190"
           child="/0/@diagram/@childNodes.123"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.187"
+          parent="/0/@diagram/@childNodes.190"
           child="/0/@diagram/@childNodes.128"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.187"
+          parent="/0/@diagram/@childNodes.190"
           child="/0/@diagram/@childNodes.131"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.187"
+          parent="/0/@diagram/@childNodes.190"
           child="/0/@diagram/@childNodes.134"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.187"
+          parent="/0/@diagram/@childNodes.190"
           child="/0/@diagram/@childNodes.137"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.187"
+          parent="/0/@diagram/@childNodes.190"
           child="/0/@diagram/@childNodes.140"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.187"
+          parent="/0/@diagram/@childNodes.190"
           child="/0/@diagram/@childNodes.143"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.187"
+          parent="/0/@diagram/@childNodes.190"
           child="/0/@diagram/@childNodes.146"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.187"
+          parent="/0/@diagram/@childNodes.190"
           child="/0/@diagram/@childNodes.151"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.187"
+          parent="/0/@diagram/@childNodes.190"
           child="/0/@diagram/@childNodes.158"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.187"
+          parent="/0/@diagram/@childNodes.190"
           child="/0/@diagram/@childNodes.163"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.187"
+          parent="/0/@diagram/@childNodes.190"
           child="/0/@diagram/@childNodes.166"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.187"
+          parent="/0/@diagram/@childNodes.190"
           child="/0/@diagram/@childNodes.169"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.187"
+          parent="/0/@diagram/@childNodes.190"
           child="/0/@diagram/@childNodes.173"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.187"
+          parent="/0/@diagram/@childNodes.190"
           child="/0/@diagram/@childNodes.176"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.186"
-          child="/0/@diagram/@childNodes.187"/>
+          parent="/0/@diagram/@childNodes.190"
+          child="/0/@diagram/@childNodes.179"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.189"
+          child="/0/@diagram/@childNodes.190"/>
       <childReferences
           parent="/0/@diagram/@childNodes.4"
-          child="/0/@diagram/@childNodes.186"/>
+          child="/0/@diagram/@childNodes.189"/>
       <childReferences
           parent="/0/@diagram/@childNodes.0"
           child="/0/@diagram/@childNodes.4"/>
@@ -11534,182 +11723,176 @@
           parent="/0/@diagram/@topLevelNodes.0"
           child="/0/@diagram/@childNodes.0"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.188"
-          child="/0/@diagram/@childNodes.189"/>
-      <childReferences
-          parent="/0/@diagram/@childNodes.188"
-          child="/0/@diagram/@childNodes.190"/>
-      <childReferences
-          parent="/0/@diagram/@topLevelNodes.0"
-          child="/0/@diagram/@childNodes.188"/>
-      <childReferences
           parent="/0/@diagram/@childNodes.191"
           child="/0/@diagram/@childNodes.192"/>
       <childReferences
           parent="/0/@diagram/@childNodes.191"
           child="/0/@diagram/@childNodes.193"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.191"
-          child="/0/@diagram/@childNodes.194"/>
-      <childReferences
           parent="/0/@diagram/@topLevelNodes.0"
           child="/0/@diagram/@childNodes.191"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.196"
-          child="/0/@diagram/@childNodes.7"/>
-      <childReferences
-          parent="/0/@diagram/@childNodes.196"
-          child="/0/@diagram/@childNodes.9"/>
-      <childReferences
-          parent="/0/@diagram/@childNodes.196"
-          child="/0/@diagram/@childNodes.12"/>
-      <childReferences
-          parent="/0/@diagram/@childNodes.196"
-          child="/0/@diagram/@childNodes.20"/>
-      <childReferences
-          parent="/0/@diagram/@childNodes.196"
-          child="/0/@diagram/@childNodes.28"/>
-      <childReferences
-          parent="/0/@diagram/@childNodes.196"
-          child="/0/@diagram/@childNodes.31"/>
-      <childReferences
-          parent="/0/@diagram/@childNodes.196"
-          child="/0/@diagram/@childNodes.34"/>
-      <childReferences
-          parent="/0/@diagram/@childNodes.196"
-          child="/0/@diagram/@childNodes.37"/>
-      <childReferences
-          parent="/0/@diagram/@childNodes.196"
-          child="/0/@diagram/@childNodes.45"/>
-      <childReferences
-          parent="/0/@diagram/@childNodes.196"
-          child="/0/@diagram/@childNodes.48"/>
-      <childReferences
-          parent="/0/@diagram/@childNodes.196"
-          child="/0/@diagram/@childNodes.51"/>
-      <childReferences
-          parent="/0/@diagram/@childNodes.196"
-          child="/0/@diagram/@childNodes.54"/>
-      <childReferences
-          parent="/0/@diagram/@childNodes.196"
-          child="/0/@diagram/@childNodes.57"/>
-      <childReferences
-          parent="/0/@diagram/@childNodes.196"
-          child="/0/@diagram/@childNodes.60"/>
-      <childReferences
-          parent="/0/@diagram/@childNodes.196"
-          child="/0/@diagram/@childNodes.63"/>
-      <childReferences
-          parent="/0/@diagram/@childNodes.196"
-          child="/0/@diagram/@childNodes.66"/>
-      <childReferences
-          parent="/0/@diagram/@childNodes.196"
-          child="/0/@diagram/@childNodes.69"/>
-      <childReferences
-          parent="/0/@diagram/@childNodes.196"
-          child="/0/@diagram/@childNodes.72"/>
-      <childReferences
-          parent="/0/@diagram/@childNodes.196"
-          child="/0/@diagram/@childNodes.75"/>
-      <childReferences
-          parent="/0/@diagram/@childNodes.196"
-          child="/0/@diagram/@childNodes.78"/>
-      <childReferences
-          parent="/0/@diagram/@childNodes.196"
-          child="/0/@diagram/@childNodes.81"/>
-      <childReferences
-          parent="/0/@diagram/@childNodes.196"
-          child="/0/@diagram/@childNodes.86"/>
-      <childReferences
-          parent="/0/@diagram/@childNodes.196"
-          child="/0/@diagram/@childNodes.89"/>
-      <childReferences
-          parent="/0/@diagram/@childNodes.196"
-          child="/0/@diagram/@childNodes.96"/>
-      <childReferences
-          parent="/0/@diagram/@childNodes.196"
-          child="/0/@diagram/@childNodes.101"/>
-      <childReferences
-          parent="/0/@diagram/@childNodes.196"
-          child="/0/@diagram/@childNodes.106"/>
-      <childReferences
-          parent="/0/@diagram/@childNodes.196"
-          child="/0/@diagram/@childNodes.109"/>
-      <childReferences
-          parent="/0/@diagram/@childNodes.196"
-          child="/0/@diagram/@childNodes.112"/>
-      <childReferences
-          parent="/0/@diagram/@childNodes.196"
-          child="/0/@diagram/@childNodes.115"/>
-      <childReferences
-          parent="/0/@diagram/@childNodes.196"
-          child="/0/@diagram/@childNodes.120"/>
-      <childReferences
-          parent="/0/@diagram/@childNodes.196"
-          child="/0/@diagram/@childNodes.123"/>
-      <childReferences
-          parent="/0/@diagram/@childNodes.196"
-          child="/0/@diagram/@childNodes.128"/>
-      <childReferences
-          parent="/0/@diagram/@childNodes.196"
-          child="/0/@diagram/@childNodes.131"/>
-      <childReferences
-          parent="/0/@diagram/@childNodes.196"
-          child="/0/@diagram/@childNodes.134"/>
-      <childReferences
-          parent="/0/@diagram/@childNodes.196"
-          child="/0/@diagram/@childNodes.137"/>
-      <childReferences
-          parent="/0/@diagram/@childNodes.196"
-          child="/0/@diagram/@childNodes.140"/>
-      <childReferences
-          parent="/0/@diagram/@childNodes.196"
-          child="/0/@diagram/@childNodes.143"/>
-      <childReferences
-          parent="/0/@diagram/@childNodes.196"
-          child="/0/@diagram/@childNodes.146"/>
-      <childReferences
-          parent="/0/@diagram/@childNodes.196"
-          child="/0/@diagram/@childNodes.151"/>
-      <childReferences
-          parent="/0/@diagram/@childNodes.196"
-          child="/0/@diagram/@childNodes.158"/>
-      <childReferences
-          parent="/0/@diagram/@childNodes.196"
-          child="/0/@diagram/@childNodes.163"/>
-      <childReferences
-          parent="/0/@diagram/@childNodes.196"
-          child="/0/@diagram/@childNodes.166"/>
-      <childReferences
-          parent="/0/@diagram/@childNodes.196"
-          child="/0/@diagram/@childNodes.169"/>
-      <childReferences
-          parent="/0/@diagram/@childNodes.196"
-          child="/0/@diagram/@childNodes.173"/>
-      <childReferences
-          parent="/0/@diagram/@childNodes.196"
-          child="/0/@diagram/@childNodes.176"/>
-      <childReferences
-          parent="/0/@diagram/@childNodes.195"
-          child="/0/@diagram/@childNodes.196"/>
-      <childReferences
-          parent="/0/@diagram/@childNodes.195"
-          child="/0/@diagram/@childNodes.197"/>
-      <childReferences
-          parent="/0/@diagram/@childNodes.195"
-          child="/0/@diagram/@childNodes.198"/>
-      <childReferences
-          parent="/0/@diagram/@topLevelNodes.0"
+          parent="/0/@diagram/@childNodes.194"
           child="/0/@diagram/@childNodes.195"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.200"
-          child="/0/@diagram/@childNodes.201"/>
+          parent="/0/@diagram/@childNodes.194"
+          child="/0/@diagram/@childNodes.196"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.200"
-          child="/0/@diagram/@childNodes.202"/>
+          parent="/0/@diagram/@childNodes.194"
+          child="/0/@diagram/@childNodes.197"/>
+      <childReferences
+          parent="/0/@diagram/@topLevelNodes.0"
+          child="/0/@diagram/@childNodes.194"/>
       <childReferences
           parent="/0/@diagram/@childNodes.199"
+          child="/0/@diagram/@childNodes.7"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.199"
+          child="/0/@diagram/@childNodes.9"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.199"
+          child="/0/@diagram/@childNodes.12"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.199"
+          child="/0/@diagram/@childNodes.20"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.199"
+          child="/0/@diagram/@childNodes.28"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.199"
+          child="/0/@diagram/@childNodes.31"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.199"
+          child="/0/@diagram/@childNodes.34"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.199"
+          child="/0/@diagram/@childNodes.37"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.199"
+          child="/0/@diagram/@childNodes.45"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.199"
+          child="/0/@diagram/@childNodes.48"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.199"
+          child="/0/@diagram/@childNodes.51"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.199"
+          child="/0/@diagram/@childNodes.54"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.199"
+          child="/0/@diagram/@childNodes.57"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.199"
+          child="/0/@diagram/@childNodes.60"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.199"
+          child="/0/@diagram/@childNodes.63"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.199"
+          child="/0/@diagram/@childNodes.66"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.199"
+          child="/0/@diagram/@childNodes.69"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.199"
+          child="/0/@diagram/@childNodes.72"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.199"
+          child="/0/@diagram/@childNodes.75"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.199"
+          child="/0/@diagram/@childNodes.78"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.199"
+          child="/0/@diagram/@childNodes.81"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.199"
+          child="/0/@diagram/@childNodes.86"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.199"
+          child="/0/@diagram/@childNodes.89"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.199"
+          child="/0/@diagram/@childNodes.96"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.199"
+          child="/0/@diagram/@childNodes.101"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.199"
+          child="/0/@diagram/@childNodes.106"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.199"
+          child="/0/@diagram/@childNodes.109"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.199"
+          child="/0/@diagram/@childNodes.112"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.199"
+          child="/0/@diagram/@childNodes.115"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.199"
+          child="/0/@diagram/@childNodes.120"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.199"
+          child="/0/@diagram/@childNodes.123"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.199"
+          child="/0/@diagram/@childNodes.128"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.199"
+          child="/0/@diagram/@childNodes.131"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.199"
+          child="/0/@diagram/@childNodes.134"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.199"
+          child="/0/@diagram/@childNodes.137"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.199"
+          child="/0/@diagram/@childNodes.140"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.199"
+          child="/0/@diagram/@childNodes.143"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.199"
+          child="/0/@diagram/@childNodes.146"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.199"
+          child="/0/@diagram/@childNodes.151"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.199"
+          child="/0/@diagram/@childNodes.158"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.199"
+          child="/0/@diagram/@childNodes.163"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.199"
+          child="/0/@diagram/@childNodes.166"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.199"
+          child="/0/@diagram/@childNodes.169"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.199"
+          child="/0/@diagram/@childNodes.173"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.199"
+          child="/0/@diagram/@childNodes.176"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.199"
+          child="/0/@diagram/@childNodes.179"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.198"
+          child="/0/@diagram/@childNodes.199"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.198"
           child="/0/@diagram/@childNodes.200"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.198"
+          child="/0/@diagram/@childNodes.201"/>
+      <childReferences
+          parent="/0/@diagram/@topLevelNodes.0"
+          child="/0/@diagram/@childNodes.198"/>
       <childReferences
           parent="/0/@diagram/@childNodes.203"
           child="/0/@diagram/@childNodes.204"/>
@@ -11717,7 +11900,7 @@
           parent="/0/@diagram/@childNodes.203"
           child="/0/@diagram/@childNodes.205"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.199"
+          parent="/0/@diagram/@childNodes.202"
           child="/0/@diagram/@childNodes.203"/>
       <childReferences
           parent="/0/@diagram/@childNodes.206"
@@ -11726,20 +11909,20 @@
           parent="/0/@diagram/@childNodes.206"
           child="/0/@diagram/@childNodes.208"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.206"
-          child="/0/@diagram/@childNodes.209"/>
-      <childReferences
-          parent="/0/@diagram/@childNodes.199"
+          parent="/0/@diagram/@childNodes.202"
           child="/0/@diagram/@childNodes.206"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.210"
+          parent="/0/@diagram/@childNodes.209"
+          child="/0/@diagram/@childNodes.210"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.209"
           child="/0/@diagram/@childNodes.211"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.210"
+          parent="/0/@diagram/@childNodes.209"
           child="/0/@diagram/@childNodes.212"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.199"
-          child="/0/@diagram/@childNodes.210"/>
+          parent="/0/@diagram/@childNodes.202"
+          child="/0/@diagram/@childNodes.209"/>
       <childReferences
           parent="/0/@diagram/@childNodes.213"
           child="/0/@diagram/@childNodes.214"/>
@@ -11747,14 +11930,23 @@
           parent="/0/@diagram/@childNodes.213"
           child="/0/@diagram/@childNodes.215"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.213"
-          child="/0/@diagram/@childNodes.216"/>
-      <childReferences
-          parent="/0/@diagram/@childNodes.199"
+          parent="/0/@diagram/@childNodes.202"
           child="/0/@diagram/@childNodes.213"/>
       <childReferences
+          parent="/0/@diagram/@childNodes.216"
+          child="/0/@diagram/@childNodes.217"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.216"
+          child="/0/@diagram/@childNodes.218"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.216"
+          child="/0/@diagram/@childNodes.219"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.202"
+          child="/0/@diagram/@childNodes.216"/>
+      <childReferences
           parent="/0/@diagram/@topLevelNodes.0"
-          child="/0/@diagram/@childNodes.199"/>
+          child="/0/@diagram/@childNodes.202"/>
       <childReferences
           parent="/0/@diagram"
           child="/0/@diagram/@topLevelNodes.0"/>
@@ -12329,12 +12521,12 @@
           groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
       <childReferences
           parent="/0/@diagram/@links.0"
-          child="/0/@diagram/@childNodes.189"
+          child="/0/@diagram/@childNodes.180"
           referenceType="out_target"
           groupName="target"
           groupIcon="icons/linkTargetNavigatorGroup.gif"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.189"
+          parent="/0/@diagram/@childNodes.180"
           child="/0/@diagram/@links.0"
           referenceType="in_source"
           groupName="incoming links"
@@ -12353,36 +12545,36 @@
           groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
       <childReferences
           parent="/0/@diagram/@links.0"
-          child="/0/@diagram/@childNodes.193"
+          child="/0/@diagram/@childNodes.195"
           referenceType="out_target"
           groupName="target"
           groupIcon="icons/linkTargetNavigatorGroup.gif"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.193"
+          parent="/0/@diagram/@childNodes.195"
           child="/0/@diagram/@links.0"
           referenceType="in_source"
           groupName="incoming links"
           groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
       <childReferences
           parent="/0/@diagram/@links.0"
-          child="/0/@diagram/@childNodes.197"
+          child="/0/@diagram/@childNodes.196"
           referenceType="out_target"
           groupName="target"
           groupIcon="icons/linkTargetNavigatorGroup.gif"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.197"
+          parent="/0/@diagram/@childNodes.196"
           child="/0/@diagram/@links.0"
           referenceType="in_source"
           groupName="incoming links"
           groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
       <childReferences
           parent="/0/@diagram/@links.0"
-          child="/0/@diagram/@childNodes.201"
+          child="/0/@diagram/@childNodes.200"
           referenceType="out_target"
           groupName="target"
           groupIcon="icons/linkTargetNavigatorGroup.gif"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.201"
+          parent="/0/@diagram/@childNodes.200"
           child="/0/@diagram/@links.0"
           referenceType="in_source"
           groupName="incoming links"
@@ -12413,12 +12605,12 @@
           groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
       <childReferences
           parent="/0/@diagram/@links.0"
-          child="/0/@diagram/@childNodes.211"
+          child="/0/@diagram/@childNodes.210"
           referenceType="out_target"
           groupName="target"
           groupIcon="icons/linkTargetNavigatorGroup.gif"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.211"
+          parent="/0/@diagram/@childNodes.210"
           child="/0/@diagram/@links.0"
           referenceType="in_source"
           groupName="incoming links"
@@ -12431,6 +12623,18 @@
           groupIcon="icons/linkTargetNavigatorGroup.gif"/>
       <childReferences
           parent="/0/@diagram/@childNodes.214"
+          child="/0/@diagram/@links.0"
+          referenceType="in_source"
+          groupName="incoming links"
+          groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
+      <childReferences
+          parent="/0/@diagram/@links.0"
+          child="/0/@diagram/@childNodes.217"
+          referenceType="out_target"
+          groupName="target"
+          groupIcon="icons/linkTargetNavigatorGroup.gif"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.217"
           child="/0/@diagram/@links.0"
           referenceType="in_source"
           groupName="incoming links"
@@ -13169,60 +13373,60 @@
           groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
       <childReferences
           parent="/0/@diagram/@links.0"
-          child="/0/@diagram/@childNodes.179"
+          child="/0/@diagram/@childNodes.181"
           referenceType="in_source"
           groupName="source"
           groupIcon="icons/linkSourceNavigatorGroup.gif"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.179"
+          parent="/0/@diagram/@childNodes.181"
           child="/0/@diagram/@links.0"
           referenceType="out_target"
           groupName="outgoing links"
           groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
       <childReferences
           parent="/0/@diagram/@links.0"
-          child="/0/@diagram/@childNodes.190"
+          child="/0/@diagram/@childNodes.182"
           referenceType="in_source"
           groupName="source"
           groupIcon="icons/linkSourceNavigatorGroup.gif"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.190"
+          parent="/0/@diagram/@childNodes.182"
           child="/0/@diagram/@links.0"
           referenceType="out_target"
           groupName="outgoing links"
           groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
       <childReferences
           parent="/0/@diagram/@links.0"
-          child="/0/@diagram/@childNodes.194"
+          child="/0/@diagram/@childNodes.193"
           referenceType="in_source"
           groupName="source"
           groupIcon="icons/linkSourceNavigatorGroup.gif"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.194"
+          parent="/0/@diagram/@childNodes.193"
           child="/0/@diagram/@links.0"
           referenceType="out_target"
           groupName="outgoing links"
           groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
       <childReferences
           parent="/0/@diagram/@links.0"
-          child="/0/@diagram/@childNodes.198"
+          child="/0/@diagram/@childNodes.197"
           referenceType="in_source"
           groupName="source"
           groupIcon="icons/linkSourceNavigatorGroup.gif"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.198"
+          parent="/0/@diagram/@childNodes.197"
           child="/0/@diagram/@links.0"
           referenceType="out_target"
           groupName="outgoing links"
           groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
       <childReferences
           parent="/0/@diagram/@links.0"
-          child="/0/@diagram/@childNodes.202"
+          child="/0/@diagram/@childNodes.201"
           referenceType="in_source"
           groupName="source"
           groupIcon="icons/linkSourceNavigatorGroup.gif"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.202"
+          parent="/0/@diagram/@childNodes.201"
           child="/0/@diagram/@links.0"
           referenceType="out_target"
           groupName="outgoing links"
@@ -13253,12 +13457,12 @@
           groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
       <childReferences
           parent="/0/@diagram/@links.0"
-          child="/0/@diagram/@childNodes.209"
+          child="/0/@diagram/@childNodes.211"
           referenceType="in_source"
           groupName="source"
           groupIcon="icons/linkSourceNavigatorGroup.gif"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.209"
+          parent="/0/@diagram/@childNodes.211"
           child="/0/@diagram/@links.0"
           referenceType="out_target"
           groupName="outgoing links"
@@ -13289,12 +13493,24 @@
           groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
       <childReferences
           parent="/0/@diagram/@links.0"
-          child="/0/@diagram/@childNodes.216"
+          child="/0/@diagram/@childNodes.218"
           referenceType="in_source"
           groupName="source"
           groupIcon="icons/linkSourceNavigatorGroup.gif"/>
       <childReferences
-          parent="/0/@diagram/@childNodes.216"
+          parent="/0/@diagram/@childNodes.218"
+          child="/0/@diagram/@links.0"
+          referenceType="out_target"
+          groupName="outgoing links"
+          groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
+      <childReferences
+          parent="/0/@diagram/@links.0"
+          child="/0/@diagram/@childNodes.219"
+          referenceType="in_source"
+          groupName="source"
+          groupIcon="icons/linkSourceNavigatorGroup.gif"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.219"
           child="/0/@diagram/@links.0"
           referenceType="out_target"
           groupName="outgoing links"
@@ -13337,7 +13553,7 @@
         extensibleViaService="true">
       <implementations
           xsi:type="gmfgen:PredefinedParser"
-          uses="/0/@diagram/@childNodes.9/@labels.0/@modelFacet /0/@diagram/@childNodes.28/@labels.0/@modelFacet /0/@diagram/@childNodes.31/@labels.0/@modelFacet /0/@diagram/@childNodes.45/@labels.0/@modelFacet /0/@diagram/@childNodes.48/@labels.0/@modelFacet /0/@diagram/@childNodes.51/@labels.0/@modelFacet /0/@diagram/@childNodes.54/@labels.0/@modelFacet /0/@diagram/@childNodes.57/@labels.0/@modelFacet /0/@diagram/@childNodes.60/@labels.0/@modelFacet /0/@diagram/@childNodes.63/@labels.0/@modelFacet /0/@diagram/@childNodes.66/@labels.0/@modelFacet /0/@diagram/@childNodes.69/@labels.0/@modelFacet /0/@diagram/@childNodes.72/@labels.0/@modelFacet /0/@diagram/@childNodes.75/@labels.0/@modelFacet /0/@diagram/@childNodes.86/@labels.0/@modelFacet /0/@diagram/@childNodes.106/@labels.0/@modelFacet /0/@diagram/@childNodes.120/@labels.0/@modelFacet /0/@diagram/@childNodes.163/@labels.0/@modelFacet /0/@diagram/@childNodes.166/@labels.0/@modelFacet /0/@diagram/@childNodes.169/@labels.0/@modelFacet /0/@diagram/@childNodes.173/@labels.0/@modelFacet /0/@diagram/@childNodes.176/@labels.0/@modelFacet /0/@diagram/@childNodes.123/@labels.0/@modelFacet /0/@diagram/@childNodes.101/@labels.0/@modelFacet /0/@diagram/@childNodes.96/@labels.0/@modelFacet /0/@diagram/@childNodes.89/@labels.0/@modelFacet /0/@diagram/@childNodes.20/@labels.0/@modelFacet /0/@diagram/@childNodes.12/@labels.0/@modelFacet /0/@diagram/@childNodes.0/@labels.0/@modelFacet /0/@diagram/@childNodes.200/@labels.0/@modelFacet /0/@diagram/@childNodes.203/@labels.0/@modelFacet /0/@diagram/@childNodes.206/@labels.0/@modelFacet /0/@diagram/@childNodes.210/@labels.0/@modelFacet /0/@diagram/@childNodes.213/@labels.0/@modelFacet"/>
+          uses="/0/@diagram/@childNodes.9/@labels.0/@modelFacet /0/@diagram/@childNodes.28/@labels.0/@modelFacet /0/@diagram/@childNodes.31/@labels.0/@modelFacet /0/@diagram/@childNodes.45/@labels.0/@modelFacet /0/@diagram/@childNodes.48/@labels.0/@modelFacet /0/@diagram/@childNodes.51/@labels.0/@modelFacet /0/@diagram/@childNodes.54/@labels.0/@modelFacet /0/@diagram/@childNodes.57/@labels.0/@modelFacet /0/@diagram/@childNodes.60/@labels.0/@modelFacet /0/@diagram/@childNodes.63/@labels.0/@modelFacet /0/@diagram/@childNodes.66/@labels.0/@modelFacet /0/@diagram/@childNodes.69/@labels.0/@modelFacet /0/@diagram/@childNodes.72/@labels.0/@modelFacet /0/@diagram/@childNodes.75/@labels.0/@modelFacet /0/@diagram/@childNodes.86/@labels.0/@modelFacet /0/@diagram/@childNodes.106/@labels.0/@modelFacet /0/@diagram/@childNodes.120/@labels.0/@modelFacet /0/@diagram/@childNodes.163/@labels.0/@modelFacet /0/@diagram/@childNodes.166/@labels.0/@modelFacet /0/@diagram/@childNodes.169/@labels.0/@modelFacet /0/@diagram/@childNodes.173/@labels.0/@modelFacet /0/@diagram/@childNodes.179/@labels.0/@modelFacet /0/@diagram/@childNodes.123/@labels.0/@modelFacet /0/@diagram/@childNodes.101/@labels.0/@modelFacet /0/@diagram/@childNodes.96/@labels.0/@modelFacet /0/@diagram/@childNodes.89/@labels.0/@modelFacet /0/@diagram/@childNodes.20/@labels.0/@modelFacet /0/@diagram/@childNodes.12/@labels.0/@modelFacet /0/@diagram/@childNodes.0/@labels.0/@modelFacet /0/@diagram/@childNodes.203/@labels.0/@modelFacet /0/@diagram/@childNodes.206/@labels.0/@modelFacet /0/@diagram/@childNodes.209/@labels.0/@modelFacet /0/@diagram/@childNodes.213/@labels.0/@modelFacet /0/@diagram/@childNodes.216/@labels.0/@modelFacet"/>
     </labelParsers>
     <contextMenus
         context="/0/@diagram">
