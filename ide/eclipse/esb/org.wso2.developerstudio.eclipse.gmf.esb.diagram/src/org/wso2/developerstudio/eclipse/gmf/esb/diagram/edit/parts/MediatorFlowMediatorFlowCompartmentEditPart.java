@@ -152,7 +152,8 @@ public class MediatorFlowMediatorFlowCompartmentEditPart extends
 		IFigure childFigure = ((GraphicalEditPart) child).getFigure();
 		if ((child instanceof AddressEndPointEditPart)
 				|| (child instanceof WSDLEndPointEditPart)
-				|| (child instanceof DefaultEndPointEditPart)) {
+				|| (child instanceof DefaultEndPointEditPart)
+				|| (child instanceof NamedEndpointEditPart)) {
 			borderedNodeFigure.getBorderItemContainer().remove(childFigure);
 		} else {
 			getContentPane().remove(childFigure);
