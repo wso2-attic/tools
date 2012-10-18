@@ -96,6 +96,7 @@ public class NavigatorActionProvider extends CommonActionProvider {
 					.replaceFirst("/local-entries/", "/local-entries/localentry_")
 					.replaceFirst("/proxy-services/", "/proxy-services/proxy_")
 					.replaceFirst("/sequences/", "/sequences/sequence_")
+					.replaceFirst("/tasks/", "/tasks/task_")
 					.replaceAll(".xml$", ".esb_diagram");
 
 			IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
