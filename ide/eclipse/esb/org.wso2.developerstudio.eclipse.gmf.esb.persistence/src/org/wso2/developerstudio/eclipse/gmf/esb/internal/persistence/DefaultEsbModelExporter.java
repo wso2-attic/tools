@@ -22,6 +22,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.OutputStream;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -32,7 +33,10 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
+import org.apache.axiom.om.OMAbstractFactory;
 import org.apache.axiom.om.OMElement;
+import org.apache.axiom.om.OMFactory;
+import org.apache.axiom.om.OMNamespace;
 import org.apache.axis2.util.XMLPrettyPrinter;
 import org.apache.synapse.Mediator;
 import org.apache.synapse.config.Entry;
@@ -42,10 +46,19 @@ import org.apache.synapse.config.xml.EntrySerializer;
 import org.apache.synapse.config.xml.ProxyServiceSerializer;
 import org.apache.synapse.config.xml.SequenceMediatorSerializer;
 import org.apache.synapse.config.xml.SynapseXMLConfigurationSerializer;
+import org.apache.synapse.config.xml.TemplateMediatorSerializer;
 import org.apache.synapse.config.xml.endpoints.EndpointSerializer;
+import org.apache.synapse.config.xml.endpoints.TemplateEndpointSerializer;
+import org.apache.synapse.config.xml.endpoints.TemplateSerializer;
+import org.apache.synapse.endpoints.DefaultEndpoint;
 import org.apache.synapse.endpoints.Endpoint;
+import org.apache.synapse.endpoints.EndpointDefinition;
+import org.apache.synapse.endpoints.TemplateEndpoint;
+import org.apache.synapse.endpoints.WSDLEndpoint;
 import org.apache.synapse.mediators.Value;
 import org.apache.synapse.mediators.base.SequenceMediator;
+import org.apache.synapse.task.TaskDescription;
+import org.apache.synapse.task.TaskDescriptionSerializer;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.ecore.EObject;
@@ -70,6 +83,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.MessageMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyService;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequences;
 import org.wso2.developerstudio.eclipse.gmf.esb.Task;
+import org.wso2.developerstudio.eclipse.gmf.esb.Template;
 import org.wso2.developerstudio.eclipse.gmf.esb.WSDLEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.EsbModelTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
@@ -219,6 +233,11 @@ public class DefaultEsbModelExporter implements EsbModelTransformer {
 		LocalEntryTransformer transformer=new LocalEntryTransformer();
 		return transformer.createEntry(visualLocalEntry);
 	}	
+	
+	private org.apache.synapse.task.TaskDescription transformTask(Task visualTask){
+		TaskTransformer transformer= new TaskTransformer();
+		return transformer.create(visualTask);
+	}
 
 	public String designToSource(EsbServer serverModel) throws Exception {
 		SynapseXMLConfigurationSerializer serializer = new SynapseXMLConfigurationSerializer();
@@ -247,7 +266,6 @@ public class DefaultEsbModelExporter implements EsbModelTransformer {
 						configOM = EndpointSerializer
 						.getElementFromEndpoint(transformEndpoint);
 					}
-
 				}
 				break;
 			case LOCAL_ENTRY:
@@ -255,7 +273,17 @@ public class DefaultEsbModelExporter implements EsbModelTransformer {
 					configOM = EntrySerializer.serializeEntry(
 							transformLocalEntry((LocalEntry) child), null);
 				}
+				break;				
+			case TEMPLATE:
+				if (child instanceof Template) {
+
+				}
 				break;
+			case TASK:
+				if (child instanceof Task) {
+					configOM = TaskDescriptionSerializer.serializeTaskDescription(null,transformTask((Task)child));
+				}
+				break;	
 			case SYNAPSE_CONFIG:
 			default:
 				configOM = serializer.serializeConfiguration(transform(serverModel));
