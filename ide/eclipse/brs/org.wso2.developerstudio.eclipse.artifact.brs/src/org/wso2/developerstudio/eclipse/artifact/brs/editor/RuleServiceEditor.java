@@ -205,4 +205,9 @@ public class RuleServiceEditor extends FormEditor {
 		ruleServiceEditorPage.refreshForm();
 	}
 
+	@Override
+	public boolean isDirty() {
+		return (designDirty || sourceDirty);
+	}
+
 }

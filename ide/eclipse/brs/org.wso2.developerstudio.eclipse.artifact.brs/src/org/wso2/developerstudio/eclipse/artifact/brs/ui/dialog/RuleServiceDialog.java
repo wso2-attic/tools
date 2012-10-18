@@ -48,7 +48,7 @@ public class RuleServiceDialog extends Dialog {
 	private String uriValue,inlineValue,registryValue,fileValue;
 	private String name;
 	private CTabItem inlineTab, uriTab, registerTab, fileTab;
-	private static final String[] FILTER_EXTS = { "*.txt", "*.rsl", ".drl" };
+	private static final String[] FILTER_EXTS = { "*.*" };
 	private static final String SYMBOLIC_NAME = "org.wso2.developerstudio.eclipse.artifact.proxyservice";
 
 	public RuleServiceDialog(Shell parentShell, RuleService ruleservice) {
@@ -63,7 +63,7 @@ public class RuleServiceDialog extends Dialog {
 		final Combo resourceCombo;
 		final CTabFolder sourceTabFolder;
 		final StyledText inlineText;
-		Button cmdEndPointConRegBrowse,cmdEndPointGovRegBrowse;
+		Button cmdEndPointConRegBrowse,cmdEndPointGovRegBrowse,registryBrowser;
 
 		container = (Composite) super.createDialogArea(parent);
 		container.getShell().setText("Input Dialog");
@@ -93,7 +93,9 @@ public class RuleServiceDialog extends Dialog {
 		resourceLabel.setText("Resource Type");
 		resourceCombo = new Combo(container, SWT.READ_ONLY);
 		resourceCombo.setItems(new String[] { "regular", "dtable" });
+		resourceCombo.setText("regular");
 		resourceCombo.setText(updateResourceCombo());
+		setResourceType(resourceCombo.getText().trim());
 		resourceCombo.setLayoutData(new GridData(GridData.FILL, GridData.CENTER, true, false));
 
 		resourceCombo.addSelectionListener(new SelectionListener() {
@@ -134,9 +136,7 @@ public class RuleServiceDialog extends Dialog {
 		inlineText.setLayoutData(inlineTextGridData);
 		Font font = new Font(sourceTabFolder.getDisplay(), "Courier New", 12, SWT.NORMAL);
 		inlineText.setFont(font);
-		//Color backGroundColor = Display.getDefault().getSystemColor(SWT.COLOR_GRAY);
 		Color foreGroundColor = Display.getDefault().getSystemColor(SWT.COLOR_BLUE);
-		//inlineText.setBackground(backGroundColor);
 		inlineText.setForeground(foreGroundColor);
 
 		inlineText.addModifyListener(new ModifyListener() {
@@ -181,41 +181,25 @@ public class RuleServiceDialog extends Dialog {
 		registerTabComposite.setLayout(registerTabLayout);
 		Label registerLabel = new Label(registerTabComposite, SWT.NULL);
 		registerLabel.setText("Resource URI");
-		registerText = new Text(registerTabComposite, SWT.BORDER | SWT.SINGLE);
+		registerText = new Text(registerTabComposite, SWT.BORDER | SWT.SINGLE|SWT.READ_ONLY);
 		registerText.setText(updateRegistryText());
 		GridData registerGridData = new GridData(SWT.LEFT, SWT.CENTER, true, false, 1, 1);
 		registerGridData.widthHint = 180;
 		registerGridData.horizontalAlignment = GridData.FILL;
 		registerGridData.verticalAlignment = GridData.FILL;
 		registerText.setLayoutData(registerGridData);
-		cmdEndPointConRegBrowse = new Button(registerTabComposite, SWT.NONE);
-		cmdEndPointConRegBrowse.setLayoutData(new GridData(SWT.CENTER,
+		registryBrowser=new Button(registerTabComposite, SWT.NONE);
+		registryBrowser.setLayoutData(new GridData(SWT.CENTER,
 				SWT.CENTER, false, false, 1, 1));
-		cmdEndPointConRegBrowse.setImage(ResourceManager.getPluginImage(SYMBOLIC_NAME, "icons/registry-16x16.png"));
-		cmdEndPointConRegBrowse.setToolTipText("Configuration registry");
-		cmdEndPointConRegBrowse.addSelectionListener(new SelectionListener() {
+
+		registryBrowser.setText("Registry Browser");
+		registryBrowser.addSelectionListener(new SelectionListener() {
 
 			@Override
 			public void widgetSelected(SelectionEvent evt) {
-				selectRegistryResource(registerText, 2);
-			}
-
-			@Override
-			public void widgetDefaultSelected(SelectionEvent evt) {
-				widgetSelected(evt);
-			}
-		});
-
-		cmdEndPointGovRegBrowse = new Button(registerTabComposite, SWT.NONE);
-		cmdEndPointGovRegBrowse.setLayoutData(new GridData(SWT.LEFT,
-				SWT.CENTER, false, false, 1, 1));
-		cmdEndPointGovRegBrowse.setImage(ResourceManager.getPluginImage(SYMBOLIC_NAME, "icons/registry_picker.gif"));
-		cmdEndPointGovRegBrowse.setToolTipText("Governance registry");
-		cmdEndPointGovRegBrowse.addSelectionListener(new SelectionListener() {
-
-			@Override
-			public void widgetSelected(SelectionEvent evt) {
-				selectRegistryResource(registerText, 3);
+				BrsRegistryKeyPropertyEditorDialog registryDialog=new BrsRegistryKeyPropertyEditorDialog(Display.getCurrent().getActiveShell(),SWT.NULL);
+				registryDialog.open();
+				registerText.setText(registryDialog.getRegistryValue());
 			}
 
 			@Override
@@ -241,7 +225,7 @@ public class RuleServiceDialog extends Dialog {
 		fileTabComposite.setLayout(fileTabLayout);
 		Label fileLabel = new Label(fileTabComposite, SWT.NULL);
 		fileLabel.setText("File");
-		fileText = new Text(fileTabComposite, SWT.BORDER | SWT.SINGLE);
+		fileText = new Text(fileTabComposite, SWT.BORDER | SWT.SINGLE |SWT.READ_ONLY);
 		fileText.setText(updateFileText());
 		GridData fileGridData = new GridData(SWT.LEFT, SWT.CENTER, true, false, 1, 1);
 		fileGridData.widthHint = 300;
@@ -264,7 +248,8 @@ public class RuleServiceDialog extends Dialog {
 			public void handleEvent(Event event) {
 				FileDialog fileDialog = new FileDialog(container.getShell());
 				fileDialog.setFilterExtensions(FILTER_EXTS);
-				String fileName = fileDialog.open();
+				fileDialog.open();
+				String fileName =fileDialog.getFileName();
 
 				if (fileName != null) {
 					fileText.setText(fileName);
@@ -362,7 +347,7 @@ public class RuleServiceDialog extends Dialog {
 		if (getDescription() != null) {
 			return getDescription();
 		} else
-			return " ";
+			return "";
 	}
 
 	private String updateResourceCombo() {
@@ -371,7 +356,7 @@ public class RuleServiceDialog extends Dialog {
 			txtResourceCombo = getResource();
 			return txtResourceCombo;
 		} else
-			return " ";
+			return "";
 	}
 
 	private CTabItem updateSourceTab() {
@@ -394,28 +379,28 @@ public class RuleServiceDialog extends Dialog {
 		if (getInline() != null) {
 			return getInline();
 		} else
-			return " ";
+			return "";
 	}
 	private String updateUriText() {
 
 		if(getUriValue()!=null){
 			return getUriValue();
 		} else
-			return " ";
+			return "";
 	}
 	private String updateRegistryText() {
 
 		if(getRegistry()!=null){
 			return getRegistry();
 		}else
-			return " ";
+			return "";
 	}
 	private String updateFileText() {
 
 		if(getFile()!=null){
 			return getFile();
 		}else
-			return " ";
+			return "";
 	}
 	@Override
 	protected void okPressed() {
@@ -505,8 +490,6 @@ public class RuleServiceDialog extends Dialog {
 	public void setValue(String value) {
 		this.value = value;
 	}
-
-
 
 	public void setDescription(String servicename) {
 		this.name = servicename;

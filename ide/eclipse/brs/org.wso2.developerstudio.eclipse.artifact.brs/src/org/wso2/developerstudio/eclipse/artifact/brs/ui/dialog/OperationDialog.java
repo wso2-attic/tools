@@ -78,7 +78,7 @@ public class OperationDialog extends Dialog{
 		txtOperationName=new Text(container, SWT.BORDER|SWT.NULL);
 		txtOperationName.setText(updateOperationName());
 		GridData operationNameGridData=new GridData(SWT.LEFT, SWT.CENTER, true,
-		                                            false, 1, 1);
+				false, 1, 1);
 		operationNameGridData.widthHint=400;
 		txtOperationName.setLayoutData(operationNameGridData);
 		txtOperationName.addModifyListener(new ModifyListener() {
@@ -108,7 +108,7 @@ public class OperationDialog extends Dialog{
 		txtwrapperName=new Text(inputgroup, SWT.BORDER|SWT.NULL);
 		txtwrapperName.setText(updateWrapperName());
 		GridData wrapperNameGridData=new GridData(SWT.LEFT, SWT.CENTER, false,
-		                                          false, 1, 1);
+				false, 1, 1);
 		wrapperNameGridData.widthHint=400;
 		txtwrapperName.setLayoutData(wrapperNameGridData);
 		txtwrapperName.addModifyListener(new ModifyListener() {
@@ -120,12 +120,12 @@ public class OperationDialog extends Dialog{
 		});
 
 		Label nameSpaceLabel=new Label(inputgroup, SWT.NULL);
-		nameSpaceLabel.setText("Name space");
+		nameSpaceLabel.setText("Namespace");
 
 		txtnameSpace=new Text(inputgroup, SWT.BORDER|SWT.NULL);
 		txtnameSpace.setText(updateNameSpace());
 		GridData nameSpaceGridData=new GridData(SWT.LEFT, SWT.CENTER, false,
-		                                        false, 1, 1);
+				false, 1, 1);
 		nameSpaceGridData.widthHint=400;
 
 		txtnameSpace.setLayoutData(nameSpaceGridData);
@@ -165,7 +165,7 @@ public class OperationDialog extends Dialog{
 		editFactsButtonGridData.horizontalSpan=1;
 		editFactsButtonGridData.verticalSpan=1;
 		editFactsButtonGridData.widthHint=80;
-		Button editFactsButton=new Button(inputFactsgroup, SWT.NONE);
+		final Button editFactsButton=new Button(inputFactsgroup, SWT.NONE);
 		editFactsButton.setText(RuleServiceArtifactConstants.EDIT_BUTTON_LABEL);
 		editFactsButton.setLayoutData(editFactsButtonGridData);
 
@@ -173,10 +173,18 @@ public class OperationDialog extends Dialog{
 		deleteFactsButtonGridData.horizontalSpan=1;
 		deleteFactsButtonGridData.verticalSpan=1;
 		deleteFactsButtonGridData.widthHint=80;
-		Button deleteFactsButton=new Button(inputFactsgroup, SWT.NONE);
+		final Button deleteFactsButton=new Button(inputFactsgroup, SWT.NONE);
 		deleteFactsButton.setText(RuleServiceArtifactConstants.DELETE_BUTTON_LABEL);
 		deleteFactsButton.setLayoutData(deleteFactsButtonGridData);
 
+		if(input.getFacts().isEmpty()){
+			deleteFactsButton.setEnabled(false);
+			editFactsButton.setEnabled(false);
+		}
+		else{
+			deleteFactsButton.setEnabled(true);
+			editFactsButton.setEnabled(true);
+		}
 		addFactsButton.addListener(SWT.MouseDown, new Listener() {
 
 			@Override
@@ -186,6 +194,14 @@ public class OperationDialog extends Dialog{
 				beforeUpdateFactsTable(fDialog);
 				fDialog.open();
 				updateFactsTable(fDialog);
+				if(input.getFacts().isEmpty()){
+					deleteFactsButton.setEnabled(false);
+					editFactsButton.setEnabled(false);
+				}
+				else{
+					deleteFactsButton.setEnabled(true);
+					editFactsButton.setEnabled(true);
+				}
 			}
 		});
 
@@ -206,6 +222,14 @@ public class OperationDialog extends Dialog{
 			@Override
 			public void handleEvent(Event arg0) {
 				deleteInputFactsTable();
+				if(input.getFacts().isEmpty()){
+					deleteFactsButton.setEnabled(false);
+					editFactsButton.setEnabled(false);
+				}
+				else{
+					deleteFactsButton.setEnabled(true);
+					editFactsButton.setEnabled(true);
+				}
 			}
 		});
 
@@ -229,7 +253,7 @@ public class OperationDialog extends Dialog{
 		txtOutputwrapperName=new Text(outputgroup, SWT.BORDER|SWT.NULL);
 		txtOutputwrapperName.setText(updateOutputWrapperName());
 		GridData outputwrapperNameGridData=new GridData(SWT.LEFT, SWT.CENTER, false,
-		                                                false, 1, 1);
+				false, 1, 1);
 		outputwrapperNameGridData.widthHint=400;
 		txtOutputwrapperName.setLayoutData(outputwrapperNameGridData);
 		txtOutputwrapperName.addModifyListener(new ModifyListener() {
@@ -241,12 +265,12 @@ public class OperationDialog extends Dialog{
 		});
 
 		Label outputnameSpaceLabel=new Label(outputgroup, SWT.NULL);
-		outputnameSpaceLabel.setText("Name space");
+		outputnameSpaceLabel.setText("Namespace");
 
 		txtOutputnameSpace=new Text(outputgroup, SWT.BORDER|SWT.NULL);
 		txtOutputnameSpace.setText(updateOutputNameSpace());
 		GridData outputnameSpaceGridData=new GridData(SWT.LEFT, SWT.CENTER, true,
-		                                              false, 1, 1);
+				false, 1, 1);
 		outputnameSpaceGridData.widthHint=400;
 		txtOutputnameSpace.setLayoutData(nameSpaceGridData);
 		txtOutputnameSpace.addModifyListener(new ModifyListener() {
@@ -284,7 +308,7 @@ public class OperationDialog extends Dialog{
 		editoutputFactsButtonGridData.horizontalSpan=1;
 		editoutputFactsButtonGridData.verticalSpan=1;
 		editoutputFactsButtonGridData.widthHint=80;
-		Button editoutputFactsButton=new Button(outputFactsgroup, SWT.NONE);
+		final Button editoutputFactsButton=new Button(outputFactsgroup, SWT.NONE);
 		editoutputFactsButton.setText(RuleServiceArtifactConstants.EDIT_BUTTON_LABEL);
 		editoutputFactsButton.setLayoutData(editoutputFactsButtonGridData);
 
@@ -292,10 +316,17 @@ public class OperationDialog extends Dialog{
 		deleteoutputFactsButtonGridData.horizontalSpan=1;
 		deleteFactsButtonGridData.verticalSpan=1;
 		deleteoutputFactsButtonGridData.widthHint=80;
-		Button deleteoutputFactsButton=new Button(outputFactsgroup, SWT.NONE);
+		final Button deleteoutputFactsButton=new Button(outputFactsgroup, SWT.NONE);
 		deleteoutputFactsButton.setText(RuleServiceArtifactConstants.DELETE_BUTTON_LABEL);
 		deleteoutputFactsButton.setLayoutData(deleteoutputFactsButtonGridData);
-
+		if(output.getFacts().isEmpty()){
+			deleteoutputFactsButton.setEnabled(false);
+			editoutputFactsButton.setEnabled(false);
+		}
+		else{
+			deleteoutputFactsButton.setEnabled(true);
+			editoutputFactsButton.setEnabled(true);
+		}
 		addoutputFactsButton.addListener(SWT.MouseDown, new Listener() {
 
 			@Override
@@ -305,6 +336,14 @@ public class OperationDialog extends Dialog{
 				beforeUpdateOutputFactsTable(fDialog);
 				fDialog.open();
 				updateOutputFactsTable(fDialog);
+				if(output.getFacts().isEmpty()){
+					deleteoutputFactsButton.setEnabled(false);
+					editoutputFactsButton.setEnabled(false);
+				}
+				else{
+					deleteoutputFactsButton.setEnabled(true);
+					editoutputFactsButton.setEnabled(true);
+				}
 			}
 		});
 
@@ -325,6 +364,14 @@ public class OperationDialog extends Dialog{
 			@Override
 			public void handleEvent(Event arg0) {
 				deleteOutputFactsTable();
+				if(output.getFacts().isEmpty()){
+					deleteoutputFactsButton.setEnabled(false);
+					editoutputFactsButton.setEnabled(false);
+				}
+				else{
+					deleteoutputFactsButton.setEnabled(true);
+					editoutputFactsButton.setEnabled(true);
+				}
 			}
 		});
 
@@ -335,7 +382,7 @@ public class OperationDialog extends Dialog{
 
 	private void setDialogLocation() {
 		Rectangle monitorArea = getShell().getDisplay().getPrimaryMonitor()
-				.getBounds();
+		.getBounds();
 		Rectangle shellArea = getShell().getBounds();
 		int x = monitorArea.x + (monitorArea.width - shellArea.width) / 2;
 		int y = monitorArea.y + (monitorArea.height - shellArea.height) / 2;
@@ -381,7 +428,7 @@ public class OperationDialog extends Dialog{
 
 	public void createOutputFactsTable(Composite composite){
 		final Table table=new Table(composite,   SWT.MULTI | SWT.H_SCROLL
-		                            | SWT.V_SCROLL | SWT.FULL_SELECTION | SWT.BORDER| SWT.VIRTUAL);
+				| SWT.V_SCROLL | SWT.FULL_SELECTION | SWT.BORDER| SWT.VIRTUAL);
 
 		table.setHeaderVisible(true);
 		table.setLinesVisible(true);
@@ -400,7 +447,7 @@ public class OperationDialog extends Dialog{
 		if(getOutputNameSpace()!=null){
 			return getOutputNameSpace();
 		}
-		else return " ";
+		else return "";
 	}
 
 	public String getOutputNameSpace(){
@@ -412,7 +459,7 @@ public class OperationDialog extends Dialog{
 		if(getOutputWrapperName()!=null){
 			return getOutputWrapperName();
 		}
-		else return " ";
+		else return "";
 	}
 
 	public String getOutputWrapperName(){
@@ -500,7 +547,7 @@ public class OperationDialog extends Dialog{
 
 	public void createFactsTable(Composite composite){
 		final Table table=new Table(composite,   SWT.MULTI | SWT.H_SCROLL
-		                            | SWT.V_SCROLL | SWT.FULL_SELECTION | SWT.BORDER| SWT.VIRTUAL);
+				| SWT.V_SCROLL | SWT.FULL_SELECTION | SWT.BORDER| SWT.VIRTUAL);
 
 		table.setHeaderVisible(true);
 		table.setLinesVisible(true);
@@ -523,7 +570,7 @@ public class OperationDialog extends Dialog{
 				if(fact!=null){
 					return fact.getElementName();
 				}
-				else return " ";
+				else return "";
 			}
 		});
 		nameColumn.getColumn().setWidth(200);
@@ -537,7 +584,7 @@ public class OperationDialog extends Dialog{
 				if(fact!=null){
 					return fact.getNamespace();
 				}
-				else return " ";
+				else return "";
 			}
 		});
 		nameSpaceColumn.getColumn().setWidth(200);
@@ -552,7 +599,7 @@ public class OperationDialog extends Dialog{
 				if(fact!=null){
 					return fact.getType();
 				}
-				else return " ";
+				else return "";
 			}
 		});
 		typeColumn.getColumn().setWidth(200);
@@ -565,7 +612,7 @@ public class OperationDialog extends Dialog{
 		if(getNameSpace()!=null){
 			return getNameSpace();
 		}
-		else return " ";
+		else return "";
 	}
 
 	public String getNameSpace(){
@@ -577,7 +624,7 @@ public class OperationDialog extends Dialog{
 		if(getOperationName()!=null){
 			return getOperationName();
 		}
-		else return " ";
+		else return "";
 	}
 
 	private String updateWrapperName(){
@@ -585,7 +632,7 @@ public class OperationDialog extends Dialog{
 		if(getWrapperName()!=null){
 			return getWrapperName();
 		}
-		else return " ";
+		else return "";
 	}
 
 	public String getWrapperName(){

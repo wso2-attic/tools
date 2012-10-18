@@ -71,7 +71,7 @@ public class ProjectCreationWizard extends AbstractWSO2ProjectCreationWizard {
 				if(!ruleserviceFolder.exists()){
 					ruleserviceFolder.create(false, true, null);
 				}
-				IFolder confFolder = ProjectUtils.getWorkspaceFolder(project, "src", "main", "ruleservice","Conf");
+				IFolder confFolder = ProjectUtils.getWorkspaceFolder(project, "src", "main", "ruleservice","conf");
 
 				if(!confFolder.exists()){
 					confFolder.create(false, true, null);
@@ -94,9 +94,12 @@ public class ProjectCreationWizard extends AbstractWSO2ProjectCreationWizard {
 			}
 		}
 		else if (getModel().getSelectedOption().equals(RuleServiceArtifactConstants.WIZARD_OPTION_IMPORT_PROJECT)) {
+
 			IProject existingProject =
 				ResourcesPlugin.getWorkspace().getRoot()
 				.getProject(rsModel.getProjectName());
+
+
 			if (existingProject.exists()) {
 				if (!MessageDialog.openQuestion(getShell(), "WARNING",
 				"Do you like to override exsiting project in the workspace")) {
@@ -104,8 +107,26 @@ public class ProjectCreationWizard extends AbstractWSO2ProjectCreationWizard {
 				} else
 					return true;
 			}
+
 			try {
 				project = createNewProject();
+
+				IFolder resourceFolder = ProjectUtils.getWorkspaceFolder(project, "src", "main", "java");
+				JavaUtils.addJavaSupportAndSourceFolder(project, resourceFolder);
+				IFolder ruleserviceFolder = ProjectUtils.getWorkspaceFolder(project, "src", "main", "ruleservice");
+				if(!ruleserviceFolder.exists()){
+					ruleserviceFolder.create(false, true, null);
+				}
+				IFolder confFolder = ProjectUtils.getWorkspaceFolder(project, "src", "main", "ruleservice","conf");
+
+				if(!confFolder.exists()){
+					confFolder.create(false, true, null);
+				}
+				IFolder libFolder = ProjectUtils.getWorkspaceFolder(project, "src", "main", "ruleservice","lib");
+
+				if(!libFolder.exists()){
+					libFolder.create(false, true, null);
+				}
 				openFile = copyImportFile(project);
 			} catch (CoreException e) {
 				MessageDialog.openQuestion(getShell(), "WARNING",

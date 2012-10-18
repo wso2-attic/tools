@@ -51,6 +51,7 @@ public class BRSExportHandler extends ProjectArtifactHandler {
 		File brsJarResources = createTempDir(tempProject, "jar_resources");
 
 		if (rslmetaData.toFile().exists()) {
+
 			FileUtils.copyDirectoryContents(rslmetaData.toFile(),
 					brsAarResources);
 		}

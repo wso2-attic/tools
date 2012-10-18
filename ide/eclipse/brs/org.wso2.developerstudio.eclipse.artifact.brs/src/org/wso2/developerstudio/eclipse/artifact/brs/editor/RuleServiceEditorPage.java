@@ -132,7 +132,7 @@ public class RuleServiceEditorPage extends FormPage {
 
 		managedform.getForm().getBody().setLayout(new GridLayout(4, false));
 		managedform.getToolkit().createLabel(managedform.getForm().getBody(),
-				"Service name", SWT.NONE);
+				"Service Name", SWT.NONE);
 		txtServiceName = managedform.getToolkit().createText(
 				managedform.getForm().getBody(),
 				ruleservice.getName(), SWT.NONE);
@@ -152,7 +152,7 @@ public class RuleServiceEditorPage extends FormPage {
 		});
 
 		managedform.getToolkit().createLabel(managedform.getForm().getBody(),
-				"Target Name Space", SWT.NONE);
+				"Target Namespace", SWT.NONE);
 		txtTargetNameSpace = managedform.getToolkit().createText(
 				managedform.getForm().getBody(),
 				ruleservice.getTargetNamespace(), SWT.NONE);
@@ -202,45 +202,54 @@ public class RuleServiceEditorPage extends FormPage {
 		operationData.horizontalSpan=4;
 		operationLabel.setLayoutData(operationData);
 
-		Section sctnDependencies = managedform.getToolkit().createSection(
+		final Section sctnDependencies = managedform.getToolkit().createSection(
 				managedform.getForm().getBody(),
 				Section.TWISTIE | Section.TITLE_BAR);
+
+		managedform.getToolkit().paintBordersFor(sctnDependencies);
+
 		GridData gd_sctnNewSection = new GridData(SWT.FILL, SWT.CENTER, true,
-				false, 4, 1);
+				true, 4, 1);
+
 		sctnDependencies.setText("Rules");
 		sctnDependencies.setLayoutData(gd_sctnNewSection);
-		sctnDependencies.setExpanded(true);
+
+
+
 		Composite composite = managedform.getToolkit().createComposite(sctnDependencies, SWT.NONE);
+		managedform.getToolkit().paintBordersFor(composite);
 		sctnDependencies.setClient(composite);
 		composite.setLayout(new GridLayout(4, false));
 
 		createInputTable(composite, managedform);
 
-		GridData addButtonGridData=new GridData();
-		addButtonGridData.horizontalSpan=1;
-		addButtonGridData.verticalSpan=1;
-		addButtonGridData.verticalIndent=20;
+		GridData addButtonGridData = new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1);
 		addButtonGridData.widthHint=100;
 
 		Button addButton=managedform.getToolkit().createButton(composite, RuleServiceArtifactConstants.ADD_BUTTON_LABEL, SWT.NONE);
 		addButton.setLayoutData(addButtonGridData);
 
-		GridData editButtonGridData=new GridData();
-		editButtonGridData.horizontalSpan=1;
-		editButtonGridData.verticalSpan=1;
+		GridData editButtonGridData = new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1);
+
 		editButtonGridData.widthHint=100;
 
-		Button editButton=managedform.getToolkit().createButton(composite, RuleServiceArtifactConstants.EDIT_BUTTON_LABEL, SWT.NONE);
+		final Button editButton=managedform.getToolkit().createButton(composite, RuleServiceArtifactConstants.EDIT_BUTTON_LABEL, SWT.NONE);
 		editButton.setLayoutData(editButtonGridData);
 
-		GridData deleteButtonGridData=new GridData();
-		deleteButtonGridData.horizontalSpan=1;
-		deleteButtonGridData.verticalSpan=1;
-		deleteButtonGridData.verticalIndent=-30;
+		GridData deleteButtonGridData = new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1);
 		deleteButtonGridData.widthHint=100;
 
-		Button deleteButton=managedform.getToolkit().createButton(composite, RuleServiceArtifactConstants.DELETE_BUTTON_LABEL, SWT.NONE);
+
+		final Button deleteButton=managedform.getToolkit().createButton(composite, RuleServiceArtifactConstants.DELETE_BUTTON_LABEL, SWT.NONE);
 		deleteButton.setLayoutData(deleteButtonGridData);
+		if(ruleservice.getRuleSet().getRules().isEmpty()){
+			deleteButton.setEnabled(false);
+			editButton.setEnabled(false);
+		}
+		else{
+			deleteButton.setEnabled(true);
+			editButton.setEnabled(true);
+		}
 
 		addButton.addListener(SWT.MouseDown, new Listener() {
 
@@ -249,11 +258,18 @@ public class RuleServiceEditorPage extends FormPage {
 				RuleServiceDialog rDialog=new RuleServiceDialog(Display.getCurrent().getActiveShell(),ruleservice);
 				rDialog.open();
 				updateInputTable();
+				if(ruleservice.getRuleSet().getRules().isEmpty()){
+					deleteButton.setEnabled(false);
+					editButton.setEnabled(false);
+				}
+				else{
+					deleteButton.setEnabled(true);
+					editButton.setEnabled(true);
+				}
 				setPageDirty(true);
 				updateDirtyState();
 			}
 		});
-
 		editButton.addListener(SWT.MouseDown, new Listener() {
 
 			@Override
@@ -272,10 +288,20 @@ public class RuleServiceEditorPage extends FormPage {
 			@Override
 			public void handleEvent(Event arg0) {
 				deleteInputTable();
+				if(ruleservice.getRuleSet().getRules().isEmpty()){
+					deleteButton.setEnabled(false);
+					editButton.setEnabled(false);
+				}
+				else{
+					deleteButton.setEnabled(true);
+					editButton.setEnabled(true);
+				}
 				setPageDirty(true);
 				updateDirtyState();
 			}
 		});
+
+		sctnDependencies.setExpanded(true);
 
 		Label space2=managedform.getToolkit().createLabel(managedform.getForm().getBody(), RuleServiceArtifactConstants.NEW_LINE, SWT.NONE);
 		GridData space2nData=new GridData();
@@ -285,45 +311,45 @@ public class RuleServiceEditorPage extends FormPage {
 		Section operationsctnDependencies = managedform.getToolkit().createSection(
 				managedform.getForm().getBody(),
 				Section.TWISTIE | Section.TITLE_BAR);
+		//managedform.getToolkit().paintBordersFor(operationsctnDependencies);
+
 		GridData gd_operationsctnNewSection = new GridData(SWT.FILL, SWT.CENTER, true,
-				false, 4, 1);
+				true, 4, 1);
 		operationsctnDependencies.setText("Operation:");
 		operationsctnDependencies.setLayoutData(gd_operationsctnNewSection);
-		operationsctnDependencies.setExpanded(true);
+
 		Composite opcomposite = managedform.getToolkit().createComposite(operationsctnDependencies, SWT.NONE);
 		operationsctnDependencies.setClient(opcomposite);
 		opcomposite.setLayout(new GridLayout(4, false));
 
 		createOperationTable(opcomposite, managedform);
 
-		GridData addOperationButtonGridData=new GridData();
-		addOperationButtonGridData.horizontalSpan=3;
-		addOperationButtonGridData.verticalSpan=1;
-		addOperationButtonGridData.verticalIndent=20;
+		GridData addOperationButtonGridData = new GridData(SWT.RIGHT, SWT.CENTER, false, false, 3, 1);
 		addOperationButtonGridData.widthHint=100;
-
 		Button addOperationButton=managedform.getToolkit().createButton(opcomposite, RuleServiceArtifactConstants.ADD_BUTTON_LABEL, SWT.NONE);
 		addOperationButton.setLayoutData(addOperationButtonGridData);
 
-		GridData editOperationButtonGridData=new GridData();
-		editOperationButtonGridData.horizontalSpan=3;
-		editOperationButtonGridData.verticalSpan=1;
-
+		GridData editOperationButtonGridData = new GridData(SWT.RIGHT, SWT.CENTER, false, false, 3, 1);
 		editOperationButtonGridData.widthHint=100;
 
-		Button editOperationButton=managedform.getToolkit().createButton(opcomposite, RuleServiceArtifactConstants.EDIT_BUTTON_LABEL, SWT.NONE);
+		final Button editOperationButton=managedform.getToolkit().createButton(opcomposite, RuleServiceArtifactConstants.EDIT_BUTTON_LABEL, SWT.NONE);
 		editOperationButton.setLayoutData(editOperationButtonGridData);
 
-		GridData deleteOperationButtonGridData=new GridData();
-		deleteOperationButtonGridData.horizontalSpan=3;
-		deleteOperationButtonGridData.verticalSpan=1;
-		deleteOperationButtonGridData.verticalIndent=-30;
+		GridData deleteOperationButtonGridData = new GridData(SWT.RIGHT, SWT.CENTER, false, false, 3, 1);
 		deleteOperationButtonGridData.widthHint=100;
 
 
-		Button deleteOperationButton=managedform.getToolkit().createButton(opcomposite, RuleServiceArtifactConstants.DELETE_BUTTON_LABEL, SWT.NONE);
+		final Button deleteOperationButton=managedform.getToolkit().createButton(opcomposite, RuleServiceArtifactConstants.DELETE_BUTTON_LABEL, SWT.NONE);
 		deleteOperationButton.setLayoutData(deleteOperationButtonGridData);
 
+		if(ruleservice.getOperations().isEmpty()){
+			deleteOperationButton.setEnabled(false);
+			editOperationButton.setEnabled(false);
+		}
+		else{
+			deleteOperationButton.setEnabled(true);
+			editOperationButton.setEnabled(true);
+		}
 		addOperationButton.addListener(SWT.MouseDown, new Listener() {
 
 			@Override
@@ -331,6 +357,14 @@ public class RuleServiceEditorPage extends FormPage {
 				OperationDialog oDialog=new OperationDialog(Display.getCurrent().getActiveShell(),ruleservice);
 				oDialog.open();
 				updateOperationTable();
+				if(ruleservice.getOperations().isEmpty()){
+					deleteOperationButton.setEnabled(false);
+					editOperationButton.setEnabled(false);
+				}
+				else{
+					deleteOperationButton.setEnabled(true);
+					editOperationButton.setEnabled(true);
+				}
 				setPageDirty(true);
 				updateDirtyState();
 			}
@@ -354,10 +388,19 @@ public class RuleServiceEditorPage extends FormPage {
 			@Override
 			public void handleEvent(Event arg0) {
 				deleteOperationtable();
+				if(ruleservice.getOperations().isEmpty()){
+					deleteOperationButton.setEnabled(false);
+					editOperationButton.setEnabled(false);
+				}
+				else{
+					deleteOperationButton.setEnabled(true);
+					editOperationButton.setEnabled(true);
+				}
 				setPageDirty(true);
 				updateDirtyState();
 			}
 		});
+		operationsctnDependencies.setExpanded(true);
 	}
 
 	@Override
@@ -378,7 +421,6 @@ public class RuleServiceEditorPage extends FormPage {
 			rslFileRes.getProject().refreshLocal(IResource.DEPTH_INFINITE,
 					new NullProgressMonitor());
 		} catch (CoreException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -389,7 +431,6 @@ public class RuleServiceEditorPage extends FormPage {
 		try {
 			templateContent = format(templateContent);
 		} catch (SAXException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		templateContent = templateContent.replace(
@@ -458,21 +499,6 @@ public class RuleServiceEditorPage extends FormPage {
 		((RuleServiceEditor) getEditor()).updateDirtyState();
 	}
 
-	public void createInputTable(Composite composite,IManagedForm managedform){
-
-		final Table table=managedform.getToolkit().createTable(composite, SWT.MULTI | SWT.H_SCROLL
-				| SWT.V_SCROLL | SWT.FULL_SELECTION | SWT.BORDER| SWT.VIRTUAL);
-
-		table.setHeaderVisible(true);
-		table.setLinesVisible(true);
-		inputTable=table;
-		viewer=new TableViewer(table);
-		table.setLayoutData(new GridData(SWT.NONE, SWT.NONE, false, false, 3, 3));
-		createColumns( viewer);
-		viewer.setContentProvider(new ArrayContentProvider());
-		viewer.setInput(ruleservice.getRuleSet().getRules().toArray());
-		table.setItemCount(5);
-	}
 
 	private void createColumns(TableViewer viewer){
 
@@ -522,20 +548,31 @@ public class RuleServiceEditorPage extends FormPage {
 		sourceColumn.getColumn().setWidth(200);
 		sourceColumn.getColumn().setText("Source Type");
 	}
+	public void createInputTable(Composite composite,IManagedForm managedform){
+		final Table table=managedform.getToolkit().createTable(composite, SWT.NONE);
+		managedform.getToolkit().paintBordersFor(table);
+		table.setHeaderVisible(true);
+		table.setLinesVisible(true);
+		inputTable=table;
+		viewer=new TableViewer(table);
+		table.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, true, 3, 5));
+		createColumns(viewer);
+		viewer.setContentProvider(new ArrayContentProvider());
+		viewer.setInput(ruleservice.getRuleSet().getRules().toArray());
+	}
+
 
 	public void createOperationTable(Composite composite,IManagedForm managedform){
-		final Table table=managedform.getToolkit().createTable(composite, SWT.MULTI | SWT.H_SCROLL
-				| SWT.V_SCROLL | SWT.FULL_SELECTION | SWT.BORDER| SWT.VIRTUAL);
-
+		final Table table=managedform.getToolkit().createTable(composite,
+				SWT.BORDER);
 		table.setHeaderVisible(true);
 		table.setLinesVisible(true);
 		operationTable=table;
 		operationTableViewer =new TableViewer(table);
-		table.setLayoutData(new GridData(SWT.NONE, SWT.NONE, false, false, 1, 3));
+		table.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, true, 1, 5));
 		createOperationTableColumns(operationTableViewer);
 		operationTableViewer.setContentProvider(new ArrayContentProvider());
 		operationTableViewer.setInput(ruleservice.getOperations().toArray());
-		table.setItemCount(5);
 	}
 
 	private void createOperationTableColumns(TableViewer operationtableviewer){
@@ -619,4 +656,6 @@ public class RuleServiceEditorPage extends FormPage {
 	public void setScope(String scope) {
 		this.scope = scope;
 	}
+
+
 }

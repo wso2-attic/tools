@@ -44,11 +44,11 @@ public class FactsDialog extends Dialog{
 		layout.numColumns = 2;
 
 		Label factNameLabel=new Label(container, SWT.NULL);
-		factNameLabel.setText("Fact Name");
+		factNameLabel.setText("Element Name");
 		txtFactName = new Text(container, SWT.BORDER|SWT.NULL);
 		txtFactName.setText(updateFactName());
 		GridData factNameGridData=new GridData(SWT.LEFT, SWT.CENTER, true,
-		                                       false, 1, 1);
+				false, 1, 1);
 		factNameGridData.widthHint=200;
 		txtFactName.setLayoutData(factNameGridData);
 
@@ -61,11 +61,11 @@ public class FactsDialog extends Dialog{
 		});
 
 		Label factNameSpaceLabel=new Label(container, SWT.NULL);
-		factNameSpaceLabel.setText("Fact Name Space");
+		factNameSpaceLabel.setText("Element Namespace");
 		txtFactNameSpace = new Text(container, SWT.BORDER|SWT.NULL);
 		txtFactNameSpace.setText(updateFactNameSpace());
 		GridData factNameSpaceGridData=new GridData(SWT.LEFT, SWT.CENTER, true,
-		                                            false, 1, 1);
+				false, 1, 1);
 		factNameSpaceGridData.widthHint=200;
 		txtFactNameSpace.setLayoutData(factNameSpaceGridData);
 
@@ -82,7 +82,7 @@ public class FactsDialog extends Dialog{
 		txtType = new Text(container, SWT.BORDER|SWT.NULL);
 		txtType.setText(updateFactType());
 		GridData typeGridData=new GridData(SWT.LEFT, SWT.CENTER, true,
-		                                   false, 1, 1);
+				false, 1, 1);
 		typeGridData.widthHint=200;
 		txtType.setLayoutData(typeGridData);
 
@@ -115,7 +115,7 @@ public class FactsDialog extends Dialog{
 		if(getNameSpace()!=null){
 			return getNameSpace();
 		}
-		else return " ";
+		else return "";
 	}
 
 	private String updateFactName(){
@@ -123,7 +123,7 @@ public class FactsDialog extends Dialog{
 		if(getFactName()!=null){
 			return getFactName();
 		}
-		else return " ";
+		else return "";
 	}
 
 	private String updateFactType(){
@@ -131,7 +131,7 @@ public class FactsDialog extends Dialog{
 		if(getFactType()!=null){
 			return getFactType();
 		}
-		else return " ";
+		else return "";
 	}
 
 	public void editEditorOutputFactsTable(int tableindex,Output output){

@@ -2,21 +2,25 @@
 <?eclipse version="3.4"?>
 <plugin>
 <extension
-         point="org.eclipse.ui.newWizards">
-         <wizard name="Business Rules Service Project" category="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.eclipse.artifact.businessruleservice.category"
-			class="org.wso2.developerstudio.eclipse.artifact.brs.ui.wizard.ProjectCreationWizard"
-			wizardManifest="project_wizard.xml"
-			id="org.wso2.developerstudio.eclipse.artifact.businessruleservice.wizard"
-			project="true"
-			icon="icons/rule-service.gif">
-			<description>Business Rule Service Project</description>
-		</wizard>
-         <category
-               id="org.wso2.developerstudio.eclipse.artifact.businessruleservice.category"
-               name="Business Rules Server"
-               parentCategory="org.wso2.developerstudio.eclipse.capp.project">
-         </category>
-   </extension>
+      point="org.eclipse.ui.newWizards">
+   <wizard
+         category="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.eclipse.artifact.businessruleservice.category"
+         class="org.wso2.developerstudio.eclipse.artifact.brs.ui.wizard.ProjectCreationWizard"
+         icon="icons/rule-service.gif"
+         id="org.wso2.developerstudio.eclipse.artifact.businessruleservice.wizard"
+         name="Business Rules Service Project"
+         project="true"
+         wizardManifest="project_wizard.xml">
+      <description>
+         Business Rule Service Project
+      </description>
+   </wizard>
+   <category
+         id="org.wso2.developerstudio.eclipse.artifact.businessruleservice.category"
+         name="Business Rules Server"
+         parentCategory="org.wso2.developerstudio.eclipse.capp.project">
+   </category>
+</extension>
    <extension point="org.eclipse.core.resources.natures"
 		id="org.wso2.developerstudio.eclipse.artifact.businessruleservice.project.nature" name="Rule Service Project Nature">
 		<runtime>
