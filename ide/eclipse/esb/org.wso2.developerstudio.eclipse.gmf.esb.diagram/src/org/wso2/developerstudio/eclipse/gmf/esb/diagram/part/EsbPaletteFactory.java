@@ -10,6 +10,7 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gef.EditPartViewer;
 import org.eclipse.gef.Tool;
 import org.eclipse.gef.commands.Command;
@@ -29,6 +30,7 @@ import org.eclipse.gef.tools.MarqueeSelectionTool;
 import org.eclipse.gef.tools.SimpleDragTracker;
 import org.eclipse.gef.tools.TargetingTool;
 import org.eclipse.gef.ui.palette.PaletteContextMenuProvider;
+import org.eclipse.gef.ui.palette.PaletteViewer;
 import org.eclipse.gmf.runtime.diagram.ui.internal.services.palette.PaletteToolEntry;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditDomain;
 import org.eclipse.gmf.runtime.diagram.ui.tools.ConnectionCreationTool;
@@ -40,6 +42,8 @@ import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IFileEditorInput;
 import org.wso2.developerstudio.eclipse.gmf.esb.AddressEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
+import org.wso2.developerstudio.eclipse.gmf.esb.EsbServer;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpointInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorInputConnectorEditPart;
@@ -1091,6 +1095,66 @@ public class EsbPaletteFactory {
 		return definedArtifacts;
 	}
 
+/**
+ * Update tool palette items according to diagram type 
+ * @param diagramEditor
+ */
+public void updateToolPaletteItems(EsbDiagramEditor diagramEditor){
+		
+		EObject element = diagramEditor.getDiagramEditPart().getDiagramView().getElement();
+		if (element instanceof EsbDiagram /* this check is not required */) {
+			EsbServer server = ((EsbDiagram) element).getServer();
+			PaletteViewer paletteViewer = ((DiagramEditDomain) diagramEditor.getDiagramEditDomain()).getPaletteViewer();
+			PaletteContainer paletteContainer = paletteViewer.getPaletteRoot();
+			PaletteContainer nodePalette = (PaletteContainer) paletteContainer.getChildren().get(1);
+			PaletteContainer mediatorPalette = (PaletteContainer) paletteContainer.getChildren().get(2);
+			PaletteContainer endpoitPalette = (PaletteContainer) paletteContainer.getChildren().get(3);
+			PaletteContainer linksPalette = (PaletteContainer) paletteContainer.getChildren().get(4);
+			PaletteContainer seqPalette = (PaletteContainer) paletteContainer.getChildren().get(5);
+			PaletteContainer defineEpPalette = (PaletteContainer) paletteContainer.getChildren().get(6);
+			ToolEntry proxyServiceTool = (ToolEntry) (nodePalette.getChildren().get(0));
+			if (server != null) {
+				switch (server.getType()) {
+				case PROXY:
+				case SEQUENCE:
+					proxyServiceTool.setVisible(false);
+					mediatorPalette.setVisible(true);
+					nodePalette.setVisible(true);
+					endpoitPalette.setVisible(true);
+					defineEpPalette.setVisible(true);
+					linksPalette.setVisible(true);
+					break;
+				case ENDPOINT:
+					mediatorPalette.setVisible(false);
+					nodePalette.setVisible(false);
+					seqPalette.setVisible(false);
+					endpoitPalette.setVisible(true);
+					defineEpPalette.setVisible(true);
+					linksPalette.setVisible(true);
+					break;
+				case LOCAL_ENTRY:
+				case TASK:
+					mediatorPalette.setVisible(false);
+					nodePalette.setVisible(false);
+					seqPalette.setVisible(false);
+					endpoitPalette.setVisible(false);
+					defineEpPalette.setVisible(false);
+					linksPalette.setVisible(false);
+					break;
+				case SYNAPSE_CONFIG:
+				default:
+					proxyServiceTool.setVisible(true);
+					mediatorPalette.setVisible(true);
+					nodePalette.setVisible(true);
+					endpoitPalette.setVisible(true);
+					defineEpPalette.setVisible(true);
+					linksPalette.setVisible(true);
+					break;
+				}
+			}
+		}
+	}
+	
 	private PaletteContainer createSequenceGroup() {
 		PaletteDrawer paletteContainer = new PaletteDrawer("Sequences");
 		paletteContainer.setId("Sequences"); //$NON-NLS-1$

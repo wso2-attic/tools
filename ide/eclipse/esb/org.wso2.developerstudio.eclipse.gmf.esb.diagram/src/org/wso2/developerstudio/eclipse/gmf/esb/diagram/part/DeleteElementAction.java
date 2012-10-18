@@ -3,6 +3,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.part;
 import java.util.Iterator;
 import java.util.List;
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
@@ -14,10 +15,17 @@ import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramUIMessages;
 import org.eclipse.gmf.runtime.emf.commands.core.command.CompositeTransactionalCommand;
+import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.ui.ISharedImages;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PlatformUI;
+import org.wso2.developerstudio.eclipse.gmf.esb.ArtifactType;
+import org.wso2.developerstudio.eclipse.gmf.esb.EsbServer;
+import org.wso2.developerstudio.eclipse.gmf.esb.LocalEntry;
+import org.wso2.developerstudio.eclipse.gmf.esb.ProxyService;
+import org.wso2.developerstudio.eclipse.gmf.esb.Sequences;
+import org.wso2.developerstudio.eclipse.gmf.esb.Task;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediator;
@@ -88,6 +96,10 @@ public class DeleteElementAction extends AbstractDeleteFromAction {
 				updateConnectedConnectors(editPart);
 				command.compose(new CommandProxy(curCommand));
 			}
+			if(!canDelete(editPart)){
+				//request.
+				return UnexecutableCommand.INSTANCE;
+			}
 		}
 		if (command.isEmpty() || command.size() != operationSet.size()) {
 			return UnexecutableCommand.INSTANCE;
@@ -112,5 +124,36 @@ public class DeleteElementAction extends AbstractDeleteFromAction {
 								.getTargetConnections().get(0)).getSource());
 			}
 		}
+	}
+	
+	/**
+	 * Determines whether a file can be deleted according to diagram type 
+	 * @param editPart
+	 * @return
+	 */
+	private boolean canDelete(EditPart editPart){
+		Object model = editPart.getModel();
+		if(model instanceof Node){
+			Node  node = (Node) model;
+			EObject element = node.getElement();
+			EObject eContainer = element.eContainer();
+			if(eContainer instanceof EsbServer){
+				EsbServer server =  (EsbServer) eContainer;
+				server.getType();
+				if(server.getType()!=ArtifactType.SYNAPSE_CONFIG){
+					if(element instanceof ProxyService){
+						return false;
+					} else if (element instanceof Sequences){
+						return false;
+					} else if (element instanceof Task){
+						return false;
+					} else if (element instanceof LocalEntry){
+						return false;
+					}
+				}
+			}
+		}
+		
+		return true;
 	}
 }

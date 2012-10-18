@@ -173,6 +173,7 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
         EsbPaletteFactory esbPaletteFactory=new EsbPaletteFactory();
         esbPaletteFactory.addDefinedSequences(getEditor(0));
         esbPaletteFactory.addDefinedEndpoints(getEditor(0));
+        esbPaletteFactory.updateToolPaletteItems(graphicalEditor);
     }
 
     /**
