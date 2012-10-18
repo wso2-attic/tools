@@ -281,7 +281,9 @@ public class DefaultEsbModelExporter implements EsbModelTransformer {
 				break;
 			case TASK:
 				if (child instanceof Task) {
-					configOM = TaskDescriptionSerializer.serializeTaskDescription(null,transformTask((Task)child));
+					String TASK_EXTENSION_NS = "http://ws.apache.org/ns/synapse";
+				    OMNamespace TASK_OM_NAMESPACE = OMAbstractFactory.getOMFactory().createOMNamespace(TASK_EXTENSION_NS, "");
+					configOM = TaskDescriptionSerializer.serializeTaskDescription(TASK_OM_NAMESPACE,transformTask((Task)child));
 				}
 				break;	
 			case SYNAPSE_CONFIG:
