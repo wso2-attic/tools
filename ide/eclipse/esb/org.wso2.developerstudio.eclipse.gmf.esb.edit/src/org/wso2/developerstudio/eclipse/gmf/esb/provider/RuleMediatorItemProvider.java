@@ -76,13 +76,44 @@ public class RuleMediatorItemProvider
 		} else {
 			addRuleSetSourceCodePropertyDescriptor(object);
 		}
+			addRuleSetPropertiesPropertyDescriptor(object);
+			//addStatefulSessionPropertyDescriptor(object);
+			//addRuleSessionPropertiesPropertyDescriptor(object);
+			addFactsConfigurationPropertyDescriptor(object);
+			addResultsConfigurationPropertyDescriptor(object);
+			addSourceValuePropertyDescriptor(object);
+			addSourceXpathPropertyDescriptor(object);
+			addTargetValuePropertyDescriptor(object);
+			addTargetResultXpathPropertyDescriptor(object);
+			addTargetXpathPropertyDescriptor(object);
+			addTargetActionPropertyDescriptor(object);
+	 
+		return itemPropertyDescriptors;
+	}	 
+	
+	
+	/*@Override
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
+		RuleMediator ruleMediator = (RuleMediator) object;
+		if (itemPropertyDescriptors != null) {
+			itemPropertyDescriptors.clear();
+		}
+		super.getPropertyDescriptors(object);
+
+		addRuleSetURIPropertyDescriptor(object);
+		addRuleSetSourceTypePropertyDescriptor(object);
+		if (ruleMediator.getRuleSetSourceType() == RuleSourceType.REGISTRY_REFERENCE) {
+			addRuleSetSourceKeyPropertyDescriptor(object);
+		} else {
+			addRuleSetSourceCodePropertyDescriptor(object);
+		}
 		addRuleSetPropertiesPropertyDescriptor(object);
 		addStatefulSessionPropertyDescriptor(object);
 		addRuleSessionPropertiesPropertyDescriptor(object);
 		addFactsConfigurationPropertyDescriptor(object);
 		addResultsConfigurationPropertyDescriptor(object);
 		return itemPropertyDescriptors;
-	}
+	}*/
 
 	/**
 	 * This adds a property descriptor for the Rule Set URI feature.
@@ -256,7 +287,7 @@ public class RuleMediatorItemProvider
 				 false,
 				 false,
 				 null,
-				 getString("_UI_FactsPropertyCategory"),
+				 getString("_UI_InputFactsPropertyCategory"),
 				 null));
 	}
 
@@ -278,7 +309,139 @@ public class RuleMediatorItemProvider
 				 false,
 				 false,
 				 null,
-				 getString("_UI_ResultsPropertyCategory"),
+				 getString("_UI_OutFactsPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Source Value feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSourceValuePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RuleMediator_sourceValue_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RuleMediator_sourceValue_feature", "_UI_RuleMediator_type"),
+				 EsbPackage.Literals.RULE_MEDIATOR__SOURCE_VALUE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI_SourcePropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Source Xpath feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSourceXpathPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RuleMediator_sourceXpath_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RuleMediator_sourceXpath_feature", "_UI_RuleMediator_type"),
+				 EsbPackage.Literals.RULE_MEDIATOR__SOURCE_XPATH,
+				 true,
+				 false,
+				 true,
+				 null,
+				 getString("_UI_SourcePropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Target Value feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTargetValuePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RuleMediator_targetValue_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RuleMediator_targetValue_feature", "_UI_RuleMediator_type"),
+				 EsbPackage.Literals.RULE_MEDIATOR__TARGET_VALUE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI_TargetPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Target Result Xpath feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTargetResultXpathPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RuleMediator_targetResultXpath_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RuleMediator_targetResultXpath_feature", "_UI_RuleMediator_type"),
+				 EsbPackage.Literals.RULE_MEDIATOR__TARGET_RESULT_XPATH,
+				 true,
+				 false,
+				 true,
+				 null,
+				 getString("_UI_TargetPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Target Xpath feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTargetXpathPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RuleMediator_targetXpath_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RuleMediator_targetXpath_feature", "_UI_RuleMediator_type"),
+				 EsbPackage.Literals.RULE_MEDIATOR__TARGET_XPATH,
+				 true,
+				 false,
+				 true,
+				 null,
+				 getString("_UI_TargetPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Target Action feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTargetActionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RuleMediator_targetAction_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RuleMediator_targetAction_feature", "_UI_RuleMediator_type"),
+				 EsbPackage.Literals.RULE_MEDIATOR__TARGET_ACTION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI_TargetPropertyCategory"),
 				 null));
 	}
 
@@ -365,6 +528,9 @@ public class RuleMediatorItemProvider
 			case EsbPackage.RULE_MEDIATOR__RULE_SET_SOURCE_TYPE:
 			case EsbPackage.RULE_MEDIATOR__RULE_SET_SOURCE_CODE:
 			case EsbPackage.RULE_MEDIATOR__STATEFUL_SESSION:
+			case EsbPackage.RULE_MEDIATOR__SOURCE_VALUE:
+			case EsbPackage.RULE_MEDIATOR__TARGET_VALUE:
+			case EsbPackage.RULE_MEDIATOR__TARGET_ACTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case EsbPackage.RULE_MEDIATOR__RULE_SET_SOURCE_KEY:

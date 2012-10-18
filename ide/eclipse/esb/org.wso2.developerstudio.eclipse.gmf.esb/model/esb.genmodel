@@ -299,6 +299,11 @@
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//SqlParameterDataType/TIME"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//SqlParameterDataType/TIMESTAMP"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//RuleActions">
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//RuleActions/Replace"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//RuleActions/Child"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//RuleActions/Sibling"/>
+    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//RuleSourceType">
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//RuleSourceType/INLINE"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//RuleSourceType/REGISTRY_REFERENCE"/>
@@ -1122,14 +1127,25 @@
       <genFeatures createChild="false" propertyCategory="Rule Session" ecoreFeature="ecore:EAttribute esb.ecore#//RuleMediator/statefulSession"/>
       <genFeatures children="true" createChild="true" propertyCategory="Rule Session"
           propertyDescription="" ecoreFeature="ecore:EReference esb.ecore#//RuleMediator/RuleSessionProperties"/>
-      <genFeatures children="true" createChild="true" propertyCategory="Facts" propertyDescription=""
-          ecoreFeature="ecore:EReference esb.ecore#//RuleMediator/factsConfiguration"/>
-      <genFeatures children="true" createChild="true" propertyCategory="Results" ecoreFeature="ecore:EReference esb.ecore#//RuleMediator/resultsConfiguration"/>
+      <genFeatures children="true" createChild="true" propertyCategory="Input Facts"
+          propertyDescription="" ecoreFeature="ecore:EReference esb.ecore#//RuleMediator/factsConfiguration"/>
+      <genFeatures children="true" createChild="true" propertyCategory="Out Facts"
+          propertyDescription="" ecoreFeature="ecore:EReference esb.ecore#//RuleMediator/resultsConfiguration"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//RuleMediator/childMediatorsConfiguration"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//RuleMediator/inputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//RuleMediator/outputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//RuleMediator/childMediatorsOutputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//RuleMediator/mediatorFlow"/>
+      <genFeatures createChild="false" propertyCategory="Source" ecoreFeature="ecore:EAttribute esb.ecore#//RuleMediator/sourceValue"/>
+      <genFeatures notify="false" createChild="false" propertyCategory="Source" propertySortChoices="true"
+          ecoreFeature="ecore:EReference esb.ecore#//RuleMediator/sourceXpath"/>
+      <genFeatures createChild="false" propertyCategory="Target" propertyDescription=""
+          ecoreFeature="ecore:EAttribute esb.ecore#//RuleMediator/targetValue"/>
+      <genFeatures notify="false" createChild="false" propertyCategory="Target" propertySortChoices="true"
+          ecoreFeature="ecore:EReference esb.ecore#//RuleMediator/targetResultXpath"/>
+      <genFeatures notify="false" createChild="false" propertyCategory="Target" propertySortChoices="true"
+          ecoreFeature="ecore:EReference esb.ecore#//RuleMediator/targetXpath"/>
+      <genFeatures createChild="false" propertyCategory="Target" ecoreFeature="ecore:EAttribute esb.ecore#//RuleMediator/targetAction"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//RuleMediatorInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//RuleMediatorOutputConnector"/>

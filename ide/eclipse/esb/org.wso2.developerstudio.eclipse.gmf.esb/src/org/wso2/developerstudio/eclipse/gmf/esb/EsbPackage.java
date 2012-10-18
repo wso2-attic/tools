@@ -9659,13 +9659,67 @@ public interface EsbPackage extends EPackage {
 	int RULE_MEDIATOR__MEDIATOR_FLOW = MEDIATOR_FEATURE_COUNT + 13;
 
 	/**
+	 * The feature id for the '<em><b>Source Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RULE_MEDIATOR__SOURCE_VALUE = MEDIATOR_FEATURE_COUNT + 14;
+
+	/**
+	 * The feature id for the '<em><b>Source Xpath</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RULE_MEDIATOR__SOURCE_XPATH = MEDIATOR_FEATURE_COUNT + 15;
+
+	/**
+	 * The feature id for the '<em><b>Target Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RULE_MEDIATOR__TARGET_VALUE = MEDIATOR_FEATURE_COUNT + 16;
+
+	/**
+	 * The feature id for the '<em><b>Target Result Xpath</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RULE_MEDIATOR__TARGET_RESULT_XPATH = MEDIATOR_FEATURE_COUNT + 17;
+
+	/**
+	 * The feature id for the '<em><b>Target Xpath</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RULE_MEDIATOR__TARGET_XPATH = MEDIATOR_FEATURE_COUNT + 18;
+
+	/**
+	 * The feature id for the '<em><b>Target Action</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RULE_MEDIATOR__TARGET_ACTION = MEDIATOR_FEATURE_COUNT + 19;
+
+	/**
 	 * The number of structural features of the '<em>Rule Mediator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RULE_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 14;
+	int RULE_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 20;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RuleMediatorInputConnectorImpl <em>Rule Mediator Input Connector</em>}' class.
@@ -13589,6 +13643,16 @@ public interface EsbPackage extends EPackage {
 	int SQL_PARAMETER_DATA_TYPE = 313;
 
 	/**
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleActions <em>Rule Actions</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RuleActions
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRuleActions()
+	 * @generated
+	 */
+	int RULE_ACTIONS = 314;
+
+	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleSourceType <em>Rule Source Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -13596,7 +13660,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRuleSourceType()
 	 * @generated
 	 */
-	int RULE_SOURCE_TYPE = 314;
+	int RULE_SOURCE_TYPE = 315;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleFactType <em>Rule Fact Type</em>}' enum.
@@ -13606,7 +13670,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRuleFactType()
 	 * @generated
 	 */
-	int RULE_FACT_TYPE = 315;
+	int RULE_FACT_TYPE = 316;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleFactValueType <em>Rule Fact Value Type</em>}' enum.
@@ -13616,7 +13680,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRuleFactValueType()
 	 * @generated
 	 */
-	int RULE_FACT_VALUE_TYPE = 316;
+	int RULE_FACT_VALUE_TYPE = 317;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleResultType <em>Rule Result Type</em>}' enum.
@@ -13626,7 +13690,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRuleResultType()
 	 * @generated
 	 */
-	int RULE_RESULT_TYPE = 317;
+	int RULE_RESULT_TYPE = 318;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleResultValueType <em>Rule Result Value Type</em>}' enum.
@@ -13636,7 +13700,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRuleResultValueType()
 	 * @generated
 	 */
-	int RULE_RESULT_VALUE_TYPE = 318;
+	int RULE_RESULT_VALUE_TYPE = 319;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleOptionType <em>Rule Option Type</em>}' enum.
@@ -13646,7 +13710,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRuleOptionType()
 	 * @generated
 	 */
-	int RULE_OPTION_TYPE = 319;
+	int RULE_OPTION_TYPE = 320;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.SmooksIODataType <em>Smooks IO Data Type</em>}' enum.
@@ -13656,7 +13720,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getSmooksIODataType()
 	 * @generated
 	 */
-	int SMOOKS_IO_DATA_TYPE = 320;
+	int SMOOKS_IO_DATA_TYPE = 321;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ExpressionAction <em>Expression Action</em>}' enum.
@@ -13666,7 +13730,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getExpressionAction()
 	 * @generated
 	 */
-	int EXPRESSION_ACTION = 321;
+	int EXPRESSION_ACTION = 322;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.OutputMethod <em>Output Method</em>}' enum.
@@ -13676,7 +13740,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getOutputMethod()
 	 * @generated
 	 */
-	int OUTPUT_METHOD = 322;
+	int OUTPUT_METHOD = 323;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ReceivingSequenceType <em>Receiving Sequence Type</em>}' enum.
@@ -13686,7 +13750,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getReceivingSequenceType()
 	 * @generated
 	 */
-	int RECEIVING_SEQUENCE_TYPE = 323;
+	int RECEIVING_SEQUENCE_TYPE = 324;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.KeyType <em>Key Type</em>}' enum.
@@ -13696,7 +13760,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getKeyType()
 	 * @generated
 	 */
-	int KEY_TYPE = 324;
+	int KEY_TYPE = 325;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryArgumentType <em>Payload Factory Argument Type</em>}' enum.
@@ -13706,7 +13770,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getPayloadFactoryArgumentType()
 	 * @generated
 	 */
-	int PAYLOAD_FACTORY_ARGUMENT_TYPE = 325;
+	int PAYLOAD_FACTORY_ARGUMENT_TYPE = 326;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.Type <em>Type</em>}' enum.
@@ -13716,7 +13780,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getType()
 	 * @generated
 	 */
-	int TYPE = 326;
+	int TYPE = 327;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.LocalEntryValueType <em>Local Entry Value Type</em>}' enum.
@@ -13726,7 +13790,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getLocalEntryValueType()
 	 * @generated
 	 */
-	int LOCAL_ENTRY_VALUE_TYPE = 327;
+	int LOCAL_ENTRY_VALUE_TYPE = 328;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleActionType <em>Rule Action Type</em>}' enum.
@@ -13736,7 +13800,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRuleActionType()
 	 * @generated
 	 */
-	int RULE_ACTION_TYPE = 328;
+	int RULE_ACTION_TYPE = 329;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleFragmentType <em>Rule Fragment Type</em>}' enum.
@@ -13746,7 +13810,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRuleFragmentType()
 	 * @generated
 	 */
-	int RULE_FRAGMENT_TYPE = 329;
+	int RULE_FRAGMENT_TYPE = 330;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.TemplateType <em>Template Type</em>}' enum.
@@ -13756,7 +13820,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getTemplateType()
 	 * @generated
 	 */
-	int TEMPLATE_TYPE = 330;
+	int TEMPLATE_TYPE = 331;
 
 	/**
 	 * The meta object id for the '<em>Map</em>' data type.
@@ -13766,7 +13830,7 @@ public interface EsbPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getMap()
 	 * @generated
 	 */
-	int MAP = 331;
+	int MAP = 332;
 
 
 	/**
@@ -20766,6 +20830,72 @@ public interface EsbPackage extends EPackage {
 	EReference getRuleMediator_MediatorFlow();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getSourceValue <em>Source Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Source Value</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getSourceValue()
+	 * @see #getRuleMediator()
+	 * @generated
+	 */
+	EAttribute getRuleMediator_SourceValue();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getSourceXpath <em>Source Xpath</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Source Xpath</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getSourceXpath()
+	 * @see #getRuleMediator()
+	 * @generated
+	 */
+	EReference getRuleMediator_SourceXpath();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getTargetValue <em>Target Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Target Value</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getTargetValue()
+	 * @see #getRuleMediator()
+	 * @generated
+	 */
+	EAttribute getRuleMediator_TargetValue();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getTargetResultXpath <em>Target Result Xpath</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Target Result Xpath</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getTargetResultXpath()
+	 * @see #getRuleMediator()
+	 * @generated
+	 */
+	EReference getRuleMediator_TargetResultXpath();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getTargetXpath <em>Target Xpath</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Target Xpath</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getTargetXpath()
+	 * @see #getRuleMediator()
+	 * @generated
+	 */
+	EReference getRuleMediator_TargetXpath();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getTargetAction <em>Target Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Target Action</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getTargetAction()
+	 * @see #getRuleMediator()
+	 * @generated
+	 */
+	EAttribute getRuleMediator_TargetAction();
+
+	/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediatorInputConnector <em>Rule Mediator Input Connector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -23156,6 +23286,16 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getSqlParameterDataType();
+
+	/**
+	 * Returns the meta object for enum '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleActions <em>Rule Actions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Rule Actions</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RuleActions
+	 * @generated
+	 */
+	EEnum getRuleActions();
 
 	/**
 	 * Returns the meta object for enum '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleSourceType <em>Rule Source Type</em>}'.
@@ -28989,6 +29129,54 @@ public interface EsbPackage extends EPackage {
 		EReference RULE_MEDIATOR__MEDIATOR_FLOW = eINSTANCE.getRuleMediator_MediatorFlow();
 
 		/**
+		 * The meta object literal for the '<em><b>Source Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RULE_MEDIATOR__SOURCE_VALUE = eINSTANCE.getRuleMediator_SourceValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Source Xpath</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RULE_MEDIATOR__SOURCE_XPATH = eINSTANCE.getRuleMediator_SourceXpath();
+
+		/**
+		 * The meta object literal for the '<em><b>Target Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RULE_MEDIATOR__TARGET_VALUE = eINSTANCE.getRuleMediator_TargetValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Target Result Xpath</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RULE_MEDIATOR__TARGET_RESULT_XPATH = eINSTANCE.getRuleMediator_TargetResultXpath();
+
+		/**
+		 * The meta object literal for the '<em><b>Target Xpath</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RULE_MEDIATOR__TARGET_XPATH = eINSTANCE.getRuleMediator_TargetXpath();
+
+		/**
+		 * The meta object literal for the '<em><b>Target Action</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RULE_MEDIATOR__TARGET_ACTION = eINSTANCE.getRuleMediator_TargetAction();
+
+		/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RuleMediatorInputConnectorImpl <em>Rule Mediator Input Connector</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -31043,6 +31231,16 @@ public interface EsbPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum SQL_PARAMETER_DATA_TYPE = eINSTANCE.getSqlParameterDataType();
+
+		/**
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleActions <em>Rule Actions</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.wso2.developerstudio.eclipse.gmf.esb.RuleActions
+		 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRuleActions()
+		 * @generated
+		 */
+		EEnum RULE_ACTIONS = eINSTANCE.getRuleActions();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleSourceType <em>Rule Source Type</em>}' enum.

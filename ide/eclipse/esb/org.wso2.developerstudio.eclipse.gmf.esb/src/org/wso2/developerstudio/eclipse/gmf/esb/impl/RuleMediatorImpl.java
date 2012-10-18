@@ -20,8 +20,11 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
+import org.wso2.developerstudio.eclipse.gmf.esb.EvaluatorExpressionProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.MediatorFlow;
+import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleActions;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleChildMediatorsConfiguration;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleFactsConfiguration;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator;
@@ -31,7 +34,9 @@ import org.wso2.developerstudio.eclipse.gmf.esb.RuleMediatorOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleResultsConfiguration;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleSessionProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleSetCreationProperty;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleSource;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleSourceType;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleTarget;
 
 /**
  * <!-- begin-user-doc -->
@@ -54,6 +59,12 @@ import org.wso2.developerstudio.eclipse.gmf.esb.RuleSourceType;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RuleMediatorImpl#getOutputConnector <em>Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RuleMediatorImpl#getChildMediatorsOutputConnector <em>Child Mediators Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RuleMediatorImpl#getMediatorFlow <em>Mediator Flow</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RuleMediatorImpl#getSourceValue <em>Source Value</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RuleMediatorImpl#getSourceXpath <em>Source Xpath</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RuleMediatorImpl#getTargetValue <em>Target Value</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RuleMediatorImpl#getTargetResultXpath <em>Target Result Xpath</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RuleMediatorImpl#getTargetXpath <em>Target Xpath</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RuleMediatorImpl#getTargetAction <em>Target Action</em>}</li>
  * </ul>
  * </p>
  *
@@ -241,6 +252,96 @@ public class RuleMediatorImpl extends MediatorImpl implements RuleMediator {
 	protected MediatorFlow mediatorFlow;
 
 	/**
+	 * The default value of the '{@link #getSourceValue() <em>Source Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSourceValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String SOURCE_VALUE_EDEFAULT = "";
+
+	/**
+	 * The cached value of the '{@link #getSourceValue() <em>Source Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSourceValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected String sourceValue = SOURCE_VALUE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getSourceXpath() <em>Source Xpath</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSourceXpath()
+	 * @generated
+	 * @ordered
+	 */
+	protected NamespacedProperty sourceXpath;
+
+	/**
+	 * The default value of the '{@link #getTargetValue() <em>Target Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTargetValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String TARGET_VALUE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getTargetValue() <em>Target Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTargetValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected String targetValue = TARGET_VALUE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getTargetResultXpath() <em>Target Result Xpath</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTargetResultXpath()
+	 * @generated
+	 * @ordered
+	 */
+	protected NamespacedProperty targetResultXpath;
+
+	/**
+	 * The cached value of the '{@link #getTargetXpath() <em>Target Xpath</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTargetXpath()
+	 * @generated
+	 * @ordered
+	 */
+	protected NamespacedProperty targetXpath;
+
+	/**
+	 * The default value of the '{@link #getTargetAction() <em>Target Action</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTargetAction()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final RuleActions TARGET_ACTION_EDEFAULT = RuleActions.REPLACE;
+
+	/**
+	 * The cached value of the '{@link #getTargetAction() <em>Target Action</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTargetAction()
+	 * @generated
+	 * @ordered
+	 */
+	protected RuleActions targetAction = TARGET_ACTION_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
@@ -252,6 +353,17 @@ public class RuleMediatorImpl extends MediatorImpl implements RuleMediator {
 		ruleSetSourceKey.setPrettyName("ruleSet-SourceKey");
 		ruleSetSourceKey.setKeyValue("/default/key");
 		setRuleSetSourceKey(ruleSetSourceKey);
+		
+		NamespacedProperty evaluatorExpressionProperty = EsbFactory.eINSTANCE.createNamespacedProperty();
+		evaluatorExpressionProperty.setPrettyName("source Xpath");
+		setSourceXpath(evaluatorExpressionProperty);
+		evaluatorExpressionProperty = EsbFactory.eINSTANCE.createNamespacedProperty();
+		evaluatorExpressionProperty.setPrettyName("target Result Xpath");
+		setTargetResultXpath(evaluatorExpressionProperty);
+		evaluatorExpressionProperty = EsbFactory.eINSTANCE.createNamespacedProperty();
+		evaluatorExpressionProperty.setPrettyName("target Xpath");
+		setTargetXpath(evaluatorExpressionProperty);
+ 
 	}
 
 	/**
@@ -722,6 +834,198 @@ public class RuleMediatorImpl extends MediatorImpl implements RuleMediator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getSourceValue() {
+		return sourceValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSourceValue(String newSourceValue) {
+		String oldSourceValue = sourceValue;
+		sourceValue = newSourceValue;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.RULE_MEDIATOR__SOURCE_VALUE, oldSourceValue, sourceValue));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NamespacedProperty getSourceXpath() {
+		return sourceXpath;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSourceXpath(NamespacedProperty newSourceXpath, NotificationChain msgs) {
+		NamespacedProperty oldSourceXpath = sourceXpath;
+		sourceXpath = newSourceXpath;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.RULE_MEDIATOR__SOURCE_XPATH, oldSourceXpath, newSourceXpath);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSourceXpath(NamespacedProperty newSourceXpath) {
+		if (newSourceXpath != sourceXpath) {
+			NotificationChain msgs = null;
+			if (sourceXpath != null)
+				msgs = ((InternalEObject)sourceXpath).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.RULE_MEDIATOR__SOURCE_XPATH, null, msgs);
+			if (newSourceXpath != null)
+				msgs = ((InternalEObject)newSourceXpath).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.RULE_MEDIATOR__SOURCE_XPATH, null, msgs);
+			msgs = basicSetSourceXpath(newSourceXpath, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.RULE_MEDIATOR__SOURCE_XPATH, newSourceXpath, newSourceXpath));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getTargetValue() {
+		return targetValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTargetValue(String newTargetValue) {
+		String oldTargetValue = targetValue;
+		targetValue = newTargetValue;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.RULE_MEDIATOR__TARGET_VALUE, oldTargetValue, targetValue));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NamespacedProperty getTargetResultXpath() {
+		return targetResultXpath;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetTargetResultXpath(NamespacedProperty newTargetResultXpath, NotificationChain msgs) {
+		NamespacedProperty oldTargetResultXpath = targetResultXpath;
+		targetResultXpath = newTargetResultXpath;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.RULE_MEDIATOR__TARGET_RESULT_XPATH, oldTargetResultXpath, newTargetResultXpath);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTargetResultXpath(NamespacedProperty newTargetResultXpath) {
+		if (newTargetResultXpath != targetResultXpath) {
+			NotificationChain msgs = null;
+			if (targetResultXpath != null)
+				msgs = ((InternalEObject)targetResultXpath).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.RULE_MEDIATOR__TARGET_RESULT_XPATH, null, msgs);
+			if (newTargetResultXpath != null)
+				msgs = ((InternalEObject)newTargetResultXpath).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.RULE_MEDIATOR__TARGET_RESULT_XPATH, null, msgs);
+			msgs = basicSetTargetResultXpath(newTargetResultXpath, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.RULE_MEDIATOR__TARGET_RESULT_XPATH, newTargetResultXpath, newTargetResultXpath));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NamespacedProperty getTargetXpath() {
+		return targetXpath;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetTargetXpath(NamespacedProperty newTargetXpath, NotificationChain msgs) {
+		NamespacedProperty oldTargetXpath = targetXpath;
+		targetXpath = newTargetXpath;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.RULE_MEDIATOR__TARGET_XPATH, oldTargetXpath, newTargetXpath);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTargetXpath(NamespacedProperty newTargetXpath) {
+		if (newTargetXpath != targetXpath) {
+			NotificationChain msgs = null;
+			if (targetXpath != null)
+				msgs = ((InternalEObject)targetXpath).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.RULE_MEDIATOR__TARGET_XPATH, null, msgs);
+			if (newTargetXpath != null)
+				msgs = ((InternalEObject)newTargetXpath).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.RULE_MEDIATOR__TARGET_XPATH, null, msgs);
+			msgs = basicSetTargetXpath(newTargetXpath, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.RULE_MEDIATOR__TARGET_XPATH, newTargetXpath, newTargetXpath));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RuleActions getTargetAction() {
+		return targetAction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTargetAction(RuleActions newTargetAction) {
+		RuleActions oldTargetAction = targetAction;
+		targetAction = newTargetAction == null ? TARGET_ACTION_EDEFAULT : newTargetAction;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.RULE_MEDIATOR__TARGET_ACTION, oldTargetAction, targetAction));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -746,6 +1050,12 @@ public class RuleMediatorImpl extends MediatorImpl implements RuleMediator {
 				return basicSetChildMediatorsOutputConnector(null, msgs);
 			case EsbPackage.RULE_MEDIATOR__MEDIATOR_FLOW:
 				return basicSetMediatorFlow(null, msgs);
+			case EsbPackage.RULE_MEDIATOR__SOURCE_XPATH:
+				return basicSetSourceXpath(null, msgs);
+			case EsbPackage.RULE_MEDIATOR__TARGET_RESULT_XPATH:
+				return basicSetTargetResultXpath(null, msgs);
+			case EsbPackage.RULE_MEDIATOR__TARGET_XPATH:
+				return basicSetTargetXpath(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -787,6 +1097,18 @@ public class RuleMediatorImpl extends MediatorImpl implements RuleMediator {
 				return getChildMediatorsOutputConnector();
 			case EsbPackage.RULE_MEDIATOR__MEDIATOR_FLOW:
 				return getMediatorFlow();
+			case EsbPackage.RULE_MEDIATOR__SOURCE_VALUE:
+				return getSourceValue();
+			case EsbPackage.RULE_MEDIATOR__SOURCE_XPATH:
+				return getSourceXpath();
+			case EsbPackage.RULE_MEDIATOR__TARGET_VALUE:
+				return getTargetValue();
+			case EsbPackage.RULE_MEDIATOR__TARGET_RESULT_XPATH:
+				return getTargetResultXpath();
+			case EsbPackage.RULE_MEDIATOR__TARGET_XPATH:
+				return getTargetXpath();
+			case EsbPackage.RULE_MEDIATOR__TARGET_ACTION:
+				return getTargetAction();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -845,6 +1167,24 @@ public class RuleMediatorImpl extends MediatorImpl implements RuleMediator {
 			case EsbPackage.RULE_MEDIATOR__MEDIATOR_FLOW:
 				setMediatorFlow((MediatorFlow)newValue);
 				return;
+			case EsbPackage.RULE_MEDIATOR__SOURCE_VALUE:
+				setSourceValue((String)newValue);
+				return;
+			case EsbPackage.RULE_MEDIATOR__SOURCE_XPATH:
+				setSourceXpath((NamespacedProperty)newValue);
+				return;
+			case EsbPackage.RULE_MEDIATOR__TARGET_VALUE:
+				setTargetValue((String)newValue);
+				return;
+			case EsbPackage.RULE_MEDIATOR__TARGET_RESULT_XPATH:
+				setTargetResultXpath((NamespacedProperty)newValue);
+				return;
+			case EsbPackage.RULE_MEDIATOR__TARGET_XPATH:
+				setTargetXpath((NamespacedProperty)newValue);
+				return;
+			case EsbPackage.RULE_MEDIATOR__TARGET_ACTION:
+				setTargetAction((RuleActions)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -900,6 +1240,24 @@ public class RuleMediatorImpl extends MediatorImpl implements RuleMediator {
 			case EsbPackage.RULE_MEDIATOR__MEDIATOR_FLOW:
 				setMediatorFlow((MediatorFlow)null);
 				return;
+			case EsbPackage.RULE_MEDIATOR__SOURCE_VALUE:
+				setSourceValue(SOURCE_VALUE_EDEFAULT);
+				return;
+			case EsbPackage.RULE_MEDIATOR__SOURCE_XPATH:
+				setSourceXpath((NamespacedProperty)null);
+				return;
+			case EsbPackage.RULE_MEDIATOR__TARGET_VALUE:
+				setTargetValue(TARGET_VALUE_EDEFAULT);
+				return;
+			case EsbPackage.RULE_MEDIATOR__TARGET_RESULT_XPATH:
+				setTargetResultXpath((NamespacedProperty)null);
+				return;
+			case EsbPackage.RULE_MEDIATOR__TARGET_XPATH:
+				setTargetXpath((NamespacedProperty)null);
+				return;
+			case EsbPackage.RULE_MEDIATOR__TARGET_ACTION:
+				setTargetAction(TARGET_ACTION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -941,6 +1299,18 @@ public class RuleMediatorImpl extends MediatorImpl implements RuleMediator {
 				return childMediatorsOutputConnector != null;
 			case EsbPackage.RULE_MEDIATOR__MEDIATOR_FLOW:
 				return mediatorFlow != null;
+			case EsbPackage.RULE_MEDIATOR__SOURCE_VALUE:
+				return SOURCE_VALUE_EDEFAULT == null ? sourceValue != null : !SOURCE_VALUE_EDEFAULT.equals(sourceValue);
+			case EsbPackage.RULE_MEDIATOR__SOURCE_XPATH:
+				return sourceXpath != null;
+			case EsbPackage.RULE_MEDIATOR__TARGET_VALUE:
+				return TARGET_VALUE_EDEFAULT == null ? targetValue != null : !TARGET_VALUE_EDEFAULT.equals(targetValue);
+			case EsbPackage.RULE_MEDIATOR__TARGET_RESULT_XPATH:
+				return targetResultXpath != null;
+			case EsbPackage.RULE_MEDIATOR__TARGET_XPATH:
+				return targetXpath != null;
+			case EsbPackage.RULE_MEDIATOR__TARGET_ACTION:
+				return targetAction != TARGET_ACTION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -963,6 +1333,12 @@ public class RuleMediatorImpl extends MediatorImpl implements RuleMediator {
 		result.append(ruleSetSourceCode);
 		result.append(", statefulSession: ");
 		result.append(statefulSession);
+		result.append(", sourceValue: ");
+		result.append(sourceValue);
+		result.append(", targetValue: ");
+		result.append(targetValue);
+		result.append(", targetAction: ");
+		result.append(targetAction);
 		result.append(')');
 		return result.toString();
 	}

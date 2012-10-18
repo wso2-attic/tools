@@ -31,6 +31,12 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getOutputConnector <em>Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getChildMediatorsOutputConnector <em>Child Mediators Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getMediatorFlow <em>Mediator Flow</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getSourceValue <em>Source Value</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getSourceXpath <em>Source Xpath</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getTargetValue <em>Target Value</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getTargetResultXpath <em>Target Result Xpath</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getTargetXpath <em>Target Xpath</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getTargetAction <em>Target Action</em>}</li>
  * </ul>
  * </p>
  *
@@ -389,5 +395,165 @@ public interface RuleMediator extends Mediator {
 	 * @generated
 	 */
 	void setMediatorFlow(MediatorFlow value);
+
+	/**
+	 * Returns the value of the '<em><b>Source Value</b></em>' attribute.
+	 * The default value is <code>""</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Source Value</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Source Value</em>' attribute.
+	 * @see #setSourceValue(String)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getRuleMediator_SourceValue()
+	 * @model default=""
+	 * @generated
+	 */
+	String getSourceValue();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getSourceValue <em>Source Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Source Value</em>' attribute.
+	 * @see #getSourceValue()
+	 * @generated
+	 */
+	void setSourceValue(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Source Xpath</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Source Xpath</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Source Xpath</em>' containment reference.
+	 * @see #setSourceXpath(NamespacedProperty)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getRuleMediator_SourceXpath()
+	 * @model containment="true"
+	 * @generated
+	 */
+	NamespacedProperty getSourceXpath();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getSourceXpath <em>Source Xpath</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Source Xpath</em>' containment reference.
+	 * @see #getSourceXpath()
+	 * @generated
+	 */
+	void setSourceXpath(NamespacedProperty value);
+
+	/**
+	 * Returns the value of the '<em><b>Target Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Target Value</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Target Value</em>' attribute.
+	 * @see #setTargetValue(String)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getRuleMediator_TargetValue()
+	 * @model
+	 * @generated
+	 */
+	String getTargetValue();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getTargetValue <em>Target Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Target Value</em>' attribute.
+	 * @see #getTargetValue()
+	 * @generated
+	 */
+	void setTargetValue(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Target Result Xpath</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Target Result Xpath</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Target Result Xpath</em>' containment reference.
+	 * @see #setTargetResultXpath(NamespacedProperty)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getRuleMediator_TargetResultXpath()
+	 * @model containment="true"
+	 * @generated
+	 */
+	NamespacedProperty getTargetResultXpath();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getTargetResultXpath <em>Target Result Xpath</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Target Result Xpath</em>' containment reference.
+	 * @see #getTargetResultXpath()
+	 * @generated
+	 */
+	void setTargetResultXpath(NamespacedProperty value);
+
+	/**
+	 * Returns the value of the '<em><b>Target Xpath</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Target Xpath</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Target Xpath</em>' containment reference.
+	 * @see #setTargetXpath(NamespacedProperty)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getRuleMediator_TargetXpath()
+	 * @model containment="true"
+	 * @generated
+	 */
+	NamespacedProperty getTargetXpath();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getTargetXpath <em>Target Xpath</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Target Xpath</em>' containment reference.
+	 * @see #getTargetXpath()
+	 * @generated
+	 */
+	void setTargetXpath(NamespacedProperty value);
+
+	/**
+	 * Returns the value of the '<em><b>Target Action</b></em>' attribute.
+	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.gmf.esb.RuleActions}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Target Action</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Target Action</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RuleActions
+	 * @see #setTargetAction(RuleActions)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getRuleMediator_TargetAction()
+	 * @model
+	 * @generated
+	 */
+	RuleActions getTargetAction();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getTargetAction <em>Target Action</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Target Action</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RuleActions
+	 * @see #getTargetAction()
+	 * @generated
+	 */
+	void setTargetAction(RuleActions value);
 
 } // RuleMediator

@@ -16,6 +16,7 @@
 
 package org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.axiom.om.OMElement;
@@ -23,11 +24,15 @@ import org.apache.axiom.om.util.AXIOMUtil;
 import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.eclipse.core.runtime.Assert;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleResult;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleResultsConfiguration;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
 
+import org.wso2.carbon.rule.common.Fact;
 import org.wso2.carbon.rule.common.Input;
 import org.wso2.carbon.rule.common.Output;
 import org.wso2.carbon.rule.common.RuleSet;
@@ -65,7 +70,11 @@ public class RuleMediatorTransformer extends AbstractEsbNodeTransformer {
 		Assert.isTrue(subject instanceof RuleMediator,
 				"Unsupported mediator passed in for serialization.");
 		RuleMediator visualRule = (RuleMediator) subject;
-		org.wso2.carbon.rule.mediator.RuleMediator ruleMediator = new org.wso2.carbon.rule.mediator.RuleMediator(null, null, null, null, null, null);
+        Output output = new Output();
+      
+        RuleResultsConfiguration resultsConfiguration = visualRule.getResultsConfiguration();
+        EList<RuleResult> results = resultsConfiguration.getResults();
+      	org.wso2.carbon.rule.mediator.RuleMediator ruleMediator = new org.wso2.carbon.rule.mediator.RuleMediator(null, null, null, null, null, null);
 		OMElement payload = AXIOMUtil.stringToOM("<brs:rule xmlns:brs=\""+"http://wso2.org/carbon/rules\""+"></brs:rule>");
 		ruleMediator.setRuleOMElement(payload);
 		return ruleMediator;

@@ -243,6 +243,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.RouterRoute;
 import org.wso2.developerstudio.eclipse.gmf.esb.RouterTarget;
 import org.wso2.developerstudio.eclipse.gmf.esb.RouterTargetContainer;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleActionType;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleActions;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleChildMediatorsConfiguration;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleFact;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleFactType;
@@ -260,7 +261,9 @@ import org.wso2.developerstudio.eclipse.gmf.esb.RuleResultValueType;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleResultsConfiguration;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleSessionProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleSetCreationProperty;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleSource;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleSourceType;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleTarget;
 import org.wso2.developerstudio.eclipse.gmf.esb.ScriptLanguage;
 import org.wso2.developerstudio.eclipse.gmf.esb.ScriptMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.ScriptMediatorInputConnector;
@@ -2572,6 +2575,13 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	private EEnum sqlParameterDataTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum ruleActionsEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -8651,6 +8661,60 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getRuleMediator_SourceValue() {
+		return (EAttribute)ruleMediatorEClass.getEStructuralFeatures().get(14);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRuleMediator_SourceXpath() {
+		return (EReference)ruleMediatorEClass.getEStructuralFeatures().get(15);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getRuleMediator_TargetValue() {
+		return (EAttribute)ruleMediatorEClass.getEStructuralFeatures().get(16);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRuleMediator_TargetResultXpath() {
+		return (EReference)ruleMediatorEClass.getEStructuralFeatures().get(17);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRuleMediator_TargetXpath() {
+		return (EReference)ruleMediatorEClass.getEStructuralFeatures().get(18);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getRuleMediator_TargetAction() {
+		return (EAttribute)ruleMediatorEClass.getEStructuralFeatures().get(19);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getRuleMediatorInputConnector() {
 		return ruleMediatorInputConnectorEClass;
 	}
@@ -10703,6 +10767,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getRuleActions() {
+		return ruleActionsEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getRuleSourceType() {
 		return ruleSourceTypeEEnum;
 	}
@@ -11696,6 +11769,12 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEReference(ruleMediatorEClass, RULE_MEDIATOR__OUTPUT_CONNECTOR);
 		createEReference(ruleMediatorEClass, RULE_MEDIATOR__CHILD_MEDIATORS_OUTPUT_CONNECTOR);
 		createEReference(ruleMediatorEClass, RULE_MEDIATOR__MEDIATOR_FLOW);
+		createEAttribute(ruleMediatorEClass, RULE_MEDIATOR__SOURCE_VALUE);
+		createEReference(ruleMediatorEClass, RULE_MEDIATOR__SOURCE_XPATH);
+		createEAttribute(ruleMediatorEClass, RULE_MEDIATOR__TARGET_VALUE);
+		createEReference(ruleMediatorEClass, RULE_MEDIATOR__TARGET_RESULT_XPATH);
+		createEReference(ruleMediatorEClass, RULE_MEDIATOR__TARGET_XPATH);
+		createEAttribute(ruleMediatorEClass, RULE_MEDIATOR__TARGET_ACTION);
 
 		ruleMediatorInputConnectorEClass = createEClass(RULE_MEDIATOR_INPUT_CONNECTOR);
 
@@ -12031,6 +12110,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		sqlExecutorIsolationLevelEEnum = createEEnum(SQL_EXECUTOR_ISOLATION_LEVEL);
 		sqlParameterValueTypeEEnum = createEEnum(SQL_PARAMETER_VALUE_TYPE);
 		sqlParameterDataTypeEEnum = createEEnum(SQL_PARAMETER_DATA_TYPE);
+		ruleActionsEEnum = createEEnum(RULE_ACTIONS);
 		ruleSourceTypeEEnum = createEEnum(RULE_SOURCE_TYPE);
 		ruleFactTypeEEnum = createEEnum(RULE_FACT_TYPE);
 		ruleFactValueTypeEEnum = createEEnum(RULE_FACT_VALUE_TYPE);
@@ -13145,6 +13225,12 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEReference(getRuleMediator_OutputConnector(), this.getRuleMediatorOutputConnector(), null, "outputConnector", null, 0, 1, RuleMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRuleMediator_ChildMediatorsOutputConnector(), this.getRuleMediatorChildMediatorsOutputConnector(), null, "childMediatorsOutputConnector", null, 0, 1, RuleMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRuleMediator_MediatorFlow(), this.getMediatorFlow(), null, "mediatorFlow", null, 0, 1, RuleMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRuleMediator_SourceValue(), ecorePackage.getEString(), "sourceValue", "", 0, 1, RuleMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRuleMediator_SourceXpath(), this.getNamespacedProperty(), null, "sourceXpath", null, 0, 1, RuleMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRuleMediator_TargetValue(), ecorePackage.getEString(), "targetValue", null, 0, 1, RuleMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRuleMediator_TargetResultXpath(), this.getNamespacedProperty(), null, "targetResultXpath", null, 0, 1, RuleMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRuleMediator_TargetXpath(), this.getNamespacedProperty(), null, "targetXpath", null, 0, 1, RuleMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRuleMediator_TargetAction(), this.getRuleActions(), "targetAction", null, 0, 1, RuleMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(ruleMediatorInputConnectorEClass, RuleMediatorInputConnector.class, "RuleMediatorInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -13717,6 +13803,11 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		addEEnumLiteral(sqlParameterDataTypeEEnum, SqlParameterDataType.DATE);
 		addEEnumLiteral(sqlParameterDataTypeEEnum, SqlParameterDataType.TIME);
 		addEEnumLiteral(sqlParameterDataTypeEEnum, SqlParameterDataType.TIMESTAMP);
+
+		initEEnum(ruleActionsEEnum, RuleActions.class, "RuleActions");
+		addEEnumLiteral(ruleActionsEEnum, RuleActions.REPLACE);
+		addEEnumLiteral(ruleActionsEEnum, RuleActions.CHILD);
+		addEEnumLiteral(ruleActionsEEnum, RuleActions.SIBLING);
 
 		initEEnum(ruleSourceTypeEEnum, RuleSourceType.class, "RuleSourceType");
 		addEEnumLiteral(ruleSourceTypeEEnum, RuleSourceType.INLINE);

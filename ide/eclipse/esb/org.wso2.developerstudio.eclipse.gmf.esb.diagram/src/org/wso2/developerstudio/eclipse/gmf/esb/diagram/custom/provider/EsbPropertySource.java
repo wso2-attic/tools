@@ -204,6 +204,12 @@ public class EsbPropertySource extends PropertySource {
 			
 			return new MessageBuilderPropertyDescriptor(object, itemPropertyDescriptor);
 			
+		}else if(pkg.getRuleMediator_SourceXpath().equals(feature)){
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
+		}else if(pkg.getRuleMediator_TargetResultXpath().equals(feature)){
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
+		}else if(pkg.getRuleMediator_TargetResultXpath().equals(feature)){
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
 		}
 			
 		// Else, default EMF behavior
