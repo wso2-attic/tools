@@ -199,27 +199,27 @@ public class EsbCreationWizard extends Wizard implements INewWizard,
 				location = esbProject.getFolder(SEQUENCE_RESOURCE_DIR);
 				op = createDiagram("sequence_", SEQUENCE_RESOURCE_DIR,
 						"sequence");
-				type = "synapse/graphical-sequence";
+				type = "synapse/sequence";
 				break;
 
 			case PROXY:
 				location = esbProject.getFolder(PROXY_RESOURCE_DIR);
 				op = createDiagram("proxy_", PROXY_RESOURCE_DIR, "proxy");
-				type = "synapse/graphical-proxy";
+				type = "synapse/proxy-service";
 				break;
 
 			case ENDPOINT:
 				location = esbProject.getFolder(ENDPOINT_RESOURCE_DIR);
 				op = createDiagram("endpoint_", ENDPOINT_RESOURCE_DIR,
 						"endpoint");
-				type = "synapse/graphical-endpoint";
+				type = "synapse/endpoint";
 				break;
 				
 			case LOCALENTRY:
 				location = esbProject.getFolder(LOCAL_ENTRY_RESOURCE_DIR);
 				op = createDiagram("localentry_", LOCAL_ENTRY_RESOURCE_DIR,
 						"localentry");
-				type = "synapse/graphical-localentry";
+				type = "synapse/local-entry";
 				break;
 
 			default:
@@ -232,14 +232,15 @@ public class EsbCreationWizard extends Wizard implements INewWizard,
 								+ diagramModelFilePage.getFileName()
 								+ DOMAIN_FILE_EXTENSION, false);
 				op = createSynapseDiagram();
-				type = "synapse/graphical-configuration";
+				type = "synapse/configuration";
 				break;
 			}
 
 			String relativePathDiagram = FileUtils.getRelativePath(esbProject
 					.getLocation().toFile(), new File(location.getLocation()
 					.toFile(), diagramModelFilePage.getFileName()
-					+ DIAGRAM_FILE_EXTENSION));
+					+ ".xml"));
+			relativePathDiagram = relativePathDiagram.replaceFirst("/graphical-synapse-config","/synapse-config");
 			esbProjectArtifact.addESBArtifact(createArtifact(
 					diagramModelFilePage.getFileName(),
 					getMavenGroupID(esbProject), "1.0.0", relativePathDiagram,
