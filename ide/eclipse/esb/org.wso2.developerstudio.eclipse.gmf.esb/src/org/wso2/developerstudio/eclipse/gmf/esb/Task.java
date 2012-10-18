@@ -17,12 +17,14 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.Task#getClass_ <em>Class</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.Task#getName <em>Name</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.Task#getTaskName <em>Task Name</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.Task#getTaskGroup <em>Task Group</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.Task#getTaskImplementationClass <em>Task Implementation Class</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.Task#getTriggerType <em>Trigger Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.Task#getCount <em>Count</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.Task#getInterval <em>Interval</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.Task#getCron <em>Cron</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.Task#getPinnedServers <em>Pinned Servers</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.Task#getPropertyString <em>Property String</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.Task#getPropertyXML <em>Property XML</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.Task#getTrigger <em>Trigger</em>}</li>
  * </ul>
  * </p>
  *
@@ -32,56 +34,189 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Task extends EsbElement {
 	/**
-	 * Returns the value of the '<em><b>Class</b></em>' attribute.
+	 * Returns the value of the '<em><b>Task Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Class</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Task Name</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Class</em>' attribute.
-	 * @see #setClass(String)
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getTask_Class()
+	 * @return the value of the '<em>Task Name</em>' attribute.
+	 * @see #setTaskName(String)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getTask_TaskName()
 	 * @model
 	 * @generated
 	 */
-	String getClass_();
+	String getTaskName();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.Task#getClass_ <em>Class</em>}' attribute.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.Task#getTaskName <em>Task Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Class</em>' attribute.
-	 * @see #getClass_()
+	 * @param value the new value of the '<em>Task Name</em>' attribute.
+	 * @see #getTaskName()
 	 * @generated
 	 */
-	void setClass(String value);
+	void setTaskName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * Returns the value of the '<em><b>Task Group</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Task Group</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getTask_Name()
+	 * @return the value of the '<em>Task Group</em>' attribute.
+	 * @see #setTaskGroup(String)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getTask_TaskGroup()
 	 * @model
 	 * @generated
 	 */
-	String getName();
+	String getTaskGroup();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.Task#getName <em>Name</em>}' attribute.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.Task#getTaskGroup <em>Task Group</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
+	 * @param value the new value of the '<em>Task Group</em>' attribute.
+	 * @see #getTaskGroup()
 	 * @generated
 	 */
-	void setName(String value);
+	void setTaskGroup(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Task Implementation Class</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Task Implementation Class</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Task Implementation Class</em>' containment reference.
+	 * @see #setTaskImplementationClass(TaskImplementation)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getTask_TaskImplementationClass()
+	 * @model containment="true"
+	 * @generated
+	 */
+	TaskImplementation getTaskImplementationClass();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.Task#getTaskImplementationClass <em>Task Implementation Class</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Task Implementation Class</em>' containment reference.
+	 * @see #getTaskImplementationClass()
+	 * @generated
+	 */
+	void setTaskImplementationClass(TaskImplementation value);
+
+	/**
+	 * Returns the value of the '<em><b>Trigger Type</b></em>' attribute.
+	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.gmf.esb.TaskTriggerType}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Trigger Type</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Trigger Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.TaskTriggerType
+	 * @see #setTriggerType(TaskTriggerType)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getTask_TriggerType()
+	 * @model
+	 * @generated
+	 */
+	TaskTriggerType getTriggerType();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.Task#getTriggerType <em>Trigger Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Trigger Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.TaskTriggerType
+	 * @see #getTriggerType()
+	 * @generated
+	 */
+	void setTriggerType(TaskTriggerType value);
+
+	/**
+	 * Returns the value of the '<em><b>Count</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Count</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Count</em>' attribute.
+	 * @see #setCount(long)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getTask_Count()
+	 * @model
+	 * @generated
+	 */
+	long getCount();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.Task#getCount <em>Count</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Count</em>' attribute.
+	 * @see #getCount()
+	 * @generated
+	 */
+	void setCount(long value);
+
+	/**
+	 * Returns the value of the '<em><b>Interval</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Interval</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Interval</em>' attribute.
+	 * @see #setInterval(long)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getTask_Interval()
+	 * @model
+	 * @generated
+	 */
+	long getInterval();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.Task#getInterval <em>Interval</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Interval</em>' attribute.
+	 * @see #getInterval()
+	 * @generated
+	 */
+	void setInterval(long value);
+
+	/**
+	 * Returns the value of the '<em><b>Cron</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Cron</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Cron</em>' attribute.
+	 * @see #setCron(String)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getTask_Cron()
+	 * @model
+	 * @generated
+	 */
+	String getCron();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.Task#getCron <em>Cron</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Cron</em>' attribute.
+	 * @see #getCron()
+	 * @generated
+	 */
+	void setCron(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Pinned Servers</b></em>' attribute.
@@ -108,63 +243,5 @@ public interface Task extends EsbElement {
 	 * @generated
 	 */
 	void setPinnedServers(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Property String</b></em>' reference list.
-	 * The list contents are of type {@link org.wso2.developerstudio.eclipse.gmf.esb.propertyTaskString}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Property String</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Property String</em>' reference list.
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getTask_PropertyString()
-	 * @model
-	 * @generated
-	 */
-	EList<propertyTaskString> getPropertyString();
-
-	/**
-	 * Returns the value of the '<em><b>Property XML</b></em>' reference list.
-	 * The list contents are of type {@link org.wso2.developerstudio.eclipse.gmf.esb.propertyTaskXML}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Property XML</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Property XML</em>' reference list.
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getTask_PropertyXML()
-	 * @model
-	 * @generated
-	 */
-	EList<propertyTaskXML> getPropertyXML();
-
-	/**
-	 * Returns the value of the '<em><b>Trigger</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Trigger</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Trigger</em>' reference.
-	 * @see #setTrigger(Trigger)
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getTask_Trigger()
-	 * @model
-	 * @generated
-	 */
-	Trigger getTrigger();
-
-	/**
-	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.Task#getTrigger <em>Trigger</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Trigger</em>' reference.
-	 * @see #getTrigger()
-	 * @generated
-	 */
-	void setTrigger(Trigger value);
 
 } // Task

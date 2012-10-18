@@ -396,6 +396,14 @@
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//TemplateType/SEQUENCE"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//TemplateType/ENDPOINT"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//TaskPropertyType">
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//TaskPropertyType/LITERAL"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//TaskPropertyType/XML"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//TaskTriggerType">
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//TaskTriggerType/Simple"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//TaskTriggerType/Cron"/>
+    </genEnums>
     <genDataTypes ecoreDataType="esb.ecore#//Map">
       <genTypeParameters ecoreTypeParameter="esb.ecore#//Map/K"/>
       <genTypeParameters ecoreTypeParameter="esb.ecore#//Map/V"/>
@@ -1393,5 +1401,25 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//Template/templateType"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//Template/child"/>
     </genClasses>
+    <genClasses ecoreClass="esb.ecore#//Task">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//Task/taskName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//Task/taskGroup"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//Task/taskImplementationClass"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//Task/triggerType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//Task/count"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//Task/interval"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//Task/cron"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//Task/pinnedServers"/>
+    </genClasses>
+    <genClasses ecoreClass="esb.ecore#//NameValueTypeProperty">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//NameValueTypeProperty/propertyName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//NameValueTypeProperty/propertyValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//NameValueTypeProperty/propertyType"/>
+    </genClasses>
+    <genClasses ecoreClass="esb.ecore#//TaskImplementation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//TaskImplementation/taskImplementation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//TaskImplementation/taskProperties"/>
+    </genClasses>
+    <genClasses ecoreClass="esb.ecore#//TaskProperty"/>
   </genPackages>
 </genmodel:GenModel>

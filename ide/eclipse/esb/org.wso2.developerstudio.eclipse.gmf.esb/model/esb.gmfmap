@@ -2651,8 +2651,47 @@
               href="esb.gmfgraph#LocalEntry"/>
         </ownedChild>
       </children>
+      <children
+          compartment="//@nodes.0/@ownedChild/@compartments.0">
+        <containmentFeature
+            href="esb.ecore#//EsbServer/children"/>
+        <ownedChild>
+          <domainMetaElement
+              href="esb.ecore#//Template"/>
+          <diagramNode
+              href="esb.gmfgraph#Template"/>
+          <children
+              compartment="//@nodes.0/@ownedChild/@children.6/@ownedChild/@compartments.0"
+              referencedChild="//@nodes.0/@ownedChild/@children.3/@ownedChild">
+            <containmentFeature
+                href="esb.ecore#//Template/child"/>
+          </children>
+          <children
+              compartment="//@nodes.0/@ownedChild/@children.6/@ownedChild/@compartments.0"
+              referencedChild="//@nodes.0/@ownedChild/@children.4/@ownedChild">
+            <containmentFeature
+                href="esb.ecore#//Template/child"/>
+          </children>
+          <compartments
+              children="//@nodes.0/@ownedChild/@children.6/@ownedChild/@children.1 //@nodes.0/@ownedChild/@children.6/@ownedChild/@children.0">
+            <compartment
+                href="esb.gmfgraph#TemplateCompartment"/>
+          </compartments>
+        </ownedChild>
+      </children>
+      <children
+          compartment="//@nodes.0/@ownedChild/@compartments.0">
+        <containmentFeature
+            href="esb.ecore#//EsbServer/children"/>
+        <ownedChild>
+          <domainMetaElement
+              href="esb.ecore#//Task"/>
+          <diagramNode
+              href="esb.gmfgraph#Task"/>
+        </ownedChild>
+      </children>
       <compartments
-          children="//@nodes.0/@ownedChild/@children.2 //@nodes.0/@ownedChild/@children.0 //@nodes.0/@ownedChild/@children.3 //@nodes.0/@ownedChild/@children.5">
+          children="//@nodes.0/@ownedChild/@children.2 //@nodes.0/@ownedChild/@children.0 //@nodes.0/@ownedChild/@children.3 //@nodes.0/@ownedChild/@children.5 //@nodes.0/@ownedChild/@children.6 //@nodes.0/@ownedChild/@children.7">
         <compartment
             href="esb.gmfgraph#ContentsCompartment"/>
       </compartments>

@@ -2128,6 +2128,36 @@ public class EsbSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case EsbPackage.TASK: {
+				Task task = (Task)theEObject;
+				T result = caseTask(task);
+				if (result == null) result = caseEsbElement(task);
+				if (result == null) result = caseEsbNode(task);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.NAME_VALUE_TYPE_PROPERTY: {
+				NameValueTypeProperty nameValueTypeProperty = (NameValueTypeProperty)theEObject;
+				T result = caseNameValueTypeProperty(nameValueTypeProperty);
+				if (result == null) result = caseEsbNode(nameValueTypeProperty);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.TASK_IMPLEMENTATION: {
+				TaskImplementation taskImplementation = (TaskImplementation)theEObject;
+				T result = caseTaskImplementation(taskImplementation);
+				if (result == null) result = caseEsbNode(taskImplementation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.TASK_PROPERTY: {
+				TaskProperty taskProperty = (TaskProperty)theEObject;
+				T result = caseTaskProperty(taskProperty);
+				if (result == null) result = caseNameValueTypeProperty(taskProperty);
+				if (result == null) result = caseEsbNode(taskProperty);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -3809,6 +3839,66 @@ public class EsbSwitch<T> {
 	 * @generated
 	 */
 	public T caseTemplate(Template object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Task</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Task</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTask(Task object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Name Value Type Property</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Name Value Type Property</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNameValueTypeProperty(NameValueTypeProperty object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Task Implementation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Task Implementation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTaskImplementation(TaskImplementation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Task Property</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Task Property</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTaskProperty(TaskProperty object) {
 		return null;
 	}
 

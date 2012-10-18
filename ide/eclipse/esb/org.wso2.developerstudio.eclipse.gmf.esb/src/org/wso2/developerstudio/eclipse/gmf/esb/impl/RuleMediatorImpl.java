@@ -7,20 +7,17 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.impl;
 
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
-import org.wso2.developerstudio.eclipse.gmf.esb.EvaluatorExpressionProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.MediatorFlow;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
@@ -34,9 +31,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.RuleMediatorOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleResultsConfiguration;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleSessionProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleSetCreationProperty;
-import org.wso2.developerstudio.eclipse.gmf.esb.RuleSource;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleSourceType;
-import org.wso2.developerstudio.eclipse.gmf.esb.RuleTarget;
 
 /**
  * <!-- begin-user-doc -->

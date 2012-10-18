@@ -1884,4 +1884,34 @@
     <eLiterals name="SEQUENCE"/>
     <eLiterals name="ENDPOINT" value="1"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Task" eSuperTypes="#//EsbElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="taskName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="taskGroup" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="taskImplementationClass"
+        eType="#//TaskImplementation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="triggerType" eType="#//TaskTriggerType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="count" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="interval" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cron" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pinnedServers" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TaskPropertyType">
+    <eLiterals name="LITERAL"/>
+    <eLiterals name="XML" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NameValueTypeProperty" eSuperTypes="#//EsbNode">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="propertyName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="propertyValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="propertyType" eType="#//TaskPropertyType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TaskImplementation" eSuperTypes="#//EsbNode">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="taskImplementation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="taskProperties" upperBound="-1"
+        eType="#//TaskProperty" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TaskProperty" eSuperTypes="#//NameValueTypeProperty"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="TaskTriggerType">
+    <eLiterals name="Simple"/>
+    <eLiterals name="Cron" value="1"/>
+  </eClassifiers>
 </ecore:EPackage>

@@ -942,6 +942,42 @@ public interface EsbFactory extends EFactory {
 	Template createTemplate();
 
 	/**
+	 * Returns a new object of class '<em>Task</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Task</em>'.
+	 * @generated
+	 */
+	Task createTask();
+
+	/**
+	 * Returns a new object of class '<em>Name Value Type Property</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Name Value Type Property</em>'.
+	 * @generated
+	 */
+	NameValueTypeProperty createNameValueTypeProperty();
+
+	/**
+	 * Returns a new object of class '<em>Task Implementation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Task Implementation</em>'.
+	 * @generated
+	 */
+	TaskImplementation createTaskImplementation();
+
+	/**
+	 * Returns a new object of class '<em>Task Property</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Task Property</em>'.
+	 * @generated
+	 */
+	TaskProperty createTaskProperty();
+
+	/**
 	 * Returns a new object of class '<em>Script Mediator</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

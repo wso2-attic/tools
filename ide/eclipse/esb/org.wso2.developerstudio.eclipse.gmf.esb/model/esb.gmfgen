@@ -7531,7 +7531,7 @@
           compartments="/0/@diagram/@compartments.18"
           graphicalNodeEditPolicyClassName="MediatorFlow5GraphicalNodeEditPolicy"
           createCommandClassName="MediatorFlow5CreateCommand"
-          containers="/0/@diagram/@childNodes.198">
+          containers="/0/@diagram/@childNodes.198 /0/@diagram/@childNodes.222">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <elementType
@@ -7563,7 +7563,7 @@
           canonicalEditPolicyClassName="SequencesInputConnectorCanonicalEditPolicy"
           graphicalNodeEditPolicyClassName="SequencesInputConnectorGraphicalNodeEditPolicy"
           createCommandClassName="SequencesInputConnectorCreateCommand"
-          containers="/0/@diagram/@childNodes.198"
+          containers="/0/@diagram/@childNodes.198 /0/@diagram/@childNodes.222"
           preferredSideName="WEST">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -7600,7 +7600,7 @@
           canonicalEditPolicyClassName="SequencesOutputConnectorCanonicalEditPolicy"
           graphicalNodeEditPolicyClassName="SequencesOutputConnectorGraphicalNodeEditPolicy"
           createCommandClassName="SequencesOutputConnectorCreateCommand"
-          containers="/0/@diagram/@childNodes.198"
+          containers="/0/@diagram/@childNodes.198 /0/@diagram/@childNodes.222"
           preferredSideName="EAST">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -7664,7 +7664,7 @@
           childNodes="/0/@diagram/@childNodes.204 /0/@diagram/@childNodes.205"
           graphicalNodeEditPolicyClassName="DefaultEndPoint2GraphicalNodeEditPolicy"
           createCommandClassName="DefaultEndPoint2CreateCommand"
-          containers="/0/@diagram/@compartments.19">
+          containers="/0/@diagram/@compartments.19 /0/@diagram/@compartments.21">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <elementType
@@ -7789,7 +7789,7 @@
           childNodes="/0/@diagram/@childNodes.207 /0/@diagram/@childNodes.208"
           graphicalNodeEditPolicyClassName="AddressEndPoint2GraphicalNodeEditPolicy"
           createCommandClassName="AddressEndPoint2CreateCommand"
-          containers="/0/@diagram/@compartments.19">
+          containers="/0/@diagram/@compartments.19 /0/@diagram/@compartments.21">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <elementType
@@ -7914,7 +7914,7 @@
           childNodes="/0/@diagram/@childNodes.210 /0/@diagram/@childNodes.211 /0/@diagram/@childNodes.212"
           graphicalNodeEditPolicyClassName="FailoverEndPoint2GraphicalNodeEditPolicy"
           createCommandClassName="FailoverEndPoint2CreateCommand"
-          containers="/0/@diagram/@compartments.19">
+          containers="/0/@diagram/@compartments.19 /0/@diagram/@compartments.21">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <elementType
@@ -8076,7 +8076,7 @@
           childNodes="/0/@diagram/@childNodes.214 /0/@diagram/@childNodes.215"
           graphicalNodeEditPolicyClassName="WSDLEndPoint2GraphicalNodeEditPolicy"
           createCommandClassName="WSDLEndPoint2CreateCommand"
-          containers="/0/@diagram/@compartments.19">
+          containers="/0/@diagram/@compartments.19 /0/@diagram/@compartments.21">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <elementType
@@ -8201,7 +8201,7 @@
           childNodes="/0/@diagram/@childNodes.217 /0/@diagram/@childNodes.218 /0/@diagram/@childNodes.219"
           graphicalNodeEditPolicyClassName="LoadBalanceEndPoint2GraphicalNodeEditPolicy"
           createCommandClassName="LoadBalanceEndPoint2CreateCommand"
-          containers="/0/@diagram/@compartments.19">
+          containers="/0/@diagram/@compartments.19 /0/@diagram/@compartments.21">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <elementType
@@ -8358,6 +8358,7 @@
           visualID="3663"
           editPartClassName="LocalEntryEditPart"
           itemSemanticEditPolicyClassName="LocalEntryItemSemanticEditPolicy"
+          notationViewFactoryClassName="LocalEntryViewFactory"
           canonicalEditPolicyClassName="LocalEntryCanonicalEditPolicy"
           graphicalNodeEditPolicyClassName="LocalEntryGraphicalNodeEditPolicy"
           createCommandClassName="LocalEntryCreateCommand"
@@ -8378,6 +8379,123 @@
         <modelFacet>
           <metaClass
               href="esb.genmodel#//esb/LocalEntry"/>
+          <containmentMetaFeature
+              href="esb.genmodel#//esb/EsbServer/children"/>
+          <childMetaFeature
+              href="esb.genmodel#//esb/EsbServer/children"/>
+        </modelFacet>
+      </childNodes>
+      <childNodes
+          visualID="3664"
+          editPartClassName="TemplateEditPart"
+          itemSemanticEditPolicyClassName="TemplateItemSemanticEditPolicy"
+          notationViewFactoryClassName="TemplateViewFactory"
+          canonicalEditPolicyClassName="TemplateCanonicalEditPolicy"
+          compartments="/0/@diagram/@compartments.20"
+          graphicalNodeEditPolicyClassName="TemplateGraphicalNodeEditPolicy"
+          createCommandClassName="TemplateCreateCommand"
+          containers="/0/@diagram/@compartments.0">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <elementType
+            xsi:type="gmfgen:MetamodelType"
+            editHelperClassName="TemplateEditHelper"/>
+        <viewmap
+            xsi:type="gmfgen:FigureViewmap"
+            figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
+        <modelFacet>
+          <metaClass
+              href="esb.genmodel#//esb/Template"/>
+          <containmentMetaFeature
+              href="esb.genmodel#//esb/EsbServer/children"/>
+          <childMetaFeature
+              href="esb.genmodel#//esb/EsbServer/children"/>
+        </modelFacet>
+      </childNodes>
+      <childNodes
+          visualID="3665"
+          editPartClassName="Sequences2EditPart"
+          itemSemanticEditPolicyClassName="Sequences2ItemSemanticEditPolicy"
+          notationViewFactoryClassName="SequencesViewFactory"
+          canonicalEditPolicyClassName="Sequences2CanonicalEditPolicy"
+          childNodes="/0/@diagram/@childNodes.199 /0/@diagram/@childNodes.200 /0/@diagram/@childNodes.201"
+          graphicalNodeEditPolicyClassName="Sequences2GraphicalNodeEditPolicy"
+          createCommandClassName="Sequences2CreateCommand"
+          containers="/0/@diagram/@compartments.20">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <elementType
+            xsi:type="gmfgen:SpecializationType"
+            metamodelType="/0/@diagram/@childNodes.198/@elementType"/>
+        <viewmap
+            xsi:type="gmfgen:InnerClassViewmap"
+            className="SequencesFigure"
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class SequencesFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public SequencesFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.GridLayout layoutThis = new org.eclipse.draw2d.GridLayout();&#xA;&#x9;layoutThis.numColumns = 1;&#xA;&#x9;layoutThis.makeColumnsEqualWidth = true;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setLineStyle(org.eclipse.draw2d.Graphics.LINE_DASH);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 255, 255, 255);&#xA;&#xA;">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedBackground="true"/>
+        </viewmap>
+        <modelFacet>
+          <metaClass
+              href="esb.genmodel#//esb/Sequences"/>
+          <containmentMetaFeature
+              href="esb.genmodel#//esb/Template/child"/>
+          <childMetaFeature
+              href="esb.genmodel#//esb/Template/child"/>
+        </modelFacet>
+      </childNodes>
+      <childNodes
+          visualID="3666"
+          editPartClassName="EndpointDiagram2EditPart"
+          itemSemanticEditPolicyClassName="EndpointDiagram2ItemSemanticEditPolicy"
+          notationViewFactoryClassName="EndpointDiagramViewFactory"
+          canonicalEditPolicyClassName="EndpointDiagram2CanonicalEditPolicy"
+          compartments="/0/@diagram/@compartments.21"
+          graphicalNodeEditPolicyClassName="EndpointDiagram2GraphicalNodeEditPolicy"
+          createCommandClassName="EndpointDiagram2CreateCommand"
+          containers="/0/@diagram/@compartments.20">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <elementType
+            xsi:type="gmfgen:SpecializationType"
+            metamodelType="/0/@diagram/@childNodes.202/@elementType"/>
+        <viewmap
+            xsi:type="gmfgen:FigureViewmap"
+            figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
+        <modelFacet>
+          <metaClass
+              href="esb.genmodel#//esb/EndpointDiagram"/>
+          <containmentMetaFeature
+              href="esb.genmodel#//esb/Template/child"/>
+          <childMetaFeature
+              href="esb.genmodel#//esb/Template/child"/>
+        </modelFacet>
+      </childNodes>
+      <childNodes
+          visualID="3667"
+          editPartClassName="TaskEditPart"
+          itemSemanticEditPolicyClassName="TaskItemSemanticEditPolicy"
+          notationViewFactoryClassName="TaskViewFactory"
+          canonicalEditPolicyClassName="TaskCanonicalEditPolicy"
+          graphicalNodeEditPolicyClassName="TaskGraphicalNodeEditPolicy"
+          createCommandClassName="TaskCreateCommand"
+          containers="/0/@diagram/@compartments.0">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <elementType
+            xsi:type="gmfgen:MetamodelType"
+            editHelperClassName="TaskEditHelper"/>
+        <viewmap
+            xsi:type="gmfgen:InnerClassViewmap"
+            className="TaskFigure"
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class TaskFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureTaskNamePropertyLabel; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public TaskFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureTaskNamePropertyLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureTaskNamePropertyLabel.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureTaskNamePropertyLabel);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureTaskNamePropertyLabel() {&#xA;&#x9;&#x9;return fFigureTaskNamePropertyLabel;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 40, 151, 248);&#xA;&#xA;">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedBackground="true"/>
+        </viewmap>
+        <modelFacet>
+          <metaClass
+              href="esb.genmodel#//esb/Task"/>
           <containmentMetaFeature
               href="esb.genmodel#//esb/EsbServer/children"/>
           <childMetaFeature
@@ -8458,7 +8576,7 @@
           itemSemanticEditPolicyClassName="EsbServerContentsCompartmentItemSemanticEditPolicy"
           notationViewFactoryClassName="EsbServerContentsCompartmentViewFactory"
           canonicalEditPolicyClassName="EsbServerContentsCompartmentCanonicalEditPolicy"
-          childNodes="/0/@diagram/@childNodes.0 /0/@diagram/@childNodes.194 /0/@diagram/@childNodes.198 /0/@diagram/@childNodes.220"
+          childNodes="/0/@diagram/@childNodes.0 /0/@diagram/@childNodes.194 /0/@diagram/@childNodes.198 /0/@diagram/@childNodes.220 /0/@diagram/@childNodes.221 /0/@diagram/@childNodes.224"
           title="ContentsCompartment"
           canCollapse="false"
           needsTitle="false"
@@ -8789,6 +8907,40 @@
           childNodes="/0/@diagram/@childNodes.203 /0/@diagram/@childNodes.206 /0/@diagram/@childNodes.209 /0/@diagram/@childNodes.213 /0/@diagram/@childNodes.216"
           title="EndpointCompartment"
           node="/0/@diagram/@childNodes.202"
+          listLayout="false">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:FigureViewmap"
+            figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
+      </compartments>
+      <compartments
+          visualID="7043"
+          editPartClassName="TemplateTemplateCompartmentEditPart"
+          itemSemanticEditPolicyClassName="TemplateTemplateCompartmentItemSemanticEditPolicy"
+          notationViewFactoryClassName="TemplateTemplateCompartmentViewFactory"
+          canonicalEditPolicyClassName="TemplateTemplateCompartmentCanonicalEditPolicy"
+          childNodes="/0/@diagram/@childNodes.222 /0/@diagram/@childNodes.223"
+          title="TemplateCompartment"
+          canCollapse="false"
+          needsTitle="false"
+          node="/0/@diagram/@childNodes.221"
+          listLayout="false">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:FigureViewmap"
+            figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
+      </compartments>
+      <compartments
+          visualID="7042"
+          editPartClassName="EndpointDiagramEndpointCompartment2EditPart"
+          itemSemanticEditPolicyClassName="EndpointDiagramEndpointCompartment2ItemSemanticEditPolicy"
+          notationViewFactoryClassName="EndpointDiagramEndpointCompartmentViewFactory"
+          canonicalEditPolicyClassName="EndpointDiagramEndpointCompartment2CanonicalEditPolicy"
+          childNodes="/0/@diagram/@childNodes.203 /0/@diagram/@childNodes.206 /0/@diagram/@childNodes.209 /0/@diagram/@childNodes.213 /0/@diagram/@childNodes.216"
+          title="EndpointCompartment"
+          node="/0/@diagram/@childNodes.223"
           listLayout="false">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -11980,6 +12132,42 @@
       <childReferences
           parent="/0/@diagram/@topLevelNodes.0"
           child="/0/@diagram/@childNodes.220"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.222"
+          child="/0/@diagram/@childNodes.199"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.222"
+          child="/0/@diagram/@childNodes.200"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.222"
+          child="/0/@diagram/@childNodes.201"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.221"
+          child="/0/@diagram/@childNodes.222"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.223"
+          child="/0/@diagram/@childNodes.203"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.223"
+          child="/0/@diagram/@childNodes.206"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.223"
+          child="/0/@diagram/@childNodes.209"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.223"
+          child="/0/@diagram/@childNodes.213"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.223"
+          child="/0/@diagram/@childNodes.216"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.221"
+          child="/0/@diagram/@childNodes.223"/>
+      <childReferences
+          parent="/0/@diagram/@topLevelNodes.0"
+          child="/0/@diagram/@childNodes.221"/>
+      <childReferences
+          parent="/0/@diagram/@topLevelNodes.0"
+          child="/0/@diagram/@childNodes.224"/>
       <childReferences
           parent="/0/@diagram"
           child="/0/@diagram/@topLevelNodes.0"/>

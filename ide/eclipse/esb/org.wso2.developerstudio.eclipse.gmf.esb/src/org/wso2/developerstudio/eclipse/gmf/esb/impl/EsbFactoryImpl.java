@@ -317,6 +317,10 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 			case EsbPackage.NAMED_ENDPOINT_INPUT_CONNECTOR: return createNamedEndpointInputConnector();
 			case EsbPackage.NAMED_ENDPOINT_OUTPUT_CONNECTOR: return createNamedEndpointOutputConnector();
 			case EsbPackage.TEMPLATE: return createTemplate();
+			case EsbPackage.TASK: return createTask();
+			case EsbPackage.NAME_VALUE_TYPE_PROPERTY: return createNameValueTypeProperty();
+			case EsbPackage.TASK_IMPLEMENTATION: return createTaskImplementation();
+			case EsbPackage.TASK_PROPERTY: return createTaskProperty();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -475,6 +479,10 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 				return createRuleFragmentTypeFromString(eDataType, initialValue);
 			case EsbPackage.TEMPLATE_TYPE:
 				return createTemplateTypeFromString(eDataType, initialValue);
+			case EsbPackage.TASK_PROPERTY_TYPE:
+				return createTaskPropertyTypeFromString(eDataType, initialValue);
+			case EsbPackage.TASK_TRIGGER_TYPE:
+				return createTaskTriggerTypeFromString(eDataType, initialValue);
 			case EsbPackage.MAP:
 				return createMapFromString(eDataType, initialValue);
 			default:
@@ -635,6 +643,10 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 				return convertRuleFragmentTypeToString(eDataType, instanceValue);
 			case EsbPackage.TEMPLATE_TYPE:
 				return convertTemplateTypeToString(eDataType, instanceValue);
+			case EsbPackage.TASK_PROPERTY_TYPE:
+				return convertTaskPropertyTypeToString(eDataType, instanceValue);
+			case EsbPackage.TASK_TRIGGER_TYPE:
+				return convertTaskTriggerTypeToString(eDataType, instanceValue);
 			case EsbPackage.MAP:
 				return convertMapToString(eDataType, instanceValue);
 			default:
@@ -1719,6 +1731,46 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	public Template createTemplate() {
 		TemplateImpl template = new TemplateImpl();
 		return template;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Task createTask() {
+		TaskImpl task = new TaskImpl();
+		return task;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NameValueTypeProperty createNameValueTypeProperty() {
+		NameValueTypePropertyImpl nameValueTypeProperty = new NameValueTypePropertyImpl();
+		return nameValueTypeProperty;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TaskImplementation createTaskImplementation() {
+		TaskImplementationImpl taskImplementation = new TaskImplementationImpl();
+		return taskImplementation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TaskProperty createTaskProperty() {
+		TaskPropertyImpl taskProperty = new TaskPropertyImpl();
+		return taskProperty;
 	}
 
 	/**
@@ -4732,6 +4784,46 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	 * @generated
 	 */
 	public String convertTemplateTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TaskPropertyType createTaskPropertyTypeFromString(EDataType eDataType, String initialValue) {
+		TaskPropertyType result = TaskPropertyType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertTaskPropertyTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TaskTriggerType createTaskTriggerTypeFromString(EDataType eDataType, String initialValue) {
+		TaskTriggerType result = TaskTriggerType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertTaskTriggerTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
