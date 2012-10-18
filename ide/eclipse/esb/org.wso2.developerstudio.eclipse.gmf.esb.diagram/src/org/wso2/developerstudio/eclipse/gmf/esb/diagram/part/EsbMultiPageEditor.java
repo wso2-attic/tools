@@ -403,6 +403,7 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 					.replaceFirst("/local-entries/localentry_", "/local-entries/")
 					.replaceFirst("/proxy-services/proxy_", "/proxy-services/")
 					.replaceFirst("/sequences/sequence_", "/sequences/")
+					.replaceFirst("/task/task_", "/task/")
 					.replaceAll(".esb_diagram$", ".xml");
 			IFile xmlFile = diagramFile.getWorkspace().getRoot().getFile(new Path(xmlFilePath));
 			try {
