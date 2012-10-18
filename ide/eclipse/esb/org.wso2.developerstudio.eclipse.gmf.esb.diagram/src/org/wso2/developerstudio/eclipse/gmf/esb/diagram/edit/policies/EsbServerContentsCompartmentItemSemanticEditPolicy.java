@@ -6,6 +6,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.LocalEntry
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.MergeNodeCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.ProxyServiceCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.SequencesCreateCommand;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.TaskCreateCommand;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.TemplateCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 
 /**
@@ -36,6 +38,12 @@ public class EsbServerContentsCompartmentItemSemanticEditPolicy extends
 		}
 		if (EsbElementTypes.LocalEntry_3663 == req.getElementType()) {
 			return getGEFWrapper(new LocalEntryCreateCommand(req));
+		}
+		if (EsbElementTypes.Template_3664 == req.getElementType()) {
+			return getGEFWrapper(new TemplateCreateCommand(req));
+		}
+		if (EsbElementTypes.Task_3667 == req.getElementType()) {
+			return getGEFWrapper(new TaskCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

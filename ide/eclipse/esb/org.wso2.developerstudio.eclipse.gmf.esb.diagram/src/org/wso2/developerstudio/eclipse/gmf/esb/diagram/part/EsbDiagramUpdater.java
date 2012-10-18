@@ -171,6 +171,8 @@ public class EsbDiagramUpdater {
 			return getWSDLEndPoint_3653SemanticChildren(view);
 		case LoadBalanceEndPoint2EditPart.VISUAL_ID:
 			return getLoadBalanceEndPoint_3656SemanticChildren(view);
+		case Sequences2EditPart.VISUAL_ID:
+			return getSequences_3665SemanticChildren(view);
 		case EsbServerContentsCompartmentEditPart.VISUAL_ID:
 			return getEsbServerContentsCompartment_7001SemanticChildren(view);
 		case MediatorFlowMediatorFlowCompartmentEditPart.VISUAL_ID:
@@ -209,6 +211,10 @@ public class EsbDiagramUpdater {
 			return getMediatorFlowMediatorFlowCompartment_7035SemanticChildren(view);
 		case EndpointDiagramEndpointCompartmentEditPart.VISUAL_ID:
 			return getEndpointDiagramEndpointCompartment_7041SemanticChildren(view);
+		case TemplateTemplateCompartmentEditPart.VISUAL_ID:
+			return getTemplateTemplateCompartment_7043SemanticChildren(view);
+		case EndpointDiagramEndpointCompartment2EditPart.VISUAL_ID:
+			return getEndpointDiagramEndpointCompartment_7042SemanticChildren(view);
 		}
 		return Collections.emptyList();
 	}
@@ -2665,6 +2671,45 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<EsbNodeDescriptor> getSequences_3665SemanticChildren(
+			View view) {
+		if (!view.isSetElement()) {
+			return Collections.emptyList();
+		}
+		Sequences modelElement = (Sequences) view.getElement();
+		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		{
+			MediatorFlow childElement = modelElement.getMediatorFlow();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == MediatorFlow5EditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+			}
+		}
+		{
+			SequencesInputConnector childElement = modelElement
+					.getInputConnector();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == SequencesInputConnectorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+			}
+		}
+		{
+			SequencesOutputConnector childElement = modelElement
+					.getOutputConnector();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == SequencesOutputConnectorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<EsbNodeDescriptor> getEsbServerContentsCompartment_7001SemanticChildren(
 			View view) {
 		if (false == view.eContainer() instanceof View) {
@@ -2694,6 +2739,14 @@ public class EsbDiagramUpdater {
 				continue;
 			}
 			if (visualID == LocalEntryEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == TemplateEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == TaskEditPart.VISUAL_ID) {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -6261,6 +6314,72 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<EsbNodeDescriptor> getTemplateTemplateCompartment_7043SemanticChildren(
+			View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.emptyList();
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.emptyList();
+		}
+		Template modelElement = (Template) containerView.getElement();
+		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		{
+			EsbElement childElement = modelElement.getChild();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == Sequences2EditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+			}
+			if (visualID == EndpointDiagram2EditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbNodeDescriptor> getEndpointDiagramEndpointCompartment_7042SemanticChildren(
+			View view) {
+		if (false == view.eContainer() instanceof View) {
+			return Collections.emptyList();
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.emptyList();
+		}
+		EndpointDiagram modelElement = (EndpointDiagram) containerView
+				.getElement();
+		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		{
+			EndPoint childElement = modelElement.getChild();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view,
+					childElement);
+			if (visualID == DefaultEndPoint2EditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+			}
+			if (visualID == AddressEndPoint2EditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+			}
+			if (visualID == FailoverEndPoint2EditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+			}
+			if (visualID == WSDLEndPoint2EditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+			}
+			if (visualID == LoadBalanceEndPoint2EditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<EsbNodeDescriptor> getEsbDiagram_1000SemanticChildren(
 			View view) {
 		if (!view.isSetElement()) {
@@ -6730,6 +6849,14 @@ public class EsbDiagramUpdater {
 			return getLoadBalanceEndPointWestOutputConnector_3659ContainedLinks(view);
 		case LocalEntryEditPart.VISUAL_ID:
 			return getLocalEntry_3663ContainedLinks(view);
+		case TemplateEditPart.VISUAL_ID:
+			return getTemplate_3664ContainedLinks(view);
+		case Sequences2EditPart.VISUAL_ID:
+			return getSequences_3665ContainedLinks(view);
+		case EndpointDiagram2EditPart.VISUAL_ID:
+			return getEndpointDiagram_3666ContainedLinks(view);
+		case TaskEditPart.VISUAL_ID:
+			return getTask_3667ContainedLinks(view);
 		case EsbLinkEditPart.VISUAL_ID:
 			return getEsbLink_4001ContainedLinks(view);
 		}
@@ -7185,6 +7312,14 @@ public class EsbDiagramUpdater {
 			return getLoadBalanceEndPointWestOutputConnector_3659IncomingLinks(view);
 		case LocalEntryEditPart.VISUAL_ID:
 			return getLocalEntry_3663IncomingLinks(view);
+		case TemplateEditPart.VISUAL_ID:
+			return getTemplate_3664IncomingLinks(view);
+		case Sequences2EditPart.VISUAL_ID:
+			return getSequences_3665IncomingLinks(view);
+		case EndpointDiagram2EditPart.VISUAL_ID:
+			return getEndpointDiagram_3666IncomingLinks(view);
+		case TaskEditPart.VISUAL_ID:
+			return getTask_3667IncomingLinks(view);
 		case EsbLinkEditPart.VISUAL_ID:
 			return getEsbLink_4001IncomingLinks(view);
 		}
@@ -7640,6 +7775,14 @@ public class EsbDiagramUpdater {
 			return getLoadBalanceEndPointWestOutputConnector_3659OutgoingLinks(view);
 		case LocalEntryEditPart.VISUAL_ID:
 			return getLocalEntry_3663OutgoingLinks(view);
+		case TemplateEditPart.VISUAL_ID:
+			return getTemplate_3664OutgoingLinks(view);
+		case Sequences2EditPart.VISUAL_ID:
+			return getSequences_3665OutgoingLinks(view);
+		case EndpointDiagram2EditPart.VISUAL_ID:
+			return getEndpointDiagram_3666OutgoingLinks(view);
+		case TaskEditPart.VISUAL_ID:
+			return getTask_3667OutgoingLinks(view);
 		case EsbLinkEditPart.VISUAL_ID:
 			return getEsbLink_4001OutgoingLinks(view);
 		}
@@ -8099,6 +8242,37 @@ public class EsbDiagramUpdater {
 	 */
 	public static List<EsbLinkDescriptor> getLocalEntry_3663ContainedLinks(
 			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getTemplate_3664ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getSequences_3665ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getEndpointDiagram_3666ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getTask_3667ContainedLinks(View view) {
 		return Collections.emptyList();
 	}
 
@@ -10210,6 +10384,37 @@ public class EsbDiagramUpdater {
 	 */
 	public static List<EsbLinkDescriptor> getLocalEntry_3663IncomingLinks(
 			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getTemplate_3664IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getSequences_3665IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getEndpointDiagram_3666IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getTask_3667IncomingLinks(View view) {
 		return Collections.emptyList();
 	}
 
@@ -12357,6 +12562,37 @@ public class EsbDiagramUpdater {
 	 */
 	public static List<EsbLinkDescriptor> getLocalEntry_3663OutgoingLinks(
 			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getTemplate_3664OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getSequences_3665OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getEndpointDiagram_3666OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getTask_3667OutgoingLinks(View view) {
 		return Collections.emptyList();
 	}
 

@@ -296,6 +296,26 @@ public class EsbElementTypes {
 	/**
 	 * @generated
 	 */
+	public static final IElementType Template_3664 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.Template_3664"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Sequences_3665 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.Sequences_3665"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType EndpointDiagram_3666 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.EndpointDiagram_3666"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Task_3667 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.Task_3667"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
 	public static final IElementType LogMediatorInputConnector_3018 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.LogMediatorInputConnector_3018"); //$NON-NLS-1$
 
 	/**
@@ -1964,6 +1984,15 @@ public class EsbElementTypes {
 
 			elements.put(LocalEntry_3663, EsbPackage.eINSTANCE.getLocalEntry());
 
+			elements.put(Template_3664, EsbPackage.eINSTANCE.getTemplate());
+
+			elements.put(Sequences_3665, EsbPackage.eINSTANCE.getSequences());
+
+			elements.put(EndpointDiagram_3666,
+					EsbPackage.eINSTANCE.getEndpointDiagram());
+
+			elements.put(Task_3667, EsbPackage.eINSTANCE.getTask());
+
 			elements.put(EsbLink_4001, EsbPackage.eINSTANCE.getEsbLink());
 		}
 		return (ENamedElement) elements.get(type);
@@ -2215,6 +2244,10 @@ public class EsbElementTypes {
 			KNOWN_ELEMENT_TYPES
 					.add(LoadBalanceEndPointWestOutputConnector_3659);
 			KNOWN_ELEMENT_TYPES.add(LocalEntry_3663);
+			KNOWN_ELEMENT_TYPES.add(Template_3664);
+			KNOWN_ELEMENT_TYPES.add(Sequences_3665);
+			KNOWN_ELEMENT_TYPES.add(EndpointDiagram_3666);
+			KNOWN_ELEMENT_TYPES.add(Task_3667);
 			KNOWN_ELEMENT_TYPES.add(EsbLink_4001);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
@@ -2671,6 +2704,14 @@ public class EsbElementTypes {
 			return LoadBalanceEndPointWestOutputConnector_3659;
 		case LocalEntryEditPart.VISUAL_ID:
 			return LocalEntry_3663;
+		case TemplateEditPart.VISUAL_ID:
+			return Template_3664;
+		case Sequences2EditPart.VISUAL_ID:
+			return Sequences_3665;
+		case EndpointDiagram2EditPart.VISUAL_ID:
+			return EndpointDiagram_3666;
+		case TaskEditPart.VISUAL_ID:
+			return Task_3667;
 		case EsbLinkEditPart.VISUAL_ID:
 			return EsbLink_4001;
 		}

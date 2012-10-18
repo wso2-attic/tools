@@ -1,6 +1,7 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
 
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.gef.EditPart;
@@ -12,25 +13,22 @@ import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ShowPropertyViewEditPolicy;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.TaskItemSemanticEditPolicy;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.EndpointDiagram2ItemSemanticEditPolicy;
 
 /**
  * @generated
  */
-public class TaskEditPart extends ShapeNodeEditPart {
+public class EndpointDiagram2EditPart extends ShapeNodeEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3667;
+	public static final int VISUAL_ID = 3666;
 
 	/**
 	 * @generated
@@ -45,21 +43,18 @@ public class TaskEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public TaskEditPart(View view) {
+	public EndpointDiagram2EditPart(View view) {
 		super(view);
 	}
 
 	/**
-	 * @generated NOT
+	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new TaskItemSemanticEditPolicy());
+				new EndpointDiagram2ItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-		// For handle Double click Event.
-		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
-				new ShowPropertyViewEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
@@ -94,14 +89,14 @@ public class TaskEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure createNodeShape() {
-		return primaryShape = new TaskFigure();
+		return primaryShape = new RectangleFigure();
 	}
 
 	/**
 	 * @generated
 	 */
-	public TaskFigure getPrimaryShape() {
-		return (TaskFigure) primaryShape;
+	public RectangleFigure getPrimaryShape() {
+		return (RectangleFigure) primaryShape;
 	}
 
 	/**
@@ -136,6 +131,11 @@ public class TaskEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure setupContentPane(IFigure nodeShape) {
+		if (nodeShape.getLayoutManager() == null) {
+			ConstrainedToolbarLayout layout = new ConstrainedToolbarLayout();
+			layout.setSpacing(5);
+			nodeShape.setLayoutManager(layout);
+		}
 		return nodeShape; // use nodeShape itself as contentPane
 	}
 
@@ -184,60 +184,5 @@ public class TaskEditPart extends ShapeNodeEditPart {
 			((Shape) primaryShape).setLineStyle(style);
 		}
 	}
-
-	/**
-	 * @generated
-	 */
-	public class TaskFigure extends EsbGraphicalShape {
-
-		/**
-		 * @generated
-		 */
-		private WrappingLabel fFigureTaskNamePropertyLabel;
-
-		/**
-		 * @generated
-		 */
-		public TaskFigure() {
-
-			this.setBackgroundColor(THIS_BACK);
-			createContents();
-		}
-
-		/**
-		 * @generated NOT
-		 */
-		private void createContents() {
-
-			fFigureTaskNamePropertyLabel = new WrappingLabel();
-			fFigureTaskNamePropertyLabel.setText("<...>");
-			fFigureTaskNamePropertyLabel.setAlignment(SWT.CENTER);
-
-			this.getPropertyValueRectangle1().add(
-					fFigureTaskNamePropertyLabel);
-
-		}
-
-		/**
-		 * @generated
-		 */
-		public WrappingLabel getFigureTaskNamePropertyLabel() {
-			return fFigureTaskNamePropertyLabel;
-		}
-		
-		public String getIconPath() {
-			return "icons/ico20/out-mediator.gif";
-		}
-
-		public String getNodeName() {
-			return "LocalEntry";
-		}
-
-	}
-
-	/**
-	 * @generated
-	 */
-	static final Color THIS_BACK = new Color(null, 40, 151, 248);
 
 }

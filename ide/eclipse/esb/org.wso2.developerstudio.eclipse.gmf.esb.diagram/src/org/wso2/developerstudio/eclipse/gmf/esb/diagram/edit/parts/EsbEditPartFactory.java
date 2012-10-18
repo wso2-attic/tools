@@ -804,6 +804,18 @@ public class EsbEditPartFactory implements EditPartFactory {
 			case LocalEntryEditPart.VISUAL_ID:
 				return new LocalEntryEditPart(view);
 
+			case TemplateEditPart.VISUAL_ID:
+				return new TemplateEditPart(view);
+
+			case Sequences2EditPart.VISUAL_ID:
+				return new Sequences2EditPart(view);
+
+			case EndpointDiagram2EditPart.VISUAL_ID:
+				return new EndpointDiagram2EditPart(view);
+
+			case TaskEditPart.VISUAL_ID:
+				return new TaskEditPart(view);
+
 			case EsbServerContentsCompartmentEditPart.VISUAL_ID:
 				return new EsbServerContentsCompartmentEditPart(view);
 
@@ -863,6 +875,12 @@ public class EsbEditPartFactory implements EditPartFactory {
 
 			case EndpointDiagramEndpointCompartmentEditPart.VISUAL_ID:
 				return new EndpointDiagramEndpointCompartmentEditPart(view);
+
+			case TemplateTemplateCompartmentEditPart.VISUAL_ID:
+				return new TemplateTemplateCompartmentEditPart(view);
+
+			case EndpointDiagramEndpointCompartment2EditPart.VISUAL_ID:
+				return new EndpointDiagramEndpointCompartment2EditPart(view);
 
 			case EsbLinkEditPart.VISUAL_ID:
 				return new EsbLinkEditPart(view);

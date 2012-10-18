@@ -21,12 +21,11 @@ import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.LocalEntryEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MergeNodeEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequencesEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.TaskEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.TemplateEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AddressEndPoint2EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DefaultEndPoint2EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FailoverEndPoint2EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.LoadBalanceEndPoint2EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.WSDLEndPoint2EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramUpdater;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbNodeDescriptor;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
@@ -34,7 +33,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry
 /**
  * @generated
  */
-public class EsbServerContentsCompartmentCanonicalEditPolicy extends
+public class EndpointDiagramEndpointCompartment2CanonicalEditPolicy extends
 		CanonicalEditPolicy {
 
 	/**
@@ -53,7 +52,7 @@ public class EsbServerContentsCompartmentCanonicalEditPolicy extends
 	 * @generated
 	 */
 	protected EStructuralFeature getFeatureToSynchronize() {
-		return EsbPackage.eINSTANCE.getEsbServer_Children();
+		return EsbPackage.eINSTANCE.getEndpointDiagram_Child();
 	}
 
 	/**
@@ -64,7 +63,7 @@ public class EsbServerContentsCompartmentCanonicalEditPolicy extends
 		View viewObject = (View) getHost().getModel();
 		LinkedList<EObject> result = new LinkedList<EObject>();
 		List<EsbNodeDescriptor> childDescriptors = EsbDiagramUpdater
-				.getEsbServerContentsCompartment_7001SemanticChildren(viewObject);
+				.getEndpointDiagramEndpointCompartment_7042SemanticChildren(viewObject);
 		for (EsbNodeDescriptor d : childDescriptors) {
 			result.add(d.getModelElement());
 		}
@@ -86,12 +85,11 @@ public class EsbServerContentsCompartmentCanonicalEditPolicy extends
 	private boolean isMyDiagramElement(View view) {
 		int visualID = EsbVisualIDRegistry.getVisualID(view);
 		switch (visualID) {
-		case ProxyServiceEditPart.VISUAL_ID:
-		case MergeNodeEditPart.VISUAL_ID:
-		case SequencesEditPart.VISUAL_ID:
-		case LocalEntryEditPart.VISUAL_ID:
-		case TemplateEditPart.VISUAL_ID:
-		case TaskEditPart.VISUAL_ID:
+		case DefaultEndPoint2EditPart.VISUAL_ID:
+		case AddressEndPoint2EditPart.VISUAL_ID:
+		case FailoverEndPoint2EditPart.VISUAL_ID:
+		case WSDLEndPoint2EditPart.VISUAL_ID:
+		case LoadBalanceEndPoint2EditPart.VISUAL_ID:
 			return true;
 		}
 		return false;
@@ -106,7 +104,7 @@ public class EsbServerContentsCompartmentCanonicalEditPolicy extends
 		}
 		LinkedList<IAdaptable> createdViews = new LinkedList<IAdaptable>();
 		List<EsbNodeDescriptor> childDescriptors = EsbDiagramUpdater
-				.getEsbServerContentsCompartment_7001SemanticChildren((View) getHost()
+				.getEndpointDiagramEndpointCompartment_7042SemanticChildren((View) getHost()
 						.getModel());
 		LinkedList<View> orphaned = new LinkedList<View>();
 		// we care to check only views we recognize as ours

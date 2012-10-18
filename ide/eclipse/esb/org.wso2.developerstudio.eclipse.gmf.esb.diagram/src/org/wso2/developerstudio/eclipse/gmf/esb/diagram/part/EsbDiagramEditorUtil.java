@@ -64,6 +64,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbServer;
 import org.wso2.developerstudio.eclipse.gmf.esb.LocalEntry;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyService;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequences;
+import org.wso2.developerstudio.eclipse.gmf.esb.Task;
+import org.wso2.developerstudio.eclipse.gmf.esb.Template;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbDiagramEditPart;
 
 /**
@@ -284,6 +286,23 @@ public class EsbDiagramEditorUtil {
 							.getEStructuralFeature("children");
 					esbServer.eSet(target, Arrays.asList(localentry));
 					esbServer.setType(ArtifactType.LOCAL_ENTRY);
+				} else if ("template".equals(type)) {
+					Template template = EsbFactory.eINSTANCE.createTemplate();
+					template.setName(name);
+					EndpointDiagram endpoint = EsbFactory.eINSTANCE
+							.createEndpointDiagram();
+					template.setChild(endpoint);
+					EStructuralFeature target = esbServer.eClass()
+							.getEStructuralFeature("children");
+					esbServer.eSet(target, Arrays.asList(template));
+					esbServer.setType(ArtifactType.TEMPLATE);
+				}else if ("task".equals(type)) {
+					Task task = EsbFactory.eINSTANCE.createTask();
+					task.setTaskName(name);
+					EStructuralFeature target = esbServer.eClass()
+							.getEStructuralFeature("children");
+					esbServer.eSet(target, Arrays.asList(task));
+					esbServer.setType(ArtifactType.TASK);
 				}
 
 				attachModelToResource(model, modelResource);

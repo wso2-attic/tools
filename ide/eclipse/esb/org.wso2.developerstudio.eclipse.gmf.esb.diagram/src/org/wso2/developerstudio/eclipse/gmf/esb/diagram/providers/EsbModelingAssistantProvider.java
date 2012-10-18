@@ -494,12 +494,21 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(EsbElementTypes.LoadBalanceEndPointWestOutputConnector_3659);
 			return types;
 		}
+		if (editPart instanceof Sequences2EditPart) {
+			ArrayList<IElementType> types = new ArrayList<IElementType>(3);
+			types.add(EsbElementTypes.MediatorFlow_3615);
+			types.add(EsbElementTypes.SequencesInputConnector_3616);
+			types.add(EsbElementTypes.SequencesOutputConnector_3617);
+			return types;
+		}
 		if (editPart instanceof EsbServerContentsCompartmentEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(4);
+			ArrayList<IElementType> types = new ArrayList<IElementType>(6);
 			types.add(EsbElementTypes.ProxyService_3001);
 			types.add(EsbElementTypes.MergeNode_3013);
 			types.add(EsbElementTypes.Sequences_3614);
 			types.add(EsbElementTypes.LocalEntry_3663);
+			types.add(EsbElementTypes.Template_3664);
+			types.add(EsbElementTypes.Task_3667);
 			return types;
 		}
 		if (editPart instanceof MediatorFlowMediatorFlowCompartmentEditPart) {
@@ -1353,6 +1362,21 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			return types;
 		}
 		if (editPart instanceof EndpointDiagramEndpointCompartmentEditPart) {
+			ArrayList<IElementType> types = new ArrayList<IElementType>(5);
+			types.add(EsbElementTypes.DefaultEndPoint_3643);
+			types.add(EsbElementTypes.AddressEndPoint_3646);
+			types.add(EsbElementTypes.FailoverEndPoint_3649);
+			types.add(EsbElementTypes.WSDLEndPoint_3653);
+			types.add(EsbElementTypes.LoadBalanceEndPoint_3656);
+			return types;
+		}
+		if (editPart instanceof TemplateTemplateCompartmentEditPart) {
+			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+			types.add(EsbElementTypes.Sequences_3665);
+			types.add(EsbElementTypes.EndpointDiagram_3666);
+			return types;
+		}
+		if (editPart instanceof EndpointDiagramEndpointCompartment2EditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(5);
 			types.add(EsbElementTypes.DefaultEndPoint_3643);
 			types.add(EsbElementTypes.AddressEndPoint_3646);

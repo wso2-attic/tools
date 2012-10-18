@@ -1,8 +1,12 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
 
+import org.eclipse.draw2d.Graphics;
+import org.eclipse.draw2d.GridLayout;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
+import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -10,27 +14,29 @@ import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.BorderItemSelectionEditPolicy;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ShowPropertyViewEditPolicy;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.TaskItemSemanticEditPolicy;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.Sequences2CanonicalEditPolicy;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.Sequences2ItemSemanticEditPolicy;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
 
 /**
  * @generated
  */
-public class TaskEditPart extends ShapeNodeEditPart {
+public class Sequences2EditPart extends AbstractBorderedShapeEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3667;
+	public static final int VISUAL_ID = 3665;
 
 	/**
 	 * @generated
@@ -45,21 +51,24 @@ public class TaskEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public TaskEditPart(View view) {
+	public Sequences2EditPart(View view) {
 		super(view);
 	}
 
 	/**
-	 * @generated NOT
+	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
+				new CreationEditPolicy());
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new TaskItemSemanticEditPolicy());
+				new Sequences2ItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
+				new DragDropEditPolicy());
+		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
+				new Sequences2CanonicalEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-		// For handle Double click Event.
-		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
-				new ShowPropertyViewEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
@@ -71,6 +80,12 @@ public class TaskEditPart extends ShapeNodeEditPart {
 		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
 			protected EditPolicy createChildEditPolicy(EditPart child) {
+				View childView = (View) child.getModel();
+				switch (EsbVisualIDRegistry.getVisualID(childView)) {
+				case SequencesInputConnectorEditPart.VISUAL_ID:
+				case SequencesOutputConnectorEditPart.VISUAL_ID:
+					return new BorderItemSelectionEditPolicy();
+				}
 				EditPolicy result = child
 						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
 				if (result == null) {
@@ -94,14 +109,14 @@ public class TaskEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure createNodeShape() {
-		return primaryShape = new TaskFigure();
+		return primaryShape = new SequencesFigure();
 	}
 
 	/**
 	 * @generated
 	 */
-	public TaskFigure getPrimaryShape() {
-		return (TaskFigure) primaryShape;
+	public SequencesFigure getPrimaryShape() {
+		return (SequencesFigure) primaryShape;
 	}
 
 	/**
@@ -120,7 +135,7 @@ public class TaskEditPart extends ShapeNodeEditPart {
 	 * 
 	 * @generated
 	 */
-	protected NodeFigure createNodeFigure() {
+	protected NodeFigure createMainFigure() {
 		NodeFigure figure = createNodePlate();
 		figure.setLayoutManager(new StackLayout());
 		IFigure shape = createNodeShape();
@@ -136,6 +151,11 @@ public class TaskEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure setupContentPane(IFigure nodeShape) {
+		if (nodeShape.getLayoutManager() == null) {
+			ConstrainedToolbarLayout layout = new ConstrainedToolbarLayout();
+			layout.setSpacing(5);
+			nodeShape.setLayoutManager(layout);
+		}
 		return nodeShape; // use nodeShape itself as contentPane
 	}
 
@@ -188,49 +208,22 @@ public class TaskEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public class TaskFigure extends EsbGraphicalShape {
+	public class SequencesFigure extends RoundedRectangle {
 
 		/**
 		 * @generated
 		 */
-		private WrappingLabel fFigureTaskNamePropertyLabel;
+		public SequencesFigure() {
 
-		/**
-		 * @generated
-		 */
-		public TaskFigure() {
+			GridLayout layoutThis = new GridLayout();
+			layoutThis.numColumns = 1;
+			layoutThis.makeColumnsEqualWidth = true;
+			this.setLayoutManager(layoutThis);
 
+			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
+					getMapMode().DPtoLP(8)));
+			this.setLineStyle(Graphics.LINE_DASH);
 			this.setBackgroundColor(THIS_BACK);
-			createContents();
-		}
-
-		/**
-		 * @generated NOT
-		 */
-		private void createContents() {
-
-			fFigureTaskNamePropertyLabel = new WrappingLabel();
-			fFigureTaskNamePropertyLabel.setText("<...>");
-			fFigureTaskNamePropertyLabel.setAlignment(SWT.CENTER);
-
-			this.getPropertyValueRectangle1().add(
-					fFigureTaskNamePropertyLabel);
-
-		}
-
-		/**
-		 * @generated
-		 */
-		public WrappingLabel getFigureTaskNamePropertyLabel() {
-			return fFigureTaskNamePropertyLabel;
-		}
-		
-		public String getIconPath() {
-			return "icons/ico20/out-mediator.gif";
-		}
-
-		public String getNodeName() {
-			return "LocalEntry";
 		}
 
 	}
@@ -238,6 +231,6 @@ public class TaskEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	static final Color THIS_BACK = new Color(null, 40, 151, 248);
+	static final Color THIS_BACK = new Color(null, 255, 255, 255);
 
 }

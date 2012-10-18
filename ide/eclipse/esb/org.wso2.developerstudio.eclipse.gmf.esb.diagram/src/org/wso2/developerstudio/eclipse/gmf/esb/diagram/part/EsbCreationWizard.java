@@ -89,7 +89,7 @@ public class EsbCreationWizard extends Wizard implements INewWizard,
 	private IContainer location;
 
 	private WizardMode wizardMode = WizardMode.DEFAULT;
-	
+
 	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
 
 	/**
@@ -214,12 +214,26 @@ public class EsbCreationWizard extends Wizard implements INewWizard,
 						"endpoint");
 				type = "synapse/endpoint";
 				break;
-				
+
 			case LOCALENTRY:
 				location = esbProject.getFolder(LOCAL_ENTRY_RESOURCE_DIR);
 				op = createDiagram("localentry_", LOCAL_ENTRY_RESOURCE_DIR,
 						"localentry");
 				type = "synapse/local-entry";
+				break;
+
+			case TEMPLATE:
+				location = esbProject.getFolder(TEMPLATE_RESOURCE_DIR);
+				op = createDiagram("template_", TEMPLATE_RESOURCE_DIR,
+						"template");
+				type = "synapse/template";
+				break;
+				
+			case TASK:
+				location = esbProject.getFolder(TASK_RESOURCE_DIR);
+				op = createDiagram("task_", TASK_RESOURCE_DIR,
+						"task");
+				type = "synapse/task";
 				break;
 
 			default:
@@ -289,7 +303,8 @@ public class EsbCreationWizard extends Wizard implements INewWizard,
 				diagram = EsbDiagramEditorUtil.createDiagram(
 						fileCreationLocationDiagram,
 						fileCreationLocationDomain, monitor);
-				createXMLfile(diagramModelFilePage.getFileName(),diagram, SYNAPSE_RESOURCE_DIR);
+				createXMLfile(diagramModelFilePage.getFileName(), diagram,
+						SYNAPSE_RESOURCE_DIR);
 				if (isOpenNewlyCreatedDiagramEditor() && diagram != null) {
 					try {
 						EsbDiagramEditorUtil.openDiagram(diagram);
@@ -333,7 +348,8 @@ public class EsbCreationWizard extends Wizard implements INewWizard,
 									+ DOMAIN_FILE_EXTENSION, false),
 							new NullProgressMonitor(), type,
 							diagramModelFilePage.getFileName());
-					createXMLfile(diagramModelFilePage.getFileName(),diagram,dir);
+					createXMLfile(diagramModelFilePage.getFileName(), diagram,
+							dir);
 					try {
 						EsbDiagramEditorUtil.openDiagram(diagram);
 
@@ -349,8 +365,9 @@ public class EsbCreationWizard extends Wizard implements INewWizard,
 	}
 
 	protected void createXMLfile(String name, Resource resource, String dir) {
-		
-		String xmlFilePath = dir.replaceAll("/graphical-synapse-config","/synapse-config") + "/"+ name + ".xml";
+
+		String xmlFilePath = dir.replaceAll("/graphical-synapse-config",
+				"/synapse-config") + "/" + name + ".xml";
 		IFile xmlFile = esbProject.getFile(xmlFilePath);
 		EsbDiagram diagram = (EsbDiagram) ((org.eclipse.gmf.runtime.notation.impl.DiagramImpl) resource
 				.getContents().get(0)).getElement();
@@ -358,14 +375,13 @@ public class EsbCreationWizard extends Wizard implements INewWizard,
 
 		String newSource = null;
 		try {
-			newSource = EsbModelTransformer.instance
-					.designToSource(server);
+			newSource = EsbModelTransformer.instance.designToSource(server);
 			InputStream is = new ByteArrayInputStream(newSource.getBytes());
 			xmlFile.create(is, true, null);
 		} catch (Exception e) {
 			log.warn("Could not create file " + xmlFile);
 		}
-		
+
 	}
 
 	private ESBArtifact createArtifact(String name, String groupId,
@@ -411,7 +427,7 @@ public class EsbCreationWizard extends Wizard implements INewWizard,
 
 	public enum WizardMode {
 		DEFAULT("DEFAULT"), PROXY("PROXY"), SEQUENCE("SEQUENCE"), ENDPOINT(
-				"ENDPOINT"),LOCALENTRY("LOCALENTRY");
+				"ENDPOINT"), LOCALENTRY("LOCALENTRY"), TEMPLATE("TEMPLATE"), TASK("TASK");
 
 		private final String mode;
 

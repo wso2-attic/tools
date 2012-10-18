@@ -20,6 +20,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ShowPropertyViewEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.LocalEntryItemSemanticEditPolicy;
 
 /**
@@ -50,13 +51,16 @@ public class LocalEntryEditPart extends ShapeNodeEditPart {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new LocalEntryItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
+		// For handle Double click Event.
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
+				new ShowPropertyViewEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
@@ -221,7 +225,7 @@ public class LocalEntryEditPart extends ShapeNodeEditPart {
 		public WrappingLabel getFigureLocalEntryNamePropertyLabel() {
 			return fFigureLocalEntryNamePropertyLabel;
 		}
-		
+
 		public String getIconPath() {
 			return "icons/ico20/out-mediator.gif";
 		}

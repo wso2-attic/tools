@@ -878,6 +878,16 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String TemplateTemplateCompartmentEditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String EndpointDiagramEndpointCompartment2EditPart_title;
+
+	/**
+	 * @generated
+	 */
 	public static String CommandName_OpenDiagram;
 
 	/**

@@ -940,6 +940,20 @@ public class EsbVisualIDRegistry {
 				return LoadBalanceEndPointWestOutputConnector2EditPart.VISUAL_ID;
 			}
 			break;
+		case Sequences2EditPart.VISUAL_ID:
+			if (EsbPackage.eINSTANCE.getMediatorFlow().isSuperTypeOf(
+					domainElement.eClass())) {
+				return MediatorFlow5EditPart.VISUAL_ID;
+			}
+			if (EsbPackage.eINSTANCE.getSequencesInputConnector()
+					.isSuperTypeOf(domainElement.eClass())) {
+				return SequencesInputConnectorEditPart.VISUAL_ID;
+			}
+			if (EsbPackage.eINSTANCE.getSequencesOutputConnector()
+					.isSuperTypeOf(domainElement.eClass())) {
+				return SequencesOutputConnectorEditPart.VISUAL_ID;
+			}
+			break;
 		case EsbServerContentsCompartmentEditPart.VISUAL_ID:
 			if (EsbPackage.eINSTANCE.getProxyService().isSuperTypeOf(
 					domainElement.eClass())) {
@@ -956,6 +970,14 @@ public class EsbVisualIDRegistry {
 			if (EsbPackage.eINSTANCE.getLocalEntry().isSuperTypeOf(
 					domainElement.eClass())) {
 				return LocalEntryEditPart.VISUAL_ID;
+			}
+			if (EsbPackage.eINSTANCE.getTemplate().isSuperTypeOf(
+					domainElement.eClass())) {
+				return TemplateEditPart.VISUAL_ID;
+			}
+			if (EsbPackage.eINSTANCE.getTask().isSuperTypeOf(
+					domainElement.eClass())) {
+				return TaskEditPart.VISUAL_ID;
 			}
 			break;
 		case MediatorFlowMediatorFlowCompartmentEditPart.VISUAL_ID:
@@ -4142,6 +4164,38 @@ public class EsbVisualIDRegistry {
 				return LoadBalanceEndPoint2EditPart.VISUAL_ID;
 			}
 			break;
+		case TemplateTemplateCompartmentEditPart.VISUAL_ID:
+			if (EsbPackage.eINSTANCE.getSequences().isSuperTypeOf(
+					domainElement.eClass())) {
+				return Sequences2EditPart.VISUAL_ID;
+			}
+			if (EsbPackage.eINSTANCE.getEndpointDiagram().isSuperTypeOf(
+					domainElement.eClass())) {
+				return EndpointDiagram2EditPart.VISUAL_ID;
+			}
+			break;
+		case EndpointDiagramEndpointCompartment2EditPart.VISUAL_ID:
+			if (EsbPackage.eINSTANCE.getDefaultEndPoint().isSuperTypeOf(
+					domainElement.eClass())) {
+				return DefaultEndPoint2EditPart.VISUAL_ID;
+			}
+			if (EsbPackage.eINSTANCE.getAddressEndPoint().isSuperTypeOf(
+					domainElement.eClass())) {
+				return AddressEndPoint2EditPart.VISUAL_ID;
+			}
+			if (EsbPackage.eINSTANCE.getFailoverEndPoint().isSuperTypeOf(
+					domainElement.eClass())) {
+				return FailoverEndPoint2EditPart.VISUAL_ID;
+			}
+			if (EsbPackage.eINSTANCE.getWSDLEndPoint().isSuperTypeOf(
+					domainElement.eClass())) {
+				return WSDLEndPoint2EditPart.VISUAL_ID;
+			}
+			if (EsbPackage.eINSTANCE.getLoadBalanceEndPoint().isSuperTypeOf(
+					domainElement.eClass())) {
+				return LoadBalanceEndPoint2EditPart.VISUAL_ID;
+			}
+			break;
 		}
 		return -1;
 	}
@@ -5014,6 +5068,27 @@ public class EsbVisualIDRegistry {
 				return true;
 			}
 			break;
+		case TemplateEditPart.VISUAL_ID:
+			if (TemplateTemplateCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case Sequences2EditPart.VISUAL_ID:
+			if (MediatorFlow5EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (SequencesInputConnectorEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (SequencesOutputConnectorEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case EndpointDiagram2EditPart.VISUAL_ID:
+			if (EndpointDiagramEndpointCompartment2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
 		case EsbServerContentsCompartmentEditPart.VISUAL_ID:
 			if (ProxyServiceEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
@@ -5025,6 +5100,12 @@ public class EsbVisualIDRegistry {
 				return true;
 			}
 			if (LocalEntryEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (TemplateEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (TaskEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -7409,6 +7490,31 @@ public class EsbVisualIDRegistry {
 			}
 			break;
 		case EndpointDiagramEndpointCompartmentEditPart.VISUAL_ID:
+			if (DefaultEndPoint2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (AddressEndPoint2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (FailoverEndPoint2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (WSDLEndPoint2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (LoadBalanceEndPoint2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case TemplateTemplateCompartmentEditPart.VISUAL_ID:
+			if (Sequences2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (EndpointDiagram2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case EndpointDiagramEndpointCompartment2EditPart.VISUAL_ID:
 			if (DefaultEndPoint2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
