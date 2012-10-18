@@ -113,7 +113,7 @@ public class DeleteElementAction extends AbstractDeleteFromAction {
 					.getInputConnector((ShapeNodeEditPart) editPart);
 			AbstractOutputConnectorEditPart currentOutputConnector = EditorUtils
 					.getOutputConnector((ShapeNodeEditPart) editPart);
-			if (currentOutputConnector.getSourceConnections().size() != 0) {
+			if ((currentOutputConnector !=null)&&(currentOutputConnector.getSourceConnections().size() != 0)) {
 				((AbstractMediator) editPart)
 						.setConnectedInputConnector((AbstractInputConnectorEditPart) ((EsbLinkEditPart) currentOutputConnector
 								.getSourceConnections().get(0)).getTarget());
