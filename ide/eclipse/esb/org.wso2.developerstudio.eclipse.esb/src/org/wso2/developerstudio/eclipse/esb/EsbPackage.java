@@ -5717,6 +5717,623 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	int TASK_FEATURE_COUNT = CONFIGURATION_ELEMENT_FEATURE_COUNT + 8;
 
 				/**
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.impl.ApiInSequenceConfigurationImpl <em>Api In Sequence Configuration</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.wso2.developerstudio.eclipse.esb.impl.ApiInSequenceConfigurationImpl
+	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getApiInSequenceConfiguration()
+	 * @generated
+	 */
+	int API_IN_SEQUENCE_CONFIGURATION = 48;
+
+				/**
+	 * The feature id for the '<em><b>Object State</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_IN_SEQUENCE_CONFIGURATION__OBJECT_STATE = ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__OBJECT_STATE;
+
+				/**
+	 * The feature id for the '<em><b>Source Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_IN_SEQUENCE_CONFIGURATION__SOURCE_TEXT = ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__SOURCE_TEXT;
+
+				/**
+	 * The feature id for the '<em><b>Default Namespace</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_IN_SEQUENCE_CONFIGURATION__DEFAULT_NAMESPACE = ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__DEFAULT_NAMESPACE;
+
+				/**
+	 * The feature id for the '<em><b>Additional Namespaces</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_IN_SEQUENCE_CONFIGURATION__ADDITIONAL_NAMESPACES = ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__ADDITIONAL_NAMESPACES;
+
+				/**
+	 * The feature id for the '<em><b>Current Esb Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_IN_SEQUENCE_CONFIGURATION__CURRENT_ESB_VERSION = ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__CURRENT_ESB_VERSION;
+
+				/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_IN_SEQUENCE_CONFIGURATION__COMMENT = ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__COMMENT;
+
+				/**
+	 * The feature id for the '<em><b>Sequence Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_IN_SEQUENCE_CONFIGURATION__SEQUENCE_TYPE = ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__SEQUENCE_TYPE;
+
+				/**
+	 * The feature id for the '<em><b>Inline Sequence</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_IN_SEQUENCE_CONFIGURATION__INLINE_SEQUENCE = ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__INLINE_SEQUENCE;
+
+				/**
+	 * The feature id for the '<em><b>Sequence Key</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_IN_SEQUENCE_CONFIGURATION__SEQUENCE_KEY = ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__SEQUENCE_KEY;
+
+				/**
+	 * The feature id for the '<em><b>Sequence Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_IN_SEQUENCE_CONFIGURATION__SEQUENCE_NAME = ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__SEQUENCE_NAME;
+
+				/**
+	 * The number of structural features of the '<em>Api In Sequence Configuration</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_IN_SEQUENCE_CONFIGURATION_FEATURE_COUNT = ABSTRACT_PROXY_SEQUENCE_CONFIGURATION_FEATURE_COUNT + 0;
+
+				/**
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.impl.ApiOutSequenceConfigurationImpl <em>Api Out Sequence Configuration</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.wso2.developerstudio.eclipse.esb.impl.ApiOutSequenceConfigurationImpl
+	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getApiOutSequenceConfiguration()
+	 * @generated
+	 */
+	int API_OUT_SEQUENCE_CONFIGURATION = 49;
+
+				/**
+	 * The feature id for the '<em><b>Object State</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_OUT_SEQUENCE_CONFIGURATION__OBJECT_STATE = ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__OBJECT_STATE;
+
+				/**
+	 * The feature id for the '<em><b>Source Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_OUT_SEQUENCE_CONFIGURATION__SOURCE_TEXT = ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__SOURCE_TEXT;
+
+				/**
+	 * The feature id for the '<em><b>Default Namespace</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_OUT_SEQUENCE_CONFIGURATION__DEFAULT_NAMESPACE = ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__DEFAULT_NAMESPACE;
+
+				/**
+	 * The feature id for the '<em><b>Additional Namespaces</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_OUT_SEQUENCE_CONFIGURATION__ADDITIONAL_NAMESPACES = ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__ADDITIONAL_NAMESPACES;
+
+				/**
+	 * The feature id for the '<em><b>Current Esb Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_OUT_SEQUENCE_CONFIGURATION__CURRENT_ESB_VERSION = ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__CURRENT_ESB_VERSION;
+
+				/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_OUT_SEQUENCE_CONFIGURATION__COMMENT = ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__COMMENT;
+
+				/**
+	 * The feature id for the '<em><b>Sequence Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_OUT_SEQUENCE_CONFIGURATION__SEQUENCE_TYPE = ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__SEQUENCE_TYPE;
+
+				/**
+	 * The feature id for the '<em><b>Inline Sequence</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_OUT_SEQUENCE_CONFIGURATION__INLINE_SEQUENCE = ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__INLINE_SEQUENCE;
+
+				/**
+	 * The feature id for the '<em><b>Sequence Key</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_OUT_SEQUENCE_CONFIGURATION__SEQUENCE_KEY = ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__SEQUENCE_KEY;
+
+				/**
+	 * The feature id for the '<em><b>Sequence Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_OUT_SEQUENCE_CONFIGURATION__SEQUENCE_NAME = ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__SEQUENCE_NAME;
+
+				/**
+	 * The number of structural features of the '<em>Api Out Sequence Configuration</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_OUT_SEQUENCE_CONFIGURATION_FEATURE_COUNT = ABSTRACT_PROXY_SEQUENCE_CONFIGURATION_FEATURE_COUNT + 0;
+
+				/**
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.impl.ApiFaultSequenceConfigurationImpl <em>Api Fault Sequence Configuration</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.wso2.developerstudio.eclipse.esb.impl.ApiFaultSequenceConfigurationImpl
+	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getApiFaultSequenceConfiguration()
+	 * @generated
+	 */
+	int API_FAULT_SEQUENCE_CONFIGURATION = 50;
+
+				/**
+	 * The feature id for the '<em><b>Object State</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_FAULT_SEQUENCE_CONFIGURATION__OBJECT_STATE = ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__OBJECT_STATE;
+
+				/**
+	 * The feature id for the '<em><b>Source Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_FAULT_SEQUENCE_CONFIGURATION__SOURCE_TEXT = ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__SOURCE_TEXT;
+
+				/**
+	 * The feature id for the '<em><b>Default Namespace</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_FAULT_SEQUENCE_CONFIGURATION__DEFAULT_NAMESPACE = ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__DEFAULT_NAMESPACE;
+
+				/**
+	 * The feature id for the '<em><b>Additional Namespaces</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_FAULT_SEQUENCE_CONFIGURATION__ADDITIONAL_NAMESPACES = ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__ADDITIONAL_NAMESPACES;
+
+				/**
+	 * The feature id for the '<em><b>Current Esb Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_FAULT_SEQUENCE_CONFIGURATION__CURRENT_ESB_VERSION = ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__CURRENT_ESB_VERSION;
+
+				/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_FAULT_SEQUENCE_CONFIGURATION__COMMENT = ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__COMMENT;
+
+				/**
+	 * The feature id for the '<em><b>Sequence Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_FAULT_SEQUENCE_CONFIGURATION__SEQUENCE_TYPE = ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__SEQUENCE_TYPE;
+
+				/**
+	 * The feature id for the '<em><b>Inline Sequence</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_FAULT_SEQUENCE_CONFIGURATION__INLINE_SEQUENCE = ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__INLINE_SEQUENCE;
+
+				/**
+	 * The feature id for the '<em><b>Sequence Key</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_FAULT_SEQUENCE_CONFIGURATION__SEQUENCE_KEY = ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__SEQUENCE_KEY;
+
+				/**
+	 * The feature id for the '<em><b>Sequence Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_FAULT_SEQUENCE_CONFIGURATION__SEQUENCE_NAME = ABSTRACT_PROXY_SEQUENCE_CONFIGURATION__SEQUENCE_NAME;
+
+				/**
+	 * The number of structural features of the '<em>Api Fault Sequence Configuration</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_FAULT_SEQUENCE_CONFIGURATION_FEATURE_COUNT = ABSTRACT_PROXY_SEQUENCE_CONFIGURATION_FEATURE_COUNT + 0;
+
+				/**
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.impl.ApiResourceImpl <em>Api Resource</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.wso2.developerstudio.eclipse.esb.impl.ApiResourceImpl
+	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getApiResource()
+	 * @generated
+	 */
+	int API_RESOURCE = 51;
+
+				/**
+	 * The feature id for the '<em><b>Object State</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_RESOURCE__OBJECT_STATE = MODEL_OBJECT__OBJECT_STATE;
+
+				/**
+	 * The feature id for the '<em><b>Source Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_RESOURCE__SOURCE_TEXT = MODEL_OBJECT__SOURCE_TEXT;
+
+				/**
+	 * The feature id for the '<em><b>Default Namespace</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_RESOURCE__DEFAULT_NAMESPACE = MODEL_OBJECT__DEFAULT_NAMESPACE;
+
+				/**
+	 * The feature id for the '<em><b>Additional Namespaces</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_RESOURCE__ADDITIONAL_NAMESPACES = MODEL_OBJECT__ADDITIONAL_NAMESPACES;
+
+				/**
+	 * The feature id for the '<em><b>Current Esb Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_RESOURCE__CURRENT_ESB_VERSION = MODEL_OBJECT__CURRENT_ESB_VERSION;
+
+				/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_RESOURCE__COMMENT = MODEL_OBJECT__COMMENT;
+
+				/**
+	 * The feature id for the '<em><b>In Sequence Configuration</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_RESOURCE__IN_SEQUENCE_CONFIGURATION = MODEL_OBJECT_FEATURE_COUNT + 0;
+
+				/**
+	 * The feature id for the '<em><b>Out Sequence Configuration</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_RESOURCE__OUT_SEQUENCE_CONFIGURATION = MODEL_OBJECT_FEATURE_COUNT + 1;
+
+				/**
+	 * The feature id for the '<em><b>Fault Sequence Configuration</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_RESOURCE__FAULT_SEQUENCE_CONFIGURATION = MODEL_OBJECT_FEATURE_COUNT + 2;
+
+				/**
+	 * The feature id for the '<em><b>Url Style</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_RESOURCE__URL_STYLE = MODEL_OBJECT_FEATURE_COUNT + 3;
+
+				/**
+	 * The feature id for the '<em><b>Uri Template</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_RESOURCE__URI_TEMPLATE = MODEL_OBJECT_FEATURE_COUNT + 4;
+
+				/**
+	 * The feature id for the '<em><b>Url Mapping</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_RESOURCE__URL_MAPPING = MODEL_OBJECT_FEATURE_COUNT + 5;
+
+				/**
+	 * The feature id for the '<em><b>Allow Get</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_RESOURCE__ALLOW_GET = MODEL_OBJECT_FEATURE_COUNT + 6;
+
+				/**
+	 * The feature id for the '<em><b>Allow Post</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_RESOURCE__ALLOW_POST = MODEL_OBJECT_FEATURE_COUNT + 7;
+
+				/**
+	 * The feature id for the '<em><b>Allow Put</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_RESOURCE__ALLOW_PUT = MODEL_OBJECT_FEATURE_COUNT + 8;
+
+				/**
+	 * The feature id for the '<em><b>Allow Delete</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_RESOURCE__ALLOW_DELETE = MODEL_OBJECT_FEATURE_COUNT + 9;
+
+				/**
+	 * The feature id for the '<em><b>Allow Options</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_RESOURCE__ALLOW_OPTIONS = MODEL_OBJECT_FEATURE_COUNT + 10;
+
+				/**
+	 * The number of structural features of the '<em>Api Resource</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_RESOURCE_FEATURE_COUNT = MODEL_OBJECT_FEATURE_COUNT + 11;
+
+				/**
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.impl.SynapseAPIImpl <em>Synapse API</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.wso2.developerstudio.eclipse.esb.impl.SynapseAPIImpl
+	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getSynapseAPI()
+	 * @generated
+	 */
+	int SYNAPSE_API = 52;
+
+				/**
+	 * The feature id for the '<em><b>Object State</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYNAPSE_API__OBJECT_STATE = CONFIGURATION_ELEMENT__OBJECT_STATE;
+
+				/**
+	 * The feature id for the '<em><b>Source Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYNAPSE_API__SOURCE_TEXT = CONFIGURATION_ELEMENT__SOURCE_TEXT;
+
+				/**
+	 * The feature id for the '<em><b>Default Namespace</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYNAPSE_API__DEFAULT_NAMESPACE = CONFIGURATION_ELEMENT__DEFAULT_NAMESPACE;
+
+				/**
+	 * The feature id for the '<em><b>Additional Namespaces</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYNAPSE_API__ADDITIONAL_NAMESPACES = CONFIGURATION_ELEMENT__ADDITIONAL_NAMESPACES;
+
+				/**
+	 * The feature id for the '<em><b>Current Esb Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYNAPSE_API__CURRENT_ESB_VERSION = CONFIGURATION_ELEMENT__CURRENT_ESB_VERSION;
+
+				/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYNAPSE_API__COMMENT = CONFIGURATION_ELEMENT__COMMENT;
+
+				/**
+	 * The feature id for the '<em><b>Api Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYNAPSE_API__API_NAME = CONFIGURATION_ELEMENT_FEATURE_COUNT + 0;
+
+				/**
+	 * The feature id for the '<em><b>Context</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYNAPSE_API__CONTEXT = CONFIGURATION_ELEMENT_FEATURE_COUNT + 1;
+
+				/**
+	 * The feature id for the '<em><b>Hostname</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYNAPSE_API__HOSTNAME = CONFIGURATION_ELEMENT_FEATURE_COUNT + 2;
+
+				/**
+	 * The feature id for the '<em><b>Port</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYNAPSE_API__PORT = CONFIGURATION_ELEMENT_FEATURE_COUNT + 3;
+
+				/**
+	 * The feature id for the '<em><b>Resources</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYNAPSE_API__RESOURCES = CONFIGURATION_ELEMENT_FEATURE_COUNT + 4;
+
+				/**
+	 * The number of structural features of the '<em>Synapse API</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYNAPSE_API_FEATURE_COUNT = CONFIGURATION_ELEMENT_FEATURE_COUNT + 5;
+
+				/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.ModelObjectState <em>Model Object State</em>}' enum.
 	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -5724,7 +6341,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getModelObjectState()
 	 * @generated
 	 */
-    int MODEL_OBJECT_STATE = 48;
+    int MODEL_OBJECT_STATE = 53;
 
     /**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.TaskPropertyType <em>Task Property Type</em>}' enum.
@@ -5734,7 +6351,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getTaskPropertyType()
 	 * @generated
 	 */
-	int TASK_PROPERTY_TYPE = 49;
+	int TASK_PROPERTY_TYPE = 54;
 
 				/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.PropertyValueType <em>Property Value Type</em>}' enum.
@@ -5744,7 +6361,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getPropertyValueType()
 	 * @generated
 	 */
-	int PROPERTY_VALUE_TYPE = 50;
+	int PROPERTY_VALUE_TYPE = 55;
 
 				/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.EndPointAddressingVersion <em>End Point Addressing Version</em>}' enum.
@@ -5754,7 +6371,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getEndPointAddressingVersion()
 	 * @generated
 	 */
-    int END_POINT_ADDRESSING_VERSION = 53;
+    int END_POINT_ADDRESSING_VERSION = 58;
 
     /**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.EndPointTimeOutAction <em>End Point Time Out Action</em>}' enum.
@@ -5764,7 +6381,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getEndPointTimeOutAction()
 	 * @generated
 	 */
-    int END_POINT_TIME_OUT_ACTION = 54;
+    int END_POINT_TIME_OUT_ACTION = 59;
 
     /**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.EndPointMessageFormat <em>End Point Message Format</em>}' enum.
@@ -5774,7 +6391,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getEndPointMessageFormat()
 	 * @generated
 	 */
-    int END_POINT_MESSAGE_FORMAT = 55;
+    int END_POINT_MESSAGE_FORMAT = 60;
 
     /**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.EndPointAttachmentOptimization <em>End Point Attachment Optimization</em>}' enum.
@@ -5784,7 +6401,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getEndPointAttachmentOptimization()
 	 * @generated
 	 */
-    int END_POINT_ATTACHMENT_OPTIMIZATION = 56;
+    int END_POINT_ATTACHMENT_OPTIMIZATION = 61;
 
     /**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.EndPointWsdlType <em>End Point Wsdl Type</em>}' enum.
@@ -5794,7 +6411,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getEndPointWsdlType()
 	 * @generated
 	 */
-    int END_POINT_WSDL_TYPE = 57;
+    int END_POINT_WSDL_TYPE = 62;
 
     /**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.LoadBalanceAlgorithm <em>Load Balance Algorithm</em>}' enum.
@@ -5804,7 +6421,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getLoadBalanceAlgorithm()
 	 * @generated
 	 */
-    int LOAD_BALANCE_ALGORITHM = 58;
+    int LOAD_BALANCE_ALGORITHM = 63;
 
     /**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.LoadBalanceSessionType <em>Load Balance Session Type</em>}' enum.
@@ -5814,7 +6431,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getLoadBalanceSessionType()
 	 * @generated
 	 */
-    int LOAD_BALANCE_SESSION_TYPE = 59;
+    int LOAD_BALANCE_SESSION_TYPE = 64;
 
     /**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.ProxyWsdlType <em>Proxy Wsdl Type</em>}' enum.
@@ -5824,7 +6441,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getProxyWsdlType()
 	 * @generated
 	 */
-	int PROXY_WSDL_TYPE = 60;
+	int PROXY_WSDL_TYPE = 65;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.ProxySequenceType <em>Proxy Sequence Type</em>}' enum.
@@ -5834,7 +6451,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getProxySequenceType()
 	 * @generated
 	 */
-	int PROXY_SEQUENCE_TYPE = 61;
+	int PROXY_SEQUENCE_TYPE = 66;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.ProxyEndpointType <em>Proxy Endpoint Type</em>}' enum.
@@ -5844,7 +6461,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getProxyEndpointType()
 	 * @generated
 	 */
-	int PROXY_ENDPOINT_TYPE = 62;
+	int PROXY_ENDPOINT_TYPE = 67;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.LocalEntryValueType <em>Local Entry Value Type</em>}' enum.
@@ -5854,7 +6471,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getLocalEntryValueType()
 	 * @generated
 	 */
-	int LOCAL_ENTRY_VALUE_TYPE = 63;
+	int LOCAL_ENTRY_VALUE_TYPE = 68;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.EsbVersion <em>Version</em>}' enum.
@@ -5864,7 +6481,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getEsbVersion()
 	 * @generated
 	 */
-	int ESB_VERSION = 64;
+	int ESB_VERSION = 69;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.EndPointMessageFormatRestType <em>End Point Message Format Rest Type</em>}' enum.
@@ -5874,7 +6491,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getEndPointMessageFormatRestType()
 	 * @generated
 	 */
-    int END_POINT_MESSAGE_FORMAT_REST_TYPE = 65;
+    int END_POINT_MESSAGE_FORMAT_REST_TYPE = 70;
 
     /**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.TaskTriggerType <em>Task Trigger Type</em>}' enum.
@@ -5884,7 +6501,17 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getTaskTriggerType()
 	 * @generated
 	 */
-	int TASK_TRIGGER_TYPE = 66;
+	int TASK_TRIGGER_TYPE = 71;
+
+				/**
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.ApiResourceUrlStyle <em>Api Resource Url Style</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.wso2.developerstudio.eclipse.esb.ApiResourceUrlStyle
+	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getApiResourceUrlStyle()
+	 * @generated
+	 */
+	int API_RESOURCE_URL_STYLE = 72;
 
 				/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.TargetSequenceType <em>Target Sequence Type</em>}' enum.
@@ -5894,7 +6521,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getTargetSequenceType()
 	 * @generated
 	 */
-	int TARGET_SEQUENCE_TYPE = 51;
+	int TARGET_SEQUENCE_TYPE = 56;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.TargetEndpointType <em>Target Endpoint Type</em>}' enum.
@@ -5904,7 +6531,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getTargetEndpointType()
 	 * @generated
 	 */
-	int TARGET_ENDPOINT_TYPE = 52;
+	int TARGET_ENDPOINT_TYPE = 57;
 
 	/**
 	 * The meta object id for the '<em>Map</em>' data type.
@@ -5914,7 +6541,7 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getMap()
 	 * @generated
 	 */
-	int MAP = 67;
+	int MAP = 73;
 
 	/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.esb.ModelObject <em>Model Object</em>}'.
@@ -6797,6 +7424,232 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	 * @generated
 	 */
 	EAttribute getTask_PinnedServers();
+
+				/**
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.esb.ApiInSequenceConfiguration <em>Api In Sequence Configuration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Api In Sequence Configuration</em>'.
+	 * @see org.wso2.developerstudio.eclipse.esb.ApiInSequenceConfiguration
+	 * @generated
+	 */
+	EClass getApiInSequenceConfiguration();
+
+				/**
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.esb.ApiOutSequenceConfiguration <em>Api Out Sequence Configuration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Api Out Sequence Configuration</em>'.
+	 * @see org.wso2.developerstudio.eclipse.esb.ApiOutSequenceConfiguration
+	 * @generated
+	 */
+	EClass getApiOutSequenceConfiguration();
+
+				/**
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.esb.ApiFaultSequenceConfiguration <em>Api Fault Sequence Configuration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Api Fault Sequence Configuration</em>'.
+	 * @see org.wso2.developerstudio.eclipse.esb.ApiFaultSequenceConfiguration
+	 * @generated
+	 */
+	EClass getApiFaultSequenceConfiguration();
+
+				/**
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.esb.ApiResource <em>Api Resource</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Api Resource</em>'.
+	 * @see org.wso2.developerstudio.eclipse.esb.ApiResource
+	 * @generated
+	 */
+	EClass getApiResource();
+
+				/**
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.esb.ApiResource#getInSequenceConfiguration <em>In Sequence Configuration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>In Sequence Configuration</em>'.
+	 * @see org.wso2.developerstudio.eclipse.esb.ApiResource#getInSequenceConfiguration()
+	 * @see #getApiResource()
+	 * @generated
+	 */
+	EReference getApiResource_InSequenceConfiguration();
+
+				/**
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.esb.ApiResource#getOutSequenceConfiguration <em>Out Sequence Configuration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Out Sequence Configuration</em>'.
+	 * @see org.wso2.developerstudio.eclipse.esb.ApiResource#getOutSequenceConfiguration()
+	 * @see #getApiResource()
+	 * @generated
+	 */
+	EReference getApiResource_OutSequenceConfiguration();
+
+				/**
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.esb.ApiResource#getFaultSequenceConfiguration <em>Fault Sequence Configuration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Fault Sequence Configuration</em>'.
+	 * @see org.wso2.developerstudio.eclipse.esb.ApiResource#getFaultSequenceConfiguration()
+	 * @see #getApiResource()
+	 * @generated
+	 */
+	EReference getApiResource_FaultSequenceConfiguration();
+
+				/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.esb.ApiResource#getUrlStyle <em>Url Style</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Url Style</em>'.
+	 * @see org.wso2.developerstudio.eclipse.esb.ApiResource#getUrlStyle()
+	 * @see #getApiResource()
+	 * @generated
+	 */
+	EAttribute getApiResource_UrlStyle();
+
+				/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.esb.ApiResource#getUriTemplate <em>Uri Template</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Uri Template</em>'.
+	 * @see org.wso2.developerstudio.eclipse.esb.ApiResource#getUriTemplate()
+	 * @see #getApiResource()
+	 * @generated
+	 */
+	EAttribute getApiResource_UriTemplate();
+
+				/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.esb.ApiResource#getUrlMapping <em>Url Mapping</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Url Mapping</em>'.
+	 * @see org.wso2.developerstudio.eclipse.esb.ApiResource#getUrlMapping()
+	 * @see #getApiResource()
+	 * @generated
+	 */
+	EAttribute getApiResource_UrlMapping();
+
+				/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.esb.ApiResource#isAllowGet <em>Allow Get</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Allow Get</em>'.
+	 * @see org.wso2.developerstudio.eclipse.esb.ApiResource#isAllowGet()
+	 * @see #getApiResource()
+	 * @generated
+	 */
+	EAttribute getApiResource_AllowGet();
+
+				/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.esb.ApiResource#isAllowPost <em>Allow Post</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Allow Post</em>'.
+	 * @see org.wso2.developerstudio.eclipse.esb.ApiResource#isAllowPost()
+	 * @see #getApiResource()
+	 * @generated
+	 */
+	EAttribute getApiResource_AllowPost();
+
+				/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.esb.ApiResource#isAllowPut <em>Allow Put</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Allow Put</em>'.
+	 * @see org.wso2.developerstudio.eclipse.esb.ApiResource#isAllowPut()
+	 * @see #getApiResource()
+	 * @generated
+	 */
+	EAttribute getApiResource_AllowPut();
+
+				/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.esb.ApiResource#isAllowDelete <em>Allow Delete</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Allow Delete</em>'.
+	 * @see org.wso2.developerstudio.eclipse.esb.ApiResource#isAllowDelete()
+	 * @see #getApiResource()
+	 * @generated
+	 */
+	EAttribute getApiResource_AllowDelete();
+
+				/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.esb.ApiResource#isAllowOptions <em>Allow Options</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Allow Options</em>'.
+	 * @see org.wso2.developerstudio.eclipse.esb.ApiResource#isAllowOptions()
+	 * @see #getApiResource()
+	 * @generated
+	 */
+	EAttribute getApiResource_AllowOptions();
+
+				/**
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.esb.SynapseAPI <em>Synapse API</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Synapse API</em>'.
+	 * @see org.wso2.developerstudio.eclipse.esb.SynapseAPI
+	 * @generated
+	 */
+	EClass getSynapseAPI();
+
+				/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.esb.SynapseAPI#getApiName <em>Api Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Api Name</em>'.
+	 * @see org.wso2.developerstudio.eclipse.esb.SynapseAPI#getApiName()
+	 * @see #getSynapseAPI()
+	 * @generated
+	 */
+	EAttribute getSynapseAPI_ApiName();
+
+				/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.esb.SynapseAPI#getContext <em>Context</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Context</em>'.
+	 * @see org.wso2.developerstudio.eclipse.esb.SynapseAPI#getContext()
+	 * @see #getSynapseAPI()
+	 * @generated
+	 */
+	EAttribute getSynapseAPI_Context();
+
+				/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.esb.SynapseAPI#getHostname <em>Hostname</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Hostname</em>'.
+	 * @see org.wso2.developerstudio.eclipse.esb.SynapseAPI#getHostname()
+	 * @see #getSynapseAPI()
+	 * @generated
+	 */
+	EAttribute getSynapseAPI_Hostname();
+
+				/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.esb.SynapseAPI#getPort <em>Port</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Port</em>'.
+	 * @see org.wso2.developerstudio.eclipse.esb.SynapseAPI#getPort()
+	 * @see #getSynapseAPI()
+	 * @generated
+	 */
+	EAttribute getSynapseAPI_Port();
+
+				/**
+	 * Returns the meta object for the containment reference list '{@link org.wso2.developerstudio.eclipse.esb.SynapseAPI#getResources <em>Resources</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Resources</em>'.
+	 * @see org.wso2.developerstudio.eclipse.esb.SynapseAPI#getResources()
+	 * @see #getSynapseAPI()
+	 * @generated
+	 */
+	EReference getSynapseAPI_Resources();
 
 				/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.esb.ProxyWsdlConfiguration <em>Proxy Wsdl Configuration</em>}'.
@@ -8074,6 +8927,16 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 	EEnum getTaskTriggerType();
 
 				/**
+	 * Returns the meta object for enum '{@link org.wso2.developerstudio.eclipse.esb.ApiResourceUrlStyle <em>Api Resource Url Style</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Api Resource Url Style</em>'.
+	 * @see org.wso2.developerstudio.eclipse.esb.ApiResourceUrlStyle
+	 * @generated
+	 */
+	EEnum getApiResourceUrlStyle();
+
+				/**
 	 * Returns the meta object for enum '{@link org.wso2.developerstudio.eclipse.esb.TargetSequenceType <em>Target Sequence Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8821,6 +9684,184 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 		 * @generated
 		 */
 		EAttribute TASK__PINNED_SERVERS = eINSTANCE.getTask_PinnedServers();
+
+								/**
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.esb.impl.ApiInSequenceConfigurationImpl <em>Api In Sequence Configuration</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.wso2.developerstudio.eclipse.esb.impl.ApiInSequenceConfigurationImpl
+		 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getApiInSequenceConfiguration()
+		 * @generated
+		 */
+		EClass API_IN_SEQUENCE_CONFIGURATION = eINSTANCE.getApiInSequenceConfiguration();
+
+								/**
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.esb.impl.ApiOutSequenceConfigurationImpl <em>Api Out Sequence Configuration</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.wso2.developerstudio.eclipse.esb.impl.ApiOutSequenceConfigurationImpl
+		 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getApiOutSequenceConfiguration()
+		 * @generated
+		 */
+		EClass API_OUT_SEQUENCE_CONFIGURATION = eINSTANCE.getApiOutSequenceConfiguration();
+
+								/**
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.esb.impl.ApiFaultSequenceConfigurationImpl <em>Api Fault Sequence Configuration</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.wso2.developerstudio.eclipse.esb.impl.ApiFaultSequenceConfigurationImpl
+		 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getApiFaultSequenceConfiguration()
+		 * @generated
+		 */
+		EClass API_FAULT_SEQUENCE_CONFIGURATION = eINSTANCE.getApiFaultSequenceConfiguration();
+
+								/**
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.esb.impl.ApiResourceImpl <em>Api Resource</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.wso2.developerstudio.eclipse.esb.impl.ApiResourceImpl
+		 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getApiResource()
+		 * @generated
+		 */
+		EClass API_RESOURCE = eINSTANCE.getApiResource();
+
+								/**
+		 * The meta object literal for the '<em><b>In Sequence Configuration</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference API_RESOURCE__IN_SEQUENCE_CONFIGURATION = eINSTANCE.getApiResource_InSequenceConfiguration();
+
+								/**
+		 * The meta object literal for the '<em><b>Out Sequence Configuration</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference API_RESOURCE__OUT_SEQUENCE_CONFIGURATION = eINSTANCE.getApiResource_OutSequenceConfiguration();
+
+								/**
+		 * The meta object literal for the '<em><b>Fault Sequence Configuration</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference API_RESOURCE__FAULT_SEQUENCE_CONFIGURATION = eINSTANCE.getApiResource_FaultSequenceConfiguration();
+
+								/**
+		 * The meta object literal for the '<em><b>Url Style</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute API_RESOURCE__URL_STYLE = eINSTANCE.getApiResource_UrlStyle();
+
+								/**
+		 * The meta object literal for the '<em><b>Uri Template</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute API_RESOURCE__URI_TEMPLATE = eINSTANCE.getApiResource_UriTemplate();
+
+								/**
+		 * The meta object literal for the '<em><b>Url Mapping</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute API_RESOURCE__URL_MAPPING = eINSTANCE.getApiResource_UrlMapping();
+
+								/**
+		 * The meta object literal for the '<em><b>Allow Get</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute API_RESOURCE__ALLOW_GET = eINSTANCE.getApiResource_AllowGet();
+
+								/**
+		 * The meta object literal for the '<em><b>Allow Post</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute API_RESOURCE__ALLOW_POST = eINSTANCE.getApiResource_AllowPost();
+
+								/**
+		 * The meta object literal for the '<em><b>Allow Put</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute API_RESOURCE__ALLOW_PUT = eINSTANCE.getApiResource_AllowPut();
+
+								/**
+		 * The meta object literal for the '<em><b>Allow Delete</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute API_RESOURCE__ALLOW_DELETE = eINSTANCE.getApiResource_AllowDelete();
+
+								/**
+		 * The meta object literal for the '<em><b>Allow Options</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute API_RESOURCE__ALLOW_OPTIONS = eINSTANCE.getApiResource_AllowOptions();
+
+								/**
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.esb.impl.SynapseAPIImpl <em>Synapse API</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.wso2.developerstudio.eclipse.esb.impl.SynapseAPIImpl
+		 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getSynapseAPI()
+		 * @generated
+		 */
+		EClass SYNAPSE_API = eINSTANCE.getSynapseAPI();
+
+								/**
+		 * The meta object literal for the '<em><b>Api Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SYNAPSE_API__API_NAME = eINSTANCE.getSynapseAPI_ApiName();
+
+								/**
+		 * The meta object literal for the '<em><b>Context</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SYNAPSE_API__CONTEXT = eINSTANCE.getSynapseAPI_Context();
+
+								/**
+		 * The meta object literal for the '<em><b>Hostname</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SYNAPSE_API__HOSTNAME = eINSTANCE.getSynapseAPI_Hostname();
+
+								/**
+		 * The meta object literal for the '<em><b>Port</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SYNAPSE_API__PORT = eINSTANCE.getSynapseAPI_Port();
+
+								/**
+		 * The meta object literal for the '<em><b>Resources</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SYNAPSE_API__RESOURCES = eINSTANCE.getSynapseAPI_Resources();
 
 								/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.esb.impl.ProxyWsdlConfigurationImpl <em>Proxy Wsdl Configuration</em>}' class.
@@ -9871,6 +10912,16 @@ int LOAD_BALANCE_END_POINT__ENDPOINT_NAME = PARENT_END_POINT__ENDPOINT_NAME;
 		 * @generated
 		 */
 		EEnum TASK_TRIGGER_TYPE = eINSTANCE.getTaskTriggerType();
+
+								/**
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.esb.ApiResourceUrlStyle <em>Api Resource Url Style</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.wso2.developerstudio.eclipse.esb.ApiResourceUrlStyle
+		 * @see org.wso2.developerstudio.eclipse.esb.impl.EsbPackageImpl#getApiResourceUrlStyle()
+		 * @generated
+		 */
+		EEnum API_RESOURCE_URL_STYLE = eINSTANCE.getApiResourceUrlStyle();
 
 								/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.esb.TargetSequenceType <em>Target Sequence Type</em>}' enum.

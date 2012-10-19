@@ -473,6 +473,45 @@ public class EsbSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case EsbPackage.API_IN_SEQUENCE_CONFIGURATION: {
+				ApiInSequenceConfiguration apiInSequenceConfiguration = (ApiInSequenceConfiguration)theEObject;
+				T result = caseApiInSequenceConfiguration(apiInSequenceConfiguration);
+				if (result == null) result = caseAbstractProxySequenceConfiguration(apiInSequenceConfiguration);
+				if (result == null) result = caseModelObject(apiInSequenceConfiguration);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.API_OUT_SEQUENCE_CONFIGURATION: {
+				ApiOutSequenceConfiguration apiOutSequenceConfiguration = (ApiOutSequenceConfiguration)theEObject;
+				T result = caseApiOutSequenceConfiguration(apiOutSequenceConfiguration);
+				if (result == null) result = caseAbstractProxySequenceConfiguration(apiOutSequenceConfiguration);
+				if (result == null) result = caseModelObject(apiOutSequenceConfiguration);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.API_FAULT_SEQUENCE_CONFIGURATION: {
+				ApiFaultSequenceConfiguration apiFaultSequenceConfiguration = (ApiFaultSequenceConfiguration)theEObject;
+				T result = caseApiFaultSequenceConfiguration(apiFaultSequenceConfiguration);
+				if (result == null) result = caseAbstractProxySequenceConfiguration(apiFaultSequenceConfiguration);
+				if (result == null) result = caseModelObject(apiFaultSequenceConfiguration);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.API_RESOURCE: {
+				ApiResource apiResource = (ApiResource)theEObject;
+				T result = caseApiResource(apiResource);
+				if (result == null) result = caseModelObject(apiResource);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.SYNAPSE_API: {
+				SynapseAPI synapseAPI = (SynapseAPI)theEObject;
+				T result = caseSynapseAPI(synapseAPI);
+				if (result == null) result = caseConfigurationElement(synapseAPI);
+				if (result == null) result = caseModelObject(synapseAPI);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -789,6 +828,81 @@ public class EsbSwitch<T> {
 	 * @generated
 	 */
 	public T caseTask(Task object) {
+		return null;
+	}
+
+				/**
+	 * Returns the result of interpreting the object as an instance of '<em>Api In Sequence Configuration</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Api In Sequence Configuration</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseApiInSequenceConfiguration(ApiInSequenceConfiguration object) {
+		return null;
+	}
+
+				/**
+	 * Returns the result of interpreting the object as an instance of '<em>Api Out Sequence Configuration</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Api Out Sequence Configuration</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseApiOutSequenceConfiguration(ApiOutSequenceConfiguration object) {
+		return null;
+	}
+
+				/**
+	 * Returns the result of interpreting the object as an instance of '<em>Api Fault Sequence Configuration</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Api Fault Sequence Configuration</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseApiFaultSequenceConfiguration(ApiFaultSequenceConfiguration object) {
+		return null;
+	}
+
+				/**
+	 * Returns the result of interpreting the object as an instance of '<em>Api Resource</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Api Resource</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseApiResource(ApiResource object) {
+		return null;
+	}
+
+				/**
+	 * Returns the result of interpreting the object as an instance of '<em>Synapse API</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Synapse API</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSynapseAPI(SynapseAPI object) {
 		return null;
 	}
 

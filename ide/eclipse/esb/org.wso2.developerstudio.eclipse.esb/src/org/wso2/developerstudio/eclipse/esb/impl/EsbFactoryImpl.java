@@ -227,6 +227,11 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 			case EsbPackage.TASK_IMPLEMENTATION: return createTaskImplementation();
 			case EsbPackage.TASK_PROPERTY: return createTaskProperty();
 			case EsbPackage.TASK: return createTask();
+			case EsbPackage.API_IN_SEQUENCE_CONFIGURATION: return createApiInSequenceConfiguration();
+			case EsbPackage.API_OUT_SEQUENCE_CONFIGURATION: return createApiOutSequenceConfiguration();
+			case EsbPackage.API_FAULT_SEQUENCE_CONFIGURATION: return createApiFaultSequenceConfiguration();
+			case EsbPackage.API_RESOURCE: return createApiResource();
+			case EsbPackage.SYNAPSE_API: return createSynapseAPI();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -278,6 +283,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 				return createEndPointMessageFormatRestTypeFromString(eDataType, initialValue);
 			case EsbPackage.TASK_TRIGGER_TYPE:
 				return createTaskTriggerTypeFromString(eDataType, initialValue);
+			case EsbPackage.API_RESOURCE_URL_STYLE:
+				return createApiResourceUrlStyleFromString(eDataType, initialValue);
 			case EsbPackage.MAP:
 				return createMapFromString(eDataType, initialValue);
 			default:
@@ -331,6 +338,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 				return convertEndPointMessageFormatRestTypeToString(eDataType, instanceValue);
 			case EsbPackage.TASK_TRIGGER_TYPE:
 				return convertTaskTriggerTypeToString(eDataType, instanceValue);
+			case EsbPackage.API_RESOURCE_URL_STYLE:
+				return convertApiResourceUrlStyleToString(eDataType, instanceValue);
 			case EsbPackage.MAP:
 				return convertMapToString(eDataType, instanceValue);
 			default:
@@ -718,6 +727,56 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ApiInSequenceConfiguration createApiInSequenceConfiguration() {
+		ApiInSequenceConfigurationImpl apiInSequenceConfiguration = new ApiInSequenceConfigurationImpl();
+		return apiInSequenceConfiguration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ApiOutSequenceConfiguration createApiOutSequenceConfiguration() {
+		ApiOutSequenceConfigurationImpl apiOutSequenceConfiguration = new ApiOutSequenceConfigurationImpl();
+		return apiOutSequenceConfiguration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ApiFaultSequenceConfiguration createApiFaultSequenceConfiguration() {
+		ApiFaultSequenceConfigurationImpl apiFaultSequenceConfiguration = new ApiFaultSequenceConfigurationImpl();
+		return apiFaultSequenceConfiguration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ApiResource createApiResource() {
+		ApiResourceImpl apiResource = new ApiResourceImpl();
+		return apiResource;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SynapseAPI createSynapseAPI() {
+		SynapseAPIImpl synapseAPI = new SynapseAPIImpl();
+		return synapseAPI;
+	}
+
+	/**
 	 * {@inheritDoc}
 	 */
 	public EvaluatorExpressionProperty copyevaluatorExpressionProperty(
@@ -1021,6 +1080,26 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	 * @generated
 	 */
 	public String convertTaskTriggerTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ApiResourceUrlStyle createApiResourceUrlStyleFromString(EDataType eDataType, String initialValue) {
+		ApiResourceUrlStyle result = ApiResourceUrlStyle.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertApiResourceUrlStyleToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

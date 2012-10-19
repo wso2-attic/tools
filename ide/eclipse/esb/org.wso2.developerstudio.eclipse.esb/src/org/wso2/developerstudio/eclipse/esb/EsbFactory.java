@@ -263,6 +263,51 @@ public interface EsbFactory extends EFactory {
 	Task createTask();
 
 	/**
+	 * Returns a new object of class '<em>Api In Sequence Configuration</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Api In Sequence Configuration</em>'.
+	 * @generated
+	 */
+	ApiInSequenceConfiguration createApiInSequenceConfiguration();
+
+	/**
+	 * Returns a new object of class '<em>Api Out Sequence Configuration</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Api Out Sequence Configuration</em>'.
+	 * @generated
+	 */
+	ApiOutSequenceConfiguration createApiOutSequenceConfiguration();
+
+	/**
+	 * Returns a new object of class '<em>Api Fault Sequence Configuration</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Api Fault Sequence Configuration</em>'.
+	 * @generated
+	 */
+	ApiFaultSequenceConfiguration createApiFaultSequenceConfiguration();
+
+	/**
+	 * Returns a new object of class '<em>Api Resource</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Api Resource</em>'.
+	 * @generated
+	 */
+	ApiResource createApiResource();
+
+	/**
+	 * Returns a new object of class '<em>Synapse API</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Synapse API</em>'.
+	 * @generated
+	 */
+	SynapseAPI createSynapseAPI();
+
+	/**
 	 * Utility method for creating a copy of the given
 	 * {@link EvaluatorExpressionProperty}.
 	 * 

@@ -34,6 +34,11 @@ import org.wso2.developerstudio.eclipse.esb.AbstractNameValueExpressionProperty;
 import org.wso2.developerstudio.eclipse.esb.AbstractNameValueProperty;
 import org.wso2.developerstudio.eclipse.esb.AbstractProxySequenceConfiguration;
 import org.wso2.developerstudio.eclipse.esb.AddressEndPoint;
+import org.wso2.developerstudio.eclipse.esb.ApiFaultSequenceConfiguration;
+import org.wso2.developerstudio.eclipse.esb.ApiInSequenceConfiguration;
+import org.wso2.developerstudio.eclipse.esb.ApiOutSequenceConfiguration;
+import org.wso2.developerstudio.eclipse.esb.ApiResource;
+import org.wso2.developerstudio.eclipse.esb.ApiResourceUrlStyle;
 import org.wso2.developerstudio.eclipse.esb.Comment;
 import org.wso2.developerstudio.eclipse.esb.ConfigurationElement;
 import org.wso2.developerstudio.eclipse.esb.DefaultEndPoint;
@@ -83,6 +88,7 @@ import org.wso2.developerstudio.eclipse.esb.ProxyWsdlResource;
 import org.wso2.developerstudio.eclipse.esb.ProxyWsdlType;
 import org.wso2.developerstudio.eclipse.esb.RegistryKeyEndPointReference;
 import org.wso2.developerstudio.eclipse.esb.RegistryKeyProperty;
+import org.wso2.developerstudio.eclipse.esb.SynapseAPI;
 import org.wso2.developerstudio.eclipse.esb.SynapseConfiguration;
 import org.wso2.developerstudio.eclipse.esb.TargetEndpointType;
 import org.wso2.developerstudio.eclipse.esb.TargetSequenceType;
@@ -300,6 +306,41 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	private EClass taskEClass = null;
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass apiInSequenceConfigurationEClass = null;
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass apiOutSequenceConfigurationEClass = null;
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass apiFaultSequenceConfigurationEClass = null;
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass apiResourceEClass = null;
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass synapseAPIEClass = null;
 
 				/**
 	 * <!-- begin-user-doc -->
@@ -559,6 +600,13 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	private EEnum taskTriggerTypeEEnum = null;
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum apiResourceUrlStyleEEnum = null;
 
 				/**
 	 * <!-- begin-user-doc -->
@@ -1446,6 +1494,195 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 */
 	public EAttribute getTask_PinnedServers() {
 		return (EAttribute)taskEClass.getEStructuralFeatures().get(7);
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getApiInSequenceConfiguration() {
+		return apiInSequenceConfigurationEClass;
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getApiOutSequenceConfiguration() {
+		return apiOutSequenceConfigurationEClass;
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getApiFaultSequenceConfiguration() {
+		return apiFaultSequenceConfigurationEClass;
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getApiResource() {
+		return apiResourceEClass;
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getApiResource_InSequenceConfiguration() {
+		return (EReference)apiResourceEClass.getEStructuralFeatures().get(0);
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getApiResource_OutSequenceConfiguration() {
+		return (EReference)apiResourceEClass.getEStructuralFeatures().get(1);
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getApiResource_FaultSequenceConfiguration() {
+		return (EReference)apiResourceEClass.getEStructuralFeatures().get(2);
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getApiResource_UrlStyle() {
+		return (EAttribute)apiResourceEClass.getEStructuralFeatures().get(3);
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getApiResource_UriTemplate() {
+		return (EAttribute)apiResourceEClass.getEStructuralFeatures().get(4);
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getApiResource_UrlMapping() {
+		return (EAttribute)apiResourceEClass.getEStructuralFeatures().get(5);
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getApiResource_AllowGet() {
+		return (EAttribute)apiResourceEClass.getEStructuralFeatures().get(6);
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getApiResource_AllowPost() {
+		return (EAttribute)apiResourceEClass.getEStructuralFeatures().get(7);
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getApiResource_AllowPut() {
+		return (EAttribute)apiResourceEClass.getEStructuralFeatures().get(8);
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getApiResource_AllowDelete() {
+		return (EAttribute)apiResourceEClass.getEStructuralFeatures().get(9);
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getApiResource_AllowOptions() {
+		return (EAttribute)apiResourceEClass.getEStructuralFeatures().get(10);
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSynapseAPI() {
+		return synapseAPIEClass;
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSynapseAPI_ApiName() {
+		return (EAttribute)synapseAPIEClass.getEStructuralFeatures().get(0);
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSynapseAPI_Context() {
+		return (EAttribute)synapseAPIEClass.getEStructuralFeatures().get(1);
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSynapseAPI_Hostname() {
+		return (EAttribute)synapseAPIEClass.getEStructuralFeatures().get(2);
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSynapseAPI_Port() {
+		return (EAttribute)synapseAPIEClass.getEStructuralFeatures().get(3);
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSynapseAPI_Resources() {
+		return (EReference)synapseAPIEClass.getEStructuralFeatures().get(4);
 	}
 
 				/**
@@ -2461,6 +2698,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getApiResourceUrlStyle() {
+		return apiResourceUrlStyleEEnum;
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getTargetSequenceType() {
 		return targetSequenceTypeEEnum;
 	}
@@ -2744,6 +2990,32 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEAttribute(taskEClass, TASK__CRON);
 		createEAttribute(taskEClass, TASK__PINNED_SERVERS);
 
+		apiInSequenceConfigurationEClass = createEClass(API_IN_SEQUENCE_CONFIGURATION);
+
+		apiOutSequenceConfigurationEClass = createEClass(API_OUT_SEQUENCE_CONFIGURATION);
+
+		apiFaultSequenceConfigurationEClass = createEClass(API_FAULT_SEQUENCE_CONFIGURATION);
+
+		apiResourceEClass = createEClass(API_RESOURCE);
+		createEReference(apiResourceEClass, API_RESOURCE__IN_SEQUENCE_CONFIGURATION);
+		createEReference(apiResourceEClass, API_RESOURCE__OUT_SEQUENCE_CONFIGURATION);
+		createEReference(apiResourceEClass, API_RESOURCE__FAULT_SEQUENCE_CONFIGURATION);
+		createEAttribute(apiResourceEClass, API_RESOURCE__URL_STYLE);
+		createEAttribute(apiResourceEClass, API_RESOURCE__URI_TEMPLATE);
+		createEAttribute(apiResourceEClass, API_RESOURCE__URL_MAPPING);
+		createEAttribute(apiResourceEClass, API_RESOURCE__ALLOW_GET);
+		createEAttribute(apiResourceEClass, API_RESOURCE__ALLOW_POST);
+		createEAttribute(apiResourceEClass, API_RESOURCE__ALLOW_PUT);
+		createEAttribute(apiResourceEClass, API_RESOURCE__ALLOW_DELETE);
+		createEAttribute(apiResourceEClass, API_RESOURCE__ALLOW_OPTIONS);
+
+		synapseAPIEClass = createEClass(SYNAPSE_API);
+		createEAttribute(synapseAPIEClass, SYNAPSE_API__API_NAME);
+		createEAttribute(synapseAPIEClass, SYNAPSE_API__CONTEXT);
+		createEAttribute(synapseAPIEClass, SYNAPSE_API__HOSTNAME);
+		createEAttribute(synapseAPIEClass, SYNAPSE_API__PORT);
+		createEReference(synapseAPIEClass, SYNAPSE_API__RESOURCES);
+
 		// Create enums
 		modelObjectStateEEnum = createEEnum(MODEL_OBJECT_STATE);
 		taskPropertyTypeEEnum = createEEnum(TASK_PROPERTY_TYPE);
@@ -2764,6 +3036,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		esbVersionEEnum = createEEnum(ESB_VERSION);
 		endPointMessageFormatRestTypeEEnum = createEEnum(END_POINT_MESSAGE_FORMAT_REST_TYPE);
 		taskTriggerTypeEEnum = createEEnum(TASK_TRIGGER_TYPE);
+		apiResourceUrlStyleEEnum = createEEnum(API_RESOURCE_URL_STYLE);
 
 		// Create data types
 		mapEDataType = createEDataType(MAP);
@@ -2846,6 +3119,11 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		taskImplementationEClass.getESuperTypes().add(this.getModelObject());
 		taskPropertyEClass.getESuperTypes().add(this.getNameValueTypeProperty());
 		taskEClass.getESuperTypes().add(this.getConfigurationElement());
+		apiInSequenceConfigurationEClass.getESuperTypes().add(this.getAbstractProxySequenceConfiguration());
+		apiOutSequenceConfigurationEClass.getESuperTypes().add(this.getAbstractProxySequenceConfiguration());
+		apiFaultSequenceConfigurationEClass.getESuperTypes().add(this.getAbstractProxySequenceConfiguration());
+		apiResourceEClass.getESuperTypes().add(this.getModelObject());
+		synapseAPIEClass.getESuperTypes().add(this.getConfigurationElement());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(modelObjectEClass, ModelObject.class, "ModelObject", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -3091,6 +3369,32 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEAttribute(getTask_Cron(), ecorePackage.getEString(), "Cron", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTask_PinnedServers(), ecorePackage.getEString(), "PinnedServers", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(apiInSequenceConfigurationEClass, ApiInSequenceConfiguration.class, "ApiInSequenceConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(apiOutSequenceConfigurationEClass, ApiOutSequenceConfiguration.class, "ApiOutSequenceConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(apiFaultSequenceConfigurationEClass, ApiFaultSequenceConfiguration.class, "ApiFaultSequenceConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(apiResourceEClass, ApiResource.class, "ApiResource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getApiResource_InSequenceConfiguration(), this.getApiInSequenceConfiguration(), null, "inSequenceConfiguration", null, 0, 1, ApiResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getApiResource_OutSequenceConfiguration(), this.getApiOutSequenceConfiguration(), null, "outSequenceConfiguration", null, 0, 1, ApiResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getApiResource_FaultSequenceConfiguration(), this.getApiFaultSequenceConfiguration(), null, "faultSequenceConfiguration", null, 0, 1, ApiResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getApiResource_UrlStyle(), this.getApiResourceUrlStyle(), "urlStyle", "0", 1, 1, ApiResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getApiResource_UriTemplate(), ecorePackage.getEString(), "uriTemplate", null, 0, 1, ApiResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getApiResource_UrlMapping(), ecorePackage.getEString(), "urlMapping", null, 0, 1, ApiResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getApiResource_AllowGet(), ecorePackage.getEBoolean(), "allowGet", null, 0, 1, ApiResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getApiResource_AllowPost(), ecorePackage.getEBoolean(), "allowPost", null, 0, 1, ApiResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getApiResource_AllowPut(), ecorePackage.getEBoolean(), "allowPut", null, 0, 1, ApiResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getApiResource_AllowDelete(), ecorePackage.getEBoolean(), "allowDelete", null, 0, 1, ApiResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getApiResource_AllowOptions(), ecorePackage.getEBoolean(), "allowOptions", null, 0, 1, ApiResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(synapseAPIEClass, SynapseAPI.class, "SynapseAPI", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSynapseAPI_ApiName(), ecorePackage.getEString(), "apiName", "api_name", 1, 1, SynapseAPI.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSynapseAPI_Context(), ecorePackage.getEString(), "context", null, 1, 1, SynapseAPI.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSynapseAPI_Hostname(), ecorePackage.getEString(), "hostname", null, 0, 1, SynapseAPI.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSynapseAPI_Port(), ecorePackage.getEString(), "port", null, 0, 1, SynapseAPI.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSynapseAPI_Resources(), this.getApiResource(), null, "resources", null, 0, -1, SynapseAPI.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		// Initialize enums and add enum literals
 		initEEnum(modelObjectStateEEnum, ModelObjectState.class, "ModelObjectState");
 		addEEnumLiteral(modelObjectStateEEnum, ModelObjectState.NORMAL);
@@ -3183,6 +3487,11 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEEnum(taskTriggerTypeEEnum, TaskTriggerType.class, "TaskTriggerType");
 		addEEnumLiteral(taskTriggerTypeEEnum, TaskTriggerType.SIMPLE);
 		addEEnumLiteral(taskTriggerTypeEEnum, TaskTriggerType.CRON);
+
+		initEEnum(apiResourceUrlStyleEEnum, ApiResourceUrlStyle.class, "ApiResourceUrlStyle");
+		addEEnumLiteral(apiResourceUrlStyleEEnum, ApiResourceUrlStyle.NONE);
+		addEEnumLiteral(apiResourceUrlStyleEEnum, ApiResourceUrlStyle.URI_TEMPLATE);
+		addEEnumLiteral(apiResourceUrlStyleEEnum, ApiResourceUrlStyle.URL_MAPPING);
 
 		// Initialize data types
 		initEDataType(mapEDataType, Map.class, "Map", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

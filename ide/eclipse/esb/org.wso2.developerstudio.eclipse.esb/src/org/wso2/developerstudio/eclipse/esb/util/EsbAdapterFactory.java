@@ -271,6 +271,26 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 				return createTaskAdapter();
 			}
 			@Override
+			public Adapter caseApiInSequenceConfiguration(ApiInSequenceConfiguration object) {
+				return createApiInSequenceConfigurationAdapter();
+			}
+			@Override
+			public Adapter caseApiOutSequenceConfiguration(ApiOutSequenceConfiguration object) {
+				return createApiOutSequenceConfigurationAdapter();
+			}
+			@Override
+			public Adapter caseApiFaultSequenceConfiguration(ApiFaultSequenceConfiguration object) {
+				return createApiFaultSequenceConfigurationAdapter();
+			}
+			@Override
+			public Adapter caseApiResource(ApiResource object) {
+				return createApiResourceAdapter();
+			}
+			@Override
+			public Adapter caseSynapseAPI(SynapseAPI object) {
+				return createSynapseAPIAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -582,6 +602,76 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTaskAdapter() {
+		return null;
+	}
+
+				/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.esb.ApiInSequenceConfiguration <em>Api In Sequence Configuration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.esb.ApiInSequenceConfiguration
+	 * @generated
+	 */
+	public Adapter createApiInSequenceConfigurationAdapter() {
+		return null;
+	}
+
+				/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.esb.ApiOutSequenceConfiguration <em>Api Out Sequence Configuration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.esb.ApiOutSequenceConfiguration
+	 * @generated
+	 */
+	public Adapter createApiOutSequenceConfigurationAdapter() {
+		return null;
+	}
+
+				/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.esb.ApiFaultSequenceConfiguration <em>Api Fault Sequence Configuration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.esb.ApiFaultSequenceConfiguration
+	 * @generated
+	 */
+	public Adapter createApiFaultSequenceConfigurationAdapter() {
+		return null;
+	}
+
+				/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.esb.ApiResource <em>Api Resource</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.esb.ApiResource
+	 * @generated
+	 */
+	public Adapter createApiResourceAdapter() {
+		return null;
+	}
+
+				/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.esb.SynapseAPI <em>Synapse API</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.esb.SynapseAPI
+	 * @generated
+	 */
+	public Adapter createSynapseAPIAdapter() {
 		return null;
 	}
 

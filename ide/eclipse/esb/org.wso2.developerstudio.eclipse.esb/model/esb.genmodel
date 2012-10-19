@@ -105,6 +105,11 @@
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//TaskTriggerType/Simple"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//TaskTriggerType/Cron"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//ApiResourceUrlStyle">
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ApiResourceUrlStyle/NONE"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ApiResourceUrlStyle/URI_TEMPLATE"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ApiResourceUrlStyle/URL_MAPPING"/>
+    </genEnums>
     <genDataTypes ecoreDataType="esb.ecore#//Map">
       <genTypeParameters ecoreTypeParameter="esb.ecore#//Map/K"/>
       <genTypeParameters ecoreTypeParameter="esb.ecore#//Map/V"/>
@@ -334,6 +339,35 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//Task/Interval"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//Task/Cron"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//Task/PinnedServers"/>
+    </genClasses>
+    <genClasses ecoreClass="esb.ecore#//ApiInSequenceConfiguration"/>
+    <genClasses ecoreClass="esb.ecore#//ApiOutSequenceConfiguration"/>
+    <genClasses ecoreClass="esb.ecore#//ApiFaultSequenceConfiguration"/>
+    <genClasses ecoreClass="esb.ecore#//ApiResource">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ApiResource/inSequenceConfiguration"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ApiResource/outSequenceConfiguration"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ApiResource/faultSequenceConfiguration"/>
+      <genFeatures createChild="false" propertyDescription="URL Style" ecoreFeature="ecore:EAttribute esb.ecore#//ApiResource/urlStyle"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ApiResource/uriTemplate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ApiResource/urlMapping"/>
+      <genFeatures createChild="false" propertyCategory="Methods" propertyDescription="Get"
+          ecoreFeature="ecore:EAttribute esb.ecore#//ApiResource/allowGet"/>
+      <genFeatures createChild="false" propertyCategory="Methods" propertyDescription="Post"
+          ecoreFeature="ecore:EAttribute esb.ecore#//ApiResource/allowPost"/>
+      <genFeatures createChild="false" propertyCategory="Methods" propertyDescription="Put"
+          ecoreFeature="ecore:EAttribute esb.ecore#//ApiResource/allowPut"/>
+      <genFeatures createChild="false" propertyCategory="Methods" propertyDescription="Delete"
+          ecoreFeature="ecore:EAttribute esb.ecore#//ApiResource/allowDelete"/>
+      <genFeatures createChild="false" propertyCategory="Methods" propertyDescription="Options"
+          ecoreFeature="ecore:EAttribute esb.ecore#//ApiResource/allowOptions"/>
+    </genClasses>
+    <genClasses ecoreClass="esb.ecore#//SynapseAPI">
+      <genFeatures createChild="false" propertyDescription="Name" ecoreFeature="ecore:EAttribute esb.ecore#//SynapseAPI/apiName"/>
+      <genFeatures createChild="false" propertyDescription="Context" ecoreFeature="ecore:EAttribute esb.ecore#//SynapseAPI/context"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//SynapseAPI/hostname"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//SynapseAPI/port"/>
+      <genFeatures property="None" children="true" createChild="true" propertyCategory=""
+          propertyDescription="Resource" ecoreFeature="ecore:EReference esb.ecore#//SynapseAPI/resources"/>
     </genClasses>
   </genPackages>
   <genPackages prefix="Mediators" basePackage="org.wso2.developerstudio.eclipse.esb"

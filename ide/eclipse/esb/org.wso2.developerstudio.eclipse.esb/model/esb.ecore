@@ -450,4 +450,40 @@
     <eLiterals name="Simple"/>
     <eLiterals name="Cron" value="1"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ApiInSequenceConfiguration" eSuperTypes="#//AbstractProxySequenceConfiguration"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ApiOutSequenceConfiguration" eSuperTypes="#//AbstractProxySequenceConfiguration"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ApiFaultSequenceConfiguration" eSuperTypes="#//AbstractProxySequenceConfiguration"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="ApiResourceUrlStyle">
+    <eLiterals name="NONE" literal="None"/>
+    <eLiterals name="URI_TEMPLATE" value="1" literal="URI-Template"/>
+    <eLiterals name="URL_MAPPING" value="2" literal="URL-Mapping"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ApiResource" eSuperTypes="#//ModelObject">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inSequenceConfiguration"
+        eType="#//ApiInSequenceConfiguration" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outSequenceConfiguration"
+        eType="#//ApiOutSequenceConfiguration" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="faultSequenceConfiguration"
+        eType="#//ApiFaultSequenceConfiguration" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="urlStyle" lowerBound="1"
+        eType="#//ApiResourceUrlStyle" defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uriTemplate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="urlMapping" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="allowGet" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="allowPost" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="allowPut" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="allowDelete" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="allowOptions" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SynapseAPI" eSuperTypes="#//ConfigurationElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="apiName" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="api_name"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="context" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hostname" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="port" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resources" upperBound="-1"
+        eType="#//ApiResource" containment="true"/>
+  </eClassifiers>
 </ecore:EPackage>
