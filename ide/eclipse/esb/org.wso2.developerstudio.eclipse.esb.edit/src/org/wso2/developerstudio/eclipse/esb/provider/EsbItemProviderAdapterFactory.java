@@ -617,6 +617,121 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	}
 
 				/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.ApiInSequenceConfiguration} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ApiInSequenceConfigurationItemProvider apiInSequenceConfigurationItemProvider;
+
+				/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.ApiInSequenceConfiguration}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createApiInSequenceConfigurationAdapter() {
+		if (apiInSequenceConfigurationItemProvider == null) {
+			apiInSequenceConfigurationItemProvider = new ApiInSequenceConfigurationItemProvider(this);
+		}
+
+		return apiInSequenceConfigurationItemProvider;
+	}
+
+				/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.ApiOutSequenceConfiguration} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ApiOutSequenceConfigurationItemProvider apiOutSequenceConfigurationItemProvider;
+
+				/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.ApiOutSequenceConfiguration}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createApiOutSequenceConfigurationAdapter() {
+		if (apiOutSequenceConfigurationItemProvider == null) {
+			apiOutSequenceConfigurationItemProvider = new ApiOutSequenceConfigurationItemProvider(this);
+		}
+
+		return apiOutSequenceConfigurationItemProvider;
+	}
+
+				/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.ApiFaultSequenceConfiguration} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ApiFaultSequenceConfigurationItemProvider apiFaultSequenceConfigurationItemProvider;
+
+				/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.ApiFaultSequenceConfiguration}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createApiFaultSequenceConfigurationAdapter() {
+		if (apiFaultSequenceConfigurationItemProvider == null) {
+			apiFaultSequenceConfigurationItemProvider = new ApiFaultSequenceConfigurationItemProvider(this);
+		}
+
+		return apiFaultSequenceConfigurationItemProvider;
+	}
+
+				/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.ApiResource} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ApiResourceItemProvider apiResourceItemProvider;
+
+				/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.ApiResource}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createApiResourceAdapter() {
+		if (apiResourceItemProvider == null) {
+			apiResourceItemProvider = new ApiResourceItemProvider(this);
+		}
+
+		return apiResourceItemProvider;
+	}
+
+				/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.SynapseAPI} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SynapseAPIItemProvider synapseAPIItemProvider;
+
+				/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.SynapseAPI}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSynapseAPIAdapter() {
+		if (synapseAPIItemProvider == null) {
+			synapseAPIItemProvider = new SynapseAPIItemProvider(this);
+		}
+
+		return synapseAPIItemProvider;
+	}
+
+				/**
 	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.DefaultEndPoint} instances.
 	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -965,6 +1080,11 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 		if (taskImplementationItemProvider != null) taskImplementationItemProvider.dispose();
 		if (taskPropertyItemProvider != null) taskPropertyItemProvider.dispose();
 		if (taskItemProvider != null) taskItemProvider.dispose();
+		if (apiInSequenceConfigurationItemProvider != null) apiInSequenceConfigurationItemProvider.dispose();
+		if (apiOutSequenceConfigurationItemProvider != null) apiOutSequenceConfigurationItemProvider.dispose();
+		if (apiFaultSequenceConfigurationItemProvider != null) apiFaultSequenceConfigurationItemProvider.dispose();
+		if (apiResourceItemProvider != null) apiResourceItemProvider.dispose();
+		if (synapseAPIItemProvider != null) synapseAPIItemProvider.dispose();
 	}
 
 }
