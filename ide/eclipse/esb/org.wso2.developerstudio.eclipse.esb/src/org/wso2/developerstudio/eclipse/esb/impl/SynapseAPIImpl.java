@@ -30,7 +30,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 import org.w3c.dom.Element;
 import org.wso2.developerstudio.eclipse.esb.ApiResource;
@@ -84,7 +83,7 @@ public class SynapseAPIImpl extends ConfigurationElementImpl implements SynapseA
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String CONTEXT_EDEFAULT = null;
+	protected static final String CONTEXT_EDEFAULT = "api_context";
 
 	/**
 	 * The cached value of the '{@link #getContext() <em>Context</em>}' attribute.
@@ -124,7 +123,7 @@ public class SynapseAPIImpl extends ConfigurationElementImpl implements SynapseA
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String PORT_EDEFAULT = null;
+	protected static final int PORT_EDEFAULT = 0;
 
 	/**
 	 * The cached value of the '{@link #getPort() <em>Port</em>}' attribute.
@@ -134,7 +133,7 @@ public class SynapseAPIImpl extends ConfigurationElementImpl implements SynapseA
 	 * @generated
 	 * @ordered
 	 */
-	protected String port = PORT_EDEFAULT;
+	protected int port = PORT_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getResources() <em>Resources</em>}' containment reference list.
@@ -233,7 +232,7 @@ public class SynapseAPIImpl extends ConfigurationElementImpl implements SynapseA
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getPort() {
+	public int getPort() {
 		return port;
 	}
 
@@ -242,8 +241,8 @@ public class SynapseAPIImpl extends ConfigurationElementImpl implements SynapseA
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPort(String newPort) {
-		String oldPort = port;
+	public void setPort(int newPort) {
+		int oldPort = port;
 		port = newPort;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.SYNAPSE_API__PORT, oldPort, port));
@@ -316,7 +315,7 @@ public class SynapseAPIImpl extends ConfigurationElementImpl implements SynapseA
 				setHostname((String)newValue);
 				return;
 			case EsbPackage.SYNAPSE_API__PORT:
-				setPort((String)newValue);
+				setPort((Integer)newValue);
 				return;
 			case EsbPackage.SYNAPSE_API__RESOURCES:
 				getResources().clear();
@@ -368,7 +367,7 @@ public class SynapseAPIImpl extends ConfigurationElementImpl implements SynapseA
 			case EsbPackage.SYNAPSE_API__HOSTNAME:
 				return HOSTNAME_EDEFAULT == null ? hostname != null : !HOSTNAME_EDEFAULT.equals(hostname);
 			case EsbPackage.SYNAPSE_API__PORT:
-				return PORT_EDEFAULT == null ? port != null : !PORT_EDEFAULT.equals(port);
+				return port != PORT_EDEFAULT;
 			case EsbPackage.SYNAPSE_API__RESOURCES:
 				return resources != null && !resources.isEmpty();
 		}
@@ -402,11 +401,56 @@ public class SynapseAPIImpl extends ConfigurationElementImpl implements SynapseA
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	@Override
+	protected void doLoad(Element self) throws Exception {
+		
+		if(self.hasAttribute("name")){
+			setApiName(self.getAttribute("name"));
+		}
+		if(self.hasAttribute("context")){
+			setContext(self.getAttribute("context"));
+		}
+		if(self.hasAttribute("hostname")){
+			setContext(self.getAttribute("hostname"));
+		}
+		if(self.hasAttribute("port")){
+			try {
+				int port = Integer.parseInt(self.getAttribute("port"));
+				setPort(port);
+			} catch (Exception e) {
+				// ignore
+			}
+		}
+
+		// resources
+		loadObjects(self, "resource", ApiResource.class, new ObjectHandler<ApiResource>() {
+			public void handle(ApiResource object) {
+				getResources().add(object);
+			}
+		});
+
+		super.doLoad(self);
+	}
 
 	@Override
 	protected Element doSave(Element parent) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		Element self = createChildElement(parent, "api");
+		
+		self.setAttribute("name", getApiName());
+		self.setAttribute("context", getContext());
+		if(getHostname()!=null){
+			self.setAttribute("hostname", getHostname());
+		}
+		if(getPort()>0){
+			self.setAttribute("port", String.valueOf(getPort()));
+		}
+		// resources
+		for (ApiResource resource : getResources()) {
+			resource.save(self);
+		}
+		
+		return self;
 	}
 
 } //SynapseAPIImpl

@@ -989,6 +989,24 @@ public class ModelObjectResolverFactoryImpl implements
 			}
 		});
 		
+		/**
+		 * Resolver Corresponding to <api/> tag.
+		 */
+		localNameToResolverMap.put("api", new ModelObjectResolver() {			
+			public ModelObject resolve(Element elem, ModelObject parent) {
+			return getEsbFactory().createSynapseAPI();
+			}
+		});
+		
+		/**
+		 * Resolver Corresponding to <resource/> tag.
+		 */
+		localNameToResolverMap.put("resource", new ModelObjectResolver() {			
+			public ModelObject resolve(Element elem, ModelObject parent) {
+			return getEsbFactory().createApiResource();
+			}
+		});
+		
 		
 	}
 }

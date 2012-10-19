@@ -787,11 +787,46 @@ public class ApiResourceImpl extends ModelObjectImpl implements ApiResource {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	@Override
+	protected void doLoad(Element self) throws Exception {
+		
+		//TODO : this is incomplete, implement save
+		
+		// In sequence.
+		getInSequenceConfiguration().load(self);
+		
+		// Out sequence.
+		getOutSequenceConfiguration().load(self);		
+		
+		// Fault sequence.
+		getFaultSequenceConfiguration().load(self);
+		
+		
+		super.doLoad(self);
+	}
 
 	@Override
 	protected Element doSave(Element parent) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		Element self = createChildElement(parent, "resource");
+		
+		//TODO: this is incomplete, implement save
+		
+		// In sequence.
+		if(getInSequenceConfiguration()!=null){
+			getInSequenceConfiguration().save(self);
+		}
+		
+		// Out sequence.
+		if(getOutSequenceConfiguration()!=null){
+			getOutSequenceConfiguration().save(self);
+		}
+		
+		// Fault sequence.
+		if(getFaultSequenceConfiguration()!=null){
+			getFaultSequenceConfiguration().save(self);
+		}				
+		return self;
 	}
 
 } //ApiResourceImpl

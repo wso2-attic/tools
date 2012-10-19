@@ -67,6 +67,7 @@ public interface SynapseAPI extends ConfigurationElement {
 
 	/**
 	 * Returns the value of the '<em><b>Context</b></em>' attribute.
+	 * The default value is <code>"api_context"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Context</em>' attribute isn't clear,
@@ -76,7 +77,7 @@ public interface SynapseAPI extends ConfigurationElement {
 	 * @return the value of the '<em>Context</em>' attribute.
 	 * @see #setContext(String)
 	 * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getSynapseAPI_Context()
-	 * @model required="true"
+	 * @model default="api_context" required="true"
 	 * @generated
 	 */
 	String getContext();
@@ -126,12 +127,12 @@ public interface SynapseAPI extends ConfigurationElement {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Port</em>' attribute.
-	 * @see #setPort(String)
+	 * @see #setPort(int)
 	 * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getSynapseAPI_Port()
 	 * @model
 	 * @generated
 	 */
-	String getPort();
+	int getPort();
 
 	/**
 	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.SynapseAPI#getPort <em>Port</em>}' attribute.
@@ -141,7 +142,7 @@ public interface SynapseAPI extends ConfigurationElement {
 	 * @see #getPort()
 	 * @generated
 	 */
-	void setPort(String value);
+	void setPort(int value);
 
 	/**
 	 * Returns the value of the '<em><b>Resources</b></em>' containment reference list.
