@@ -35,6 +35,7 @@ import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExecutableExtension;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -48,6 +49,7 @@ import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.ide.IDE;
 import org.eclipse.ui.part.FileEditorInput;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
@@ -212,7 +214,23 @@ public abstract class AbstractWSO2ProjectCreationWizard extends Wizard implement
 			for (IFile file : openFiles) {
 				page.openEditor(new FileEditorInput(file), DIST_EDITOR_ID);
 			}
-		} catch (Exception e) { /* ignore */}
+		} catch (Exception e) { 
+			log.warn("Cannot refresh Carbon application project list", e);
+		}
+	}
+	
+	public void openEditor(File file) {
+		IFile artifact = null;
+		try {
+			refreshDistProjects();
+			artifact = ResourcesPlugin.getWorkspace().getRoot()
+					.getFileForLocation(Path.fromOSString(file.getAbsolutePath()));
+			IDE.openEditor(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage(),
+					artifact);
+		} catch (Exception e) {
+			log.warn("Cannot open resource '" + artifact.getLocation()
+					+ "' in it's associated editor", e);
+		}
 	}
 
 	public void setCurrentSelection(ISelection currentSelection) {
