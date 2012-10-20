@@ -83,7 +83,7 @@ public class ApiResourceItemProvider
 			
 			if(apiResource.getUrlStyle().equals(ApiResourceUrlStyle.URI_TEMPLATE)){
 				addUriTemplatePropertyDescriptor(object);
-			} else if (apiResource.getUrlStyle().equals(ApiResourceUrlStyle.URI_TEMPLATE)){
+			} else if (apiResource.getUrlStyle().equals(ApiResourceUrlStyle.URL_MAPPING)){
 				addUrlMappingPropertyDescriptor(object);
 			}
 			
