@@ -412,7 +412,7 @@ public class SynapseAPIImpl extends ConfigurationElementImpl implements SynapseA
 			setContext(self.getAttribute("context"));
 		}
 		if(self.hasAttribute("hostname")){
-			setContext(self.getAttribute("hostname"));
+			setHostname(self.getAttribute("hostname"));
 		}
 		if(self.hasAttribute("port")){
 			try {
