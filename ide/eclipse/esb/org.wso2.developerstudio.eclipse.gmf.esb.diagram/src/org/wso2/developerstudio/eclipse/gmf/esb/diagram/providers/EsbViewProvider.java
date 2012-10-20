@@ -305,6 +305,9 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 				case LoadBalanceEndPointInputConnectorEditPart.VISUAL_ID:
 				case LoadBalanceEndPointOutputConnectorEditPart.VISUAL_ID:
 				case LoadBalanceEndPointWestOutputConnectorEditPart.VISUAL_ID:
+				case APIResourceEndpointEditPart.VISUAL_ID:
+				case APIResourceEndpointInputConnectorEditPart.VISUAL_ID:
+				case APIResourceEndpointOutputConnectorEditPart.VISUAL_ID:
 				case SwitchDefaultContainerEditPart.VISUAL_ID:
 				case FilterFailContainerEditPart.VISUAL_ID:
 				case ThrottleOnRejectContainerEditPart.VISUAL_ID:
@@ -323,6 +326,11 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 				case LocalEntryEditPart.VISUAL_ID:
 				case TemplateEditPart.VISUAL_ID:
 				case TaskEditPart.VISUAL_ID:
+				case SynapseAPIEditPart.VISUAL_ID:
+				case APIResourceEditPart.VISUAL_ID:
+				case APIResourceInputConnectorEditPart.VISUAL_ID:
+				case APIResourceOutputConnectorEditPart.VISUAL_ID:
+				case APIResourceFaultInputConnectorEditPart.VISUAL_ID:
 				case MediatorFlow9EditPart.VISUAL_ID:
 				case MediatorFlow7EditPart.VISUAL_ID:
 				case MediatorFlow2EditPart.VISUAL_ID:
@@ -358,6 +366,7 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 				case LoadBalanceEndPointWestOutputConnector2EditPart.VISUAL_ID:
 				case Sequences2EditPart.VISUAL_ID:
 				case EndpointDiagram2EditPart.VISUAL_ID:
+				case ProxyServiceContainer2EditPart.VISUAL_ID:
 					if (domainElement == null
 							|| visualID != EsbVisualIDRegistry.getNodeVisualID(
 									op.getContainerView(), domainElement)) {
@@ -553,6 +562,9 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 				|| LoadBalanceEndPointInputConnectorEditPart.VISUAL_ID == visualID
 				|| LoadBalanceEndPointOutputConnectorEditPart.VISUAL_ID == visualID
 				|| LoadBalanceEndPointWestOutputConnectorEditPart.VISUAL_ID == visualID
+				|| APIResourceEndpointEditPart.VISUAL_ID == visualID
+				|| APIResourceEndpointInputConnectorEditPart.VISUAL_ID == visualID
+				|| APIResourceEndpointOutputConnectorEditPart.VISUAL_ID == visualID
 				|| SwitchDefaultContainerEditPart.VISUAL_ID == visualID
 				|| MediatorFlow4EditPart.VISUAL_ID == visualID
 				|| FilterFailContainerEditPart.VISUAL_ID == visualID
@@ -594,7 +606,13 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 				|| TemplateEditPart.VISUAL_ID == visualID
 				|| Sequences2EditPart.VISUAL_ID == visualID
 				|| EndpointDiagram2EditPart.VISUAL_ID == visualID
-				|| TaskEditPart.VISUAL_ID == visualID;
+				|| TaskEditPart.VISUAL_ID == visualID
+				|| SynapseAPIEditPart.VISUAL_ID == visualID
+				|| APIResourceEditPart.VISUAL_ID == visualID
+				|| APIResourceInputConnectorEditPart.VISUAL_ID == visualID
+				|| APIResourceOutputConnectorEditPart.VISUAL_ID == visualID
+				|| APIResourceFaultInputConnectorEditPart.VISUAL_ID == visualID
+				|| ProxyServiceContainer2EditPart.VISUAL_ID == visualID;
 	}
 
 	/**
@@ -1220,6 +1238,15 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 			return createLoadBalanceEndPointWestOutputConnector_3098(
 					domainElement, containerView, index, persisted,
 					preferencesHint);
+		case APIResourceEndpointEditPart.VISUAL_ID:
+			return createAPIResourceEndpoint_3674(domainElement, containerView,
+					index, persisted, preferencesHint);
+		case APIResourceEndpointInputConnectorEditPart.VISUAL_ID:
+			return createAPIResourceEndpointInputConnector_3675(domainElement,
+					containerView, index, persisted, preferencesHint);
+		case APIResourceEndpointOutputConnectorEditPart.VISUAL_ID:
+			return createAPIResourceEndpointOutputConnector_3676(domainElement,
+					containerView, index, persisted, preferencesHint);
 		case SwitchDefaultContainerEditPart.VISUAL_ID:
 			return createSwitchDefaultContainer_3527(domainElement,
 					containerView, index, persisted, preferencesHint);
@@ -1348,6 +1375,24 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 		case TaskEditPart.VISUAL_ID:
 			return createTask_3667(domainElement, containerView, index,
 					persisted, preferencesHint);
+		case SynapseAPIEditPart.VISUAL_ID:
+			return createSynapseAPI_3668(domainElement, containerView, index,
+					persisted, preferencesHint);
+		case APIResourceEditPart.VISUAL_ID:
+			return createAPIResource_3669(domainElement, containerView, index,
+					persisted, preferencesHint);
+		case APIResourceInputConnectorEditPart.VISUAL_ID:
+			return createAPIResourceInputConnector_3670(domainElement,
+					containerView, index, persisted, preferencesHint);
+		case APIResourceOutputConnectorEditPart.VISUAL_ID:
+			return createAPIResourceOutputConnector_3671(domainElement,
+					containerView, index, persisted, preferencesHint);
+		case APIResourceFaultInputConnectorEditPart.VISUAL_ID:
+			return createAPIResourceFaultInputConnector_3672(domainElement,
+					containerView, index, persisted, preferencesHint);
+		case ProxyServiceContainer2EditPart.VISUAL_ID:
+			return createProxyServiceContainer_3673(domainElement,
+					containerView, index, persisted, preferencesHint);
 		}
 		// can't happen, provided #provides(CreateNodeViewOperation) is correct
 		return null;
@@ -3622,6 +3667,261 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 		node.getStyles().add(NotationFactory.eINSTANCE.createLineStyle());
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
 		node.setType(EsbVisualIDRegistry.getType(TaskEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node,
+				NotationPackage.eINSTANCE.getLineStyle_LineColor(),
+				FigureUtilities.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createSynapseAPI_3668(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Shape node = NotationFactory.eINSTANCE.createShape();
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(EsbVisualIDRegistry.getType(SynapseAPIEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node,
+				NotationPackage.eINSTANCE.getLineStyle_LineColor(),
+				FigureUtilities.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
+		ViewUtil.setStructuralFeatureValue(node,
+				NotationPackage.eINSTANCE.getFillStyle_FillColor(),
+				FigureUtilities.RGBToInteger(fillRGB));
+		createCompartment(node,
+				EsbVisualIDRegistry
+						.getType(SynapseAPIAPICompartmentEditPart.VISUAL_ID),
+				true, false, false, false);
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createAPIResource_3669(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles()
+				.add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createLineStyle());
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(EsbVisualIDRegistry.getType(APIResourceEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node,
+				NotationPackage.eINSTANCE.getLineStyle_LineColor(),
+				FigureUtilities.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createAPIResourceInputConnector_3670(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles()
+				.add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createLineStyle());
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(EsbVisualIDRegistry
+				.getType(APIResourceInputConnectorEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node,
+				NotationPackage.eINSTANCE.getLineStyle_LineColor(),
+				FigureUtilities.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createAPIResourceOutputConnector_3671(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles()
+				.add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createLineStyle());
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(EsbVisualIDRegistry
+				.getType(APIResourceOutputConnectorEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node,
+				NotationPackage.eINSTANCE.getLineStyle_LineColor(),
+				FigureUtilities.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createAPIResourceFaultInputConnector_3672(
+			EObject domainElement, View containerView, int index,
+			boolean persisted, PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles()
+				.add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createLineStyle());
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(EsbVisualIDRegistry
+				.getType(APIResourceFaultInputConnectorEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node,
+				NotationPackage.eINSTANCE.getLineStyle_LineColor(),
+				FigureUtilities.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createProxyServiceContainer_3673(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles()
+				.add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createLineStyle());
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(EsbVisualIDRegistry
+				.getType(ProxyServiceContainer2EditPart.VISUAL_ID));
 		ViewUtil.insertChildView(containerView, node, index, persisted);
 		node.setElement(domainElement);
 		// initializeFromPreferences 
@@ -6791,6 +7091,132 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
 		node.setType(EsbVisualIDRegistry
 				.getType(LoadBalanceEndPointWestOutputConnectorEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node,
+				NotationPackage.eINSTANCE.getLineStyle_LineColor(),
+				FigureUtilities.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createAPIResourceEndpoint_3674(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles()
+				.add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createLineStyle());
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(EsbVisualIDRegistry
+				.getType(APIResourceEndpointEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node,
+				NotationPackage.eINSTANCE.getLineStyle_LineColor(),
+				FigureUtilities.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createAPIResourceEndpointInputConnector_3675(
+			EObject domainElement, View containerView, int index,
+			boolean persisted, PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles()
+				.add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createLineStyle());
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(EsbVisualIDRegistry
+				.getType(APIResourceEndpointInputConnectorEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node,
+				NotationPackage.eINSTANCE.getLineStyle_LineColor(),
+				FigureUtilities.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createAPIResourceEndpointOutputConnector_3676(
+			EObject domainElement, View containerView, int index,
+			boolean persisted, PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles()
+				.add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createLineStyle());
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(EsbVisualIDRegistry
+				.getType(APIResourceEndpointOutputConnectorEditPart.VISUAL_ID));
 		ViewUtil.insertChildView(containerView, node, index, persisted);
 		node.setElement(domainElement);
 		// initializeFromPreferences 

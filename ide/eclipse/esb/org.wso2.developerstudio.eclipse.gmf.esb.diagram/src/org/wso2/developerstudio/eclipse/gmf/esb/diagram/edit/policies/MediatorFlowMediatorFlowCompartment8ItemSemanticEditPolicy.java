@@ -2,6 +2,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies;
 
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.APIResourceEndpointCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.AddressEndPointCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.AggregateMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.BuilderMediatorCreateCommand;
@@ -205,6 +206,9 @@ public class MediatorFlowMediatorFlowCompartment8ItemSemanticEditPolicy extends
 		}
 		if (EsbElementTypes.LoadBalanceEndPoint_3613 == req.getElementType()) {
 			return getGEFWrapper(new LoadBalanceEndPointCreateCommand(req));
+		}
+		if (EsbElementTypes.APIResourceEndpoint_3674 == req.getElementType()) {
+			return getGEFWrapper(new APIResourceEndpointCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

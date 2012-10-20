@@ -2271,6 +2271,39 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 			}
 			break;
 		}
+		case APIResourceEndpointEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(EsbDiagramUpdater
+						.getAPIResourceEndpoint_3674ContainedLinks(view));
+			}
+			if (!domain2NotationMap.containsKey(view.getElement())
+					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+				domain2NotationMap.put(view.getElement(), view);
+			}
+			break;
+		}
+		case APIResourceEndpointInputConnectorEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(EsbDiagramUpdater
+						.getAPIResourceEndpointInputConnector_3675ContainedLinks(view));
+			}
+			if (!domain2NotationMap.containsKey(view.getElement())
+					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+				domain2NotationMap.put(view.getElement(), view);
+			}
+			break;
+		}
+		case APIResourceEndpointOutputConnectorEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(EsbDiagramUpdater
+						.getAPIResourceEndpointOutputConnector_3676ContainedLinks(view));
+			}
+			if (!domain2NotationMap.containsKey(view.getElement())
+					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+				domain2NotationMap.put(view.getElement(), view);
+			}
+			break;
+		}
 		case SwitchDefaultContainerEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater
@@ -2726,6 +2759,72 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater
 						.getTask_3667ContainedLinks(view));
+			}
+			if (!domain2NotationMap.containsKey(view.getElement())
+					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+				domain2NotationMap.put(view.getElement(), view);
+			}
+			break;
+		}
+		case SynapseAPIEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(EsbDiagramUpdater
+						.getSynapseAPI_3668ContainedLinks(view));
+			}
+			if (!domain2NotationMap.containsKey(view.getElement())
+					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+				domain2NotationMap.put(view.getElement(), view);
+			}
+			break;
+		}
+		case APIResourceEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(EsbDiagramUpdater
+						.getAPIResource_3669ContainedLinks(view));
+			}
+			if (!domain2NotationMap.containsKey(view.getElement())
+					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+				domain2NotationMap.put(view.getElement(), view);
+			}
+			break;
+		}
+		case APIResourceInputConnectorEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(EsbDiagramUpdater
+						.getAPIResourceInputConnector_3670ContainedLinks(view));
+			}
+			if (!domain2NotationMap.containsKey(view.getElement())
+					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+				domain2NotationMap.put(view.getElement(), view);
+			}
+			break;
+		}
+		case APIResourceOutputConnectorEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(EsbDiagramUpdater
+						.getAPIResourceOutputConnector_3671ContainedLinks(view));
+			}
+			if (!domain2NotationMap.containsKey(view.getElement())
+					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+				domain2NotationMap.put(view.getElement(), view);
+			}
+			break;
+		}
+		case APIResourceFaultInputConnectorEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(EsbDiagramUpdater
+						.getAPIResourceFaultInputConnector_3672ContainedLinks(view));
+			}
+			if (!domain2NotationMap.containsKey(view.getElement())
+					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+				domain2NotationMap.put(view.getElement(), view);
+			}
+			break;
+		}
+		case ProxyServiceContainer2EditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(EsbDiagramUpdater
+						.getProxyServiceContainer_3673ContainedLinks(view));
 			}
 			if (!domain2NotationMap.containsKey(view.getElement())
 					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$

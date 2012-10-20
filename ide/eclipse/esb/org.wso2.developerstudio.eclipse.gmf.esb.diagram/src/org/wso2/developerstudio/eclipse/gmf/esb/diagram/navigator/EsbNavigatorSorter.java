@@ -11,7 +11,7 @@ public class EsbNavigatorSorter extends ViewerSorter {
 	/**
 	 * @generated
 	 */
-	private static final int GROUP_CATEGORY = 7045;
+	private static final int GROUP_CATEGORY = 7046;
 
 	/**
 	 * @generated

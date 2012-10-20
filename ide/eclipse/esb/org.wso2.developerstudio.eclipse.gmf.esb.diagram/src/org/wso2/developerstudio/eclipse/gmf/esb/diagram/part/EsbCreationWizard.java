@@ -228,12 +228,17 @@ public class EsbCreationWizard extends Wizard implements INewWizard,
 						"template");
 				type = "synapse/template";
 				break;
-				
+
 			case TASK:
 				location = esbProject.getFolder(TASK_RESOURCE_DIR);
-				op = createDiagram("task_", TASK_RESOURCE_DIR,
-						"task");
+				op = createDiagram("task_", TASK_RESOURCE_DIR, "task");
 				type = "synapse/task";
+				break;
+
+			case API:
+				location = esbProject.getFolder(API_RESOURCE_DIR);
+				op = createDiagram("api_", API_RESOURCE_DIR, "api");
+				type = "synapse/api";
 				break;
 
 			default:
@@ -252,9 +257,9 @@ public class EsbCreationWizard extends Wizard implements INewWizard,
 
 			String relativePathDiagram = FileUtils.getRelativePath(esbProject
 					.getLocation().toFile(), new File(location.getLocation()
-					.toFile(), diagramModelFilePage.getFileName()
-					+ ".xml"));
-			relativePathDiagram = relativePathDiagram.replaceFirst("/graphical-synapse-config","/synapse-config");
+					.toFile(), diagramModelFilePage.getFileName() + ".xml"));
+			relativePathDiagram = relativePathDiagram.replaceFirst(
+					"/graphical-synapse-config", "/synapse-config");
 			esbProjectArtifact.addESBArtifact(createArtifact(
 					diagramModelFilePage.getFileName(),
 					getMavenGroupID(esbProject), "1.0.0", relativePathDiagram,
@@ -427,7 +432,8 @@ public class EsbCreationWizard extends Wizard implements INewWizard,
 
 	public enum WizardMode {
 		DEFAULT("DEFAULT"), PROXY("PROXY"), SEQUENCE("SEQUENCE"), ENDPOINT(
-				"ENDPOINT"), LOCALENTRY("LOCALENTRY"), TEMPLATE("TEMPLATE"), TASK("TASK");
+				"ENDPOINT"), LOCALENTRY("LOCALENTRY"), TEMPLATE("TEMPLATE"), TASK(
+				"TASK"), API("API");
 
 		private final String mode;
 

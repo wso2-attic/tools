@@ -96,7 +96,7 @@ public class DeleteElementAction extends AbstractDeleteFromAction {
 				updateConnectedConnectors(editPart);
 				command.compose(new CommandProxy(curCommand));
 			}
-			if(!canDelete(editPart)){
+			if (!canDelete(editPart)) {
 				//request.
 				return UnexecutableCommand.INSTANCE;
 			}
@@ -113,7 +113,8 @@ public class DeleteElementAction extends AbstractDeleteFromAction {
 					.getInputConnector((ShapeNodeEditPart) editPart);
 			AbstractOutputConnectorEditPart currentOutputConnector = EditorUtils
 					.getOutputConnector((ShapeNodeEditPart) editPart);
-			if ((currentOutputConnector !=null)&&(currentOutputConnector.getSourceConnections().size() != 0)) {
+			if ((currentOutputConnector != null)
+					&& (currentOutputConnector.getSourceConnections().size() != 0)) {
 				((AbstractMediator) editPart)
 						.setConnectedInputConnector((AbstractInputConnectorEditPart) ((EsbLinkEditPart) currentOutputConnector
 								.getSourceConnections().get(0)).getTarget());
@@ -125,35 +126,35 @@ public class DeleteElementAction extends AbstractDeleteFromAction {
 			}
 		}
 	}
-	
+
 	/**
 	 * Determines whether a file can be deleted according to diagram type 
 	 * @param editPart
 	 * @return
 	 */
-	private boolean canDelete(EditPart editPart){
+	private boolean canDelete(EditPart editPart) {
 		Object model = editPart.getModel();
-		if(model instanceof Node){
-			Node  node = (Node) model;
+		if (model instanceof Node) {
+			Node node = (Node) model;
 			EObject element = node.getElement();
 			EObject eContainer = element.eContainer();
-			if(eContainer instanceof EsbServer){
-				EsbServer server =  (EsbServer) eContainer;
+			if (eContainer instanceof EsbServer) {
+				EsbServer server = (EsbServer) eContainer;
 				server.getType();
-				if(server.getType()!=ArtifactType.SYNAPSE_CONFIG){
-					if(element instanceof ProxyService){
+				if (server.getType() != ArtifactType.SYNAPSE_CONFIG) {
+					if (element instanceof ProxyService) {
 						return false;
-					} else if (element instanceof Sequences){
+					} else if (element instanceof Sequences) {
 						return false;
-					} else if (element instanceof Task){
+					} else if (element instanceof Task) {
 						return false;
-					} else if (element instanceof LocalEntry){
+					} else if (element instanceof LocalEntry) {
 						return false;
 					}
 				}
 			}
 		}
-		
+
 		return true;
 	}
 }

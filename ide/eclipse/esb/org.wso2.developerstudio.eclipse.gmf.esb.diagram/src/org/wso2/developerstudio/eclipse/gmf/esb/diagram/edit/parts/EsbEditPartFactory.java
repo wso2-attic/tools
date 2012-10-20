@@ -675,6 +675,15 @@ public class EsbEditPartFactory implements EditPartFactory {
 			case LoadBalanceEndPointWestOutputConnectorEditPart.VISUAL_ID:
 				return new LoadBalanceEndPointWestOutputConnectorEditPart(view);
 
+			case APIResourceEndpointEditPart.VISUAL_ID:
+				return new APIResourceEndpointEditPart(view);
+
+			case APIResourceEndpointInputConnectorEditPart.VISUAL_ID:
+				return new APIResourceEndpointInputConnectorEditPart(view);
+
+			case APIResourceEndpointOutputConnectorEditPart.VISUAL_ID:
+				return new APIResourceEndpointOutputConnectorEditPart(view);
+
 			case SwitchDefaultContainerEditPart.VISUAL_ID:
 				return new SwitchDefaultContainerEditPart(view);
 
@@ -816,6 +825,24 @@ public class EsbEditPartFactory implements EditPartFactory {
 			case TaskEditPart.VISUAL_ID:
 				return new TaskEditPart(view);
 
+			case SynapseAPIEditPart.VISUAL_ID:
+				return new SynapseAPIEditPart(view);
+
+			case APIResourceEditPart.VISUAL_ID:
+				return new APIResourceEditPart(view);
+
+			case APIResourceInputConnectorEditPart.VISUAL_ID:
+				return new APIResourceInputConnectorEditPart(view);
+
+			case APIResourceOutputConnectorEditPart.VISUAL_ID:
+				return new APIResourceOutputConnectorEditPart(view);
+
+			case APIResourceFaultInputConnectorEditPart.VISUAL_ID:
+				return new APIResourceFaultInputConnectorEditPart(view);
+
+			case ProxyServiceContainer2EditPart.VISUAL_ID:
+				return new ProxyServiceContainer2EditPart(view);
+
 			case EsbServerContentsCompartmentEditPart.VISUAL_ID:
 				return new EsbServerContentsCompartmentEditPart(view);
 
@@ -881,6 +908,9 @@ public class EsbEditPartFactory implements EditPartFactory {
 
 			case EndpointDiagramEndpointCompartment2EditPart.VISUAL_ID:
 				return new EndpointDiagramEndpointCompartment2EditPart(view);
+
+			case SynapseAPIAPICompartmentEditPart.VISUAL_ID:
+				return new SynapseAPIAPICompartmentEditPart(view);
 
 			case EsbLinkEditPart.VISUAL_ID:
 				return new EsbLinkEditPart(view);

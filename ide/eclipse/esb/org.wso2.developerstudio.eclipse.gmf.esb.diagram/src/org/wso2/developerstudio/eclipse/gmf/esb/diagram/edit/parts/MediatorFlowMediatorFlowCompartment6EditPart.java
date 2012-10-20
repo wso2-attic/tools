@@ -31,6 +31,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorF
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorOutputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.editpolicy.FeedbackIndicateDragDropEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.utils.SwitchMediatorUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.MediatorFlowMediatorFlowCompartment6CanonicalEditPolicy;
@@ -190,9 +191,10 @@ public class MediatorFlowMediatorFlowCompartment6EditPart extends
 
 			}
 			if (inputConnectorEditPart == null) {
-				inputConnectorEditPart = ((AbstractInputConnectorEditPart) this
-						.getParent().getParent().getParent().getParent()
-						.getChildren().get(3));
+				inputConnectorEditPart = ((AbstractInputConnectorEditPart) EditorUtils
+						.getProxyFaultInputConnector((ShapeNodeEditPart) this
+								.getParent().getParent().getParent()
+								.getParent()));
 			}
 			sourceEditPart = (ShapeNodeEditPart) child;
 

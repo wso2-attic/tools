@@ -1,5 +1,7 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
 
+import java.util.Arrays;
+
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.GridData;
 import org.eclipse.draw2d.GridLayout;
@@ -9,6 +11,7 @@ import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.geometry.Dimension;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -25,8 +28,12 @@ import org.eclipse.gmf.runtime.diagram.ui.figures.BorderedNodeFigure;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
+import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
+import org.wso2.developerstudio.eclipse.gmf.esb.APIResourceEndpoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractBaseFigureEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.MediatorFlowItemSemanticEditPolicy;
 
@@ -57,7 +64,7 @@ public class MediatorFlowEditPart extends ShapeNodeEditPart {
 	 */
 	public MediatorFlowEditPart(View view) {
 		super(view);
-	}
+	}	
 
 	/**
 	 * @generated
@@ -120,27 +127,22 @@ public class MediatorFlowEditPart extends ShapeNodeEditPart {
 	}
 
 	public void refreshConnector(EditPart childEditPart) {
-		if (childEditPart instanceof ProxyServiceEditPart) {
-			ProxyServiceEditPart proxyServiceEditPart = (ProxyServiceEditPart) childEditPart;
+		if (childEditPart instanceof AbstractBaseFigureEditPart) {
+			AbstractBaseFigureEditPart baseFigureEditPart = (AbstractBaseFigureEditPart) childEditPart;
 			BorderItemLocator outputLocator = new FixedBorderItemLocator(
-					this.getFigure(),
-					proxyServiceEditPart.outputConnectorFigure,
+					this.getFigure(), baseFigureEditPart.outputConnectorFigure,
 					PositionConstants.WEST, 0.3);
-			proxyServiceEditPart
+			baseFigureEditPart
 					.getBorderedFigure()
 					.getBorderItemContainer()
-					.add(proxyServiceEditPart.outputConnectorFigure,
+					.add(baseFigureEditPart.outputConnectorFigure,
 							outputLocator);
 
 			BorderItemLocator inputLocator = new FixedBorderItemLocator(
-					this.getFigure(),
-					proxyServiceEditPart.inputConnectorFigure,
+					this.getFigure(), baseFigureEditPart.inputConnectorFigure,
 					PositionConstants.WEST, 0.7);
-			proxyServiceEditPart
-					.getBorderedFigure()
-					.getBorderItemContainer()
-					.add(proxyServiceEditPart.inputConnectorFigure,
-							inputLocator);
+			baseFigureEditPart.getBorderedFigure().getBorderItemContainer()
+					.add(baseFigureEditPart.inputConnectorFigure, inputLocator);
 		} else {
 			//Should handle properly.
 			//throw new ClassCastException();
@@ -148,8 +150,10 @@ public class MediatorFlowEditPart extends ShapeNodeEditPart {
 	}
 
 	protected void addChildVisual(EditPart childEditPart, int index) {
-		refreshConnector(((ProxyServiceEditPart) childEditPart.getParent()
-				.getParent().getParent().getParent()));
+		if (childEditPart.getParent().getParent().getParent().getParent() instanceof AbstractBaseFigureEditPart) {
+			refreshConnector(((AbstractBaseFigureEditPart) childEditPart
+					.getParent().getParent().getParent().getParent()));
+		}
 		super.addChildVisual(childEditPart, -1);
 	}
 

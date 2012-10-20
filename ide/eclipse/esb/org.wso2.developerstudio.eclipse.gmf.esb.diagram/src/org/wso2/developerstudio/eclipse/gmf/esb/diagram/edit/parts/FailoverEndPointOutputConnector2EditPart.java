@@ -352,6 +352,9 @@ public class FailoverEndPointOutputConnector2EditPart extends
 		if (targetEditPart instanceof LoadBalanceEndPointInputConnectorEditPart) {
 			types.add(EsbElementTypes.EsbLink_4001);
 		}
+		if (targetEditPart instanceof APIResourceEndpointInputConnectorEditPart) {
+			types.add(EsbElementTypes.EsbLink_4001);
+		}
 		if (targetEditPart instanceof MessageInputConnectorEditPart) {
 			types.add(EsbElementTypes.EsbLink_4001);
 		}
@@ -377,6 +380,12 @@ public class FailoverEndPointOutputConnector2EditPart extends
 			types.add(EsbElementTypes.EsbLink_4001);
 		}
 		if (targetEditPart instanceof LoadBalanceEndPointInputConnector2EditPart) {
+			types.add(EsbElementTypes.EsbLink_4001);
+		}
+		if (targetEditPart instanceof APIResourceInputConnectorEditPart) {
+			types.add(EsbElementTypes.EsbLink_4001);
+		}
+		if (targetEditPart instanceof APIResourceFaultInputConnectorEditPart) {
 			types.add(EsbElementTypes.EsbLink_4001);
 		}
 		return types;
@@ -436,6 +445,7 @@ public class FailoverEndPointOutputConnector2EditPart extends
 			types.add(EsbElementTypes.WSDLEndPointInputConnector_3092);
 			types.add(EsbElementTypes.NamedEndpointInputConnector_3661);
 			types.add(EsbElementTypes.LoadBalanceEndPointInputConnector_3095);
+			types.add(EsbElementTypes.APIResourceEndpointInputConnector_3675);
 			types.add(EsbElementTypes.MessageInputConnector_3046);
 			types.add(EsbElementTypes.MergeNodeFirstInputConnector_3014);
 			types.add(EsbElementTypes.MergeNodeSecondInputConnector_3015);
@@ -445,6 +455,8 @@ public class FailoverEndPointOutputConnector2EditPart extends
 			types.add(EsbElementTypes.FailoverEndPointInputConnector_3650);
 			types.add(EsbElementTypes.WSDLEndPointInputConnector_3654);
 			types.add(EsbElementTypes.LoadBalanceEndPointInputConnector_3657);
+			types.add(EsbElementTypes.APIResourceInputConnector_3670);
+			types.add(EsbElementTypes.APIResourceFaultInputConnector_3672);
 		}
 		return types;
 	}

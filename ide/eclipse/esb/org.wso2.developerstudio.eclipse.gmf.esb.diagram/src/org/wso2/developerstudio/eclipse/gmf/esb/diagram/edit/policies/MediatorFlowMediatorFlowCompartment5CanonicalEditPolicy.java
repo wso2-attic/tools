@@ -20,6 +20,7 @@ import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.APIResourceEndpointEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AddressEndPointEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AggregateMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.BuilderMediatorEditPart;
@@ -171,6 +172,7 @@ public class MediatorFlowMediatorFlowCompartment5CanonicalEditPolicy extends
 		case WSDLEndPointEditPart.VISUAL_ID:
 		case NamedEndpointEditPart.VISUAL_ID:
 		case LoadBalanceEndPointEditPart.VISUAL_ID:
+		case APIResourceEndpointEditPart.VISUAL_ID:
 			return true;
 		}
 		return false;

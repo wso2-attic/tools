@@ -55,6 +55,7 @@ import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.FileEditorInput;
+import org.wso2.developerstudio.eclipse.gmf.esb.APIResource;
 import org.wso2.developerstudio.eclipse.gmf.esb.ArtifactType;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndpointDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
@@ -64,6 +65,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbServer;
 import org.wso2.developerstudio.eclipse.gmf.esb.LocalEntry;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyService;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequences;
+import org.wso2.developerstudio.eclipse.gmf.esb.SynapseAPI;
 import org.wso2.developerstudio.eclipse.gmf.esb.Task;
 import org.wso2.developerstudio.eclipse.gmf.esb.Template;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbDiagramEditPart;
@@ -296,13 +298,23 @@ public class EsbDiagramEditorUtil {
 							.getEStructuralFeature("children");
 					esbServer.eSet(target, Arrays.asList(template));
 					esbServer.setType(ArtifactType.TEMPLATE);
-				}else if ("task".equals(type)) {
+				} else if ("task".equals(type)) {
 					Task task = EsbFactory.eINSTANCE.createTask();
 					task.setTaskName(name);
 					EStructuralFeature target = esbServer.eClass()
 							.getEStructuralFeature("children");
 					esbServer.eSet(target, Arrays.asList(task));
 					esbServer.setType(ArtifactType.TASK);
+				} else if ("api".equals(type)) {
+					SynapseAPI api = EsbFactory.eINSTANCE.createSynapseAPI();
+					api.setApiName(name);
+					APIResource apiResource = EsbFactory.eINSTANCE
+							.createAPIResource();
+					api.getResources().add(apiResource);
+					EStructuralFeature target = esbServer.eClass()
+							.getEStructuralFeature("children");
+					esbServer.eSet(target, Arrays.asList(api));
+					esbServer.setType(ArtifactType.API);
 				}
 
 				attachModelToResource(model, modelResource);

@@ -8,8 +8,10 @@ import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractBaseFigureEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractInputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractProxyServiceContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorOutputConnectorEditPart.EastPointerFigure;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorOutputConnectorEditPart.WestPointerFigure;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractOutputConnectorEditPart;
@@ -32,7 +34,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequencesEdit
 public class ConnectionCalculator {
 
 	private static Point currentFigureLocation = null;
-	private static ProxyServiceEditPart proxyService = null;
+	private static AbstractBaseFigureEditPart baseFigure = null;
 	private static SequencesEditPart sequences = null;
 
 	public static EsbLinkEditPart getNearestLinkEditPart(ArrayList links,
@@ -47,7 +49,7 @@ public class ConnectionCalculator {
 		if (childEditPart != null) {
 			updateCurrentStates(childEditPart);
 
-			if (proxyService != null) {
+			if (baseFigure != null) {
 				adjustYvalue(childEditPart);
 
 				for (int i = 0; i < links.size(); ++i) {
@@ -64,7 +66,7 @@ public class ConnectionCalculator {
 						 * to get the absolue location.
 						 */
 						int actualCurrentPosition = currentFigureLocation.x
-								+ proxyService.getFigure().getBounds()
+								+ baseFigure.getFigure().getBounds()
 										.getLocation().x + 75;
 						actualCurrentPosition = getXAbsolutePosition(
 								actualCurrentPosition, childEditPart);
@@ -74,7 +76,7 @@ public class ConnectionCalculator {
 						}
 					}
 				}
-				proxyService = null;
+				baseFigure = null;
 			} else if (sequences != null) {
 				/*
 				 * When we get the current location of the added figure, it will
@@ -164,7 +166,7 @@ public class ConnectionCalculator {
 		if (childEditPart != null) {
 			updateCurrentStates(childEditPart);
 
-			if (proxyService != null) {
+			if (baseFigure != null) {
 				adjustYvalue(childEditPart);
 
 				for (int p = 0; p < childEditPart.getChildren().size(); ++p) {
@@ -200,7 +202,7 @@ public class ConnectionCalculator {
 						 * to get the absolue location.
 						 */
 						int actualCurrentPosition = currentFigureLocation.x
-								+ proxyService.getFigure().getBounds()
+								+ baseFigure.getFigure().getBounds()
 										.getLocation().x + 75;
 						actualCurrentPosition = getXAbsolutePosition(
 								actualCurrentPosition, childEditPart);
@@ -324,9 +326,9 @@ public class ConnectionCalculator {
 				yDistance1 = Math.abs(nearForwardConnector.getFigure()
 						.getBounds().y - currentFigureLocation.y);
 			} else {
-				if(proxyService !=null){
+				if(baseFigure !=null){
 				yDistance1 = Math.abs((nearForwardConnector.getFigure()
-						.getBounds().y + proxyService.getFigure().getBounds()
+						.getBounds().y + baseFigure.getFigure().getBounds()
 						.getLocation().y)
 						- currentFigureLocation.y + 30);
 				}
@@ -346,14 +348,14 @@ public class ConnectionCalculator {
 			} else {
 				if(childEditPart.getParent() instanceof MediatorFlowMediatorFlowCompartment6EditPart){
 					yDistance2 = Math.abs((nearReverseConnector.getFigure()
-							.getBounds().y + proxyService.getFigure().getBounds()
+							.getBounds().y + baseFigure.getFigure().getBounds()
 							.getBottom().y)
 							- currentFigureLocation.y - 50);
 				}
 				else{
-					if(proxyService !=null){
+					if(baseFigure !=null){
 				yDistance2 = Math.abs((nearReverseConnector.getFigure()
-						.getBounds().y + proxyService.getFigure().getBounds()
+						.getBounds().y + baseFigure.getFigure().getBounds()
 						.getLocation().y)
 						- currentFigureLocation.y + 30);
 					}
@@ -379,7 +381,7 @@ public class ConnectionCalculator {
 			nearConnector = null;
 		}
 
-		proxyService = null;
+		baseFigure = null;
 		sequences=null;
 		return nearConnector;
 	}
@@ -392,15 +394,15 @@ public class ConnectionCalculator {
 		child = childEditPart;
 		do {
 			child = child.getParent();
-		} while ((child != null) && (!(child instanceof ProxyServiceEditPart)));
+		} while ((child != null) && (!(child instanceof AbstractBaseFigureEditPart)));
 
 		for (int l = 0; l < childEditPart.getViewer().getEditPartRegistry()
 				.values().size(); ++l) {
 			if (childEditPart.getViewer().getEditPartRegistry().values()
-					.toArray()[l] instanceof ProxyServiceEditPart) {
-				proxyService = (ProxyServiceEditPart) childEditPart.getViewer()
+					.toArray()[l] instanceof AbstractBaseFigureEditPart) {
+				baseFigure = (AbstractBaseFigureEditPart) childEditPart.getViewer()
 						.getEditPartRegistry().values().toArray()[l];
-				if (child.equals(proxyService)) {
+				if (child.equals(baseFigure)) {
 					break;
 				}
 			} else if (childEditPart.getViewer().getEditPartRegistry().values()
@@ -422,12 +424,11 @@ public class ConnectionCalculator {
 
 		if (childEditPart.getParent() instanceof MediatorFlowMediatorFlowCompartment6EditPart) {
 			currentFigureLocation.y = currentFigureLocation.y
-					+ ((ProxyServiceFaultContainerEditPart) ((ProxyServiceContainerEditPart) proxyService
-							.getChildren().get(4)).getChildren().get(1))
+					+ ((ProxyServiceFaultContainerEditPart) ((AbstractProxyServiceContainerEditPart) EditorUtils.getProxyContainer(baseFigure)).getChildren().get(1))
 							.getFigure().getBounds().getLocation().y + 50;
 		} else {
 			currentFigureLocation.y = currentFigureLocation.y
-					+ proxyService.getFigure().getBounds().getLocation().y + 30;
+					+ baseFigure.getFigure().getBounds().getLocation().y + 30;
 		}
 
 		currentFigureLocation.y = getYAbsolutePosition(currentFigureLocation.y,

@@ -18,6 +18,11 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom;
 
 import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.APIResourceFaultInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.APIResourceEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.APIResourceFaultInputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyFaultInputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequencesEditPart;
 
@@ -33,6 +38,7 @@ public class EditorUtils {
 	public static final String LOCAL_ENTRY_RESOURCE_DIR = "src/main/graphical-synapse-config/local-entries";
 	public static final String TEMPLATE_RESOURCE_DIR = "src/main/graphical-synapse-config/templates";
 	public static final String TASK_RESOURCE_DIR = "src/main/graphical-synapse-config/tasks";
+	public static final String API_RESOURCE_DIR = "src/main/graphical-synapse-config/api";
 	
 	public static AbstractInputConnectorEditPart getInputConnector(ShapeNodeEditPart parent){
 		for(int i=0;i<parent.getChildren().size();++i){					
@@ -88,6 +94,27 @@ public class EditorUtils {
 		return null;
 	}
 	
+	public static AbstractProxyServiceContainerEditPart getProxyContainer(ShapeNodeEditPart parent){
+		for(int i=0;i<parent.getChildren().size();++i){					
+			if(parent.getChildren().get(i) instanceof AbstractProxyServiceContainerEditPart){
+				return (AbstractProxyServiceContainerEditPart) parent.getChildren().get(i);
+			}
+		}
+		return null;
+	}
+	
+	
+	public static AbstractInputConnectorEditPart getProxyFaultInputConnector(ShapeNodeEditPart parent){
+		for(int i=0;i<parent.getChildren().size();++i){					
+			if(parent.getChildren().get(i) instanceof ProxyFaultInputConnectorEditPart){
+				return (ProxyFaultInputConnectorEditPart) parent.getChildren().get(i);
+			}else if(parent.getChildren().get(i) instanceof APIResourceFaultInputConnectorEditPart){
+				return (APIResourceFaultInputConnectorEditPart) parent.getChildren().get(i);
+			}
+		}
+		return null;
+	}
+	
 	/*
 	 * You can get the MediatorEditPart of the entered ConnectorEditPart using this method.
 	 */
@@ -137,6 +164,19 @@ public class EditorUtils {
 		}
 		if(temp instanceof SequencesEditPart){
 			return (SequencesEditPart) temp;
+		}
+		else{
+			return null;
+		}
+	}
+	
+	public static APIResourceEditPart getAPIResource(AbstractConnectorEditPart connector){
+		EditPart temp=connector;
+		while((temp !=null)&&(!(temp instanceof APIResourceEditPart))){
+			temp=temp.getParent();			
+		}
+		if(temp instanceof APIResourceEditPart){
+			return (APIResourceEditPart) temp;
 		}
 		else{
 			return null;

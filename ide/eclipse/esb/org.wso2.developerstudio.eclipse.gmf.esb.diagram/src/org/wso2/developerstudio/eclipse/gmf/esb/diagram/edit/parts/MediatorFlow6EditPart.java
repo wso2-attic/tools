@@ -29,6 +29,7 @@ import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractBaseFigureEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.MediatorFlow6ItemSemanticEditPolicy;
 
@@ -122,16 +123,16 @@ public class MediatorFlow6EditPart extends ShapeNodeEditPart {
 	}
 
 	protected void refreshInputConnector(EditPart childEditPart) {
-		if (childEditPart instanceof ProxyServiceEditPart) {
-			ProxyServiceEditPart proxyServiceEditPart = (ProxyServiceEditPart) childEditPart;
+		if (childEditPart instanceof AbstractBaseFigureEditPart) {
+			AbstractBaseFigureEditPart baseFigureEditPart = (AbstractBaseFigureEditPart) childEditPart;
 			BorderItemLocator locator = new FixedBorderItemLocator(
 					this.getFigure(),
-					proxyServiceEditPart.faultInputnputConnectorFigure,
+					baseFigureEditPart.faultInputnputConnectorFigure,
 					PositionConstants.WEST, 0.5);
-			proxyServiceEditPart
+			baseFigureEditPart
 					.getBorderedFigure()
 					.getBorderItemContainer()
-					.add(proxyServiceEditPart.faultInputnputConnectorFigure,
+					.add(baseFigureEditPart.faultInputnputConnectorFigure,
 							locator);
 		} else {
 			//Should handle properly.
@@ -140,8 +141,9 @@ public class MediatorFlow6EditPart extends ShapeNodeEditPart {
 	}
 
 	protected void addChildVisual(EditPart childEditPart, int index) {
-		refreshInputConnector(((ProxyServiceEditPart) childEditPart.getParent()
-				.getParent().getParent().getParent()));
+		if (childEditPart.getParent().getParent().getParent().getParent() instanceof AbstractBaseFigureEditPart)
+			refreshInputConnector(((AbstractBaseFigureEditPart) childEditPart
+					.getParent().getParent().getParent().getParent()));
 		super.addChildVisual(childEditPart, -1);
 	}
 

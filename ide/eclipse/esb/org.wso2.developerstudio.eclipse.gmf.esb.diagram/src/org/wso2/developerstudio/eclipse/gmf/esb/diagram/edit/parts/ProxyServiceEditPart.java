@@ -42,6 +42,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.runtime.notation.impl.BoundsImpl;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractBaseFigureEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ProxyServiceGroupBox;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ShowPropertyViewEditPolicy;
@@ -52,9 +53,9 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.ProxyServi
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
 
 /**
- * @generated
+ * @generated NOT
  */
-public class ProxyServiceEditPart extends AbstractBorderedShapeEditPart {
+public class ProxyServiceEditPart extends AbstractBaseFigureEditPart {
 
 	/**
 	 * @generated
@@ -70,12 +71,6 @@ public class ProxyServiceEditPart extends AbstractBorderedShapeEditPart {
 	 * @generated
 	 */
 	protected IFigure primaryShape;
-
-	public IFigure inputConnectorFigure;
-
-	public IFigure outputConnectorFigure;
-
-	public IFigure faultInputnputConnectorFigure;
 
 	/**
 	 * @generated

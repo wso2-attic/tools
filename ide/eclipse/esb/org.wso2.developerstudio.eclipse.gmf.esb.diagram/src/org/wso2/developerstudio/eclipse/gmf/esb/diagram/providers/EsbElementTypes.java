@@ -316,6 +316,36 @@ public class EsbElementTypes {
 	/**
 	 * @generated
 	 */
+	public static final IElementType SynapseAPI_3668 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.SynapseAPI_3668"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType APIResource_3669 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.APIResource_3669"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType APIResourceInputConnector_3670 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.APIResourceInputConnector_3670"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType APIResourceOutputConnector_3671 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.APIResourceOutputConnector_3671"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType APIResourceFaultInputConnector_3672 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.APIResourceFaultInputConnector_3672"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType ProxyServiceContainer_3673 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.ProxyServiceContainer_3673"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
 	public static final IElementType LogMediatorInputConnector_3018 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.LogMediatorInputConnector_3018"); //$NON-NLS-1$
 
 	/**
@@ -682,6 +712,21 @@ public class EsbElementTypes {
 	 * @generated
 	 */
 	public static final IElementType LoadBalanceEndPointWestOutputConnector_3098 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.LoadBalanceEndPointWestOutputConnector_3098"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType APIResourceEndpoint_3674 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.APIResourceEndpoint_3674"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType APIResourceEndpointInputConnector_3675 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.APIResourceEndpointInputConnector_3675"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType APIResourceEndpointOutputConnector_3676 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.APIResourceEndpointOutputConnector_3676"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -1870,6 +1915,16 @@ public class EsbElementTypes {
 					EsbPackage.eINSTANCE
 							.getLoadBalanceEndPointWestOutputConnector());
 
+			elements.put(APIResourceEndpoint_3674,
+					EsbPackage.eINSTANCE.getAPIResourceEndpoint());
+
+			elements.put(APIResourceEndpointInputConnector_3675,
+					EsbPackage.eINSTANCE.getAPIResourceEndpointInputConnector());
+
+			elements.put(APIResourceEndpointOutputConnector_3676,
+					EsbPackage.eINSTANCE
+							.getAPIResourceEndpointOutputConnector());
+
 			elements.put(SwitchDefaultContainer_3527,
 					EsbPackage.eINSTANCE.getSwitchDefaultContainer());
 
@@ -1992,6 +2047,23 @@ public class EsbElementTypes {
 					EsbPackage.eINSTANCE.getEndpointDiagram());
 
 			elements.put(Task_3667, EsbPackage.eINSTANCE.getTask());
+
+			elements.put(SynapseAPI_3668, EsbPackage.eINSTANCE.getSynapseAPI());
+
+			elements.put(APIResource_3669,
+					EsbPackage.eINSTANCE.getAPIResource());
+
+			elements.put(APIResourceInputConnector_3670,
+					EsbPackage.eINSTANCE.getAPIResourceInputConnector());
+
+			elements.put(APIResourceOutputConnector_3671,
+					EsbPackage.eINSTANCE.getAPIResourceOutputConnector());
+
+			elements.put(APIResourceFaultInputConnector_3672,
+					EsbPackage.eINSTANCE.getAPIResourceFaultInputConnector());
+
+			elements.put(ProxyServiceContainer_3673,
+					EsbPackage.eINSTANCE.getProxyServiceContainer());
 
 			elements.put(EsbLink_4001, EsbPackage.eINSTANCE.getEsbLink());
 		}
@@ -2205,6 +2277,9 @@ public class EsbElementTypes {
 			KNOWN_ELEMENT_TYPES.add(LoadBalanceEndPointOutputConnector_3096);
 			KNOWN_ELEMENT_TYPES
 					.add(LoadBalanceEndPointWestOutputConnector_3098);
+			KNOWN_ELEMENT_TYPES.add(APIResourceEndpoint_3674);
+			KNOWN_ELEMENT_TYPES.add(APIResourceEndpointInputConnector_3675);
+			KNOWN_ELEMENT_TYPES.add(APIResourceEndpointOutputConnector_3676);
 			KNOWN_ELEMENT_TYPES.add(SwitchDefaultContainer_3527);
 			KNOWN_ELEMENT_TYPES.add(MediatorFlow_3528);
 			KNOWN_ELEMENT_TYPES.add(FilterFailContainer_3537);
@@ -2248,6 +2323,12 @@ public class EsbElementTypes {
 			KNOWN_ELEMENT_TYPES.add(Sequences_3665);
 			KNOWN_ELEMENT_TYPES.add(EndpointDiagram_3666);
 			KNOWN_ELEMENT_TYPES.add(Task_3667);
+			KNOWN_ELEMENT_TYPES.add(SynapseAPI_3668);
+			KNOWN_ELEMENT_TYPES.add(APIResource_3669);
+			KNOWN_ELEMENT_TYPES.add(APIResourceInputConnector_3670);
+			KNOWN_ELEMENT_TYPES.add(APIResourceOutputConnector_3671);
+			KNOWN_ELEMENT_TYPES.add(APIResourceFaultInputConnector_3672);
+			KNOWN_ELEMENT_TYPES.add(ProxyServiceContainer_3673);
 			KNOWN_ELEMENT_TYPES.add(EsbLink_4001);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
@@ -2628,6 +2709,12 @@ public class EsbElementTypes {
 			return LoadBalanceEndPointOutputConnector_3096;
 		case LoadBalanceEndPointWestOutputConnectorEditPart.VISUAL_ID:
 			return LoadBalanceEndPointWestOutputConnector_3098;
+		case APIResourceEndpointEditPart.VISUAL_ID:
+			return APIResourceEndpoint_3674;
+		case APIResourceEndpointInputConnectorEditPart.VISUAL_ID:
+			return APIResourceEndpointInputConnector_3675;
+		case APIResourceEndpointOutputConnectorEditPart.VISUAL_ID:
+			return APIResourceEndpointOutputConnector_3676;
 		case SwitchDefaultContainerEditPart.VISUAL_ID:
 			return SwitchDefaultContainer_3527;
 		case MediatorFlow4EditPart.VISUAL_ID:
@@ -2712,6 +2799,18 @@ public class EsbElementTypes {
 			return EndpointDiagram_3666;
 		case TaskEditPart.VISUAL_ID:
 			return Task_3667;
+		case SynapseAPIEditPart.VISUAL_ID:
+			return SynapseAPI_3668;
+		case APIResourceEditPart.VISUAL_ID:
+			return APIResource_3669;
+		case APIResourceInputConnectorEditPart.VISUAL_ID:
+			return APIResourceInputConnector_3670;
+		case APIResourceOutputConnectorEditPart.VISUAL_ID:
+			return APIResourceOutputConnector_3671;
+		case APIResourceFaultInputConnectorEditPart.VISUAL_ID:
+			return APIResourceFaultInputConnector_3672;
+		case ProxyServiceContainer2EditPart.VISUAL_ID:
+			return ProxyServiceContainer_3673;
 		case EsbLinkEditPart.VISUAL_ID:
 			return EsbLink_4001;
 		}

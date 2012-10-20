@@ -213,8 +213,7 @@ public class TaskEditPart extends ShapeNodeEditPart {
 			fFigureTaskNamePropertyLabel.setText("<...>");
 			fFigureTaskNamePropertyLabel.setAlignment(SWT.CENTER);
 
-			this.getPropertyValueRectangle1().add(
-					fFigureTaskNamePropertyLabel);
+			this.getPropertyValueRectangle1().add(fFigureTaskNamePropertyLabel);
 
 		}
 
@@ -224,7 +223,7 @@ public class TaskEditPart extends ShapeNodeEditPart {
 		public WrappingLabel getFigureTaskNamePropertyLabel() {
 			return fFigureTaskNamePropertyLabel;
 		}
-		
+
 		public String getIconPath() {
 			return "icons/ico20/out-mediator.gif";
 		}

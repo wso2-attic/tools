@@ -308,6 +308,16 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String APIResource5CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String APIResource5CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
 	public static String DropMediator1CreationTool_title;
 
 	/**
@@ -888,6 +898,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String SynapseAPIAPICompartmentEditPart_title;
+
+	/**
+	 * @generated
+	 */
 	public static String CommandName_OpenDiagram;
 
 	/**
@@ -998,12 +1013,22 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_APIResourceFaultInputConnector_3672_incominglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_SwitchCaseBranchOutputConnector_3043_outgoinglinks;
 
 	/**
 	 * @generated
 	 */
 	public static String NavigatorGroupName_ProxyInputConnector_3003_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_APIResourceInputConnector_3670_incominglinks;
 
 	/**
 	 * @generated
@@ -1104,6 +1129,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_RouterMediatorInputConnector_3629_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_APIResourceEndpointInputConnector_3675_incominglinks;
 
 	/**
 	 * @generated
@@ -1323,6 +1353,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_APIResourceOutputConnector_3671_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_EnrichMediatorOutputConnector_3037_outgoinglinks;
 
 	/**
@@ -1509,6 +1544,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_EventMediatorInputConnector_3052_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_APIResourceEndpointOutputConnector_3676_outgoinglinks;
 
 	/**
 	 * @generated

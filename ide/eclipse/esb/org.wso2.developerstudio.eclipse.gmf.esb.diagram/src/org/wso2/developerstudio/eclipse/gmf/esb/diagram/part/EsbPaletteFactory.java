@@ -89,6 +89,7 @@ public class EsbPaletteFactory {
 		paletteContainer.add(createProxyService2CreationTool());
 		//paletteContainer.add(createMessageMediator3CreationTool());
 		paletteContainer.add(createSequence4CreationTool());
+		paletteContainer.add(createAPIResource5CreationTool());
 		return paletteContainer;
 	}
 
@@ -249,6 +250,21 @@ public class EsbPaletteFactory {
 		entry.setId("createSequence4CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(EsbElementTypes
 				.getImageDescriptor(EsbElementTypes.Sequence_3503));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createAPIResource5CreationTool() {
+		NodeToolEntry entry = new NodeToolEntry(
+				Messages.APIResource5CreationTool_title,
+				Messages.APIResource5CreationTool_desc,
+				Collections.singletonList(EsbElementTypes.APIResource_3669));
+		entry.setId("createAPIResource5CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(EsbElementTypes
+				.getImageDescriptor(EsbElementTypes.APIResource_3669));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -1095,24 +1111,33 @@ public class EsbPaletteFactory {
 		return definedArtifacts;
 	}
 
-/**
- * Update tool palette items according to diagram type 
- * @param diagramEditor
- */
-public void updateToolPaletteItems(EsbDiagramEditor diagramEditor){
-		
-		EObject element = diagramEditor.getDiagramEditPart().getDiagramView().getElement();
+	/**
+	 * Update tool palette items according to diagram type 
+	 * @param diagramEditor
+	 */
+	public void updateToolPaletteItems(EsbDiagramEditor diagramEditor) {
+
+		EObject element = diagramEditor.getDiagramEditPart().getDiagramView()
+				.getElement();
 		if (element instanceof EsbDiagram /* this check is not required */) {
 			EsbServer server = ((EsbDiagram) element).getServer();
-			PaletteViewer paletteViewer = ((DiagramEditDomain) diagramEditor.getDiagramEditDomain()).getPaletteViewer();
+			PaletteViewer paletteViewer = ((DiagramEditDomain) diagramEditor
+					.getDiagramEditDomain()).getPaletteViewer();
 			PaletteContainer paletteContainer = paletteViewer.getPaletteRoot();
-			PaletteContainer nodePalette = (PaletteContainer) paletteContainer.getChildren().get(1);
-			PaletteContainer mediatorPalette = (PaletteContainer) paletteContainer.getChildren().get(2);
-			PaletteContainer endpoitPalette = (PaletteContainer) paletteContainer.getChildren().get(3);
-			PaletteContainer linksPalette = (PaletteContainer) paletteContainer.getChildren().get(4);
-			PaletteContainer seqPalette = (PaletteContainer) paletteContainer.getChildren().get(5);
-			PaletteContainer defineEpPalette = (PaletteContainer) paletteContainer.getChildren().get(6);
-			ToolEntry proxyServiceTool = (ToolEntry) (nodePalette.getChildren().get(0));
+			PaletteContainer nodePalette = (PaletteContainer) paletteContainer
+					.getChildren().get(1);
+			PaletteContainer mediatorPalette = (PaletteContainer) paletteContainer
+					.getChildren().get(2);
+			PaletteContainer endpoitPalette = (PaletteContainer) paletteContainer
+					.getChildren().get(3);
+			PaletteContainer linksPalette = (PaletteContainer) paletteContainer
+					.getChildren().get(4);
+			PaletteContainer seqPalette = (PaletteContainer) paletteContainer
+					.getChildren().get(5);
+			PaletteContainer defineEpPalette = (PaletteContainer) paletteContainer
+					.getChildren().get(6);
+			ToolEntry proxyServiceTool = (ToolEntry) (nodePalette.getChildren()
+					.get(0));
 			if (server != null) {
 				switch (server.getType()) {
 				case PROXY:
@@ -1154,7 +1179,7 @@ public void updateToolPaletteItems(EsbDiagramEditor diagramEditor){
 			}
 		}
 	}
-	
+
 	private PaletteContainer createSequenceGroup() {
 		PaletteDrawer paletteContainer = new PaletteDrawer("Sequences");
 		paletteContainer.setId("Sequences"); //$NON-NLS-1$

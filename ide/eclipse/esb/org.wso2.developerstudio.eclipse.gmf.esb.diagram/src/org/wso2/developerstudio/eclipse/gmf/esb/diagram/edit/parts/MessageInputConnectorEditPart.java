@@ -269,6 +269,7 @@ public class MessageInputConnectorEditPart extends AbstractBorderItemEditPart {
 			types.add(EsbElementTypes.NamedEndpointOutputConnector_3662);
 			types.add(EsbElementTypes.LoadBalanceEndPointOutputConnector_3096);
 			types.add(EsbElementTypes.LoadBalanceEndPointWestOutputConnector_3098);
+			types.add(EsbElementTypes.APIResourceEndpointOutputConnector_3676);
 			types.add(EsbElementTypes.MessageOutputConnector_3047);
 			types.add(EsbElementTypes.MergeNodeOutputConnector_3016);
 			types.add(EsbElementTypes.SequencesOutputConnector_3617);
@@ -279,6 +280,7 @@ public class MessageInputConnectorEditPart extends AbstractBorderItemEditPart {
 			types.add(EsbElementTypes.WSDLEndPointOutputConnector_3655);
 			types.add(EsbElementTypes.LoadBalanceEndPointOutputConnector_3658);
 			types.add(EsbElementTypes.LoadBalanceEndPointWestOutputConnector_3659);
+			types.add(EsbElementTypes.APIResourceOutputConnector_3671);
 		}
 		return types;
 	}
