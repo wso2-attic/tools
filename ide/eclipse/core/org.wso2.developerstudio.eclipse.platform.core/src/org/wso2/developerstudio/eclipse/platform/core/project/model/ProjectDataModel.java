@@ -16,10 +16,16 @@
 
 package org.wso2.developerstudio.eclipse.platform.core.project.model;
 
+import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.ui.IWorkingSet;
 import org.eclipse.ui.IWorkingSetManager;
 import org.eclipse.ui.PlatformUI;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
+import org.wso2.developerstudio.eclipse.platform.core.Activator;
 import org.wso2.developerstudio.eclipse.platform.core.exception.ObserverFailedException;
 import org.wso2.developerstudio.eclipse.platform.core.model.MavenInfo;
 import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
@@ -28,6 +34,7 @@ import java.io.File;
 import java.util.Observable;
 
 public abstract class ProjectDataModel extends Observable {
+	private static IDeveloperStudioLog logger=Logger.getLog(Activator.PLUGIN_ID);
 	private String projectName;
 	private File location;
 	private MavenInfo mavenInfo;
@@ -142,7 +149,7 @@ public abstract class ProjectDataModel extends Observable {
 			try {
 				setProjectName(ProjectUtils.fileNameWithoutExtension(importFile.getName()));
 			} catch (ObserverFailedException e) {
-				e.printStackTrace();
+				logger.error("ObserverFailed", e);
 			}
 		}
 	}
@@ -164,6 +171,43 @@ public abstract class ProjectDataModel extends Observable {
 			IWorkingSetManager workingSetManager = PlatformUI.getWorkbench().getWorkingSetManager();
 			workingSetManager.addToWorkingSets(project, getSelectedWorkingSets());
 		}
+	}
+	
+	public static IContainer getContainer(File absolutionPath, String projectNature) {
+		IProject[] projects = ResourcesPlugin.getWorkspace().getRoot().getProjects();
+		int length = 0;
+		IProject currentSelection = null;
+		for (IProject project : projects) {
+			try {
+				if (project.isOpen() && project.hasNature(projectNature)) {
+					File projectLocation = project.getLocation().toFile();
+					int projectLocationLength = projectLocation.toString().length();
+					if (projectLocationLength > length &&
+					    projectLocationLength <= absolutionPath.toString().length()) {
+						if (absolutionPath.toString().startsWith(projectLocation.toString())) {
+							length = projectLocationLength;
+							currentSelection = project;
+						}
+					}
+				}
+			} catch (CoreException e) {
+				logger.error("ObserverFailed ", e);
+			}
+		}
+		IContainer saveLocation = null;
+		if (currentSelection != null) {
+			String path =
+			        absolutionPath.toString().substring(
+			                                            currentSelection.getLocation().toFile()
+			                                                    .toString().length());
+
+			if (path.equals("")) {
+				saveLocation = currentSelection;
+			} else {
+				saveLocation = currentSelection.getFolder(path);
+			}
+		}
+		return saveLocation;
 	}
 
 }
