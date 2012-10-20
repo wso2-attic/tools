@@ -2,6 +2,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb.persistence;
 
 import org.apache.synapse.config.SynapseConfiguration;
 import org.apache.synapse.mediators.ListMediator;
+import org.apache.synapse.rest.API;
 import org.eclipse.emf.ecore.EObject;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbLink;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
@@ -16,6 +17,7 @@ public class TransformationInfo {
 	ListMediator originOutSequence;
 	ListMediator parentSequence;
 	ListMediator currentReferredSequence;
+	API currentAPI;
 	int traversalDirection;
 	public boolean isEndPointFound;
 	public EObject firstEndPoint;
@@ -38,6 +40,10 @@ public class TransformationInfo {
 	
 	public SynapseConfiguration getSynapseConfiguration() {
 		return synapseConfiguration;
+	}
+	
+	public API getCurrentAPI(){
+		return currentAPI;
 	}
 	
 	public int getTraversalDirection() {
@@ -67,6 +73,10 @@ public class TransformationInfo {
 	public void setSynapseConfiguration(
 			SynapseConfiguration synapseConfiguration) {
 		this.synapseConfiguration = synapseConfiguration;
+	}
+	
+	public void setCurrentAPI(API currentAPI){
+		this.currentAPI=currentAPI;
 	}
 	
 	public void setTraversalDirection(int traversalDirection) {

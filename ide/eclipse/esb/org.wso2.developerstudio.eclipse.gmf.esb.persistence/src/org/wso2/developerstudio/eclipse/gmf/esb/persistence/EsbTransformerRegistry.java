@@ -18,6 +18,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb.persistence;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.wso2.developerstudio.eclipse.gmf.esb.APIResource;
 import org.wso2.developerstudio.eclipse.gmf.esb.BuilderMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.ConditionalRouterMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamedEndpoint;
@@ -67,6 +68,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.ValidateMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.WSDLEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.XQueryMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.XSLTMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.APIResourceTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.AddressEndPointTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.AggregateMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.BuilderMediatorTransformer;
@@ -185,6 +187,7 @@ public class EsbTransformerRegistry {
 		addTransformer(URLRewriteMediator.class, new URLReWriterMediatorTransformer());
 		addTransformer(BuilderMediator.class, new BuilderMediatorTransformer());
 		addTransformer(NamedEndpoint.class, new NamedEndPointTransformer());
+		addTransformer(APIResource.class, new APIResourceTransformer());
 	}
 	
 	/**

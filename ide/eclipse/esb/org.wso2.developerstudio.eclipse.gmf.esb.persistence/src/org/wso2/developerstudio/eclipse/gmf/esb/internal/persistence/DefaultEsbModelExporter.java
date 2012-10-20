@@ -50,6 +50,7 @@ import org.apache.synapse.config.xml.TemplateMediatorSerializer;
 import org.apache.synapse.config.xml.endpoints.EndpointSerializer;
 import org.apache.synapse.config.xml.endpoints.TemplateEndpointSerializer;
 import org.apache.synapse.config.xml.endpoints.TemplateSerializer;
+import org.apache.synapse.config.xml.rest.APISerializer;
 import org.apache.synapse.endpoints.DefaultEndpoint;
 import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.endpoints.EndpointDefinition;
@@ -57,6 +58,7 @@ import org.apache.synapse.endpoints.TemplateEndpoint;
 import org.apache.synapse.endpoints.WSDLEndpoint;
 import org.apache.synapse.mediators.Value;
 import org.apache.synapse.mediators.base.SequenceMediator;
+import org.apache.synapse.rest.API;
 import org.apache.synapse.task.TaskDescription;
 import org.apache.synapse.task.TaskDescriptionSerializer;
 import org.eclipse.core.runtime.Assert;
@@ -82,6 +84,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.LogMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.MessageMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyService;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequences;
+import org.wso2.developerstudio.eclipse.gmf.esb.SynapseAPI;
 import org.wso2.developerstudio.eclipse.gmf.esb.Task;
 import org.wso2.developerstudio.eclipse.gmf.esb.Template;
 import org.wso2.developerstudio.eclipse.gmf.esb.WSDLEndPoint;
@@ -238,6 +241,21 @@ public class DefaultEsbModelExporter implements EsbModelTransformer {
 		TaskTransformer transformer= new TaskTransformer();
 		return transformer.create(visualTask);
 	}
+	
+	private org.apache.synapse.rest.API transformAPI(SynapseAPI visualAPI) throws Exception{		
+		TransformationInfo info = new TransformationInfo();
+		SynapseConfiguration configuration = new SynapseConfiguration();;
+		info.setSynapseConfiguration(configuration);
+		API api=null;
+		APITransformer transformer= new APITransformer();
+		info.setTraversalDirection(TransformationInfo.TRAVERSAL_DIRECTION_IN);
+		transformer.transform(info, visualAPI );
+		api=configuration.getAPI(visualAPI.getApiName());
+		if(api!=null){
+			return api;
+		}
+		return new API(visualAPI.getApiName(), visualAPI.getContext());
+	}
 
 	public String designToSource(EsbServer serverModel) throws Exception {
 		SynapseXMLConfigurationSerializer serializer = new SynapseXMLConfigurationSerializer();
@@ -284,6 +302,11 @@ public class DefaultEsbModelExporter implements EsbModelTransformer {
 					String TASK_EXTENSION_NS = "http://ws.apache.org/ns/synapse";
 				    OMNamespace TASK_OM_NAMESPACE = OMAbstractFactory.getOMFactory().createOMNamespace(TASK_EXTENSION_NS, "");
 					configOM = TaskDescriptionSerializer.serializeTaskDescription(TASK_OM_NAMESPACE,transformTask((Task)child));
+				}
+				break;	
+			case API:
+				if (child instanceof SynapseAPI) {
+					configOM = APISerializer.serializeAPI(transformAPI((SynapseAPI)child));
 				}
 				break;	
 			case SYNAPSE_CONFIG:
