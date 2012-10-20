@@ -15,6 +15,9 @@
  */
 package org.wso2.developerstudio.eclipse.esb.impl;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -153,10 +156,10 @@ public class ApiResourceImpl extends ModelObjectImpl implements ApiResource {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #isAllowGet()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
-	protected static final boolean ALLOW_GET_EDEFAULT = false;
+	protected static final boolean ALLOW_GET_EDEFAULT = true;
 
 	/**
 	 * The cached value of the '{@link #isAllowGet() <em>Allow Get</em>}' attribute.
@@ -791,7 +794,27 @@ public class ApiResourceImpl extends ModelObjectImpl implements ApiResource {
 	@Override
 	protected void doLoad(Element self) throws Exception {
 		
-		//TODO : this is incomplete, implement save
+		if(self.hasAttribute("uri-template")){
+			setUrlStyle(ApiResourceUrlStyle.URI_TEMPLATE);
+			setUriTemplate(self.getAttribute("uri-template"));
+		} else if(self.hasAttribute("url-mapping")){
+			setUrlStyle(ApiResourceUrlStyle.URL_MAPPING);
+			setUrlMapping(self.getAttribute("url-mapping"));
+		} else{
+			setUrlStyle(ApiResourceUrlStyle.NONE);
+		}
+		
+		if(self.hasAttribute("methods")){
+			String methods = self.getAttribute("methods");
+			if(methods!=null){
+				List<String> methodList = Arrays.asList(methods.split(" "));  
+				setAllowGet(methodList.contains("GET"));
+				setAllowPost(methodList.contains("POST"));
+				setAllowOptions(methodList.contains("OPTIONS"));
+				setAllowDelete(methodList.contains("DELETE"));
+				setAllowPut(methodList.contains("PUT"));
+			}
+		}
 		
 		// In sequence.
 		getInSequenceConfiguration().load(self);
@@ -808,9 +831,40 @@ public class ApiResourceImpl extends ModelObjectImpl implements ApiResource {
 
 	@Override
 	protected Element doSave(Element parent) throws Exception {
+		List<String> methods = new ArrayList<String>();
+		String methodsValue = new String();
 		Element self = createChildElement(parent, "resource");
 		
-		//TODO: this is incomplete, implement save
+		if(getUrlStyle()==ApiResourceUrlStyle.URI_TEMPLATE && getUriTemplate()!=null){
+			self.setAttribute("uri-template", getUriTemplate());
+		} else if(getUrlStyle()==ApiResourceUrlStyle.URL_MAPPING && getUrlMapping()!=null){
+			self.setAttribute("url-mapping", getUrlMapping());
+		}
+		
+		if(isAllowGet()){
+			methods.add("GET");
+		} 
+		if(isAllowPost()){
+			methods.add("POST");
+		}
+		if(isAllowPut()){
+			methods.add("PUT");
+		}
+		if(isAllowDelete()){
+			methods.add("DELETE");
+		}
+		if(isAllowOptions()){
+			methods.add("OPTIONS");
+		}
+		
+		for (String method : methods) {
+			methodsValue += method;
+			methodsValue += " ";
+		}
+		methodsValue = methodsValue.trim();
+		
+		self.setAttribute("methods", (methodsValue.length() > 0) ? methodsValue : "GET");
+		//"GET" saved by default, if not selected any method 
 		
 		// In sequence.
 		if(getInSequenceConfiguration()!=null){

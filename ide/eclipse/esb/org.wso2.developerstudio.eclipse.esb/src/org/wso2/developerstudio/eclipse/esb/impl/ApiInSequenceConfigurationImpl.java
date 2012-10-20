@@ -21,8 +21,10 @@ import java.util.Map;
 import org.eclipse.emf.ecore.EClass;
 
 import org.w3c.dom.Element;
+import org.wso2.developerstudio.eclipse.esb.AbstractProxySequenceConfiguration;
 import org.wso2.developerstudio.eclipse.esb.ApiInSequenceConfiguration;
 import org.wso2.developerstudio.eclipse.esb.EsbPackage;
+import org.wso2.developerstudio.eclipse.esb.ProxySequenceType;
 import org.wso2.developerstudio.eclipse.esb.RegistryKeyProperty;
 import org.wso2.developerstudio.eclipse.esb.core.utils.ESBMediaTypeConstants;
 import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
@@ -71,11 +73,23 @@ public class ApiInSequenceConfigurationImpl extends AbstractProxySequenceConfigu
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	@Override
+	protected void doLoad(Element self) throws Exception {
+		// Rest the default in sequence configuration.
+		setSequenceType(ProxySequenceType.NONE); //API also re-using AbstractProxySequenceConfiguration 
+		setInlineSequence(null);
+		
+		// Load sequence configuration.
+		loadContent(self, "inSequence");
+	}
+	
 
 	@Override
 	protected Element doSave(Element parent) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		Element elem=saveContent(parent, "inSequence");
+		addComments(elem);
+		return elem;
 	}
 
 } //ApiInSequenceConfigurationImpl

@@ -71,11 +71,17 @@ public class ApiOutSequenceConfigurationImpl extends AbstractProxySequenceConfig
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	@Override
+	protected void doLoad(Element self) throws Exception {
+		loadContent(self, "outSequence");
+	}
 
 	@Override
 	protected Element doSave(Element parent) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		Element elem=saveContent(parent, "outSequence");
+		addComments(elem);
+		return elem;
 	}
 
 } //ApiOutSequenceConfigurationImpl
