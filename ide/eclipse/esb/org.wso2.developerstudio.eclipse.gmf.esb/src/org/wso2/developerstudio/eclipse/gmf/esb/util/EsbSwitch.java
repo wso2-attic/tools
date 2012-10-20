@@ -2158,6 +2158,71 @@ public class EsbSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case EsbPackage.SYNAPSE_API: {
+				SynapseAPI synapseAPI = (SynapseAPI)theEObject;
+				T result = caseSynapseAPI(synapseAPI);
+				if (result == null) result = caseEsbElement(synapseAPI);
+				if (result == null) result = caseEsbNode(synapseAPI);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.API_RESOURCE: {
+				APIResource apiResource = (APIResource)theEObject;
+				T result = caseAPIResource(apiResource);
+				if (result == null) result = caseEsbNode(apiResource);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.API_RESOURCE_INPUT_CONNECTOR: {
+				APIResourceInputConnector apiResourceInputConnector = (APIResourceInputConnector)theEObject;
+				T result = caseAPIResourceInputConnector(apiResourceInputConnector);
+				if (result == null) result = caseInputConnector(apiResourceInputConnector);
+				if (result == null) result = caseEsbConnector(apiResourceInputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.API_RESOURCE_OUTPUT_CONNECTOR: {
+				APIResourceOutputConnector apiResourceOutputConnector = (APIResourceOutputConnector)theEObject;
+				T result = caseAPIResourceOutputConnector(apiResourceOutputConnector);
+				if (result == null) result = caseOutputConnector(apiResourceOutputConnector);
+				if (result == null) result = caseEsbConnector(apiResourceOutputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.API_RESOURCE_FAULT_INPUT_CONNECTOR: {
+				APIResourceFaultInputConnector apiResourceFaultInputConnector = (APIResourceFaultInputConnector)theEObject;
+				T result = caseAPIResourceFaultInputConnector(apiResourceFaultInputConnector);
+				if (result == null) result = caseInputConnector(apiResourceFaultInputConnector);
+				if (result == null) result = caseEsbConnector(apiResourceFaultInputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.API_RESOURCE_ENDPOINT: {
+				APIResourceEndpoint apiResourceEndpoint = (APIResourceEndpoint)theEObject;
+				T result = caseAPIResourceEndpoint(apiResourceEndpoint);
+				if (result == null) result = caseAbstractEndPoint(apiResourceEndpoint);
+				if (result == null) result = caseEndPoint(apiResourceEndpoint);
+				if (result == null) result = caseEsbElement(apiResourceEndpoint);
+				if (result == null) result = caseEsbNode(apiResourceEndpoint);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.API_RESOURCE_ENDPOINT_INPUT_CONNECTOR: {
+				APIResourceEndpointInputConnector apiResourceEndpointInputConnector = (APIResourceEndpointInputConnector)theEObject;
+				T result = caseAPIResourceEndpointInputConnector(apiResourceEndpointInputConnector);
+				if (result == null) result = caseInputConnector(apiResourceEndpointInputConnector);
+				if (result == null) result = caseEsbConnector(apiResourceEndpointInputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.API_RESOURCE_ENDPOINT_OUTPUT_CONNECTOR: {
+				APIResourceEndpointOutputConnector apiResourceEndpointOutputConnector = (APIResourceEndpointOutputConnector)theEObject;
+				T result = caseAPIResourceEndpointOutputConnector(apiResourceEndpointOutputConnector);
+				if (result == null) result = caseOutputConnector(apiResourceEndpointOutputConnector);
+				if (result == null) result = caseEsbConnector(apiResourceEndpointOutputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -3899,6 +3964,126 @@ public class EsbSwitch<T> {
 	 * @generated
 	 */
 	public T caseTaskProperty(TaskProperty object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Synapse API</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Synapse API</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSynapseAPI(SynapseAPI object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>API Resource</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>API Resource</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAPIResource(APIResource object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>API Resource Input Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>API Resource Input Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAPIResourceInputConnector(APIResourceInputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>API Resource Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>API Resource Output Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAPIResourceOutputConnector(APIResourceOutputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>API Resource Fault Input Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>API Resource Fault Input Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAPIResourceFaultInputConnector(APIResourceFaultInputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>API Resource Endpoint</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>API Resource Endpoint</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAPIResourceEndpoint(APIResourceEndpoint object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>API Resource Endpoint Input Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>API Resource Endpoint Input Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAPIResourceEndpointInputConnector(APIResourceEndpointInputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>API Resource Endpoint Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>API Resource Endpoint Output Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAPIResourceEndpointOutputConnector(APIResourceEndpointOutputConnector object) {
 		return null;
 	}
 

@@ -2254,8 +2254,39 @@
                           </children>
                         </ownedChild>
                       </children>
+                      <children
+                          compartment="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0">
+                        <containmentFeature
+                            href="esb.ecore#//MediatorFlow/children"/>
+                        <ownedChild>
+                          <domainMetaElement
+                              href="esb.ecore#//APIResourceEndpoint"/>
+                          <diagramNode
+                              href="esb.gmfgraph#APIResourceEndpoint"/>
+                          <children>
+                            <containmentFeature
+                                href="esb.ecore#//APIResourceEndpoint/inputConnector"/>
+                            <ownedChild>
+                              <domainMetaElement
+                                  href="esb.ecore#//APIResourceEndpointInputConnector"/>
+                              <diagramNode
+                                  href="esb.gmfgraph#APIResourceEndpointInputConnector"/>
+                            </ownedChild>
+                          </children>
+                          <children>
+                            <containmentFeature
+                                href="esb.ecore#//APIResourceEndpoint/outputConnector"/>
+                            <ownedChild>
+                              <domainMetaElement
+                                  href="esb.ecore#//APIResourceEndpointOutputConnector"/>
+                              <diagramNode
+                                  href="esb.gmfgraph#APIResourceEndpointOutputConnector"/>
+                            </ownedChild>
+                          </children>
+                        </ownedChild>
+                      </children>
                       <compartments
-                          children="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.1 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.2 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.3 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.4 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.5 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.6 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.7 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.8 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.9 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.10 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.11 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.12 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.13 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.14 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.15 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.16 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.17 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.18 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.19 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.20 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.21 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.22 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.23 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.24 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.25 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.26 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.27 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.28 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.29 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.30 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.0 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.31 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.32 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.33 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.34 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.35 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.40 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.41 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.42 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.43 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.45 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.36 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.37 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.38 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.39 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.44">
+                          children="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.1 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.2 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.3 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.4 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.5 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.6 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.7 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.8 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.9 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.10 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.11 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.12 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.13 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.14 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.15 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.16 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.17 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.18 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.19 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.20 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.21 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.22 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.23 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.24 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.25 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.26 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.27 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.28 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.29 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.30 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.0 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.31 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.32 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.33 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.34 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.35 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.40 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.41 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.42 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.43 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.45 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.36 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.37 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.38 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.39 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.44 //@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.46">
                         <compartment
                             href="esb.gmfgraph#MediatorFlowCompartment"/>
                       </compartments>
@@ -2690,8 +2721,73 @@
               href="esb.gmfgraph#Task"/>
         </ownedChild>
       </children>
+      <children
+          compartment="//@nodes.0/@ownedChild/@compartments.0">
+        <containmentFeature
+            href="esb.ecore#//EsbServer/children"/>
+        <ownedChild>
+          <domainMetaElement
+              href="esb.ecore#//SynapseAPI"/>
+          <diagramNode
+              href="esb.gmfgraph#SynapseAPI"/>
+          <children
+              compartment="//@nodes.0/@ownedChild/@children.8/@ownedChild/@compartments.0">
+            <containmentFeature
+                href="esb.ecore#//SynapseAPI/resources"/>
+            <ownedChild>
+              <domainMetaElement
+                  href="esb.ecore#//APIResource"/>
+              <tool
+                  xsi:type="gmftool:CreationTool"
+                  href="esb.gmftool#//@palette/@tools.0/@tools.4"/>
+              <diagramNode
+                  href="esb.gmfgraph#APIResource"/>
+              <children>
+                <containmentFeature
+                    href="esb.ecore#//APIResource/inputConnector"/>
+                <ownedChild>
+                  <domainMetaElement
+                      href="esb.ecore#//APIResourceInputConnector"/>
+                  <diagramNode
+                      href="esb.gmfgraph#APIResourceInputConnector"/>
+                </ownedChild>
+              </children>
+              <children>
+                <containmentFeature
+                    href="esb.ecore#//APIResource/outputConnector"/>
+                <ownedChild>
+                  <domainMetaElement
+                      href="esb.ecore#//APIResourceOutputConnector"/>
+                  <diagramNode
+                      href="esb.gmfgraph#APIResourceOutputConnector"/>
+                </ownedChild>
+              </children>
+              <children>
+                <containmentFeature
+                    href="esb.ecore#//APIResource/faultInputConnector"/>
+                <ownedChild>
+                  <domainMetaElement
+                      href="esb.ecore#//APIResourceFaultInputConnector"/>
+                  <diagramNode
+                      href="esb.gmfgraph#APIResourceFaultInputConnector"/>
+                </ownedChild>
+              </children>
+              <children
+                  referencedChild="//@nodes.0/@ownedChild/@children.0/@ownedChild/@children.3/@ownedChild">
+                <containmentFeature
+                    href="esb.ecore#//APIResource/container"/>
+              </children>
+            </ownedChild>
+          </children>
+          <compartments
+              children="//@nodes.0/@ownedChild/@children.8/@ownedChild/@children.0">
+            <compartment
+                href="esb.gmfgraph#APICompartment"/>
+          </compartments>
+        </ownedChild>
+      </children>
       <compartments
-          children="//@nodes.0/@ownedChild/@children.2 //@nodes.0/@ownedChild/@children.0 //@nodes.0/@ownedChild/@children.3 //@nodes.0/@ownedChild/@children.5 //@nodes.0/@ownedChild/@children.6 //@nodes.0/@ownedChild/@children.7">
+          children="//@nodes.0/@ownedChild/@children.2 //@nodes.0/@ownedChild/@children.0 //@nodes.0/@ownedChild/@children.3 //@nodes.0/@ownedChild/@children.5 //@nodes.0/@ownedChild/@children.6 //@nodes.0/@ownedChild/@children.7 //@nodes.0/@ownedChild/@children.8">
         <compartment
             href="esb.gmfgraph#ContentsCompartment"/>
       </compartments>

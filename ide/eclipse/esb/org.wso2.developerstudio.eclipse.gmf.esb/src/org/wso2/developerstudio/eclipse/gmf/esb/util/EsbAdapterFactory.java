@@ -1129,6 +1129,38 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 				return createTaskPropertyAdapter();
 			}
 			@Override
+			public Adapter caseSynapseAPI(SynapseAPI object) {
+				return createSynapseAPIAdapter();
+			}
+			@Override
+			public Adapter caseAPIResource(APIResource object) {
+				return createAPIResourceAdapter();
+			}
+			@Override
+			public Adapter caseAPIResourceInputConnector(APIResourceInputConnector object) {
+				return createAPIResourceInputConnectorAdapter();
+			}
+			@Override
+			public Adapter caseAPIResourceOutputConnector(APIResourceOutputConnector object) {
+				return createAPIResourceOutputConnectorAdapter();
+			}
+			@Override
+			public Adapter caseAPIResourceFaultInputConnector(APIResourceFaultInputConnector object) {
+				return createAPIResourceFaultInputConnectorAdapter();
+			}
+			@Override
+			public Adapter caseAPIResourceEndpoint(APIResourceEndpoint object) {
+				return createAPIResourceEndpointAdapter();
+			}
+			@Override
+			public Adapter caseAPIResourceEndpointInputConnector(APIResourceEndpointInputConnector object) {
+				return createAPIResourceEndpointInputConnectorAdapter();
+			}
+			@Override
+			public Adapter caseAPIResourceEndpointOutputConnector(APIResourceEndpointOutputConnector object) {
+				return createAPIResourceEndpointOutputConnectorAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -2770,6 +2802,118 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTaskPropertyAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.SynapseAPI <em>Synapse API</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.SynapseAPI
+	 * @generated
+	 */
+	public Adapter createSynapseAPIAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.APIResource <em>API Resource</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.APIResource
+	 * @generated
+	 */
+	public Adapter createAPIResourceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.APIResourceInputConnector <em>API Resource Input Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.APIResourceInputConnector
+	 * @generated
+	 */
+	public Adapter createAPIResourceInputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.APIResourceOutputConnector <em>API Resource Output Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.APIResourceOutputConnector
+	 * @generated
+	 */
+	public Adapter createAPIResourceOutputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.APIResourceFaultInputConnector <em>API Resource Fault Input Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.APIResourceFaultInputConnector
+	 * @generated
+	 */
+	public Adapter createAPIResourceFaultInputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.APIResourceEndpoint <em>API Resource Endpoint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.APIResourceEndpoint
+	 * @generated
+	 */
+	public Adapter createAPIResourceEndpointAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.APIResourceEndpointInputConnector <em>API Resource Endpoint Input Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.APIResourceEndpointInputConnector
+	 * @generated
+	 */
+	public Adapter createAPIResourceEndpointInputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.APIResourceEndpointOutputConnector <em>API Resource Endpoint Output Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.APIResourceEndpointOutputConnector
+	 * @generated
+	 */
+	public Adapter createAPIResourceEndpointOutputConnectorAdapter() {
 		return null;
 	}
 

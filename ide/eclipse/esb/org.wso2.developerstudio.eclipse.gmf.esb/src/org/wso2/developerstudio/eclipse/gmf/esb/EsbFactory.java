@@ -978,6 +978,78 @@ public interface EsbFactory extends EFactory {
 	TaskProperty createTaskProperty();
 
 	/**
+	 * Returns a new object of class '<em>Synapse API</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Synapse API</em>'.
+	 * @generated
+	 */
+	SynapseAPI createSynapseAPI();
+
+	/**
+	 * Returns a new object of class '<em>API Resource</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>API Resource</em>'.
+	 * @generated
+	 */
+	APIResource createAPIResource();
+
+	/**
+	 * Returns a new object of class '<em>API Resource Input Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>API Resource Input Connector</em>'.
+	 * @generated
+	 */
+	APIResourceInputConnector createAPIResourceInputConnector();
+
+	/**
+	 * Returns a new object of class '<em>API Resource Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>API Resource Output Connector</em>'.
+	 * @generated
+	 */
+	APIResourceOutputConnector createAPIResourceOutputConnector();
+
+	/**
+	 * Returns a new object of class '<em>API Resource Fault Input Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>API Resource Fault Input Connector</em>'.
+	 * @generated
+	 */
+	APIResourceFaultInputConnector createAPIResourceFaultInputConnector();
+
+	/**
+	 * Returns a new object of class '<em>API Resource Endpoint</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>API Resource Endpoint</em>'.
+	 * @generated
+	 */
+	APIResourceEndpoint createAPIResourceEndpoint();
+
+	/**
+	 * Returns a new object of class '<em>API Resource Endpoint Input Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>API Resource Endpoint Input Connector</em>'.
+	 * @generated
+	 */
+	APIResourceEndpointInputConnector createAPIResourceEndpointInputConnector();
+
+	/**
+	 * Returns a new object of class '<em>API Resource Endpoint Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>API Resource Endpoint Output Connector</em>'.
+	 * @generated
+	 */
+	APIResourceEndpointOutputConnector createAPIResourceEndpointOutputConnector();
+
+	/**
 	 * Returns a new object of class '<em>Script Mediator</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

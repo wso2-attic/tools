@@ -19,6 +19,13 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.wso2.developerstudio.eclipse.gmf.esb.APIResource;
+import org.wso2.developerstudio.eclipse.gmf.esb.APIResourceEndpoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.APIResourceEndpointInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.APIResourceEndpointOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.APIResourceFaultInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.APIResourceInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.APIResourceOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.AbstractBooleanFeature;
 import org.wso2.developerstudio.eclipse.gmf.esb.AbstractCommonTarget;
 import org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint;
@@ -35,6 +42,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediatorInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediatorOnCompleteOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediatorOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.AggregateSequenceType;
+import org.wso2.developerstudio.eclipse.gmf.esb.ApiResourceUrlStyle;
 import org.wso2.developerstudio.eclipse.gmf.esb.ArtifactType;
 import org.wso2.developerstudio.eclipse.gmf.esb.AutoscaleInMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.AutoscaleOutMediator;
@@ -311,6 +319,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediatorContainer;
 import org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediatorInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediatorOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.SynapseAPI;
 import org.wso2.developerstudio.eclipse.gmf.esb.TargetEndpointType;
 import org.wso2.developerstudio.eclipse.gmf.esb.TargetSequenceType;
 import org.wso2.developerstudio.eclipse.gmf.esb.Template;
@@ -1192,6 +1201,62 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	private EClass taskPropertyEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass synapseAPIEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass apiResourceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass apiResourceInputConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass apiResourceOutputConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass apiResourceFaultInputConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass apiResourceEndpointEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass apiResourceEndpointInputConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass apiResourceEndpointOutputConnectorEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -2746,6 +2811,13 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	private EEnum taskTriggerTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum apiResourceUrlStyleEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -5855,6 +5927,249 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 */
 	public EClass getTaskProperty() {
 		return taskPropertyEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSynapseAPI() {
+		return synapseAPIEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSynapseAPI_ApiName() {
+		return (EAttribute)synapseAPIEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSynapseAPI_Context() {
+		return (EAttribute)synapseAPIEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSynapseAPI_HostName() {
+		return (EAttribute)synapseAPIEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSynapseAPI_Port() {
+		return (EAttribute)synapseAPIEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSynapseAPI_Resources() {
+		return (EReference)synapseAPIEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAPIResource() {
+		return apiResourceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAPIResource_InputConnector() {
+		return (EReference)apiResourceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAPIResource_OutputConnector() {
+		return (EReference)apiResourceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAPIResource_FaultInputConnector() {
+		return (EReference)apiResourceEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAPIResource_UrlStyle() {
+		return (EAttribute)apiResourceEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAPIResource_UriTemplate() {
+		return (EAttribute)apiResourceEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAPIResource_UrlMapping() {
+		return (EAttribute)apiResourceEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAPIResource_AllowGet() {
+		return (EAttribute)apiResourceEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAPIResource_AllowPost() {
+		return (EAttribute)apiResourceEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAPIResource_AllowPut() {
+		return (EAttribute)apiResourceEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAPIResource_AllowDelete() {
+		return (EAttribute)apiResourceEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAPIResource_AllowOptions() {
+		return (EAttribute)apiResourceEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAPIResource_Container() {
+		return (EReference)apiResourceEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAPIResourceInputConnector() {
+		return apiResourceInputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAPIResourceOutputConnector() {
+		return apiResourceOutputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAPIResourceFaultInputConnector() {
+		return apiResourceFaultInputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAPIResourceEndpoint() {
+		return apiResourceEndpointEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAPIResourceEndpoint_InputConnector() {
+		return (EReference)apiResourceEndpointEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAPIResourceEndpoint_OutputConnector() {
+		return (EReference)apiResourceEndpointEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAPIResourceEndpointInputConnector() {
+		return apiResourceEndpointInputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAPIResourceEndpointOutputConnector() {
+		return apiResourceEndpointOutputConnectorEClass;
 	}
 
 	/**
@@ -11145,6 +11460,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getApiResourceUrlStyle() {
+		return apiResourceUrlStyleEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EDataType getMap() {
 		return mapEDataType;
 	}
@@ -12292,6 +12616,41 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 
 		taskPropertyEClass = createEClass(TASK_PROPERTY);
 
+		synapseAPIEClass = createEClass(SYNAPSE_API);
+		createEAttribute(synapseAPIEClass, SYNAPSE_API__API_NAME);
+		createEAttribute(synapseAPIEClass, SYNAPSE_API__CONTEXT);
+		createEAttribute(synapseAPIEClass, SYNAPSE_API__HOST_NAME);
+		createEAttribute(synapseAPIEClass, SYNAPSE_API__PORT);
+		createEReference(synapseAPIEClass, SYNAPSE_API__RESOURCES);
+
+		apiResourceEClass = createEClass(API_RESOURCE);
+		createEReference(apiResourceEClass, API_RESOURCE__INPUT_CONNECTOR);
+		createEReference(apiResourceEClass, API_RESOURCE__OUTPUT_CONNECTOR);
+		createEReference(apiResourceEClass, API_RESOURCE__FAULT_INPUT_CONNECTOR);
+		createEAttribute(apiResourceEClass, API_RESOURCE__URL_STYLE);
+		createEAttribute(apiResourceEClass, API_RESOURCE__URI_TEMPLATE);
+		createEAttribute(apiResourceEClass, API_RESOURCE__URL_MAPPING);
+		createEAttribute(apiResourceEClass, API_RESOURCE__ALLOW_GET);
+		createEAttribute(apiResourceEClass, API_RESOURCE__ALLOW_POST);
+		createEAttribute(apiResourceEClass, API_RESOURCE__ALLOW_PUT);
+		createEAttribute(apiResourceEClass, API_RESOURCE__ALLOW_DELETE);
+		createEAttribute(apiResourceEClass, API_RESOURCE__ALLOW_OPTIONS);
+		createEReference(apiResourceEClass, API_RESOURCE__CONTAINER);
+
+		apiResourceInputConnectorEClass = createEClass(API_RESOURCE_INPUT_CONNECTOR);
+
+		apiResourceOutputConnectorEClass = createEClass(API_RESOURCE_OUTPUT_CONNECTOR);
+
+		apiResourceFaultInputConnectorEClass = createEClass(API_RESOURCE_FAULT_INPUT_CONNECTOR);
+
+		apiResourceEndpointEClass = createEClass(API_RESOURCE_ENDPOINT);
+		createEReference(apiResourceEndpointEClass, API_RESOURCE_ENDPOINT__INPUT_CONNECTOR);
+		createEReference(apiResourceEndpointEClass, API_RESOURCE_ENDPOINT__OUTPUT_CONNECTOR);
+
+		apiResourceEndpointInputConnectorEClass = createEClass(API_RESOURCE_ENDPOINT_INPUT_CONNECTOR);
+
+		apiResourceEndpointOutputConnectorEClass = createEClass(API_RESOURCE_ENDPOINT_OUTPUT_CONNECTOR);
+
 		// Create enums
 		artifactTypeEEnum = createEEnum(ARTIFACT_TYPE);
 		proxyWsdlTypeEEnum = createEEnum(PROXY_WSDL_TYPE);
@@ -12367,6 +12726,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		templateTypeEEnum = createEEnum(TEMPLATE_TYPE);
 		taskPropertyTypeEEnum = createEEnum(TASK_PROPERTY_TYPE);
 		taskTriggerTypeEEnum = createEEnum(TASK_TRIGGER_TYPE);
+		apiResourceUrlStyleEEnum = createEEnum(API_RESOURCE_URL_STYLE);
 
 		// Create data types
 		mapEDataType = createEDataType(MAP);
@@ -12639,6 +12999,14 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		nameValueTypePropertyEClass.getESuperTypes().add(this.getEsbNode());
 		taskImplementationEClass.getESuperTypes().add(this.getEsbNode());
 		taskPropertyEClass.getESuperTypes().add(this.getNameValueTypeProperty());
+		synapseAPIEClass.getESuperTypes().add(this.getEsbElement());
+		apiResourceEClass.getESuperTypes().add(this.getEsbNode());
+		apiResourceInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
+		apiResourceOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
+		apiResourceFaultInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
+		apiResourceEndpointEClass.getESuperTypes().add(this.getAbstractEndPoint());
+		apiResourceEndpointInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
+		apiResourceEndpointOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(esbDiagramEClass, EsbDiagram.class, "EsbDiagram", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -13775,6 +14143,41 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 
 		initEClass(taskPropertyEClass, TaskProperty.class, "TaskProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		initEClass(synapseAPIEClass, SynapseAPI.class, "SynapseAPI", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSynapseAPI_ApiName(), ecorePackage.getEString(), "apiName", null, 0, 1, SynapseAPI.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSynapseAPI_Context(), ecorePackage.getEString(), "context", null, 0, 1, SynapseAPI.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSynapseAPI_HostName(), ecorePackage.getEString(), "hostName", null, 0, 1, SynapseAPI.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSynapseAPI_Port(), ecorePackage.getEString(), "port", null, 0, 1, SynapseAPI.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSynapseAPI_Resources(), this.getAPIResource(), null, "resources", null, 0, -1, SynapseAPI.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(apiResourceEClass, APIResource.class, "APIResource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAPIResource_InputConnector(), this.getAPIResourceInputConnector(), null, "inputConnector", null, 0, 1, APIResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAPIResource_OutputConnector(), this.getAPIResourceOutputConnector(), null, "outputConnector", null, 0, 1, APIResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAPIResource_FaultInputConnector(), this.getAPIResourceFaultInputConnector(), null, "faultInputConnector", null, 0, 1, APIResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAPIResource_UrlStyle(), this.getApiResourceUrlStyle(), "urlStyle", null, 0, 1, APIResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAPIResource_UriTemplate(), ecorePackage.getEString(), "uriTemplate", null, 0, 1, APIResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAPIResource_UrlMapping(), ecorePackage.getEString(), "urlMapping", null, 0, 1, APIResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAPIResource_AllowGet(), ecorePackage.getEBoolean(), "allowGet", null, 0, 1, APIResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAPIResource_AllowPost(), ecorePackage.getEBoolean(), "allowPost", null, 0, 1, APIResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAPIResource_AllowPut(), ecorePackage.getEBoolean(), "allowPut", null, 0, 1, APIResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAPIResource_AllowDelete(), ecorePackage.getEBoolean(), "allowDelete", null, 0, 1, APIResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAPIResource_AllowOptions(), ecorePackage.getEBoolean(), "allowOptions", null, 0, 1, APIResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAPIResource_Container(), this.getProxyServiceContainer(), null, "container", null, 0, 1, APIResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(apiResourceInputConnectorEClass, APIResourceInputConnector.class, "APIResourceInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(apiResourceOutputConnectorEClass, APIResourceOutputConnector.class, "APIResourceOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(apiResourceFaultInputConnectorEClass, APIResourceFaultInputConnector.class, "APIResourceFaultInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(apiResourceEndpointEClass, APIResourceEndpoint.class, "APIResourceEndpoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAPIResourceEndpoint_InputConnector(), this.getAPIResourceEndpointInputConnector(), null, "inputConnector", null, 0, 1, APIResourceEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAPIResourceEndpoint_OutputConnector(), this.getAPIResourceEndpointOutputConnector(), null, "outputConnector", null, 0, 1, APIResourceEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(apiResourceEndpointInputConnectorEClass, APIResourceEndpointInputConnector.class, "APIResourceEndpointInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(apiResourceEndpointOutputConnectorEClass, APIResourceEndpointOutputConnector.class, "APIResourceEndpointOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
 		// Initialize enums and add enum literals
 		initEEnum(artifactTypeEEnum, ArtifactType.class, "ArtifactType");
 		addEEnumLiteral(artifactTypeEEnum, ArtifactType.SYNAPSE_CONFIG);
@@ -13784,6 +14187,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		addEEnumLiteral(artifactTypeEEnum, ArtifactType.LOCAL_ENTRY);
 		addEEnumLiteral(artifactTypeEEnum, ArtifactType.TASK);
 		addEEnumLiteral(artifactTypeEEnum, ArtifactType.TEMPLATE);
+		addEEnumLiteral(artifactTypeEEnum, ArtifactType.API);
 
 		initEEnum(proxyWsdlTypeEEnum, ProxyWsdlType.class, "ProxyWsdlType");
 		addEEnumLiteral(proxyWsdlTypeEEnum, ProxyWsdlType.NONE);
@@ -14172,6 +14576,11 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEEnum(taskTriggerTypeEEnum, TaskTriggerType.class, "TaskTriggerType");
 		addEEnumLiteral(taskTriggerTypeEEnum, TaskTriggerType.SIMPLE);
 		addEEnumLiteral(taskTriggerTypeEEnum, TaskTriggerType.CRON);
+
+		initEEnum(apiResourceUrlStyleEEnum, ApiResourceUrlStyle.class, "ApiResourceUrlStyle");
+		addEEnumLiteral(apiResourceUrlStyleEEnum, ApiResourceUrlStyle.NONE);
+		addEEnumLiteral(apiResourceUrlStyleEEnum, ApiResourceUrlStyle.URI_TEMPLATE);
+		addEEnumLiteral(apiResourceUrlStyleEEnum, ApiResourceUrlStyle.URL_MAPPING);
 
 		// Initialize data types
 		initEDataType(mapEDataType, Map.class, "Map", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

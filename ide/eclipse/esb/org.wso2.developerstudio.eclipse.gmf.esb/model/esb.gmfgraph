@@ -1506,6 +1506,52 @@
           accessor="getFigureTaskNamePropertyLabel"
           figure="//@figures.0/@descriptors.85/@actualFigure/@children.0"/>
     </descriptors>
+    <descriptors
+        name="SynapseAPIFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name="SynapseAPIFigure"/>
+    </descriptors>
+    <descriptors
+        name="APIResourceFigure">
+      <actualFigure
+          xsi:type="gmfgraph:CustomFigure"
+          name="APIResourceGraphicalFigure"
+          qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="150"
+            green="130"
+            blue="180"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="APIResourceNamePropertyLabel"
+            text="&lt;...>"/>
+      </actualFigure>
+      <accessors
+          accessor="getFigureAPIResourceNamePropertyLabel"
+          figure="//@figures.0/@descriptors.87/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="APIResourceEndpointFigure">
+      <actualFigure
+          xsi:type="gmfgraph:CustomFigure"
+          name="APIResourceEndPointGraphicalFigure"
+          qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="40"
+            green="151"
+            blue="248"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="APIResourceEndPointNamePropertyLabel"
+            text="&lt;...>"/>
+      </actualFigure>
+      <accessors
+          accessor="getFigureAPIResourceEndPointNamePropertyLabel"
+          figure="//@figures.0/@descriptors.88/@actualFigure/@children.0"/>
+    </descriptors>
   </figures>
   <nodes
       name="EsbServer"
@@ -2245,6 +2291,35 @@
   <nodes
       name="Task"
       figure="TaskFigure"/>
+  <nodes
+      name="SynapseAPI"
+      figure="SynapseAPIFigure"/>
+  <nodes
+      name="APIResource"
+      figure="APIResourceFigure"/>
+  <nodes
+      name="APIResourceInputConnector"
+      figure="WestPointerFigure"
+      affixedParentSide="EAST"/>
+  <nodes
+      name="APIResourceOutputConnector"
+      figure="EastPointerFigure"
+      affixedParentSide="EAST"/>
+  <nodes
+      name="APIResourceFaultInputConnector"
+      figure="WestPointerFigure"
+      affixedParentSide="EAST"/>
+  <nodes
+      name="APIResourceEndpoint"
+      figure="APIResourceEndpointFigure"/>
+  <nodes
+      name="APIResourceEndpointInputConnector"
+      figure="EastPointerFigure"
+      affixedParentSide="WEST"/>
+  <nodes
+      name="APIResourceEndpointOutputConnector"
+      figure="WestPointerFigure"
+      affixedParentSide="WEST"/>
   <connections
       name="EsbLink"
       figure="PlainConnectionFigure"/>
@@ -2296,6 +2371,10 @@
   <compartments
       name="TemplateCompartment"
       figure="CompartmentFigure"/>
+  <compartments
+      name="APICompartment"
+      figure="CompartmentFigure"
+      collapsible="true"/>
   <labels
       name="FailoverEndPointName"
       figure="FailoverEndPointFigure"

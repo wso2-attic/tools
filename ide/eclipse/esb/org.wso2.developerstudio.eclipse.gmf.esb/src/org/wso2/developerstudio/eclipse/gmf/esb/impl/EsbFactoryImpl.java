@@ -321,6 +321,14 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 			case EsbPackage.NAME_VALUE_TYPE_PROPERTY: return createNameValueTypeProperty();
 			case EsbPackage.TASK_IMPLEMENTATION: return createTaskImplementation();
 			case EsbPackage.TASK_PROPERTY: return createTaskProperty();
+			case EsbPackage.SYNAPSE_API: return createSynapseAPI();
+			case EsbPackage.API_RESOURCE: return createAPIResource();
+			case EsbPackage.API_RESOURCE_INPUT_CONNECTOR: return createAPIResourceInputConnector();
+			case EsbPackage.API_RESOURCE_OUTPUT_CONNECTOR: return createAPIResourceOutputConnector();
+			case EsbPackage.API_RESOURCE_FAULT_INPUT_CONNECTOR: return createAPIResourceFaultInputConnector();
+			case EsbPackage.API_RESOURCE_ENDPOINT: return createAPIResourceEndpoint();
+			case EsbPackage.API_RESOURCE_ENDPOINT_INPUT_CONNECTOR: return createAPIResourceEndpointInputConnector();
+			case EsbPackage.API_RESOURCE_ENDPOINT_OUTPUT_CONNECTOR: return createAPIResourceEndpointOutputConnector();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -483,6 +491,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 				return createTaskPropertyTypeFromString(eDataType, initialValue);
 			case EsbPackage.TASK_TRIGGER_TYPE:
 				return createTaskTriggerTypeFromString(eDataType, initialValue);
+			case EsbPackage.API_RESOURCE_URL_STYLE:
+				return createApiResourceUrlStyleFromString(eDataType, initialValue);
 			case EsbPackage.MAP:
 				return createMapFromString(eDataType, initialValue);
 			default:
@@ -647,6 +657,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 				return convertTaskPropertyTypeToString(eDataType, instanceValue);
 			case EsbPackage.TASK_TRIGGER_TYPE:
 				return convertTaskTriggerTypeToString(eDataType, instanceValue);
+			case EsbPackage.API_RESOURCE_URL_STYLE:
+				return convertApiResourceUrlStyleToString(eDataType, instanceValue);
 			case EsbPackage.MAP:
 				return convertMapToString(eDataType, instanceValue);
 			default:
@@ -1771,6 +1783,90 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	public TaskProperty createTaskProperty() {
 		TaskPropertyImpl taskProperty = new TaskPropertyImpl();
 		return taskProperty;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SynapseAPI createSynapseAPI() {
+		SynapseAPIImpl synapseAPI = new SynapseAPIImpl();
+		return synapseAPI;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public APIResource createAPIResource() {
+		APIResourceImpl apiResource = new APIResourceImpl();
+		apiResource.setInputConnector(createAPIResourceInputConnector());
+		apiResource.setOutputConnector(createAPIResourceOutputConnector());
+		apiResource.setFaultInputConnector(createAPIResourceFaultInputConnector());
+		apiResource.setContainer(createProxyServiceContainer());
+		return apiResource;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public APIResourceInputConnector createAPIResourceInputConnector() {
+		APIResourceInputConnectorImpl apiResourceInputConnector = new APIResourceInputConnectorImpl();
+		return apiResourceInputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public APIResourceOutputConnector createAPIResourceOutputConnector() {
+		APIResourceOutputConnectorImpl apiResourceOutputConnector = new APIResourceOutputConnectorImpl();
+		return apiResourceOutputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public APIResourceFaultInputConnector createAPIResourceFaultInputConnector() {
+		APIResourceFaultInputConnectorImpl apiResourceFaultInputConnector = new APIResourceFaultInputConnectorImpl();
+		return apiResourceFaultInputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public APIResourceEndpoint createAPIResourceEndpoint() {
+		APIResourceEndpointImpl apiResourceEndpoint = new APIResourceEndpointImpl();
+		return apiResourceEndpoint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public APIResourceEndpointInputConnector createAPIResourceEndpointInputConnector() {
+		APIResourceEndpointInputConnectorImpl apiResourceEndpointInputConnector = new APIResourceEndpointInputConnectorImpl();
+		return apiResourceEndpointInputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public APIResourceEndpointOutputConnector createAPIResourceEndpointOutputConnector() {
+		APIResourceEndpointOutputConnectorImpl apiResourceEndpointOutputConnector = new APIResourceEndpointOutputConnectorImpl();
+		return apiResourceEndpointOutputConnector;
 	}
 
 	/**
@@ -4824,6 +4920,26 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	 * @generated
 	 */
 	public String convertTaskTriggerTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ApiResourceUrlStyle createApiResourceUrlStyleFromString(EDataType eDataType, String initialValue) {
+		ApiResourceUrlStyle result = ApiResourceUrlStyle.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertApiResourceUrlStyleToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

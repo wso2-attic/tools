@@ -15,6 +15,7 @@
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ArtifactType/LOCAL_ENTRY"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ArtifactType/TASK"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ArtifactType/TEMPLATE"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ArtifactType/API"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//ProxyWsdlType">
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ProxyWsdlType/NONE"/>
@@ -403,6 +404,11 @@
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//TaskTriggerType">
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//TaskTriggerType/Simple"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//TaskTriggerType/Cron"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//ApiResourceUrlStyle">
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ApiResourceUrlStyle/NONE"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ApiResourceUrlStyle/URI_TEMPLATE"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ApiResourceUrlStyle/URL_MAPPING"/>
     </genEnums>
     <genDataTypes ecoreDataType="esb.ecore#//Map">
       <genTypeParameters ecoreTypeParameter="esb.ecore#//Map/K"/>
@@ -1421,5 +1427,35 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//TaskImplementation/taskProperties"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//TaskProperty"/>
+    <genClasses ecoreClass="esb.ecore#//SynapseAPI">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//SynapseAPI/apiName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//SynapseAPI/context"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//SynapseAPI/hostName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//SynapseAPI/port"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//SynapseAPI/resources"/>
+    </genClasses>
+    <genClasses ecoreClass="esb.ecore#//APIResource">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//APIResource/inputConnector"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//APIResource/outputConnector"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//APIResource/faultInputConnector"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//APIResource/urlStyle"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//APIResource/uriTemplate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//APIResource/urlMapping"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//APIResource/allowGet"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//APIResource/allowPost"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//APIResource/allowPut"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//APIResource/allowDelete"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//APIResource/allowOptions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//APIResource/container"/>
+    </genClasses>
+    <genClasses ecoreClass="esb.ecore#//APIResourceInputConnector"/>
+    <genClasses ecoreClass="esb.ecore#//APIResourceOutputConnector"/>
+    <genClasses ecoreClass="esb.ecore#//APIResourceFaultInputConnector"/>
+    <genClasses ecoreClass="esb.ecore#//APIResourceEndpoint">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//APIResourceEndpoint/inputConnector"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//APIResourceEndpoint/outputConnector"/>
+    </genClasses>
+    <genClasses ecoreClass="esb.ecore#//APIResourceEndpointInputConnector"/>
+    <genClasses ecoreClass="esb.ecore#//APIResourceEndpointOutputConnector"/>
   </genPackages>
 </genmodel:GenModel>

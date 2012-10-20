@@ -90,7 +90,15 @@ public enum ArtifactType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	TEMPLATE(6, "TEMPLATE", "TEMPLATE");
+	TEMPLATE(6, "TEMPLATE", "TEMPLATE"), /**
+	 * The '<em><b>API</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #API_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	API(7, "API", "API");
 
 	/**
 	 * The '<em><b>SYNAPSE CONFIG</b></em>' literal value.
@@ -198,6 +206,21 @@ public enum ArtifactType implements Enumerator {
 	public static final int TEMPLATE_VALUE = 6;
 
 	/**
+	 * The '<em><b>API</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>API</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #API
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int API_VALUE = 7;
+
+	/**
 	 * An array of all the '<em><b>Artifact Type</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -212,6 +235,7 @@ public enum ArtifactType implements Enumerator {
 			LOCAL_ENTRY,
 			TASK,
 			TEMPLATE,
+			API,
 		};
 
 	/**
@@ -269,6 +293,7 @@ public enum ArtifactType implements Enumerator {
 			case LOCAL_ENTRY_VALUE: return LOCAL_ENTRY;
 			case TASK_VALUE: return TASK;
 			case TEMPLATE_VALUE: return TEMPLATE;
+			case API_VALUE: return API;
 		}
 		return null;
 	}
