@@ -356,6 +356,18 @@
 						<event name="Set">
 							<feature name="evaluatorExpression" />
 						</event>						
+					</target>
+					<target class="SynapseAPI">
+						<event name="Set">
+							<feature name="apiName" />
+							<feature name="context" />
+						</event>											
+					</target>
+					<target class="ApiResource">
+						<event name="Set">
+							<feature name="uriTemplate" />
+							<feature name="urlMapping" />
+						</event>											
 					</target>	
 				</constraint>
 				<constraint lang="Java"
