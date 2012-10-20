@@ -474,6 +474,16 @@ public class EsbServerItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(EsbPackage.Literals.ESB_SERVER__CHILDREN,
+				 EsbFactory.eINSTANCE.createSynapseAPI()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.ESB_SERVER__CHILDREN,
+				 EsbFactory.eINSTANCE.createAPIResourceEndpoint()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(EsbPackage.Literals.ESB_SERVER__MESSAGE_MEDIATOR,
 				 EsbFactory.eINSTANCE.createMessageMediator()));
 	}

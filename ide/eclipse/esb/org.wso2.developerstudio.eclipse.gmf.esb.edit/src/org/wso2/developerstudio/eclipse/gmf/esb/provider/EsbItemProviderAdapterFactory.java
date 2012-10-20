@@ -2516,6 +2516,190 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.SynapseAPI} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SynapseAPIItemProvider synapseAPIItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.SynapseAPI}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSynapseAPIAdapter() {
+		if (synapseAPIItemProvider == null) {
+			synapseAPIItemProvider = new SynapseAPIItemProvider(this);
+		}
+
+		return synapseAPIItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.APIResource} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected APIResourceItemProvider apiResourceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.APIResource}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAPIResourceAdapter() {
+		if (apiResourceItemProvider == null) {
+			apiResourceItemProvider = new APIResourceItemProvider(this);
+		}
+
+		return apiResourceItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.APIResourceInputConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected APIResourceInputConnectorItemProvider apiResourceInputConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.APIResourceInputConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAPIResourceInputConnectorAdapter() {
+		if (apiResourceInputConnectorItemProvider == null) {
+			apiResourceInputConnectorItemProvider = new APIResourceInputConnectorItemProvider(this);
+		}
+
+		return apiResourceInputConnectorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.APIResourceOutputConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected APIResourceOutputConnectorItemProvider apiResourceOutputConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.APIResourceOutputConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAPIResourceOutputConnectorAdapter() {
+		if (apiResourceOutputConnectorItemProvider == null) {
+			apiResourceOutputConnectorItemProvider = new APIResourceOutputConnectorItemProvider(this);
+		}
+
+		return apiResourceOutputConnectorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.APIResourceFaultInputConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected APIResourceFaultInputConnectorItemProvider apiResourceFaultInputConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.APIResourceFaultInputConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAPIResourceFaultInputConnectorAdapter() {
+		if (apiResourceFaultInputConnectorItemProvider == null) {
+			apiResourceFaultInputConnectorItemProvider = new APIResourceFaultInputConnectorItemProvider(this);
+		}
+
+		return apiResourceFaultInputConnectorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.APIResourceEndpoint} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected APIResourceEndpointItemProvider apiResourceEndpointItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.APIResourceEndpoint}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAPIResourceEndpointAdapter() {
+		if (apiResourceEndpointItemProvider == null) {
+			apiResourceEndpointItemProvider = new APIResourceEndpointItemProvider(this);
+		}
+
+		return apiResourceEndpointItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.APIResourceEndpointInputConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected APIResourceEndpointInputConnectorItemProvider apiResourceEndpointInputConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.APIResourceEndpointInputConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAPIResourceEndpointInputConnectorAdapter() {
+		if (apiResourceEndpointInputConnectorItemProvider == null) {
+			apiResourceEndpointInputConnectorItemProvider = new APIResourceEndpointInputConnectorItemProvider(this);
+		}
+
+		return apiResourceEndpointInputConnectorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.APIResourceEndpointOutputConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected APIResourceEndpointOutputConnectorItemProvider apiResourceEndpointOutputConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.APIResourceEndpointOutputConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAPIResourceEndpointOutputConnectorAdapter() {
+		if (apiResourceEndpointOutputConnectorItemProvider == null) {
+			apiResourceEndpointOutputConnectorItemProvider = new APIResourceEndpointOutputConnectorItemProvider(this);
+		}
+
+		return apiResourceEndpointOutputConnectorItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.ScriptMediator} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6308,6 +6492,14 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 		if (nameValueTypePropertyItemProvider != null) nameValueTypePropertyItemProvider.dispose();
 		if (taskImplementationItemProvider != null) taskImplementationItemProvider.dispose();
 		if (taskPropertyItemProvider != null) taskPropertyItemProvider.dispose();
+		if (synapseAPIItemProvider != null) synapseAPIItemProvider.dispose();
+		if (apiResourceItemProvider != null) apiResourceItemProvider.dispose();
+		if (apiResourceInputConnectorItemProvider != null) apiResourceInputConnectorItemProvider.dispose();
+		if (apiResourceOutputConnectorItemProvider != null) apiResourceOutputConnectorItemProvider.dispose();
+		if (apiResourceFaultInputConnectorItemProvider != null) apiResourceFaultInputConnectorItemProvider.dispose();
+		if (apiResourceEndpointItemProvider != null) apiResourceEndpointItemProvider.dispose();
+		if (apiResourceEndpointInputConnectorItemProvider != null) apiResourceEndpointInputConnectorItemProvider.dispose();
+		if (apiResourceEndpointOutputConnectorItemProvider != null) apiResourceEndpointOutputConnectorItemProvider.dispose();
 	}
 
 }

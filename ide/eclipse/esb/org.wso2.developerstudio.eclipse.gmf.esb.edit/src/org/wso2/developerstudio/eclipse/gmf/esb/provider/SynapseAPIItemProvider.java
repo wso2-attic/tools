@@ -25,17 +25,17 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import org.wso2.developerstudio.eclipse.gmf.esb.EndpointDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
+import org.wso2.developerstudio.eclipse.gmf.esb.SynapseAPI;
 
 /**
- * This is the item provider adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.EndpointDiagram} object.
+ * This is the item provider adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.SynapseAPI} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class EndpointDiagramItemProvider
+public class SynapseAPIItemProvider
 	extends EsbElementItemProvider
 	implements
 		IEditingDomainItemProvider,
@@ -49,7 +49,7 @@ public class EndpointDiagramItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EndpointDiagramItemProvider(AdapterFactory adapterFactory) {
+	public SynapseAPIItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -64,25 +64,94 @@ public class EndpointDiagramItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNamePropertyDescriptor(object);
+			addApiNamePropertyDescriptor(object);
+			addContextPropertyDescriptor(object);
+			addHostNamePropertyDescriptor(object);
+			addPortPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Name feature.
+	 * This adds a property descriptor for the Api Name feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNamePropertyDescriptor(Object object) {
+	protected void addApiNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_EndpointDiagram_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EndpointDiagram_name_feature", "_UI_EndpointDiagram_type"),
-				 EsbPackage.Literals.ENDPOINT_DIAGRAM__NAME,
+				 getString("_UI_SynapseAPI_apiName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SynapseAPI_apiName_feature", "_UI_SynapseAPI_type"),
+				 EsbPackage.Literals.SYNAPSE_API__API_NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Context feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addContextPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SynapseAPI_context_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SynapseAPI_context_feature", "_UI_SynapseAPI_type"),
+				 EsbPackage.Literals.SYNAPSE_API__CONTEXT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Host Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addHostNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SynapseAPI_hostName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SynapseAPI_hostName_feature", "_UI_SynapseAPI_type"),
+				 EsbPackage.Literals.SYNAPSE_API__HOST_NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Port feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPortPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SynapseAPI_port_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SynapseAPI_port_feature", "_UI_SynapseAPI_type"),
+				 EsbPackage.Literals.SYNAPSE_API__PORT,
 				 true,
 				 false,
 				 false,
@@ -103,7 +172,7 @@ public class EndpointDiagramItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(EsbPackage.Literals.ENDPOINT_DIAGRAM__CHILD);
+			childrenFeatures.add(EsbPackage.Literals.SYNAPSE_API__RESOURCES);
 		}
 		return childrenFeatures;
 	}
@@ -122,14 +191,14 @@ public class EndpointDiagramItemProvider
 	}
 
 	/**
-	 * This returns EndpointDiagram.gif.
+	 * This returns SynapseAPI.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/EndpointDiagram"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/SynapseAPI"));
 	}
 
 	/**
@@ -140,10 +209,10 @@ public class EndpointDiagramItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((EndpointDiagram)object).getName();
+		String label = ((SynapseAPI)object).getApiName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_EndpointDiagram_type") :
-			getString("_UI_EndpointDiagram_type") + " " + label;
+			getString("_UI_SynapseAPI_type") :
+			getString("_UI_SynapseAPI_type") + " " + label;
 	}
 
 	/**
@@ -157,11 +226,14 @@ public class EndpointDiagramItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(EndpointDiagram.class)) {
-			case EsbPackage.ENDPOINT_DIAGRAM__NAME:
+		switch (notification.getFeatureID(SynapseAPI.class)) {
+			case EsbPackage.SYNAPSE_API__API_NAME:
+			case EsbPackage.SYNAPSE_API__CONTEXT:
+			case EsbPackage.SYNAPSE_API__HOST_NAME:
+			case EsbPackage.SYNAPSE_API__PORT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case EsbPackage.ENDPOINT_DIAGRAM__CHILD:
+			case EsbPackage.SYNAPSE_API__RESOURCES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -181,43 +253,8 @@ public class EndpointDiagramItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.ENDPOINT_DIAGRAM__CHILD,
-				 EsbFactory.eINSTANCE.createDefaultEndPoint()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(EsbPackage.Literals.ENDPOINT_DIAGRAM__CHILD,
-				 EsbFactory.eINSTANCE.createAddressEndPoint()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(EsbPackage.Literals.ENDPOINT_DIAGRAM__CHILD,
-				 EsbFactory.eINSTANCE.createParentEndPoint()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(EsbPackage.Literals.ENDPOINT_DIAGRAM__CHILD,
-				 EsbFactory.eINSTANCE.createFailoverEndPoint()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(EsbPackage.Literals.ENDPOINT_DIAGRAM__CHILD,
-				 EsbFactory.eINSTANCE.createWSDLEndPoint()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(EsbPackage.Literals.ENDPOINT_DIAGRAM__CHILD,
-				 EsbFactory.eINSTANCE.createLoadBalanceEndPoint()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(EsbPackage.Literals.ENDPOINT_DIAGRAM__CHILD,
-				 EsbFactory.eINSTANCE.createNamedEndpoint()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(EsbPackage.Literals.ENDPOINT_DIAGRAM__CHILD,
-				 EsbFactory.eINSTANCE.createAPIResourceEndpoint()));
+				(EsbPackage.Literals.SYNAPSE_API__RESOURCES,
+				 EsbFactory.eINSTANCE.createAPIResource()));
 	}
 
 }

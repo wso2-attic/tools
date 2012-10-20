@@ -185,6 +185,11 @@ public class ParentEndPointItemProvider
 			(createChildParameter
 				(EsbPackage.Literals.PARENT_END_POINT__CHILDREN,
 				 EsbFactory.eINSTANCE.createNamedEndpoint()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.PARENT_END_POINT__CHILDREN,
+				 EsbFactory.eINSTANCE.createAPIResourceEndpoint()));
 	}
 
 }
