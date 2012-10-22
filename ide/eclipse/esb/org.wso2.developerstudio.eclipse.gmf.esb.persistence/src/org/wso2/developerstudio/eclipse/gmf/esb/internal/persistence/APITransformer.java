@@ -1,3 +1,19 @@
+/*
+ * Copyright 2012 WSO2, Inc. (http://wso2.com)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence;
 
 import java.util.List;
@@ -12,6 +28,9 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.SynapseAPI;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
 
+/**
+ * Synapse API transformer class
+ */
 public class APITransformer extends AbstractEsbNodeTransformer{
 
 	public void transform(TransformationInfo information, EsbNode subject)
@@ -35,26 +54,28 @@ public class APITransformer extends AbstractEsbNodeTransformer{
 
 	public void createSynapseObject(TransformationInfo info, EObject subject,
 			List<Endpoint> endPoints) {
-		// TODO Auto-generated method stub
+		// nothing to do
 		
 	}
 
 	public void transformWithinSequence(TransformationInfo information,
 			EsbNode subject, SequenceMediator sequence) throws Exception {
-		// TODO Auto-generated method stub
+		// nothing to do
 		
 	}
 	
 	public API create(SynapseAPI visualAPI){
 		API api=null;
-		if(visualAPI.getContext() ==null){
+		if(visualAPI.getContext() ==null || visualAPI.getContext().startsWith("/") ){
 			api=new API(visualAPI.getApiName(), "/default");
 		}else{
 			api=new API(visualAPI.getApiName(), visualAPI.getContext());
 		}
-		api.setHost(visualAPI.getHostName());
-		if(visualAPI.getPort() !=null){
-			api.setPort(Integer.parseInt(visualAPI.getPort()));
+		if(visualAPI.getHostName() != null && visualAPI.getHostName().length()>0){
+			api.setHost(visualAPI.getHostName());
+		}
+		if(visualAPI.getPort() > 0){
+			api.setPort(visualAPI.getPort());
 		}
 		return api;
 	}

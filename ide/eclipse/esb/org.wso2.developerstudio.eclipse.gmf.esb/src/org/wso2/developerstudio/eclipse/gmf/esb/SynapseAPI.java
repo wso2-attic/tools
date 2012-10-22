@@ -31,6 +31,7 @@ import org.eclipse.emf.common.util.EList;
 public interface SynapseAPI extends EsbElement {
 	/**
 	 * Returns the value of the '<em><b>Api Name</b></em>' attribute.
+	 * The default value is <code>"api_name"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Api Name</em>' attribute isn't clear,
@@ -40,7 +41,7 @@ public interface SynapseAPI extends EsbElement {
 	 * @return the value of the '<em>Api Name</em>' attribute.
 	 * @see #setApiName(String)
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getSynapseAPI_ApiName()
-	 * @model
+	 * @model default="api_name" required="true"
 	 * @generated
 	 */
 	String getApiName();
@@ -57,6 +58,7 @@ public interface SynapseAPI extends EsbElement {
 
 	/**
 	 * Returns the value of the '<em><b>Context</b></em>' attribute.
+	 * The default value is <code>"/context"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Context</em>' attribute isn't clear,
@@ -66,7 +68,7 @@ public interface SynapseAPI extends EsbElement {
 	 * @return the value of the '<em>Context</em>' attribute.
 	 * @see #setContext(String)
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getSynapseAPI_Context()
-	 * @model
+	 * @model default="/context" required="true"
 	 * @generated
 	 */
 	String getContext();
@@ -116,12 +118,12 @@ public interface SynapseAPI extends EsbElement {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Port</em>' attribute.
-	 * @see #setPort(String)
+	 * @see #setPort(int)
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getSynapseAPI_Port()
 	 * @model
 	 * @generated
 	 */
-	String getPort();
+	int getPort();
 
 	/**
 	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.SynapseAPI#getPort <em>Port</em>}' attribute.
@@ -131,7 +133,7 @@ public interface SynapseAPI extends EsbElement {
 	 * @see #getPort()
 	 * @generated
 	 */
-	void setPort(String value);
+	void setPort(int value);
 
 	/**
 	 * Returns the value of the '<em><b>Resources</b></em>' containment reference list.

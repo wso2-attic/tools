@@ -51,7 +51,7 @@ public class SynapseAPIImpl extends EsbElementImpl implements SynapseAPI {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String API_NAME_EDEFAULT = null;
+	protected static final String API_NAME_EDEFAULT = "api_name";
 
 	/**
 	 * The cached value of the '{@link #getApiName() <em>Api Name</em>}' attribute.
@@ -71,7 +71,7 @@ public class SynapseAPIImpl extends EsbElementImpl implements SynapseAPI {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String CONTEXT_EDEFAULT = null;
+	protected static final String CONTEXT_EDEFAULT = "/context";
 
 	/**
 	 * The cached value of the '{@link #getContext() <em>Context</em>}' attribute.
@@ -111,7 +111,7 @@ public class SynapseAPIImpl extends EsbElementImpl implements SynapseAPI {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String PORT_EDEFAULT = null;
+	protected static final int PORT_EDEFAULT = 0;
 
 	/**
 	 * The cached value of the '{@link #getPort() <em>Port</em>}' attribute.
@@ -121,7 +121,7 @@ public class SynapseAPIImpl extends EsbElementImpl implements SynapseAPI {
 	 * @generated
 	 * @ordered
 	 */
-	protected String port = PORT_EDEFAULT;
+	protected int port = PORT_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getResources() <em>Resources</em>}' containment reference list.
@@ -220,7 +220,7 @@ public class SynapseAPIImpl extends EsbElementImpl implements SynapseAPI {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getPort() {
+	public int getPort() {
 		return port;
 	}
 
@@ -229,8 +229,8 @@ public class SynapseAPIImpl extends EsbElementImpl implements SynapseAPI {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPort(String newPort) {
-		String oldPort = port;
+	public void setPort(int newPort) {
+		int oldPort = port;
 		port = newPort;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.SYNAPSE_API__PORT, oldPort, port));
@@ -303,7 +303,7 @@ public class SynapseAPIImpl extends EsbElementImpl implements SynapseAPI {
 				setHostName((String)newValue);
 				return;
 			case EsbPackage.SYNAPSE_API__PORT:
-				setPort((String)newValue);
+				setPort((Integer)newValue);
 				return;
 			case EsbPackage.SYNAPSE_API__RESOURCES:
 				getResources().clear();
@@ -355,7 +355,7 @@ public class SynapseAPIImpl extends EsbElementImpl implements SynapseAPI {
 			case EsbPackage.SYNAPSE_API__HOST_NAME:
 				return HOST_NAME_EDEFAULT == null ? hostName != null : !HOST_NAME_EDEFAULT.equals(hostName);
 			case EsbPackage.SYNAPSE_API__PORT:
-				return PORT_EDEFAULT == null ? port != null : !PORT_EDEFAULT.equals(port);
+				return port != PORT_EDEFAULT;
 			case EsbPackage.SYNAPSE_API__RESOURCES:
 				return resources != null && !resources.isEmpty();
 		}

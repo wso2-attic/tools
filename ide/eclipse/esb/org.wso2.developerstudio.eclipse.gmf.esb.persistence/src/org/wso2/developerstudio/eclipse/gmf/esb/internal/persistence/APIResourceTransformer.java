@@ -1,3 +1,19 @@
+/*
+ * Copyright 2012 WSO2, Inc. (http://wso2.com)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence;
 
 import java.util.List;
@@ -5,11 +21,13 @@ import java.util.List;
 import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.apache.synapse.rest.Resource;
+import org.apache.synapse.rest.dispatch.URITemplateHelper;
 import org.apache.synapse.rest.dispatch.URLMappingHelper;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.ApiResourceUrlStyle;
 import org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.CallTemplateMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator;
@@ -47,6 +65,9 @@ import org.wso2.developerstudio.eclipse.gmf.esb.XQueryMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.XSLTMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
 
+/**
+ * Synapse API resource transformer class
+ */
 public class APIResourceTransformer extends AbstractEsbNodeTransformer {
 
 	public void transform(TransformationInfo information, EsbNode subject)
@@ -59,8 +80,31 @@ public class APIResourceTransformer extends AbstractEsbNodeTransformer {
 
 		if (information.getTraversalDirection() == TransformationInfo.TRAVERSAL_DIRECTION_IN) {
 			Resource resource = new Resource();
-			URLMappingHelper a = new URLMappingHelper("Test");
-			resource.setDispatcherHelper(a);
+			
+			if (visualResource.getUrlStyle() == ApiResourceUrlStyle.URI_TEMPLATE
+					&& visualResource.getUriTemplate() != null) {
+				resource.setDispatcherHelper(new URITemplateHelper(visualResource.getUriTemplate()));
+			} else if (visualResource.getUrlStyle() == ApiResourceUrlStyle.URL_MAPPING
+					&& visualResource.getUrlMapping() != null) {
+				resource.setDispatcherHelper(new URLMappingHelper(visualResource.getUrlMapping()));
+			}
+	
+			if(visualResource.isAllowGet()){
+				resource.addMethod("GET");
+			} 
+			if(visualResource.isAllowPost()){
+				resource.addMethod("POST");
+			}
+			if(visualResource.isAllowPut()){
+				resource.addMethod("PUT");
+			}
+			if(visualResource.isAllowDelete()){
+				resource.addMethod("DELETE");
+			}
+			if(visualResource.isAllowOptions()){
+				resource.addMethod("OPTIONS");
+			}
+			
 			information.getCurrentAPI().addResource(resource);
 
 			// In sequence.

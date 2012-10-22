@@ -58,22 +58,29 @@ public class APIResourceItemProvider
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
+		APIResource apiResource = (APIResource) object;
+		if (itemPropertyDescriptors != null) {
+			itemPropertyDescriptors.clear();
+		}
 			super.getPropertyDescriptors(object);
 
 			addUrlStylePropertyDescriptor(object);
-			addUriTemplatePropertyDescriptor(object);
-			addUrlMappingPropertyDescriptor(object);
+			
+			if(apiResource.getUrlStyle().equals(ApiResourceUrlStyle.URI_TEMPLATE)){
+				addUriTemplatePropertyDescriptor(object);
+			} else if (apiResource.getUrlStyle().equals(ApiResourceUrlStyle.URL_MAPPING)){
+				addUrlMappingPropertyDescriptor(object);
+			}
+			
 			addAllowGetPropertyDescriptor(object);
 			addAllowPostPropertyDescriptor(object);
 			addAllowPutPropertyDescriptor(object);
 			addAllowDeletePropertyDescriptor(object);
 			addAllowOptionsPropertyDescriptor(object);
-		}
 		return itemPropertyDescriptors;
 	}
 
@@ -95,7 +102,7 @@ public class APIResourceItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI_BasicPropertyCategory"),
 				 null));
 	}
 
@@ -117,7 +124,7 @@ public class APIResourceItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI_BasicPropertyCategory"),
 				 null));
 	}
 
@@ -139,7 +146,7 @@ public class APIResourceItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI_BasicPropertyCategory"),
 				 null));
 	}
 
@@ -161,7 +168,7 @@ public class APIResourceItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
+				 getString("_UI_MethodsPropertyCategory"),
 				 null));
 	}
 
@@ -183,7 +190,7 @@ public class APIResourceItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
+				 getString("_UI_MethodsPropertyCategory"),
 				 null));
 	}
 
@@ -205,7 +212,7 @@ public class APIResourceItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
+				 getString("_UI_MethodsPropertyCategory"),
 				 null));
 	}
 
@@ -227,7 +234,7 @@ public class APIResourceItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
+				 getString("_UI_MethodsPropertyCategory"),
 				 null));
 	}
 
@@ -249,7 +256,7 @@ public class APIResourceItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
+				 getString("_UI_MethodsPropertyCategory"),
 				 null));
 	}
 
