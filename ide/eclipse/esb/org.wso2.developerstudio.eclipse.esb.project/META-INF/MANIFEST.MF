@@ -35,4 +35,5 @@ Import-Package: org.apache.axiom.om,
  org.wso2.developerstudio.eclipse.utils.template,
  org.wso2.developerstudio.eclipse.utils.ui
 Export-Package: org.wso2.developerstudio.eclipse.esb.project.artifact,
+ org.wso2.developerstudio.eclipse.esb.project.filter,
  org.wso2.developerstudio.eclipse.esb.project.utils

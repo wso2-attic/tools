@@ -16,6 +16,10 @@
 
 package org.wso2.developerstudio.eclipse.esb.project.utils;
 
+import java.util.List;
+
+import javax.xml.stream.FactoryConfigurationError;
+
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
@@ -26,9 +30,12 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.wizards.IWizardDescriptor;
 import org.wso2.developerstudio.eclipse.esb.project.Activator;
+import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBArtifact;
+import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
 import org.wso2.developerstudio.eclipse.esb.project.ui.wizard.ESBProjectWizard;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
+import org.wso2.developerstudio.eclipse.platform.core.exception.FieldValidationException;
 
 public class ESBProjectUtils {
 	
@@ -59,5 +66,16 @@ public class ESBProjectUtils {
 		return null;
 	}
 	
+	
+	public static boolean artifactExists(IProject project, String artifactName) throws Exception {
+		ESBProjectArtifact esbProjectArtifact = new ESBProjectArtifact();
+		esbProjectArtifact.fromFile(project.getFile("artifact.xml").getLocation().toFile());
+		List<ESBArtifact> allArtifacts = esbProjectArtifact.getAllESBArtifacts();
+		for (ESBArtifact artifact : allArtifacts) {
+			if (artifactName.equalsIgnoreCase(artifact.getName()))
+				return true;
+		}
+		return false;
+	}
 	
 }

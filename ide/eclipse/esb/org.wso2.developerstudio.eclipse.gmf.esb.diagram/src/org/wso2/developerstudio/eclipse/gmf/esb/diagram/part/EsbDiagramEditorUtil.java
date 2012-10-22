@@ -9,11 +9,14 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.Set;
 
+import org.apache.commons.lang.RandomStringUtils;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.operations.OperationHistoryFactory;
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
@@ -55,6 +58,7 @@ import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.FileEditorInput;
+import org.wso2.developerstudio.eclipse.esb.project.utils.ESBProjectUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.APIResource;
 import org.wso2.developerstudio.eclipse.gmf.esb.ArtifactType;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndpointDiagram;
@@ -119,31 +123,31 @@ public class EsbDiagramEditorUtil {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	public static String getUniqueFileName(IPath containerFullPath,
 			String fileName, String extension) {
-		if (containerFullPath == null) {
-			containerFullPath = new Path(""); //$NON-NLS-1$
-		}
 		if (fileName == null || fileName.trim().length() == 0) {
 			fileName = "default"; //$NON-NLS-1$
 		}
-		IPath filePath = containerFullPath.append(fileName);
-		if (extension != null && !extension.equals(filePath.getFileExtension())) {
-			filePath = filePath.addFileExtension(extension);
-		}
-		extension = filePath.getFileExtension();
-		fileName = filePath.removeFileExtension().lastSegment();
+		
+		String finalName = fileName;
 		int i = 1;
-		while (ResourcesPlugin.getWorkspace().getRoot().exists(filePath)) {
-			i++;
-			filePath = containerFullPath.append(fileName + i);
-			if (extension != null) {
-				filePath = filePath.addFileExtension(extension);
+
+		if (containerFullPath != null) {
+			IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(containerFullPath.lastSegment());
+			try {
+				while (ESBProjectUtils.artifactExists(project, finalName)) {
+					i++;
+					finalName = finalName.concat(i + "");
+				}
+			} catch (Exception e) {
+				finalName = finalName.concat("_").concat(RandomStringUtils.randomAlphabetic(5))
+						.concat("_" + i);
 			}
 		}
-		return filePath.lastSegment();
+		
+		return finalName;
 	}
 
 	/**

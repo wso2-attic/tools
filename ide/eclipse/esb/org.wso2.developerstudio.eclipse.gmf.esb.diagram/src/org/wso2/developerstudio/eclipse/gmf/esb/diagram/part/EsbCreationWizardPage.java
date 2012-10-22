@@ -10,6 +10,8 @@ import org.eclipse.osgi.util.NLS;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
 import org.wso2.developerstudio.eclipse.platform.core.utils.Constants;
+import org.wso2.developerstudio.eclipse.esb.project.utils.ESBProjectUtils;
+import org.wso2.developerstudio.eclipse.platform.ui.validator.CommonFieldValidator;
 
 /**
  * @generated
@@ -78,12 +80,17 @@ public class EsbCreationWizardPage extends WizardNewFileCreationPage {
 		if (!super.validatePage()) {
 			return false;
 		}
-		;
+
 		if (!validateProjectNature()) {
 			setErrorMessage("Please select a ESB Config project");
 			return false;
 		}
-		;
+		
+		if (!validateArtifactName()) {
+			return false;
+		}
+
+		
 		return true;
 	}
 
@@ -92,6 +99,23 @@ public class EsbCreationWizardPage extends WizardNewFileCreationPage {
 			IProject project = ResourcesPlugin.getWorkspace().getRoot()
 					.getProject(getContainerFullPath().segment(0));
 			return project.hasNature(Constants.ESB_PROJECT_NATURE);
+		} catch (Exception e) {
+			// ignore
+		}
+		return false;
+	}
+	
+	protected boolean validateArtifactName(){
+		try {
+			IProject project = ResourcesPlugin.getWorkspace().getRoot()
+					.getProject(getContainerFullPath().segment(0));
+			if (!CommonFieldValidator.isValidArtifactName(getFileName())){
+				setErrorMessage("Artifact name cannot contain invalid characters");
+				return false;
+			} else if(ESBProjectUtils.artifactExists(project, getFileName())){
+				setErrorMessage("An artifact with this name already exists");
+				return false;
+			} else return true;
 		} catch (Exception e) {
 			// ignore
 		}
