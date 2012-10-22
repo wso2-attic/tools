@@ -1331,8 +1331,8 @@
     <genClasses ecoreClass="esb.ecore#//LocalEntry">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//LocalEntry/entryName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//LocalEntry/valueType"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//LocalEntry/valueLiteral"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//LocalEntry/valueXML"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute esb.ecore#//LocalEntry/valueLiteral"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute esb.ecore#//LocalEntry/valueXML"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//LocalEntry/valueURL"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//Session">

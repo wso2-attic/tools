@@ -53,19 +53,30 @@ public class LocalEntryItemProvider
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
-			super.getPropertyDescriptors(object);
-
-			addEntryNamePropertyDescriptor(object);
-			addValueTypePropertyDescriptor(object);
-			addValueLiteralPropertyDescriptor(object);
-			addValueXMLPropertyDescriptor(object);
-			addValueURLPropertyDescriptor(object);
+		LocalEntry entry = (LocalEntry) object;
+		if (itemPropertyDescriptors != null) {
+			itemPropertyDescriptors.clear();
 		}
+		super.getPropertyDescriptors(object);
+
+		addEntryNamePropertyDescriptor(object);
+		addValueTypePropertyDescriptor(object);
+
+		switch (entry.getValueType()) {
+		case LITERAL:
+			addValueLiteralPropertyDescriptor(object);
+			break;
+		case XML:
+			addValueXMLPropertyDescriptor(object);
+			break;
+		case URL:
+			addValueURLPropertyDescriptor(object);
+			break;
+		}					
 		return itemPropertyDescriptors;
 	}
 
@@ -128,7 +139,7 @@ public class LocalEntryItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_LocalEntry_valueLiteral_feature", "_UI_LocalEntry_type"),
 				 EsbPackage.Literals.LOCAL_ENTRY__VALUE_LITERAL,
 				 true,
-				 false,
+				 true,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
@@ -150,7 +161,7 @@ public class LocalEntryItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_LocalEntry_valueXML_feature", "_UI_LocalEntry_type"),
 				 EsbPackage.Literals.LOCAL_ENTRY__VALUE_XML,
 				 true,
-				 false,
+				 true,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
