@@ -23,6 +23,7 @@ import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
@@ -43,6 +44,7 @@ import org.apache.synapse.config.Entry;
 import org.apache.synapse.config.SynapseConfiguration;
 import org.apache.synapse.config.SynapseConfigurationBuilder;
 import org.apache.synapse.config.xml.EntrySerializer;
+import org.apache.synapse.config.xml.MediatorSerializerFinder;
 import org.apache.synapse.config.xml.ProxyServiceSerializer;
 import org.apache.synapse.config.xml.SequenceMediatorSerializer;
 import org.apache.synapse.config.xml.SynapseXMLConfigurationSerializer;
@@ -58,6 +60,7 @@ import org.apache.synapse.endpoints.TemplateEndpoint;
 import org.apache.synapse.endpoints.WSDLEndpoint;
 import org.apache.synapse.mediators.Value;
 import org.apache.synapse.mediators.base.SequenceMediator;
+import org.apache.synapse.mediators.template.TemplateMediator;
 import org.apache.synapse.rest.API;
 import org.apache.synapse.task.TaskDescription;
 import org.apache.synapse.task.TaskDescriptionSerializer;
@@ -256,6 +259,29 @@ public class DefaultEsbModelExporter implements EsbModelTransformer {
 		}
 		return new API(visualAPI.getApiName(), visualAPI.getContext());
 	}
+	
+	private TemplateMediator transformSequenceTemplate(Sequences visualSequence){
+		TemplateMediator a=new TemplateMediator();
+		a.setName("WSO2");
+		ArrayList aa= new ArrayList();
+		aa.add("WSO2");
+		a.setParameters(aa);	
+		return a;
+	}
+	
+	private org.apache.synapse.endpoints.Template transformEndpointTemplate(EndpointDiagram visualEndpoint){
+		org.apache.synapse.endpoints.Template i=new org.apache.synapse.endpoints.Template();						
+		DefaultEndpoint synapseEP = new DefaultEndpoint();
+		synapseEP.setName("WSO2");
+		EndpointDefinition synapseEPDef = new EndpointDefinition();
+		synapseEP.setDefinition(synapseEPDef);
+		
+		i.setElement(EndpointSerializer
+				.getElementFromEndpoint(synapseEP));
+	    
+	    i.setName("WSO2");
+	    return i;
+	}
 
 	public String designToSource(EsbServer serverModel) throws Exception {
 		SynapseXMLConfigurationSerializer serializer = new SynapseXMLConfigurationSerializer();
@@ -294,7 +320,14 @@ public class DefaultEsbModelExporter implements EsbModelTransformer {
 				break;				
 			case TEMPLATE:
 				if (child instanceof Template) {
-
+					if(((Template)child).getChild() instanceof Sequences){
+						TemplateMediator templateMediator=transformSequenceTemplate((Sequences) ((Template)child).getChild());
+						configOM = MediatorSerializerFinder.getInstance().getSerializer(templateMediator).serializeMediator(null, templateMediator);
+						
+					}else if(((Template)child).getChild() instanceof EndpointDiagram){		
+						TemplateSerializer templateSerializer = new TemplateSerializer();
+					    configOM =templateSerializer.serializeEndpointTemplate(transformEndpointTemplate((EndpointDiagram) ((Template)child).getChild()), null);
+					}
 				}
 				break;
 			case TASK:
