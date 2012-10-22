@@ -328,6 +328,14 @@ public class CarExportHandler extends ProjectArtifactHandler {
 				dummyDependency.setType("synapse/local-entry");
 				dummyDependencyData.setDependency(dummyDependency);
 				dummyDependencyData.setCApptype("synapse/local-entry");
+			} else if (localName.equalsIgnoreCase("task")) {
+				dummyDependency.setType("synapse/task");
+				dummyDependencyData.setDependency(dummyDependency);
+				dummyDependencyData.setCApptype("synapse/task");
+			} else if (localName.equalsIgnoreCase("api")) {
+				dummyDependency.setType("synapse/api");
+				dummyDependencyData.setDependency(dummyDependency);
+				dummyDependencyData.setCApptype("synapse/api");
 			} else {
 				log.warn("ignoring unrecognized configuration element"
 						+ element.toString());

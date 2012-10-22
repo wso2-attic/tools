@@ -162,6 +162,8 @@ public class ProjectExportWizard extends Wizard implements IExportWizard {
 		File localEntriesDir = new File(synapseConfigDir, "local-entries");
 		File proxyServicesDir = new File(synapseConfigDir, "proxy-services");
 		File sequencesDir = new File(synapseConfigDir, "sequences");
+		File tasksDir = new File(synapseConfigDir, "tasks");
+		File apiDir = new File(synapseConfigDir, "api");
 		if (!synapseConfigDir.exists())
 			synapseConfigDir.mkdirs();
 		if (!endpointsDir.exists())
@@ -172,6 +174,10 @@ public class ProjectExportWizard extends Wizard implements IExportWizard {
 			localEntriesDir.mkdirs();
 		if (!sequencesDir.exists())
 			sequencesDir.mkdirs();
+		if (!tasksDir.exists())
+			tasksDir.mkdirs();
+		if (!apiDir.exists())
+			apiDir.mkdirs();
 		for (ESBArtifact artifact : artifacts) {
 			String type = artifact.getType();
 			File file = project.getFile(artifact.getFile()).getLocation().toFile();
@@ -188,6 +194,10 @@ public class ProjectExportWizard extends Wizard implements IExportWizard {
 					dstFile = new File(sequencesDir,artifactFile);
 				} else if("synapse/configuration".equals(type)){
 					dstFile = new File(synapseConfigDir,artifactFile);
+				} else if("synapse/task".equals(type)){
+					dstFile = new File(tasksDir,artifactFile);
+				} else if("synapse/api".equals(type)){
+					dstFile = new File(apiDir,artifactFile);
 				} else{
 					continue;
 				}
