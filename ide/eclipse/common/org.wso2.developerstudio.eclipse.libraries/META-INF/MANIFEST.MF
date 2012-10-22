@@ -186,7 +186,9 @@ Export-Package: com.sun.phobos.script.javascript,
  org.wso2.carbon.user.core.common,
  org.wso2.carbon.user.core.service,
  org.wso2.carbon.utils,
- org.wso2.developerstudio.eclipse.libraries.utils
+ org.wso2.developerstudio.eclipse.libraries.utils,
+ org.wso2.uri.template,
+ org.wso2.uri.template.parser
 Bundle-ClassPath: .,
  lib/commons-logging-1.1.1.jar,
  lib/not-yet-commons-ssl-0.3.9.jar,
@@ -250,7 +252,8 @@ Bundle-ClassPath: .,
  lib/smooks_1.4.0.wso2v1.jar,
  lib/spring.framework_3.1.0.wso2v1.jar,
  lib/axis2-json_1.6.1.wso2v6.jar,
- lib/jettison_1.1.0.wso2v1.jar
+ lib/jettison_1.1.0.wso2v1.jar,
+ lib/wso2-uri-templates_1.6.2.jar
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.jdt.ui,
