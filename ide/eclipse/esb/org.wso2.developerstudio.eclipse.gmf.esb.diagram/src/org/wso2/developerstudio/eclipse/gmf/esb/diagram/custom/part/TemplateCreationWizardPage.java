@@ -64,9 +64,7 @@ public class TemplateCreationWizardPage extends WizardPage implements Observer{
 	    setPageComplete(false);
 	}
 
-	@Override
 	public void update(Observable arg0, Object arg1) {
-		// TODO Auto-generated method stub
-		
+		// TODO Auto-generated method stub		
 	}
 }

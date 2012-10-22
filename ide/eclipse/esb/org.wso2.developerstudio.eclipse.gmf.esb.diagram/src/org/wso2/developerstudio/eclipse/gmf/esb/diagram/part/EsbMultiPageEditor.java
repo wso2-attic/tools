@@ -404,6 +404,8 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 					.replaceFirst("/proxy-services/proxy_", "/proxy-services/")
 					.replaceFirst("/sequences/sequence_", "/sequences/")
 					.replaceFirst("/tasks/task_", "/tasks/")
+					.replaceFirst("/templates/template_", "/templates/")
+					.replaceFirst("/api/api_", "/api/")
 					.replaceAll(".esb_diagram$", ".xml");
 			IFile xmlFile = diagramFile.getWorkspace().getRoot().getFile(new Path(xmlFilePath));
 			try {
