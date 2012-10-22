@@ -1,11 +1,36 @@
+/*
+ * Copyright (c) 2012, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package org.wso2.developerstudio.eclipse.artifact.brs.ui.dialog;
 
+import java.util.ArrayList;
+
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.jdt.core.IClasspathEntry;
+import org.eclipse.jdt.core.IJavaElement;
+import org.eclipse.jdt.core.IPackageFragmentRoot;
+import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
@@ -15,6 +40,7 @@ import org.wso2.carbon.rule.common.Fact;
 import org.wso2.carbon.rule.common.Input;
 import org.wso2.carbon.rule.common.Output;
 import org.wso2.carbon.rule.common.RuleService;
+import org.wso2.developerstudio.eclipse.utils.jdt.JavaUtils;
 
 public class FactsDialog extends Dialog{
 	private Input input=new Input();
@@ -29,13 +55,16 @@ public class FactsDialog extends Dialog{
 	private Text txtType;
 	private Text txtFactName;
 	private Text txtFactNameSpace;
+	private IProject project;
 
-	public FactsDialog(Shell parentShell,RuleService ruleservice) {
+	public FactsDialog(Shell parentShell,RuleService ruleservice,IProject project) {
 		super(parentShell);
+		this.project=project;
 	}
 
 	@Override
 	protected Control createDialogArea(Composite parent){
+		final Combo factTypeCombo;
 		Composite container;
 		container=(Composite) super.createDialogArea(parent);
 		container.getShell().setText("Facts Dialog");
@@ -79,6 +108,7 @@ public class FactsDialog extends Dialog{
 
 		Label typeLabel=new Label(container, SWT.NULL);
 		typeLabel.setText("Fact Type");
+		
 		txtType = new Text(container, SWT.BORDER|SWT.NULL);
 		txtType.setText(updateFactType());
 		GridData typeGridData=new GridData(SWT.LEFT, SWT.CENTER, true,

@@ -1,8 +1,37 @@
+/*
+ * Copyright (c) 2012, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package org.wso2.developerstudio.eclipse.artifact.brs.ui.dialog;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.IWorkspaceRoot;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.IPath;
+import org.eclipse.jdt.core.IJavaElement;
+import org.eclipse.jdt.core.IJavaProject;
+import org.eclipse.jdt.internal.core.PackageFragmentRoot;
 import org.eclipse.jface.dialogs.Dialog;
+import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.window.Window;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CTabFolder;
@@ -29,17 +58,24 @@ import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
+import org.eclipse.ui.IEditorPart;
+import org.eclipse.ui.IFileEditorInput;
+import org.eclipse.ui.ISelectionService;
+import org.eclipse.ui.PlatformUI;
 import org.wso2.carbon.rule.common.Rule;
 import org.wso2.carbon.rule.common.RuleService;
+import org.wso2.developerstudio.eclipse.artifact.brs.ui.wizard.ProjectCreationWizard;
 import org.wso2.developerstudio.eclipse.greg.base.model.RegistryResourceNode;
 import org.wso2.developerstudio.eclipse.greg.base.persistent.RegistryURLInfo;
 import org.wso2.developerstudio.eclipse.greg.base.persistent.RegistryUrlStore;
 import org.wso2.developerstudio.eclipse.greg.base.ui.dialog.RegistryTreeBrowserDialog;
 import org.wso2.developerstudio.eclipse.platform.core.utils.ResourceManager;
+import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 
 /* creates the dialog which accepts rule information */
 public class RuleServiceDialog extends Dialog {
 	private final RuleService ruleService;
+	private IFile rslFileRes;
 	private int tableIndex;
 	private boolean tableEdited = false;
 	private String resourceType;
@@ -50,10 +86,12 @@ public class RuleServiceDialog extends Dialog {
 	private CTabItem inlineTab, uriTab, registerTab, fileTab;
 	private static final String[] FILTER_EXTS = { "*.*" };
 	private static final String SYMBOLIC_NAME = "org.wso2.developerstudio.eclipse.artifact.proxyservice";
+	private IProject project;
 
-	public RuleServiceDialog(Shell parentShell, RuleService ruleservice) {
+	public RuleServiceDialog(Shell parentShell, RuleService ruleservice, IProject project) {
 		super(parentShell);
 		this.ruleService = ruleservice;
+		this.project=project;
 	}
 
 	@Override
@@ -248,13 +286,21 @@ public class RuleServiceDialog extends Dialog {
 			public void handleEvent(Event event) {
 				FileDialog fileDialog = new FileDialog(container.getShell());
 				fileDialog.setFilterExtensions(FILTER_EXTS);
-				fileDialog.open();
+				String path=fileDialog.open();
 				String fileName =fileDialog.getFileName();
-
 				if (fileName != null) {
 					fileText.setText(fileName);
+					File drlFile=new File(path);
+					IPath conf = project.getFolder(
+							"src" + File.separator + "main" + File.separator
+							+ "ruleservice" + File.separator + "conf").getLocation();
+					try {
+						FileUtils.copy(drlFile,new File(conf.toFile().getPath(),drlFile.getName()));
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
-
 			}
 		});
 
@@ -277,6 +323,8 @@ public class RuleServiceDialog extends Dialog {
 
 		return container;
 	}
+
+
 
 	private void selectRegistryResource(Text textBox, int defaultPathId) {
 		RegistryResourceNode selectedRegistryResourceNode = null;
@@ -317,7 +365,7 @@ public class RuleServiceDialog extends Dialog {
 		Rule rule = ruleService.getRuleSet().getRules().get(tableindex);
 		setResourceType(rule.getResourceType());
 		setSource(rule.getSourceType());
-		//setValue(rule.getValue());
+		
 		if(rule.getSourceType().equals("inline")){
 			setInline(rule.getValue());
 		}

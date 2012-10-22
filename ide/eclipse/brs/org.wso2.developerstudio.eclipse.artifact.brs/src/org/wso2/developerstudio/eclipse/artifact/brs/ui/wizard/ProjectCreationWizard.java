@@ -1,3 +1,19 @@
+/*
+ * Copyright (c) 2012, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package org.wso2.developerstudio.eclipse.artifact.brs.ui.wizard;
 
 import java.io.File;
@@ -37,7 +53,7 @@ public class ProjectCreationWizard extends AbstractWSO2ProjectCreationWizard {
 	private static final String FORM_EDITOR_TITLE = "service";
 	private IProject project;
 	private final RuleServiceModel rsModel;
-
+	
 	public ProjectCreationWizard() {
 		this.rsModel = new RuleServiceModel();
 		setModel(rsModel);
@@ -51,12 +67,7 @@ public class ProjectCreationWizard extends AbstractWSO2ProjectCreationWizard {
 		return project;
 	}
 
-	/*
-	 * public void addPages(){
-	 * super.addPages();
-	 * //pages=getPages();
-	 * }
-	 */
+	
 
 	@Override
 	public boolean performFinish() {
@@ -182,13 +193,14 @@ public class ProjectCreationWizard extends AbstractWSO2ProjectCreationWizard {
 		templateContent = templateContent.replaceAll("<service.name>", rsModel.getServiceName());
 		templateContent = templateContent.replaceAll("<service.ns>", rsModel.getNameSpace());
 		IFolder projetFolder = project.getFolder("src/main/ruleservice/META-INF");
+		
 		File template =
 			new File(projetFolder.getLocation().toFile(),FORM_EDITOR_TITLE +
 			".rsl");
 		templateContent = XMLUtil.prettify(templateContent);
 		templateContent = templateContent.replace(RuleServiceArtifactConstants.XML_ENCODING, "");
 		templateContent = templateContent.replaceAll("^" + eol, "");
-		//templateContent.trim();
+		
 		FileUtils.createFile(template, templateContent);
 		return template;
 	}
@@ -217,4 +229,6 @@ public class ProjectCreationWizard extends AbstractWSO2ProjectCreationWizard {
 		}
 		return super.canFinish();
 	}
+	
+	
 }

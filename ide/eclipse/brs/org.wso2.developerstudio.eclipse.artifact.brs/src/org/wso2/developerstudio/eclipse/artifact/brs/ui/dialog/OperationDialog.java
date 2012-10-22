@@ -1,8 +1,25 @@
+/*
+ * Copyright (c) 2012, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package org.wso2.developerstudio.eclipse.artifact.brs.ui.dialog;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.core.resources.IProject;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.ColumnLabelProvider;
@@ -53,12 +70,13 @@ public class OperationDialog extends Dialog{
 	private Table outputfactTable;
 	private TableViewer outputfactviewer;
 	private int outputFactsTableIndex;
-
-	public OperationDialog(Shell parentShell,RuleService ruleservice) {
+	private IProject project;
+	public OperationDialog(Shell parentShell,RuleService ruleservice,IProject project) {
 		super(parentShell);
 		this.ruleService=ruleservice;
 		this.inputFacts = new ArrayList<Fact>();
 		this.outputFacts=new ArrayList<Fact>();
+		this.project=project;
 	}
 
 	@Override
@@ -189,7 +207,7 @@ public class OperationDialog extends Dialog{
 
 			@Override
 			public void handleEvent(Event arg0) {
-				FactsDialog fDialog=new FactsDialog(Display.getCurrent().getActiveShell(),ruleService);
+				FactsDialog fDialog=new FactsDialog(Display.getCurrent().getActiveShell(),ruleService,project);
 
 				beforeUpdateFactsTable(fDialog);
 				fDialog.open();
@@ -209,7 +227,7 @@ public class OperationDialog extends Dialog{
 
 			@Override
 			public void handleEvent(Event arg0) {
-				FactsDialog fDialog=new FactsDialog(Display.getCurrent().getActiveShell(),ruleService);
+				FactsDialog fDialog=new FactsDialog(Display.getCurrent().getActiveShell(),ruleService,project);
 
 				editFactsTable(fDialog);
 				fDialog.open();
@@ -331,7 +349,7 @@ public class OperationDialog extends Dialog{
 
 			@Override
 			public void handleEvent(Event arg0) {
-				FactsDialog fDialog=new FactsDialog(Display.getCurrent().getActiveShell(),ruleService);
+				FactsDialog fDialog=new FactsDialog(Display.getCurrent().getActiveShell(),ruleService,project);
 
 				beforeUpdateOutputFactsTable(fDialog);
 				fDialog.open();
@@ -351,7 +369,7 @@ public class OperationDialog extends Dialog{
 
 			@Override
 			public void handleEvent(Event arg0) {
-				FactsDialog fDialog=new FactsDialog(Display.getCurrent().getActiveShell(),ruleService);
+				FactsDialog fDialog=new FactsDialog(Display.getCurrent().getActiveShell(),ruleService,project);
 
 				editOutputFactsTable(fDialog);
 				fDialog.open();
