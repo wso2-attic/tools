@@ -35,6 +35,7 @@ import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbServer;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.part.TemplateCreationWizardPage;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.EsbModelTransformer;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
@@ -62,6 +63,8 @@ public class EsbCreationWizard extends Wizard implements INewWizard,
 	 * @generated
 	 */
 	protected EsbCreationWizardPage diagramModelFilePage;
+	
+	protected TemplateCreationWizardPage templateCreationPage;
 
 	/**
 	 * @generated NOT
@@ -151,6 +154,16 @@ public class EsbCreationWizard extends Wizard implements INewWizard,
 		diagramModelFilePage
 				.setDescription(Messages.EsbCreationWizard_DiagramModelFilePageDescription);
 		addPage(diagramModelFilePage);
+		
+		switch (wizardMode) {
+		case TEMPLATE:
+			templateCreationPage=new TemplateCreationWizardPage("TemplateCreation");
+			addPage(templateCreationPage);
+			break;
+		
+		}
+		
+		
 		/* removed domainModelFilePage */
 		/*	domainModelFilePage = new EsbCreationWizardPage(
 					"DomainModelFile", getSelection(), "esb") { //$NON-NLS-1$ //$NON-NLS-2$
@@ -224,9 +237,16 @@ public class EsbCreationWizard extends Wizard implements INewWizard,
 
 			case TEMPLATE:
 				location = esbProject.getFolder(TEMPLATE_RESOURCE_DIR);
-				op = createDiagram("template_", TEMPLATE_RESOURCE_DIR,
-						"template");
-				type = "synapse/template";
+				if(templateCreationPage.sequenceRadioButton.getSelection()){
+					op = createDiagram("template_", TEMPLATE_RESOURCE_DIR,
+							"template.sequence");
+					type = "synapse/template";
+				}else{
+					op = createDiagram("template_", TEMPLATE_RESOURCE_DIR,
+							"template.endpoint");
+					type = "synapse/template";
+				}
+				
 				break;
 
 			case TASK:

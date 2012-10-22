@@ -157,13 +157,13 @@ public class EditorUtils {
 		}
 	}
 	
-	public static SequencesEditPart getSequence(AbstractConnectorEditPart connector){
+	public static AbstractSequencesEditPart getSequence(AbstractConnectorEditPart connector){
 		EditPart temp=connector;
-		while((temp !=null)&&(!(temp instanceof SequencesEditPart))){
+		while((temp !=null)&&(!(temp instanceof AbstractSequencesEditPart))){
 			temp=temp.getParent();			
 		}
-		if(temp instanceof SequencesEditPart){
-			return (SequencesEditPart) temp;
+		if(temp instanceof AbstractSequencesEditPart){
+			return (AbstractSequencesEditPart) temp;
 		}
 		else{
 			return null;

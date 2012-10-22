@@ -29,6 +29,8 @@ import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractBaseFigureEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractSequencesEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.MediatorFlow5ItemSemanticEditPolicy;
 
@@ -122,8 +124,8 @@ public class MediatorFlow5EditPart extends ShapeNodeEditPart {
 	}
 
 	public void refreshConnector(EditPart childEditPart) {
-		if (childEditPart instanceof SequencesEditPart) {
-			SequencesEditPart sequencesEditPart = (SequencesEditPart) childEditPart;
+		if (childEditPart instanceof AbstractSequencesEditPart) {
+			AbstractSequencesEditPart sequencesEditPart = (AbstractSequencesEditPart) childEditPart;
 			if (null == sequencesEditPart.outputConnectorFigure)
 				return;
 			BorderItemLocator outputLocator = new FixedBorderItemLocator(
@@ -146,7 +148,7 @@ public class MediatorFlow5EditPart extends ShapeNodeEditPart {
 	}
 
 	protected void addChildVisual(EditPart childEditPart, int index) {
-		refreshConnector(((SequencesEditPart) childEditPart.getParent()
+		refreshConnector(((AbstractSequencesEditPart) childEditPart.getParent()
 				.getParent()));
 		super.addChildVisual(childEditPart, -1);
 	}

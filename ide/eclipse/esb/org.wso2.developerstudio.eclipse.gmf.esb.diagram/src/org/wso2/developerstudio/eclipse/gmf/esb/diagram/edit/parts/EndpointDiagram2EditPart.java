@@ -4,6 +4,7 @@ import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
+import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -86,10 +87,13 @@ public class EndpointDiagram2EditPart extends ShapeNodeEditPart {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected IFigure createNodeShape() {
-		return primaryShape = new RectangleFigure();
+		primaryShape = new RectangleFigure();
+		primaryShape.setPreferredSize(new Dimension(getMapMode().DPtoLP(4000),
+				getMapMode().DPtoLP(3000)));
+		return primaryShape;
 	}
 
 	/**

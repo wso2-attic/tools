@@ -1,11 +1,15 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
 
+import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeCompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ResizableCompartmentEditPolicy;
+import org.eclipse.gmf.runtime.diagram.ui.figures.BorderedNodeFigure;
+import org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.notation.View;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.EndpointDiagramEndpointCompartment2CanonicalEditPolicy;
@@ -17,7 +21,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.Messages;
  */
 public class EndpointDiagramEndpointCompartment2EditPart extends
 		ShapeCompartmentEditPart {
-
+	
 	/**
 	 * @generated
 	 */
@@ -31,10 +35,11 @@ public class EndpointDiagramEndpointCompartment2EditPart extends
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	public String getCompartmentName() {
-		return Messages.EndpointDiagramEndpointCompartment2EditPart_title;
+		//return Messages.EndpointDiagramEndpointCompartment2EditPart_title;
+		return "";
 	}
 
 	/**

@@ -3,9 +3,12 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.GridLayout;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.LineBorder;
+import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
+import org.eclipse.draw2d.ToolbarLayout;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
@@ -13,25 +16,31 @@ import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
+import org.eclipse.gef.palette.PaletteContainer;
+import org.eclipse.gef.palette.ToolEntry;
 import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.BorderItemSelectionEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
+import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractSequencesEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.Sequences2CanonicalEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.Sequences2ItemSemanticEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
 
 /**
- * @generated
+ * @generated NOT
  */
-public class Sequences2EditPart extends AbstractBorderedShapeEditPart {
+public class Sequences2EditPart extends AbstractSequencesEditPart {
 
 	/**
 	 * @generated
@@ -56,7 +65,7 @@ public class Sequences2EditPart extends AbstractBorderedShapeEditPart {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void createDefaultEditPolicies() {
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
@@ -69,6 +78,11 @@ public class Sequences2EditPart extends AbstractBorderedShapeEditPart {
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
 				new Sequences2CanonicalEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
+		/* disabling proxyService Tool item from palette*/
+		ToolEntry proxyServiceTool = (ToolEntry) (((PaletteContainer) getEditDomain()
+				.getPaletteViewer().getPaletteRoot().getChildren().get(1))
+				.getChildren().get(0));
+		proxyServiceTool.setVisible(false);
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
@@ -103,6 +117,39 @@ public class Sequences2EditPart extends AbstractBorderedShapeEditPart {
 			}
 		};
 		return lep;
+	}
+	
+	protected boolean addFixedChild(EditPart childEditPart) {
+		if (childEditPart instanceof SequencesInputConnectorEditPart) {
+			IFigure borderItemFigure = ((SequencesInputConnectorEditPart) childEditPart)
+					.getFigure();
+			BorderItemLocator locator = new FixedBorderItemLocator(
+					getMainFigure(), borderItemFigure, PositionConstants.EAST,
+					0.5);
+			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
+					locator);
+			inputConnectorFigure = borderItemFigure;
+			return true;
+		}
+		if (childEditPart instanceof SequencesOutputConnectorEditPart) {
+			IFigure borderItemFigure = ((SequencesOutputConnectorEditPart) childEditPart)
+					.getFigure();
+			BorderItemLocator locator = new FixedBorderItemLocator(
+					getMainFigure(), borderItemFigure, PositionConstants.WEST,
+					0.5);
+			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
+					locator);
+			outputConnectorFigure = borderItemFigure;
+			return true;
+		}
+		return false;
+	}
+
+	protected void addChildVisual(EditPart childEditPart, int index) {
+		if (addFixedChild(childEditPart)) {
+			return;
+		}
+		super.addChildVisual(childEditPart, -1);
 	}
 
 	/**
@@ -211,18 +258,30 @@ public class Sequences2EditPart extends AbstractBorderedShapeEditPart {
 	public class SequencesFigure extends RoundedRectangle {
 
 		/**
-		 * @generated
+		 * @generated NOT
 		 */
 		public SequencesFigure() {
 
-			GridLayout layoutThis = new GridLayout();
-			layoutThis.numColumns = 1;
-			layoutThis.makeColumnsEqualWidth = true;
+			ToolbarLayout layoutThis = new ToolbarLayout();
+			layoutThis.setStretchMinorAxis(true);
+			layoutThis.setMinorAlignment(ToolbarLayout.ALIGN_CENTER);
+			layoutThis.setSpacing(0);
+			layoutThis.setVertical(true);
+
 			this.setLayoutManager(layoutThis);
 
+			/*			GridLayout layoutThis = new GridLayout();
+			 layoutThis.numColumns = 1;
+			 layoutThis.makeColumnsEqualWidth = true;
+			 this.setLayoutManager(layoutThis);
+			 */
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(1000),
+					getMapMode().DPtoLP(200)));
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
 					getMapMode().DPtoLP(8)));
-			this.setLineStyle(Graphics.LINE_DASH);
+			LineBorder border0 = new LineBorder(new Color(null, 0, 0, 0), 1,
+					SWT.BORDER_SOLID);
+			this.setBorder(border0);
 			this.setBackgroundColor(THIS_BACK);
 		}
 

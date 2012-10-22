@@ -292,7 +292,16 @@ public class EsbDiagramEditorUtil {
 							.getEStructuralFeature("children");
 					esbServer.eSet(target, Arrays.asList(localentry));
 					esbServer.setType(ArtifactType.LOCAL_ENTRY);
-				} else if ("template".equals(type)) {
+				}else if ("template.sequence".equals(type)) {
+					Template template = EsbFactory.eINSTANCE.createTemplate();
+					template.setName(name);
+					Sequences sequences=EsbFactory.eINSTANCE.createSequences();
+					template.setChild(sequences);
+					EStructuralFeature target = esbServer.eClass()
+							.getEStructuralFeature("children");
+					esbServer.eSet(target, Arrays.asList(template));
+					esbServer.setType(ArtifactType.TEMPLATE);
+				}else if ("template.endpoint".equals(type)) {
 					Template template = EsbFactory.eINSTANCE.createTemplate();
 					template.setName(name);
 					EndpointDiagram endpoint = EsbFactory.eINSTANCE
