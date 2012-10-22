@@ -45,6 +45,7 @@ public class APITransformer extends AbstractEsbNodeTransformer{
 		for(APIResource apiResource:visualAPI.getResources()){
 			APIResourceTransformer tr= new APIResourceTransformer();
 			information.setCurrentAPI(api);
+			information.setTraversalDirection( TransformationInfo.TRAVERSAL_DIRECTION_IN);
 			tr.transform(information, apiResource);
 		}
 		
