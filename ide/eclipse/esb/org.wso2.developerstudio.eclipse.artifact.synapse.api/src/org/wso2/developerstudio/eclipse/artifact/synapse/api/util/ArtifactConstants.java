@@ -33,6 +33,7 @@ public class ArtifactConstants extends NLS {
 	public static String ERRMSG_SAVE_LOCATION;
 	public static String ERRMSG_API_CONTEXT;
 	public static String ERRMSG_API_PORT;
+	public static String ERRMSG2_API_CONTEXT;
 	
 	static {
 		// initialize resource bundle

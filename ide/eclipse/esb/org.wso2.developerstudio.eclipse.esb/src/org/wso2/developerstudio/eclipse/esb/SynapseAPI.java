@@ -67,7 +67,7 @@ public interface SynapseAPI extends ConfigurationElement {
 
 	/**
 	 * Returns the value of the '<em><b>Context</b></em>' attribute.
-	 * The default value is <code>"api_context"</code>.
+	 * The default value is <code>"/context"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Context</em>' attribute isn't clear,
@@ -77,7 +77,7 @@ public interface SynapseAPI extends ConfigurationElement {
 	 * @return the value of the '<em>Context</em>' attribute.
 	 * @see #setContext(String)
 	 * @see org.wso2.developerstudio.eclipse.esb.EsbPackage#getSynapseAPI_Context()
-	 * @model default="api_context" required="true"
+	 * @model default="/context" required="true"
 	 * @generated
 	 */
 	String getContext();

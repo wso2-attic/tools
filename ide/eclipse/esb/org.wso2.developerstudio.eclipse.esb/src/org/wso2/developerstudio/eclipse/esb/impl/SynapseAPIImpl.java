@@ -83,7 +83,7 @@ public class SynapseAPIImpl extends ConfigurationElementImpl implements SynapseA
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String CONTEXT_EDEFAULT = "api_context";
+	protected static final String CONTEXT_EDEFAULT = "/context";
 
 	/**
 	 * The cached value of the '{@link #getContext() <em>Context</em>}' attribute.
