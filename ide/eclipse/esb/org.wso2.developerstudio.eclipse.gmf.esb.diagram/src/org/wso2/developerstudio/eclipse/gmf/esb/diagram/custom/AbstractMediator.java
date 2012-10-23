@@ -24,6 +24,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.SequenceInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.SequenceOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.connections.ConnectionCalculator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.utils.MediatorFigureReverser;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.APIResourceOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AggregateMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CacheMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloneMediatorEditPart;
@@ -422,6 +423,7 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 
 				if ((!(outputConnector instanceof ProxyOutputConnectorEditPart))
 						&& (!(outputConnector instanceof SequencesOutputConnectorEditPart))
+						&&(!(outputConnector instanceof APIResourceOutputConnectorEditPart))
 						&& (!outputConnector.getParent().getParent()
 								.equals(this.getParent()))) {
 					nearestESBLink = null;

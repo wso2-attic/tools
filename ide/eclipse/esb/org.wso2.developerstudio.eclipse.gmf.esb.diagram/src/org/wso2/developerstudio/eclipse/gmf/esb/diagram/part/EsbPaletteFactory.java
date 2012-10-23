@@ -31,6 +31,7 @@ import org.eclipse.gef.tools.SimpleDragTracker;
 import org.eclipse.gef.tools.TargetingTool;
 import org.eclipse.gef.ui.palette.PaletteContextMenuProvider;
 import org.eclipse.gef.ui.palette.PaletteViewer;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.internal.services.palette.PaletteToolEntry;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditDomain;
 import org.eclipse.gmf.runtime.diagram.ui.tools.ConnectionCreationTool;
@@ -44,10 +45,15 @@ import org.eclipse.ui.IFileEditorInput;
 import org.wso2.developerstudio.eclipse.gmf.esb.AddressEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbServer;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractBaseFigureEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractBaseFigureFaultInputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractBaseFigureInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpointInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractProxyServiceContainerEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ToolPalleteDetails;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AddressEndPointEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AddressEndPointInputConnectorEditPart;
@@ -1322,22 +1328,21 @@ public class EsbPaletteFactory {
 										.getCommand(getTargetRequest());
 							}
 						}
-					} else if (getTargetEditPart() instanceof ProxyServiceEditPart) {
-						for (int i = 0; i < ((ProxyServiceEditPart) getTargetEditPart())
-								.getChildren().size(); ++i) {
-							int yFaultContainer = ((ProxyServiceFaultContainerEditPart) ((ProxyServiceContainerEditPart) ((ProxyServiceEditPart) getTargetEditPart())
-									.getChildren().get(4)).getChildren().get(1))
+					} else if (getTargetEditPart() instanceof AbstractBaseFigureEditPart) {
+						for (int i = 0; i < ((AbstractBaseFigureEditPart) getTargetEditPart())
+								.getChildren().size(); ++i) {							
+							int yFaultContainer = ((ProxyServiceFaultContainerEditPart) ((AbstractProxyServiceContainerEditPart)EditorUtils.getProxyContainer((ShapeNodeEditPart) getTargetEditPart())).getChildren().get(1))
 									.getFigure().getBounds().getLocation().y;
-							if ((((ProxyServiceEditPart) getTargetEditPart())
-									.getChildren().get(i) instanceof ProxyInputConnectorEditPart)
+							if ((((AbstractBaseFigureEditPart) getTargetEditPart())
+									.getChildren().get(i) instanceof AbstractBaseFigureInputConnectorEditPart)
 									&& (getStartLocation().y < yFaultContainer)) {
-								return ((ProxyInputConnectorEditPart) ((ProxyServiceEditPart) getTargetEditPart())
+								return ((AbstractBaseFigureInputConnectorEditPart) ((AbstractBaseFigureEditPart) getTargetEditPart())
 										.getChildren().get(i))
 										.getCommand(getTargetRequest());
-							} else if ((((ProxyServiceEditPart) getTargetEditPart())
-									.getChildren().get(i) instanceof ProxyFaultInputConnectorEditPart)
+							} else if ((((AbstractBaseFigureEditPart) getTargetEditPart())
+									.getChildren().get(i) instanceof AbstractBaseFigureFaultInputConnectorEditPart)
 									&& (getStartLocation().y > yFaultContainer)) {
-								return ((ProxyFaultInputConnectorEditPart) ((ProxyServiceEditPart) getTargetEditPart())
+								return ((AbstractBaseFigureFaultInputConnectorEditPart) ((AbstractBaseFigureEditPart) getTargetEditPart())
 										.getChildren().get(i))
 										.getCommand(getTargetRequest());
 							}

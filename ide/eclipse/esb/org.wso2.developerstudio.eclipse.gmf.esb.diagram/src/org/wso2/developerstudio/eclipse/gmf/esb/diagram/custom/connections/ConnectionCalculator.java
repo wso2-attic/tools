@@ -15,6 +15,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractProxyServ
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorOutputConnectorEditPart.EastPointerFigure;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorOutputConnectorEditPart.WestPointerFigure;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractOutputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractSequencesEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AdditionalOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.complexFiguredAbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbLinkEditPart;
@@ -35,7 +37,7 @@ public class ConnectionCalculator {
 
 	private static Point currentFigureLocation = null;
 	private static AbstractBaseFigureEditPart baseFigure = null;
-	private static SequencesEditPart sequences = null;
+	private static AbstractSequencesEditPart sequences = null;
 
 	public static EsbLinkEditPart getNearestLinkEditPart(ArrayList links,
 			AbstractBorderedShapeEditPart childEditPart) {
@@ -173,7 +175,8 @@ public class ConnectionCalculator {
 					if (childEditPart.getChildren().get(p) instanceof AbstractInputConnectorEditPart) {
 						currentInputConnector = (AbstractInputConnectorEditPart) childEditPart
 								.getChildren().get(p);
-					} else if (childEditPart.getChildren().get(p) instanceof AbstractOutputConnectorEditPart) {
+					} else if ((childEditPart.getChildren().get(p) instanceof AbstractOutputConnectorEditPart)&&
+							!(childEditPart.getChildren().get(p) instanceof AdditionalOutputConnector)) {
 						currentOutputConnector = (AbstractOutputConnectorEditPart) childEditPart
 								.getChildren().get(p);
 					}
@@ -406,8 +409,8 @@ public class ConnectionCalculator {
 					break;
 				}
 			} else if (childEditPart.getViewer().getEditPartRegistry().values()
-					.toArray()[l] instanceof SequencesEditPart) {
-				sequences = (SequencesEditPart) childEditPart.getViewer()
+					.toArray()[l] instanceof AbstractSequencesEditPart) {
+				sequences = (AbstractSequencesEditPart) childEditPart.getViewer()
 						.getEditPartRegistry().values().toArray()[l];
 			}
 		}

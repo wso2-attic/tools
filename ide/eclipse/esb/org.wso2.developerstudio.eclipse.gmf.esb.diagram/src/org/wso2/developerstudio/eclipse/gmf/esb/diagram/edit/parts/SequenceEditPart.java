@@ -429,7 +429,7 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 			 */
 
 			if ((getEditDomain().getPaletteViewer().getPaletteRoot()
-					.getChildren().size() - 1) != ToolPalleteDetails.SEQUENCE) {
+					.getChildren().size() - 2) != ToolPalleteDetails.SEQUENCE) {
 				getEditDomain().getPaletteViewer().getPaletteRoot()
 						.add(createSequenceGroup());
 			}
