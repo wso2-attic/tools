@@ -1181,10 +1181,11 @@ public class DetailSection {
 			}
 			
 			if(displayName.equals(DetailSectionCustomUiConstants.ELEMENT_MAPPING_OPTIONAL_PARAM)){
-				
+				if(!makeItComplex){
 				labelMaker(DetailSectionCustomUiConstants.ELEMENT_MAPPING_OPTIONAL_PARAM);
 				sectionUtil.getBooleanComboField(detailsclient, toolkit, element, element.isOptional(),
 						DsPackage.eINSTANCE.getElementMapping_Optional());
+				}
 			}
 			
 		}
