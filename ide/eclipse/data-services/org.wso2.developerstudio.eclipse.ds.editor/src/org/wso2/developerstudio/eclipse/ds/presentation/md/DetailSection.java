@@ -1180,6 +1180,13 @@ public class DetailSection {
 				voidMaker();
 			}
 			
+			if(displayName.equals(DetailSectionCustomUiConstants.ELEMENT_MAPPING_OPTIONAL_PARAM)){
+				
+				labelMaker(DetailSectionCustomUiConstants.ELEMENT_MAPPING_OPTIONAL_PARAM);
+				sectionUtil.getBooleanComboField(detailsclient, toolkit, element, element.isOptional(),
+						DsPackage.eINSTANCE.getElementMapping_Optional());
+			}
+			
 		}
 		
 		if(makeItComplex){
@@ -1263,6 +1270,13 @@ public class DetailSection {
 				voidMaker();
 				voidMaker();
 				
+			}
+			
+			if(displayName.equals(DetailSectionCustomUiConstants.ELEMENT_MAPPING_OPTIONAL_PARAM)){
+				
+				labelMaker(DetailSectionCustomUiConstants.ELEMENT_MAPPING_OPTIONAL_PARAM);
+				sectionUtil.getBooleanComboField(detailsclient, toolkit, attributeMapping,
+						attributeMapping.isOptional(), DsPackage.eINSTANCE.getAttributeMapping_Optional());
 			}
 		}
 	}

@@ -444,6 +444,15 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getAttributeMapping_Optional() {
+		return (EAttribute)attributeMappingEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getCallQuery() {
 		return callQueryEClass;
 	}
@@ -959,6 +968,15 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 */
 	public EAttribute getElementMapping_Value() {
 		return (EAttribute)elementMappingEClass.getEStructuralFeatures().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getElementMapping_Optional() {
+		return (EAttribute)elementMappingEClass.getEStructuralFeatures().get(13);
 	}
 
 	/**
@@ -1930,6 +1948,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		createEAttribute(attributeMappingEClass, ATTRIBUTE_MAPPING__NAME);
 		createEAttribute(attributeMappingEClass, ATTRIBUTE_MAPPING__REQUIRED_ROLES);
 		createEAttribute(attributeMappingEClass, ATTRIBUTE_MAPPING__XSD_TYPE);
+		createEAttribute(attributeMappingEClass, ATTRIBUTE_MAPPING__OPTIONAL);
 
 		callQueryEClass = createEClass(CALL_QUERY);
 		createEReference(callQueryEClass, CALL_QUERY__WITH_PARAM);
@@ -1998,6 +2017,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		createEAttribute(elementMappingEClass, ELEMENT_MAPPING__IS_COMPLEX_TYPE);
 		createEAttribute(elementMappingEClass, ELEMENT_MAPPING__QUERY_PARAM);
 		createEAttribute(elementMappingEClass, ELEMENT_MAPPING__VALUE);
+		createEAttribute(elementMappingEClass, ELEMENT_MAPPING__OPTIONAL);
 
 		eventSubscriptionListEClass = createEClass(EVENT_SUBSCRIPTION_LIST);
 		createEReference(eventSubscriptionListEClass, EVENT_SUBSCRIPTION_LIST__SUBSCRIPTION);
@@ -2171,6 +2191,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		initEAttribute(getAttributeMapping_Name(), theXMLTypePackage.getString(), "name", null, 1, 1, AttributeMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAttributeMapping_RequiredRoles(), theXMLTypePackage.getString(), "requiredRoles", null, 0, 1, AttributeMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAttributeMapping_XsdType(), theXMLTypePackage.getString(), "xsdType", null, 0, 1, AttributeMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAttributeMapping_Optional(), ecorePackage.getEBoolean(), "optional", "false", 0, 1, AttributeMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(callQueryEClass, CallQuery.class, "CallQuery", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCallQuery_WithParam(), this.getParameterMapping(), null, "withParam", null, 0, -1, CallQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2239,6 +2260,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		initEAttribute(getElementMapping_IsComplexType(), ecorePackage.getEBoolean(), "isComplexType", null, 0, 1, ElementMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElementMapping_QueryParam(), theXMLTypePackage.getString(), "queryParam", null, 0, 1, ElementMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElementMapping_Value(), theXMLTypePackage.getString(), "value", null, 0, 1, ElementMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getElementMapping_Optional(), ecorePackage.getEBoolean(), "optional", "false", 0, 1, ElementMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(eventSubscriptionListEClass, EventSubscriptionList.class, "EventSubscriptionList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEventSubscriptionList_Subscription(), this.getSubscription(), null, "subscription", null, 1, -1, EventSubscriptionList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2434,6 +2456,14 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		   new String[] {
 			 "kind", "attribute",
 			 "name", "xsdType",
+			 "namespace", "##targetNamespace"
+		   });		
+		addAnnotation
+		  (getAttributeMapping_Optional(), 
+		   source, 
+		   new String[] {
+			 "kind", "attribute",
+			 "name", "optional",
 			 "namespace", "##targetNamespace"
 		   });		
 		addAnnotation
@@ -2883,6 +2913,14 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		   new String[] {
 			 "kind", "attribute",
 			 "name", "value",
+			 "namespace", "##targetNamespace"
+		   });		
+		addAnnotation
+		  (getElementMapping_Optional(), 
+		   source, 
+		   new String[] {
+			 "kind", "attribute",
+			 "name", "optional",
 			 "namespace", "##targetNamespace"
 		   });		
 		addAnnotation

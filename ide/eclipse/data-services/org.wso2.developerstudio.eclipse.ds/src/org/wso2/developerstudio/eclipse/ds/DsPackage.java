@@ -109,13 +109,22 @@ public interface DsPackage extends EPackage {
 	int ATTRIBUTE_MAPPING__XSD_TYPE = 3;
 
 	/**
+	 * The feature id for the '<em><b>Optional</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE_MAPPING__OPTIONAL = 4;
+
+	/**
 	 * The number of structural features of the '<em>Attribute Mapping</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE_MAPPING_FEATURE_COUNT = 4;
+	int ATTRIBUTE_MAPPING_FEATURE_COUNT = 5;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.ds.impl.CallQueryImpl <em>Call Query</em>}' class.
@@ -731,13 +740,22 @@ public interface DsPackage extends EPackage {
 	int ELEMENT_MAPPING__VALUE = 12;
 
 	/**
+	 * The feature id for the '<em><b>Optional</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT_MAPPING__OPTIONAL = 13;
+
+	/**
 	 * The number of structural features of the '<em>Element Mapping</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING_FEATURE_COUNT = 13;
+	int ELEMENT_MAPPING_FEATURE_COUNT = 14;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.ds.impl.EventSubscriptionListImpl <em>Event Subscription List</em>}' class.
@@ -1983,6 +2001,17 @@ public interface DsPackage extends EPackage {
 	EAttribute getAttributeMapping_XsdType();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.ds.AttributeMapping#isOptional <em>Optional</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Optional</em>'.
+	 * @see org.wso2.developerstudio.eclipse.ds.AttributeMapping#isOptional()
+	 * @see #getAttributeMapping()
+	 * @generated
+	 */
+	EAttribute getAttributeMapping_Optional();
+
+	/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.ds.CallQuery <em>Call Query</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2609,6 +2638,17 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getElementMapping_Value();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.ds.ElementMapping#isOptional <em>Optional</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Optional</em>'.
+	 * @see org.wso2.developerstudio.eclipse.ds.ElementMapping#isOptional()
+	 * @see #getElementMapping()
+	 * @generated
+	 */
+	EAttribute getElementMapping_Optional();
 
 	/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.ds.EventSubscriptionList <em>Event Subscription List</em>}'.
@@ -3794,6 +3834,14 @@ public interface DsPackage extends EPackage {
 		EAttribute ATTRIBUTE_MAPPING__XSD_TYPE = eINSTANCE.getAttributeMapping_XsdType();
 
 		/**
+		 * The meta object literal for the '<em><b>Optional</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ATTRIBUTE_MAPPING__OPTIONAL = eINSTANCE.getAttributeMapping_Optional();
+
+		/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.ds.impl.CallQueryImpl <em>Call Query</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4276,6 +4324,14 @@ public interface DsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ELEMENT_MAPPING__VALUE = eINSTANCE.getElementMapping_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Optional</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ELEMENT_MAPPING__OPTIONAL = eINSTANCE.getElementMapping_Optional();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.ds.impl.EventSubscriptionListImpl <em>Event Subscription List</em>}' class.

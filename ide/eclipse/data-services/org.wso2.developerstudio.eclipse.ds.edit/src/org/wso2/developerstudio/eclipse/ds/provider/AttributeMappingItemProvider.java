@@ -70,6 +70,7 @@ public class AttributeMappingItemProvider
 			addNamePropertyDescriptor(object);
 			addRequiredRolesPropertyDescriptor(object);
 			addXsdTypePropertyDescriptor(object);
+			addOptionalPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -163,6 +164,28 @@ public class AttributeMappingItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Optional feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOptionalPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AttributeMapping_optional_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AttributeMapping_optional_feature", "_UI_AttributeMapping_type"),
+				 DsPackage.Literals.ATTRIBUTE_MAPPING__OPTIONAL,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns AttributeMapping.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -209,6 +232,7 @@ public class AttributeMappingItemProvider
 			case DsPackage.ATTRIBUTE_MAPPING__NAME:
 			case DsPackage.ATTRIBUTE_MAPPING__REQUIRED_ROLES:
 			case DsPackage.ATTRIBUTE_MAPPING__XSD_TYPE:
+			case DsPackage.ATTRIBUTE_MAPPING__OPTIONAL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

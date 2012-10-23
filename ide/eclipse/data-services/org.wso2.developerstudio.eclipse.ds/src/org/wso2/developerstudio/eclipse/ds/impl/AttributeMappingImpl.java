@@ -27,6 +27,7 @@ import org.wso2.developerstudio.eclipse.ds.DsPackage;
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.AttributeMappingImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.AttributeMappingImpl#getRequiredRoles <em>Required Roles</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.AttributeMappingImpl#getXsdType <em>Xsd Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.AttributeMappingImpl#isOptional <em>Optional</em>}</li>
  * </ul>
  * </p>
  *
@@ -112,6 +113,26 @@ public class AttributeMappingImpl extends EObjectImpl implements AttributeMappin
 	 * @ordered
 	 */
 	protected String xsdType = XSD_TYPE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isOptional() <em>Optional</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isOptional()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean OPTIONAL_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isOptional() <em>Optional</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isOptional()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean optional = OPTIONAL_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -223,6 +244,27 @@ public class AttributeMappingImpl extends EObjectImpl implements AttributeMappin
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isOptional() {
+		return optional;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOptional(boolean newOptional) {
+		boolean oldOptional = optional;
+		optional = newOptional;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.ATTRIBUTE_MAPPING__OPTIONAL, oldOptional, optional));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	
 	
 	@Override
@@ -236,6 +278,8 @@ public class AttributeMappingImpl extends EObjectImpl implements AttributeMappin
 				return getRequiredRoles();
 			case DsPackage.ATTRIBUTE_MAPPING__XSD_TYPE:
 				return getXsdType();
+			case DsPackage.ATTRIBUTE_MAPPING__OPTIONAL:
+				return isOptional();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -261,6 +305,9 @@ public class AttributeMappingImpl extends EObjectImpl implements AttributeMappin
 				return;
 			case DsPackage.ATTRIBUTE_MAPPING__XSD_TYPE:
 				setXsdType((String)newValue);
+				return;
+			case DsPackage.ATTRIBUTE_MAPPING__OPTIONAL:
+				setOptional((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -288,6 +335,9 @@ public class AttributeMappingImpl extends EObjectImpl implements AttributeMappin
 			case DsPackage.ATTRIBUTE_MAPPING__XSD_TYPE:
 				setXsdType(XSD_TYPE_EDEFAULT);
 				return;
+			case DsPackage.ATTRIBUTE_MAPPING__OPTIONAL:
+				setOptional(OPTIONAL_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -310,6 +360,8 @@ public class AttributeMappingImpl extends EObjectImpl implements AttributeMappin
 				return REQUIRED_ROLES_EDEFAULT == null ? requiredRoles != null : !REQUIRED_ROLES_EDEFAULT.equals(requiredRoles);
 			case DsPackage.ATTRIBUTE_MAPPING__XSD_TYPE:
 				return XSD_TYPE_EDEFAULT == null ? xsdType != null : !XSD_TYPE_EDEFAULT.equals(xsdType);
+			case DsPackage.ATTRIBUTE_MAPPING__OPTIONAL:
+				return optional != OPTIONAL_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -334,6 +386,8 @@ public class AttributeMappingImpl extends EObjectImpl implements AttributeMappin
 		result.append(requiredRoles);
 		result.append(", xsdType: ");
 		result.append(xsdType);
+		result.append(", optional: ");
+		result.append(optional);
 		result.append(')');
 		return result.toString();
 	}

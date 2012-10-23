@@ -17,6 +17,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//AttributeMapping/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//AttributeMapping/requiredRoles"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//AttributeMapping/xsdType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//AttributeMapping/optional"/>
     </genClasses>
     <genClasses ecoreClass="ds.ecore#//CallQuery">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ds.ecore#//CallQuery/withParam"/>
@@ -85,6 +86,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//ElementMapping/isComplexType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//ElementMapping/queryParam"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//ElementMapping/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//ElementMapping/optional"/>
     </genClasses>
     <genClasses ecoreClass="ds.ecore#//EventSubscriptionList">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ds.ecore#//EventSubscriptionList/subscription"/>

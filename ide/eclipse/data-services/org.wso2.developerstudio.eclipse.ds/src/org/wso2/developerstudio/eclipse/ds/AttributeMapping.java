@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.AttributeMapping#getName <em>Name</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.AttributeMapping#getRequiredRoles <em>Required Roles</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.AttributeMapping#getXsdType <em>Xsd Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.ds.AttributeMapping#isOptional <em>Optional</em>}</li>
  * </ul>
  * </p>
  *
@@ -135,5 +136,33 @@ public interface AttributeMapping extends EObject {
 	 * @generated
 	 */
 	void setXsdType(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Optional</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Optional</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Optional</em>' attribute.
+	 * @see #setOptional(boolean)
+	 * @see org.wso2.developerstudio.eclipse.ds.DsPackage#getAttributeMapping_Optional()
+	 * @model default="false"
+	 *        extendedMetaData="kind='attribute' name='optional' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	boolean isOptional();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.ds.AttributeMapping#isOptional <em>Optional</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Optional</em>' attribute.
+	 * @see #isOptional()
+	 * @generated
+	 */
+	void setOptional(boolean value);
 
 } // AttributeMapping
