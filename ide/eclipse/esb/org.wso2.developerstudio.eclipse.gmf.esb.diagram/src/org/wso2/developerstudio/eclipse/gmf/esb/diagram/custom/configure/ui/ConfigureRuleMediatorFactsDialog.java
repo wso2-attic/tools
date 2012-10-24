@@ -156,13 +156,13 @@ public class ConfigureRuleMediatorFactsDialog extends TitleAreaDialog {
 		tblclmnName.setWidth(111);
 		tblclmnName.setText("Name");
 		
-		TableColumn tblclmnSourceType = new TableColumn(tblFacts, SWT.NONE);
+		/*TableColumn tblclmnSourceType = new TableColumn(tblFacts, SWT.NONE);
 		tblclmnSourceType.setWidth(100);
-		tblclmnSourceType.setText("Source Type");
+		tblclmnSourceType.setText("Source Type");*/
 		
 		TableColumn tblclmnValue = new TableColumn(tblFacts, SWT.NONE);
 		tblclmnValue.setWidth(192);
-		tblclmnValue.setText("Value");
+		tblclmnValue.setText("Namespace/xpath");
 		
 		cmdFactAdd = new Button(container, SWT.NONE);
 		cmdFactAdd.setBounds(527, 10, 86, 29);
@@ -277,43 +277,20 @@ public class ConfigureRuleMediatorFactsDialog extends TitleAreaDialog {
 				wrapper.setFactName(txtName.getText());
 			}
 		});
-
-		sourceTypeEditor = initTableEditor(sourceTypeEditor,
-				item.getParent());
-	
 		cmbSourceType = new Combo(item.getParent(), SWT.READ_ONLY);
 		cmbSourceType.setItems(new String[] { LITERAL_VALUE, LITERAL_EXPRESSION,LITERAL_KEY });
-		cmbSourceType.setText(item.getText(2));
-		sourceTypeEditor.setEditor(cmbSourceType, item, 2);
-		item.getParent().redraw();
-		item.getParent().layout();
-		cmbSourceType.addListener(SWT.Selection, new Listener() {
-			public void handleEvent(Event evt) {
-				item.setText(2, cmbSourceType.getText());
-				if(cmbSourceType.getSelectionIndex()==2){
-					item.setText(3,wrapper.getValueKey().getKeyValue());
-					wrapper.setValueType(RuleFactValueType.REGISTRY_REFERENCE);
-				} else if(cmbSourceType.getSelectionIndex()==1){
-					item.setText(3,wrapper.getValueExpression().getPropertyValue());
-					wrapper.setValueType(RuleFactValueType.EXPRESSION);
-				} else{
-					wrapper.setValueType(RuleFactValueType.LITERAL);
-					item.setText(3,wrapper.getValueLiteral());
-				}
-			}
-		});
-		valueEditor = initTableEditor(valueEditor,
-				item.getParent());
+		cmbSourceType.select(1);
+		valueEditor = initTableEditor(valueEditor,item.getParent());
 		
 		txtValue = new PropertyText(item.getParent(), SWT.NONE, cmbSourceType);
 		txtValue.addProperties(wrapper.getValueLiteral(),wrapper.getValueExpression(),wrapper.getValueKey());
-		valueEditor.setEditor(txtValue, item, 3);
+		valueEditor.setEditor(txtValue, item, 2);
 		item.getParent().redraw();
 		item.getParent().layout();
 		txtValue.addModifyListener(new ModifyListener() {
 			
 			public void modifyText(ModifyEvent e) {
-				item.setText(3,txtValue.getText());
+				item.setText(2,txtValue.getText());
 				Object property = txtValue.getProperty();
 				if(property instanceof RegistryKeyProperty){
 					wrapper.setValueKey((RegistryKeyProperty)property);
@@ -396,7 +373,9 @@ public class ConfigureRuleMediatorFactsDialog extends TitleAreaDialog {
 			item.setText(0, wrapper.getFactType().getLiteral());
 		}
 		item.setText(1, wrapper.getFactName());
-		if(wrapper.getValueType()==RuleFactValueType.EXPRESSION){
+		item.setText(2,LITERAL_EXPRESSION);
+		item.setText(3,wrapper.getValueExpression().getPropertyValue());
+		/*if(wrapper.getValueType()==RuleFactValueType.EXPRESSION){
 			item.setText(2,LITERAL_EXPRESSION);
 			item.setText(3,wrapper.getValueExpression().getPropertyValue());
 		} else if(wrapper.getValueType()==RuleFactValueType.REGISTRY_REFERENCE){
@@ -405,7 +384,7 @@ public class ConfigureRuleMediatorFactsDialog extends TitleAreaDialog {
 		} else{
 			item.setText(2,LITERAL_VALUE);
 			item.setText(3,wrapper.getValueLiteral());
-		}
+		}*/
 		
 		item.setData(wrapper);
 		return item;

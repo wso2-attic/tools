@@ -9713,13 +9713,49 @@ public interface EsbPackage extends EPackage {
 	int RULE_MEDIATOR__TARGET_ACTION = MEDIATOR_FEATURE_COUNT + 19;
 
 	/**
+	 * The feature id for the '<em><b>Input Wrapper Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RULE_MEDIATOR__INPUT_WRAPPER_NAME = MEDIATOR_FEATURE_COUNT + 20;
+
+	/**
+	 * The feature id for the '<em><b>Input Name Space</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RULE_MEDIATOR__INPUT_NAME_SPACE = MEDIATOR_FEATURE_COUNT + 21;
+
+	/**
+	 * The feature id for the '<em><b>Output Wrapper Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RULE_MEDIATOR__OUTPUT_WRAPPER_NAME = MEDIATOR_FEATURE_COUNT + 22;
+
+	/**
+	 * The feature id for the '<em><b>Output Name Space</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RULE_MEDIATOR__OUTPUT_NAME_SPACE = MEDIATOR_FEATURE_COUNT + 23;
+
+	/**
 	 * The number of structural features of the '<em>Rule Mediator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RULE_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 20;
+	int RULE_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 24;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RuleMediatorInputConnectorImpl <em>Rule Mediator Input Connector</em>}' class.
@@ -22148,6 +22184,50 @@ public interface EsbPackage extends EPackage {
 	EAttribute getRuleMediator_TargetAction();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getInputWrapperName <em>Input Wrapper Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Input Wrapper Name</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getInputWrapperName()
+	 * @see #getRuleMediator()
+	 * @generated
+	 */
+	EAttribute getRuleMediator_InputWrapperName();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getInputNameSpace <em>Input Name Space</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Input Name Space</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getInputNameSpace()
+	 * @see #getRuleMediator()
+	 * @generated
+	 */
+	EAttribute getRuleMediator_InputNameSpace();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getOutputWrapperName <em>Output Wrapper Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Output Wrapper Name</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getOutputWrapperName()
+	 * @see #getRuleMediator()
+	 * @generated
+	 */
+	EAttribute getRuleMediator_OutputWrapperName();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getOutputNameSpace <em>Output Name Space</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Output Name Space</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getOutputNameSpace()
+	 * @see #getRuleMediator()
+	 * @generated
+	 */
+	EAttribute getRuleMediator_OutputNameSpace();
+
+	/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediatorInputConnector <em>Rule Mediator Input Connector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -30833,6 +30913,38 @@ public interface EsbPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute RULE_MEDIATOR__TARGET_ACTION = eINSTANCE.getRuleMediator_TargetAction();
+
+		/**
+		 * The meta object literal for the '<em><b>Input Wrapper Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RULE_MEDIATOR__INPUT_WRAPPER_NAME = eINSTANCE.getRuleMediator_InputWrapperName();
+
+		/**
+		 * The meta object literal for the '<em><b>Input Name Space</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RULE_MEDIATOR__INPUT_NAME_SPACE = eINSTANCE.getRuleMediator_InputNameSpace();
+
+		/**
+		 * The meta object literal for the '<em><b>Output Wrapper Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RULE_MEDIATOR__OUTPUT_WRAPPER_NAME = eINSTANCE.getRuleMediator_OutputWrapperName();
+
+		/**
+		 * The meta object literal for the '<em><b>Output Name Space</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RULE_MEDIATOR__OUTPUT_NAME_SPACE = eINSTANCE.getRuleMediator_OutputNameSpace();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RuleMediatorInputConnectorImpl <em>Rule Mediator Input Connector</em>}' class.

@@ -60,6 +60,10 @@ import org.wso2.developerstudio.eclipse.gmf.esb.RuleSourceType;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RuleMediatorImpl#getTargetResultXpath <em>Target Result Xpath</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RuleMediatorImpl#getTargetXpath <em>Target Xpath</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RuleMediatorImpl#getTargetAction <em>Target Action</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RuleMediatorImpl#getInputWrapperName <em>Input Wrapper Name</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RuleMediatorImpl#getInputNameSpace <em>Input Name Space</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RuleMediatorImpl#getOutputWrapperName <em>Output Wrapper Name</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RuleMediatorImpl#getOutputNameSpace <em>Output Name Space</em>}</li>
  * </ul>
  * </p>
  *
@@ -335,6 +339,86 @@ public class RuleMediatorImpl extends MediatorImpl implements RuleMediator {
 	 * @ordered
 	 */
 	protected RuleActions targetAction = TARGET_ACTION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getInputWrapperName() <em>Input Wrapper Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInputWrapperName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String INPUT_WRAPPER_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getInputWrapperName() <em>Input Wrapper Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInputWrapperName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String inputWrapperName = INPUT_WRAPPER_NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getInputNameSpace() <em>Input Name Space</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInputNameSpace()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String INPUT_NAME_SPACE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getInputNameSpace() <em>Input Name Space</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInputNameSpace()
+	 * @generated
+	 * @ordered
+	 */
+	protected String inputNameSpace = INPUT_NAME_SPACE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getOutputWrapperName() <em>Output Wrapper Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOutputWrapperName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String OUTPUT_WRAPPER_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getOutputWrapperName() <em>Output Wrapper Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOutputWrapperName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String outputWrapperName = OUTPUT_WRAPPER_NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getOutputNameSpace() <em>Output Name Space</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOutputNameSpace()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String OUTPUT_NAME_SPACE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getOutputNameSpace() <em>Output Name Space</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOutputNameSpace()
+	 * @generated
+	 * @ordered
+	 */
+	protected String outputNameSpace = OUTPUT_NAME_SPACE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1021,6 +1105,90 @@ public class RuleMediatorImpl extends MediatorImpl implements RuleMediator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getInputWrapperName() {
+		return inputWrapperName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInputWrapperName(String newInputWrapperName) {
+		String oldInputWrapperName = inputWrapperName;
+		inputWrapperName = newInputWrapperName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.RULE_MEDIATOR__INPUT_WRAPPER_NAME, oldInputWrapperName, inputWrapperName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getInputNameSpace() {
+		return inputNameSpace;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInputNameSpace(String newInputNameSpace) {
+		String oldInputNameSpace = inputNameSpace;
+		inputNameSpace = newInputNameSpace;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.RULE_MEDIATOR__INPUT_NAME_SPACE, oldInputNameSpace, inputNameSpace));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getOutputWrapperName() {
+		return outputWrapperName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOutputWrapperName(String newOutputWrapperName) {
+		String oldOutputWrapperName = outputWrapperName;
+		outputWrapperName = newOutputWrapperName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.RULE_MEDIATOR__OUTPUT_WRAPPER_NAME, oldOutputWrapperName, outputWrapperName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getOutputNameSpace() {
+		return outputNameSpace;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOutputNameSpace(String newOutputNameSpace) {
+		String oldOutputNameSpace = outputNameSpace;
+		outputNameSpace = newOutputNameSpace;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.RULE_MEDIATOR__OUTPUT_NAME_SPACE, oldOutputNameSpace, outputNameSpace));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -1104,6 +1272,14 @@ public class RuleMediatorImpl extends MediatorImpl implements RuleMediator {
 				return getTargetXpath();
 			case EsbPackage.RULE_MEDIATOR__TARGET_ACTION:
 				return getTargetAction();
+			case EsbPackage.RULE_MEDIATOR__INPUT_WRAPPER_NAME:
+				return getInputWrapperName();
+			case EsbPackage.RULE_MEDIATOR__INPUT_NAME_SPACE:
+				return getInputNameSpace();
+			case EsbPackage.RULE_MEDIATOR__OUTPUT_WRAPPER_NAME:
+				return getOutputWrapperName();
+			case EsbPackage.RULE_MEDIATOR__OUTPUT_NAME_SPACE:
+				return getOutputNameSpace();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1180,6 +1356,18 @@ public class RuleMediatorImpl extends MediatorImpl implements RuleMediator {
 			case EsbPackage.RULE_MEDIATOR__TARGET_ACTION:
 				setTargetAction((RuleActions)newValue);
 				return;
+			case EsbPackage.RULE_MEDIATOR__INPUT_WRAPPER_NAME:
+				setInputWrapperName((String)newValue);
+				return;
+			case EsbPackage.RULE_MEDIATOR__INPUT_NAME_SPACE:
+				setInputNameSpace((String)newValue);
+				return;
+			case EsbPackage.RULE_MEDIATOR__OUTPUT_WRAPPER_NAME:
+				setOutputWrapperName((String)newValue);
+				return;
+			case EsbPackage.RULE_MEDIATOR__OUTPUT_NAME_SPACE:
+				setOutputNameSpace((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -1253,6 +1441,18 @@ public class RuleMediatorImpl extends MediatorImpl implements RuleMediator {
 			case EsbPackage.RULE_MEDIATOR__TARGET_ACTION:
 				setTargetAction(TARGET_ACTION_EDEFAULT);
 				return;
+			case EsbPackage.RULE_MEDIATOR__INPUT_WRAPPER_NAME:
+				setInputWrapperName(INPUT_WRAPPER_NAME_EDEFAULT);
+				return;
+			case EsbPackage.RULE_MEDIATOR__INPUT_NAME_SPACE:
+				setInputNameSpace(INPUT_NAME_SPACE_EDEFAULT);
+				return;
+			case EsbPackage.RULE_MEDIATOR__OUTPUT_WRAPPER_NAME:
+				setOutputWrapperName(OUTPUT_WRAPPER_NAME_EDEFAULT);
+				return;
+			case EsbPackage.RULE_MEDIATOR__OUTPUT_NAME_SPACE:
+				setOutputNameSpace(OUTPUT_NAME_SPACE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1306,6 +1506,14 @@ public class RuleMediatorImpl extends MediatorImpl implements RuleMediator {
 				return targetXpath != null;
 			case EsbPackage.RULE_MEDIATOR__TARGET_ACTION:
 				return targetAction != TARGET_ACTION_EDEFAULT;
+			case EsbPackage.RULE_MEDIATOR__INPUT_WRAPPER_NAME:
+				return INPUT_WRAPPER_NAME_EDEFAULT == null ? inputWrapperName != null : !INPUT_WRAPPER_NAME_EDEFAULT.equals(inputWrapperName);
+			case EsbPackage.RULE_MEDIATOR__INPUT_NAME_SPACE:
+				return INPUT_NAME_SPACE_EDEFAULT == null ? inputNameSpace != null : !INPUT_NAME_SPACE_EDEFAULT.equals(inputNameSpace);
+			case EsbPackage.RULE_MEDIATOR__OUTPUT_WRAPPER_NAME:
+				return OUTPUT_WRAPPER_NAME_EDEFAULT == null ? outputWrapperName != null : !OUTPUT_WRAPPER_NAME_EDEFAULT.equals(outputWrapperName);
+			case EsbPackage.RULE_MEDIATOR__OUTPUT_NAME_SPACE:
+				return OUTPUT_NAME_SPACE_EDEFAULT == null ? outputNameSpace != null : !OUTPUT_NAME_SPACE_EDEFAULT.equals(outputNameSpace);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -1334,6 +1542,14 @@ public class RuleMediatorImpl extends MediatorImpl implements RuleMediator {
 		result.append(targetValue);
 		result.append(", targetAction: ");
 		result.append(targetAction);
+		result.append(", InputWrapperName: ");
+		result.append(inputWrapperName);
+		result.append(", InputNameSpace: ");
+		result.append(inputNameSpace);
+		result.append(", OutputWrapperName: ");
+		result.append(outputWrapperName);
+		result.append(", OutputNameSpace: ");
+		result.append(outputNameSpace);
 		result.append(')');
 		return result.toString();
 	}

@@ -1143,7 +1143,7 @@
           propertyDescription="" ecoreFeature="ecore:EReference esb.ecore#//RuleMediator/RuleSessionProperties"/>
       <genFeatures children="true" createChild="true" propertyCategory="Input Facts"
           propertyDescription="" ecoreFeature="ecore:EReference esb.ecore#//RuleMediator/factsConfiguration"/>
-      <genFeatures children="true" createChild="true" propertyCategory="Out Facts"
+      <genFeatures children="true" createChild="true" propertyCategory="Output Facts"
           propertyDescription="" ecoreFeature="ecore:EReference esb.ecore#//RuleMediator/resultsConfiguration"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//RuleMediator/childMediatorsConfiguration"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//RuleMediator/inputConnector"/>
@@ -1160,6 +1160,10 @@
       <genFeatures notify="false" createChild="false" propertyCategory="Target" propertySortChoices="true"
           ecoreFeature="ecore:EReference esb.ecore#//RuleMediator/targetXpath"/>
       <genFeatures createChild="false" propertyCategory="Target" ecoreFeature="ecore:EAttribute esb.ecore#//RuleMediator/targetAction"/>
+      <genFeatures createChild="false" propertyCategory="Input Facts" ecoreFeature="ecore:EAttribute esb.ecore#//RuleMediator/InputWrapperName"/>
+      <genFeatures createChild="false" propertyCategory="Input Facts" ecoreFeature="ecore:EAttribute esb.ecore#//RuleMediator/InputNameSpace"/>
+      <genFeatures createChild="false" propertyCategory="Output Facts" ecoreFeature="ecore:EAttribute esb.ecore#//RuleMediator/OutputWrapperName"/>
+      <genFeatures createChild="false" propertyCategory="Output Facts" ecoreFeature="ecore:EAttribute esb.ecore#//RuleMediator/OutputNameSpace"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//RuleMediatorInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//RuleMediatorOutputConnector"/>

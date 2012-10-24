@@ -87,10 +87,14 @@ public class RuleMediatorItemProvider
 			addTargetResultXpathPropertyDescriptor(object);
 			addTargetXpathPropertyDescriptor(object);
 			addTargetActionPropertyDescriptor(object);
+			addInputWrapperNamePropertyDescriptor(object);
+			addInputNameSpacePropertyDescriptor(object);
+			addOutputWrapperNamePropertyDescriptor(object);
+			addOutputNameSpacePropertyDescriptor(object);
 	 
 		return itemPropertyDescriptors;
 	}	 
-	
+
 	
 	/*@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
@@ -107,13 +111,26 @@ public class RuleMediatorItemProvider
 		} else {
 			addRuleSetSourceCodePropertyDescriptor(object);
 		}
-		addRuleSetPropertiesPropertyDescriptor(object);
-		addStatefulSessionPropertyDescriptor(object);
-		addRuleSessionPropertiesPropertyDescriptor(object);
-		addFactsConfigurationPropertyDescriptor(object);
-		addResultsConfigurationPropertyDescriptor(object);
+			addRuleSetPropertiesPropertyDescriptor(object);
+			//addStatefulSessionPropertyDescriptor(object);
+			//addRuleSessionPropertiesPropertyDescriptor(object);
+			addFactsConfigurationPropertyDescriptor(object);
+			addResultsConfigurationPropertyDescriptor(object);
+			addSourceValuePropertyDescriptor(object);
+			addSourceXpathPropertyDescriptor(object);
+			addTargetValuePropertyDescriptor(object);
+			addTargetResultXpathPropertyDescriptor(object);
+			addTargetXpathPropertyDescriptor(object);
+			addTargetActionPropertyDescriptor(object);
+			addInputWrapperNamePropertyDescriptor(object);
+			addInputNameSpacePropertyDescriptor(object);
+			addOutputWrapperNamePropertyDescriptor(object);
+			addOutputNameSpacePropertyDescriptor(object);
+	 
 		return itemPropertyDescriptors;
-	}*/
+	}	 
+	*/
+	
 
 	/**
 	 * This adds a property descriptor for the Rule Set URI feature.
@@ -309,7 +326,7 @@ public class RuleMediatorItemProvider
 				 false,
 				 false,
 				 null,
-				 getString("_UI_OutFactsPropertyCategory"),
+				 getString("_UI_OutputFactsPropertyCategory"),
 				 null));
 	}
 
@@ -446,6 +463,94 @@ public class RuleMediatorItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Input Wrapper Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addInputWrapperNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RuleMediator_InputWrapperName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RuleMediator_InputWrapperName_feature", "_UI_RuleMediator_type"),
+				 EsbPackage.Literals.RULE_MEDIATOR__INPUT_WRAPPER_NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI_InputFactsPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Input Name Space feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addInputNameSpacePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RuleMediator_InputNameSpace_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RuleMediator_InputNameSpace_feature", "_UI_RuleMediator_type"),
+				 EsbPackage.Literals.RULE_MEDIATOR__INPUT_NAME_SPACE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI_InputFactsPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Output Wrapper Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOutputWrapperNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RuleMediator_OutputWrapperName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RuleMediator_OutputWrapperName_feature", "_UI_RuleMediator_type"),
+				 EsbPackage.Literals.RULE_MEDIATOR__OUTPUT_WRAPPER_NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI_OutputFactsPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Output Name Space feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOutputNameSpacePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RuleMediator_OutputNameSpace_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RuleMediator_OutputNameSpace_feature", "_UI_RuleMediator_type"),
+				 EsbPackage.Literals.RULE_MEDIATOR__OUTPUT_NAME_SPACE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI_OutputFactsPropertyCategory"),
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -507,8 +612,10 @@ public class RuleMediatorItemProvider
 	
 	@Override
 	public String getText(Object object) {
-		RuleMediator ruleMediator = (RuleMediator)object;
-		return getString("_UI_RuleMediator_type") + " " + ruleMediator.isReverse();
+		String label = ((RuleMediator)object).getInputWrapperName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_RuleMediator_type") :
+			getString("_UI_RuleMediator_type") + " " + label;
 	}
 
 	/**
@@ -531,6 +638,10 @@ public class RuleMediatorItemProvider
 			case EsbPackage.RULE_MEDIATOR__SOURCE_VALUE:
 			case EsbPackage.RULE_MEDIATOR__TARGET_VALUE:
 			case EsbPackage.RULE_MEDIATOR__TARGET_ACTION:
+			case EsbPackage.RULE_MEDIATOR__INPUT_WRAPPER_NAME:
+			case EsbPackage.RULE_MEDIATOR__INPUT_NAME_SPACE:
+			case EsbPackage.RULE_MEDIATOR__OUTPUT_WRAPPER_NAME:
+			case EsbPackage.RULE_MEDIATOR__OUTPUT_NAME_SPACE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case EsbPackage.RULE_MEDIATOR__RULE_SET_SOURCE_KEY:

@@ -37,6 +37,10 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getTargetResultXpath <em>Target Result Xpath</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getTargetXpath <em>Target Xpath</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getTargetAction <em>Target Action</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getInputWrapperName <em>Input Wrapper Name</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getInputNameSpace <em>Input Name Space</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getOutputWrapperName <em>Output Wrapper Name</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getOutputNameSpace <em>Output Name Space</em>}</li>
  * </ul>
  * </p>
  *
@@ -555,5 +559,109 @@ public interface RuleMediator extends Mediator {
 	 * @generated
 	 */
 	void setTargetAction(RuleActions value);
+
+	/**
+	 * Returns the value of the '<em><b>Input Wrapper Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Input Wrapper Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Input Wrapper Name</em>' attribute.
+	 * @see #setInputWrapperName(String)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getRuleMediator_InputWrapperName()
+	 * @model
+	 * @generated
+	 */
+	String getInputWrapperName();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getInputWrapperName <em>Input Wrapper Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Input Wrapper Name</em>' attribute.
+	 * @see #getInputWrapperName()
+	 * @generated
+	 */
+	void setInputWrapperName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Input Name Space</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Input Name Space</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Input Name Space</em>' attribute.
+	 * @see #setInputNameSpace(String)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getRuleMediator_InputNameSpace()
+	 * @model
+	 * @generated
+	 */
+	String getInputNameSpace();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getInputNameSpace <em>Input Name Space</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Input Name Space</em>' attribute.
+	 * @see #getInputNameSpace()
+	 * @generated
+	 */
+	void setInputNameSpace(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Output Wrapper Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Output Wrapper Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Output Wrapper Name</em>' attribute.
+	 * @see #setOutputWrapperName(String)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getRuleMediator_OutputWrapperName()
+	 * @model
+	 * @generated
+	 */
+	String getOutputWrapperName();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getOutputWrapperName <em>Output Wrapper Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Output Wrapper Name</em>' attribute.
+	 * @see #getOutputWrapperName()
+	 * @generated
+	 */
+	void setOutputWrapperName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Output Name Space</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Output Name Space</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Output Name Space</em>' attribute.
+	 * @see #setOutputNameSpace(String)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getRuleMediator_OutputNameSpace()
+	 * @model
+	 * @generated
+	 */
+	String getOutputNameSpace();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getOutputNameSpace <em>Output Name Space</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Output Name Space</em>' attribute.
+	 * @see #getOutputNameSpace()
+	 * @generated
+	 */
+	void setOutputNameSpace(String value);
 
 } // RuleMediator

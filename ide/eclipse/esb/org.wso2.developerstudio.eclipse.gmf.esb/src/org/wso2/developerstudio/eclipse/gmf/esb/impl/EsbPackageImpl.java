@@ -9228,6 +9228,42 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getRuleMediator_InputWrapperName() {
+		return (EAttribute)ruleMediatorEClass.getEStructuralFeatures().get(20);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getRuleMediator_InputNameSpace() {
+		return (EAttribute)ruleMediatorEClass.getEStructuralFeatures().get(21);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getRuleMediator_OutputWrapperName() {
+		return (EAttribute)ruleMediatorEClass.getEStructuralFeatures().get(22);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getRuleMediator_OutputNameSpace() {
+		return (EAttribute)ruleMediatorEClass.getEStructuralFeatures().get(23);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getRuleMediatorInputConnector() {
 		return ruleMediatorInputConnectorEClass;
 	}
@@ -12315,6 +12351,10 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEReference(ruleMediatorEClass, RULE_MEDIATOR__TARGET_RESULT_XPATH);
 		createEReference(ruleMediatorEClass, RULE_MEDIATOR__TARGET_XPATH);
 		createEAttribute(ruleMediatorEClass, RULE_MEDIATOR__TARGET_ACTION);
+		createEAttribute(ruleMediatorEClass, RULE_MEDIATOR__INPUT_WRAPPER_NAME);
+		createEAttribute(ruleMediatorEClass, RULE_MEDIATOR__INPUT_NAME_SPACE);
+		createEAttribute(ruleMediatorEClass, RULE_MEDIATOR__OUTPUT_WRAPPER_NAME);
+		createEAttribute(ruleMediatorEClass, RULE_MEDIATOR__OUTPUT_NAME_SPACE);
 
 		ruleMediatorInputConnectorEClass = createEClass(RULE_MEDIATOR_INPUT_CONNECTOR);
 
@@ -13842,6 +13882,10 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEReference(getRuleMediator_TargetResultXpath(), this.getNamespacedProperty(), null, "targetResultXpath", null, 0, 1, RuleMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRuleMediator_TargetXpath(), this.getNamespacedProperty(), null, "targetXpath", null, 0, 1, RuleMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRuleMediator_TargetAction(), this.getRuleActions(), "targetAction", null, 0, 1, RuleMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRuleMediator_InputWrapperName(), ecorePackage.getEString(), "InputWrapperName", null, 0, 1, RuleMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRuleMediator_InputNameSpace(), ecorePackage.getEString(), "InputNameSpace", null, 0, 1, RuleMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRuleMediator_OutputWrapperName(), ecorePackage.getEString(), "OutputWrapperName", null, 0, 1, RuleMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRuleMediator_OutputNameSpace(), ecorePackage.getEString(), "OutputNameSpace", null, 0, 1, RuleMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(ruleMediatorInputConnectorEClass, RuleMediatorInputConnector.class, "RuleMediatorInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

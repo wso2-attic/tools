@@ -17,7 +17,9 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.util.AXIOMUtil;
@@ -27,6 +29,8 @@ import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleFact;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleFactsConfiguration;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleResult;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleResultsConfiguration;
@@ -70,14 +74,60 @@ public class RuleMediatorTransformer extends AbstractEsbNodeTransformer {
 		Assert.isTrue(subject instanceof RuleMediator,
 				"Unsupported mediator passed in for serialization.");
 		RuleMediator visualRule = (RuleMediator) subject;
-        Output output = new Output();
-      
+		RuleFactsConfiguration factsConfiguration = visualRule.getFactsConfiguration();
+		EList<RuleFact> facts = factsConfiguration.getFacts();
+		List<Fact> factsList = new ArrayList<Fact>();
+		for (RuleFact ruleFact : facts) {
+			Fact fact = new Fact();
+			fact.setElementName(visualRule.getInputWrapperName());
+			fact.setNamespace(visualRule.getInputNameSpace());
+			fact.setPrefixToNamespaceMap(ruleFact.getValueExpression().getNamespaces());
+			fact.setType(ruleFact.getFactName());
+			fact.setTypeClass(ruleFact.getFactType().getClass());
+			fact.setXpath(ruleFact.getValueExpression().getPropertyValue());
+			factsList.add(fact);
+		}
+		Input input = new Input();
+		input.setFacts(factsList);
+		input.setNameSpace(visualRule.getInputNameSpace());
+		input.setWrapperElementName(visualRule.getInputWrapperName());
+		
         RuleResultsConfiguration resultsConfiguration = visualRule.getResultsConfiguration();
         EList<RuleResult> results = resultsConfiguration.getResults();
-      	org.wso2.carbon.rule.mediator.RuleMediator ruleMediator = new org.wso2.carbon.rule.mediator.RuleMediator(null, null, null, null, null, null);
-		OMElement payload = AXIOMUtil.stringToOM("<brs:rule xmlns:brs=\""+"http://wso2.org/carbon/rules\""+"></brs:rule>");
+        List<Fact> resultfactsList = new ArrayList<Fact>();
+        for (RuleResult ruleResult : results) {
+        	Fact fact = new Fact();
+			fact.setElementName(visualRule.getOutputWrapperName());
+			fact.setNamespace(visualRule.getOutputNameSpace());
+			fact.setPrefixToNamespaceMap(ruleResult.getValueExpression().getNamespaces());
+			fact.setType(ruleResult.getResultName());
+			fact.setTypeClass(ruleResult.getResultType().getClass());
+			fact.setXpath(ruleResult.getValueExpression().getPropertyValue());
+			resultfactsList.add(fact);
+        }
+        
+        Output output = new Output();
+        output.setFacts(resultfactsList);
+        output.setNameSpace(visualRule.getOutputNameSpace());
+        output.setWrapperElementName(visualRule.getOutputWrapperName());
+        
+        Target target = new Target();
+        target.setAction(visualRule.getTargetAction().getLiteral());
+        target.setPrefixToNamespaceMap(visualRule.getTargetResultXpath().getNamespaces());
+        target.setResultXpath(visualRule.getTargetResultXpath().getPropertyValue());
+        target.setValue(visualRule.getTargetValue());
+        target.setXpath(visualRule.getTargetXpath().getPropertyValue());
+        
+        Source source = new Source();
+        source.setPrefixToNamespaceMap(visualRule.getSourceXpath().getNamespaces());
+        source.setValue(visualRule.getSourceValue());
+        source.setXpath(visualRule.getSourceXpath().getPropertyValue());
+        
+        OMElement payload = AXIOMUtil.stringToOM(visualRule.getRuleSetSourceCode());
+      	org.wso2.carbon.rule.mediator.RuleMediator ruleMediator = new org.wso2.carbon.rule.mediator.RuleMediator(null, payload, source, target,input ,output );
 		ruleMediator.setRuleOMElement(payload);
 		return ruleMediator;
+ 
 	}
 	
 	

@@ -1440,6 +1440,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="targetXpath" eType="#//NamespacedProperty"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetAction" eType="#//RuleActions"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="InputWrapperName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="InputNameSpace" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="OutputWrapperName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="OutputNameSpace" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RuleMediatorInputConnector" eSuperTypes="#//InputConnector"/>
   <eClassifiers xsi:type="ecore:EEnum" name="RuleActions">
