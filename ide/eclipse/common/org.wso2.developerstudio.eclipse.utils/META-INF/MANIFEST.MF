@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Developer Studio Utilty Plugin
-Bundle-SymbolicName: org.wso2.developerstudio.eclipse.utils
+Bundle-SymbolicName: org.wso2.developerstudio.eclipse.utils;singleton:=true
 Bundle-Version: 2.2.0.qualifier
 Bundle-Activator: org.wso2.developerstudio.eclipse.utils.Activator
 Bundle-Vendor: WSO2
@@ -22,11 +22,14 @@ Export-Package: org.apache.maven.model;version="2.2.1",
  org.wso2.developerstudio.eclipse.utils.j2ee,
  org.wso2.developerstudio.eclipse.utils.jdt,
  org.wso2.developerstudio.eclipse.utils.project,
+ org.wso2.developerstudio.eclipse.utils.propertytester,
  org.wso2.developerstudio.eclipse.utils.template,
  org.wso2.developerstudio.eclipse.utils.ui,
  org.wso2.developerstudio.eclipse.utils.version,
  org.wso2.developerstudio.eclipse.utils.wst
-Import-Package: org.eclipse.core.internal.events,
+Import-Package: org.eclipse.core.expressions,
+ org.eclipse.core.internal.events,
+ org.eclipse.core.internal.propertytester,
  org.eclipse.core.resources,
  org.eclipse.jdt.core,
  org.eclipse.jdt.launching,
