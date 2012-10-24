@@ -534,4 +534,14 @@
     	</wizardLink>
 
 	</extension>
+	
+	<extension point="org.eclipse.core.expressions.propertyTesters">
+    	<propertyTester
+          	class="org.wso2.developerstudio.eclipse.platform.core.propertytester.ProjectNaturePropertyTester"
+          	id="org.wso2.developerstudio.projectNature"
+          	namespace="org.wso2.developerstudio"
+          	properties="projectNature"
+          	type="org.eclipse.jdt.core.IPackageFragment">
+    	</propertyTester>
+ 	</extension>
 </plugin>
