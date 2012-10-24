@@ -84,6 +84,8 @@
 						<!--adapt type="org.eclipse.core.resources.IFolder">
 						</adapt-->
 						<adapt type="org.eclipse.jdt.core.IPackageFragment">
+							<test property="org.wso2.developerstudio.projectNature"
+								value="org.wso2.developerstudio.eclipse.axis2.project.nature" />
 						</adapt>
 					</or>
 				</enablement>

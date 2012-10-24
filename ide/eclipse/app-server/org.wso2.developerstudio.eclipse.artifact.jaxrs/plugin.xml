@@ -70,6 +70,8 @@
 								value="org.wso2.developerstudio.eclipse.jaxrs.project.nature" />
 						</adapt>
 						<adapt type="org.eclipse.jdt.core.IPackageFragment">
+							<test property="org.wso2.developerstudio.projectNature"
+								value="org.wso2.developerstudio.eclipse.jaxrs.project.nature" />
 						</adapt>
 					</or>
 				</enablement>
