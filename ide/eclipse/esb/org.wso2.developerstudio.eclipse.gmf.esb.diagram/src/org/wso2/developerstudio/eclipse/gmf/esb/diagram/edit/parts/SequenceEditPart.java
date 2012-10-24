@@ -465,7 +465,7 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 			diagram = EsbDiagramEditorUtil.createDiagram(
 					URI.createURI(basePath + fileURI1),
 					URI.createURI(basePath + fileURI2),
-					new NullProgressMonitor(), "sequence", name);
+					new NullProgressMonitor(), "sequence", name,null);
 			try {
 				EsbDiagramEditorUtil.openDiagram(diagram);
 

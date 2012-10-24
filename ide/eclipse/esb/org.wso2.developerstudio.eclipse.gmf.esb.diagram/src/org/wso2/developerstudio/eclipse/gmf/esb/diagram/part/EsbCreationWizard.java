@@ -35,6 +35,7 @@ import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbServer;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.part.EndpointCreationWizardPage;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.part.TemplateCreationWizardPage;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.EsbModelTransformer;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
@@ -66,6 +67,7 @@ public class EsbCreationWizard extends Wizard implements INewWizard,
 	
 	protected TemplateCreationWizardPage templateCreationPage;
 
+	protected EndpointCreationWizardPage endpointCreationPage;
 	/**
 	 * @generated NOT
 	 */
@@ -159,7 +161,12 @@ public class EsbCreationWizard extends Wizard implements INewWizard,
 		case TEMPLATE:
 			templateCreationPage=new TemplateCreationWizardPage("TemplateCreation");
 			addPage(templateCreationPage);
-			break;
+			break;	
+			
+		case ENDPOINT:
+			endpointCreationPage=new EndpointCreationWizardPage("EndpointCreation");
+			addPage(endpointCreationPage);
+			break;		
 		
 		}
 		
@@ -211,27 +218,27 @@ public class EsbCreationWizard extends Wizard implements INewWizard,
 			case SEQUENCE:
 				location = esbProject.getFolder(SEQUENCE_RESOURCE_DIR);
 				op = createDiagram("sequence_", SEQUENCE_RESOURCE_DIR,
-						"sequence");
+						"sequence",null);
 				type = "synapse/sequence";
 				break;
 
 			case PROXY:
 				location = esbProject.getFolder(PROXY_RESOURCE_DIR);
-				op = createDiagram("proxy_", PROXY_RESOURCE_DIR, "proxy");
+				op = createDiagram("proxy_", PROXY_RESOURCE_DIR, "proxy",null);
 				type = "synapse/proxy-service";
 				break;
 
 			case ENDPOINT:
 				location = esbProject.getFolder(ENDPOINT_RESOURCE_DIR);
 				op = createDiagram("endpoint_", ENDPOINT_RESOURCE_DIR,
-						"endpoint");
+						"endpoint",endpointCreationPage.selection);
 				type = "synapse/endpoint";
 				break;
 
 			case LOCALENTRY:
 				location = esbProject.getFolder(LOCAL_ENTRY_RESOURCE_DIR);
 				op = createDiagram("localentry_", LOCAL_ENTRY_RESOURCE_DIR,
-						"localentry");
+						"localentry",null);
 				type = "synapse/local-entry";
 				break;
 
@@ -239,11 +246,11 @@ public class EsbCreationWizard extends Wizard implements INewWizard,
 				location = esbProject.getFolder(TEMPLATE_RESOURCE_DIR);
 				if(templateCreationPage.sequenceRadioButton.getSelection()){
 					op = createDiagram("template_", TEMPLATE_RESOURCE_DIR,
-							"template.sequence");
+							"template.sequence",null);
 					type = "synapse/template";
-				}else{
+				}else if(templateCreationPage.endpointRadioButton.getSelection()){
 					op = createDiagram("template_", TEMPLATE_RESOURCE_DIR,
-							"template.endpoint");
+							"template.endpoint",templateCreationPage.selection);
 					type = "synapse/template";
 				}
 				
@@ -251,13 +258,13 @@ public class EsbCreationWizard extends Wizard implements INewWizard,
 
 			case TASK:
 				location = esbProject.getFolder(TASK_RESOURCE_DIR);
-				op = createDiagram("task_", TASK_RESOURCE_DIR, "task");
+				op = createDiagram("task_", TASK_RESOURCE_DIR, "task",null);
 				type = "synapse/task";
 				break;
 
 			case API:
 				location = esbProject.getFolder(API_RESOURCE_DIR);
-				op = createDiagram("api_", API_RESOURCE_DIR, "api");
+				op = createDiagram("api_", API_RESOURCE_DIR, "api",null);
 				type = "synapse/api";
 				break;
 
@@ -345,7 +352,7 @@ public class EsbCreationWizard extends Wizard implements INewWizard,
 	}
 
 	private IRunnableWithProgress createDiagram(final String extentionPrefix,
-			final String dir, final String type) {
+			final String dir, final String type,final Object specificType) {
 		IRunnableWithProgress op = new WorkspaceModifyOperation(null) {
 
 			protected void execute(IProgressMonitor monitor)
@@ -372,7 +379,7 @@ public class EsbCreationWizard extends Wizard implements INewWizard,
 									+ diagramModelFilePage.getFileName()
 									+ DOMAIN_FILE_EXTENSION, false),
 							new NullProgressMonitor(), type,
-							diagramModelFilePage.getFileName());
+							diagramModelFilePage.getFileName(),specificType);
 					createXMLfile(diagramModelFilePage.getFileName(), diagram,
 							dir);
 					try {

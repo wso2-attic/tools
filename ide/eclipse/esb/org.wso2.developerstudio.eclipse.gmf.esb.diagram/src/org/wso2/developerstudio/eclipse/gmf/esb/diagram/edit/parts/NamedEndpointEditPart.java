@@ -49,9 +49,19 @@ import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.IInputValidator;
 import org.eclipse.jface.dialogs.InputDialog;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.ModifyEvent;
+import org.eclipse.swt.events.ModifyListener;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.widgets.Combo;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.IEditorDescriptor;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorReference;
@@ -106,6 +116,9 @@ public class NamedEndpointEditPart extends AbstractEndpoint {
 	protected IFigure primaryShape;
 
 	public static ArrayList<String> definedEndpointsNames = new ArrayList<String>();
+	
+	private Combo endpointTypeCombo;
+	private int selection;
 
 	private static IDeveloperStudioLog log = Logger
 			.getLog("org.wso2.developerstudio.eclipse.gmf.esb.diagram");
@@ -358,7 +371,35 @@ public class NamedEndpointEditPart extends AbstractEndpoint {
 			String defaultName = "Default";
 			final InputDialog endpointNameInput = new InputDialog(new Shell(),
 					"Enter Endpoint Name", "Endpoint Name", defaultName,
-					validator);
+					validator){
+				protected Control createDialogArea(Composite parent) {
+					Composite composite = (Composite) super
+							.createDialogArea(parent);
+					Label label = new Label(composite, SWT.WRAP);
+					label.setText("Select endpoint type");
+					GridData data = new GridData(GridData.GRAB_HORIZONTAL
+							| GridData.GRAB_VERTICAL
+							| GridData.HORIZONTAL_ALIGN_FILL
+							| GridData.VERTICAL_ALIGN_CENTER);
+					label.setLayoutData(data);
+					label.setFont(parent.getFont());
+
+					endpointTypeCombo = new Combo(composite, SWT.SINGLE
+							| SWT.BORDER);
+					endpointTypeCombo.setItems(new String []{"Default Endpoint","Address Endpoint","WSDL Endpoint"});
+					endpointTypeCombo.addSelectionListener(new SelectionListener() {												
+						public void widgetSelected(SelectionEvent arg0) {
+							selection=endpointTypeCombo.getSelectionIndex();							
+						}
+												
+						public void widgetDefaultSelected(SelectionEvent arg0) {
+							
+						}
+					});
+					endpointTypeCombo.select(0);
+					return composite;
+				}
+			};
 			int open = endpointNameInput.open();
 			if (open == Dialog.OK) {
 				Display.getDefault().asyncExec(new Runnable() {
@@ -484,7 +525,7 @@ public class NamedEndpointEditPart extends AbstractEndpoint {
 			diagram = EsbDiagramEditorUtil.createDiagram(
 					URI.createURI(basePath + fileURI1),
 					URI.createURI(basePath + fileURI2),
-					new NullProgressMonitor(), "endpoint", name);
+					new NullProgressMonitor(), "endpoint", name,selection);
 			try {
 				EsbDiagramEditorUtil.openDiagram(diagram);
 

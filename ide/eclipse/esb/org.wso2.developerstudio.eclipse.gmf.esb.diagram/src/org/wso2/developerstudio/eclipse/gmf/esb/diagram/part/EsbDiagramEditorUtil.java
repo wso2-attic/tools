@@ -239,7 +239,7 @@ public class EsbDiagramEditorUtil {
 	 */
 	public static Resource createDiagram(URI diagramURI, URI modelURI,
 			IProgressMonitor progressMonitor, final String type,
-			final String name) {
+			final String name,final Object specificType) {
 		final TransactionalEditingDomain editingDomain = GMFEditingDomainFactory.INSTANCE
 				.createEditingDomain();
 		progressMonitor.beginTask(
@@ -279,6 +279,20 @@ public class EsbDiagramEditorUtil {
 				} else if ("endpoint".equals(type)) {
 					EndpointDiagram endpoints = EsbFactory.eINSTANCE
 							.createEndpointDiagram();
+					switch ((Integer)specificType) {
+					case 0:
+						endpoints.setChild(EsbFactory.eINSTANCE.createDefaultEndPoint());
+						break;
+					case 1:
+						endpoints.setChild(EsbFactory.eINSTANCE.createAddressEndPoint());
+						break;
+					case 2:
+						endpoints.setChild(EsbFactory.eINSTANCE.createWSDLEndPoint());
+						break;
+
+					default:
+						break;
+					}
 					endpoints.setName(name);
 					EStructuralFeature target = esbServer.eClass()
 							.getEStructuralFeature("children");
@@ -306,6 +320,20 @@ public class EsbDiagramEditorUtil {
 					template.setName(name);
 					EndpointDiagram endpoint = EsbFactory.eINSTANCE
 							.createEndpointDiagram();
+					switch ((Integer)specificType) {
+					case 0:
+						endpoint.setChild(EsbFactory.eINSTANCE.createDefaultEndPoint());
+						break;
+					case 1:
+						endpoint.setChild(EsbFactory.eINSTANCE.createAddressEndPoint());
+						break;
+					case 2:
+						endpoint.setChild(EsbFactory.eINSTANCE.createWSDLEndPoint());
+						break;
+
+					default:
+						break;
+					}
 					template.setChild(endpoint);
 					EStructuralFeature target = esbServer.eClass()
 							.getEStructuralFeature("children");
