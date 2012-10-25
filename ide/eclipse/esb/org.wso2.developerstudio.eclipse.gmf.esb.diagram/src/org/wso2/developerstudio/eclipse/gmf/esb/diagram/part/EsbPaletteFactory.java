@@ -1144,6 +1144,8 @@ public class EsbPaletteFactory {
 					.getChildren().get(6);
 			ToolEntry proxyServiceTool = (ToolEntry) (nodePalette.getChildren()
 					.get(0));
+			ToolEntry apiResourceTool = (ToolEntry) (nodePalette.getChildren()
+					.get(2));
 			if (server != null) {
 				switch (server.getType()) {
 				case PROXY:
@@ -1154,6 +1156,7 @@ public class EsbPaletteFactory {
 					endpoitPalette.setVisible(true);
 					defineEpPalette.setVisible(true);
 					linksPalette.setVisible(true);
+					apiResourceTool.setVisible(false);
 					break;
 				case ENDPOINT:
 					mediatorPalette.setVisible(false);
@@ -1162,6 +1165,7 @@ public class EsbPaletteFactory {
 					endpoitPalette.setVisible(true);
 					defineEpPalette.setVisible(true);
 					linksPalette.setVisible(true);
+					apiResourceTool.setVisible(false);
 					break;
 				case LOCAL_ENTRY:
 				case TASK:
@@ -1171,6 +1175,25 @@ public class EsbPaletteFactory {
 					endpoitPalette.setVisible(false);
 					defineEpPalette.setVisible(false);
 					linksPalette.setVisible(false);
+					apiResourceTool.setVisible(false);
+					break;
+				case API:
+					proxyServiceTool.setVisible(false);
+					mediatorPalette.setVisible(true);
+					nodePalette.setVisible(true);
+					endpoitPalette.setVisible(true);
+					defineEpPalette.setVisible(true);
+					linksPalette.setVisible(true);
+					apiResourceTool.setVisible(true);
+					break;
+				case TEMPLATE:
+					proxyServiceTool.setVisible(false);
+					mediatorPalette.setVisible(true);
+					nodePalette.setVisible(true);
+					endpoitPalette.setVisible(true);
+					defineEpPalette.setVisible(true);
+					linksPalette.setVisible(true);
+					apiResourceTool.setVisible(false);
 					break;
 				case SYNAPSE_CONFIG:
 				default:
@@ -1180,6 +1203,7 @@ public class EsbPaletteFactory {
 					endpoitPalette.setVisible(true);
 					defineEpPalette.setVisible(true);
 					linksPalette.setVisible(true);
+					apiResourceTool.setVisible(true);
 					break;
 				}
 			}
