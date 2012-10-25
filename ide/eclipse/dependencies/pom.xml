@@ -47,6 +47,7 @@
 	    <module>maven-endpoint-plugin</module>
 	    <module>maven-stratos-plugin</module>
 	    <module>maven-cep-plugin</module>
+	    <module>maven-brs-plugin</module>
 	    <module>maven-car-deploy-plugin</module>
     </modules>
 	<build>
