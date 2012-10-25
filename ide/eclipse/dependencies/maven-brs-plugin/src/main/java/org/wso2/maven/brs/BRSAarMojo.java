@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ * Copyright (c) 2012, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -55,6 +55,15 @@ public class BRSAarMojo extends AbstractMojo{
 	 * @readonly
 	 */
 	protected File baseDir;
+	
+	/**
+	 * The projects base directory.
+	 *
+	 * @parameter expression="${project.basedir}/src/main/ruleservice"
+	 * @required
+	 * @readonly
+	 */
+	protected File ruleserviceDir;
 
 	/**
 	 * The maven project.
@@ -80,48 +89,15 @@ public class BRSAarMojo extends AbstractMojo{
 	 * @required
 	 */
 	protected File aarDirectory;
-	/*
-	 *//**
-	 * The location of the services.xml file.  If it is present in the META-INF directory in
-	 * src/main/resources with that name then it will automatically be included. Otherwise this
-	 * parameter must be set.
-	 *
-	 * @parameter
-	 *//*
-	private File servicesXmlFile;*/
-
+	
 	/**
-	 * The location of the services.xml file.  If it is present in the META-INF directory in
-	 * src/main/resources with that name then it will automatically be included. Otherwise this
-	 * parameter must be set.
+	 * The directory where the facts jar is built.
 	 *
-	 * @parameter expression="${servicesXmlFile}"
+	 * @parameter expression="${project.build.directory}/facts"
+	 * @required
 	 */
-	private File servicesXmlFile;
+	protected File factsDirectory;
 
-
-	/**
-	 * The location of the WSDL file, if any. By default, no WSDL file is added and it is assumed,
-	 * that Axis 2 will automatically generate a WSDL file.
-	 *
-	 * @parameter
-	 */
-	private File wsdlFile;
-
-	/**
-	 * Name, to which the wsdl file shall be mapped. By default, the name will be computed from the
-	 * files path by removing the directory.
-	 *
-	 * @parameter default-value="service.wsdl"
-	 */
-	private String wsdlFileName;
-
-	/**
-     * Additional file sets, which are being added to the archive.
-     *
-     * @parameter
-     *//*
-    private FileSet[] fileSets;*/
 	/**
 	 * Whether the dependency jars should be included in the aar
 	 *
@@ -254,25 +230,30 @@ public class BRSAarMojo extends AbstractMojo{
 		getLog().debug("Exploding aar...");
 		aarDirectory.mkdirs();
 		getLog().debug("Assembling aar " + project.getArtifactId() + " in " + aarDirectory);
-		final File metaInfDir = new File(aarDirectory, "META-INF");
+		
 		
 		final File libDir = new File(aarDirectory, "lib");
-				final File servicesFileTarget = new File(metaInfDir, "service.rsl");
-				
 
-		boolean existsBeforeCopyingClasses = servicesFileTarget.exists();
 		try {
-		if (classesDirectory.exists() && (!classesDirectory.equals(aarDirectory))) {
-		
-				FileUtils.copyDirectoryStructure(classesDirectory, aarDirectory);
-				
-
+			if (classesDirectory.exists() && (!classesDirectory.equals(factsDirectory))) {
+				FileUtils.copyDirectoryStructure(classesDirectory, factsDirectory);
+			}
 			
-
-		}
+			if(ruleserviceDir.exists()){
+				FileUtils.copyDirectoryStructure(ruleserviceDir, aarDirectory);
+			}
+			
+			File factsJar = new File(libDir, project.getArtifactId() + "-" + project.getVersion()  + ".jar");
+			
+			JarArchiver factsArchiver = new JarArchiver();
+			MavenArchiver archiver = new MavenArchiver();
 		
-		copyMetaInfFile(servicesXmlFile, servicesFileTarget, existsBeforeCopyingClasses,
-		"services.xml file");
+			archiver.setArchiver(factsArchiver);
+			archiver.setOutputFile(factsJar);
+			
+			factsArchiver.addDirectory(factsDirectory);
+			
+			archiver.createArchive(project, archive);
 		
 		
 		 if (includeDependencies) {
@@ -310,34 +291,12 @@ public class BRSAarMojo extends AbstractMojo{
 		
 		} catch (IOException e) {
 			throw new MojoExecutionException("Could not explode aar...", e);
-		}
+		} catch (Exception e) {
+			throw new MojoExecutionException("Error assembling aar", e);
+		} 
 		
 			
 		
-
-	}
-
-	private void copyMetaInfFile(final File pSource, final File pTarget,
-			final boolean pExistsBeforeCopying,
-			final String pDescription)
-	throws MojoExecutionException, IOException {
-		
-		if (pSource != null && pTarget != null) {
-			
-			if (!pSource.exists()) {
-				
-				throw new MojoExecutionException(
-						"The configured " + pDescription + " could not be found at "
-						+ pSource);
-			}
-
-			if (!pExistsBeforeCopying && pTarget.exists()) {
-				getLog().warn("The configured " + pDescription +
-				" overwrites another file from the classpath.");
-			}
-
-			FileUtils.copyFile(pSource, pTarget);
-		}
 	}
 	
 	/**
