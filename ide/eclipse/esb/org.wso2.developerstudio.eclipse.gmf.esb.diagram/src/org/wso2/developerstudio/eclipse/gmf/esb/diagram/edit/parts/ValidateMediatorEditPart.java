@@ -292,7 +292,7 @@ public class ValidateMediatorEditPart extends complexFiguredAbstractMediator {
 			this.setLayoutManager(layoutThis);
 
 			this.setBackgroundColor(THIS_BACK);
-			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(250),
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(300),
 					getMapMode().DPtoLP(100)));
 			this.setOutline(true);
 			this.setBackgroundColor(THIS_BACK);

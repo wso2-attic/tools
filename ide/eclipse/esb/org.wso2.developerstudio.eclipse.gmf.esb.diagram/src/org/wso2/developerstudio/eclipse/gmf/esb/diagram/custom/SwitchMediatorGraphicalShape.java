@@ -39,6 +39,7 @@ public class SwitchMediatorGraphicalShape extends RoundedRectangle {
 		LineBorder border0 = new LineBorder(this.getBackgroundColor(), 1, SWT.BORDER_SOLID);
 		graphicalNodeContainer0.setBorder(border0);
 		graphicalNodeContainer0.setPreferredSize(new Dimension(55, 10));
+		graphicalNodeContainer0.setMinimumSize(new Dimension(70, 70));
 
 		GridData constraintGraphicalNodeContainer0 = new GridData();
 		constraintGraphicalNodeContainer0.verticalAlignment = GridData.CENTER;

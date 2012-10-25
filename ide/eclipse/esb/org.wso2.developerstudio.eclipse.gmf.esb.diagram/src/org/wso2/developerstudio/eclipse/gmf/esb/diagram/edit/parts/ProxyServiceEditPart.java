@@ -403,7 +403,7 @@ public class ProxyServiceEditPart extends AbstractBaseFigureEditPart {
 			//this.setBackgroundColor(new Color(null, 255, 255, 255));
 
 			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(1000),
-					getMapMode().DPtoLP(200)));
+					getMapMode().DPtoLP(400)));
 			this.setBackgroundColor(THIS_BACK);
 			//this.setLineStyle(Graphics.LINE_DASH);
 			this.setOutline(true);

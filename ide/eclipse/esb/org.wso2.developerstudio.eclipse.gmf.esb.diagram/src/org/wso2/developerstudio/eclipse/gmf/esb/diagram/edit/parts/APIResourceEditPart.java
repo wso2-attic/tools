@@ -325,7 +325,7 @@ public class APIResourceEditPart extends AbstractBaseFigureEditPart {
 			layoutThis.setVertical(false);
 			this.setLayoutManager(layoutThis);
 			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(1000),
-					getMapMode().DPtoLP(200)));
+					getMapMode().DPtoLP(400)));
 			this.setBackgroundColor(THIS_BACK);
 			this.setOutline(true);
 			LineBorder border0 = new LineBorder(new Color(null, 0, 0, 0), 1,

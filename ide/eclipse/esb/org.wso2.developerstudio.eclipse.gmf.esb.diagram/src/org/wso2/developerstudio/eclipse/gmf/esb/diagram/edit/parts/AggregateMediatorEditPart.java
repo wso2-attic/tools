@@ -352,7 +352,7 @@ public class AggregateMediatorEditPart extends complexFiguredAbstractMediator {
 			layoutThis.setVertical(false);
 
 			this.setLayoutManager(layoutThis);
-			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(250),
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(300),
 					getMapMode().DPtoLP(100)));
 			this.setOutline(true);
 			this.setBackgroundColor(THIS_BACK);

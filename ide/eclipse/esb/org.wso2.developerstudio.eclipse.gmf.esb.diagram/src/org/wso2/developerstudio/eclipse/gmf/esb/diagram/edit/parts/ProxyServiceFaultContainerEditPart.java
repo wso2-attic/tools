@@ -261,7 +261,7 @@ public class ProxyServiceFaultContainerEditPart extends ShapeNodeEditPart {
 			this.setOutline(true);
 			// TODO: review this:
 			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(5000),
-					getMapMode().DPtoLP(250)));
+					getMapMode().DPtoLP(700)));
 			this.setForegroundColor(new Color(null, 255, 255, 255));
 			/*			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
 			 getMapMode().DPtoLP(8)));
