@@ -39,6 +39,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
 import org.wso2.carbon.rule.common.Fact;
 import org.wso2.carbon.rule.common.Input;
 import org.wso2.carbon.rule.common.Output;
+import org.wso2.carbon.rule.common.Rule;
 import org.wso2.carbon.rule.common.RuleSet;
 import org.wso2.carbon.rule.common.util.Constants;
 import org.wso2.carbon.rule.kernel.engine.RuleEngine;
@@ -124,8 +125,11 @@ public class RuleMediatorTransformer extends AbstractEsbNodeTransformer {
         source.setXpath(visualRule.getSourceXpath().getPropertyValue());
         
         OMElement payload = AXIOMUtil.stringToOM(visualRule.getRuleSetSourceCode());
-      	org.wso2.carbon.rule.mediator.RuleMediator ruleMediator = new org.wso2.carbon.rule.mediator.RuleMediator(null, payload, source, target,input ,output );
-		ruleMediator.setRuleOMElement(payload);
+        RuleSet ruleSet = new RuleSet();
+        //RuleEngine engine = new RuleEngine(arg0, arg1); 
+		org.wso2.carbon.rule.mediator.RuleMediator ruleMediator = new org.wso2.carbon.rule.mediator.RuleMediator(
+				null, payload, source, target, input, output);
+		//ruleMediator.setRuleOMElement(payload);
 		return ruleMediator;
  
 	}
