@@ -212,7 +212,7 @@ public class RuleServiceDialog extends Dialog {
 		uriTab.setControl(uriTabComposite);
 
 		registerTab = new CTabItem(sourceTabFolder, SWT.NULL);
-		registerTab.setText("Registry");
+		registerTab.setText("registry");
 		GridLayout registerTabLayout = new GridLayout();
 		registerTabLayout.numColumns = 4;
 		Composite registerTabComposite = new Composite(sourceTabFolder, SWT.BORDER);
@@ -235,9 +235,15 @@ public class RuleServiceDialog extends Dialog {
 
 			@Override
 			public void widgetSelected(SelectionEvent evt) {
+				try{
 				BrsRegistryKeyPropertyEditorDialog registryDialog=new BrsRegistryKeyPropertyEditorDialog(Display.getCurrent().getActiveShell(),SWT.NULL);
 				registryDialog.open();
+				
 				registerText.setText(registryDialog.getRegistryValue());
+				}catch(IllegalArgumentException e){
+					
+				}
+			
 			}
 
 			@Override
@@ -256,7 +262,7 @@ public class RuleServiceDialog extends Dialog {
 		registerTab.setControl(registerTabComposite);
 
 		fileTab = new CTabItem(sourceTabFolder, SWT.NULL);
-		fileTab.setText("File");
+		fileTab.setText("file");
 		GridLayout fileTabLayout = new GridLayout();
 		fileTabLayout.numColumns = 3;
 		Composite fileTabComposite = new Composite(sourceTabFolder, SWT.BORDER);
@@ -291,6 +297,7 @@ public class RuleServiceDialog extends Dialog {
 				if (fileName != null) {
 					fileText.setText(fileName);
 					File drlFile=new File(path);
+					
 					IPath conf = project.getFolder(
 							"src" + File.separator + "main" + File.separator
 							+ "ruleservice" + File.separator + "conf").getLocation();
@@ -300,6 +307,7 @@ public class RuleServiceDialog extends Dialog {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
+					
 				}
 			}
 		});
@@ -372,7 +380,7 @@ public class RuleServiceDialog extends Dialog {
 		else if(rule.getSourceType().equals("URI")){
 			seturiValue(rule.getValue());
 		}
-		else if(rule.getSourceType().equals("Registry")){
+		else if(rule.getSourceType().equals("registry")){
 			setRegistry(rule.getValue());
 		}
 		else{

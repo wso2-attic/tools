@@ -179,6 +179,10 @@ public class BrsRegistryKeyPropertyEditorDialog extends Dialog{
 		super.okPressed();
 	}
 
+	@Override
+	protected void cancelPressed(){
+		super.cancelPressed();
+	}
 	private void saveConfiguration() {
 		brsKey.setKeyValue(rkTextField.getText());
 		setRegistryValue(rkTextField.getText().trim());

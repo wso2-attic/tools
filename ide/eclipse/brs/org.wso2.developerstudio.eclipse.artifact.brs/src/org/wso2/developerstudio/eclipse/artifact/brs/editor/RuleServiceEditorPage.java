@@ -430,6 +430,8 @@ public class RuleServiceEditorPage extends FormPage {
 
 	public void saveRSL() throws
 	IOException  {
+		ruleservice.setName(getServiceName());
+		ruleservice.setTargetNamespace(getTargetNameSpace());
 		ruleservice.setScope(getScope());
 		writeToSourceFile();
 		setPageDirty(false);

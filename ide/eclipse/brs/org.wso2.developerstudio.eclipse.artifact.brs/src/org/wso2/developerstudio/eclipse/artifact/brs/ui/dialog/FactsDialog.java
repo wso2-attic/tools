@@ -16,18 +16,30 @@
 
 package org.wso2.developerstudio.eclipse.artifact.brs.ui.dialog;
 
+import java.io.File;
+import java.net.URL;
 import java.util.ArrayList;
 
+import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.jdt.core.IClasspathEntry;
+import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.jdt.core.IJavaElement;
+import org.eclipse.jdt.core.IJavaProject;
+import org.eclipse.jdt.core.IPackageFragment;
 import org.eclipse.jdt.core.IPackageFragmentRoot;
+import org.eclipse.jdt.core.IType;
+import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Combo;
@@ -41,6 +53,7 @@ import org.wso2.carbon.rule.common.Input;
 import org.wso2.carbon.rule.common.Output;
 import org.wso2.carbon.rule.common.RuleService;
 import org.wso2.developerstudio.eclipse.utils.jdt.JavaUtils;
+import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 
 public class FactsDialog extends Dialog{
 	private Input input=new Input();
@@ -108,22 +121,51 @@ public class FactsDialog extends Dialog{
 
 		Label typeLabel=new Label(container, SWT.NULL);
 		typeLabel.setText("Fact Type");
-		
-		txtType = new Text(container, SWT.BORDER|SWT.NULL);
-		txtType.setText(updateFactType());
-		GridData typeGridData=new GridData(SWT.LEFT, SWT.CENTER, true,
-				false, 1, 1);
-		typeGridData.widthHint=200;
-		txtType.setLayoutData(typeGridData);
 
-		txtType.addModifyListener(new ModifyListener() {
-
-			@Override
-			public void modifyText(ModifyEvent arg0) {
-				setFactType(txtType.getText().trim());
+		factTypeCombo = new Combo(container, SWT.DROP_DOWN);
+		ArrayList<String> javaClass = new ArrayList<String>();
+		ArrayList<String> pakagesList = new ArrayList<String>();
+		ArrayList<IPackageFragment> packFrag= new ArrayList<IPackageFragment>();
+		IJavaProject javaProject = JavaCore.create(project);
+		try {
+			IPackageFragment[] packages = javaProject.getPackageFragments();
+			for (IPackageFragment iPackageFragment : packages) {
+				iPackageFragment.getElementName();
+				if (iPackageFragment.getKind() == IPackageFragmentRoot.K_SOURCE) { 
+					if(iPackageFragment.hasChildren()){
+						pakagesList.add(iPackageFragment.getElementName());
+						packFrag.add(iPackageFragment);
+						for (ICompilationUnit unit : iPackageFragment.getCompilationUnits()) {
+							javaClass.add(unit.getElementName());
+						}
+					}
+				}
 			}
-		});
+			String[] factsForCombo=new String[javaClass.size()];
+			int i=0;
+			for(int j=0;j<pakagesList.size();j++){
+				for (ICompilationUnit unit : packFrag.get(j).getCompilationUnits()) {
+					factsForCombo[i]=packFrag.get(j).getElementName()+"."+unit.getElementName().replace(".java", "");
+					i++;
+				}
+			}
+			factTypeCombo.setItems(factsForCombo);
+			factTypeCombo.setText(updateFactType());
+			factTypeCombo.addSelectionListener(new SelectionListener() {
+				@Override
+				public void widgetSelected(SelectionEvent event) {
+					setFactType(factTypeCombo.getText().trim());
+				}
+				@Override
+				public void widgetDefaultSelected(SelectionEvent event) {
 
+				}
+			});
+			
+		} catch (JavaModelException e) {
+			
+			e.printStackTrace();
+		}
 		return container;
 	}
 
