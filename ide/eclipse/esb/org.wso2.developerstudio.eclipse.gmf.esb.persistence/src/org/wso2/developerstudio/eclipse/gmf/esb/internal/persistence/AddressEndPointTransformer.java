@@ -44,6 +44,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.FailoverEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.SequenceInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.WSDLEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.EsbNodeTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
 
@@ -61,104 +62,21 @@ public class AddressEndPointTransformer extends AbstractEsbNodeTransformer {
 		// Check subject.
 		Assert.isTrue(subject instanceof AddressEndPoint, "Invalid subject");
 		AddressEndPoint visualEndPoint = (AddressEndPoint) subject;
-		// Tag the outbound message.
-		// String pathId = UUID.randomUUID().toString();
-		// PropertyMediator tagMediator = new PropertyMediator();
-		// tagMediator.setAction(PropertyMediator.ACTION_SET);
-		// tagMediator.setName("outPathId");
-		// tagMediator.setValue(pathId);
-		// info.getParentSequence().addChild(tagMediator);
-
-		// Send the message.
-		// TODO: We're using a default endpoint here, need to handle other cases
-		// on the real implementation.
+		
 		SendMediator sendMediator = null;
 		if (info.getPreviouNode() instanceof org.wso2.developerstudio.eclipse.gmf.esb.SendMediator) {			
-		 if(visualEndPoint.getInputConnector().getIncomingLinks().get(0).getSource().eContainer() instanceof org.wso2.developerstudio.eclipse.gmf.esb.Sequence){
-			 sendMediator=(SendMediator)info.getCurrentReferredSequence().getList().get(info.getCurrentReferredSequence().getList().size()-1);
-		}else{
 			sendMediator = (SendMediator) info.getParentSequence().getList()
 			.get(info.getParentSequence().getList().size() - 1);
-		}
-		}
-		else if((info.getParentSequence().getList().size() !=0) &&
-				(info.getParentSequence().getChild(info.getParentSequence().getList().size()-1) instanceof org.apache.synapse.mediators.builtin.SendMediator)){
-			sendMediator=(SendMediator) info.getParentSequence().getChild(info.getParentSequence().getList().size()-1);
+		}else if(info.getPreviouNode() instanceof org.wso2.developerstudio.eclipse.gmf.esb.Sequence){			
+			sendMediator=null;
 		} else{
-			sendMediator = new SendMediator();
-			info.getParentSequence().addChild(sendMediator);
+/*			sendMediator = new SendMediator();
+			info.getParentSequence().addChild(sendMediator);*/
 		}
-		AddressEndpoint synapseAddEP = new AddressEndpoint();
-		EndpointDefinition synapseEPDef = new EndpointDefinition();
-		synapseEPDef.setAddress(visualEndPoint.getURI());
-		// TODO: Configure endpoint with values extracted from the visual model.
-
-		// synapseEPDef.setCharSetEncoding(charSetEncoding);
-		if (visualEndPoint.isAddressingEnabled()) {
-			synapseEPDef.setAddressingOn(true);
-			synapseEPDef.setUseSeparateListener(visualEndPoint
-					.isAddressingSeparateListener());
-			synapseEPDef
-					.setAddressingVersion((visualEndPoint
-							.getAddressingVersion() == EndPointAddressingVersion.FINAL) ? "final"
-							: "submission");
-		}
-		if (visualEndPoint.isReliableMessagingEnabled()) {
-			synapseEPDef.setReliableMessagingOn(visualEndPoint
-					.isReliableMessagingEnabled());
-			// synapseEPDef.setWsRMPolicyKey(visualEndPoint.getReliableMessagingPolicy().getKeyValue());
-		}
-
-		if (visualEndPoint.isSecurityEnabled()) {
-			synapseEPDef.setSecurityOn(true);
-			// synapseEPDef.setWsSecPolicyKey(visualEndPoint.getSecurityPolicy().getKeyValue());
-		}
-
-		synapseEPDef.setRetryDurationOnTimeout((int) (visualEndPoint
-				.getRetryDelay()));
-		if (ValidationUtil.isInt(visualEndPoint.getRetryErrorCodes()))
-			synapseEPDef.addRetryDisabledErrorCode(ValidationUtil
-					.getInt(visualEndPoint.getRetryErrorCodes()));
-		if (ValidationUtil.isInt(visualEndPoint.getSuspendErrorCodes()))
-			synapseEPDef.addSuspendErrorCode(ValidationUtil
-					.getInt(visualEndPoint.getSuspendErrorCodes()));
-
-		synapseAddEP.setDefinition(synapseEPDef);
-		sendMediator.setEndpoint(synapseAddEP);
 		
-
-		// Process endpoint output.
-		// SwitchMediator outSwitch = null;
-		// // List<Mediator> outSequenceMediators = rootService
-		// // .getTargetInLineOutSequence().getList();
-		// List<Mediator> outSequenceMediators = info.getOriginOutSequence()
-		// .getList();
-		//
-		// if (!outSequenceMediators.isEmpty()) {
-		// Mediator firstMediator = outSequenceMediators.get(0);
-		// if (firstMediator instanceof SwitchMediator) {
-		// outSwitch = (SwitchMediator) firstMediator;
-		// }
-		// }
-		//
-		// // Introduce output switch if necessary.
-		// if (null == outSwitch) {
-		// outSwitch = new SwitchMediator();
-		// outSwitch.setSource(new SynapseXPath("$ctx.outPathId"));
-		// outSequenceMediators.add(0, outSwitch);
-		// }
-		//
-		// // Add path case.
-		// SwitchCase pathCase = new SwitchCase();
-		// pathCase.setRegex(Pattern.compile(pathId));
-		// AnonymousListMediator pathCaseMediator = new AnonymousListMediator();
-		// pathCase.setCaseMediator(pathCaseMediator);
-		// // Remove the path tag introduced earlier.
-		// PropertyMediator tagRemoveMediator = new PropertyMediator();
-		// tagRemoveMediator.setAction(PropertyMediator.ACTION_REMOVE);
-		// tagRemoveMediator.setName("outPathId");
-		// pathCaseMediator.addChild(tagRemoveMediator);
-		// outSwitch.addCase(pathCase);
+		if(sendMediator !=null){
+			sendMediator.setEndpoint(create(visualEndPoint,null));
+		}
 
 		if (!info.isEndPointFound) {
 			info.isEndPointFound = true;
@@ -174,8 +92,7 @@ public class AddressEndPointTransformer extends AbstractEsbNodeTransformer {
 			info.setParentSequence(info.getCurrentReferredSequence());
 		}
 		}
-
-
+		
 		// Transform endpoint output data flow.
 		doTransform(info, visualEndPoint.getOutputConnector());
 	}
@@ -267,7 +184,9 @@ public class AddressEndPointTransformer extends AbstractEsbNodeTransformer {
 	public AddressEndpoint create(AddressEndPoint visualEndPoint,String name){ 
 		AddressEndPoint addressEndPoint = visualEndPoint;	
 		AddressEndpoint synapseAddEP = new AddressEndpoint();
-		synapseAddEP.setName(name);
+		if(name !=null){
+			synapseAddEP.setName(name);
+		}
 		EndpointDefinition synapseEPDef = new EndpointDefinition();
 		synapseEPDef.setAddress(addressEndPoint.getURI());
 		// TODO: Configure endpoint with values extracted from the visual model.
@@ -309,7 +228,18 @@ public class AddressEndPointTransformer extends AbstractEsbNodeTransformer {
 
 	public void transformWithinSequence(TransformationInfo information,
 			EsbNode subject, SequenceMediator sequence) throws Exception {
-		// TODO Auto-generated method stub
+		
+		Assert.isTrue(subject instanceof AddressEndPoint, "Invalid subject");
+		AddressEndPoint visualEndPoint = (AddressEndPoint) subject;
+		
+		SendMediator sendMediator = null;
+		if (sequence.getList().get(sequence.getList().size()-1) instanceof SendMediator) {			
+			sendMediator = (SendMediator)sequence.getList().get(sequence.getList().size()-1);
+		} else {
+			sendMediator = new SendMediator();
+			sequence.addChild(sendMediator);
+		}		
+		sendMediator.setEndpoint(create(visualEndPoint,null));
 
 	}
 

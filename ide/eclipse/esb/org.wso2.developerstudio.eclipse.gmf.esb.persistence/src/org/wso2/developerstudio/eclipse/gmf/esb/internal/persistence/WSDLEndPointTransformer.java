@@ -29,17 +29,19 @@ public class WSDLEndPointTransformer extends AbstractEsbNodeTransformer{
 		
 		SendMediator sendMediator = null;
 		if (information.getPreviouNode() instanceof org.wso2.developerstudio.eclipse.gmf.esb.SendMediator) {
-			 if(visualEndPoint.getInputConnector().getIncomingLinks().get(0).getSource().eContainer() instanceof org.wso2.developerstudio.eclipse.gmf.esb.Sequence){
-				 sendMediator=(SendMediator)information.getCurrentReferredSequence().getList().get(information.getCurrentReferredSequence().getList().size()-1);
-			}else{
 			sendMediator = (SendMediator) information.getParentSequence().getList()
 					.get(information.getParentSequence().getList().size() - 1);
-			}
-		} else {
-			sendMediator = new SendMediator();
-			information.getParentSequence().addChild(sendMediator);
+
+		}else if(information.getPreviouNode() instanceof org.wso2.developerstudio.eclipse.gmf.esb.Sequence){
+			sendMediator=null;
+		} 
+		else {
+/*			sendMediator = new SendMediator();
+			information.getParentSequence().addChild(sendMediator);*/
 		}		
-		sendMediator.setEndpoint(create(visualEndPoint,null));	
+		if(sendMediator !=null){
+			sendMediator.setEndpoint(create(visualEndPoint,null));
+		}
 		
 		if(visualEndPoint.getOutputConnector().getOutgoingLink() !=null){
 		if((!(visualEndPoint.getOutputConnector().getOutgoingLink().getTarget() instanceof SequenceInputConnector))||
@@ -102,7 +104,9 @@ public class WSDLEndPointTransformer extends AbstractEsbNodeTransformer{
 		synapseWSDLEP.setWsdlURI(visualEndPoint.getWsdlUri());
 		synapseWSDLEP.setServiceName(visualEndPoint.getService());
 		synapseWSDLEP.setPortName(visualEndPoint.getPort());
-		synapseWSDLEP.setName(name);
+		if(name!=null){
+			synapseWSDLEP.setName(name);
+		}
 		
 		if (visualEndPoint.isAddressingEnabled()) {
 			synapseEPDef.setAddressingOn(true);
@@ -142,7 +146,18 @@ public class WSDLEndPointTransformer extends AbstractEsbNodeTransformer{
 
 	public void transformWithinSequence(TransformationInfo information,
 			EsbNode subject, SequenceMediator sequence) throws Exception {
-		// TODO Auto-generated method stub
+		
+		Assert.isTrue(subject instanceof WSDLEndPoint, "Invalid subject");
+		WSDLEndPoint visualEndPoint = (WSDLEndPoint) subject;
+		
+		SendMediator sendMediator = null;
+		if (sequence.getList().get(sequence.getList().size()-1) instanceof SendMediator) {			
+			sendMediator = (SendMediator)sequence.getList().get(sequence.getList().size()-1);
+		} else {
+			sendMediator = new SendMediator();
+			sequence.addChild(sendMediator);
+		}		
+		sendMediator.setEndpoint(create(visualEndPoint,null));
 		
 	}
 

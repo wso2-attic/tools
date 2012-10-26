@@ -61,94 +61,21 @@ public class DefaultEndPointTransformer extends AbstractEsbNodeTransformer {
 		Assert.isTrue(subject instanceof EndPoint, "Invalid subject");
 		DefaultEndPoint visualEP = (DefaultEndPoint) subject;
 
-		// Tag the outbound message. TODO: why is this necessary?
-//		String pathId = UUID.randomUUID().toString();
-//		PropertyMediator tagMediator = new PropertyMediator();
-//		tagMediator.setAction(PropertyMediator.ACTION_SET);
-//		tagMediator.setName("outPathId");
-//		tagMediator.setValue(pathId);
-//		info.getParentSequence().addChild(tagMediator);
-
 		// Send the message.
 		SendMediator sendMediator = null;
 		if (info.getPreviouNode() instanceof org.wso2.developerstudio.eclipse.gmf.esb.SendMediator) {
-			 if(visualEP.getInputConnector().getIncomingLinks().get(0).getSource().eContainer() instanceof org.wso2.developerstudio.eclipse.gmf.esb.Sequence){
-				 sendMediator=(SendMediator)info.getCurrentReferredSequence().getList().get(info.getCurrentReferredSequence().getList().size()-1);
-			}else{
 			sendMediator = (SendMediator) info.getParentSequence().getList()
-					.get(info.getParentSequence().getList().size() - 1);
-			}
+			.get(info.getParentSequence().getList().size() - 1);
+		} else if(info.getPreviouNode() instanceof org.wso2.developerstudio.eclipse.gmf.esb.Sequence){
+			sendMediator=null;
 		} else {
-			sendMediator = new SendMediator();
-			info.getParentSequence().addChild(sendMediator);
+/*			sendMediator = new SendMediator();
+			info.getParentSequence().addChild(sendMediator);*/
+		}		
+		if(sendMediator!=null){
+			sendMediator.setEndpoint(create(visualEP,null));
 		}
 		
-		DefaultEndpoint synapseEP = new DefaultEndpoint();
-		EndpointDefinition synapseEPDef = new EndpointDefinition();
-		// synapseEPDef.setCharSetEncoding(charSetEncoding);
-		if (visualEP.isAddressingEnabled()) {
-			synapseEPDef.setAddressingOn(true);
-			synapseEPDef.setUseSeparateListener(visualEP
-					.isAddressingSeparateListener());
-			synapseEPDef
-					.setAddressingVersion((visualEP.getAddressingVersion() == EndPointAddressingVersion.FINAL) ? "final"
-							: "submission");
-		}
-		if (visualEP.isReliableMessagingEnabled()) {
-			synapseEPDef.setReliableMessagingOn(visualEP
-					.isReliableMessagingEnabled());
-			// synapseEPDef.setWsRMPolicyKey(visualEP.getReliableMessagingPolicy().getKeyValue());
-		}
-
-		if (visualEP.isSecurityEnabled()) {
-			synapseEPDef.setSecurityOn(true);
-			// synapseEPDef.setWsSecPolicyKey(visualEP.getSecurityPolicy().getKeyValue());
-		}
-
-		synapseEPDef
-				.setRetryDurationOnTimeout((int) (visualEP.getRetryDelay()));
-		if (ValidationUtil.isInt(visualEP.getRetryErrorCodes()))
-			synapseEPDef.addRetryDisabledErrorCode(ValidationUtil
-					.getInt(visualEP.getRetryErrorCodes()));
-		if (ValidationUtil.isInt(visualEP.getSuspendErrorCodes()))
-			synapseEPDef.addSuspendErrorCode(ValidationUtil.getInt(visualEP
-					.getSuspendErrorCodes()));
-
-		synapseEP.setDefinition(synapseEPDef);
-		sendMediator.setEndpoint(synapseEP);
-
-		// Process endpoint output.
-//		SwitchMediator outSwitch = null;
-		// List<Mediator> outSequenceMediators = rootService
-		// .getTargetInLineOutSequence().getList();
-//		List<Mediator> outSequenceMediators = info.getOriginOutSequence()
-//				.getList();
-		// if (!outSequenceMediators.isEmpty()) {
-		// Mediator firstMediator = outSequenceMediators.get(0);
-		// if (firstMediator instanceof SwitchMediator) {
-		// outSwitch = (SwitchMediator) firstMediator;
-		// }
-		// }
-
-		// Introduce output switch if necessary.
-		// (null == outSwitch) {
-//		outSwitch = new SwitchMediator();
-//		outSwitch.setSource(new SynapseXPath("$ctx.outPathId"));
-//		outSequenceMediators.add(0, outSwitch);
-//		// }
-//
-//		// Add path case.
-//		SwitchCase pathCase = new SwitchCase();
-//		pathCase.setRegex(Pattern.compile(pathId));
-//		AnonymousListMediator pathCaseMediator = new AnonymousListMediator();
-//		pathCase.setCaseMediator(pathCaseMediator);
-//		// Remove the path tag introduced earlier.
-//		PropertyMediator tagRemoveMediator = new PropertyMediator();
-//		tagRemoveMediator.setAction(PropertyMediator.ACTION_REMOVE);
-//		tagRemoveMediator.setName("outPathId");
-//		pathCaseMediator.addChild(tagRemoveMediator);
-//		outSwitch.addCase(pathCase);
-
 		if(!info.isEndPointFound){
 			info.isEndPointFound=true;
 			info.firstEndPoint=visualEP;
@@ -204,16 +131,14 @@ public class DefaultEndPointTransformer extends AbstractEsbNodeTransformer {
 		info.isOutputPathSet=true;
 		}
 		
-		
-		
 	}
-	
-	
 	
 	public DefaultEndpoint create(DefaultEndPoint visualEndPoint,String name){ 
 		
 		DefaultEndpoint synapseEP = new DefaultEndpoint();
-		synapseEP.setName(name);
+		if(name!=null){
+			synapseEP.setName(name);
+		}
 		EndpointDefinition synapseEPDef = new EndpointDefinition();
 		// synapseEPDef.setCharSetEncoding(charSetEncoding);
 		if (visualEndPoint.isAddressingEnabled()) {
@@ -254,7 +179,17 @@ public class DefaultEndPointTransformer extends AbstractEsbNodeTransformer {
 
 	public void transformWithinSequence(TransformationInfo information,
 			EsbNode subject, SequenceMediator sequence) throws Exception {
-		// TODO Auto-generated method stub
+		Assert.isTrue(subject instanceof DefaultEndPoint, "Invalid subject");
+		DefaultEndPoint visualEndPoint = (DefaultEndPoint) subject;
+		
+		SendMediator sendMediator = null;
+		if (sequence.getList().get(sequence.getList().size()-1) instanceof SendMediator) {			
+			sendMediator = (SendMediator)sequence.getList().get(sequence.getList().size()-1);
+		} else {
+			sendMediator = new SendMediator();
+			sequence.addChild(sendMediator);
+		}		
+		sendMediator.setEndpoint(create(visualEndPoint,null));
 		
 	}
 
