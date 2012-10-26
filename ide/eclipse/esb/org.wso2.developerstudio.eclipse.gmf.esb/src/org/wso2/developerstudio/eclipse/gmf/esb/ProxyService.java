@@ -35,6 +35,15 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getServiceParameters <em>Service Parameters</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getServicePolicies <em>Service Policies</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getContainer <em>Container</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getInSequenceType <em>In Sequence Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getInSequenceKey <em>In Sequence Key</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getInSequenceName <em>In Sequence Name</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getOutSequenceType <em>Out Sequence Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getOutSequenceKey <em>Out Sequence Key</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getOutSequenceName <em>Out Sequence Name</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getFaultSequenceType <em>Fault Sequence Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getFaultSequenceKey <em>Fault Sequence Key</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getFaultSequenceName <em>Fault Sequence Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -500,5 +509,248 @@ public interface ProxyService extends EsbElement {
 	 * @generated
 	 */
 	void setContainer(ProxyServiceContainer value);
+
+	/**
+	 * Returns the value of the '<em><b>In Sequence Type</b></em>' attribute.
+	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.gmf.esb.SequenceType}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>In Sequence Type</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>In Sequence Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.SequenceType
+	 * @see #setInSequenceType(SequenceType)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getProxyService_InSequenceType()
+	 * @model
+	 * @generated
+	 */
+	SequenceType getInSequenceType();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getInSequenceType <em>In Sequence Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>In Sequence Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.SequenceType
+	 * @see #getInSequenceType()
+	 * @generated
+	 */
+	void setInSequenceType(SequenceType value);
+
+	/**
+	 * Returns the value of the '<em><b>In Sequence Key</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>In Sequence Key</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>In Sequence Key</em>' containment reference.
+	 * @see #setInSequenceKey(RegistryKeyProperty)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getProxyService_InSequenceKey()
+	 * @model containment="true"
+	 * @generated
+	 */
+	RegistryKeyProperty getInSequenceKey();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getInSequenceKey <em>In Sequence Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>In Sequence Key</em>' containment reference.
+	 * @see #getInSequenceKey()
+	 * @generated
+	 */
+	void setInSequenceKey(RegistryKeyProperty value);
+
+	/**
+	 * Returns the value of the '<em><b>In Sequence Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>In Sequence Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>In Sequence Name</em>' attribute.
+	 * @see #setInSequenceName(String)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getProxyService_InSequenceName()
+	 * @model
+	 * @generated
+	 */
+	String getInSequenceName();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getInSequenceName <em>In Sequence Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>In Sequence Name</em>' attribute.
+	 * @see #getInSequenceName()
+	 * @generated
+	 */
+	void setInSequenceName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Out Sequence Type</b></em>' attribute.
+	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.gmf.esb.SequenceType}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Out Sequence Type</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Out Sequence Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.SequenceType
+	 * @see #setOutSequenceType(SequenceType)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getProxyService_OutSequenceType()
+	 * @model
+	 * @generated
+	 */
+	SequenceType getOutSequenceType();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getOutSequenceType <em>Out Sequence Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Out Sequence Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.SequenceType
+	 * @see #getOutSequenceType()
+	 * @generated
+	 */
+	void setOutSequenceType(SequenceType value);
+
+	/**
+	 * Returns the value of the '<em><b>Out Sequence Key</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Out Sequence Key</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Out Sequence Key</em>' containment reference.
+	 * @see #setOutSequenceKey(RegistryKeyProperty)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getProxyService_OutSequenceKey()
+	 * @model containment="true"
+	 * @generated
+	 */
+	RegistryKeyProperty getOutSequenceKey();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getOutSequenceKey <em>Out Sequence Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Out Sequence Key</em>' containment reference.
+	 * @see #getOutSequenceKey()
+	 * @generated
+	 */
+	void setOutSequenceKey(RegistryKeyProperty value);
+
+	/**
+	 * Returns the value of the '<em><b>Out Sequence Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Out Sequence Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Out Sequence Name</em>' attribute.
+	 * @see #setOutSequenceName(String)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getProxyService_OutSequenceName()
+	 * @model
+	 * @generated
+	 */
+	String getOutSequenceName();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getOutSequenceName <em>Out Sequence Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Out Sequence Name</em>' attribute.
+	 * @see #getOutSequenceName()
+	 * @generated
+	 */
+	void setOutSequenceName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Fault Sequence Type</b></em>' attribute.
+	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.gmf.esb.SequenceType}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Fault Sequence Type</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Fault Sequence Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.SequenceType
+	 * @see #setFaultSequenceType(SequenceType)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getProxyService_FaultSequenceType()
+	 * @model
+	 * @generated
+	 */
+	SequenceType getFaultSequenceType();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getFaultSequenceType <em>Fault Sequence Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Fault Sequence Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.SequenceType
+	 * @see #getFaultSequenceType()
+	 * @generated
+	 */
+	void setFaultSequenceType(SequenceType value);
+
+	/**
+	 * Returns the value of the '<em><b>Fault Sequence Key</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Fault Sequence Key</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Fault Sequence Key</em>' containment reference.
+	 * @see #setFaultSequenceKey(RegistryKeyProperty)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getProxyService_FaultSequenceKey()
+	 * @model containment="true"
+	 * @generated
+	 */
+	RegistryKeyProperty getFaultSequenceKey();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getFaultSequenceKey <em>Fault Sequence Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Fault Sequence Key</em>' containment reference.
+	 * @see #getFaultSequenceKey()
+	 * @generated
+	 */
+	void setFaultSequenceKey(RegistryKeyProperty value);
+
+	/**
+	 * Returns the value of the '<em><b>Fault Sequence Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Fault Sequence Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Fault Sequence Name</em>' attribute.
+	 * @see #setFaultSequenceName(String)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getProxyService_FaultSequenceName()
+	 * @model
+	 * @generated
+	 */
+	String getFaultSequenceName();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getFaultSequenceName <em>Fault Sequence Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Fault Sequence Name</em>' attribute.
+	 * @see #getFaultSequenceName()
+	 * @generated
+	 */
+	void setFaultSequenceName(String value);
 
 } // ProxyService

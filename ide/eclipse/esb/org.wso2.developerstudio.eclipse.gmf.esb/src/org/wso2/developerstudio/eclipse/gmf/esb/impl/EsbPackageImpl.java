@@ -285,6 +285,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.SequenceDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.SequenceInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.SequenceOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.SequenceType;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequences;
 import org.wso2.developerstudio.eclipse.gmf.esb.SequencesInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.SequencesOutputConnector;
@@ -1257,6 +1258,13 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	private EEnum artifactTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum sequenceTypeEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -3265,6 +3273,87 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 */
 	public EReference getProxyService_Container() {
 		return (EReference)proxyServiceEClass.getEStructuralFeatures().get(17);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getProxyService_InSequenceType() {
+		return (EAttribute)proxyServiceEClass.getEStructuralFeatures().get(18);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getProxyService_InSequenceKey() {
+		return (EReference)proxyServiceEClass.getEStructuralFeatures().get(19);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getProxyService_InSequenceName() {
+		return (EAttribute)proxyServiceEClass.getEStructuralFeatures().get(20);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getProxyService_OutSequenceType() {
+		return (EAttribute)proxyServiceEClass.getEStructuralFeatures().get(21);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getProxyService_OutSequenceKey() {
+		return (EReference)proxyServiceEClass.getEStructuralFeatures().get(22);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getProxyService_OutSequenceName() {
+		return (EAttribute)proxyServiceEClass.getEStructuralFeatures().get(23);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getProxyService_FaultSequenceType() {
+		return (EAttribute)proxyServiceEClass.getEStructuralFeatures().get(24);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getProxyService_FaultSequenceKey() {
+		return (EReference)proxyServiceEClass.getEStructuralFeatures().get(25);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getProxyService_FaultSequenceName() {
+		return (EAttribute)proxyServiceEClass.getEStructuralFeatures().get(26);
 	}
 
 	/**
@@ -6154,6 +6243,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 */
 	public EEnum getArtifactType() {
 		return artifactTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getSequenceType() {
+		return sequenceTypeEEnum;
 	}
 
 	/**
@@ -11566,6 +11664,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEReference(proxyServiceEClass, PROXY_SERVICE__SERVICE_PARAMETERS);
 		createEReference(proxyServiceEClass, PROXY_SERVICE__SERVICE_POLICIES);
 		createEReference(proxyServiceEClass, PROXY_SERVICE__CONTAINER);
+		createEAttribute(proxyServiceEClass, PROXY_SERVICE__IN_SEQUENCE_TYPE);
+		createEReference(proxyServiceEClass, PROXY_SERVICE__IN_SEQUENCE_KEY);
+		createEAttribute(proxyServiceEClass, PROXY_SERVICE__IN_SEQUENCE_NAME);
+		createEAttribute(proxyServiceEClass, PROXY_SERVICE__OUT_SEQUENCE_TYPE);
+		createEReference(proxyServiceEClass, PROXY_SERVICE__OUT_SEQUENCE_KEY);
+		createEAttribute(proxyServiceEClass, PROXY_SERVICE__OUT_SEQUENCE_NAME);
+		createEAttribute(proxyServiceEClass, PROXY_SERVICE__FAULT_SEQUENCE_TYPE);
+		createEReference(proxyServiceEClass, PROXY_SERVICE__FAULT_SEQUENCE_KEY);
+		createEAttribute(proxyServiceEClass, PROXY_SERVICE__FAULT_SEQUENCE_NAME);
 
 		proxyOutputConnectorEClass = createEClass(PROXY_OUTPUT_CONNECTOR);
 
@@ -12665,6 +12772,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 
 		// Create enums
 		artifactTypeEEnum = createEEnum(ARTIFACT_TYPE);
+		sequenceTypeEEnum = createEEnum(SEQUENCE_TYPE);
 		proxyWsdlTypeEEnum = createEEnum(PROXY_WSDL_TYPE);
 		filterConditionTypeEEnum = createEEnum(FILTER_CONDITION_TYPE);
 		logCategoryEEnum = createEEnum(LOG_CATEGORY);
@@ -13083,6 +13191,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEReference(getProxyService_ServiceParameters(), this.getProxyServiceParameter(), null, "serviceParameters", null, 0, -1, ProxyService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProxyService_ServicePolicies(), this.getProxyServicePolicy(), null, "servicePolicies", null, 0, -1, ProxyService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProxyService_Container(), this.getProxyServiceContainer(), null, "container", null, 0, 1, ProxyService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getProxyService_InSequenceType(), this.getSequenceType(), "inSequenceType", null, 0, 1, ProxyService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProxyService_InSequenceKey(), this.getRegistryKeyProperty(), null, "inSequenceKey", null, 0, 1, ProxyService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getProxyService_InSequenceName(), ecorePackage.getEString(), "inSequenceName", null, 0, 1, ProxyService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getProxyService_OutSequenceType(), this.getSequenceType(), "outSequenceType", null, 0, 1, ProxyService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProxyService_OutSequenceKey(), this.getRegistryKeyProperty(), null, "outSequenceKey", null, 0, 1, ProxyService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getProxyService_OutSequenceName(), ecorePackage.getEString(), "outSequenceName", null, 0, 1, ProxyService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getProxyService_FaultSequenceType(), this.getSequenceType(), "faultSequenceType", null, 0, 1, ProxyService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProxyService_FaultSequenceKey(), this.getRegistryKeyProperty(), null, "faultSequenceKey", null, 0, 1, ProxyService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getProxyService_FaultSequenceName(), ecorePackage.getEString(), "faultSequenceName", null, 0, 1, ProxyService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(proxyOutputConnectorEClass, ProxyOutputConnector.class, "ProxyOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -14200,6 +14317,11 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		addEEnumLiteral(artifactTypeEEnum, ArtifactType.TASK);
 		addEEnumLiteral(artifactTypeEEnum, ArtifactType.TEMPLATE);
 		addEEnumLiteral(artifactTypeEEnum, ArtifactType.API);
+
+		initEEnum(sequenceTypeEEnum, SequenceType.class, "SequenceType");
+		addEEnumLiteral(sequenceTypeEEnum, SequenceType.ANONYMOUS);
+		addEEnumLiteral(sequenceTypeEEnum, SequenceType.REGISTRY_REFERENCE);
+		addEEnumLiteral(sequenceTypeEEnum, SequenceType.NAMED_REFERENCE);
 
 		initEEnum(proxyWsdlTypeEEnum, ProxyWsdlType.class, "ProxyWsdlType");
 		addEEnumLiteral(proxyWsdlTypeEEnum, ProxyWsdlType.NONE);

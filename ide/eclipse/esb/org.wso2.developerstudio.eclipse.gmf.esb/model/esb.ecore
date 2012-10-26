@@ -98,6 +98,23 @@
         eType="#//ProxyServicePolicy" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="container" eType="#//ProxyServiceContainer"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="inSequenceType" eType="#//SequenceType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inSequenceKey" eType="#//RegistryKeyProperty"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="inSequenceName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="outSequenceType" eType="#//SequenceType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outSequenceKey" eType="#//RegistryKeyProperty"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="outSequenceName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="faultSequenceType" eType="#//SequenceType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="faultSequenceKey" eType="#//RegistryKeyProperty"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="faultSequenceName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="SequenceType">
+    <eLiterals name="Anonymous"/>
+    <eLiterals name="RegistryReference" value="1" literal="Registry Reference"/>
+    <eLiterals name="NamedReference" value="2" literal="Named Reference"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ProxyWsdlType">
     <eLiterals name="NONE"/>

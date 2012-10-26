@@ -344,6 +344,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 		switch (eDataType.getClassifierID()) {
 			case EsbPackage.ARTIFACT_TYPE:
 				return createArtifactTypeFromString(eDataType, initialValue);
+			case EsbPackage.SEQUENCE_TYPE:
+				return createSequenceTypeFromString(eDataType, initialValue);
 			case EsbPackage.PROXY_WSDL_TYPE:
 				return createProxyWsdlTypeFromString(eDataType, initialValue);
 			case EsbPackage.FILTER_CONDITION_TYPE:
@@ -510,6 +512,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 		switch (eDataType.getClassifierID()) {
 			case EsbPackage.ARTIFACT_TYPE:
 				return convertArtifactTypeToString(eDataType, instanceValue);
+			case EsbPackage.SEQUENCE_TYPE:
+				return convertSequenceTypeToString(eDataType, instanceValue);
 			case EsbPackage.PROXY_WSDL_TYPE:
 				return convertProxyWsdlTypeToString(eDataType, instanceValue);
 			case EsbPackage.FILTER_CONDITION_TYPE:
@@ -1875,6 +1879,26 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	 * @generated
 	 */
 	public String convertArtifactTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SequenceType createSequenceTypeFromString(EDataType eDataType, String initialValue) {
+		SequenceType result = SequenceType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertSequenceTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

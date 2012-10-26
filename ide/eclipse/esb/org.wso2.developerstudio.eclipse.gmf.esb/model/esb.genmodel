@@ -17,6 +17,11 @@
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ArtifactType/TEMPLATE"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ArtifactType/API"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//SequenceType">
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//SequenceType/Anonymous"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//SequenceType/RegistryReference"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//SequenceType/NamedReference"/>
+    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//ProxyWsdlType">
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ProxyWsdlType/NONE"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ProxyWsdlType/INLINE"/>
@@ -474,6 +479,15 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyService/serviceParameters"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyService/servicePolicies"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyService/container"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ProxyService/inSequenceType"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyService/inSequenceKey"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ProxyService/inSequenceName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ProxyService/outSequenceType"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyService/outSequenceKey"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ProxyService/outSequenceName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ProxyService/faultSequenceType"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyService/faultSequenceKey"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ProxyService/faultSequenceName"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//ProxyOutputConnector"/>
     <genClasses ecoreClass="esb.ecore#//ProxyInputConnector"/>
