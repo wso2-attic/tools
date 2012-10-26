@@ -95,7 +95,41 @@ public class ProxyServiceItemProvider
 					addWsdlKeyPropertyDescriptor(object);
 					break;
 				}
-			}	
+			}
+			
+			addInSequenceTypePropertyDescriptor(object);
+			switch (proxy.getInSequenceType()){
+				case REGISTRY_REFERENCE:{
+					addInSequenceKeyPropertyDescriptor(object);
+					break;
+				}
+				case NAMED_REFERENCE:{
+					addInSequenceNamePropertyDescriptor(object);
+					break;
+				}
+			}
+			addOutSequenceTypePropertyDescriptor(object);
+			switch (proxy.getOutSequenceType()) {
+				case REGISTRY_REFERENCE: {
+					addOutSequenceKeyPropertyDescriptor(object);
+					break;
+				}
+				case NAMED_REFERENCE: {
+					addOutSequenceNamePropertyDescriptor(object);
+					break;
+				}
+				}
+			addFaultSequenceTypePropertyDescriptor(object);
+			switch (proxy.getFaultSequenceType()){
+				case REGISTRY_REFERENCE:{
+					addFaultSequenceKeyPropertyDescriptor(object);
+					break;
+				}
+				case NAMED_REFERENCE:{
+					addFaultSequenceNamePropertyDescriptor(object);
+					break;
+				}
+		}
 		
 		return itemPropertyDescriptors;
 	}
@@ -342,6 +376,204 @@ public class ProxyServiceItemProvider
 				 null));
 	}	
 	
+	/**
+	 * This adds a property descriptor for the In Sequence Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addInSequenceTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ProxyService_inSequenceType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ProxyService_inSequenceType_feature", "_UI_ProxyService_type"),
+				 EsbPackage.Literals.PROXY_SERVICE__IN_SEQUENCE_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 "In Sequence",
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the In Sequence Key feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addInSequenceKeyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ProxyService_inSequenceKey_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ProxyService_inSequenceKey_feature", "_UI_ProxyService_type"),
+				 EsbPackage.Literals.PROXY_SERVICE__IN_SEQUENCE_KEY,
+				 true,
+				 false,
+				 false,
+				 null,
+				 "In Sequence",
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the In Sequence Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addInSequenceNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ProxyService_inSequenceName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ProxyService_inSequenceName_feature", "_UI_ProxyService_type"),
+				 EsbPackage.Literals.PROXY_SERVICE__IN_SEQUENCE_NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 "In Sequence",
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Out Sequence Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addOutSequenceTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ProxyService_outSequenceType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ProxyService_outSequenceType_feature", "_UI_ProxyService_type"),
+				 EsbPackage.Literals.PROXY_SERVICE__OUT_SEQUENCE_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 "Out Sequence",
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Out Sequence Key feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addOutSequenceKeyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ProxyService_outSequenceKey_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ProxyService_outSequenceKey_feature", "_UI_ProxyService_type"),
+				 EsbPackage.Literals.PROXY_SERVICE__OUT_SEQUENCE_KEY,
+				 true,
+				 false,
+				 false,
+				 null,
+				 "Out Sequence",
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Out Sequence Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */ 
+	protected void addOutSequenceNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ProxyService_outSequenceName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ProxyService_outSequenceName_feature", "_UI_ProxyService_type"),
+				 EsbPackage.Literals.PROXY_SERVICE__OUT_SEQUENCE_NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 "Out Sequence",
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Fault Sequence Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addFaultSequenceTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ProxyService_faultSequenceType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ProxyService_faultSequenceType_feature", "_UI_ProxyService_type"),
+				 EsbPackage.Literals.PROXY_SERVICE__FAULT_SEQUENCE_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 "Fault Sequence",
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Fault Sequence Key feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addFaultSequenceKeyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ProxyService_faultSequenceKey_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ProxyService_faultSequenceKey_feature", "_UI_ProxyService_type"),
+				 EsbPackage.Literals.PROXY_SERVICE__FAULT_SEQUENCE_KEY,
+				 true,
+				 false,
+				 false,
+				 null,
+				 "Fault Sequence",
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Fault Sequence Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addFaultSequenceNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ProxyService_faultSequenceName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ProxyService_faultSequenceName_feature", "_UI_ProxyService_type"),
+				 EsbPackage.Literals.PROXY_SERVICE__FAULT_SEQUENCE_NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 "Fault Sequence",
+				 null));
+	}
+
 	protected void addWsdlKeyPropertyDescriptor(Object object) {
         itemPropertyDescriptors.add
             (createItemPropertyDescriptor
@@ -378,6 +610,9 @@ public class ProxyServiceItemProvider
 			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE__SERVICE_PARAMETERS);
 			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE__SERVICE_POLICIES);
 			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE__CONTAINER);
+			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE__IN_SEQUENCE_KEY);
+			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE__OUT_SEQUENCE_KEY);
+			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE__FAULT_SEQUENCE_KEY);
 		}
 		return childrenFeatures;
 	}
@@ -447,6 +682,12 @@ public class ProxyServiceItemProvider
 			case EsbPackage.PROXY_SERVICE__WSDL_TYPE:
 			case EsbPackage.PROXY_SERVICE__WSDL_XML:
 			case EsbPackage.PROXY_SERVICE__WSDL_URL:
+			case EsbPackage.PROXY_SERVICE__IN_SEQUENCE_TYPE:
+			case EsbPackage.PROXY_SERVICE__IN_SEQUENCE_NAME:
+			case EsbPackage.PROXY_SERVICE__OUT_SEQUENCE_TYPE:
+			case EsbPackage.PROXY_SERVICE__OUT_SEQUENCE_NAME:
+			case EsbPackage.PROXY_SERVICE__FAULT_SEQUENCE_TYPE:
+			case EsbPackage.PROXY_SERVICE__FAULT_SEQUENCE_NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case EsbPackage.PROXY_SERVICE__OUTPUT_CONNECTOR:
@@ -456,6 +697,9 @@ public class ProxyServiceItemProvider
 			case EsbPackage.PROXY_SERVICE__SERVICE_PARAMETERS:
 			case EsbPackage.PROXY_SERVICE__SERVICE_POLICIES:
 			case EsbPackage.PROXY_SERVICE__CONTAINER:
+			case EsbPackage.PROXY_SERVICE__IN_SEQUENCE_KEY:
+			case EsbPackage.PROXY_SERVICE__OUT_SEQUENCE_KEY:
+			case EsbPackage.PROXY_SERVICE__FAULT_SEQUENCE_KEY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -508,6 +752,46 @@ public class ProxyServiceItemProvider
 			(createChildParameter
 				(EsbPackage.Literals.PROXY_SERVICE__CONTAINER,
 				 EsbFactory.eINSTANCE.createProxyServiceContainer()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.PROXY_SERVICE__IN_SEQUENCE_KEY,
+				 EsbFactory.eINSTANCE.createRegistryKeyProperty()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.PROXY_SERVICE__OUT_SEQUENCE_KEY,
+				 EsbFactory.eINSTANCE.createRegistryKeyProperty()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.PROXY_SERVICE__FAULT_SEQUENCE_KEY,
+				 EsbFactory.eINSTANCE.createRegistryKeyProperty()));
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify =
+			childFeature == EsbPackage.Literals.PROXY_SERVICE__WSDL_KEY ||
+			childFeature == EsbPackage.Literals.PROXY_SERVICE__IN_SEQUENCE_KEY ||
+			childFeature == EsbPackage.Literals.PROXY_SERVICE__OUT_SEQUENCE_KEY ||
+			childFeature == EsbPackage.Literals.PROXY_SERVICE__FAULT_SEQUENCE_KEY;
+
+		if (qualify) {
+			return getString
+				("_UI_CreateChild_text2",
+				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 }
