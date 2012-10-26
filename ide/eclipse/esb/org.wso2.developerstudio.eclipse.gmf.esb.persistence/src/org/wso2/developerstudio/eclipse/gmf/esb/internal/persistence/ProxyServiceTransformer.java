@@ -158,12 +158,36 @@ public class ProxyServiceTransformer extends AbstractEsbNodeTransformer {
 			
 
 			// In sequence.
-			SequenceMediator inSequence = new SequenceMediator();
-			proxyService.setTargetInLineInSequence(inSequence);
+			SequenceMediator inSequence = new SequenceMediator();			
+			switch (visualService.getInSequenceType()) {
+			case ANONYMOUS:
+				proxyService.setTargetInLineInSequence(inSequence);
+				break;
+				
+			case NAMED_REFERENCE:
+				proxyService.setTargetInSequence(visualService.getInSequenceName());
+				break;
+
+			case REGISTRY_REFERENCE:
+				proxyService.setTargetInSequence(visualService.getInSequenceKey().getKeyValue());
+				break;
+			}
 
 			// Out sequence.
-			SequenceMediator outSequence = new SequenceMediator();
-			proxyService.setTargetInLineOutSequence(outSequence);
+			SequenceMediator outSequence = new SequenceMediator();			
+			switch (visualService.getOutSequenceType()) {
+			case ANONYMOUS:
+				proxyService.setTargetInLineOutSequence(outSequence);
+				break;
+			
+			case NAMED_REFERENCE:
+				proxyService.setTargetOutSequence(visualService.getOutSequenceName());
+				break;
+
+			case REGISTRY_REFERENCE:
+				proxyService.setTargetOutSequence(visualService.getOutSequenceKey().getKeyValue());
+				break;
+			}
 
 			info.setOriginInSequence(inSequence);
 			info.setOriginOutSequence(outSequence);
@@ -173,8 +197,21 @@ public class ProxyServiceTransformer extends AbstractEsbNodeTransformer {
 			doTransform(info, visualService.getOutputConnector());
 			
 			//Set Fault Sequence
-			SequenceMediator faultSequence = new SequenceMediator();
-			proxyService.setTargetInLineFaultSequence(faultSequence);
+			SequenceMediator faultSequence = new SequenceMediator();			
+			switch (visualService.getFaultSequenceType()) {
+			case ANONYMOUS:
+				proxyService.setTargetInLineFaultSequence(faultSequence);
+				break;
+			
+			case NAMED_REFERENCE:
+				proxyService.setTargetFaultSequence(visualService.getFaultSequenceName());
+				break;
+
+			case REGISTRY_REFERENCE:
+				proxyService.setTargetFaultSequence(visualService.getFaultSequenceKey().getKeyValue());
+				break;
+			}			
+			
 			TransformationInfo faultInfo =new TransformationInfo(); 
 			faultInfo.setParentSequence(faultSequence);			
 			faultInfo.setSynapseConfiguration(info.getSynapseConfiguration());
