@@ -6,11 +6,11 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: WSO2
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: org.apache.commons.lang,
+ org.apache.synapse.mediators,
+ org.apache.synapse.mediators.builtin,
+ org.apache.synapse.util.xpath,
  org.eclipse.core.runtime,
  org.eclipse.emf.common.util,
  org.eclipse.emf.ecore,
+ org.jaxen,
  org.wso2.developerstudio.eclipse.gmf.esb
-Bundle-ClassPath: lib/synapse-core-2.1.0-wso2v4.jar,
- .,
- lib/axiom-api-1.2.14-SNAPSHOT.jar,
- lib/jaxen-1.1.1.jar
