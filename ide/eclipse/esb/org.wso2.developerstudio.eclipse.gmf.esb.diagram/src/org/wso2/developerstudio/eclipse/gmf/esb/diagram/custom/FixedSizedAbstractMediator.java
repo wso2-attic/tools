@@ -30,13 +30,13 @@ public abstract class FixedSizedAbstractMediator extends AbstractMediator {
 	
 	public IFigure getFigure() {
 		IFigure figure = super.getFigure();
-		figure.setMaximumSize(new Dimension(104, 70));
+		figure.setMaximumSize(new Dimension(75, 55));
 		return figure;
 	}
 	
 	protected NodeFigure createNodePlate() {
-		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(104, 70);
-		result.setMinimumSize(new Dimension(104, 70));
+		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(75, 55);
+		result.setMinimumSize(new Dimension(75, 55));
 		return result;
 	}
 

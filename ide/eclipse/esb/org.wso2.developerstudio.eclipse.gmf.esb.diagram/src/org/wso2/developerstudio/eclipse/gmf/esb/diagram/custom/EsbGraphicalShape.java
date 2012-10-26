@@ -15,6 +15,9 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
+import org.eclipse.swt.graphics.GC;
+import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.widgets.Display;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramEditorPlugin;
 
 public class EsbGraphicalShape extends RoundedRectangle {
@@ -32,7 +35,7 @@ public class EsbGraphicalShape extends RoundedRectangle {
 		this.setFill(false);
 		this.setOutline(false);
 		//this.setBackgroundColor(get);
-		this.setPreferredSize(new Dimension(104, 70));
+		this.setPreferredSize(new Dimension(75, 55));
 		createContents();
 	}
 
@@ -70,12 +73,24 @@ public class EsbGraphicalShape extends RoundedRectangle {
 		
 		ImageDescriptor mainImgDesc = EsbDiagramEditorPlugin
 				.getBundledImageDescriptor(getIconPath());
-		ImageFigure mainImg = new ImageFigure(mainImgDesc.createImage());
-		mainImg.setSize(new Dimension(100, 70));
+		
+		Image image =mainImgDesc.createImage();
+		Image scaled = new Image(Display.getDefault(), 36, 52);
+        GC gc = new GC(scaled);
+        gc.setAntialias(SWT.ON);
+        gc.setInterpolation(SWT.HIGH);
+        gc.drawImage(image, 0, 0, image.getBounds().width, image.getBounds().height, 0, 0, 36,
+                     52);
+        gc.dispose();
+		
+		
+		
+		ImageFigure mainImg = new ImageFigure(scaled);
+		mainImg.setSize(new Dimension(75, 55));
 		RectangleFigure mainImageRectangle = new RectangleFigure();
 		mainImageRectangle.setOutline(false);
 		mainImageRectangle.setBackgroundColor(new Color(null, 255, 255, 255));
-		mainImageRectangle.setPreferredSize(new Dimension(100, 70));
+		mainImageRectangle.setPreferredSize(new Dimension(75, 55));
 		mainImageRectangle.add(mainImg);
 		this.add(mainImageRectangle, constraintMainImageRectangle);		
 		
