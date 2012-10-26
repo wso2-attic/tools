@@ -138,19 +138,14 @@ public class EsbPropertySource extends PropertySource {
 		} else if(pkg.getFilterMediator_Xpath().equals(feature)){
 		    return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
 		} else if(pkg.getFilterMediator_Source().equals(feature)){
-			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
-			
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);			
 			//CallTemplate Mediator Template parameter custom property descriptor.
 		} else if(pkg.getCallTemplateMediator_TemplateParameters().equals(feature)){
-			return new CallTemplateParamCustomPropertyDescriptor(object, itemPropertyDescriptor);
-			
+			return new CallTemplateParamCustomPropertyDescriptor(object, itemPropertyDescriptor);			
 			//Cache Mediator OnHitBranch Sequence Key custom property descriptor.
-		} else if(pkg.getCacheMediator_SequenceKey().equals(feature)){
-			
-			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
-			
-		} else if (pkg.getCommandMediator_Properties().equals(feature)) {
-			
+		} else if(pkg.getCacheMediator_SequenceKey().equals(feature)){			
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);			
+		} else if (pkg.getCommandMediator_Properties().equals(feature)) {			
 			return new CommandMediatorPropertyDescriptor(object,itemPropertyDescriptor);
 		} else if (pkg.getRouterMediator_RouterContainer().equals(feature)) {
 			return new RouterMediatorPropertyDescriptor(object,itemPropertyDescriptor);
@@ -159,58 +154,47 @@ public class EsbPropertySource extends PropertySource {
 		} else if (pkg.getPayloadFactoryMediator_Args().equals(feature)) {
 			return new PayloadFactoryPropertyDescriptor(object,itemPropertyDescriptor);
 		} else if (pkg.getAbstractSqlExecutorMediator_SqlStatements().equals(feature)) {
-			return new SqlExecutorMediatorSqlStatementsPropertyDescriptor(object,itemPropertyDescriptor);
-		}
+			return new SqlExecutorMediatorSqlStatementsPropertyDescriptor(object,itemPropertyDescriptor);		}
 			//Throttle Mediator Policy Entries custom property descriptor.
-		else if(pkg.getThrottleMediator_PolicyEntries().equals(feature)){
-			
-			return new ThrottlePolicyEntryPropertyDescriptor(object, itemPropertyDescriptor);
-			
+		else if(pkg.getThrottleMediator_PolicyEntries().equals(feature)){			
+			return new ThrottlePolicyEntryPropertyDescriptor(object, itemPropertyDescriptor);			
 			//Throttle Mediator Policy key custom property descriptor.
-		}else if(pkg.getThrottleMediator_PolicyKey().equals(feature)){
-			
+		}else if(pkg.getThrottleMediator_PolicyKey().equals(feature)){			
 			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
 			//Throttle Mediator On Accept branch custom property descriptor.
-		}else if(pkg.getThrottleMediator_OnAcceptBranchsequenceKey().equals(feature)){
-			
-			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
-			
+		}else if(pkg.getThrottleMediator_OnAcceptBranchsequenceKey().equals(feature)){			
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);			
 			//Throttle Mediator On Reject branch custom property descriptor.
-		}else if(pkg.getThrottleMediator_OnRejectBranchsequenceKey().equals(feature)){
-			
-			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
-			
+		}else if(pkg.getThrottleMediator_OnRejectBranchsequenceKey().equals(feature)){			
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);			
 			//Validate Mediator Source path Custom property descriptors.
-		}else if(pkg.getValidateMediator_SourceXpath().equals(feature)){
-			
-			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
-			
+		}else if(pkg.getValidateMediator_SourceXpath().equals(feature)){			
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);			
 			//Validate Mediator Schema Custom property descriptors.
-		}else if(pkg.getValidateMediator_Schemas().equals(feature)){
-			
-			return new ValidateSchemasPropertyDescriptor(object, itemPropertyDescriptor);
-			
+		}else if(pkg.getValidateMediator_Schemas().equals(feature)){			
+			return new ValidateSchemasPropertyDescriptor(object, itemPropertyDescriptor);			
 			//Validate Mediator Features Custom property descriptors.
-		}else if(pkg.getValidateMediator_Features().equals(feature)){
-			
-			return new ValidateFeaturePropertyDescriptor(object, itemPropertyDescriptor);
-			
-		}else if(pkg.getURLRewriteMediator_UrlRewriteRules().equals(feature)){
-			
-			return new URLRewiterConfigurationPropertyDescriptor(object, itemPropertyDescriptor);
-			
+		}else if(pkg.getValidateMediator_Features().equals(feature)){			
+			return new ValidateFeaturePropertyDescriptor(object, itemPropertyDescriptor);			
+		}else if(pkg.getURLRewriteMediator_UrlRewriteRules().equals(feature)){			
+			return new URLRewiterConfigurationPropertyDescriptor(object, itemPropertyDescriptor);			
 			//Builder Mediator message builder custom property descriptor.
-		}else if(pkg.getBuilderMediator_MessageBuilders().equals(feature)){
-			
-			return new MessageBuilderPropertyDescriptor(object, itemPropertyDescriptor);
-			
+		}else if(pkg.getBuilderMediator_MessageBuilders().equals(feature)){			
+			return new MessageBuilderPropertyDescriptor(object, itemPropertyDescriptor);			
 		}else if(pkg.getRuleMediator_SourceXpath().equals(feature)){
 			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
 		}else if(pkg.getRuleMediator_TargetResultXpath().equals(feature)){
 			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
 		}else if(pkg.getRuleMediator_TargetResultXpath().equals(feature)){
 			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
+		}else if(pkg.getProxyService_InSequenceKey().equals(feature)){
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
+		}else if(pkg.getProxyService_OutSequenceKey().equals(feature)){
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
+		}else if(pkg.getProxyService_FaultSequenceKey().equals(feature)){
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
 		}
+		
 			
 		// Else, default EMF behavior
 		else {
