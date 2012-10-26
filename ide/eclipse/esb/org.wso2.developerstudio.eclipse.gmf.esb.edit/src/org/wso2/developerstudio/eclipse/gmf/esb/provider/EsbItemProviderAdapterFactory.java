@@ -2470,29 +2470,6 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.TaskImplementation} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected TaskImplementationItemProvider taskImplementationItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.TaskImplementation}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createTaskImplementationAdapter() {
-		if (taskImplementationItemProvider == null) {
-			taskImplementationItemProvider = new TaskImplementationItemProvider(this);
-		}
-
-		return taskImplementationItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.TaskProperty} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6490,7 +6467,6 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 		if (templateItemProvider != null) templateItemProvider.dispose();
 		if (taskItemProvider != null) taskItemProvider.dispose();
 		if (nameValueTypePropertyItemProvider != null) nameValueTypePropertyItemProvider.dispose();
-		if (taskImplementationItemProvider != null) taskImplementationItemProvider.dispose();
 		if (taskPropertyItemProvider != null) taskPropertyItemProvider.dispose();
 		if (synapseAPIItemProvider != null) synapseAPIItemProvider.dispose();
 		if (apiResourceItemProvider != null) apiResourceItemProvider.dispose();

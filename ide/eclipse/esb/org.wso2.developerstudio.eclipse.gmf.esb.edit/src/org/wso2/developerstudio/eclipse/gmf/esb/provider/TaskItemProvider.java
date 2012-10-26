@@ -15,6 +15,7 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.wso2.developerstudio.eclipse.gmf.esb.TaskTriggerType;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.Task;
@@ -47,21 +48,32 @@ public class TaskItemProvider
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
-			super.getPropertyDescriptors(object);
+		Task task = (Task) object;
+		
+		if (itemPropertyDescriptors != null) {
+			itemPropertyDescriptors.clear();
+		}
+		
+		super.getPropertyDescriptors(object);
 
-			addTaskNamePropertyDescriptor(object);
-			addTaskGroupPropertyDescriptor(object);
-			addTriggerTypePropertyDescriptor(object);
+		addTaskNamePropertyDescriptor(object);
+		addTaskGroupPropertyDescriptor(object);
+		addTriggerTypePropertyDescriptor(object);
+		addPinnedServersPropertyDescriptor(object);
+		addTaskImplementationPropertyDescriptor(object);
+		addTaskPropertiesPropertyDescriptor(object);
+
+		if (task.getTriggerType().equals(TaskTriggerType.SIMPLE)) {
 			addCountPropertyDescriptor(object);
 			addIntervalPropertyDescriptor(object);
+		} else {
 			addCronPropertyDescriptor(object);
-			addPinnedServersPropertyDescriptor(object);
 		}
+
 		return itemPropertyDescriptors;
 	}
 
@@ -83,7 +95,7 @@ public class TaskItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI_BasicPropertyCategory"),
 				 null));
 	}
 
@@ -105,7 +117,7 @@ public class TaskItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI_BasicPropertyCategory"),
 				 null));
 	}
 
@@ -127,7 +139,7 @@ public class TaskItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI_TriggerInformationPropertyCategory"),
 				 null));
 	}
 
@@ -149,7 +161,7 @@ public class TaskItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
+				 getString("_UI_TriggerInformationPropertyCategory"),
 				 null));
 	}
 
@@ -171,7 +183,7 @@ public class TaskItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
+				 getString("_UI_TriggerInformationPropertyCategory"),
 				 null));
 	}
 
@@ -193,7 +205,7 @@ public class TaskItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 getString("_UI_TriggerInformationPropertyCategory"),
 				 null));
 	}
 
@@ -220,6 +232,50 @@ public class TaskItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Task Implementation feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTaskImplementationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Task_taskImplementation_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Task_taskImplementation_feature", "_UI_Task_type"),
+				 EsbPackage.Literals.TASK__TASK_IMPLEMENTATION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI_TaskImplementationPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Task Properties feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTaskPropertiesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Task_taskProperties_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Task_taskProperties_feature", "_UI_Task_type"),
+				 EsbPackage.Literals.TASK__TASK_PROPERTIES,
+				 true,
+				 false,
+				 false,
+				 null,
+				 getString("_UI_TaskImplementationPropertyCategory"),
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -231,7 +287,7 @@ public class TaskItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(EsbPackage.Literals.TASK__TASK_IMPLEMENTATION_CLASS);
+			childrenFeatures.add(EsbPackage.Literals.TASK__TASK_PROPERTIES);
 		}
 		return childrenFeatures;
 	}
@@ -293,9 +349,10 @@ public class TaskItemProvider
 			case EsbPackage.TASK__INTERVAL:
 			case EsbPackage.TASK__CRON:
 			case EsbPackage.TASK__PINNED_SERVERS:
+			case EsbPackage.TASK__TASK_IMPLEMENTATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case EsbPackage.TASK__TASK_IMPLEMENTATION_CLASS:
+			case EsbPackage.TASK__TASK_PROPERTIES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -315,8 +372,8 @@ public class TaskItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.TASK__TASK_IMPLEMENTATION_CLASS,
-				 EsbFactory.eINSTANCE.createTaskImplementation()));
+				(EsbPackage.Literals.TASK__TASK_PROPERTIES,
+				 EsbFactory.eINSTANCE.createTaskProperty()));
 	}
 
 }
