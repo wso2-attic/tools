@@ -1412,23 +1412,22 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//Template/child"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//Task">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//Task/taskName"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//Task/taskGroup"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//Task/taskImplementationClass"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//Task/triggerType"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//Task/count"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//Task/interval"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//Task/cron"/>
+      <genFeatures createChild="false" propertyCategory="Basic" ecoreFeature="ecore:EAttribute esb.ecore#//Task/taskName"/>
+      <genFeatures createChild="false" propertyCategory="Basic" ecoreFeature="ecore:EAttribute esb.ecore#//Task/taskGroup"/>
+      <genFeatures createChild="false" propertyCategory="Trigger Information" ecoreFeature="ecore:EAttribute esb.ecore#//Task/triggerType"/>
+      <genFeatures createChild="false" propertyCategory="Trigger Information" ecoreFeature="ecore:EAttribute esb.ecore#//Task/count"/>
+      <genFeatures createChild="false" propertyCategory="Trigger Information" ecoreFeature="ecore:EAttribute esb.ecore#//Task/interval"/>
+      <genFeatures createChild="false" propertyCategory="Trigger Information" propertyDescription=""
+          ecoreFeature="ecore:EAttribute esb.ecore#//Task/cron"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//Task/pinnedServers"/>
+      <genFeatures createChild="false" propertyCategory="Task Implementation" ecoreFeature="ecore:EAttribute esb.ecore#//Task/taskImplementation"/>
+      <genFeatures children="true" createChild="true" propertyCategory="Task Implementation"
+          propertyDescription="" ecoreFeature="ecore:EReference esb.ecore#//Task/taskProperties"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//NameValueTypeProperty">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//NameValueTypeProperty/propertyName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//NameValueTypeProperty/propertyValue"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//NameValueTypeProperty/propertyType"/>
-    </genClasses>
-    <genClasses ecoreClass="esb.ecore#//TaskImplementation">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//TaskImplementation/taskImplementation"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//TaskImplementation/taskProperties"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//TaskProperty"/>
     <genClasses ecoreClass="esb.ecore#//SynapseAPI">

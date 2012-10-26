@@ -960,15 +960,6 @@ public interface EsbFactory extends EFactory {
 	NameValueTypeProperty createNameValueTypeProperty();
 
 	/**
-	 * Returns a new object of class '<em>Task Implementation</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Task Implementation</em>'.
-	 * @generated
-	 */
-	TaskImplementation createTaskImplementation();
-
-	/**
 	 * Returns a new object of class '<em>Task Property</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

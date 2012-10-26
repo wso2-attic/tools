@@ -319,7 +319,6 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 			case EsbPackage.TEMPLATE: return createTemplate();
 			case EsbPackage.TASK: return createTask();
 			case EsbPackage.NAME_VALUE_TYPE_PROPERTY: return createNameValueTypeProperty();
-			case EsbPackage.TASK_IMPLEMENTATION: return createTaskImplementation();
 			case EsbPackage.TASK_PROPERTY: return createTaskProperty();
 			case EsbPackage.SYNAPSE_API: return createSynapseAPI();
 			case EsbPackage.API_RESOURCE: return createAPIResource();
@@ -1763,16 +1762,6 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	public NameValueTypeProperty createNameValueTypeProperty() {
 		NameValueTypePropertyImpl nameValueTypeProperty = new NameValueTypePropertyImpl();
 		return nameValueTypeProperty;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TaskImplementation createTaskImplementation() {
-		TaskImplementationImpl taskImplementation = new TaskImplementationImpl();
-		return taskImplementation;
 	}
 
 	/**

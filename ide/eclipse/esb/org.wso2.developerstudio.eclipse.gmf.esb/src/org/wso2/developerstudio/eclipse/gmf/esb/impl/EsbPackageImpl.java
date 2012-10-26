@@ -1193,13 +1193,6 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass taskImplementationEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass taskPropertyEClass = null;
 
 	/**
@@ -5808,17 +5801,8 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTask_TaskImplementationClass() {
-		return (EReference)taskEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getTask_TriggerType() {
-		return (EAttribute)taskEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)taskEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -5827,7 +5811,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	public EAttribute getTask_Count() {
-		return (EAttribute)taskEClass.getEStructuralFeatures().get(4);
+		return (EAttribute)taskEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -5836,7 +5820,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	public EAttribute getTask_Interval() {
-		return (EAttribute)taskEClass.getEStructuralFeatures().get(5);
+		return (EAttribute)taskEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -5845,7 +5829,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	public EAttribute getTask_Cron() {
-		return (EAttribute)taskEClass.getEStructuralFeatures().get(6);
+		return (EAttribute)taskEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -5854,7 +5838,25 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	public EAttribute getTask_PinnedServers() {
+		return (EAttribute)taskEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTask_TaskImplementation() {
 		return (EAttribute)taskEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTask_TaskProperties() {
+		return (EReference)taskEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -5891,33 +5893,6 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 */
 	public EAttribute getNameValueTypeProperty_PropertyType() {
 		return (EAttribute)nameValueTypePropertyEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getTaskImplementation() {
-		return taskImplementationEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTaskImplementation_TaskImplementation() {
-		return (EAttribute)taskImplementationEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getTaskImplementation_TaskProperties() {
-		return (EReference)taskImplementationEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -12638,21 +12613,18 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		taskEClass = createEClass(TASK);
 		createEAttribute(taskEClass, TASK__TASK_NAME);
 		createEAttribute(taskEClass, TASK__TASK_GROUP);
-		createEReference(taskEClass, TASK__TASK_IMPLEMENTATION_CLASS);
 		createEAttribute(taskEClass, TASK__TRIGGER_TYPE);
 		createEAttribute(taskEClass, TASK__COUNT);
 		createEAttribute(taskEClass, TASK__INTERVAL);
 		createEAttribute(taskEClass, TASK__CRON);
 		createEAttribute(taskEClass, TASK__PINNED_SERVERS);
+		createEAttribute(taskEClass, TASK__TASK_IMPLEMENTATION);
+		createEReference(taskEClass, TASK__TASK_PROPERTIES);
 
 		nameValueTypePropertyEClass = createEClass(NAME_VALUE_TYPE_PROPERTY);
 		createEAttribute(nameValueTypePropertyEClass, NAME_VALUE_TYPE_PROPERTY__PROPERTY_NAME);
 		createEAttribute(nameValueTypePropertyEClass, NAME_VALUE_TYPE_PROPERTY__PROPERTY_VALUE);
 		createEAttribute(nameValueTypePropertyEClass, NAME_VALUE_TYPE_PROPERTY__PROPERTY_TYPE);
-
-		taskImplementationEClass = createEClass(TASK_IMPLEMENTATION);
-		createEAttribute(taskImplementationEClass, TASK_IMPLEMENTATION__TASK_IMPLEMENTATION);
-		createEReference(taskImplementationEClass, TASK_IMPLEMENTATION__TASK_PROPERTIES);
 
 		taskPropertyEClass = createEClass(TASK_PROPERTY);
 
@@ -13037,7 +13009,6 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		templateEClass.getESuperTypes().add(this.getEsbElement());
 		taskEClass.getESuperTypes().add(this.getEsbElement());
 		nameValueTypePropertyEClass.getESuperTypes().add(this.getEsbNode());
-		taskImplementationEClass.getESuperTypes().add(this.getEsbNode());
 		taskPropertyEClass.getESuperTypes().add(this.getNameValueTypeProperty());
 		synapseAPIEClass.getESuperTypes().add(this.getEsbElement());
 		apiResourceEClass.getESuperTypes().add(this.getEsbNode());
@@ -14169,21 +14140,18 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEClass(taskEClass, Task.class, "Task", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTask_TaskName(), ecorePackage.getEString(), "taskName", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTask_TaskGroup(), ecorePackage.getEString(), "taskGroup", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTask_TaskImplementationClass(), this.getTaskImplementation(), null, "taskImplementationClass", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTask_TriggerType(), this.getTaskTriggerType(), "triggerType", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTask_Count(), ecorePackage.getELong(), "count", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTask_Interval(), ecorePackage.getELong(), "interval", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTask_Cron(), ecorePackage.getEString(), "cron", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTask_PinnedServers(), ecorePackage.getEString(), "pinnedServers", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTask_TaskImplementation(), ecorePackage.getEString(), "taskImplementation", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTask_TaskProperties(), this.getTaskProperty(), null, "taskProperties", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(nameValueTypePropertyEClass, NameValueTypeProperty.class, "NameValueTypeProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNameValueTypeProperty_PropertyName(), ecorePackage.getEString(), "propertyName", null, 0, 1, NameValueTypeProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getNameValueTypeProperty_PropertyValue(), ecorePackage.getEString(), "propertyValue", null, 0, 1, NameValueTypeProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getNameValueTypeProperty_PropertyType(), this.getTaskPropertyType(), "propertyType", null, 0, 1, NameValueTypeProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(taskImplementationEClass, TaskImplementation.class, "TaskImplementation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getTaskImplementation_TaskImplementation(), ecorePackage.getEString(), "taskImplementation", null, 0, 1, TaskImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTaskImplementation_TaskProperties(), this.getTaskProperty(), null, "taskProperties", null, 0, -1, TaskImplementation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(taskPropertyEClass, TaskProperty.class, "TaskProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

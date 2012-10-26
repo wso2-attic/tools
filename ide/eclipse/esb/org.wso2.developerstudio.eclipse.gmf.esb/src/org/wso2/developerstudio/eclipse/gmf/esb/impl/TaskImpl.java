@@ -1,13 +1,18 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.impl;
 
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.Task;
+import org.wso2.developerstudio.eclipse.gmf.esb.TaskProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.TaskImplementation;
 import org.wso2.developerstudio.eclipse.gmf.esb.TaskTriggerType;
 
@@ -20,12 +25,13 @@ import org.wso2.developerstudio.eclipse.gmf.esb.TaskTriggerType;
  * <ul>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.TaskImpl#getTaskName <em>Task Name</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.TaskImpl#getTaskGroup <em>Task Group</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.TaskImpl#getTaskImplementationClass <em>Task Implementation Class</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.TaskImpl#getTriggerType <em>Trigger Type</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.TaskImpl#getCount <em>Count</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.TaskImpl#getInterval <em>Interval</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.TaskImpl#getCron <em>Cron</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.TaskImpl#getPinnedServers <em>Pinned Servers</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.TaskImpl#getTaskImplementation <em>Task Implementation</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.TaskImpl#getTaskProperties <em>Task Properties</em>}</li>
  * </ul>
  * </p>
  *
@@ -71,16 +77,6 @@ public class TaskImpl extends EsbElementImpl implements Task {
 	 * @ordered
 	 */
 	protected String taskGroup = TASK_GROUP_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getTaskImplementationClass() <em>Task Implementation Class</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTaskImplementationClass()
-	 * @generated
-	 * @ordered
-	 */
-	protected TaskImplementation taskImplementationClass;
 
 	/**
 	 * The default value of the '{@link #getTriggerType() <em>Trigger Type</em>}' attribute.
@@ -183,6 +179,36 @@ public class TaskImpl extends EsbElementImpl implements Task {
 	protected String pinnedServers = PINNED_SERVERS_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getTaskImplementation() <em>Task Implementation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTaskImplementation()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String TASK_IMPLEMENTATION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getTaskImplementation() <em>Task Implementation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTaskImplementation()
+	 * @generated
+	 * @ordered
+	 */
+	protected String taskImplementation = TASK_IMPLEMENTATION_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getTaskProperties() <em>Task Properties</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTaskProperties()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<TaskProperty> taskProperties;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -241,49 +267,6 @@ public class TaskImpl extends EsbElementImpl implements Task {
 		taskGroup = newTaskGroup;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.TASK__TASK_GROUP, oldTaskGroup, taskGroup));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TaskImplementation getTaskImplementationClass() {
-		return taskImplementationClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetTaskImplementationClass(TaskImplementation newTaskImplementationClass, NotificationChain msgs) {
-		TaskImplementation oldTaskImplementationClass = taskImplementationClass;
-		taskImplementationClass = newTaskImplementationClass;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.TASK__TASK_IMPLEMENTATION_CLASS, oldTaskImplementationClass, newTaskImplementationClass);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTaskImplementationClass(TaskImplementation newTaskImplementationClass) {
-		if (newTaskImplementationClass != taskImplementationClass) {
-			NotificationChain msgs = null;
-			if (taskImplementationClass != null)
-				msgs = ((InternalEObject)taskImplementationClass).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.TASK__TASK_IMPLEMENTATION_CLASS, null, msgs);
-			if (newTaskImplementationClass != null)
-				msgs = ((InternalEObject)newTaskImplementationClass).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.TASK__TASK_IMPLEMENTATION_CLASS, null, msgs);
-			msgs = basicSetTaskImplementationClass(newTaskImplementationClass, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.TASK__TASK_IMPLEMENTATION_CLASS, newTaskImplementationClass, newTaskImplementationClass));
 	}
 
 	/**
@@ -396,11 +379,44 @@ public class TaskImpl extends EsbElementImpl implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getTaskImplementation() {
+		return taskImplementation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTaskImplementation(String newTaskImplementation) {
+		String oldTaskImplementation = taskImplementation;
+		taskImplementation = newTaskImplementation;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.TASK__TASK_IMPLEMENTATION, oldTaskImplementation, taskImplementation));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<TaskProperty> getTaskProperties() {
+		if (taskProperties == null) {
+			taskProperties = new EObjectContainmentEList<TaskProperty>(TaskProperty.class, this, EsbPackage.TASK__TASK_PROPERTIES);
+		}
+		return taskProperties;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case EsbPackage.TASK__TASK_IMPLEMENTATION_CLASS:
-				return basicSetTaskImplementationClass(null, msgs);
+			case EsbPackage.TASK__TASK_PROPERTIES:
+				return ((InternalEList<?>)getTaskProperties()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -417,8 +433,6 @@ public class TaskImpl extends EsbElementImpl implements Task {
 				return getTaskName();
 			case EsbPackage.TASK__TASK_GROUP:
 				return getTaskGroup();
-			case EsbPackage.TASK__TASK_IMPLEMENTATION_CLASS:
-				return getTaskImplementationClass();
 			case EsbPackage.TASK__TRIGGER_TYPE:
 				return getTriggerType();
 			case EsbPackage.TASK__COUNT:
@@ -429,6 +443,10 @@ public class TaskImpl extends EsbElementImpl implements Task {
 				return getCron();
 			case EsbPackage.TASK__PINNED_SERVERS:
 				return getPinnedServers();
+			case EsbPackage.TASK__TASK_IMPLEMENTATION:
+				return getTaskImplementation();
+			case EsbPackage.TASK__TASK_PROPERTIES:
+				return getTaskProperties();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -438,6 +456,7 @@ public class TaskImpl extends EsbElementImpl implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -446,9 +465,6 @@ public class TaskImpl extends EsbElementImpl implements Task {
 				return;
 			case EsbPackage.TASK__TASK_GROUP:
 				setTaskGroup((String)newValue);
-				return;
-			case EsbPackage.TASK__TASK_IMPLEMENTATION_CLASS:
-				setTaskImplementationClass((TaskImplementation)newValue);
 				return;
 			case EsbPackage.TASK__TRIGGER_TYPE:
 				setTriggerType((TaskTriggerType)newValue);
@@ -464,6 +480,13 @@ public class TaskImpl extends EsbElementImpl implements Task {
 				return;
 			case EsbPackage.TASK__PINNED_SERVERS:
 				setPinnedServers((String)newValue);
+				return;
+			case EsbPackage.TASK__TASK_IMPLEMENTATION:
+				setTaskImplementation((String)newValue);
+				return;
+			case EsbPackage.TASK__TASK_PROPERTIES:
+				getTaskProperties().clear();
+				getTaskProperties().addAll((Collection<? extends TaskProperty>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -483,9 +506,6 @@ public class TaskImpl extends EsbElementImpl implements Task {
 			case EsbPackage.TASK__TASK_GROUP:
 				setTaskGroup(TASK_GROUP_EDEFAULT);
 				return;
-			case EsbPackage.TASK__TASK_IMPLEMENTATION_CLASS:
-				setTaskImplementationClass((TaskImplementation)null);
-				return;
 			case EsbPackage.TASK__TRIGGER_TYPE:
 				setTriggerType(TRIGGER_TYPE_EDEFAULT);
 				return;
@@ -500,6 +520,12 @@ public class TaskImpl extends EsbElementImpl implements Task {
 				return;
 			case EsbPackage.TASK__PINNED_SERVERS:
 				setPinnedServers(PINNED_SERVERS_EDEFAULT);
+				return;
+			case EsbPackage.TASK__TASK_IMPLEMENTATION:
+				setTaskImplementation(TASK_IMPLEMENTATION_EDEFAULT);
+				return;
+			case EsbPackage.TASK__TASK_PROPERTIES:
+				getTaskProperties().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -517,8 +543,6 @@ public class TaskImpl extends EsbElementImpl implements Task {
 				return TASK_NAME_EDEFAULT == null ? taskName != null : !TASK_NAME_EDEFAULT.equals(taskName);
 			case EsbPackage.TASK__TASK_GROUP:
 				return TASK_GROUP_EDEFAULT == null ? taskGroup != null : !TASK_GROUP_EDEFAULT.equals(taskGroup);
-			case EsbPackage.TASK__TASK_IMPLEMENTATION_CLASS:
-				return taskImplementationClass != null;
 			case EsbPackage.TASK__TRIGGER_TYPE:
 				return triggerType != TRIGGER_TYPE_EDEFAULT;
 			case EsbPackage.TASK__COUNT:
@@ -529,6 +553,10 @@ public class TaskImpl extends EsbElementImpl implements Task {
 				return CRON_EDEFAULT == null ? cron != null : !CRON_EDEFAULT.equals(cron);
 			case EsbPackage.TASK__PINNED_SERVERS:
 				return PINNED_SERVERS_EDEFAULT == null ? pinnedServers != null : !PINNED_SERVERS_EDEFAULT.equals(pinnedServers);
+			case EsbPackage.TASK__TASK_IMPLEMENTATION:
+				return TASK_IMPLEMENTATION_EDEFAULT == null ? taskImplementation != null : !TASK_IMPLEMENTATION_EDEFAULT.equals(taskImplementation);
+			case EsbPackage.TASK__TASK_PROPERTIES:
+				return taskProperties != null && !taskProperties.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -557,6 +585,8 @@ public class TaskImpl extends EsbElementImpl implements Task {
 		result.append(cron);
 		result.append(", pinnedServers: ");
 		result.append(pinnedServers);
+		result.append(", taskImplementation: ");
+		result.append(taskImplementation);
 		result.append(')');
 		return result.toString();
 	}

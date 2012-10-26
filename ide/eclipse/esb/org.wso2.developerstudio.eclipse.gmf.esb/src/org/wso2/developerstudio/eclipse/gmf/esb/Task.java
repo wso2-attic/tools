@@ -19,12 +19,13 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.Task#getTaskName <em>Task Name</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.Task#getTaskGroup <em>Task Group</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.Task#getTaskImplementationClass <em>Task Implementation Class</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.Task#getTriggerType <em>Trigger Type</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.Task#getCount <em>Count</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.Task#getInterval <em>Interval</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.Task#getCron <em>Cron</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.Task#getPinnedServers <em>Pinned Servers</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.Task#getTaskImplementation <em>Task Implementation</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.Task#getTaskProperties <em>Task Properties</em>}</li>
  * </ul>
  * </p>
  *
@@ -84,32 +85,6 @@ public interface Task extends EsbElement {
 	 * @generated
 	 */
 	void setTaskGroup(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Task Implementation Class</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Task Implementation Class</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Task Implementation Class</em>' containment reference.
-	 * @see #setTaskImplementationClass(TaskImplementation)
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getTask_TaskImplementationClass()
-	 * @model containment="true"
-	 * @generated
-	 */
-	TaskImplementation getTaskImplementationClass();
-
-	/**
-	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.Task#getTaskImplementationClass <em>Task Implementation Class</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Task Implementation Class</em>' containment reference.
-	 * @see #getTaskImplementationClass()
-	 * @generated
-	 */
-	void setTaskImplementationClass(TaskImplementation value);
 
 	/**
 	 * Returns the value of the '<em><b>Trigger Type</b></em>' attribute.
@@ -243,5 +218,47 @@ public interface Task extends EsbElement {
 	 * @generated
 	 */
 	void setPinnedServers(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Task Implementation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Task Implementation</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Task Implementation</em>' attribute.
+	 * @see #setTaskImplementation(String)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getTask_TaskImplementation()
+	 * @model
+	 * @generated
+	 */
+	String getTaskImplementation();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.Task#getTaskImplementation <em>Task Implementation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Task Implementation</em>' attribute.
+	 * @see #getTaskImplementation()
+	 * @generated
+	 */
+	void setTaskImplementation(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Task Properties</b></em>' containment reference list.
+	 * The list contents are of type {@link org.wso2.developerstudio.eclipse.gmf.esb.TaskProperty}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Task Properties</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Task Properties</em>' containment reference list.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getTask_TaskProperties()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<TaskProperty> getTaskProperties();
 
 } // Task
