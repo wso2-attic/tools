@@ -322,7 +322,17 @@ public class ApiResourceItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ApiResource_type");
+		String label = null;
+		ApiResource resource = (ApiResource)object;
+		ApiResourceUrlStyle urlStyle = resource.getUrlStyle();
+		if(urlStyle.equals(ApiResourceUrlStyle.URI_TEMPLATE)){
+			label = resource.getUriTemplate() == null ? null : "URI-Template : " +resource.getUriTemplate();
+		} else if (urlStyle.equals(ApiResourceUrlStyle.URL_MAPPING)){
+			label = resource.getUrlMapping() == null ? null : "URL-Mapping : " +resource.getUrlMapping();
+		}
+		return label == null || label.length() == 0 ?
+			getString("_UI_ApiResource_type") :
+			getString("_UI_ApiResource_type") + " [" + label + "]";
 	}
 
 	/**
