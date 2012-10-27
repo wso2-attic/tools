@@ -66,7 +66,7 @@ public class TaskImpl extends EsbElementImpl implements Task {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String TASK_GROUP_EDEFAULT = null;
+	protected static final String TASK_GROUP_EDEFAULT = "synapse.simple.quartz";
 
 	/**
 	 * The cached value of the '{@link #getTaskGroup() <em>Task Group</em>}' attribute.
@@ -186,7 +186,7 @@ public class TaskImpl extends EsbElementImpl implements Task {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String TASK_IMPLEMENTATION_EDEFAULT = null;
+	protected static final String TASK_IMPLEMENTATION_EDEFAULT = "org.apache.synapse.startup.tasks.MessageInjector";
 
 	/**
 	 * The cached value of the '{@link #getTaskImplementation() <em>Task Implementation</em>}' attribute.

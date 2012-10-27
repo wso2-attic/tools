@@ -62,6 +62,7 @@ public interface Task extends EsbElement {
 
 	/**
 	 * Returns the value of the '<em><b>Task Group</b></em>' attribute.
+	 * The default value is <code>"synapse.simple.quartz"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Task Group</em>' attribute isn't clear,
@@ -71,7 +72,7 @@ public interface Task extends EsbElement {
 	 * @return the value of the '<em>Task Group</em>' attribute.
 	 * @see #setTaskGroup(String)
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getTask_TaskGroup()
-	 * @model
+	 * @model default="synapse.simple.quartz"
 	 * @generated
 	 */
 	String getTaskGroup();
@@ -221,6 +222,7 @@ public interface Task extends EsbElement {
 
 	/**
 	 * Returns the value of the '<em><b>Task Implementation</b></em>' attribute.
+	 * The default value is <code>"org.apache.synapse.startup.tasks.MessageInjector"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Task Implementation</em>' attribute isn't clear,
@@ -230,7 +232,7 @@ public interface Task extends EsbElement {
 	 * @return the value of the '<em>Task Implementation</em>' attribute.
 	 * @see #setTaskImplementation(String)
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getTask_TaskImplementation()
-	 * @model
+	 * @model default="org.apache.synapse.startup.tasks.MessageInjector" required="true"
 	 * @generated
 	 */
 	String getTaskImplementation();
