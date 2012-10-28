@@ -23,7 +23,6 @@ import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.OutputStream;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
@@ -36,11 +35,9 @@ import javax.xml.transform.stream.StreamSource;
 
 import org.apache.axiom.om.OMAbstractFactory;
 import org.apache.axiom.om.OMElement;
-import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMNamespace;
 import org.apache.axis2.util.XMLPrettyPrinter;
 import org.apache.synapse.Mediator;
-import org.apache.synapse.config.Entry;
 import org.apache.synapse.config.SynapseConfiguration;
 import org.apache.synapse.config.SynapseConfigurationBuilder;
 import org.apache.synapse.config.xml.EntrySerializer;
@@ -48,21 +45,13 @@ import org.apache.synapse.config.xml.MediatorSerializerFinder;
 import org.apache.synapse.config.xml.ProxyServiceSerializer;
 import org.apache.synapse.config.xml.SequenceMediatorSerializer;
 import org.apache.synapse.config.xml.SynapseXMLConfigurationSerializer;
-import org.apache.synapse.config.xml.TemplateMediatorSerializer;
 import org.apache.synapse.config.xml.endpoints.EndpointSerializer;
-import org.apache.synapse.config.xml.endpoints.TemplateEndpointSerializer;
 import org.apache.synapse.config.xml.endpoints.TemplateSerializer;
 import org.apache.synapse.config.xml.rest.APISerializer;
-import org.apache.synapse.endpoints.DefaultEndpoint;
 import org.apache.synapse.endpoints.Endpoint;
-import org.apache.synapse.endpoints.EndpointDefinition;
-import org.apache.synapse.endpoints.TemplateEndpoint;
-import org.apache.synapse.endpoints.WSDLEndpoint;
-import org.apache.synapse.mediators.Value;
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.apache.synapse.mediators.template.TemplateMediator;
 import org.apache.synapse.rest.API;
-import org.apache.synapse.task.TaskDescription;
 import org.apache.synapse.task.TaskDescriptionSerializer;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.common.command.CompoundCommand;
@@ -75,7 +64,6 @@ import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.wso2.developerstudio.eclipse.gmf.esb.AddressEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.ArtifactType;
 import org.wso2.developerstudio.eclipse.gmf.esb.DefaultEndPoint;
-import org.wso2.developerstudio.eclipse.gmf.esb.EndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndpointDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbElement;
@@ -260,27 +248,39 @@ public class DefaultEsbModelExporter implements EsbModelTransformer {
 		return new API(visualAPI.getApiName(), visualAPI.getContext());
 	}
 	
-	private TemplateMediator transformSequenceTemplate(Sequences visualSequence){
-		TemplateMediator a=new TemplateMediator();
-		a.setName("WSO2");
-		ArrayList aa= new ArrayList();
-		aa.add("WSO2");
-		a.setParameters(aa);	
-		return a;
+	private TemplateMediator transformSequenceTemplate(Template template ) throws Exception{
+		TransformationInfo info = new TransformationInfo();
+		SynapseConfiguration configuration = new SynapseConfiguration();
+		info.setSynapseConfiguration(configuration);
+		TemplateMediator templateMediator = new TemplateMediator();
+		templateMediator.setName(template.getName());
+		templateMediator.setParameters(new ArrayList<String>());
+		TemplateTransformer transformer = new TemplateTransformer();
+		info.setTraversalDirection(TransformationInfo.TRAVERSAL_DIRECTION_IN);
+		transformer.transform(info, template);
+		TemplateMediator mediator = configuration.getSequenceTemplate(template.getName());
+		if (mediator != null) {
+			templateMediator = mediator;
+		}
+		return templateMediator;
 	}
 	
-	private org.apache.synapse.endpoints.Template transformEndpointTemplate(EndpointDiagram visualEndpoint){
-		org.apache.synapse.endpoints.Template i=new org.apache.synapse.endpoints.Template();						
-		DefaultEndpoint synapseEP = new DefaultEndpoint();
-		synapseEP.setName("WSO2");
-		EndpointDefinition synapseEPDef = new EndpointDefinition();
-		synapseEP.setDefinition(synapseEPDef);
-		
-		i.setElement(EndpointSerializer
-				.getElementFromEndpoint(synapseEP));
-	    
-	    i.setName("WSO2");
-	    return i;
+	private org.apache.synapse.endpoints.Template transformEndpointTemplate(Template template) throws Exception{
+		TransformationInfo info = new TransformationInfo();
+		SynapseConfiguration configuration = new SynapseConfiguration();
+		info.setSynapseConfiguration(configuration);
+		org.apache.synapse.endpoints.Template epTemplate = new org.apache.synapse.endpoints.Template();
+		epTemplate.setName(template.getName());
+
+		TemplateTransformer transformer = new TemplateTransformer();
+		info.setTraversalDirection(TransformationInfo.TRAVERSAL_DIRECTION_IN);
+		transformer.transform(info, template);
+		org.apache.synapse.endpoints.Template endpointTemplate = configuration
+				.getEndpointTemplate(template.getName());
+		if (endpointTemplate != null) {
+			epTemplate = endpointTemplate;
+		}
+		return epTemplate;
 	}
 
 	public String designToSource(EsbServer serverModel) throws Exception {
@@ -321,12 +321,12 @@ public class DefaultEsbModelExporter implements EsbModelTransformer {
 			case TEMPLATE:
 				if (child instanceof Template) {
 					if(((Template)child).getChild() instanceof Sequences){
-						TemplateMediator templateMediator=transformSequenceTemplate((Sequences) ((Template)child).getChild());
+						TemplateMediator templateMediator=transformSequenceTemplate((Template)child);
 						configOM = MediatorSerializerFinder.getInstance().getSerializer(templateMediator).serializeMediator(null, templateMediator);
 						
 					}else if(((Template)child).getChild() instanceof EndpointDiagram){		
 						TemplateSerializer templateSerializer = new TemplateSerializer();
-					    configOM =templateSerializer.serializeEndpointTemplate(transformEndpointTemplate((EndpointDiagram) ((Template)child).getChild()), null);
+					    configOM =templateSerializer.serializeEndpointTemplate(transformEndpointTemplate((Template)child), null);
 					}
 				}
 				break;
@@ -357,7 +357,8 @@ public class DefaultEsbModelExporter implements EsbModelTransformer {
 		}
 
 		sourceXML = baos.toString("UTF-8");
-		return baos.toString("UTF-8");
+		sourceXML = sourceXML.replaceAll("\\?><", "?>\n<");
+		return sourceXML;
 	}
 
 	// TODO: There is a bug. Output pretty formatted XML does not have a
