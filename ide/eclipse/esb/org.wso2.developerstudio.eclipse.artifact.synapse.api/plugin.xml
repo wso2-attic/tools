@@ -42,8 +42,8 @@
 	
 	<extension
 		point="org.wso2.developerstudio.eclipse.platform.core.intro.ui.dashboard">	
-	<wizardLink category="dashboard.category.esb" id="8dashboard.wizardLink.esb.synapse"
-			wizard="org.wso2.developerstudio.eclipse.artifact.synapse.api.wizard">
+	<wizardLink category="dashboard.category.esb" id="8dashboard.wizardLink.esb.synapse.api"
+			wizard="org.wso2.developerstudio.eclipse.artifact.synapse.api.wizard" priority="8">
 		</wizardLink>
 	</extension>
 </plugin>
