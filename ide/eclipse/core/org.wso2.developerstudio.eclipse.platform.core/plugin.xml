@@ -378,106 +378,132 @@
 			category="org.wso2.developerstudio.eclipse.artifact.cep.category" />
 			
 		<category id="dashboard.category.appserv" showTitle="true"
-			title="Application Server">
+			title="Application Server"
+			priority="1">
 		</category>
 		<category id="dashboard.category.esb" showTitle="true"
-			title="Enterprise Service Bus">
+			title="Enterprise Service Bus"
+			priority="2">
 		</category>
 		<category id="dashboard.category.greg" showTitle="true"
-			title="Governance Registry">
+			title="Governance Registry"
+			priority="3">
 		</category>
 		<category id="odashboard.category.ds" showTitle="true"
-			title="Data Services Server">
+			title="Data Services Server"
+			priority="4">
 		</category>
 		<category id="dashboard.category.carbon" showTitle="true"
-			title="Carbon">
+			title="Carbon"
+			priority="5">
 		</category>
 		<category id="dashboard.category.bps" showTitle="true"
-			title="Business Process Server">
+			title="Business Process Server"
+			priority="6">
 		</category>
 		<category id="dashboard.category.gadget" showTitle="true"
-			title="Gadget Server">
+			title="Gadget Server"
+			priority="7">
 		</category>
 		<category id="dashboard.category.cep" showTitle="true"
-			title="Complex Event Processing Server">
+			title="Complex Event Processing Server"
+			priority="8">
 		</category>
 
 		<!-- appserv -->
 		<wizardLink category="dashboard.category.appserv" id="1dashboard.wizardLink.axis2"
-			wizard="org.wso2.developerstudio.eclipse.artifact.newaxis2artifact">
+			wizard="org.wso2.developerstudio.eclipse.artifact.newaxis2artifact"
+			priority="1">
 		</wizardLink>
 
 		<wizardLink category="dashboard.category.appserv" id="2dashboard.wizardLink.jaxws"
-			wizard="org.wso2.developerstudio.eclipse.artifact.newjaxwsartifact">
+			wizard="org.wso2.developerstudio.eclipse.artifact.newjaxwsartifact"
+			priority="2">
 		</wizardLink>
 
 		<wizardLink category="dashboard.category.appserv" id="3dashboard.wizardLink.war"
-			wizard="org.wso2.developerstudio.eclipse.artifact.newwarartifact">
+			wizard="org.wso2.developerstudio.eclipse.artifact.newwarartifact"
+			priority="3">
 		</wizardLink>
 
 		<wizardLink category="dashboard.category.appserv"
 			id="4dashboard.wizardLink.axis2.gen.stub.client"
-			wizard="org.wso2.developerstudio.eclipse.artifact.generation.axis2serviceclient">
+			wizard="org.wso2.developerstudio.eclipse.artifact.generation.axis2serviceclient"
+			priority="4">
 		</wizardLink>
 
 		<wizardLink category="dashboard.category.appserv" id="5dashboard.wizardLink.axis2.get.stub"
-			wizard="org.wso2.developerstudio.eclipse.artifact.generation.axis2service">
+			wizard="org.wso2.developerstudio.eclipse.artifact.generation.axis2service"
+			priority="5">
 		</wizardLink>
 
 		<wizardLink category="dashboard.category.appserv" id="6dashboard.wizardLink.jaxrs"
-			wizard="org.wso2.developerstudio.eclipse.artifact.newjaxrsartifact">
+			wizard="org.wso2.developerstudio.eclipse.artifact.newjaxrsartifact"
+			priority="6">
 		</wizardLink>
 
 		<!-- ESB -->
 		<wizardLink category="dashboard.category.esb" id="1dashboard.wizardLink.esb.project"
-			wizard="org.wso2.developerstudio.eclipse.artifact.newesbproject">
+			wizard="org.wso2.developerstudio.eclipse.artifact.newesbproject"
+			priority="1">
 		</wizardLink>
 
 		<wizardLink category="dashboard.category.esb" id="2dashboard.wizardLink.esb.proxy"
-			wizard="org.wso2.developerstudio.eclipse.artifact.newproxyservice">
+			wizard="org.wso2.developerstudio.eclipse.artifact.newproxyservice"
+			priority="2">
 		</wizardLink>
 
 		<wizardLink category="dashboard.category.esb" id="3dashboard.wizardLink.esb.endpoint"
-			wizard="org.wso2.developerstudio.eclipse.artifact.newendpointartifact">
+			wizard="org.wso2.developerstudio.eclipse.artifact.newendpointartifact"
+			priority="3">
 		</wizardLink>
 
 		<wizardLink category="dashboard.category.esb" id="4dashboard.wizardLink.esb.localentry"
-			wizard="org.wso2.developerstudio.eclipse.artifact.newlocalentry">
+			wizard="org.wso2.developerstudio.eclipse.artifact.newlocalentry"
+			priority="4">
 		</wizardLink>
 
 		<wizardLink category="dashboard.category.esb" id="5dashboard.wizardLink.esb.mediator"
-			wizard="org.wso2.developerstudio.eclipse.artifact.newmediatorartifact">
+			wizard="org.wso2.developerstudio.eclipse.artifact.newmediatorartifact"
+			priority="5">
 		</wizardLink>
 
 		<wizardLink category="dashboard.category.esb" id="6dashboard.wizardLink.esb.sequence"
-			wizard="org.wso2.developerstudio.eclipse.artifact.newsequenceartifact">
+			wizard="org.wso2.developerstudio.eclipse.artifact.newsequenceartifact"
+			priority="6">
 		</wizardLink>
 
 		<wizardLink category="dashboard.category.esb" id="7dashboard.wizardLink.esb.synapse"
-			wizard="org.wso2.developerstudio.eclipse.artifact.synapseartifact">
+			wizard="org.wso2.developerstudio.eclipse.artifact.synapseartifact"
+			priority="7">
 		</wizardLink>
 
 		<!-- greg -->
 
 		<wizardLink category="dashboard.category.greg"
 			id="dashboard.wizardLink.registry.pespective"
-			wizard="org.wso2.developerstudio.registry.remote.registry.perspective.action">
+			wizard="org.wso2.developerstudio.registry.remote.registry.perspective.action"
+			priority="1">
 		</wizardLink>
 
 		<wizardLink category="dashboard.category.greg" id="dashboard.wizardLink.general.project"
-			wizard="org.wso2.developerstudio.eclipse.general.project">
+			wizard="org.wso2.developerstudio.eclipse.general.project"
+			priority="2">
 		</wizardLink>
 
 		<wizardLink category="dashboard.category.greg"
-			id="dashboard.wizardLink.registry.resource" wizard="org.wso2.developerstudio.eclipse.artifact.newregistryresource">
+			id="dashboard.wizardLink.registry.resource" wizard="org.wso2.developerstudio.eclipse.artifact.newregistryresource"
+			priority="3">
 		</wizardLink>
 
 		<wizardLink category="dashboard.category.greg" id="dashboard.wizardLink.registry.filter"
-			wizard="org.wso2.developerstudio.eclipse.artifact.newregistryfilter">
+			wizard="org.wso2.developerstudio.eclipse.artifact.newregistryfilter"
+			priority="4">
 		</wizardLink>
 
 		<wizardLink category="dashboard.category.greg"
-			id="dashboard.wizardLink.registry.handler" wizard="org.wso2.developerstudio.eclipse.artifact.newregistryhandler">
+			id="dashboard.wizardLink.registry.handler" wizard="org.wso2.developerstudio.eclipse.artifact.newregistryhandler"
+			priority="5">
 		</wizardLink>
 
 		<customAction
@@ -525,6 +551,7 @@
     	<category
           id="dashboard.category.brs"
           showTitle="true"
+          priority="9"
           title="Business Rules Server">
     	</category>
     	<wizardLink

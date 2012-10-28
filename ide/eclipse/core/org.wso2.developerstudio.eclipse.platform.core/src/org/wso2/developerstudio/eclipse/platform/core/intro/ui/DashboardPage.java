@@ -84,7 +84,12 @@ public class DashboardPage extends FormPage {
 		
 		categories = DashboardContributionsHandler.getCategories();
 		for (DashboardCategory category : categories) {
-			wizardCategoryMap.put(category.getName(),category.getWizards().toArray(new String[] {}));
+			List<String> wizardIds = new ArrayList<String>();
+			List<DashboardLink> wizards = category.getWizards();
+			for (DashboardLink dashboardLink : wizards) {
+				wizardIds.add(dashboardLink.getName());
+			}
+			wizardCategoryMap.put(category.getName(),wizardIds.toArray(new String[] {}));
 		}
 		
 		/* Dashboard items for core features not handle by DashboardContributionsHandler */

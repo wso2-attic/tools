@@ -16,6 +16,8 @@
 package org.wso2.developerstudio.eclipse.platform.core.intro.ui;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -63,11 +65,19 @@ public class DashboardContributionsHandler {
 							contributerPluginId, iconPath);
 					cat.setIcon(imageDescriptor);
 				}
-				
+				String priorityValue = element.getAttribute("priority");
+				if(priorityValue!=null){
+					try {
+						cat.setPriority(Integer.parseInt(priorityValue));
+					} catch (NumberFormatException e) {
+						//ignore, then priority would be normal (value=Integer.MAX_VALUE)
+					}
+				}
 				cat.setShowTitle(Boolean.valueOf(iconPath));
 				dashboardCategories.put(id, cat);
 			} else if ("wizardLink".equals(element.getName())) {
-				String key = element.getAttribute("id") + ":" + element.getAttribute("wizard");
+				String priority = element.getAttribute("priority");
+				String key = element.getAttribute("id") + ":" + element.getAttribute("wizard") + ":" + ((priority!=null)?priority:"0");
 				wizardLinks.put(key, element.getAttribute("category"));
 			} else if ("customAction".equals(element.getName())) {
 				customActions.put(element.getAttribute("id"), element);;
@@ -80,7 +90,27 @@ public class DashboardContributionsHandler {
 			String catID = wizardLink.getValue();
 			if(dashboardCategories.containsKey(catID)){
 				DashboardCategory cat = dashboardCategories.get(catID);
-				cat.getWizards().add(wizardLink.getKey().split(":")[1]);
+				DashboardLink link = new DashboardLink();
+				link.setId(wizardLink.getKey().split(":")[0]);
+				link.setName(wizardLink.getKey().split(":")[1]);
+				String priorityValue = wizardLink.getKey().split(":")[2];
+				if(priorityValue!=null){
+					try {
+						link.setPriority(Integer.parseInt(priorityValue));
+					} catch (NumberFormatException e) {
+						//ignore, then priority would be normal (value=Integer.MAX_VALUE)
+					}
+				}
+				cat.getWizards().add(link);
+				Collections.sort(cat.getWizards(),new Comparator<DashboardLink>() {
+
+					public int compare(DashboardLink o1, DashboardLink o2) {
+						if(o1.getPriority()==o2.getPriority()){
+							o1.getId().compareTo(o2.getId());
+						} 
+						return o1.getPriority()- o2.getPriority();
+					}
+				});
 				dashboardCategories.put(catID, cat);
 			} else{
 				log.warn("Ignoring dashboard contribution link with undefined category");
@@ -96,7 +126,17 @@ public class DashboardContributionsHandler {
 	}
 	
 	public static List<DashboardCategory> getCategories() {
-		return new ArrayList(dashboardCategories.values());
+		List<DashboardCategory> categories = new ArrayList(dashboardCategories.values());
+		Collections.sort(categories,new Comparator<DashboardCategory>() {
+
+			public int compare(DashboardCategory o1, DashboardCategory o2) {
+				if(o1.getPriority()==o2.getPriority()){
+					o1.getName().compareTo(o2.getName());
+				} 
+				return o1.getPriority()- o2.getPriority();
+			}
+		});
+		return categories;
 	}
 	 
 	public static Map<String, Action> getCustomActions() {

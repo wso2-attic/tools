@@ -83,6 +83,13 @@
                </appinfo>
             </annotation>
          </attribute>
+         <attribute name="priority" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
       </complexType>
    </element>
 
@@ -113,6 +120,13 @@
                <appinfo>
                   <meta.attribute kind="identifier" basedOn="org.wso2.developerstudio.eclipse.platform.core.intro.ui.dashboard/category/@id"/>
                </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="priority" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
             </annotation>
          </attribute>
       </complexType>

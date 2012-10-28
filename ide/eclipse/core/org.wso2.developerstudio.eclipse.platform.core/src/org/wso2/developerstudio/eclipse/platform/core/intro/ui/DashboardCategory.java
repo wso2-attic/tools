@@ -23,8 +23,9 @@ import org.eclipse.jface.resource.ImageDescriptor;
 public class DashboardCategory {
 private String name;
 private ImageDescriptor icon;
-private List<String> wizards = new ArrayList<String>();
+private List<DashboardLink> wizards = new ArrayList<DashboardLink>();
 private boolean showTitle;
+private int priority = Integer.MAX_VALUE;
 
 
 public void setName(String name) {
@@ -40,13 +41,26 @@ public ImageDescriptor getIcon() {
 	return icon;
 }
 
-public List<String> getWizards() {
+public List<DashboardLink> getWizards() {
 	return wizards;
 }
+
 public void setShowTitle(boolean showTitle) {
 	this.showTitle = showTitle;
 }
 public boolean isShowTitle() {
 	return showTitle;
 }
+public void setPriority(int priority) {
+	this.priority = priority;
+}
+public int getPriority() {
+	return priority;
+}
+
+@Override
+	public String toString() {
+		return name + " [" + priority  + " ]";
+	}
+
 }
