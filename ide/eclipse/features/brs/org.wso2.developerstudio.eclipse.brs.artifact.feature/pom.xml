@@ -30,7 +30,7 @@
     <artifactId>org.wso2.developerstudio.eclipse.brs.artifact.feature</artifactId>
     <!--version>${brs.feature.version}</version-->
     <packaging>pom</packaging>
-    <name>Business Process Server Artifact</name>
+    <name>Business Rules Server Artifact</name>
     <url>http://wso2.org</url>
     <description>This feature contains WSO2 Developer Studio BRS artifact Feature</description>
     <build>
