@@ -607,7 +607,7 @@ public class NamedEndpointEditPart extends AbstractEndpoint {
 		}
 
 		public String getIconPath() {
-			return "icons/ico20/wsdl-endpoint.gif";
+			return "icons/ico20/named-endpoint.gif";
 		}
 
 		public String getNodeName() {
