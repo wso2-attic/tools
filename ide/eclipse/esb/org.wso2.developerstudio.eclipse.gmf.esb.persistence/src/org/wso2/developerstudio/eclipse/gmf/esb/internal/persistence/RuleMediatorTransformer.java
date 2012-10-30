@@ -34,6 +34,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.RuleFactsConfiguration;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleResult;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleResultsConfiguration;
+import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.RuleMediatorExt;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
 
 import org.wso2.carbon.rule.common.Fact;
@@ -44,6 +45,7 @@ import org.wso2.carbon.rule.common.RuleSet;
 import org.wso2.carbon.rule.common.util.Constants;
 import org.wso2.carbon.rule.kernel.engine.RuleEngine;
 import org.wso2.carbon.rule.kernel.engine.RuleSession;
+import org.wso2.carbon.rule.mediator.config.RuleMediatorConfig;
 import org.wso2.carbon.rule.mediator.config.Source;
 import org.wso2.carbon.rule.mediator.config.Target;
 
@@ -69,67 +71,13 @@ public class RuleMediatorTransformer extends AbstractEsbNodeTransformer {
 		
 	}
 	
-	private org.wso2.carbon.rule.mediator.RuleMediator createRuleMediator(
+	private RuleMediatorExt createRuleMediator(
 			TransformationInfo information, EsbNode subject) throws Exception {
 		// Check subject.
 		Assert.isTrue(subject instanceof RuleMediator,
 				"Unsupported mediator passed in for serialization.");
-		RuleMediator visualRule = (RuleMediator) subject;
-		RuleFactsConfiguration factsConfiguration = visualRule.getFactsConfiguration();
-		EList<RuleFact> facts = factsConfiguration.getFacts();
-		List<Fact> factsList = new ArrayList<Fact>();
-		for (RuleFact ruleFact : facts) {
-			Fact fact = new Fact();
-			fact.setElementName(visualRule.getInputWrapperName());
-			fact.setNamespace(visualRule.getInputNameSpace());
-			fact.setPrefixToNamespaceMap(ruleFact.getValueExpression().getNamespaces());
-			fact.setType(ruleFact.getFactName());
-			fact.setTypeClass(ruleFact.getFactType().getClass());
-			fact.setXpath(ruleFact.getValueExpression().getPropertyValue());
-			factsList.add(fact);
-		}
-		Input input = new Input();
-		input.setFacts(factsList);
-		input.setNameSpace(visualRule.getInputNameSpace());
-		input.setWrapperElementName(visualRule.getInputWrapperName());
-		
-        RuleResultsConfiguration resultsConfiguration = visualRule.getResultsConfiguration();
-        EList<RuleResult> results = resultsConfiguration.getResults();
-        List<Fact> resultfactsList = new ArrayList<Fact>();
-        for (RuleResult ruleResult : results) {
-        	Fact fact = new Fact();
-			fact.setElementName(visualRule.getOutputWrapperName());
-			fact.setNamespace(visualRule.getOutputNameSpace());
-			fact.setPrefixToNamespaceMap(ruleResult.getValueExpression().getNamespaces());
-			fact.setType(ruleResult.getResultName());
-			fact.setTypeClass(ruleResult.getResultType().getClass());
-			fact.setXpath(ruleResult.getValueExpression().getPropertyValue());
-			resultfactsList.add(fact);
-        }
-        
-        Output output = new Output();
-        output.setFacts(resultfactsList);
-        output.setNameSpace(visualRule.getOutputNameSpace());
-        output.setWrapperElementName(visualRule.getOutputWrapperName());
-        
-        Target target = new Target();
-        target.setAction(visualRule.getTargetAction().getLiteral());
-        target.setPrefixToNamespaceMap(visualRule.getTargetResultXpath().getNamespaces());
-        target.setResultXpath(visualRule.getTargetResultXpath().getPropertyValue());
-        target.setValue(visualRule.getTargetValue());
-        target.setXpath(visualRule.getTargetXpath().getPropertyValue());
-        
-        Source source = new Source();
-        source.setPrefixToNamespaceMap(visualRule.getSourceXpath().getNamespaces());
-        source.setValue(visualRule.getSourceValue());
-        source.setXpath(visualRule.getSourceXpath().getPropertyValue());
-        
-        OMElement payload = AXIOMUtil.stringToOM(visualRule.getRuleSetSourceCode());
-        RuleSet ruleSet = new RuleSet();
-        //RuleEngine engine = new RuleEngine(arg0, arg1); 
-		org.wso2.carbon.rule.mediator.RuleMediator ruleMediator = new org.wso2.carbon.rule.mediator.RuleMediator(
-				null, payload, source, target, input, output);
-		//ruleMediator.setRuleOMElement(payload);
+		RuleMediatorExt ruleMediator = new RuleMediatorExt();
+		ruleMediator.setSubject(subject);
 		return ruleMediator;
  
 	}
