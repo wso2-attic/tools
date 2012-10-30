@@ -129,6 +129,8 @@ public class EsbDiagramEditorUtil {
 			String fileName, String extension) {
 		if (fileName == null || fileName.trim().length() == 0) {
 			fileName = "default"; //$NON-NLS-1$
+		} else{
+			fileName = fileName.replaceAll("\\d+$", "");
 		}
 		
 		String finalName = fileName;
@@ -138,6 +140,7 @@ public class EsbDiagramEditorUtil {
 			IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(containerFullPath.lastSegment());
 			try {
 				while (ESBProjectUtils.artifactExists(project, finalName)) {
+					finalName = finalName.replaceAll("\\d+$", "");
 					i++;
 					finalName = finalName.concat(i + "");
 				}

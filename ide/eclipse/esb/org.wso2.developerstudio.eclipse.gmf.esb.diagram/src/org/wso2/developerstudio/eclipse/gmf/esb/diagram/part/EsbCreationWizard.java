@@ -94,6 +94,8 @@ public class EsbCreationWizard extends Wizard implements INewWizard,
 	private IContainer location;
 
 	private WizardMode wizardMode = WizardMode.DEFAULT;
+	
+	private String defaultFilename = "default";
 
 	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
 
@@ -155,6 +157,7 @@ public class EsbCreationWizard extends Wizard implements INewWizard,
 				.setTitle(Messages.EsbCreationWizard_DiagramModelFilePageTitle);
 		diagramModelFilePage
 				.setDescription(Messages.EsbCreationWizard_DiagramModelFilePageDescription);
+		diagramModelFilePage.setDefaultFilename(getDefaultFilename());
 		addPage(diagramModelFilePage);
 		
 		switch (wizardMode) {
@@ -436,6 +439,7 @@ public class EsbCreationWizard extends Wizard implements INewWizard,
 					if (data instanceof Map) {
 						String type = (String) ((Map) data).get("mode");
 						wizardMode = WizardMode.valueOf(type.toUpperCase());
+						setDefaultFilename(wizardMode.toString().toLowerCase());
 					}
 				}
 			}
@@ -455,6 +459,14 @@ public class EsbCreationWizard extends Wizard implements INewWizard,
 		}
 
 		return groupID;
+	}
+
+	public void setDefaultFilename(String defaultFilename) {
+		this.defaultFilename = defaultFilename;
+	}
+
+	public String getDefaultFilename() {
+		return defaultFilename;
 	}
 
 	public enum WizardMode {

@@ -22,7 +22,9 @@ public class EsbCreationWizardPage extends WizardNewFileCreationPage {
 	 * @generated
 	 */
 	private final String fileExtension;
-
+	
+	private String defaultFilename = "default";
+	
 	/**
 	 * @generated
 	 */
@@ -64,12 +66,16 @@ public class EsbCreationWizardPage extends WizardNewFileCreationPage {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	public void createControl(Composite parent) {
 		super.createControl(parent);
+		String fileName = getFileName();
+		if (fileName == null || fileName.trim().length() == 0) {
+			fileName = getDefaultFilename();
+		}
 		setFileName(EsbDiagramEditorUtil.getUniqueFileName(
-				getContainerFullPath(), getFileName(), getExtension()));
+				getContainerFullPath(), fileName, getExtension()));
 		setPageComplete(validatePage());
 	}
 
@@ -120,5 +126,13 @@ public class EsbCreationWizardPage extends WizardNewFileCreationPage {
 			// ignore
 		}
 		return false;
+	}
+
+	public void setDefaultFilename(String defaultFilename) {
+		this.defaultFilename = defaultFilename;
+	}
+
+	public String getDefaultFilename() {
+		return defaultFilename;
 	}
 }
