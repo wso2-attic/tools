@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 import org.apache.maven.project.MavenProject;
 import org.eclipse.core.resources.IContainer;
@@ -288,6 +289,7 @@ public class EsbCreationWizard extends Wizard implements INewWizard,
 			String relativePathDiagram = FileUtils.getRelativePath(esbProject
 					.getLocation().toFile(), new File(location.getLocation()
 					.toFile(), diagramModelFilePage.getFileName() + ".xml"));
+			relativePathDiagram = relativePathDiagram.replaceAll(Pattern.quote("\\"), "/");
 			relativePathDiagram = relativePathDiagram.replaceFirst(
 					"/graphical-synapse-config", "/synapse-config");
 			esbProjectArtifact.addESBArtifact(createArtifact(
