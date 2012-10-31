@@ -48,7 +48,7 @@ public class EsbGraphicalShapeWithLabel extends RoundedRectangle {
 		this.setCornerDimensions(new Dimension(1, 1));
 		this.setFill(false);
 		this.setOutline(false);
-		this.setPreferredSize(new Dimension(75, 75));
+		this.setPreferredSize(new Dimension(75, 70));
 		createContents();
 	}
 
@@ -73,11 +73,11 @@ public class EsbGraphicalShapeWithLabel extends RoundedRectangle {
 		
 		
 		ImageFigure mainImg = new ImageFigure(scaled);
-		mainImg.setSize(new Dimension(75, 55));
+		mainImg.setSize(new Dimension(75, 50));
 		RectangleFigure mainImageRectangle = new RectangleFigure();
 		mainImageRectangle.setOutline(false);
 		mainImageRectangle.setBackgroundColor(new Color(null, 255, 255, 255));
-		mainImageRectangle.setPreferredSize(new Dimension(75, 55));
+		mainImageRectangle.setPreferredSize(new Dimension(75, 50));
 		mainImageRectangle.add(mainImg);
 		this.add(mainImageRectangle, constraintMainImageRectangle);	
 

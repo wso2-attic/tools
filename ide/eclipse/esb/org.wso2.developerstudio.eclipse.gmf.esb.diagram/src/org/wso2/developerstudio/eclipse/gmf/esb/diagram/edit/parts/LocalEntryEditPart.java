@@ -223,7 +223,7 @@ public class LocalEntryEditPart extends ShapeNodeEditPart {
 		}
 
 		public String getIconPath() {
-			return "icons/ico20/out-mediator.gif";
+			return "icons/ico20/localEntry.gif";
 		}
 
 		public String getNodeName() {

@@ -222,7 +222,7 @@ public class TaskEditPart extends ShapeNodeEditPart {
 		}
 
 		public String getIconPath() {
-			return "icons/ico20/out-mediator.gif";
+			return "icons/ico20/task.gif";
 		}
 
 		public String getNodeName() {

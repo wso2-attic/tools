@@ -256,7 +256,7 @@ public class NamedEndpointEditPart extends AbstractEndpoint {
 
 	public IFigure getFigure() {
 		IFigure figure = super.getFigure();
-		figure.setMaximumSize(new Dimension(75, 75));
+		figure.setMaximumSize(new Dimension(75, 70));
 		return figure;
 	}
 
@@ -264,8 +264,8 @@ public class NamedEndpointEditPart extends AbstractEndpoint {
 	 * @generated NOT
 	 */
 	protected NodeFigure createNodePlate() {
-		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(75, 75);
-		result.setMinimumSize(new Dimension(75, 75));
+		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(75, 70);
+		result.setMinimumSize(new Dimension(75, 70));
 		return result;
 	}
 
