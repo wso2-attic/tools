@@ -16,6 +16,8 @@
 
 package org.wso2.developerstudio.eclipse.esb.project.provider;
 
+import java.util.regex.Pattern;
+
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.Path;
@@ -90,6 +92,7 @@ public class NavigatorActionProvider extends CommonActionProvider {
 		public void run() {
 			IFile fileTobeOpen = null;
 			String synFilePath = selection.getFullPath().toOSString();
+			synFilePath=synFilePath.replaceAll(Pattern.quote("\\"), "/");
 			String diagramFilePath = synFilePath
 					.replaceFirst("/synapse-config/", "/graphical-synapse-config/")
 					.replaceFirst("/endpoints/", "/endpoints/endpoint_")
