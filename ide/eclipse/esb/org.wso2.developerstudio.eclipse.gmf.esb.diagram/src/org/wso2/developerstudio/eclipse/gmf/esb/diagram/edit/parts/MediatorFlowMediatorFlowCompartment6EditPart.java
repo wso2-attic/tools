@@ -76,8 +76,7 @@ public class MediatorFlowMediatorFlowCompartment6EditPart extends
 	 * @generated NOT
 	 */
 	public IFigure createFigure() {
-		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super
-				.createFigure();
+		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super.createFigure();
 		result.setTitleVisibility(true);
 		// Override default border.
 		result.setBorder(new MarginBorder(0, 0, 0, 0));
@@ -90,15 +89,11 @@ public class MediatorFlowMediatorFlowCompartment6EditPart extends
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(
-				EditPolicyRoles.SEMANTIC_ROLE,
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new MediatorFlowMediatorFlowCompartment6ItemSemanticEditPolicy());
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new CreationEditPolicy());
-		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
-				new DragDropEditPolicy());
-		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
-				new FeedbackIndicateDragDropEditPolicy());
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
+		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
+		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new FeedbackIndicateDragDropEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
 				new MediatorFlowMediatorFlowCompartment6CanonicalEditPolicy());
 	}
@@ -106,35 +101,32 @@ public class MediatorFlowMediatorFlowCompartment6EditPart extends
 	protected void addChild(EditPart child, int index) {
 		super.addChild(child, index);
 		//Refresh connector's position. HardCoded.
-		((MediatorFlow6EditPart) child.getParent().getParent())
-				.refreshInputConnector(child.getParent().getParent()
-						.getParent().getParent().getParent());
+		((MediatorFlow6EditPart) child.getParent().getParent()).refreshInputConnector(child
+				.getParent().getParent().getParent().getParent().getParent());
 
 		if (child instanceof SwitchMediatorEditPart) {
 			SwitchMediatorEditPart switchMediatorEditPart = (SwitchMediatorEditPart) child;
-			SwitchMediatorUtils.addCaseBranchInitially(switchMediatorEditPart,
-					getEditingDomain());
+			SwitchMediatorUtils.addCaseBranchInitially(switchMediatorEditPart, getEditingDomain());
 		}
 
 		if (child instanceof SequenceEditPart) {
 			SequenceEditPart sequenceEditPart = (SequenceEditPart) child;
-			EditPart editpart = (EditPart) ((StructuredSelection) sequenceEditPart
-					.getViewer().getEditDomain().getPaletteViewer()
-					.getSelection()).getFirstElement();
+			EditPart editpart = (EditPart) ((StructuredSelection) sequenceEditPart.getViewer()
+					.getEditDomain().getPaletteViewer().getSelection()).getFirstElement();
 			if (editpart instanceof ToolEntryEditPart) {
 				if (((ToolEntryEditPart) editpart).getModel() instanceof NodeToolEntry) {
-					String label = ((NodeToolEntry) ((ToolEntryEditPart) editpart)
-							.getModel()).getLabel();
+					String label = ((NodeToolEntry) ((ToolEntryEditPart) editpart).getModel())
+							.getLabel();
 					if ((!label.equals("")) && (!label.equals("Sequence"))) {
-						((Sequence) ((View) sequenceEditPart.getModel())
-								.getElement()).setName(label);
+						((Sequence) ((View) sequenceEditPart.getModel()).getElement())
+								.setName(label);
 					}
 				} else if (((ToolEntryEditPart) editpart).getModel() instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceEditPart.NodeToolEntry) {
 					String label = ((org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceEditPart.NodeToolEntry) ((ToolEntryEditPart) editpart)
 							.getModel()).getLabel();
 					if ((!label.equals("")) && (!label.equals("Sequence"))) {
-						((Sequence) ((View) sequenceEditPart.getModel())
-								.getElement()).setName(label);
+						((Sequence) ((View) sequenceEditPart.getModel()).getElement())
+								.setName(label);
 					}
 				}
 			}
@@ -143,10 +135,8 @@ public class MediatorFlowMediatorFlowCompartment6EditPart extends
 
 	protected void removeChild(EditPart child) {
 		// TODO Auto-generated method stub
-		MediatorFlow6EditPart mediatorFlow = (MediatorFlow6EditPart) child
-				.getParent().getParent();
-		EditPart proxyService = child.getParent().getParent().getParent()
-				.getParent().getParent();
+		MediatorFlow6EditPart mediatorFlow = (MediatorFlow6EditPart) child.getParent().getParent();
+		EditPart proxyService = child.getParent().getParent().getParent().getParent().getParent();
 		super.removeChild(child);
 		mediatorFlow.refreshInputConnector(proxyService);
 
@@ -168,8 +158,7 @@ public class MediatorFlowMediatorFlowCompartment6EditPart extends
 
 	public void connectNormally(EditPart child) {
 
-		if ((child instanceof AbstractMediator)
-				|| (child instanceof AbstractEndpoint)) {
+		if ((child instanceof AbstractMediator) || (child instanceof AbstractEndpoint)) {
 
 			for (int i = 0; i < child.getChildren().size(); ++i) {
 				if (child.getChildren().get(i) instanceof AbstractMediatorInputConnectorEditPart) {
@@ -192,9 +181,8 @@ public class MediatorFlowMediatorFlowCompartment6EditPart extends
 			}
 			if (inputConnectorEditPart == null) {
 				inputConnectorEditPart = ((AbstractInputConnectorEditPart) EditorUtils
-						.getProxyFaultInputConnector((ShapeNodeEditPart) this
-								.getParent().getParent().getParent()
-								.getParent()));
+						.getProxyFaultInputConnector((ShapeNodeEditPart) this.getParent()
+								.getParent().getParent().getParent()));
 			}
 			sourceEditPart = (ShapeNodeEditPart) child;
 
@@ -202,13 +190,10 @@ public class MediatorFlowMediatorFlowCompartment6EditPart extends
 
 			if (sourceOutputConnector != null) {
 				ICommand createSubTopicsCmd = new DeferredCreateConnectionViewAndElementCommand(
-						new CreateConnectionViewAndElementRequest(
-								EsbElementTypes.EsbLink_4001,
-								((IHintedType) EsbElementTypes.EsbLink_4001)
-										.getSemanticHint(),
-								sourceEditPart.getDiagramPreferencesHint()),
-						new EObjectAdapter((EObject) sourceOutputConnector
-								.getModel()), new EObjectAdapter(
+						new CreateConnectionViewAndElementRequest(EsbElementTypes.EsbLink_4001,
+								((IHintedType) EsbElementTypes.EsbLink_4001).getSemanticHint(),
+								sourceEditPart.getDiagramPreferencesHint()), new EObjectAdapter(
+								(EObject) sourceOutputConnector.getModel()), new EObjectAdapter(
 								(EObject) (inputConnectorEditPart).getModel()),
 						sourceEditPart.getViewer());
 
@@ -221,8 +206,7 @@ public class MediatorFlowMediatorFlowCompartment6EditPart extends
 		}
 	}
 
-	public void setInputConnectorEditPart(
-			AbstractBorderItemEditPart inputConnectorEditPart) {
+	public void setInputConnectorEditPart(AbstractBorderItemEditPart inputConnectorEditPart) {
 		this.inputConnectorEditPart = inputConnectorEditPart;
 	}
 

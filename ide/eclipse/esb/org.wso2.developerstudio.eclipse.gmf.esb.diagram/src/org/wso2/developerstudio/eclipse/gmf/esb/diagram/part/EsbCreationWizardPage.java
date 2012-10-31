@@ -22,14 +22,14 @@ public class EsbCreationWizardPage extends WizardNewFileCreationPage {
 	 * @generated
 	 */
 	private final String fileExtension;
-	
-	private String defaultFilename = "default";
-	
+
+	private String defaultFilename = "synapse";
+
 	/**
 	 * @generated
 	 */
-	public EsbCreationWizardPage(String pageName,
-			IStructuredSelection selection, String fileExtension) {
+	public EsbCreationWizardPage(String pageName, IStructuredSelection selection,
+			String fileExtension) {
 		super(pageName, selection);
 		this.fileExtension = fileExtension;
 	}
@@ -74,8 +74,8 @@ public class EsbCreationWizardPage extends WizardNewFileCreationPage {
 		if (fileName == null || fileName.trim().length() == 0) {
 			fileName = getDefaultFilename();
 		}
-		setFileName(EsbDiagramEditorUtil.getUniqueFileName(
-				getContainerFullPath(), fileName, getExtension()));
+		setFileName(EsbDiagramEditorUtil.getUniqueFileName(getContainerFullPath(), fileName,
+				getExtension()));
 		setPageComplete(validatePage());
 	}
 
@@ -91,12 +91,11 @@ public class EsbCreationWizardPage extends WizardNewFileCreationPage {
 			setErrorMessage("Please select a ESB Config project");
 			return false;
 		}
-		
+
 		if (!validateArtifactName()) {
 			return false;
 		}
 
-		
 		return true;
 	}
 
@@ -110,18 +109,19 @@ public class EsbCreationWizardPage extends WizardNewFileCreationPage {
 		}
 		return false;
 	}
-	
-	protected boolean validateArtifactName(){
+
+	protected boolean validateArtifactName() {
 		try {
 			IProject project = ResourcesPlugin.getWorkspace().getRoot()
 					.getProject(getContainerFullPath().segment(0));
-			if (!CommonFieldValidator.isValidArtifactName(getFileName())){
+			if (!CommonFieldValidator.isValidArtifactName(getFileName())) {
 				setErrorMessage("Artifact name cannot contain invalid characters");
 				return false;
-			} else if(ESBProjectUtils.artifactExists(project, getFileName())){
+			} else if (ESBProjectUtils.artifactExists(project, getFileName())) {
 				setErrorMessage("An artifact with this name already exists");
 				return false;
-			} else return true;
+			} else
+				return true;
 		} catch (Exception e) {
 			// ignore
 		}

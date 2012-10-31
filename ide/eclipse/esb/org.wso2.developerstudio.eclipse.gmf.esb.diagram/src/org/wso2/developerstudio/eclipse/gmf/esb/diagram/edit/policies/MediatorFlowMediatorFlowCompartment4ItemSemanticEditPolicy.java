@@ -185,8 +185,7 @@ public class MediatorFlowMediatorFlowCompartment4ItemSemanticEditPolicy extends
 		if (EsbElementTypes.RouterMediator_3628 == req.getElementType()) {
 			return getGEFWrapper(new RouterMediatorCreateCommand(req));
 		}
-		if (EsbElementTypes.ConditionalRouterMediator_3635 == req
-				.getElementType()) {
+		if (EsbElementTypes.ConditionalRouterMediator_3635 == req.getElementType()) {
 			return getGEFWrapper(new ConditionalRouterMediatorCreateCommand(req));
 		}
 		if (EsbElementTypes.DefaultEndPoint_3609 == req.getElementType()) {

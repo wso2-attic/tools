@@ -61,13 +61,11 @@ public class SwitchDefaultContainerEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new CreationEditPolicy());
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new SwitchDefaultContainerItemSemanticEditPolicy());
-		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
-				new DragDropEditPolicy());
+		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
 				new SwitchDefaultContainerCanonicalEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
@@ -82,8 +80,7 @@ public class SwitchDefaultContainerEditPart extends ShapeNodeEditPart {
 		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
 			protected EditPolicy createChildEditPolicy(EditPart child) {
-				EditPolicy result = child
-						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+				EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
 				if (result == null) {
 					result = new NonResizableEditPolicy();
 				}
@@ -126,13 +123,9 @@ public class SwitchDefaultContainerEditPart extends ShapeNodeEditPart {
 	public void refreshOutputConnector(EditPart childEditPart) {
 		if (childEditPart instanceof SwitchMediatorEditPart) {
 			SwitchMediatorEditPart switchMediatorEditPart = (SwitchMediatorEditPart) childEditPart;
-			BorderItemLocator locator = new FixedBorderItemLocator(
-					this.getFigure(),
-					switchMediatorEditPart.defaultOutputConnector,
-					PositionConstants.WEST, 0.5);
-			switchMediatorEditPart
-					.getBorderedFigure()
-					.getBorderItemContainer()
+			BorderItemLocator locator = new FixedBorderItemLocator(this.getFigure(),
+					switchMediatorEditPart.defaultOutputConnector, PositionConstants.WEST, 0.5);
+			switchMediatorEditPart.getBorderedFigure().getBorderItemContainer()
 					.add(switchMediatorEditPart.defaultOutputConnector, locator);
 		} else {
 			//Should handle properly.
@@ -141,8 +134,8 @@ public class SwitchDefaultContainerEditPart extends ShapeNodeEditPart {
 	}
 
 	protected void addChildVisual(EditPart childEditPart, int index) {
-		refreshOutputConnector(((SwitchMediatorEditPart) childEditPart
-				.getParent().getParent().getParent()));
+		refreshOutputConnector(((SwitchMediatorEditPart) childEditPart.getParent().getParent()
+				.getParent()));
 		super.addChildVisual(childEditPart, -1);
 	}
 
@@ -242,8 +235,7 @@ public class SwitchDefaultContainerEditPart extends ShapeNodeEditPart {
 			layoutThis.setSpacing(0);
 			layoutThis.setVertical(true);
 			this.setLayoutManager(layoutThis);
-			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
-					getMapMode().DPtoLP(8)));
+			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8), getMapMode().DPtoLP(8)));
 			/*			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(700),
 			 getMapMode().DPtoLP(300)));*/
 			this.setLineStyle(Graphics.LINE_DASH);

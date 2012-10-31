@@ -61,13 +61,11 @@ public class FailoverEndPoint2EditPart extends AbstractBorderedShapeEditPart {
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new CreationEditPolicy());
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new FailoverEndPoint2ItemSemanticEditPolicy());
-		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
-				new DragDropEditPolicy());
+		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
 				new FailoverEndPoint2CanonicalEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
@@ -89,8 +87,7 @@ public class FailoverEndPoint2EditPart extends AbstractBorderedShapeEditPart {
 				case FailoverEndPointWestOutputConnector2EditPart.VISUAL_ID:
 					return new BorderItemSelectionEditPolicy();
 				}
-				EditPolicy result = child
-						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+				EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
 				if (result == null) {
 					result = new NonResizableEditPolicy();
 				}
@@ -127,36 +124,31 @@ public class FailoverEndPoint2EditPart extends AbstractBorderedShapeEditPart {
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof FailoverEndPointEndPointName2EditPart) {
-			((FailoverEndPointEndPointName2EditPart) childEditPart)
-					.setLabel(getPrimaryShape()
-							.getFigureFailoverEndPointNamePropertyLabel());
+			((FailoverEndPointEndPointName2EditPart) childEditPart).setLabel(getPrimaryShape()
+					.getFigureFailoverEndPointNamePropertyLabel());
 			return true;
 		}
 		if (childEditPart instanceof FailoverEndPointInputConnector2EditPart) {
 			BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
 					PositionConstants.WEST);
-			getBorderedFigure()
-					.getBorderItemContainer()
-					.add(((FailoverEndPointInputConnector2EditPart) childEditPart)
-							.getFigure(), locator);
+			getBorderedFigure().getBorderItemContainer().add(
+					((FailoverEndPointInputConnector2EditPart) childEditPart).getFigure(), locator);
 			return true;
 		}
 		if (childEditPart instanceof FailoverEndPointOutputConnector2EditPart) {
 			BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
 					PositionConstants.EAST);
-			getBorderedFigure()
-					.getBorderItemContainer()
-					.add(((FailoverEndPointOutputConnector2EditPart) childEditPart)
-							.getFigure(), locator);
+			getBorderedFigure().getBorderItemContainer()
+					.add(((FailoverEndPointOutputConnector2EditPart) childEditPart).getFigure(),
+							locator);
 			return true;
 		}
 		if (childEditPart instanceof FailoverEndPointWestOutputConnector2EditPart) {
 			BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
 					PositionConstants.WEST);
-			getBorderedFigure()
-					.getBorderItemContainer()
-					.add(((FailoverEndPointWestOutputConnector2EditPart) childEditPart)
-							.getFigure(), locator);
+			getBorderedFigure().getBorderItemContainer().add(
+					((FailoverEndPointWestOutputConnector2EditPart) childEditPart).getFigure(),
+					locator);
 			return true;
 		}
 		return false;
@@ -171,21 +163,17 @@ public class FailoverEndPoint2EditPart extends AbstractBorderedShapeEditPart {
 		}
 		if (childEditPart instanceof FailoverEndPointInputConnector2EditPart) {
 			getBorderedFigure().getBorderItemContainer().remove(
-					((FailoverEndPointInputConnector2EditPart) childEditPart)
-							.getFigure());
+					((FailoverEndPointInputConnector2EditPart) childEditPart).getFigure());
 			return true;
 		}
 		if (childEditPart instanceof FailoverEndPointOutputConnector2EditPart) {
 			getBorderedFigure().getBorderItemContainer().remove(
-					((FailoverEndPointOutputConnector2EditPart) childEditPart)
-							.getFigure());
+					((FailoverEndPointOutputConnector2EditPart) childEditPart).getFigure());
 			return true;
 		}
 		if (childEditPart instanceof FailoverEndPointWestOutputConnector2EditPart) {
-			getBorderedFigure()
-					.getBorderItemContainer()
-					.remove(((FailoverEndPointWestOutputConnector2EditPart) childEditPart)
-							.getFigure());
+			getBorderedFigure().getBorderItemContainer().remove(
+					((FailoverEndPointWestOutputConnector2EditPart) childEditPart).getFigure());
 			return true;
 		}
 		return false;

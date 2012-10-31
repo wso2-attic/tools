@@ -48,8 +48,7 @@ import static org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtil
 /**
  * @generated NOT
  */
-public class EsbCreationWizard extends Wizard implements INewWizard,
-		IExecutableExtension {
+public class EsbCreationWizard extends Wizard implements INewWizard, IExecutableExtension {
 
 	/**
 	 * @generated
@@ -65,7 +64,7 @@ public class EsbCreationWizard extends Wizard implements INewWizard,
 	 * @generated
 	 */
 	protected EsbCreationWizardPage diagramModelFilePage;
-	
+
 	protected TemplateCreationWizardPage templateCreationPage;
 
 	protected EndpointCreationWizardPage endpointCreationPage;
@@ -95,8 +94,8 @@ public class EsbCreationWizard extends Wizard implements INewWizard,
 	private IContainer location;
 
 	private WizardMode wizardMode = WizardMode.DEFAULT;
-	
-	private String defaultFilename = "default";
+
+	private String defaultFilename = "synapse";
 
 	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
 
@@ -131,8 +130,7 @@ public class EsbCreationWizard extends Wizard implements INewWizard,
 	/**
 	 * @generated
 	 */
-	public void setOpenNewlyCreatedDiagramEditor(
-			boolean openNewlyCreatedDiagramEditor) {
+	public void setOpenNewlyCreatedDiagramEditor(boolean openNewlyCreatedDiagramEditor) {
 		this.openNewlyCreatedDiagramEditor = openNewlyCreatedDiagramEditor;
 	}
 
@@ -152,29 +150,26 @@ public class EsbCreationWizard extends Wizard implements INewWizard,
 	 * @generated NOT
 	 */
 	public void addPages() {
-		diagramModelFilePage = new EsbCreationWizardPage(
-				"DiagramModelFile", getSelection(), null); //$NON-NLS-1$ //$NON-NLS-2$
-		diagramModelFilePage
-				.setTitle(Messages.EsbCreationWizard_DiagramModelFilePageTitle);
+		diagramModelFilePage = new EsbCreationWizardPage("DiagramModelFile", getSelection(), null); //$NON-NLS-1$ //$NON-NLS-2$
+		diagramModelFilePage.setTitle(Messages.EsbCreationWizard_DiagramModelFilePageTitle);
 		diagramModelFilePage
 				.setDescription(Messages.EsbCreationWizard_DiagramModelFilePageDescription);
 		diagramModelFilePage.setDefaultFilename(getDefaultFilename());
 		addPage(diagramModelFilePage);
-		
+
 		switch (wizardMode) {
 		case TEMPLATE:
-			templateCreationPage=new TemplateCreationWizardPage("TemplateCreation");
+			templateCreationPage = new TemplateCreationWizardPage("TemplateCreation");
 			addPage(templateCreationPage);
-			break;	
-			
+			break;
+
 		case ENDPOINT:
-			endpointCreationPage=new EndpointCreationWizardPage("EndpointCreation");
+			endpointCreationPage = new EndpointCreationWizardPage("EndpointCreation");
 			addPage(endpointCreationPage);
-			break;		
-		
+			break;
+
 		}
-		
-		
+
 		/* removed domainModelFilePage */
 		/*	domainModelFilePage = new EsbCreationWizardPage(
 					"DomainModelFile", getSelection(), "esb") { //$NON-NLS-1$ //$NON-NLS-2$
@@ -205,15 +200,13 @@ public class EsbCreationWizard extends Wizard implements INewWizard,
 
 			IRunnableWithProgress op = null;
 
-			IPath containerFullPath = diagramModelFilePage
-					.getContainerFullPath();
+			IPath containerFullPath = diagramModelFilePage.getContainerFullPath();
 
 			esbProject = ResourcesPlugin.getWorkspace().getRoot()
 					.getProject(containerFullPath.segment(0));
 
 			esbProjectArtifact = new ESBProjectArtifact();
-			esbProjectArtifact.fromFile(esbProject.getFile("artifact.xml")
-					.getLocation().toFile());
+			esbProjectArtifact.fromFile(esbProject.getFile("artifact.xml").getLocation().toFile());
 
 			location = esbProject.getFolder(SYNAPSE_RESOURCE_DIR);
 			String type = null;
@@ -221,85 +214,83 @@ public class EsbCreationWizard extends Wizard implements INewWizard,
 			switch (wizardMode) {
 			case SEQUENCE:
 				location = esbProject.getFolder(SEQUENCE_RESOURCE_DIR);
-				op = createDiagram("sequence_", SEQUENCE_RESOURCE_DIR,
-						"sequence",null);
+				op = createDiagram("sequence_", SEQUENCE_RESOURCE_DIR, "sequence", null);
 				type = "synapse/sequence";
 				break;
 
 			case PROXY:
 				location = esbProject.getFolder(PROXY_RESOURCE_DIR);
-				op = createDiagram("proxy_", PROXY_RESOURCE_DIR, "proxy",null);
+				op = createDiagram("proxy_", PROXY_RESOURCE_DIR, "proxy", null);
 				type = "synapse/proxy-service";
 				break;
 
 			case ENDPOINT:
 				location = esbProject.getFolder(ENDPOINT_RESOURCE_DIR);
-				op = createDiagram("endpoint_", ENDPOINT_RESOURCE_DIR,
-						"endpoint",endpointCreationPage.selection);
+				op = createDiagram("endpoint_", ENDPOINT_RESOURCE_DIR, "endpoint",
+						endpointCreationPage.selection);
 				type = "synapse/endpoint";
 				break;
 
 			case LOCALENTRY:
 				location = esbProject.getFolder(LOCAL_ENTRY_RESOURCE_DIR);
-				op = createDiagram("localentry_", LOCAL_ENTRY_RESOURCE_DIR,
-						"localentry",null);
+				op = createDiagram("localentry_", LOCAL_ENTRY_RESOURCE_DIR, "localentry", null);
 				type = "synapse/local-entry";
 				break;
 
 			case TEMPLATE:
 				location = esbProject.getFolder(TEMPLATE_RESOURCE_DIR);
-				if(templateCreationPage.sequenceRadioButton.getSelection()){
-					op = createDiagram("template_", TEMPLATE_RESOURCE_DIR,
-							"template.sequence",null);
+				if (templateCreationPage.sequenceRadioButton.getSelection()) {
+					op = createDiagram("template_", TEMPLATE_RESOURCE_DIR, "template.sequence",
+							null);
 					type = "synapse/template";
-				}else if(templateCreationPage.endpointRadioButton.getSelection()){
-					op = createDiagram("template_", TEMPLATE_RESOURCE_DIR,
-							"template.endpoint",templateCreationPage.selection);
+				} else if (templateCreationPage.endpointRadioButton.getSelection()) {
+					op = createDiagram("template_", TEMPLATE_RESOURCE_DIR, "template.endpoint",
+							templateCreationPage.selection);
 					type = "synapse/template";
 				}
-				
+
 				break;
 
 			case TASK:
 				location = esbProject.getFolder(TASK_RESOURCE_DIR);
-				op = createDiagram("task_", TASK_RESOURCE_DIR, "task",null);
+				op = createDiagram("task_", TASK_RESOURCE_DIR, "task", null);
 				type = "synapse/task";
 				break;
 
 			case API:
 				location = esbProject.getFolder(API_RESOURCE_DIR);
-				op = createDiagram("api_", API_RESOURCE_DIR, "api",null);
+				op = createDiagram("api_", API_RESOURCE_DIR, "api", null);
 				type = "synapse/api";
 				break;
 
 			default:
-				fileCreationLocationDiagram = URI.createPlatformResourceURI(
-						location.getFullPath().toString() + "/"
-								+ diagramModelFilePage.getFileName()
-								+ DIAGRAM_FILE_EXTENSION, false);
-				fileCreationLocationDomain = URI.createPlatformResourceURI(
-						location.getFullPath().toString() + "/"
-								+ diagramModelFilePage.getFileName()
-								+ DOMAIN_FILE_EXTENSION, false);
+				fileCreationLocationDiagram = URI.createPlatformResourceURI(location.getFullPath()
+						.toString()
+						+ "/"
+						+ diagramModelFilePage.getFileName()
+						+ DIAGRAM_FILE_EXTENSION, false);
+				fileCreationLocationDomain = URI.createPlatformResourceURI(location.getFullPath()
+						.toString()
+						+ "/"
+						+ diagramModelFilePage.getFileName()
+						+ DOMAIN_FILE_EXTENSION, false);
 				op = createSynapseDiagram();
 				type = "synapse/configuration";
 				break;
 			}
 
-			String relativePathDiagram = FileUtils.getRelativePath(esbProject
-					.getLocation().toFile(), new File(location.getLocation()
-					.toFile(), diagramModelFilePage.getFileName() + ".xml"));
+			String relativePathDiagram = FileUtils.getRelativePath(esbProject.getLocation()
+					.toFile(),
+					new File(location.getLocation().toFile(), diagramModelFilePage.getFileName()
+							+ ".xml"));
 			relativePathDiagram = relativePathDiagram.replaceAll(Pattern.quote("\\"), "/");
-			relativePathDiagram = relativePathDiagram.replaceFirst(
-					"/graphical-synapse-config", "/synapse-config");
-			esbProjectArtifact.addESBArtifact(createArtifact(
-					diagramModelFilePage.getFileName(),
-					getMavenGroupID(esbProject), "1.0.0", relativePathDiagram,
-					type));
+			relativePathDiagram = relativePathDiagram.replaceFirst("/graphical-synapse-config",
+					"/synapse-config");
+			esbProjectArtifact.addESBArtifact(createArtifact(diagramModelFilePage.getFileName(),
+					getMavenGroupID(esbProject), "1.0.0", relativePathDiagram, type));
 
 			esbProjectArtifact.toFile();
-			esbProject.refreshLocal(IResource.DEPTH_INFINITE,
-					new NullProgressMonitor());
+			esbProject.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 
 			try {
 				getContainer().run(false, true, op);
@@ -309,8 +300,7 @@ public class EsbCreationWizard extends Wizard implements INewWizard,
 				if (e.getTargetException() instanceof CoreException) {
 					ErrorDialog.openError(getContainer().getShell(),
 							Messages.EsbCreationWizardCreationError, null,
-							((CoreException) e.getTargetException())
-									.getStatus());
+							((CoreException) e.getTargetException()).getStatus());
 				} else {
 					EsbDiagramEditorPlugin.getInstance().logError(
 							"Error creating diagram", e.getTargetException()); //$NON-NLS-1$
@@ -320,10 +310,10 @@ public class EsbCreationWizard extends Wizard implements INewWizard,
 			return diagram != null;
 
 		} catch (Exception e) {
-			ErrorDialog.openError(getContainer().getShell(),
-					"Error creating diagram",
-					"An unexpected error has occurred while creating diagram",
-					Status.CANCEL_STATUS);
+			ErrorDialog
+					.openError(getContainer().getShell(), "Error creating diagram",
+							"An unexpected error has occurred while creating diagram",
+							Status.CANCEL_STATUS);
 			// TODO: log error
 		}
 		return true;
@@ -332,23 +322,20 @@ public class EsbCreationWizard extends Wizard implements INewWizard,
 	private IRunnableWithProgress createSynapseDiagram() {
 		IRunnableWithProgress op = new WorkspaceModifyOperation(null) {
 
-			protected void execute(IProgressMonitor monitor)
-					throws CoreException, InterruptedException {
+			protected void execute(IProgressMonitor monitor) throws CoreException,
+					InterruptedException {
 				/*diagram = EsbDiagramEditorUtil.createDiagram(
 						diagramModelFilePage.getURI(),
 						domainModelFilePage.getURI(), monitor);  */
-				diagram = EsbDiagramEditorUtil.createDiagram(
-						fileCreationLocationDiagram,
+				diagram = EsbDiagramEditorUtil.createDiagram(fileCreationLocationDiagram,
 						fileCreationLocationDomain, monitor);
-				createXMLfile(diagramModelFilePage.getFileName(), diagram,
-						SYNAPSE_RESOURCE_DIR);
+				createXMLfile(diagramModelFilePage.getFileName(), diagram, SYNAPSE_RESOURCE_DIR);
 				if (isOpenNewlyCreatedDiagramEditor() && diagram != null) {
 					try {
 						EsbDiagramEditorUtil.openDiagram(diagram);
 					} catch (PartInitException e) {
 						ErrorDialog.openError(getContainer().getShell(),
-								Messages.EsbCreationWizardOpenEditorError,
-								null, e.getStatus());
+								Messages.EsbCreationWizardOpenEditorError, null, e.getStatus());
 					}
 				}
 			}
@@ -356,44 +343,33 @@ public class EsbCreationWizard extends Wizard implements INewWizard,
 		return op;
 	}
 
-	private IRunnableWithProgress createDiagram(final String extentionPrefix,
-			final String dir, final String type,final Object specificType) {
+	private IRunnableWithProgress createDiagram(final String extentionPrefix, final String dir,
+			final String type, final Object specificType) {
 		IRunnableWithProgress op = new WorkspaceModifyOperation(null) {
 
-			protected void execute(IProgressMonitor monitor)
-					throws CoreException, InterruptedException {
-				IPath fileLocation = new Path(location.getFullPath().toString()
-						+ "/" + extentionPrefix
-						+ diagramModelFilePage.getFileName()
+			protected void execute(IProgressMonitor monitor) throws CoreException,
+					InterruptedException {
+				IPath fileLocation = new Path(location.getFullPath().toString() + "/"
+						+ extentionPrefix + diagramModelFilePage.getFileName()
 						+ DIAGRAM_FILE_EXTENSION);
-				IFile file = esbProject.getFile(dir + "/"
-						+ fileLocation.lastSegment());
+				IFile file = esbProject.getFile(dir + "/" + fileLocation.lastSegment());
 
 				if (!file.exists()) {
-					diagram = EsbDiagramEditorUtil.createDiagram(URI
-							.createPlatformResourceURI(location.getFullPath()
-									.toString()
-									+ "/"
-									+ extentionPrefix
-									+ diagramModelFilePage.getFileName()
-									+ DIAGRAM_FILE_EXTENSION, false), URI
-							.createPlatformResourceURI(location.getFullPath()
-									.toString()
-									+ "/"
-									+ extentionPrefix
-									+ diagramModelFilePage.getFileName()
-									+ DOMAIN_FILE_EXTENSION, false),
-							new NullProgressMonitor(), type,
-							diagramModelFilePage.getFileName(),specificType);
-					createXMLfile(diagramModelFilePage.getFileName(), diagram,
-							dir);
+					diagram = EsbDiagramEditorUtil.createDiagram(
+							URI.createPlatformResourceURI(location.getFullPath().toString() + "/"
+									+ extentionPrefix + diagramModelFilePage.getFileName()
+									+ DIAGRAM_FILE_EXTENSION, false),
+							URI.createPlatformResourceURI(location.getFullPath().toString() + "/"
+									+ extentionPrefix + diagramModelFilePage.getFileName()
+									+ DOMAIN_FILE_EXTENSION, false), new NullProgressMonitor(),
+							type, diagramModelFilePage.getFileName(), specificType);
+					createXMLfile(diagramModelFilePage.getFileName(), diagram, dir);
 					try {
 						EsbDiagramEditorUtil.openDiagram(diagram);
 
 					} catch (PartInitException e) {
 						ErrorDialog.openError(getContainer().getShell(),
-								Messages.EsbCreationWizardOpenEditorError,
-								null, e.getStatus());
+								Messages.EsbCreationWizardOpenEditorError, null, e.getStatus());
 					}
 				}
 			}
@@ -403,8 +379,8 @@ public class EsbCreationWizard extends Wizard implements INewWizard,
 
 	protected void createXMLfile(String name, Resource resource, String dir) {
 
-		String xmlFilePath = dir.replaceAll("/graphical-synapse-config",
-				"/synapse-config") + "/" + name + ".xml";
+		String xmlFilePath = dir.replaceAll("/graphical-synapse-config", "/synapse-config") + "/"
+				+ name + ".xml";
 		IFile xmlFile = esbProject.getFile(xmlFilePath);
 		EsbDiagram diagram = (EsbDiagram) ((org.eclipse.gmf.runtime.notation.impl.DiagramImpl) resource
 				.getContents().get(0)).getElement();
@@ -421,8 +397,8 @@ public class EsbCreationWizard extends Wizard implements INewWizard,
 
 	}
 
-	private ESBArtifact createArtifact(String name, String groupId,
-			String version, String path, String type) {
+	private ESBArtifact createArtifact(String name, String groupId, String version, String path,
+			String type) {
 		ESBArtifact artifact = new ESBArtifact();
 		artifact.setName(name);
 		artifact.setVersion(version);
@@ -433,15 +409,16 @@ public class EsbCreationWizard extends Wizard implements INewWizard,
 		return artifact;
 	}
 
-	public void setInitializationData(IConfigurationElement config,
-			String propertyName, Object data) throws CoreException {
+	public void setInitializationData(IConfigurationElement config, String propertyName, Object data)
+			throws CoreException {
 		try {
 			if (propertyName != null) {
 				if ("class".equals(propertyName)) {
 					if (data instanceof Map) {
 						String type = (String) ((Map) data).get("mode");
 						wizardMode = WizardMode.valueOf(type.toUpperCase());
-						setDefaultFilename(wizardMode.toString().toLowerCase());
+						setDefaultFilename(wizardMode.toString().toLowerCase()
+								.replaceAll("^default$", "synapse"));
 					}
 				}
 			}
@@ -453,8 +430,8 @@ public class EsbCreationWizard extends Wizard implements INewWizard,
 	private String getMavenGroupID(IProject project) {
 		String groupID = "com.example";
 		try {
-			MavenProject mavenProject = MavenUtils.getMavenProject(project
-					.getFile("pom.xml").getLocation().toFile());
+			MavenProject mavenProject = MavenUtils.getMavenProject(project.getFile("pom.xml")
+					.getLocation().toFile());
 			groupID = mavenProject.getGroupId();
 		} catch (Exception e) {
 			//ignore. Then group id would be default. 
@@ -472,9 +449,8 @@ public class EsbCreationWizard extends Wizard implements INewWizard,
 	}
 
 	public enum WizardMode {
-		DEFAULT("DEFAULT"), PROXY("PROXY"), SEQUENCE("SEQUENCE"), ENDPOINT(
-				"ENDPOINT"), LOCALENTRY("LOCALENTRY"), TEMPLATE("TEMPLATE"), TASK(
-				"TASK"), API("API");
+		DEFAULT("DEFAULT"), PROXY("PROXY"), SEQUENCE("SEQUENCE"), ENDPOINT("ENDPOINT"), LOCALENTRY(
+				"LOCALENTRY"), TEMPLATE("TEMPLATE"), TASK("TASK"), API("API");
 
 		private final String mode;
 

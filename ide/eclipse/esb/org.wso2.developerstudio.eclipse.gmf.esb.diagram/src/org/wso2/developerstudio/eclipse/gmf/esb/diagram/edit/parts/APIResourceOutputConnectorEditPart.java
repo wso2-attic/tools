@@ -43,8 +43,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementType
 /**
  * @generated NOT
  */
-public class APIResourceOutputConnectorEditPart extends
-		AbstractOutputConnectorEditPart {
+public class APIResourceOutputConnectorEditPart extends AbstractOutputConnectorEditPart {
 
 	/**
 	 * @generated
@@ -85,8 +84,7 @@ public class APIResourceOutputConnectorEditPart extends
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
-				getPrimaryDragEditPolicy());
+		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, getPrimaryDragEditPolicy());
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new APIResourceOutputConnectorItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
@@ -101,8 +99,7 @@ public class APIResourceOutputConnectorEditPart extends
 		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
 			protected EditPolicy createChildEditPolicy(EditPart child) {
-				EditPolicy result = child
-						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+				EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
 				if (result == null) {
 					result = new NonResizableEditPolicy();
 				}
@@ -231,8 +228,7 @@ public class APIResourceOutputConnectorEditPart extends
 	/**
 	 * @generated
 	 */
-	public List<IElementType> getMARelTypesOnSourceAndTarget(
-			IGraphicalEditPart targetEditPart) {
+	public List<IElementType> getMARelTypesOnSourceAndTarget(IGraphicalEditPart targetEditPart) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
 		if (targetEditPart instanceof ProxyInputConnectorEditPart) {
 			types.add(EsbElementTypes.EsbLink_4001);
@@ -519,23 +515,20 @@ public class APIResourceOutputConnectorEditPart extends
 				}
 
 				public void mouseExited(MouseEvent arg0) {
-					if (getEditDomain().getPaletteViewer().getActiveTool()
-							.getId().equals("createEsbLink1CreationTool")) {
+					if (getEditDomain().getPaletteViewer().getActiveTool().getId()
+							.equals("createEsbLink1CreationTool")) {
 						getEditDomain().getPaletteViewer().setActiveTool(null);
 					}
 				}
 
 				public void mouseEntered(MouseEvent arg0) {
 					// TODO Auto-generated method stub
-					if (getEditDomain().getPaletteViewer().getActiveTool()
-							.getId().equals("selectionTool")) {
-						getEditDomain()
-								.getPaletteViewer()
-								.setActiveTool(
-										(ToolEntry) (((PaletteContainer) getEditDomain()
-												.getPaletteViewer()
-												.getPaletteRoot().getChildren()
-												.get(4)).getChildren().get(0)));
+					if (getEditDomain().getPaletteViewer().getActiveTool().getId()
+							.equals("selectionTool")) {
+						getEditDomain().getPaletteViewer().setActiveTool(
+								(ToolEntry) (((PaletteContainer) getEditDomain().getPaletteViewer()
+										.getPaletteRoot().getChildren().get(4)).getChildren()
+										.get(0)));
 
 					}
 				}
