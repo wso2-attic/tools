@@ -2540,4 +2540,9 @@
       figure="OAuthMediatorFigure"
       elementIcon="false"
       accessor="//@figures.0/@descriptors.45/@accessors.0"/>
+  <labels
+      name="NamedEndpointName"
+      figure="NamedEndpointFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.82/@accessors.0"/>
 </gmfgraph:Canvas>

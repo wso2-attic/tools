@@ -46,10 +46,10 @@ public class AbstractCommonTargetImpl extends EsbNodeImpl implements AbstractCom
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getSequenceType()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
-	protected static final TargetSequenceType SEQUENCE_TYPE_EDEFAULT = TargetSequenceType.NONE;
+	protected static final TargetSequenceType SEQUENCE_TYPE_EDEFAULT = TargetSequenceType.ANONYMOUS;
 
 	/**
 	 * The cached value of the '{@link #getSequenceType() <em>Sequence Type</em>}' attribute.

@@ -2175,6 +2175,16 @@
                         <ownedChild>
                           <domainMetaElement
                               href="esb.ecore#//NamedEndpoint"/>
+                          <labelMappings
+                              xsi:type="gmfmap:FeatureLabelMapping"
+                              viewPattern="">
+                            <diagramLabel
+                                href="esb.gmfgraph#NamedEndpointName"/>
+                            <features
+                                href="esb.ecore#//NamedEndpoint/name"/>
+                            <editableFeatures
+                                href="esb.ecore#//NamedEndpoint/name"/>
+                          </labelMappings>
                           <tool
                               xsi:type="gmftool:CreationTool"
                               href="esb.gmftool#//@palette/@tools.2/@tools.5"/>

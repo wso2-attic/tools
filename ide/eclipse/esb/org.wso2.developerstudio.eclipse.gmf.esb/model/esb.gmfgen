@@ -6750,6 +6750,27 @@
           <childMetaFeature
               href="esb.genmodel#//esb/MediatorFlow/children"/>
         </modelFacet>
+        <labels
+            visualID="5165"
+            editPartClassName="NamedEndpointNameEditPart"
+            itemSemanticEditPolicyClassName="NamedEndpointNameItemSemanticEditPolicy"
+            notationViewFactoryClassName="NamedEndpointNameViewFactory">
+          <diagramRunTimeClass
+              href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+          <viewmap
+              xsi:type="gmfgen:ParentAssignedViewmap"
+              getterName="getFigureNamedEndPointNamePropertyLabel"
+              figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+          <modelFacet
+              xsi:type="gmfgen:FeatureLabelModelFacet"
+              parser="/0/@labelParsers/@implementations.0"
+              viewPattern="">
+            <metaFeatures
+                href="esb.genmodel#//esb/NamedEndpoint/name"/>
+            <editableMetaFeatures
+                href="esb.genmodel#//esb/NamedEndpoint/name"/>
+          </modelFacet>
+        </labels>
       </childNodes>
       <childNodes
           xsi:type="gmfgen:GenChildSideAffixedNode"
@@ -6991,6 +7012,7 @@
           visualID="3674"
           editPartClassName="APIResourceEndpointEditPart"
           itemSemanticEditPolicyClassName="APIResourceEndpointItemSemanticEditPolicy"
+          notationViewFactoryClassName="APIResourceEndpointViewFactory"
           canonicalEditPolicyClassName="APIResourceEndpointCanonicalEditPolicy"
           childNodes="/0/@diagram/@childNodes.184 /0/@diagram/@childNodes.185"
           graphicalNodeEditPolicyClassName="APIResourceEndpointGraphicalNodeEditPolicy"
@@ -7023,6 +7045,7 @@
           visualID="3675"
           editPartClassName="APIResourceEndpointInputConnectorEditPart"
           itemSemanticEditPolicyClassName="APIResourceEndpointInputConnectorItemSemanticEditPolicy"
+          notationViewFactoryClassName="APIResourceEndpointInputConnectorViewFactory"
           canonicalEditPolicyClassName="APIResourceEndpointInputConnectorCanonicalEditPolicy"
           graphicalNodeEditPolicyClassName="APIResourceEndpointInputConnectorGraphicalNodeEditPolicy"
           createCommandClassName="APIResourceEndpointInputConnectorCreateCommand"
@@ -7059,6 +7082,7 @@
           visualID="3676"
           editPartClassName="APIResourceEndpointOutputConnectorEditPart"
           itemSemanticEditPolicyClassName="APIResourceEndpointOutputConnectorItemSemanticEditPolicy"
+          notationViewFactoryClassName="APIResourceEndpointOutputConnectorViewFactory"
           canonicalEditPolicyClassName="APIResourceEndpointOutputConnectorCanonicalEditPolicy"
           graphicalNodeEditPolicyClassName="APIResourceEndpointOutputConnectorGraphicalNodeEditPolicy"
           createCommandClassName="APIResourceEndpointOutputConnectorCreateCommand"
@@ -14242,7 +14266,7 @@
         extensibleViaService="true">
       <implementations
           xsi:type="gmfgen:PredefinedParser"
-          uses="/0/@diagram/@childNodes.9/@labels.0/@modelFacet /0/@diagram/@childNodes.28/@labels.0/@modelFacet /0/@diagram/@childNodes.31/@labels.0/@modelFacet /0/@diagram/@childNodes.45/@labels.0/@modelFacet /0/@diagram/@childNodes.48/@labels.0/@modelFacet /0/@diagram/@childNodes.51/@labels.0/@modelFacet /0/@diagram/@childNodes.54/@labels.0/@modelFacet /0/@diagram/@childNodes.57/@labels.0/@modelFacet /0/@diagram/@childNodes.60/@labels.0/@modelFacet /0/@diagram/@childNodes.63/@labels.0/@modelFacet /0/@diagram/@childNodes.66/@labels.0/@modelFacet /0/@diagram/@childNodes.69/@labels.0/@modelFacet /0/@diagram/@childNodes.72/@labels.0/@modelFacet /0/@diagram/@childNodes.75/@labels.0/@modelFacet /0/@diagram/@childNodes.86/@labels.0/@modelFacet /0/@diagram/@childNodes.106/@labels.0/@modelFacet /0/@diagram/@childNodes.120/@labels.0/@modelFacet /0/@diagram/@childNodes.163/@labels.0/@modelFacet /0/@diagram/@childNodes.166/@labels.0/@modelFacet /0/@diagram/@childNodes.169/@labels.0/@modelFacet /0/@diagram/@childNodes.173/@labels.0/@modelFacet /0/@diagram/@childNodes.179/@labels.0/@modelFacet /0/@diagram/@childNodes.123/@labels.0/@modelFacet /0/@diagram/@childNodes.101/@labels.0/@modelFacet /0/@diagram/@childNodes.96/@labels.0/@modelFacet /0/@diagram/@childNodes.89/@labels.0/@modelFacet /0/@diagram/@childNodes.20/@labels.0/@modelFacet /0/@diagram/@childNodes.12/@labels.0/@modelFacet /0/@diagram/@childNodes.0/@labels.0/@modelFacet /0/@diagram/@childNodes.206/@labels.0/@modelFacet /0/@diagram/@childNodes.209/@labels.0/@modelFacet /0/@diagram/@childNodes.212/@labels.0/@modelFacet /0/@diagram/@childNodes.216/@labels.0/@modelFacet /0/@diagram/@childNodes.219/@labels.0/@modelFacet"/>
+          uses="/0/@diagram/@childNodes.9/@labels.0/@modelFacet /0/@diagram/@childNodes.28/@labels.0/@modelFacet /0/@diagram/@childNodes.31/@labels.0/@modelFacet /0/@diagram/@childNodes.45/@labels.0/@modelFacet /0/@diagram/@childNodes.48/@labels.0/@modelFacet /0/@diagram/@childNodes.51/@labels.0/@modelFacet /0/@diagram/@childNodes.54/@labels.0/@modelFacet /0/@diagram/@childNodes.57/@labels.0/@modelFacet /0/@diagram/@childNodes.60/@labels.0/@modelFacet /0/@diagram/@childNodes.63/@labels.0/@modelFacet /0/@diagram/@childNodes.66/@labels.0/@modelFacet /0/@diagram/@childNodes.69/@labels.0/@modelFacet /0/@diagram/@childNodes.72/@labels.0/@modelFacet /0/@diagram/@childNodes.75/@labels.0/@modelFacet /0/@diagram/@childNodes.86/@labels.0/@modelFacet /0/@diagram/@childNodes.106/@labels.0/@modelFacet /0/@diagram/@childNodes.120/@labels.0/@modelFacet /0/@diagram/@childNodes.163/@labels.0/@modelFacet /0/@diagram/@childNodes.166/@labels.0/@modelFacet /0/@diagram/@childNodes.169/@labels.0/@modelFacet /0/@diagram/@childNodes.173/@labels.0/@modelFacet /0/@diagram/@childNodes.176/@labels.0/@modelFacet /0/@diagram/@childNodes.179/@labels.0/@modelFacet /0/@diagram/@childNodes.123/@labels.0/@modelFacet /0/@diagram/@childNodes.101/@labels.0/@modelFacet /0/@diagram/@childNodes.96/@labels.0/@modelFacet /0/@diagram/@childNodes.89/@labels.0/@modelFacet /0/@diagram/@childNodes.20/@labels.0/@modelFacet /0/@diagram/@childNodes.12/@labels.0/@modelFacet /0/@diagram/@childNodes.0/@labels.0/@modelFacet /0/@diagram/@childNodes.206/@labels.0/@modelFacet /0/@diagram/@childNodes.209/@labels.0/@modelFacet /0/@diagram/@childNodes.212/@labels.0/@modelFacet /0/@diagram/@childNodes.216/@labels.0/@modelFacet /0/@diagram/@childNodes.219/@labels.0/@modelFacet"/>
     </labelParsers>
     <contextMenus
         context="/0/@diagram">
