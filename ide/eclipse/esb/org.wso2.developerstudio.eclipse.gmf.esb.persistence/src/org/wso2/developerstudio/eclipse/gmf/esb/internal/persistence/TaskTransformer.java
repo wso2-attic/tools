@@ -5,18 +5,12 @@ import java.util.List;
 
 import javax.xml.stream.XMLStreamException;
 
-import org.apache.axiom.om.OMAbstractFactory;
-import org.apache.axiom.om.OMAttribute;
 import org.apache.axiom.om.OMElement;
-import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.util.AXIOMUtil;
-import org.apache.synapse.startup.quartz.SimpleQuartz;
 import org.apache.synapse.task.TaskDescription;
-import org.w3c.dom.Element;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.TaskProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.TaskPropertyType;
-import org.wso2.developerstudio.eclipse.gmf.esb.TaskTriggerType;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
 
 public class TaskTransformer {
@@ -49,10 +43,12 @@ public class TaskTransformer {
 		}
 		
 		String pinnedServers=visualTask.getPinnedServers();
-		pinnedServers=pinnedServers.replace(',', ' ');
-		String [] pinnedServer=pinnedServers.split("\\s");
-		List<String> servers = Arrays.asList(pinnedServer); 
-		taskDescription.setPinnedServers(servers);
+		if(pinnedServers!=null && !pinnedServers.equals("")){
+			pinnedServers=pinnedServers.replace(',', ' ');
+			String [] pinnedServer=pinnedServers.split("\\s");
+			List<String> servers = Arrays.asList(pinnedServer); 
+			taskDescription.setPinnedServers(servers);
+		}
 
 		if (visualTask.getTaskProperties() != null) {
 			for (TaskProperty taskProperty : visualTask.getTaskProperties()) {
