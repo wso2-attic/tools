@@ -91,7 +91,8 @@ public class RuleMediatorItemProvider
 			addInputNameSpacePropertyDescriptor(object);
 			addOutputWrapperNamePropertyDescriptor(object);
 			addOutputNameSpacePropertyDescriptor(object);
-	 
+			addRuleSetTypePropertyDescriptor(object);
+ 
 		return itemPropertyDescriptors;
 	}	 
 
@@ -551,6 +552,28 @@ public class RuleMediatorItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Rule Set Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRuleSetTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RuleMediator_RuleSetType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RuleMediator_RuleSetType_feature", "_UI_RuleMediator_type"),
+				 EsbPackage.Literals.RULE_MEDIATOR__RULE_SET_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI_RuleSetPropertyCategory"),
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -642,6 +665,7 @@ public class RuleMediatorItemProvider
 			case EsbPackage.RULE_MEDIATOR__INPUT_NAME_SPACE:
 			case EsbPackage.RULE_MEDIATOR__OUTPUT_WRAPPER_NAME:
 			case EsbPackage.RULE_MEDIATOR__OUTPUT_NAME_SPACE:
+			case EsbPackage.RULE_MEDIATOR__RULE_SET_TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case EsbPackage.RULE_MEDIATOR__RULE_SET_SOURCE_KEY:

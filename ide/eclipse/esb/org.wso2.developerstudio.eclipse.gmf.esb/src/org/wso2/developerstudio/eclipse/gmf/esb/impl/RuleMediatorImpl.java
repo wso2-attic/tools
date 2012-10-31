@@ -32,6 +32,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.RuleResultsConfiguration;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleSessionProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleSetCreationProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleSourceType;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleType;
 
 /**
  * <!-- begin-user-doc -->
@@ -64,6 +65,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.RuleSourceType;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RuleMediatorImpl#getInputNameSpace <em>Input Name Space</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RuleMediatorImpl#getOutputWrapperName <em>Output Wrapper Name</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RuleMediatorImpl#getOutputNameSpace <em>Output Name Space</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RuleMediatorImpl#getRuleSetType <em>Rule Set Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -419,6 +421,26 @@ public class RuleMediatorImpl extends MediatorImpl implements RuleMediator {
 	 * @ordered
 	 */
 	protected String outputNameSpace = OUTPUT_NAME_SPACE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getRuleSetType() <em>Rule Set Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRuleSetType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final RuleType RULE_SET_TYPE_EDEFAULT = RuleType.REGULAR;
+
+	/**
+	 * The cached value of the '{@link #getRuleSetType() <em>Rule Set Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRuleSetType()
+	 * @generated
+	 * @ordered
+	 */
+	protected RuleType ruleSetType = RULE_SET_TYPE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1189,6 +1211,27 @@ public class RuleMediatorImpl extends MediatorImpl implements RuleMediator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public RuleType getRuleSetType() {
+		return ruleSetType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRuleSetType(RuleType newRuleSetType) {
+		RuleType oldRuleSetType = ruleSetType;
+		ruleSetType = newRuleSetType == null ? RULE_SET_TYPE_EDEFAULT : newRuleSetType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.RULE_MEDIATOR__RULE_SET_TYPE, oldRuleSetType, ruleSetType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -1280,6 +1323,8 @@ public class RuleMediatorImpl extends MediatorImpl implements RuleMediator {
 				return getOutputWrapperName();
 			case EsbPackage.RULE_MEDIATOR__OUTPUT_NAME_SPACE:
 				return getOutputNameSpace();
+			case EsbPackage.RULE_MEDIATOR__RULE_SET_TYPE:
+				return getRuleSetType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1368,6 +1413,9 @@ public class RuleMediatorImpl extends MediatorImpl implements RuleMediator {
 			case EsbPackage.RULE_MEDIATOR__OUTPUT_NAME_SPACE:
 				setOutputNameSpace((String)newValue);
 				return;
+			case EsbPackage.RULE_MEDIATOR__RULE_SET_TYPE:
+				setRuleSetType((RuleType)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -1453,6 +1501,9 @@ public class RuleMediatorImpl extends MediatorImpl implements RuleMediator {
 			case EsbPackage.RULE_MEDIATOR__OUTPUT_NAME_SPACE:
 				setOutputNameSpace(OUTPUT_NAME_SPACE_EDEFAULT);
 				return;
+			case EsbPackage.RULE_MEDIATOR__RULE_SET_TYPE:
+				setRuleSetType(RULE_SET_TYPE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1514,6 +1565,8 @@ public class RuleMediatorImpl extends MediatorImpl implements RuleMediator {
 				return OUTPUT_WRAPPER_NAME_EDEFAULT == null ? outputWrapperName != null : !OUTPUT_WRAPPER_NAME_EDEFAULT.equals(outputWrapperName);
 			case EsbPackage.RULE_MEDIATOR__OUTPUT_NAME_SPACE:
 				return OUTPUT_NAME_SPACE_EDEFAULT == null ? outputNameSpace != null : !OUTPUT_NAME_SPACE_EDEFAULT.equals(outputNameSpace);
+			case EsbPackage.RULE_MEDIATOR__RULE_SET_TYPE:
+				return ruleSetType != RULE_SET_TYPE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -1550,6 +1603,8 @@ public class RuleMediatorImpl extends MediatorImpl implements RuleMediator {
 		result.append(outputWrapperName);
 		result.append(", OutputNameSpace: ");
 		result.append(outputNameSpace);
+		result.append(", RuleSetType: ");
+		result.append(ruleSetType);
 		result.append(')');
 		return result.toString();
 	}

@@ -34,7 +34,8 @@ public class MediatorSerializerRegister {
 		ClassMediatorExtSerializer.class,
 		POJOCommandMediatorExtSerializer.class,
 		CallTemplateMediatorExtSerializer.class,
-		BuilderMediatorExtSerializer.class};
+		BuilderMediatorExtSerializer.class,
+		RuleMediatorExtSerialize.class};
 
 	public static synchronized void registerSerializers() {
 		Map<String, MediatorSerializer> serializerMap = mediatorSerializerFinder.getSerializerMap();

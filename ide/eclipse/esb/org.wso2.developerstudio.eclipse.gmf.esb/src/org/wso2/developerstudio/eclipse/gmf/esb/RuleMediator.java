@@ -41,6 +41,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getInputNameSpace <em>Input Name Space</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getOutputWrapperName <em>Output Wrapper Name</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getOutputNameSpace <em>Output Name Space</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getRuleSetType <em>Rule Set Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -663,5 +664,34 @@ public interface RuleMediator extends Mediator {
 	 * @generated
 	 */
 	void setOutputNameSpace(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Rule Set Type</b></em>' attribute.
+	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.gmf.esb.RuleType}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Rule Set Type</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Rule Set Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RuleType
+	 * @see #setRuleSetType(RuleType)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getRuleMediator_RuleSetType()
+	 * @model
+	 * @generated
+	 */
+	RuleType getRuleSetType();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getRuleSetType <em>Rule Set Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Rule Set Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RuleType
+	 * @see #getRuleSetType()
+	 * @generated
+	 */
+	void setRuleSetType(RuleType value);
 
 } // RuleMediator

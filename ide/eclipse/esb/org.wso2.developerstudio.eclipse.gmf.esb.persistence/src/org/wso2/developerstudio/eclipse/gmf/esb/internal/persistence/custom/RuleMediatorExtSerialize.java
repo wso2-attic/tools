@@ -1,7 +1,9 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.util.AXIOMUtil;
@@ -11,6 +13,7 @@ import org.eclipse.emf.common.util.EList;
 import org.wso2.carbon.rule.common.Fact;
 import org.wso2.carbon.rule.common.Input;
 import org.wso2.carbon.rule.common.Output;
+import org.wso2.carbon.rule.common.Rule;
 import org.wso2.carbon.rule.common.RuleSet;
 import org.wso2.carbon.rule.mediator.config.RuleMediatorConfig;
 import org.wso2.carbon.rule.mediator.config.Source;
@@ -21,6 +24,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.RuleFactsConfiguration;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleResult;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleResultsConfiguration;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleSetCreationProperty;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleSourceType;
 
 public class RuleMediatorExtSerialize extends AbstractMediatorSerializer{
 
@@ -86,8 +91,25 @@ public String getMediatorClassName() {
         source.setXpath(visualRule.getSourceXpath().getPropertyValue());
         
         RuleSet ruleSet = new RuleSet();
-        
-		
+        ruleSet.setBindURI(visualRule.getRuleSetURI());
+        Map<String,String> rulesetMap = new HashMap<String, String>();
+        EList<RuleSetCreationProperty> ruleSetProperties = visualRule.getRuleSetProperties();
+        for (RuleSetCreationProperty ruleSetCreationProperty : ruleSetProperties) {
+        	 rulesetMap.put(ruleSetCreationProperty.getPropertyName(),ruleSetCreationProperty.getPropertyValue());
+		}
+        ruleSet.setProperties(rulesetMap);
+        List<Rule> list = new ArrayList<Rule>();
+        Rule rule = new Rule();
+        RuleSourceType ruleSetSourceType = visualRule.getRuleSetSourceType();
+        rule.setSourceType(ruleSetSourceType.getName());
+        if (visualRule.getRuleSetSourceType() == RuleSourceType.REGISTRY_REFERENCE) {
+        	
+			 rule.setValue(visualRule.getRuleSetSourceKey().getKeyValue());
+		} else {
+			rule.setValue(visualRule.getRuleSetSourceCode());
+		}	
+        rule.setResourceType(visualRule.getRuleSetType().getName());
+        list.add(rule);
 		RuleMediatorConfig config = new RuleMediatorConfig();
 		config.setInput(input);
 		config.setOutput(output);

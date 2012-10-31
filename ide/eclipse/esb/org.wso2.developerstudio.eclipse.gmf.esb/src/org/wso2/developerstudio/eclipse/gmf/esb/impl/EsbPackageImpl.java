@@ -271,6 +271,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.RuleResultsConfiguration;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleSessionProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleSetCreationProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleSourceType;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleType;
 import org.wso2.developerstudio.eclipse.gmf.esb.ScriptLanguage;
 import org.wso2.developerstudio.eclipse.gmf.esb.ScriptMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.ScriptMediatorInputConnector;
@@ -2679,6 +2680,13 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	private EEnum ruleActionsEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum ruleTypeEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -9337,6 +9345,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getRuleMediator_RuleSetType() {
+		return (EAttribute)ruleMediatorEClass.getEStructuralFeatures().get(24);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getRuleMediatorInputConnector() {
 		return ruleMediatorInputConnectorEClass;
 	}
@@ -11398,6 +11415,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getRuleType() {
+		return ruleTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getRuleSourceType() {
 		return ruleSourceTypeEEnum;
 	}
@@ -12437,6 +12463,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEAttribute(ruleMediatorEClass, RULE_MEDIATOR__INPUT_NAME_SPACE);
 		createEAttribute(ruleMediatorEClass, RULE_MEDIATOR__OUTPUT_WRAPPER_NAME);
 		createEAttribute(ruleMediatorEClass, RULE_MEDIATOR__OUTPUT_NAME_SPACE);
+		createEAttribute(ruleMediatorEClass, RULE_MEDIATOR__RULE_SET_TYPE);
 
 		ruleMediatorInputConnectorEClass = createEClass(RULE_MEDIATOR_INPUT_CONNECTOR);
 
@@ -12827,6 +12854,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		sqlParameterValueTypeEEnum = createEEnum(SQL_PARAMETER_VALUE_TYPE);
 		sqlParameterDataTypeEEnum = createEEnum(SQL_PARAMETER_DATA_TYPE);
 		ruleActionsEEnum = createEEnum(RULE_ACTIONS);
+		ruleTypeEEnum = createEEnum(RULE_TYPE);
 		ruleSourceTypeEEnum = createEEnum(RULE_SOURCE_TYPE);
 		ruleFactTypeEEnum = createEEnum(RULE_FACT_TYPE);
 		ruleFactValueTypeEEnum = createEEnum(RULE_FACT_VALUE_TYPE);
@@ -13974,6 +14002,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEAttribute(getRuleMediator_InputNameSpace(), ecorePackage.getEString(), "InputNameSpace", null, 0, 1, RuleMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRuleMediator_OutputWrapperName(), ecorePackage.getEString(), "OutputWrapperName", null, 0, 1, RuleMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRuleMediator_OutputNameSpace(), ecorePackage.getEString(), "OutputNameSpace", null, 0, 1, RuleMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRuleMediator_RuleSetType(), this.getRuleType(), "RuleSetType", null, 0, 1, RuleMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(ruleMediatorInputConnectorEClass, RuleMediatorInputConnector.class, "RuleMediatorInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -14610,6 +14639,10 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		addEEnumLiteral(ruleActionsEEnum, RuleActions.REPLACE);
 		addEEnumLiteral(ruleActionsEEnum, RuleActions.CHILD);
 		addEEnumLiteral(ruleActionsEEnum, RuleActions.SIBLING);
+
+		initEEnum(ruleTypeEEnum, RuleType.class, "RuleType");
+		addEEnumLiteral(ruleTypeEEnum, RuleType.REGULAR);
+		addEEnumLiteral(ruleTypeEEnum, RuleType.DECISION_TABLE);
 
 		initEEnum(ruleSourceTypeEEnum, RuleSourceType.class, "RuleSourceType");
 		addEEnumLiteral(ruleSourceTypeEEnum, RuleSourceType.INLINE);

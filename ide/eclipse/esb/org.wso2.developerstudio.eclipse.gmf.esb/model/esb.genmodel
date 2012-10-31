@@ -311,6 +311,10 @@
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//RuleActions/Child"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//RuleActions/Sibling"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//RuleType">
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//RuleType/Regular"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//RuleType/DecisionTable"/>
+    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//RuleSourceType">
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//RuleSourceType/INLINE"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//RuleSourceType/REGISTRY_REFERENCE"/>
@@ -1179,6 +1183,7 @@
       <genFeatures createChild="false" propertyCategory="Input Facts" ecoreFeature="ecore:EAttribute esb.ecore#//RuleMediator/InputNameSpace"/>
       <genFeatures createChild="false" propertyCategory="Output Facts" ecoreFeature="ecore:EAttribute esb.ecore#//RuleMediator/OutputWrapperName"/>
       <genFeatures createChild="false" propertyCategory="Output Facts" ecoreFeature="ecore:EAttribute esb.ecore#//RuleMediator/OutputNameSpace"/>
+      <genFeatures createChild="false" propertyCategory="Rule Set" ecoreFeature="ecore:EAttribute esb.ecore#//RuleMediator/RuleSetType"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//RuleMediatorInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//RuleMediatorOutputConnector"/>

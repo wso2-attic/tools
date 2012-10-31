@@ -1461,12 +1461,17 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="InputNameSpace" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="OutputWrapperName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="OutputNameSpace" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="RuleSetType" eType="#//RuleType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RuleMediatorInputConnector" eSuperTypes="#//InputConnector"/>
   <eClassifiers xsi:type="ecore:EEnum" name="RuleActions">
     <eLiterals name="Replace" literal="Replace"/>
     <eLiterals name="Child" value="1" literal="Child"/>
     <eLiterals name="Sibling" value="2" literal="Sibling"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="RuleType">
+    <eLiterals name="Regular"/>
+    <eLiterals name="DecisionTable" value="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RuleMediatorOutputConnector" eSuperTypes="#//OutputConnector"/>
   <eClassifiers xsi:type="ecore:EClass" name="RuleMediatorChildMediatorsOutputConnector"

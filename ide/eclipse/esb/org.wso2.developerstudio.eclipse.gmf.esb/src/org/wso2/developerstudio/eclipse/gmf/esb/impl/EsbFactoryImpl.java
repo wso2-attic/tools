@@ -454,6 +454,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 				return createSqlParameterDataTypeFromString(eDataType, initialValue);
 			case EsbPackage.RULE_ACTIONS:
 				return createRuleActionsFromString(eDataType, initialValue);
+			case EsbPackage.RULE_TYPE:
+				return createRuleTypeFromString(eDataType, initialValue);
 			case EsbPackage.RULE_SOURCE_TYPE:
 				return createRuleSourceTypeFromString(eDataType, initialValue);
 			case EsbPackage.RULE_FACT_TYPE:
@@ -622,6 +624,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 				return convertSqlParameterDataTypeToString(eDataType, instanceValue);
 			case EsbPackage.RULE_ACTIONS:
 				return convertRuleActionsToString(eDataType, instanceValue);
+			case EsbPackage.RULE_TYPE:
+				return convertRuleTypeToString(eDataType, instanceValue);
 			case EsbPackage.RULE_SOURCE_TYPE:
 				return convertRuleSourceTypeToString(eDataType, instanceValue);
 			case EsbPackage.RULE_FACT_TYPE:
@@ -4553,6 +4557,26 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	 * @generated
 	 */
 	public String convertRuleActionsToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RuleType createRuleTypeFromString(EDataType eDataType, String initialValue) {
+		RuleType result = RuleType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertRuleTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
