@@ -166,6 +166,7 @@ public class RuleServiceDialog extends Dialog {
 		inlineTab.setText("inline");
 		inlineText = new StyledText(sourceTabFolder, SWT.BORDER | SWT.H_SCROLL | SWT.V_SCROLL);
 		inlineText.setText(updateInlineText());
+		//setValue(updateInlineText());
 		GridData inlineTextGridData = new GridData();
 		inlineTextGridData.minimumHeight = 500;
 		inlineTextGridData.minimumWidth = 500;
@@ -181,7 +182,8 @@ public class RuleServiceDialog extends Dialog {
 
 			@Override
 			public void modifyText(ModifyEvent arg0) {
-				setValue(inlineText.getText().trim());
+				//setValue(inlineText.getText().trim());
+				setInline(inlineText.getText().trim());
 			}
 		});
 		inlineTab.setControl(inlineText);
@@ -205,7 +207,8 @@ public class RuleServiceDialog extends Dialog {
 		uriText.addModifyListener(new ModifyListener() {
 			@Override
 			public void modifyText(ModifyEvent arg0) {
-				setValue(uriText.getText().trim());
+				//setValue(uriText.getText().trim());
+				seturiValue(uriText.getText().trim());
 			}
 		});
 
@@ -255,7 +258,8 @@ public class RuleServiceDialog extends Dialog {
 		registerText.addModifyListener(new ModifyListener() {
 			@Override
 			public void modifyText(ModifyEvent arg0) {
-				setValue(registerText.getText().trim());
+				//setValue(registerText.getText().trim());
+				setRegistry(registerText.getText().trim());
 			}
 		});
 
@@ -280,7 +284,8 @@ public class RuleServiceDialog extends Dialog {
 		fileText.addModifyListener(new ModifyListener() {
 			@Override
 			public void modifyText(ModifyEvent arg0) {
-				setValue(fileText.getText().trim());
+				//setValue(fileText.getText().trim());
+				setFile(fileText.getText().trim());
 			}
 		});
 
@@ -393,7 +398,18 @@ public class RuleServiceDialog extends Dialog {
 		Rule rule = new Rule();
 		rule.setResourceType(getResource());
 		rule.setSourceType(getSource());
-		rule.setValue(getValue());
+		if(getSource().equals("inline")){
+			rule.setValue(getInline());
+		}else if(getSource().equals("URI")){
+			rule.setValue(getUriValue());
+		}
+		else if(getSource().equals("registry")){
+			rule.setValue(getRegistry());
+		}
+		else{
+			rule.setValue(getFile());
+		}
+		//rule.setValue(getValue());
 		rule.setDescription(getDescription());
 		ruleService.getRuleSet().addRule(rule);
 	}
@@ -469,12 +485,28 @@ public class RuleServiceDialog extends Dialog {
 
 		super.okPressed();
 	}
+	
+	@Override
+	protected void cancelPressed(){
+		super.cancelPressed();
+	}
 
 	private void updateEditInputTable() {
 		Rule rule = new Rule();
 		rule.setResourceType(getResource());
 		rule.setSourceType(getSource());
-		rule.setValue(getValue());
+		if(getSource().equals("inline")){
+			rule.setValue(getInline());
+		}else if(getSource().equals("URI")){
+			rule.setValue(getUriValue());
+		}
+		else if(getSource().equals("registry")){
+			rule.setValue(getRegistry());
+		}
+		else{
+			rule.setValue(getFile());
+		}
+		//rule.setValue(getValue());
 		rule.setDescription(getDescription());
 		ruleService.getRuleSet().getRules().set(tableIndex, rule);
 	}

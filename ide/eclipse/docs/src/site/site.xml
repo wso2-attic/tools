@@ -30,6 +30,7 @@
 	    <item name="Advance Server Extensions" href="server_extensions_category.html"/>
 	    <item name="Apache Maven Support" href="devs_maven_support.html"/>
 	    <item name="Testing and Deploying" href="testing_deploying_category.html"/>
+	    <item name="Business Rules Server Tools" href="brs_category.xml"/>
        </menu>
 
 		<menu name="Samples">
