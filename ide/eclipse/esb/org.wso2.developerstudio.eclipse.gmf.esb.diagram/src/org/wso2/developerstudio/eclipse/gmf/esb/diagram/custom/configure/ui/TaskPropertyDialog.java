@@ -188,10 +188,12 @@ public class TaskPropertyDialog extends Dialog{
 
 				if (item.getText(2).equals("LITERAL")) {
 					param.setPropertyValue(item.getText(1));
+					param.setPropertyType(TaskPropertyType.LITERAL);
 				}
 
 				if (item.getText(2).equals("XML")) {
 					param.setPropertyValue(item.getText(1));
+					param.setPropertyType(TaskPropertyType.XML);
 				}
 
 				AddCommand addCmd = new AddCommand(
@@ -213,6 +215,16 @@ public class TaskPropertyDialog extends Dialog{
 
 					getResultCommand().append(setCmd);
 				}
+				
+				if (!param.getPropertyValue().equals(item.getText(1))) {
+
+					SetCommand setCmd = new SetCommand(
+							editingDomain,
+							param,
+							EsbPackage.Literals.NAME_VALUE_TYPE_PROPERTY__PROPERTY_VALUE,
+							item.getText(1));
+					getResultCommand().append(setCmd);
+				}
 
 				if (item.getText(2).equals("LITERAL")) {
 
@@ -222,16 +234,6 @@ public class TaskPropertyDialog extends Dialog{
 							EsbPackage.Literals.NAME_VALUE_TYPE_PROPERTY__PROPERTY_TYPE,
 							TaskPropertyType.LITERAL);
 					getResultCommand().append(setCmdValueType);
-
-					if (!param.getPropertyValue().equals(item.getText(1))) {
-
-						SetCommand setCmd = new SetCommand(
-								editingDomain,
-								param,
-								EsbPackage.Literals.NAME_VALUE_TYPE_PROPERTY__PROPERTY_VALUE,
-								item.getText(1));
-						getResultCommand().append(setCmd);
-					}
 				}
 
 				if (item.getText(2).equals("XML")) {
@@ -241,12 +243,9 @@ public class TaskPropertyDialog extends Dialog{
 							param,
 							EsbPackage.Literals.NAME_VALUE_TYPE_PROPERTY__PROPERTY_TYPE,
 							TaskPropertyType.XML);
-					getResultCommand().append(setCmdExpType);
-					
+					getResultCommand().append(setCmdExpType);						
 				}
-
 			}
-
 		}
 
 		if (getResultCommand().canExecute()) {
