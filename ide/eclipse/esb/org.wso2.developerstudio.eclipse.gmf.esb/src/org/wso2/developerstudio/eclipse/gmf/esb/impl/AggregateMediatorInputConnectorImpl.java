@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediatorInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
+import org.wso2.developerstudio.eclipse.gmf.esb.OutputConnector;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,6 +29,12 @@ public class AggregateMediatorInputConnectorImpl extends InputConnectorImpl impl
 	 */
 	protected AggregateMediatorInputConnectorImpl() {
 		super();
+	}
+	
+
+	public boolean shouldConnect(OutputConnector sourceEnd) {
+		/*enable multiple input links */
+		return true;
 	}
 
 	/**

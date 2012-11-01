@@ -35,8 +35,16 @@ public class AggregateMediatorTransformer extends AbstractEsbNodeTransformer {
 
 	public void transform(TransformationInfo information, EsbNode subject)
 			throws Exception {
+		
+		List<EsbNode> transformedMediators = information.getTransformedMediators();
+		/* check whether subject transformed by different input link*/
+		if(transformedMediators.contains(subject))
+			return;
+		
 		information.getParentSequence().addChild(
 				createAggregateMediator(information, subject));
+		
+		transformedMediators.add(subject);
 		/*
 		 * Transform the property mediator output data flow path.
 		 */
@@ -52,7 +60,13 @@ public class AggregateMediatorTransformer extends AbstractEsbNodeTransformer {
 
 	public void transformWithinSequence(TransformationInfo information,
 			EsbNode subject, SequenceMediator sequence) throws Exception {
+		List<EsbNode> transformedMediators = information.getTransformedMediators();
+		/* check whether subject transformed by different input link*/
+		if(transformedMediators.contains(subject))
+			return;
+		
 		sequence.addChild(createAggregateMediator(information, subject));
+		transformedMediators.add(subject);
 		doTransformWithinSequence(information, ((AggregateMediator) subject)
 				.getOutputConnector().getOutgoingLink(), sequence);
 

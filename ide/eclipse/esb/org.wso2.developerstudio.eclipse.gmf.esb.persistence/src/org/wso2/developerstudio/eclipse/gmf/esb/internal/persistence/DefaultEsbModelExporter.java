@@ -136,6 +136,7 @@ public class DefaultEsbModelExporter implements EsbModelTransformer {
 			throws Exception {
 		SynapseConfiguration configuration = new SynapseConfiguration();
 		TransformationInfo info = new TransformationInfo();
+		info.getTransformedMediators().clear();
 		info.setSynapseConfiguration(configuration);
 		
 		//message  mediation
@@ -176,6 +177,7 @@ public class DefaultEsbModelExporter implements EsbModelTransformer {
 		List<EsbElement> childNodes = serverModel.getChildren();
 		SequenceMediator sequence = new SequenceMediator();		
 		TransformationInfo info = new TransformationInfo();
+		info.getTransformedMediators().clear();
 		for (EsbElement childNode : childNodes) {
 			if (childNode instanceof Sequences) {
 				Sequences visualSequence = (Sequences) childNode;
@@ -191,6 +193,7 @@ public class DefaultEsbModelExporter implements EsbModelTransformer {
 	private org.apache.synapse.core.axis2.ProxyService transformProxyService(
 			ProxyService visualService ) throws Exception {
 		TransformationInfo info = new TransformationInfo();
+		info.getTransformedMediators().clear();
 		SynapseConfiguration configuration = new SynapseConfiguration();;
 		info.setSynapseConfiguration(configuration);
 		org.apache.synapse.core.axis2.ProxyService proxy = new org.apache.synapse.core.axis2.ProxyService(
@@ -235,6 +238,7 @@ public class DefaultEsbModelExporter implements EsbModelTransformer {
 	
 	private org.apache.synapse.rest.API transformAPI(SynapseAPI visualAPI) throws Exception{		
 		TransformationInfo info = new TransformationInfo();
+		info.getTransformedMediators().clear();
 		SynapseConfiguration configuration = new SynapseConfiguration();;
 		info.setSynapseConfiguration(configuration);
 		API api=null;
@@ -250,6 +254,7 @@ public class DefaultEsbModelExporter implements EsbModelTransformer {
 	
 	private TemplateMediator transformSequenceTemplate(Template template ) throws Exception{
 		TransformationInfo info = new TransformationInfo();
+		info.getTransformedMediators().clear();
 		SynapseConfiguration configuration = new SynapseConfiguration();
 		info.setSynapseConfiguration(configuration);
 		TemplateMediator templateMediator = new TemplateMediator();
@@ -267,6 +272,7 @@ public class DefaultEsbModelExporter implements EsbModelTransformer {
 	
 	private org.apache.synapse.endpoints.Template transformEndpointTemplate(Template template) throws Exception{
 		TransformationInfo info = new TransformationInfo();
+		info.getTransformedMediators().clear();
 		SynapseConfiguration configuration = new SynapseConfiguration();
 		info.setSynapseConfiguration(configuration);
 		org.apache.synapse.endpoints.Template epTemplate = new org.apache.synapse.endpoints.Template();

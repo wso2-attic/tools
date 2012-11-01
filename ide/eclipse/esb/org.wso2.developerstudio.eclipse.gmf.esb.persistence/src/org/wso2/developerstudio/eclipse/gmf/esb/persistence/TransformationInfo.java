@@ -1,10 +1,14 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.persistence;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.synapse.config.SynapseConfiguration;
 import org.apache.synapse.mediators.ListMediator;
 import org.apache.synapse.rest.API;
 import org.eclipse.emf.ecore.EObject;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbLink;
+import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
 
 public class TransformationInfo {
@@ -25,6 +29,7 @@ public class TransformationInfo {
 	public EsbLink sequenceIncomingLink;
 	public Sequence currentSequence;
 	public EObject previousNode;
+	private static List<EsbNode> transformedMediators = new ArrayList<EsbNode>();
 	
 	public ListMediator getOriginInSequence() {
 		return originInSequence;
@@ -89,5 +94,9 @@ public class TransformationInfo {
 	
 	public void setCurrentReferredSequence(ListMediator currentReferredSequence){
 		this.currentReferredSequence=currentReferredSequence;
+	}
+
+	public List<EsbNode> getTransformedMediators() {
+		return transformedMediators;
 	}
 }
