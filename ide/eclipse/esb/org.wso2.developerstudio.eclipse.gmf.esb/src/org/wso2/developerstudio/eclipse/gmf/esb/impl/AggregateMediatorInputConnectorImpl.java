@@ -7,7 +7,9 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.impl;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 
+import org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediatorInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.OutputConnector;
@@ -33,6 +35,12 @@ public class AggregateMediatorInputConnectorImpl extends InputConnectorImpl impl
 	
 
 	public boolean shouldConnect(OutputConnector sourceEnd) {
+		EObject container = sourceEnd.eContainer();
+		if(container instanceof AggregateMediator){
+			if(this.eContainer.equals(container)){
+				return false;
+			}
+		}
 		/*enable multiple input links */
 		return true;
 	}
