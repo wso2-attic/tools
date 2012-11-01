@@ -15,6 +15,9 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
+import org.eclipse.swt.graphics.GC;
+import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.widgets.Display;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramEditorPlugin;
 
 public class FilterMediatorGraphicalShape extends RoundedRectangle {
@@ -45,8 +48,8 @@ public class FilterMediatorGraphicalShape extends RoundedRectangle {
 		// graphicalNodeContainer0.setPreferredSize(new Dimension(100, 40));
 		LineBorder border0 = new LineBorder(this.getBackgroundColor(), 1, SWT.BORDER_SOLID);
 		graphicalNodeContainer0.setBorder(border0);
-		graphicalNodeContainer0.setPreferredSize(new Dimension(55, 10));
-		graphicalNodeContainer0.setMinimumSize(new Dimension(70, 70));
+		graphicalNodeContainer0.setPreferredSize(new Dimension(45, 10));
+		graphicalNodeContainer0.setMinimumSize(new Dimension(45, 55));
 
 		GridData constraintGraphicalNodeContainer0 = new GridData();
 		constraintGraphicalNodeContainer0.verticalAlignment = GridData.CENTER;
@@ -68,13 +71,25 @@ public class FilterMediatorGraphicalShape extends RoundedRectangle {
 		graphicalNodeContainer0.setLayoutManager(layoutGraphicalNodeContainer0);
 
 		ImageDescriptor imgDesc = EsbDiagramEditorPlugin.getBundledImageDescriptor(getIconPath());
-		ImageFigure img = new ImageFigure(imgDesc.createImage());
-		img.setSize(new Dimension(36, 40));
+		
+		
+		Image image =imgDesc.createImage();
+		Image scaled = new Image(Display.getDefault(), 23, 25);
+        GC gc = new GC(scaled);
+        gc.setAntialias(SWT.ON);
+        gc.setInterpolation(SWT.HIGH);
+        gc.drawImage(image, 0, 0, image.getBounds().width, image.getBounds().height, 0, 0, 23,
+                     25);
+        gc.dispose();
+		
+		
+		ImageFigure img = new ImageFigure(scaled);
+		img.setSize(new Dimension(23, 25));
 
 		RectangleFigure imageRectangle1 = new RectangleFigure();
 		imageRectangle1.setOutline(false);
 		imageRectangle1.setBackgroundColor(new Color(null, 255, 255, 255));
-		imageRectangle1.setPreferredSize(new Dimension(36, 40));
+		imageRectangle1.setPreferredSize(new Dimension(23, 25));
 		imageRectangle1.add(img);
 
 		GridData constraintImageRectangle1 = new GridData();
@@ -97,7 +112,7 @@ public class FilterMediatorGraphicalShape extends RoundedRectangle {
 		RectangleFigure esbNodeTypeNameRectangle1 = new RectangleFigure();
 		esbNodeTypeNameRectangle1.setOutline(false);
 		esbNodeTypeNameRectangle1.setBackgroundColor(new Color(null, 255, 255, 255));
-		esbNodeTypeNameRectangle1.setPreferredSize(new Dimension(64, 20));
+		esbNodeTypeNameRectangle1.setPreferredSize(new Dimension(45, 20));
 
 		GridData constraintEsbNodeTypeNameRectangle1 = new GridData();
 		constraintEsbNodeTypeNameRectangle1.verticalAlignment = GridData.BEGINNING;
@@ -118,7 +133,7 @@ public class FilterMediatorGraphicalShape extends RoundedRectangle {
 		esbNodeTypeNameLabel2.setForegroundColor(new Color(null, 0, 0, 0));
 		esbNodeTypeNameLabel2.setFont(new Font(null, "Arial", 10, SWT.BOLD));
 		esbNodeTypeNameLabel2.setAlignment(SWT.CENTER);
-		esbNodeTypeNameLabel2.setPreferredSize(new Dimension(64, 20));
+		esbNodeTypeNameLabel2.setPreferredSize(new Dimension(45, 20));
 
 		graphicalNodeContainer0.add(esbNodeTypeNameLabel2, constraintEsbNodeTypeNameRectangle1);
 		// esbNodeTypeNameRectangle1.add(esbNodeTypeNameLabel2);
