@@ -13,6 +13,9 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
+import org.eclipse.swt.graphics.GC;
+import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.widgets.Display;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramEditorPlugin;
 
 public class EsbGroupingShape extends RoundedRectangle{
@@ -39,8 +42,8 @@ public class EsbGroupingShape extends RoundedRectangle{
 		// graphicalNodeContainer0.setPreferredSize(new Dimension(100, 40));
 		LineBorder border0 = new LineBorder(this.getBackgroundColor(), 1, SWT.BORDER_SOLID);
 		graphicalNodeContainer0.setBorder(border0);
-		graphicalNodeContainer0.setPreferredSize(new Dimension(55, 10));
-		graphicalNodeContainer0.setMinimumSize(new Dimension(70, 70));
+		graphicalNodeContainer0.setPreferredSize(new Dimension(45, 10));
+		graphicalNodeContainer0.setMinimumSize(new Dimension(55, 60));
 
 		GridData constraintGraphicalNodeContainer0 = new GridData();
 		constraintGraphicalNodeContainer0.verticalAlignment = GridData.CENTER;
@@ -62,7 +65,17 @@ public class EsbGroupingShape extends RoundedRectangle{
 		graphicalNodeContainer0.setLayoutManager(layoutGraphicalNodeContainer0);
 
 		ImageDescriptor imgDesc = EsbDiagramEditorPlugin.getBundledImageDescriptor(getIconPath());
-		ImageFigure img = new ImageFigure(imgDesc.createImage());
+		
+		Image image =imgDesc.createImage();
+		Image scaled = new Image(Display.getDefault(), 30, 30);
+        GC gc = new GC(scaled);
+        gc.setAntialias(SWT.ON);
+        gc.setInterpolation(SWT.HIGH);
+        gc.drawImage(image, 0, 0, image.getBounds().width, image.getBounds().height, 0, 0, 30,
+                     30);
+        gc.dispose();
+		
+		ImageFigure img = new ImageFigure(scaled);
 		img.setSize(new Dimension(36, 40));
 
 		RectangleFigure imageRectangle1 = new RectangleFigure();
@@ -72,7 +85,7 @@ public class EsbGroupingShape extends RoundedRectangle{
 		imageRectangle1.add(img);
 
 		GridData constraintImageRectangle1 = new GridData();
-		constraintImageRectangle1.verticalAlignment = GridData.END;
+		constraintImageRectangle1.verticalAlignment = GridData.VERTICAL_ALIGN_CENTER;
 		constraintImageRectangle1.horizontalAlignment = GridData.CENTER;
 		constraintImageRectangle1.horizontalIndent = 0;
 		constraintImageRectangle1.horizontalSpan = 1;
