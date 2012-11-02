@@ -67,5 +67,6 @@
 	<classpathentry exported="true" kind="lib" path="lib/xml-resolver-1.2.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/org.wso2.carbon.databridge.commons-4.0.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/wso2-uri-templates_1.6.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/wso2caching-core-4.0.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
