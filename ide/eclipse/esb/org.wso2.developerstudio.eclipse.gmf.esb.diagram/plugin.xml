@@ -43,7 +43,7 @@
       <?gmfgen generated="false"?>
   	  <wizard
   	     name="%newWizardName"
-  	     icon="icons/obj16/EsbDiagramFile.gif"
+  	     icon="icons/custom/synapse.png"
   	     category="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.eclipse.message.mediation/org.wso2.developerstudio.eclipse.message.mediation.features"
   	     class="org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbCreationWizard"
   	     id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbCreationWizardID">
@@ -3076,7 +3076,7 @@
 	 <extension point="org.eclipse.ui.newWizards" id="creation-wizard">
   	  <wizard
   	     name="Sequence (Graphical)"
-  	     icon="icons/obj16/EsbDiagramFile.gif"
+  	     icon="icons/custom/sequence.png"
   	     category="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.eclipse.message.mediation/org.wso2.developerstudio.eclipse.message.mediation.features"
   	     id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.SequenceCreationWizardID">
   	  	 <description>Creates New Sequence (Graphical)</description>
@@ -3108,7 +3108,7 @@
   <extension point="org.eclipse.ui.newWizards" id="creation-wizard">
   	  <wizard
   	     name="Proxy (Graphical)"
-  	     icon="icons/obj16/EsbDiagramFile.gif"
+  	     icon="icons/custom/proxy.png"
   	     category="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.eclipse.message.mediation/org.wso2.developerstudio.eclipse.message.mediation.features"
   	     id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.ProxyCreationWizardID">
   	  	 <description>Creates New Proxy (Graphical)</description>
@@ -3140,7 +3140,7 @@
 	<extension point="org.eclipse.ui.newWizards" id="creation-wizard">
   	  <wizard
   	     name="Endpoint (Graphical)"
-  	     icon="icons/obj16/EsbDiagramFile.gif"
+  	     icon="icons/custom/endpoint.png"
   	     category="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.eclipse.message.mediation/org.wso2.developerstudio.eclipse.message.mediation.features"
   	     id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EndpointCreationWizardID">
   	  	 <description>Creates New Endpoint (Graphical)</description>
@@ -3172,7 +3172,7 @@
 		<extension point="org.eclipse.ui.newWizards" id="creation-wizard">
   	  <wizard
   	     name="LocalEntry (Graphical)"
-  	     icon="icons/obj16/EsbDiagramFile.gif"
+  	     icon="icons/custom/local-entry.png"
   	     category="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.eclipse.message.mediation/org.wso2.developerstudio.eclipse.message.mediation.features"
   	     id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.LocalEntryCreationWizardID">
   	  	 <description>Creates New LocalEntry (Graphical)</description>
@@ -3205,7 +3205,7 @@
 			<extension point="org.eclipse.ui.newWizards" id="creation-wizard">
   	  <wizard
   	     name="Template (Graphical)"
-  	     icon="icons/obj16/EsbDiagramFile.gif"
+  	     icon="icons/custom/template.png"
   	     category="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.eclipse.message.mediation/org.wso2.developerstudio.eclipse.message.mediation.features"
   	     id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.TemplateCreationWizardID">
   	  	 <description>Creates New Template (Graphical)</description>
@@ -3237,7 +3237,7 @@
 			<extension point="org.eclipse.ui.newWizards" id="creation-wizard">
   	  <wizard
   	     name="Task (Graphical)"
-  	     icon="icons/obj16/EsbDiagramFile.gif"
+  	     icon="icons/custom/task.png"
   	     category="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.eclipse.message.mediation/org.wso2.developerstudio.eclipse.message.mediation.features"
   	     id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.TaskCreationWizardID">
   	  	 <description>Creates New Task (Graphical)</description>
@@ -3270,7 +3270,7 @@
 				<extension point="org.eclipse.ui.newWizards" id="creation-wizard">
   	  <wizard
   	     name="API (Graphical)"
-  	     icon="icons/obj16/EsbDiagramFile.gif"
+  	     icon="icons/custom/api.png"
   	     category="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.eclipse.message.mediation/org.wso2.developerstudio.eclipse.message.mediation.features"
   	     id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.APICreationWizardID">
   	  	 <description>Creates New API (Graphical)</description>
