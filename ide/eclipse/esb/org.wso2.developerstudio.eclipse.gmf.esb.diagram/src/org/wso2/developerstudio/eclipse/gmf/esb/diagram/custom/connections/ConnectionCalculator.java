@@ -12,9 +12,11 @@ import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.swt.widgets.Control;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractInputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorFlowCompartmentEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorOutputConnectorEditPart.EastPointerFigure;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorOutputConnectorEditPart.WestPointerFigure;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractOutputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AdditionalOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbLinkEditPart;
 
@@ -186,6 +188,41 @@ public class ConnectionCalculator {
 		if (yCurrent > 35) {
 			nearConnector = null;
 		}
+		
+		/*
+		 * If 'nearConnector' is null we have to check again whether dropped
+		 * mediator is the first element of a compartment of a complex mediator.
+		 * If it is true we have to use following logic to get nearest
+		 * connection.
+		 */
+		
+		if (nearConnector == null) {
+			if (childEditPart.getParent() instanceof AbstractMediatorFlowCompartmentEditPart) {
+				int compartmentCenter_y = ((AbstractMediatorFlowCompartmentEditPart) childEditPart
+						.getParent()).getFigure().getBounds().getCenter().y;
+				if (EditorUtils.getMediator(childEditPart.getParent()) != null) {
+					ArrayList<AdditionalOutputConnector> additionalConnectors = EditorUtils
+							.getMediatorAdditionalOutputConnectors(EditorUtils
+									.getMediator(childEditPart.getParent()));
+					AdditionalOutputConnector temp = null;
+					int diff_temp = 0;
+					for (AdditionalOutputConnector con : additionalConnectors) {
+						int diff = Math.abs(con.getLocation().y
+								- compartmentCenter_y);
+						if (diff_temp == 0) {
+							temp = con;
+							diff_temp = diff;
+						} else if (diff < diff_temp) {
+							temp = con;
+							diff_temp = diff;
+						}
+					}
+					if (connectors.get(0) instanceof AbstractOutputConnectorEditPart) {
+						nearConnector = temp;
+					}
+				}
+			}
+		}			
 		return nearConnector;
 	}
 

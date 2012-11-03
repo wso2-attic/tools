@@ -16,6 +16,8 @@
 
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom;
 
+import java.util.ArrayList;
+
 import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeCompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
@@ -76,6 +78,17 @@ public class EditorUtils {
 		}
 		return null;
 	}
+	
+	public static ArrayList<AdditionalOutputConnector> getMediatorAdditionalOutputConnectors(ShapeNodeEditPart parent){
+		ArrayList<AdditionalOutputConnector> connectors=new ArrayList<AdditionalOutputConnector>();
+		for(int i=0;i<parent.getChildren().size();++i){					
+			if(parent.getChildren().get(i) instanceof AdditionalOutputConnector){
+				connectors.add((AdditionalOutputConnector) parent.getChildren().get(i));
+			}
+		}
+		return connectors;
+	}
+	
 	
 	public static AbstractEndpointInputConnectorEditPart getEndpointInputConnector(ShapeNodeEditPart parent){
 		for(int i=0;i<parent.getChildren().size();++i){					
