@@ -1,33 +1,22 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.connections;
 
+import java.awt.MouseInfo;
 import java.util.ArrayList;
 
+import org.eclipse.draw2d.FigureCanvas;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.geometry.Point;
-import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractBaseFigureEditPart;
+import org.eclipse.swt.widgets.Control;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractInputConnectorEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractProxyServiceContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorOutputConnectorEditPart.EastPointerFigure;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorOutputConnectorEditPart.WestPointerFigure;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractOutputConnectorEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractSequencesEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AdditionalOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.complexFiguredAbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbLinkEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment6EditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyFaultInputConnectorEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyInputConnectorEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyOutputConnectorEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceContainerEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceFaultContainerEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequencesEditPart;
 
 /*
  * This class is used to handle automatic connection creation stuffs. 
@@ -36,8 +25,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequencesEdit
 public class ConnectionCalculator {
 
 	private static Point currentFigureLocation = null;
-	private static AbstractBaseFigureEditPart baseFigure = null;
-	private static AbstractSequencesEditPart sequences = null;
+	private static Point connectorFigureLocation = null;
 
 	public static EsbLinkEditPart getNearestLinkEditPart(ArrayList links,
 			AbstractBorderedShapeEditPart childEditPart) {
@@ -49,74 +37,21 @@ public class ConnectionCalculator {
 		EsbLinkEditPart nearestLink = null;
 
 		if (childEditPart != null) {
-			updateCurrentStates(childEditPart);
+			updateCurrentStatesForLinks(childEditPart);
 
-			if (baseFigure != null) {
-				adjustYvalue(childEditPart);
+			for (int i = 0; i < links.size(); ++i) {
+				if (!links.get(i).equals(childEditPart)) {
 
-				for (int i = 0; i < links.size(); ++i) {
-					if (!links.get(i).equals(childEditPart)) {
-						int xLeft = ((EsbLinkEditPart) links.get(i))
-								.getFigure().getBounds().getLeft().x;
-						int xRight = (((EsbLinkEditPart) links.get(i))
-								.getFigure().getBounds().getRight().x);
-
-						/*
-						 * When we get the current location of the added figure,
-						 * it will give the location related to the Proxy
-						 * Service. So we have to add the Proxy Service location
-						 * to get the absolue location.
-						 */
-						int actualCurrentPosition = currentFigureLocation.x
-								+ baseFigure.getFigure().getBounds()
-										.getLocation().x + 75;
-						actualCurrentPosition = getXAbsolutePosition(
-								actualCurrentPosition, childEditPart);
-						if ((xLeft < actualCurrentPosition)
-								&& (actualCurrentPosition < xRight)) {
-							nearLinks.add((EsbLinkEditPart) links.get(i));
-						}
+					int xLeft = ((EsbLinkEditPart) links.get(i)).getFigure()
+							.getBounds().getLeft().x;
+					int xRight = (((EsbLinkEditPart) links.get(i)).getFigure()
+							.getBounds().getRight().x);
+					int actualCurrentPosition = currentFigureLocation.x;
+					if ((xLeft < actualCurrentPosition)
+							&& (actualCurrentPosition < xRight)) {
+						nearLinks.add((EsbLinkEditPart) links.get(i));
 					}
 				}
-				baseFigure = null;
-			} else if (sequences != null) {
-				/*
-				 * When we get the current location of the added figure, it will
-				 * give the location related to the Sequences figure. So we have
-				 * to add the Sequences figure location to get the absolue
-				 * location.
-				 */
-				currentFigureLocation.y = currentFigureLocation.y
-						+ sequences.getFigure().getBounds().getLocation().y
-						+ 30;
-				currentFigureLocation.y = getYAbsolutePosition(
-						currentFigureLocation.y, childEditPart);
-
-				for (int i = 0; i < links.size(); ++i) {
-					if (!links.get(i).equals(childEditPart)) {
-						int xLeft = ((EsbLinkEditPart) links.get(i))
-								.getFigure().getBounds().getLeft().x;
-						int xRight = (((EsbLinkEditPart) links.get(i))
-								.getFigure().getBounds().getRight().x);
-
-						/*
-						 * When we get the current location of the added figure,
-						 * it will give the location related to the Sequences
-						 * figure. So we have to add the Sequences figure
-						 * location to get the absolue location.
-						 */
-						int actualCurrentPosition = currentFigureLocation.x
-								+ sequences.getFigure().getBounds()
-										.getLocation().x + 75;
-						actualCurrentPosition = getXAbsolutePosition(
-								actualCurrentPosition, childEditPart);
-						if ((xLeft < actualCurrentPosition)
-								&& (actualCurrentPosition < xRight)) {
-							nearLinks.add((EsbLinkEditPart) links.get(i));
-						}
-					}
-				}
-				sequences = null;
 			}
 		}
 		for (int q = 0; q < nearLinks.size(); ++q) {
@@ -130,6 +65,7 @@ public class ConnectionCalculator {
 			distanceToUpperLine = nearLinks.get(q).getFigure().getBounds()
 					.getLeft().y
 					- currentFigureLocation.y;
+
 			distanceToUpperLine = Math.abs(distanceToUpperLine);
 			distanceToBottomLine = nearLinks.get(q).getFigure().getBounds()
 					.getBottomLeft().y
@@ -161,216 +97,83 @@ public class ConnectionCalculator {
 		AbstractConnectorEditPart nearForwardConnector = null;
 		AbstractConnectorEditPart nearReverseConnector = null;
 		AbstractConnectorEditPart nearConnector = null;
-		AbstractConnectorEditPart currentConnector = null, currentInputConnector = null, currentOutputConnector = null;
+		AbstractConnectorEditPart currentConnector = null;
 		int yCurrent = 0, yDistance1 = 0, yDistance2 = 0;
 		int EastDistance = 0, EastCurrent = 0, WestCurrent = 0, WestDistance = 0;
 
 		if (childEditPart != null) {
-			updateCurrentStates(childEditPart);
 
-			if (baseFigure != null) {
-				adjustYvalue(childEditPart);
-
-				for (int p = 0; p < childEditPart.getChildren().size(); ++p) {
-					if (childEditPart.getChildren().get(p) instanceof AbstractInputConnectorEditPart) {
-						currentInputConnector = (AbstractInputConnectorEditPart) childEditPart
-								.getChildren().get(p);
-					} else if ((childEditPart.getChildren().get(p) instanceof AbstractOutputConnectorEditPart)&&
-							!(childEditPart.getChildren().get(p) instanceof AdditionalOutputConnector)) {
-						currentOutputConnector = (AbstractOutputConnectorEditPart) childEditPart
-								.getChildren().get(p);
-					}
+			if ((connectors.size() != 0)) {
+				if (connectors.get(0) instanceof AbstractInputConnectorEditPart) {
+					currentConnector = EditorUtils
+							.getInputConnector(childEditPart);
+				} else {
+					currentConnector = EditorUtils
+							.getOutputConnector(childEditPart);
 				}
-				if ((connectors.size() != 0)) {
-					if (connectors.get(0) instanceof AbstractInputConnectorEditPart) {
-						currentConnector = currentInputConnector;
-					} else {
-						currentConnector = currentOutputConnector;
-					}
-				}
+			}
 
-				for (int i = 0; i < connectors.size(); ++i) {
+			for (int i = 0; i < connectors.size(); ++i) {
 
-					IFigure figure = (IFigure) ((DefaultSizeNodeFigure) connectors
-							.get(i).getFigure()).getChildren().get(0);
+				IFigure figure = (IFigure) ((DefaultSizeNodeFigure) connectors
+						.get(i).getFigure()).getChildren().get(0);
 
-					if (!connectors.get(i).equals(currentConnector)) {
-						int xLeft = connectors.get(i).getFigure().getBounds()
-								.getLeft().x;
+				if ((!connectors.get(i).equals(currentConnector))
+						&& (!connectors.get(i).getParent()
+								.equals(currentConnector.getParent()))) {
+					
+					updateCurrentStatesForConnectors(currentConnector);
+					updateCurrentStatesForGivenFigure(connectors.get(i));
+				
+					int xLeft=connectorFigureLocation.x;
+					int actualCurrentPosition = currentFigureLocation.x;
+					if ((figure instanceof EastPointerFigure)
+							|| (figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorInputConnectorEditPart.EastPointerFigure)
+							|| (figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyOutputConnectorEditPart.EastPointerFigure)
+							|| (figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequencesOutputConnectorEditPart.EastPointerFigure)
+							|| (figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequencesInputConnectorEditPart.EastPointerFigure)
+							|| (figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AdditionalOutputConnector.EastPointerFigure)) {
 
-						/*
-						 * When we get the current location of the added figure,
-						 * it will give the location related to the Proxy
-						 * Service. So we have to add the Proxy Service location
-						 * to get the absolue location.
-						 */
-						int actualCurrentPosition = currentFigureLocation.x
-								+ baseFigure.getFigure().getBounds()
-										.getLocation().x + 75;
-						actualCurrentPosition = getXAbsolutePosition(
-								actualCurrentPosition, childEditPart);
-
-						if ((figure instanceof EastPointerFigure)
-								|| (figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorInputConnectorEditPart.EastPointerFigure)
-								|| (figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyOutputConnectorEditPart.EastPointerFigure)) {
-							EastDistance = Math.abs(xLeft
-									- actualCurrentPosition);
-							if (((connectors.get(i) instanceof AbstractOutputConnectorEditPart) && (xLeft < actualCurrentPosition))
-									|| ((connectors.get(i) instanceof AbstractInputConnectorEditPart) && (xLeft > actualCurrentPosition))) {
-								if ((EastCurrent == 0)
-										|| (EastCurrent > EastDistance)) {
-									EastCurrent = EastDistance;
-									nearForwardConnector = connectors.get(i);
-								}
+						EastDistance = Math.abs(xLeft - actualCurrentPosition);
+						if (((connectors.get(i) instanceof AbstractOutputConnectorEditPart) && (xLeft < actualCurrentPosition))
+								|| ((connectors.get(i) instanceof AbstractInputConnectorEditPart) && (xLeft > actualCurrentPosition))) {
+							if ((EastCurrent == 0)
+									|| (EastCurrent > EastDistance)) {
+								EastCurrent = EastDistance;
+								nearForwardConnector = connectors.get(i);
 							}
-						} else if ((figure instanceof WestPointerFigure)
-								|| (figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorInputConnectorEditPart.WestPointerFigure)
-								|| (figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyInputConnectorEditPart.WestPointerFigure)
-								|| (figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpointOutputConnectorEditPart.WestPointerFigure)
-								|| (figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyFaultInputConnectorEditPart.WestPointerFigure)) {
-							WestDistance = Math.abs(xLeft
-									- actualCurrentPosition);
-							if (((connectors.get(i) instanceof AbstractOutputConnectorEditPart) && (xLeft > actualCurrentPosition))
-									|| ((connectors.get(i) instanceof AbstractInputConnectorEditPart) && (xLeft < actualCurrentPosition))) {
-								if ((WestCurrent == 0)
-										|| (WestCurrent > WestDistance)) {
-									WestCurrent = WestDistance;
-									nearReverseConnector = connectors.get(i);
-								}
+						}
+					} else if ((figure instanceof WestPointerFigure)
+							|| (figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorInputConnectorEditPart.WestPointerFigure)
+							|| (figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyInputConnectorEditPart.WestPointerFigure)
+							|| (figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpointOutputConnectorEditPart.WestPointerFigure)
+							|| (figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyFaultInputConnectorEditPart.WestPointerFigure)) {
+
+						WestDistance = Math.abs(xLeft - actualCurrentPosition);
+						if (((connectors.get(i) instanceof AbstractOutputConnectorEditPart) && (xLeft > actualCurrentPosition))
+								|| ((connectors.get(i) instanceof AbstractInputConnectorEditPart) && (xLeft < actualCurrentPosition))) {
+							if ((WestCurrent == 0)
+									|| (WestCurrent > WestDistance)) {
+								WestCurrent = WestDistance;
+								nearReverseConnector = connectors.get(i);
 							}
 						}
 					}
 				}
 			}
-			
-			else if (sequences != null) {
-				/*
-				 * When we get the current location of the added figure, it will
-				 * give the location related to the Sequences figure. So we have
-				 * to add the Sequences figure location to get the absolute
-				 * location.
-				 */
-				currentFigureLocation.y = currentFigureLocation.y
-						+ sequences.getFigure().getBounds().getLocation().y
-						+ 30;
-				currentFigureLocation.y = getYAbsolutePosition(
-						currentFigureLocation.y, childEditPart);
-
-				if ((connectors.size() != 0)) {
-					if (connectors.get(0) instanceof AbstractInputConnectorEditPart) {
-						currentConnector = EditorUtils
-								.getInputConnector(childEditPart);
-					} else {
-						currentConnector = EditorUtils
-								.getOutputConnector(childEditPart);
-					}
-				}
-
-				for (int i = 0; i < connectors.size(); ++i) {
-
-					IFigure figure = (IFigure) ((DefaultSizeNodeFigure) connectors
-							.get(i).getFigure()).getChildren().get(0);
-
-					if (!connectors.get(i).equals(currentConnector)) {
-						int xLeft = connectors.get(i).getFigure().getBounds()
-								.getLeft().x;
-
-						/*
-						 * When we get the current location of the added figure,
-						 * it will give the location related to the Sequences
-						 * figure. So we have to add the Sequences figure
-						 * location to get the absolute location.
-						 */
-						int actualCurrentPosition = currentFigureLocation.x
-								+ sequences.getFigure().getBounds()
-										.getLocation().x + 75;
-						actualCurrentPosition = getXAbsolutePosition(
-								actualCurrentPosition, childEditPart);
-
-						if ((figure instanceof EastPointerFigure)
-								|| (figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorInputConnectorEditPart.EastPointerFigure)
-								|| (figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyOutputConnectorEditPart.EastPointerFigure)
-								|| (figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequencesOutputConnectorEditPart.EastPointerFigure)
-								|| (figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequencesInputConnectorEditPart.EastPointerFigure)) {
-							EastDistance = Math.abs(xLeft
-									- actualCurrentPosition);
-							if (((connectors.get(i) instanceof AbstractOutputConnectorEditPart) && (xLeft < actualCurrentPosition))
-									|| ((connectors.get(i) instanceof AbstractInputConnectorEditPart) && (xLeft > actualCurrentPosition))) {
-								if ((EastCurrent == 0)
-										|| (EastCurrent > EastDistance)) {
-									EastCurrent = EastDistance;
-									nearForwardConnector = connectors.get(i);
-								}
-							}
-						} else if ((figure instanceof WestPointerFigure)
-								|| (figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorInputConnectorEditPart.WestPointerFigure)
-								|| (figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyInputConnectorEditPart.WestPointerFigure)
-								|| (figure instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpointOutputConnectorEditPart.WestPointerFigure)) {
-							WestDistance = Math.abs(xLeft
-									- actualCurrentPosition);
-							if (((connectors.get(i) instanceof AbstractOutputConnectorEditPart) && (xLeft > actualCurrentPosition))
-									|| ((connectors.get(i) instanceof AbstractInputConnectorEditPart) && (xLeft < actualCurrentPosition))) {
-								if ((WestCurrent == 0)
-										|| (WestCurrent > WestDistance)) {
-									WestCurrent = WestDistance;
-									nearReverseConnector = connectors.get(i);
-								}
-							}
-						}
-
-					}
-				}
-			}
-			
 		}
 
 		if (nearForwardConnector != null) {
-			if (nearForwardConnector instanceof ProxyOutputConnectorEditPart) {
-				yDistance1 = Math.abs(nearForwardConnector.getFigure()
-						.getBounds().y - currentFigureLocation.y);
-			} else {
-				if(baseFigure !=null){
-				yDistance1 = Math.abs((nearForwardConnector.getFigure()
-						.getBounds().y + baseFigure.getFigure().getBounds()
-						.getLocation().y)
-						- currentFigureLocation.y + 30);
-				}
-				else if(sequences !=null){
-					yDistance1 = Math.abs((nearForwardConnector.getFigure()
-							.getBounds().y + sequences.getFigure().getBounds()
-							.getLocation().y)
-							- currentFigureLocation.y + 30);
-				}
-			}
+			updateCurrentStatesForGivenFigure(nearForwardConnector);
+			yDistance1 = Math
+			.abs(connectorFigureLocation.y
+					- currentFigureLocation.y);
 		}
 		if (nearReverseConnector != null) {
-			if ((nearReverseConnector instanceof ProxyFaultInputConnectorEditPart)
-					|| (nearReverseConnector instanceof ProxyInputConnectorEditPart)) {
-				yDistance2 = Math.abs(nearReverseConnector.getFigure()
-						.getBounds().y - currentFigureLocation.y);
-			} else {
-				if(childEditPart.getParent() instanceof MediatorFlowMediatorFlowCompartment6EditPart){
-					yDistance2 = Math.abs((nearReverseConnector.getFigure()
-							.getBounds().y + baseFigure.getFigure().getBounds()
-							.getBottom().y)
-							- currentFigureLocation.y - 50);
-				}
-				else{
-					if(baseFigure !=null){
-				yDistance2 = Math.abs((nearReverseConnector.getFigure()
-						.getBounds().y + baseFigure.getFigure().getBounds()
-						.getLocation().y)
-						- currentFigureLocation.y + 30);
-					}
-
-					else if(sequences !=null){
-						yDistance2 = Math.abs((nearForwardConnector.getFigure()
-								.getBounds().y + sequences.getFigure().getBounds()
-								.getLocation().y)
-								- currentFigureLocation.y + 30);
-					}
-				}
-			}
+			updateCurrentStatesForGivenFigure(nearReverseConnector);
+			yDistance2 = Math
+			.abs(connectorFigureLocation.y
+					- currentFigureLocation.y);
 		}
 		if ((yDistance1 != 0)
 				&& ((yDistance2 == 0) || (yDistance1 < yDistance2))) {
@@ -383,102 +186,35 @@ public class ConnectionCalculator {
 		if (yCurrent > 35) {
 			nearConnector = null;
 		}
-
-		baseFigure = null;
-		sequences=null;
 		return nearConnector;
 	}
 
-	private static void updateCurrentStates(ShapeNodeEditPart childEditPart) {
-		EditPart child = null;
-
-		currentFigureLocation = childEditPart.getFigure().getBounds()
-				.getLocation();
-		child = childEditPart;
-		do {
-			child = child.getParent();
-		} while ((child != null) && (!(child instanceof AbstractBaseFigureEditPart)));
-
-		for (int l = 0; l < childEditPart.getViewer().getEditPartRegistry()
-				.values().size(); ++l) {
-			if (childEditPart.getViewer().getEditPartRegistry().values()
-					.toArray()[l] instanceof AbstractBaseFigureEditPart) {
-				baseFigure = (AbstractBaseFigureEditPart) childEditPart.getViewer()
-						.getEditPartRegistry().values().toArray()[l];
-				if (child.equals(baseFigure)) {
-					break;
-				}
-			} else if (childEditPart.getViewer().getEditPartRegistry().values()
-					.toArray()[l] instanceof AbstractSequencesEditPart) {
-				sequences = (AbstractSequencesEditPart) childEditPart.getViewer()
-						.getEditPartRegistry().values().toArray()[l];
-			}
-		}
-
-	}
-
-	private static void adjustYvalue(ShapeNodeEditPart childEditPart) {
-		/*
-		 * When we get the current location of the added figure, it will give
-		 * the location related to the Proxy Service. So we have to add the
-		 * Proxy Service location or Proxy service's Children's(Fault Sequence
-		 * etc.) location to get the absolute location.
-		 */
-
-		if (childEditPart.getParent() instanceof MediatorFlowMediatorFlowCompartment6EditPart) {
-			currentFigureLocation.y = currentFigureLocation.y
-					+ ((ProxyServiceFaultContainerEditPart) ((AbstractProxyServiceContainerEditPart) EditorUtils.getProxyContainer(baseFigure)).getChildren().get(1))
-							.getFigure().getBounds().getLocation().y + 50;
-		} else {
-			currentFigureLocation.y = currentFigureLocation.y
-					+ baseFigure.getFigure().getBounds().getLocation().y + 30;
-		}
-
-		currentFigureLocation.y = getYAbsolutePosition(currentFigureLocation.y,
-				childEditPart);
-	}
-
-	private static int getXAbsolutePosition(int currentLocation,
+	private static void updateCurrentStatesForLinks(
 			ShapeNodeEditPart childEditPart) {
-		EditPart child = childEditPart;
-		if (child != null) {
-			do {
-				child = child.getParent();
-			} while ((child != null)
-					&& (!(child instanceof complexFiguredAbstractMediator)));
+		int x = MouseInfo.getPointerInfo().getLocation().x;
+		int y = MouseInfo.getPointerInfo().getLocation().y;
 
-			if (child instanceof complexFiguredAbstractMediator) {
-				return (currentLocation
-						+ ((complexFiguredAbstractMediator) child).getFigure()
-								.getBounds().getLocation().x + 80);
-			} else {
-				return currentLocation;
-			}
+		Control ctrl = childEditPart.getViewer().getControl();
+		FigureCanvas canvas = (FigureCanvas) ctrl;
+		int horizontal = canvas.getHorizontalBar().getSelection();
+		int vertical = canvas.getVerticalBar().getSelection();
+		horizontal += 20;
+		vertical += 30;
+		org.eclipse.swt.graphics.Point p = canvas.toDisplay(0, 0);
 
-		}
-		return -1;
-
-	}
-
-	private static int getYAbsolutePosition(int currentLocation,
+		currentFigureLocation = new Point((x - p.x) + horizontal, (y - p.y)
+				+ vertical);
+	}	
+	
+	private static void updateCurrentStatesForGivenFigure(
 			ShapeNodeEditPart childEditPart) {
-		EditPart child = childEditPart;
-		if (child != null) {
-			do {
-				child = child.getParent();
-			} while ((child != null)
-					&& (!(child instanceof complexFiguredAbstractMediator)));
-
-			if (child instanceof complexFiguredAbstractMediator) {
-				return (currentLocation
-						+ ((complexFiguredAbstractMediator) child).getFigure()
-								.getBounds().getLocation().y + 100);
-			} else {
-				return currentLocation;
-			}
-
-		}
-		return -1;
+		connectorFigureLocation = new Point(
+				childEditPart.getLocation().x, childEditPart.getLocation().y);
 	}
 
+	private static void updateCurrentStatesForConnectors(
+			ShapeNodeEditPart childEditPart) {
+		currentFigureLocation = new Point(
+				childEditPart.getLocation().x, childEditPart.getLocation().y);
+	}
 }

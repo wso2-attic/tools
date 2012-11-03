@@ -420,12 +420,13 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 						.getSource();
 				inputConnector = (AbstractConnectorEditPart) nearestESBLink
 						.getTarget();
-
+				
 				if ((!(outputConnector instanceof ProxyOutputConnectorEditPart))
 						&& (!(outputConnector instanceof SequencesOutputConnectorEditPart))
 						&&(!(outputConnector instanceof APIResourceOutputConnectorEditPart))
 						&& (!outputConnector.getParent().getParent()
-								.equals(this.getParent()))) {
+								.equals(this.getParent()))
+						&&(!EditorUtils.getMediator(outputConnector).equals(EditorUtils.getMediator(this.getParent())))) {
 					nearestESBLink = null;
 					connectNormally();
 				}

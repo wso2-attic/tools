@@ -17,6 +17,7 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom;
 
 import org.eclipse.gef.EditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeCompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.APIResourceFaultInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.APIResourceEditPart;
@@ -113,6 +114,18 @@ public class EditorUtils {
 			}
 		}
 		return null;
+	}
+	
+	public static AbstractMediator getMediator(EditPart compartment){
+		EditPart child=compartment;
+		while ((child.getParent()!=null)&&!(child.getParent() instanceof AbstractMediator)){
+			child=child.getParent();
+		}		
+		if(child.getParent()!=null){
+			return (AbstractMediator) child.getParent();
+		}else{
+			return null;
+		}
 	}
 	
 	/*
