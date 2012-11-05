@@ -24,9 +24,6 @@ import org.wso2.developerstudio.eclipse.gmf.esb.persistence.SequenceInfo;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
 
 
-
-
-
 public class SequenceMediatorTransformer extends AbstractEsbNodeTransformer {
 
 	public void transform(TransformationInfo information, EsbNode subject)
@@ -95,8 +92,15 @@ public class SequenceMediatorTransformer extends AbstractEsbNodeTransformer {
 
 	public void transformWithinSequence(TransformationInfo information,
 			EsbNode subject, SequenceMediator sequence) throws Exception {
-		// TODO Auto-generated method stub
+		// Check subject.
+		Assert.isTrue(subject instanceof Sequence, "Invalid subject.");
+		Sequence visualSequence = (Sequence) subject;
+		org.apache.synapse.mediators.base.SequenceMediator refferingSequence =new SequenceMediator();
+		Value value=new Value(visualSequence.getName());
+		refferingSequence.setKey(value);
 		
+		sequence.addChild(refferingSequence);
+		doTransformWithinSequence(information,visualSequence.getOutputConnector().getOutgoingLink(),sequence);		
 	}
 
 }
