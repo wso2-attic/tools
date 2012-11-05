@@ -46,6 +46,7 @@ import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 import org.wso2.carbon.rule.common.Fact;
@@ -84,7 +85,62 @@ public class FactsDialog extends Dialog{
 		GridLayout layout = new GridLayout();
 		container.setLayout(layout);
 		layout.numColumns = 2;
+		
+		Label typeLabel=new Label(container, SWT.NULL);
+		typeLabel.setText("Fact Type");
 
+		factTypeCombo = new Combo(container, SWT.DROP_DOWN |SWT.READ_ONLY);
+		ArrayList<String> javaClass = new ArrayList<String>();
+		ArrayList<String> pakagesList = new ArrayList<String>();
+		ArrayList<IPackageFragment> packFrag= new ArrayList<IPackageFragment>();
+		IJavaProject javaProject = JavaCore.create(project);
+		try {
+			IPackageFragment[] packages = javaProject.getPackageFragments();
+			for (IPackageFragment iPackageFragment : packages) {
+				iPackageFragment.getElementName();
+				if (iPackageFragment.getKind() == IPackageFragmentRoot.K_SOURCE) { 
+					if(iPackageFragment.hasChildren()){
+						pakagesList.add(iPackageFragment.getElementName());
+						packFrag.add(iPackageFragment);
+						for (ICompilationUnit unit : iPackageFragment.getCompilationUnits()) {
+							javaClass.add(unit.getElementName());
+						}
+					}
+				}
+			}
+			String[] factsForCombo=new String[javaClass.size()];
+			int i=0;
+			for(int j=0;j<pakagesList.size();j++){
+				for (ICompilationUnit unit : packFrag.get(j).getCompilationUnits()) {
+					factsForCombo[i]=packFrag.get(j).getElementName()+"."+unit.getElementName().replace(".java", "");
+					i++;
+				}
+			}
+			
+			factTypeCombo.setItems(factsForCombo);
+			
+			factTypeCombo.setText(factsForCombo[0]);
+			
+			factTypeCombo.setText(updateFactType());
+			
+			setFactType(factTypeCombo.getText().trim());
+			factTypeCombo.setLayoutData(new GridData(GridData.FILL, GridData.CENTER, true, false));
+			factTypeCombo.addSelectionListener(new SelectionListener() {
+				@Override
+				public void widgetSelected(SelectionEvent event) {
+					setFactType(factTypeCombo.getText().trim());
+				}
+				@Override
+				public void widgetDefaultSelected(SelectionEvent event) {
+
+				}
+			});
+			
+		} catch (JavaModelException e) {
+			
+			e.printStackTrace();
+		}
+		
 		Label factNameLabel=new Label(container, SWT.NULL);
 		factNameLabel.setText("Element Name");
 		txtFactName = new Text(container, SWT.BORDER|SWT.NULL);
@@ -119,53 +175,7 @@ public class FactsDialog extends Dialog{
 			}
 		});
 
-		Label typeLabel=new Label(container, SWT.NULL);
-		typeLabel.setText("Fact Type");
-
-		factTypeCombo = new Combo(container, SWT.DROP_DOWN);
-		ArrayList<String> javaClass = new ArrayList<String>();
-		ArrayList<String> pakagesList = new ArrayList<String>();
-		ArrayList<IPackageFragment> packFrag= new ArrayList<IPackageFragment>();
-		IJavaProject javaProject = JavaCore.create(project);
-		try {
-			IPackageFragment[] packages = javaProject.getPackageFragments();
-			for (IPackageFragment iPackageFragment : packages) {
-				iPackageFragment.getElementName();
-				if (iPackageFragment.getKind() == IPackageFragmentRoot.K_SOURCE) { 
-					if(iPackageFragment.hasChildren()){
-						pakagesList.add(iPackageFragment.getElementName());
-						packFrag.add(iPackageFragment);
-						for (ICompilationUnit unit : iPackageFragment.getCompilationUnits()) {
-							javaClass.add(unit.getElementName());
-						}
-					}
-				}
-			}
-			String[] factsForCombo=new String[javaClass.size()];
-			int i=0;
-			for(int j=0;j<pakagesList.size();j++){
-				for (ICompilationUnit unit : packFrag.get(j).getCompilationUnits()) {
-					factsForCombo[i]=packFrag.get(j).getElementName()+"."+unit.getElementName().replace(".java", "");
-					i++;
-				}
-			}
-			factTypeCombo.setItems(factsForCombo);
-			factTypeCombo.setText(updateFactType());
-			factTypeCombo.addSelectionListener(new SelectionListener() {
-				@Override
-				public void widgetSelected(SelectionEvent event) {
-					setFactType(factTypeCombo.getText().trim());
-				}
-				@Override
-				public void widgetDefaultSelected(SelectionEvent event) {
-
-				}
-			});
-			
-		} catch (JavaModelException e) {
-			
-			e.printStackTrace();
-		}
+		
 		return container;
 	}
 

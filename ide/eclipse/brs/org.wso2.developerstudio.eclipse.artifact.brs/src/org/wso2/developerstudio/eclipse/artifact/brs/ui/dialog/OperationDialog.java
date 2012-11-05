@@ -39,6 +39,7 @@ import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Listener;
+import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.Text;
@@ -210,7 +211,14 @@ public class OperationDialog extends Dialog{
 				FactsDialog fDialog=new FactsDialog(Display.getCurrent().getActiveShell(),ruleService,project);
 
 				beforeUpdateFactsTable(fDialog);
+				try{
 				fDialog.open();
+				}catch(ArrayIndexOutOfBoundsException e){
+					MessageBox msgBox = new MessageBox(getShell(),
+							SWT.ICON_INFORMATION);
+					msgBox.setMessage("There are no facts defined yet. Please add new facts");
+					msgBox.open();
+				}
 				updateFactsTable(fDialog);
 				if(input.getFacts().isEmpty()){
 					deleteFactsButton.setEnabled(false);
@@ -352,7 +360,14 @@ public class OperationDialog extends Dialog{
 				FactsDialog fDialog=new FactsDialog(Display.getCurrent().getActiveShell(),ruleService,project);
 
 				beforeUpdateOutputFactsTable(fDialog);
+				try{
 				fDialog.open();
+			}catch(ArrayIndexOutOfBoundsException e){
+				MessageBox msgBox = new MessageBox(getShell(),
+						SWT.ICON_INFORMATION);
+				msgBox.setMessage("There are no facts defined yet. Please add new facts");
+				msgBox.open();
+			}
 				updateOutputFactsTable(fDialog);
 				if(output.getFacts().isEmpty()){
 					deleteoutputFactsButton.setEnabled(false);
@@ -580,35 +595,7 @@ public class OperationDialog extends Dialog{
 
 	private void createFactTableColumns(TableViewer factviewer){
 
-		TableViewerColumn nameColumn=new TableViewerColumn(factviewer, SWT.NONE, 0);
-		nameColumn.setLabelProvider(new ColumnLabelProvider(){
-			@Override
-			public String getText(Object element){
-				Fact fact=(Fact) element;
-				if(fact!=null){
-					return fact.getElementName();
-				}
-				else return "";
-			}
-		});
-		nameColumn.getColumn().setWidth(200);
-		nameColumn.getColumn().setText("Fact Name");
-
-		TableViewerColumn nameSpaceColumn=new TableViewerColumn(factviewer, SWT.NONE, 1);
-		nameSpaceColumn.setLabelProvider(new ColumnLabelProvider(){
-			@Override
-			public String getText(Object element){
-				Fact fact=(Fact) element;
-				if(fact!=null){
-					return fact.getNamespace();
-				}
-				else return "";
-			}
-		});
-		nameSpaceColumn.getColumn().setWidth(200);
-		nameSpaceColumn.getColumn().setText("Name Space");
-
-		TableViewerColumn typeColumn=new TableViewerColumn(factviewer, SWT.NONE, 2);
+		TableViewerColumn typeColumn=new TableViewerColumn(factviewer, SWT.NONE, 0);
 		typeColumn.setLabelProvider(new ColumnLabelProvider(){
 			@Override
 			public String getText(Object element){
@@ -622,6 +609,36 @@ public class OperationDialog extends Dialog{
 		});
 		typeColumn.getColumn().setWidth(200);
 		typeColumn.getColumn().setText("Fact Type");
+		
+		TableViewerColumn nameColumn=new TableViewerColumn(factviewer, SWT.NONE, 1);
+		nameColumn.setLabelProvider(new ColumnLabelProvider(){
+			@Override
+			public String getText(Object element){
+				Fact fact=(Fact) element;
+				if(fact!=null){
+					return fact.getElementName();
+				}
+				else return "";
+			}
+		});
+		nameColumn.getColumn().setWidth(200);
+		nameColumn.getColumn().setText("Element Name");
+
+		TableViewerColumn nameSpaceColumn=new TableViewerColumn(factviewer, SWT.NONE, 2);
+		nameSpaceColumn.setLabelProvider(new ColumnLabelProvider(){
+			@Override
+			public String getText(Object element){
+				Fact fact=(Fact) element;
+				if(fact!=null){
+					return fact.getNamespace();
+				}
+				else return "";
+			}
+		});
+		nameSpaceColumn.getColumn().setWidth(200);
+		nameSpaceColumn.getColumn().setText("Element Namespace");
+
+		
 
 	}
 
