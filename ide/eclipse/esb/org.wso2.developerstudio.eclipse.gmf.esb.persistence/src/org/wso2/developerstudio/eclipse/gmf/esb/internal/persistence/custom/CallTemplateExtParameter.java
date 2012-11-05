@@ -16,9 +16,12 @@
 
 package org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom;
 
+import org.apache.synapse.util.xpath.SynapseXPath;
+
 public class CallTemplateExtParameter {
 	private String parameterName;
 	private String parameterValue="";
+	private SynapseXPath parameterExpression;
 	private ParameterType parameterType = ParameterType.VALUE;
 	
 	public CallTemplateExtParameter(String parameterName) {
@@ -52,6 +55,14 @@ public class CallTemplateExtParameter {
 
 	public ParameterType getParameterType() {
 		return parameterType;
+	}
+
+	public void setParameterExpression(SynapseXPath parameterExpression) {
+		this.parameterExpression = parameterExpression;
+	}
+
+	public SynapseXPath getParameterExpression() {
+		return parameterExpression;
 	}
 
 	public enum ParameterType{

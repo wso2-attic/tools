@@ -17,13 +17,18 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence;
 
 import java.util.List;
+import java.util.Map.Entry;
+
 import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.mediators.base.SequenceMediator;
+import org.apache.synapse.util.xpath.SynapseXPath;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EObject;
+import org.jaxen.JaxenException;
 import org.wso2.developerstudio.eclipse.gmf.esb.CallTemplateMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.CallTemplateParameter;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
+import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleOptionType;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.CallTemplateExtParameter;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.CallTemplateExtParameter.ParameterType;
@@ -55,7 +60,7 @@ public class CallTemplateMediatorTransformer extends AbstractEsbNodeTransformer{
 	}
 
 	private CallTemplateMediatorExt createCallTemplateMediator(TransformationInfo information,
-			CallTemplateMediator obj) {
+			CallTemplateMediator obj) throws JaxenException {
 		CallTemplateMediatorExt callTemplateMediator = new CallTemplateMediatorExt();
 		callTemplateMediator.setTarget(obj.getTargetTemplate());
 		List<CallTemplateExtParameter> parameters = callTemplateMediator.getParameters();
@@ -64,8 +69,13 @@ public class CallTemplateMediatorTransformer extends AbstractEsbNodeTransformer{
 					param.getParameterName());
 			if (param.getTemplateParameterType().equals(RuleOptionType.EXPRESSION)) {
 				/* RuleOptionType?, this should fix */
+				NamespacedProperty namespacedExpression = param.getParameterExpression();
 				parameter.setParameterType(ParameterType.EXPRESSION);
-				parameter.setParameterValue(param.getParameterExpression().getPropertyValue());
+				SynapseXPath paramExpression = new SynapseXPath(namespacedExpression.getPropertyValue());
+				for (Entry<String, String> entry : namespacedExpression.getNamespaces().entrySet()) {
+					paramExpression.addNamespace(entry.getKey(), entry.getValue());
+				}
+				parameter.setParameterExpression(paramExpression);
 			} else {
 				parameter.setParameterType(ParameterType.VALUE);
 				parameter.setParameterValue(param.getParameterValue());

@@ -53,13 +53,17 @@ public class CallTemplateParamDialog extends Dialog {
 	 */
 	private Table paramTable;
 	/**
-	 * Table Editor for inline property edit
+	 * Table Editors
 	 */
-	private TableEditor propertyTypeEditor;
+	private TableEditor paramTypeEditor;
+	private TableEditor paramNameEditor;
+	private TableEditor paramValueEditor;
 	/**
-	 * Combo box for select parameter type.
+	 * Table widgets
 	 */
 	private Combo cmbParamType;
+	private Text txtParamName;
+	private PropertyText paramValue;
 	/**
 	 * Button for add new parameter.
 	 */
@@ -130,6 +134,9 @@ public class CallTemplateParamDialog extends Dialog {
 			public void handleEvent(Event event) {
 				int selectedIndex = paramTable.getSelectionIndex();
 				if (-1 != selectedIndex) {
+					initTableEditor(paramNameEditor, paramTable);
+					initTableEditor(paramTypeEditor, paramTable);
+					initTableEditor(paramValueEditor, paramTable);
 					unbindParam(selectedIndex);
 
 					// Select the next available candidate for deletion.
@@ -178,7 +185,7 @@ public class CallTemplateParamDialog extends Dialog {
 			bindPram(param);
 		}
 
-		setupTableEditor(paramTable);
+		//setupTableEditor(paramTable);
 
 		FormData logPropertiesTableLayoutData = new FormData(SWT.DEFAULT, 150);
 		logPropertiesTableLayoutData.top = new FormAttachment(newParamButton,
@@ -199,6 +206,7 @@ public class CallTemplateParamDialog extends Dialog {
 	 * @param table
 	 *            table against which a table editor is setup.
 	 */
+	@Deprecated
 	private void setupTableEditor(final Table table) {
 		final TableEditor cellEditor = new TableEditor(table);
 		cellEditor.grabHorizontal = true;
@@ -261,17 +269,52 @@ public class CallTemplateParamDialog extends Dialog {
 	}
 
 	private void editItem(final TableItem item) {
-		propertyTypeEditor = initTableEditor(propertyTypeEditor,
+		
+		NamespacedProperty expression = (NamespacedProperty)item.getData("exp");
+		
+		paramNameEditor = initTableEditor(paramNameEditor, item.getParent());
+		txtParamName = new Text(item.getParent(), SWT.NONE);
+		txtParamName.setText(item.getText(0));
+		paramNameEditor.setEditor(txtParamName, item, 0);
+		item.getParent().redraw();
+		item.getParent().layout();
+		txtParamName.addModifyListener(new ModifyListener() {
+
+			public void modifyText(ModifyEvent e) {
+				item.setText(0,txtParamName.getText());
+			}
+		});
+		
+		paramTypeEditor = initTableEditor(paramTypeEditor,
 				item.getParent());
 		cmbParamType = new Combo(item.getParent(), SWT.READ_ONLY);
 		cmbParamType.setItems(new String[] { VALUE_TYPE, EXPRESSION_TYPE });
 		cmbParamType.setText(item.getText(2));
-		propertyTypeEditor.setEditor(cmbParamType, item, 2);
+		paramTypeEditor.setEditor(cmbParamType, item, 2);
 		item.getParent().redraw();
 		item.getParent().layout();
 		cmbParamType.addListener(SWT.Selection, new Listener() {
 			public void handleEvent(Event evt) {
 				item.setText(2, cmbParamType.getText());
+			}
+		});
+		
+		paramValueEditor = initTableEditor(paramValueEditor,
+				item.getParent());
+		
+		paramValue = new PropertyText(item.getParent(), SWT.NONE, cmbParamType);
+		paramValue.addProperties(item.getText(1),expression);
+		paramValueEditor.setEditor(paramValue, item, 1);
+		item.getParent().redraw();
+		item.getParent().layout();
+		paramValue.addModifyListener(new ModifyListener() {
+			
+			public void modifyText(ModifyEvent e) {
+				item.setText(1,paramValue.getText());
+				Object property = paramValue.getProperty();
+				if(property instanceof NamespacedProperty){
+					item.setData("exp",(NamespacedProperty)property);
+				} 
 			}
 		});
 	}
@@ -304,6 +347,8 @@ public class CallTemplateParamDialog extends Dialog {
 		}
 
 		item.setData(param);
+		item.setData("exp",
+				EsbFactory.eINSTANCE.copyNamespacedProperty(param.getParameterExpression()));
 		return item;
 	}
 
@@ -328,6 +373,7 @@ public class CallTemplateParamDialog extends Dialog {
 
 			CallTemplateParameter param = (CallTemplateParameter) item
 					.getData();
+			NamespacedProperty expression = (NamespacedProperty)item.getData("exp");
 
 			if (param.eContainer() == null) {
 
@@ -345,7 +391,7 @@ public class CallTemplateParamDialog extends Dialog {
 					NamespacedProperty namespaceProperty = EsbFactoryImpl.eINSTANCE
 							.createNamespacedProperty();
 					namespaceProperty.setPropertyValue(item.getText(1));
-
+					namespaceProperty.setNamespaces(expression.getNamespaces());
 					param.setParameterExpression(namespaceProperty);
 				}
 
@@ -403,7 +449,7 @@ public class CallTemplateParamDialog extends Dialog {
 						NamespacedProperty namespaceProperty = EsbFactoryImpl.eINSTANCE
 								.createNamespacedProperty();
 						namespaceProperty.setPropertyValue(item.getText(1));
-
+						namespaceProperty.setNamespaces(expression.getNamespaces());
 						AddCommand addCmd = new AddCommand(
 								editingDomain,
 								param,
@@ -416,6 +462,7 @@ public class CallTemplateParamDialog extends Dialog {
 						NamespacedProperty namespaceProperty = EsbFactoryImpl.eINSTANCE
 								.createNamespacedProperty();
 						namespaceProperty.setPropertyValue(item.getText(1));
+						namespaceProperty.setNamespaces(expression.getNamespaces());
 
 						SetCommand setCmd = new SetCommand(
 								editingDomain,

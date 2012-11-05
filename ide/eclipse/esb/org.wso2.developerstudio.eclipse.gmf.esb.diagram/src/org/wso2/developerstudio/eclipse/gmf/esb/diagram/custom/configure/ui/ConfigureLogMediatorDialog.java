@@ -297,6 +297,9 @@ public class ConfigureLogMediatorDialog extends Dialog {
 				public void handleEvent(Event event) {
 					int selectedIndex = logPropertiesTable.getSelectionIndex();
 					if (-1 != selectedIndex) {
+						initTableEditor(propertyNameEditor, logPropertiesTable);
+						initTableEditor(propertyTypeEditor, logPropertiesTable);
+						initTableEditor(propertyValueEditor, logPropertiesTable);
 						unbindLogProperty(selectedIndex);
 
 						// Select the next available candidate for deletion.

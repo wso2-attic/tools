@@ -2925,8 +2925,13 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	 */
 	public CallTemplateParameter createCallTemplateParameter() {
 		CallTemplateParameterImpl callTemplateParameter = new CallTemplateParameterImpl();
+		NamespacedProperty namespacedProperty = createNamespacedProperty();
+		namespacedProperty.setPrettyName("parameter expression");
+		namespacedProperty.setPropertyName("expression");
+		namespacedProperty.setPropertyValue("/default/expression");
 		callTemplateParameter.setParameterName("param_name");
 		callTemplateParameter.setParameterValue("param_value");
+		callTemplateParameter.setParameterExpression(namespacedProperty);
 		callTemplateParameter.setTemplateParameterType(RuleOptionType.VALUE);
 		return callTemplateParameter;
 	}

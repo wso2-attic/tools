@@ -20,6 +20,8 @@ import java.util.List;
 import org.apache.axiom.om.OMElement;
 import org.apache.synapse.Mediator;
 import org.apache.synapse.config.xml.AbstractMediatorSerializer;
+import org.apache.synapse.config.xml.XMLConfigConstants;
+import org.apache.synapse.util.xpath.SynapseXPath;
 
 public class CallTemplateMediatorExtSerializer extends AbstractMediatorSerializer {
 
@@ -47,7 +49,15 @@ public class CallTemplateMediatorExtSerializer extends AbstractMediatorSerialize
         	OMElement param = fac.createOMElement("with-param", synNS, callTemplate);
         	param.addAttribute(fac.createOMAttribute("name", nullNS, parameter.getParameterName()));
         	if(parameter.getParameterType().equals(CallTemplateExtParameter.ParameterType.EXPRESSION)){
-        		param.addAttribute(fac.createOMAttribute("value", nullNS, "{" + parameter.getParameterValue() + "}"));
+        		SynapseXPath xpath = parameter.getParameterExpression();
+				param.addAttribute(fac.createOMAttribute("value", nullNS, "{" + xpath + "}"));
+        		for (Object o : xpath.getNamespaces().keySet()) {
+                    String prefix = (String) o;
+                    String uri = xpath.getNamespaceContext().translateNamespacePrefixToUri(prefix);
+                    if (!XMLConfigConstants.SYNAPSE_NAMESPACE.equals(uri)) {
+                    	param.declareNamespace(uri, prefix);
+                    }
+                }
         	} else{
         		param.addAttribute(fac.createOMAttribute("value", nullNS, parameter.getParameterValue()));
         	}
