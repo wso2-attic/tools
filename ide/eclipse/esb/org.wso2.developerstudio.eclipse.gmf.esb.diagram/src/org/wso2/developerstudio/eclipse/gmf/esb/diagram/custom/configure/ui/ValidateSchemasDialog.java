@@ -1,3 +1,19 @@
+/*
+ * Copyright 2012 WSO2, Inc. (http://wso2.com)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.ui;
 
 import org.eclipse.emf.common.command.CompoundCommand;
@@ -180,9 +196,15 @@ public class ValidateSchemasDialog extends Dialog {
 
 		item.setText(new String[] {
 				schema.getValidateSchemaKeyType().toString(),
-				schema.getValidateStaticSchemaKey().getKeyValue() });
+				schema.getValidateSchemaKeyType() == KeyType.STATIC ? schema
+						.getValidateStaticSchemaKey().getKeyValue() : schema
+						.getValidateDynamicSchemaKey().getPropertyValue() });
 
 		item.setData(schema);
+		item.setData("staticKey",
+				EsbFactory.eINSTANCE.copyRegistryKeyProperty(schema.getValidateStaticSchemaKey()));
+		item.setData("dynamicKey",
+				EsbFactory.eINSTANCE.copyNamespacedProperty(schema.getValidateDynamicSchemaKey()));
 		return item;
 
 	}
@@ -216,6 +238,8 @@ public class ValidateSchemasDialog extends Dialog {
 	private void editItem(final TableItem item) {
 
 		final ValidateSchema schema = (ValidateSchema) item.getData();
+		NamespacedProperty dynamicKey = (NamespacedProperty)item.getData("dynamicKey");
+		RegistryKeyProperty staticKey = (RegistryKeyProperty)item.getData("staticKey"); 
 
 		typeEditor = initTableEditor(typeEditor, item.getParent());
 		keyPropertyEditor = initTableEditor(keyPropertyEditor, item.getParent());
@@ -234,7 +258,7 @@ public class ValidateSchemasDialog extends Dialog {
 		
 		keyPropertyText = new PropertyText(item.getParent(), SWT.NONE, cmbType);
 		
-		keyPropertyText.addProperties(schema.getValidateStaticSchemaKey(),schema.getValidateDynamicSchemaKey());
+		keyPropertyText.addProperties(staticKey,dynamicKey);
 		item.getParent().redraw();
 		item.getParent().layout();
 		
@@ -243,7 +267,12 @@ public class ValidateSchemasDialog extends Dialog {
 			public void modifyText(ModifyEvent e) {
 
 				item.setText(1,keyPropertyText.getText());
-				
+				Object property = keyPropertyText.getProperty();
+				if(property instanceof NamespacedProperty){
+					item.setData("dynamicKey",(NamespacedProperty)property);
+				} else if(property instanceof RegistryKeyProperty){
+					item.setData("staticKey",(RegistryKeyProperty)property);
+				}
 			}
 		});
 		
@@ -332,24 +361,26 @@ public class ValidateSchemasDialog extends Dialog {
 		for (TableItem item : schemaTable.getItems()) {
 
 			ValidateSchema schema = (ValidateSchema) item.getData();
+			NamespacedProperty dynamicKey = (NamespacedProperty)item.getData("dynamicKey");
+			RegistryKeyProperty staticKey = (RegistryKeyProperty)item.getData("staticKey"); 
 
 			if (schema.eContainer() == null) {
 
 				if (item.getText(0).equals(KeyType.STATIC.getLiteral())) {
 
 					schema.setValidateSchemaKeyType(KeyType.STATIC);
-					RegistryKeyProperty regKeyProp = EsbFactory.eINSTANCE
-							.createRegistryKeyProperty();
-					regKeyProp.setKeyValue(item.getText(1));
-					schema.setValidateStaticSchemaKey(regKeyProp);
+					//RegistryKeyProperty regKeyProp = EsbFactory.eINSTANCE
+					//		.createRegistryKeyProperty();
+					//regKeyProp.setKeyValue(item.getText(1));
+					schema.setValidateStaticSchemaKey(staticKey);
 
 				} else {
 
 					schema.setValidateSchemaKeyType(KeyType.DYNAMIC);
-					NamespacedProperty nsProp = EsbFactory.eINSTANCE
-							.createNamespacedProperty();
-					nsProp.setPropertyValue(item.getText(1));
-					schema.setValidateDynamicSchemaKey(nsProp);
+					//NamespacedProperty nsProp = EsbFactory.eINSTANCE
+					//		.createNamespacedProperty();
+					//nsProp.setPropertyValue(item.getText(1));
+					schema.setValidateDynamicSchemaKey(dynamicKey);
 
 				}
 
@@ -370,17 +401,13 @@ public class ValidateSchemasDialog extends Dialog {
 					getResultCommand().append(setTypeCmd);
 
 					if (schema.getValidateStaticSchemaKey() != null
-							&& !schema.getValidateStaticSchemaKey()
-									.getKeyValue().equals(item.getText(1))) {
+							&& !schema.getValidateStaticSchemaKey().equals(staticKey)) {
 
-						RegistryKeyProperty regKeyProp = EsbFactory.eINSTANCE
-								.createRegistryKeyProperty();
-						regKeyProp.setKeyValue(item.getText(1));
 						SetCommand setCmd = new SetCommand(
 								editingDomain,
 								schema,
 								EsbPackage.Literals.VALIDATE_SCHEMA__VALIDATE_STATIC_SCHEMA_KEY,
-								regKeyProp);
+								staticKey);
 						getResultCommand().append(setCmd);
 					}
 				} else {
@@ -393,17 +420,13 @@ public class ValidateSchemasDialog extends Dialog {
 					getResultCommand().append(setTypeCmd);
 
 					if (schema.getValidateDynamicSchemaKey() != null
-							&& !schema.getValidateDynamicSchemaKey()
-									.getPropertyValue().equals(item.getText(1))) {
+							&& !schema.getValidateDynamicSchemaKey().equals(dynamicKey)) {
 
-						NamespacedProperty nsProp = EsbFactory.eINSTANCE
-								.createNamespacedProperty();
-						nsProp.setPropertyValue(item.getText(1));
 						SetCommand setCmd = new SetCommand(
 								editingDomain,
 								schema,
 								EsbPackage.Literals.VALIDATE_SCHEMA__VALIDATE_DYNAMIC_SCHEMA_KEY,
-								nsProp);
+								dynamicKey);
 						getResultCommand().append(setCmd);
 					}
 

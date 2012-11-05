@@ -2,6 +2,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map.Entry;
 
 import org.apache.synapse.config.xml.AnonymousListMediator;
 import org.apache.synapse.endpoints.Endpoint;
@@ -65,8 +66,12 @@ public class ValidateMediatorTransformer  extends AbstractEsbNodeTransformer {
 				.getSourceXpath();
 		if (sourceXPath.getPropertyValue() != null
 				&& !sourceXPath.getPropertyValue().equals("")) {
-			validateMediator.setSource(new SynapseXPath(sourceXPath
-					.getPropertyValue()));
+			SynapseXPath synapseXPath = new SynapseXPath(sourceXPath
+							.getPropertyValue());
+			for (Entry<String, String> entry : sourceXPath.getNamespaces().entrySet()) {
+				synapseXPath.addNamespace(entry.getKey(), entry.getValue());
+			}
+			validateMediator.setSource(synapseXPath);
 		}
 
 		List<Value> valueList = new ArrayList<Value>();
@@ -84,11 +89,15 @@ public class ValidateMediatorTransformer  extends AbstractEsbNodeTransformer {
 
 			} else {
 
-				if (schema.getValidateDynamicSchemaKey() != null
-						&& schema.getValidateDynamicSchemaKey()
+				NamespacedProperty dynamicSchemaKey = schema
+						.getValidateDynamicSchemaKey();
+				if (dynamicSchemaKey != null
+						&& dynamicSchemaKey
 								.getPropertyValue() != null) {
-					SynapseXPath xpath = new SynapseXPath(schema
-							.getValidateDynamicSchemaKey().getPropertyValue());
+					SynapseXPath xpath = new SynapseXPath(dynamicSchemaKey.getPropertyValue());
+					for (Entry<String, String> entry : dynamicSchemaKey.getNamespaces().entrySet()) {
+						xpath.addNamespace(entry.getKey(), entry.getValue());
+					}
 					Value val = new Value(xpath);
 					valueList.add(val);
 				}
