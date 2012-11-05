@@ -18,13 +18,16 @@ package org.wso2.developerstudio.eclipse.artifact.brs.ui.dialog;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.jdt.core.IJavaElement;
 import org.eclipse.jdt.core.IJavaProject;
@@ -71,6 +74,7 @@ import org.wso2.developerstudio.eclipse.greg.base.persistent.RegistryUrlStore;
 import org.wso2.developerstudio.eclipse.greg.base.ui.dialog.RegistryTreeBrowserDialog;
 import org.wso2.developerstudio.eclipse.platform.core.utils.ResourceManager;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
+import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 
 /* creates the dialog which accepts rule information */
 public class RuleServiceDialog extends Dialog {
@@ -98,7 +102,7 @@ public class RuleServiceDialog extends Dialog {
 	protected Control createDialogArea(Composite parent) {
 		final Composite container;
 		final Text txtDescription,uriText,registerText,fileText;
-		final Combo resourceCombo;
+		final Combo resourceCombo,fileCombo;
 		final CTabFolder sourceTabFolder;
 		final StyledText inlineText;
 		Button cmdEndPointConRegBrowse,cmdEndPointGovRegBrowse,registryBrowser;
@@ -133,6 +137,7 @@ public class RuleServiceDialog extends Dialog {
 		resourceCombo.setItems(new String[] { "regular", "dtable" });
 		resourceCombo.setText("regular");
 		resourceCombo.setText(updateResourceCombo());
+		
 		setResourceType(resourceCombo.getText().trim());
 		resourceCombo.setLayoutData(new GridData(GridData.FILL, GridData.CENTER, true, false));
 
@@ -273,22 +278,37 @@ public class RuleServiceDialog extends Dialog {
 		fileTabComposite.setLayout(fileTabLayout);
 		Label fileLabel = new Label(fileTabComposite, SWT.NULL);
 		fileLabel.setText("File");
-		fileText = new Text(fileTabComposite, SWT.BORDER | SWT.SINGLE |SWT.READ_ONLY);
-		fileText.setText(updateFileText());
-		GridData fileGridData = new GridData(SWT.LEFT, SWT.CENTER, true, false, 1, 1);
-		fileGridData.widthHint = 300;
-		fileGridData.horizontalAlignment = GridData.FILL;
-		fileGridData.verticalAlignment = GridData.FILL;
-		fileText.setLayoutData(fileGridData);
-
-		fileText.addModifyListener(new ModifyListener() {
-			@Override
-			public void modifyText(ModifyEvent arg0) {
-				//setValue(fileText.getText().trim());
-				setFile(fileText.getText().trim());
+		
+		fileCombo=new Combo(fileTabComposite, SWT.DROP_DOWN);
+		
+		IFolder confFolder = ProjectUtils.getWorkspaceFolder(project, "src", "main", "ruleservice","conf");
+		try {
+			IResource[] confResources=confFolder.members();
+			String[] ruleFilesResources=new String[confResources.length];
+			for(int i=0;i<ruleFilesResources.length;i++){
+				ruleFilesResources[i]=confResources[i].getName();
 			}
-		});
+			fileCombo.setItems(ruleFilesResources);
+			fileCombo.setText(updateFileText());
+			setFile(fileCombo.getText().trim());
+			fileCombo.addSelectionListener(new SelectionListener() {
 
+				@Override
+				public void widgetSelected(SelectionEvent event) {
+
+					setFile(fileCombo.getText().trim());
+				}
+
+				@Override
+				public void widgetDefaultSelected(SelectionEvent event) {
+
+				}
+			});
+		} catch (CoreException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
 		Button browseButton = new Button(fileTabComposite, SWT.CENTER);
 		browseButton.setText("Browse");
 
@@ -300,17 +320,26 @@ public class RuleServiceDialog extends Dialog {
 				String path=fileDialog.open();
 				String fileName =fileDialog.getFileName();
 				if (fileName != null) {
-					fileText.setText(fileName);
-					File drlFile=new File(path);
+					fileCombo.setText(fileName);
+					setFile(fileCombo.getText().trim());
 					
+					
+					try {
+					File drlFile=new File(path);
+					fileCombo.add(fileCombo.getText().trim());
 					IPath conf = project.getFolder(
 							"src" + File.separator + "main" + File.separator
 							+ "ruleservice" + File.separator + "conf").getLocation();
-					try {
+					
 						FileUtils.copy(drlFile,new File(conf.toFile().getPath(),drlFile.getName()));
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
+					}catch(NullPointerException e){
+						MessageBox msgBox = new MessageBox(getShell(),
+								SWT.ICON_INFORMATION);
+						msgBox.setMessage("There are no files selected yet. Please select a file");
+						msgBox.open();
 					}
 					
 				}
