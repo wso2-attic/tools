@@ -16,6 +16,7 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.ui;
 
 
+import org.eclipse.draw2d.MouseEvent;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.RemoveCommand;
@@ -27,7 +28,6 @@ import org.eclipse.swt.custom.TableEditor;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.MouseAdapter;
-import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.FormAttachment;
 import org.eclipse.swt.layout.FormData;
@@ -59,9 +59,19 @@ import org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbFactoryImpl;
  */
 public class ConfigureLogMediatorDialog extends Dialog {
 
+	/**
+	 * Table widgets
+	 */
 	private Combo cmbPropertyType;
+	private Text txtPropertyName;
+	private PropertyText propertyValue;
 
+	/**
+	 * Table editors
+	 * */
 	private TableEditor propertyTypeEditor;
+	private TableEditor propertyNameEditor;
+	private TableEditor propertyValueEditor;
 
 	/**
 	 * {@link LogMediator} domain object.
@@ -340,7 +350,7 @@ public class ConfigureLogMediatorDialog extends Dialog {
 			}
 
 			// In-line editing of properties.
-			setupTableEditor(logPropertiesTable);
+			//setupTableEditor(logPropertiesTable);
 
 			// Layout.
 			FormData logPropertiesTableLayoutData = new FormData(SWT.DEFAULT,
@@ -358,6 +368,22 @@ public class ConfigureLogMediatorDialog extends Dialog {
 	}
 
 	private void editItem(final TableItem item) {
+		
+		NamespacedProperty expression = (NamespacedProperty)item.getData("exp");
+		
+		propertyNameEditor = initTableEditor(propertyNameEditor, item.getParent());
+		txtPropertyName = new Text(item.getParent(), SWT.NONE);
+		txtPropertyName.setText(item.getText(0));
+		propertyNameEditor.setEditor(txtPropertyName, item, 0);
+		item.getParent().redraw();
+		item.getParent().layout();
+		txtPropertyName.addModifyListener(new ModifyListener() {
+
+			public void modifyText(ModifyEvent e) {
+				item.setText(0,txtPropertyName.getText());
+			}
+		});
+		
 		propertyTypeEditor = initTableEditor(propertyTypeEditor,
 				item.getParent());
 		cmbPropertyType = new Combo(item.getParent(), SWT.READ_ONLY);
@@ -369,6 +395,25 @@ public class ConfigureLogMediatorDialog extends Dialog {
 		cmbPropertyType.addListener(SWT.Selection, new Listener() {
 			public void handleEvent(Event evt) {
 				item.setText(2, cmbPropertyType.getText());
+			}
+		});
+		
+		propertyValueEditor = initTableEditor(propertyValueEditor,
+				item.getParent());
+		
+		propertyValue = new PropertyText(item.getParent(), SWT.NONE, cmbPropertyType);
+		propertyValue.addProperties(item.getText(1),expression);
+		propertyValueEditor.setEditor(propertyValue, item, 1);
+		item.getParent().redraw();
+		item.getParent().layout();
+		propertyValue.addModifyListener(new ModifyListener() {
+			
+			public void modifyText(ModifyEvent e) {
+				item.setText(1,propertyValue.getText());
+				Object property = propertyValue.getProperty();
+				if(property instanceof NamespacedProperty){
+					item.setData("exp",(NamespacedProperty)property);
+				} 
 			}
 		});
 	}
@@ -392,6 +437,7 @@ public class ConfigureLogMediatorDialog extends Dialog {
 	 * @param table
 	 *            table against which a table editor is setup.
 	 */
+	@Deprecated
 	private void setupTableEditor(final Table table) {
 		final TableEditor cellEditor = new TableEditor(table);
 		cellEditor.grabHorizontal = true;
@@ -494,6 +540,7 @@ public class ConfigureLogMediatorDialog extends Dialog {
 		// Log properties.
 		for (TableItem item : logPropertiesTable.getItems()) {
 			LogProperty property = (LogProperty) item.getData();
+			NamespacedProperty expression = (NamespacedProperty)item.getData("exp");
 
 			// If the property is a new one, add it to the model.
 			if (null == property.eContainer()) {
@@ -510,6 +557,7 @@ public class ConfigureLogMediatorDialog extends Dialog {
 					NamespacedProperty namespaceProperty = EsbFactoryImpl.eINSTANCE
 							.createNamespacedProperty();
 					namespaceProperty.setPropertyValue(item.getText(1));
+					namespaceProperty.setNamespaces(expression.getNamespaces());
 					property.setPropertyExpression(namespaceProperty);
 				}
 
@@ -557,6 +605,7 @@ public class ConfigureLogMediatorDialog extends Dialog {
 						NamespacedProperty namespaceProperty = EsbFactoryImpl.eINSTANCE
 								.createNamespacedProperty();
 						namespaceProperty.setPropertyValue(item.getText(1));
+						namespaceProperty.setNamespaces(expression.getNamespaces());
 
 						AddCommand addCmd = new AddCommand(
 								editingDomain,
@@ -570,6 +619,13 @@ public class ConfigureLogMediatorDialog extends Dialog {
 								property.getPropertyExpression(),
 								EsbPackage.Literals.NAMESPACED_PROPERTY__PROPERTY_VALUE,
 								item.getText(1));
+						getResultCommand().append(setCmd);
+						
+						setCmd = new SetCommand(
+								editingDomain,
+								property.getPropertyExpression(),
+								EsbPackage.Literals.NAMESPACED_PROPERTY__NAMESPACES,
+								expression.getNamespaces());
 						getResultCommand().append(setCmd);
 					}
 
@@ -607,6 +663,8 @@ public class ConfigureLogMediatorDialog extends Dialog {
 		}
 
 		item.setData(property);
+		item.setData("exp",
+				EsbFactory.eINSTANCE.copyNamespacedProperty(property.getPropertyExpression()));
 		return item;
 	}
 

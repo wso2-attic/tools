@@ -1080,6 +1080,11 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	 */
 	public LogProperty createLogProperty() {
 		LogPropertyImpl logProperty = new LogPropertyImpl();
+		NamespacedProperty namespacedProperty = createNamespacedProperty();
+		namespacedProperty.setPrettyName("property expression");
+		namespacedProperty.setPropertyName("expression");
+		namespacedProperty.setPropertyValue("/default/expression");
+		logProperty.setPropertyExpression(namespacedProperty);
 		logProperty.setPropertyName("property_name");
 		logProperty.setPropertyValue("property_value");
 		return logProperty;
