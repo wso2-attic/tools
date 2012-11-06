@@ -46,7 +46,7 @@ public class EsbPropertySource extends PropertySource {
 			return new XSLTFeaturesPropertyDescriptor(object,
 					itemPropertyDescriptor);
 		} else if (pkg.getXSLTMediator_SourceXPath().equals(feature)) {
-			return new XSLTSourceXPathPropertyDescriptor(object,
+			return new CustomPropertyDescriptor(object,
 					itemPropertyDescriptor);
 		} else if (pkg.getSwitchMediator_SourceXpath().equals(feature)) {
 			return new SwitchSourceXPathPropertyDescriptor(object,
