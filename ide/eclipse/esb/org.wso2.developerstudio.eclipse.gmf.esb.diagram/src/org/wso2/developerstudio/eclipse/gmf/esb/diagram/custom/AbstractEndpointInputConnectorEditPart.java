@@ -3,6 +3,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import org.eclipse.draw2d.Figure;
 import org.eclipse.draw2d.GridData;
 import org.eclipse.draw2d.GridLayout;
 import org.eclipse.draw2d.IFigure;
@@ -122,15 +123,23 @@ public abstract class AbstractEndpointInputConnectorEditPart extends AbstractInp
 			}
 	}
 	
-	public class EastPointerFigure extends RoundedRectangle {
+	public class EastPointerFigure extends Figure {
+		
+	}
+	
+	public class WestPointerFigure extends Figure {
+		
+	}
+	
+	/*public class EastPointerFigure extends RoundedRectangle {
 
 
 		public EastPointerFigure() {
 
-			/*
+			
 			 * this.setBackgroundColor(THIS_BACK); this.setPreferredSize(new
 			 * Dimension(getMapMode().DPtoLP(12), getMapMode().DPtoLP(10)));
-			 */
+			 
 
 			GridLayout layoutThis = new GridLayout();
 			layoutThis.numColumns = 1;
@@ -179,10 +188,10 @@ public abstract class AbstractEndpointInputConnectorEditPart extends AbstractInp
 
 		public WestPointerFigure() {
 
-			/*
+			
 			 * this.setBackgroundColor(THIS_BACK); this.setPreferredSize(new
 			 * Dimension(getMapMode().DPtoLP(12), getMapMode().DPtoLP(10)));
-			 */
+			 
 
 			GridLayout layoutThis = new GridLayout();
 			layoutThis.numColumns = 1;
@@ -225,7 +234,7 @@ public abstract class AbstractEndpointInputConnectorEditPart extends AbstractInp
 
 		}
 
-	}
+	}*/
 	
 	static final Color THIS_BACK = new Color(null, 50, 50, 50);
 

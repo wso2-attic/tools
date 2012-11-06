@@ -8,5 +8,4 @@ public class AbstractInputConnectorEditPart extends AbstractConnectorEditPart{
 		super(view);
 		// TODO Auto-generated constructor stub
 	}
-
 }
