@@ -103,10 +103,11 @@ public class ProxyServiceNameEditPart extends CompartmentEditPart implements ITe
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void setLabelTextHelper(IFigure figure, String text) {
 		if (figure instanceof WrappingLabel) {
+			figure.setToolTip(new Label(text));
 			((WrappingLabel) figure).setText(text);
 		} else {
 			((Label) figure).setText(text);
@@ -415,14 +416,14 @@ public class ProxyServiceNameEditPart extends CompartmentEditPart implements ITe
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void refreshFont() {
 		FontStyle style = (FontStyle) getFontStyleOwnerView().getStyle(
 				NotationPackage.eINSTANCE.getFontStyle());
 		if (style != null) {
-			FontData fontData = new FontData(style.getFontName(), style.getFontHeight(),
-					(style.isBold() ? SWT.BOLD : SWT.NORMAL)
+			FontData fontData = new FontData(style.getFontName(), 7,
+					SWT.BOLD
 							| (style.isItalic() ? SWT.ITALIC : SWT.NORMAL));
 			setFont(fontData);
 		}

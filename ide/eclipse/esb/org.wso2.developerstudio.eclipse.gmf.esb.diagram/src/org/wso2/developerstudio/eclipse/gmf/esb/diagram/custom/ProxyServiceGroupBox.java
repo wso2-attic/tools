@@ -16,6 +16,7 @@ import org.eclipse.swt.graphics.Font;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramEditorPlugin;
 
 public class ProxyServiceGroupBox extends RoundedRectangle {
+	private WrappingLabel esbNodeTypeNameLabel2;
 
 	public ProxyServiceGroupBox() {
 		GridLayout layoutThis = new GridLayout();
@@ -87,7 +88,9 @@ public class ProxyServiceGroupBox extends RoundedRectangle {
 		RectangleFigure esbNodeTypeNameRectangle1 = new RectangleFigure();
 		esbNodeTypeNameRectangle1.setOutline(false);
 		esbNodeTypeNameRectangle1.setBackgroundColor(new Color(null, 255, 255, 255));
-		esbNodeTypeNameRectangle1.setPreferredSize(new Dimension(64, 20));
+		esbNodeTypeNameRectangle1.setPreferredSize(new Dimension(37, 20));
+		esbNodeTypeNameRectangle1.setMinimumSize(new Dimension(37, 20));
+		esbNodeTypeNameRectangle1.setMaximumSize(new Dimension(37, 20));
 
 		GridData constraintEsbNodeTypeNameRectangle1 = new GridData();
 		constraintEsbNodeTypeNameRectangle1.verticalAlignment = GridData.BEGINNING;
@@ -95,25 +98,29 @@ public class ProxyServiceGroupBox extends RoundedRectangle {
 		constraintEsbNodeTypeNameRectangle1.horizontalIndent = 0;
 		constraintEsbNodeTypeNameRectangle1.horizontalSpan = 1;
 		constraintEsbNodeTypeNameRectangle1.verticalSpan = 1;
-		constraintEsbNodeTypeNameRectangle1.grabExcessHorizontalSpace = true;
+		constraintEsbNodeTypeNameRectangle1.grabExcessHorizontalSpace = false;
 		constraintEsbNodeTypeNameRectangle1.grabExcessVerticalSpace = true;
-		// graphicalNodeContainer0.add(esbNodeTypeNameRectangle1,
-		// constraintEsbNodeTypeNameRectangle1);
 
 		esbNodeTypeNameRectangle1.setLayoutManager(new StackLayout());
 
 		// actual label to display which type this is
-		WrappingLabel esbNodeTypeNameLabel2 = new WrappingLabel();
+		esbNodeTypeNameLabel2 = new WrappingLabel();
 		esbNodeTypeNameLabel2.setText(getNodeName());
 		esbNodeTypeNameLabel2.setForegroundColor(new Color(null, 0, 0, 0));
 		esbNodeTypeNameLabel2.setFont(new Font(null, "Arial", 10, SWT.BOLD));
 		esbNodeTypeNameLabel2.setAlignment(SWT.CENTER);
-		esbNodeTypeNameLabel2.setPreferredSize(new Dimension(64, 20));
+		esbNodeTypeNameLabel2.setPreferredSize(new Dimension(37, 20));
+		esbNodeTypeNameLabel2.setMinimumSize(new Dimension(37, 20));
+		esbNodeTypeNameLabel2.setMaximumSize(new Dimension(37, 20));
 
-		graphicalNodeContainer0.add(esbNodeTypeNameLabel2, constraintEsbNodeTypeNameRectangle1);
-		// esbNodeTypeNameRectangle1.add(esbNodeTypeNameLabel2);
+		esbNodeTypeNameRectangle1.add(esbNodeTypeNameLabel2);
+		graphicalNodeContainer0.add(esbNodeTypeNameRectangle1, constraintEsbNodeTypeNameRectangle1);
 		// ------------------------------------------------------------------------
 
+	}
+	
+	protected WrappingLabel getProxyNameLabel(){
+		return esbNodeTypeNameLabel2;
 	}
 
 	public String getIconPath() {

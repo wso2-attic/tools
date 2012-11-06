@@ -431,10 +431,7 @@ public class ProxyServiceEditPart extends AbstractBaseFigureEditPart {
 		 * @customizations add the property label to parent figure
 		 */
 		private void createContents() {
-
-			fFigureProxyNamePropertyLabel = new WrappingLabel();
-			fFigureProxyNamePropertyLabel.setText("<...>");
-			fFigureProxyNamePropertyLabel.setAlignment(SWT.CENTER);
+			fFigureProxyNamePropertyLabel = getProxyNameLabel();
 		}
 
 		/**
