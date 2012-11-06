@@ -3,33 +3,26 @@ package org.wso2.developerstudio.eclipse.gmf.esb.internal.deserializer;
 import org.apache.commons.lang.StringUtils;
 import org.apache.synapse.mediators.AbstractMediator;
 import org.apache.synapse.mediators.MediatorProperty;
-import org.apache.synapse.util.xpath.SynapseXPath;
 import org.eclipse.core.runtime.Assert;
-import org.jaxen.JaxenException;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
+import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.LogCategory;
 import org.wso2.developerstudio.eclipse.gmf.esb.LogLevel;
 import org.wso2.developerstudio.eclipse.gmf.esb.LogMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.LogProperty;
-import org.wso2.developerstudio.eclipse.gmf.esb.Mediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.PropertyValueType;
-import org.eclipse.emf.ecore.EObject;
 
 public class LogMediatorDeserializer extends AbstractEsbNodeDeserializer {
 
 	
-	public Mediator createMediator(AbstractMediator mediator) {
+	public EsbNode createNode(AbstractMediator mediator) {
 		
 		Assert.isTrue(mediator instanceof org.apache.synapse.mediators.builtin.LogMediator, "Invalid Mediator.");
 		
 		org.apache.synapse.mediators.builtin.LogMediator logMediator = (org.apache.synapse.mediators.builtin.LogMediator)mediator;
 		
 		LogMediator vishualLog = EsbFactory.eINSTANCE.createLogMediator();
-		
-		vishualLog.setInputConnector(EsbFactory.eINSTANCE.createLogMediatorInputConnector());
-		vishualLog.setOutputConnector(EsbFactory.eINSTANCE.createLogMediatorOutputConnector());
-		
 		
 		switch (logMediator.getCategory()) {
 		
@@ -79,6 +72,7 @@ public class LogMediatorDeserializer extends AbstractEsbNodeDeserializer {
 		
 		
 		if (!StringUtils.isBlank(logMediator.getSeparator())) {
+			
 			vishualLog.setLogSeparator(logMediator.getSeparator());
 		}
 		
@@ -111,7 +105,7 @@ public class LogMediatorDeserializer extends AbstractEsbNodeDeserializer {
 	}
 	
 	
-/*	public static void main(String [] args){
+	/*public static void main(String [] args){
 
 		org.apache.synapse.mediators.builtin.LogMediator logMediator = new org.apache.synapse.mediators.builtin.LogMediator();
 		logMediator
@@ -149,7 +143,7 @@ public class LogMediatorDeserializer extends AbstractEsbNodeDeserializer {
 		}
 
 		LogMediatorDeserializer lmde = new LogMediatorDeserializer();
-		Mediator mediator = lmde.createMediator(logMediator);
+		EsbNode mediator = lmde.createNode(logMediator);
 
 		if (mediator instanceof LogMediator) {
 

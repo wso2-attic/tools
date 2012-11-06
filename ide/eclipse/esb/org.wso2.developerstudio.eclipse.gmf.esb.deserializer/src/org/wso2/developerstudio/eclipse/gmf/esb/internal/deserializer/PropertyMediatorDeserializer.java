@@ -3,7 +3,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb.internal.deserializer;
 import org.apache.synapse.mediators.AbstractMediator;
 import org.eclipse.core.runtime.Assert;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
-import org.wso2.developerstudio.eclipse.gmf.esb.Mediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.PropertyAction;
 import org.wso2.developerstudio.eclipse.gmf.esb.PropertyMediator;
@@ -11,7 +11,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.PropertyMediator;
 public class PropertyMediatorDeserializer extends AbstractEsbNodeDeserializer {
 
 	
-	public Mediator createMediator(AbstractMediator mediator) {
+	public EsbNode createNode(AbstractMediator mediator) {
 		
 		//TODO Complete the logic of this method . NOT COMPLTED YET.
 		
