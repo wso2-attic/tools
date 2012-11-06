@@ -6,6 +6,7 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: WSO2
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Import-Package: org.apache.commons.lang,
+ org.apache.synapse.config.xml,
  org.apache.synapse.mediators,
  org.apache.synapse.mediators.builtin,
  org.apache.synapse.util.xpath,
