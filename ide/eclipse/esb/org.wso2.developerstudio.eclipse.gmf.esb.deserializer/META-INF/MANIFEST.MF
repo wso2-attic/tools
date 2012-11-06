@@ -15,3 +15,5 @@ Import-Package: org.apache.commons.lang,
  org.eclipse.emf.ecore,
  org.jaxen,
  org.wso2.developerstudio.eclipse.gmf.esb
+Export-Package: org.wso2.developerstudio.eclipse.gmf.esb.deserializer,
+ org.wso2.developerstudio.eclipse.gmf.esb.internal.deserializer
