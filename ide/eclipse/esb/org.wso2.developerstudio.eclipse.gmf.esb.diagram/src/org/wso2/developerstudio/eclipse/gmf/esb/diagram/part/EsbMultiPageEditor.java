@@ -44,6 +44,7 @@ import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateConnectionViewAndElementRequest;
 import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.emf.type.core.IHintedType;
+import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.impl.NodeImpl;
 import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.swt.SWT;
@@ -72,6 +73,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbServer;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequences;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer.Deserializer;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbServerContentsCompartmentEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbServerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.LogMediatorEditPart;
@@ -581,13 +583,17 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
     
 	void rebuildModelObject(String xml) {
 		try {
-			EsbDiagram esbDiagram = (EsbDiagram) graphicalEditor.getDiagram()
+			Deserializer.getInstance().updateDesign(xml, graphicalEditor);
+			
+			//Diagram diagram = graphicalEditor.getDiagram();
+			/*EsbDiagram esbDiagram = (EsbDiagram) diagram
 					.getElement();
-			EsbServer esbServer = esbDiagram.getServer();
-			EsbServer sourceToDesign = EsbModelTransformer.instance
-					.sourceToDesign(xml, esbServer);
+			EsbServer esbServer = esbDiagram.getServer();*/
+			//EsbServer sourceToDesign = EsbModelTransformer.instance
+			//		.sourceToDesign(xml, esbServer);
+			
 
-			if (((EditPart) ((EsbServerEditPart) graphicalEditor
+/*			if (((EditPart) ((EsbServerEditPart) graphicalEditor
 					.getDiagramEditPart().getChildren().get(0)).getChildren()
 					.get(0)).getChildren().size() != 0) {
 
@@ -641,9 +647,11 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 				}
 				}
 				}
-			}
+			}*/
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
+	
+	
 }

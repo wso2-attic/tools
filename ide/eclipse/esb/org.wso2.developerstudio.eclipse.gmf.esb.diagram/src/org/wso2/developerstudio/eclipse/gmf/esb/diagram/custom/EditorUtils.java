@@ -17,17 +17,22 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom;
 
 import java.util.ArrayList;
+import java.util.Map;
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeCompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
+import org.eclipse.gmf.runtime.notation.Node;
 import org.wso2.developerstudio.eclipse.gmf.esb.APIResourceFaultInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.APIResourceEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.APIResourceFaultInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyFaultInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequencesEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramEditor;
 
 public class EditorUtils {
 	
@@ -207,6 +212,24 @@ public class EditorUtils {
 		else{
 			return null;
 		}
+	}
+	
+	public static EditPart getEditpart(EsbDiagramEditor graphicalEditor, EObject node) {
+		Map editPartRegistry = graphicalEditor.getDiagramEditPart().getViewer().getEditPartRegistry();
+		System.out.println(editPartRegistry);
+		for (Object object : editPartRegistry.keySet()) {
+			if(object instanceof Node){
+				Node nodeImpl = (Node) object;
+				if(nodeImpl.getElement().equals(node)){
+					Object ep = editPartRegistry.get(nodeImpl);
+					System.out.println("found " + node + " : " + ep );
+					if(ep instanceof ShapeNodeEditPart){
+						return (EditPart) ep;
+					}
+				}
+			}
+		}
+		return null;
 	}
 	
 }
