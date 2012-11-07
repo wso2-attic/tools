@@ -29,10 +29,10 @@ import org.wso2.developerstudio.eclipse.gmf.esb.LogProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.PropertyValueType;
 
-public class LogMediatorDeserializer extends AbstractEsbNodeDeserializer {
+public class LogMediatorDeserializer extends AbstractEsbNodeDeserializer<AbstractMediator,LogMediator> {
 
 	
-	public EsbNode createNode(AbstractMediator mediator) {
+	public LogMediator createNode(AbstractMediator mediator) {
 		
 		Assert.isTrue(mediator instanceof org.apache.synapse.mediators.builtin.LogMediator, "Invalid Mediator.");
 		

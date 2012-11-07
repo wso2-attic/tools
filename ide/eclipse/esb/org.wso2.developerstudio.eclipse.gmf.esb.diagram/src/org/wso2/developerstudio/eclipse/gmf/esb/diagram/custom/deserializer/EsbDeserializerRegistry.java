@@ -19,8 +19,12 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.management.RuntimeErrorException;
+
+import org.apache.synapse.core.axis2.ProxyService;
 import org.apache.synapse.mediators.builtin.LogMediator;
 import org.apache.synapse.mediators.builtin.PropertyMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramEditor;
 
 
 /**
@@ -37,6 +41,8 @@ public class EsbDeserializerRegistry {
 	 */
 	private Map<Class<?>, IEsbNodeDeserializer> deserializersMap;
 	
+	private EsbDiagramEditor diagramEditor;
+	
 	/**
 	 * Creates a new deserialize registry.
 	 */
@@ -44,6 +50,7 @@ public class EsbDeserializerRegistry {
 		deserializersMap = new HashMap<Class<?>, IEsbNodeDeserializer>();
 		addDeserializer(LogMediator.class,new LogMediatorDeserializer());
 		addDeserializer(PropertyMediator.class,new PropertyMediatorDeserializer());
+		addDeserializer(ProxyService.class, new ProxyServiceDeserializer());
 	}
 	
 	/**
@@ -54,6 +61,13 @@ public class EsbDeserializerRegistry {
 			singleton = new EsbDeserializerRegistry();
 		}
 		return singleton;
+	}
+	
+	/**
+	 * initialize registry
+	 */
+	public void init(EsbDiagramEditor diagramEditor){
+		this.diagramEditor = diagramEditor;
 	}
 	
 	/**
@@ -72,7 +86,17 @@ public class EsbDeserializerRegistry {
 	 * @return
 	 */
 	public IEsbNodeDeserializer getDeserializer(Object synapseModel) {
-		return deserializersMap.get(synapseModel.getClass());
+		IEsbNodeDeserializer nodeDeserializer = deserializersMap.get(synapseModel.getClass());
+		nodeDeserializer.setDiagramEditor(getDiagramEditor());
+		return nodeDeserializer;
+	}
+	
+	/**
+	 * Get active diagram editor 
+	 * @return
+	 */
+	public EsbDiagramEditor getDiagramEditor() {
+		return diagramEditor;
 	}
 
 }

@@ -16,11 +16,12 @@
 
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 
-import org.apache.synapse.mediators.AbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramEditor;
 
-public interface IEsbNodeDeserializer {
-
-	EsbNode createNode(AbstractMediator mediator);
+public interface IEsbNodeDeserializer<T,R extends EsbNode> {
+	
+	void setDiagramEditor(EsbDiagramEditor diagramEditor);
+	R createNode(T object);
 
 }

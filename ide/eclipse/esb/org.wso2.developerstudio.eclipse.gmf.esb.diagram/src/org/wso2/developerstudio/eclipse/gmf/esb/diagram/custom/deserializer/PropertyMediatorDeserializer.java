@@ -30,9 +30,9 @@ import org.wso2.developerstudio.eclipse.gmf.esb.PropertyMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.PropertyScope;
 
 
-public class PropertyMediatorDeserializer extends AbstractEsbNodeDeserializer {
+public class PropertyMediatorDeserializer extends AbstractEsbNodeDeserializer<AbstractMediator,PropertyMediator> {
 	
-	public EsbNode createNode(AbstractMediator mediator) {
+	public PropertyMediator createNode(AbstractMediator mediator) {
 			
 		Assert.isTrue(mediator instanceof org.apache.synapse.mediators.builtin.PropertyMediator, "Invalid Mediator.");
 		
@@ -128,7 +128,8 @@ public class PropertyMediatorDeserializer extends AbstractEsbNodeDeserializer {
 			
 			
 			Pattern pattern = propertyMediator.getPattern();
-			vishualProp.setValueStringPattern(pattern.toString());
+			if(pattern!=null)
+				vishualProp.setValueStringPattern(pattern.toString());
 		}
 	
 		return vishualProp;

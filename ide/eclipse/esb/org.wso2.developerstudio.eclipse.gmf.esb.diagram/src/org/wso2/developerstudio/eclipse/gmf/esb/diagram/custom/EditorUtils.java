@@ -216,13 +216,11 @@ public class EditorUtils {
 	
 	public static EditPart getEditpart(EsbDiagramEditor graphicalEditor, EObject node) {
 		Map editPartRegistry = graphicalEditor.getDiagramEditPart().getViewer().getEditPartRegistry();
-		System.out.println(editPartRegistry);
 		for (Object object : editPartRegistry.keySet()) {
 			if(object instanceof Node){
 				Node nodeImpl = (Node) object;
 				if(nodeImpl.getElement().equals(node)){
 					Object ep = editPartRegistry.get(nodeImpl);
-					System.out.println("found " + node + " : " + ep );
 					if(ep instanceof ShapeNodeEditPart){
 						return (EditPart) ep;
 					}
