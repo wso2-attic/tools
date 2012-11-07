@@ -15,15 +15,12 @@
  */
 package org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence;
 
-import java.io.BufferedWriter;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.OutputStream;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.xml.transform.Source;
@@ -37,9 +34,7 @@ import org.apache.axiom.om.OMAbstractFactory;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMNamespace;
 import org.apache.axis2.util.XMLPrettyPrinter;
-import org.apache.synapse.Mediator;
 import org.apache.synapse.config.SynapseConfiguration;
-import org.apache.synapse.config.SynapseConfigurationBuilder;
 import org.apache.synapse.config.xml.EntrySerializer;
 import org.apache.synapse.config.xml.MediatorSerializerFinder;
 import org.apache.synapse.config.xml.ProxyServiceSerializer;
@@ -54,24 +49,15 @@ import org.apache.synapse.mediators.template.TemplateMediator;
 import org.apache.synapse.rest.API;
 import org.apache.synapse.task.TaskDescriptionSerializer;
 import org.eclipse.core.runtime.Assert;
-import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.edit.command.AddCommand;
-import org.eclipse.emf.edit.command.RemoveCommand;
-import org.eclipse.emf.transaction.TransactionalEditingDomain;
-import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.wso2.developerstudio.eclipse.gmf.esb.AddressEndPoint;
-import org.wso2.developerstudio.eclipse.gmf.esb.ArtifactType;
 import org.wso2.developerstudio.eclipse.gmf.esb.DefaultEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndpointDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbElement;
-import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
-import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbServer;
 import org.wso2.developerstudio.eclipse.gmf.esb.LocalEntry;
-import org.wso2.developerstudio.eclipse.gmf.esb.LogMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.MessageMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyService;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequences;
@@ -367,28 +353,6 @@ public class DefaultEsbModelExporter implements EsbModelTransformer {
 		return sourceXML;
 	}
 
-	// TODO: There is a bug. Output pretty formatted XML does not have a
-	// linebreak after xml tab.
-	// The method prettify is the same as used in Axis2Utiles and AbstractXmlDoc
-	// in carbon studio
-	// It works fine with this exact code if tried from a new java project. Have
-	// to check this.
-	// public void demo(){
-	// String a = "<foo><bar>hi</bar></foo>";
-	// OMElement ele;
-	// ByteArrayOutputStream out = new ByteArrayOutputStream();
-	// try {
-	// ele = AXIOMUtil.stringToOM(a);
-	//
-	// DefaultEsbModelExporter.prettify(ele, out);
-	// } catch (Exception e) {
-	// // TODO Auto-generated catch block
-	// e.printStackTrace();
-	// }
-	//
-	// System.out.println(out.toString());
-	// }
-
 	private static final String prettyPrintStylesheet = "<xsl:stylesheet xmlns:xsl='http://www.w3.org/1999/XSL/Transform' version='1.0' "
 			+ " xmlns:xalan='http://xml.apache.org/xslt' "
 			+ " exclude-result-prefixes='xalan'>"
@@ -418,78 +382,10 @@ public class DefaultEsbModelExporter implements EsbModelTransformer {
 		transformer.transform(xmlSource, new StreamResult(out));
 	}
 
-	public EsbServer sourceToDesign(String source,EsbServer esbServer) throws Exception {
-		if(!sourceXML.equals(source)){
-			/*FIXME : enable sourceToDesign to other artifact types*/
-			if(esbServer.getType()==ArtifactType.SYNAPSE_CONFIG){
-				updateDesign(source,esbServer);
-			}
-			sourceXML = source;
-		}
-		 
+	@Deprecated
+	public EsbServer sourceToDesign(String source, EsbServer esbServer) throws Exception {
+		// TODO : remove this method
 		return null;
-	}
-	
-	@SuppressWarnings("unchecked")
-	private void updateDesign(String source,EsbServer esbServer) throws Exception{
-		CompoundCommand resultCommand = new CompoundCommand();
-        File tempfile = File.createTempFile("file", ".tmp");
-        BufferedWriter outfile = new BufferedWriter(new FileWriter(tempfile));
-        outfile.write(source);
-        outfile.close();
-		SynapseConfiguration synapseCofig = SynapseConfigurationBuilder.getConfiguration(tempfile.getAbsolutePath(), null);
-		TransactionalEditingDomain domain = TransactionUtil.getEditingDomain(esbServer);
-
-		// cleaning old diagram
-		// TODO: should be replaced by better approach
-		for(EsbElement child : esbServer.getChildren()){
-			if(child instanceof ProxyService ){
-			RemoveCommand removeCmd = new RemoveCommand(domain, esbServer,EsbPackage.Literals.ESB_SERVER__CHILDREN,child) ;
-			resultCommand.append(removeCmd);
-			}		
-		}
-		
-		if (resultCommand.canExecute()) {
-			domain.getCommandStack().execute(resultCommand);
-		}		
-		
-		resultCommand = new CompoundCommand();
-		for(org.apache.synapse.core.axis2.ProxyService proxyService:synapseCofig.getProxyServices()){
-			ProxyService proxy = EsbFactory.eINSTANCE.createProxyService();
-			proxy.setName(proxyService.getName());
-			proxy.setTransports(join(proxyService.getTransports(),","));
-			proxy.setInputConnector(EsbFactory.eINSTANCE.createProxyInputConnector() );
-			proxy.setOutputConnector(EsbFactory.eINSTANCE.createProxyOutputConnector());
-			
-			LogMediator log=null;
-			for(int i=0;i<proxyService.getTargetInLineInSequence().getList().size();++i){
-				Mediator mediator=proxyService.getTargetInLineInSequence().getList().get(i);
-				LogMediator logMediator = null;
-				if(mediator instanceof org.apache.synapse.mediators.builtin.LogMediator){				
-					 log = EsbFactory.eINSTANCE.createLogMediator();
-						log.setInputConnector(EsbFactory.eINSTANCE.createLogMediatorInputConnector());
-						log.setOutputConnector(EsbFactory.eINSTANCE.createLogMediatorOutputConnector());					
-				}				
-			}
-			
-			AddCommand addCmd = new AddCommand(domain,proxy.getContainer().getSequenceAndEndpointContainer().getMediatorFlow(),EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN, log);
-			domain.getCommandStack().execute(addCmd);
-			
-			addCmd = new AddCommand(domain,esbServer,EsbPackage.Literals.ESB_SERVER__CHILDREN, proxy);
-			domain.getCommandStack().execute(addCmd);
-			
-			if (resultCommand.canExecute()) {
-				domain.getCommandStack().execute(resultCommand);
-			}
-		}
-	}
-	
-	public static String join(Iterable<? extends CharSequence> s, String delimiter) {
-	    @SuppressWarnings("unchecked")
-		Iterator<String> iter = (Iterator<String>) s.iterator();
-	    StringBuffer buffer = new StringBuffer(iter.next());
-	    while (iter.hasNext()) buffer.append(delimiter).append(iter.next());
-	    return buffer.toString();
 	}
 
 	
