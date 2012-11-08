@@ -18,13 +18,17 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.synapse.mediators.AbstractMediator;
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.eclipse.emf.common.command.CompoundCommand;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
@@ -33,6 +37,7 @@ import org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.notation.Diagram;
+import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.impl.ConnectorImpl;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
@@ -45,26 +50,31 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractOutputCon
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ConnectionUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbLinkEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramEditor;
 
 
 public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implements IEsbNodeDeserializer<T,R> {
-	private EsbDiagramEditor diagramEditor;
+	private static EsbDiagramEditor diagramEditor;
+	private static Map<EsbConnector, LinkedList<EsbNode>> connectionFlowMap = new LinkedHashMap<EsbConnector, LinkedList<EsbNode>>();
+	private static Map<EObject,ShapeNodeEditPart> editPartMap = new HashMap<EObject, ShapeNodeEditPart>();
 
 	public EsbDiagramEditor getDiagramEditor() {
 		return diagramEditor;
 	}
 
 	public void setDiagramEditor(EsbDiagramEditor diagramEditor) {
-		this.diagramEditor = diagramEditor;
+		AbstractEsbNodeDeserializer.diagramEditor = diagramEditor;
 	}
 
+	/**
+	 * Deserialize a sequence
+	 * @param mediatorFlow
+	 * @param sequence
+	 * @param connector
+	 */
 	protected void deserializeSequence(MediatorFlow mediatorFlow, SequenceMediator sequence, EsbConnector connector) {
 		LinkedList<EsbNode> mediatorList = new LinkedList<EsbNode>();
-		AbstractOutputConnectorEditPart outputConnector = null;
-		AbstractInputConnectorEditPart inputConnector = null;
-		
+	
 		Diagram diagram = getDiagramEditor().getDiagram();
 		EsbDiagram esbDiagram = (EsbDiagram) diagram.getElement();
 		EsbServer esbServer = esbDiagram.getServer();
@@ -73,7 +83,6 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 		EsbNode node = null;
 		AddCommand addCmd = null;
 
-		
 		for (int i = 0; i < sequence.getList().size(); ++i) {
 			AbstractMediator mediator = (AbstractMediator) sequence.getList().get(i);
 			IEsbNodeDeserializer deserializer = EsbDeserializerRegistry.getInstance()
@@ -81,33 +90,49 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 			node = deserializer.createNode(mediator);
 			mediatorList.add(node);
 
-			
 			addCmd = new AddCommand(domain, mediatorFlow,
 					EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN, node);
 			domain.getCommandStack().execute(addCmd);
 
 		}
 
-		addCmd = new AddCommand(domain, esbServer, EsbPackage.Literals.ESB_SERVER__CHILDREN,
-				connector.eContainer());
-		domain.getCommandStack().execute(addCmd);
+		connectionFlowMap.put(connector, mediatorList);
+	}
+	
+	/**
+	 * Connect all mediator-flows according to sequence 
+	 */
+	public static synchronized void connectMediatorFlows(){
+		refreshEditPartMap();
+		for (Map.Entry<EsbConnector, LinkedList<EsbNode>> flow : connectionFlowMap.entrySet()) {
+			connectMediatorFlow(flow.getKey(), flow.getValue());
+		}
+		connectionFlowMap.clear();
+	}
+	
+	
+	/**
+	 * Connect mediator-flow to a connector
+	 * @param connector
+	 * @param mediatorList
+	 */
+	private static void connectMediatorFlow(EsbConnector connector, LinkedList<EsbNode> mediatorList) {
+		AbstractOutputConnectorEditPart outputConnector = null;
+			AbstractInputConnectorEditPart inputConnector = null;
 
-		EditPart proxyOutputConnectorEditpart = EditorUtils.getEditpart(getDiagramEditor(),
-				connector);
-		if (proxyOutputConnectorEditpart instanceof ProxyOutputConnectorEditPart) {
-			outputConnector = (AbstractOutputConnectorEditPart) EditorUtils.getEditpart(
-					getDiagramEditor(), connector);
+		EditPart outputConnectorEditpart = getEditpart(connector);
+		if (outputConnectorEditpart instanceof AbstractOutputConnectorEditPart) {
+			outputConnector = (AbstractOutputConnectorEditPart) getEditpart(connector);
 		}
 
 		for (EsbNode mediatornode : mediatorList) {
 			AbstractOutputConnectorEditPart nextOutputConnector = null;
 			inputConnector = null;
 
-			EditPart editpart = EditorUtils.getEditpart(getDiagramEditor(), mediatornode);
+			EditPart editpart = getEditpart(mediatornode);
 			if (editpart instanceof ShapeNodeEditPart) {
 				inputConnector = EditorUtils.getInputConnector((ShapeNodeEditPart) editpart);
-				nextOutputConnector = EditorUtils
-						.getOutputConnector((ShapeNodeEditPart) editpart);
+				nextOutputConnector = EditorUtils.getOutputConnector((ShapeNodeEditPart) editpart);
 
 			}
 
@@ -151,6 +176,35 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 		}
 	}
 	
+	/**
+	 * Refresh EditPartMap
+	 */
+	private static void refreshEditPartMap(){
+		editPartMap.clear();
+		Map editPartRegistry = diagramEditor.getDiagramEditPart().getViewer().getEditPartRegistry();
+		for (Object object : editPartRegistry.keySet()) {
+			if(object instanceof Node){
+				Node nodeImpl = (Node) object;
+					Object ep = editPartRegistry.get(nodeImpl);
+					if(ep instanceof ShapeNodeEditPart){
+						editPartMap.put(nodeImpl.getElement(), (ShapeNodeEditPart)ep);
+					}
+			}
+		}
+	}
+	
+	/**
+	 * Get corresponding EditPart of EObject
+	 * @param node
+	 * @return
+	 */
+	private static EditPart getEditpart(EObject node) {
+		if(editPartMap.containsKey(node)){
+			return editPartMap.get(node);
+		}
+		return null;
+	}
+	
 	protected static String join(Iterable<? extends CharSequence> s, String delimiter) {
 	    @SuppressWarnings("unchecked")
 		Iterator<String> iter = (Iterator<String>) s.iterator();
@@ -158,11 +212,5 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 	    while (iter.hasNext()) buffer.append(delimiter).append(iter.next());
 	    return buffer.toString();
 	}
-	
-	/*@Override
-	public EsbNode createNode(Object object) {
-		// TODO Auto-generated method stub
-		return null;
-	}*/
 	
 }

@@ -23,7 +23,9 @@ import org.apache.synapse.mediators.AbstractMediator;
 import org.apache.synapse.mediators.eip.Target;
 import org.eclipse.core.runtime.Assert;
 import org.wso2.developerstudio.eclipse.gmf.esb.CloneMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.CloneMediatorTargetOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.CloneTarget;
+import org.wso2.developerstudio.eclipse.gmf.esb.CloneTargetContainer;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.TargetEndpointType;
@@ -54,16 +56,24 @@ public class CloneMediatorDeserializer extends AbstractEsbNodeDeserializer<Abstr
 			
 			CloneTarget vishualTarget = EsbFactory.eINSTANCE.createCloneTarget();
 			
-			vishualTarget.setToAddress(target.getToAddress());
+			if(target.getToAddress()!=null && target.getToAddress().trim().isEmpty()){
+				vishualTarget.setToAddress(target.getToAddress());
+			}
 			
-			vishualTarget.setSoapAction(target.getSoapAction());
+			if(target.getSoapAction()!=null && target.getSoapAction().trim().isEmpty()){
+				vishualTarget.setSoapAction(target.getSoapAction());
+			}
 			
 			
 			if(target.getSequence() != null){
 				
 				vishualTarget.setSequenceType(TargetSequenceType.ANONYMOUS);
+				CloneTargetContainer cloneTargetContainer = EsbFactory.eINSTANCE.createCloneTargetContainer();
+				vishualClone.getCloneContainer().getCloneTargetContainer().add(cloneTargetContainer);
+				CloneMediatorTargetOutputConnector targetOutputConnector = EsbFactory.eINSTANCE.createCloneMediatorTargetOutputConnector();
+				vishualClone.getTargetsOutputConnector().add(targetOutputConnector);
+				deserializeSequence(cloneTargetContainer.getMediatorFlow(), target.getSequence(), targetOutputConnector);
 				
-				//TODO how to proceed ?
 				
 			}else if(target.getSequenceRef() != null && !target.getSequenceRef().equals("")){
 				

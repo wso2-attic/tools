@@ -23,12 +23,14 @@ import java.io.FileWriter;
 import org.apache.synapse.config.SynapseConfiguration;
 import org.apache.synapse.config.SynapseConfigurationBuilder;
 import org.eclipse.emf.common.command.CompoundCommand;
+import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbElement;
+import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbServer;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyService;
@@ -91,16 +93,23 @@ public class Deserializer {
 			domain.getCommandStack().execute(resultCommand);
 		}
 
-		resultCommand = new CompoundCommand();
+		//resultCommand = new CompoundCommand();
+		AddCommand addCmd = null;
 		for (org.apache.synapse.core.axis2.ProxyService proxyService : synapseCofig
 				.getProxyServices()) {
 			
 			IEsbNodeDeserializer deserializer = EsbDeserializerRegistry.getInstance().getDeserializer(proxyService);
-			deserializer.createNode(proxyService);
+			EsbNode node = deserializer.createNode(proxyService);
+			
+			addCmd = new AddCommand(domain, esbServer, EsbPackage.Literals.ESB_SERVER__CHILDREN,
+					node);
+			domain.getCommandStack().execute(addCmd);
 
 		}
 		
 		//TODO: deserialize other artifacts 
+		
+		AbstractEsbNodeDeserializer.connectMediatorFlows();
 				
 	}
 

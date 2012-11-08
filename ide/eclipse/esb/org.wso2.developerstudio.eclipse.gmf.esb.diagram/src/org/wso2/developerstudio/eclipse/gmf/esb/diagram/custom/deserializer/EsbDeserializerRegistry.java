@@ -19,11 +19,12 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.management.RuntimeErrorException;
 
 import org.apache.synapse.core.axis2.ProxyService;
 import org.apache.synapse.mediators.builtin.LogMediator;
 import org.apache.synapse.mediators.builtin.PropertyMediator;
+import org.apache.synapse.mediators.builtin.SendMediator;
+import org.apache.synapse.mediators.eip.splitter.CloneMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramEditor;
 
 
@@ -51,6 +52,8 @@ public class EsbDeserializerRegistry {
 		addDeserializer(LogMediator.class,new LogMediatorDeserializer());
 		addDeserializer(PropertyMediator.class,new PropertyMediatorDeserializer());
 		addDeserializer(ProxyService.class, new ProxyServiceDeserializer());
+		addDeserializer(SendMediator.class, new SendMediatorDeserializer());
+		addDeserializer(CloneMediator.class, new CloneMediatorDeserializer());
 	}
 	
 	/**
