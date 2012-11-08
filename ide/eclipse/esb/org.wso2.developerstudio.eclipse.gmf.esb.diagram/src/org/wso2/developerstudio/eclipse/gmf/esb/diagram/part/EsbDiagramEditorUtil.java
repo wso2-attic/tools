@@ -336,6 +336,14 @@ public class EsbDiagramEditorUtil {
 							.getEStructuralFeature("children");
 					esbServer.eSet(target, Arrays.asList(api));
 					esbServer.setType(ArtifactType.API);
+				}else if ("main_sequence".equals(type)) {
+					ProxyService proxyServices = EsbFactory.eINSTANCE.createProxyService();
+					proxyServices.setMainSequence(true);
+					proxyServices.setName("main");
+					EStructuralFeature target = esbServer.eClass()
+							.getEStructuralFeature("children");
+					esbServer.eSet(target, Arrays.asList(proxyServices));
+					esbServer.setType(ArtifactType.MAIN_SEQUENCE);
 				}
 
 				attachModelToResource(model, modelResource);

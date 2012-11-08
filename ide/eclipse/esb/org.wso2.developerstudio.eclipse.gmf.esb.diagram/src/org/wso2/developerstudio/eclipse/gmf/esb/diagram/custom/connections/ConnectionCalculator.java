@@ -120,7 +120,7 @@ public class ConnectionCalculator {
 				IFigure figure = (IFigure) ((DefaultSizeNodeFigure) connectors
 						.get(i).getFigure()).getChildren().get(0);
 
-				if ((!connectors.get(i).equals(currentConnector))
+				if ((currentConnector!=null)&&(!connectors.get(i).equals(currentConnector))
 						&& (!connectors.get(i).getParent()
 								.equals(currentConnector.getParent()))) {
 					

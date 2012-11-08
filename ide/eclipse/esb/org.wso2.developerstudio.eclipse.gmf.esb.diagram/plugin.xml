@@ -3300,6 +3300,39 @@
 	</extension>
 	
 	
+					<extension point="org.eclipse.ui.newWizards" id="creation-wizard">
+  	  <wizard
+  	     name="Main Sequence (Graphical)"
+  	     icon="icons/custom/sequence.png"
+  	     category="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.eclipse.message.mediation/org.wso2.developerstudio.eclipse.message.mediation.features"
+  	     id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.MainSequenceCreationWizardID">
+  	  	 <description>Creates New Main Sequence (Graphical)</description>
+  	  	 <class class="org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbCreationWizard">
+      			<parameter name="mode" value="main_sequence" />
+      	</class>
+      </wizard>
+   </extension>
+   
+   <extension point="org.eclipse.ui.navigator.navigatorContent">	
+			<commonWizard type="new"
+			    menuGroupId="2org.wso2.developerstudio.eclipse.artifact.esb.diagram"
+				wizardId="org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.MainSequenceCreationWizardID">
+				<enablement>
+					<or>
+						<adapt type="org.eclipse.core.resources.IProject">
+							<test property="org.eclipse.core.resources.projectNature"
+								value="org.wso2.developerstudio.eclipse.esb.project.nature" />
+						</adapt>
+						<adapt type="org.eclipse.core.resources.IFolder">
+							<test property="org.eclipse.core.resources.projectNature"
+								value="org.wso2.developerstudio.eclipse.esb.project.nature" />
+						</adapt>
+					</or>
+				</enablement>
+			</commonWizard>
+	</extension>
+	
+	
 
    <!-- optionally, specify keybindings -->
 </plugin>

@@ -262,6 +262,12 @@ public class EsbCreationWizard extends Wizard implements INewWizard, IExecutable
 				op = createDiagram("api_", API_RESOURCE_DIR, "api", null);
 				type = "synapse/api";
 				break;
+				
+			case MAIN_SEQUENCE:
+				location = esbProject.getFolder(SEQUENCE_RESOURCE_DIR);
+				op = createDiagram("main_sequence_", SEQUENCE_RESOURCE_DIR, "main_sequence", null);
+				type = "synapse/main_sequence";
+				break;
 
 			default:
 				fileCreationLocationDiagram = URI.createPlatformResourceURI(location.getFullPath()
@@ -450,7 +456,7 @@ public class EsbCreationWizard extends Wizard implements INewWizard, IExecutable
 
 	public enum WizardMode {
 		DEFAULT("DEFAULT"), PROXY("PROXY"), SEQUENCE("SEQUENCE"), ENDPOINT("ENDPOINT"), LOCALENTRY(
-				"LOCALENTRY"), TEMPLATE("TEMPLATE"), TASK("TASK"), API("API");
+				"LOCALENTRY"), TEMPLATE("TEMPLATE"), TASK("TASK"), API("API"), MAIN_SEQUENCE("MAIN_SEQUENCE");
 
 		private final String mode;
 
