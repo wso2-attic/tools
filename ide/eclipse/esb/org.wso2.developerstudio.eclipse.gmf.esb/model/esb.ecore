@@ -26,6 +26,7 @@
     <eLiterals name="TASK" value="5"/>
     <eLiterals name="TEMPLATE" value="6"/>
     <eLiterals name="API" value="7"/>
+    <eLiterals name="MAIN_SEQUENCE" value="8"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Mediator" abstract="true" eSuperTypes="#//EsbElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Reverse" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
@@ -110,6 +111,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="faultSequenceKey" eType="#//RegistryKeyProperty"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="faultSequenceName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mainSequence" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="SequenceType">
     <eLiterals name="Anonymous"/>

@@ -17,6 +17,7 @@
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ArtifactType/TASK"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ArtifactType/TEMPLATE"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ArtifactType/API"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ArtifactType/MAIN_SEQUENCE"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//SequenceType">
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//SequenceType/Anonymous"/>
@@ -493,6 +494,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ProxyService/faultSequenceType"/>
       <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyService/faultSequenceKey"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ProxyService/faultSequenceName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ProxyService/mainSequence"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//ProxyOutputConnector"/>
     <genClasses ecoreClass="esb.ecore#//ProxyInputConnector"/>

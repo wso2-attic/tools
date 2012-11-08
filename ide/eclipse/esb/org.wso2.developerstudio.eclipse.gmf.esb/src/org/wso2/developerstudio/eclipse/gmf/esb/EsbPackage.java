@@ -641,13 +641,22 @@ public interface EsbPackage extends EPackage {
 	int PROXY_SERVICE__FAULT_SEQUENCE_NAME = ESB_ELEMENT_FEATURE_COUNT + 26;
 
 	/**
+	 * The feature id for the '<em><b>Main Sequence</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROXY_SERVICE__MAIN_SEQUENCE = ESB_ELEMENT_FEATURE_COUNT + 27;
+
+	/**
 	 * The number of structural features of the '<em>Proxy Service</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROXY_SERVICE_FEATURE_COUNT = ESB_ELEMENT_FEATURE_COUNT + 27;
+	int PROXY_SERVICE_FEATURE_COUNT = ESB_ELEMENT_FEATURE_COUNT + 28;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyOutputConnectorImpl <em>Proxy Output Connector</em>}' class.
@@ -15292,6 +15301,17 @@ public interface EsbPackage extends EPackage {
 	EAttribute getProxyService_FaultSequenceName();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#isMainSequence <em>Main Sequence</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Main Sequence</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#isMainSequence()
+	 * @see #getProxyService()
+	 * @generated
+	 */
+	EAttribute getProxyService_MainSequence();
+
+	/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyOutputConnector <em>Proxy Output Connector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -25492,6 +25512,14 @@ public interface EsbPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PROXY_SERVICE__FAULT_SEQUENCE_NAME = eINSTANCE.getProxyService_FaultSequenceName();
+
+		/**
+		 * The meta object literal for the '<em><b>Main Sequence</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROXY_SERVICE__MAIN_SEQUENCE = eINSTANCE.getProxyService_MainSequence();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyOutputConnectorImpl <em>Proxy Output Connector</em>}' class.

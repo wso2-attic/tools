@@ -77,6 +77,7 @@ import org.wso2.developerstudio.eclipse.platform.core.utils.DeveloperStudioProvi
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#getFaultSequenceType <em>Fault Sequence Type</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#getFaultSequenceKey <em>Fault Sequence Key</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#getFaultSequenceName <em>Fault Sequence Name</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#isMainSequence <em>Main Sequence</em>}</li>
  * </ul>
  * </p>
  *
@@ -522,6 +523,26 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 	 * @ordered
 	 */
 	protected String faultSequenceName = FAULT_SEQUENCE_NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isMainSequence() <em>Main Sequence</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isMainSequence()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean MAIN_SEQUENCE_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isMainSequence() <em>Main Sequence</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isMainSequence()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean mainSequence = MAIN_SEQUENCE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1301,6 +1322,27 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isMainSequence() {
+		return mainSequence;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMainSequence(boolean newMainSequence) {
+		boolean oldMainSequence = mainSequence;
+		mainSequence = newMainSequence;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.PROXY_SERVICE__MAIN_SEQUENCE, oldMainSequence, mainSequence));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -1392,6 +1434,8 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 				return getFaultSequenceKey();
 			case EsbPackage.PROXY_SERVICE__FAULT_SEQUENCE_NAME:
 				return getFaultSequenceName();
+			case EsbPackage.PROXY_SERVICE__MAIN_SEQUENCE:
+				return isMainSequence();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1489,6 +1533,9 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 			case EsbPackage.PROXY_SERVICE__FAULT_SEQUENCE_NAME:
 				setFaultSequenceName((String)newValue);
 				return;
+			case EsbPackage.PROXY_SERVICE__MAIN_SEQUENCE:
+				setMainSequence((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -1583,6 +1630,9 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 			case EsbPackage.PROXY_SERVICE__FAULT_SEQUENCE_NAME:
 				setFaultSequenceName(FAULT_SEQUENCE_NAME_EDEFAULT);
 				return;
+			case EsbPackage.PROXY_SERVICE__MAIN_SEQUENCE:
+				setMainSequence(MAIN_SEQUENCE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1650,6 +1700,8 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 				return faultSequenceKey != null;
 			case EsbPackage.PROXY_SERVICE__FAULT_SEQUENCE_NAME:
 				return FAULT_SEQUENCE_NAME_EDEFAULT == null ? faultSequenceName != null : !FAULT_SEQUENCE_NAME_EDEFAULT.equals(faultSequenceName);
+			case EsbPackage.PROXY_SERVICE__MAIN_SEQUENCE:
+				return mainSequence != MAIN_SEQUENCE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -1699,6 +1751,8 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 		result.append(faultSequenceType);
 		result.append(", faultSequenceName: ");
 		result.append(faultSequenceName);
+		result.append(", mainSequence: ");
+		result.append(mainSequence);
 		result.append(')');
 		return result.toString();
 	}
