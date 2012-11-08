@@ -21,7 +21,6 @@ import org.apache.synapse.mediators.AbstractMediator;
 import org.apache.synapse.mediators.MediatorProperty;
 import org.eclipse.core.runtime.Assert;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
-import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.LogCategory;
 import org.wso2.developerstudio.eclipse.gmf.esb.LogLevel;
 import org.wso2.developerstudio.eclipse.gmf.esb.LogMediator;

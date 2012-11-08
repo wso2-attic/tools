@@ -16,6 +16,8 @@
 
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 
+import java.util.Map;
+
 import org.apache.synapse.mediators.AbstractMediator;
 import org.apache.synapse.mediators.Value;
 import org.apache.synapse.util.xpath.SynapseXPath;
@@ -60,8 +62,17 @@ public class SendMediatorDeserializer extends AbstractEsbNodeDeserializer<Abstra
 				SynapseXPath xpath  = receivingSequenceValue.getExpression();
 				
 				NamespacedProperty nsp = EsbFactory.eINSTANCE.createNamespacedProperty();
+				
 				nsp.setPropertyValue(xpath.toString());
 				
+				if (xpath.getNamespaces() != null) {
+
+					@SuppressWarnings("unchecked")
+					Map<String, String> map = xpath.getNamespaces();
+
+					nsp.setNamespaces(map);
+				}
+					
 				vishualSend.setDynamicReceivingSequence(nsp);
 				
 			}

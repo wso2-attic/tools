@@ -66,12 +66,12 @@ public class CloneMediatorTransformer extends AbstractEsbNodeTransformer {
 				CloneTarget visualTarget = visualClone.getTargets().get(i);
 				Target target = new Target();
 				
-				if (!visualTarget.getSoapAction().equals("")) {
+				if (visualTarget.getSoapAction()!= null && !visualTarget.getSoapAction().equals("")) {
 					target.setSoapAction(visualTarget.getSoapAction()); // set soap action.
 				} else {
 					target.setSoapAction(null);
 				}
-				if (!visualTarget.getToAddress().equals("")) {
+				if (visualTarget.getToAddress() != null && !visualTarget.getToAddress().equals("")) {
 					target.setToAddress(visualTarget.getToAddress()); // set to address.
 				} else {
 					target.setToAddress(null);

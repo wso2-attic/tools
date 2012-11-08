@@ -21,10 +21,13 @@ import java.util.Map;
 
 
 import org.apache.synapse.core.axis2.ProxyService;
+import org.apache.synapse.mediators.builtin.DropMediator;
 import org.apache.synapse.mediators.builtin.LogMediator;
 import org.apache.synapse.mediators.builtin.PropertyMediator;
 import org.apache.synapse.mediators.builtin.SendMediator;
 import org.apache.synapse.mediators.eip.splitter.CloneMediator;
+import org.apache.synapse.mediators.elementary.EnrichMediator;
+import org.wso2.carbon.mediator.event.EventMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramEditor;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
@@ -62,6 +65,9 @@ public class EsbDeserializerRegistry {
 		addDeserializer(ProxyService.class, new ProxyServiceDeserializer());
 		addDeserializer(SendMediator.class, new SendMediatorDeserializer());
 		addDeserializer(CloneMediator.class, new CloneMediatorDeserializer());
+		addDeserializer(DropMediator.class, new DropMediatorDeserializer());
+		addDeserializer(EnrichMediator.class, new EnrichMediatorDeserializer());
+		addDeserializer(EventMediator.class, new EventMediatorDeserializer());
 	}
 	
 	/**

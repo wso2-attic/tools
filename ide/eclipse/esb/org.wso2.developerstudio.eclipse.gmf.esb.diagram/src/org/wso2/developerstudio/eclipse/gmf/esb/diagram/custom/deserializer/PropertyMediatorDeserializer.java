@@ -16,13 +16,14 @@
 
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 
+import java.util.Map;
 import java.util.regex.Pattern;
 
 import org.apache.synapse.config.xml.XMLConfigConstants;
 import org.apache.synapse.mediators.AbstractMediator;
+import org.apache.synapse.util.xpath.SynapseXPath;
 import org.eclipse.core.runtime.Assert;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
-import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.PropertyAction;
 import org.wso2.developerstudio.eclipse.gmf.esb.PropertyDataType;
@@ -60,9 +61,20 @@ public class PropertyMediatorDeserializer extends AbstractEsbNodeDeserializer<Ab
 			if(propertyMediator.getExpression() != null){
 				
 				NamespacedProperty namespaceProp = EsbFactory.eINSTANCE.createNamespacedProperty();
+				
+				SynapseXPath xpath = propertyMediator.getExpression();
+				
 				namespaceProp.setPropertyValue(propertyMediator.getExpression().toString());
+				
+				if (xpath.getNamespaces() != null) {
+
+					@SuppressWarnings("unchecked")
+					Map<String, String> map = xpath.getNamespaces();
+
+					namespaceProp.setNamespaces(map);
+				}
+				
 				vishualProp.setValueExpression(namespaceProp);
-				String type  = propertyMediator.getType();
 				
 		//If it's an Value		
 			} else if(propertyMediator.getValue() != null){
