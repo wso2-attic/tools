@@ -36,8 +36,8 @@ public class WSDLEndPointTransformer extends AbstractEsbNodeTransformer{
 			sendMediator=null;
 		} 
 		else {
-/*			sendMediator = new SendMediator();
-			information.getParentSequence().addChild(sendMediator);*/
+			sendMediator = new SendMediator();
+			information.getParentSequence().addChild(sendMediator);
 		}		
 		if(sendMediator !=null){
 			sendMediator.setEndpoint(create(visualEndPoint,null));

@@ -8,6 +8,7 @@ import org.apache.synapse.mediators.base.SequenceMediator;
 import org.apache.synapse.mediators.builtin.SendMediator;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EObject;
+import org.wso2.developerstudio.eclipse.gmf.esb.AddressEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamedEndpoint;
@@ -65,7 +66,18 @@ public class NamedEndPointTransformer extends AbstractEsbNodeTransformer{
 
 	public void transformWithinSequence(TransformationInfo information,
 			EsbNode subject, SequenceMediator sequence) throws Exception {
-		// TODO Auto-generated method stub
+		
+		Assert.isTrue(subject instanceof NamedEndpoint, "Invalid subject");
+		NamedEndpoint visualEndPoint = (NamedEndpoint) subject;
+		
+		SendMediator sendMediator = null;
+		if (sequence.getList().get(sequence.getList().size()-1) instanceof SendMediator) {			
+			sendMediator = (SendMediator)sequence.getList().get(sequence.getList().size()-1);
+		} else {
+			sendMediator = new SendMediator();
+			sequence.addChild(sendMediator);
+		}		
+		sendMediator.setEndpoint(create(visualEndPoint,null));
 		
 	}
 	

@@ -19,7 +19,9 @@ Require-Bundle: org.wso2.developerstudio.eclipse.gmf.esb,
  org.eclipse.core.runtime,
  org.eclipse.emf;bundle-version="2.6.0",
  org.eclipse.emf.edit;bundle-version="2.6.0",
- org.eclipse.emf.transaction;bundle-version="1.4.0"
+ org.eclipse.emf.transaction;bundle-version="1.4.0",
+ org.eclipse.ui.workbench;bundle-version="3.6.2",
+ org.eclipse.gmf.runtime.notation;bundle-version="1.4.1"
 Export-Package: org.wso2.developerstudio.eclipse.gmf.esb.persistence
 Import-Package: com.sun.phobos.script.javascript,
  javax.xml.xquery,
@@ -79,6 +81,7 @@ Import-Package: com.sun.phobos.script.javascript,
  org.codehaus.jettison,
  org.eclipse.jface.dialogs,
  org.eclipse.swt.widgets,
+ org.eclipse.ui,
  org.eclipse.ui.plugin,
  org.jaxen,
  org.milyn.scribe.register,

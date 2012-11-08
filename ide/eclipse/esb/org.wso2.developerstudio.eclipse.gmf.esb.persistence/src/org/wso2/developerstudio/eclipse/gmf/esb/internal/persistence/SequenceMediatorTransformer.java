@@ -57,12 +57,14 @@ public class SequenceMediatorTransformer extends AbstractEsbNodeTransformer {
 		try {
 			if ((information.getPreviouNode() instanceof org.wso2.developerstudio.eclipse.gmf.esb.EndPoint)&&
 					(visualSequence.getOutputConnector().getOutgoingLink().getTarget().eContainer() instanceof EndPoint)) {
-				Object lastMediator = information
-						.getParentSequence()
-						.getList()
-						.get(information.getParentSequence().getList().size() - 1);
-				((SendMediator) lastMediator)
-						.setReceivingSequence(refferingSequence.getKey());
+				if(information.getParentSequence()!=null){
+					Object lastMediator = information
+							.getParentSequence()
+							.getList()
+							.get(information.getParentSequence().getList().size() - 1);
+					((SendMediator) lastMediator)
+							.setReceivingSequence(refferingSequence.getKey());
+				}
 			} else {
 				information.getParentSequence().addChild(refferingSequence);
 			}
