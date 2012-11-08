@@ -45,18 +45,22 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbServer;
 import org.wso2.developerstudio.eclipse.gmf.esb.MediatorFlow;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ConnectionUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbLinkEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramEditor;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 
 
 public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implements IEsbNodeDeserializer<T,R> {
 	private static EsbDiagramEditor diagramEditor;
 	private static Map<EsbConnector, LinkedList<EsbNode>> connectionFlowMap = new LinkedHashMap<EsbConnector, LinkedList<EsbNode>>();
 	private static Map<EObject,ShapeNodeEditPart> editPartMap = new HashMap<EObject, ShapeNodeEditPart>();
+	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 
 	public EsbDiagramEditor getDiagramEditor() {
 		return diagramEditor;
@@ -87,12 +91,20 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 			AbstractMediator mediator = (AbstractMediator) sequence.getList().get(i);
 			IEsbNodeDeserializer deserializer = EsbDeserializerRegistry.getInstance()
 					.getDeserializer(mediator);
-			node = deserializer.createNode(mediator);
-			mediatorList.add(node);
+			if(deserializer!=null){
+				node = deserializer.createNode(mediator);
+				mediatorList.add(node);
 
-			addCmd = new AddCommand(domain, mediatorFlow,
-					EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN, node);
-			domain.getCommandStack().execute(addCmd);
+				addCmd = new AddCommand(domain, mediatorFlow,
+						EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN, node);
+				
+				if(addCmd.canExecute()){
+					domain.getCommandStack().execute(addCmd);
+				} else{
+					getLog().warn("Cannot execute EMF command : "+ addCmd.toString());
+				}
+				
+			}
 
 		}
 
@@ -211,6 +223,10 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 	    StringBuffer buffer = new StringBuffer(iter.next());
 	    while (iter.hasNext()) buffer.append(delimiter).append(iter.next());
 	    return buffer.toString();
+	}
+
+	public static IDeveloperStudioLog getLog() {
+		return log;
 	}
 	
 }

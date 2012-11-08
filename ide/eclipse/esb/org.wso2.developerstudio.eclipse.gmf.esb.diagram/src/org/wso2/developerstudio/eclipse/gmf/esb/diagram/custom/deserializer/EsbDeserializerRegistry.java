@@ -25,7 +25,10 @@ import org.apache.synapse.mediators.builtin.LogMediator;
 import org.apache.synapse.mediators.builtin.PropertyMediator;
 import org.apache.synapse.mediators.builtin.SendMediator;
 import org.apache.synapse.mediators.eip.splitter.CloneMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramEditor;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 
 
 /**
@@ -35,7 +38,12 @@ public class EsbDeserializerRegistry {
 	/**
 	 * Singleton instance.
 	 */
-	private static EsbDeserializerRegistry singleton;		
+	private static EsbDeserializerRegistry singleton;
+	
+	/**
+	 * DeveloperStudio logger
+	 * */
+	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	
 	/**
 	 * synapse model type to deserializers map.
@@ -90,7 +98,12 @@ public class EsbDeserializerRegistry {
 	 */
 	public IEsbNodeDeserializer getDeserializer(Object synapseModel) {
 		IEsbNodeDeserializer nodeDeserializer = deserializersMap.get(synapseModel.getClass());
-		nodeDeserializer.setDiagramEditor(getDiagramEditor());
+		if(nodeDeserializer!=null){
+			nodeDeserializer.setDiagramEditor(getDiagramEditor());
+		} else{
+			log.error("Can not find deserializer for synapse object " + synapseModel.getClass());
+		}
+		
 		return nodeDeserializer;
 	}
 	

@@ -34,7 +34,10 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbServer;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyService;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramEditor;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 
 /**
  * Synapse model de-serialize base class
@@ -44,6 +47,11 @@ public class Deserializer {
 	 * Singleton instance.
 	 */
 	private static Deserializer singleton;
+	
+	/**
+	 * DeveloperStudio logger
+	 * */
+	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	
 	private Deserializer(){
 		
@@ -101,9 +109,15 @@ public class Deserializer {
 			IEsbNodeDeserializer deserializer = EsbDeserializerRegistry.getInstance().getDeserializer(proxyService);
 			EsbNode node = deserializer.createNode(proxyService);
 			
-			addCmd = new AddCommand(domain, esbServer, EsbPackage.Literals.ESB_SERVER__CHILDREN,
-					node);
-			domain.getCommandStack().execute(addCmd);
+			if(deserializer!=null){
+				addCmd = new AddCommand(domain, esbServer, EsbPackage.Literals.ESB_SERVER__CHILDREN,
+						node);
+				if(addCmd.canExecute()){
+					domain.getCommandStack().execute(addCmd);
+				} else{
+					log.warn("Cannot execute EMF command : "+ addCmd.toString());
+				}
+			}
 
 		}
 		
