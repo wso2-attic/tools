@@ -63,6 +63,8 @@ public class SequencesItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
+			addRecieveSequencePropertyDescriptor(object);
+			addAssociatedProxyPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -81,6 +83,50 @@ public class SequencesItemProvider
 				 getString("_UI_Sequences_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Sequences_name_feature", "_UI_Sequences_type"),
 				 EsbPackage.Literals.SEQUENCES__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Recieve Sequence feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRecieveSequencePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Sequences_recieveSequence_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Sequences_recieveSequence_feature", "_UI_Sequences_type"),
+				 EsbPackage.Literals.SEQUENCES__RECIEVE_SEQUENCE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Associated Proxy feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAssociatedProxyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Sequences_associatedProxy_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Sequences_associatedProxy_feature", "_UI_Sequences_type"),
+				 EsbPackage.Literals.SEQUENCES__ASSOCIATED_PROXY,
 				 true,
 				 false,
 				 false,
@@ -159,6 +205,8 @@ public class SequencesItemProvider
 
 		switch (notification.getFeatureID(Sequences.class)) {
 			case EsbPackage.SEQUENCES__NAME:
+			case EsbPackage.SEQUENCES__RECIEVE_SEQUENCE:
+			case EsbPackage.SEQUENCES__ASSOCIATED_PROXY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case EsbPackage.SEQUENCES__OUTPUT_CONNECTOR:
