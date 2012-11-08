@@ -574,6 +574,28 @@ public class ProxyServiceItemProvider
 				 null));
 	}
 
+	/**
+	 * This adds a property descriptor for the Main Sequence feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMainSequencePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ProxyService_mainSequence_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ProxyService_mainSequence_feature", "_UI_ProxyService_type"),
+				 EsbPackage.Literals.PROXY_SERVICE__MAIN_SEQUENCE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
 	protected void addWsdlKeyPropertyDescriptor(Object object) {
         itemPropertyDescriptors.add
             (createItemPropertyDescriptor
@@ -688,6 +710,7 @@ public class ProxyServiceItemProvider
 			case EsbPackage.PROXY_SERVICE__OUT_SEQUENCE_NAME:
 			case EsbPackage.PROXY_SERVICE__FAULT_SEQUENCE_TYPE:
 			case EsbPackage.PROXY_SERVICE__FAULT_SEQUENCE_NAME:
+			case EsbPackage.PROXY_SERVICE__MAIN_SEQUENCE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case EsbPackage.PROXY_SERVICE__OUTPUT_CONNECTOR:
