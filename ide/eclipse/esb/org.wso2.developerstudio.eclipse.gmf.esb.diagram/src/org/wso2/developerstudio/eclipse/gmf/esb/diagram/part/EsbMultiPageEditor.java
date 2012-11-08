@@ -37,6 +37,8 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.notation.impl.NodeImpl;
 import org.eclipse.jface.dialogs.ErrorDialog;
+import org.eclipse.jface.text.DocumentEvent;
+import org.eclipse.jface.text.IDocumentListener;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -116,6 +118,9 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 	private Set<IFile> tempFiles = new HashSet<IFile>();
 	
 	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
+	
+	/*source editor dirty state*/
+	private boolean sourceDirty;
 
     /**
      * Creates a multi-page editor
@@ -180,6 +185,18 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 					sourceEditor.getEditor(),
 					sourceEditor.getInput());
 			setPageText(SOURCE_VIEW_PAGE_INDEX,	"Source");
+			
+			sourceEditor.getDocument().addDocumentListener(new IDocumentListener() {  
+			    
+	            public void documentAboutToBeChanged(final DocumentEvent event) {  
+	                // nothing to do  
+	            }  
+	   
+	            public void documentChanged(final DocumentEvent event) {  
+	            	sourceDirty=true;
+	            	firePropertyChange(PROP_DIRTY);
+	            }  
+	        });  
 
 			// Initialize source editor.
 			//updateSourceEditor();
@@ -345,8 +362,10 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 //		}
 		
 		String xmlSource = sourceEditor.getDocument().get();
-		if(xmlSource!=null && xmlSource.equals(xmlSource)){
-			  rebuildModelObject(xmlSource);
+		if(xmlSource!=null && sourceDirty){
+			  if(!xmlSource.trim().isEmpty()){
+				  rebuildModelObject(xmlSource); 
+			  }
 		} 
 		
 	}
@@ -367,6 +386,8 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
     	EsbDiagram diagram = (EsbDiagram) graphicalEditor.getDiagram().getElement();
 		EsbServer server = diagram.getServer();	
 		sourceEditor.update(server);		
+		sourceDirty=false;
+		firePropertyChange(PROP_DIRTY);
 	}
     
     
@@ -413,17 +434,18 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
      * Saves the multi-page editor's document.
      */
     public void doSave(IProgressMonitor monitor) {
+    	if(getActivePage()==SOURCE_VIEW_PAGE_INDEX){
+    		handleDesignViewActivatedEvent();
+    	}
+    	sourceDirty=false;
         getEditor(0).doSave(monitor);
         updateAssociatedXMLFile(monitor);
     }
     
-	/**
-	 * Source view is currently read-only, so for now we only handling design
-	 * view's dirty property
-	 */
+
 	public boolean isDirty() {
 		if (getEditor(0) instanceof EsbDiagramEditor) {
-			return getEditor(0).isDirty();
+			return getEditor(0).isDirty() || sourceDirty;
 		}
 		return super.isDirty();
 	}
@@ -434,6 +456,10 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
      * to correspond to the nested editor's.
      */
     public void doSaveAs() {
+    	if(getActivePage()==SOURCE_VIEW_PAGE_INDEX){
+    		handleDesignViewActivatedEvent();
+    	}
+    	sourceDirty=false;
         IEditorPart editor = getEditor(0);
         editor.doSaveAs();
         setPageText(0, editor.getTitle());
@@ -563,7 +589,8 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 	void rebuildModelObject(String xml) {
 		try {
 			Deserializer.getInstance().updateDesign(xml, graphicalEditor);
-			
+			sourceDirty=false;
+			firePropertyChange(PROP_DIRTY);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
