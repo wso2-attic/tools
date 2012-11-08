@@ -44,15 +44,24 @@ import org.eclipse.gmf.runtime.emf.type.core.commands.SetValueCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
+import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.IInputValidator;
 import org.eclipse.jface.dialogs.InputDialog;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.FontData;
+import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Combo;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IEditorDescriptor;
 import org.eclipse.ui.IEditorPart;
@@ -64,9 +73,12 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.FileEditorInput;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
+import org.wso2.developerstudio.eclipse.gmf.esb.ProxyService;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
+import org.wso2.developerstudio.eclipse.gmf.esb.Sequences;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorOutputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShapeWithLabel;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
@@ -121,12 +133,19 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 	public static ArrayList<String> definedSequenceNames = new ArrayList<String>();
 
 	private float inputCount = 0, outputCount = 0;
+	
+	private Button recieveCheckBox;
+	private boolean checked;
+	private SequenceEditPart sequenceEditPart;
+	private SequencesInfo info;
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	public SequenceEditPart(View view) {
 		super(view);
+		sequenceEditPart=this;
+		info=new SequencesInfo();
 	}
 
 	/**
@@ -456,7 +475,7 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 		if (!file.exists()) {
 			diagram = EsbDiagramEditorUtil.createDiagram(URI.createURI(basePath + fileURI1),
 					URI.createURI(basePath + fileURI2), new NullProgressMonitor(), "sequence",
-					name, null);
+					name, info);
 			try {
 				EsbDiagramEditorUtil.openDiagram(diagram);
 
@@ -525,7 +544,24 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 			};
 			String defaultName = "Default" + (((EsbDiagram) diagram).getTest() + 1);
 			final InputDialog sequenceNameInput = new InputDialog(new Shell(),
-					"Enter Sequence Name", "Sequence Name", defaultName, validator);
+					"Enter Sequence Name", "Sequence Name", defaultName, validator){
+				protected Control createDialogArea(Composite parent) {
+					Composite composite = (Composite) super.createDialogArea(parent);
+					recieveCheckBox=new Button(composite, SWT.CHECK);
+					recieveCheckBox.setText("Use this sequence for Service Chaining.");
+					recieveCheckBox.addSelectionListener(new SelectionListener() {
+												
+						public void widgetSelected(SelectionEvent arg0) {
+							checked=recieveCheckBox.getSelection();
+						}						
+						
+						public void widgetDefaultSelected(SelectionEvent arg0) {
+							
+						}
+					});
+					return composite;
+				}
+			};
 			int open = sequenceNameInput.open();
 			if (open == Dialog.OK) {
 				Display.getDefault().asyncExec(new Runnable() {
@@ -568,6 +604,11 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 						};
 
 						getEditDomain().getCommandStack().execute(new ICommandProxy(operation));
+						
+						if (checked) {
+							info.setRecieveSequence(true);
+							info.setAssociatedProxy(((ProxyService)((Node)EditorUtils.getProxy(sequenceEditPart.getParent()).getModel()).getElement()).getName());							
+						}						
 						openWithSeparateEditor();
 					}
 				});
@@ -828,6 +869,23 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 			Tool tool = new UnspecifiedTypeCreationTool(elementTypes);
 			tool.setProperties(getToolProperties());
 			return tool;
+		}
+	}
+	
+	public class SequencesInfo{
+		private String associatedProxy;
+		private boolean recieveSequence;
+		public void setAssociatedProxy(String associatedProxy) {
+			this.associatedProxy = associatedProxy;
+		}
+		public String getAssociatedProxy() {
+			return associatedProxy;
+		}
+		public void setRecieveSequence(boolean recieveSequence) {
+			this.recieveSequence = recieveSequence;
+		}
+		public boolean isRecieveSequence() {
+			return recieveSequence;
 		}
 	}
 

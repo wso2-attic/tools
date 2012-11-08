@@ -73,6 +73,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.SynapseAPI;
 import org.wso2.developerstudio.eclipse.gmf.esb.Task;
 import org.wso2.developerstudio.eclipse.gmf.esb.Template;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbDiagramEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceEditPart.SequencesInfo;
 
 /**
  * @generated
@@ -247,6 +248,10 @@ public class EsbDiagramEditorUtil {
 				if ("sequence".equals(type)) {
 					Sequences sequences = EsbFactory.eINSTANCE.createSequences();
 					sequences.setName(name);
+					if(specificType instanceof SequencesInfo){
+						sequences.setRecieveSequence(((SequencesInfo)specificType).isRecieveSequence());
+						sequences.getAssociatedProxy().add(((SequencesInfo)specificType).getAssociatedProxy());
+					}
 					EStructuralFeature target = esbServer.eClass()
 							.getEStructuralFeature("children");
 					esbServer.eSet(target, Arrays.asList(sequences));

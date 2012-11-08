@@ -559,8 +559,6 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 				URI uri = URI.createFileURI(f.getAbsolutePath());
 
 				if (!f.exists()) {
-					System.out.println(file.getLocationURI().getPath()
-							+ " does not exist");
 
 				} else {
 

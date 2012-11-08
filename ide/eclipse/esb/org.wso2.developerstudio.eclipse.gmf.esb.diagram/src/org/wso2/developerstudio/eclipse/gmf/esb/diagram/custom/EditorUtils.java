@@ -188,6 +188,17 @@ public class EditorUtils {
 		}
 	}
 	
+	public static ProxyServiceEditPart getProxy(EditPart child){
+		while ((child.getParent()!=null)&&!(child.getParent() instanceof ProxyServiceEditPart)){
+			child=child.getParent();
+		}		
+		if(child.getParent()!=null){
+			return (ProxyServiceEditPart) child.getParent();
+		}else{
+			return null;
+		}
+	}
+	
 	public static AbstractSequencesEditPart getSequence(AbstractConnectorEditPart connector){
 		EditPart temp=connector;
 		while((temp !=null)&&(!(temp instanceof AbstractSequencesEditPart))){
