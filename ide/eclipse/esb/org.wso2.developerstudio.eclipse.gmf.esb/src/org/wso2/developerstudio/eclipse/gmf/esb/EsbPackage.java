@@ -12333,13 +12333,31 @@ public interface EsbPackage extends EPackage {
 	int SEQUENCES__NAME = ESB_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Recieve Sequence</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEQUENCES__RECIEVE_SEQUENCE = ESB_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Associated Proxy</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEQUENCES__ASSOCIATED_PROXY = ESB_ELEMENT_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Sequences</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEQUENCES_FEATURE_COUNT = ESB_ELEMENT_FEATURE_COUNT + 4;
+	int SEQUENCES_FEATURE_COUNT = ESB_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SequencesOutputConnectorImpl <em>Sequences Output Connector</em>}' class.
@@ -24013,6 +24031,28 @@ public interface EsbPackage extends EPackage {
 	EAttribute getSequences_Name();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.Sequences#isRecieveSequence <em>Recieve Sequence</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Recieve Sequence</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.Sequences#isRecieveSequence()
+	 * @see #getSequences()
+	 * @generated
+	 */
+	EAttribute getSequences_RecieveSequence();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.wso2.developerstudio.eclipse.gmf.esb.Sequences#getAssociatedProxy <em>Associated Proxy</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Associated Proxy</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.Sequences#getAssociatedProxy()
+	 * @see #getSequences()
+	 * @generated
+	 */
+	EAttribute getSequences_AssociatedProxy();
+
+	/**
 	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.Sequences#getOutputConnector <em>Output Connector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -32538,6 +32578,22 @@ public interface EsbPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SEQUENCES__NAME = eINSTANCE.getSequences_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Recieve Sequence</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SEQUENCES__RECIEVE_SEQUENCE = eINSTANCE.getSequences_RecieveSequence();
+
+		/**
+		 * The meta object literal for the '<em><b>Associated Proxy</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SEQUENCES__ASSOCIATED_PROXY = eINSTANCE.getSequences_AssociatedProxy();
 
 		/**
 		 * The meta object literal for the '<em><b>Output Connector</b></em>' containment reference feature.

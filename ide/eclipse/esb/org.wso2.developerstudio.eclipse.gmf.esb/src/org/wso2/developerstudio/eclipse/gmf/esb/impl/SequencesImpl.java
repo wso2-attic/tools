@@ -6,12 +6,15 @@
  */
 package org.wso2.developerstudio.eclipse.gmf.esb.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.MediatorFlow;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequences;
@@ -29,6 +32,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.SequencesOutputConnector;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SequencesImpl#getInputConnector <em>Input Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SequencesImpl#getMediatorFlow <em>Mediator Flow</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SequencesImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SequencesImpl#isRecieveSequence <em>Recieve Sequence</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SequencesImpl#getAssociatedProxy <em>Associated Proxy</em>}</li>
  * </ul>
  * </p>
  *
@@ -82,6 +87,34 @@ public class SequencesImpl extends EsbElementImpl implements Sequences {
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isRecieveSequence() <em>Recieve Sequence</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isRecieveSequence()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean RECIEVE_SEQUENCE_EDEFAULT = false;
+	/**
+	 * The cached value of the '{@link #isRecieveSequence() <em>Recieve Sequence</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isRecieveSequence()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean recieveSequence = RECIEVE_SEQUENCE_EDEFAULT;
+	/**
+	 * The cached value of the '{@link #getAssociatedProxy() <em>Associated Proxy</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAssociatedProxy()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> associatedProxy;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -164,6 +197,39 @@ public class SequencesImpl extends EsbElementImpl implements Sequences {
 		name = newName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.SEQUENCES__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isRecieveSequence() {
+		return recieveSequence;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRecieveSequence(boolean newRecieveSequence) {
+		boolean oldRecieveSequence = recieveSequence;
+		recieveSequence = newRecieveSequence;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.SEQUENCES__RECIEVE_SEQUENCE, oldRecieveSequence, recieveSequence));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<String> getAssociatedProxy() {
+		if (associatedProxy == null) {
+			associatedProxy = new EDataTypeUniqueEList<String>(String.class, this, EsbPackage.SEQUENCES__ASSOCIATED_PROXY);
+		}
+		return associatedProxy;
 	}
 
 	/**
@@ -286,6 +352,10 @@ public class SequencesImpl extends EsbElementImpl implements Sequences {
 				return getMediatorFlow();
 			case EsbPackage.SEQUENCES__NAME:
 				return getName();
+			case EsbPackage.SEQUENCES__RECIEVE_SEQUENCE:
+				return isRecieveSequence();
+			case EsbPackage.SEQUENCES__ASSOCIATED_PROXY:
+				return getAssociatedProxy();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -295,6 +365,7 @@ public class SequencesImpl extends EsbElementImpl implements Sequences {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -309,6 +380,13 @@ public class SequencesImpl extends EsbElementImpl implements Sequences {
 				return;
 			case EsbPackage.SEQUENCES__NAME:
 				setName((String)newValue);
+				return;
+			case EsbPackage.SEQUENCES__RECIEVE_SEQUENCE:
+				setRecieveSequence((Boolean)newValue);
+				return;
+			case EsbPackage.SEQUENCES__ASSOCIATED_PROXY:
+				getAssociatedProxy().clear();
+				getAssociatedProxy().addAll((Collection<? extends String>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -334,6 +412,12 @@ public class SequencesImpl extends EsbElementImpl implements Sequences {
 			case EsbPackage.SEQUENCES__NAME:
 				setName(NAME_EDEFAULT);
 				return;
+			case EsbPackage.SEQUENCES__RECIEVE_SEQUENCE:
+				setRecieveSequence(RECIEVE_SEQUENCE_EDEFAULT);
+				return;
+			case EsbPackage.SEQUENCES__ASSOCIATED_PROXY:
+				getAssociatedProxy().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -354,6 +438,10 @@ public class SequencesImpl extends EsbElementImpl implements Sequences {
 				return mediatorFlow != null;
 			case EsbPackage.SEQUENCES__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+			case EsbPackage.SEQUENCES__RECIEVE_SEQUENCE:
+				return recieveSequence != RECIEVE_SEQUENCE_EDEFAULT;
+			case EsbPackage.SEQUENCES__ASSOCIATED_PROXY:
+				return associatedProxy != null && !associatedProxy.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -370,6 +458,10 @@ public class SequencesImpl extends EsbElementImpl implements Sequences {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
+		result.append(", recieveSequence: ");
+		result.append(recieveSequence);
+		result.append(", associatedProxy: ");
+		result.append(associatedProxy);
 		result.append(')');
 		return result.toString();
 	}

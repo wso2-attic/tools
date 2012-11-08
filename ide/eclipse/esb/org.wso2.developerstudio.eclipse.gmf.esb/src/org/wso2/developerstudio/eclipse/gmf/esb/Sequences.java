@@ -6,6 +6,8 @@
  */
 package org.wso2.developerstudio.eclipse.gmf.esb;
 
+import org.eclipse.emf.common.util.EList;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -19,6 +21,8 @@ package org.wso2.developerstudio.eclipse.gmf.esb;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.Sequences#getInputConnector <em>Input Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.Sequences#getMediatorFlow <em>Mediator Flow</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.Sequences#getName <em>Name</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.Sequences#isRecieveSequence <em>Recieve Sequence</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.Sequences#getAssociatedProxy <em>Associated Proxy</em>}</li>
  * </ul>
  * </p>
  *
@@ -79,6 +83,48 @@ public interface Sequences extends EsbElement {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Recieve Sequence</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Recieve Sequence</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Recieve Sequence</em>' attribute.
+	 * @see #setRecieveSequence(boolean)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getSequences_RecieveSequence()
+	 * @model
+	 * @generated
+	 */
+	boolean isRecieveSequence();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.Sequences#isRecieveSequence <em>Recieve Sequence</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Recieve Sequence</em>' attribute.
+	 * @see #isRecieveSequence()
+	 * @generated
+	 */
+	void setRecieveSequence(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Associated Proxy</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Associated Proxy</em>' attribute list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Associated Proxy</em>' attribute list.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getSequences_AssociatedProxy()
+	 * @model
+	 * @generated
+	 */
+	EList<String> getAssociatedProxy();
 
 	/**
 	 * Returns the value of the '<em><b>Output Connector</b></em>' containment reference.
