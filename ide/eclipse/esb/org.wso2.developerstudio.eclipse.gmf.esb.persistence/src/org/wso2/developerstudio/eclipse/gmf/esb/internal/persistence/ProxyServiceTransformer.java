@@ -22,15 +22,15 @@ import java.util.List;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMNode;
 import org.apache.axiom.om.util.AXIOMUtil;
-import org.apache.synapse.SynapseArtifact;
 import org.apache.synapse.config.SynapseConfigUtils;
 import org.apache.synapse.core.axis2.ProxyService;
 import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.mediators.base.SequenceMediator;
+import org.apache.synapse.mediators.filters.InMediator;
+import org.apache.synapse.mediators.filters.OutMediator;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.jface.dialogs.MessageDialog;
 import org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.CacheMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.CallTemplateMediator;
@@ -81,150 +81,12 @@ public class ProxyServiceTransformer extends AbstractEsbNodeTransformer {
 	 */
 	public void transform(TransformationInfo info, EsbNode subject)
 			throws Exception {
-		
-		
-		/*TaskTransformer t=new TaskTransformer();
-		t.transform(info, subject);*/
-		
-		
-		
-		
-		ArrayList<String> transports = new ArrayList<String>();
-		List<String> pinnedServers = new ArrayList<String>();
-		// Check subject.
-		Assert.isTrue(
-				subject instanceof org.wso2.developerstudio.eclipse.gmf.esb.ProxyService,
-				"Invalid subject.");
-		org.wso2.developerstudio.eclipse.gmf.esb.ProxyService visualService = (org.wso2.developerstudio.eclipse.gmf.esb.ProxyService) subject;
-
-		// Check start.
-		if (info.getTraversalDirection() == TransformationInfo.TRAVERSAL_DIRECTION_IN) {
-
-			ProxyService proxyService = new org.apache.synapse.core.axis2.ProxyService(
-					visualService.getName());
-
-			if (visualService.getServiceGroup() != null) {
-				proxyService.setServiceGroup(visualService.getServiceGroup());
-			}
-
-			proxyService.setTraceState(visualService.isTraceEnabled() ? 1 : 0);
-			proxyService.setWsSecEnabled(visualService.isSecurityEnabled());
-			proxyService.setWsRMEnabled(visualService
-					.isReliableMessagingEnabled());
-
-			for (String a : visualService.getTransports().split(",")) {
-				transports.add(a);
-			}
-
-			proxyService.setTransports(transports);
-			switch (visualService.getWsdlType()) {
-			case INLINE:
-				OMNode node = SynapseConfigUtils.stringToOM(visualService.getWsdlXML());
-				proxyService.setInLineWSDL(node);
-				break;
-			case SOURCE_URL:
-				proxyService.setWsdlURI(new URI(visualService.getWsdlURL()));
-				break;
-			case REGISTRY_KEY:
-				proxyService.setWSDLKey(visualService.getWsdlKey().getKeyValue());
-				break;
-			case NONE:
-				break;
-			}
-			String pinnedServerInfo = visualService.getPinnedServers();
-			if (pinnedServerInfo != null && !pinnedServerInfo.equals("")) {
-				for (String a : pinnedServerInfo.split(",")) {
-					pinnedServers.add(a);
-				}
-			}
-			if (pinnedServers.size() > 0)
-				proxyService.setPinnedServers(pinnedServers);
-			// proxyService.setStatisticsState(visualService.isStatisticsEnabled()?1:0);
-			info.getSynapseConfiguration().addProxyService(
-					visualService.getName(), proxyService);
-			
-			//Proxy Service Parameters.
-			for(int i=0;i<visualService.getServiceParameters().size();++i){
-				String value = visualService.getServiceParameters().get(i).getValue();
-				if (validateXML(value)) {
-					OMElement payload = AXIOMUtil.stringToOM(value);
-					proxyService.addParameter(
-							visualService.getServiceParameters().get(i).getName(), payload);
-				} else {
-					proxyService.addParameter(
-							visualService.getServiceParameters().get(i).getName(), value);
-				}
-			}
-			
-
-			// In sequence.
-			SequenceMediator inSequence = new SequenceMediator();			
-			switch (visualService.getInSequenceType()) {
-			case ANONYMOUS:
-				proxyService.setTargetInLineInSequence(inSequence);
-				break;
-				
-			case NAMED_REFERENCE:
-				proxyService.setTargetInSequence(visualService.getInSequenceName());
-				break;
-
-			case REGISTRY_REFERENCE:
-				proxyService.setTargetInSequence(visualService.getInSequenceKey().getKeyValue());
-				break;
-			}
-
-			// Out sequence.
-			SequenceMediator outSequence = new SequenceMediator();			
-			switch (visualService.getOutSequenceType()) {
-			case ANONYMOUS:
-				proxyService.setTargetInLineOutSequence(outSequence);
-				break;
-			
-			case NAMED_REFERENCE:
-				proxyService.setTargetOutSequence(visualService.getOutSequenceName());
-				break;
-
-			case REGISTRY_REFERENCE:
-				proxyService.setTargetOutSequence(visualService.getOutSequenceKey().getKeyValue());
-				break;
-			}
-
-			info.setOriginInSequence(inSequence);
-			info.setOriginOutSequence(outSequence);
-			info.setParentSequence(inSequence);
-
-			// Transform output data flow.
-			doTransform(info, visualService.getOutputConnector());
-			
-			//Set Fault Sequence
-			SequenceMediator faultSequence = new SequenceMediator();			
-			switch (visualService.getFaultSequenceType()) {
-			case ANONYMOUS:
-				proxyService.setTargetInLineFaultSequence(faultSequence);
-				break;
-			
-			case NAMED_REFERENCE:
-				proxyService.setTargetFaultSequence(visualService.getFaultSequenceName());
-				break;
-
-			case REGISTRY_REFERENCE:
-				proxyService.setTargetFaultSequence(visualService.getFaultSequenceKey().getKeyValue());
-				break;
-			}			
-			
-			TransformationInfo faultInfo =new TransformationInfo(); 
-			faultInfo.setParentSequence(faultSequence);			
-			faultInfo.setSynapseConfiguration(info.getSynapseConfiguration());
-			doTransformFaultSequence(faultInfo,getOriginNode(visualService));
-			
-		} else {
-			// Round-trip comlplete, send the message back to client.
-			// TODO: Need to verify (either here or in the visual model) that
-			// this is not a short-cricuit or an illegal message routing
-			// operation (attempting to route one proxy service's messages to
-			// another).
-			// parentMediator.addChild(new SendMediator());
+		if(((org.wso2.developerstudio.eclipse.gmf.esb.ProxyService) subject).isMainSequence()){
+			transformAsMainSequence(info,subject);
+		}else{
+			transformAsProxy(info,subject);
 		}
+		
 	}
 
 	public void createSynapseObject(TransformationInfo info, EObject subject,
@@ -364,6 +226,178 @@ public class ProxyServiceTransformer extends AbstractEsbNodeTransformer {
 			return false;
 		}
 		return true;
+	}
+	
+	private void transformAsProxy(TransformationInfo info, EsbNode subject) throws Exception{
+
+		/*TaskTransformer t=new TaskTransformer();
+		t.transform(info, subject);*/	
+		
+		ArrayList<String> transports = new ArrayList<String>();
+		List<String> pinnedServers = new ArrayList<String>();
+		// Check subject.
+		Assert.isTrue(
+				subject instanceof org.wso2.developerstudio.eclipse.gmf.esb.ProxyService,
+				"Invalid subject.");
+		org.wso2.developerstudio.eclipse.gmf.esb.ProxyService visualService = (org.wso2.developerstudio.eclipse.gmf.esb.ProxyService) subject;
+
+		// Check start.
+		if (info.getTraversalDirection() == TransformationInfo.TRAVERSAL_DIRECTION_IN) {
+
+			ProxyService proxyService = new org.apache.synapse.core.axis2.ProxyService(
+					visualService.getName());
+
+			if (visualService.getServiceGroup() != null) {
+				proxyService.setServiceGroup(visualService.getServiceGroup());
+			}
+
+			proxyService.setTraceState(visualService.isTraceEnabled() ? 1 : 0);
+			proxyService.setWsSecEnabled(visualService.isSecurityEnabled());
+			proxyService.setWsRMEnabled(visualService
+					.isReliableMessagingEnabled());
+
+			for (String a : visualService.getTransports().split(",")) {
+				transports.add(a);
+			}
+
+			proxyService.setTransports(transports);
+			switch (visualService.getWsdlType()) {
+			case INLINE:
+				OMNode node = SynapseConfigUtils.stringToOM(visualService.getWsdlXML());
+				proxyService.setInLineWSDL(node);
+				break;
+			case SOURCE_URL:
+				proxyService.setWsdlURI(new URI(visualService.getWsdlURL()));
+				break;
+			case REGISTRY_KEY:
+				proxyService.setWSDLKey(visualService.getWsdlKey().getKeyValue());
+				break;
+			case NONE:
+				break;
+			}
+			String pinnedServerInfo = visualService.getPinnedServers();
+			if (pinnedServerInfo != null && !pinnedServerInfo.equals("")) {
+				for (String a : pinnedServerInfo.split(",")) {
+					pinnedServers.add(a);
+				}
+			}
+			if (pinnedServers.size() > 0)
+				proxyService.setPinnedServers(pinnedServers);
+			// proxyService.setStatisticsState(visualService.isStatisticsEnabled()?1:0);
+			info.getSynapseConfiguration().addProxyService(
+					visualService.getName(), proxyService);
+			
+			//Proxy Service Parameters.
+			for(int i=0;i<visualService.getServiceParameters().size();++i){
+				String value = visualService.getServiceParameters().get(i).getValue();
+				if (validateXML(value)) {
+					OMElement payload = AXIOMUtil.stringToOM(value);
+					proxyService.addParameter(
+							visualService.getServiceParameters().get(i).getName(), payload);
+				} else {
+					proxyService.addParameter(
+							visualService.getServiceParameters().get(i).getName(), value);
+				}
+			}
+			
+
+			// In sequence.
+			SequenceMediator inSequence = new SequenceMediator();			
+			switch (visualService.getInSequenceType()) {
+			case ANONYMOUS:
+				proxyService.setTargetInLineInSequence(inSequence);
+				break;
+				
+			case NAMED_REFERENCE:
+				proxyService.setTargetInSequence(visualService.getInSequenceName());
+				break;
+
+			case REGISTRY_REFERENCE:
+				proxyService.setTargetInSequence(visualService.getInSequenceKey().getKeyValue());
+				break;
+			}
+
+			// Out sequence.
+			SequenceMediator outSequence = new SequenceMediator();			
+			switch (visualService.getOutSequenceType()) {
+			case ANONYMOUS:
+				proxyService.setTargetInLineOutSequence(outSequence);
+				break;
+			
+			case NAMED_REFERENCE:
+				proxyService.setTargetOutSequence(visualService.getOutSequenceName());
+				break;
+
+			case REGISTRY_REFERENCE:
+				proxyService.setTargetOutSequence(visualService.getOutSequenceKey().getKeyValue());
+				break;
+			}
+
+			info.setOriginInSequence(inSequence);
+			info.setOriginOutSequence(outSequence);
+			info.setParentSequence(inSequence);
+
+			// Transform output data flow.
+			doTransform(info, visualService.getOutputConnector());
+			
+			//Set Fault Sequence
+			SequenceMediator faultSequence = new SequenceMediator();			
+			switch (visualService.getFaultSequenceType()) {
+			case ANONYMOUS:
+				proxyService.setTargetInLineFaultSequence(faultSequence);
+				break;
+			
+			case NAMED_REFERENCE:
+				proxyService.setTargetFaultSequence(visualService.getFaultSequenceName());
+				break;
+
+			case REGISTRY_REFERENCE:
+				proxyService.setTargetFaultSequence(visualService.getFaultSequenceKey().getKeyValue());
+				break;
+			}			
+			
+			TransformationInfo faultInfo =new TransformationInfo(); 
+			faultInfo.setParentSequence(faultSequence);			
+			faultInfo.setSynapseConfiguration(info.getSynapseConfiguration());
+			doTransformFaultSequence(faultInfo,getOriginNode(visualService));
+			
+		} else {
+			// Round-trip comlplete, send the message back to client.
+			// TODO: Need to verify (either here or in the visual model) that
+			// this is not a short-cricuit or an illegal message routing
+			// operation (attempting to route one proxy service's messages to
+			// another).
+			// parentMediator.addChild(new SendMediator());
+		}
+	}
+	
+	private void transformAsMainSequence(TransformationInfo info, EsbNode subject) throws Exception{
+		// Check subject.
+		Assert.isTrue(
+				subject instanceof org.wso2.developerstudio.eclipse.gmf.esb.ProxyService,
+				"Invalid subject.");
+		org.wso2.developerstudio.eclipse.gmf.esb.ProxyService visualService = (org.wso2.developerstudio.eclipse.gmf.esb.ProxyService) subject;
+
+		// Check start.
+		if (info.getTraversalDirection() == TransformationInfo.TRAVERSAL_DIRECTION_IN) {
+
+			org.apache.synapse.mediators.base.SequenceMediator sequence =new SequenceMediator();
+			sequence.setName("main");
+			
+			InMediator inMediator=new InMediator();
+			OutMediator outMediator=new OutMediator();
+			
+			sequence.addChild(inMediator);
+			sequence.addChild(outMediator);
+			
+			info.setMainSequence(sequence);
+			
+			info.setOriginInSequence(inMediator);
+			info.setOriginOutSequence(outMediator);
+			info.setParentSequence(inMediator);
+			
+			doTransform(info, visualService.getOutputConnector());			
+		} 
 	}
 
 }

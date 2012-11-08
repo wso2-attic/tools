@@ -274,6 +274,17 @@ public class DefaultEsbModelExporter implements EsbModelTransformer {
 		}
 		return epTemplate;
 	}
+	
+	private SequenceMediator transformMainSequence(ProxyService visualService) throws Exception{
+		TransformationInfo info = new TransformationInfo();
+		info.getTransformedMediators().clear();
+		SynapseConfiguration configuration = new SynapseConfiguration();
+		info.setSynapseConfiguration(configuration);
+		ProxyServiceTransformer transformer = new ProxyServiceTransformer();
+		info.setTraversalDirection(TransformationInfo.TRAVERSAL_DIRECTION_IN);
+		transformer.transform(info, visualService );
+		return info.getMainSequence();
+	}
 
 	public String designToSource(EsbServer serverModel) throws Exception {
 		SynapseXMLConfigurationSerializer serializer = new SynapseXMLConfigurationSerializer();
@@ -334,6 +345,12 @@ public class DefaultEsbModelExporter implements EsbModelTransformer {
 					configOM = APISerializer.serializeAPI(transformAPI((SynapseAPI)child));
 				}
 				break;	
+			case MAIN_SEQUENCE:
+				if (child instanceof ProxyService) {
+					configOM = sequenceSerializer.serializeMediator(null,
+							transformMainSequence((ProxyService)child));
+				}
+				break;
 			case SYNAPSE_CONFIG:
 			default:
 				configOM = serializer.serializeConfiguration(transform(serverModel));

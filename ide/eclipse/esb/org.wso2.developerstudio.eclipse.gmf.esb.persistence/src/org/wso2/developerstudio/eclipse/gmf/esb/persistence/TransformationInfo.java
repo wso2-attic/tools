@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.apache.synapse.config.SynapseConfiguration;
 import org.apache.synapse.mediators.ListMediator;
+import org.apache.synapse.mediators.base.SequenceMediator;
 import org.apache.synapse.rest.API;
 import org.eclipse.emf.ecore.EObject;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbLink;
@@ -17,6 +18,7 @@ public class TransformationInfo {
 	public static final int TRAVERSAL_DIRECTION_OUT = 2;
 	
 	SynapseConfiguration synapseConfiguration;
+	SequenceMediator mainSequence;
 	ListMediator originInSequence;
 	ListMediator originOutSequence;
 	ListMediator parentSequence;
@@ -41,6 +43,10 @@ public class TransformationInfo {
 	
 	public ListMediator getOriginOutSequence() {
 		return originOutSequence;
+	}
+	
+	public SequenceMediator getMainSequence(){
+		return mainSequence;
 	}
 	
 	public SynapseConfiguration getSynapseConfiguration() {
@@ -69,6 +75,10 @@ public class TransformationInfo {
 	
 	public void setOriginInSequence(ListMediator originInSequence) {
 		this.originInSequence = originInSequence;
+	}
+	
+	public void setMainSequence(SequenceMediator mainSequence){
+		this.mainSequence=mainSequence;
 	}
 	
 	public void setParentSequence(ListMediator parentMediator) {
