@@ -109,11 +109,35 @@ public class APIResourceTransformer extends AbstractEsbNodeTransformer {
 
 			// In sequence.
 			SequenceMediator inSequence = new SequenceMediator();
-			resource.setInSequence(inSequence);
+			switch (visualResource.getInSequenceType()) {
+			case ANONYMOUS:
+				resource.setInSequence(inSequence);
+				break;
+				
+			case NAMED_REFERENCE:
+				resource.setInSequenceKey(visualResource.getInSequenceName());
+				break;
+
+			case REGISTRY_REFERENCE:
+				resource.setInSequenceKey(visualResource.getInSequenceKey().getKeyValue());
+				break;
+			}
 
 			// Out sequence.
 			SequenceMediator outSequence = new SequenceMediator();
-			resource.setOutSequence(outSequence);
+			switch (visualResource.getOutSequenceType()) {
+			case ANONYMOUS:
+				resource.setOutSequence(outSequence);
+				break;
+			
+			case NAMED_REFERENCE:
+				resource.setOutSequenceKey(visualResource.getOutSequenceName());
+				break;
+
+			case REGISTRY_REFERENCE:
+				resource.setOutSequenceKey(visualResource.getOutSequenceKey().getKeyValue());
+				break;
+			}
 
 			information.setOriginInSequence(inSequence);
 			information.setOriginOutSequence(outSequence);
@@ -124,7 +148,20 @@ public class APIResourceTransformer extends AbstractEsbNodeTransformer {
 
 			// Set Fault Sequence
 			SequenceMediator faultSequence = new SequenceMediator();
-			resource.setFaultSequence(faultSequence);
+			switch (visualResource.getFaultSequenceType()) {
+			case ANONYMOUS:
+				resource.setFaultSequence(faultSequence);
+				break;
+			
+			case NAMED_REFERENCE:
+				resource.setFaultSequenceKey(visualResource.getFaultSequenceName());
+				break;
+
+			case REGISTRY_REFERENCE:
+				resource.setFaultSequenceKey(visualResource.getFaultSequenceKey().getKeyValue());
+				break;
+			}
+			
 			TransformationInfo faultInfo = new TransformationInfo();
 			faultInfo.setParentSequence(faultSequence);
 			faultInfo.setSynapseConfiguration(information
