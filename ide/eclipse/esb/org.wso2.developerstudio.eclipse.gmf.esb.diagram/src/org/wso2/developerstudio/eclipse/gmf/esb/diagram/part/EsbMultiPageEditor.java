@@ -14,6 +14,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.part;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.InputStream;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -37,12 +38,15 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.notation.impl.NodeImpl;
 import org.eclipse.jface.dialogs.ErrorDialog;
+import org.eclipse.jface.dialogs.ProgressMonitorDialog;
+import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.text.DocumentEvent;
 import org.eclipse.jface.text.IDocumentListener;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorReference;
@@ -167,16 +171,6 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
      * which allows you to edit the xml.
      */
     void createPage1() {   
-    /*	
-    	try{
-    	TextEditor sourceEditor1 = new TextEditor();
-		addPage(sourceEditor1,getEditorInput());
-		setPageText(SOURCE_VIEW_PAGE_INDEX,	"Source");
-    	}
-    	catch (Exception ex) {
-    		System.out.println("Error while creating source view");
-    	}*/
-    	
     	
 		try {
 			sourceEditor = new EsbObjectSourceEditor(
@@ -201,11 +195,7 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 			// Initialize source editor.
 			//updateSourceEditor();
 		} catch (Exception ex) {
-			//TODO: Get rid of this
-			ex.printStackTrace();
-			//log.error(
-			//		"Error while initializing source viewer control.",
-			//		ex);
+			log.error("Error while initializing source viewer control.",ex);
 		}	
 		
     }
@@ -584,13 +574,41 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
     }
     
     
-	void rebuildModelObject(String xml) {
+	void rebuildModelObject(final String xml) {
+		/*try {
+			Shell activeShell = PlatformUI.getWorkbench().getDisplay().getActiveShell();
+			ProgressMonitorDialog progressMonitorDialog = new ProgressMonitorDialog(activeShell);
+			progressMonitorDialog.setOpenOnRun(true);
+			progressMonitorDialog.run(true, true, new IRunnableWithProgress() {
+
+				@Override
+				public void run(IProgressMonitor monitor) throws InvocationTargetException,
+						InterruptedException {
+					try {
+						monitor.setTaskName("Generating diagram from source");
+						Deserializer.getInstance().updateDesign(xml, graphicalEditor);
+						sourceDirty=false;
+					} catch (Exception e) {
+						new InvocationTargetException(e);
+					}
+				}
+			
+			});
+			
+		} catch (InvocationTargetException e) {
+			log.error("Error while generating diagram from source",e.getTargetException());
+		} catch (InterruptedException e) {
+			log.warn("The operation was canceled by the user", e);
+		} finally{
+			firePropertyChange(PROP_DIRTY);
+		}*/
+		
 		try {
 			Deserializer.getInstance().updateDesign(xml, graphicalEditor);
 			sourceDirty=false;
 			firePropertyChange(PROP_DIRTY);
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("Error while generating diagram from source",e);
 		}
 	}
 	
