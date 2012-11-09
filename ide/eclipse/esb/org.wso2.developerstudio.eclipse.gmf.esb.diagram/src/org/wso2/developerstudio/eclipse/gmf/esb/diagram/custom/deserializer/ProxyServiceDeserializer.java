@@ -29,10 +29,16 @@ public class ProxyServiceDeserializer extends AbstractEsbNodeDeserializer<ProxyS
 		proxy.setName(object.getName());
 		proxy.setTransports(join(object.getTransports(), ","));
 		
-		SequenceMediator sequence = object.getTargetInLineInSequence();
+		SequenceMediator inSequence = object.getTargetInLineInSequence();
 		MediatorFlow mediatorFlow = proxy.getContainer().getSequenceAndEndpointContainer().getMediatorFlow();
+		deserializeSequence(mediatorFlow, inSequence, proxy.getOutputConnector());
 		
-		deserializeSequence(mediatorFlow, sequence, proxy.getOutputConnector());
+		SequenceMediator outSequence = object.getTargetInLineOutSequence();
+		deserializeSequence(mediatorFlow, outSequence, proxy.getInputConnector());
+		
+		SequenceMediator faultSequence = object.getTargetInLineFaultSequence();
+		MediatorFlow faultmediatorFlow = proxy.getContainer().getFaultContainer().getMediatorFlow();
+		deserializeSequence(faultmediatorFlow, faultSequence, proxy.getFaultInputConnector());
 		
 		//TODO : deserialize other mediator sequences and properties
 		

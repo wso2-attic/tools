@@ -213,102 +213,117 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 										.getParent().getParent().getParent()).reversed))
 					                	|(shouldReverse()))) {
 
-			AbstractMediator selectedEP = (AbstractMediator) editorPart;
-			List<IFigure> inputConnectors = new ArrayList<IFigure>();
-			List<BorderItemLocator> inputLocators = new ArrayList<BorderItemLocator>();
-			List<IFigure> outputConnectors = new ArrayList<IFigure>();
-			List<BorderItemLocator> outputLocators = new ArrayList<BorderItemLocator>();
-			IFigure inputConnector;
-			IFigure outputConnector;
-			float inputCount = 0, outputCount = 0;
-			float inputPosition = 0, outputPosition = 0;
-
-			for (int i = 0; i < selectedEP.getChildren().size(); ++i) {
-				if (selectedEP.getChildren().get(i) instanceof AbstractMediatorInputConnectorEditPart) {
-					++inputCount;
-				}
-			}
-
-			for (int i = 0; i < selectedEP.getChildren().size(); ++i) {
-				if (selectedEP.getChildren().get(i) instanceof AbstractMediatorOutputConnectorEditPart) {
-					++outputCount;
-				}
-			}
-
-			for (int i = 0; i < selectedEP.getChildren().size(); ++i) {
-				if (selectedEP.getChildren().get(i) instanceof AbstractMediatorInputConnectorEditPart) {
-
-					inputConnector = ((AbstractMediatorInputConnectorEditPart) selectedEP.getChildren().get(i))
-							.getFigure();
-					inputConnectors.add(inputConnector);
-					NodeFigure figureInput = ((AbstractMediatorInputConnectorEditPart) selectedEP.getChildren()
-							.get(i)).getNodeFigureInput();
-					inputPosition = inputPosition + (1 / (inputCount + 1));
-
-					figureInput.removeAll();
-					figureInput.add(((AbstractMediatorInputConnectorEditPart) selectedEP.getChildren().get(i))
-							.getPrimaryShapeReverse());
-
-					BorderItemLocator inputLocator = new FixedBorderItemLocator(
-							selectedEP.getMainFigure(), inputConnector, PositionConstants.EAST,
-							inputPosition);
-
-					inputLocators.add(inputLocator);
-
-				}
-
-				if (selectedEP.getChildren().get(i) instanceof AbstractMediatorOutputConnectorEditPart) {
-
-					outputConnector = ((AbstractMediatorOutputConnectorEditPart) selectedEP.getChildren().get(i))
-							.getFigure();
-					outputConnectors.add(outputConnector);
-					NodeFigure figureOutput = ((AbstractMediatorOutputConnectorEditPart) selectedEP.getChildren()
-							.get(i)).getNodeFigureOutput();
-
-					outputPosition = outputPosition + (1 / (outputCount + 1));
-
-					figureOutput.removeAll();
-					EsbLink link=((OutputConnector)((Node)((AbstractMediatorOutputConnectorEditPart) selectedEP.getChildren().get(i)).getModel()).getElement()).getOutgoingLink();
-					if(link ==null){
-					figureOutput.add(((AbstractMediatorOutputConnectorEditPart) selectedEP.getChildren().get(i))
-							.getPrimaryShapeReverse());
-					}else{
-						Figure emptyFigure = new Figure();
-						figureOutput.add(emptyFigure);
-					}
-
-					BorderItemLocator outputLocator = new FixedBorderItemLocator(
-							selectedEP.getMainFigure(), outputConnector, PositionConstants.WEST,
-							outputPosition);
-
-					outputLocators.add(outputLocator);
-
-				}
-
-			}
-
-			for (int j = 0; j < inputConnectors.size(); ++j) {
-				selectedEP.getBorderedFigure().getBorderItemContainer()
-						.remove(inputConnectors.get(j));
-				selectedEP.getBorderedFigure().getBorderItemContainer()
-						.add(inputConnectors.get(j), inputLocators.get(j));
-
-			}
-			for (int j = 0; j < outputConnectors.size(); ++j) {
-				selectedEP.getBorderedFigure().getBorderItemContainer()
-						.remove(outputConnectors.get(j));
-				selectedEP.getBorderedFigure().getBorderItemContainer()
-						.add(outputConnectors.get(j), outputLocators.get(j));
-
-			}
-
-			reversed = true;
-			if (checkComplexity()) {
-				MediatorFigureReverser.reverse(editorPart, false);
-			}
+			reverseConnectors(editorPart);
 			
 		}
 		
+	}
+	
+	/**
+	 * Reverse connectors
+	 */
+	public void reverseConnectors() {
+		reverseConnectors(this);
+	}
+
+	/**
+	 * Reverse connectors
+	 * @param editorPart
+	 */
+	public void reverseConnectors(EditPart editorPart) {
+		AbstractMediator selectedEP = (AbstractMediator) editorPart;
+		List<IFigure> inputConnectors = new ArrayList<IFigure>();
+		List<BorderItemLocator> inputLocators = new ArrayList<BorderItemLocator>();
+		List<IFigure> outputConnectors = new ArrayList<IFigure>();
+		List<BorderItemLocator> outputLocators = new ArrayList<BorderItemLocator>();
+		IFigure inputConnector;
+		IFigure outputConnector;
+		float inputCount = 0, outputCount = 0;
+		float inputPosition = 0, outputPosition = 0;
+
+		for (int i = 0; i < selectedEP.getChildren().size(); ++i) {
+			if (selectedEP.getChildren().get(i) instanceof AbstractMediatorInputConnectorEditPart) {
+				++inputCount;
+			}
+		}
+
+		for (int i = 0; i < selectedEP.getChildren().size(); ++i) {
+			if (selectedEP.getChildren().get(i) instanceof AbstractMediatorOutputConnectorEditPart) {
+				++outputCount;
+			}
+		}
+
+		for (int i = 0; i < selectedEP.getChildren().size(); ++i) {
+			if (selectedEP.getChildren().get(i) instanceof AbstractMediatorInputConnectorEditPart) {
+
+				inputConnector = ((AbstractMediatorInputConnectorEditPart) selectedEP.getChildren().get(i))
+						.getFigure();
+				inputConnectors.add(inputConnector);
+				NodeFigure figureInput = ((AbstractMediatorInputConnectorEditPart) selectedEP.getChildren()
+						.get(i)).getNodeFigureInput();
+				inputPosition = inputPosition + (1 / (inputCount + 1));
+
+				figureInput.removeAll();
+				figureInput.add(((AbstractMediatorInputConnectorEditPart) selectedEP.getChildren().get(i))
+						.getPrimaryShapeReverse());
+
+				BorderItemLocator inputLocator = new FixedBorderItemLocator(
+						selectedEP.getMainFigure(), inputConnector, PositionConstants.EAST,
+						inputPosition);
+
+				inputLocators.add(inputLocator);
+
+			}
+
+			if (selectedEP.getChildren().get(i) instanceof AbstractMediatorOutputConnectorEditPart) {
+
+				outputConnector = ((AbstractMediatorOutputConnectorEditPart) selectedEP.getChildren().get(i))
+						.getFigure();
+				outputConnectors.add(outputConnector);
+				NodeFigure figureOutput = ((AbstractMediatorOutputConnectorEditPart) selectedEP.getChildren()
+						.get(i)).getNodeFigureOutput();
+
+				outputPosition = outputPosition + (1 / (outputCount + 1));
+
+				figureOutput.removeAll();
+				EsbLink link=((OutputConnector)((Node)((AbstractMediatorOutputConnectorEditPart) selectedEP.getChildren().get(i)).getModel()).getElement()).getOutgoingLink();
+				if(link ==null){
+				figureOutput.add(((AbstractMediatorOutputConnectorEditPart) selectedEP.getChildren().get(i))
+						.getPrimaryShapeReverse());
+				}else{
+					Figure emptyFigure = new Figure();
+					figureOutput.add(emptyFigure);
+				}
+
+				BorderItemLocator outputLocator = new FixedBorderItemLocator(
+						selectedEP.getMainFigure(), outputConnector, PositionConstants.WEST,
+						outputPosition);
+
+				outputLocators.add(outputLocator);
+
+			}
+
+		}
+
+		for (int j = 0; j < inputConnectors.size(); ++j) {
+			selectedEP.getBorderedFigure().getBorderItemContainer()
+					.remove(inputConnectors.get(j));
+			selectedEP.getBorderedFigure().getBorderItemContainer()
+					.add(inputConnectors.get(j), inputLocators.get(j));
+
+		}
+		for (int j = 0; j < outputConnectors.size(); ++j) {
+			selectedEP.getBorderedFigure().getBorderItemContainer()
+					.remove(outputConnectors.get(j));
+			selectedEP.getBorderedFigure().getBorderItemContainer()
+					.add(outputConnectors.get(j), outputLocators.get(j));
+
+		}
+
+		reversed = true;
+		if (checkComplexity()) {
+			MediatorFigureReverser.reverse(editorPart, false);
+		}
 	}	
 	
 	protected void getMostSuitableElementToConnect() {

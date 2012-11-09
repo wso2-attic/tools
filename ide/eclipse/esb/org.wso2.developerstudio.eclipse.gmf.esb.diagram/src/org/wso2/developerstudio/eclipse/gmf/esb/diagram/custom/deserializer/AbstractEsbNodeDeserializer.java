@@ -44,10 +44,11 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbServer;
+import org.wso2.developerstudio.eclipse.gmf.esb.InputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.MediatorFlow;
+import org.wso2.developerstudio.eclipse.gmf.esb.OutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractInputConnectorEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractOutputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ConnectionUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbLinkEditPart;
@@ -60,6 +61,7 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 	private static EsbDiagramEditor diagramEditor;
 	private static Map<EsbConnector, LinkedList<EsbNode>> connectionFlowMap = new LinkedHashMap<EsbConnector, LinkedList<EsbNode>>();
 	private static Map<EObject,ShapeNodeEditPart> editPartMap = new HashMap<EObject, ShapeNodeEditPart>();
+	private static List<EObject> reversedNodes = new ArrayList<EObject>();
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 
 	public EsbDiagramEditor getDiagramEditor() {
@@ -77,38 +79,56 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 	 * @param connector
 	 */
 	protected void deserializeSequence(MediatorFlow mediatorFlow, SequenceMediator sequence, EsbConnector connector) {
-		LinkedList<EsbNode> mediatorList = new LinkedList<EsbNode>();
+		LinkedList<EsbNode> nodeList = new LinkedList<EsbNode>();
 	
 		Diagram diagram = getDiagramEditor().getDiagram();
 		EsbDiagram esbDiagram = (EsbDiagram) diagram.getElement();
 		EsbServer esbServer = esbDiagram.getServer();
 		TransactionalEditingDomain domain = TransactionUtil.getEditingDomain(esbServer);
 
-		EsbNode node = null;
-		AddCommand addCmd = null;
+		if(connector instanceof OutputConnector){
+			for (int i = 0; i < sequence.getList().size(); ++i) {
+				AbstractMediator mediator = (AbstractMediator) sequence.getList().get(i);
+				executeMediatorDeserializer(mediatorFlow, nodeList, domain, mediator);
+			}
+			connectionFlowMap.put(connector, nodeList);
+		} else if(connector instanceof InputConnector){
+			for (int i = sequence.getList().size() -1; i >= 0; --i) {
+				AbstractMediator mediator = (AbstractMediator) sequence.getList().get(i);
+				executeMediatorDeserializer(mediatorFlow, nodeList, domain, mediator);
+			}
+			connectionFlowMap.put(connector, nodeList);
+			reversedNodes.addAll(nodeList);
+		}
+		
+	}
 
-		for (int i = 0; i < sequence.getList().size(); ++i) {
-			AbstractMediator mediator = (AbstractMediator) sequence.getList().get(i);
-			IEsbNodeDeserializer deserializer = EsbDeserializerRegistry.getInstance()
-					.getDeserializer(mediator);
-			if(deserializer!=null){
-				node = deserializer.createNode(mediator);
-				mediatorList.add(node);
+	/**
+	 * Execute deserializer
+	 * @param mediatorFlow
+	 * @param nodeList
+	 * @param domain
+	 * @param mediator
+	 */
+	private void executeMediatorDeserializer(MediatorFlow mediatorFlow,
+			LinkedList<EsbNode> nodeList, TransactionalEditingDomain domain,
+			AbstractMediator mediator) {
+		IEsbNodeDeserializer deserializer = EsbDeserializerRegistry.getInstance().getDeserializer(
+				mediator);
+		if (deserializer != null) {
+			EsbNode node = deserializer.createNode(mediator);
+			nodeList.add(node);
 
-				addCmd = new AddCommand(domain, mediatorFlow,
-						EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN, node);
-				
-				if(addCmd.canExecute()){
-					domain.getCommandStack().execute(addCmd);
-				} else{
-					getLog().warn("Cannot execute EMF command : "+ addCmd.toString());
-				}
-				
+			AddCommand addCmd = new AddCommand(domain, mediatorFlow,
+					EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN, node);
+
+			if (addCmd.canExecute()) {
+				domain.getCommandStack().execute(addCmd);
+			} else {
+				getLog().warn("Cannot execute EMF command : " + addCmd.toString());
 			}
 
 		}
-
-		connectionFlowMap.put(connector, mediatorList);
 	}
 	
 	/**
@@ -116,75 +136,111 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 	 */
 	public static synchronized void connectMediatorFlows(){
 		refreshEditPartMap();
+		for(EObject node : reversedNodes){
+			EditPart editpart = getEditpart(node);
+			if(editpart instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediator){
+				((org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediator)editpart).reverseConnectors();
+			}
+		}
 		for (Map.Entry<EsbConnector, LinkedList<EsbNode>> flow : connectionFlowMap.entrySet()) {
 			connectMediatorFlow(flow.getKey(), flow.getValue());
 		}
 		connectionFlowMap.clear();
+		reversedNodes.clear();
 	}
 	
 	
 	/**
 	 * Connect mediator-flow to a connector
 	 * @param connector
-	 * @param mediatorList
+	 * @param nodeList
 	 */
-	private static void connectMediatorFlow(EsbConnector connector, LinkedList<EsbNode> mediatorList) {
-		AbstractOutputConnectorEditPart outputConnector = null;
-			AbstractInputConnectorEditPart inputConnector = null;
+	private static void connectMediatorFlow(EsbConnector connector, LinkedList<EsbNode> nodeList) {
+		AbstractConnectorEditPart sourceConnector = null;
+		AbstractConnectorEditPart targetConnector = null;
+		
+		boolean reversedMode = (connector instanceof InputConnector);
 
-		EditPart outputConnectorEditpart = getEditpart(connector);
-		if (outputConnectorEditpart instanceof AbstractOutputConnectorEditPart) {
-			outputConnector = (AbstractOutputConnectorEditPart) getEditpart(connector);
+		EditPart sourceConnectorEditpart = getEditpart(connector);
+		if (sourceConnectorEditpart instanceof AbstractConnectorEditPart) {
+			sourceConnector = (AbstractConnectorEditPart) getEditpart(connector);
 		}
 
-		for (EsbNode mediatornode : mediatorList) {
-			AbstractOutputConnectorEditPart nextOutputConnector = null;
-			inputConnector = null;
+		Iterator<EsbNode> iterator = nodeList.iterator();
+
+		while (iterator.hasNext()) {
+			EsbNode mediatornode = iterator.next();
+			AbstractConnectorEditPart nextSourceConnector = null;
+			targetConnector = null;
 
 			EditPart editpart = getEditpart(mediatornode);
 			if (editpart instanceof ShapeNodeEditPart) {
-				inputConnector = EditorUtils.getInputConnector((ShapeNodeEditPart) editpart);
-				nextOutputConnector = EditorUtils.getOutputConnector((ShapeNodeEditPart) editpart);
-
+				if(reversedMode){
+					targetConnector = EditorUtils.getOutputConnector((ShapeNodeEditPart) editpart);
+					nextSourceConnector = EditorUtils.getInputConnector((ShapeNodeEditPart) editpart);
+				} else{
+					targetConnector = EditorUtils.getInputConnector((ShapeNodeEditPart) editpart);
+					nextSourceConnector = EditorUtils.getOutputConnector((ShapeNodeEditPart) editpart);
+				}
+			}
+			
+			if(nextSourceConnector!=null){
+				clearLinks(nextSourceConnector);
 			}
 
-			if (inputConnector != null && outputConnector != null) {
-				List sourceConnections = outputConnector.getSourceConnections();
-				Iterator iterator = sourceConnections.iterator();
+			if (targetConnector != null && sourceConnector != null) {
+				clearLinks(targetConnector);
+				clearLinks(sourceConnector);
 				
-				CompoundCommand ccModel = new CompoundCommand();
-				org.eclipse.gef.commands.CompoundCommand ccView = new org.eclipse.gef.commands.CompoundCommand();
+				if(reversedMode){
+					ConnectionUtils.createConnection(sourceConnector,targetConnector);
+				} else{
+					ConnectionUtils.createConnection(targetConnector, sourceConnector);
+				}
 				
-				while (iterator.hasNext()) {
-					EsbLinkEditPart linkEditPart = (EsbLinkEditPart) iterator.next();
-
-					Collection linkCollection = new ArrayList();
-					linkCollection.add(((ConnectorImpl) linkEditPart.getModel()).getElement());
-
-					org.eclipse.emf.edit.command.DeleteCommand modelDeleteCommand = new org.eclipse.emf.edit.command.DeleteCommand(
-							outputConnector.getEditingDomain(), linkCollection);
-					if (modelDeleteCommand.canExecute()) {
-						ccModel.append(modelDeleteCommand);
-					}
-
-					DeleteCommand viewDeleteCommand = new DeleteCommand(
-							linkEditPart.getNotationView());
-					if (viewDeleteCommand.canExecute()) {
-						ccView.add(new ICommandProxy(viewDeleteCommand));
-					}
-				}
-
-				if (ccModel.canExecute()) {
-					outputConnector.getEditingDomain().getCommandStack().execute(ccModel);
-				}
-				if (ccView.canExecute()) {
-					outputConnector.getDiagramEditDomain().getDiagramCommandStack()
-							.execute(ccView);
-				}
-
-				ConnectionUtils.createConnection(inputConnector, outputConnector);
 			}
-			outputConnector = nextOutputConnector;
+			sourceConnector = nextSourceConnector;
+		}
+	}
+
+	/**
+	 * Clear link 
+	 * @param sourceConnector
+	 */
+	private static void clearLinks(AbstractConnectorEditPart sourceConnector) {
+		List connections = new ArrayList();
+		connections.addAll(sourceConnector.getSourceConnections());
+		connections.addAll(sourceConnector.getTargetConnections());
+		Iterator iterator = connections.iterator();
+		
+		CompoundCommand ccModel = new CompoundCommand();
+		org.eclipse.gef.commands.CompoundCommand ccView = new org.eclipse.gef.commands.CompoundCommand();
+		
+		while (iterator.hasNext()) {
+			EsbLinkEditPart linkEditPart = (EsbLinkEditPart) iterator.next();
+
+			Collection linkCollection = new ArrayList();
+			linkCollection.add(((ConnectorImpl) linkEditPart.getModel()).getElement());
+
+			org.eclipse.emf.edit.command.DeleteCommand modelDeleteCommand = new org.eclipse.emf.edit.command.DeleteCommand(
+					sourceConnector.getEditingDomain(), linkCollection);
+			if (modelDeleteCommand.canExecute()) {
+				ccModel.append(modelDeleteCommand);
+			}
+
+			DeleteCommand viewDeleteCommand = new DeleteCommand(
+					linkEditPart.getNotationView());
+			if (viewDeleteCommand.canExecute()) {
+				ccView.add(new ICommandProxy(viewDeleteCommand));
+			}
+		}
+
+		if (ccModel.canExecute()) {
+			sourceConnector.getEditingDomain().getCommandStack().execute(ccModel);
+		}
+		if (ccView.canExecute()) {
+			sourceConnector.getDiagramEditDomain().getDiagramCommandStack()
+					.execute(ccView);
 		}
 	}
 	

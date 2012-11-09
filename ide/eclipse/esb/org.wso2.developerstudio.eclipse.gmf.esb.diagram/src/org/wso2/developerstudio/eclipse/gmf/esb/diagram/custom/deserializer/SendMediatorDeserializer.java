@@ -18,10 +18,12 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 
 import java.util.Map;
 
+import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.mediators.AbstractMediator;
 import org.apache.synapse.mediators.Value;
 import org.apache.synapse.util.xpath.SynapseXPath;
 import org.eclipse.core.runtime.Assert;
+import org.wso2.developerstudio.eclipse.gmf.esb.EndpointFlow;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.ReceivingSequenceType;
@@ -77,6 +79,14 @@ public class SendMediatorDeserializer extends AbstractEsbNodeDeserializer<Abstra
 				
 			}
 		}
+		
+		Endpoint endpoint = sendMediator.getEndpoint();
+		if(endpoint!=null){
+			EndpointFlow endpointFlow = EsbFactory.eINSTANCE.createEndpointFlow();
+			vishualSend.setEndpointFlow(endpointFlow);
+			//TODO: deserialize end points
+		}
+			
 		return vishualSend;
 	}
 	

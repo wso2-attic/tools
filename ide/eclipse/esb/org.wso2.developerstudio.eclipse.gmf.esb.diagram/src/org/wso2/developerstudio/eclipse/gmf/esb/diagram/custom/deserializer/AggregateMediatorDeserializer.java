@@ -18,7 +18,6 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 
 import java.util.Map;
 
-import javax.management.MXBean;
 
 import org.apache.synapse.mediators.AbstractMediator;
 import org.apache.synapse.mediators.Value;
