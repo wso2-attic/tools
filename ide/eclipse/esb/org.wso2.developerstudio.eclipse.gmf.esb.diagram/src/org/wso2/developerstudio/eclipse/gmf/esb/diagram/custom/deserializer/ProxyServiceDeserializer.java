@@ -40,6 +40,7 @@ public class ProxyServiceDeserializer extends AbstractEsbNodeDeserializer<ProxyS
 		MediatorFlow faultmediatorFlow = proxy.getContainer().getFaultContainer().getMediatorFlow();
 		deserializeSequence(faultmediatorFlow, faultSequence, proxy.getFaultInputConnector());
 		
+		addPairMediatorFlow(proxy.getOutputConnector(),proxy.getInputConnector());
 		//TODO : deserialize other mediator sequences and properties
 		
 		return proxy;
