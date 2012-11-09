@@ -1474,6 +1474,15 @@
       <genFeatures createChild="false" propertyCategory="Methods" ecoreFeature="ecore:EAttribute esb.ecore#//APIResource/allowDelete"/>
       <genFeatures createChild="false" propertyCategory="Methods" ecoreFeature="ecore:EAttribute esb.ecore#//APIResource/allowOptions"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//APIResource/container"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//APIResource/inSequenceType"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//APIResource/inSequenceKey"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//APIResource/inSequenceName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//APIResource/outSequenceType"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//APIResource/outSequenceKey"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//APIResource/outSequenceName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//APIResource/faultSequenceType"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//APIResource/faultSequenceKey"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//APIResource/faultSequenceName"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//APIResourceInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//APIResourceOutputConnector"/>

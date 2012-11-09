@@ -27,6 +27,15 @@ package org.wso2.developerstudio.eclipse.gmf.esb;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.APIResource#isAllowDelete <em>Allow Delete</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.APIResource#isAllowOptions <em>Allow Options</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.APIResource#getContainer <em>Container</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.APIResource#getInSequenceType <em>In Sequence Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.APIResource#getInSequenceKey <em>In Sequence Key</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.APIResource#getInSequenceName <em>In Sequence Name</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.APIResource#getOutSequenceType <em>Out Sequence Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.APIResource#getOutSequenceKey <em>Out Sequence Key</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.APIResource#getOutSequenceName <em>Out Sequence Name</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.APIResource#getFaultSequenceType <em>Fault Sequence Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.APIResource#getFaultSequenceKey <em>Fault Sequence Key</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.APIResource#getFaultSequenceName <em>Fault Sequence Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -349,5 +358,248 @@ public interface APIResource extends EsbNode {
 	 * @generated
 	 */
 	void setContainer(ProxyServiceContainer value);
+
+	/**
+	 * Returns the value of the '<em><b>In Sequence Type</b></em>' attribute.
+	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.gmf.esb.SequenceType}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>In Sequence Type</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>In Sequence Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.SequenceType
+	 * @see #setInSequenceType(SequenceType)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getAPIResource_InSequenceType()
+	 * @model
+	 * @generated
+	 */
+	SequenceType getInSequenceType();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.APIResource#getInSequenceType <em>In Sequence Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>In Sequence Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.SequenceType
+	 * @see #getInSequenceType()
+	 * @generated
+	 */
+	void setInSequenceType(SequenceType value);
+
+	/**
+	 * Returns the value of the '<em><b>In Sequence Key</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>In Sequence Key</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>In Sequence Key</em>' containment reference.
+	 * @see #setInSequenceKey(RegistryKeyProperty)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getAPIResource_InSequenceKey()
+	 * @model containment="true"
+	 * @generated
+	 */
+	RegistryKeyProperty getInSequenceKey();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.APIResource#getInSequenceKey <em>In Sequence Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>In Sequence Key</em>' containment reference.
+	 * @see #getInSequenceKey()
+	 * @generated
+	 */
+	void setInSequenceKey(RegistryKeyProperty value);
+
+	/**
+	 * Returns the value of the '<em><b>In Sequence Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>In Sequence Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>In Sequence Name</em>' attribute.
+	 * @see #setInSequenceName(String)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getAPIResource_InSequenceName()
+	 * @model
+	 * @generated
+	 */
+	String getInSequenceName();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.APIResource#getInSequenceName <em>In Sequence Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>In Sequence Name</em>' attribute.
+	 * @see #getInSequenceName()
+	 * @generated
+	 */
+	void setInSequenceName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Out Sequence Type</b></em>' attribute.
+	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.gmf.esb.SequenceType}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Out Sequence Type</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Out Sequence Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.SequenceType
+	 * @see #setOutSequenceType(SequenceType)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getAPIResource_OutSequenceType()
+	 * @model
+	 * @generated
+	 */
+	SequenceType getOutSequenceType();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.APIResource#getOutSequenceType <em>Out Sequence Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Out Sequence Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.SequenceType
+	 * @see #getOutSequenceType()
+	 * @generated
+	 */
+	void setOutSequenceType(SequenceType value);
+
+	/**
+	 * Returns the value of the '<em><b>Out Sequence Key</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Out Sequence Key</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Out Sequence Key</em>' containment reference.
+	 * @see #setOutSequenceKey(RegistryKeyProperty)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getAPIResource_OutSequenceKey()
+	 * @model containment="true"
+	 * @generated
+	 */
+	RegistryKeyProperty getOutSequenceKey();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.APIResource#getOutSequenceKey <em>Out Sequence Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Out Sequence Key</em>' containment reference.
+	 * @see #getOutSequenceKey()
+	 * @generated
+	 */
+	void setOutSequenceKey(RegistryKeyProperty value);
+
+	/**
+	 * Returns the value of the '<em><b>Out Sequence Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Out Sequence Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Out Sequence Name</em>' attribute.
+	 * @see #setOutSequenceName(String)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getAPIResource_OutSequenceName()
+	 * @model
+	 * @generated
+	 */
+	String getOutSequenceName();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.APIResource#getOutSequenceName <em>Out Sequence Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Out Sequence Name</em>' attribute.
+	 * @see #getOutSequenceName()
+	 * @generated
+	 */
+	void setOutSequenceName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Fault Sequence Type</b></em>' attribute.
+	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.gmf.esb.SequenceType}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Fault Sequence Type</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Fault Sequence Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.SequenceType
+	 * @see #setFaultSequenceType(SequenceType)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getAPIResource_FaultSequenceType()
+	 * @model
+	 * @generated
+	 */
+	SequenceType getFaultSequenceType();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.APIResource#getFaultSequenceType <em>Fault Sequence Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Fault Sequence Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.SequenceType
+	 * @see #getFaultSequenceType()
+	 * @generated
+	 */
+	void setFaultSequenceType(SequenceType value);
+
+	/**
+	 * Returns the value of the '<em><b>Fault Sequence Key</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Fault Sequence Key</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Fault Sequence Key</em>' containment reference.
+	 * @see #setFaultSequenceKey(RegistryKeyProperty)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getAPIResource_FaultSequenceKey()
+	 * @model containment="true"
+	 * @generated
+	 */
+	RegistryKeyProperty getFaultSequenceKey();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.APIResource#getFaultSequenceKey <em>Fault Sequence Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Fault Sequence Key</em>' containment reference.
+	 * @see #getFaultSequenceKey()
+	 * @generated
+	 */
+	void setFaultSequenceKey(RegistryKeyProperty value);
+
+	/**
+	 * Returns the value of the '<em><b>Fault Sequence Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Fault Sequence Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Fault Sequence Name</em>' attribute.
+	 * @see #setFaultSequenceName(String)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getAPIResource_FaultSequenceName()
+	 * @model
+	 * @generated
+	 */
+	String getFaultSequenceName();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.APIResource#getFaultSequenceName <em>Fault Sequence Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Fault Sequence Name</em>' attribute.
+	 * @see #getFaultSequenceName()
+	 * @generated
+	 */
+	void setFaultSequenceName(String value);
 
 } // APIResource

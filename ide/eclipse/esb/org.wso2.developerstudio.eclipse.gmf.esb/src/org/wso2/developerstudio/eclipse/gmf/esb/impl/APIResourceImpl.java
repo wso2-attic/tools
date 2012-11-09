@@ -21,6 +21,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.APIResourceOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.ApiResourceUrlStyle;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceContainer;
+import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
+import org.wso2.developerstudio.eclipse.gmf.esb.SequenceType;
 
 /**
  * <!-- begin-user-doc -->
@@ -41,6 +43,15 @@ import org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceContainer;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.APIResourceImpl#isAllowDelete <em>Allow Delete</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.APIResourceImpl#isAllowOptions <em>Allow Options</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.APIResourceImpl#getContainer <em>Container</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.APIResourceImpl#getInSequenceType <em>In Sequence Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.APIResourceImpl#getInSequenceKey <em>In Sequence Key</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.APIResourceImpl#getInSequenceName <em>In Sequence Name</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.APIResourceImpl#getOutSequenceType <em>Out Sequence Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.APIResourceImpl#getOutSequenceKey <em>Out Sequence Key</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.APIResourceImpl#getOutSequenceName <em>Out Sequence Name</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.APIResourceImpl#getFaultSequenceType <em>Fault Sequence Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.APIResourceImpl#getFaultSequenceKey <em>Fault Sequence Key</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.APIResourceImpl#getFaultSequenceName <em>Fault Sequence Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -248,12 +259,180 @@ public class APIResourceImpl extends EsbNodeImpl implements APIResource {
 	protected ProxyServiceContainer container;
 
 	/**
+	 * The default value of the '{@link #getInSequenceType() <em>In Sequence Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @see #getInSequenceType()
 	 * @generated
+	 * @ordered
+	 */
+	protected static final SequenceType IN_SEQUENCE_TYPE_EDEFAULT = SequenceType.ANONYMOUS;
+
+	/**
+	 * The cached value of the '{@link #getInSequenceType() <em>In Sequence Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInSequenceType()
+	 * @generated
+	 * @ordered
+	 */
+	protected SequenceType inSequenceType = IN_SEQUENCE_TYPE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getInSequenceKey() <em>In Sequence Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInSequenceKey()
+	 * @generated
+	 * @ordered
+	 */
+	protected RegistryKeyProperty inSequenceKey;
+
+	/**
+	 * The default value of the '{@link #getInSequenceName() <em>In Sequence Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInSequenceName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String IN_SEQUENCE_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getInSequenceName() <em>In Sequence Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInSequenceName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String inSequenceName = IN_SEQUENCE_NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getOutSequenceType() <em>Out Sequence Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOutSequenceType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final SequenceType OUT_SEQUENCE_TYPE_EDEFAULT = SequenceType.ANONYMOUS;
+
+	/**
+	 * The cached value of the '{@link #getOutSequenceType() <em>Out Sequence Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOutSequenceType()
+	 * @generated
+	 * @ordered
+	 */
+	protected SequenceType outSequenceType = OUT_SEQUENCE_TYPE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getOutSequenceKey() <em>Out Sequence Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOutSequenceKey()
+	 * @generated
+	 * @ordered
+	 */
+	protected RegistryKeyProperty outSequenceKey;
+
+	/**
+	 * The default value of the '{@link #getOutSequenceName() <em>Out Sequence Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOutSequenceName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String OUT_SEQUENCE_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getOutSequenceName() <em>Out Sequence Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOutSequenceName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String outSequenceName = OUT_SEQUENCE_NAME_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getFaultSequenceType() <em>Fault Sequence Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFaultSequenceType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final SequenceType FAULT_SEQUENCE_TYPE_EDEFAULT = SequenceType.ANONYMOUS;
+
+	/**
+	 * The cached value of the '{@link #getFaultSequenceType() <em>Fault Sequence Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFaultSequenceType()
+	 * @generated
+	 * @ordered
+	 */
+	protected SequenceType faultSequenceType = FAULT_SEQUENCE_TYPE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getFaultSequenceKey() <em>Fault Sequence Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFaultSequenceKey()
+	 * @generated
+	 * @ordered
+	 */
+	protected RegistryKeyProperty faultSequenceKey;
+
+	/**
+	 * The default value of the '{@link #getFaultSequenceName() <em>Fault Sequence Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFaultSequenceName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String FAULT_SEQUENCE_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getFaultSequenceName() <em>Fault Sequence Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFaultSequenceName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String faultSequenceName = FAULT_SEQUENCE_NAME_EDEFAULT;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
 	 */
 	protected APIResourceImpl() {
 		super();
+		
+		RegistryKeyProperty inSequenceKey = EsbFactoryImpl.eINSTANCE.createRegistryKeyProperty();
+		inSequenceKey.setPrettyName("In Sequence Reference");
+		inSequenceKey.setKeyName("key");
+		inSequenceKey.setKeyValue(org.wso2.developerstudio.eclipse.gmf.esb.EsbElement.DEFAULT_REGISTRY_KEY);
+		setInSequenceKey(inSequenceKey);
+		
+		RegistryKeyProperty outSequenceKey = EsbFactoryImpl.eINSTANCE.createRegistryKeyProperty();
+		outSequenceKey.setPrettyName("Out Sequence Reference");
+		outSequenceKey.setKeyName("key");
+		outSequenceKey.setKeyValue(org.wso2.developerstudio.eclipse.gmf.esb.EsbElement.DEFAULT_REGISTRY_KEY);
+		setOutSequenceKey(outSequenceKey);
+		
+		RegistryKeyProperty faultSequenceKey = EsbFactoryImpl.eINSTANCE.createRegistryKeyProperty();
+		faultSequenceKey.setPrettyName("Fault Sequence Reference");
+		faultSequenceKey.setKeyName("key");
+		faultSequenceKey.setKeyValue(org.wso2.developerstudio.eclipse.gmf.esb.EsbElement.DEFAULT_REGISTRY_KEY);
+		setFaultSequenceKey(faultSequenceKey);
 	}
 
 	/**
@@ -611,6 +790,261 @@ public class APIResourceImpl extends EsbNodeImpl implements APIResource {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public SequenceType getInSequenceType() {
+		return inSequenceType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInSequenceType(SequenceType newInSequenceType) {
+		SequenceType oldInSequenceType = inSequenceType;
+		inSequenceType = newInSequenceType == null ? IN_SEQUENCE_TYPE_EDEFAULT : newInSequenceType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.API_RESOURCE__IN_SEQUENCE_TYPE, oldInSequenceType, inSequenceType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RegistryKeyProperty getInSequenceKey() {
+		return inSequenceKey;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetInSequenceKey(RegistryKeyProperty newInSequenceKey, NotificationChain msgs) {
+		RegistryKeyProperty oldInSequenceKey = inSequenceKey;
+		inSequenceKey = newInSequenceKey;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.API_RESOURCE__IN_SEQUENCE_KEY, oldInSequenceKey, newInSequenceKey);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInSequenceKey(RegistryKeyProperty newInSequenceKey) {
+		if (newInSequenceKey != inSequenceKey) {
+			NotificationChain msgs = null;
+			if (inSequenceKey != null)
+				msgs = ((InternalEObject)inSequenceKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.API_RESOURCE__IN_SEQUENCE_KEY, null, msgs);
+			if (newInSequenceKey != null)
+				msgs = ((InternalEObject)newInSequenceKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.API_RESOURCE__IN_SEQUENCE_KEY, null, msgs);
+			msgs = basicSetInSequenceKey(newInSequenceKey, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.API_RESOURCE__IN_SEQUENCE_KEY, newInSequenceKey, newInSequenceKey));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getInSequenceName() {
+		return inSequenceName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInSequenceName(String newInSequenceName) {
+		String oldInSequenceName = inSequenceName;
+		inSequenceName = newInSequenceName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.API_RESOURCE__IN_SEQUENCE_NAME, oldInSequenceName, inSequenceName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SequenceType getOutSequenceType() {
+		return outSequenceType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOutSequenceType(SequenceType newOutSequenceType) {
+		SequenceType oldOutSequenceType = outSequenceType;
+		outSequenceType = newOutSequenceType == null ? OUT_SEQUENCE_TYPE_EDEFAULT : newOutSequenceType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.API_RESOURCE__OUT_SEQUENCE_TYPE, oldOutSequenceType, outSequenceType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RegistryKeyProperty getOutSequenceKey() {
+		return outSequenceKey;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetOutSequenceKey(RegistryKeyProperty newOutSequenceKey, NotificationChain msgs) {
+		RegistryKeyProperty oldOutSequenceKey = outSequenceKey;
+		outSequenceKey = newOutSequenceKey;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.API_RESOURCE__OUT_SEQUENCE_KEY, oldOutSequenceKey, newOutSequenceKey);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOutSequenceKey(RegistryKeyProperty newOutSequenceKey) {
+		if (newOutSequenceKey != outSequenceKey) {
+			NotificationChain msgs = null;
+			if (outSequenceKey != null)
+				msgs = ((InternalEObject)outSequenceKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.API_RESOURCE__OUT_SEQUENCE_KEY, null, msgs);
+			if (newOutSequenceKey != null)
+				msgs = ((InternalEObject)newOutSequenceKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.API_RESOURCE__OUT_SEQUENCE_KEY, null, msgs);
+			msgs = basicSetOutSequenceKey(newOutSequenceKey, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.API_RESOURCE__OUT_SEQUENCE_KEY, newOutSequenceKey, newOutSequenceKey));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getOutSequenceName() {
+		return outSequenceName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOutSequenceName(String newOutSequenceName) {
+		String oldOutSequenceName = outSequenceName;
+		outSequenceName = newOutSequenceName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.API_RESOURCE__OUT_SEQUENCE_NAME, oldOutSequenceName, outSequenceName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SequenceType getFaultSequenceType() {
+		return faultSequenceType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFaultSequenceType(SequenceType newFaultSequenceType) {
+		SequenceType oldFaultSequenceType = faultSequenceType;
+		faultSequenceType = newFaultSequenceType == null ? FAULT_SEQUENCE_TYPE_EDEFAULT : newFaultSequenceType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.API_RESOURCE__FAULT_SEQUENCE_TYPE, oldFaultSequenceType, faultSequenceType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RegistryKeyProperty getFaultSequenceKey() {
+		return faultSequenceKey;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetFaultSequenceKey(RegistryKeyProperty newFaultSequenceKey, NotificationChain msgs) {
+		RegistryKeyProperty oldFaultSequenceKey = faultSequenceKey;
+		faultSequenceKey = newFaultSequenceKey;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.API_RESOURCE__FAULT_SEQUENCE_KEY, oldFaultSequenceKey, newFaultSequenceKey);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFaultSequenceKey(RegistryKeyProperty newFaultSequenceKey) {
+		if (newFaultSequenceKey != faultSequenceKey) {
+			NotificationChain msgs = null;
+			if (faultSequenceKey != null)
+				msgs = ((InternalEObject)faultSequenceKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.API_RESOURCE__FAULT_SEQUENCE_KEY, null, msgs);
+			if (newFaultSequenceKey != null)
+				msgs = ((InternalEObject)newFaultSequenceKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.API_RESOURCE__FAULT_SEQUENCE_KEY, null, msgs);
+			msgs = basicSetFaultSequenceKey(newFaultSequenceKey, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.API_RESOURCE__FAULT_SEQUENCE_KEY, newFaultSequenceKey, newFaultSequenceKey));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getFaultSequenceName() {
+		return faultSequenceName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFaultSequenceName(String newFaultSequenceName) {
+		String oldFaultSequenceName = faultSequenceName;
+		faultSequenceName = newFaultSequenceName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.API_RESOURCE__FAULT_SEQUENCE_NAME, oldFaultSequenceName, faultSequenceName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -622,6 +1056,12 @@ public class APIResourceImpl extends EsbNodeImpl implements APIResource {
 				return basicSetFaultInputConnector(null, msgs);
 			case EsbPackage.API_RESOURCE__CONTAINER:
 				return basicSetContainer(null, msgs);
+			case EsbPackage.API_RESOURCE__IN_SEQUENCE_KEY:
+				return basicSetInSequenceKey(null, msgs);
+			case EsbPackage.API_RESOURCE__OUT_SEQUENCE_KEY:
+				return basicSetOutSequenceKey(null, msgs);
+			case EsbPackage.API_RESOURCE__FAULT_SEQUENCE_KEY:
+				return basicSetFaultSequenceKey(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -658,6 +1098,24 @@ public class APIResourceImpl extends EsbNodeImpl implements APIResource {
 				return isAllowOptions();
 			case EsbPackage.API_RESOURCE__CONTAINER:
 				return getContainer();
+			case EsbPackage.API_RESOURCE__IN_SEQUENCE_TYPE:
+				return getInSequenceType();
+			case EsbPackage.API_RESOURCE__IN_SEQUENCE_KEY:
+				return getInSequenceKey();
+			case EsbPackage.API_RESOURCE__IN_SEQUENCE_NAME:
+				return getInSequenceName();
+			case EsbPackage.API_RESOURCE__OUT_SEQUENCE_TYPE:
+				return getOutSequenceType();
+			case EsbPackage.API_RESOURCE__OUT_SEQUENCE_KEY:
+				return getOutSequenceKey();
+			case EsbPackage.API_RESOURCE__OUT_SEQUENCE_NAME:
+				return getOutSequenceName();
+			case EsbPackage.API_RESOURCE__FAULT_SEQUENCE_TYPE:
+				return getFaultSequenceType();
+			case EsbPackage.API_RESOURCE__FAULT_SEQUENCE_KEY:
+				return getFaultSequenceKey();
+			case EsbPackage.API_RESOURCE__FAULT_SEQUENCE_NAME:
+				return getFaultSequenceName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -705,6 +1163,33 @@ public class APIResourceImpl extends EsbNodeImpl implements APIResource {
 				return;
 			case EsbPackage.API_RESOURCE__CONTAINER:
 				setContainer((ProxyServiceContainer)newValue);
+				return;
+			case EsbPackage.API_RESOURCE__IN_SEQUENCE_TYPE:
+				setInSequenceType((SequenceType)newValue);
+				return;
+			case EsbPackage.API_RESOURCE__IN_SEQUENCE_KEY:
+				setInSequenceKey((RegistryKeyProperty)newValue);
+				return;
+			case EsbPackage.API_RESOURCE__IN_SEQUENCE_NAME:
+				setInSequenceName((String)newValue);
+				return;
+			case EsbPackage.API_RESOURCE__OUT_SEQUENCE_TYPE:
+				setOutSequenceType((SequenceType)newValue);
+				return;
+			case EsbPackage.API_RESOURCE__OUT_SEQUENCE_KEY:
+				setOutSequenceKey((RegistryKeyProperty)newValue);
+				return;
+			case EsbPackage.API_RESOURCE__OUT_SEQUENCE_NAME:
+				setOutSequenceName((String)newValue);
+				return;
+			case EsbPackage.API_RESOURCE__FAULT_SEQUENCE_TYPE:
+				setFaultSequenceType((SequenceType)newValue);
+				return;
+			case EsbPackage.API_RESOURCE__FAULT_SEQUENCE_KEY:
+				setFaultSequenceKey((RegistryKeyProperty)newValue);
+				return;
+			case EsbPackage.API_RESOURCE__FAULT_SEQUENCE_NAME:
+				setFaultSequenceName((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -754,6 +1239,33 @@ public class APIResourceImpl extends EsbNodeImpl implements APIResource {
 			case EsbPackage.API_RESOURCE__CONTAINER:
 				setContainer((ProxyServiceContainer)null);
 				return;
+			case EsbPackage.API_RESOURCE__IN_SEQUENCE_TYPE:
+				setInSequenceType(IN_SEQUENCE_TYPE_EDEFAULT);
+				return;
+			case EsbPackage.API_RESOURCE__IN_SEQUENCE_KEY:
+				setInSequenceKey((RegistryKeyProperty)null);
+				return;
+			case EsbPackage.API_RESOURCE__IN_SEQUENCE_NAME:
+				setInSequenceName(IN_SEQUENCE_NAME_EDEFAULT);
+				return;
+			case EsbPackage.API_RESOURCE__OUT_SEQUENCE_TYPE:
+				setOutSequenceType(OUT_SEQUENCE_TYPE_EDEFAULT);
+				return;
+			case EsbPackage.API_RESOURCE__OUT_SEQUENCE_KEY:
+				setOutSequenceKey((RegistryKeyProperty)null);
+				return;
+			case EsbPackage.API_RESOURCE__OUT_SEQUENCE_NAME:
+				setOutSequenceName(OUT_SEQUENCE_NAME_EDEFAULT);
+				return;
+			case EsbPackage.API_RESOURCE__FAULT_SEQUENCE_TYPE:
+				setFaultSequenceType(FAULT_SEQUENCE_TYPE_EDEFAULT);
+				return;
+			case EsbPackage.API_RESOURCE__FAULT_SEQUENCE_KEY:
+				setFaultSequenceKey((RegistryKeyProperty)null);
+				return;
+			case EsbPackage.API_RESOURCE__FAULT_SEQUENCE_NAME:
+				setFaultSequenceName(FAULT_SEQUENCE_NAME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -790,6 +1302,24 @@ public class APIResourceImpl extends EsbNodeImpl implements APIResource {
 				return allowOptions != ALLOW_OPTIONS_EDEFAULT;
 			case EsbPackage.API_RESOURCE__CONTAINER:
 				return container != null;
+			case EsbPackage.API_RESOURCE__IN_SEQUENCE_TYPE:
+				return inSequenceType != IN_SEQUENCE_TYPE_EDEFAULT;
+			case EsbPackage.API_RESOURCE__IN_SEQUENCE_KEY:
+				return inSequenceKey != null;
+			case EsbPackage.API_RESOURCE__IN_SEQUENCE_NAME:
+				return IN_SEQUENCE_NAME_EDEFAULT == null ? inSequenceName != null : !IN_SEQUENCE_NAME_EDEFAULT.equals(inSequenceName);
+			case EsbPackage.API_RESOURCE__OUT_SEQUENCE_TYPE:
+				return outSequenceType != OUT_SEQUENCE_TYPE_EDEFAULT;
+			case EsbPackage.API_RESOURCE__OUT_SEQUENCE_KEY:
+				return outSequenceKey != null;
+			case EsbPackage.API_RESOURCE__OUT_SEQUENCE_NAME:
+				return OUT_SEQUENCE_NAME_EDEFAULT == null ? outSequenceName != null : !OUT_SEQUENCE_NAME_EDEFAULT.equals(outSequenceName);
+			case EsbPackage.API_RESOURCE__FAULT_SEQUENCE_TYPE:
+				return faultSequenceType != FAULT_SEQUENCE_TYPE_EDEFAULT;
+			case EsbPackage.API_RESOURCE__FAULT_SEQUENCE_KEY:
+				return faultSequenceKey != null;
+			case EsbPackage.API_RESOURCE__FAULT_SEQUENCE_NAME:
+				return FAULT_SEQUENCE_NAME_EDEFAULT == null ? faultSequenceName != null : !FAULT_SEQUENCE_NAME_EDEFAULT.equals(faultSequenceName);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -820,6 +1350,18 @@ public class APIResourceImpl extends EsbNodeImpl implements APIResource {
 		result.append(allowDelete);
 		result.append(", allowOptions: ");
 		result.append(allowOptions);
+		result.append(", inSequenceType: ");
+		result.append(inSequenceType);
+		result.append(", inSequenceName: ");
+		result.append(inSequenceName);
+		result.append(", outSequenceType: ");
+		result.append(outSequenceType);
+		result.append(", outSequenceName: ");
+		result.append(outSequenceName);
+		result.append(", faultSequenceType: ");
+		result.append(faultSequenceType);
+		result.append(", faultSequenceName: ");
+		result.append(faultSequenceName);
 		result.append(')');
 		return result.toString();
 	}

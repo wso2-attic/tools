@@ -6186,6 +6186,87 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getAPIResource_InSequenceType() {
+		return (EAttribute)apiResourceEClass.getEStructuralFeatures().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAPIResource_InSequenceKey() {
+		return (EReference)apiResourceEClass.getEStructuralFeatures().get(13);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAPIResource_InSequenceName() {
+		return (EAttribute)apiResourceEClass.getEStructuralFeatures().get(14);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAPIResource_OutSequenceType() {
+		return (EAttribute)apiResourceEClass.getEStructuralFeatures().get(15);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAPIResource_OutSequenceKey() {
+		return (EReference)apiResourceEClass.getEStructuralFeatures().get(16);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAPIResource_OutSequenceName() {
+		return (EAttribute)apiResourceEClass.getEStructuralFeatures().get(17);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAPIResource_FaultSequenceType() {
+		return (EAttribute)apiResourceEClass.getEStructuralFeatures().get(18);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAPIResource_FaultSequenceKey() {
+		return (EReference)apiResourceEClass.getEStructuralFeatures().get(19);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAPIResource_FaultSequenceName() {
+		return (EAttribute)apiResourceEClass.getEStructuralFeatures().get(20);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getAPIResourceInputConnector() {
 		return apiResourceInputConnectorEClass;
 	}
@@ -12812,6 +12893,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEAttribute(apiResourceEClass, API_RESOURCE__ALLOW_DELETE);
 		createEAttribute(apiResourceEClass, API_RESOURCE__ALLOW_OPTIONS);
 		createEReference(apiResourceEClass, API_RESOURCE__CONTAINER);
+		createEAttribute(apiResourceEClass, API_RESOURCE__IN_SEQUENCE_TYPE);
+		createEReference(apiResourceEClass, API_RESOURCE__IN_SEQUENCE_KEY);
+		createEAttribute(apiResourceEClass, API_RESOURCE__IN_SEQUENCE_NAME);
+		createEAttribute(apiResourceEClass, API_RESOURCE__OUT_SEQUENCE_TYPE);
+		createEReference(apiResourceEClass, API_RESOURCE__OUT_SEQUENCE_KEY);
+		createEAttribute(apiResourceEClass, API_RESOURCE__OUT_SEQUENCE_NAME);
+		createEAttribute(apiResourceEClass, API_RESOURCE__FAULT_SEQUENCE_TYPE);
+		createEReference(apiResourceEClass, API_RESOURCE__FAULT_SEQUENCE_KEY);
+		createEAttribute(apiResourceEClass, API_RESOURCE__FAULT_SEQUENCE_NAME);
 
 		apiResourceInputConnectorEClass = createEClass(API_RESOURCE_INPUT_CONNECTOR);
 
@@ -14354,6 +14444,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEAttribute(getAPIResource_AllowDelete(), ecorePackage.getEBoolean(), "allowDelete", null, 0, 1, APIResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAPIResource_AllowOptions(), ecorePackage.getEBoolean(), "allowOptions", null, 0, 1, APIResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAPIResource_Container(), this.getProxyServiceContainer(), null, "container", null, 0, 1, APIResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAPIResource_InSequenceType(), this.getSequenceType(), "inSequenceType", null, 0, 1, APIResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAPIResource_InSequenceKey(), this.getRegistryKeyProperty(), null, "inSequenceKey", null, 0, 1, APIResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAPIResource_InSequenceName(), ecorePackage.getEString(), "inSequenceName", null, 0, 1, APIResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAPIResource_OutSequenceType(), this.getSequenceType(), "outSequenceType", null, 0, 1, APIResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAPIResource_OutSequenceKey(), this.getRegistryKeyProperty(), null, "outSequenceKey", null, 0, 1, APIResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAPIResource_OutSequenceName(), ecorePackage.getEString(), "outSequenceName", null, 0, 1, APIResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAPIResource_FaultSequenceType(), this.getSequenceType(), "faultSequenceType", null, 0, 1, APIResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAPIResource_FaultSequenceKey(), this.getRegistryKeyProperty(), null, "faultSequenceKey", null, 0, 1, APIResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAPIResource_FaultSequenceName(), ecorePackage.getEString(), "faultSequenceName", null, 0, 1, APIResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(apiResourceInputConnectorEClass, APIResourceInputConnector.class, "APIResourceInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

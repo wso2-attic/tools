@@ -13629,13 +13629,94 @@ public interface EsbPackage extends EPackage {
 	int API_RESOURCE__CONTAINER = ESB_NODE_FEATURE_COUNT + 11;
 
 	/**
+	 * The feature id for the '<em><b>In Sequence Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_RESOURCE__IN_SEQUENCE_TYPE = ESB_NODE_FEATURE_COUNT + 12;
+
+	/**
+	 * The feature id for the '<em><b>In Sequence Key</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_RESOURCE__IN_SEQUENCE_KEY = ESB_NODE_FEATURE_COUNT + 13;
+
+	/**
+	 * The feature id for the '<em><b>In Sequence Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_RESOURCE__IN_SEQUENCE_NAME = ESB_NODE_FEATURE_COUNT + 14;
+
+	/**
+	 * The feature id for the '<em><b>Out Sequence Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_RESOURCE__OUT_SEQUENCE_TYPE = ESB_NODE_FEATURE_COUNT + 15;
+
+	/**
+	 * The feature id for the '<em><b>Out Sequence Key</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_RESOURCE__OUT_SEQUENCE_KEY = ESB_NODE_FEATURE_COUNT + 16;
+
+	/**
+	 * The feature id for the '<em><b>Out Sequence Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_RESOURCE__OUT_SEQUENCE_NAME = ESB_NODE_FEATURE_COUNT + 17;
+
+	/**
+	 * The feature id for the '<em><b>Fault Sequence Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_RESOURCE__FAULT_SEQUENCE_TYPE = ESB_NODE_FEATURE_COUNT + 18;
+
+	/**
+	 * The feature id for the '<em><b>Fault Sequence Key</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_RESOURCE__FAULT_SEQUENCE_KEY = ESB_NODE_FEATURE_COUNT + 19;
+
+	/**
+	 * The feature id for the '<em><b>Fault Sequence Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_RESOURCE__FAULT_SEQUENCE_NAME = ESB_NODE_FEATURE_COUNT + 20;
+
+	/**
 	 * The number of structural features of the '<em>API Resource</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int API_RESOURCE_FEATURE_COUNT = ESB_NODE_FEATURE_COUNT + 12;
+	int API_RESOURCE_FEATURE_COUNT = ESB_NODE_FEATURE_COUNT + 21;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.APIResourceInputConnectorImpl <em>API Resource Input Connector</em>}' class.
@@ -18655,6 +18736,105 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getAPIResource_Container();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.APIResource#getInSequenceType <em>In Sequence Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>In Sequence Type</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.APIResource#getInSequenceType()
+	 * @see #getAPIResource()
+	 * @generated
+	 */
+	EAttribute getAPIResource_InSequenceType();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.APIResource#getInSequenceKey <em>In Sequence Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>In Sequence Key</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.APIResource#getInSequenceKey()
+	 * @see #getAPIResource()
+	 * @generated
+	 */
+	EReference getAPIResource_InSequenceKey();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.APIResource#getInSequenceName <em>In Sequence Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>In Sequence Name</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.APIResource#getInSequenceName()
+	 * @see #getAPIResource()
+	 * @generated
+	 */
+	EAttribute getAPIResource_InSequenceName();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.APIResource#getOutSequenceType <em>Out Sequence Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Out Sequence Type</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.APIResource#getOutSequenceType()
+	 * @see #getAPIResource()
+	 * @generated
+	 */
+	EAttribute getAPIResource_OutSequenceType();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.APIResource#getOutSequenceKey <em>Out Sequence Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Out Sequence Key</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.APIResource#getOutSequenceKey()
+	 * @see #getAPIResource()
+	 * @generated
+	 */
+	EReference getAPIResource_OutSequenceKey();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.APIResource#getOutSequenceName <em>Out Sequence Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Out Sequence Name</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.APIResource#getOutSequenceName()
+	 * @see #getAPIResource()
+	 * @generated
+	 */
+	EAttribute getAPIResource_OutSequenceName();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.APIResource#getFaultSequenceType <em>Fault Sequence Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Fault Sequence Type</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.APIResource#getFaultSequenceType()
+	 * @see #getAPIResource()
+	 * @generated
+	 */
+	EAttribute getAPIResource_FaultSequenceType();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.APIResource#getFaultSequenceKey <em>Fault Sequence Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Fault Sequence Key</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.APIResource#getFaultSequenceKey()
+	 * @see #getAPIResource()
+	 * @generated
+	 */
+	EReference getAPIResource_FaultSequenceKey();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.APIResource#getFaultSequenceName <em>Fault Sequence Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Fault Sequence Name</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.APIResource#getFaultSequenceName()
+	 * @see #getAPIResource()
+	 * @generated
+	 */
+	EAttribute getAPIResource_FaultSequenceName();
 
 	/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.gmf.esb.APIResourceInputConnector <em>API Resource Input Connector</em>}'.
@@ -28266,6 +28446,78 @@ public interface EsbPackage extends EPackage {
 		 * @generated
 		 */
 		EReference API_RESOURCE__CONTAINER = eINSTANCE.getAPIResource_Container();
+
+		/**
+		 * The meta object literal for the '<em><b>In Sequence Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute API_RESOURCE__IN_SEQUENCE_TYPE = eINSTANCE.getAPIResource_InSequenceType();
+
+		/**
+		 * The meta object literal for the '<em><b>In Sequence Key</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference API_RESOURCE__IN_SEQUENCE_KEY = eINSTANCE.getAPIResource_InSequenceKey();
+
+		/**
+		 * The meta object literal for the '<em><b>In Sequence Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute API_RESOURCE__IN_SEQUENCE_NAME = eINSTANCE.getAPIResource_InSequenceName();
+
+		/**
+		 * The meta object literal for the '<em><b>Out Sequence Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute API_RESOURCE__OUT_SEQUENCE_TYPE = eINSTANCE.getAPIResource_OutSequenceType();
+
+		/**
+		 * The meta object literal for the '<em><b>Out Sequence Key</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference API_RESOURCE__OUT_SEQUENCE_KEY = eINSTANCE.getAPIResource_OutSequenceKey();
+
+		/**
+		 * The meta object literal for the '<em><b>Out Sequence Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute API_RESOURCE__OUT_SEQUENCE_NAME = eINSTANCE.getAPIResource_OutSequenceName();
+
+		/**
+		 * The meta object literal for the '<em><b>Fault Sequence Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute API_RESOURCE__FAULT_SEQUENCE_TYPE = eINSTANCE.getAPIResource_FaultSequenceType();
+
+		/**
+		 * The meta object literal for the '<em><b>Fault Sequence Key</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference API_RESOURCE__FAULT_SEQUENCE_KEY = eINSTANCE.getAPIResource_FaultSequenceKey();
+
+		/**
+		 * The meta object literal for the '<em><b>Fault Sequence Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute API_RESOURCE__FAULT_SEQUENCE_NAME = eINSTANCE.getAPIResource_FaultSequenceName();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.APIResourceInputConnectorImpl <em>API Resource Input Connector</em>}' class.
