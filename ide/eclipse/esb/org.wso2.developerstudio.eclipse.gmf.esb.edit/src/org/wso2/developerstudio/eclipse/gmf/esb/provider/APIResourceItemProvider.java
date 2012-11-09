@@ -81,6 +81,41 @@ public class APIResourceItemProvider
 			addAllowPutPropertyDescriptor(object);
 			addAllowDeletePropertyDescriptor(object);
 			addAllowOptionsPropertyDescriptor(object);
+			
+			addInSequenceTypePropertyDescriptor(object);
+			switch (apiResource.getInSequenceType()){
+				case REGISTRY_REFERENCE:{
+					addInSequenceKeyPropertyDescriptor(object);
+					break;
+				}
+				case NAMED_REFERENCE:{
+					addInSequenceNamePropertyDescriptor(object);
+					break;
+				}
+			}
+			addOutSequenceTypePropertyDescriptor(object);
+			switch (apiResource.getOutSequenceType()) {
+				case REGISTRY_REFERENCE: {
+					addOutSequenceKeyPropertyDescriptor(object);
+					break;
+				}
+				case NAMED_REFERENCE: {
+					addOutSequenceNamePropertyDescriptor(object);
+					break;
+				}
+				}
+			addFaultSequenceTypePropertyDescriptor(object);
+			switch (apiResource.getFaultSequenceType()){
+				case REGISTRY_REFERENCE:{
+					addFaultSequenceKeyPropertyDescriptor(object);
+					break;
+				}
+				case NAMED_REFERENCE:{
+					addFaultSequenceNamePropertyDescriptor(object);
+					break;
+				}
+		}
+			
 		return itemPropertyDescriptors;
 	}
 
@@ -261,6 +296,204 @@ public class APIResourceItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the In Sequence Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addInSequenceTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_APIResource_inSequenceType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_APIResource_inSequenceType_feature", "_UI_APIResource_type"),
+				 EsbPackage.Literals.API_RESOURCE__IN_SEQUENCE_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 "In Sequence",
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the In Sequence Key feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addInSequenceKeyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_APIResource_inSequenceKey_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_APIResource_inSequenceKey_feature", "_UI_APIResource_type"),
+				 EsbPackage.Literals.API_RESOURCE__IN_SEQUENCE_KEY,
+				 true,
+				 false,
+				 false,
+				 null,
+				 "In Sequence",
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the In Sequence Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addInSequenceNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_APIResource_inSequenceName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_APIResource_inSequenceName_feature", "_UI_APIResource_type"),
+				 EsbPackage.Literals.API_RESOURCE__IN_SEQUENCE_NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 "In Sequence",
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Out Sequence Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addOutSequenceTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_APIResource_outSequenceType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_APIResource_outSequenceType_feature", "_UI_APIResource_type"),
+				 EsbPackage.Literals.API_RESOURCE__OUT_SEQUENCE_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 "Out Sequence",
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Out Sequence Key feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addOutSequenceKeyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_APIResource_outSequenceKey_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_APIResource_outSequenceKey_feature", "_UI_APIResource_type"),
+				 EsbPackage.Literals.API_RESOURCE__OUT_SEQUENCE_KEY,
+				 true,
+				 false,
+				 false,
+				 null,
+				 "Out Sequence",
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Out Sequence Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addOutSequenceNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_APIResource_outSequenceName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_APIResource_outSequenceName_feature", "_UI_APIResource_type"),
+				 EsbPackage.Literals.API_RESOURCE__OUT_SEQUENCE_NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 "Out Sequence",
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Fault Sequence Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addFaultSequenceTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_APIResource_faultSequenceType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_APIResource_faultSequenceType_feature", "_UI_APIResource_type"),
+				 EsbPackage.Literals.API_RESOURCE__FAULT_SEQUENCE_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 "Fault Sequence",
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Fault Sequence Key feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addFaultSequenceKeyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_APIResource_faultSequenceKey_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_APIResource_faultSequenceKey_feature", "_UI_APIResource_type"),
+				 EsbPackage.Literals.API_RESOURCE__FAULT_SEQUENCE_KEY,
+				 true,
+				 false,
+				 false,
+				 null,
+				 "Fault Sequence",
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Fault Sequence Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addFaultSequenceNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_APIResource_faultSequenceName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_APIResource_faultSequenceName_feature", "_UI_APIResource_type"),
+				 EsbPackage.Literals.API_RESOURCE__FAULT_SEQUENCE_NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 "Fault Sequence",
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -276,6 +509,9 @@ public class APIResourceItemProvider
 			childrenFeatures.add(EsbPackage.Literals.API_RESOURCE__OUTPUT_CONNECTOR);
 			childrenFeatures.add(EsbPackage.Literals.API_RESOURCE__FAULT_INPUT_CONNECTOR);
 			childrenFeatures.add(EsbPackage.Literals.API_RESOURCE__CONTAINER);
+			childrenFeatures.add(EsbPackage.Literals.API_RESOURCE__IN_SEQUENCE_KEY);
+			childrenFeatures.add(EsbPackage.Literals.API_RESOURCE__OUT_SEQUENCE_KEY);
+			childrenFeatures.add(EsbPackage.Literals.API_RESOURCE__FAULT_SEQUENCE_KEY);
 		}
 		return childrenFeatures;
 	}
@@ -312,8 +548,7 @@ public class APIResourceItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		ApiResourceUrlStyle labelValue = ((APIResource)object).getUrlStyle();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((APIResource)object).getInSequenceName();
 		return label == null || label.length() == 0 ?
 			getString("_UI_APIResource_type") :
 			getString("_UI_APIResource_type") + " " + label;
@@ -339,12 +574,21 @@ public class APIResourceItemProvider
 			case EsbPackage.API_RESOURCE__ALLOW_PUT:
 			case EsbPackage.API_RESOURCE__ALLOW_DELETE:
 			case EsbPackage.API_RESOURCE__ALLOW_OPTIONS:
+			case EsbPackage.API_RESOURCE__IN_SEQUENCE_TYPE:
+			case EsbPackage.API_RESOURCE__IN_SEQUENCE_NAME:
+			case EsbPackage.API_RESOURCE__OUT_SEQUENCE_TYPE:
+			case EsbPackage.API_RESOURCE__OUT_SEQUENCE_NAME:
+			case EsbPackage.API_RESOURCE__FAULT_SEQUENCE_TYPE:
+			case EsbPackage.API_RESOURCE__FAULT_SEQUENCE_NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case EsbPackage.API_RESOURCE__INPUT_CONNECTOR:
 			case EsbPackage.API_RESOURCE__OUTPUT_CONNECTOR:
 			case EsbPackage.API_RESOURCE__FAULT_INPUT_CONNECTOR:
 			case EsbPackage.API_RESOURCE__CONTAINER:
+			case EsbPackage.API_RESOURCE__IN_SEQUENCE_KEY:
+			case EsbPackage.API_RESOURCE__OUT_SEQUENCE_KEY:
+			case EsbPackage.API_RESOURCE__FAULT_SEQUENCE_KEY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -381,6 +625,45 @@ public class APIResourceItemProvider
 			(createChildParameter
 				(EsbPackage.Literals.API_RESOURCE__CONTAINER,
 				 EsbFactory.eINSTANCE.createProxyServiceContainer()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.API_RESOURCE__IN_SEQUENCE_KEY,
+				 EsbFactory.eINSTANCE.createRegistryKeyProperty()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.API_RESOURCE__OUT_SEQUENCE_KEY,
+				 EsbFactory.eINSTANCE.createRegistryKeyProperty()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.API_RESOURCE__FAULT_SEQUENCE_KEY,
+				 EsbFactory.eINSTANCE.createRegistryKeyProperty()));
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify =
+			childFeature == EsbPackage.Literals.API_RESOURCE__IN_SEQUENCE_KEY ||
+			childFeature == EsbPackage.Literals.API_RESOURCE__OUT_SEQUENCE_KEY ||
+			childFeature == EsbPackage.Literals.API_RESOURCE__FAULT_SEQUENCE_KEY;
+
+		if (qualify) {
+			return getString
+				("_UI_CreateChild_text2",
+				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 }
