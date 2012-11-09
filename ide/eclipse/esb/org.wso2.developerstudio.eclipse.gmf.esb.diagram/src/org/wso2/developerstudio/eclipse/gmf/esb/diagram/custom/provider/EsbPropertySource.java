@@ -195,6 +195,12 @@ public class EsbPropertySource extends PropertySource {
 			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
 		}else if(pkg.getTask_TaskProperties().equals(feature)){
 			return new TaskConfigurationPropertyDescriptor(object, itemPropertyDescriptor);
+		}else if(pkg.getAPIResource_InSequenceKey().equals(feature)){
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
+		}else if(pkg.getAPIResource_OutSequenceKey().equals(feature)){
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
+		}else if(pkg.getAPIResource_FaultSequenceKey().equals(feature)){
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
 		}
 		
 			
