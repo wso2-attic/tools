@@ -394,6 +394,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 				return createFaultReasonTypeFromString(eDataType, initialValue);
 			case EsbPackage.FAULT_DETAIL_TYPE:
 				return createFaultDetailTypeFromString(eDataType, initialValue);
+			case EsbPackage.COMPLETION_MESSAGES_TYPE:
+				return createCompletionMessagesTypeFromString(eDataType, initialValue);
 			case EsbPackage.AGGREGATE_SEQUENCE_TYPE:
 				return createAggregateSequenceTypeFromString(eDataType, initialValue);
 			case EsbPackage.TARGET_SEQUENCE_TYPE:
@@ -564,6 +566,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 				return convertFaultReasonTypeToString(eDataType, instanceValue);
 			case EsbPackage.FAULT_DETAIL_TYPE:
 				return convertFaultDetailTypeToString(eDataType, instanceValue);
+			case EsbPackage.COMPLETION_MESSAGES_TYPE:
+				return convertCompletionMessagesTypeToString(eDataType, instanceValue);
 			case EsbPackage.AGGREGATE_SEQUENCE_TYPE:
 				return convertAggregateSequenceTypeToString(eDataType, instanceValue);
 			case EsbPackage.TARGET_SEQUENCE_TYPE:
@@ -3967,6 +3971,26 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	 * @generated
 	 */
 	public String convertFaultDetailTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CompletionMessagesType createCompletionMessagesTypeFromString(EDataType eDataType, String initialValue) {
+		CompletionMessagesType result = CompletionMessagesType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertCompletionMessagesTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

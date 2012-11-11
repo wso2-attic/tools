@@ -85,6 +85,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.CommandProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.CommandPropertyContextAction;
 import org.wso2.developerstudio.eclipse.gmf.esb.CommandPropertyMessageAction;
 import org.wso2.developerstudio.eclipse.gmf.esb.CommandPropertyValueType;
+import org.wso2.developerstudio.eclipse.gmf.esb.CompletionMessagesType;
 import org.wso2.developerstudio.eclipse.gmf.esb.ConditionalRouteBranch;
 import org.wso2.developerstudio.eclipse.gmf.esb.ConditionalRouterMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.ConditionalRouterMediatorAdditionalOutputConnector;
@@ -2470,6 +2471,13 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	private EEnum faultDetailTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum completionMessagesTypeEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -6672,7 +6680,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAggregateMediator_CompletionMinMessages() {
+	public EAttribute getAggregateMediator_CompletionMinMessagesType() {
 		return (EAttribute)aggregateMediatorEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -6681,7 +6689,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAggregateMediator_CompletionMaxMessages() {
+	public EAttribute getAggregateMediator_CompletionMaxMessagesType() {
 		return (EAttribute)aggregateMediatorEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -6690,8 +6698,8 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAggregateMediator_InputConnector() {
-		return (EReference)aggregateMediatorEClass.getEStructuralFeatures().get(5);
+	public EAttribute getAggregateMediator_CompletionMinMessagesValue() {
+		return (EAttribute)aggregateMediatorEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -6699,7 +6707,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAggregateMediator_OutputConnector() {
+	public EReference getAggregateMediator_CompletionMinMessagesExpression() {
 		return (EReference)aggregateMediatorEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -6708,8 +6716,8 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAggregateMediator_OnCompleteOutputConnector() {
-		return (EReference)aggregateMediatorEClass.getEStructuralFeatures().get(7);
+	public EAttribute getAggregateMediator_CompletionMaxMessagesValue() {
+		return (EAttribute)aggregateMediatorEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -6717,7 +6725,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAggregateMediator_MediatorFlow() {
+	public EReference getAggregateMediator_CompletionMaxMessagesExpression() {
 		return (EReference)aggregateMediatorEClass.getEStructuralFeatures().get(8);
 	}
 
@@ -6726,7 +6734,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAggregateMediator_AggregationExpression() {
+	public EReference getAggregateMediator_InputConnector() {
 		return (EReference)aggregateMediatorEClass.getEStructuralFeatures().get(9);
 	}
 
@@ -6735,8 +6743,44 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getAggregateMediator_OutputConnector() {
+		return (EReference)aggregateMediatorEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAggregateMediator_OnCompleteOutputConnector() {
+		return (EReference)aggregateMediatorEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAggregateMediator_MediatorFlow() {
+		return (EReference)aggregateMediatorEClass.getEStructuralFeatures().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAggregateMediator_AggregationExpression() {
+		return (EReference)aggregateMediatorEClass.getEStructuralFeatures().get(13);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EAttribute getAggregateMediator_SequenceType() {
-		return (EAttribute)aggregateMediatorEClass.getEStructuralFeatures().get(10);
+		return (EAttribute)aggregateMediatorEClass.getEStructuralFeatures().get(14);
 	}
 
 	/**
@@ -6745,7 +6789,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	public EReference getAggregateMediator_SequenceKey() {
-		return (EReference)aggregateMediatorEClass.getEStructuralFeatures().get(11);
+		return (EReference)aggregateMediatorEClass.getEStructuralFeatures().get(15);
 	}
 
 	/**
@@ -11253,6 +11297,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getCompletionMessagesType() {
+		return completionMessagesTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getAggregateSequenceType() {
 		return aggregateSequenceTypeEEnum;
 	}
@@ -12187,8 +12240,12 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEAttribute(aggregateMediatorEClass, AGGREGATE_MEDIATOR__AGGREGATE_ID);
 		createEReference(aggregateMediatorEClass, AGGREGATE_MEDIATOR__CORRELATION_EXPRESSION);
 		createEAttribute(aggregateMediatorEClass, AGGREGATE_MEDIATOR__COMPLETION_TIMEOUT);
-		createEAttribute(aggregateMediatorEClass, AGGREGATE_MEDIATOR__COMPLETION_MIN_MESSAGES);
-		createEAttribute(aggregateMediatorEClass, AGGREGATE_MEDIATOR__COMPLETION_MAX_MESSAGES);
+		createEAttribute(aggregateMediatorEClass, AGGREGATE_MEDIATOR__COMPLETION_MIN_MESSAGES_TYPE);
+		createEAttribute(aggregateMediatorEClass, AGGREGATE_MEDIATOR__COMPLETION_MAX_MESSAGES_TYPE);
+		createEAttribute(aggregateMediatorEClass, AGGREGATE_MEDIATOR__COMPLETION_MIN_MESSAGES_VALUE);
+		createEReference(aggregateMediatorEClass, AGGREGATE_MEDIATOR__COMPLETION_MIN_MESSAGES_EXPRESSION);
+		createEAttribute(aggregateMediatorEClass, AGGREGATE_MEDIATOR__COMPLETION_MAX_MESSAGES_VALUE);
+		createEReference(aggregateMediatorEClass, AGGREGATE_MEDIATOR__COMPLETION_MAX_MESSAGES_EXPRESSION);
 		createEReference(aggregateMediatorEClass, AGGREGATE_MEDIATOR__INPUT_CONNECTOR);
 		createEReference(aggregateMediatorEClass, AGGREGATE_MEDIATOR__OUTPUT_CONNECTOR);
 		createEReference(aggregateMediatorEClass, AGGREGATE_MEDIATOR__ON_COMPLETE_OUTPUT_CONNECTOR);
@@ -12944,6 +13001,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		faultStringTypeEEnum = createEEnum(FAULT_STRING_TYPE);
 		faultReasonTypeEEnum = createEEnum(FAULT_REASON_TYPE);
 		faultDetailTypeEEnum = createEEnum(FAULT_DETAIL_TYPE);
+		completionMessagesTypeEEnum = createEEnum(COMPLETION_MESSAGES_TYPE);
 		aggregateSequenceTypeEEnum = createEEnum(AGGREGATE_SEQUENCE_TYPE);
 		targetSequenceTypeEEnum = createEEnum(TARGET_SEQUENCE_TYPE);
 		targetEndpointTypeEEnum = createEEnum(TARGET_ENDPOINT_TYPE);
@@ -13737,9 +13795,13 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEClass(aggregateMediatorEClass, AggregateMediator.class, "AggregateMediator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAggregateMediator_AggregateID(), ecorePackage.getEString(), "aggregateID", null, 0, 1, AggregateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAggregateMediator_CorrelationExpression(), this.getNamespacedProperty(), null, "correlationExpression", null, 0, 1, AggregateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAggregateMediator_CompletionTimeout(), ecorePackage.getEInt(), "completionTimeout", null, 0, 1, AggregateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAggregateMediator_CompletionMinMessages(), ecorePackage.getEInt(), "completionMinMessages", null, 0, 1, AggregateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAggregateMediator_CompletionMaxMessages(), ecorePackage.getEInt(), "completionMaxMessages", null, 0, 1, AggregateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAggregateMediator_CompletionTimeout(), ecorePackage.getELong(), "completionTimeout", null, 0, 1, AggregateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAggregateMediator_CompletionMinMessagesType(), this.getCompletionMessagesType(), "completionMinMessagesType", "VALUE", 0, 1, AggregateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAggregateMediator_CompletionMaxMessagesType(), this.getCompletionMessagesType(), "completionMaxMessagesType", "VALUE", 0, 1, AggregateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAggregateMediator_CompletionMinMessagesValue(), ecorePackage.getEInt(), "completionMinMessagesValue", null, 0, 1, AggregateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAggregateMediator_CompletionMinMessagesExpression(), this.getNamespacedProperty(), null, "completionMinMessagesExpression", null, 0, 1, AggregateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAggregateMediator_CompletionMaxMessagesValue(), ecorePackage.getEInt(), "completionMaxMessagesValue", null, 0, 1, AggregateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAggregateMediator_CompletionMaxMessagesExpression(), this.getNamespacedProperty(), null, "completionMaxMessagesExpression", null, 0, 1, AggregateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAggregateMediator_InputConnector(), this.getAggregateMediatorInputConnector(), null, "inputConnector", null, 0, 1, AggregateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAggregateMediator_OutputConnector(), this.getAggregateMediatorOutputConnector(), null, "outputConnector", null, 0, 1, AggregateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAggregateMediator_OnCompleteOutputConnector(), this.getAggregateMediatorOnCompleteOutputConnector(), null, "onCompleteOutputConnector", null, 0, 1, AggregateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -14612,6 +14674,10 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEEnum(faultDetailTypeEEnum, FaultDetailType.class, "FaultDetailType");
 		addEEnumLiteral(faultDetailTypeEEnum, FaultDetailType.VALUE);
 		addEEnumLiteral(faultDetailTypeEEnum, FaultDetailType.EXPRESSION);
+
+		initEEnum(completionMessagesTypeEEnum, CompletionMessagesType.class, "CompletionMessagesType");
+		addEEnumLiteral(completionMessagesTypeEEnum, CompletionMessagesType.VALUE);
+		addEEnumLiteral(completionMessagesTypeEEnum, CompletionMessagesType.EXPRESSION);
 
 		initEEnum(aggregateSequenceTypeEEnum, AggregateSequenceType.class, "AggregateSequenceType");
 		addEEnumLiteral(aggregateSequenceTypeEEnum, AggregateSequenceType.ANONYMOUS);

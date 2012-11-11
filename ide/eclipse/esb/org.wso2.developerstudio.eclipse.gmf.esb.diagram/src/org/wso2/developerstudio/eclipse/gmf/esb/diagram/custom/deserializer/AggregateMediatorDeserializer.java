@@ -75,7 +75,7 @@ public class AggregateMediatorDeserializer extends AbstractEsbNodeDeserializer<A
 			
 			if(maxMsg.getKeyValue() != null && DeserializerUtils.isInteger(maxMsg.getKeyValue()) ){
 				
-				vishualAggrigate.setCompletionMaxMessages(Integer.parseInt(maxMsg.getKeyValue()));
+				//vishualAggrigate.setCompletionMaxMessages(Integer.parseInt(maxMsg.getKeyValue()));
 				
 			}else if(maxMsg.getExpression() != null){
 				

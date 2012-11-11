@@ -20,8 +20,12 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator#getAggregateID <em>Aggregate ID</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator#getCorrelationExpression <em>Correlation Expression</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator#getCompletionTimeout <em>Completion Timeout</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator#getCompletionMinMessages <em>Completion Min Messages</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator#getCompletionMaxMessages <em>Completion Max Messages</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator#getCompletionMinMessagesType <em>Completion Min Messages Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator#getCompletionMaxMessagesType <em>Completion Max Messages Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator#getCompletionMinMessagesValue <em>Completion Min Messages Value</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator#getCompletionMinMessagesExpression <em>Completion Min Messages Expression</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator#getCompletionMaxMessagesValue <em>Completion Max Messages Value</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator#getCompletionMaxMessagesExpression <em>Completion Max Messages Expression</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator#getInputConnector <em>Input Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator#getOutputConnector <em>Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator#getOnCompleteOutputConnector <em>On Complete Output Connector</em>}</li>
@@ -98,12 +102,12 @@ public interface AggregateMediator extends Mediator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Completion Timeout</em>' attribute.
-	 * @see #setCompletionTimeout(int)
+	 * @see #setCompletionTimeout(long)
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getAggregateMediator_CompletionTimeout()
 	 * @model
 	 * @generated
 	 */
-	int getCompletionTimeout();
+	long getCompletionTimeout();
 
 	/**
 	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator#getCompletionTimeout <em>Completion Timeout</em>}' attribute.
@@ -113,59 +117,171 @@ public interface AggregateMediator extends Mediator {
 	 * @see #getCompletionTimeout()
 	 * @generated
 	 */
-	void setCompletionTimeout(int value);
+	void setCompletionTimeout(long value);
 
 	/**
-	 * Returns the value of the '<em><b>Completion Min Messages</b></em>' attribute.
+	 * Returns the value of the '<em><b>Completion Min Messages Type</b></em>' attribute.
+	 * The default value is <code>"VALUE"</code>.
+	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.gmf.esb.CompletionMessagesType}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Completion Min Messages</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Completion Min Messages Type</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Completion Min Messages</em>' attribute.
-	 * @see #setCompletionMinMessages(int)
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getAggregateMediator_CompletionMinMessages()
-	 * @model
+	 * @return the value of the '<em>Completion Min Messages Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CompletionMessagesType
+	 * @see #setCompletionMinMessagesType(CompletionMessagesType)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getAggregateMediator_CompletionMinMessagesType()
+	 * @model default="VALUE"
 	 * @generated
 	 */
-	int getCompletionMinMessages();
+	CompletionMessagesType getCompletionMinMessagesType();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator#getCompletionMinMessages <em>Completion Min Messages</em>}' attribute.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator#getCompletionMinMessagesType <em>Completion Min Messages Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Completion Min Messages</em>' attribute.
-	 * @see #getCompletionMinMessages()
+	 * @param value the new value of the '<em>Completion Min Messages Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CompletionMessagesType
+	 * @see #getCompletionMinMessagesType()
 	 * @generated
 	 */
-	void setCompletionMinMessages(int value);
+	void setCompletionMinMessagesType(CompletionMessagesType value);
 
 	/**
-	 * Returns the value of the '<em><b>Completion Max Messages</b></em>' attribute.
+	 * Returns the value of the '<em><b>Completion Max Messages Type</b></em>' attribute.
+	 * The default value is <code>"VALUE"</code>.
+	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.gmf.esb.CompletionMessagesType}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Completion Max Messages</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Completion Max Messages Type</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Completion Max Messages</em>' attribute.
-	 * @see #setCompletionMaxMessages(int)
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getAggregateMediator_CompletionMaxMessages()
+	 * @return the value of the '<em>Completion Max Messages Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CompletionMessagesType
+	 * @see #setCompletionMaxMessagesType(CompletionMessagesType)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getAggregateMediator_CompletionMaxMessagesType()
+	 * @model default="VALUE"
+	 * @generated
+	 */
+	CompletionMessagesType getCompletionMaxMessagesType();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator#getCompletionMaxMessagesType <em>Completion Max Messages Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Completion Max Messages Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CompletionMessagesType
+	 * @see #getCompletionMaxMessagesType()
+	 * @generated
+	 */
+	void setCompletionMaxMessagesType(CompletionMessagesType value);
+
+	/**
+	 * Returns the value of the '<em><b>Completion Min Messages Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Completion Min Messages Value</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Completion Min Messages Value</em>' attribute.
+	 * @see #setCompletionMinMessagesValue(int)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getAggregateMediator_CompletionMinMessagesValue()
 	 * @model
 	 * @generated
 	 */
-	int getCompletionMaxMessages();
+	int getCompletionMinMessagesValue();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator#getCompletionMaxMessages <em>Completion Max Messages</em>}' attribute.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator#getCompletionMinMessagesValue <em>Completion Min Messages Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Completion Max Messages</em>' attribute.
-	 * @see #getCompletionMaxMessages()
+	 * @param value the new value of the '<em>Completion Min Messages Value</em>' attribute.
+	 * @see #getCompletionMinMessagesValue()
 	 * @generated
 	 */
-	void setCompletionMaxMessages(int value);
+	void setCompletionMinMessagesValue(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Completion Min Messages Expression</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Completion Min Messages Expression</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Completion Min Messages Expression</em>' containment reference.
+	 * @see #setCompletionMinMessagesExpression(NamespacedProperty)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getAggregateMediator_CompletionMinMessagesExpression()
+	 * @model containment="true"
+	 * @generated
+	 */
+	NamespacedProperty getCompletionMinMessagesExpression();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator#getCompletionMinMessagesExpression <em>Completion Min Messages Expression</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Completion Min Messages Expression</em>' containment reference.
+	 * @see #getCompletionMinMessagesExpression()
+	 * @generated
+	 */
+	void setCompletionMinMessagesExpression(NamespacedProperty value);
+
+	/**
+	 * Returns the value of the '<em><b>Completion Max Messages Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Completion Max Messages Value</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Completion Max Messages Value</em>' attribute.
+	 * @see #setCompletionMaxMessagesValue(int)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getAggregateMediator_CompletionMaxMessagesValue()
+	 * @model
+	 * @generated
+	 */
+	int getCompletionMaxMessagesValue();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator#getCompletionMaxMessagesValue <em>Completion Max Messages Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Completion Max Messages Value</em>' attribute.
+	 * @see #getCompletionMaxMessagesValue()
+	 * @generated
+	 */
+	void setCompletionMaxMessagesValue(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Completion Max Messages Expression</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Completion Max Messages Expression</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Completion Max Messages Expression</em>' containment reference.
+	 * @see #setCompletionMaxMessagesExpression(NamespacedProperty)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getAggregateMediator_CompletionMaxMessagesExpression()
+	 * @model containment="true"
+	 * @generated
+	 */
+	NamespacedProperty getCompletionMaxMessagesExpression();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator#getCompletionMaxMessagesExpression <em>Completion Max Messages Expression</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Completion Max Messages Expression</em>' containment reference.
+	 * @see #getCompletionMaxMessagesExpression()
+	 * @generated
+	 */
+	void setCompletionMaxMessagesExpression(NamespacedProperty value);
 
 	/**
 	 * Returns the value of the '<em><b>Input Connector</b></em>' containment reference.

@@ -23,6 +23,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediatorInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediatorOnCompleteOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediatorOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.AggregateSequenceType;
+import org.wso2.developerstudio.eclipse.gmf.esb.CompletionMessagesType;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbElement;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.MediatorFlow;
@@ -39,8 +40,12 @@ import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.AggregateMediatorImpl#getAggregateID <em>Aggregate ID</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.AggregateMediatorImpl#getCorrelationExpression <em>Correlation Expression</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.AggregateMediatorImpl#getCompletionTimeout <em>Completion Timeout</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.AggregateMediatorImpl#getCompletionMinMessages <em>Completion Min Messages</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.AggregateMediatorImpl#getCompletionMaxMessages <em>Completion Max Messages</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.AggregateMediatorImpl#getCompletionMinMessagesType <em>Completion Min Messages Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.AggregateMediatorImpl#getCompletionMaxMessagesType <em>Completion Max Messages Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.AggregateMediatorImpl#getCompletionMinMessagesValue <em>Completion Min Messages Value</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.AggregateMediatorImpl#getCompletionMinMessagesExpression <em>Completion Min Messages Expression</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.AggregateMediatorImpl#getCompletionMaxMessagesValue <em>Completion Max Messages Value</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.AggregateMediatorImpl#getCompletionMaxMessagesExpression <em>Completion Max Messages Expression</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.AggregateMediatorImpl#getInputConnector <em>Input Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.AggregateMediatorImpl#getOutputConnector <em>Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.AggregateMediatorImpl#getOnCompleteOutputConnector <em>On Complete Output Connector</em>}</li>
@@ -92,7 +97,7 @@ public class AggregateMediatorImpl extends MediatorImpl implements AggregateMedi
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int COMPLETION_TIMEOUT_EDEFAULT = 0;
+	protected static final long COMPLETION_TIMEOUT_EDEFAULT = 0L;
 
 	/**
 	 * The cached value of the '{@link #getCompletionTimeout() <em>Completion Timeout</em>}' attribute.
@@ -102,47 +107,107 @@ public class AggregateMediatorImpl extends MediatorImpl implements AggregateMedi
 	 * @generated
 	 * @ordered
 	 */
-	protected int completionTimeout = COMPLETION_TIMEOUT_EDEFAULT;
+	protected long completionTimeout = COMPLETION_TIMEOUT_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getCompletionMinMessages() <em>Completion Min Messages</em>}' attribute.
+	 * The default value of the '{@link #getCompletionMinMessagesType() <em>Completion Min Messages Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCompletionMinMessages()
+	 * @see #getCompletionMinMessagesType()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int COMPLETION_MIN_MESSAGES_EDEFAULT = 0;
+	protected static final CompletionMessagesType COMPLETION_MIN_MESSAGES_TYPE_EDEFAULT = CompletionMessagesType.VALUE;
 
 	/**
-	 * The cached value of the '{@link #getCompletionMinMessages() <em>Completion Min Messages</em>}' attribute.
+	 * The cached value of the '{@link #getCompletionMinMessagesType() <em>Completion Min Messages Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCompletionMinMessages()
+	 * @see #getCompletionMinMessagesType()
 	 * @generated
 	 * @ordered
 	 */
-	protected int completionMinMessages = COMPLETION_MIN_MESSAGES_EDEFAULT;
+	protected CompletionMessagesType completionMinMessagesType = COMPLETION_MIN_MESSAGES_TYPE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getCompletionMaxMessages() <em>Completion Max Messages</em>}' attribute.
+	 * The default value of the '{@link #getCompletionMaxMessagesType() <em>Completion Max Messages Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCompletionMaxMessages()
+	 * @see #getCompletionMaxMessagesType()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int COMPLETION_MAX_MESSAGES_EDEFAULT = 0;
+	protected static final CompletionMessagesType COMPLETION_MAX_MESSAGES_TYPE_EDEFAULT = CompletionMessagesType.VALUE;
 
 	/**
-	 * The cached value of the '{@link #getCompletionMaxMessages() <em>Completion Max Messages</em>}' attribute.
+	 * The cached value of the '{@link #getCompletionMaxMessagesType() <em>Completion Max Messages Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCompletionMaxMessages()
+	 * @see #getCompletionMaxMessagesType()
 	 * @generated
 	 * @ordered
 	 */
-	protected int completionMaxMessages = COMPLETION_MAX_MESSAGES_EDEFAULT;
+	protected CompletionMessagesType completionMaxMessagesType = COMPLETION_MAX_MESSAGES_TYPE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getCompletionMinMessagesValue() <em>Completion Min Messages Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCompletionMinMessagesValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int COMPLETION_MIN_MESSAGES_VALUE_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getCompletionMinMessagesValue() <em>Completion Min Messages Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCompletionMinMessagesValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected int completionMinMessagesValue = COMPLETION_MIN_MESSAGES_VALUE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getCompletionMinMessagesExpression() <em>Completion Min Messages Expression</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCompletionMinMessagesExpression()
+	 * @generated
+	 * @ordered
+	 */
+	protected NamespacedProperty completionMinMessagesExpression;
+
+	/**
+	 * The default value of the '{@link #getCompletionMaxMessagesValue() <em>Completion Max Messages Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCompletionMaxMessagesValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int COMPLETION_MAX_MESSAGES_VALUE_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getCompletionMaxMessagesValue() <em>Completion Max Messages Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCompletionMaxMessagesValue()
+	 * @generated
+	 * @ordered
+	 */
+	protected int completionMaxMessagesValue = COMPLETION_MAX_MESSAGES_VALUE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getCompletionMaxMessagesExpression() <em>Completion Max Messages Expression</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCompletionMaxMessagesExpression()
+	 * @generated
+	 * @ordered
+	 */
+	protected NamespacedProperty completionMaxMessagesExpression;
 
 	/**
 	 * The cached value of the '{@link #getInputConnector() <em>Input Connector</em>}' containment reference.
@@ -245,6 +310,18 @@ public class AggregateMediatorImpl extends MediatorImpl implements AggregateMedi
 		aggregationExpression.setPropertyValue("/default/expression");
 		setAggregationExpression(aggregationExpression);
 		
+		NamespacedProperty completionMaxMessagesExpression = EsbFactoryImpl.eINSTANCE.createNamespacedProperty();
+		completionMaxMessagesExpression.setPrettyName("completionMaxMessagesExpression");
+		completionMaxMessagesExpression.setPropertyName("expression");
+		completionMaxMessagesExpression.setPropertyValue("/default/expression");
+		setCompletionMaxMessagesExpression(completionMaxMessagesExpression);
+		
+		NamespacedProperty completionMinMessagesExpression = EsbFactoryImpl.eINSTANCE.createNamespacedProperty();
+		completionMinMessagesExpression.setPrettyName("completionMinMessagesExpression");
+		completionMinMessagesExpression.setPropertyName("expression");
+		completionMinMessagesExpression.setPropertyValue("/default/expression");
+		setCompletionMinMessagesExpression(completionMinMessagesExpression);
+		
 		RegistryKeyProperty sequenceKey = EsbFactoryImpl.eINSTANCE.createRegistryKeyProperty();
 		sequenceKey.setKeyName("Sequence Key");
 		sequenceKey.setPrettyName("Sequence Key");
@@ -332,7 +409,7 @@ public class AggregateMediatorImpl extends MediatorImpl implements AggregateMedi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getCompletionTimeout() {
+	public long getCompletionTimeout() {
 		return completionTimeout;
 	}
 
@@ -341,8 +418,8 @@ public class AggregateMediatorImpl extends MediatorImpl implements AggregateMedi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCompletionTimeout(int newCompletionTimeout) {
-		int oldCompletionTimeout = completionTimeout;
+	public void setCompletionTimeout(long newCompletionTimeout) {
+		long oldCompletionTimeout = completionTimeout;
 		completionTimeout = newCompletionTimeout;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_TIMEOUT, oldCompletionTimeout, completionTimeout));
@@ -353,8 +430,8 @@ public class AggregateMediatorImpl extends MediatorImpl implements AggregateMedi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getCompletionMinMessages() {
-		return completionMinMessages;
+	public CompletionMessagesType getCompletionMinMessagesType() {
+		return completionMinMessagesType;
 	}
 
 	/**
@@ -362,11 +439,11 @@ public class AggregateMediatorImpl extends MediatorImpl implements AggregateMedi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCompletionMinMessages(int newCompletionMinMessages) {
-		int oldCompletionMinMessages = completionMinMessages;
-		completionMinMessages = newCompletionMinMessages;
+	public void setCompletionMinMessagesType(CompletionMessagesType newCompletionMinMessagesType) {
+		CompletionMessagesType oldCompletionMinMessagesType = completionMinMessagesType;
+		completionMinMessagesType = newCompletionMinMessagesType == null ? COMPLETION_MIN_MESSAGES_TYPE_EDEFAULT : newCompletionMinMessagesType;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MIN_MESSAGES, oldCompletionMinMessages, completionMinMessages));
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MIN_MESSAGES_TYPE, oldCompletionMinMessagesType, completionMinMessagesType));
 	}
 
 	/**
@@ -374,8 +451,8 @@ public class AggregateMediatorImpl extends MediatorImpl implements AggregateMedi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getCompletionMaxMessages() {
-		return completionMaxMessages;
+	public CompletionMessagesType getCompletionMaxMessagesType() {
+		return completionMaxMessagesType;
 	}
 
 	/**
@@ -383,11 +460,139 @@ public class AggregateMediatorImpl extends MediatorImpl implements AggregateMedi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCompletionMaxMessages(int newCompletionMaxMessages) {
-		int oldCompletionMaxMessages = completionMaxMessages;
-		completionMaxMessages = newCompletionMaxMessages;
+	public void setCompletionMaxMessagesType(CompletionMessagesType newCompletionMaxMessagesType) {
+		CompletionMessagesType oldCompletionMaxMessagesType = completionMaxMessagesType;
+		completionMaxMessagesType = newCompletionMaxMessagesType == null ? COMPLETION_MAX_MESSAGES_TYPE_EDEFAULT : newCompletionMaxMessagesType;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MAX_MESSAGES, oldCompletionMaxMessages, completionMaxMessages));
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MAX_MESSAGES_TYPE, oldCompletionMaxMessagesType, completionMaxMessagesType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getCompletionMinMessagesValue() {
+		return completionMinMessagesValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCompletionMinMessagesValue(int newCompletionMinMessagesValue) {
+		int oldCompletionMinMessagesValue = completionMinMessagesValue;
+		completionMinMessagesValue = newCompletionMinMessagesValue;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MIN_MESSAGES_VALUE, oldCompletionMinMessagesValue, completionMinMessagesValue));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NamespacedProperty getCompletionMinMessagesExpression() {
+		return completionMinMessagesExpression;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetCompletionMinMessagesExpression(NamespacedProperty newCompletionMinMessagesExpression, NotificationChain msgs) {
+		NamespacedProperty oldCompletionMinMessagesExpression = completionMinMessagesExpression;
+		completionMinMessagesExpression = newCompletionMinMessagesExpression;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MIN_MESSAGES_EXPRESSION, oldCompletionMinMessagesExpression, newCompletionMinMessagesExpression);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCompletionMinMessagesExpression(NamespacedProperty newCompletionMinMessagesExpression) {
+		if (newCompletionMinMessagesExpression != completionMinMessagesExpression) {
+			NotificationChain msgs = null;
+			if (completionMinMessagesExpression != null)
+				msgs = ((InternalEObject)completionMinMessagesExpression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MIN_MESSAGES_EXPRESSION, null, msgs);
+			if (newCompletionMinMessagesExpression != null)
+				msgs = ((InternalEObject)newCompletionMinMessagesExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MIN_MESSAGES_EXPRESSION, null, msgs);
+			msgs = basicSetCompletionMinMessagesExpression(newCompletionMinMessagesExpression, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MIN_MESSAGES_EXPRESSION, newCompletionMinMessagesExpression, newCompletionMinMessagesExpression));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getCompletionMaxMessagesValue() {
+		return completionMaxMessagesValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCompletionMaxMessagesValue(int newCompletionMaxMessagesValue) {
+		int oldCompletionMaxMessagesValue = completionMaxMessagesValue;
+		completionMaxMessagesValue = newCompletionMaxMessagesValue;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MAX_MESSAGES_VALUE, oldCompletionMaxMessagesValue, completionMaxMessagesValue));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NamespacedProperty getCompletionMaxMessagesExpression() {
+		return completionMaxMessagesExpression;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetCompletionMaxMessagesExpression(NamespacedProperty newCompletionMaxMessagesExpression, NotificationChain msgs) {
+		NamespacedProperty oldCompletionMaxMessagesExpression = completionMaxMessagesExpression;
+		completionMaxMessagesExpression = newCompletionMaxMessagesExpression;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MAX_MESSAGES_EXPRESSION, oldCompletionMaxMessagesExpression, newCompletionMaxMessagesExpression);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCompletionMaxMessagesExpression(NamespacedProperty newCompletionMaxMessagesExpression) {
+		if (newCompletionMaxMessagesExpression != completionMaxMessagesExpression) {
+			NotificationChain msgs = null;
+			if (completionMaxMessagesExpression != null)
+				msgs = ((InternalEObject)completionMaxMessagesExpression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MAX_MESSAGES_EXPRESSION, null, msgs);
+			if (newCompletionMaxMessagesExpression != null)
+				msgs = ((InternalEObject)newCompletionMaxMessagesExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MAX_MESSAGES_EXPRESSION, null, msgs);
+			msgs = basicSetCompletionMaxMessagesExpression(newCompletionMaxMessagesExpression, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MAX_MESSAGES_EXPRESSION, newCompletionMaxMessagesExpression, newCompletionMaxMessagesExpression));
 	}
 
 	/**
@@ -680,6 +885,10 @@ public class AggregateMediatorImpl extends MediatorImpl implements AggregateMedi
 		switch (featureID) {
 			case EsbPackage.AGGREGATE_MEDIATOR__CORRELATION_EXPRESSION:
 				return basicSetCorrelationExpression(null, msgs);
+			case EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MIN_MESSAGES_EXPRESSION:
+				return basicSetCompletionMinMessagesExpression(null, msgs);
+			case EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MAX_MESSAGES_EXPRESSION:
+				return basicSetCompletionMaxMessagesExpression(null, msgs);
 			case EsbPackage.AGGREGATE_MEDIATOR__INPUT_CONNECTOR:
 				return basicSetInputConnector(null, msgs);
 			case EsbPackage.AGGREGATE_MEDIATOR__OUTPUT_CONNECTOR:
@@ -711,10 +920,18 @@ public class AggregateMediatorImpl extends MediatorImpl implements AggregateMedi
 				return getCorrelationExpression();
 			case EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_TIMEOUT:
 				return getCompletionTimeout();
-			case EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MIN_MESSAGES:
-				return getCompletionMinMessages();
-			case EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MAX_MESSAGES:
-				return getCompletionMaxMessages();
+			case EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MIN_MESSAGES_TYPE:
+				return getCompletionMinMessagesType();
+			case EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MAX_MESSAGES_TYPE:
+				return getCompletionMaxMessagesType();
+			case EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MIN_MESSAGES_VALUE:
+				return getCompletionMinMessagesValue();
+			case EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MIN_MESSAGES_EXPRESSION:
+				return getCompletionMinMessagesExpression();
+			case EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MAX_MESSAGES_VALUE:
+				return getCompletionMaxMessagesValue();
+			case EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MAX_MESSAGES_EXPRESSION:
+				return getCompletionMaxMessagesExpression();
 			case EsbPackage.AGGREGATE_MEDIATOR__INPUT_CONNECTOR:
 				return getInputConnector();
 			case EsbPackage.AGGREGATE_MEDIATOR__OUTPUT_CONNECTOR:
@@ -750,13 +967,25 @@ public class AggregateMediatorImpl extends MediatorImpl implements AggregateMedi
 				setCorrelationExpression((NamespacedProperty)newValue);
 				return;
 			case EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_TIMEOUT:
-				setCompletionTimeout((Integer)newValue);
+				setCompletionTimeout((Long)newValue);
 				return;
-			case EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MIN_MESSAGES:
-				setCompletionMinMessages((Integer)newValue);
+			case EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MIN_MESSAGES_TYPE:
+				setCompletionMinMessagesType((CompletionMessagesType)newValue);
 				return;
-			case EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MAX_MESSAGES:
-				setCompletionMaxMessages((Integer)newValue);
+			case EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MAX_MESSAGES_TYPE:
+				setCompletionMaxMessagesType((CompletionMessagesType)newValue);
+				return;
+			case EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MIN_MESSAGES_VALUE:
+				setCompletionMinMessagesValue((Integer)newValue);
+				return;
+			case EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MIN_MESSAGES_EXPRESSION:
+				setCompletionMinMessagesExpression((NamespacedProperty)newValue);
+				return;
+			case EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MAX_MESSAGES_VALUE:
+				setCompletionMaxMessagesValue((Integer)newValue);
+				return;
+			case EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MAX_MESSAGES_EXPRESSION:
+				setCompletionMaxMessagesExpression((NamespacedProperty)newValue);
 				return;
 			case EsbPackage.AGGREGATE_MEDIATOR__INPUT_CONNECTOR:
 				setInputConnector((AggregateMediatorInputConnector)newValue);
@@ -801,11 +1030,23 @@ public class AggregateMediatorImpl extends MediatorImpl implements AggregateMedi
 			case EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_TIMEOUT:
 				setCompletionTimeout(COMPLETION_TIMEOUT_EDEFAULT);
 				return;
-			case EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MIN_MESSAGES:
-				setCompletionMinMessages(COMPLETION_MIN_MESSAGES_EDEFAULT);
+			case EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MIN_MESSAGES_TYPE:
+				setCompletionMinMessagesType(COMPLETION_MIN_MESSAGES_TYPE_EDEFAULT);
 				return;
-			case EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MAX_MESSAGES:
-				setCompletionMaxMessages(COMPLETION_MAX_MESSAGES_EDEFAULT);
+			case EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MAX_MESSAGES_TYPE:
+				setCompletionMaxMessagesType(COMPLETION_MAX_MESSAGES_TYPE_EDEFAULT);
+				return;
+			case EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MIN_MESSAGES_VALUE:
+				setCompletionMinMessagesValue(COMPLETION_MIN_MESSAGES_VALUE_EDEFAULT);
+				return;
+			case EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MIN_MESSAGES_EXPRESSION:
+				setCompletionMinMessagesExpression((NamespacedProperty)null);
+				return;
+			case EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MAX_MESSAGES_VALUE:
+				setCompletionMaxMessagesValue(COMPLETION_MAX_MESSAGES_VALUE_EDEFAULT);
+				return;
+			case EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MAX_MESSAGES_EXPRESSION:
+				setCompletionMaxMessagesExpression((NamespacedProperty)null);
 				return;
 			case EsbPackage.AGGREGATE_MEDIATOR__INPUT_CONNECTOR:
 				setInputConnector((AggregateMediatorInputConnector)null);
@@ -847,10 +1088,18 @@ public class AggregateMediatorImpl extends MediatorImpl implements AggregateMedi
 				return correlationExpression != null;
 			case EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_TIMEOUT:
 				return completionTimeout != COMPLETION_TIMEOUT_EDEFAULT;
-			case EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MIN_MESSAGES:
-				return completionMinMessages != COMPLETION_MIN_MESSAGES_EDEFAULT;
-			case EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MAX_MESSAGES:
-				return completionMaxMessages != COMPLETION_MAX_MESSAGES_EDEFAULT;
+			case EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MIN_MESSAGES_TYPE:
+				return completionMinMessagesType != COMPLETION_MIN_MESSAGES_TYPE_EDEFAULT;
+			case EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MAX_MESSAGES_TYPE:
+				return completionMaxMessagesType != COMPLETION_MAX_MESSAGES_TYPE_EDEFAULT;
+			case EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MIN_MESSAGES_VALUE:
+				return completionMinMessagesValue != COMPLETION_MIN_MESSAGES_VALUE_EDEFAULT;
+			case EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MIN_MESSAGES_EXPRESSION:
+				return completionMinMessagesExpression != null;
+			case EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MAX_MESSAGES_VALUE:
+				return completionMaxMessagesValue != COMPLETION_MAX_MESSAGES_VALUE_EDEFAULT;
+			case EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MAX_MESSAGES_EXPRESSION:
+				return completionMaxMessagesExpression != null;
 			case EsbPackage.AGGREGATE_MEDIATOR__INPUT_CONNECTOR:
 				return inputConnector != null;
 			case EsbPackage.AGGREGATE_MEDIATOR__OUTPUT_CONNECTOR:
@@ -884,10 +1133,14 @@ public class AggregateMediatorImpl extends MediatorImpl implements AggregateMedi
 		result.append(aggregateID);
 		result.append(", completionTimeout: ");
 		result.append(completionTimeout);
-		result.append(", completionMinMessages: ");
-		result.append(completionMinMessages);
-		result.append(", completionMaxMessages: ");
-		result.append(completionMaxMessages);
+		result.append(", completionMinMessagesType: ");
+		result.append(completionMinMessagesType);
+		result.append(", completionMaxMessagesType: ");
+		result.append(completionMaxMessagesType);
+		result.append(", completionMinMessagesValue: ");
+		result.append(completionMinMessagesValue);
+		result.append(", completionMaxMessagesValue: ");
+		result.append(completionMaxMessagesValue);
 		result.append(", sequenceType: ");
 		result.append(sequenceType);
 		result.append(')');

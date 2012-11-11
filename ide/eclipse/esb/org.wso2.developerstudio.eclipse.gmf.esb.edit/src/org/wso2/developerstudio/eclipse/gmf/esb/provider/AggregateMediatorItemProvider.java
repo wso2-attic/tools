@@ -26,6 +26,7 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.AggregateSequenceType;
+import org.wso2.developerstudio.eclipse.gmf.esb.CompletionMessagesType;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 
@@ -70,8 +71,23 @@ public class AggregateMediatorItemProvider
 		addAggregateIDPropertyDescriptor(object);
 		addCorrelationExpressionPropertyDescriptor(object);
 		addCompletionTimeoutPropertyDescriptor(object);
-		addCompletionMinMessagesPropertyDescriptor(object);
-		addCompletionMaxMessagesPropertyDescriptor(object);
+		addCompletionMinMessagesTypePropertyDescriptor(object);
+		addCompletionMaxMessagesTypePropertyDescriptor(object);
+		if(mediator.getCompletionMinMessagesType().equals(CompletionMessagesType.VALUE)){
+			
+			addCompletionMinMessagesValuePropertyDescriptor(object);
+		}else {
+			
+			addCompletionMinMessagesPropertyDescriptor(object);
+		}
+		
+		if(mediator.getCompletionMaxMessagesType().equals(CompletionMessagesType.VALUE)){
+			
+			addCompletionMaxMessagesValuePropertyDescriptor(object);
+		}else{
+			
+			addCompletionMaxMessagesPropertyDescriptor(object);
+		}
 		addAggregationExpressionPropertyDescriptor(object);
 		addSequenceTypePropertyDescriptor(object);
 
@@ -144,10 +160,98 @@ public class AggregateMediatorItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Completion Min Messages Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCompletionMinMessagesTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AggregateMediator_completionMinMessagesType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AggregateMediator_completionMinMessagesType_feature", "_UI_AggregateMediator_type"),
+				 EsbPackage.Literals.AGGREGATE_MEDIATOR__COMPLETION_MIN_MESSAGES_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 "Basic",
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Completion Max Messages Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCompletionMaxMessagesTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AggregateMediator_completionMaxMessagesType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AggregateMediator_completionMaxMessagesType_feature", "_UI_AggregateMediator_type"),
+				 EsbPackage.Literals.AGGREGATE_MEDIATOR__COMPLETION_MAX_MESSAGES_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 "Basic",
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Completion Min Messages Value feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCompletionMinMessagesValuePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AggregateMediator_completionMinMessagesValue_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AggregateMediator_completionMinMessagesValue_feature", "_UI_AggregateMediator_type"),
+				 EsbPackage.Literals.AGGREGATE_MEDIATOR__COMPLETION_MIN_MESSAGES_VALUE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 "Basic",
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Completion Max Messages Value feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCompletionMaxMessagesValuePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AggregateMediator_completionMaxMessagesValue_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AggregateMediator_completionMaxMessagesValue_feature", "_UI_AggregateMediator_type"),
+				 EsbPackage.Literals.AGGREGATE_MEDIATOR__COMPLETION_MAX_MESSAGES_VALUE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 "Basic",
+				 null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Completion Min Messages feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated 
 	 */
 	protected void addCompletionMinMessagesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
@@ -156,7 +260,7 @@ public class AggregateMediatorItemProvider
 				 getResourceLocator(),
 				 getString("_UI_AggregateMediator_completionMinMessages_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_AggregateMediator_completionMinMessages_feature", "_UI_AggregateMediator_type"),
-				 EsbPackage.Literals.AGGREGATE_MEDIATOR__COMPLETION_MIN_MESSAGES,
+				 EsbPackage.Literals.AGGREGATE_MEDIATOR__COMPLETION_MIN_MESSAGES_EXPRESSION,
 				 true,
 				 false,
 				 false,
@@ -169,7 +273,7 @@ public class AggregateMediatorItemProvider
 	 * This adds a property descriptor for the Completion Max Messages feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated 
 	 */
 	protected void addCompletionMaxMessagesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
@@ -178,7 +282,7 @@ public class AggregateMediatorItemProvider
 				 getResourceLocator(),
 				 getString("_UI_AggregateMediator_completionMaxMessages_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_AggregateMediator_completionMaxMessages_feature", "_UI_AggregateMediator_type"),
-				 EsbPackage.Literals.AGGREGATE_MEDIATOR__COMPLETION_MAX_MESSAGES,
+				 EsbPackage.Literals.AGGREGATE_MEDIATOR__COMPLETION_MAX_MESSAGES_EXPRESSION,
 				 true,
 				 false,
 				 false,
@@ -268,6 +372,8 @@ public class AggregateMediatorItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(EsbPackage.Literals.AGGREGATE_MEDIATOR__CORRELATION_EXPRESSION);
+			childrenFeatures.add(EsbPackage.Literals.AGGREGATE_MEDIATOR__COMPLETION_MIN_MESSAGES_EXPRESSION);
+			childrenFeatures.add(EsbPackage.Literals.AGGREGATE_MEDIATOR__COMPLETION_MAX_MESSAGES_EXPRESSION);
 			childrenFeatures.add(EsbPackage.Literals.AGGREGATE_MEDIATOR__INPUT_CONNECTOR);
 			childrenFeatures.add(EsbPackage.Literals.AGGREGATE_MEDIATOR__OUTPUT_CONNECTOR);
 			childrenFeatures.add(EsbPackage.Literals.AGGREGATE_MEDIATOR__ON_COMPLETE_OUTPUT_CONNECTOR);
@@ -332,12 +438,16 @@ public class AggregateMediatorItemProvider
 		switch (notification.getFeatureID(AggregateMediator.class)) {
 			case EsbPackage.AGGREGATE_MEDIATOR__AGGREGATE_ID:
 			case EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_TIMEOUT:
-			case EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MIN_MESSAGES:
-			case EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MAX_MESSAGES:
+			case EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MIN_MESSAGES_TYPE:
+			case EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MAX_MESSAGES_TYPE:
+			case EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MIN_MESSAGES_VALUE:
+			case EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MAX_MESSAGES_VALUE:
 			case EsbPackage.AGGREGATE_MEDIATOR__SEQUENCE_TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case EsbPackage.AGGREGATE_MEDIATOR__CORRELATION_EXPRESSION:
+			case EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MIN_MESSAGES_EXPRESSION:
+			case EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MAX_MESSAGES_EXPRESSION:
 			case EsbPackage.AGGREGATE_MEDIATOR__INPUT_CONNECTOR:
 			case EsbPackage.AGGREGATE_MEDIATOR__OUTPUT_CONNECTOR:
 			case EsbPackage.AGGREGATE_MEDIATOR__ON_COMPLETE_OUTPUT_CONNECTOR:
@@ -365,6 +475,16 @@ public class AggregateMediatorItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(EsbPackage.Literals.AGGREGATE_MEDIATOR__CORRELATION_EXPRESSION,
+				 EsbFactory.eINSTANCE.createNamespacedProperty()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.AGGREGATE_MEDIATOR__COMPLETION_MIN_MESSAGES_EXPRESSION,
+				 EsbFactory.eINSTANCE.createNamespacedProperty()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.AGGREGATE_MEDIATOR__COMPLETION_MAX_MESSAGES_EXPRESSION,
 				 EsbFactory.eINSTANCE.createNamespacedProperty()));
 
 		newChildDescriptors.add
@@ -411,6 +531,8 @@ public class AggregateMediatorItemProvider
 
 		boolean qualify =
 			childFeature == EsbPackage.Literals.AGGREGATE_MEDIATOR__CORRELATION_EXPRESSION ||
+			childFeature == EsbPackage.Literals.AGGREGATE_MEDIATOR__COMPLETION_MIN_MESSAGES_EXPRESSION ||
+			childFeature == EsbPackage.Literals.AGGREGATE_MEDIATOR__COMPLETION_MAX_MESSAGES_EXPRESSION ||
 			childFeature == EsbPackage.Literals.AGGREGATE_MEDIATOR__AGGREGATION_EXPRESSION;
 
 		if (qualify) {

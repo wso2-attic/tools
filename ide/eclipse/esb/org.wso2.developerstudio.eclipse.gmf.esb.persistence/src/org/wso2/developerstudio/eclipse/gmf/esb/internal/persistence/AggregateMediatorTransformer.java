@@ -17,6 +17,7 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence;
 
 import java.util.List;
+import java.util.Map.Entry;
 
 import org.apache.synapse.config.xml.AnonymousListMediator;
 import org.apache.synapse.endpoints.Endpoint;
@@ -28,7 +29,9 @@ import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EObject;
 import org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.AggregateSequenceType;
+import org.wso2.developerstudio.eclipse.gmf.esb.CompletionMessagesType;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
+import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
 
 public class AggregateMediatorTransformer extends AbstractEsbNodeTransformer {
@@ -86,10 +89,63 @@ public class AggregateMediatorTransformer extends AbstractEsbNodeTransformer {
 		org.apache.synapse.mediators.eip.aggregator.AggregateMediator aggregateMediator = new org.apache.synapse.mediators.eip.aggregator.AggregateMediator();
 		{
 			aggregateMediator.setCompletionTimeoutMillis(visualAggregate.getCompletionTimeout()*1000 );
-			aggregateMediator.setMaxMessagesToComplete(new Value(""+visualAggregate
-					.getCompletionMaxMessages()));
-			aggregateMediator.setMinMessagesToComplete(new Value(""+visualAggregate
-					.getCompletionMinMessages()));
+			
+			if(visualAggregate.getCompletionMinMessagesType().equals(CompletionMessagesType.VALUE)){
+				
+				String valueString  = Integer.toString(visualAggregate.getCompletionMinMessagesValue());
+				Value minMsgValue  = new Value(valueString);
+				
+				aggregateMediator.setMinMessagesToComplete(minMsgValue);
+				
+			}else if(visualAggregate.getCompletionMinMessagesType().equals(CompletionMessagesType.EXPRESSION)){
+				
+				if (visualAggregate.getCompletionMinMessagesExpression() != null
+						&& visualAggregate.getCompletionMinMessagesExpression() != null) {
+
+					NamespacedProperty minMsgExp = visualAggregate
+							.getCompletionMinMessagesExpression();
+					SynapseXPath xpath = new SynapseXPath(
+							minMsgExp.getPropertyValue());
+
+					for (Entry<String, String> entry : minMsgExp
+							.getNamespaces().entrySet()) {
+						xpath.addNamespace(entry.getKey(), entry.getValue());
+					}
+					Value minMsgValue = new Value(xpath);
+					
+					aggregateMediator.setMinMessagesToComplete(minMsgValue);
+				}
+				
+			}
+			
+			if(visualAggregate.getCompletionMaxMessagesType().equals(CompletionMessagesType.VALUE)){
+				
+				String valueString  = Integer.toString(visualAggregate.getCompletionMaxMessagesValue());
+				Value minMsgValue  = new Value(valueString);
+				
+				aggregateMediator.setMaxMessagesToComplete(minMsgValue);
+				
+			}else if(visualAggregate.getCompletionMaxMessagesType().equals(CompletionMessagesType.EXPRESSION)){
+				
+				if (visualAggregate.getCompletionMaxMessagesExpression() != null
+						&& visualAggregate.getCompletionMaxMessagesExpression() != null) {
+
+					NamespacedProperty minMsgExp = visualAggregate
+							.getCompletionMaxMessagesExpression();
+					SynapseXPath xpath = new SynapseXPath(
+							minMsgExp.getPropertyValue());
+
+					for (Entry<String, String> entry : minMsgExp
+							.getNamespaces().entrySet()) {
+						xpath.addNamespace(entry.getKey(), entry.getValue());
+					}
+					Value minMsgValue = new Value(xpath);
+					
+					aggregateMediator.setMaxMessagesToComplete(minMsgValue);
+				}
+				
+			}
+			
 			if (visualAggregate.getCorrelationExpression() != null
 					&& visualAggregate.getCorrelationExpression()
 							.getPropertyValue() != null
