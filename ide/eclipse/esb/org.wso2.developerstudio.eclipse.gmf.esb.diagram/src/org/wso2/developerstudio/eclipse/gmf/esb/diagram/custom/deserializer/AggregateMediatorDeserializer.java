@@ -24,13 +24,12 @@ import org.apache.synapse.mediators.Value;
 import org.apache.synapse.util.xpath.SynapseXPath;
 import org.eclipse.core.runtime.Assert;
 import org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.AggregateSequenceType;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
+import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
 
 public class AggregateMediatorDeserializer extends AbstractEsbNodeDeserializer<AbstractMediator, AggregateMediator> {
-	
-	
-	//TODO Several Ecore changes needed to complete this.
 	
 	@Override
 	public AggregateMediator createNode(AbstractMediator mediator) {
@@ -48,7 +47,7 @@ public class AggregateMediatorDeserializer extends AbstractEsbNodeDeserializer<A
 		}
 		
 		//Setting completion timeout
-		//vishualAggrigate.setCompletionTimeout(aggregateMediator.getCompletionTimeoutMillis());
+		vishualAggrigate.setCompletionTimeout(aggregateMediator.getCompletionTimeoutMillis());
 		
 		//Setting aggregate expression.
 		if(aggregateMediator.getAggregationExpression() != null){
@@ -75,7 +74,7 @@ public class AggregateMediatorDeserializer extends AbstractEsbNodeDeserializer<A
 			
 			if(maxMsg.getKeyValue() != null && DeserializerUtils.isInteger(maxMsg.getKeyValue()) ){
 				
-				//vishualAggrigate.setCompletionMaxMessages(Integer.parseInt(maxMsg.getKeyValue()));
+				vishualAggrigate.setCompletionMaxMessagesValue(Integer.parseInt(maxMsg.getKeyValue()));
 				
 			}else if(maxMsg.getExpression() != null){
 				
@@ -91,9 +90,70 @@ public class AggregateMediatorDeserializer extends AbstractEsbNodeDeserializer<A
 					nsp.setNamespaces(map);
 				}
 				
-				//vishualAggrigate.set
+				vishualAggrigate.setCompletionMinMessagesExpression(nsp);
 				
 			}
+		}
+		
+		if(aggregateMediator.getMinMessagesToComplete() != null){
+			
+			Value minMsg = aggregateMediator.getMinMessagesToComplete();
+			
+			if(minMsg.getKeyValue() != null && DeserializerUtils.isInteger(minMsg.getKeyValue())){
+				
+				vishualAggrigate.setCompletionMinMessagesValue(Integer.parseInt(minMsg.getKeyValue()));
+				
+			}else if(minMsg.getExpression() != null){
+				
+				SynapseXPath xpath = minMsg.getExpression();
+				
+				NamespacedProperty nsp = EsbFactory.eINSTANCE.createNamespacedProperty();
+				
+				if (xpath.getNamespaces() != null) {
+
+					@SuppressWarnings("unchecked")
+					Map<String, String> map = xpath.getNamespaces();
+
+					nsp.setNamespaces(map);
+				}
+				
+				vishualAggrigate.setCompletionMinMessagesExpression(nsp);
+				
+			}
+		}
+		
+		if(aggregateMediator.getCorrelateExpression() != null){
+			
+			SynapseXPath xpath = aggregateMediator.getCorrelateExpression();
+			
+			NamespacedProperty nsp = EsbFactory.eINSTANCE.createNamespacedProperty();
+			
+			if (xpath.getNamespaces() != null) {
+
+				@SuppressWarnings("unchecked")
+				Map<String, String> map = xpath.getNamespaces();
+
+				nsp.setNamespaces(map);
+			}
+			
+			vishualAggrigate.setCorrelationExpression(nsp);
+			
+		}
+		
+		if(aggregateMediator.getOnCompleteSequenceRef() != null){
+			
+			vishualAggrigate.setSequenceType(AggregateSequenceType.REGISTRY_REFERENCE);
+			
+			RegistryKeyProperty regkey = EsbFactory.eINSTANCE.createRegistryKeyProperty();
+			regkey.setKeyValue(aggregateMediator.getOnCompleteSequenceRef());
+			
+			vishualAggrigate.setSequenceKey(regkey);
+			
+		}else if(aggregateMediator.getOnCompleteSequence() != null){
+			
+			vishualAggrigate.setSequenceType(AggregateSequenceType.ANONYMOUS);
+			
+			//TODO handle this 
 		}
 		
 		
