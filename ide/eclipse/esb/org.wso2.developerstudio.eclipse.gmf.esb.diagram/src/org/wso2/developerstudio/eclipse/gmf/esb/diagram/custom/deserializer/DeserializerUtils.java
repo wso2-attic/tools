@@ -16,6 +16,7 @@
 
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 
+import java.util.Iterator;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
@@ -43,6 +44,14 @@ public class DeserializerUtils {
 		}
 
 		return true;
+	}
+	
+	protected static String join(Iterable<? extends CharSequence> s, String delimiter) {
+	    @SuppressWarnings("unchecked")
+		Iterator<String> iter = (Iterator<String>) s.iterator();
+	    StringBuffer buffer = new StringBuffer(iter.next());
+	    while (iter.hasNext()) buffer.append(delimiter).append(iter.next());
+	    return buffer.toString();
 	}
 
 }

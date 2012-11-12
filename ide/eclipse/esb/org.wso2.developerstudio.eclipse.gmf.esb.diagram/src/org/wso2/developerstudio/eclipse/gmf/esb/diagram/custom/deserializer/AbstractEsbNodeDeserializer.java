@@ -268,7 +268,7 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 		GraphicalEditPart parent =((GraphicalEditPart)editpart.getParent());
 		
 		if(editpart instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediator){
-			parent.setLayoutConstraint(parent, gEditpart.getFigure(), new org.eclipse.draw2d.geometry.Rectangle(currentX, currentY, -1, -1));
+			parent.setLayoutConstraint(gEditpart, gEditpart.getFigure(), new org.eclipse.draw2d.geometry.Rectangle(currentX, currentY, -1, -1));
 			currentX = currentX + gEditpart.getFigure().getBounds().width + 50;
 		}
 		
@@ -343,14 +343,6 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 			return editPartMap.get(node);
 		}
 		return null;
-	}
-	
-	protected static String join(Iterable<? extends CharSequence> s, String delimiter) {
-	    @SuppressWarnings("unchecked")
-		Iterator<String> iter = (Iterator<String>) s.iterator();
-	    StringBuffer buffer = new StringBuffer(iter.next());
-	    while (iter.hasNext()) buffer.append(delimiter).append(iter.next());
-	    return buffer.toString();
 	}
 
 	public static IDeveloperStudioLog getLog() {
