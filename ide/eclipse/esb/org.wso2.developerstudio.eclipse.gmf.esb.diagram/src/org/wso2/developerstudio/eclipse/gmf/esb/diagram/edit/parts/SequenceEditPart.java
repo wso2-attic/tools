@@ -11,6 +11,7 @@ import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.draw2d.Figure;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.Shape;
@@ -583,7 +584,7 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 				protected Control createDialogArea(Composite parent) {
 					Composite composite = (Composite) super.createDialogArea(parent);
 					recieveCheckBox=new Button(composite, SWT.CHECK);
-					recieveCheckBox.setText("Use this sequence for Service Chaining.");
+					recieveCheckBox.setText("Use this sequence as a Recieving sequence.");
 					recieveCheckBox.addSelectionListener(new SelectionListener() {
 												
 						public void widgetSelected(SelectionEvent arg0) {
@@ -887,8 +888,10 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 				NodeFigure figureOutput = ((AbstractMediatorOutputConnectorEditPart) this
 						.getChildren().get(i)).getNodeFigureOutput();
 				figureOutput.removeAll();
-				figureOutput.add(((AbstractMediatorOutputConnectorEditPart) this.getChildren().get(
-						i)).getPrimaryShapeForward());
+				Figure emptyFigure = new Figure();
+				figureOutput.add(emptyFigure);
+/*				figureOutput.add(((AbstractMediatorOutputConnectorEditPart) this.getChildren().get(
+						i)).getPrimaryShapeForward());*/
 				BorderItemLocator outputLocator = new FixedBorderItemLocator(this.getMainFigure(),
 						outputConnector, PositionConstants.EAST, 0.70);
 				this.getBorderedFigure().getBorderItemContainer().remove(outputConnector);
