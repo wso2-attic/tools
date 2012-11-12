@@ -37,6 +37,7 @@ import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbElement;
@@ -130,6 +131,11 @@ public class Deserializer {
 				} else {
 					log.warn("Cannot execute EMF command : " + addCmd.toString());
 				}
+				
+				AbstractEsbNodeDeserializer.refreshEditPartMap();
+				GraphicalEditPart editpart = (GraphicalEditPart) AbstractEsbNodeDeserializer.getEditpart(node);
+				GraphicalEditPart parent =((GraphicalEditPart)editpart.getParent());
+				parent.setLayoutConstraint(editpart, editpart.getFigure(), new org.eclipse.draw2d.geometry.Rectangle(0, 0, -1, -1)); 
 			}
 		}
 

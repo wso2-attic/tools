@@ -82,8 +82,8 @@ public class SendMediatorDeserializer extends AbstractEsbNodeDeserializer<Abstra
 		
 		Endpoint endpoint = sendMediator.getEndpoint();
 		if(endpoint!=null){
-			EndpointFlow endpointFlow = EsbFactory.eINSTANCE.createEndpointFlow();
-			vishualSend.setEndpointFlow(endpointFlow);
+			//EndpointFlow endpointFlow = EsbFactory.eINSTANCE.createEndpointFlow();
+			//vishualSend.setEndpointFlow(endpointFlow);
 			//TODO: deserialize end points
 		}
 			

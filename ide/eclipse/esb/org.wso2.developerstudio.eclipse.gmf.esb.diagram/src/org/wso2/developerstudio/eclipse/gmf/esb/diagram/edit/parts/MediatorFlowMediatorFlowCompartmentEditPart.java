@@ -3,6 +3,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.PositionConstants;
+import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.SetCommand;
@@ -135,6 +136,11 @@ public class MediatorFlowMediatorFlowCompartmentEditPart extends
 		}
 
 		else {
+			if (childEditPart instanceof AbstractMediator){
+				AbstractMediator ep = (AbstractMediator)childEditPart;
+				Rectangle bounds = ep.getFigure().getBounds();
+				bounds.setLocation(bounds.x+100, bounds.y+200);
+			}
 			index = Math.min(getContentPane().getChildren().size(), index);
 			getContentPane().add(child, index);
 		}

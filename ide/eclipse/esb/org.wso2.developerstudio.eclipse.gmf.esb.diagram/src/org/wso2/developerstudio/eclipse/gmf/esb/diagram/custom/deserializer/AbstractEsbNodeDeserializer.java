@@ -35,11 +35,13 @@ import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.impl.ConnectorImpl;
 import org.wso2.developerstudio.eclipse.gmf.esb.DefaultEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.EndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
@@ -67,6 +69,8 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 	private static Map<EsbConnector, EsbConnector> pairMediatorFlowMap = new HashMap<EsbConnector, EsbConnector>();
 	private static List<EObject> reversedNodes = new ArrayList<EObject>();
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
+	
+	private static int currentX = 25;
 	
 	public EsbDiagramEditor getDiagramEditor() {
 		return diagramEditor;
@@ -160,9 +164,10 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 		for (Map.Entry<EsbConnector, EsbConnector> pair : pairMediatorFlowMap.entrySet()) {
 			LinkedList<EsbNode> inSeq = connectionFlowMap.get(pair.getKey());
 			LinkedList<EsbNode> outSeq = connectionFlowMap.get(pair.getValue());
-			if (inSeq.size() > 0 && inSeq.getLast() != null && outSeq.size() > 0 && outSeq.getLast() != null) {
+			EsbNode last = inSeq.getLast();
+			if (inSeq.size() > 0 && last instanceof EndPoint && outSeq.size() > 0 && outSeq.getLast() != null) {
 				AbstractConnectorEditPart sourceConnector = EditorUtils
-						.getOutputConnector((ShapeNodeEditPart) getEditpart(inSeq.getLast()));
+						.getOutputConnector((ShapeNodeEditPart) getEditpart(last));
 				AbstractConnectorEditPart targetConnector = EditorUtils
 						.getInputConnector((ShapeNodeEditPart) getEditpart(outSeq.getLast()));
 				if (sourceConnector != null && targetConnector != null) {
@@ -204,6 +209,8 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 		AbstractConnectorEditPart sourceConnector = null;
 		AbstractConnectorEditPart targetConnector = null;
 		
+		currentX = 25;
+		
 		boolean reversedMode = (connector instanceof InputConnector);
 
 		EditPart sourceConnectorEditpart = getEditpart(connector);
@@ -229,6 +236,8 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 				}
 			}
 			
+			relocateNode(reversedMode, editpart);
+			
 			if(nextSourceConnector!=null){
 				clearLinks(nextSourceConnector);
 			}
@@ -246,6 +255,24 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 			}
 			sourceConnector = nextSourceConnector;
 		}
+	}
+
+	/**
+	 * @param reversedMode
+	 * @param editpart
+	 */
+	public static void relocateNode(boolean reversedMode, EditPart editpart) {
+		
+		int currentY = (reversedMode)?250:0;
+		GraphicalEditPart gEditpart = (GraphicalEditPart)editpart;
+		GraphicalEditPart parent =((GraphicalEditPart)editpart.getParent());
+		
+		if(editpart instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediator){
+			parent.setLayoutConstraint(parent, gEditpart.getFigure(), new org.eclipse.draw2d.geometry.Rectangle(currentX, currentY, -1, -1));
+			currentX = currentX + gEditpart.getFigure().getBounds().width + 50;
+		}
+		
+	
 	}
 
 	/**
@@ -292,7 +319,7 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 	/**
 	 * Refresh EditPartMap
 	 */
-	private static void refreshEditPartMap(){
+	public static void refreshEditPartMap(){
 		editPartMap.clear();
 		Map editPartRegistry = diagramEditor.getDiagramEditPart().getViewer().getEditPartRegistry();
 		for (Object object : editPartRegistry.keySet()) {
@@ -311,7 +338,7 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 	 * @param node
 	 * @return
 	 */
-	private static EditPart getEditpart(EObject node) {
+	public static EditPart getEditpart(EObject node) {
 		if(editPartMap.containsKey(node)){
 			return editPartMap.get(node);
 		}
