@@ -45,9 +45,11 @@ public class FilterMediatorDeserializer extends AbstractEsbNodeDeserializer<Abst
 			
 			
 			//Setting regx
+			if(filterMediator.getRegex() != null && DeserializerUtils.isValidRegex(filterMediator.getRegex().toString())){
+				
+			vishualFilter.setRegex(filterMediator.getRegex().toString());
 			
-			Pattern regxPattern = filterMediator.getRegex();
-			vishualFilter.setRegex(regxPattern.toString());
+			}
 			
 		}else if(filterMediator.getXpath() != null){
 			

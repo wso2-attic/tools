@@ -16,17 +16,32 @@
 
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 
+import java.util.regex.Pattern;
+import java.util.regex.PatternSyntaxException;
+
 public class DeserializerUtils {
-	
-	public static boolean isInteger(String numberString){
-		
+
+	public static boolean isInteger(String numberString) {
+
 		try {
 			Integer.parseInt(numberString);
 		} catch (NumberFormatException e) {
-			
+
 			return false;
 		}
-		
+
+		return true;
+	}
+
+	public static boolean isValidRegex(String regex) {
+
+		try {
+			Pattern.compile(regex);
+		} catch (PatternSyntaxException exception) {
+
+			return false;
+		}
+
 		return true;
 	}
 
