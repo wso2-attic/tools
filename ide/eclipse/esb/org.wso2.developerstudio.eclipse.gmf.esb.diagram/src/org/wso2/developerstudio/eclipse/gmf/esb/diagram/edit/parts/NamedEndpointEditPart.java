@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import org.apache.maven.project.MavenProject;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.NullProgressMonitor;
@@ -73,6 +74,8 @@ import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.FileEditorInput;
+import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBArtifact;
+import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.FailoverEndPoint;
@@ -96,6 +99,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.Messages;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
+import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 
 import static org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils.*;
 
@@ -444,6 +448,17 @@ public class NamedEndpointEditPart extends AbstractEndpoint {
 						};
 
 						getEditDomain().getCommandStack().execute(new ICommandProxy(operation));
+						
+						IProject activeProject = getActiveProject();
+						ESBProjectArtifact esbProjectArtifact = new ESBProjectArtifact();
+						try {
+							esbProjectArtifact.fromFile(activeProject.getFile("artifact.xml").getLocation().toFile());						
+							esbProjectArtifact.addESBArtifact(createArtifact(endpointName,getMavenGroupID(activeProject), "1.0.0", "src/main/synapse-config/endpoints/"+endpointName+".xml", "synapse/endpoint"));
+							esbProjectArtifact.toFile();
+						}catch (Exception e) {
+							log.error("Error while updating Artifact.xml");
+						}
+						
 						openWithSeparateEditor();
 					}
 				});
@@ -452,8 +467,9 @@ public class NamedEndpointEditPart extends AbstractEndpoint {
 			openWithSeparateEditor();
 		}
 	}
-
-	public void openWithSeparateEditor() {
+	
+	
+	private IProject getActiveProject(){
 		IEditorPart editorPart = null;
 		IProject activeProject = null;
 		IEditorReference editorReferences[] = PlatformUI.getWorkbench().getActiveWorkbenchWindow()
@@ -470,10 +486,38 @@ public class NamedEndpointEditPart extends AbstractEndpoint {
 				IFileEditorInput input = (IFileEditorInput) editorPart.getEditorInput();
 				IFile file = input.getFile();
 				activeProject = file.getProject();
-
 			}
-
 		}
+		return activeProject;
+	}
+
+	private String getMavenGroupID(IProject project) {
+		String groupID = "com.example";
+		try {
+			MavenProject mavenProject = MavenUtils.getMavenProject(project.getFile("pom.xml")
+					.getLocation().toFile());
+			groupID = mavenProject.getGroupId();
+		} catch (Exception e) {
+			//ignore. Then group id would be default. 
+		}
+
+		return groupID;
+	}
+	
+	private ESBArtifact createArtifact(String name, String groupId, String version, String path,
+			String type) {
+		ESBArtifact artifact = new ESBArtifact();
+		artifact.setName(name);
+		artifact.setVersion(version);
+		artifact.setType(type);
+		artifact.setServerRole("EnterpriseServiceBus");
+		artifact.setGroupId(groupId);
+		artifact.setFile(path);
+		return artifact;
+	}
+	
+	public void openWithSeparateEditor() {
+		IProject activeProject = getActiveProject();
 
 		String name = ((NamedEndpoint) ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) getModel())
 				.getElement()).getName();

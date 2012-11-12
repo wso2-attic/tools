@@ -4,11 +4,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import org.apache.maven.project.MavenProject;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.Shape;
@@ -47,6 +49,7 @@ import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.dialogs.Dialog;
+import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.jface.dialogs.IInputValidator;
 import org.eclipse.jface.dialogs.InputDialog;
 import org.eclipse.swt.SWT;
@@ -71,6 +74,8 @@ import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.FileEditorInput;
+import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBArtifact;
+import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyService;
@@ -95,6 +100,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.Messages;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
+import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.common.util.URI;
 import static org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils.*;
@@ -411,8 +417,8 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(EsbVisualIDRegistry.getType(SequenceNameEditPart.VISUAL_ID));
 	}
-
-	public void openWithSeparateEditor() {
+	
+	private IProject getActiveProject(){
 		IEditorPart editorPart = null;
 		IProject activeProject = null;
 		IEditorReference editorReferences[] = PlatformUI.getWorkbench().getActiveWorkbenchWindow()
@@ -431,8 +437,37 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 				activeProject = file.getProject();
 
 			}
-
 		}
+		return activeProject;
+	}
+	
+	private String getMavenGroupID(IProject project) {
+		String groupID = "com.example";
+		try {
+			MavenProject mavenProject = MavenUtils.getMavenProject(project.getFile("pom.xml")
+					.getLocation().toFile());
+			groupID = mavenProject.getGroupId();
+		} catch (Exception e) {
+			//ignore. Then group id would be default. 
+		}
+
+		return groupID;
+	}
+	
+	private ESBArtifact createArtifact(String name, String groupId, String version, String path,
+			String type) {
+		ESBArtifact artifact = new ESBArtifact();
+		artifact.setName(name);
+		artifact.setVersion(version);
+		artifact.setType(type);
+		artifact.setServerRole("EnterpriseServiceBus");
+		artifact.setGroupId(groupId);
+		artifact.setFile(path);
+		return artifact;
+	}
+
+	public void openWithSeparateEditor() {
+		IProject activeProject = getActiveProject();
 
 		String name = ((Sequence) ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) getModel())
 				.getElement()).getName();
@@ -608,7 +643,17 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 						if (checked) {
 							info.setRecieveSequence(true);
 							info.setAssociatedProxy(((ProxyService)((Node)EditorUtils.getProxy(sequenceEditPart.getParent()).getModel()).getElement()).getName());							
-						}						
+						}	
+						
+						IProject activeProject = getActiveProject();
+						ESBProjectArtifact esbProjectArtifact = new ESBProjectArtifact();
+						try {
+							esbProjectArtifact.fromFile(activeProject.getFile("artifact.xml").getLocation().toFile());						
+							esbProjectArtifact.addESBArtifact(createArtifact(sequenceName,getMavenGroupID(activeProject), "1.0.0", "src/main/synapse-config/sequences/"+sequenceName+".xml", "synapse/sequence"));
+							esbProjectArtifact.toFile();
+						}catch (Exception e) {
+							log.error("Error while updating Artifact.xml");
+						}
 						openWithSeparateEditor();
 					}
 				});
