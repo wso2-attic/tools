@@ -7,6 +7,7 @@ import java.util.Map;
 import org.apache.synapse.mediators.AbstractMediator;
 import org.apache.synapse.mediators.MediatorProperty;
 import org.apache.synapse.mediators.Value;
+import org.apache.synapse.mediators.base.SequenceMediator;
 import org.apache.synapse.util.xpath.SynapseXPath;
 import org.eclipse.core.runtime.Assert;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
@@ -112,6 +113,12 @@ public class ValidateMediatorDeserializer extends AbstractEsbNodeDeserializer<Ab
 		}
 		
 		vishualValidator.getFeatures().addAll(validateFeatureList);
+		
+		if(validateMediator.getList().size()>0){
+			SequenceMediator sequence = new SequenceMediator();
+			sequence.addAll(validateMediator.getList());
+			deserializeSequence(vishualValidator.getMediatorFlow(), sequence, vishualValidator.getOnFailOutputConnector());
+		}
 		
 		return vishualValidator;
 	}
