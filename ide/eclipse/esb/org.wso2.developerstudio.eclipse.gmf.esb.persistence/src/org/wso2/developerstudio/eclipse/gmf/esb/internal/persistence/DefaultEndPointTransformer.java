@@ -34,6 +34,8 @@ import org.apache.synapse.mediators.filters.SwitchMediator;
 import org.apache.synapse.util.xpath.SynapseXPath;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.swt.widgets.Display;
 import org.wso2.developerstudio.eclipse.gmf.esb.DefaultEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPointAddressingVersion;
@@ -89,6 +91,22 @@ public class DefaultEndPointTransformer extends AbstractEsbNodeTransformer {
 		}else if(visualEP.getInputConnector().getIncomingLinks().get(0).getSource().eContainer() instanceof Sequence){
 			info.setParentSequence(info.getCurrentReferredSequence());
 		}
+		}
+		
+		try{
+			List<EsbNode> transformedMediators = info.getTransformedMediators();
+			EsbNode nextElement=(EsbNode) visualEP.getOutputConnector().getOutgoingLink().getTarget().eContainer();
+			if(transformedMediators.contains(nextElement)){
+				return;
+			}
+			transformedMediators.add(nextElement);
+		}
+		catch(NullPointerException e){
+			MessageDialog
+			.openError(
+					Display.getCurrent().getActiveShell(),
+					"Diagram Incomplete ! ",
+					"Output connector of an Endpoint must be connected to an Recieve Sequence or Out Sequence.");
 		}
 
 		// Transform endpoint output data flow.

@@ -16,27 +16,17 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence;
 
 import java.util.List;
-import java.util.UUID;
-import java.util.regex.Pattern;
 
-import org.apache.synapse.Mediator;
-import org.apache.synapse.SynapseArtifact;
-import org.apache.synapse.config.xml.AnonymousListMediator;
-import org.apache.synapse.config.xml.SwitchCase;
 import org.apache.synapse.endpoints.AddressEndpoint;
-import org.apache.synapse.endpoints.DefaultEndpoint;
 import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.endpoints.EndpointDefinition;
 import org.apache.synapse.mediators.base.SequenceMediator;
-import org.apache.synapse.mediators.builtin.PropertyMediator;
 import org.apache.synapse.mediators.builtin.SendMediator;
-import org.apache.synapse.mediators.filters.SwitchMediator;
-import org.apache.synapse.util.xpath.SynapseXPath;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.validation.internal.service.GetLiveConstraintsOperation;
+import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.swt.widgets.Display;
 import org.wso2.developerstudio.eclipse.gmf.esb.AddressEndPoint;
-import org.wso2.developerstudio.eclipse.gmf.esb.DefaultEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPointAddressingVersion;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
@@ -44,7 +34,6 @@ import org.wso2.developerstudio.eclipse.gmf.esb.FailoverEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.SequenceInputConnector;
-import org.wso2.developerstudio.eclipse.gmf.esb.WSDLEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.EsbNodeTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
 
@@ -91,6 +80,22 @@ public class AddressEndPointTransformer extends AbstractEsbNodeTransformer {
 		}else if((visualEndPoint.getInputConnector().getIncomingLinks().get(0).getSource().eContainer() instanceof Sequence)){
 			info.setParentSequence(info.getCurrentReferredSequence());
 		}
+		}
+		
+		try{
+			List<EsbNode> transformedMediators = info.getTransformedMediators();
+			EsbNode nextElement=(EsbNode) visualEndPoint.getOutputConnector().getOutgoingLink().getTarget().eContainer();
+			if(transformedMediators.contains(nextElement)){
+				return;
+			}
+			transformedMediators.add(nextElement);
+		}
+		catch(NullPointerException e){
+			MessageDialog
+			.openError(
+					Display.getCurrent().getActiveShell(),
+					"Diagram Incomplete ! ",
+					"Output connector of an Endpoint must be connected to an Recieve Sequence or Out Sequence.");
 		}
 		
 		// Transform endpoint output data flow.
