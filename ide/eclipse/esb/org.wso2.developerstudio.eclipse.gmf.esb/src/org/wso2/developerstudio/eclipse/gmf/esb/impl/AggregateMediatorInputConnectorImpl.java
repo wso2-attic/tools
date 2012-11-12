@@ -34,16 +34,16 @@ public class AggregateMediatorInputConnectorImpl extends InputConnectorImpl impl
 	}
 	
 
-	public boolean shouldConnect(OutputConnector sourceEnd) {
+/*	public boolean shouldConnect(OutputConnector sourceEnd) {
 		EObject container = sourceEnd.eContainer();
 		if(container instanceof AggregateMediator){
 			if(this.eContainer.equals(container)){
 				return false;
 			}
 		}
-		/*enable multiple input links */
+		enable multiple input links 
 		return true;
-	}
+	}*/
 
 	/**
 	 * <!-- begin-user-doc -->

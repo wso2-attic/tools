@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.EndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbLink;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.InputConnector;
@@ -85,6 +86,8 @@ public abstract class InputConnectorImpl extends EsbConnectorImpl implements Inp
 		EObject container = sourceEnd.eContainer();
 		if (this.eContainer.equals(container)) {
 			return false;
+		}else if(sourceEnd.eContainer() instanceof EndPoint){
+			return true;
 		}
 		// By default we allow only one incoming connection from any source.
 		return getIncomingLinks().isEmpty();
