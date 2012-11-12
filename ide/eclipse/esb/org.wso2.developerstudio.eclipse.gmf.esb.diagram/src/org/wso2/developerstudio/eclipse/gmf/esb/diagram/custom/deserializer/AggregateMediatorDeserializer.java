@@ -170,7 +170,10 @@ public class AggregateMediatorDeserializer extends AbstractEsbNodeDeserializer<A
 			
 			vishualAggrigate.setSequenceType(AggregateSequenceType.ANONYMOUS);
 			
-			//TODO handle this 
+			deserializeSequence(vishualAggrigate.getMediatorFlow(),
+					aggregateMediator.getOnCompleteSequence(),
+					vishualAggrigate.getOnCompleteOutputConnector());
+			
 		}
 		
 		
