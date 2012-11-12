@@ -164,8 +164,8 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 		for (Map.Entry<EsbConnector, EsbConnector> pair : pairMediatorFlowMap.entrySet()) {
 			LinkedList<EsbNode> inSeq = connectionFlowMap.get(pair.getKey());
 			LinkedList<EsbNode> outSeq = connectionFlowMap.get(pair.getValue());
-			EsbNode last = inSeq.getLast();
-			if (inSeq.size() > 0 && last instanceof EndPoint && outSeq.size() > 0 && outSeq.getLast() != null) {
+			if (inSeq.size() > 0 && inSeq.getLast() instanceof EndPoint && outSeq.size() > 0 && outSeq.getLast() != null) {
+				EsbNode last = inSeq.getLast();
 				AbstractConnectorEditPart sourceConnector = EditorUtils
 						.getOutputConnector((ShapeNodeEditPart) getEditpart(last));
 				AbstractConnectorEditPart targetConnector = EditorUtils
