@@ -72,7 +72,7 @@ public class ValidateMediatorDeserializer extends AbstractEsbNodeDeserializer<Ab
 					
 					SynapseXPath xpath = schema.getExpression();
 					
-					nsp.setPropertyValue(schema.getExpression().toString());
+					nsp.setPropertyValue(xpath.toString());
 					
 					if (xpath.getNamespaces() != null) {
 

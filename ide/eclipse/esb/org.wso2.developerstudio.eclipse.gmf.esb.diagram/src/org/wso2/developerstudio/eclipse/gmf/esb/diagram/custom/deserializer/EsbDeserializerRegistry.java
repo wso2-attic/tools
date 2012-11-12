@@ -21,12 +21,14 @@ import java.util.Map;
 
 
 import org.apache.synapse.core.axis2.ProxyService;
+import org.apache.synapse.mediators.FilterMediator;
 import org.apache.synapse.mediators.builtin.DropMediator;
 import org.apache.synapse.mediators.builtin.EnqueueMediator;
 import org.apache.synapse.mediators.builtin.LogMediator;
 import org.apache.synapse.mediators.builtin.PropertyMediator;
 import org.apache.synapse.mediators.builtin.SendMediator;
 import org.apache.synapse.mediators.builtin.ValidateMediator;
+import org.apache.synapse.mediators.eip.aggregator.AggregateMediator;
 import org.apache.synapse.mediators.eip.splitter.CloneMediator;
 import org.apache.synapse.mediators.elementary.EnrichMediator;
 import org.wso2.carbon.mediator.event.EventMediator;
@@ -72,6 +74,8 @@ public class EsbDeserializerRegistry {
 		addDeserializer(EventMediator.class, new EventMediatorDeserializer());
 		addDeserializer(EnqueueMediator.class, new EnqueueMediatorDeserializer());
 		addDeserializer(ValidateMediator.class, new ValidateMediatorDeserializer());
+		addDeserializer(AggregateMediator.class, new AggregateMediatorDeserializer());
+		addDeserializer(FilterMediator.class,new FilterMediatorDeserializer());
 	}
 	
 	/**

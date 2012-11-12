@@ -25,6 +25,7 @@ import org.apache.synapse.util.xpath.SynapseXPath;
 import org.eclipse.core.runtime.Assert;
 import org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.AggregateSequenceType;
+import org.wso2.developerstudio.eclipse.gmf.esb.CompletionMessagesType;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
@@ -56,6 +57,8 @@ public class AggregateMediatorDeserializer extends AbstractEsbNodeDeserializer<A
 			
 			NamespacedProperty nsp = EsbFactory.eINSTANCE.createNamespacedProperty();
 			
+			nsp.setPropertyValue(xpath.toString());
+			
 			if (xpath.getNamespaces() != null) {
 
 				@SuppressWarnings("unchecked")
@@ -74,13 +77,19 @@ public class AggregateMediatorDeserializer extends AbstractEsbNodeDeserializer<A
 			
 			if(maxMsg.getKeyValue() != null && DeserializerUtils.isInteger(maxMsg.getKeyValue()) ){
 				
+				vishualAggrigate.setCompletionMaxMessagesType(CompletionMessagesType.VALUE);
+				
 				vishualAggrigate.setCompletionMaxMessagesValue(Integer.parseInt(maxMsg.getKeyValue()));
 				
 			}else if(maxMsg.getExpression() != null){
 				
+				vishualAggrigate.setCompletionMaxMessagesType(CompletionMessagesType.EXPRESSION);
+				
 				SynapseXPath xpath = maxMsg.getExpression();
 				
 				NamespacedProperty nsp = EsbFactory.eINSTANCE.createNamespacedProperty();
+				
+				nsp.setPropertyValue(xpath.toString());
 				
 				if (xpath.getNamespaces() != null) {
 
@@ -101,13 +110,19 @@ public class AggregateMediatorDeserializer extends AbstractEsbNodeDeserializer<A
 			
 			if(minMsg.getKeyValue() != null && DeserializerUtils.isInteger(minMsg.getKeyValue())){
 				
+				vishualAggrigate.setCompletionMinMessagesType(CompletionMessagesType.VALUE);
+				
 				vishualAggrigate.setCompletionMinMessagesValue(Integer.parseInt(minMsg.getKeyValue()));
 				
 			}else if(minMsg.getExpression() != null){
 				
+				vishualAggrigate.setCompletionMinMessagesType(CompletionMessagesType.EXPRESSION);
+				
 				SynapseXPath xpath = minMsg.getExpression();
 				
 				NamespacedProperty nsp = EsbFactory.eINSTANCE.createNamespacedProperty();
+				
+				nsp.setPropertyValue(xpath.toString());
 				
 				if (xpath.getNamespaces() != null) {
 
@@ -127,6 +142,8 @@ public class AggregateMediatorDeserializer extends AbstractEsbNodeDeserializer<A
 			SynapseXPath xpath = aggregateMediator.getCorrelateExpression();
 			
 			NamespacedProperty nsp = EsbFactory.eINSTANCE.createNamespacedProperty();
+			
+			nsp.setPropertyValue(xpath.toString());
 			
 			if (xpath.getNamespaces() != null) {
 
