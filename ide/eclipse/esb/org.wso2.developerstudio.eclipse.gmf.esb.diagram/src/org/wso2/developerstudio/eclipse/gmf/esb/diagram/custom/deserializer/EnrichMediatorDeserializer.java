@@ -35,7 +35,7 @@ public class EnrichMediatorDeserializer extends AbstractEsbNodeDeserializer<Abst
 	
 	public EnrichMediator createNode(AbstractMediator mediator) {
 		
-		Assert.isTrue(mediator instanceof org.apache.synapse.mediators.elementary.EnrichMediator, "Invalid Mediator.");
+		Assert.isTrue(mediator instanceof org.apache.synapse.mediators.elementary.EnrichMediator, "Unsupported mediator passed in for deserialization at "+ this.getClass());
 		
 		org.apache.synapse.mediators.elementary.EnrichMediator enrichMediator = (org.apache.synapse.mediators.elementary.EnrichMediator)mediator;
 		

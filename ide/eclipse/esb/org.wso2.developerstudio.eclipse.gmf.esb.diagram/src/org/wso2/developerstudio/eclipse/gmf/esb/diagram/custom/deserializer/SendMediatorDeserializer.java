@@ -34,7 +34,7 @@ public class SendMediatorDeserializer extends AbstractEsbNodeDeserializer<Abstra
 
 	public SendMediator createNode(AbstractMediator mediator) {
 		
-		Assert.isTrue(mediator instanceof org.apache.synapse.mediators.builtin.SendMediator, "Invalid Mediator.");
+		Assert.isTrue(mediator instanceof org.apache.synapse.mediators.builtin.SendMediator, "Unsupported mediator passed in for deserialization at "+ this.getClass());
 		
 		org.apache.synapse.mediators.builtin.SendMediator sendMediator = (org.apache.synapse.mediators.builtin.SendMediator)mediator;
 		

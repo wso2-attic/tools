@@ -25,7 +25,7 @@ public class DropMediatorDeserializer extends AbstractEsbNodeDeserializer<Abstra
 
 	public DropMediator createNode(AbstractMediator mediator) {
 		
-		Assert.isTrue(mediator instanceof org.apache.synapse.mediators.builtin.DropMediator, "Invalid Mediator.");
+		Assert.isTrue(mediator instanceof org.apache.synapse.mediators.builtin.DropMediator, "Unsupported mediator passed in for deserialization at "+ this.getClass());
 		
 		DropMediator vishualDrop = EsbFactory.eINSTANCE.createDropMediator();
 		

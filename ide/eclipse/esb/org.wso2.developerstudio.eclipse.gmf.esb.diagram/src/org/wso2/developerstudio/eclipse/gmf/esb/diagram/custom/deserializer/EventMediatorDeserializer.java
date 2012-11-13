@@ -31,7 +31,7 @@ public class EventMediatorDeserializer extends AbstractEsbNodeDeserializer<Abstr
 
 	public EventMediator createNode(AbstractMediator mediator) {
 		
-		Assert.isTrue(mediator instanceof org.wso2.carbon.mediator.event.EventMediator, "Invalid Mediator.");
+		Assert.isTrue(mediator instanceof org.wso2.carbon.mediator.event.EventMediator, "Unsupported mediator passed in for deserialization at "+ this.getClass());
 		
 		org.wso2.carbon.mediator.event.EventMediator eventMediator = (org.wso2.carbon.mediator.event.EventMediator)mediator;
 		

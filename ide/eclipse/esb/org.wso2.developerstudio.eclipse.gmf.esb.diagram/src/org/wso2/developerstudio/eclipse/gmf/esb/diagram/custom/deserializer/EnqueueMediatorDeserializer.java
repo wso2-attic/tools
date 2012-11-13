@@ -10,7 +10,7 @@ public class EnqueueMediatorDeserializer extends AbstractEsbNodeDeserializer<Abs
 
 	public EnqueueMediator createNode(AbstractMediator mediator) {
 		
-		Assert.isTrue(mediator instanceof org.apache.synapse.mediators.builtin.EnqueueMediator, "Invalid Mediator.");
+		Assert.isTrue(mediator instanceof org.apache.synapse.mediators.builtin.EnqueueMediator, "Unsupported mediator passed in for deserialization at "+ this.getClass());
 		
 		org.apache.synapse.mediators.builtin.EnqueueMediator enqueueMediator = (org.apache.synapse.mediators.builtin.EnqueueMediator)mediator;
 		

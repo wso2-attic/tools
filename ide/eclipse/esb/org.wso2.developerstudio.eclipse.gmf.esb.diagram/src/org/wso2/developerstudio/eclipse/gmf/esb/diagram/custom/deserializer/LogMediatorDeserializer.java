@@ -33,7 +33,7 @@ public class LogMediatorDeserializer extends AbstractEsbNodeDeserializer<Abstrac
 	
 	public LogMediator createNode(AbstractMediator mediator) {
 		
-		Assert.isTrue(mediator instanceof org.apache.synapse.mediators.builtin.LogMediator, "Invalid Mediator.");
+		Assert.isTrue(mediator instanceof org.apache.synapse.mediators.builtin.LogMediator, "Unsupported mediator passed in for deserialization at "+ this.getClass());
 		
 		org.apache.synapse.mediators.builtin.LogMediator logMediator = (org.apache.synapse.mediators.builtin.LogMediator)mediator;
 		

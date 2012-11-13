@@ -36,7 +36,7 @@ public class CloneMediatorDeserializer extends AbstractEsbNodeDeserializer<Abstr
 
 	public CloneMediator createNode(AbstractMediator mediator) {
 		
-		Assert.isTrue(mediator instanceof org.apache.synapse.mediators.eip.splitter.CloneMediator, "Invalid Mediator.");
+		Assert.isTrue(mediator instanceof org.apache.synapse.mediators.eip.splitter.CloneMediator, "Unsupported mediator passed in for deserialization at "+ this.getClass());
 		
 		org.apache.synapse.mediators.eip.splitter.CloneMediator cloneMediator = (org.apache.synapse.mediators.eip.splitter.CloneMediator)mediator;
 		
