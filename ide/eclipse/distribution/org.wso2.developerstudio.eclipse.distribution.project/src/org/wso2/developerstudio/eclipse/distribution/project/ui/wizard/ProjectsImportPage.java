@@ -1120,15 +1120,15 @@ public class ProjectsImportPage  extends WizardPage implements IOverwriteQuery  
 					}
 					Collections.sort(records,new FilePathComparator());
 										
-					for(int i=0;i<paths.size();++i){
+//					for(int i=0;i<paths.size();++i){
 						for(int j=0;j<records.size();++j){
-							if((paths.get(paths.size()-1-i)).equals(((ProjectRecord)records.get(j)).getProjectName())){
+//							if((paths.get(paths.size()-1-i)).equals(((ProjectRecord)records.get(j)).getProjectLabel())){
 								createExistingProject((ProjectRecord) records.get(j),
 										new SubProgressMonitor(monitor, 1));
 								
-							}
+//							}
 						}
-					}
+//					}
 				} finally {
 					monitor.done();
 				}
@@ -1265,8 +1265,10 @@ public class ProjectsImportPage  extends WizardPage implements IOverwriteQuery  
 							100);
 			project.create(record.description, new SubProgressMonitor(monitor,
 					30));
+			project.refreshLocal(IResource.DEPTH_INFINITE, monitor);
 			project.open(IResource.BACKGROUND_REFRESH, new SubProgressMonitor(
 					monitor, 70));
+			project.refreshLocal(IResource.DEPTH_INFINITE, monitor);
 		} catch (CoreException e) {
 			throw new InvocationTargetException(e);
 		} finally {
