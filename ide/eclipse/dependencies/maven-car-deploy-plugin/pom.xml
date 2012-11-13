@@ -320,6 +320,19 @@
 			</exclusions>
 		</dependency>
 
+<dependency>
+ <groupId>commons-codec.wso2</groupId>
+    <artifactId>commons-codec</artifactId>
+    <version>1.4.0.wso2v1</version>
+		<exclusions>
+				<exclusion>
+					<groupId>*</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+			</exclusions>
+</dependency>
+            
+
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpcore</artifactId>
