@@ -52,12 +52,15 @@ public class ProxyServiceDeserializer extends AbstractEsbNodeDeserializer<ProxyS
 			proxy.getServiceParameters().add(parameter);
 		}
 		
+		setRootInputConnector(proxy.getInputConnector());
 		MediatorFlow mediatorFlow = proxy.getContainer().getSequenceAndEndpointContainer().getMediatorFlow();
 		
 		SequenceMediator inSequence = object.getTargetInLineInSequence();
 		if(inSequence!=null){	
+			setRootMediatorFlow(mediatorFlow);
 			deserializeSequence(mediatorFlow, inSequence, proxy.getOutputConnector());
 			proxy.setInSequenceType(SequenceType.ANONYMOUS);
+			setRootMediatorFlow(null);
 		} else{
 			String inSequenceName = object.getTargetInSequence();
 			if(inSequenceName!=null){
@@ -75,8 +78,10 @@ public class ProxyServiceDeserializer extends AbstractEsbNodeDeserializer<ProxyS
 		
 		SequenceMediator outSequence = object.getTargetInLineOutSequence();
 		if(outSequence!=null){
+			setRootMediatorFlow(mediatorFlow);
 			deserializeSequence(mediatorFlow, outSequence, proxy.getInputConnector());
 			proxy.setOutSequenceType(SequenceType.ANONYMOUS);
+			setRootMediatorFlow(null);
 		} else{
 			String outSequenceName = object.getTargetOutSequence();
 			if(outSequenceName!=null){
@@ -95,8 +100,10 @@ public class ProxyServiceDeserializer extends AbstractEsbNodeDeserializer<ProxyS
 		SequenceMediator faultSequence = object.getTargetInLineFaultSequence();
 		if(faultSequence!=null){
 			MediatorFlow faultmediatorFlow = proxy.getContainer().getFaultContainer().getMediatorFlow();
+			setRootMediatorFlow(faultmediatorFlow);
 			deserializeSequence(faultmediatorFlow, faultSequence, proxy.getFaultInputConnector());
 			proxy.setFaultSequenceType(SequenceType.ANONYMOUS);
+			setRootMediatorFlow(null);
 		} else{
 			String faultSequenceName = object.getTargetFaultSequence();
 			if(faultSequenceName!=null){
