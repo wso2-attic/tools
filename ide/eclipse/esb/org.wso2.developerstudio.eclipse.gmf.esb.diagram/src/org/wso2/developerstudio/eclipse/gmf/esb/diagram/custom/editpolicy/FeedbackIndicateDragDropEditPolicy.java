@@ -18,6 +18,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.editpolicy;
 
 import java.awt.MouseInfo;
 import java.awt.Point;
+import java.util.Iterator;
 import java.util.List;
 
 import org.eclipse.draw2d.FigureCanvas;
@@ -145,11 +146,15 @@ public class FeedbackIndicateDragDropEditPolicy extends DragDropEditPolicy {
 			 */
 			if (!(getHost() instanceof MediatorFlowMediatorFlowCompartmentEditPart || getHost() instanceof MediatorFlowMediatorFlowCompartment5EditPart)) {
 				List elementTypes = ((CreateUnspecifiedTypeRequest) request).getElementTypes();
-				if (elementTypes.size() == 1) {
-					Object object = elementTypes.get(0);
-					if (object == EsbElementTypes.AddressEndPoint_3610
-							|| object == EsbElementTypes.DefaultEndPoint_3609
-							|| object == EsbElementTypes.WSDLEndPoint_3612) {
+				Iterator types = elementTypes.iterator();
+				while(types.hasNext()){
+					Object object = types.next();
+					if (object.equals(EsbElementTypes.AddressEndPoint_3610)
+							|| object.equals(EsbElementTypes.DefaultEndPoint_3609)
+							|| object.equals(EsbElementTypes.WSDLEndPoint_3612) 
+							|| object.equals(EsbElementTypes.AddressEndPoint_3646)
+							|| object.equals(EsbElementTypes.DefaultEndPoint_3643)
+							|| object.equals(EsbElementTypes.WSDLEndPoint_3653)) {
 						return UnexecutableCommand.INSTANCE;
 					}
 				}
