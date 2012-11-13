@@ -19,7 +19,6 @@ package org.wso2.developerstudio.eclipse.distribution.project.util;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Properties;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -50,7 +49,7 @@ public class DistProjectUtils {
 	public static String getArtifactInfoAsString(Dependency dep,String parent) {
 		String suffix= "";
 		if(parent!=null){
-			suffix =  "#" + parent + "#";
+			suffix =  parent + ":=";
 		} 
 		return  suffix.concat(dep.getGroupId().concat(":").concat(dep.getArtifactId())
 				.concat(":").concat(dep.getVersion()));
@@ -58,7 +57,7 @@ public class DistProjectUtils {
 	
 	public static String getMavenInfoAsString(String info) {
 		String suffix="";
-		Pattern pattern = Pattern.compile("^#(.*?)#");
+		Pattern pattern = Pattern.compile("^(.*?):=");
 		Matcher matcher = pattern.matcher(info);
 		 while (matcher.find()) {
 			 suffix= matcher.group().toString();

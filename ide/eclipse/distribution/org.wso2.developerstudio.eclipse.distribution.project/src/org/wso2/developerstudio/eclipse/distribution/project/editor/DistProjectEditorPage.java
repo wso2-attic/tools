@@ -18,10 +18,13 @@ package org.wso2.developerstudio.eclipse.distribution.project.editor;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
+import java.util.SortedMap;
+import java.util.TreeMap;
 
 import org.apache.maven.model.Dependency;
 import org.apache.maven.project.MavenProject;
@@ -34,27 +37,17 @@ import org.eclipse.core.runtime.QualifiedName;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.resource.ImageDescriptor;
-import org.eclipse.swt.widgets.Composite;
-import org.eclipse.ui.IFileEditorInput;
-import org.eclipse.ui.PlatformUI;
-import org.eclipse.ui.forms.IManagedForm;
-import org.eclipse.ui.forms.editor.FormEditor;
-import org.eclipse.ui.forms.editor.FormPage;
-import org.eclipse.ui.forms.widgets.FormToolkit;
-import org.eclipse.ui.forms.widgets.ScrolledForm;
-import org.eclipse.ui.forms.widgets.Section;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.TreeEditor;
-import org.eclipse.swt.events.FocusAdapter;
-import org.eclipse.swt.events.FocusEvent;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
-import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.layout.GridData;
-import org.eclipse.swt.SWT;
+import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
+import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.DirectoryDialog;
 import org.eclipse.swt.widgets.Event;
@@ -66,6 +59,14 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeColumn;
 import org.eclipse.swt.widgets.TreeItem;
+import org.eclipse.ui.IFileEditorInput;
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.forms.IManagedForm;
+import org.eclipse.ui.forms.editor.FormEditor;
+import org.eclipse.ui.forms.editor.FormPage;
+import org.eclipse.ui.forms.widgets.FormToolkit;
+import org.eclipse.ui.forms.widgets.ScrolledForm;
+import org.eclipse.ui.forms.widgets.Section;
 import org.wso2.developerstudio.eclipse.distribution.project.Activator;
 import org.wso2.developerstudio.eclipse.distribution.project.model.DependencyData;
 import org.wso2.developerstudio.eclipse.distribution.project.model.NodeData;
@@ -101,7 +102,7 @@ public class DistProjectEditorPage extends FormPage {
 
 	private Map<String,Dependency> dependencyList = new HashMap<String, Dependency>();
 	private Map<String,String> serverRoleList = new HashMap<String, String>();
-	private Map<String,DependencyData> projectList = new HashMap<String, DependencyData>();
+	private SortedMap<String,DependencyData> projectList = Collections.synchronizedSortedMap(new TreeMap<String, DependencyData>(Collections.reverseOrder()));
 	private Map<String,Dependency> missingDependencyList = new HashMap<String, Dependency>();
 	
 	
@@ -140,7 +141,7 @@ public class DistProjectEditorPage extends FormPage {
 		
 		ProjectList projectListProvider = new ProjectList();
 		List<ListData> projectListData = projectListProvider.getListData(null, null);
-		Map<String,DependencyData> projectList= new HashMap<String, DependencyData>();
+		SortedMap<String,DependencyData> projectList= Collections.synchronizedSortedMap(new TreeMap<String, DependencyData>());
 		Map<String,Dependency> dependencyMap = new HashMap<String, Dependency>();
 		for (ListData data : projectListData) {
 			DependencyData dependencyData = (DependencyData)data.getData();
@@ -553,12 +554,14 @@ public class DistProjectEditorPage extends FormPage {
 		}
 	}
 	
+	
 	/**
 	 * Create content of tree control 
 	 */
 	protected void createTreeContent() {
 		trDependencies.removeAll();
 		nodesWithSubNodes.clear();
+		
 		for (String project : getProjectList().keySet()) {
 			DependencyData dependencyData = getProjectList().get(project);
 			Object parent = dependencyData.getParent();
@@ -805,11 +808,11 @@ public class DistProjectEditorPage extends FormPage {
 		return dependencyList;
 	}
 
-	public void setProjectList(Map<String,DependencyData> projectList) {
+	public void setProjectList(SortedMap<String,DependencyData> projectList) {
 		this.projectList = projectList;
 	}
 
-	public Map<String,DependencyData> getProjectList() {
+	public SortedMap<String,DependencyData> getProjectList() {
 		return projectList;
 	}
 
