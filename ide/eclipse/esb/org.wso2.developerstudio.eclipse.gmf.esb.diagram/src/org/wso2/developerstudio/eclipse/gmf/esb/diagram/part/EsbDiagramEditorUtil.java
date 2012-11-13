@@ -137,9 +137,10 @@ public class EsbDiagramEditorUtil {
 		int i = 1;
 
 		if (containerFullPath != null) {
-			IProject project = ResourcesPlugin.getWorkspace().getRoot()
-					.getProject(containerFullPath.lastSegment());
 			try {
+				IProject project = ResourcesPlugin.getWorkspace().getRoot()
+				.getProject(containerFullPath.segment(0));
+				
 				while (ESBProjectUtils.artifactExists(project, finalName)) {
 					finalName = finalName.replaceAll("\\d+$", "");
 					i++;
