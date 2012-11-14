@@ -37,7 +37,7 @@
                 org.apache.maven.plugins:maven-install-plugin:install
               </install>
               <deploy>
-                org.apache.maven.plugins:maven-deploy-plugin:deploy
+                org.wso2.maven:maven-car-deploy-plugin:deploy-car
               </deploy>
             </phases>
           </lifecycle>
