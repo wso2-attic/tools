@@ -76,6 +76,7 @@ public class APIDeserializer extends AbstractEsbNodeDeserializer<API, SynapseAPI
 			
 			setRootInputConnector(resource.getInputConnector());
 			MediatorFlow mediatorFlow = resource.getContainer().getSequenceAndEndpointContainer().getMediatorFlow();
+			setRootMediatorFlow(mediatorFlow);
 			
 			SequenceMediator inSequence = resources[i].getInSequence();
 			if(inSequence!=null){	
