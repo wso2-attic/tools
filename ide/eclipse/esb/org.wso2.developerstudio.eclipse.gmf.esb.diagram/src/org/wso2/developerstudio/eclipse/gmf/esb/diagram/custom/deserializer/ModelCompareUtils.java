@@ -20,15 +20,15 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import org.eclipse.emf.compare.util.EclipseModelUtils;
+/*import org.eclipse.emf.compare.util.EclipseModelUtils;
 import org.eclipse.emf.compare.util.ModelUtils;
 import org.eclipse.emf.compare.match.metamodel.MatchModel;
 import org.eclipse.emf.compare.match.service.MatchService;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.compare.diff.metamodel.DiffModel;
 import org.eclipse.emf.compare.diff.service.DiffService;
 import org.eclipse.emf.compare.diff.metamodel.DiffElement;
-import org.eclipse.emf.compare.diff.merge.service.MergeService;
+import org.eclipse.emf.compare.diff.merge.service.MergeService;*/
+import org.eclipse.emf.ecore.EObject;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbLink;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
@@ -38,12 +38,12 @@ public class ModelCompareUtils {
 	void updateModel(EObject original,EObject current) throws InterruptedException{
 
 		// Matching model elements
-		MatchModel match = MatchService.doMatch(original, current, Collections.<String, Object> emptyMap());
+		//MatchModel match = MatchService.doMatch(original, current, Collections.<String, Object> emptyMap());
 		// Computing differences
-		DiffModel diff = DiffService.doDiff(match, false);
+		//DiffModel diff = DiffService.doDiff(match, false);
 		// Merges all differences from original to current
-		List<DiffElement> differences = new ArrayList<DiffElement>(diff.getOwnedElements());
-		MergeService.merge(differences, true);
+		//List<DiffElement> differences = new ArrayList<DiffElement>(diff.getOwnedElements());
+		//MergeService.merge(differences, true);
 	}
 
 }
