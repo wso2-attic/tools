@@ -87,7 +87,10 @@ public abstract class InputConnectorImpl extends EsbConnectorImpl implements Inp
 		if (this.eContainer.equals(container)) {
 			return false;
 		}else if(sourceEnd.eContainer() instanceof EndPoint){
-			return true;
+			if((getIncomingLinks().size() !=0) && (getIncomingLinks().get(0).getSource().eContainer() instanceof EndPoint)){
+				return true;
+			}
+			
 		}
 		// By default we allow only one incoming connection from any source.
 		return getIncomingLinks().isEmpty();
