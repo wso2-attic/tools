@@ -28,6 +28,7 @@ import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpointAdditionalOutputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpointOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.DefaultSizeCaseBranchPointerNodeFigure;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EastPointerShape;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractPointerShape;
@@ -38,7 +39,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementType
  * @generated NOT
  */
 public class LoadBalanceEndPointOutputConnectorEditPart extends
-		AbstractEndpointAdditionalOutputConnectorEditPart {
+AbstractEndpointOutputConnectorEditPart {
 
 	/**
 	 * @generated
@@ -67,7 +68,8 @@ public class LoadBalanceEndPointOutputConnectorEditPart extends
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, getPrimaryDragEditPolicy());
+		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
+				getPrimaryDragEditPolicy());
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new LoadBalanceEndPointOutputConnectorItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
@@ -82,7 +84,8 @@ public class LoadBalanceEndPointOutputConnectorEditPart extends
 		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
 			protected EditPolicy createChildEditPolicy(EditPart child) {
-				EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+				EditPolicy result = child
+						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
 				if (result == null) {
 					result = new NonResizableEditPolicy();
 				}
@@ -134,11 +137,9 @@ public class LoadBalanceEndPointOutputConnectorEditPart extends
 	 * @generated NOT
 	 */
 	protected NodeFigure createNodeFigure() {
-		IFigure shape = createNodeShape();
-		NodeFigure figure = new DefaultSizeCaseBranchPointerNodeFigure(12, 10,
-				(AbstractPointerShape) shape);
-		//NodeFigure figure = createNodePlate();
+		NodeFigure figure = createNodePlate();
 		figure.setLayoutManager(new StackLayout());
+		IFigure shape = createNodeShapeForward();
 		figure.add(shape);
 		contentPane = setupContentPane(shape);
 		figure_ = figure;
@@ -215,7 +216,8 @@ public class LoadBalanceEndPointOutputConnectorEditPart extends
 	/**
 	 * @generated
 	 */
-	public List<IElementType> getMARelTypesOnSourceAndTarget(IGraphicalEditPart targetEditPart) {
+	public List<IElementType> getMARelTypesOnSourceAndTarget(
+			IGraphicalEditPart targetEditPart) {
 		LinkedList<IElementType> types = new LinkedList<IElementType>();
 		if (targetEditPart instanceof ProxyInputConnectorEditPart) {
 			types.add(EsbElementTypes.EsbLink_4001);
@@ -405,7 +407,8 @@ public class LoadBalanceEndPointOutputConnectorEditPart extends
 		public EastPointerFigure() {
 
 			this.setBackgroundColor(THIS_BACK);
-			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(12), getMapMode().DPtoLP(10)));
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(12),
+					getMapMode().DPtoLP(10)));
 			this.addMouseMotionListener(new MouseMotionListener() {
 
 				public void mouseMoved(MouseEvent me) {
@@ -426,9 +429,13 @@ public class LoadBalanceEndPointOutputConnectorEditPart extends
 
 				public void mouseEntered(MouseEvent me) {
 					// TODO Auto-generated method stub
-					getEditDomain().getPaletteViewer().setActiveTool(
-							(ToolEntry) (((PaletteContainer) getEditDomain().getPaletteViewer()
-									.getPaletteRoot().getChildren().get(4)).getChildren().get(0)));
+					getEditDomain()
+							.getPaletteViewer()
+							.setActiveTool(
+									(ToolEntry) (((PaletteContainer) getEditDomain()
+											.getPaletteViewer()
+											.getPaletteRoot().getChildren()
+											.get(4)).getChildren().get(0)));
 
 				}
 

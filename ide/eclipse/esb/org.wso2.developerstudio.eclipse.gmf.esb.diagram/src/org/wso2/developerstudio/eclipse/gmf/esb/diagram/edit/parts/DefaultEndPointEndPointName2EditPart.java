@@ -45,8 +45,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbParserProvi
 /**
  * @generated
  */
-public class DefaultEndPointEndPointName2EditPart extends CompartmentEditPart implements
-		ITextAwareEditPart {
+public class DefaultEndPointEndPointName2EditPart extends CompartmentEditPart
+		implements ITextAwareEditPart {
 
 	/**
 	 * @generated
@@ -85,8 +85,10 @@ public class DefaultEndPointEndPointName2EditPart extends CompartmentEditPart im
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicy.SELECTION_FEEDBACK_ROLE, new EsbTextSelectionEditPolicy());
-		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE, new LabelDirectEditPolicy());
+		installEditPolicy(EditPolicy.SELECTION_FEEDBACK_ROLE,
+				new EsbTextSelectionEditPolicy());
+		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE,
+				new LabelDirectEditPolicy());
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
 				new EsbDiagramEditPart.NodeLabelDragPolicy());
 	}
@@ -182,7 +184,8 @@ public class DefaultEndPointEndPointName2EditPart extends CompartmentEditPart im
 		String text = null;
 		EObject parserElement = getParserElement();
 		if (parserElement != null && getParser() != null) {
-			text = getParser().getPrintString(new EObjectAdapter(parserElement),
+			text = getParser().getPrintString(
+					new EObjectAdapter(parserElement),
 					getParserOptions().intValue());
 		}
 		if (text == null || text.length() == 0) {
@@ -213,7 +216,8 @@ public class DefaultEndPointEndPointName2EditPart extends CompartmentEditPart im
 		if (getParserElement() == null || getParser() == null) {
 			return ""; //$NON-NLS-1$
 		}
-		return getParser().getEditString(new EObjectAdapter(getParserElement()),
+		return getParser().getEditString(
+				new EObjectAdapter(getParserElement()),
 				getParserOptions().intValue());
 	}
 
@@ -236,15 +240,19 @@ public class DefaultEndPointEndPointName2EditPart extends CompartmentEditPart im
 					final IParser parser = getParser();
 					try {
 						IParserEditStatus valid = (IParserEditStatus) getEditingDomain()
-								.runExclusive(new RunnableWithResult.Impl<IParserEditStatus>() {
+								.runExclusive(
+										new RunnableWithResult.Impl<IParserEditStatus>() {
 
-									public void run() {
-										setResult(parser.isValidEditString(new EObjectAdapter(
-												element), (String) value));
-									}
-								});
-						return valid.getCode() == ParserEditStatus.EDITABLE ? null : valid
-								.getMessage();
+											public void run() {
+												setResult(parser
+														.isValidEditString(
+																new EObjectAdapter(
+																		element),
+																(String) value));
+											}
+										});
+						return valid.getCode() == ParserEditStatus.EDITABLE ? null
+								: valid.getMessage();
 					} catch (InterruptedException ie) {
 						ie.printStackTrace();
 					}
@@ -263,7 +271,8 @@ public class DefaultEndPointEndPointName2EditPart extends CompartmentEditPart im
 		if (getParserElement() == null || getParser() == null) {
 			return null;
 		}
-		return getParser().getCompletionProcessor(new EObjectAdapter(getParserElement()));
+		return getParser().getCompletionProcessor(
+				new EObjectAdapter(getParserElement()));
 	}
 
 	/**
@@ -319,7 +328,8 @@ public class DefaultEndPointEndPointName2EditPart extends CompartmentEditPart im
 	 */
 	protected void performDirectEdit(Point eventLocation) {
 		if (getManager().getClass() == TextDirectEditManager.class) {
-			((TextDirectEditManager) getManager()).show(eventLocation.getSWTPoint());
+			((TextDirectEditManager) getManager()).show(eventLocation
+					.getSWTPoint());
 		}
 	}
 
@@ -344,10 +354,12 @@ public class DefaultEndPointEndPointName2EditPart extends CompartmentEditPart im
 
 				public void run() {
 					if (isActive() && isEditable()) {
-						if (theRequest.getExtendedData().get(
-								RequestConstants.REQ_DIRECTEDIT_EXTENDEDDATA_INITIAL_CHAR) instanceof Character) {
-							Character initialChar = (Character) theRequest.getExtendedData().get(
-									RequestConstants.REQ_DIRECTEDIT_EXTENDEDDATA_INITIAL_CHAR);
+						if (theRequest
+								.getExtendedData()
+								.get(RequestConstants.REQ_DIRECTEDIT_EXTENDEDDATA_INITIAL_CHAR) instanceof Character) {
+							Character initialChar = (Character) theRequest
+									.getExtendedData()
+									.get(RequestConstants.REQ_DIRECTEDIT_EXTENDEDDATA_INITIAL_CHAR);
 							performDirectEdit(initialChar.charValue());
 						} else if ((theRequest instanceof DirectEditRequest)
 								&& (getEditText().equals(getLabelText()))) {
@@ -410,7 +422,8 @@ public class DefaultEndPointEndPointName2EditPart extends CompartmentEditPart im
 		FontStyle style = (FontStyle) getFontStyleOwnerView().getStyle(
 				NotationPackage.eINSTANCE.getFontStyle());
 		if (style != null && getFigure() instanceof WrappingLabel) {
-			((WrappingLabel) getFigure()).setTextStrikeThrough(style.isStrikeThrough());
+			((WrappingLabel) getFigure()).setTextStrikeThrough(style
+					.isStrikeThrough());
 		}
 	}
 
@@ -421,8 +434,9 @@ public class DefaultEndPointEndPointName2EditPart extends CompartmentEditPart im
 		FontStyle style = (FontStyle) getFontStyleOwnerView().getStyle(
 				NotationPackage.eINSTANCE.getFontStyle());
 		if (style != null) {
-			FontData fontData = new FontData(style.getFontName(), style.getFontHeight(),
-					(style.isBold() ? SWT.BOLD : SWT.NORMAL)
+			FontData fontData = new FontData(style.getFontName(),
+					style.getFontHeight(), (style.isBold() ? SWT.BOLD
+							: SWT.NORMAL)
 							| (style.isItalic() ? SWT.ITALIC : SWT.NORMAL));
 			setFont(fontData);
 		}
@@ -444,7 +458,8 @@ public class DefaultEndPointEndPointName2EditPart extends CompartmentEditPart im
 			parserElements = ((ISemanticParser) getParser())
 					.getSemanticElementsBeingParsed(element);
 			for (int i = 0; i < parserElements.size(); i++) {
-				addListenerFilter("SemanticModel" + i, this, (EObject) parserElements.get(i)); //$NON-NLS-1$
+				addListenerFilter(
+						"SemanticModel" + i, this, (EObject) parserElements.get(i)); //$NON-NLS-1$
 			}
 		} else {
 			super.addSemanticListeners();
@@ -510,18 +525,25 @@ public class DefaultEndPointEndPointName2EditPart extends CompartmentEditPart im
 		if (NotationPackage.eINSTANCE.getFontStyle_FontColor().equals(feature)) {
 			Integer c = (Integer) event.getNewValue();
 			setFontColor(DiagramColorRegistry.getInstance().getColor(c));
-		} else if (NotationPackage.eINSTANCE.getFontStyle_Underline().equals(feature)) {
+		} else if (NotationPackage.eINSTANCE.getFontStyle_Underline().equals(
+				feature)) {
 			refreshUnderline();
-		} else if (NotationPackage.eINSTANCE.getFontStyle_StrikeThrough().equals(feature)) {
+		} else if (NotationPackage.eINSTANCE.getFontStyle_StrikeThrough()
+				.equals(feature)) {
 			refreshStrikeThrough();
-		} else if (NotationPackage.eINSTANCE.getFontStyle_FontHeight().equals(feature)
-				|| NotationPackage.eINSTANCE.getFontStyle_FontName().equals(feature)
-				|| NotationPackage.eINSTANCE.getFontStyle_Bold().equals(feature)
-				|| NotationPackage.eINSTANCE.getFontStyle_Italic().equals(feature)) {
+		} else if (NotationPackage.eINSTANCE.getFontStyle_FontHeight().equals(
+				feature)
+				|| NotationPackage.eINSTANCE.getFontStyle_FontName().equals(
+						feature)
+				|| NotationPackage.eINSTANCE.getFontStyle_Bold()
+						.equals(feature)
+				|| NotationPackage.eINSTANCE.getFontStyle_Italic().equals(
+						feature)) {
 			refreshFont();
 		} else {
 			if (getParser() != null
-					&& getParser().isAffectingEvent(event, getParserOptions().intValue())) {
+					&& getParser().isAffectingEvent(event,
+							getParserOptions().intValue())) {
 				refreshLabel();
 			}
 			if (getParser() instanceof ISemanticParser) {

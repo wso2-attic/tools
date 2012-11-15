@@ -15,6 +15,8 @@ public class OpenSeparatelyEditPolicy extends OpenEditPolicy {
 		}else if(getTargetEditPart(request) instanceof NamedEndpointEditPart){
 			((NamedEndpointEditPart) getTargetEditPart(request)).createDialogBox();
 			
+		}else if(getTargetEditPart(request) instanceof ComplexFiguredAbstractEndpoint){
+			((ComplexFiguredAbstractEndpoint)getTargetEditPart(request)).openPage();
 		}
 		return  null;
 	}

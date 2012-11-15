@@ -903,6 +903,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String MediatorFlowMediatorFlowCompartment18EditPart_title;
+
+	/**
+	 * @generated
+	 */
 	public static String CommandName_OpenDiagram;
 
 	/**
@@ -1319,6 +1324,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_OAuthMediatorInputConnector_3130_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_ComplexEndpointsOutputConnector_3679_outgoinglinks;
 
 	/**
 	 * @generated

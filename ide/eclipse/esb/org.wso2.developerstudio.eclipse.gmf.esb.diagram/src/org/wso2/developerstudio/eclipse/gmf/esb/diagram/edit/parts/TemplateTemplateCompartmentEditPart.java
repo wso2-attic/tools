@@ -15,7 +15,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.Messages;
 /**
  * @generated
  */
-public class TemplateTemplateCompartmentEditPart extends ShapeCompartmentEditPart {
+public class TemplateTemplateCompartmentEditPart extends
+		ShapeCompartmentEditPart {
 
 	/**
 	 * @generated
@@ -40,7 +41,8 @@ public class TemplateTemplateCompartmentEditPart extends ShapeCompartmentEditPar
 	 * @generated
 	 */
 	public IFigure createFigure() {
-		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super.createFigure();
+		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super
+				.createFigure();
 		result.setTitleVisibility(false);
 		return result;
 	}
@@ -52,8 +54,10 @@ public class TemplateTemplateCompartmentEditPart extends ShapeCompartmentEditPar
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new TemplateTemplateCompartmentItemSemanticEditPolicy());
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
-		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
+				new CreationEditPolicy());
+		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
+				new DragDropEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
 				new TemplateTemplateCompartmentCanonicalEditPolicy());
 	}

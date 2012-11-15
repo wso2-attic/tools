@@ -53,7 +53,8 @@ public class EsbEditPartFactory implements EditPartFactory {
 				return new ProxyServiceContainerEditPart(view);
 
 			case ProxyServiceSequenceAndEndpointContainerEditPart.VISUAL_ID:
-				return new ProxyServiceSequenceAndEndpointContainerEditPart(view);
+				return new ProxyServiceSequenceAndEndpointContainerEditPart(
+						view);
 
 			case MediatorFlowEditPart.VISUAL_ID:
 				return new MediatorFlowEditPart(view);
@@ -455,7 +456,8 @@ public class EsbEditPartFactory implements EditPartFactory {
 				return new RuleMediatorOutputConnectorEditPart(view);
 
 			case RuleMediatorChildMediatorsOutputConnectorEditPart.VISUAL_ID:
-				return new RuleMediatorChildMediatorsOutputConnectorEditPart(view);
+				return new RuleMediatorChildMediatorsOutputConnectorEditPart(
+						view);
 
 			case MediatorFlow17EditPart.VISUAL_ID:
 				return new MediatorFlow17EditPart(view);
@@ -485,7 +487,8 @@ public class EsbEditPartFactory implements EditPartFactory {
 				return new AggregateMediatorOutputConnectorEditPart(view);
 
 			case AggregateMediatorOnCompleteOutputConnectorEditPart.VISUAL_ID:
-				return new AggregateMediatorOnCompleteOutputConnectorEditPart(view);
+				return new AggregateMediatorOnCompleteOutputConnectorEditPart(
+						view);
 
 			case MediatorFlow3EditPart.VISUAL_ID:
 				return new MediatorFlow3EditPart(view);
@@ -587,10 +590,12 @@ public class EsbEditPartFactory implements EditPartFactory {
 				return new ConditionalRouterMediatorInputConnectorEditPart(view);
 
 			case ConditionalRouterMediatorOutputConnectorEditPart.VISUAL_ID:
-				return new ConditionalRouterMediatorOutputConnectorEditPart(view);
+				return new ConditionalRouterMediatorOutputConnectorEditPart(
+						view);
 
 			case ConditionalRouterMediatorAdditionalOutputConnectorEditPart.VISUAL_ID:
-				return new ConditionalRouterMediatorAdditionalOutputConnectorEditPart(view);
+				return new ConditionalRouterMediatorAdditionalOutputConnectorEditPart(
+						view);
 
 			case MediatorFlow16EditPart.VISUAL_ID:
 				return new MediatorFlow16EditPart(view);
@@ -841,6 +846,15 @@ public class EsbEditPartFactory implements EditPartFactory {
 			case ProxyServiceContainer2EditPart.VISUAL_ID:
 				return new ProxyServiceContainer2EditPart(view);
 
+			case ComplexEndpointsEditPart.VISUAL_ID:
+				return new ComplexEndpointsEditPart(view);
+
+			case MediatorFlow18EditPart.VISUAL_ID:
+				return new MediatorFlow18EditPart(view);
+
+			case ComplexEndpointsOutputConnectorEditPart.VISUAL_ID:
+				return new ComplexEndpointsOutputConnectorEditPart(view);
+
 			case EsbServerContentsCompartmentEditPart.VISUAL_ID:
 				return new EsbServerContentsCompartmentEditPart(view);
 
@@ -910,6 +924,9 @@ public class EsbEditPartFactory implements EditPartFactory {
 			case SynapseAPIAPICompartmentEditPart.VISUAL_ID:
 				return new SynapseAPIAPICompartmentEditPart(view);
 
+			case MediatorFlowMediatorFlowCompartment18EditPart.VISUAL_ID:
+				return new MediatorFlowMediatorFlowCompartment18EditPart(view);
+
 			case EsbLinkEditPart.VISUAL_ID:
 				return new EsbLinkEditPart(view);
 
@@ -929,7 +946,8 @@ public class EsbEditPartFactory implements EditPartFactory {
 	/**
 	 * @generated
 	 */
-	public static CellEditorLocator getTextCellEditorLocator(ITextAwareEditPart source) {
+	public static CellEditorLocator getTextCellEditorLocator(
+			ITextAwareEditPart source) {
 		if (source.getFigure() instanceof WrappingLabel)
 			return new TextCellEditorLocator((WrappingLabel) source.getFigure());
 		else {
@@ -969,12 +987,15 @@ public class EsbEditPartFactory implements EditPartFactory {
 			Rectangle rect = getWrapLabel().getTextBounds().getCopy();
 			getWrapLabel().translateToAbsolute(rect);
 			if (!text.getFont().isDisposed()) {
-				if (getWrapLabel().isTextWrapOn() && getWrapLabel().getText().length() > 0) {
-					rect.setSize(new Dimension(text.computeSize(rect.width, SWT.DEFAULT)));
+				if (getWrapLabel().isTextWrapOn()
+						&& getWrapLabel().getText().length() > 0) {
+					rect.setSize(new Dimension(text.computeSize(rect.width,
+							SWT.DEFAULT)));
 				} else {
-					int avr = FigureUtilities.getFontMetrics(text.getFont()).getAverageCharWidth();
-					rect.setSize(new Dimension(text.computeSize(SWT.DEFAULT, SWT.DEFAULT)).expand(
-							avr * 2, 0));
+					int avr = FigureUtilities.getFontMetrics(text.getFont())
+							.getAverageCharWidth();
+					rect.setSize(new Dimension(text.computeSize(SWT.DEFAULT,
+							SWT.DEFAULT)).expand(avr * 2, 0));
 				}
 			}
 			if (!rect.equals(new Rectangle(text.getBounds()))) {
@@ -1015,9 +1036,10 @@ public class EsbEditPartFactory implements EditPartFactory {
 			Rectangle rect = getLabel().getTextBounds().getCopy();
 			getLabel().translateToAbsolute(rect);
 			if (!text.getFont().isDisposed()) {
-				int avr = FigureUtilities.getFontMetrics(text.getFont()).getAverageCharWidth();
-				rect.setSize(new Dimension(text.computeSize(SWT.DEFAULT, SWT.DEFAULT)).expand(
-						avr * 2, 0));
+				int avr = FigureUtilities.getFontMetrics(text.getFont())
+						.getAverageCharWidth();
+				rect.setSize(new Dimension(text.computeSize(SWT.DEFAULT,
+						SWT.DEFAULT)).expand(avr * 2, 0));
 			}
 			if (!rect.equals(new Rectangle(text.getBounds()))) {
 				text.setBounds(rect.x, rect.y, rect.width, rect.height);

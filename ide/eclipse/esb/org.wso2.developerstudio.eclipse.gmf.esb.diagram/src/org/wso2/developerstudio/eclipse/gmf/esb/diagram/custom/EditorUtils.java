@@ -16,6 +16,7 @@
 
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom;
 
+import java.awt.List;
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -28,6 +29,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.APIResourceFaultInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.APIResourceEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.APIResourceFaultInputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ComplexEndpointsEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ComplexEndpointsOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyFaultInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceEditPart;
@@ -47,6 +50,7 @@ public class EditorUtils {
 	public static final String TEMPLATE_RESOURCE_DIR = "src/main/graphical-synapse-config/templates";
 	public static final String TASK_RESOURCE_DIR = "src/main/graphical-synapse-config/tasks";
 	public static final String API_RESOURCE_DIR = "src/main/graphical-synapse-config/api";
+	public static final String COMPLEX_ENDPOINT_RESOURCE_DIR = "src/main/graphical-synapse-config/complex_endpoints";
 	
 	public static AbstractInputConnectorEditPart getInputConnector(ShapeNodeEditPart parent){
 		for(int i=0;i<parent.getChildren().size();++i){					
@@ -134,6 +138,17 @@ public class EditorUtils {
 		return null;
 	}
 	
+	public static ArrayList<ComplexEndpointsOutputConnectorEditPart> getComplexEndpointsOutputConnectors(ComplexEndpointsEditPart parent){
+		ArrayList<ComplexEndpointsOutputConnectorEditPart> outputConnectors=new ArrayList<ComplexEndpointsOutputConnectorEditPart>();
+		
+		for(int i=0;i<parent.getChildren().size();++i){					
+			if(parent.getChildren().get(i) instanceof ComplexEndpointsOutputConnectorEditPart){
+				outputConnectors.add((ComplexEndpointsOutputConnectorEditPart) parent.getChildren().get(i));
+			}
+		}
+		return outputConnectors;
+	}
+	
 	public static AbstractMediator getMediator(EditPart compartment){
 		EditPart child=compartment;
 		while ((child.getParent()!=null)&&!(child.getParent() instanceof AbstractMediator)){
@@ -206,6 +221,19 @@ public class EditorUtils {
 		}
 		if(temp instanceof AbstractSequencesEditPart){
 			return (AbstractSequencesEditPart) temp;
+		}
+		else{
+			return null;
+		}
+	}
+	
+	public static ComplexEndpointsEditPart getComplexEndpoint(AbstractConnectorEditPart connector){
+		EditPart temp=connector;
+		while((temp !=null)&&(!(temp instanceof ComplexEndpointsEditPart))){
+			temp=temp.getParent();			
+		}
+		if(temp instanceof ComplexEndpointsEditPart){
+			return (ComplexEndpointsEditPart) temp;
 		}
 		else{
 			return null;

@@ -12,7 +12,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.Messages;
 /**
  * @generated
  */
-public class EndpointFlowEndpointCompartmentEditPart extends ShapeCompartmentEditPart {
+public class EndpointFlowEndpointCompartmentEditPart extends
+		ShapeCompartmentEditPart {
 
 	/**
 	 * @generated
@@ -37,7 +38,8 @@ public class EndpointFlowEndpointCompartmentEditPart extends ShapeCompartmentEdi
 	 * @generated
 	 */
 	public IFigure createFigure() {
-		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super.createFigure();
+		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super
+				.createFigure();
 		result.setTitleVisibility(false);
 		return result;
 	}

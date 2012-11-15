@@ -29,7 +29,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementType
 /**
  * @generated
  */
-public class FailoverEndPointInputConnector2EditPart extends AbstractBorderItemEditPart {
+public class FailoverEndPointInputConnector2EditPart extends
+		AbstractBorderItemEditPart {
 
 	/**
 	 * @generated
@@ -58,7 +59,8 @@ public class FailoverEndPointInputConnector2EditPart extends AbstractBorderItemE
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, getPrimaryDragEditPolicy());
+		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
+				getPrimaryDragEditPolicy());
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new FailoverEndPointInputConnector2ItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
@@ -73,7 +75,8 @@ public class FailoverEndPointInputConnector2EditPart extends AbstractBorderItemE
 		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
 			protected EditPolicy createChildEditPolicy(EditPart child) {
-				EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+				EditPolicy result = child
+						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
 				if (result == null) {
 					result = new NonResizableEditPolicy();
 				}
@@ -279,6 +282,7 @@ public class FailoverEndPointInputConnector2EditPart extends AbstractBorderItemE
 			types.add(EsbElementTypes.LoadBalanceEndPointOutputConnector_3658);
 			types.add(EsbElementTypes.LoadBalanceEndPointWestOutputConnector_3659);
 			types.add(EsbElementTypes.APIResourceOutputConnector_3671);
+			types.add(EsbElementTypes.ComplexEndpointsOutputConnector_3679);
 		}
 		return types;
 	}
@@ -294,7 +298,8 @@ public class FailoverEndPointInputConnector2EditPart extends AbstractBorderItemE
 		public EastPointerFigure() {
 
 			this.setBackgroundColor(THIS_BACK);
-			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(12), getMapMode().DPtoLP(10)));
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(12),
+					getMapMode().DPtoLP(10)));
 		}
 
 	}
