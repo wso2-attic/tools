@@ -48,6 +48,7 @@ public class ESBProjectNature extends AbstractWSO2ProjectNature {
 			createChildren(parentFolder, child);
 			createChildren(graphicalResFolder, child);
 		}
+		createChildren(graphicalResFolder, "complex_endpoints");
 		updatePom();
 	}
 
