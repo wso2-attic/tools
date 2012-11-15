@@ -34,6 +34,7 @@ import org.apache.synapse.mediators.eip.splitter.CloneMediator;
 import org.apache.synapse.mediators.elementary.EnrichMediator;
 import org.apache.synapse.mediators.filters.FilterMediator;
 import org.apache.synapse.mediators.filters.SwitchMediator;
+import org.apache.synapse.rest.API;
 import org.wso2.carbon.mediator.event.EventMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramEditor;
@@ -83,6 +84,7 @@ public class EsbDeserializerRegistry {
 		addDeserializer(FilterMediator.class,new FilterMediatorDeserializer());
 		addDeserializer(SwitchMediator.class, new SwitchMediatorDeserializer());
 		addDeserializer(SequenceMediator.class, new SequenceDeserializer());
+		addDeserializer(API.class, new APIDeserializer());
 		
 	}
 	

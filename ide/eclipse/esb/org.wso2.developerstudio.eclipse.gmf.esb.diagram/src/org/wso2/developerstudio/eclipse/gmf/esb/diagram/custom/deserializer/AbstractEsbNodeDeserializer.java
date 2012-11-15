@@ -384,6 +384,10 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 	 */
 	public static void refreshEditPartMap(){
 		editPartMap.clear();
+		
+		if(diagramEditor==null)
+			return;
+		
 		@SuppressWarnings("rawtypes")
 		Map editPartRegistry = diagramEditor.getDiagramEditPart().getViewer().getEditPartRegistry();
 		for (Object object : editPartRegistry.keySet()) {

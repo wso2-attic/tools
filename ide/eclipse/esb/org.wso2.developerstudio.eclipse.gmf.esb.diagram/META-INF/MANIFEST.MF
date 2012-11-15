@@ -48,7 +48,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.wst.sse.ui,
  org.eclipse.wst.xml.xpath.core
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Eclipse-LazyStart: true
 Import-Package: org.apache.axiom.om,
  org.apache.axiom.om.util,
@@ -72,6 +72,7 @@ Import-Package: org.apache.axiom.om,
  org.apache.synapse.mediators.filters,
  org.apache.synapse.mediators.template,
  org.apache.synapse.rest,
+ org.apache.synapse.rest.dispatch,
  org.apache.synapse.task,
  org.apache.synapse.util.xpath,
  org.eclipse.core.filesystem,
