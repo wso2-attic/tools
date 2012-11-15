@@ -106,7 +106,15 @@ public enum ArtifactType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MAIN_SEQUENCE(8, "MAIN_SEQUENCE", "MAIN_SEQUENCE");
+	MAIN_SEQUENCE(8, "MAIN_SEQUENCE", "MAIN_SEQUENCE"), /**
+	 * The '<em><b>COMPLEX ENDPOINT</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #COMPLEX_ENDPOINT_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	COMPLEX_ENDPOINT(9, "COMPLEX_ENDPOINT", "COMPLEX_ENDPOINT");
 
 	/**
 	 * The '<em><b>SYNAPSE CONFIG</b></em>' literal value.
@@ -244,6 +252,21 @@ public enum ArtifactType implements Enumerator {
 	public static final int MAIN_SEQUENCE_VALUE = 8;
 
 	/**
+	 * The '<em><b>COMPLEX ENDPOINT</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>COMPLEX ENDPOINT</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #COMPLEX_ENDPOINT
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int COMPLEX_ENDPOINT_VALUE = 9;
+
+	/**
 	 * An array of all the '<em><b>Artifact Type</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -260,6 +283,7 @@ public enum ArtifactType implements Enumerator {
 			TEMPLATE,
 			API,
 			MAIN_SEQUENCE,
+			COMPLEX_ENDPOINT,
 		};
 
 	/**
@@ -319,6 +343,7 @@ public enum ArtifactType implements Enumerator {
 			case TEMPLATE_VALUE: return TEMPLATE;
 			case API_VALUE: return API;
 			case MAIN_SEQUENCE_VALUE: return MAIN_SEQUENCE;
+			case COMPLEX_ENDPOINT_VALUE: return COMPLEX_ENDPOINT;
 		}
 		return null;
 	}

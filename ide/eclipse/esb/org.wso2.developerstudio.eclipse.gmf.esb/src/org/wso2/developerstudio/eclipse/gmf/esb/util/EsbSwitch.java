@@ -2216,6 +2216,22 @@ public class EsbSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case EsbPackage.COMPLEX_ENDPOINTS: {
+				ComplexEndpoints complexEndpoints = (ComplexEndpoints)theEObject;
+				T result = caseComplexEndpoints(complexEndpoints);
+				if (result == null) result = caseEsbElement(complexEndpoints);
+				if (result == null) result = caseEsbNode(complexEndpoints);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.COMPLEX_ENDPOINTS_OUTPUT_CONNECTOR: {
+				ComplexEndpointsOutputConnector complexEndpointsOutputConnector = (ComplexEndpointsOutputConnector)theEObject;
+				T result = caseComplexEndpointsOutputConnector(complexEndpointsOutputConnector);
+				if (result == null) result = caseOutputConnector(complexEndpointsOutputConnector);
+				if (result == null) result = caseEsbConnector(complexEndpointsOutputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -4062,6 +4078,36 @@ public class EsbSwitch<T> {
 	 * @generated
 	 */
 	public T caseAPIResourceEndpointOutputConnector(APIResourceEndpointOutputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Complex Endpoints</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Complex Endpoints</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseComplexEndpoints(ComplexEndpoints object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Complex Endpoints Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Complex Endpoints Output Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseComplexEndpointsOutputConnector(ComplexEndpointsOutputConnector object) {
 		return null;
 	}
 

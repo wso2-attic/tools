@@ -328,6 +328,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 			case EsbPackage.API_RESOURCE_ENDPOINT: return createAPIResourceEndpoint();
 			case EsbPackage.API_RESOURCE_ENDPOINT_INPUT_CONNECTOR: return createAPIResourceEndpointInputConnector();
 			case EsbPackage.API_RESOURCE_ENDPOINT_OUTPUT_CONNECTOR: return createAPIResourceEndpointOutputConnector();
+			case EsbPackage.COMPLEX_ENDPOINTS: return createComplexEndpoints();
+			case EsbPackage.COMPLEX_ENDPOINTS_OUTPUT_CONNECTOR: return createComplexEndpointsOutputConnector();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -1873,6 +1875,27 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	public APIResourceEndpointOutputConnector createAPIResourceEndpointOutputConnector() {
 		APIResourceEndpointOutputConnectorImpl apiResourceEndpointOutputConnector = new APIResourceEndpointOutputConnectorImpl();
 		return apiResourceEndpointOutputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public ComplexEndpoints createComplexEndpoints() {
+		ComplexEndpointsImpl complexEndpoints = new ComplexEndpointsImpl();
+		complexEndpoints.setMediatorFlow(createMediatorFlow());
+		return complexEndpoints;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ComplexEndpointsOutputConnector createComplexEndpointsOutputConnector() {
+		ComplexEndpointsOutputConnectorImpl complexEndpointsOutputConnector = new ComplexEndpointsOutputConnectorImpl();
+		return complexEndpointsOutputConnector;
 	}
 
 	/**

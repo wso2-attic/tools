@@ -1157,6 +1157,14 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 				return createAPIResourceEndpointOutputConnectorAdapter();
 			}
 			@Override
+			public Adapter caseComplexEndpoints(ComplexEndpoints object) {
+				return createComplexEndpointsAdapter();
+			}
+			@Override
+			public Adapter caseComplexEndpointsOutputConnector(ComplexEndpointsOutputConnector object) {
+				return createComplexEndpointsOutputConnectorAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -2896,6 +2904,34 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAPIResourceEndpointOutputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.ComplexEndpoints <em>Complex Endpoints</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.ComplexEndpoints
+	 * @generated
+	 */
+	public Adapter createComplexEndpointsAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.ComplexEndpointsOutputConnector <em>Complex Endpoints Output Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.ComplexEndpointsOutputConnector
+	 * @generated
+	 */
+	public Adapter createComplexEndpointsOutputConnectorAdapter() {
 		return null;
 	}
 

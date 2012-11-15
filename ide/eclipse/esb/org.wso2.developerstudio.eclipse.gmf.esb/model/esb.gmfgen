@@ -288,7 +288,7 @@
           childNodes="/0/@diagram/@childNodes.8"
           graphicalNodeEditPolicyClassName="DropMediatorGraphicalNodeEditPolicy"
           createCommandClassName="DropMediatorCreateCommand"
-          containers="/0/@diagram/@compartments.1 /0/@diagram/@compartments.2 /0/@diagram/@compartments.3 /0/@diagram/@compartments.4 /0/@diagram/@compartments.6 /0/@diagram/@compartments.7 /0/@diagram/@compartments.8 /0/@diagram/@compartments.9 /0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.14 /0/@diagram/@compartments.15 /0/@diagram/@compartments.16 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18">
+          containers="/0/@diagram/@compartments.1 /0/@diagram/@compartments.2 /0/@diagram/@compartments.3 /0/@diagram/@compartments.4 /0/@diagram/@compartments.6 /0/@diagram/@compartments.7 /0/@diagram/@compartments.8 /0/@diagram/@compartments.9 /0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.14 /0/@diagram/@compartments.15 /0/@diagram/@compartments.16 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18 /0/@diagram/@compartments.23">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <elementType
@@ -357,7 +357,7 @@
           childNodes="/0/@diagram/@childNodes.10 /0/@diagram/@childNodes.11"
           graphicalNodeEditPolicyClassName="PropertyMediatorGraphicalNodeEditPolicy"
           createCommandClassName="PropertyMediatorCreateCommand"
-          containers="/0/@diagram/@compartments.1 /0/@diagram/@compartments.2 /0/@diagram/@compartments.3 /0/@diagram/@compartments.4 /0/@diagram/@compartments.6 /0/@diagram/@compartments.7 /0/@diagram/@compartments.8 /0/@diagram/@compartments.9 /0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.14 /0/@diagram/@compartments.15 /0/@diagram/@compartments.16 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18">
+          containers="/0/@diagram/@compartments.1 /0/@diagram/@compartments.2 /0/@diagram/@compartments.3 /0/@diagram/@compartments.4 /0/@diagram/@compartments.6 /0/@diagram/@compartments.7 /0/@diagram/@compartments.8 /0/@diagram/@compartments.9 /0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.14 /0/@diagram/@compartments.15 /0/@diagram/@compartments.16 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18 /0/@diagram/@compartments.23">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <elementType
@@ -483,7 +483,7 @@
           childNodes="/0/@diagram/@childNodes.13 /0/@diagram/@childNodes.14 /0/@diagram/@childNodes.15 /0/@diagram/@childNodes.16 /0/@diagram/@childNodes.17"
           graphicalNodeEditPolicyClassName="ThrottleMediatorGraphicalNodeEditPolicy"
           createCommandClassName="ThrottleMediatorCreateCommand"
-          containers="/0/@diagram/@compartments.2 /0/@diagram/@compartments.3 /0/@diagram/@compartments.4 /0/@diagram/@compartments.6 /0/@diagram/@compartments.7 /0/@diagram/@compartments.8 /0/@diagram/@compartments.9 /0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.14 /0/@diagram/@compartments.15 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18">
+          containers="/0/@diagram/@compartments.2 /0/@diagram/@compartments.3 /0/@diagram/@compartments.4 /0/@diagram/@compartments.6 /0/@diagram/@compartments.7 /0/@diagram/@compartments.8 /0/@diagram/@compartments.9 /0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.14 /0/@diagram/@compartments.15 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18 /0/@diagram/@compartments.23">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <elementType
@@ -773,7 +773,7 @@
           childNodes="/0/@diagram/@childNodes.21 /0/@diagram/@childNodes.22 /0/@diagram/@childNodes.23 /0/@diagram/@childNodes.24 /0/@diagram/@childNodes.25"
           graphicalNodeEditPolicyClassName="FilterMediatorGraphicalNodeEditPolicy"
           createCommandClassName="FilterMediatorCreateCommand"
-          containers="/0/@diagram/@compartments.3 /0/@diagram/@compartments.4 /0/@diagram/@compartments.6 /0/@diagram/@compartments.7 /0/@diagram/@compartments.8 /0/@diagram/@compartments.9 /0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.14 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18">
+          containers="/0/@diagram/@compartments.3 /0/@diagram/@compartments.4 /0/@diagram/@compartments.6 /0/@diagram/@compartments.7 /0/@diagram/@compartments.8 /0/@diagram/@compartments.9 /0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.14 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18 /0/@diagram/@compartments.23">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <elementType
@@ -1067,7 +1067,7 @@
           childNodes="/0/@diagram/@childNodes.29 /0/@diagram/@childNodes.30"
           graphicalNodeEditPolicyClassName="LogMediatorGraphicalNodeEditPolicy"
           createCommandClassName="LogMediatorCreateCommand"
-          containers="/0/@diagram/@compartments.3 /0/@diagram/@compartments.4 /0/@diagram/@compartments.6 /0/@diagram/@compartments.7 /0/@diagram/@compartments.8 /0/@diagram/@compartments.9 /0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.14 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18">
+          containers="/0/@diagram/@compartments.3 /0/@diagram/@compartments.4 /0/@diagram/@compartments.6 /0/@diagram/@compartments.7 /0/@diagram/@compartments.8 /0/@diagram/@compartments.9 /0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.14 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18 /0/@diagram/@compartments.23">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <elementType
@@ -1193,7 +1193,7 @@
           childNodes="/0/@diagram/@childNodes.32 /0/@diagram/@childNodes.33"
           graphicalNodeEditPolicyClassName="EnrichMediatorGraphicalNodeEditPolicy"
           createCommandClassName="EnrichMediatorCreateCommand"
-          containers="/0/@diagram/@compartments.3 /0/@diagram/@compartments.4 /0/@diagram/@compartments.6 /0/@diagram/@compartments.7 /0/@diagram/@compartments.8 /0/@diagram/@compartments.9 /0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.14 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18">
+          containers="/0/@diagram/@compartments.3 /0/@diagram/@compartments.4 /0/@diagram/@compartments.6 /0/@diagram/@compartments.7 /0/@diagram/@compartments.8 /0/@diagram/@compartments.9 /0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.14 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18 /0/@diagram/@compartments.23">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <elementType
@@ -1319,7 +1319,7 @@
           childNodes="/0/@diagram/@childNodes.35 /0/@diagram/@childNodes.36"
           graphicalNodeEditPolicyClassName="XSLTMediatorGraphicalNodeEditPolicy"
           createCommandClassName="XSLTMediatorCreateCommand"
-          containers="/0/@diagram/@compartments.3 /0/@diagram/@compartments.4 /0/@diagram/@compartments.6 /0/@diagram/@compartments.7 /0/@diagram/@compartments.8 /0/@diagram/@compartments.9 /0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.14 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18">
+          containers="/0/@diagram/@compartments.3 /0/@diagram/@compartments.4 /0/@diagram/@compartments.6 /0/@diagram/@compartments.7 /0/@diagram/@compartments.8 /0/@diagram/@compartments.9 /0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.14 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18 /0/@diagram/@compartments.23">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <elementType
@@ -1425,7 +1425,7 @@
           childNodes="/0/@diagram/@childNodes.38 /0/@diagram/@childNodes.39 /0/@diagram/@childNodes.40 /0/@diagram/@childNodes.41 /0/@diagram/@childNodes.42"
           graphicalNodeEditPolicyClassName="SwitchMediatorGraphicalNodeEditPolicy"
           createCommandClassName="SwitchMediatorCreateCommand"
-          containers="/0/@diagram/@compartments.4 /0/@diagram/@compartments.6 /0/@diagram/@compartments.7 /0/@diagram/@compartments.8 /0/@diagram/@compartments.9 /0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18">
+          containers="/0/@diagram/@compartments.4 /0/@diagram/@compartments.6 /0/@diagram/@compartments.7 /0/@diagram/@compartments.8 /0/@diagram/@compartments.9 /0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18 /0/@diagram/@compartments.23">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <elementType
@@ -1699,7 +1699,7 @@
           childNodes="/0/@diagram/@childNodes.46 /0/@diagram/@childNodes.47"
           graphicalNodeEditPolicyClassName="SequenceGraphicalNodeEditPolicy"
           createCommandClassName="SequenceCreateCommand"
-          containers="/0/@diagram/@compartments.4 /0/@diagram/@compartments.6 /0/@diagram/@compartments.7 /0/@diagram/@compartments.8 /0/@diagram/@compartments.9 /0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18">
+          containers="/0/@diagram/@compartments.4 /0/@diagram/@compartments.6 /0/@diagram/@compartments.7 /0/@diagram/@compartments.8 /0/@diagram/@compartments.9 /0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18 /0/@diagram/@compartments.23">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <elementType
@@ -1823,7 +1823,7 @@
           childNodes="/0/@diagram/@childNodes.49 /0/@diagram/@childNodes.50"
           graphicalNodeEditPolicyClassName="EventMediatorGraphicalNodeEditPolicy"
           createCommandClassName="EventMediatorCreateCommand"
-          containers="/0/@diagram/@compartments.4 /0/@diagram/@compartments.6 /0/@diagram/@compartments.7 /0/@diagram/@compartments.8 /0/@diagram/@compartments.9 /0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18">
+          containers="/0/@diagram/@compartments.4 /0/@diagram/@compartments.6 /0/@diagram/@compartments.7 /0/@diagram/@compartments.8 /0/@diagram/@compartments.9 /0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18 /0/@diagram/@compartments.23">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <elementType
@@ -1949,7 +1949,7 @@
           childNodes="/0/@diagram/@childNodes.52 /0/@diagram/@childNodes.53"
           graphicalNodeEditPolicyClassName="EntitlementMediatorGraphicalNodeEditPolicy"
           createCommandClassName="EntitlementMediatorCreateCommand"
-          containers="/0/@diagram/@compartments.4 /0/@diagram/@compartments.6 /0/@diagram/@compartments.7 /0/@diagram/@compartments.8 /0/@diagram/@compartments.9 /0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18">
+          containers="/0/@diagram/@compartments.4 /0/@diagram/@compartments.6 /0/@diagram/@compartments.7 /0/@diagram/@compartments.8 /0/@diagram/@compartments.9 /0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18 /0/@diagram/@compartments.23">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <elementType
@@ -2075,7 +2075,7 @@
           childNodes="/0/@diagram/@childNodes.55 /0/@diagram/@childNodes.56"
           graphicalNodeEditPolicyClassName="ClassMediatorGraphicalNodeEditPolicy"
           createCommandClassName="ClassMediatorCreateCommand"
-          containers="/0/@diagram/@compartments.4 /0/@diagram/@compartments.6 /0/@diagram/@compartments.7 /0/@diagram/@compartments.8 /0/@diagram/@compartments.9 /0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18">
+          containers="/0/@diagram/@compartments.4 /0/@diagram/@compartments.6 /0/@diagram/@compartments.7 /0/@diagram/@compartments.8 /0/@diagram/@compartments.9 /0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18 /0/@diagram/@compartments.23">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <elementType
@@ -2201,7 +2201,7 @@
           childNodes="/0/@diagram/@childNodes.58 /0/@diagram/@childNodes.59"
           graphicalNodeEditPolicyClassName="SpringMediatorGraphicalNodeEditPolicy"
           createCommandClassName="SpringMediatorCreateCommand"
-          containers="/0/@diagram/@compartments.4 /0/@diagram/@compartments.6 /0/@diagram/@compartments.7 /0/@diagram/@compartments.8 /0/@diagram/@compartments.9 /0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18">
+          containers="/0/@diagram/@compartments.4 /0/@diagram/@compartments.6 /0/@diagram/@compartments.7 /0/@diagram/@compartments.8 /0/@diagram/@compartments.9 /0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18 /0/@diagram/@compartments.23">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <elementType
@@ -2327,7 +2327,7 @@
           childNodes="/0/@diagram/@childNodes.61 /0/@diagram/@childNodes.62"
           graphicalNodeEditPolicyClassName="ScriptMediatorGraphicalNodeEditPolicy"
           createCommandClassName="ScriptMediatorCreateCommand"
-          containers="/0/@diagram/@compartments.4 /0/@diagram/@compartments.6 /0/@diagram/@compartments.7 /0/@diagram/@compartments.8 /0/@diagram/@compartments.9 /0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18">
+          containers="/0/@diagram/@compartments.4 /0/@diagram/@compartments.6 /0/@diagram/@compartments.7 /0/@diagram/@compartments.8 /0/@diagram/@compartments.9 /0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18 /0/@diagram/@compartments.23">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <elementType
@@ -2453,7 +2453,7 @@
           childNodes="/0/@diagram/@childNodes.64 /0/@diagram/@childNodes.65"
           graphicalNodeEditPolicyClassName="FaultMediatorGraphicalNodeEditPolicy"
           createCommandClassName="FaultMediatorCreateCommand"
-          containers="/0/@diagram/@compartments.4 /0/@diagram/@compartments.6 /0/@diagram/@compartments.7 /0/@diagram/@compartments.8 /0/@diagram/@compartments.9 /0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18">
+          containers="/0/@diagram/@compartments.4 /0/@diagram/@compartments.6 /0/@diagram/@compartments.7 /0/@diagram/@compartments.8 /0/@diagram/@compartments.9 /0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18 /0/@diagram/@compartments.23">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <elementType
@@ -2579,7 +2579,7 @@
           childNodes="/0/@diagram/@childNodes.67 /0/@diagram/@childNodes.68"
           graphicalNodeEditPolicyClassName="XQueryMediatorGraphicalNodeEditPolicy"
           createCommandClassName="XQueryMediatorCreateCommand"
-          containers="/0/@diagram/@compartments.4 /0/@diagram/@compartments.6 /0/@diagram/@compartments.7 /0/@diagram/@compartments.8 /0/@diagram/@compartments.9 /0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18">
+          containers="/0/@diagram/@compartments.4 /0/@diagram/@compartments.6 /0/@diagram/@compartments.7 /0/@diagram/@compartments.8 /0/@diagram/@compartments.9 /0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18 /0/@diagram/@compartments.23">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <elementType
@@ -2705,7 +2705,7 @@
           childNodes="/0/@diagram/@childNodes.70 /0/@diagram/@childNodes.71"
           graphicalNodeEditPolicyClassName="CommandMediatorGraphicalNodeEditPolicy"
           createCommandClassName="CommandMediatorCreateCommand"
-          containers="/0/@diagram/@compartments.4 /0/@diagram/@compartments.6 /0/@diagram/@compartments.7 /0/@diagram/@compartments.8 /0/@diagram/@compartments.9 /0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18">
+          containers="/0/@diagram/@compartments.4 /0/@diagram/@compartments.6 /0/@diagram/@compartments.7 /0/@diagram/@compartments.8 /0/@diagram/@compartments.9 /0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18 /0/@diagram/@compartments.23">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <elementType
@@ -2831,7 +2831,7 @@
           childNodes="/0/@diagram/@childNodes.73 /0/@diagram/@childNodes.74"
           graphicalNodeEditPolicyClassName="DBLookupMediatorGraphicalNodeEditPolicy"
           createCommandClassName="DBLookupMediatorCreateCommand"
-          containers="/0/@diagram/@compartments.4 /0/@diagram/@compartments.6 /0/@diagram/@compartments.7 /0/@diagram/@compartments.8 /0/@diagram/@compartments.9 /0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18">
+          containers="/0/@diagram/@compartments.4 /0/@diagram/@compartments.6 /0/@diagram/@compartments.7 /0/@diagram/@compartments.8 /0/@diagram/@compartments.9 /0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18 /0/@diagram/@compartments.23">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <elementType
@@ -2957,7 +2957,7 @@
           childNodes="/0/@diagram/@childNodes.76 /0/@diagram/@childNodes.77"
           graphicalNodeEditPolicyClassName="DBReportMediatorGraphicalNodeEditPolicy"
           createCommandClassName="DBReportMediatorCreateCommand"
-          containers="/0/@diagram/@compartments.4 /0/@diagram/@compartments.6 /0/@diagram/@compartments.7 /0/@diagram/@compartments.8 /0/@diagram/@compartments.9 /0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18">
+          containers="/0/@diagram/@compartments.4 /0/@diagram/@compartments.6 /0/@diagram/@compartments.7 /0/@diagram/@compartments.8 /0/@diagram/@compartments.9 /0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18 /0/@diagram/@compartments.23">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <elementType
@@ -3083,7 +3083,7 @@
           childNodes="/0/@diagram/@childNodes.79 /0/@diagram/@childNodes.80"
           graphicalNodeEditPolicyClassName="SmooksMediatorGraphicalNodeEditPolicy"
           createCommandClassName="SmooksMediatorCreateCommand"
-          containers="/0/@diagram/@compartments.4 /0/@diagram/@compartments.6 /0/@diagram/@compartments.7 /0/@diagram/@compartments.8 /0/@diagram/@compartments.9 /0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18">
+          containers="/0/@diagram/@compartments.4 /0/@diagram/@compartments.6 /0/@diagram/@compartments.7 /0/@diagram/@compartments.8 /0/@diagram/@compartments.9 /0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18 /0/@diagram/@compartments.23">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <elementType
@@ -3189,7 +3189,7 @@
           childNodes="/0/@diagram/@childNodes.82 /0/@diagram/@childNodes.83 /0/@diagram/@childNodes.84 /0/@diagram/@childNodes.85"
           graphicalNodeEditPolicyClassName="SendMediatorGraphicalNodeEditPolicy"
           createCommandClassName="SendMediatorCreateCommand"
-          containers="/0/@diagram/@compartments.4 /0/@diagram/@compartments.6 /0/@diagram/@compartments.7 /0/@diagram/@compartments.8 /0/@diagram/@compartments.9 /0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18">
+          containers="/0/@diagram/@compartments.4 /0/@diagram/@compartments.6 /0/@diagram/@compartments.7 /0/@diagram/@compartments.8 /0/@diagram/@compartments.9 /0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18 /0/@diagram/@compartments.23">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <elementType
@@ -3362,7 +3362,7 @@
           childNodes="/0/@diagram/@childNodes.87 /0/@diagram/@childNodes.88"
           graphicalNodeEditPolicyClassName="HeaderMediatorGraphicalNodeEditPolicy"
           createCommandClassName="HeaderMediatorCreateCommand"
-          containers="/0/@diagram/@compartments.4 /0/@diagram/@compartments.6 /0/@diagram/@compartments.7 /0/@diagram/@compartments.8 /0/@diagram/@compartments.9 /0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18">
+          containers="/0/@diagram/@compartments.4 /0/@diagram/@compartments.6 /0/@diagram/@compartments.7 /0/@diagram/@compartments.8 /0/@diagram/@compartments.9 /0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18 /0/@diagram/@compartments.23">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <elementType
@@ -3487,7 +3487,7 @@
           childNodes="/0/@diagram/@childNodes.90 /0/@diagram/@childNodes.91 /0/@diagram/@childNodes.92 /0/@diagram/@childNodes.93"
           graphicalNodeEditPolicyClassName="CloneMediatorGraphicalNodeEditPolicy"
           createCommandClassName="CloneMediatorCreateCommand"
-          containers="/0/@diagram/@compartments.6 /0/@diagram/@compartments.7 /0/@diagram/@compartments.8 /0/@diagram/@compartments.9 /0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.4 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18">
+          containers="/0/@diagram/@compartments.6 /0/@diagram/@compartments.7 /0/@diagram/@compartments.8 /0/@diagram/@compartments.9 /0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.4 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18 /0/@diagram/@compartments.23">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <elementType
@@ -3745,7 +3745,7 @@
           childNodes="/0/@diagram/@childNodes.97 /0/@diagram/@childNodes.98 /0/@diagram/@childNodes.99 /0/@diagram/@childNodes.100"
           graphicalNodeEditPolicyClassName="CacheMediatorGraphicalNodeEditPolicy"
           createCommandClassName="CacheMediatorCreateCommand"
-          containers="/0/@diagram/@compartments.7 /0/@diagram/@compartments.8 /0/@diagram/@compartments.9 /0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.6 /0/@diagram/@compartments.4 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18">
+          containers="/0/@diagram/@compartments.7 /0/@diagram/@compartments.8 /0/@diagram/@compartments.9 /0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.6 /0/@diagram/@compartments.4 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18 /0/@diagram/@compartments.23">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <elementType
@@ -3939,7 +3939,7 @@
           childNodes="/0/@diagram/@childNodes.102 /0/@diagram/@childNodes.103 /0/@diagram/@childNodes.104 /0/@diagram/@childNodes.105"
           graphicalNodeEditPolicyClassName="IterateMediatorGraphicalNodeEditPolicy"
           createCommandClassName="IterateMediatorCreateCommand"
-          containers="/0/@diagram/@compartments.8 /0/@diagram/@compartments.9 /0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.7 /0/@diagram/@compartments.6 /0/@diagram/@compartments.4 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18">
+          containers="/0/@diagram/@compartments.8 /0/@diagram/@compartments.9 /0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.7 /0/@diagram/@compartments.6 /0/@diagram/@compartments.4 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18 /0/@diagram/@compartments.23">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <elementType
@@ -4133,7 +4133,7 @@
           childNodes="/0/@diagram/@childNodes.107 /0/@diagram/@childNodes.108"
           graphicalNodeEditPolicyClassName="CalloutMediatorGraphicalNodeEditPolicy"
           createCommandClassName="CalloutMediatorCreateCommand"
-          containers="/0/@diagram/@compartments.8 /0/@diagram/@compartments.9 /0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.7 /0/@diagram/@compartments.6 /0/@diagram/@compartments.4 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18">
+          containers="/0/@diagram/@compartments.8 /0/@diagram/@compartments.9 /0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.7 /0/@diagram/@compartments.6 /0/@diagram/@compartments.4 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18 /0/@diagram/@compartments.23">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <elementType
@@ -4258,7 +4258,7 @@
           childNodes="/0/@diagram/@childNodes.110 /0/@diagram/@childNodes.111"
           graphicalNodeEditPolicyClassName="TransactionMediatorGraphicalNodeEditPolicy"
           createCommandClassName="TransactionMediatorCreateCommand"
-          containers="/0/@diagram/@compartments.8 /0/@diagram/@compartments.9 /0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.7 /0/@diagram/@compartments.6 /0/@diagram/@compartments.4 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18">
+          containers="/0/@diagram/@compartments.8 /0/@diagram/@compartments.9 /0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.7 /0/@diagram/@compartments.6 /0/@diagram/@compartments.4 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18 /0/@diagram/@compartments.23">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <elementType
@@ -4364,7 +4364,7 @@
           childNodes="/0/@diagram/@childNodes.113 /0/@diagram/@childNodes.114"
           graphicalNodeEditPolicyClassName="RMSequenceMediatorGraphicalNodeEditPolicy"
           createCommandClassName="RMSequenceMediatorCreateCommand"
-          containers="/0/@diagram/@compartments.8 /0/@diagram/@compartments.9 /0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.7 /0/@diagram/@compartments.6 /0/@diagram/@compartments.4 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18">
+          containers="/0/@diagram/@compartments.8 /0/@diagram/@compartments.9 /0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.7 /0/@diagram/@compartments.6 /0/@diagram/@compartments.4 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18 /0/@diagram/@compartments.23">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <elementType
@@ -4470,7 +4470,7 @@
           childNodes="/0/@diagram/@childNodes.116 /0/@diagram/@childNodes.117 /0/@diagram/@childNodes.118 /0/@diagram/@childNodes.119"
           graphicalNodeEditPolicyClassName="RuleMediatorGraphicalNodeEditPolicy"
           createCommandClassName="RuleMediatorCreateCommand"
-          containers="/0/@diagram/@compartments.9 /0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.8 /0/@diagram/@compartments.7 /0/@diagram/@compartments.6 /0/@diagram/@compartments.4 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18">
+          containers="/0/@diagram/@compartments.9 /0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.8 /0/@diagram/@compartments.7 /0/@diagram/@compartments.6 /0/@diagram/@compartments.4 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18 /0/@diagram/@compartments.23">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <elementType
@@ -4645,7 +4645,7 @@
           childNodes="/0/@diagram/@childNodes.121 /0/@diagram/@childNodes.122"
           graphicalNodeEditPolicyClassName="OAuthMediatorGraphicalNodeEditPolicy"
           createCommandClassName="OAuthMediatorCreateCommand"
-          containers="/0/@diagram/@compartments.9 /0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.8 /0/@diagram/@compartments.7 /0/@diagram/@compartments.6 /0/@diagram/@compartments.4 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18">
+          containers="/0/@diagram/@compartments.9 /0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.8 /0/@diagram/@compartments.7 /0/@diagram/@compartments.6 /0/@diagram/@compartments.4 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18 /0/@diagram/@compartments.23">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <elementType
@@ -4769,7 +4769,7 @@
           childNodes="/0/@diagram/@childNodes.124 /0/@diagram/@childNodes.125 /0/@diagram/@childNodes.126 /0/@diagram/@childNodes.127"
           graphicalNodeEditPolicyClassName="AggregateMediatorGraphicalNodeEditPolicy"
           createCommandClassName="AggregateMediatorCreateCommand"
-          containers="/0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.9 /0/@diagram/@compartments.8 /0/@diagram/@compartments.7 /0/@diagram/@compartments.6 /0/@diagram/@compartments.4 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18">
+          containers="/0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.9 /0/@diagram/@compartments.8 /0/@diagram/@compartments.7 /0/@diagram/@compartments.6 /0/@diagram/@compartments.4 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18 /0/@diagram/@compartments.23">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <elementType
@@ -4964,7 +4964,7 @@
           childNodes="/0/@diagram/@childNodes.129 /0/@diagram/@childNodes.130"
           graphicalNodeEditPolicyClassName="StoreMediatorGraphicalNodeEditPolicy"
           createCommandClassName="StoreMediatorCreateCommand"
-          containers="/0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.9 /0/@diagram/@compartments.8 /0/@diagram/@compartments.7 /0/@diagram/@compartments.6 /0/@diagram/@compartments.4 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18">
+          containers="/0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.9 /0/@diagram/@compartments.8 /0/@diagram/@compartments.7 /0/@diagram/@compartments.6 /0/@diagram/@compartments.4 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18 /0/@diagram/@compartments.23">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <elementType
@@ -5070,7 +5070,7 @@
           childNodes="/0/@diagram/@childNodes.132 /0/@diagram/@childNodes.133"
           graphicalNodeEditPolicyClassName="BuilderMediatorGraphicalNodeEditPolicy"
           createCommandClassName="BuilderMediatorCreateCommand"
-          containers="/0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.9 /0/@diagram/@compartments.8 /0/@diagram/@compartments.7 /0/@diagram/@compartments.6 /0/@diagram/@compartments.4 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18">
+          containers="/0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.9 /0/@diagram/@compartments.8 /0/@diagram/@compartments.7 /0/@diagram/@compartments.6 /0/@diagram/@compartments.4 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18 /0/@diagram/@compartments.23">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <elementType
@@ -5176,7 +5176,7 @@
           childNodes="/0/@diagram/@childNodes.135 /0/@diagram/@childNodes.136"
           graphicalNodeEditPolicyClassName="CallTemplateMediatorGraphicalNodeEditPolicy"
           createCommandClassName="CallTemplateMediatorCreateCommand"
-          containers="/0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.9 /0/@diagram/@compartments.8 /0/@diagram/@compartments.7 /0/@diagram/@compartments.6 /0/@diagram/@compartments.4 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18">
+          containers="/0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.9 /0/@diagram/@compartments.8 /0/@diagram/@compartments.7 /0/@diagram/@compartments.6 /0/@diagram/@compartments.4 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18 /0/@diagram/@compartments.23">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <elementType
@@ -5282,7 +5282,7 @@
           childNodes="/0/@diagram/@childNodes.138 /0/@diagram/@childNodes.139"
           graphicalNodeEditPolicyClassName="PayloadFactoryMediatorGraphicalNodeEditPolicy"
           createCommandClassName="PayloadFactoryMediatorCreateCommand"
-          containers="/0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.9 /0/@diagram/@compartments.8 /0/@diagram/@compartments.7 /0/@diagram/@compartments.6 /0/@diagram/@compartments.4 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18">
+          containers="/0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.9 /0/@diagram/@compartments.8 /0/@diagram/@compartments.7 /0/@diagram/@compartments.6 /0/@diagram/@compartments.4 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18 /0/@diagram/@compartments.23">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <elementType
@@ -5388,7 +5388,7 @@
           childNodes="/0/@diagram/@childNodes.141 /0/@diagram/@childNodes.142"
           graphicalNodeEditPolicyClassName="EnqueueMediatorGraphicalNodeEditPolicy"
           createCommandClassName="EnqueueMediatorCreateCommand"
-          containers="/0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.9 /0/@diagram/@compartments.8 /0/@diagram/@compartments.7 /0/@diagram/@compartments.6 /0/@diagram/@compartments.4 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18">
+          containers="/0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.9 /0/@diagram/@compartments.8 /0/@diagram/@compartments.7 /0/@diagram/@compartments.6 /0/@diagram/@compartments.4 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18 /0/@diagram/@compartments.23">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <elementType
@@ -5494,7 +5494,7 @@
           childNodes="/0/@diagram/@childNodes.144 /0/@diagram/@childNodes.145"
           graphicalNodeEditPolicyClassName="URLRewriteMediatorGraphicalNodeEditPolicy"
           createCommandClassName="URLRewriteMediatorCreateCommand"
-          containers="/0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.9 /0/@diagram/@compartments.8 /0/@diagram/@compartments.7 /0/@diagram/@compartments.6 /0/@diagram/@compartments.4 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18">
+          containers="/0/@diagram/@compartments.10 /0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.9 /0/@diagram/@compartments.8 /0/@diagram/@compartments.7 /0/@diagram/@compartments.6 /0/@diagram/@compartments.4 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18 /0/@diagram/@compartments.23">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <elementType
@@ -5600,7 +5600,7 @@
           childNodes="/0/@diagram/@childNodes.147 /0/@diagram/@childNodes.148 /0/@diagram/@childNodes.149 /0/@diagram/@childNodes.150"
           graphicalNodeEditPolicyClassName="ValidateMediatorGraphicalNodeEditPolicy"
           createCommandClassName="ValidateMediatorCreateCommand"
-          containers="/0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.10 /0/@diagram/@compartments.9 /0/@diagram/@compartments.8 /0/@diagram/@compartments.7 /0/@diagram/@compartments.6 /0/@diagram/@compartments.4 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18">
+          containers="/0/@diagram/@compartments.11 /0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.10 /0/@diagram/@compartments.9 /0/@diagram/@compartments.8 /0/@diagram/@compartments.7 /0/@diagram/@compartments.6 /0/@diagram/@compartments.4 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18 /0/@diagram/@compartments.23">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <elementType
@@ -5776,7 +5776,7 @@
           childNodes="/0/@diagram/@childNodes.152 /0/@diagram/@childNodes.153 /0/@diagram/@childNodes.154 /0/@diagram/@childNodes.155"
           graphicalNodeEditPolicyClassName="RouterMediatorGraphicalNodeEditPolicy"
           createCommandClassName="RouterMediatorCreateCommand"
-          containers="/0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.11 /0/@diagram/@compartments.10 /0/@diagram/@compartments.9 /0/@diagram/@compartments.8 /0/@diagram/@compartments.7 /0/@diagram/@compartments.6 /0/@diagram/@compartments.4 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18">
+          containers="/0/@diagram/@compartments.12 /0/@diagram/@compartments.13 /0/@diagram/@compartments.11 /0/@diagram/@compartments.10 /0/@diagram/@compartments.9 /0/@diagram/@compartments.8 /0/@diagram/@compartments.7 /0/@diagram/@compartments.6 /0/@diagram/@compartments.4 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18 /0/@diagram/@compartments.23">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <elementType
@@ -6015,7 +6015,7 @@
           childNodes="/0/@diagram/@childNodes.159 /0/@diagram/@childNodes.160 /0/@diagram/@childNodes.161 /0/@diagram/@childNodes.162"
           graphicalNodeEditPolicyClassName="ConditionalRouterMediatorGraphicalNodeEditPolicy"
           createCommandClassName="ConditionalRouterMediatorCreateCommand"
-          containers="/0/@diagram/@compartments.13 /0/@diagram/@compartments.12 /0/@diagram/@compartments.11 /0/@diagram/@compartments.10 /0/@diagram/@compartments.9 /0/@diagram/@compartments.8 /0/@diagram/@compartments.7 /0/@diagram/@compartments.6 /0/@diagram/@compartments.4 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18">
+          containers="/0/@diagram/@compartments.13 /0/@diagram/@compartments.12 /0/@diagram/@compartments.11 /0/@diagram/@compartments.10 /0/@diagram/@compartments.9 /0/@diagram/@compartments.8 /0/@diagram/@compartments.7 /0/@diagram/@compartments.6 /0/@diagram/@compartments.4 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18 /0/@diagram/@compartments.23">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <elementType
@@ -6191,7 +6191,7 @@
           childNodes="/0/@diagram/@childNodes.164 /0/@diagram/@childNodes.165"
           graphicalNodeEditPolicyClassName="DefaultEndPointGraphicalNodeEditPolicy"
           createCommandClassName="DefaultEndPointCreateCommand"
-          containers="/0/@diagram/@compartments.13 /0/@diagram/@compartments.12 /0/@diagram/@compartments.11 /0/@diagram/@compartments.10 /0/@diagram/@compartments.9 /0/@diagram/@compartments.8 /0/@diagram/@compartments.7 /0/@diagram/@compartments.6 /0/@diagram/@compartments.4 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18">
+          containers="/0/@diagram/@compartments.13 /0/@diagram/@compartments.12 /0/@diagram/@compartments.11 /0/@diagram/@compartments.10 /0/@diagram/@compartments.9 /0/@diagram/@compartments.8 /0/@diagram/@compartments.7 /0/@diagram/@compartments.6 /0/@diagram/@compartments.4 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18 /0/@diagram/@compartments.23">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <elementType
@@ -6316,7 +6316,7 @@
           childNodes="/0/@diagram/@childNodes.167 /0/@diagram/@childNodes.168"
           graphicalNodeEditPolicyClassName="AddressEndPointGraphicalNodeEditPolicy"
           createCommandClassName="AddressEndPointCreateCommand"
-          containers="/0/@diagram/@compartments.13 /0/@diagram/@compartments.12 /0/@diagram/@compartments.11 /0/@diagram/@compartments.10 /0/@diagram/@compartments.9 /0/@diagram/@compartments.8 /0/@diagram/@compartments.7 /0/@diagram/@compartments.6 /0/@diagram/@compartments.4 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18">
+          containers="/0/@diagram/@compartments.13 /0/@diagram/@compartments.12 /0/@diagram/@compartments.11 /0/@diagram/@compartments.10 /0/@diagram/@compartments.9 /0/@diagram/@compartments.8 /0/@diagram/@compartments.7 /0/@diagram/@compartments.6 /0/@diagram/@compartments.4 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18 /0/@diagram/@compartments.23">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <elementType
@@ -6441,7 +6441,7 @@
           childNodes="/0/@diagram/@childNodes.170 /0/@diagram/@childNodes.171 /0/@diagram/@childNodes.172"
           graphicalNodeEditPolicyClassName="FailoverEndPointGraphicalNodeEditPolicy"
           createCommandClassName="FailoverEndPointCreateCommand"
-          containers="/0/@diagram/@compartments.13 /0/@diagram/@compartments.12 /0/@diagram/@compartments.11 /0/@diagram/@compartments.10 /0/@diagram/@compartments.9 /0/@diagram/@compartments.8 /0/@diagram/@compartments.7 /0/@diagram/@compartments.6 /0/@diagram/@compartments.4 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18">
+          containers="/0/@diagram/@compartments.13 /0/@diagram/@compartments.12 /0/@diagram/@compartments.11 /0/@diagram/@compartments.10 /0/@diagram/@compartments.9 /0/@diagram/@compartments.8 /0/@diagram/@compartments.7 /0/@diagram/@compartments.6 /0/@diagram/@compartments.4 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18 /0/@diagram/@compartments.23">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <elementType
@@ -6603,7 +6603,7 @@
           childNodes="/0/@diagram/@childNodes.174 /0/@diagram/@childNodes.175"
           graphicalNodeEditPolicyClassName="WSDLEndPointGraphicalNodeEditPolicy"
           createCommandClassName="WSDLEndPointCreateCommand"
-          containers="/0/@diagram/@compartments.13 /0/@diagram/@compartments.12 /0/@diagram/@compartments.11 /0/@diagram/@compartments.10 /0/@diagram/@compartments.9 /0/@diagram/@compartments.8 /0/@diagram/@compartments.7 /0/@diagram/@compartments.6 /0/@diagram/@compartments.4 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18">
+          containers="/0/@diagram/@compartments.13 /0/@diagram/@compartments.12 /0/@diagram/@compartments.11 /0/@diagram/@compartments.10 /0/@diagram/@compartments.9 /0/@diagram/@compartments.8 /0/@diagram/@compartments.7 /0/@diagram/@compartments.6 /0/@diagram/@compartments.4 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18 /0/@diagram/@compartments.23">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <elementType
@@ -6728,7 +6728,7 @@
           childNodes="/0/@diagram/@childNodes.177 /0/@diagram/@childNodes.178"
           graphicalNodeEditPolicyClassName="NamedEndpointGraphicalNodeEditPolicy"
           createCommandClassName="NamedEndpointCreateCommand"
-          containers="/0/@diagram/@compartments.13 /0/@diagram/@compartments.12 /0/@diagram/@compartments.11 /0/@diagram/@compartments.10 /0/@diagram/@compartments.9 /0/@diagram/@compartments.8 /0/@diagram/@compartments.7 /0/@diagram/@compartments.6 /0/@diagram/@compartments.4 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18">
+          containers="/0/@diagram/@compartments.13 /0/@diagram/@compartments.12 /0/@diagram/@compartments.11 /0/@diagram/@compartments.10 /0/@diagram/@compartments.9 /0/@diagram/@compartments.8 /0/@diagram/@compartments.7 /0/@diagram/@compartments.6 /0/@diagram/@compartments.4 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18 /0/@diagram/@compartments.23">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <elementType
@@ -6855,7 +6855,7 @@
           childNodes="/0/@diagram/@childNodes.180 /0/@diagram/@childNodes.181 /0/@diagram/@childNodes.182"
           graphicalNodeEditPolicyClassName="LoadBalanceEndPointGraphicalNodeEditPolicy"
           createCommandClassName="LoadBalanceEndPointCreateCommand"
-          containers="/0/@diagram/@compartments.13 /0/@diagram/@compartments.12 /0/@diagram/@compartments.11 /0/@diagram/@compartments.10 /0/@diagram/@compartments.9 /0/@diagram/@compartments.8 /0/@diagram/@compartments.7 /0/@diagram/@compartments.6 /0/@diagram/@compartments.4 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18">
+          containers="/0/@diagram/@compartments.13 /0/@diagram/@compartments.12 /0/@diagram/@compartments.11 /0/@diagram/@compartments.10 /0/@diagram/@compartments.9 /0/@diagram/@compartments.8 /0/@diagram/@compartments.7 /0/@diagram/@compartments.6 /0/@diagram/@compartments.4 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18 /0/@diagram/@compartments.23">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <elementType
@@ -7017,7 +7017,7 @@
           childNodes="/0/@diagram/@childNodes.184 /0/@diagram/@childNodes.185"
           graphicalNodeEditPolicyClassName="APIResourceEndpointGraphicalNodeEditPolicy"
           createCommandClassName="APIResourceEndpointCreateCommand"
-          containers="/0/@diagram/@compartments.13 /0/@diagram/@compartments.12 /0/@diagram/@compartments.11 /0/@diagram/@compartments.10 /0/@diagram/@compartments.9 /0/@diagram/@compartments.8 /0/@diagram/@compartments.7 /0/@diagram/@compartments.6 /0/@diagram/@compartments.4 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18">
+          containers="/0/@diagram/@compartments.13 /0/@diagram/@compartments.12 /0/@diagram/@compartments.11 /0/@diagram/@compartments.10 /0/@diagram/@compartments.9 /0/@diagram/@compartments.8 /0/@diagram/@compartments.7 /0/@diagram/@compartments.6 /0/@diagram/@compartments.4 /0/@diagram/@compartments.14 /0/@diagram/@compartments.3 /0/@diagram/@compartments.15 /0/@diagram/@compartments.2 /0/@diagram/@compartments.16 /0/@diagram/@compartments.1 /0/@diagram/@compartments.17 /0/@diagram/@compartments.18 /0/@diagram/@compartments.23">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
         <elementType
@@ -8831,6 +8831,104 @@
               href="esb.genmodel#//esb/APIResource/container"/>
         </modelFacet>
       </childNodes>
+      <childNodes
+          visualID="3677"
+          editPartClassName="ComplexEndpointsEditPart"
+          itemSemanticEditPolicyClassName="ComplexEndpointsItemSemanticEditPolicy"
+          canonicalEditPolicyClassName="ComplexEndpointsCanonicalEditPolicy"
+          childNodes="/0/@diagram/@childNodes.235 /0/@diagram/@childNodes.236"
+          graphicalNodeEditPolicyClassName="ComplexEndpointsGraphicalNodeEditPolicy"
+          createCommandClassName="ComplexEndpointsCreateCommand"
+          containers="/0/@diagram/@compartments.0">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <elementType
+            xsi:type="gmfgen:MetamodelType"
+            editHelperClassName="ComplexEndpointsEditHelper"/>
+        <viewmap
+            xsi:type="gmfgen:InnerClassViewmap"
+            className="ComplexEndpointsFigure"
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ComplexEndpointsFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ComplexEndpointsFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.GridLayout layoutThis = new org.eclipse.draw2d.GridLayout();&#xA;&#x9;layoutThis.numColumns = 1;&#xA;&#x9;layoutThis.makeColumnsEqualWidth = true;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setLineStyle(org.eclipse.draw2d.Graphics.LINE_DASH);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 255, 255, 255);&#xA;&#xA;">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedBackground="true"/>
+        </viewmap>
+        <modelFacet>
+          <metaClass
+              href="esb.genmodel#//esb/ComplexEndpoints"/>
+          <containmentMetaFeature
+              href="esb.genmodel#//esb/EsbServer/children"/>
+          <childMetaFeature
+              href="esb.genmodel#//esb/EsbServer/children"/>
+        </modelFacet>
+      </childNodes>
+      <childNodes
+          visualID="3678"
+          editPartClassName="MediatorFlow18EditPart"
+          itemSemanticEditPolicyClassName="MediatorFlow18ItemSemanticEditPolicy"
+          canonicalEditPolicyClassName="MediatorFlow18CanonicalEditPolicy"
+          compartments="/0/@diagram/@compartments.23"
+          graphicalNodeEditPolicyClassName="MediatorFlow18GraphicalNodeEditPolicy"
+          createCommandClassName="MediatorFlow18CreateCommand"
+          containers="/0/@diagram/@childNodes.234">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <elementType
+            xsi:type="gmfgen:SpecializationType"
+            metamodelType="/0/@diagram/@childNodes.6/@elementType"/>
+        <viewmap
+            xsi:type="gmfgen:InnerClassViewmap"
+            className="MediatorFlowFigure"
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class MediatorFlowFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public MediatorFlowFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.GridLayout layoutThis = new org.eclipse.draw2d.GridLayout();&#xA;&#x9;layoutThis.numColumns = 1;&#xA;&#x9;layoutThis.makeColumnsEqualWidth = true;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setLineStyle(org.eclipse.draw2d.Graphics.LINE_DASH);&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 255, 255, 255);&#xA;&#xA;">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedBackground="true"/>
+        </viewmap>
+        <modelFacet>
+          <metaClass
+              href="esb.genmodel#//esb/MediatorFlow"/>
+          <containmentMetaFeature
+              href="esb.genmodel#//esb/ComplexEndpoints/mediatorFlow"/>
+          <childMetaFeature
+              href="esb.genmodel#//esb/ComplexEndpoints/mediatorFlow"/>
+        </modelFacet>
+      </childNodes>
+      <childNodes
+          xsi:type="gmfgen:GenChildSideAffixedNode"
+          visualID="3679"
+          editPartClassName="ComplexEndpointsOutputConnectorEditPart"
+          itemSemanticEditPolicyClassName="ComplexEndpointsOutputConnectorItemSemanticEditPolicy"
+          canonicalEditPolicyClassName="ComplexEndpointsOutputConnectorCanonicalEditPolicy"
+          graphicalNodeEditPolicyClassName="ComplexEndpointsOutputConnectorGraphicalNodeEditPolicy"
+          createCommandClassName="ComplexEndpointsOutputConnectorCreateCommand"
+          containers="/0/@diagram/@childNodes.234"
+          preferredSideName="WEST">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <elementType
+            xsi:type="gmfgen:MetamodelType"
+            editHelperClassName="ComplexEndpointsOutputConnectorEditHelper"/>
+        <viewmap
+            xsi:type="gmfgen:InnerClassViewmap"
+            className="EastPointerFigure"
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class EastPointerFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EastPointerShape {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public EastPointerFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#xA;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(12)&#xA;, getMapMode().DPtoLP(10)&#xA;));&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 50, 50, 50);&#xA;&#xA;">
+          <attributes
+              xsi:type="gmfgen:StyleAttributes"
+              fixedBackground="true"/>
+          <attributes
+              xsi:type="gmfgen:DefaultSizeAttributes"
+              width="12"
+              height="10"/>
+        </viewmap>
+        <modelFacet>
+          <metaClass
+              href="esb.genmodel#//esb/ComplexEndpointsOutputConnector"/>
+          <containmentMetaFeature
+              href="esb.genmodel#//esb/ComplexEndpoints/outputConnector"/>
+          <childMetaFeature
+              href="esb.genmodel#//esb/ComplexEndpoints/outputConnector"/>
+        </modelFacet>
+      </childNodes>
       <topLevelNodes
           visualID="2001"
           editPartClassName="EsbServerEditPart"
@@ -8905,7 +9003,7 @@
           itemSemanticEditPolicyClassName="EsbServerContentsCompartmentItemSemanticEditPolicy"
           notationViewFactoryClassName="EsbServerContentsCompartmentViewFactory"
           canonicalEditPolicyClassName="EsbServerContentsCompartmentCanonicalEditPolicy"
-          childNodes="/0/@diagram/@childNodes.0 /0/@diagram/@childNodes.197 /0/@diagram/@childNodes.201 /0/@diagram/@childNodes.223 /0/@diagram/@childNodes.224 /0/@diagram/@childNodes.227 /0/@diagram/@childNodes.228"
+          childNodes="/0/@diagram/@childNodes.0 /0/@diagram/@childNodes.197 /0/@diagram/@childNodes.201 /0/@diagram/@childNodes.223 /0/@diagram/@childNodes.224 /0/@diagram/@childNodes.227 /0/@diagram/@childNodes.228 /0/@diagram/@childNodes.234"
           title="ContentsCompartment"
           canCollapse="false"
           needsTitle="false"
@@ -9287,6 +9385,22 @@
           title="APICompartment"
           needsTitle="false"
           node="/0/@diagram/@childNodes.228"
+          listLayout="false">
+        <diagramRunTimeClass
+            href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:FigureViewmap"
+            figureQualifiedClassName="org.eclipse.draw2d.RectangleFigure"/>
+      </compartments>
+      <compartments
+          visualID="7045"
+          editPartClassName="MediatorFlowMediatorFlowCompartment18EditPart"
+          itemSemanticEditPolicyClassName="MediatorFlowMediatorFlowCompartment18ItemSemanticEditPolicy"
+          canonicalEditPolicyClassName="MediatorFlowMediatorFlowCompartment18CanonicalEditPolicy"
+          childNodes="/0/@diagram/@childNodes.7 /0/@diagram/@childNodes.9 /0/@diagram/@childNodes.12 /0/@diagram/@childNodes.20 /0/@diagram/@childNodes.28 /0/@diagram/@childNodes.31 /0/@diagram/@childNodes.34 /0/@diagram/@childNodes.37 /0/@diagram/@childNodes.45 /0/@diagram/@childNodes.48 /0/@diagram/@childNodes.51 /0/@diagram/@childNodes.54 /0/@diagram/@childNodes.57 /0/@diagram/@childNodes.60 /0/@diagram/@childNodes.63 /0/@diagram/@childNodes.66 /0/@diagram/@childNodes.69 /0/@diagram/@childNodes.72 /0/@diagram/@childNodes.75 /0/@diagram/@childNodes.78 /0/@diagram/@childNodes.81 /0/@diagram/@childNodes.86 /0/@diagram/@childNodes.89 /0/@diagram/@childNodes.96 /0/@diagram/@childNodes.101 /0/@diagram/@childNodes.106 /0/@diagram/@childNodes.109 /0/@diagram/@childNodes.112 /0/@diagram/@childNodes.115 /0/@diagram/@childNodes.120 /0/@diagram/@childNodes.123 /0/@diagram/@childNodes.128 /0/@diagram/@childNodes.131 /0/@diagram/@childNodes.134 /0/@diagram/@childNodes.137 /0/@diagram/@childNodes.140 /0/@diagram/@childNodes.143 /0/@diagram/@childNodes.146 /0/@diagram/@childNodes.151 /0/@diagram/@childNodes.158 /0/@diagram/@childNodes.163 /0/@diagram/@childNodes.166 /0/@diagram/@childNodes.169 /0/@diagram/@childNodes.173 /0/@diagram/@childNodes.176 /0/@diagram/@childNodes.179 /0/@diagram/@childNodes.183"
+          title="MediatorFlowCompartment"
+          canCollapse="false"
+          node="/0/@diagram/@childNodes.235"
           listLayout="false">
         <diagramRunTimeClass
             href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -12601,6 +12715,156 @@
           parent="/0/@diagram/@topLevelNodes.0"
           child="/0/@diagram/@childNodes.228"/>
       <childReferences
+          parent="/0/@diagram/@childNodes.235"
+          child="/0/@diagram/@childNodes.7"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.235"
+          child="/0/@diagram/@childNodes.9"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.235"
+          child="/0/@diagram/@childNodes.12"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.235"
+          child="/0/@diagram/@childNodes.20"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.235"
+          child="/0/@diagram/@childNodes.28"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.235"
+          child="/0/@diagram/@childNodes.31"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.235"
+          child="/0/@diagram/@childNodes.34"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.235"
+          child="/0/@diagram/@childNodes.37"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.235"
+          child="/0/@diagram/@childNodes.45"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.235"
+          child="/0/@diagram/@childNodes.48"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.235"
+          child="/0/@diagram/@childNodes.51"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.235"
+          child="/0/@diagram/@childNodes.54"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.235"
+          child="/0/@diagram/@childNodes.57"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.235"
+          child="/0/@diagram/@childNodes.60"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.235"
+          child="/0/@diagram/@childNodes.63"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.235"
+          child="/0/@diagram/@childNodes.66"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.235"
+          child="/0/@diagram/@childNodes.69"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.235"
+          child="/0/@diagram/@childNodes.72"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.235"
+          child="/0/@diagram/@childNodes.75"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.235"
+          child="/0/@diagram/@childNodes.78"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.235"
+          child="/0/@diagram/@childNodes.81"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.235"
+          child="/0/@diagram/@childNodes.86"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.235"
+          child="/0/@diagram/@childNodes.89"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.235"
+          child="/0/@diagram/@childNodes.96"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.235"
+          child="/0/@diagram/@childNodes.101"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.235"
+          child="/0/@diagram/@childNodes.106"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.235"
+          child="/0/@diagram/@childNodes.109"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.235"
+          child="/0/@diagram/@childNodes.112"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.235"
+          child="/0/@diagram/@childNodes.115"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.235"
+          child="/0/@diagram/@childNodes.120"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.235"
+          child="/0/@diagram/@childNodes.123"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.235"
+          child="/0/@diagram/@childNodes.128"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.235"
+          child="/0/@diagram/@childNodes.131"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.235"
+          child="/0/@diagram/@childNodes.134"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.235"
+          child="/0/@diagram/@childNodes.137"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.235"
+          child="/0/@diagram/@childNodes.140"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.235"
+          child="/0/@diagram/@childNodes.143"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.235"
+          child="/0/@diagram/@childNodes.146"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.235"
+          child="/0/@diagram/@childNodes.151"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.235"
+          child="/0/@diagram/@childNodes.158"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.235"
+          child="/0/@diagram/@childNodes.163"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.235"
+          child="/0/@diagram/@childNodes.166"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.235"
+          child="/0/@diagram/@childNodes.169"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.235"
+          child="/0/@diagram/@childNodes.173"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.235"
+          child="/0/@diagram/@childNodes.176"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.235"
+          child="/0/@diagram/@childNodes.179"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.235"
+          child="/0/@diagram/@childNodes.183"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.234"
+          child="/0/@diagram/@childNodes.235"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.234"
+          child="/0/@diagram/@childNodes.236"/>
+      <childReferences
+          parent="/0/@diagram/@topLevelNodes.0"
+          child="/0/@diagram/@childNodes.234"/>
+      <childReferences
           parent="/0/@diagram"
           child="/0/@diagram/@topLevelNodes.0"/>
       <childReferences
@@ -14224,6 +14488,18 @@
           groupIcon="icons/linkSourceNavigatorGroup.gif"/>
       <childReferences
           parent="/0/@diagram/@childNodes.231"
+          child="/0/@diagram/@links.0"
+          referenceType="out_target"
+          groupName="outgoing links"
+          groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
+      <childReferences
+          parent="/0/@diagram/@links.0"
+          child="/0/@diagram/@childNodes.236"
+          referenceType="in_source"
+          groupName="source"
+          groupIcon="icons/linkSourceNavigatorGroup.gif"/>
+      <childReferences
+          parent="/0/@diagram/@childNodes.236"
           child="/0/@diagram/@links.0"
           referenceType="out_target"
           groupName="outgoing links"

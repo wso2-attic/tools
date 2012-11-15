@@ -8,6 +8,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb.impl;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -15,6 +16,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -30,6 +32,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.ParentEndPoint;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ParentEndPointImpl#getChildren <em>Children</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ParentEndPointImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -45,6 +48,25 @@ public class ParentEndPointImpl extends EndPointImpl implements ParentEndPoint {
 	 * @ordered
 	 */
 	protected EList<EndPoint> children;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -82,6 +104,27 @@ public class ParentEndPointImpl extends EndPointImpl implements ParentEndPoint {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.PARENT_END_POINT__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -101,6 +144,8 @@ public class ParentEndPointImpl extends EndPointImpl implements ParentEndPoint {
 		switch (featureID) {
 			case EsbPackage.PARENT_END_POINT__CHILDREN:
 				return getChildren();
+			case EsbPackage.PARENT_END_POINT__NAME:
+				return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -118,6 +163,9 @@ public class ParentEndPointImpl extends EndPointImpl implements ParentEndPoint {
 				getChildren().clear();
 				getChildren().addAll((Collection<? extends EndPoint>)newValue);
 				return;
+			case EsbPackage.PARENT_END_POINT__NAME:
+				setName((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -133,6 +181,9 @@ public class ParentEndPointImpl extends EndPointImpl implements ParentEndPoint {
 			case EsbPackage.PARENT_END_POINT__CHILDREN:
 				getChildren().clear();
 				return;
+			case EsbPackage.PARENT_END_POINT__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -147,8 +198,26 @@ public class ParentEndPointImpl extends EndPointImpl implements ParentEndPoint {
 		switch (featureID) {
 			case EsbPackage.PARENT_END_POINT__CHILDREN:
 				return children != null && !children.isEmpty();
+			case EsbPackage.PARENT_END_POINT__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (name: ");
+		result.append(name);
+		result.append(')');
+		return result.toString();
 	}
 
 } //ParentEndPointImpl

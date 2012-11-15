@@ -1552,6 +1552,21 @@
           accessor="getFigureAPIResourceEndPointNamePropertyLabel"
           figure="//@figures.0/@descriptors.88/@actualFigure/@children.0"/>
     </descriptors>
+    <descriptors
+        name="ComplexEndpointsFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="ComplexEndpointsFigure"
+          lineKind="LINE_DASH">
+        <layout
+            xsi:type="gmfgraph:GridLayout"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="255"
+            green="255"
+            blue="255"/>
+      </actualFigure>
+    </descriptors>
   </figures>
   <nodes
       name="EsbServer"
@@ -2319,6 +2334,13 @@
   <nodes
       name="APIResourceEndpointOutputConnector"
       figure="WestPointerFigure"
+      affixedParentSide="WEST"/>
+  <nodes
+      name="ComplexEndpoints"
+      figure="ComplexEndpointsFigure"/>
+  <nodes
+      name="ComplexEndpointsOutputConnector"
+      figure="EastPointerFigure"
       affixedParentSide="WEST"/>
   <connections
       name="EsbLink"

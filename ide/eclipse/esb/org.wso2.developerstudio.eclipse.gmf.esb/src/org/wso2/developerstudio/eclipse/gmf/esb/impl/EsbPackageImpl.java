@@ -86,6 +86,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.CommandPropertyContextAction;
 import org.wso2.developerstudio.eclipse.gmf.esb.CommandPropertyMessageAction;
 import org.wso2.developerstudio.eclipse.gmf.esb.CommandPropertyValueType;
 import org.wso2.developerstudio.eclipse.gmf.esb.CompletionMessagesType;
+import org.wso2.developerstudio.eclipse.gmf.esb.ComplexEndpoints;
+import org.wso2.developerstudio.eclipse.gmf.esb.ComplexEndpointsOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.ConditionalRouteBranch;
 import org.wso2.developerstudio.eclipse.gmf.esb.ConditionalRouterMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.ConditionalRouterMediatorAdditionalOutputConnector;
@@ -1253,6 +1255,20 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	private EClass apiResourceEndpointOutputConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass complexEndpointsEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass complexEndpointsOutputConnectorEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -6347,6 +6363,51 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getComplexEndpoints() {
+		return complexEndpointsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getComplexEndpoints_OutputConnector() {
+		return (EReference)complexEndpointsEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getComplexEndpoints_MediatorFlow() {
+		return (EReference)complexEndpointsEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getComplexEndpoints_Name() {
+		return (EAttribute)complexEndpointsEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getComplexEndpointsOutputConnector() {
+		return complexEndpointsOutputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getArtifactType() {
 		return artifactTypeEEnum;
 	}
@@ -10532,6 +10593,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getParentEndPoint_Name() {
+		return (EAttribute)parentEndPointEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getWSDLEndPoint() {
 		return wsdlEndPointEClass;
 	}
@@ -12789,6 +12859,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 
 		parentEndPointEClass = createEClass(PARENT_END_POINT);
 		createEReference(parentEndPointEClass, PARENT_END_POINT__CHILDREN);
+		createEAttribute(parentEndPointEClass, PARENT_END_POINT__NAME);
 
 		wsdlEndPointEClass = createEClass(WSDL_END_POINT);
 		createEReference(wsdlEndPointEClass, WSDL_END_POINT__WSDL_DEFINITION);
@@ -12973,6 +13044,13 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		apiResourceEndpointInputConnectorEClass = createEClass(API_RESOURCE_ENDPOINT_INPUT_CONNECTOR);
 
 		apiResourceEndpointOutputConnectorEClass = createEClass(API_RESOURCE_ENDPOINT_OUTPUT_CONNECTOR);
+
+		complexEndpointsEClass = createEClass(COMPLEX_ENDPOINTS);
+		createEReference(complexEndpointsEClass, COMPLEX_ENDPOINTS__OUTPUT_CONNECTOR);
+		createEReference(complexEndpointsEClass, COMPLEX_ENDPOINTS__MEDIATOR_FLOW);
+		createEAttribute(complexEndpointsEClass, COMPLEX_ENDPOINTS__NAME);
+
+		complexEndpointsOutputConnectorEClass = createEClass(COMPLEX_ENDPOINTS_OUTPUT_CONNECTOR);
 
 		// Create enums
 		artifactTypeEEnum = createEEnum(ARTIFACT_TYPE);
@@ -13332,6 +13410,8 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		apiResourceEndpointEClass.getESuperTypes().add(this.getAbstractEndPoint());
 		apiResourceEndpointInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
 		apiResourceEndpointOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
+		complexEndpointsEClass.getESuperTypes().add(this.getEsbElement());
+		complexEndpointsOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(esbDiagramEClass, EsbDiagram.class, "EsbDiagram", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -14345,6 +14425,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 
 		initEClass(parentEndPointEClass, ParentEndPoint.class, "ParentEndPoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getParentEndPoint_Children(), this.getEndPoint(), null, "Children", null, 0, -1, ParentEndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getParentEndPoint_Name(), ecorePackage.getEString(), "name", null, 0, 1, ParentEndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(wsdlEndPointEClass, WSDLEndPoint.class, "WSDLEndPoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getWSDLEndPoint_WSDLDefinition(), this.getWSDLDefinition(), null, "WSDLDefinition", null, 0, -1, WSDLEndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -14530,6 +14611,13 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 
 		initEClass(apiResourceEndpointOutputConnectorEClass, APIResourceEndpointOutputConnector.class, "APIResourceEndpointOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		initEClass(complexEndpointsEClass, ComplexEndpoints.class, "ComplexEndpoints", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getComplexEndpoints_OutputConnector(), this.getComplexEndpointsOutputConnector(), null, "outputConnector", null, 0, -1, ComplexEndpoints.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComplexEndpoints_MediatorFlow(), this.getMediatorFlow(), null, "mediatorFlow", null, 0, 1, ComplexEndpoints.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getComplexEndpoints_Name(), ecorePackage.getEString(), "name", null, 0, 1, ComplexEndpoints.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(complexEndpointsOutputConnectorEClass, ComplexEndpointsOutputConnector.class, "ComplexEndpointsOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
 		// Initialize enums and add enum literals
 		initEEnum(artifactTypeEEnum, ArtifactType.class, "ArtifactType");
 		addEEnumLiteral(artifactTypeEEnum, ArtifactType.SYNAPSE_CONFIG);
@@ -14541,6 +14629,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		addEEnumLiteral(artifactTypeEEnum, ArtifactType.TEMPLATE);
 		addEEnumLiteral(artifactTypeEEnum, ArtifactType.API);
 		addEEnumLiteral(artifactTypeEEnum, ArtifactType.MAIN_SEQUENCE);
+		addEEnumLiteral(artifactTypeEEnum, ArtifactType.COMPLEX_ENDPOINT);
 
 		initEEnum(sequenceTypeEEnum, SequenceType.class, "SequenceType");
 		addEEnumLiteral(sequenceTypeEEnum, SequenceType.ANONYMOUS);

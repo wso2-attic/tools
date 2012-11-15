@@ -1041,6 +1041,24 @@ public interface EsbFactory extends EFactory {
 	APIResourceEndpointOutputConnector createAPIResourceEndpointOutputConnector();
 
 	/**
+	 * Returns a new object of class '<em>Complex Endpoints</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Complex Endpoints</em>'.
+	 * @generated
+	 */
+	ComplexEndpoints createComplexEndpoints();
+
+	/**
+	 * Returns a new object of class '<em>Complex Endpoints Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Complex Endpoints Output Connector</em>'.
+	 * @generated
+	 */
+	ComplexEndpointsOutputConnector createComplexEndpointsOutputConnector();
+
+	/**
 	 * Returns a new object of class '<em>Script Mediator</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

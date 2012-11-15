@@ -18,6 +18,7 @@
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ArtifactType/TEMPLATE"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ArtifactType/API"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ArtifactType/MAIN_SEQUENCE"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ArtifactType/COMPLEX_ENDPOINT"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//SequenceType">
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//SequenceType/Anonymous"/>
@@ -151,6 +152,10 @@
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//FaultDetailType">
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//FaultDetailType/VALUE"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//FaultDetailType/EXPRESSION"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//CompletionMessagesType">
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//CompletionMessagesType/VALUE"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//CompletionMessagesType/EXPRESSION"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//AggregateSequenceType">
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//AggregateSequenceType/ANONYMOUS"/>
@@ -823,8 +828,12 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//AggregateMediator/aggregateID"/>
       <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//AggregateMediator/correlationExpression"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//AggregateMediator/completionTimeout"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//AggregateMediator/completionMinMessages"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//AggregateMediator/completionMaxMessages"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//AggregateMediator/completionMinMessagesType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//AggregateMediator/completionMaxMessagesType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//AggregateMediator/completionMinMessagesValue"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//AggregateMediator/completionMinMessagesExpression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//AggregateMediator/completionMaxMessagesValue"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//AggregateMediator/completionMaxMessagesExpression"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//AggregateMediator/inputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//AggregateMediator/outputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//AggregateMediator/onCompleteOutputConnector"/>
@@ -1329,6 +1338,7 @@
     <genClasses ecoreClass="esb.ecore#//FailoverEndPointWestOutputConnector"/>
     <genClasses ecoreClass="esb.ecore#//ParentEndPoint">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ParentEndPoint/Children"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ParentEndPoint/name"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//WSDLEndPoint">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esb.ecore#//WSDLEndPoint/WSDLDefinition"/>
@@ -1493,5 +1503,11 @@
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//APIResourceEndpointInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//APIResourceEndpointOutputConnector"/>
+    <genClasses ecoreClass="esb.ecore#//ComplexEndpoints">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ComplexEndpoints/outputConnector"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ComplexEndpoints/mediatorFlow"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ComplexEndpoints/name"/>
+    </genClasses>
+    <genClasses ecoreClass="esb.ecore#//ComplexEndpointsOutputConnector"/>
   </genPackages>
 </genmodel:GenModel>

@@ -27,6 +27,7 @@
     <eLiterals name="TEMPLATE" value="6"/>
     <eLiterals name="API" value="7"/>
     <eLiterals name="MAIN_SEQUENCE" value="8"/>
+    <eLiterals name="COMPLEX_ENDPOINT" value="9"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Mediator" abstract="true" eSuperTypes="#//EsbElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Reverse" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
@@ -761,13 +762,13 @@
         eType="#//CompletionMessagesType" defaultValueLiteral="VALUE"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="completionMaxMessagesType"
         eType="#//CompletionMessagesType" defaultValueLiteral="VALUE"/>
-     <eStructuralFeatures xsi:type="ecore:EAttribute" name="completionMinMessagesValue"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="completionMinMessagesValue"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-     <eStructuralFeatures xsi:type="ecore:EReference" name="completionMinMessagesExpression"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="completionMinMessagesExpression"
         eType="#//NamespacedProperty" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="completionMaxMessagesValue"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="completionMaxMessagesValue"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-     <eStructuralFeatures xsi:type="ecore:EReference" name="completionMaxMessagesExpression"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="completionMaxMessagesExpression"
         eType="#//NamespacedProperty" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="inputConnector" eType="#//AggregateMediatorInputConnector"
         containment="true"/>
@@ -1748,6 +1749,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="ParentEndPoint" eSuperTypes="#//EndPoint">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Children" upperBound="-1"
         eType="#//EndPoint" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="WSDLEndPoint" eSuperTypes="#//AbstractEndPoint">
     <eStructuralFeatures xsi:type="ecore:EReference" name="WSDLDefinition" upperBound="-1"
@@ -2013,4 +2015,12 @@
   <eClassifiers xsi:type="ecore:EClass" name="APIResourceEndpointInputConnector" eSuperTypes="#//InputConnector"/>
   <eClassifiers xsi:type="ecore:EClass" name="APIResourceEndpointOutputConnector"
       eSuperTypes="#//OutputConnector"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ComplexEndpoints" eSuperTypes="#//EsbElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outputConnector" upperBound="-1"
+        eType="#//ComplexEndpointsOutputConnector" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mediatorFlow" eType="#//MediatorFlow"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ComplexEndpointsOutputConnector" eSuperTypes="#//OutputConnector"/>
 </ecore:EPackage>
