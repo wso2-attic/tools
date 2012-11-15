@@ -1,40 +1,45 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.synapse.MessageContext;
-import org.apache.synapse.SynapseArtifact;
-import org.apache.synapse.core.SynapseEnvironment;
-import org.apache.synapse.endpoints.AddressEndpoint;
 import org.apache.synapse.endpoints.Endpoint;
-import org.apache.synapse.endpoints.EndpointContext;
 import org.apache.synapse.endpoints.EndpointDefinition;
-import org.apache.synapse.endpoints.EndpointView;
-import org.apache.synapse.endpoints.FailoverEndpoint;
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.apache.synapse.mediators.builtin.SendMediator;
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.Assert;
+import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.Path;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.ui.IEditorPart;
+import org.eclipse.ui.IEditorReference;
+import org.eclipse.ui.IFileEditorInput;
+import org.eclipse.ui.PlatformUI;
+import org.wso2.developerstudio.eclipse.gmf.esb.ComplexEndpoints;
+import org.wso2.developerstudio.eclipse.gmf.esb.ComplexEndpointsOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
+import org.wso2.developerstudio.eclipse.gmf.esb.EsbElement;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.FailoverEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.FailoverEndPointOutputConnector;
-import org.wso2.developerstudio.eclipse.gmf.esb.InputConnector;
-import org.wso2.developerstudio.eclipse.gmf.esb.SwitchCaseBranchOutputConnector;
-import org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.EsbNodeTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.EsbTransformerRegistry;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
 
 public class FailoverEndPointTransformer extends AbstractEsbNodeTransformer{
 
-	
-	
-	
 	public void transform(TransformationInfo info, EsbNode subject)
 			throws Exception {
 		try{
-		// TODO Auto-generated method stub
 		Assert.isTrue(subject instanceof FailoverEndPoint, "Invalid subject.");
 		FailoverEndPoint visualEndPoint = (FailoverEndPoint) subject;
 		
@@ -54,24 +59,8 @@ public class FailoverEndPointTransformer extends AbstractEsbNodeTransformer{
 		synapseEPDef3.setAddress("adrress2222........");
 		
 		List<Endpoint>endPoints= new ArrayList<Endpoint>();
-		//AddressEndpoint ad1=new AddressEndpoint();
-		//ad1.setDefinition(synapseEPDef2);
-		//AddressEndpoint ad2=new AddressEndpoint();
-		//ad2.setDefinition(synapseEPDef3);
-		//endPoints.add(ad1);
-		//endPoints.add(ad2);
 		synapseFailEP.setChildren(endPoints);
-		
-		//synapseFailEP.setDescription("Tha");
-		//synapseFailEP.getChildren().add(((Endpoint)((FailoverEndPointOutputConnector)visualEndPoint.getOutputConnector().get(0)).getOutgoingLink().getTarget().eContainer()) );
-		
-		//InputConnector inputConnector = outgoingLink.getTarget();
-		//Assert.isNotNull(inputConnector, "Input connector should not be null.");
-
-		//EObject nextNode = inputConnector.eContainer();
 		synapseFailEP.setDefinition(synapseEPDef);
-		////synapseFailEP.setChildren(new ArrayList<Endpoint>());
-		////synapseFailEP.getChildren().add(new E);
 		
 		sendMediator.setEndpoint(synapseFailEP);
 		
@@ -80,21 +69,16 @@ public class FailoverEndPointTransformer extends AbstractEsbNodeTransformer{
 			info.firstEndPoint=visualEndPoint;
 		}		
 		
-		//visualEndPoint.get			
 		
-		//info.getParentSequence().addChild(synapseFailEP);
-		for (FailoverEndPointOutputConnector outputConnector : visualEndPoint.getOutputConnector()) {
+		ArrayList<ComplexEndpointsOutputConnector> connectors=createAllEndpoints(visualEndPoint);
+		
+		for (ComplexEndpointsOutputConnector outputConnector : connectors) {
 			if(outputConnector.getOutgoingLink()!=null){
 				if(outputConnector.getOutgoingLink().getTarget()!=null){
 			EsbNode esbNode=(EsbNode)outputConnector.getOutgoingLink().getTarget().eContainer();
 			EsbNodeTransformer transformer = EsbTransformerRegistry.getInstance().getTransformer(esbNode);
-			//Endpoint endPoint =(Endpoint)
 			transformer.createSynapseObject(info,esbNode,endPoints);
-			// transform(info, esbNode);
-			//endPoints.add(endPoint);
-			
-			
-		//doTransform(info, outputConnector);
+						
 			}
 			}
 		}
@@ -108,7 +92,7 @@ public class FailoverEndPointTransformer extends AbstractEsbNodeTransformer{
 
 	public void createSynapseObject(TransformationInfo info, EObject subject,
 			List<Endpoint> endPoints) {
-		
+		try{
 		Assert.isTrue(subject instanceof FailoverEndPoint, "Invalid subject.");
 		FailoverEndPoint visualEndPoint = (FailoverEndPoint) subject;
 		
@@ -125,33 +109,78 @@ public class FailoverEndPointTransformer extends AbstractEsbNodeTransformer{
 			info.firstEndPoint=visualEndPoint;
 		}
 		
-		for (FailoverEndPointOutputConnector outputConnector : visualEndPoint.getOutputConnector()) {
+		ArrayList<ComplexEndpointsOutputConnector> connectors=createAllEndpoints(visualEndPoint);
+		
+		for (ComplexEndpointsOutputConnector outputConnector : connectors) {
 			if(outputConnector.getOutgoingLink()!=null){
 				if(outputConnector.getOutgoingLink().getTarget()!=null){
 			EsbNode esbNode=(EsbNode)outputConnector.getOutgoingLink().getTarget().eContainer();
 			EsbNodeTransformer transformer = EsbTransformerRegistry.getInstance().getTransformer(esbNode);
-			//Endpoint endPoint =(Endpoint)
-			transformer.createSynapseObject(info,esbNode,endPointsList);
-			// transform(info, esbNode);
-			//endPoints.add(endPoint);
-			
-			
-		//doTransform(info, outputConnector);
+			transformer.createSynapseObject(info,esbNode,endPointsList);						
 			}
 			}
 		}
-		
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}		
 	}
-
-	
 
 	public void transformWithinSequence(TransformationInfo information,
 			EsbNode subject, SequenceMediator sequence) throws Exception {
-		// TODO Auto-generated method stub
 		
 	}
-
 	
+	private ArrayList<ComplexEndpointsOutputConnector> createAllEndpoints(FailoverEndPoint failoverEndPoint) throws Exception{
+		IEditorPart editorPart = null;
+		IProject activeProject = null;
+		ArrayList<ComplexEndpointsOutputConnector> outputConnectors= new ArrayList<ComplexEndpointsOutputConnector>();
+		
+		IEditorReference editorReferences[] = PlatformUI.getWorkbench()
+				.getActiveWorkbenchWindow().getActivePage()
+				.getEditorReferences();
+		for (int i = 0; i < editorReferences.length; i++) {
+			IEditorPart editor = editorReferences[i].getEditor(false);
 
+			if (editor != null) {
+				editorPart = editor.getSite().getWorkbenchWindow()
+						.getActivePage().getActiveEditor();
+			}
 
+			if (editorPart != null) {
+				IFileEditorInput input = (IFileEditorInput) editorPart
+						.getEditorInput();
+				IFile file = input.getFile();
+				activeProject = file.getProject();
+			}
+		}	
+		
+		String name = (String) failoverEndPoint.getName();
+		IPath location = new Path("src/main/graphical-synapse-config/complex_endpoints" + "/" + "complex_endpoint_"
+				+ name + ".esb_diagram");
+		IFile file = activeProject.getFile(location);
+
+		ResourceSet resourceSet = new ResourceSetImpl();
+		Resource resource = null;
+
+		File f = new File(file.getLocationURI().getPath());
+		URI uri = URI.createFileURI(f.getAbsolutePath());
+
+		if (!f.exists()) {
+
+		} else {
+
+			resource = resourceSet.getResource(uri, true);
+			
+			EsbDiagram s = (EsbDiagram) ((org.eclipse.gmf.runtime.notation.impl.DiagramImpl) resource
+					.getContents().get(0)).getElement();
+			EList<EsbElement> children = s.getServer().getChildren();
+			for (EsbElement esbElement : children) {
+				if (esbElement instanceof ComplexEndpoints){
+					outputConnectors.addAll(((ComplexEndpoints)esbElement).getOutputConnector()); 
+				}
+			}
+		}		
+		return outputConnectors;
+	}
 }
