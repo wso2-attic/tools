@@ -44,7 +44,7 @@ public class RegistryArtifactMetadataDeleteParticipant extends DeleteParticipant
                                                      OperationCanceledException {
 		CompositeChange change = new CompositeChange("Registry Artifact Deletion");
 		change.add(new RegistryMetadataFileDeleteChange(registryProject.getName(),
-		                                           registryProject.getFile("artifact.xml"), originalResource));
+		                                           registryProject.getFolder("default").getFile("artifact.xml"), originalResource));
 		return change;
     }
 

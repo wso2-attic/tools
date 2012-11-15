@@ -20,7 +20,10 @@ import java.io.File;
 
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
@@ -33,6 +36,7 @@ import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.platform.core.exception.ObserverFailedException;
 import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectDataModel;
+import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 
 public class RegistryArtifactModel extends ProjectDataModel {
 	
@@ -201,10 +205,21 @@ public class RegistryArtifactModel extends ProjectDataModel {
 			        absolutionPath.toString().substring(
 			                                            currentSelection.getLocation().toFile()
 			                                                    .toString().length());
-			if (path.equals("")) {
-				newResourceSaveLocation = currentSelection;
-			} else {
+			if ("".equals(path)) {
+				newResourceSaveLocation = currentSelection.getFolder("default");
+			} else if("/default".equals(path)){
 				newResourceSaveLocation = currentSelection.getFolder(path);
+			}else{
+				newResourceSaveLocation = currentSelection.getFolder("default").getFolder(path);
+				//We create this path inside the default location on the fly
+				boolean isCreated = newResourceSaveLocation.getLocation().toFile().mkdirs();
+				if(isCreated){
+					try {
+						currentSelection.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
+					} catch (CoreException e) {
+						log.error("Error occured while trying to refresh the selected project", e);
+					}
+				}
 			}
 		}
 		return newResourceSaveLocation;

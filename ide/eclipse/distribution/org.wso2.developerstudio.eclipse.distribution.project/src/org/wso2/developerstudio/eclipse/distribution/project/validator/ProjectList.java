@@ -37,6 +37,7 @@ import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBArtifact;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
+import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.platform.core.model.AbstractListDataProvider;
 import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectDataModel;
 import org.wso2.developerstudio.eclipse.platform.core.utils.Constants;
@@ -72,8 +73,16 @@ public class ProjectList extends AbstractListDataProvider {
 					   project.hasNature(Constants.BRS_PROJECT_NATURE)){
 						try {
 							if (project.hasNature(Constants.ESB_PROJECT_NATURE) || project.hasNature(Constants.GENERAL_PROJECT_NATURE)) {
-								IFile artifactXMLFile = project.getFile(Constants.ARTIFACT_XML);
-								MavenProject mavenProject = DistProjectUtils.getMavenProject(project);
+								IFile artifactXMLFile = null;
+								
+								if(project.hasNature(Constants.GENERAL_PROJECT_NATURE)){
+									artifactXMLFile=project.getFolder("default").getFile(Constants.ARTIFACT_XML);
+								}else{
+									artifactXMLFile = project.getFile(Constants.ARTIFACT_XML);
+								}
+								
+								MavenProject mavenProject= DistProjectUtils.getMavenProject(project);
+									
 								if (artifactXMLFile.exists()) {
 									ESBProjectArtifact artifactXMLDoc = new ESBProjectArtifact();
 									try {

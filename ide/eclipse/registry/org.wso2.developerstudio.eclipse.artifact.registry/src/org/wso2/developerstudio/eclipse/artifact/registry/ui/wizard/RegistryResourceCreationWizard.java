@@ -170,11 +170,11 @@ public class RegistryResourceCreationWizard extends AbstractWSO2ProjectCreationW
 			getModel().getMavenInfo().setPackageName("registry/resource");
 			updatePOM(project);
 			project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
-			String groupId = getMavenGroupId(project.getFile("pom.xml").getLocation().toFile());
+			String groupId = getMavenGroupId(project.getFolder("default").getFile("pom.xml").getLocation().toFile());
 			groupId += ".resource";
 			//Adding the metadata about the endpoint to the metadata store.
 			GeneralProjectArtifact generalProjectArtifact=new GeneralProjectArtifact();
-			generalProjectArtifact.fromFile(project.getFile("artifact.xml").getLocation().toFile());
+			generalProjectArtifact.fromFile(project.getFolder("default").getFile("artifact.xml").getLocation().toFile());
 			
 			RegistryArtifact artifact=new RegistryArtifact();
 			artifact.setName(regModel.getArtifactName());
@@ -215,7 +215,7 @@ public class RegistryResourceCreationWizard extends AbstractWSO2ProjectCreationW
 	private void updatePOM(IProject project) throws Exception{
 		MavenProject mavenProject;
 		
-		File mavenProjectPomLocation = project.getFile("pom.xml").getLocation().toFile();
+		File mavenProjectPomLocation = project.getFolder("default").getFile("pom.xml").getLocation().toFile();
 		if(!mavenProjectPomLocation.exists()){
 			mavenProject = MavenUtils.createMavenProject("org.wso2.carbon." + project.getName() , project.getName(), "1.0.0","pom");
 		} else {
@@ -360,7 +360,7 @@ public class RegistryResourceCreationWizard extends AbstractWSO2ProjectCreationW
 	public void openEditor(IProject project){
 		try {
 			 refreshDistProjects();
-			 IFile arifactXml = project.getFile("artifact.xml");
+			 IFile arifactXml = project.getFolder("default").getFile("artifact.xml");
 		     IWorkbenchWindow window=PlatformUI.getWorkbench().getActiveWorkbenchWindow();
 	         IWorkbenchPage page = window.getActivePage();
 	         List<IEditorReference> openEditors = new ArrayList<IEditorReference>();

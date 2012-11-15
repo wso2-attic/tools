@@ -53,7 +53,7 @@ public class RegistryArtifactHandler extends ProjectArtifactHandler {
 			if (project.hasNature(GENERAL_PROJECT_NATURE)) {
 				NullProgressMonitor nullProgressMonitor = new NullProgressMonitor();
 				project.build(IncrementalProjectBuilder.FULL_BUILD, nullProgressMonitor);
-				IFile RegistryResourceFile = project.getFile(ARTIFACT_XML);
+				IFile RegistryResourceFile = project.getFolder("default").getFile(ARTIFACT_XML);
 
 				IFolder binaries = project.getFolder("target");
 				if (!binaries.exists()) {
