@@ -186,14 +186,29 @@ public class MvnMultiModuleWizard extends AbstractWSO2ProjectCreationWizard {
 	private void addMavenModules(IProject selectedProject, MavenProject mavenProject, List modules,
 	                             List<IProject> selectedProjects, IFile pomFile) {
 		modules.clear();
+		boolean hasResourceProjects=false;
 		for (IProject iProject : selectedProjects) {
 			String relativePath =
 			                      FileUtils.getRelativePath(selectedProject.getLocation().toFile(),
 			                                                iProject.getLocation().toFile()).replaceAll(Pattern.quote(File.separator), "/");
 			if (!modules.contains(relativePath)) {
-				modules.add(relativePath);
+				try {
+					if(iProject.hasNature(Constants.GENERAL_PROJECT_NATURE)){
+						modules.add(relativePath+"/${env}");
+						hasResourceProjects=true;
+					}else{
+						modules.add(relativePath);
+					}
+				} catch (CoreException e) {
+					log.error("Error occured while trying to access the project",e);
+				}
 			}
 		}
+		
+		if(hasResourceProjects){
+			mavenProject.getProperties().put("env", "default");
+		}
+		
 		try {
 			MavenUtils.saveMavenProject(mavenProject, pomFile.getLocation().toFile());
 			selectedProject.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
