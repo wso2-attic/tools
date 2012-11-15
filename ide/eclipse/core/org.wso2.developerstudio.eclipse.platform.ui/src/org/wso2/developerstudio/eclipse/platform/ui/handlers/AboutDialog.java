@@ -32,13 +32,14 @@ import org.eclipse.swt.widgets.Link;
 import org.eclipse.swt.widgets.Button;
 import org.wso2.developerstudio.eclipse.platform.core.utils.ResourceManager;
 import org.wso2.developerstudio.eclipse.platform.core.utils.SWTResourceManager;
+import org.wso2.developerstudio.eclipse.platform.ui.Activator;
 
 
 
 public class AboutDialog extends Dialog {
 
 	 
-	 private static final String VERSION="Version 2.1.0";
+	 private static final String VERSION="3.0.0";
 	 private static final String LICENSED ="Licensed under the Apache License, Version 2.0";
 	 private static final String URL ="http://wso2.com/products/developer-studio";
 
@@ -84,7 +85,7 @@ public class AboutDialog extends Dialog {
 		lblVersion.setForeground(SWTResourceManager
 				.getColor(SWT.COLOR_WIDGET_BORDER));
 		lblVersion.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
-		lblVersion.setText(VERSION);
+		lblVersion.setText("Version ".concat(getVersion()));
 		new Label(composite, SWT.NONE);
 
 		Label lblNewLabel_1 = new Label(composite, SWT.NONE);
@@ -111,6 +112,17 @@ public class AboutDialog extends Dialog {
  
 	protected Point getInitialSize() {
 		return new Point(453, 274);
+	}
+	
+	private String getVersion() {
+		String version = VERSION;
+		try {
+			version = (String) Activator.getDefault().getBundle().getHeaders()
+					.get("Bundle-Version");
+			version = version.replaceAll(".qualifier", "-SNAPSHOT");
+		} catch (Exception ignored) {
+		}
+		return version;
 	}
 
 }
