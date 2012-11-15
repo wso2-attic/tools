@@ -39,6 +39,9 @@ import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.notation.Diagram;
+import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.MessageBox;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbElement;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
@@ -180,6 +183,7 @@ public class Deserializer {
 		
 		ArtifactType artifactType = getArtifactType(source);
 		OMElement element = AXIOMUtil.stringToOM(source);
+		try{
 		switch (artifactType) {
 		case SYNAPSE_CONFIG:
 			File tempfile = File.createTempFile("file", ".tmp");
@@ -243,6 +247,12 @@ public class Deserializer {
 			break;
 		default:
 			break;
+		}
+		}catch (org.apache.synapse.SynapseException exception) {
+			
+			MessageDialog.openError(Display.getCurrent().getActiveShell(),
+					"Error occuerd during buidling the esb design view.",
+					exception.getCause().toString());
 		}
 		
 		return artifacts;
