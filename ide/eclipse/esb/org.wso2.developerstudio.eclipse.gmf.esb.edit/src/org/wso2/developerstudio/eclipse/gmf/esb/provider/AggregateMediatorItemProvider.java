@@ -163,7 +163,7 @@ public class AggregateMediatorItemProvider
 	 * This adds a property descriptor for the Completion Min Messages Type feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addCompletionMinMessagesTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
@@ -185,7 +185,7 @@ public class AggregateMediatorItemProvider
 	 * This adds a property descriptor for the Completion Max Messages Type feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addCompletionMaxMessagesTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
@@ -207,7 +207,7 @@ public class AggregateMediatorItemProvider
 	 * This adds a property descriptor for the Completion Min Messages Value feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addCompletionMinMessagesValuePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
@@ -229,7 +229,7 @@ public class AggregateMediatorItemProvider
 	 * This adds a property descriptor for the Completion Max Messages Value feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addCompletionMaxMessagesValuePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
@@ -251,7 +251,7 @@ public class AggregateMediatorItemProvider
 	 * This adds a property descriptor for the Completion Min Messages feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated 
+	 * @generated NOT 
 	 */
 	protected void addCompletionMinMessagesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
@@ -273,7 +273,7 @@ public class AggregateMediatorItemProvider
 	 * This adds a property descriptor for the Completion Max Messages feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated 
+	 * @generated NOT
 	 */
 	protected void addCompletionMaxMessagesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add

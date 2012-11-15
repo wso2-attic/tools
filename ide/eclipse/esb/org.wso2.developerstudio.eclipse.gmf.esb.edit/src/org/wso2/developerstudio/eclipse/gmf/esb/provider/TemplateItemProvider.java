@@ -497,6 +497,11 @@ public class TemplateItemProvider
 			(createChildParameter
 				(EsbPackage.Literals.TEMPLATE__CHILD,
 				 EsbFactory.eINSTANCE.createAPIResourceEndpoint()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.TEMPLATE__CHILD,
+				 EsbFactory.eINSTANCE.createComplexEndpoints()));
 	}
 
 }

@@ -2677,6 +2677,52 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.ComplexEndpoints} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ComplexEndpointsItemProvider complexEndpointsItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.ComplexEndpoints}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createComplexEndpointsAdapter() {
+		if (complexEndpointsItemProvider == null) {
+			complexEndpointsItemProvider = new ComplexEndpointsItemProvider(this);
+		}
+
+		return complexEndpointsItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.ComplexEndpointsOutputConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ComplexEndpointsOutputConnectorItemProvider complexEndpointsOutputConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.ComplexEndpointsOutputConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createComplexEndpointsOutputConnectorAdapter() {
+		if (complexEndpointsOutputConnectorItemProvider == null) {
+			complexEndpointsOutputConnectorItemProvider = new ComplexEndpointsOutputConnectorItemProvider(this);
+		}
+
+		return complexEndpointsOutputConnectorItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.ScriptMediator} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6476,6 +6522,8 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 		if (apiResourceEndpointItemProvider != null) apiResourceEndpointItemProvider.dispose();
 		if (apiResourceEndpointInputConnectorItemProvider != null) apiResourceEndpointInputConnectorItemProvider.dispose();
 		if (apiResourceEndpointOutputConnectorItemProvider != null) apiResourceEndpointOutputConnectorItemProvider.dispose();
+		if (complexEndpointsItemProvider != null) complexEndpointsItemProvider.dispose();
+		if (complexEndpointsOutputConnectorItemProvider != null) complexEndpointsOutputConnectorItemProvider.dispose();
 	}
 
 }
