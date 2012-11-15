@@ -375,7 +375,7 @@ public class LoadBalanceEndPointEditPart extends ComplexFiguredAbstractEndpoint 
 		}
 		
 		public String getIconPath() {
-			return "icons/ico20/address-endpoint.gif";
+			return "icons/ico20/loadbalance-endpoint.gif";
 		}
 
 		public String getNodeName() {
