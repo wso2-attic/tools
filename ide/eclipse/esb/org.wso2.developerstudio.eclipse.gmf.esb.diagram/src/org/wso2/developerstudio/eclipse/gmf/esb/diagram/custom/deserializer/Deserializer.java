@@ -119,27 +119,36 @@ public class Deserializer {
 
 		Map<String, Object> artifacts = getArtifacts(source);
 		for (Map.Entry<String, Object> artifact : artifacts.entrySet()) {
+			@SuppressWarnings("rawtypes")
 			IEsbNodeDeserializer deserializer = EsbDeserializerRegistry.getInstance()
 					.getDeserializer(artifact.getValue());
-			EsbNode node = deserializer.createNode(artifact.getValue());
 
 			if (deserializer != null) {
-				addCmd = new AddCommand(domain, esbServer,
-						EsbPackage.Literals.ESB_SERVER__CHILDREN, node);
-				if (addCmd.canExecute()) {
-					domain.getCommandStack().execute(addCmd);
-				} else {
-					log.warn("Cannot execute EMF command : " + addCmd.toString());
+				EsbNode node = deserializer.createNode(artifact.getValue());
+				if (node!=null) {
+					addCmd = new AddCommand(domain, esbServer,
+							EsbPackage.Literals.ESB_SERVER__CHILDREN, node);
+					if (addCmd.canExecute()) {
+						domain.getCommandStack().execute(addCmd);
+						
+						AbstractEsbNodeDeserializer.refreshEditPartMap();
+						GraphicalEditPart editpart = (GraphicalEditPart) AbstractEsbNodeDeserializer
+								.getEditpart(node);
+						GraphicalEditPart parent = ((GraphicalEditPart) editpart.getParent());
+						parent.setLayoutConstraint(editpart, editpart.getFigure(),
+								new org.eclipse.draw2d.geometry.Rectangle(0, 0, -1, -1));
+					} else {
+						log.warn("Cannot execute EMF command : " + addCmd.toString());
+					}
+					
+				} else{
+					log.warn("Ignoring null output from deserializer for " + artifact.getValue().getClass());
 				}
-				
-				AbstractEsbNodeDeserializer.refreshEditPartMap();
-				GraphicalEditPart editpart = (GraphicalEditPart) AbstractEsbNodeDeserializer.getEditpart(node);
-				GraphicalEditPart parent =((GraphicalEditPart)editpart.getParent());
-				parent.setLayoutConstraint(editpart, editpart.getFigure(), new org.eclipse.draw2d.geometry.Rectangle(0, 0, -1, -1)); 
 			}
 		}
-
-		AbstractEsbNodeDeserializer.connectMediatorFlows();
+		if(artifacts.size()>0){
+			AbstractEsbNodeDeserializer.connectMediatorFlows();
+		}
 
 	}
 	
@@ -209,7 +218,8 @@ public class Deserializer {
 			break;
 		case SEQUENCE:
 			SequenceMediatorFactory sequenceMediatorFactory = new SequenceMediatorFactory();
-			sequenceMediatorFactory.createAnonymousSequence(element, null);
+			SequenceMediator sequence = (SequenceMediator) sequenceMediatorFactory.createSpecificMediator(element, null);
+			artifacts.put(sequence.getName(), sequence);
 			break;
 		case API:
 			API api = APIFactory.createAPI(element);

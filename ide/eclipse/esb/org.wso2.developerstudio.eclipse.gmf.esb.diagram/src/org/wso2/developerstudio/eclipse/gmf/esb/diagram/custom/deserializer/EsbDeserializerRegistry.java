@@ -22,6 +22,7 @@ import java.util.Map;
 
 import org.apache.synapse.core.axis2.ProxyService;
 
+import org.apache.synapse.mediators.base.SequenceMediator;
 import org.apache.synapse.mediators.builtin.DropMediator;
 import org.apache.synapse.mediators.builtin.EnqueueMediator;
 import org.apache.synapse.mediators.builtin.LogMediator;
@@ -57,6 +58,7 @@ public class EsbDeserializerRegistry {
 	/**
 	 * synapse model type to deserializers map.
 	 */
+	@SuppressWarnings("rawtypes")
 	private Map<Class<?>, IEsbNodeDeserializer> deserializersMap;
 	
 	private EsbDiagramEditor diagramEditor;
@@ -64,6 +66,7 @@ public class EsbDeserializerRegistry {
 	/**
 	 * Creates a new deserialize registry.
 	 */
+	@SuppressWarnings("rawtypes")
 	private EsbDeserializerRegistry(){
 		deserializersMap = new HashMap<Class<?>, IEsbNodeDeserializer>();
 		addDeserializer(LogMediator.class,new LogMediatorDeserializer());
@@ -79,6 +82,7 @@ public class EsbDeserializerRegistry {
 		addDeserializer(AggregateMediator.class, new AggregateMediatorDeserializer());
 		addDeserializer(FilterMediator.class,new FilterMediatorDeserializer());
 		addDeserializer(SwitchMediator.class, new SwitchMediatorDeserializer());
+		addDeserializer(SequenceMediator.class, new SequenceDeserializer());
 		
 	}
 	
@@ -105,6 +109,7 @@ public class EsbDeserializerRegistry {
 	 * @param synapseModelClass
 	 * @param transformer
 	 */
+	@SuppressWarnings("rawtypes")
 	public void addDeserializer(Class<?> synapseModelClass, IEsbNodeDeserializer deserializer) {
 		deserializersMap.put(synapseModelClass, deserializer);
 	}
@@ -114,6 +119,7 @@ public class EsbDeserializerRegistry {
 	 * @param synapseModel
 	 * @return
 	 */
+	@SuppressWarnings("rawtypes")
 	public IEsbNodeDeserializer getDeserializer(Object synapseModel) {
 		IEsbNodeDeserializer nodeDeserializer = deserializersMap.get(synapseModel.getClass());
 		if(nodeDeserializer!=null){

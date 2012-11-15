@@ -124,40 +124,41 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 	private void executeMediatorDeserializer(MediatorFlow mediatorFlow,
 			LinkedList<EsbNode> nodeList, TransactionalEditingDomain domain,
 			AbstractMediator mediator,boolean reversed) {
+		@SuppressWarnings("rawtypes")
 		IEsbNodeDeserializer deserializer = EsbDeserializerRegistry.getInstance().getDeserializer(
 				mediator);
 		if (deserializer != null) {
+			@SuppressWarnings("unchecked")
 			EsbNode node = deserializer.createNode(mediator);
-			nodeList.add(node);
-
-			AddCommand addCmd = new AddCommand(domain, mediatorFlow,
-					EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN, node);
-
-			if (addCmd.canExecute()) {
-				domain.getCommandStack().execute(addCmd);
-			} else {
-				getLog().warn("Cannot execute EMF command : " + addCmd.toString());
-			}
-			
-			if (node instanceof SendMediator && !reversed){
-				/*hard coded for testing*/
-				
-				if(getRootMediatorFlow()!=null){
-					DefaultEndPoint endPoint = EsbFactory.eINSTANCE.createDefaultEndPoint();
-					endPoint.setOutputConnector(EsbFactory.eINSTANCE.createDefaultEndPointOutputConnector());
-					nodeList.add(endPoint);
-					addCmd = new AddCommand(domain, getRootMediatorFlow(),
-							EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN, endPoint);
+			if (node!=null) {
+				nodeList.add(node);
+				AddCommand addCmd = new AddCommand(domain, mediatorFlow,
+						EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN, node);
+				if (addCmd.canExecute()) {
+					domain.getCommandStack().execute(addCmd);
 					
-					if (addCmd.canExecute()) {
-						domain.getCommandStack().execute(addCmd);
-					} else {
-						getLog().warn("Cannot execute EMF command : " + addCmd.toString());
-					} // end
-					
-					//TODO: extract endpoint from send mediator
+					if (node instanceof SendMediator && !reversed) {
+						/*hard coded for testing*/
+
+						if (getRootMediatorFlow() != null) {
+							DefaultEndPoint endPoint = EsbFactory.eINSTANCE.createDefaultEndPoint();
+							endPoint.setOutputConnector(EsbFactory.eINSTANCE
+									.createDefaultEndPointOutputConnector());
+							nodeList.add(endPoint);
+							addCmd = new AddCommand(domain, getRootMediatorFlow(),
+									EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN, endPoint);
+
+							if (addCmd.canExecute()) {
+								domain.getCommandStack().execute(addCmd);
+							} else {
+								getLog().warn("Cannot execute EMF command : " + addCmd.toString());
+							} // end
+							//TODO: extract endpoint from send mediator
+						}
+					}
+				} else {
+					getLog().warn("Cannot execute EMF command : " + addCmd.toString());
 				}
-				
 			}
 
 		}
@@ -340,6 +341,7 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 	 * Clear link 
 	 * @param sourceConnector
 	 */
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private static void clearLinks(AbstractConnectorEditPart sourceConnector) {
 		List connections = new ArrayList();
 		connections.addAll(sourceConnector.getSourceConnections());
@@ -382,6 +384,7 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 	 */
 	public static void refreshEditPartMap(){
 		editPartMap.clear();
+		@SuppressWarnings("rawtypes")
 		Map editPartRegistry = diagramEditor.getDiagramEditPart().getViewer().getEditPartRegistry();
 		for (Object object : editPartRegistry.keySet()) {
 			if(object instanceof Node){
