@@ -411,7 +411,7 @@ public class NewResourceTemplateDialog extends Dialog {
 		RegistryResourceUtils.createMetaDataForFolder(registryPath, project
 				.getLocation().toFile());
 		RegistryResourceUtils.addRegistryResourceInfo(destFile, regResInfoDoc,
-				project.getLocation().toFile(), registryPath);
+				new File(project.getLocation().toFile(),"default"), registryPath);
 
 		GeneralProjectArtifact generalProjectArtifact = new GeneralProjectArtifact();
 		generalProjectArtifact.fromFile(project.getFile("artifact.xml")

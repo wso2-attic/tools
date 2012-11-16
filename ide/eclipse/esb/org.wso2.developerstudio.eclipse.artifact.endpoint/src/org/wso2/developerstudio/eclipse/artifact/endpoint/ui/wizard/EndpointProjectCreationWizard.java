@@ -255,7 +255,7 @@ public class EndpointProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 		RegistryResourceUtils.createMetaDataForFolder(registryPath, location
 				.getLocation().toFile());
 		RegistryResourceUtils.addRegistryResourceInfo(destFile, regResInfoDoc,
-				project.getLocation().toFile(), registryPath);
+				new File(project.getLocation().toFile(),"default"), registryPath);
 
 		GeneralProjectArtifact generalProjectArtifact = new GeneralProjectArtifact();
 		generalProjectArtifact.fromFile(project.getFolder("default").getFile("artifact.xml")

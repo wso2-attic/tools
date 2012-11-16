@@ -245,7 +245,7 @@ public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 	private void createDynamicSequenceArtifact(IContainer location,SequenceModel sequenceModel) throws Exception{
 		
 		addGeneralProjectPlugin(project);
-		File pomLocation = project.getFile("pom.xml").getLocation().toFile();
+		File pomLocation = project.getFolder("default").getFile("pom.xml").getLocation().toFile();
 		String groupId = getMavenGroupId(pomLocation) + ".resource";
 		
 		String registryPath = sequenceModel.getDynamicSeqRegistryPath()
@@ -259,18 +259,17 @@ public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 		String templateContent = FileUtils.getContentAsString(selectedTemplate
 				.getTemplateDataStream());
 		String content = createSequenceTemplate(templateContent);
-		File destFile = new File(location.getLocation().toFile(),
-				sequenceModel.getSequenceName() + ".xml");
+		File destFile = location.getFolder(new Path("default")).getFile(sequenceModel.getSequenceName() + ".xml").getLocation().toFile();
 		FileUtils.createFile(destFile, content);
 		fileLst.add(destFile);
 		RegistryResourceUtils.createMetaDataForFolder(registryPath, location
 				.getLocation().toFile());
 		RegistryResourceUtils.addRegistryResourceInfo(destFile, regResInfoDoc,
-				project.getLocation().toFile(), registryPath);
+				new File(project.getLocation().toFile(),"default"), registryPath);
 		
 		
 		GeneralProjectArtifact generalProjectArtifact=new GeneralProjectArtifact();
-		generalProjectArtifact.fromFile(project.getFile("artifact.xml").getLocation().toFile());
+		generalProjectArtifact.fromFile(project.getFolder("default").getFile("artifact.xml").getLocation().toFile());
 		
 		RegistryArtifact artifact=new RegistryArtifact();
 		artifact.setName(sequenceModel.getSequenceName());
@@ -295,7 +294,7 @@ public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 	private void addGeneralProjectPlugin(IProject project) throws Exception{
 		MavenProject mavenProject;
 		
-		File mavenProjectPomLocation = project.getFile("pom.xml").getLocation().toFile();
+		File mavenProjectPomLocation = project.getFolder("default").getFile("pom.xml").getLocation().toFile();
 		if(!mavenProjectPomLocation.exists()){
 			mavenProject = MavenUtils.createMavenProject("org.wso2.carbon." + project.getName(), project.getName(), "1.0.0","pom");
 		} else {
