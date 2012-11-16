@@ -216,7 +216,7 @@ public class EndpointProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 	private void createDynamicEndpointArtifact(IContainer location,EndpointModel model) throws Exception{
 		
 		addGeneralProjectPlugin(project);
-		File pomLocation = project.getFile("pom.xml").getLocation().toFile();
+		File pomLocation = project.getFolder("default").getFile("pom.xml").getLocation().toFile();
 		String groupId = getMavenGroupId(pomLocation) + ".resource";
 		
 		String registryPath = model.getDynamicEpRegistryPath()
@@ -245,8 +245,8 @@ public class EndpointProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 			template = createEPTemplate(templateContent, "");
 		}
 
-		endpointFile = location.getFile(new Path(epModel.getEpName()
-				+ ".xml"));
+		endpointFile = location.getFolder(new Path("default")).getFile(new Path(epModel.getEpName()
+					+ ".xml"));
 		File destFile = endpointFile.getLocation().toFile();
 		FileUtils.createFile(destFile, template);
 		fileLst.add(destFile);
@@ -258,7 +258,7 @@ public class EndpointProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 				project.getLocation().toFile(), registryPath);
 
 		GeneralProjectArtifact generalProjectArtifact = new GeneralProjectArtifact();
-		generalProjectArtifact.fromFile(project.getFile("artifact.xml")
+		generalProjectArtifact.fromFile(project.getFolder("default").getFile("artifact.xml")
 				.getLocation().toFile());
 
 		RegistryArtifact artifact = new RegistryArtifact();
@@ -288,7 +288,7 @@ public class EndpointProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 	private void addGeneralProjectPlugin(IProject project) throws Exception{
 		MavenProject mavenProject;
 		
-		File mavenProjectPomLocation = project.getFile("pom.xml").getLocation().toFile();
+		File mavenProjectPomLocation = project.getFolder("default").getFile("pom.xml").getLocation().toFile();
 		if(!mavenProjectPomLocation.exists()){
 			mavenProject = MavenUtils.createMavenProject("org.wso2.carbon." + project.getName(), project.getName(), "1.0.0","pom");
 		} else {
