@@ -49,7 +49,9 @@ public class NewRegistryFilterClassWizardPage extends NewClassWizardPage{
 										"not-yet-commons-ssl-0.3.9.jar",
 										"woden-1.0.0.M8-wso2v1.jar",
 										"wsdl4j_1.6.2.wso2v4.jar",
-										"XmlSchema_1.4.7.wso2v2.jar"};
+										"XmlSchema_1.4.7.wso2v2.jar",
+										"org.wso2.carbon.registry.api_4.0.0.jar",
+										"org.wso2.carbon.registry.core_4.0.1.jar"};
 	
 	public String getSelectedProject() {
 		return selectedProject;
@@ -71,7 +73,7 @@ public class NewRegistryFilterClassWizardPage extends NewClassWizardPage{
 	}
 	
 	public String createClass() throws CoreException, InterruptedException{
-		addRegistryCoreLibrary();
+		//addRegistryCoreLibrary();
 		addOtherDependencies();
 		createType(new NullProgressMonitor());
 		IDE.openEditor(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage(), (IFile)getCreatedType().getResource());
