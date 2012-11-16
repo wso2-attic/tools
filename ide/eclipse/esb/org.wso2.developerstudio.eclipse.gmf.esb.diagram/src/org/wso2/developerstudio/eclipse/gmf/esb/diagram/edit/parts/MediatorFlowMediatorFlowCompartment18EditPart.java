@@ -174,8 +174,14 @@ public class MediatorFlowMediatorFlowCompartment18EditPart extends
 /*		if (this.getParent().getParent().getChildren().size() < 2) {
 			return;
 		}*/
+		
+		if (child instanceof AbstractEndpoint) {
+			if(EditorUtils.getEndpointInputConnector((AbstractEndpoint)child).getTargetConnections().size()==0){
+				addConnectorAndLink();
+			}
+		}
 
-		if (child instanceof FailoverEndPointEditPart) {
+/*		if (child instanceof FailoverEndPointEditPart) {
 			FailoverEndPointEditPart endpointEditPart = (FailoverEndPointEditPart) child;
 			EObject parentEndpoint = ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (endpointEditPart)
 					.getModel()).getElement();
@@ -293,7 +299,7 @@ public class MediatorFlowMediatorFlowCompartment18EditPart extends
 					addConnectorAndLink();
 				}
 			}
-		}
+		}*/
 		
 
 	}

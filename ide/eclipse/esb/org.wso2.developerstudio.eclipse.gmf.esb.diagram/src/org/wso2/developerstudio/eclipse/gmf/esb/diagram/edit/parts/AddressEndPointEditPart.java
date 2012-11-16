@@ -32,6 +32,7 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.FontData;
 import org.wso2.developerstudio.eclipse.gmf.esb.AddressEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.ComplexEndpoints;
 import org.wso2.developerstudio.eclipse.gmf.esb.FailoverEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.SendMediator;
@@ -168,11 +169,12 @@ public class AddressEndPointEditPart extends AbstractEndpoint {
 				EObject source = ((AddressEndPoint) parentEndpoint)
 						.getInputConnector().getIncomingLinks().get(0)
 						.getSource().eContainer();
-				position = ((source instanceof LoadBalanceEndPoint)
+/*				position = ((source instanceof LoadBalanceEndPoint)
 						|| (source instanceof FailoverEndPoint) || (source instanceof SendMediator)) ? 0.5
-						: 0.25;
+						: 0.25;*/
+				position = (source instanceof ComplexEndpoints) ? 0.5: 0.25;
 			} else {
-				position = 0.25;
+				position = (this.getParent().getParent().getParent() instanceof ComplexEndpointsEditPart) ? 0.5:0.25;
 			}
 			IFigure borderItemFigure = ((AddressEndPointInputConnectorEditPart) childEditPart)
 					.getFigure();

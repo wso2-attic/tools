@@ -76,6 +76,7 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.FileEditorInput;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBArtifact;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
+import org.wso2.developerstudio.eclipse.gmf.esb.ComplexEndpoints;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.FailoverEndPoint;
@@ -229,11 +230,9 @@ public class NamedEndpointEditPart extends AbstractEndpoint {
 				EObject source = ((NamedEndpoint) parentEndpoint)
 						.getInputConnector().getIncomingLinks().get(0)
 						.getSource().eContainer();
-				position = ((source instanceof LoadBalanceEndPoint)
-						|| (source instanceof FailoverEndPoint) || (source instanceof SendMediator)) ? 0.5
-						: 0.25;
+				position = (source instanceof ComplexEndpoints) ? 0.5: 0.25;
 			} else {
-				position = 0.25;
+				position = (this.getParent().getParent().getParent() instanceof ComplexEndpointsEditPart) ? 0.5:0.25;
 			}
 			IFigure borderItemFigure = ((NamedEndpointInputConnectorEditPart) childEditPart)
 					.getFigure();
