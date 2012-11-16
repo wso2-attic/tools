@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.osgi.internal.module.MappedList;
 
 import org.wso2.developerstudio.eclipse.esb.core.utils.ESBMediaTypeConstants;
+import org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndpointFlow;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
@@ -150,6 +151,11 @@ public class SendMediatorImpl extends MediatorImpl implements SendMediator {
 	 * @ordered
 	 */
     protected EndpointFlow endpointFlow;
+    
+    /**
+     * value of the next node (non-EMF)
+     */
+    protected AbstractEndPoint nextNode;
 
     /**
 	 * <!-- begin-user-doc -->
@@ -653,6 +659,16 @@ public class SendMediatorImpl extends MediatorImpl implements SendMediator {
 		result.append(receivingSequenceType);
 		result.append(')');
 		return result.toString();
+	}
+
+	@Override
+	public void setNextNode(AbstractEndPoint node) {
+		this.nextNode = node;		
+	}
+
+	@Override
+	public AbstractEndPoint getNextNode() {
+		return nextNode;
 	}
 
 } //SendMediatorImpl

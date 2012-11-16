@@ -40,11 +40,10 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.impl.ConnectorImpl;
-import org.wso2.developerstudio.eclipse.gmf.esb.DefaultEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
-import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbServer;
@@ -138,22 +137,21 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 					domain.getCommandStack().execute(addCmd);
 					
 					if (node instanceof SendMediator && !reversed) {
-						/*hard coded for testing*/
-
 						if (getRootMediatorFlow() != null) {
-							DefaultEndPoint endPoint = EsbFactory.eINSTANCE.createDefaultEndPoint();
-							endPoint.setOutputConnector(EsbFactory.eINSTANCE
-									.createDefaultEndPointOutputConnector());
-							nodeList.add(endPoint);
-							addCmd = new AddCommand(domain, getRootMediatorFlow(),
-									EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN, endPoint);
-
-							if (addCmd.canExecute()) {
-								domain.getCommandStack().execute(addCmd);
-							} else {
-								getLog().warn("Cannot execute EMF command : " + addCmd.toString());
-							} // end
-							//TODO: extract endpoint from send mediator
+							SendMediator sendMediator = (SendMediator) node;
+							AbstractEndPoint endPoint = sendMediator.getNextNode(); 
+							// Extract the endPoint info from the sendMediator
+							if (endPoint != null) {
+								addCmd = new AddCommand(domain, getRootMediatorFlow(),
+										EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN, endPoint);
+								if (addCmd.canExecute()) {
+									domain.getCommandStack().execute(addCmd);
+									nodeList.add(endPoint);
+								} else {
+									getLog().warn(
+											"Cannot execute EMF command : " + addCmd.toString());
+								}
+							}
 						}
 					}
 				} else {
