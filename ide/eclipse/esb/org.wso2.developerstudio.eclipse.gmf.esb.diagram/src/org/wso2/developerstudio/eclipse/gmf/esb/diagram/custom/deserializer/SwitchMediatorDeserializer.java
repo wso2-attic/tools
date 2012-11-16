@@ -72,11 +72,7 @@ public class SwitchMediatorDeserializer extends AbstractEsbNodeDeserializer<Abst
 				vishualSwitch.getSwitchContainer().getSwitchCaseContainer().add(switchContainer);
 				vishualSwitch.getCaseBranches().add(swcboc);
 			}
-			
-			
 
-			
-			
 		}
 		
 		return vishualSwitch;
