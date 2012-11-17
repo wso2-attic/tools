@@ -4,6 +4,8 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.TableEditor;
 import org.eclipse.swt.events.ModifyEvent;
@@ -23,6 +25,7 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Text;
+import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.forms.IManagedForm;
 import org.eclipse.ui.forms.editor.FormEditor;
 import org.eclipse.ui.forms.editor.FormPage;
@@ -47,11 +50,13 @@ public class RegistryResourcePage extends FormPage {
     private GridData listGridData;
     private Table table;
     private FormToolkit toolkit;
-    private TableEditor editor;
+    private TableEditor registryPathEditor;
+    private TableEditor mediaTypeEditor;
     private GridData tableGridData;
     private ScrolledForm form;
-    private static final int EDITABLECOLUMN = 2;
-    private static final int INDEXCOLUM = 0;
+    private static final int EDITABLE_COLUMN = 2;
+    private static final int MEDIATYPE_COLUMN = 3;
+    private static final int INDEX_COLUMN = 0;
     
 	public RegistryResourcePage(String id, String title) {
 		super(id, title);
@@ -96,7 +101,7 @@ public class RegistryResourcePage extends FormPage {
 		tableSection.setBounds(40, 20, 220,100);
 	    tableSection.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 		Composite comp2 = toolkit.createComposite(tableSection);
-		GridLayout glcomp2 = new GridLayout(2,false);
+		GridLayout glcomp2 = new GridLayout(3,false);
 		comp2.setLayout(glcomp2);
 		tableSection.setClient(comp2);
 		createTable(comp2);
@@ -112,18 +117,27 @@ public class RegistryResourcePage extends FormPage {
 	    TableColumn tc1 = new TableColumn(table, SWT.CENTER);
 	    TableColumn tc2 = new TableColumn(table, SWT.LEFT);
 	    TableColumn tc3 = new TableColumn(table, SWT.LEFT);
+	    TableColumn tc4 = new TableColumn(table, SWT.LEFT);
 	    tc1.setText("index");
         tc1.setResizable(false);
 	    tc2.setText("Resource Name");
 	    tc3.setText("Resource Deploy Path");
+	    tc4.setText("Media Type");
 	    tc1.setWidth(0);
 	    tc2.setWidth(200);
 	    tc3.setWidth(250);
+	    tc4.setWidth(200);
 	    table.setHeaderVisible(true);
-	    editor = new TableEditor(table);
-	    editor.horizontalAlignment = SWT.LEFT;
-	    editor.grabHorizontal = true;
-	    editor.minimumWidth = 50;
+	    registryPathEditor = new TableEditor(table);
+	    registryPathEditor.horizontalAlignment = SWT.LEFT;
+	    registryPathEditor.grabHorizontal = true;
+	    registryPathEditor.minimumWidth = 50;
+	    
+	    mediaTypeEditor = new TableEditor(table);
+	    mediaTypeEditor.horizontalAlignment = SWT.LEFT;
+	    mediaTypeEditor.grabHorizontal = true;
+	    mediaTypeEditor.minimumWidth = 50;
+	    
 		listGridData = new GridData(GridData.FILL_BOTH);
 		listGridData.heightHint = 206;
 		table.setLayoutData(listGridData);
@@ -146,10 +160,15 @@ public class RegistryResourcePage extends FormPage {
 	
 	private void addResourcesPath(){
 		 table.removeAll();
-	      if(editor.getEditor() instanceof Text){
-	         Text t =(Text)editor.getEditor();
+	      if(registryPathEditor.getEditor() instanceof Text){
+	         Text t =(Text)registryPathEditor.getEditor();
 	         t.dispose();
 	      } 
+	      
+	      if(mediaTypeEditor.getEditor() instanceof Text){
+		         Text t =(Text)mediaTypeEditor.getEditor();
+		         t.dispose();
+		      } 
 
 	      String key = artifactlist.getItem(artifactlist.getSelectionIndex());
 	      RegistryArtifact artifact =(RegistryArtifact)artifactlist.getData(key);
@@ -160,8 +179,10 @@ public class RegistryResourcePage extends FormPage {
 	    	  i++;
 	    	  String path = registryElement.getPath();
 	    	  String name ="";
+	    	  String mediaType=null;
 	    	  if(registryElement instanceof RegistryItem){
 	    		  name = ((RegistryItem)registryElement).getFile();
+	    		  mediaType = ((RegistryItem)registryElement).getMediaType();
 	    	  }else if(registryElement instanceof RegistryDump){
 	    		  name = ((RegistryDump)registryElement).getFile();
 	    	  }else{
@@ -169,7 +190,7 @@ public class RegistryResourcePage extends FormPage {
 	    	  }
 	    	  TableItem item = new TableItem(table, SWT.NONE);
 	    	  String index =""+i;
-	          item.setText(new String[] {index, name, path });
+	          item.setText(new String[] {index, name, path, mediaType });
 	      	
 	  		final Color red = form.getDisplay().getSystemColor(SWT.COLOR_TITLE_INACTIVE_BACKGROUND_GRADIENT);
 	     	final  Color blue = form.getDisplay().getSystemColor(SWT.COLOR_TITLE_BACKGROUND_GRADIENT);
@@ -192,11 +213,16 @@ public class RegistryResourcePage extends FormPage {
 				public void handleEvent(Event event) {
 					
 					 // Clean up any previous editor control
-			        Control oldEditor = editor.getEditor();
+			        Control oldEditor = registryPathEditor.getEditor();
+			        Control oldEditor1 = mediaTypeEditor.getEditor();
 			        if (oldEditor != null){
 			          oldEditor.dispose();  
 			        }
+			        if (oldEditor1 != null){
+			        	oldEditor1.dispose();  
+				        }
 			        TableItem[] selection = table.getSelection();
+			        
 			        if(selection==null){
 			        	return;
 			        }
@@ -208,22 +234,41 @@ public class RegistryResourcePage extends FormPage {
 			        	  return;
 			        }
 			        Text newEditor = new Text(table, SWT.NONE);
-			        String newPath =item.getText(EDITABLECOLUMN);
-			        final Integer index = Integer.parseInt(item.getText(INDEXCOLUM));
+			        String newPath =item.getText(EDITABLE_COLUMN);
+			        Text newMTEditor = new Text(table, SWT.NONE);
+			        String newMediatype =item.getText(MEDIATYPE_COLUMN);
+			        final Integer index = Integer.parseInt(item.getText(INDEX_COLUMN));
 			        newEditor.setText(newPath);
 			        newEditor.addModifyListener(new ModifyListener() {
 				          public void modifyText(ModifyEvent me) {
 				        	setSave(true);  
-				            Text text = (Text) editor.getEditor();
-				            editor.getItem().setText(EDITABLECOLUMN, text.getText());
+				            Text text = (Text) registryPathEditor.getEditor();
+				            registryPathEditor.getItem().setText(EDITABLE_COLUMN, text.getText());
 				            RegistryElement registryElement = itemMap.get(index);
 				            registryElement.setPath(text.getText());
 				            updateDirtyState();
 				          }
 				        });
+			        
+			        newMTEditor.setText(newMediatype);
+			        newMTEditor.addModifyListener(new ModifyListener() {
+				          public void modifyText(ModifyEvent me) {
+				        	setSave(true);  
+				            Text text = (Text) mediaTypeEditor.getEditor();
+				            mediaTypeEditor.getItem().setText(MEDIATYPE_COLUMN, text.getText());
+				            RegistryElement registryElement = itemMap.get(index);
+				            if(registryElement instanceof RegistryItem){
+				            	((RegistryItem)registryElement).setMediaType(text.getText());
+				            	updateDirtyState();
+				            }
+				          }
+				        });
 			        newEditor.selectAll();
 			        newEditor.setFocus();
-			        editor.setEditor(newEditor, item, EDITABLECOLUMN);
+			        registryPathEditor.setEditor(newEditor, item, EDITABLE_COLUMN);
+			        newMTEditor.selectAll();
+			        newMTEditor.setFocus();
+			        mediaTypeEditor.setEditor(newMTEditor, item, MEDIATYPE_COLUMN);
 			        table.redraw();
 				}
 			}); 
@@ -232,6 +277,7 @@ public class RegistryResourcePage extends FormPage {
 	public void editorMain(){
 		   try {
 			    FileEditorInput fileInput = (FileEditorInput)getEditorInput();
+			    fileInput.getFile().getProject().refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 			    File artifactXml =  fileInput.getFile().getLocation().toFile();
                 generalProjectArtifact=new GeneralProjectArtifact();
 			    generalProjectArtifact.fromFile(artifactXml);
@@ -252,6 +298,7 @@ public class RegistryResourcePage extends FormPage {
 			((ResourceFormEditor)getEditor()).setDirty(false);
 			updateDirtyState();
 			addResourcesPath();
+			((FileEditorInput) getEditorInput()).getFile().getProject().refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 		 } catch (Exception e) {
 			e.printStackTrace(); 
 		}
