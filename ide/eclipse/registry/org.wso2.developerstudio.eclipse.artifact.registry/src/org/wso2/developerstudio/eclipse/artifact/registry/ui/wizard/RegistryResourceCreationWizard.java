@@ -187,6 +187,7 @@ public class RegistryResourceCreationWizard extends AbstractWSO2ProjectCreationW
 				if (registryResourceInfo.getType() == RegistryArtifactConstants.REGISTRY_RESOURCE) {
 					item = new RegistryItem();
 					((RegistryItem) item).setFile(registryResourceInfo.getResourceBaseRelativePath().replaceAll(Pattern.quote(File.separator), "/"));
+					((RegistryItem)item).setMediaType(registryResourceInfo.getMediaType());
 				} else if (registryResourceInfo.getType() == RegistryArtifactConstants.REGISTRY_COLLECTION) {
 					item = new RegistryCollection();
 					((RegistryCollection) item).setDirectory(registryResourceInfo.getResourceBaseRelativePath().replaceAll(Pattern.quote(File.separator), "/"));

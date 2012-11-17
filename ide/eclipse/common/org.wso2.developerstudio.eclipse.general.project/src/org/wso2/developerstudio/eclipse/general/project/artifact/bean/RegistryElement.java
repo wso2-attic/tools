@@ -20,6 +20,7 @@ public abstract class RegistryElement {
 
 	protected String path;
 
+
 	public void setPath(String path) {
 	    this.path = path;
     }
@@ -27,6 +28,5 @@ public abstract class RegistryElement {
 	public String getPath() {
 	    return path;
     }
-	
-	
+
 }

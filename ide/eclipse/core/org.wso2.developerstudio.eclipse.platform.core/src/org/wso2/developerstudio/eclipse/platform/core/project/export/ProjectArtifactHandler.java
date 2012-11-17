@@ -32,6 +32,7 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.osgi.storagemanager.StorageManager;
+import org.wso2.developerstudio.eclipse.platform.core.utils.Constants;
 import org.wso2.developerstudio.eclipse.utils.file.TempFileUtils;
 
 public abstract class ProjectArtifactHandler {
@@ -92,7 +93,12 @@ public abstract class ProjectArtifactHandler {
 		try {
 			project.build(IncrementalProjectBuilder.CLEAN_BUILD,
 							getProgressMonitor());
-			File target = project.getFolder("target").getLocation().toFile();
+			File target = null;
+			if(project.hasNature(Constants.GENERAL_PROJECT_NATURE)){
+				target = project.getFolder("default").getFolder("target").getLocation().toFile();
+			}else{
+				target = project.getFolder("target").getLocation().toFile();
+			}
 			FileUtils.cleanDirectory(target);
 		} catch (Exception e) {
 			// TODO: log error

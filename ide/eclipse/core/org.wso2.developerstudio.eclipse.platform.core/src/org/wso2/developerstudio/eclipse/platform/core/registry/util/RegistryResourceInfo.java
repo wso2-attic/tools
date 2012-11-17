@@ -32,6 +32,7 @@ public class RegistryResourceInfo extends AbstractXMLDoc {
 	private File sourceFile;
 	private File base;
 	private String relativePath;
+	private String mediaType;
 	private static final String RESOURCE_TAG_NAME = "item";
 	private static final String COLLECTION_TAG_NAME = "collection";
 	private static final String DUMP_TAG_NAME = "dump";
@@ -83,6 +84,12 @@ public class RegistryResourceInfo extends AbstractXMLDoc {
 			if (childElements.size() > 0) {
 				setRelativePath(childElements.get(0).getText());
 			}
+			
+			List<OMElement> childElement = getChildElements(documentElement,
+			"mediaType");
+			if (childElement.size() > 0) {
+				setMediaType(childElements.get(0).getText());
+			}
 		} else if (documentElement.getLocalName().equals(COLLECTION_TAG_NAME)) {
 			setType(Constants.REGISTRY_COLLECTION);
 			List<OMElement> childElements = getChildElements(documentElement,
@@ -126,7 +133,9 @@ public class RegistryResourceInfo extends AbstractXMLDoc {
 			documentElement = getElement("item", "");
 			OMElement fileElement = getElement("file",
 					getResourceBaseRelativePath());
+			OMElement mediaTypeElement = getElement("mediatype", getMediaType());
 			documentElement.addChild(fileElement);
+			documentElement.addChild(mediaTypeElement);
 			// content = "\t<item>\n\t\t" + "<path>" + getPath()
 			// + "</path>\n\t\t" + "<file>" + getResourceBaseRelativePath()
 			// + "</file>\n\t" + "</item>";
@@ -182,5 +191,13 @@ public class RegistryResourceInfo extends AbstractXMLDoc {
 
 	public File getBase() {
 		return base;
+	}
+
+	public void setMediaType(String mediaType) {
+		this.mediaType = mediaType;
+	}
+
+	public String getMediaType() {
+		return mediaType;
 	}
 }

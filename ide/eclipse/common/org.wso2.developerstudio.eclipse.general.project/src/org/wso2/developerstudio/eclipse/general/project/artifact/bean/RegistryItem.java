@@ -19,6 +19,7 @@ package org.wso2.developerstudio.eclipse.general.project.artifact.bean;
 public class RegistryItem extends RegistryElement{
 	
 	private String file;
+	private String mediaType;
 	
 	public void setFile(String file) {
 	    this.file = file;
@@ -26,5 +27,13 @@ public class RegistryItem extends RegistryElement{
 	public String getFile() {
 	    return file;
     }
+	
+	public String getMediaType() {
+		return mediaType;
+	}
+
+	public void setMediaType(String mediaType) {
+		this.mediaType = mediaType;
+	}
 	
 }
