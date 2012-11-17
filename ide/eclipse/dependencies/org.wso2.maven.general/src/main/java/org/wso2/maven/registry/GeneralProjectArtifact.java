@@ -77,6 +77,10 @@ public class GeneralProjectArtifact extends AbstractXMLDoc implements Observer{
 	            RegistryItem item=new RegistryItem();
 	            item.setFile(getChildElements(omElement2, "file").get(0).getText());
 	            item.setPath(getChildElements(omElement2, "path").get(0).getText());
+	            List<OMElement> mediaTypeElements = getChildElements(omElement2, "mediaType");
+				if(mediaTypeElements.size()>0){
+	            	item.setMediaType(mediaTypeElements.get(0).getText());
+	            }
 	            artifact.addRegistryElement(item);
             }
 	        
@@ -155,8 +159,10 @@ public class GeneralProjectArtifact extends AbstractXMLDoc implements Observer{
 	                OMElement element = getElement("item", "");
 	                OMElement element2 = getElement("file", ((RegistryItem)item).getFile());
 	                OMElement element3 = getElement("path", item.getPath());
+	                OMElement element4 = getElement("mediaType", ((RegistryItem) item).getMediaType());
 	                element.addChild(element2);
 	                element.addChild(element3);
+	                element.addChild(element4);
 	                artifactElement.addChild(element);
                 }else if(item instanceof RegistryCollection){
                 	 OMElement element = getElement("collection", "");
