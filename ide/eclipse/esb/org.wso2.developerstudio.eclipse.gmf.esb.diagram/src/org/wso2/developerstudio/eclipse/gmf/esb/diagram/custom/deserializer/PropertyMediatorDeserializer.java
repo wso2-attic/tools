@@ -30,6 +30,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.PropertyAction;
 import org.wso2.developerstudio.eclipse.gmf.esb.PropertyDataType;
 import org.wso2.developerstudio.eclipse.gmf.esb.PropertyMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.PropertyScope;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.*;
 
 public class PropertyMediatorDeserializer extends
 		AbstractEsbNodeDeserializer<AbstractMediator, PropertyMediator> {
@@ -42,25 +44,33 @@ public class PropertyMediatorDeserializer extends
 
 		org.apache.synapse.mediators.builtin.PropertyMediator propertyMediator = (org.apache.synapse.mediators.builtin.PropertyMediator) mediator;
 
-		PropertyMediator vishualProp = EsbFactory.eINSTANCE
-				.createPropertyMediator();
+		org.wso2.developerstudio.eclipse.gmf.esb.PropertyMediator VisualPropertyMediator = (org.wso2.developerstudio.eclipse.gmf.esb.PropertyMediator) DeserializerUtils.createNode(part, EsbElementTypes.PropertyMediator_3492);
+		setElementToEdit(VisualPropertyMediator);
+		
+		//PropertyMediator vishualProp = EsbFactory.eINSTANCE
+				//.createPropertyMediator();
 
 		if (propertyMediator.getName() != null) {
 
-			vishualProp.setPropertyName(propertyMediator.getName());
+			//vishualProp.setPropertyName(propertyMediator.getName());
+			executeSetValueCommand(PROPERTY_MEDIATOR__PROPERTY_NAME, propertyMediator.getName());
 		}
 
 		// For the remove action
 		if (propertyMediator.getAction() == org.apache.synapse.mediators.builtin.PropertyMediator.ACTION_REMOVE) {
 
-			vishualProp.setPropertyAction(PropertyAction.REMOVE);
-			vishualProp.setValueExpression(null);
-			vishualProp.setValueLiteral(null);
+			//vishualProp.setPropertyAction(PropertyAction.REMOVE);
+			executeSetValueCommand(PROPERTY_MEDIATOR__PROPERTY_ACTION, PropertyAction.REMOVE);
+			//vishualProp.setValueExpression(null);
+			executeSetValueCommand(PROPERTY_MEDIATOR__VALUE_EXPRESSION, null);
+			//vishualProp.setValueLiteral(null);
+			executeSetValueCommand(PROPERTY_MEDIATOR__VALUE_LITERAL, null);
 
 		} else {
 			// For the Set action
-			vishualProp.setPropertyAction(PropertyAction.SET);
-
+			//vishualProp.setPropertyAction(PropertyAction.SET);
+			executeSetValueCommand(PROPERTY_MEDIATOR__PROPERTY_ACTION, PropertyAction.SET);
+			
 			// If it's an Expression
 			if (propertyMediator.getExpression() != null) {
 
@@ -80,13 +90,15 @@ public class PropertyMediatorDeserializer extends
 					namespaceProp.setNamespaces(map);
 				}
 
-				vishualProp.setValueExpression(namespaceProp);
+				//vishualProp.setValueExpression(namespaceProp);
+				executeSetValueCommand(PROPERTY_MEDIATOR__VALUE_EXPRESSION, namespaceProp);
 
 				// If it's an Value
 			} else if (propertyMediator.getValue() != null) {
 
-				vishualProp.setValueLiteral(propertyMediator.getValue()
-						.toString());
+				//vishualProp.setValueLiteral(propertyMediator.getValue()
+						//.toString());
+				executeSetValueCommand(PROPERTY_MEDIATOR__VALUE_LITERAL, propertyMediator.getValue().toString());
 
 			}
 			// Setting common things for both.
@@ -96,42 +108,50 @@ public class PropertyMediatorDeserializer extends
 
 				if (type.equals(XMLConfigConstants.DATA_TYPES.STRING.toString())) {
 
-					vishualProp.setPropertyDataType(PropertyDataType.STRING);
+					//vishualProp.setPropertyDataType(PropertyDataType.STRING);
+					executeSetValueCommand(PROPERTY_MEDIATOR__PROPERTY_DATA_TYPE, PropertyDataType.STRING);
 
 				} else if (type.equals(XMLConfigConstants.DATA_TYPES.SHORT
 						.toString())) {
 
-					vishualProp.setPropertyDataType(PropertyDataType.SHORT);
+					//vishualProp.setPropertyDataType(PropertyDataType.SHORT);
+					executeSetValueCommand(PROPERTY_MEDIATOR__PROPERTY_DATA_TYPE, PropertyDataType.SHORT);
 
 				} else if (type.equals(XMLConfigConstants.DATA_TYPES.OM
 						.toString())) {
 
-					vishualProp.setPropertyDataType(PropertyDataType.OM);
+					//vishualProp.setPropertyDataType(PropertyDataType.OM);
+					executeSetValueCommand(PROPERTY_MEDIATOR__PROPERTY_DATA_TYPE, PropertyDataType.OM);
 
 				} else if (type.equals(XMLConfigConstants.DATA_TYPES.LONG
 						.toString())) {
 
-					vishualProp.setPropertyDataType(PropertyDataType.LONG);
+					//vishualProp.setPropertyDataType(PropertyDataType.LONG);
+					executeSetValueCommand(PROPERTY_MEDIATOR__PROPERTY_DATA_TYPE, PropertyDataType.LONG);
 
 				} else if (type.equals(XMLConfigConstants.DATA_TYPES.INTEGER
 						.toString())) {
 
-					vishualProp.setPropertyDataType(PropertyDataType.INTEGER);
+					//vishualProp.setPropertyDataType(PropertyDataType.INTEGER);
+					executeSetValueCommand(PROPERTY_MEDIATOR__PROPERTY_DATA_TYPE, PropertyDataType.INTEGER);
 
 				} else if (type.equals(XMLConfigConstants.DATA_TYPES.DOUBLE
 						.toString())) {
 
-					vishualProp.setPropertyDataType(PropertyDataType.DOUBLE);
+					//vishualProp.setPropertyDataType(PropertyDataType.DOUBLE);
+					executeSetValueCommand(PROPERTY_MEDIATOR__PROPERTY_DATA_TYPE, PropertyDataType.DOUBLE);
 
 				} else if (type.equals(XMLConfigConstants.DATA_TYPES.FLOAT
 						.toString())) {
 
-					vishualProp.setPropertyDataType(PropertyDataType.FLOAT);
+					//vishualProp.setPropertyDataType(PropertyDataType.FLOAT);
+					executeSetValueCommand(PROPERTY_MEDIATOR__PROPERTY_DATA_TYPE, PropertyDataType.FLOAT);
 
 				} else if (type.equals(XMLConfigConstants.DATA_TYPES.BOOLEAN
 						.toString())) {
 
-					vishualProp.setPropertyDataType(PropertyDataType.BOOLEAN);
+					//vishualProp.setPropertyDataType(PropertyDataType.BOOLEAN);
+					executeSetValueCommand(PROPERTY_MEDIATOR__PROPERTY_DATA_TYPE, PropertyDataType.BOOLEAN);
 				}
 			}
 
@@ -140,28 +160,33 @@ public class PropertyMediatorDeserializer extends
 			if (scope != null) {
 				if (scope.equals(XMLConfigConstants.SCOPE_AXIS2)) {
 
-					vishualProp.setPropertyScope(PropertyScope.AXIS2);
+					//vishualProp.setPropertyScope(PropertyScope.AXIS2);
+					executeSetValueCommand(PROPERTY_MEDIATOR__PROPERTY_SCOPE, PropertyScope.AXIS2);
 
 				} else if (scope.equals(XMLConfigConstants.SCOPE_CLIENT)) {
 
-					vishualProp.setPropertyScope(PropertyScope.AXIS2_CLIENT);
+					//vishualProp.setPropertyScope(PropertyScope.AXIS2_CLIENT);
+					executeSetValueCommand(PROPERTY_MEDIATOR__PROPERTY_SCOPE, PropertyScope.AXIS2_CLIENT);
 
 				} else if (scope.equals(XMLConfigConstants.SCOPE_DEFAULT)) {
 
-					vishualProp.setPropertyScope(PropertyScope.SYNAPSE);
+					//vishualProp.setPropertyScope(PropertyScope.SYNAPSE);
+					executeSetValueCommand(PROPERTY_MEDIATOR__PROPERTY_SCOPE, PropertyScope.SYNAPSE);
 
 				} else if (scope.equals(XMLConfigConstants.SCOPE_TRANSPORT)) {
 
-					vishualProp.setPropertyScope(PropertyScope.TRANSPORT);
+					//vishualProp.setPropertyScope(PropertyScope.TRANSPORT);
+					executeSetValueCommand(PROPERTY_MEDIATOR__PROPERTY_SCOPE, PropertyScope.TRANSPORT);
 				}
 			}
 
 			Pattern pattern = propertyMediator.getPattern();
 			if (pattern != null)
-				vishualProp.setValueStringPattern(pattern.toString());
+				//vishualProp.setValueStringPattern(pattern.toString());
+				executeSetValueCommand(PROPERTY_MEDIATOR__VALUE_STRING_PATTERN, pattern.toString());
 		}
 
-		return vishualProp;
+		return VisualPropertyMediator;
 	}
 
 }

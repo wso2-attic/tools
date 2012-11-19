@@ -26,6 +26,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.SwitchCaseContainer;
 import org.wso2.developerstudio.eclipse.gmf.esb.SwitchDefaultBranchOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.SwitchDefaultContainer;
 import org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.*;
 
 public class SwitchMediatorDeserializer extends AbstractEsbNodeDeserializer<AbstractMediator, SwitchMediator> {
 
@@ -36,16 +38,21 @@ public class SwitchMediatorDeserializer extends AbstractEsbNodeDeserializer<Abst
 		
 		org.apache.synapse.mediators.filters.SwitchMediator switchMediator = (org.apache.synapse.mediators.filters.SwitchMediator)mediator;
 		
-		SwitchMediator vishualSwitch = EsbFactory.eINSTANCE.createSwitchMediator();
+		org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediator VisualSwitchMediator = (org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediator) DeserializerUtils.createNode(part, EsbElementTypes.SwitchMediator_3498);
+		setElementToEdit(VisualSwitchMediator);
+		
+		//SwitchMediator vishualSwitch = EsbFactory.eINSTANCE.createSwitchMediator();
 		
 		//Setting default case 
 	    SwitchDefaultBranchOutputConnector defaultSwcboc = EsbFactory.eINSTANCE.createSwitchDefaultBranchOutputConnector();
 	    
 	    SwitchDefaultContainer defaultContainer = EsbFactory.eINSTANCE.createSwitchDefaultContainer();
 		
-	    vishualSwitch.getSwitchContainer().setSwitchDefaultContainer(defaultContainer);
+	    //vishualSwitch.getSwitchContainer().setSwitchDefaultContainer(defaultContainer);
+	    executeSetValueCommand(SWITCH_MEDIATOR_CONTAINER__SWITCH_DEFAULT_CONTAINER, defaultContainer);
 	    
-		vishualSwitch.setDefaultBranch(defaultSwcboc);
+		//vishualSwitch.setDefaultBranch(defaultSwcboc);
+		executeSetValueCommand(SWITCH_MEDIATOR__DEFAULT_BRANCH, defaultSwcboc);
 		
 		
 		if(switchMediator.getCases() != null && !switchMediator.getCases().isEmpty()){
@@ -70,13 +77,13 @@ public class SwitchMediatorDeserializer extends AbstractEsbNodeDeserializer<Abst
 					deserializeSequence(null, sequence,swcboc);
 				}
 				
-				vishualSwitch.getSwitchContainer().getSwitchCaseContainer().add(switchContainer);
-				vishualSwitch.getCaseBranches().add(swcboc);
+				VisualSwitchMediator.getSwitchContainer().getSwitchCaseContainer().add(switchContainer);
+				VisualSwitchMediator.getCaseBranches().add(swcboc);
 			}
 
 		}
 		
-		return vishualSwitch;
+		return VisualSwitchMediator;
 	}
 
 	

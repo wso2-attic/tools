@@ -22,6 +22,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.XQueryMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.XQueryVariable;
 import org.wso2.developerstudio.eclipse.gmf.esb.XQueryVariableType;
 import org.wso2.developerstudio.eclipse.gmf.esb.XQueryVariableValueType;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.*;
 
 public class XQueryMediatorDeserializer extends AbstractEsbNodeDeserializer<AbstractMediator, XQueryMediator>{
 
@@ -33,7 +35,9 @@ public class XQueryMediatorDeserializer extends AbstractEsbNodeDeserializer<Abst
 		
 		org.apache.synapse.mediators.xquery.XQueryMediator xqueryMediator = (org.apache.synapse.mediators.xquery.XQueryMediator)mediator;
 		
-		XQueryMediator vishualXquery = EsbFactory.eINSTANCE.createXQueryMediator();
+		org.wso2.developerstudio.eclipse.gmf.esb.XQueryMediator VisualXqueryMediator = (org.wso2.developerstudio.eclipse.gmf.esb.XQueryMediator) DeserializerUtils.createNode(part, EsbElementTypes.XQueryMediator_3510);
+		setElementToEdit(VisualXqueryMediator);
+		//XQueryMediator vishualXquery = EsbFactory.eINSTANCE.createXQueryMediator();
 		
 		if(xqueryMediator.getTarget() != null){
 			
@@ -51,7 +55,8 @@ public class XQueryMediatorDeserializer extends AbstractEsbNodeDeserializer<Abst
 				nsp.setNamespaces(map);
 			}
 			
-			vishualXquery.setTargetXPath(nsp);
+			//vishualXquery.setTargetXPath(nsp);
+			executeSetValueCommand(XQUERY_MEDIATOR__TARGET_XPATH, nsp);
 		}
 		
 		if(xqueryMediator.getQueryKey() != null){
@@ -60,7 +65,8 @@ public class XQueryMediatorDeserializer extends AbstractEsbNodeDeserializer<Abst
 			
 			if(queryKeyValue.getKeyValue() != null){
 				
-				vishualXquery.setScriptKeyType(KeyType.STATIC);
+				//vishualXquery.setScriptKeyType(KeyType.STATIC);
+				executeSetValueCommand(XQUERY_MEDIATOR__SCRIPT_KEY_TYPE, KeyType.STATIC);
 				
 				RegistryKeyProperty regkey = EsbFactory.eINSTANCE.createRegistryKeyProperty();
 				
@@ -68,7 +74,8 @@ public class XQueryMediatorDeserializer extends AbstractEsbNodeDeserializer<Abst
 			}
 			else if(queryKeyValue.getExpression() != null){
 				
-				vishualXquery.setScriptKeyType(KeyType.DYNAMIC);
+				//vishualXquery.setScriptKeyType(KeyType.DYNAMIC);
+				executeSetValueCommand(XQUERY_MEDIATOR__SCRIPT_KEY_TYPE, KeyType.DYNAMIC);
 				
 				SynapseXPath xpath  = queryKeyValue.getExpression();
 				
@@ -84,7 +91,8 @@ public class XQueryMediatorDeserializer extends AbstractEsbNodeDeserializer<Abst
 					nsp.setNamespaces(map);
 				}
 				
-				vishualXquery.setDynamicScriptKey(nsp);
+				//vishualXquery.setDynamicScriptKey(nsp);
+				executeSetValueCommand(XQUERY_MEDIATOR__DYNAMIC_SCRIPT_KEY, nsp);
 			}
 		}
 		
@@ -241,7 +249,7 @@ public class XQueryMediatorDeserializer extends AbstractEsbNodeDeserializer<Abst
 			}
 		}
 
-	    return vishualXquery;
+	    return VisualXqueryMediator;
     }
 
 }

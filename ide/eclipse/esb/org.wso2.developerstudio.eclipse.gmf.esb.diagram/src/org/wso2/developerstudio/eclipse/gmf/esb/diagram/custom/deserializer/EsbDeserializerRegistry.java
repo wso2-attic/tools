@@ -73,22 +73,22 @@ public class EsbDeserializerRegistry {
 	private EsbDeserializerRegistry(){
 		deserializersMap = new HashMap<Class<?>, IEsbNodeDeserializer>();
 		addDeserializer(LogMediator.class,new LogMediatorDeserializer());
-	//	addDeserializer(PropertyMediator.class,new PropertyMediatorDeserializer());
+		addDeserializer(PropertyMediator.class,new PropertyMediatorDeserializer());
 		addDeserializer(ProxyService.class, new ProxyServiceDeserializer());
-		/*addDeserializer(SendMediator.class, new SendMediatorDeserializer());
-		addDeserializer(CloneMediator.class, new CloneMediatorDeserializer());
+		addDeserializer(SendMediator.class, new SendMediatorDeserializer());
+		/*addDeserializer(CloneMediator.class, new CloneMediatorDeserializer());
 		addDeserializer(DropMediator.class, new DropMediatorDeserializer());
 		addDeserializer(EnrichMediator.class, new EnrichMediatorDeserializer());
 		addDeserializer(EventMediator.class, new EventMediatorDeserializer());
-		addDeserializer(EnqueueMediator.class, new EnqueueMediatorDeserializer());
+		addDeserializer(EnqueueMediator.class, new EnqueueMediatorDeserializer());*/
 		addDeserializer(ValidateMediator.class, new ValidateMediatorDeserializer());
-		addDeserializer(AggregateMediator.class, new AggregateMediatorDeserializer());
-		addDeserializer(FilterMediator.class,new FilterMediatorDeserializer());
+		//addDeserializer(AggregateMediator.class, new AggregateMediatorDeserializer());
+		//addDeserializer(FilterMediator.class,new FilterMediatorDeserializer());
 		addDeserializer(SwitchMediator.class, new SwitchMediatorDeserializer());
-		addDeserializer(SequenceMediator.class, new SequenceDeserializer());
-		addDeserializer(API.class, new APIDeserializer());
+		//addDeserializer(SequenceMediator.class, new SequenceDeserializer());
+		//addDeserializer(API.class, new APIDeserializer());
 		addDeserializer(XSLTMediator.class, new XSLTMediatorDeserializer());
-		addDeserializer(XQueryMediator.class, new XQueryMediatorDeserializer());*/
+		addDeserializer(XQueryMediator.class, new XQueryMediatorDeserializer());
 		
 	}
 	

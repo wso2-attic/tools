@@ -30,6 +30,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.ReceivingSequenceType;
 import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.SendMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.*;
 
 public class SendMediatorDeserializer extends AbstractEsbNodeDeserializer<AbstractMediator, SendMediator> {
 
@@ -39,7 +41,10 @@ public class SendMediatorDeserializer extends AbstractEsbNodeDeserializer<Abstra
 		
 		org.apache.synapse.mediators.builtin.SendMediator sendMediator = (org.apache.synapse.mediators.builtin.SendMediator)mediator;
 		
-		SendMediator vishualSend  = EsbFactory.eINSTANCE.createSendMediator();
+		org.wso2.developerstudio.eclipse.gmf.esb.SendMediator VisualSendMediator = (org.wso2.developerstudio.eclipse.gmf.esb.SendMediator) DeserializerUtils.createNode(part, EsbElementTypes.SendMediator_3515);
+		setElementToEdit(VisualSendMediator);
+		
+		//SendMediator vishualSend  = EsbFactory.eINSTANCE.createSendMediator();
 		
 		if(sendMediator.getReceivingSequence() != null){
 			
@@ -48,19 +53,22 @@ public class SendMediatorDeserializer extends AbstractEsbNodeDeserializer<Abstra
 			//For Static sequence type.
 			if(receivingSequenceValue.getKeyValue() != null){
 				
-				vishualSend.setReceivingSequenceType(ReceivingSequenceType.STATIC);
+				//vishualSend.setReceivingSequenceType(ReceivingSequenceType.STATIC);
+				executeSetValueCommand(SEND_MEDIATOR__RECEIVING_SEQUENCE_TYPE, ReceivingSequenceType.STATIC);
 				
 				RegistryKeyProperty regkey = EsbFactory.eINSTANCE.createRegistryKeyProperty();
 				regkey.setKeyValue(receivingSequenceValue.getKeyValue());
 				
-				vishualSend.setStaticReceivingSequence(regkey);
+				//vishualSend.setStaticReceivingSequence(regkey);
+				executeSetValueCommand(SEND_MEDIATOR__STATIC_RECEIVING_SEQUENCE, regkey);
 				
 			}
 			
 			//For Dynamic sequence type.
 			if(receivingSequenceValue.getExpression() != null){
 				
-				vishualSend.setReceivingSequenceType(ReceivingSequenceType.DYNAMIC);
+				//vishualSend.setReceivingSequenceType(ReceivingSequenceType.DYNAMIC);
+				executeSetValueCommand(SEND_MEDIATOR__RECEIVING_SEQUENCE_TYPE,ReceivingSequenceType.DYNAMIC);
 				
 				SynapseXPath xpath  = receivingSequenceValue.getExpression();
 				
@@ -76,8 +84,8 @@ public class SendMediatorDeserializer extends AbstractEsbNodeDeserializer<Abstra
 					nsp.setNamespaces(map);
 				}
 					
-				vishualSend.setDynamicReceivingSequence(nsp);
-				
+				//vishualSend.setDynamicReceivingSequence(nsp);
+				executeSetValueCommand(SEND_MEDIATOR__DYNAMIC_RECEIVING_SEQUENCE,nsp);
 			}
 		}
 		
@@ -88,7 +96,7 @@ public class SendMediatorDeserializer extends AbstractEsbNodeDeserializer<Abstra
 			//TODO: deserialize end points
 		}
 			
-		return vishualSend;
+		return VisualSendMediator;
 	}
 	
 }

@@ -25,6 +25,9 @@ import org.apache.synapse.mediators.Value;
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.apache.synapse.util.xpath.SynapseXPath;
 import org.eclipse.core.runtime.Assert;
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.KeyType;
@@ -33,6 +36,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.ValidateFeature;
 import org.wso2.developerstudio.eclipse.gmf.esb.ValidateMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.ValidateSchema;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.*;
 
 public class ValidateMediatorDeserializer extends AbstractEsbNodeDeserializer<AbstractMediator, ValidateMediator>{
 
@@ -43,7 +48,12 @@ public class ValidateMediatorDeserializer extends AbstractEsbNodeDeserializer<Ab
 		
 		org.apache.synapse.mediators.builtin.ValidateMediator validateMediator = (org.apache.synapse.mediators.builtin.ValidateMediator)mediator;
 		
-		ValidateMediator vishualValidator = EsbFactory.eINSTANCE.createValidateMediator();
+		org.wso2.developerstudio.eclipse.gmf.esb.ValidateMediator VisualValidateMediator = (org.wso2.developerstudio.eclipse.gmf.esb.ValidateMediator) DeserializerUtils.createNode(part, EsbElementTypes.ValidateMediator_3623);
+		setElementToEdit(VisualValidateMediator);
+		//ValidateMediator vishualValidator = EsbFactory.eINSTANCE.createValidateMediator();
+		
+		refreshEditPartMap();
+		EditPart mediatorFlow=getEditpart(VisualValidateMediator.getMediatorFlow());
 		
 		if(validateMediator.getSource() != null){
 			
@@ -61,12 +71,13 @@ public class ValidateMediatorDeserializer extends AbstractEsbNodeDeserializer<Ab
 				nsp.setNamespaces(map);
 			}
 			
-			vishualValidator.setSourceXpath(nsp);
+			//vishualValidator.setSourceXpath(nsp);
+			executeSetValueCommand(VALIDATE_MEDIATOR__SOURCE_XPATH, nsp);
 		}
 		
 		if(validateMediator.getSchemaKeys() != null && !validateMediator.getSchemaKeys().isEmpty()){
 			
-			List<ValidateSchema> validateSchemaList = new ArrayList<ValidateSchema>();
+			EList<ValidateSchema> validateSchemaList = new BasicEList<ValidateSchema>();
 			
 			for(Value schema : validateMediator.getSchemaKeys()){
 				
@@ -106,10 +117,11 @@ public class ValidateMediatorDeserializer extends AbstractEsbNodeDeserializer<Ab
 				validateSchemaList.add(validateSchema);
 			}
 			
-			vishualValidator.getSchemas().addAll(validateSchemaList);
+			//vishualValidator.getSchemas().addAll(validateSchemaList);
+			executeSetValueCommand(VALIDATE_MEDIATOR__SCHEMAS, validateSchemaList);
 		}
 		
-		List<ValidateFeature> validateFeatureList = new ArrayList<ValidateFeature>();
+		EList<ValidateFeature> validateFeatureList = new BasicEList<ValidateFeature>();
 		
 		for (MediatorProperty featureProperty : validateMediator.getFeatures()){
 			
@@ -128,15 +140,16 @@ public class ValidateMediatorDeserializer extends AbstractEsbNodeDeserializer<Ab
 			validateFeatureList.add(feature);
 		}
 		
-		vishualValidator.getFeatures().addAll(validateFeatureList);
+		//vishualValidator.getFeatures().addAll(validateFeatureList);
+		executeSetValueCommand(VALIDATE_MEDIATOR__FEATURES, validateFeatureList);
 		
 		if(validateMediator.getList().size()>0){
 			SequenceMediator sequence = new SequenceMediator();
 			sequence.addAll(validateMediator.getList());
-			deserializeSequence(null, sequence, vishualValidator.getOnFailOutputConnector());
+			deserializeSequence((IGraphicalEditPart) mediatorFlow.getChildren().get(0), sequence, VisualValidateMediator.getOnFailOutputConnector());
 		}
 		
-		return vishualValidator;
+		return VisualValidateMediator;
 	}
 
 }
