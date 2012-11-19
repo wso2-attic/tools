@@ -86,7 +86,7 @@ public class EsbDeserializerRegistry {
 		//addDeserializer(FilterMediator.class,new FilterMediatorDeserializer());
 		addDeserializer(SwitchMediator.class, new SwitchMediatorDeserializer());
 		//addDeserializer(SequenceMediator.class, new SequenceDeserializer());
-		//addDeserializer(API.class, new APIDeserializer());
+		addDeserializer(API.class, new APIDeserializer());
 		addDeserializer(XSLTMediator.class, new XSLTMediatorDeserializer());
 		addDeserializer(XQueryMediator.class, new XQueryMediatorDeserializer());
 		

@@ -104,7 +104,6 @@ public class ProxyServiceDeserializer extends AbstractEsbNodeDeserializer<ProxyS
 					keyProperty.setKeyValue(outSequenceName);
 					executeSetValueCommand(PROXY_SERVICE__OUT_SEQUENCE_KEY, keyProperty);
 				} else{
-					proxy.setOutSequenceType(SequenceType.NAMED_REFERENCE);
 					executeSetValueCommand(PROXY_SERVICE__OUT_SEQUENCE_TYPE, SequenceType.NAMED_REFERENCE);
 					executeSetValueCommand(PROXY_SERVICE__OUT_SEQUENCE_NAME, outSequenceName);
 				}

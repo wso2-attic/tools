@@ -25,6 +25,7 @@ import org.apache.synapse.rest.Resource;
 import org.apache.synapse.rest.dispatch.DispatcherHelper;
 import org.apache.synapse.rest.dispatch.URITemplateHelper;
 import org.apache.synapse.rest.dispatch.URLMappingHelper;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.APIResource;
 import org.wso2.developerstudio.eclipse.gmf.esb.ApiResourceUrlStyle;
@@ -33,6 +34,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.MediatorFlow;
 import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.SequenceType;
 import org.wso2.developerstudio.eclipse.gmf.esb.SynapseAPI;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.*;
 
 /**
  * Synapse API deserializer
@@ -41,50 +44,55 @@ public class APIDeserializer extends AbstractEsbNodeDeserializer<API, SynapseAPI
 
 	@Override
 	public SynapseAPI createNode(IGraphicalEditPart part,API api) {
-		SynapseAPI synapseAPI = EsbFactory.eINSTANCE.createSynapseAPI();
-		synapseAPI.setApiName(api.getAPIName());
-		synapseAPI.setContext(api.getContext());
+		SynapseAPI synapseAPI = (SynapseAPI) DeserializerUtils.createNode(part, EsbElementTypes.SynapseAPI_3668);
+		setElementToEdit(synapseAPI);
+		refreshEditPartMap();
+		
+		executeSetValueCommand(SYNAPSE_API__API_NAME, api.getAPIName());
+		executeSetValueCommand(SYNAPSE_API__CONTEXT, api.getContext());
 		if (api.getHost() != null) {
-			synapseAPI.setHostName(api.getHost());
+			executeSetValueCommand(SYNAPSE_API__HOST_NAME, api.getHost());
 		}
 		if (api.getPort() > 0) {
-			synapseAPI.setPort(api.getPort());
+			executeSetValueCommand(SYNAPSE_API__PORT, api.getPort());
 		}
+		GraphicalEditPart apiCompartment = (GraphicalEditPart) getEditpart(synapseAPI).getChildren().get(0);
 		Resource[] resources = api.getResources();
 		for (int i = 0; i < resources.length; i++) {
 			
-			APIResource resource = EsbFactory.eINSTANCE.createAPIResource();
+			APIResource resource = (APIResource) DeserializerUtils.createNode(apiCompartment, EsbElementTypes.APIResource_3669);
+			
+			refreshEditPartMap();
 			
 			List<String> methodList = Arrays.asList(resources[i].getMethods());
-			resource.setAllowGet(methodList.contains("GET"));
-			resource.setAllowPost(methodList.contains("POST"));
-			resource.setAllowOptions(methodList.contains("OPTIONS"));
-			resource.setAllowDelete(methodList.contains("DELETE"));
-			resource.setAllowPut(methodList.contains("PUT"));
+			executeSetValueCommand(API_RESOURCE__ALLOW_GET, methodList.contains("GET"));
+			executeSetValueCommand(API_RESOURCE__ALLOW_POST, methodList.contains("POST"));
+			executeSetValueCommand(API_RESOURCE__ALLOW_OPTIONS, methodList.contains("OPTIONS"));
+			executeSetValueCommand(API_RESOURCE__ALLOW_DELETE, methodList.contains("DELETE"));
+			executeSetValueCommand(API_RESOURCE__ALLOW_PUT, methodList.contains("PUT"));
 			
 			DispatcherHelper dispatcherHelper = resources[i].getDispatcherHelper();
 			if(dispatcherHelper instanceof URITemplateHelper){
 				URITemplateHelper helper = (URITemplateHelper) dispatcherHelper;
-				resource.setUrlStyle(ApiResourceUrlStyle.URI_TEMPLATE);
-				resource.setUriTemplate(helper.getUriTemplate().toString());
+				executeSetValueCommand(API_RESOURCE__URL_STYLE, ApiResourceUrlStyle.URI_TEMPLATE);
+				executeSetValueCommand(API_RESOURCE__URI_TEMPLATE, helper.getUriTemplate().toString());
 			} else if(dispatcherHelper instanceof URLMappingHelper){
 				URLMappingHelper helper = (URLMappingHelper) dispatcherHelper; 
-				resource.setUrlStyle(ApiResourceUrlStyle.URL_MAPPING);
-				resource.setUrlMapping(helper.getString());
+				executeSetValueCommand(API_RESOURCE__URL_STYLE,ApiResourceUrlStyle.URL_MAPPING);
+				executeSetValueCommand(API_RESOURCE__URL_MAPPING, helper.toString());
 			} else{
-				resource.setUrlStyle(ApiResourceUrlStyle.NONE);
+				executeSetValueCommand(API_RESOURCE__URL_STYLE,ApiResourceUrlStyle.NONE);
 			}
 			
 			setRootInputConnector(resource.getInputConnector());
 			MediatorFlow mediatorFlow = resource.getContainer().getSequenceAndEndpointContainer().getMediatorFlow();
-			setRootMediatorFlow(mediatorFlow);
+			GraphicalEditPart compartment = (GraphicalEditPart)((getEditpart(mediatorFlow)).getChildren().get(0));
 			
 			SequenceMediator inSequence = resources[i].getInSequence();
 			if(inSequence!=null){	
-				setRootMediatorFlow(mediatorFlow);
-				deserializeSequence(null, inSequence, resource.getOutputConnector());
-				resource.setInSequenceType(SequenceType.ANONYMOUS);
-				setRootMediatorFlow(null);
+				setRootCompartment(compartment);
+				deserializeSequence(compartment, inSequence, resource.getOutputConnector());
+				setRootCompartment(null);
 			} else{
 				String inSequenceName = resources[i].getInSequenceKey();
 				if(inSequenceName!=null){
@@ -92,20 +100,19 @@ public class APIDeserializer extends AbstractEsbNodeDeserializer<API, SynapseAPI
 						resource.setInSequenceType(SequenceType.REGISTRY_REFERENCE);
 						RegistryKeyProperty keyProperty = EsbFactory.eINSTANCE.createRegistryKeyProperty();
 						keyProperty.setKeyValue(inSequenceName);
-						resource.setInSequenceKey(keyProperty);
+						executeSetValueCommand(API_RESOURCE__IN_SEQUENCE_KEY, keyProperty);
 					} else{
-						resource.setInSequenceType(SequenceType.NAMED_REFERENCE);
-						resource.setInSequenceName(inSequenceName);
+						executeSetValueCommand(API_RESOURCE__IN_SEQUENCE_TYPE, SequenceType.NAMED_REFERENCE);
+						executeSetValueCommand(API_RESOURCE__IN_SEQUENCE_NAME, inSequenceName);
 					}
 				}
 			}
 			
 			SequenceMediator outSequence = resources[i].getOutSequence();
 			if(outSequence!=null){
-				setRootMediatorFlow(mediatorFlow);
-				deserializeSequence(null, outSequence, resource.getInputConnector());
-				resource.setOutSequenceType(SequenceType.ANONYMOUS);
-				setRootMediatorFlow(null);
+				setRootCompartment(compartment);
+				deserializeSequence(compartment, outSequence, resource.getInputConnector());
+				setRootCompartment(null);
 			} else{
 				String outSequenceName = resources[i].getOutSequenceKey();
 				if(outSequenceName!=null){
@@ -113,21 +120,21 @@ public class APIDeserializer extends AbstractEsbNodeDeserializer<API, SynapseAPI
 						resource.setOutSequenceType(SequenceType.REGISTRY_REFERENCE);
 						RegistryKeyProperty keyProperty = EsbFactory.eINSTANCE.createRegistryKeyProperty();
 						keyProperty.setKeyValue(outSequenceName);
-						resource.setOutSequenceKey(keyProperty);
+						executeSetValueCommand(API_RESOURCE__OUT_SEQUENCE_KEY, keyProperty);
 					} else{
-						resource.setOutSequenceType(SequenceType.NAMED_REFERENCE);
-						resource.setOutSequenceName(outSequenceName);
+						executeSetValueCommand(API_RESOURCE__OUT_SEQUENCE_TYPE, SequenceType.NAMED_REFERENCE);
+						executeSetValueCommand(API_RESOURCE__OUT_SEQUENCE_NAME, outSequenceName);
 					}
 				}
 			}
 			
 			SequenceMediator faultSequence = resources[i].getFaultSequence();
 			if(faultSequence!=null){
-				MediatorFlow faultmediatorFlow = resource.getContainer().getFaultContainer().getMediatorFlow();
-				setRootMediatorFlow(faultmediatorFlow);
-				deserializeSequence(null, faultSequence, resource.getFaultInputConnector());
-				resource.setFaultSequenceType(SequenceType.ANONYMOUS);
-				setRootMediatorFlow(null);
+				MediatorFlow faultMediatorFlow = resource.getContainer().getFaultContainer().getMediatorFlow();
+				GraphicalEditPart faultCompartment = (GraphicalEditPart)((getEditpart(faultMediatorFlow)).getChildren().get(0));
+				setRootCompartment(faultCompartment);
+				deserializeSequence(faultCompartment, faultSequence, resource.getFaultInputConnector());
+				setRootCompartment(null);
 			} else{
 				String faultSequenceName = resources[i].getFaultSequenceKey();
 				if(faultSequenceName!=null){
@@ -135,17 +142,16 @@ public class APIDeserializer extends AbstractEsbNodeDeserializer<API, SynapseAPI
 						resource.setFaultSequenceType(SequenceType.REGISTRY_REFERENCE);
 						RegistryKeyProperty keyProperty = EsbFactory.eINSTANCE.createRegistryKeyProperty();
 						keyProperty.setKeyValue(faultSequenceName);
-						resource.setFaultSequenceKey(keyProperty);
+						executeSetValueCommand(API_RESOURCE__FAULT_SEQUENCE_KEY, keyProperty);
 					} else{
-						resource.setFaultSequenceType(SequenceType.NAMED_REFERENCE);
-						resource.setFaultSequenceName(faultSequenceName);
+						executeSetValueCommand(API_RESOURCE__FAULT_SEQUENCE_TYPE, SequenceType.NAMED_REFERENCE);
+						executeSetValueCommand(API_RESOURCE__FAULT_SEQUENCE_NAME, faultSequenceName);
 					}
 				}
 			}
 			
 			addPairMediatorFlow(resource.getOutputConnector(),resource.getInputConnector());
 
-			synapseAPI.getResources().add(resource);
 		}
 		
 		return synapseAPI;
