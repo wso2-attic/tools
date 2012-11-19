@@ -25,6 +25,7 @@ import org.apache.synapse.rest.Resource;
 import org.apache.synapse.rest.dispatch.DispatcherHelper;
 import org.apache.synapse.rest.dispatch.URITemplateHelper;
 import org.apache.synapse.rest.dispatch.URLMappingHelper;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.APIResource;
 import org.wso2.developerstudio.eclipse.gmf.esb.ApiResourceUrlStyle;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
@@ -39,7 +40,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.SynapseAPI;
 public class APIDeserializer extends AbstractEsbNodeDeserializer<API, SynapseAPI> {
 
 	@Override
-	public SynapseAPI createNode(API api) {
+	public SynapseAPI createNode(IGraphicalEditPart part,API api) {
 		SynapseAPI synapseAPI = EsbFactory.eINSTANCE.createSynapseAPI();
 		synapseAPI.setApiName(api.getAPIName());
 		synapseAPI.setContext(api.getContext());
@@ -81,7 +82,7 @@ public class APIDeserializer extends AbstractEsbNodeDeserializer<API, SynapseAPI
 			SequenceMediator inSequence = resources[i].getInSequence();
 			if(inSequence!=null){	
 				setRootMediatorFlow(mediatorFlow);
-				deserializeSequence(mediatorFlow, inSequence, resource.getOutputConnector());
+				deserializeSequence(null, inSequence, resource.getOutputConnector());
 				resource.setInSequenceType(SequenceType.ANONYMOUS);
 				setRootMediatorFlow(null);
 			} else{
@@ -102,7 +103,7 @@ public class APIDeserializer extends AbstractEsbNodeDeserializer<API, SynapseAPI
 			SequenceMediator outSequence = resources[i].getOutSequence();
 			if(outSequence!=null){
 				setRootMediatorFlow(mediatorFlow);
-				deserializeSequence(mediatorFlow, outSequence, resource.getInputConnector());
+				deserializeSequence(null, outSequence, resource.getInputConnector());
 				resource.setOutSequenceType(SequenceType.ANONYMOUS);
 				setRootMediatorFlow(null);
 			} else{
@@ -124,7 +125,7 @@ public class APIDeserializer extends AbstractEsbNodeDeserializer<API, SynapseAPI
 			if(faultSequence!=null){
 				MediatorFlow faultmediatorFlow = resource.getContainer().getFaultContainer().getMediatorFlow();
 				setRootMediatorFlow(faultmediatorFlow);
-				deserializeSequence(faultmediatorFlow, faultSequence, resource.getFaultInputConnector());
+				deserializeSequence(null, faultSequence, resource.getFaultInputConnector());
 				resource.setFaultSequenceType(SequenceType.ANONYMOUS);
 				setRootMediatorFlow(null);
 			} else{

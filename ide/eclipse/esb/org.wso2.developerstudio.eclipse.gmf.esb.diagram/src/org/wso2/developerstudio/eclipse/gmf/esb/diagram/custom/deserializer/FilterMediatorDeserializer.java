@@ -22,6 +22,7 @@ import org.apache.synapse.mediators.AbstractMediator;
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.apache.synapse.util.xpath.SynapseXPath;
 import org.eclipse.core.runtime.Assert;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.FilterConditionType;
 import org.wso2.developerstudio.eclipse.gmf.esb.FilterMediator;
@@ -31,7 +32,7 @@ public class FilterMediatorDeserializer extends
 		AbstractEsbNodeDeserializer<AbstractMediator, FilterMediator> {
 
 	@Override
-	public FilterMediator createNode(AbstractMediator mediator) {
+	public FilterMediator createNode(IGraphicalEditPart part,AbstractMediator mediator) {
 
 		Assert.isTrue(
 				mediator instanceof org.apache.synapse.mediators.filters.FilterMediator,
@@ -101,8 +102,7 @@ public class FilterMediatorDeserializer extends
 			/* deserialize <if> flow */
 			SequenceMediator sequence = new SequenceMediator();
 			sequence.addAll(filterMediator.getList());
-			deserializeSequence(vishualFilter.getFilterContainer()
-					.getPassContainer().getMediatorFlow(), sequence,
+			deserializeSequence(null, sequence,
 					vishualFilter.getPassOutputConnector());
 		}
 
@@ -110,8 +110,7 @@ public class FilterMediatorDeserializer extends
 			/* deserialize <else> flow */
 			SequenceMediator sequence = new SequenceMediator();
 			sequence.addAll(filterMediator.getElseMediator().getList());
-			deserializeSequence(vishualFilter.getFilterContainer()
-					.getFailContainer().getMediatorFlow(), sequence,
+			deserializeSequence(null, sequence,
 					vishualFilter.getFailOutputConnector());
 		}
 

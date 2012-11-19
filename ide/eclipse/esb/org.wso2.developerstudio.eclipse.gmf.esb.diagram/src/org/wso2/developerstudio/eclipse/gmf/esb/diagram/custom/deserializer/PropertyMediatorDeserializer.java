@@ -23,6 +23,7 @@ import org.apache.synapse.config.xml.XMLConfigConstants;
 import org.apache.synapse.mediators.AbstractMediator;
 import org.apache.synapse.util.xpath.SynapseXPath;
 import org.eclipse.core.runtime.Assert;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.PropertyAction;
@@ -33,7 +34,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.PropertyScope;
 public class PropertyMediatorDeserializer extends
 		AbstractEsbNodeDeserializer<AbstractMediator, PropertyMediator> {
 
-	public PropertyMediator createNode(AbstractMediator mediator) {
+	public PropertyMediator createNode(IGraphicalEditPart part,AbstractMediator mediator) {
 
 		Assert.isTrue(
 				mediator instanceof org.apache.synapse.mediators.builtin.PropertyMediator,"Unsupported mediator passed in for deserialization at "

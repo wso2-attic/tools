@@ -24,6 +24,7 @@ import org.apache.synapse.mediators.elementary.Target;
 import org.apache.synapse.util.xpath.SynapseXPath;
 
 import org.eclipse.core.runtime.Assert;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.EnrichMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.EnrichSourceType;
 import org.wso2.developerstudio.eclipse.gmf.esb.EnrichTargetAction;
@@ -33,7 +34,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 
 public class EnrichMediatorDeserializer extends AbstractEsbNodeDeserializer<AbstractMediator, EnrichMediator> {
 	
-	public EnrichMediator createNode(AbstractMediator mediator) {
+	public EnrichMediator createNode(IGraphicalEditPart part,AbstractMediator mediator) {
 		
 		Assert.isTrue(mediator instanceof org.apache.synapse.mediators.elementary.EnrichMediator, "Unsupported mediator passed in for deserialization at "+ this.getClass());
 		

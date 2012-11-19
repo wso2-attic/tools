@@ -25,6 +25,7 @@ import org.apache.synapse.mediators.Value;
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.apache.synapse.util.xpath.SynapseXPath;
 import org.eclipse.core.runtime.Assert;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.KeyType;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
@@ -36,7 +37,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.ValidateSchema;
 public class ValidateMediatorDeserializer extends AbstractEsbNodeDeserializer<AbstractMediator, ValidateMediator>{
 
 
-	public ValidateMediator createNode(AbstractMediator mediator) {
+	public ValidateMediator createNode(IGraphicalEditPart part,AbstractMediator mediator) {
 		
 		Assert.isTrue(mediator instanceof org.apache.synapse.mediators.builtin.ValidateMediator,"Unsupported mediator passed in for deserialization at "+ this.getClass());
 		
@@ -132,7 +133,7 @@ public class ValidateMediatorDeserializer extends AbstractEsbNodeDeserializer<Ab
 		if(validateMediator.getList().size()>0){
 			SequenceMediator sequence = new SequenceMediator();
 			sequence.addAll(validateMediator.getList());
-			deserializeSequence(vishualValidator.getMediatorFlow(), sequence, vishualValidator.getOnFailOutputConnector());
+			deserializeSequence(null, sequence, vishualValidator.getOnFailOutputConnector());
 		}
 		
 		return vishualValidator;

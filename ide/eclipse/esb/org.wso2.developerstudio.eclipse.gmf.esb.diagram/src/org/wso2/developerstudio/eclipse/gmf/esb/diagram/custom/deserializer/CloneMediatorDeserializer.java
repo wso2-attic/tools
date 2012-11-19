@@ -22,6 +22,7 @@ import java.util.List;
 import org.apache.synapse.mediators.AbstractMediator;
 import org.apache.synapse.mediators.eip.Target;
 import org.eclipse.core.runtime.Assert;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.CloneMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.CloneMediatorTargetOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.CloneTarget;
@@ -34,7 +35,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.TargetSequenceType;
 
 public class CloneMediatorDeserializer extends AbstractEsbNodeDeserializer<AbstractMediator, CloneMediator> {
 
-	public CloneMediator createNode(AbstractMediator mediator) {
+	public CloneMediator createNode(IGraphicalEditPart part,AbstractMediator mediator) {
 		
 		Assert.isTrue(mediator instanceof org.apache.synapse.mediators.eip.splitter.CloneMediator, "Unsupported mediator passed in for deserialization at "+ this.getClass());
 		
@@ -72,7 +73,7 @@ public class CloneMediatorDeserializer extends AbstractEsbNodeDeserializer<Abstr
 				vishualClone.getCloneContainer().getCloneTargetContainer().add(cloneTargetContainer);
 				CloneMediatorTargetOutputConnector targetOutputConnector = EsbFactory.eINSTANCE.createCloneMediatorTargetOutputConnector();
 				vishualClone.getTargetsOutputConnector().add(targetOutputConnector);
-				deserializeSequence(cloneTargetContainer.getMediatorFlow(), target.getSequence(), targetOutputConnector);
+				deserializeSequence(null, target.getSequence(), targetOutputConnector);
 				
 				
 			}else if(target.getSequenceRef() != null && !target.getSequenceRef().equals("")){

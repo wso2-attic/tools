@@ -17,13 +17,14 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 
 import org.apache.synapse.mediators.AbstractMediator;
 import org.eclipse.core.runtime.Assert;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.DropMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 
 public class DropMediatorDeserializer extends AbstractEsbNodeDeserializer<AbstractMediator, DropMediator>{
 
 
-	public DropMediator createNode(AbstractMediator mediator) {
+	public DropMediator createNode(IGraphicalEditPart part,AbstractMediator mediator) {
 		
 		Assert.isTrue(mediator instanceof org.apache.synapse.mediators.builtin.DropMediator, "Unsupported mediator passed in for deserialization at "+ this.getClass());
 		

@@ -2,13 +2,14 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 
 import org.apache.synapse.mediators.AbstractMediator;
 import org.eclipse.core.runtime.Assert;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.EnqueueMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
 
 public class EnqueueMediatorDeserializer extends AbstractEsbNodeDeserializer<AbstractMediator,EnqueueMediator> {
 
-	public EnqueueMediator createNode(AbstractMediator mediator) {
+	public EnqueueMediator createNode(IGraphicalEditPart part,AbstractMediator mediator) {
 		
 		Assert.isTrue(mediator instanceof org.apache.synapse.mediators.builtin.EnqueueMediator, "Unsupported mediator passed in for deserialization at "+ this.getClass());
 		

@@ -19,6 +19,7 @@ import org.apache.synapse.config.xml.SwitchCase;
 import org.apache.synapse.mediators.AbstractMediator;
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.eclipse.core.runtime.Assert;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.SwitchCaseBranchOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.SwitchCaseContainer;
@@ -29,7 +30,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediator;
 public class SwitchMediatorDeserializer extends AbstractEsbNodeDeserializer<AbstractMediator, SwitchMediator> {
 
 	@Override
-	public SwitchMediator createNode(AbstractMediator mediator) {
+	public SwitchMediator createNode(IGraphicalEditPart part,AbstractMediator mediator) {
 		
 		Assert.isTrue(mediator instanceof org.apache.synapse.mediators.filters.SwitchMediator, "Unsupported mediator passed in for deserialization at "+ this.getClass());
 		
@@ -66,7 +67,7 @@ public class SwitchMediatorDeserializer extends AbstractEsbNodeDeserializer<Abst
 					
 					SequenceMediator sequence = new SequenceMediator();
 					sequence.addAll(switchCase.getCaseMediator().getList());
-					deserializeSequence(switchContainer.getMediatorFlow(), sequence,swcboc);
+					deserializeSequence(null, sequence,swcboc);
 				}
 				
 				vishualSwitch.getSwitchContainer().getSwitchCaseContainer().add(switchContainer);

@@ -18,6 +18,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.eclipse.core.runtime.Assert;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
@@ -29,7 +30,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.Sequences;
 public class SequenceDeserializer extends AbstractEsbNodeDeserializer<SequenceMediator, EsbNode> {
 
 	@Override
-	public EsbNode createNode(SequenceMediator sequence) {
+	public EsbNode createNode(IGraphicalEditPart part,SequenceMediator sequence) {
 		EsbNode node = null;
 		if(sequence.getKey()!=null){
 			Sequence sequenceModel = EsbFactory.eINSTANCE.createSequence();
@@ -38,8 +39,8 @@ public class SequenceDeserializer extends AbstractEsbNodeDeserializer<SequenceMe
 		} else if(sequence.getName()!=null){
 			Sequences sequenceModel = EsbFactory.eINSTANCE.createSequences();
 			sequenceModel.setName(sequence.getName());
-			deserializeSequence(sequenceModel.getMediatorFlow(), sequence, sequenceModel.getOutputConnector());
-			deserializeSequence(sequenceModel.getMediatorFlow(), new SequenceMediator(), sequenceModel.getInputConnector());
+			deserializeSequence(null, sequence, sequenceModel.getOutputConnector());
+			deserializeSequence(null, new SequenceMediator(), sequenceModel.getInputConnector());
 			addPairMediatorFlow(sequenceModel.getOutputConnector(),sequenceModel.getInputConnector());
 			node = sequenceModel;
 		} else{

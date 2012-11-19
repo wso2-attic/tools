@@ -13,6 +13,7 @@ import org.apache.synapse.mediators.xquery.MediatorCustomVariable;
 import org.apache.synapse.mediators.xquery.MediatorVariable;
 import org.apache.synapse.util.xpath.SynapseXPath;
 import org.eclipse.core.runtime.Assert;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.KeyType;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
@@ -25,7 +26,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.XQueryVariableValueType;
 public class XQueryMediatorDeserializer extends AbstractEsbNodeDeserializer<AbstractMediator, XQueryMediator>{
 
 	@Override
-    public XQueryMediator createNode(AbstractMediator mediator) {
+    public XQueryMediator createNode(IGraphicalEditPart part,AbstractMediator mediator) {
 	   
 		Assert.isTrue(mediator instanceof org.apache.synapse.mediators.xquery.XQueryMediator,
 		              "Unsupported mediator passed in for deserialization at " + this.getClass());

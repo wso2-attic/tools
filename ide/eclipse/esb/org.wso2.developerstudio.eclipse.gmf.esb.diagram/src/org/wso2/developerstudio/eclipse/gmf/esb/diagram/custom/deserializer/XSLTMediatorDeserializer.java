@@ -10,6 +10,7 @@ import org.apache.synapse.mediators.MediatorProperty;
 import org.apache.synapse.mediators.Value;
 import org.apache.synapse.util.xpath.SynapseXPath;
 import org.eclipse.core.runtime.Assert;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.KeyType;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
@@ -23,7 +24,7 @@ public class XSLTMediatorDeserializer extends
                                      AbstractEsbNodeDeserializer<AbstractMediator, XSLTMediator> {
 
 	@Override
-	public XSLTMediator createNode(AbstractMediator mediator) {
+	public XSLTMediator createNode(IGraphicalEditPart part,AbstractMediator mediator) {
 
 		Assert.isTrue(mediator instanceof org.apache.synapse.mediators.transform.XSLTMediator,
 		              "Unsupported mediator passed in for deserialization at " + this.getClass());

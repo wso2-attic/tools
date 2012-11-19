@@ -23,6 +23,7 @@ import org.apache.synapse.mediators.AbstractMediator;
 import org.apache.synapse.mediators.Value;
 import org.apache.synapse.util.xpath.SynapseXPath;
 import org.eclipse.core.runtime.Assert;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.AggregateSequenceType;
 import org.wso2.developerstudio.eclipse.gmf.esb.CompletionMessagesType;
@@ -33,7 +34,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
 public class AggregateMediatorDeserializer extends AbstractEsbNodeDeserializer<AbstractMediator, AggregateMediator> {
 	
 	@Override
-	public AggregateMediator createNode(AbstractMediator mediator) {
+	public AggregateMediator createNode(IGraphicalEditPart part,AbstractMediator mediator) {
 		
 		Assert.isTrue(mediator instanceof org.apache.synapse.mediators.eip.aggregator.AggregateMediator, "Invalid Mediator.");
 		
@@ -170,7 +171,7 @@ public class AggregateMediatorDeserializer extends AbstractEsbNodeDeserializer<A
 			
 			vishualAggrigate.setSequenceType(AggregateSequenceType.ANONYMOUS);
 			
-			deserializeSequence(vishualAggrigate.getMediatorFlow(),
+			deserializeSequence(null,
 					aggregateMediator.getOnCompleteSequence(),
 					vishualAggrigate.getOnCompleteOutputConnector());
 			
