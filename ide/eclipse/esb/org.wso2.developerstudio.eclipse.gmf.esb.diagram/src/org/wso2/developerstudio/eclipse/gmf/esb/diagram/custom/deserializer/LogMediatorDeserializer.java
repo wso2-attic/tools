@@ -20,6 +20,7 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.synapse.mediators.AbstractMediator;
 import org.apache.synapse.mediators.MediatorProperty;
 import org.eclipse.core.runtime.Assert;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.LogCategory;
 import org.wso2.developerstudio.eclipse.gmf.esb.LogLevel;
@@ -27,41 +28,42 @@ import org.wso2.developerstudio.eclipse.gmf.esb.LogMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.LogProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.PropertyValueType;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 
 public class LogMediatorDeserializer extends AbstractEsbNodeDeserializer<AbstractMediator,LogMediator> {
 
 	
-	public LogMediator createNode(AbstractMediator mediator) {
+	public LogMediator createNode(IGraphicalEditPart part, AbstractMediator mediator) {
 		
 		Assert.isTrue(mediator instanceof org.apache.synapse.mediators.builtin.LogMediator, "Unsupported mediator passed in for deserialization at "+ this.getClass());
 		
-		org.apache.synapse.mediators.builtin.LogMediator logMediator = (org.apache.synapse.mediators.builtin.LogMediator)mediator;
+		//Rorg.apache.synapse.mediators.builtin.LogMediator logMediator = (org.apache.synapse.mediators.builtin.LogMediator)mediator;
 		
-		LogMediator vishualLog = EsbFactory.eINSTANCE.createLogMediator();
+		LogMediator visualLog = (LogMediator) DeserializerUtils.createNode(part, EsbElementTypes.LogMediator_3495); //EsbFactory.eINSTANCE.createLogMediator();
 		
-		switch (logMediator.getCategory()) {
+		/*switch (logMediator.getCategory()) {
 		
 		case org.apache.synapse.mediators.builtin.LogMediator.CATEGORY_DEBUG:
-			vishualLog.setLogCategory(LogCategory.DEBUG);
+			visualLog.setLogCategory(LogCategory.DEBUG);
 			break;
 
 		case org.apache.synapse.mediators.builtin.LogMediator.CATEGORY_ERROR:
-			vishualLog.setLogCategory(LogCategory.ERROR);
+			visualLog.setLogCategory(LogCategory.ERROR);
 			break;
 
 		case org.apache.synapse.mediators.builtin.LogMediator.CATEGORY_FATAL:
-			vishualLog.setLogCategory(LogCategory.FATAL);
+			visualLog.setLogCategory(LogCategory.FATAL);
 			break;
 
 		case org.apache.synapse.mediators.builtin.LogMediator.CATEGORY_INFO:
-			vishualLog.setLogCategory(LogCategory.INFO);
+			visualLog.setLogCategory(LogCategory.INFO);
 			break;
 		case org.apache.synapse.mediators.builtin.LogMediator.CATEGORY_TRACE:
-			vishualLog.setLogCategory(LogCategory.TRACE);
+			visualLog.setLogCategory(LogCategory.TRACE);
 			break;
 
 		case org.apache.synapse.mediators.builtin.LogMediator.CATEGORY_WARN:
-			vishualLog.setLogCategory(LogCategory.WARN);
+			visualLog.setLogCategory(LogCategory.WARN);
 			break;
 		}
 		
@@ -69,26 +71,26 @@ public class LogMediatorDeserializer extends AbstractEsbNodeDeserializer<Abstrac
 		switch(logMediator.getLogLevel()){
 		
 		case org.apache.synapse.mediators.builtin.LogMediator.CUSTOM:
-			vishualLog.setLogLevel(LogLevel.CUSTOM);
+			visualLog.setLogLevel(LogLevel.CUSTOM);
 			break;
 			
 		case org.apache.synapse.mediators.builtin.LogMediator.FULL:
-			vishualLog.setLogLevel(LogLevel.FULL);
+			visualLog.setLogLevel(LogLevel.FULL);
 			break;
 		
 		case org.apache.synapse.mediators.builtin.LogMediator.HEADERS:
-			vishualLog.setLogLevel(LogLevel.HEADERS);
+			visualLog.setLogLevel(LogLevel.HEADERS);
 			break;
 		
 		case org.apache.synapse.mediators.builtin.LogMediator.SIMPLE:
-			vishualLog.setLogLevel(LogLevel.SIMPLE);
+			visualLog.setLogLevel(LogLevel.SIMPLE);
 			
 		}
 		
 		
 		if (!StringUtils.isBlank(logMediator.getSeparator())) {
 			
-			vishualLog.setLogSeparator(logMediator.getSeparator());
+			visualLog.setLogSeparator(logMediator.getSeparator());
 		}
 		
 		
@@ -112,12 +114,13 @@ public class LogMediatorDeserializer extends AbstractEsbNodeDeserializer<Abstrac
 				
 			}
 			
-			vishualLog.getProperties().add(logProperty);
-		}
+			visualLog.getProperties().add(logProperty);
+		}*/
 		
 		
-		return vishualLog;
+		return visualLog;
 	}
+
   
 	
 }

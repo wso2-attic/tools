@@ -20,6 +20,18 @@ import java.util.Iterator;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
+import org.eclipse.core.runtime.IAdaptable;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.gmf.runtime.diagram.ui.commands.CreateViewAndOptionallyElementCommand;
+import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
+import org.eclipse.gmf.runtime.diagram.ui.tools.CreationTool;
+import org.eclipse.gmf.runtime.emf.type.core.IElementType;
+import org.eclipse.gmf.runtime.notation.Node;
+import org.wso2.developerstudio.eclipse.gmf.esb.MediatorFlow;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
+
 public class DeserializerUtils {
 
 	public static boolean isInteger(String numberString) {
@@ -52,6 +64,32 @@ public class DeserializerUtils {
 	    StringBuffer buffer = new StringBuffer(iter.next());
 	    while (iter.hasNext()) buffer.append(delimiter).append(iter.next());
 	    return buffer.toString();
+	}
+	
+	public static EObject createNode(IGraphicalEditPart editPart , IElementType elementType) {
+		CreationTool tool = new CreationTool(elementType);
+
+		CreateViewAndElementRequest req = (CreateViewAndElementRequest) 
+		tool.createCreateRequest();	
+		
+		CreateViewAndOptionallyElementCommand createCmd = new 
+		CreateViewAndOptionallyElementCommand(	
+		req.getViewAndElementDescriptor().getElementAdapter(),
+		editPart,
+		null,
+		req.getViewAndElementDescriptor().getPreferencesHint());
+		
+		
+		org.eclipse.gef.commands.CompoundCommand cc = new org.eclipse.gef.commands.CompoundCommand("Create Node");
+
+		
+		cc.add(new ICommandProxy(createCmd));
+		if(cc.canExecute()){
+			editPart.getDiagramEditDomain().getDiagramCommandStack()
+				.execute(cc);
+			return ((Node)((IAdaptable)createCmd.getResult()).getAdapter(EObject.class)).getElement();
+		}
+		return null;
 	}
 
 }

@@ -16,24 +16,47 @@
 
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 
+import java.util.List;
 import java.util.Map;
 
 import org.apache.synapse.core.axis2.ProxyService;
 import org.apache.synapse.mediators.base.SequenceMediator;
+import org.eclipse.emf.edit.command.SetCommand;
+import org.eclipse.emf.transaction.util.TransactionUtil;
+import org.eclipse.gef.EditPart;
+import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
+import org.eclipse.gmf.runtime.emf.type.core.commands.SetValueCommand;
+import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
+import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.MediatorFlow;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceParameter;
 import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.SequenceType;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 
 public class ProxyServiceDeserializer extends AbstractEsbNodeDeserializer<ProxyService,org.wso2.developerstudio.eclipse.gmf.esb.ProxyService> {
 
 	@Override
-	public org.wso2.developerstudio.eclipse.gmf.esb.ProxyService createNode(ProxyService object) {
-		org.wso2.developerstudio.eclipse.gmf.esb.ProxyService proxy = EsbFactory.eINSTANCE.createProxyService();
-		proxy.setName(object.getName());
+	public org.wso2.developerstudio.eclipse.gmf.esb.ProxyService createNode(IGraphicalEditPart editPart,ProxyService object) {
+		org.wso2.developerstudio.eclipse.gmf.esb.ProxyService proxy = (org.wso2.developerstudio.eclipse.gmf.esb.ProxyService) DeserializerUtils.createNode(editPart, EsbElementTypes.ProxyService_3001);
+		//proxy.setName(object.getName());
+		//SetCommand setCmd =null;
 		
-		if(object.getTransports().size()>0){
+		SetRequest reqSet = new SetRequest(editPart.getEditingDomain(),
+				proxy, EsbPackage.Literals.PROXY_SERVICE__NAME,
+				object.getName());
+		SetValueCommand operation = new SetValueCommand(reqSet);
+		editPart.getDiagramEditDomain().getDiagramCommandStack().execute(new 
+				ICommandProxy(operation));
+		
+		/*setCmd = new SetCommand(TransactionUtil.getEditingDomain(proxy), proxy, EsbPackage.Literals.PROXY_SERVICE__NAME, object.getName());
+		if(setCmd.canExecute()){
+			setCmd.execute();
+		}*/
+		/*if(object.getTransports().size()>0){
 			proxy.setTransports(DeserializerUtils.join(object.getTransports(), ","));
 		}
 		
@@ -50,19 +73,24 @@ public class ProxyServiceDeserializer extends AbstractEsbNodeDeserializer<ProxyS
 			parameter.setName(entry.getKey());
 			parameter.setValue(entry.getValue().toString());
 			proxy.getServiceParameters().add(parameter);
-		}
+		}*/
 		
-		setRootInputConnector(proxy.getInputConnector());
+	/*	setRootInputConnector(proxy.getInputConnector());*/
 		MediatorFlow mediatorFlow = proxy.getContainer().getSequenceAndEndpointContainer().getMediatorFlow();
-		
+		refreshEditPartMap();
 		SequenceMediator inSequence = object.getTargetInLineInSequence();
 		if(inSequence!=null){	
 			setRootMediatorFlow(mediatorFlow);
-			deserializeSequence(mediatorFlow, inSequence, proxy.getOutputConnector());
-			proxy.setInSequenceType(SequenceType.ANONYMOUS);
+		//	EditPart con = (EditPart)getEditpart(proxy).getChildren().get(4);
+		/*	for (Object object2 : children) {
+				System.out.println("child= " + object2);
+			}*/
+			
+			deserializeSequence((GraphicalEditPart)( (EditPart) ((EditPart)((EditPart)getEditpart(proxy).getChildren().get(4)).getChildren().get(0)).getChildren().get(0)).getChildren().get(0), inSequence, proxy.getOutputConnector());
+			//proxy.setInSequenceType(SequenceType.ANONYMOUS);
 			setRootMediatorFlow(null);
 		} else{
-			String inSequenceName = object.getTargetInSequence();
+			/*String inSequenceName = object.getTargetInSequence();
 			if(inSequenceName!=null){
 				if(inSequenceName.startsWith("/") || inSequenceName.startsWith("conf:") || inSequenceName.startsWith("gov:")){
 					proxy.setInSequenceType(SequenceType.REGISTRY_REFERENCE);
@@ -73,10 +101,10 @@ public class ProxyServiceDeserializer extends AbstractEsbNodeDeserializer<ProxyS
 					proxy.setInSequenceType(SequenceType.NAMED_REFERENCE);
 					proxy.setInSequenceName(inSequenceName);
 				}
-			}
+			}*/
 		}
 		
-		SequenceMediator outSequence = object.getTargetInLineOutSequence();
+		/*SequenceMediator outSequence = object.getTargetInLineOutSequence();
 		if(outSequence!=null){
 			setRootMediatorFlow(mediatorFlow);
 			deserializeSequence(mediatorFlow, outSequence, proxy.getInputConnector());
@@ -95,9 +123,9 @@ public class ProxyServiceDeserializer extends AbstractEsbNodeDeserializer<ProxyS
 					proxy.setOutSequenceName(outSequenceName);
 				}
 			}
-		}
+		}*/
 		
-		SequenceMediator faultSequence = object.getTargetInLineFaultSequence();
+	/*	SequenceMediator faultSequence = object.getTargetInLineFaultSequence();
 		if(faultSequence!=null){
 			MediatorFlow faultmediatorFlow = proxy.getContainer().getFaultContainer().getMediatorFlow();
 			setRootMediatorFlow(faultmediatorFlow);
@@ -117,9 +145,9 @@ public class ProxyServiceDeserializer extends AbstractEsbNodeDeserializer<ProxyS
 					proxy.setFaultSequenceName(faultSequenceName);
 				}
 			}
-		}
+		}*/
 		
-		addPairMediatorFlow(proxy.getOutputConnector(),proxy.getInputConnector());
+		//addPairMediatorFlow(proxy.getOutputConnector(),proxy.getInputConnector());
 		
 		//TODO : deserialize other  properties
 		

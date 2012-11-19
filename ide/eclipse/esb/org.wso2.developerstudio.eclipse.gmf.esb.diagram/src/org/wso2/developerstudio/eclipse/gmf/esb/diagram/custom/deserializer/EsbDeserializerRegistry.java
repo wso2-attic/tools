@@ -73,9 +73,9 @@ public class EsbDeserializerRegistry {
 	private EsbDeserializerRegistry(){
 		deserializersMap = new HashMap<Class<?>, IEsbNodeDeserializer>();
 		addDeserializer(LogMediator.class,new LogMediatorDeserializer());
-		addDeserializer(PropertyMediator.class,new PropertyMediatorDeserializer());
+	//	addDeserializer(PropertyMediator.class,new PropertyMediatorDeserializer());
 		addDeserializer(ProxyService.class, new ProxyServiceDeserializer());
-		addDeserializer(SendMediator.class, new SendMediatorDeserializer());
+		/*addDeserializer(SendMediator.class, new SendMediatorDeserializer());
 		addDeserializer(CloneMediator.class, new CloneMediatorDeserializer());
 		addDeserializer(DropMediator.class, new DropMediatorDeserializer());
 		addDeserializer(EnrichMediator.class, new EnrichMediatorDeserializer());
@@ -88,7 +88,7 @@ public class EsbDeserializerRegistry {
 		addDeserializer(SequenceMediator.class, new SequenceDeserializer());
 		addDeserializer(API.class, new APIDeserializer());
 		addDeserializer(XSLTMediator.class, new XSLTMediatorDeserializer());
-		addDeserializer(XQueryMediator.class, new XQueryMediatorDeserializer());
+		addDeserializer(XQueryMediator.class, new XQueryMediatorDeserializer());*/
 		
 	}
 	

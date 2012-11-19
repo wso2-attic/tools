@@ -33,21 +33,21 @@ import org.apache.synapse.mediators.base.SequenceMediator;
 import org.apache.synapse.mediators.template.TemplateMediator;
 import org.apache.synapse.rest.API;
 import org.eclipse.emf.common.command.CompoundCommand;
-import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
+import org.eclipse.gef.EditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Display;
-import org.eclipse.swt.widgets.MessageBox;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbElement;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbServer;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbServerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramEditor;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
@@ -118,18 +118,20 @@ public class Deserializer {
 			domain.getCommandStack().execute(resultCommand);
 		}
 
-		AddCommand addCmd = null;
+	//	AddCommand addCmd = null;
 
 		Map<String, Object> artifacts = getArtifacts(source);
 		for (Map.Entry<String, Object> artifact : artifacts.entrySet()) {
 			@SuppressWarnings("rawtypes")
 			IEsbNodeDeserializer deserializer = EsbDeserializerRegistry.getInstance()
 					.getDeserializer(artifact.getValue());
-
+			AbstractEsbNodeDeserializer.refreshEditPartMap();
+			EditPart editpart = AbstractEsbNodeDeserializer.getEditpart(esbServer);
+			Object object = ((EsbServerEditPart)editpart).getChildren().get(0);
 			if (deserializer != null) {
-				EsbNode node = deserializer.createNode(artifact.getValue());
+				EsbNode node = deserializer.createNode((IGraphicalEditPart)object,artifact.getValue());
 				if (node!=null) {
-					addCmd = new AddCommand(domain, esbServer,
+				/*	addCmd = new AddCommand(domain, esbServer,
 							EsbPackage.Literals.ESB_SERVER__CHILDREN, node);
 					if (addCmd.canExecute()) {
 						domain.getCommandStack().execute(addCmd);
@@ -142,7 +144,7 @@ public class Deserializer {
 								new org.eclipse.draw2d.geometry.Rectangle(0, 0, -1, -1));
 					} else {
 						log.warn("Cannot execute EMF command : " + addCmd.toString());
-					}
+					}*/
 					
 				} else{
 					log.warn("Ignoring null output from deserializer for " + artifact.getValue().getClass());
