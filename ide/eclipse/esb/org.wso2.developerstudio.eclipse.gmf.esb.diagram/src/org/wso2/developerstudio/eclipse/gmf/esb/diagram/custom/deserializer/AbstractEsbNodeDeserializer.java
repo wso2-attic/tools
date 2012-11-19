@@ -29,6 +29,7 @@ import org.apache.synapse.mediators.AbstractMediator;
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
@@ -40,6 +41,8 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
+import org.eclipse.gmf.runtime.emf.type.core.commands.SetValueCommand;
+import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
@@ -75,7 +78,12 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	private static MediatorFlow rootMediatorFlow;
 	private static EsbConnector rootInputConnector;
+	private EObject elementToEdit;
 	
+	public void setElementToEdit(EObject elementToEdit) {
+		this.elementToEdit = elementToEdit;
+	}
+
 	private static Map<EsbConnector, Rectangle> currentLocation ;
 	
 	public EsbDiagramEditor getDiagramEditor() {
@@ -443,6 +451,26 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 
 	public static EsbConnector getRootInputConnector() {
 		return rootInputConnector;
+	}
+	
+	/*
+	 * If you are going to use this method, you must set "elementToEdit" attribute first.
+	 */
+	protected boolean executeSetValueCommand(EStructuralFeature feature, Object value){
+		return executeSetValueCommand(elementToEdit,feature,value);
+	}
+		
+	protected boolean executeSetValueCommand(EObject elementToEdit,
+			EStructuralFeature feature, Object value) {
+		SetRequest reqSet = new SetRequest(diagramEditor.getEditingDomain(),
+				elementToEdit, feature, value);
+		SetValueCommand operation = new SetValueCommand(reqSet);
+		if (operation.canExecute()) {
+			diagramEditor.getDiagramEditDomain().getDiagramCommandStack()
+					.execute(new ICommandProxy(operation));
+			return true;
+		}
+		return false;		
 	}
 	
 }
