@@ -56,7 +56,7 @@ public class ProjectRegistryResourceProvider implements IRegistryResourceProvide
 
 	private void retrieveRegistryResources(Map<String, List<String>> filters) throws FactoryConfigurationError {
 		subProviders=new ArrayList<IRegistryResourceProvider>();
-		IFile artifactXMLFile = project.getFile("artifact.xml");
+		IFile artifactXMLFile = project.getFolder("default").getFile("artifact.xml");
 		if (artifactXMLFile.exists()) {
 				try {
 						XMLStreamReader parser = XMLInputFactory.newInstance()

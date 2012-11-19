@@ -36,7 +36,7 @@ public class ResourcesContentProvider implements ITreeContentProvider {
 		List<RegistryElement> content = new ArrayList<RegistryElement>();
 		GeneralProjectArtifact generalProjectArtifact=new GeneralProjectArtifact();
 		   try {
-			    File artifactXml =  getProject().getFile("artifact.xml").getLocation().toFile();
+			    File artifactXml =  getProject().getFolder("default").getFile("artifact.xml").getLocation().toFile();
 			    generalProjectArtifact.fromFile(artifactXml);
 			    List<RegistryArtifact> regArtifact = generalProjectArtifact.getAllArtifacts();
 			    for (RegistryArtifact artifact : regArtifact) {
