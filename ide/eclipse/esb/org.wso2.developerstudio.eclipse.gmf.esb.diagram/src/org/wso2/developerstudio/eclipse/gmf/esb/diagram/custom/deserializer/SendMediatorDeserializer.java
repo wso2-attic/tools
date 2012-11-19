@@ -24,7 +24,7 @@ import org.apache.synapse.mediators.Value;
 import org.apache.synapse.util.xpath.SynapseXPath;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.EndpointFlow;
+import org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.ReceivingSequenceType;
@@ -41,8 +41,8 @@ public class SendMediatorDeserializer extends AbstractEsbNodeDeserializer<Abstra
 		
 		org.apache.synapse.mediators.builtin.SendMediator sendMediator = (org.apache.synapse.mediators.builtin.SendMediator)mediator;
 		
-		org.wso2.developerstudio.eclipse.gmf.esb.SendMediator VisualSendMediator = (org.wso2.developerstudio.eclipse.gmf.esb.SendMediator) DeserializerUtils.createNode(part, EsbElementTypes.SendMediator_3515);
-		setElementToEdit(VisualSendMediator);
+		org.wso2.developerstudio.eclipse.gmf.esb.SendMediator visualSendMediator = (org.wso2.developerstudio.eclipse.gmf.esb.SendMediator) DeserializerUtils.createNode(part, EsbElementTypes.SendMediator_3515);
+		setElementToEdit(visualSendMediator);
 		
 		//SendMediator vishualSend  = EsbFactory.eINSTANCE.createSendMediator();
 		
@@ -91,12 +91,12 @@ public class SendMediatorDeserializer extends AbstractEsbNodeDeserializer<Abstra
 		
 		Endpoint endpoint = sendMediator.getEndpoint();
 		if(endpoint!=null){
-			//EndpointFlow endpointFlow = EsbFactory.eINSTANCE.createEndpointFlow();
-			//vishualSend.setEndpointFlow(endpointFlow);
-			//TODO: deserialize end points
+			AbstractEndPoint endPoint = (AbstractEndPoint) DeserializerUtils.createNode(
+					getRootCompartment(), EsbElementTypes.DefaultEndPoint_3609);
+			visualSendMediator.setNextNode(endPoint);
 		}
 			
-		return VisualSendMediator;
+		return visualSendMediator;
 	}
 	
 }

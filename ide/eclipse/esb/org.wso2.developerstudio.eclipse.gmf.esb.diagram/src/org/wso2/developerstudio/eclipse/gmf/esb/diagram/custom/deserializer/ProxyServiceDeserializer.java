@@ -16,100 +16,85 @@
 
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 
-import java.util.List;
 import java.util.Map;
 
 import org.apache.synapse.core.axis2.ProxyService;
 import org.apache.synapse.mediators.base.SequenceMediator;
-import org.eclipse.emf.edit.command.SetCommand;
-import org.eclipse.emf.transaction.util.TransactionUtil;
-import org.eclipse.gef.EditPart;
-import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
-import org.eclipse.gmf.runtime.emf.type.core.commands.SetValueCommand;
-import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
-import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.MediatorFlow;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceParameter;
 import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.SequenceType;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.*;
 
 public class ProxyServiceDeserializer extends AbstractEsbNodeDeserializer<ProxyService,org.wso2.developerstudio.eclipse.gmf.esb.ProxyService> {
 
 	@Override
 	public org.wso2.developerstudio.eclipse.gmf.esb.ProxyService createNode(IGraphicalEditPart editPart,ProxyService object) {
-		org.wso2.developerstudio.eclipse.gmf.esb.ProxyService proxy = (org.wso2.developerstudio.eclipse.gmf.esb.ProxyService) DeserializerUtils.createNode(editPart, EsbElementTypes.ProxyService_3001);
-		//proxy.setName(object.getName());
-		//SetCommand setCmd =null;
+		org.wso2.developerstudio.eclipse.gmf.esb.ProxyService proxy = (org.wso2.developerstudio.eclipse.gmf.esb.ProxyService) DeserializerUtils
+				.createNode(editPart, EsbElementTypes.ProxyService_3001);
 		
-		SetRequest reqSet = new SetRequest(editPart.getEditingDomain(),
-				proxy, EsbPackage.Literals.PROXY_SERVICE__NAME,
-				object.getName());
-		SetValueCommand operation = new SetValueCommand(reqSet);
-		editPart.getDiagramEditDomain().getDiagramCommandStack().execute(new 
-				ICommandProxy(operation));
+		setElementToEdit(proxy);
+		refreshEditPartMap();
 		
-		/*setCmd = new SetCommand(TransactionUtil.getEditingDomain(proxy), proxy, EsbPackage.Literals.PROXY_SERVICE__NAME, object.getName());
-		if(setCmd.canExecute()){
-			setCmd.execute();
-		}*/
-		/*if(object.getTransports().size()>0){
-			proxy.setTransports(DeserializerUtils.join(object.getTransports(), ","));
+		executeSetValueCommand(PROXY_SERVICE__NAME,object.getName());
+		
+		if(object.getTransports().size()>0){
+			executeSetValueCommand(PROXY_SERVICE__TRANSPORTS,DeserializerUtils.join(object.getTransports(), ","));
 		}
 		
 		if(object.getServiceGroup()!=null){
-			proxy.setServiceGroup(object.getServiceGroup());
+			executeSetValueCommand(PROXY_SERVICE__SERVICE_GROUP,object.getServiceGroup());
 		}
 		
 		if(object.getPinnedServers().size()>0){
-			proxy.setPinnedServers(DeserializerUtils.join(object.getPinnedServers(), ","));
+			executeSetValueCommand(PROXY_SERVICE__PINNED_SERVERS,DeserializerUtils.join(object.getPinnedServers(), ","));
 		}
 		
+		EList<ProxyServiceParameter> parameters = new BasicEList<ProxyServiceParameter>();
 		for (Map.Entry<String, Object> entry : object.getParameterMap().entrySet()) {
 			ProxyServiceParameter parameter = EsbFactory.eINSTANCE.createProxyServiceParameter();
 			parameter.setName(entry.getKey());
 			parameter.setValue(entry.getValue().toString());
-			proxy.getServiceParameters().add(parameter);
-		}*/
+			parameters.add(parameter);
+		}
+		if(parameters.size()>0){
+			executeSetValueCommand(PROXY_SERVICE__SERVICE_PARAMETERS,parameters);
+		}
 		
-	/*	setRootInputConnector(proxy.getInputConnector());*/
+		setRootInputConnector(proxy.getInputConnector());
 		MediatorFlow mediatorFlow = proxy.getContainer().getSequenceAndEndpointContainer().getMediatorFlow();
-		refreshEditPartMap();
 		SequenceMediator inSequence = object.getTargetInLineInSequence();
+		GraphicalEditPart compartment = (GraphicalEditPart)((getEditpart(mediatorFlow)).getChildren().get(0));
 		if(inSequence!=null){	
-			setRootMediatorFlow(mediatorFlow);
-		//	EditPart con = (EditPart)getEditpart(proxy).getChildren().get(4);
-		/*	for (Object object2 : children) {
-				System.out.println("child= " + object2);
-			}*/
-			
-			deserializeSequence((GraphicalEditPart)( (EditPart) ((EditPart)((EditPart)getEditpart(proxy).getChildren().get(4)).getChildren().get(0)).getChildren().get(0)).getChildren().get(0), inSequence, proxy.getOutputConnector());
-			//proxy.setInSequenceType(SequenceType.ANONYMOUS);
-			setRootMediatorFlow(null);
+			setRootCompartment(compartment);	
+			deserializeSequence(compartment, inSequence, proxy.getOutputConnector());
+			setRootCompartment(null);	
 		} else{
-			/*String inSequenceName = object.getTargetInSequence();
+			String inSequenceName = object.getTargetInSequence();
 			if(inSequenceName!=null){
 				if(inSequenceName.startsWith("/") || inSequenceName.startsWith("conf:") || inSequenceName.startsWith("gov:")){
 					proxy.setInSequenceType(SequenceType.REGISTRY_REFERENCE);
 					RegistryKeyProperty keyProperty = EsbFactory.eINSTANCE.createRegistryKeyProperty();
 					keyProperty.setKeyValue(inSequenceName);
-					proxy.setInSequenceKey(keyProperty);
+					executeSetValueCommand(PROXY_SERVICE__IN_SEQUENCE_KEY, keyProperty);
 				} else{
-					proxy.setInSequenceType(SequenceType.NAMED_REFERENCE);
-					proxy.setInSequenceName(inSequenceName);
+					executeSetValueCommand(PROXY_SERVICE__IN_SEQUENCE_TYPE, SequenceType.NAMED_REFERENCE);
+					executeSetValueCommand(PROXY_SERVICE__IN_SEQUENCE_NAME, inSequenceName);
 				}
-			}*/
+			}
 		}
 		
-		/*SequenceMediator outSequence = object.getTargetInLineOutSequence();
+		SequenceMediator outSequence = object.getTargetInLineOutSequence();
 		if(outSequence!=null){
-			setRootMediatorFlow(mediatorFlow);
-			deserializeSequence(mediatorFlow, outSequence, proxy.getInputConnector());
-			proxy.setOutSequenceType(SequenceType.ANONYMOUS);
-			setRootMediatorFlow(null);
+			setRootCompartment(compartment);
+			deserializeSequence(compartment, outSequence, proxy.getInputConnector());
+			setRootCompartment(null);
 		} else{
 			String outSequenceName = object.getTargetOutSequence();
 			if(outSequenceName!=null){
@@ -117,21 +102,22 @@ public class ProxyServiceDeserializer extends AbstractEsbNodeDeserializer<ProxyS
 					proxy.setOutSequenceType(SequenceType.REGISTRY_REFERENCE);
 					RegistryKeyProperty keyProperty = EsbFactory.eINSTANCE.createRegistryKeyProperty();
 					keyProperty.setKeyValue(outSequenceName);
-					proxy.setOutSequenceKey(keyProperty);
+					executeSetValueCommand(PROXY_SERVICE__OUT_SEQUENCE_KEY, keyProperty);
 				} else{
 					proxy.setOutSequenceType(SequenceType.NAMED_REFERENCE);
-					proxy.setOutSequenceName(outSequenceName);
+					executeSetValueCommand(PROXY_SERVICE__OUT_SEQUENCE_TYPE, SequenceType.NAMED_REFERENCE);
+					executeSetValueCommand(PROXY_SERVICE__OUT_SEQUENCE_NAME, outSequenceName);
 				}
 			}
-		}*/
+		}
 		
-	/*	SequenceMediator faultSequence = object.getTargetInLineFaultSequence();
+		SequenceMediator faultSequence = object.getTargetInLineFaultSequence();
 		if(faultSequence!=null){
 			MediatorFlow faultmediatorFlow = proxy.getContainer().getFaultContainer().getMediatorFlow();
-			setRootMediatorFlow(faultmediatorFlow);
-			deserializeSequence(faultmediatorFlow, faultSequence, proxy.getFaultInputConnector());
-			proxy.setFaultSequenceType(SequenceType.ANONYMOUS);
-			setRootMediatorFlow(null);
+			GraphicalEditPart faultCompartment = (GraphicalEditPart)((getEditpart(faultmediatorFlow)).getChildren().get(0));
+			setRootCompartment(compartment);
+			deserializeSequence(faultCompartment, faultSequence, proxy.getFaultInputConnector());
+			setRootCompartment(null);
 		} else{
 			String faultSequenceName = object.getTargetFaultSequence();
 			if(faultSequenceName!=null){
@@ -139,15 +125,15 @@ public class ProxyServiceDeserializer extends AbstractEsbNodeDeserializer<ProxyS
 					proxy.setFaultSequenceType(SequenceType.REGISTRY_REFERENCE);
 					RegistryKeyProperty keyProperty = EsbFactory.eINSTANCE.createRegistryKeyProperty();
 					keyProperty.setKeyValue(faultSequenceName);
-					proxy.setFaultSequenceKey(keyProperty);
+					executeSetValueCommand(PROXY_SERVICE__FAULT_SEQUENCE_KEY, keyProperty);
 				} else{
-					proxy.setFaultSequenceType(SequenceType.NAMED_REFERENCE);
-					proxy.setFaultSequenceName(faultSequenceName);
+					executeSetValueCommand(PROXY_SERVICE__FAULT_SEQUENCE_TYPE, SequenceType.NAMED_REFERENCE);
+					executeSetValueCommand(PROXY_SERVICE__FAULT_SEQUENCE_NAME, faultSequenceName);
 				}
 			}
-		}*/
+		}
 		
-		//addPairMediatorFlow(proxy.getOutputConnector(),proxy.getInputConnector());
+		addPairMediatorFlow(proxy.getOutputConnector(),proxy.getInputConnector());
 		
 		//TODO : deserialize other  properties
 		

@@ -30,7 +30,6 @@ import org.apache.synapse.mediators.base.SequenceMediator;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.gef.EditPart;
@@ -52,10 +51,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
-import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbServer;
 import org.wso2.developerstudio.eclipse.gmf.esb.InputConnector;
-import org.wso2.developerstudio.eclipse.gmf.esb.MediatorFlow;
 import org.wso2.developerstudio.eclipse.gmf.esb.OutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.SendMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
@@ -76,7 +73,7 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 	private static Map<EsbConnector, EsbConnector> pairMediatorFlowMap = new HashMap<EsbConnector, EsbConnector>();
 	private static List<EObject> reversedNodes = new ArrayList<EObject>();
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
-	private static MediatorFlow rootMediatorFlow;
+	private static GraphicalEditPart rootCompartment;
 	private static EsbConnector rootInputConnector;
 	private EObject elementToEdit;
 	
@@ -144,32 +141,17 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 			EsbNode node = deserializer.createNode(part, mediator);
 			if (node!=null) {
 				nodeList.add(node);
-			/*	AddCommand addCmd = new AddCommand(domain, mediatorFlow,
-						EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN, node);
-				if (addCmd.canExecute()) {
-					domain.getCommandStack().execute(addCmd);
-					
-					if (node instanceof SendMediator && !reversed) {
-						if (getRootMediatorFlow() != null) {
-							SendMediator sendMediator = (SendMediator) node;
-							AbstractEndPoint endPoint = sendMediator.getNextNode(); 
-							// Extract the endPoint info from the sendMediator
-							if (endPoint != null) {
-								addCmd = new AddCommand(domain, getRootMediatorFlow(),
-										EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN, endPoint);
-								if (addCmd.canExecute()) {
-									domain.getCommandStack().execute(addCmd);
-									nodeList.add(endPoint);
-								} else {
-									getLog().warn(
-											"Cannot execute EMF command : " + addCmd.toString());
-								}
-							}
+
+				if (node instanceof SendMediator && !reversed) {
+					if (getRootCompartment() != null) {
+						SendMediator sendMediator = (SendMediator) node;
+						AbstractEndPoint endPoint = sendMediator.getNextNode();
+						// Extract the endPoint info from the sendMediator
+						if (endPoint != null) {
+							nodeList.add(endPoint);
 						}
 					}
-				} else {
-					getLog().warn("Cannot execute EMF command : " + addCmd.toString());
-				}*/
+				}
 			}
 
 		}
@@ -183,7 +165,7 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 		for (Map.Entry<EsbConnector, EsbConnector> pair : pairMediatorFlowMap.entrySet()) {
 			LinkedList<EsbNode> inSeq = connectionFlowMap.get(pair.getKey());
 			LinkedList<EsbNode> outSeq = connectionFlowMap.get(pair.getValue());
-			if (inSeq.size() > 0 && inSeq.getLast() instanceof EndPoint/* && outSeq.size() > 0 && outSeq.getLast() != null*/) {
+			if (inSeq.size() > 0 && inSeq.getLast() instanceof EndPoint) {
 				EsbNode last = inSeq.getLast();
 				AbstractConnectorEditPart sourceConnector = EditorUtils
 						.getOutputConnector((ShapeNodeEditPart) getEditpart(last));
@@ -317,19 +299,16 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 	private static void relocateNode(final Rectangle location, EditPart editpart) {
 		
 		GraphicalEditPart gEditpart = (GraphicalEditPart)editpart;
-		GraphicalEditPart parent =((GraphicalEditPart)editpart.getParent());
 		
 		if(editpart instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediator){
-						Rectangle rect = new Rectangle(new Point(), gEditpart.getFigure().getPreferredSize()); // gEditpart.getFigure().getPreferredSize();
+						Rectangle rect = new Rectangle(new Point(), gEditpart.getFigure().getPreferredSize());
 						rect.x = location.x;
 						rect.y = location.y;
-						//parent.setLayoutConstraint(gEditpart, gEditpart.getFigure(), new Rectangle(location.x, location.y, -1, -1));
 						SetBoundsCommand sbc = new SetBoundsCommand( ((org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediator) editpart)
 								.getEditingDomain(), "change location", new EObjectAdapter((View) editpart.getModel()), rect);
 			
 									((org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediator) editpart)
 								.getDiagramEditDomain().getDiagramCommandStack().execute(new ICommandProxy(sbc));
-			//parent.setLayoutConstraint(gEditpart, gEditpart.getFigure(), new Rectangle(location.x, location.y, -1, -1));
 			location.x = location.x + rect.width + 40;
 			location.height = Math.max(location.height, rect.height);
 		}
@@ -437,12 +416,12 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 		return log;
 	}
 
-	public static void setRootMediatorFlow(MediatorFlow rootMediatorFlow) {
-		AbstractEsbNodeDeserializer.rootMediatorFlow = rootMediatorFlow;
+	public static void setRootCompartment(GraphicalEditPart compartment) {
+		AbstractEsbNodeDeserializer.rootCompartment = compartment;
 	}
 
-	public static MediatorFlow getRootMediatorFlow() {
-		return rootMediatorFlow;
+	public static GraphicalEditPart getRootCompartment() {
+		return rootCompartment;
 	}
 
 	public static void setRootInputConnector(EsbConnector rootInputConnector) {
