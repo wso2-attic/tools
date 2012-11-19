@@ -25,8 +25,14 @@ import org.apache.synapse.rest.Resource;
 import org.apache.synapse.rest.dispatch.DispatcherHelper;
 import org.apache.synapse.rest.dispatch.URITemplateHelper;
 import org.apache.synapse.rest.dispatch.URLMappingHelper;
+import org.eclipse.draw2d.geometry.Point;
+import org.eclipse.draw2d.geometry.Rectangle;
+import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
+import org.eclipse.gmf.runtime.diagram.ui.commands.SetBoundsCommand;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
+import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
+import org.eclipse.gmf.runtime.notation.View;
 import org.wso2.developerstudio.eclipse.gmf.esb.APIResource;
 import org.wso2.developerstudio.eclipse.gmf.esb.ApiResourceUrlStyle;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
@@ -58,11 +64,15 @@ public class APIDeserializer extends AbstractEsbNodeDeserializer<API, SynapseAPI
 		}
 		GraphicalEditPart apiCompartment = (GraphicalEditPart) getEditpart(synapseAPI).getChildren().get(0);
 		Resource[] resources = api.getResources();
+		
+		int locationY = 0;
+		
 		for (int i = 0; i < resources.length; i++) {
 			
 			APIResource resource = (APIResource) DeserializerUtils.createNode(apiCompartment, EsbElementTypes.APIResource_3669);
 			
 			refreshEditPartMap();
+			setElementToEdit(resource);
 			
 			List<String> methodList = Arrays.asList(resources[i].getMethods());
 			executeSetValueCommand(API_RESOURCE__ALLOW_GET, methodList.contains("GET"));
@@ -151,7 +161,19 @@ public class APIDeserializer extends AbstractEsbNodeDeserializer<API, SynapseAPI
 			}
 			
 			addPairMediatorFlow(resource.getOutputConnector(),resource.getInputConnector());
-
+			
+			IGraphicalEditPart graphicalNode = (IGraphicalEditPart) AbstractEsbNodeDeserializer.getEditpart(resource);
+			if(graphicalNode!=null){
+				Rectangle rect = new Rectangle(new Point(), graphicalNode.getFigure().getPreferredSize()).getCopy();
+				rect.x = 0;
+				rect.y = locationY;
+				SetBoundsCommand sbc = new SetBoundsCommand(graphicalNode.getEditingDomain(),
+						"change location", new EObjectAdapter((View) graphicalNode.getModel()), rect);
+				graphicalNode.getDiagramEditDomain().getDiagramCommandStack()
+						.execute(new ICommandProxy(sbc));
+				locationY += rect.height; 
+				locationY += 25;
+			}
 		}
 		
 		return synapseAPI;

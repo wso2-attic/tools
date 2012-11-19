@@ -32,13 +32,19 @@ import org.apache.synapse.endpoints.Template;
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.apache.synapse.mediators.template.TemplateMediator;
 import org.apache.synapse.rest.API;
+import org.eclipse.draw2d.geometry.Point;
+import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.gef.EditPart;
+import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
+import org.eclipse.gmf.runtime.diagram.ui.commands.SetBoundsCommand;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
+import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.Diagram;
+import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Display;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
@@ -118,34 +124,33 @@ public class Deserializer {
 			domain.getCommandStack().execute(resultCommand);
 		}
 
-	//	AddCommand addCmd = null;
-
 		Map<String, Object> artifacts = getArtifacts(source);
+		
+		int locationY = 0;
+		
 		for (Map.Entry<String, Object> artifact : artifacts.entrySet()) {
 			@SuppressWarnings("rawtypes")
 			IEsbNodeDeserializer deserializer = EsbDeserializerRegistry.getInstance()
 					.getDeserializer(artifact.getValue());
 			AbstractEsbNodeDeserializer.refreshEditPartMap();
 			EditPart editpart = AbstractEsbNodeDeserializer.getEditpart(esbServer);
-			Object object = ((EsbServerEditPart)editpart).getChildren().get(0);
+			IGraphicalEditPart gEditpart = (IGraphicalEditPart) ((EsbServerEditPart)editpart).getChildren().get(0);
 			if (deserializer != null) {
-				EsbNode node = deserializer.createNode((IGraphicalEditPart)object,artifact.getValue());
+				EsbNode node = deserializer.createNode(gEditpart,artifact.getValue());
 				if (node!=null) {
-				/*	addCmd = new AddCommand(domain, esbServer,
-							EsbPackage.Literals.ESB_SERVER__CHILDREN, node);
-					if (addCmd.canExecute()) {
-						domain.getCommandStack().execute(addCmd);
-						
-						AbstractEsbNodeDeserializer.refreshEditPartMap();
-						GraphicalEditPart editpart = (GraphicalEditPart) AbstractEsbNodeDeserializer
-								.getEditpart(node);
-						GraphicalEditPart parent = ((GraphicalEditPart) editpart.getParent());
-						parent.setLayoutConstraint(editpart, editpart.getFigure(),
-								new org.eclipse.draw2d.geometry.Rectangle(0, 0, -1, -1));
-					} else {
-						log.warn("Cannot execute EMF command : " + addCmd.toString());
-					}*/
-					
+					AbstractEsbNodeDeserializer.refreshEditPartMap();
+					IGraphicalEditPart graphicalNode = (IGraphicalEditPart) AbstractEsbNodeDeserializer.getEditpart(node);
+					if(graphicalNode!=null){
+						Rectangle rect = new Rectangle(new Point(), graphicalNode.getFigure().getPreferredSize()).getCopy();
+						rect.x = 0;
+						rect.y = locationY;
+						SetBoundsCommand sbc = new SetBoundsCommand(graphicalNode.getEditingDomain(),
+								"change location", new EObjectAdapter((View) graphicalNode.getModel()), rect);
+						graphicalNode.getDiagramEditDomain().getDiagramCommandStack()
+								.execute(new ICommandProxy(sbc));
+						locationY += rect.height; 
+						locationY += 25;
+					}
 				} else{
 					log.warn("Ignoring null output from deserializer for " + artifact.getValue().getClass());
 				}
