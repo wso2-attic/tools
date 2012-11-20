@@ -57,8 +57,10 @@ import org.wso2.developerstudio.eclipse.gmf.esb.OutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.SendMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ConnectionUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.complexFiguredAbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbLinkEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramEditor;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
@@ -292,16 +294,35 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 		GraphicalEditPart gEditpart = (GraphicalEditPart)editpart;
 		
 		if(editpart instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediator){
-						Rectangle rect = new Rectangle(new Point(), gEditpart.getFigure().getPreferredSize());
-						rect.x = location.x;
-						rect.y = location.y;
-						SetBoundsCommand sbc = new SetBoundsCommand( ((org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediator) editpart)
-								.getEditingDomain(), "change location", new EObjectAdapter((View) editpart.getModel()), rect);
-			
-									((org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediator) editpart)
-								.getDiagramEditDomain().getDiagramCommandStack().execute(new ICommandProxy(sbc));
-			location.x = location.x + rect.width + 40;
-			location.height = Math.max(location.height, rect.height);
+			Rectangle rect = new Rectangle(new Point(), gEditpart.getFigure().getPreferredSize())
+					.getCopy();
+			Rectangle rectCopy = rect.getCopy();
+			if (editpart instanceof complexFiguredAbstractMediator) {
+				@SuppressWarnings("rawtypes")
+				List children = gEditpart.getChildren();
+				int pointY= 50;
+				for (Object child : children) {
+					if (child instanceof AbstractOutputConnectorEditPart) {
+						EsbConnector connector = (EsbConnector) ((Node) ((EditPart) child)
+								.getModel()).getElement();
+						Rectangle point = currentLocation.get(connector);
+						if (point != null) {
+							rectCopy.width = Math.max(rectCopy.width, point.x + 50);
+							pointY += (point.y + point.height) + 20; 
+							rectCopy.height = Math.max(rectCopy.height, pointY);
+						}
+					}
+				}
+			}
+			rect.x = location.x;
+			rect.y = location.y;
+			SetBoundsCommand sbc = new SetBoundsCommand(gEditpart.getEditingDomain(),
+					"change location", new EObjectAdapter((View) editpart.getModel()), rect);
+
+			gEditpart.getDiagramEditDomain().getDiagramCommandStack()
+					.execute(new ICommandProxy(sbc));
+			location.x = location.x + rectCopy.width + 40;
+			location.height = Math.max(location.height, rectCopy.height);
 		}
 		
 	}
