@@ -67,7 +67,7 @@ public class ProxyServiceDeserializer extends AbstractEsbNodeDeserializer<ProxyS
 			executeSetValueCommand(PROXY_SERVICE__SERVICE_PARAMETERS,parameters);
 		}
 		
-		setRootInputConnector(proxy.getInputConnector());
+		addRootInputConnector(proxy.getInputConnector());
 		MediatorFlow mediatorFlow = proxy.getContainer().getSequenceAndEndpointContainer().getMediatorFlow();
 		SequenceMediator inSequence = object.getTargetInLineInSequence();
 		GraphicalEditPart compartment = (GraphicalEditPart)((getEditpart(mediatorFlow)).getChildren().get(0));

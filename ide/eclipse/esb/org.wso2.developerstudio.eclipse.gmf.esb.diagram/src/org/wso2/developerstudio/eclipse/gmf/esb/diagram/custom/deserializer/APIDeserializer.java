@@ -89,12 +89,12 @@ public class APIDeserializer extends AbstractEsbNodeDeserializer<API, SynapseAPI
 			} else if(dispatcherHelper instanceof URLMappingHelper){
 				URLMappingHelper helper = (URLMappingHelper) dispatcherHelper; 
 				executeSetValueCommand(API_RESOURCE__URL_STYLE,ApiResourceUrlStyle.URL_MAPPING);
-				executeSetValueCommand(API_RESOURCE__URL_MAPPING, helper.toString());
+				executeSetValueCommand(API_RESOURCE__URL_MAPPING, helper.getString());
 			} else{
 				executeSetValueCommand(API_RESOURCE__URL_STYLE,ApiResourceUrlStyle.NONE);
 			}
 			
-			setRootInputConnector(resource.getInputConnector());
+			addRootInputConnector(resource.getInputConnector());
 			MediatorFlow mediatorFlow = resource.getContainer().getSequenceAndEndpointContainer().getMediatorFlow();
 			GraphicalEditPart compartment = (GraphicalEditPart)((getEditpart(mediatorFlow)).getChildren().get(0));
 			

@@ -76,7 +76,7 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 	private static List<EObject> reversedNodes = new ArrayList<EObject>();
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	private static GraphicalEditPart rootCompartment;
-	private static EsbConnector rootInputConnector;
+	private static List<EsbConnector> rootInputConnectors = new ArrayList<EsbConnector>();
 	private EObject elementToEdit;
 	
 	public void setElementToEdit(EObject elementToEdit) {
@@ -185,29 +185,31 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 			}
 		}
 		//looking for other possible connections
-		EsbConnector rootConnector = getRootInputConnector();
-		if(rootConnector!=null){
-			for(LinkedList<EsbNode> nodes :connectionFlowMap.values()){
-				if(!pairMediatorFlowMap.values().contains(nodes)){
-					if (nodes.size() > 0 && nodes.getLast() instanceof EndPoint){
-						LinkedList<EsbNode> outSeq = connectionFlowMap.get(rootConnector);
-						AbstractConnectorEditPart targetConnector = null;
-						EsbNode last = nodes.getLast();
-						AbstractConnectorEditPart sourceConnector = EditorUtils
-								.getOutputConnector((ShapeNodeEditPart) getEditpart(last));
-						if(outSeq.size() > 0 && outSeq.getLast() != null){
-							targetConnector = EditorUtils
-							.getInputConnector((ShapeNodeEditPart) getEditpart(outSeq.getLast()));
-						} else{
-							targetConnector = (AbstractConnectorEditPart) rootConnector;
-						}
-						
-						if (sourceConnector != null && targetConnector != null) {
-							ConnectionUtils.createConnection(targetConnector,sourceConnector);
+		Iterator<EsbConnector> iterator = getRootInputConnectors().iterator();
+		while (iterator.hasNext()) {
+			EsbConnector rootConnector = iterator.next();
+				for (LinkedList<EsbNode> nodes : connectionFlowMap.values()) {
+					if (!pairMediatorFlowMap.values().contains(nodes)) {
+						if (nodes.size() > 0 && nodes.getLast() instanceof EndPoint) {
+							LinkedList<EsbNode> outSeq = connectionFlowMap.get(rootConnector);
+							AbstractConnectorEditPart targetConnector = null;
+							EsbNode last = nodes.getLast();
+							AbstractConnectorEditPart sourceConnector = EditorUtils
+									.getOutputConnector((ShapeNodeEditPart) getEditpart(last));
+							if (outSeq.size() > 0 && outSeq.getLast() != null) {
+								targetConnector = EditorUtils
+										.getInputConnector((ShapeNodeEditPart) getEditpart(outSeq
+												.getLast()));
+							} else {
+								targetConnector = (AbstractConnectorEditPart) rootConnector;
+							}
+
+							if (sourceConnector != null && targetConnector != null) {
+								ConnectionUtils.createConnection(targetConnector, sourceConnector);
+							}
 						}
 					}
 				}
-			}
 		}
 
 	}
@@ -475,12 +477,12 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 		return rootCompartment;
 	}
 
-	public static void setRootInputConnector(EsbConnector rootInputConnector) {
-		AbstractEsbNodeDeserializer.rootInputConnector = rootInputConnector;
+	public static void addRootInputConnector(EsbConnector rootInputConnector) {
+		rootInputConnectors.add(rootInputConnector);
 	}
 
-	public static EsbConnector getRootInputConnector() {
-		return rootInputConnector;
+	public static List<EsbConnector> getRootInputConnectors() {
+		return rootInputConnectors;
 	}
 	
 	/*
