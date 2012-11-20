@@ -178,8 +178,6 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 				}
 				
 				if (sourceConnector != null && targetConnector != null) {
-					clearLinks(targetConnector);
-					clearLinks(sourceConnector);
 					ConnectionUtils.createConnection(targetConnector,sourceConnector);
 				}
 			}
@@ -203,7 +201,6 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 						}
 						
 						if (sourceConnector != null && targetConnector != null) {
-							clearLinks(sourceConnector);
 							ConnectionUtils.createConnection(targetConnector,sourceConnector);
 						}
 					}
@@ -228,6 +225,7 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 		for (Map.Entry<EsbConnector, LinkedList<EsbNode>> flow : connectionFlowMap.entrySet()) {
 			relocateFlow(flow.getKey(), flow.getValue());
 		}
+		clearLinks();
 		refreshEditPartMap();
 		for (Map.Entry<EsbConnector, LinkedList<EsbNode>> flow : connectionFlowMap.entrySet()) {
 			connectMediatorFlow(flow.getKey(), flow.getValue());
@@ -272,15 +270,8 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 					nextSourceConnector = EditorUtils.getOutputConnector((ShapeNodeEditPart) editpart);
 				}
 			}
-			
-			if(nextSourceConnector!=null){
-				clearLinks(nextSourceConnector);
-			}
 
-			if (targetConnector != null && sourceConnector != null) {
-				clearLinks(targetConnector);
-				clearLinks(sourceConnector);
-				
+			if (targetConnector != null && sourceConnector != null) {				
 				if(reversedMode){
 					ConnectionUtils.createConnection(sourceConnector,targetConnector);
 				} else{
@@ -335,11 +326,50 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 		}
 	
 	}
+	
+	/**
+	 * Clear links 
+	 */
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	private static void clearLinks() {
+		Collection values = diagramEditor.getDiagramGraphicalViewer().getEditPartRegistry().values();
+		Iterator iterator = values.iterator();
+		CompoundCommand ccModel = new CompoundCommand();
+		org.eclipse.gef.commands.CompoundCommand ccView = new org.eclipse.gef.commands.CompoundCommand();
+		
+		while (iterator.hasNext()) {
+			Object editPart = iterator.next();
+			if (editPart instanceof EsbLinkEditPart ) {
+				EsbLinkEditPart linkEditPart = (EsbLinkEditPart) editPart;
+				Collection linkCollection = new ArrayList();
+				linkCollection.add(((ConnectorImpl) linkEditPart.getModel()).getElement());
+				org.eclipse.emf.edit.command.DeleteCommand modelDeleteCommand = new org.eclipse.emf.edit.command.DeleteCommand(
+						diagramEditor.getEditingDomain(), linkCollection);
+				if (modelDeleteCommand.canExecute()) {
+					ccModel.append(modelDeleteCommand);
+				}
+				DeleteCommand viewDeleteCommand = new DeleteCommand(linkEditPart.getNotationView());
+				if (viewDeleteCommand.canExecute()) {
+					ccView.add(new ICommandProxy(viewDeleteCommand));
+				}
+			}
+		}
+
+		if (ccModel.canExecute()) {
+			diagramEditor.getEditingDomain().getCommandStack().execute(ccModel);
+		}
+		if (ccView.canExecute()) {
+			diagramEditor.getDiagramEditDomain().getDiagramCommandStack()
+					.execute(ccView);
+		}
+	}
+	
 
 	/**
 	 * Clear link 
 	 * @param sourceConnector
 	 */
+	@Deprecated
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private static void clearLinks(AbstractConnectorEditPart sourceConnector) {
 		List connections = new ArrayList();
