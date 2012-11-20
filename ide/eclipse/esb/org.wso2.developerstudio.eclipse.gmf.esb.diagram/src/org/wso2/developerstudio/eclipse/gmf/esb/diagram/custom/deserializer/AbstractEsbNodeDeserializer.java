@@ -58,6 +58,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.InputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.OutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.SendMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.Sequences;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractOutputConnectorEditPart;
@@ -193,7 +194,8 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 			EsbConnector rootConnector = iterator.next();
 				for (LinkedList<EsbNode> nodes : connectionFlowMap.values()) {
 					if (!pairMediatorFlowMap.values().contains(nodes)) {
-						if (nodes.size() > 0 && nodes.getLast() instanceof EndPoint) {
+						if (nodes.size() > 0 && (nodes.getLast() instanceof EndPoint || 
+								rootConnector.eContainer() instanceof Sequences)) {
 							LinkedList<EsbNode> outSeq = connectionFlowMap.get(rootConnector);
 							AbstractConnectorEditPart targetConnector = null;
 							EsbNode last = nodes.getLast();
@@ -204,7 +206,7 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 										.getInputConnector((ShapeNodeEditPart) getEditpart(outSeq
 												.getLast()));
 							} else {
-								targetConnector = (AbstractConnectorEditPart) rootConnector;
+								targetConnector = (AbstractConnectorEditPart) getEditpart(rootConnector);
 							}
 
 							if (sourceConnector != null && targetConnector != null) {

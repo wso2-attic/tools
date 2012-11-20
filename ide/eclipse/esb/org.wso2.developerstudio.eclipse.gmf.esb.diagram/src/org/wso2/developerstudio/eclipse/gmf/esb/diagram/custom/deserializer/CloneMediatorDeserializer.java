@@ -21,8 +21,6 @@ import java.util.Collection;
 import org.apache.synapse.mediators.AbstractMediator;
 import org.apache.synapse.mediators.eip.Target;
 import org.eclipse.core.runtime.Assert;
-import org.eclipse.emf.common.util.ECollections;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
@@ -84,7 +82,7 @@ public class CloneMediatorDeserializer extends AbstractEsbNodeDeserializer<Abstr
 			if(!(target.getToAddress()==null || target.getToAddress().trim().isEmpty())){
 				executeSetValueCommand(visualTarget,CLONE_TARGET__TO_ADDRESS, target.getToAddress());
 			}
-			if(!(target.getSoapAction()!=null && target.getSoapAction().trim().isEmpty())){
+			if(!(target.getSoapAction()!=null || target.getSoapAction().trim().isEmpty())){
 				executeSetValueCommand(visualTarget,CLONE_TARGET__SOAP_ACTION, target.getSoapAction());
 			}
 			
