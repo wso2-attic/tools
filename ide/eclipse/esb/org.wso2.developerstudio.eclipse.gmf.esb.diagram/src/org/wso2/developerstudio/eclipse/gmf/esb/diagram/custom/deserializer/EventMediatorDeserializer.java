@@ -27,6 +27,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EventMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.EventTopicType;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.*;
 
 public class EventMediatorDeserializer extends AbstractEsbNodeDeserializer<AbstractMediator, EventMediator> {
 
@@ -36,22 +38,28 @@ public class EventMediatorDeserializer extends AbstractEsbNodeDeserializer<Abstr
 		
 		org.wso2.carbon.mediator.event.EventMediator eventMediator = (org.wso2.carbon.mediator.event.EventMediator)mediator;
 		
-		EventMediator vishualEvent = EsbFactory.eINSTANCE.createEventMediator();
+		org.wso2.developerstudio.eclipse.gmf.esb.EventMediator VisualEventMediator = (org.wso2.developerstudio.eclipse.gmf.esb.EventMediator) DeserializerUtils.createNode(part, EsbElementTypes.EventMediator_3504);
+		setElementToEdit(VisualEventMediator);
+		
+		//EventMediator vishualEvent = EsbFactory.eINSTANCE.createEventMediator();
 		
 		Value topic  = eventMediator.getTopic();
 		
 		//For static topic type.
 		if(topic.getKeyValue() != null){
 			
-			vishualEvent.setTopicType(EventTopicType.STATIC);
+			//vishualEvent.setTopicType(EventTopicType.STATIC);
+			executeSetValueCommand(EVENT_MEDIATOR__TOPIC_TYPE, EventTopicType.STATIC);
 			
-			vishualEvent.setStaticTopic(topic.getKeyValue());
+			//vishualEvent.setStaticTopic(topic.getKeyValue());
+			executeSetValueCommand(EVENT_MEDIATOR__STATIC_TOPIC, topic.getKeyValue());
 		}
 		
 		//For dynamic topic type.
 		if(topic.getExpression() != null){
 			
-			vishualEvent.setTopicType(EventTopicType.DYNAMIC);
+			//vishualEvent.setTopicType(EventTopicType.DYNAMIC);
+			executeSetValueCommand(EVENT_MEDIATOR__TOPIC_TYPE, EventTopicType.DYNAMIC);
 			
 			SynapseXPath xpath  = topic.getExpression();
 			
@@ -67,7 +75,8 @@ public class EventMediatorDeserializer extends AbstractEsbNodeDeserializer<Abstr
 			
 			nsp.setPropertyValue(xpath.toString());
 			
-			vishualEvent.setDynamicTopic(nsp);
+			//vishualEvent.setDynamicTopic(nsp);
+			executeSetValueCommand(EVENT_MEDIATOR__DYNAMIC_TOPIC, nsp);
 			
 		}
 		//For event Expression.
@@ -87,10 +96,11 @@ public class EventMediatorDeserializer extends AbstractEsbNodeDeserializer<Abstr
 			
 			nsp.setPropertyValue(xpath.toString());
 			
-			vishualEvent.setEventExpression(nsp);
+			//vishualEvent.setEventExpression(nsp);
+			executeSetValueCommand(EVENT_MEDIATOR__EVENT_EXPRESSION, nsp);
 		}
 		
-		return vishualEvent;
+		return VisualEventMediator;
 	}
 
 }

@@ -6,6 +6,8 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.EnqueueMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.*;
 
 public class EnqueueMediatorDeserializer extends AbstractEsbNodeDeserializer<AbstractMediator,EnqueueMediator> {
 
@@ -15,17 +17,23 @@ public class EnqueueMediatorDeserializer extends AbstractEsbNodeDeserializer<Abs
 		
 		org.apache.synapse.mediators.builtin.EnqueueMediator enqueueMediator = (org.apache.synapse.mediators.builtin.EnqueueMediator)mediator;
 		
-		EnqueueMediator vishualEnqueue = EsbFactory.eINSTANCE.createEnqueueMediator();
+		org.wso2.developerstudio.eclipse.gmf.esb.EnqueueMediator visualEnqueueMediator = (org.wso2.developerstudio.eclipse.gmf.esb.EnqueueMediator) DeserializerUtils.createNode(part, EsbElementTypes.EnqueueMediator_3600); 
+		setElementToEdit(visualEnqueueMediator);
+		
+		
+		//EnqueueMediator vishualEnqueue = EsbFactory.eINSTANCE.createEnqueueMediator();
 		
 		//Setting executer name
 		if(enqueueMediator.getExecutorName() != null && !enqueueMediator.getExecutorName().equals("")){
 			
-			vishualEnqueue.setExecutor(enqueueMediator.getExecutorName());
+			//vishualEnqueue.setExecutor(enqueueMediator.getExecutorName());
+			executeSetValueCommand(ENQUEUE_MEDIATOR__EXECUTOR, enqueueMediator.getExecutorName());
 			
 		}
 		
 		//Setting priority.
-		vishualEnqueue.setPriority(enqueueMediator.getPriority());
+		//vishualEnqueue.setPriority(enqueueMediator.getPriority());
+		executeSetValueCommand(ENQUEUE_MEDIATOR__PRIORITY, enqueueMediator.getPriority());
 		
 		//Setting sequence
 		if(enqueueMediator.getSequenceName() != null && enqueueMediator.getSequenceName().equals("")){
@@ -33,11 +41,12 @@ public class EnqueueMediatorDeserializer extends AbstractEsbNodeDeserializer<Abs
 			RegistryKeyProperty regkey = EsbFactory.eINSTANCE.createRegistryKeyProperty();
 			regkey.setKeyValue(enqueueMediator.getSequenceName());
 			
-			vishualEnqueue.setSequenceKey(regkey);
+			//vishualEnqueue.setSequenceKey(regkey);
+			executeSetValueCommand(ENQUEUE_MEDIATOR__SEQUENCE_KEY, regkey);
 			
 		}
 		
-		return vishualEnqueue;
+		return visualEnqueueMediator;
 		
 	}
 

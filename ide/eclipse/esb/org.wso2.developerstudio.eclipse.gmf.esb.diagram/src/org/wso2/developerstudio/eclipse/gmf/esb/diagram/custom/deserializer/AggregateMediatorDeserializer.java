@@ -23,6 +23,7 @@ import org.apache.synapse.mediators.AbstractMediator;
 import org.apache.synapse.mediators.Value;
 import org.apache.synapse.util.xpath.SynapseXPath;
 import org.eclipse.core.runtime.Assert;
+import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.AggregateSequenceType;
@@ -30,6 +31,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.CompletionMessagesType;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.*;
 
 public class AggregateMediatorDeserializer extends AbstractEsbNodeDeserializer<AbstractMediator, AggregateMediator> {
 	
@@ -40,16 +43,24 @@ public class AggregateMediatorDeserializer extends AbstractEsbNodeDeserializer<A
 		
 		org.apache.synapse.mediators.eip.aggregator.AggregateMediator aggregateMediator = (org.apache.synapse.mediators.eip.aggregator.AggregateMediator) mediator;
 		
-		AggregateMediator vishualAggrigate = EsbFactory.eINSTANCE.createAggregateMediator();
+		org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator visualAggregateMediator = (org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator) DeserializerUtils.createNode(part, EsbElementTypes.AggregateMediator_3525); 
+		setElementToEdit(visualAggregateMediator);
+		
+		refreshEditPartMap();
+		EditPart mediatorFlow=getEditpart(visualAggregateMediator.getMediatorFlow());
+		
+		//AggregateMediator vishualAggrigate = EsbFactory.eINSTANCE.createAggregateMediator();
 		
 		//Setting aggregate ID
 		if(aggregateMediator.getId() != null && !aggregateMediator.getId().equals("")){
 			
-			vishualAggrigate.setAggregateID(aggregateMediator.getId());
+			//vishualAggrigate.setAggregateID(aggregateMediator.getId());
+			executeSetValueCommand(AGGREGATE_MEDIATOR__AGGREGATE_ID, aggregateMediator.getId());
 		}
 		
 		//Setting completion timeout
-		vishualAggrigate.setCompletionTimeout(aggregateMediator.getCompletionTimeoutMillis());
+		//vishualAggrigate.setCompletionTimeout(aggregateMediator.getCompletionTimeoutMillis());
+		executeSetValueCommand(AGGREGATE_MEDIATOR__COMPLETION_TIMEOUT, aggregateMediator.getCompletionTimeoutMillis());
 		
 		//Setting aggregate expression.
 		if(aggregateMediator.getAggregationExpression() != null){
@@ -68,7 +79,8 @@ public class AggregateMediatorDeserializer extends AbstractEsbNodeDeserializer<A
 				nsp.setNamespaces(map);
 			}
 			
-			vishualAggrigate.setAggregationExpression(nsp);
+			//vishualAggrigate.setAggregationExpression(nsp);
+			executeSetValueCommand(AGGREGATE_MEDIATOR__AGGREGATION_EXPRESSION, nsp);
 			
 		}
 		
@@ -78,13 +90,16 @@ public class AggregateMediatorDeserializer extends AbstractEsbNodeDeserializer<A
 			
 			if(maxMsg.getKeyValue() != null && DeserializerUtils.isInteger(maxMsg.getKeyValue()) ){
 				
-				vishualAggrigate.setCompletionMaxMessagesType(CompletionMessagesType.VALUE);
+				//vishualAggrigate.setCompletionMaxMessagesType(CompletionMessagesType.VALUE);
+				executeSetValueCommand(AGGREGATE_MEDIATOR__COMPLETION_MAX_MESSAGES_TYPE, CompletionMessagesType.VALUE);
 				
-				vishualAggrigate.setCompletionMaxMessagesValue(Integer.parseInt(maxMsg.getKeyValue()));
+				//vishualAggrigate.setCompletionMaxMessagesValue(Integer.parseInt(maxMsg.getKeyValue()));
+				executeSetValueCommand(AGGREGATE_MEDIATOR__COMPLETION_MAX_MESSAGES_VALUE, Integer.parseInt(maxMsg.getKeyValue()));
 				
 			}else if(maxMsg.getExpression() != null){
 				
-				vishualAggrigate.setCompletionMaxMessagesType(CompletionMessagesType.EXPRESSION);
+				//vishualAggrigate.setCompletionMaxMessagesType(CompletionMessagesType.EXPRESSION);
+				executeSetValueCommand(AGGREGATE_MEDIATOR__COMPLETION_MAX_MESSAGES_TYPE, CompletionMessagesType.EXPRESSION);
 				
 				SynapseXPath xpath = maxMsg.getExpression();
 				
@@ -100,7 +115,8 @@ public class AggregateMediatorDeserializer extends AbstractEsbNodeDeserializer<A
 					nsp.setNamespaces(map);
 				}
 				
-				vishualAggrigate.setCompletionMinMessagesExpression(nsp);
+				//vishualAggrigate.setCompletionMinMessagesExpression(nsp);
+				executeSetValueCommand(AGGREGATE_MEDIATOR__COMPLETION_MIN_MESSAGES_EXPRESSION, nsp);
 				
 			}
 		}
@@ -111,13 +127,16 @@ public class AggregateMediatorDeserializer extends AbstractEsbNodeDeserializer<A
 			
 			if(minMsg.getKeyValue() != null && DeserializerUtils.isInteger(minMsg.getKeyValue())){
 				
-				vishualAggrigate.setCompletionMinMessagesType(CompletionMessagesType.VALUE);
+				//vishualAggrigate.setCompletionMinMessagesType(CompletionMessagesType.VALUE);
+				executeSetValueCommand(AGGREGATE_MEDIATOR__COMPLETION_MIN_MESSAGES_TYPE, CompletionMessagesType.VALUE);
 				
-				vishualAggrigate.setCompletionMinMessagesValue(Integer.parseInt(minMsg.getKeyValue()));
+				//vishualAggrigate.setCompletionMinMessagesValue(Integer.parseInt(minMsg.getKeyValue()));
+				executeSetValueCommand(AGGREGATE_MEDIATOR__COMPLETION_MIN_MESSAGES_VALUE, Integer.parseInt(minMsg.getKeyValue()));
 				
 			}else if(minMsg.getExpression() != null){
 				
-				vishualAggrigate.setCompletionMinMessagesType(CompletionMessagesType.EXPRESSION);
+				//vishualAggrigate.setCompletionMinMessagesType(CompletionMessagesType.EXPRESSION);
+				executeSetValueCommand(AGGREGATE_MEDIATOR__COMPLETION_MIN_MESSAGES_TYPE, CompletionMessagesType.EXPRESSION);
 				
 				SynapseXPath xpath = minMsg.getExpression();
 				
@@ -133,7 +152,8 @@ public class AggregateMediatorDeserializer extends AbstractEsbNodeDeserializer<A
 					nsp.setNamespaces(map);
 				}
 				
-				vishualAggrigate.setCompletionMinMessagesExpression(nsp);
+				//vishualAggrigate.setCompletionMinMessagesExpression(nsp);
+				executeSetValueCommand(AGGREGATE_MEDIATOR__COMPLETION_MIN_MESSAGES_EXPRESSION, nsp);
 				
 			}
 		}
@@ -154,31 +174,35 @@ public class AggregateMediatorDeserializer extends AbstractEsbNodeDeserializer<A
 				nsp.setNamespaces(map);
 			}
 			
-			vishualAggrigate.setCorrelationExpression(nsp);
+			//vishualAggrigate.setCorrelationExpression(nsp);
+			executeSetValueCommand(AGGREGATE_MEDIATOR__CORRELATION_EXPRESSION, nsp);
 			
 		}
 		
 		if(aggregateMediator.getOnCompleteSequenceRef() != null){
 			
-			vishualAggrigate.setSequenceType(AggregateSequenceType.REGISTRY_REFERENCE);
+			//vishualAggrigate.setSequenceType(AggregateSequenceType.REGISTRY_REFERENCE);
+			executeSetValueCommand(AGGREGATE_MEDIATOR__SEQUENCE_TYPE, AggregateSequenceType.REGISTRY_REFERENCE);
 			
 			RegistryKeyProperty regkey = EsbFactory.eINSTANCE.createRegistryKeyProperty();
 			regkey.setKeyValue(aggregateMediator.getOnCompleteSequenceRef());
 			
-			vishualAggrigate.setSequenceKey(regkey);
+			//vishualAggrigate.setSequenceKey(regkey);
+			executeSetValueCommand(AGGREGATE_MEDIATOR__SEQUENCE_KEY, regkey);
 			
 		}else if(aggregateMediator.getOnCompleteSequence() != null){
 			
-			vishualAggrigate.setSequenceType(AggregateSequenceType.ANONYMOUS);
+			//vishualAggrigate.setSequenceType(AggregateSequenceType.ANONYMOUS);
+			executeSetValueCommand(AGGREGATE_MEDIATOR__SEQUENCE_TYPE, AggregateSequenceType.ANONYMOUS);
 			
-			deserializeSequence(null,
+			deserializeSequence((IGraphicalEditPart) mediatorFlow.getChildren().get(0),
 					aggregateMediator.getOnCompleteSequence(),
-					vishualAggrigate.getOnCompleteOutputConnector());
+					visualAggregateMediator.getOnCompleteOutputConnector());
 			
 		}
 		
 		
-		return vishualAggrigate;
+		return visualAggregateMediator;
 		
 		
 	}

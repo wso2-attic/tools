@@ -20,6 +20,7 @@ import org.eclipse.core.runtime.Assert;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.DropMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 
 public class DropMediatorDeserializer extends AbstractEsbNodeDeserializer<AbstractMediator, DropMediator>{
 
@@ -28,9 +29,11 @@ public class DropMediatorDeserializer extends AbstractEsbNodeDeserializer<Abstra
 		
 		Assert.isTrue(mediator instanceof org.apache.synapse.mediators.builtin.DropMediator, "Unsupported mediator passed in for deserialization at "+ this.getClass());
 		
-		DropMediator vishualDrop = EsbFactory.eINSTANCE.createDropMediator();
+		org.wso2.developerstudio.eclipse.gmf.esb.DropMediator visualDropMediator = (org.wso2.developerstudio.eclipse.gmf.esb.DropMediator) DeserializerUtils.createNode(part, EsbElementTypes.DropMediator_3491); 
+		setElementToEdit(visualDropMediator);
+		//DropMediator vishualDrop = EsbFactory.eINSTANCE.createDropMediator();
 		
-		return vishualDrop;
+		return visualDropMediator;
 	}
 
 }
