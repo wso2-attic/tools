@@ -16,17 +16,14 @@
 
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 
-import java.util.Map;
-
 import org.apache.synapse.mediators.AbstractMediator;
 import org.apache.synapse.mediators.base.SequenceMediator;
-import org.apache.synapse.util.xpath.SynapseXPath;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.FilterConditionType;
 import org.wso2.developerstudio.eclipse.gmf.esb.FilterMediator;
-import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.*;
 
 public class FilterMediatorDeserializer extends
 		AbstractEsbNodeDeserializer<AbstractMediator, FilterMediator> {
@@ -40,81 +37,56 @@ public class FilterMediatorDeserializer extends
 
 		org.apache.synapse.mediators.filters.FilterMediator filterMediator = (org.apache.synapse.mediators.filters.FilterMediator) mediator;
 
-		FilterMediator vishualFilter = EsbFactory.eINSTANCE
-				.createFilterMediator();
+		FilterMediator visualFilter = (FilterMediator) DeserializerUtils.createNode(part, EsbElementTypes.FilterMediator_3494) ;
+		setElementToEdit(visualFilter);
+		refreshEditPartMap();
 
-		if (filterMediator.getSource() != null
-				&& filterMediator.getRegex() != null) {
-
-			vishualFilter
-					.setConditionType(FilterConditionType.SOURCE_AND_REGEX);
-
+		if (filterMediator.getSource() != null && filterMediator.getRegex() != null) {
+			//Setting type
+			executeSetValueCommand(FILTER_MEDIATOR__CONDITION_TYPE, FilterConditionType.SOURCE_AND_REGEX);
 			// Setting source
-			SynapseXPath xpath = filterMediator.getSource();
-
-			NamespacedProperty nsp = EsbFactory.eINSTANCE
-					.createNamespacedProperty();
-
-			nsp.setPropertyValue(xpath.toString());
-
-			if (xpath.getNamespaces() != null) {
-
-				@SuppressWarnings("unchecked")
-				Map<String, String> map = xpath.getNamespaces();
-
-				nsp.setNamespaces(map);
+			if(filterMediator.getSource()!=null){
+				executeSetValueCommand(FILTER_MEDIATOR__SOURCE, createNamespacedProperty(filterMediator.getSource()));
 			}
-
-			vishualFilter.setSource(nsp);
-
-			// Setting regx
+			// Setting regex
 			if (filterMediator.getRegex() != null
 					&& DeserializerUtils.isValidRegex(filterMediator.getRegex()
 							.toString())) {
-
-				vishualFilter.setRegex(filterMediator.getRegex().toString());
-
+				executeSetValueCommand(FILTER_MEDIATOR__REGEX, filterMediator.getRegex().toString());
 			}
 
 		} else if (filterMediator.getXpath() != null) {
-
-			vishualFilter.setConditionType(FilterConditionType.XPATH);
-
-			SynapseXPath xpath = filterMediator.getXpath();
-
-			NamespacedProperty nsp = EsbFactory.eINSTANCE
-					.createNamespacedProperty();
-
-			nsp.setPropertyValue(xpath.toString());
-
-			if (xpath.getNamespaces() != null) {
-
-				@SuppressWarnings("unchecked")
-				Map<String, String> map = xpath.getNamespaces();
-
-				nsp.setNamespaces(map);
+			//Setting type
+			executeSetValueCommand(FILTER_MEDIATOR__CONDITION_TYPE, FilterConditionType.XPATH);
+			//Setting XPath
+			if(filterMediator.getXpath()!=null){
+				executeSetValueCommand(FILTER_MEDIATOR__XPATH, createNamespacedProperty(filterMediator.getXpath()));
 			}
-
-			vishualFilter.setXpath(nsp);
 		}
 
 		if (filterMediator.getList().size() > 0) {
 			/* deserialize <if> flow */
 			SequenceMediator sequence = new SequenceMediator();
 			sequence.addAll(filterMediator.getList());
-			deserializeSequence(null, sequence,
-					vishualFilter.getPassOutputConnector());
+			IGraphicalEditPart compartment = (IGraphicalEditPart) getEditpart(
+					visualFilter.getFilterContainer().getPassContainer().getMediatorFlow())
+					.getChildren().get(0);
+			deserializeSequence(compartment, sequence,
+					visualFilter.getPassOutputConnector());
 		}
 
 		if (filterMediator.getElseMediator() != null) {
 			/* deserialize <else> flow */
 			SequenceMediator sequence = new SequenceMediator();
 			sequence.addAll(filterMediator.getElseMediator().getList());
-			deserializeSequence(null, sequence,
-					vishualFilter.getFailOutputConnector());
+			IGraphicalEditPart compartment = (IGraphicalEditPart) getEditpart(
+					visualFilter.getFilterContainer().getFailContainer().getMediatorFlow())
+					.getChildren().get(0);
+			deserializeSequence(compartment, sequence,
+					visualFilter.getFailOutputConnector());
 		}
 
-		return vishualFilter;
+		return visualFilter;
 
 	}
 
