@@ -238,6 +238,7 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 		connectionFlowMap.clear();
 		reversedNodes.clear();
 		pairMediatorFlowMap.clear();
+		rootInputConnectors.clear();
 	}
 	
 	
