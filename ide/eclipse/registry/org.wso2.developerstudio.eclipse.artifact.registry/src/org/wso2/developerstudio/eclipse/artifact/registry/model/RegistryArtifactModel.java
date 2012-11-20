@@ -44,7 +44,7 @@ public class RegistryArtifactModel extends ProjectDataModel {
 	
 	private IContainer resourceSaveLocation;
 	private RegistryTemplate selectedTemplate;
-	private String registryPath="/_system/custom";
+	private String registryPath="/_system/config";
 	private String resourceName;
 	private String artifactName="";
 	private boolean copyContent;
