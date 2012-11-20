@@ -15,6 +15,8 @@
  */
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 
+import java.util.Map;
+
 import org.apache.synapse.config.xml.SwitchCase;
 import org.apache.synapse.mediators.AbstractMediator;
 import org.apache.synapse.mediators.base.SequenceMediator;
@@ -22,10 +24,9 @@ import org.eclipse.core.runtime.Assert;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
+import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.SwitchCaseBranchOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.SwitchCaseContainer;
-import org.wso2.developerstudio.eclipse.gmf.esb.SwitchDefaultBranchOutputConnector;
-import org.wso2.developerstudio.eclipse.gmf.esb.SwitchDefaultContainer;
 import org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.utils.SwitchMediatorUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchMediatorEditPart;
@@ -48,30 +49,42 @@ public class SwitchMediatorDeserializer extends
 		setElementToEdit(VisualSwitchMediator);
 		refreshEditPartMap();
 		
-		// Setting default case
-		SwitchDefaultContainer defaultContainer = EsbFactory.eINSTANCE.createSwitchDefaultContainer();
-		executeSetValueCommand(SWITCH_MEDIATOR_CONTAINER__SWITCH_DEFAULT_CONTAINER, defaultContainer);
-
-		SwitchDefaultBranchOutputConnector defaultConnector = EsbFactory.eINSTANCE.createSwitchDefaultBranchOutputConnector();
-		executeSetValueCommand(SWITCH_MEDIATOR__DEFAULT_BRANCH, defaultConnector);
-
-		/*refreshEditPartMap();
+		if(switchMediator.getSource()!=null){
+			NamespacedProperty sourceXPath = EsbFactory.eINSTANCE.createNamespacedProperty();
+			sourceXPath.setPropertyValue(switchMediator.getSource().toString());
+			@SuppressWarnings("unchecked")
+			Map<String,String> namespaces = (Map<String,String>)switchMediator.getSource().getNamespaces();
+			sourceXPath.setNamespaces(namespaces);
+			executeSetValueCommand(SWITCH_MEDIATOR__SOURCE_XPATH, sourceXPath);
+		}
+		
 		SequenceMediator defaultSequence = new SequenceMediator();
 		defaultSequence.addAll(switchMediator.getDefaultCase().getCaseMediator().getList());
 		IGraphicalEditPart defaultCompartment = (IGraphicalEditPart) getEditpart(
-				defaultContainer.getMediatorFlow()).getChildren().get(0);
+				VisualSwitchMediator.getSwitchContainer().getSwitchDefaultContainer()
+						.getMediatorFlow()).getChildren().get(0);
 		deserializeSequence((IGraphicalEditPart) defaultCompartment, defaultSequence,
-				defaultConnector);*/
+				VisualSwitchMediator.getDefaultBranch());
 
 		if (switchMediator.getCases() != null && !switchMediator.getCases().isEmpty()) {
-
+			int count=0;
 			for (SwitchCase switchCase : switchMediator.getCases()) {
-				SwitchCaseContainer switchContainer = (SwitchCaseContainer) DeserializerUtils
-						.createNode((IGraphicalEditPart) getEditpart(VisualSwitchMediator
-								.getSwitchContainer()), EsbElementTypes.SwitchCaseContainer_3501);
-				SwitchCaseBranchOutputConnector connector = (SwitchCaseBranchOutputConnector) DeserializerUtils
-						.createNode((IGraphicalEditPart) getEditpart(VisualSwitchMediator),
-								EsbElementTypes.SwitchCaseBranchOutputConnector_3043);
+				SwitchCaseContainer switchContainer = null;
+				SwitchCaseBranchOutputConnector connector = null;
+				if (count++ == 0
+						&& VisualSwitchMediator.getSwitchContainer().getSwitchCaseContainer()
+								.size() == 1) {
+					switchContainer = VisualSwitchMediator.getSwitchContainer().getSwitchCaseContainer().get(0);
+					connector = VisualSwitchMediator.getCaseBranches().get(0);
+				} else {
+					switchContainer = (SwitchCaseContainer) DeserializerUtils.createNode(
+							(IGraphicalEditPart) getEditpart(VisualSwitchMediator
+									.getSwitchContainer()),
+							EsbElementTypes.SwitchCaseContainer_3501);
+					connector = (SwitchCaseBranchOutputConnector) DeserializerUtils.createNode(
+							(IGraphicalEditPart) getEditpart(VisualSwitchMediator),
+							EsbElementTypes.SwitchCaseBranchOutputConnector_3043);
+				}
 
 				if (switchCase.getRegex() != null
 						&& DeserializerUtils.isValidRegex(switchCase.getRegex().toString())) {
