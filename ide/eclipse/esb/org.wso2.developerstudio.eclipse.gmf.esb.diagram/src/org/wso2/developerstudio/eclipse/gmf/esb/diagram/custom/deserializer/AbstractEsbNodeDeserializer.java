@@ -27,6 +27,7 @@ import java.util.Map;
 
 import org.apache.synapse.mediators.AbstractMediator;
 import org.apache.synapse.mediators.base.SequenceMediator;
+import org.apache.synapse.util.xpath.SynapseXPath;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -50,9 +51,11 @@ import org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
+import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbServer;
 import org.wso2.developerstudio.eclipse.gmf.esb.InputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.OutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.SendMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
@@ -504,6 +507,17 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 			return true;
 		}
 		return false;		
+	}
+	
+	protected NamespacedProperty createNamespacedProperty(SynapseXPath xpath) {			
+		NamespacedProperty nsp = EsbFactory.eINSTANCE.createNamespacedProperty();				
+		nsp.setPropertyValue(xpath.toString());				
+		if (xpath.getNamespaces() != null) {
+			@SuppressWarnings("unchecked")
+			Map<String, String> map = xpath.getNamespaces();
+			nsp.setNamespaces(map);
+		}
+		return nsp;
 	}
 	
 }

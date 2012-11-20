@@ -34,6 +34,8 @@ import org.apache.synapse.mediators.eip.splitter.CloneMediator;
 import org.apache.synapse.mediators.elementary.EnrichMediator;
 import org.apache.synapse.mediators.filters.FilterMediator;
 import org.apache.synapse.mediators.filters.SwitchMediator;
+import org.apache.synapse.mediators.transform.FaultMediator;
+import org.apache.synapse.mediators.transform.HeaderMediator;
 import org.apache.synapse.mediators.transform.XSLTMediator;
 import org.apache.synapse.mediators.xquery.XQueryMediator;
 import org.apache.synapse.rest.API;
@@ -89,6 +91,8 @@ public class EsbDeserializerRegistry {
 		addDeserializer(API.class, new APIDeserializer());
 		addDeserializer(XSLTMediator.class, new XSLTMediatorDeserializer());
 		addDeserializer(XQueryMediator.class, new XQueryMediatorDeserializer());
+		addDeserializer(HeaderMediator.class, new HeaderMediatorDeserializer());
+		addDeserializer(FaultMediator.class, new FaultMediatorDeserializer());
 		
 	}
 	
