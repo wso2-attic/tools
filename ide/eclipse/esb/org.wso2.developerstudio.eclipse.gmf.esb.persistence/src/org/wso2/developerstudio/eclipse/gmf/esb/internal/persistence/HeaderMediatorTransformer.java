@@ -61,6 +61,11 @@ public class HeaderMediatorTransformer extends AbstractEsbNodeTransformer{
 				headerMediator.setValue(visualHeader.getValueLiteral());
 			}else{
 				SynapseXPath synapseXPath=new SynapseXPath(visualHeader.getValueExpression().getPropertyValue());
+				for(int i=0;i<visualHeader.getValueExpression().getNamespaces().keySet().size();++i){				
+					String prefix=(String)visualHeader.getValueExpression().getNamespaces().keySet().toArray()[i];
+					String namespaceUri=visualHeader.getValueExpression().getNamespaces().get(prefix);
+					synapseXPath.addNamespace(prefix, namespaceUri);
+				}
 				headerMediator.setExpression(synapseXPath);
 			}
 		}		

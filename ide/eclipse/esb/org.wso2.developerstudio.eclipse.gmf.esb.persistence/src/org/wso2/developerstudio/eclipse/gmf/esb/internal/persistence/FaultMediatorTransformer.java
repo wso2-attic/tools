@@ -104,6 +104,22 @@ public class FaultMediatorTransformer extends AbstractEsbNodeTransformer {
 					faultMediator.setFaultCodeValue(new QName(soap11EnvNS,
 							"Client", "soap11Env"));
 				}
+				
+				switch (visualFault.getFaultStringType()){
+				case VALUE:
+					faultMediator.setFaultReasonValue(visualFault.getFaultStringValue());
+					break;
+				case EXPRESSION:
+					SynapseXPath reasonExpression = new SynapseXPath(visualFault.getFaultStringExpression().getPropertyValue());
+					for(int i=0;i<visualFault.getFaultStringExpression().getNamespaces().keySet().size();++i){				
+						String prefix=(String)visualFault.getFaultStringExpression().getNamespaces().keySet().toArray()[i];
+						String namespaceUri=visualFault.getFaultStringExpression().getNamespaces().get(prefix);
+						reasonExpression.addNamespace(prefix, namespaceUri);
+					}
+					faultMediator.setFaultReasonExpr(reasonExpression);
+					break;
+				}
+				
 				break;
 			case SOAP_12:
 				faultMediator
@@ -131,36 +147,45 @@ public class FaultMediatorTransformer extends AbstractEsbNodeTransformer {
 					faultMediator.setFaultCodeValue(new QName(soap12EnvNS,
 							"DataEncodingUnknown", "soap12Env"));
 				}
+				
+				switch (visualFault.getFaultReasonType()){
+				case VALUE:
+					faultMediator.setFaultReasonValue(visualFault.getFaultReasonValue());
+					break;
+				case EXPRESSION:
+					SynapseXPath reasonExpression = new SynapseXPath(visualFault.getFaultReasonExpression().getPropertyValue());
+					for(int i=0;i<visualFault.getFaultReasonExpression().getNamespaces().keySet().size();++i){				
+						String prefix=(String)visualFault.getFaultReasonExpression().getNamespaces().keySet().toArray()[i];
+						String namespaceUri=visualFault.getFaultReasonExpression().getNamespaces().get(prefix);
+						reasonExpression.addNamespace(prefix, namespaceUri);
+					}
+					faultMediator.setFaultReasonExpr(reasonExpression);
+					break;
+				}
+				
+				if(visualFault.getNodeName()!=null){
+					faultMediator.setFaultNode(new URI(visualFault.getNodeName()));
+				}
 				break;
 			}
 			
-			switch (visualFault.getFaultStringType()){
-			case VALUE:
-				faultMediator.setFaultReasonValue(visualFault.getFaultReasonValue());
-				break;
-			case EXPRESSION:
-				faultMediator.setFaultReasonExpr(new SynapseXPath(visualFault.getFaultReasonExpression().getPropertyValue()));
-				break;
-			}
-
 			switch (visualFault.getFaultDetailType()) {
 			case VALUE:
 				faultMediator.setFaultDetail(visualFault.getFaultDetailValue());
 				break;
 			case EXPRESSION:
-				faultMediator.setFaultDetailExpr(new SynapseXPath(visualFault
-						.getFaultDetailExpression().getPropertyValue()));
+				SynapseXPath detailExpression = new SynapseXPath(visualFault.getFaultDetailExpression().getPropertyValue());
+				for(int i=0;i<visualFault.getFaultDetailExpression().getNamespaces().keySet().size();++i){				
+					String prefix=(String)visualFault.getFaultDetailExpression().getNamespaces().keySet().toArray()[i];
+					String namespaceUri=visualFault.getFaultDetailExpression().getNamespaces().get(prefix);
+					detailExpression.addNamespace(prefix, namespaceUri);
+				}
+				faultMediator.setFaultDetailExpr(detailExpression);
 				break;
 			}
-
 			// Response?.
-			faultMediator.setMarkAsResponse(visualFault.isMarkAsResponse());
-
-			
+			faultMediator.setMarkAsResponse(visualFault.isMarkAsResponse());			
 		}
 		return faultMediator;
 	}
-	
-	
-
 }
