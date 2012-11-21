@@ -5,6 +5,7 @@ import org.eclipse.core.runtime.Assert;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.StoreMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.*;
 
 public class StoreMediatorDeserializer extends AbstractEsbNodeDeserializer<AbstractMediator, StoreMediator>{
 	
@@ -15,6 +16,11 @@ public class StoreMediatorDeserializer extends AbstractEsbNodeDeserializer<Abstr
 		
 		StoreMediator visualStoreMediator = (StoreMediator) DeserializerUtils.createNode(part, EsbElementTypes.StoreMediator_3588);
 		setElementToEdit(visualStoreMediator);
+		
+		executeSetValueCommand(STORE_MEDIATOR__MESSAGE_STORE,storeMediator.getMessageStoreName());
+		if((storeMediator.getOnStoreSequence()!=null)&&!("".equals(storeMediator.getOnStoreSequence()))){
+			executeSetValueCommand(visualStoreMediator.getOnStoreSequence(),REGISTRY_KEY_PROPERTY__KEY_VALUE, storeMediator.getOnStoreSequence());
+		}
 		
 		return visualStoreMediator;
 	}

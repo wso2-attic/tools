@@ -44,6 +44,7 @@ import org.apache.synapse.mediators.store.MessageStoreMediator;
 import org.apache.synapse.mediators.transaction.TransactionMediator;
 import org.apache.synapse.mediators.transform.FaultMediator;
 import org.apache.synapse.mediators.transform.HeaderMediator;
+import org.apache.synapse.mediators.transform.PayloadFactoryMediator;
 import org.apache.synapse.mediators.transform.XSLTMediator;
 import org.apache.synapse.mediators.transform.url.URLRewriteMediator;
 import org.apache.synapse.mediators.xquery.XQueryMediator;
@@ -126,6 +127,7 @@ public class EsbDeserializerRegistry {
 		addDeserializer(RouterMediator.class, new RouterMediatorDeserializer());
 		addDeserializer(ClassMediatorExt.class, new ClassMediatorDeserializer());
 		addDeserializer(POJOCommandMediatorExt.class, new POJOCommandMediatorDeserializer());
+		addDeserializer(PayloadFactoryMediator.class, new PayloadFactoryMediatorDeserializer());
 	}
 	
 	/**

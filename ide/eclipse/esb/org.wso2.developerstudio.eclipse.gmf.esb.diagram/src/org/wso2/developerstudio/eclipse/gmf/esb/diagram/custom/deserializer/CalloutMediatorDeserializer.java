@@ -5,6 +5,7 @@ import org.eclipse.core.runtime.Assert;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.CalloutMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.CalloutPayloadType;
+import org.wso2.developerstudio.eclipse.gmf.esb.CalloutResultType;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.*;
 
@@ -25,7 +26,23 @@ public class CalloutMediatorDeserializer extends AbstractEsbNodeDeserializer<Abs
 			executeSetValueCommand(CALLOUT_MEDIATOR__PAYLOAD_MESSAGE_XPATH, createNamespacedProperty(calloutMediator.getRequestXPath()));
 			executeSetValueCommand(CALLOUT_MEDIATOR__PAYLOAD_TYPE, CalloutPayloadType.MESSAGE_ELEMENT);
 		}else{
-			
+			executeSetValueCommand(visualCalloutMediator.getPayloadRegistryKey(),REGISTRY_KEY_PROPERTY__KEY_VALUE, calloutMediator.getRequestKey());
+			executeSetValueCommand(CALLOUT_MEDIATOR__PAYLOAD_TYPE, CalloutPayloadType.REGISTRY_ENTRY);
+		}
+		
+		if(calloutMediator.getTargetXPath()!=null){
+			executeSetValueCommand(CALLOUT_MEDIATOR__RESULT_MESSAGE_XPATH, createNamespacedProperty(calloutMediator.getTargetXPath()));
+			executeSetValueCommand(CALLOUT_MEDIATOR__RESULT_TYPE, CalloutResultType.MESSAGE_ELEMENT);
+		}else{
+			executeSetValueCommand(CALLOUT_MEDIATOR__RESULT_CONTEXT_PROPERTY, calloutMediator.getTargetKey());
+			executeSetValueCommand(CALLOUT_MEDIATOR__RESULT_TYPE, CalloutResultType.CONTEXT_PROPERTY);
+		}
+		
+		if(calloutMediator.getClientRepository()!=null){
+			executeSetValueCommand(CALLOUT_MEDIATOR__PATH_TO_AXIS2_REPOSITORY,calloutMediator.getClientRepository());
+		}
+		if(calloutMediator.getAxis2xml()!=null){
+			executeSetValueCommand(CALLOUT_MEDIATOR__PATH_TO_AXIS2XML, calloutMediator.getAxis2xml());
 		}
 		
 		return visualCalloutMediator;
