@@ -22,7 +22,8 @@ Require-Bundle: org.wso2.developerstudio.eclipse.gmf.esb,
  org.eclipse.emf.transaction,
  org.eclipse.ui.workbench,
  org.eclipse.gmf.runtime.notation
-Export-Package: org.wso2.developerstudio.eclipse.gmf.esb.persistence
+Export-Package: org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom,
+ org.wso2.developerstudio.eclipse.gmf.esb.persistence
 Import-Package: com.sun.phobos.script.javascript,
  javax.xml.xquery,
  net.sf.saxon.javax.xml.xquery,
