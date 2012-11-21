@@ -63,7 +63,7 @@ public class RegistryFilterCreationWizard extends
 		filterModel = new RegistryFilterModel();
 		setFilterModel(filterModel);
 		setModel(getFilterModel());
-		setWindowTitle("Registry Filter Artifact Createtion Wizard");
+		setWindowTitle("Registry Filter Artifact Creation Wizard");
 		setDefaultPageImageDescriptor(RegistryFilterImageUtils.getInstance().getImageDescriptor("new-registry-filter-wizard.png"));
 	}
 
