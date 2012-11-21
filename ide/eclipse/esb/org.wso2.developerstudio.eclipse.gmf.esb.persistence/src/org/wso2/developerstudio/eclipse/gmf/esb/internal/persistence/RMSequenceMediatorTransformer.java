@@ -68,11 +68,23 @@ public class RMSequenceMediatorTransformer extends AbstractEsbNodeTransformer{
 			else{
 				rmSequenceMediator.setSingle(false);
 				SynapseXPath correlationXPath=new SynapseXPath(visualRMSequence.getCorrelationXpath().getPropertyValue());
-				rmSequenceMediator.setCorrelation(correlationXPath);
-				String lastMessageXpath = visualRMSequence.getLastMessageXpath().getPropertyValue();
-				if(!(lastMessageXpath==null || lastMessageXpath.trim().isEmpty())){
-					rmSequenceMediator.setLastMessage(new SynapseXPath(lastMessageXpath));
+				for(int i=0;i<visualRMSequence.getCorrelationXpath().getNamespaces().keySet().size();++i){				
+					String prefix=(String)visualRMSequence.getCorrelationXpath().getNamespaces().keySet().toArray()[i];
+					String namespaceUri=visualRMSequence.getCorrelationXpath().getNamespaces().get(prefix);
+					correlationXPath.addNamespace(prefix, namespaceUri);
 				}
+				rmSequenceMediator.setCorrelation(correlationXPath);
+				String lastMessageXpathProperty = visualRMSequence.getLastMessageXpath().getPropertyValue();
+				SynapseXPath lastMessageXpath = null;
+				if(!(lastMessageXpathProperty==null || lastMessageXpathProperty.trim().isEmpty())){
+					lastMessageXpath=new SynapseXPath(lastMessageXpathProperty);
+					for(int i=0;i<visualRMSequence.getLastMessageXpath().getNamespaces().keySet().size();++i){				
+						String prefix=(String)visualRMSequence.getLastMessageXpath().getNamespaces().keySet().toArray()[i];
+						String namespaceUri=visualRMSequence.getLastMessageXpath().getNamespaces().get(prefix);
+						lastMessageXpath.addNamespace(prefix, namespaceUri);
+					}
+				}
+				rmSequenceMediator.setLastMessage(lastMessageXpath);
 			}
 			
 		}
