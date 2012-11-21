@@ -59,6 +59,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.Buil
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.ClassMediatorExt;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
+import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.POJOCommandMediatorExt;
 
 
 /**
@@ -124,6 +125,7 @@ public class EsbDeserializerRegistry {
 		addDeserializer(SmooksMediator.class, new SmooksMediatorDeserializer());
 		addDeserializer(RouterMediator.class, new RouterMediatorDeserializer());
 		addDeserializer(ClassMediatorExt.class, new ClassMediatorDeserializer());
+		addDeserializer(POJOCommandMediatorExt.class, new POJOCommandMediatorDeserializer());
 	}
 	
 	/**
