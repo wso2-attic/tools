@@ -23,28 +23,41 @@ import java.util.Map;
 import org.apache.synapse.core.axis2.ProxyService;
 
 import org.apache.synapse.mediators.base.SequenceMediator;
+import org.apache.synapse.mediators.bsf.ScriptMediator;
+import org.apache.synapse.mediators.builtin.CalloutMediator;
 import org.apache.synapse.mediators.builtin.DropMediator;
 import org.apache.synapse.mediators.builtin.EnqueueMediator;
 import org.apache.synapse.mediators.builtin.LogMediator;
 import org.apache.synapse.mediators.builtin.PropertyMediator;
+import org.apache.synapse.mediators.builtin.RMSequenceMediator;
 import org.apache.synapse.mediators.builtin.SendMediator;
 import org.apache.synapse.mediators.builtin.ValidateMediator;
+import org.apache.synapse.mediators.db.DBLookupMediator;
+import org.apache.synapse.mediators.db.DBReportMediator;
 import org.apache.synapse.mediators.eip.aggregator.AggregateMediator;
 import org.apache.synapse.mediators.eip.splitter.CloneMediator;
 import org.apache.synapse.mediators.elementary.EnrichMediator;
 import org.apache.synapse.mediators.filters.FilterMediator;
 import org.apache.synapse.mediators.filters.SwitchMediator;
+import org.apache.synapse.mediators.spring.SpringMediator;
+import org.apache.synapse.mediators.store.MessageStoreMediator;
+import org.apache.synapse.mediators.transaction.TransactionMediator;
 import org.apache.synapse.mediators.transform.FaultMediator;
 import org.apache.synapse.mediators.transform.HeaderMediator;
 import org.apache.synapse.mediators.transform.XSLTMediator;
+import org.apache.synapse.mediators.transform.url.URLRewriteMediator;
 import org.apache.synapse.mediators.xquery.XQueryMediator;
 import org.apache.synapse.rest.API;
+import org.wso2.carbon.identity.entitlement.mediator.EntitlementMediator;
+import org.wso2.carbon.identity.oauth.mediator.OAuthMediator;
 import org.wso2.carbon.mediator.event.EventMediator;
+import org.wso2.carbon.mediator.transform.SmooksMediator;
+import org.wso2.carbon.mediators.router.impl.RouterMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramEditor;
+import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.BuilderMediatorExt;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
-import org.wso2.carbon.mediators.router.impl.RouterMediator;
 
 
 /**
@@ -94,8 +107,20 @@ public class EsbDeserializerRegistry {
 		addDeserializer(XQueryMediator.class, new XQueryMediatorDeserializer());
 		addDeserializer(HeaderMediator.class, new HeaderMediatorDeserializer());
 		addDeserializer(FaultMediator.class, new FaultMediatorDeserializer());
+		addDeserializer(URLRewriteMediator.class, new URLRewriteMediatorDeserializer());
+		addDeserializer(CalloutMediator.class, new CalloutMediatorDeserializer());
+		addDeserializer(DBLookupMediator.class, new DBLookupMediatorDeserializer());
+		addDeserializer(DBReportMediator.class, new DBReportMediatorDeserializer());
+		addDeserializer(EntitlementMediator.class, new EntitlementMediatorDeserializer());
+		addDeserializer(TransactionMediator.class, new TransactionMediatorDeserializer());
+		addDeserializer(RMSequenceMediator.class, new RMSequenceMediatorDeserializer());
+		addDeserializer(OAuthMediator.class, new OAuthMediatorDeserializer());
+		addDeserializer(MessageStoreMediator.class, new StoreMediatorDeserializer());
+		addDeserializer(BuilderMediatorExt.class, new BuilderMediatorDeserializer());
+		addDeserializer(SpringMediator.class, new SpringMediatorDeserializer());
+		addDeserializer(ScriptMediator.class, new ScriptMediatorDeserializer());
+		addDeserializer(SmooksMediator.class, new SmooksMediatorDeserializer());
 		addDeserializer(RouterMediator.class, new RouterMediatorDeserializer());
-		
 	}
 	
 	/**
