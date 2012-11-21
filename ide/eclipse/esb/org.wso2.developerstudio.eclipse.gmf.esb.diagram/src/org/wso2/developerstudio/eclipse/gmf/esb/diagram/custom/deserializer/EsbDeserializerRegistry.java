@@ -56,6 +56,7 @@ import org.wso2.carbon.mediators.router.impl.RouterMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramEditor;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.BuilderMediatorExt;
+import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.ClassMediatorExt;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 
@@ -87,6 +88,7 @@ public class EsbDeserializerRegistry {
 	 */
 	@SuppressWarnings("rawtypes")
 	private EsbDeserializerRegistry(){
+		MediatorFactoryUtils.registerFactories(); /* register custom factories */
 		deserializersMap = new HashMap<Class<?>, IEsbNodeDeserializer>();
 		addDeserializer(LogMediator.class,new LogMediatorDeserializer());
 		addDeserializer(PropertyMediator.class,new PropertyMediatorDeserializer());
@@ -121,6 +123,7 @@ public class EsbDeserializerRegistry {
 		addDeserializer(ScriptMediator.class, new ScriptMediatorDeserializer());
 		addDeserializer(SmooksMediator.class, new SmooksMediatorDeserializer());
 		addDeserializer(RouterMediator.class, new RouterMediatorDeserializer());
+		addDeserializer(ClassMediatorExt.class, new ClassMediatorDeserializer());
 	}
 	
 	/**

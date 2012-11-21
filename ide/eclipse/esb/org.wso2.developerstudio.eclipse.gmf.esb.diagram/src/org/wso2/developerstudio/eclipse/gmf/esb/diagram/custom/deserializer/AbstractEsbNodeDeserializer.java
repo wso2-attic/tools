@@ -29,8 +29,10 @@ import org.apache.synapse.mediators.AbstractMediator;
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.apache.synapse.util.xpath.SynapseXPath;
 import org.eclipse.emf.common.command.CompoundCommand;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.gef.EditPart;
@@ -509,6 +511,20 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 			return true;
 		}
 		return false;		
+	}
+		
+	protected <E extends EObject> boolean executeAddValueCommand(final EList<E> list, final E value) {
+		TransactionalEditingDomain editingDomain = diagramEditor.getEditingDomain();
+		RecordingCommand command = new RecordingCommand(editingDomain) {
+			protected void doExecute() {
+				list.add(value);
+			}
+		};
+		if (command.canExecute()) {
+			editingDomain.getCommandStack().execute(command);
+			return true;
+		}
+		return false;
 	}
 	
 	protected NamespacedProperty createNamespacedProperty(SynapseXPath xpath) {			
