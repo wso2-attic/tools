@@ -44,6 +44,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramEditor;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
+import org.wso2.carbon.mediators.router.impl.RouterMediator;
 
 
 /**
@@ -93,6 +94,7 @@ public class EsbDeserializerRegistry {
 		addDeserializer(XQueryMediator.class, new XQueryMediatorDeserializer());
 		addDeserializer(HeaderMediator.class, new HeaderMediatorDeserializer());
 		addDeserializer(FaultMediator.class, new FaultMediatorDeserializer());
+		addDeserializer(RouterMediator.class, new RouterMediatorDeserializer());
 		
 	}
 	
