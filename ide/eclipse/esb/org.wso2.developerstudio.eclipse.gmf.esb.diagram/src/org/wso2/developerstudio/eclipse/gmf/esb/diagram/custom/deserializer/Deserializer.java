@@ -257,9 +257,10 @@ public class Deserializer {
 		}
 		}catch (org.apache.synapse.SynapseException exception) {
 			
-			MessageDialog.openError(Display.getCurrent().getActiveShell(),
+		/*	MessageDialog.openError(Display.getCurrent().getActiveShell(),
 					"Error occuerd during buidling the esb design view.",
-					exception.getCause().toString());
+					exception.getCause().toString());*/
+			exception.printStackTrace();
 		}
 		
 		return artifacts;

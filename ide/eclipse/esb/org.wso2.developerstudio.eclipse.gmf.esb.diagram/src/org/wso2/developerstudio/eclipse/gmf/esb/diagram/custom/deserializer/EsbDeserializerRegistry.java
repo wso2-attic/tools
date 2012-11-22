@@ -32,6 +32,7 @@ import org.apache.synapse.mediators.builtin.PropertyMediator;
 import org.apache.synapse.mediators.builtin.RMSequenceMediator;
 import org.apache.synapse.mediators.builtin.SendMediator;
 import org.apache.synapse.mediators.builtin.ValidateMediator;
+import org.apache.synapse.mediators.builtin.CacheMediator;
 import org.apache.synapse.mediators.db.DBLookupMediator;
 import org.apache.synapse.mediators.db.DBReportMediator;
 import org.apache.synapse.mediators.eip.aggregator.AggregateMediator;
@@ -130,6 +131,7 @@ public class EsbDeserializerRegistry {
 		addDeserializer(POJOCommandMediatorExt.class, new POJOCommandMediatorDeserializer());
 		addDeserializer(PayloadFactoryMediator.class, new PayloadFactoryMediatorDeserializer());
 		addDeserializer(InvokeMediator.class, new CallTemplateMediatorDeserializer());
+		addDeserializer(CacheMediator.class, new CacheMediatorDeserializer());
 	}
 	
 	/**
