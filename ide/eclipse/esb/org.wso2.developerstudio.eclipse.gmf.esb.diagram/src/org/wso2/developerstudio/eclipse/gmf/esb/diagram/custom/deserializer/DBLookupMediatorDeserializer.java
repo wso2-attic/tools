@@ -6,7 +6,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.DBLookupMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 
-public class DBLookupMediatorDeserializer extends AbstractEsbNodeDeserializer<AbstractMediator, DBLookupMediator>{
+public class DBLookupMediatorDeserializer extends AbstractDBMediatorDeserializer{
 	
 	public DBLookupMediator createNode(IGraphicalEditPart part,
 			AbstractMediator mediator) {
@@ -17,6 +17,7 @@ public class DBLookupMediatorDeserializer extends AbstractEsbNodeDeserializer<Ab
 		
 		DBLookupMediator visualDBLookupMediator = (DBLookupMediator) DeserializerUtils.createNode(part, EsbElementTypes.DBLookupMediator_3512);
 		setElementToEdit(visualDBLookupMediator);
+		deserializeDBMediator(DBLookupMediator, visualDBLookupMediator);
 		
 		return visualDBLookupMediator;
 	}
