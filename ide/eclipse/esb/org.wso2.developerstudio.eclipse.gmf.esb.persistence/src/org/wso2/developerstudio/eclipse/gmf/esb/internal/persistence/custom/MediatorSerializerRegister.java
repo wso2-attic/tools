@@ -33,7 +33,6 @@ public class MediatorSerializerRegister {
 	private static final Class[] mediatorSerializers = { 
 		ClassMediatorExtSerializer.class,
 		POJOCommandMediatorExtSerializer.class,
-		CallTemplateMediatorExtSerializer.class,
 		BuilderMediatorExtSerializer.class,
 		RuleMediatorExtSerialize.class};
 

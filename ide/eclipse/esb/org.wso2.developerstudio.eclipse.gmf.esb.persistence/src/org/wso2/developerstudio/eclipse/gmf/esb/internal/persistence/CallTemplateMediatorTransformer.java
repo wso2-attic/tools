@@ -20,7 +20,9 @@ import java.util.List;
 import java.util.Map.Entry;
 
 import org.apache.synapse.endpoints.Endpoint;
+import org.apache.synapse.mediators.Value;
 import org.apache.synapse.mediators.base.SequenceMediator;
+import org.apache.synapse.mediators.template.InvokeMediator;
 import org.apache.synapse.util.xpath.SynapseXPath;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EObject;
@@ -30,9 +32,6 @@ import org.wso2.developerstudio.eclipse.gmf.esb.CallTemplateParameter;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleOptionType;
-import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.CallTemplateExtParameter;
-import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.CallTemplateExtParameter.ParameterType;
-import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.CallTemplateMediatorExt;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
 
 public class CallTemplateMediatorTransformer extends AbstractEsbNodeTransformer{
@@ -41,7 +40,7 @@ public class CallTemplateMediatorTransformer extends AbstractEsbNodeTransformer{
 		Assert.isTrue(subject instanceof CallTemplateMediator, "Invalid subject.");
 		CallTemplateMediator visuaCallTemplate = (CallTemplateMediator) subject;
 		information.getParentSequence().addChild(
-				createCallTemplateMediator(information, visuaCallTemplate));
+				createInvokeMediator(information, visuaCallTemplate));
 		// Transform the callTemplate mediator output data flow path.
 		doTransform(information, visuaCallTemplate.getOutputConnector());
 	}
@@ -54,35 +53,34 @@ public class CallTemplateMediatorTransformer extends AbstractEsbNodeTransformer{
 			SequenceMediator sequence) throws Exception {
 		Assert.isTrue(subject instanceof CallTemplateMediator, "Invalid subject.");
 		CallTemplateMediator visuaCallTemplate = (CallTemplateMediator) subject;
-		sequence.addChild(createCallTemplateMediator(information, visuaCallTemplate));
+		sequence.addChild(createInvokeMediator(information, visuaCallTemplate));
 		doTransformWithinSequence(information, visuaCallTemplate.getOutputConnector()
 				.getOutgoingLink(), sequence);
 	}
 
-	private CallTemplateMediatorExt createCallTemplateMediator(TransformationInfo information,
+	private InvokeMediator createInvokeMediator(TransformationInfo information,
 			CallTemplateMediator obj) throws JaxenException {
-		CallTemplateMediatorExt callTemplateMediator = new CallTemplateMediatorExt();
-		callTemplateMediator.setTarget(obj.getTargetTemplate());
-		List<CallTemplateExtParameter> parameters = callTemplateMediator.getParameters();
+		InvokeMediator invokeMediator = new InvokeMediator();
+		invokeMediator.setTargetTemplate(obj.getTargetTemplate());
 		for (CallTemplateParameter param : obj.getTemplateParameters()) {
-			CallTemplateExtParameter parameter = new CallTemplateExtParameter(
-					param.getParameterName());
-			if (param.getTemplateParameterType().equals(RuleOptionType.EXPRESSION)) {
-				/* RuleOptionType?, this should fix */
-				NamespacedProperty namespacedExpression = param.getParameterExpression();
-				parameter.setParameterType(ParameterType.EXPRESSION);
-				SynapseXPath paramExpression = new SynapseXPath(namespacedExpression.getPropertyValue());
-				for (Entry<String, String> entry : namespacedExpression.getNamespaces().entrySet()) {
-					paramExpression.addNamespace(entry.getKey(), entry.getValue());
+			if (param.getParameterName() != null && !param.getParameterName().isEmpty()) {
+				if (param.getTemplateParameterType().equals(RuleOptionType.EXPRESSION)) {
+					NamespacedProperty namespacedExpression = param.getParameterExpression();
+					SynapseXPath paramExpression = new SynapseXPath(
+							namespacedExpression.getPropertyValue());
+					for (Entry<String, String> entry : namespacedExpression.getNamespaces()
+							.entrySet()) {
+						paramExpression.addNamespace(entry.getKey(), entry.getValue());
+					}
+					invokeMediator.getpName2ExpressionMap().put(param.getParameterName(),
+							new Value(paramExpression));
+				} else {
+					invokeMediator.getpName2ExpressionMap().put(param.getParameterName(),
+							new Value(param.getParameterValue()));
 				}
-				parameter.setParameterExpression(paramExpression);
-			} else {
-				parameter.setParameterType(ParameterType.VALUE);
-				parameter.setParameterValue(param.getParameterValue());
 			}
-			parameters.add(parameter);
 		}
-		return callTemplateMediator;
+		return invokeMediator;
 	}
 
 }
