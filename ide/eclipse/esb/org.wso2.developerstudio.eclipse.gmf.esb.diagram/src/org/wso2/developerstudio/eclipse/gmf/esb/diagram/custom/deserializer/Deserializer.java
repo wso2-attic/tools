@@ -255,12 +255,13 @@ public class Deserializer {
 		default:
 			break;
 		}
-		}catch (org.apache.synapse.SynapseException exception) {
-			
-		/*	MessageDialog.openError(Display.getCurrent().getActiveShell(),
-					"Error occuerd during buidling the esb design view.",
-					exception.getCause().toString());*/
-			exception.printStackTrace();
+		} catch (org.apache.synapse.SynapseException exception) {
+
+			if (exception.getCause() != null) {
+				MessageDialog.openError(Display.getCurrent().getActiveShell(),
+						"Error occuerd during buidling the esb design view.",
+						exception.getCause().toString());
+			}
 		}
 		
 		return artifacts;
