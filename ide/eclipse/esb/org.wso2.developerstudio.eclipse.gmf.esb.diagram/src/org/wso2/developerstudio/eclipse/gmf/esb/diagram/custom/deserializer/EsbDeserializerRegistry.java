@@ -41,6 +41,7 @@ import org.apache.synapse.mediators.filters.FilterMediator;
 import org.apache.synapse.mediators.filters.SwitchMediator;
 import org.apache.synapse.mediators.spring.SpringMediator;
 import org.apache.synapse.mediators.store.MessageStoreMediator;
+import org.apache.synapse.mediators.template.InvokeMediator;
 import org.apache.synapse.mediators.transaction.TransactionMediator;
 import org.apache.synapse.mediators.transform.FaultMediator;
 import org.apache.synapse.mediators.transform.HeaderMediator;
@@ -128,6 +129,7 @@ public class EsbDeserializerRegistry {
 		addDeserializer(ClassMediatorExt.class, new ClassMediatorDeserializer());
 		addDeserializer(POJOCommandMediatorExt.class, new POJOCommandMediatorDeserializer());
 		addDeserializer(PayloadFactoryMediator.class, new PayloadFactoryMediatorDeserializer());
+		addDeserializer(InvokeMediator.class, new CallTemplateMediatorDeserializer());
 	}
 	
 	/**
