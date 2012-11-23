@@ -137,7 +137,7 @@ public class ArtifactRegistryResourceProvider implements IRegistryResourceProvid
 					String path = item.getFirstChildWithName(new QName("path")).getText();
 					
 					registryResourceImpl = new RegistryFileImpl(null);
-					IFile registryResource = getProject().getFolder("default").getFile(fileName);
+					IFile registryResource = getProject().getFile(fileName);
 					boolean passed = RegistryManager.isMediaTypeFilterPassed(filters,
 							registryResource);
 					if (!passed){
@@ -158,7 +158,7 @@ public class ArtifactRegistryResourceProvider implements IRegistryResourceProvid
 					String path = item.getFirstChildWithName(new QName("path")).getText();
 					
 					registryResourceImpl = new RegistryCollectionImpl(null);
-					IFolder registryResource = getProject().getFolder("default").getFolder(fileName);
+					IFolder registryResource = getProject().getFolder(fileName);
 					registryResourceImpl.setSource(registryResource);
 					boolean passed = DeveloperStudioProviderUtils.isInProjectFilterPassed(filters,
 							registryResource);
