@@ -37,6 +37,7 @@ import org.apache.synapse.mediators.db.DBLookupMediator;
 import org.apache.synapse.mediators.db.DBReportMediator;
 import org.apache.synapse.mediators.eip.aggregator.AggregateMediator;
 import org.apache.synapse.mediators.eip.splitter.CloneMediator;
+import org.apache.synapse.mediators.eip.splitter.IterateMediator;
 import org.apache.synapse.mediators.elementary.EnrichMediator;
 import org.apache.synapse.mediators.filters.FilterMediator;
 import org.apache.synapse.mediators.filters.SwitchMediator;
@@ -132,6 +133,7 @@ public class EsbDeserializerRegistry {
 		addDeserializer(PayloadFactoryMediator.class, new PayloadFactoryMediatorDeserializer());
 		addDeserializer(InvokeMediator.class, new CallTemplateMediatorDeserializer());
 		addDeserializer(CacheMediator.class, new CacheMediatorDeserializer());
+		addDeserializer(IterateMediator.class, new IterateMediatorDeserializer());
 	}
 	
 	/**

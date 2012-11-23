@@ -82,7 +82,7 @@ public class CloneMediatorDeserializer extends AbstractEsbNodeDeserializer<Abstr
 			if(!(target.getToAddress()==null || target.getToAddress().trim().isEmpty())){
 				executeSetValueCommand(visualTarget,CLONE_TARGET__TO_ADDRESS, target.getToAddress());
 			}
-			if(!(target.getSoapAction()!=null || target.getSoapAction().trim().isEmpty())){
+			if(!(target.getSoapAction()==null || target.getSoapAction().trim().isEmpty())){
 				executeSetValueCommand(visualTarget,CLONE_TARGET__SOAP_ACTION, target.getSoapAction());
 			}
 			
