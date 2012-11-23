@@ -186,23 +186,26 @@ public class ThrottleMediatorTransformer extends AbstractEsbNodeTransformer  {
 		
 		if(vishualPolicyEntry.getAccessType().equals(ThrottleAccessType.CONTROL)){
 			
+		OMElement accessPolicy = factory.createOMElement("Policy", ns_wsp);
+		access.addChild(accessPolicy);
+		
 		String maxCount = Integer.toString(vishualPolicyEntry.getMaxRequestCount());
 		
 		OMElement maximumCount = factory.createOMElement("MaximumCount",ns_throttle);
 		maximumCount.setText(maxCount);
-		access.addChild(maximumCount);
+		accessPolicy.addChild(maximumCount);
 		
 		String utime = Integer.toString(vishualPolicyEntry.getUnitTime());
 		
 		OMElement ut = factory.createOMElement("UnitTime", ns_throttle);
 		ut.setText(utime);
-		access.addChild(ut);
+		accessPolicy.addChild(ut);
 		
 		String prohibitTimePeriod = Integer.toString(vishualPolicyEntry.getProhibitPeriod());
 		
 		OMElement ptp = factory.createOMElement("ProhibitTimePeriod", ns_throttle);
 		ptp.setText(prohibitTimePeriod);
-		access.addChild(ptp);
+		accessPolicy.addChild(ptp);
 		
 		}
 		

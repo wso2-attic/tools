@@ -50,6 +50,7 @@ import org.apache.synapse.mediators.filters.router.ConditionalRouterMediator;
 import org.apache.synapse.mediators.spring.SpringMediator;
 import org.apache.synapse.mediators.store.MessageStoreMediator;
 import org.apache.synapse.mediators.template.InvokeMediator;
+import org.apache.synapse.mediators.throttle.ThrottleMediator;
 import org.apache.synapse.mediators.transaction.TransactionMediator;
 import org.apache.synapse.mediators.transform.FaultMediator;
 import org.apache.synapse.mediators.transform.HeaderMediator;
@@ -149,6 +150,7 @@ public class EsbDeserializerRegistry {
 		addDeserializer(FailoverEndpoint.class, new FailoverEndpointDeserializer());
 		addDeserializer(LoadbalanceEndpoint.class, new LoadBalanceEndpointDeserializer());
 		addDeserializer(ConditionalRouterMediator.class, new ConditionalRouterMediatorDeserializer());
+		addDeserializer(ThrottleMediator.class, new ThrottleMediatorDeserializer());
 	}
 	
 	/**
