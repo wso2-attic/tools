@@ -44,9 +44,10 @@ public class GeneralProjectWizard extends AbstractWSO2ProjectCreationWizard {
 			project = createNewProject();
 			JavaUtils.addJavaNature(project,false);
 			
-			project.getFolder("default").getLocation().toFile().mkdirs();
+			project.getFolder("Development").getLocation().toFile().mkdirs();
+			project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 			
-			File pomfile = project.getFolder("default").getFile("pom.xml").getLocation().toFile();
+			File pomfile = project.getFile("pom.xml").getLocation().toFile();
 			createPOM(pomfile,"pom");
 			
 			ProjectUtils.addNatureToProject(project,
@@ -55,7 +56,7 @@ public class GeneralProjectWizard extends AbstractWSO2ProjectCreationWizard {
 
 			//Creating the metadata file artifact.xml while creating the ESB project. It will be hidden and users won't be able to see it via Eclipse.
 			GeneralProjectArtifact artifact=new GeneralProjectArtifact();
-			IFile file = project.getFolder("default").getFile("artifact.xml");
+			IFile file = project.getFile("artifact.xml");
 			artifact.setSource(file.getLocation().toFile());
 			artifact.toFile();
 			//Refresh the project to show the changes. But still won't see the newly created project.

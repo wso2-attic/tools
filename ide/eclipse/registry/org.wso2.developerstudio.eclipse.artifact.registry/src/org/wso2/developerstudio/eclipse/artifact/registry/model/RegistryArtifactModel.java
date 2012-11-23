@@ -206,20 +206,9 @@ public class RegistryArtifactModel extends ProjectDataModel {
 			                                            currentSelection.getLocation().toFile()
 			                                                    .toString().length());
 			if ("".equals(path)) {
-				newResourceSaveLocation = currentSelection.getFolder("default");
-			} else if("/default".equals(path)){
+				newResourceSaveLocation = currentSelection;
+			} else{
 				newResourceSaveLocation = currentSelection.getFolder(path);
-			}else{
-				newResourceSaveLocation = currentSelection.getFolder("default").getFolder(path);
-				//We create this path inside the default location on the fly
-				boolean isCreated = newResourceSaveLocation.getLocation().toFile().mkdirs();
-				if(isCreated){
-					try {
-						currentSelection.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
-					} catch (CoreException e) {
-						log.error("Error occured while trying to refresh the selected project", e);
-					}
-				}
 			}
 		}
 		return newResourceSaveLocation;

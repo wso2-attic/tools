@@ -44,11 +44,7 @@ public class RefactorUtils {
 
 	public static MavenProject getMavenProject(IProject project) {
 		try {
-			if(project.hasNature("org.wso2.developerstudio.eclipse.general.project.nature")){
-				return MavenUtils.getMavenProject(project.getFolder("default").getFile("pom.xml").getLocation().toFile());
-			}else{
 				return MavenUtils.getMavenProject(project.getFile("pom.xml").getLocation().toFile());
-			}
 		} catch (Exception e) {
 			log.error("Failed to retrive the maven project for the given project", e);
 		}

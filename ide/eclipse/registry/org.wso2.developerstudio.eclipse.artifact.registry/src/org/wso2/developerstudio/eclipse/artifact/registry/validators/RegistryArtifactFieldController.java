@@ -71,7 +71,7 @@ public void validate(String modelProperty, Object value,
 						IProject project = resLocation.getProject();
 						GeneralProjectArtifact generalProjectArtifact = new GeneralProjectArtifact();
 						try {
-							generalProjectArtifact.fromFile(project.getFolder("default").getFile("artifact.xml").getLocation().toFile());
+							generalProjectArtifact.fromFile(project.getFile("artifact.xml").getLocation().toFile());
 							List<RegistryArtifact> allArtifacts = generalProjectArtifact.getAllArtifacts();
 							for (RegistryArtifact registryArtifact : allArtifacts) {
 								if (resource.equals(registryArtifact.getName())) {

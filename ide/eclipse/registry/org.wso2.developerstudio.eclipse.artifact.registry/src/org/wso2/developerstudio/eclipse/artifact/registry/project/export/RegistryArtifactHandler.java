@@ -53,9 +53,9 @@ public class RegistryArtifactHandler extends ProjectArtifactHandler {
 			if (project.hasNature(GENERAL_PROJECT_NATURE)) {
 				NullProgressMonitor nullProgressMonitor = new NullProgressMonitor();
 				project.build(IncrementalProjectBuilder.FULL_BUILD, nullProgressMonitor);
-				IFile RegistryResourceFile = project.getFolder("default").getFile(ARTIFACT_XML);
+				IFile RegistryResourceFile = project.getFile(ARTIFACT_XML);
 
-				IFolder binaries = project.getFolder("default").getFolder("target");
+				IFolder binaries = project.getFolder("target");
 				if (!binaries.exists()) {
 					binaries.create(true, true, nullProgressMonitor);
 					binaries.setHidden(true);
@@ -104,7 +104,7 @@ public class RegistryArtifactHandler extends ProjectArtifactHandler {
 											if ("item".equals(item.getLocalName()) || "dump".equals(item.getLocalName())) {
 												OMElement fileEl = item.getFirstChildWithName(new QName("file"));
 												String fileName = fileEl.getText();
-												IFile regItem = project.getFolder("default").getFile(fileName);
+												IFile regItem = project.getFile(fileName);
 												if (regItem.exists()) {
 													FileUtils.copy(regItem.getLocation().toFile(),
 															new File(resourcesDir.getLocation()
@@ -116,7 +116,7 @@ public class RegistryArtifactHandler extends ProjectArtifactHandler {
 												OMElement collectionEl = item.getFirstChildWithName(
 																			new QName("directory"));
 												String dir = collectionEl.getText();
-												IFolder regCollection = project.getFolder("default").getFolder(dir);
+												IFolder regCollection = project.getFolder(dir);
 												if (regCollection.exists()) {
 													FileUtils.copyDirectory(regCollection
 															.getLocation().toFile(), new File(resourcesDir

@@ -20,7 +20,7 @@ public class ResourceEditorAction implements IActionDelegate{
 		try {
 			 if(selection != null){
 				    IProject project = (IProject)selection.getFirstElement(); 
-				    IFile arifactXml = project.getFolder("default").getFile("artifact.xml");
+				    IFile arifactXml = project.getFile("artifact.xml");
 			        IWorkbenchWindow window=PlatformUI.getWorkbench().getActiveWorkbenchWindow();
 		            IWorkbenchPage page = window.getActivePage();
 		      	    page.openEditor(new FileEditorInput(arifactXml), "org.wso2.developerstudio.eclipse.artifact.registry.editor"); 

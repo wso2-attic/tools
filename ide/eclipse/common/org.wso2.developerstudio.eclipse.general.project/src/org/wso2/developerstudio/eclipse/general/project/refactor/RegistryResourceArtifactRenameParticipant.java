@@ -102,13 +102,13 @@ public class RegistryResourceArtifactRenameParticipant extends RenameParticipant
 		if (originalFile != null) {
 	        change.add(new RegistryMeataDataFileChange(
 	                                                   "Meta data file",
-	                                                   registryProject.getFolder("default").getFile("artifact.xml"),
+	                                                   registryProject.getFile("artifact.xml"),
 	                                                   originalFile,
 	                                                   changedFileName, RegistryArtifactType.Resource));
         }else{
 	        change.add(new RegistryMeataDataFileChange(
 	                                                   "Meta data file",
-	                                                   registryProject.getFolder("default").getFile("artifact.xml"),
+	                                                   registryProject.getFile("artifact.xml"),
 	                                                   originalFolder,
 	                                                   changedFolderName, RegistryArtifactType.Collection));
         }

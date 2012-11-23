@@ -106,7 +106,7 @@ public class RegistryResourceCreationWizard extends AbstractWSO2ProjectCreationW
 				destFile = resourceFile.getLocation().toFile();
 				FileUtils.createFile(destFile, template);
 				RegistryResourceUtils.createMetaDataForFolder(regModel.getRegistryPath(), resLocation.getLocation().toFile());
-				RegistryResourceUtils.addRegistryResourceInfo(destFile, regResInfoDoc,new File(project.getLocation().toFile(),"default"),regModel.getRegistryPath());
+				RegistryResourceUtils.addRegistryResourceInfo(destFile, regResInfoDoc,project.getLocation().toFile(),regModel.getRegistryPath());
 				
 			} else if (getModel().getSelectedOption().equals(RegistryArtifactConstants.OPTION_IMPORT_RESOURCE)) {
 				File importFile = getModel().getImportFile();
@@ -118,7 +118,7 @@ public class RegistryResourceCreationWizard extends AbstractWSO2ProjectCreationW
 						for (File res : listFiles) {
 							File distFile = new File(resLocation.getLocation().toFile(),res.getName());
 							RegistryResourceUtils.addRegistryResourceInfo(distFile,
-									regResInfoDoc, new File(project.getLocation().toFile(),"default"),
+									regResInfoDoc, project.getLocation().toFile(),
 									regModel.getRegistryPath());
 						}
 					} else {
@@ -127,14 +127,14 @@ public class RegistryResourceCreationWizard extends AbstractWSO2ProjectCreationW
 						FileUtils.copyDirectoryContents(importFile, folder);
 						
 						RegistryResourceUtils.createMetaDataForFolder(regModel.getRegistryPath(), folder);
-						RegistryResourceUtils.addRegistryResourceInfo(folder, regResInfoDoc,new File(project.getLocation().toFile(),"default"),regModel.getRegistryPath());
+						RegistryResourceUtils.addRegistryResourceInfo(folder, regResInfoDoc,project.getLocation().toFile(),regModel.getRegistryPath());
 					}
 				} else{
 					resourceFile = resLocation.getFile(new Path(importFile.getName()));
 					destFile = resourceFile.getLocation().toFile();
 					FileUtils.copy(importFile, destFile);
 					RegistryResourceUtils.createMetaDataForFolder(regModel.getRegistryPath(), destFile.getParentFile());
-					RegistryResourceUtils.addRegistryResourceInfo(destFile, regResInfoDoc,new File(project.getLocation().toFile(),"default"),regModel.getRegistryPath());
+					RegistryResourceUtils.addRegistryResourceInfo(destFile, regResInfoDoc,project.getLocation().toFile(),regModel.getRegistryPath());
 				}
 				
 			} else if (getModel().getSelectedOption().equals(RegistryArtifactConstants.OPTION_IMPORT_DUMP)){
@@ -143,7 +143,7 @@ public class RegistryResourceCreationWizard extends AbstractWSO2ProjectCreationW
 				destFile = resourceFile.getLocation().toFile();
 				FileUtils.copy(importFile, destFile);
 				//RegistryResourceUtils.createMetaDataForFolder(regModel.getRegistryPath(), destFile.getParentFile());
-				RegistryResourceUtils.addRegistryResourceInfo(destFile, regResInfoDoc,new File(project.getLocation().toFile(),"default"),regModel.getRegistryPath(),RegistryArtifactConstants.REGISTRY_DUMP);
+				RegistryResourceUtils.addRegistryResourceInfo(destFile, regResInfoDoc,project.getLocation().toFile(),regModel.getRegistryPath(),RegistryArtifactConstants.REGISTRY_DUMP);
 			} else if (getModel().getSelectedOption().equals(RegistryArtifactConstants.OPTION_CHECKOUT_PATH)){
 				RegistryResourceNode checkoutPath = regModel.getCheckoutPath();
 				RegistryNode connectionInfo = checkoutPath.getConnectionInfo();
@@ -154,10 +154,10 @@ public class RegistryResourceCreationWizard extends AbstractWSO2ProjectCreationW
 				regModel.setResourceName(resourceName);
 				if(checkoutPath.getResourceType()==RegistryResourceType.COLLECTION){
 					RegistryCheckInClientUtils.checkout(connectionInfo.getUsername(), connectionInfo.getPassword(), destFile.toString(), connectionInfo.getUrl().toString().concat("/"), registryResourcePath);
-					RegistryResourceUtils.addRegistryResourceInfo(destFile, regResInfoDoc,new File(project.getLocation().toFile(),"default"),regModel.getRegistryPath());
+					RegistryResourceUtils.addRegistryResourceInfo(destFile, regResInfoDoc,project.getLocation().toFile(),regModel.getRegistryPath());
 				} else{
 					RegistryCheckInClientUtils.download(connectionInfo.getUsername(), connectionInfo.getPassword(), destFile.toString(), connectionInfo.getUrl().toString().concat("/"), registryResourcePath);
-					RegistryResourceUtils.addRegistryResourceInfo(destFile, regResInfoDoc,new File(project.getLocation().toFile(),"default"),regModel.getRegistryPath());
+					RegistryResourceUtils.addRegistryResourceInfo(destFile, regResInfoDoc,project.getLocation().toFile(),regModel.getRegistryPath());
 				}
 				
 			}
@@ -168,11 +168,11 @@ public class RegistryResourceCreationWizard extends AbstractWSO2ProjectCreationW
 			getModel().getMavenInfo().setPackageName("registry/resource");
 			updatePOM(project);
 			project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
-			String groupId = getMavenGroupId(project.getFolder("default").getFile("pom.xml").getLocation().toFile());
+			String groupId = getMavenGroupId(project.getFile("pom.xml").getLocation().toFile());
 			groupId += ".resource";
 			//Adding the metadata about the endpoint to the metadata store.
 			GeneralProjectArtifact generalProjectArtifact=new GeneralProjectArtifact();
-			generalProjectArtifact.fromFile(project.getFolder("default").getFile("artifact.xml").getLocation().toFile());
+			generalProjectArtifact.fromFile(project.getFile("artifact.xml").getLocation().toFile());
 			
 			RegistryArtifact artifact=new RegistryArtifact();
 			artifact.setName(regModel.getArtifactName());
@@ -214,7 +214,7 @@ public class RegistryResourceCreationWizard extends AbstractWSO2ProjectCreationW
 	private void updatePOM(IProject project) throws Exception{
 		MavenProject mavenProject;
 		
-		File mavenProjectPomLocation = project.getFolder("default").getFile("pom.xml").getLocation().toFile();
+		File mavenProjectPomLocation = project.getFile("pom.xml").getLocation().toFile();
 		if(!mavenProjectPomLocation.exists()){
 			mavenProject = MavenUtils.createMavenProject("org.wso2.carbon." + project.getName() , project.getName(), "1.0.0","pom");
 		} else {
@@ -359,7 +359,7 @@ public class RegistryResourceCreationWizard extends AbstractWSO2ProjectCreationW
 	public void openEditor(IProject project){
 		try {
 			 refreshDistProjects();
-			 IFile arifactXml = project.getFolder("default").getFile("artifact.xml");
+			 IFile arifactXml = project.getFile("artifact.xml");
 		     IWorkbenchWindow window=PlatformUI.getWorkbench().getActiveWorkbenchWindow();
 	         IWorkbenchPage page = window.getActivePage();
 	         List<IEditorReference> openEditors = new ArrayList<IEditorReference>();

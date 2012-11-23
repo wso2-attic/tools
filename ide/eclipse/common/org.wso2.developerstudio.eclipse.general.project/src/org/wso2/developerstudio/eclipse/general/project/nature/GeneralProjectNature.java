@@ -25,7 +25,7 @@ public class GeneralProjectNature extends AbstractWSO2ProjectNature {
 
 	private void updatePom() {
 		// TODO update the pom with the relavant packaging types & maven pligins
-		File mavenProjectPomLocation = getProject().getFolder("default").getFile("pom.xml").getLocation().toFile();
+		File mavenProjectPomLocation = getProject().getFile("pom.xml").getLocation().toFile();
 		try {
 			MavenProject mavenProject = MavenUtils.getMavenProject(mavenProjectPomLocation);
 			//Adding typrLidt property
