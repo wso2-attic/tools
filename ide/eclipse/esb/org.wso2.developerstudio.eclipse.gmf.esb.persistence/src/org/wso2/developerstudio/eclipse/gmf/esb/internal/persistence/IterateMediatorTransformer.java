@@ -68,23 +68,20 @@ public class IterateMediatorTransformer extends AbstractEsbNodeTransformer{
 				
 			}
 			
-			NamespacedProperty attachedPath = visualIterate.getAttachPath();
-			
-			if(attachedPath != null && !attachedPath.getPropertyValue().equals("")){
-				
-				
-				SynapseXPath xpath = new SynapseXPath(attachedPath.getPropertyValue());
-				Map<String, String> nameSpaceMap = attachedPath.getNamespaces();
-				
-				for(String key : nameSpaceMap.keySet()){
-					
-					xpath.addNamespace(key, nameSpaceMap.get(key));
+			if(visualIterate.isPreservePayload()){
+				iterateMediator.setPreservePayload(true);
+				NamespacedProperty attachedPath = visualIterate.getAttachPath();
+				if(attachedPath != null && !attachedPath.getPropertyValue().equals("")){
+					SynapseXPath xpath = new SynapseXPath(attachedPath.getPropertyValue());
+					Map<String, String> nameSpaceMap = attachedPath.getNamespaces();
+					for(String key : nameSpaceMap.keySet()){
+						xpath.addNamespace(key, nameSpaceMap.get(key));
+					}
+					iterateMediator.setAttachPath(xpath);
 				}
-				
-				iterateMediator.setAttachPath(xpath);
+			} else{
+				iterateMediator.setPreservePayload(false);
 			}
-			
-			iterateMediator.setPreservePayload(visualIterate.isPreservePayload());
 			
 			iterateMediator.setContinueParent(visualIterate.isContinueParent());
 			

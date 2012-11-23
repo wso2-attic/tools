@@ -61,19 +61,25 @@ public class IterateMediatorItemProvider
 	
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
-			super.getPropertyDescriptors(object);
-
-			addIterateIDPropertyDescriptor(object);
-			addSequentialMediationPropertyDescriptor(object);
-			addContinueParentPropertyDescriptor(object);
-			addPreservePayloadPropertyDescriptor(object);
-			addIterateExpressionPropertyDescriptor(object);
-			addAttachPathPropertyDescriptor(object);
-			
-			//addSoapActionPropertyDescriptor(object);
-			//addToAddressPropertyDescriptor(object);
+		if (itemPropertyDescriptors != null) {
+			itemPropertyDescriptors.clear();
 		}
+		super.getPropertyDescriptors(object);
+		
+		IterateMediator mediator = (IterateMediator) object;
+
+		addIterateIDPropertyDescriptor(object);
+		addSequentialMediationPropertyDescriptor(object);
+		addContinueParentPropertyDescriptor(object);
+		addPreservePayloadPropertyDescriptor(object);
+		addIterateExpressionPropertyDescriptor(object);
+		
+		if(mediator.isPreservePayload()){
+			addAttachPathPropertyDescriptor(object);
+		}
+
+		// addSoapActionPropertyDescriptor(object);
+		// addToAddressPropertyDescriptor(object);
 		return itemPropertyDescriptors;
 	}
 
