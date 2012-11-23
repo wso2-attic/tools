@@ -3726,6 +3726,24 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getAbstractEndPoint_Format() {
+		return (EAttribute)abstractEndPointEClass.getEStructuralFeatures().get(16);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAbstractEndPoint_Optimize() {
+		return (EAttribute)abstractEndPointEClass.getEStructuralFeatures().get(17);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getMessageMediator() {
 		return messageMediatorEClass;
 	}
@@ -11978,6 +11996,8 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEAttribute(abstractEndPointEClass, ABSTRACT_END_POINT__SUSPEND_PROGRESSION_FACTOR);
 		createEReference(abstractEndPointEClass, ABSTRACT_END_POINT__RELIABLE_MESSAGING_POLICY);
 		createEReference(abstractEndPointEClass, ABSTRACT_END_POINT__SECURITY_POLICY);
+		createEAttribute(abstractEndPointEClass, ABSTRACT_END_POINT__FORMAT);
+		createEAttribute(abstractEndPointEClass, ABSTRACT_END_POINT__OPTIMIZE);
 
 		messageMediatorEClass = createEClass(MESSAGE_MEDIATOR);
 		createEReference(messageMediatorEClass, MESSAGE_MEDIATOR__INPUT_CONNECTOR);
@@ -13524,16 +13544,18 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEAttribute(getAbstractEndPoint_AddressingVersion(), this.getEndPointAddressingVersion(), "addressingVersion", "final", 0, 1, AbstractEndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAbstractEndPoint_AddressingSeparateListener(), ecorePackage.getEBoolean(), "addressingSeparateListener", "false", 0, 1, AbstractEndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAbstractEndPoint_TimeOutDuration(), ecorePackage.getELong(), "timeOutDuration", "0", 0, 1, AbstractEndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAbstractEndPoint_TimeOutAction(), this.getEndPointTimeOutAction(), "timeOutAction", "discard", 0, 1, AbstractEndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAbstractEndPoint_TimeOutAction(), this.getEndPointTimeOutAction(), "timeOutAction", "never", 0, 1, AbstractEndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAbstractEndPoint_RetryErrorCodes(), ecorePackage.getEString(), "retryErrorCodes", null, 0, 1, AbstractEndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAbstractEndPoint_RetryCount(), ecorePackage.getEInt(), "retryCount", "0", 0, 1, AbstractEndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAbstractEndPoint_RetryDelay(), ecorePackage.getELong(), "retryDelay", "0", 0, 1, AbstractEndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAbstractEndPoint_SuspendErrorCodes(), ecorePackage.getEString(), "suspendErrorCodes", null, 0, 1, AbstractEndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAbstractEndPoint_SuspendInitialDuration(), ecorePackage.getELong(), "suspendInitialDuration", "0", 0, 1, AbstractEndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAbstractEndPoint_SuspendInitialDuration(), ecorePackage.getELong(), "suspendInitialDuration", "-1", 0, 1, AbstractEndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAbstractEndPoint_SuspendMaximumDuration(), ecorePackage.getELong(), "suspendMaximumDuration", "0", 0, 1, AbstractEndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAbstractEndPoint_SuspendProgressionFactor(), ecorePackage.getEFloat(), "suspendProgressionFactor", "1.0", 0, 1, AbstractEndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAbstractEndPoint_ReliableMessagingPolicy(), this.getRegistryKeyProperty(), null, "reliableMessagingPolicy", null, 0, 1, AbstractEndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAbstractEndPoint_SecurityPolicy(), this.getRegistryKeyProperty(), null, "securityPolicy", null, 0, 1, AbstractEndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAbstractEndPoint_SuspendProgressionFactor(), ecorePackage.getEFloat(), "suspendProgressionFactor", "-1", 0, 1, AbstractEndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAbstractEndPoint_ReliableMessagingPolicy(), this.getRegistryKeyProperty(), null, "reliableMessagingPolicy", null, 0, 1, AbstractEndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAbstractEndPoint_SecurityPolicy(), this.getRegistryKeyProperty(), null, "securityPolicy", null, 0, 1, AbstractEndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAbstractEndPoint_Format(), this.getEndPointMessageFormat(), "format", null, 0, 1, AbstractEndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAbstractEndPoint_Optimize(), this.getEndPointAttachmentOptimization(), "optimize", null, 0, 1, AbstractEndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(messageMediatorEClass, MessageMediator.class, "MessageMediator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMessageMediator_InputConnector(), this.getMessageInputConnector(), null, "inputConnector", null, 0, 1, MessageMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -14665,6 +14687,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		addEEnumLiteral(endPointAddressingVersionEEnum, EndPointAddressingVersion.SUBMISSION);
 
 		initEEnum(endPointTimeOutActionEEnum, EndPointTimeOutAction.class, "EndPointTimeOutAction");
+		addEEnumLiteral(endPointTimeOutActionEEnum, EndPointTimeOutAction.NEVER);
 		addEEnumLiteral(endPointTimeOutActionEEnum, EndPointTimeOutAction.DISCARD);
 		addEEnumLiteral(endPointTimeOutActionEEnum, EndPointTimeOutAction.FAULT);
 
@@ -14674,6 +14697,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		addEEnumLiteral(endPointMessageFormatEEnum, EndPointMessageFormat.SOAP_12);
 		addEEnumLiteral(endPointMessageFormatEEnum, EndPointMessageFormat.POX);
 		addEEnumLiteral(endPointMessageFormatEEnum, EndPointMessageFormat.GET);
+		addEEnumLiteral(endPointMessageFormatEEnum, EndPointMessageFormat.REST);
 
 		initEEnum(endPointAttachmentOptimizationEEnum, EndPointAttachmentOptimization.class, "EndPointAttachmentOptimization");
 		addEEnumLiteral(endPointAttachmentOptimizationEEnum, EndPointAttachmentOptimization.LEAVE_AS_IS);

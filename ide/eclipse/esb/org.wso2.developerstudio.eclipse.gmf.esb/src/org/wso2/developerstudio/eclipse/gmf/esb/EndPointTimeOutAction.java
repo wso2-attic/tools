@@ -23,6 +23,14 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum EndPointTimeOutAction implements Enumerator {
 	/**
+	 * The '<em><b>NEVER</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #NEVER_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	NEVER(100, "NEVER", "never"), /**
 	 * The '<em><b>DISCARD</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -30,7 +38,7 @@ public enum EndPointTimeOutAction implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DISCARD(0, "DISCARD", "discard"),
+	DISCARD(101, "DISCARD", "discard"),
 
 	/**
 	 * The '<em><b>FAULT</b></em>' literal object.
@@ -40,7 +48,22 @@ public enum EndPointTimeOutAction implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	FAULT(1, "FAULT", "fault");
+	FAULT(102, "FAULT", "fault");
+
+	/**
+	 * The '<em><b>NEVER</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>NEVER</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #NEVER
+	 * @model literal="never"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int NEVER_VALUE = 100;
 
 	/**
 	 * The '<em><b>DISCARD</b></em>' literal value.
@@ -55,7 +78,7 @@ public enum EndPointTimeOutAction implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int DISCARD_VALUE = 0;
+	public static final int DISCARD_VALUE = 101;
 
 	/**
 	 * The '<em><b>FAULT</b></em>' literal value.
@@ -70,7 +93,7 @@ public enum EndPointTimeOutAction implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int FAULT_VALUE = 1;
+	public static final int FAULT_VALUE = 102;
 
 	/**
 	 * An array of all the '<em><b>End Point Time Out Action</b></em>' enumerators.
@@ -80,6 +103,7 @@ public enum EndPointTimeOutAction implements Enumerator {
 	 */
 	private static final EndPointTimeOutAction[] VALUES_ARRAY =
 		new EndPointTimeOutAction[] {
+			NEVER,
 			DISCARD,
 			FAULT,
 		};
@@ -132,6 +156,7 @@ public enum EndPointTimeOutAction implements Enumerator {
 	 */
 	public static EndPointTimeOutAction get(int value) {
 		switch (value) {
+			case NEVER_VALUE: return NEVER;
 			case DISCARD_VALUE: return DISCARD;
 			case FAULT_VALUE: return FAULT;
 		}

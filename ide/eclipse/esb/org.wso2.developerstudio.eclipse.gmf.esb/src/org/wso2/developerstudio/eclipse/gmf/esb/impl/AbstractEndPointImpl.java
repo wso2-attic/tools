@@ -8,6 +8,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -15,6 +16,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPointAddressingVersion;
+import org.wso2.developerstudio.eclipse.gmf.esb.EndPointAttachmentOptimization;
+import org.wso2.developerstudio.eclipse.gmf.esb.EndPointMessageFormat;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPointTimeOutAction;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
@@ -42,6 +45,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.AbstractEndPointImpl#getSuspendProgressionFactor <em>Suspend Progression Factor</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.AbstractEndPointImpl#getReliableMessagingPolicy <em>Reliable Messaging Policy</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.AbstractEndPointImpl#getSecurityPolicy <em>Security Policy</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.AbstractEndPointImpl#getFormat <em>Format</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.AbstractEndPointImpl#getOptimize <em>Optimize</em>}</li>
  * </ul>
  * </p>
  *
@@ -176,7 +181,7 @@ public abstract class AbstractEndPointImpl extends EndPointImpl implements Abstr
 	 * @generated
 	 * @ordered
 	 */
-	protected static final EndPointTimeOutAction TIME_OUT_ACTION_EDEFAULT = EndPointTimeOutAction.DISCARD;
+	protected static final EndPointTimeOutAction TIME_OUT_ACTION_EDEFAULT = EndPointTimeOutAction.NEVER;
 
 	/**
 	 * The cached value of the '{@link #getTimeOutAction() <em>Time Out Action</em>}' attribute.
@@ -276,7 +281,7 @@ public abstract class AbstractEndPointImpl extends EndPointImpl implements Abstr
 	 * @generated
 	 * @ordered
 	 */
-	protected static final long SUSPEND_INITIAL_DURATION_EDEFAULT = 0L;
+	protected static final long SUSPEND_INITIAL_DURATION_EDEFAULT = -1L;
 
 	/**
 	 * The cached value of the '{@link #getSuspendInitialDuration() <em>Suspend Initial Duration</em>}' attribute.
@@ -316,7 +321,7 @@ public abstract class AbstractEndPointImpl extends EndPointImpl implements Abstr
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float SUSPEND_PROGRESSION_FACTOR_EDEFAULT = 1.0F;
+	protected static final float SUSPEND_PROGRESSION_FACTOR_EDEFAULT = -1.0F;
 
 	/**
 	 * The cached value of the '{@link #getSuspendProgressionFactor() <em>Suspend Progression Factor</em>}' attribute.
@@ -329,7 +334,7 @@ public abstract class AbstractEndPointImpl extends EndPointImpl implements Abstr
 	protected float suspendProgressionFactor = SUSPEND_PROGRESSION_FACTOR_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getReliableMessagingPolicy() <em>Reliable Messaging Policy</em>}' reference.
+	 * The cached value of the '{@link #getReliableMessagingPolicy() <em>Reliable Messaging Policy</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getReliableMessagingPolicy()
@@ -339,7 +344,7 @@ public abstract class AbstractEndPointImpl extends EndPointImpl implements Abstr
 	protected RegistryKeyProperty reliableMessagingPolicy;
 
 	/**
-	 * The cached value of the '{@link #getSecurityPolicy() <em>Security Policy</em>}' reference.
+	 * The cached value of the '{@link #getSecurityPolicy() <em>Security Policy</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getSecurityPolicy()
@@ -349,12 +354,64 @@ public abstract class AbstractEndPointImpl extends EndPointImpl implements Abstr
 	protected RegistryKeyProperty securityPolicy;
 
 	/**
+	 * The default value of the '{@link #getFormat() <em>Format</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @see #getFormat()
 	 * @generated
+	 * @ordered
+	 */
+	protected static final EndPointMessageFormat FORMAT_EDEFAULT = EndPointMessageFormat.LEAVE_AS_IS;
+
+	/**
+	 * The cached value of the '{@link #getFormat() <em>Format</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFormat()
+	 * @generated
+	 * @ordered
+	 */
+	protected EndPointMessageFormat format = FORMAT_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getOptimize() <em>Optimize</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOptimize()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EndPointAttachmentOptimization OPTIMIZE_EDEFAULT = EndPointAttachmentOptimization.LEAVE_AS_IS;
+
+	/**
+	 * The cached value of the '{@link #getOptimize() <em>Optimize</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOptimize()
+	 * @generated
+	 * @ordered
+	 */
+	protected EndPointAttachmentOptimization optimize = OPTIMIZE_EDEFAULT;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
 	 */
 	protected AbstractEndPointImpl() {
 		super();
+		
+		RegistryKeyProperty reliableMessagingPolicy=EsbFactoryImpl.eINSTANCE.createRegistryKeyProperty();
+		reliableMessagingPolicy.setKeyName("ReliableMessagingPolicy Key");
+		reliableMessagingPolicy.setPrettyName("ReliableMessagingPolicy Key");
+		reliableMessagingPolicy.setKeyValue("/default/key");
+		setReliableMessagingPolicy(reliableMessagingPolicy);
+		
+		RegistryKeyProperty securityPolicy=EsbFactoryImpl.eINSTANCE.createRegistryKeyProperty();
+		securityPolicy.setKeyName("SecurityPolicy Key");
+		securityPolicy.setPrettyName("SecurityPolicy Key");
+		securityPolicy.setKeyValue("/default/key");
+		setSecurityPolicy(securityPolicy);
 	}
 
 	/**
@@ -668,14 +725,6 @@ public abstract class AbstractEndPointImpl extends EndPointImpl implements Abstr
 	 * @generated
 	 */
 	public RegistryKeyProperty getReliableMessagingPolicy() {
-		if (reliableMessagingPolicy != null && reliableMessagingPolicy.eIsProxy()) {
-			InternalEObject oldReliableMessagingPolicy = (InternalEObject)reliableMessagingPolicy;
-			reliableMessagingPolicy = (RegistryKeyProperty)eResolveProxy(oldReliableMessagingPolicy);
-			if (reliableMessagingPolicy != oldReliableMessagingPolicy) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EsbPackage.ABSTRACT_END_POINT__RELIABLE_MESSAGING_POLICY, oldReliableMessagingPolicy, reliableMessagingPolicy));
-			}
-		}
 		return reliableMessagingPolicy;
 	}
 
@@ -684,8 +733,14 @@ public abstract class AbstractEndPointImpl extends EndPointImpl implements Abstr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RegistryKeyProperty basicGetReliableMessagingPolicy() {
-		return reliableMessagingPolicy;
+	public NotificationChain basicSetReliableMessagingPolicy(RegistryKeyProperty newReliableMessagingPolicy, NotificationChain msgs) {
+		RegistryKeyProperty oldReliableMessagingPolicy = reliableMessagingPolicy;
+		reliableMessagingPolicy = newReliableMessagingPolicy;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.ABSTRACT_END_POINT__RELIABLE_MESSAGING_POLICY, oldReliableMessagingPolicy, newReliableMessagingPolicy);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -694,10 +749,17 @@ public abstract class AbstractEndPointImpl extends EndPointImpl implements Abstr
 	 * @generated
 	 */
 	public void setReliableMessagingPolicy(RegistryKeyProperty newReliableMessagingPolicy) {
-		RegistryKeyProperty oldReliableMessagingPolicy = reliableMessagingPolicy;
-		reliableMessagingPolicy = newReliableMessagingPolicy;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ABSTRACT_END_POINT__RELIABLE_MESSAGING_POLICY, oldReliableMessagingPolicy, reliableMessagingPolicy));
+		if (newReliableMessagingPolicy != reliableMessagingPolicy) {
+			NotificationChain msgs = null;
+			if (reliableMessagingPolicy != null)
+				msgs = ((InternalEObject)reliableMessagingPolicy).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.ABSTRACT_END_POINT__RELIABLE_MESSAGING_POLICY, null, msgs);
+			if (newReliableMessagingPolicy != null)
+				msgs = ((InternalEObject)newReliableMessagingPolicy).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.ABSTRACT_END_POINT__RELIABLE_MESSAGING_POLICY, null, msgs);
+			msgs = basicSetReliableMessagingPolicy(newReliableMessagingPolicy, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ABSTRACT_END_POINT__RELIABLE_MESSAGING_POLICY, newReliableMessagingPolicy, newReliableMessagingPolicy));
 	}
 
 	/**
@@ -706,14 +768,6 @@ public abstract class AbstractEndPointImpl extends EndPointImpl implements Abstr
 	 * @generated
 	 */
 	public RegistryKeyProperty getSecurityPolicy() {
-		if (securityPolicy != null && securityPolicy.eIsProxy()) {
-			InternalEObject oldSecurityPolicy = (InternalEObject)securityPolicy;
-			securityPolicy = (RegistryKeyProperty)eResolveProxy(oldSecurityPolicy);
-			if (securityPolicy != oldSecurityPolicy) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EsbPackage.ABSTRACT_END_POINT__SECURITY_POLICY, oldSecurityPolicy, securityPolicy));
-			}
-		}
 		return securityPolicy;
 	}
 
@@ -722,8 +776,14 @@ public abstract class AbstractEndPointImpl extends EndPointImpl implements Abstr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RegistryKeyProperty basicGetSecurityPolicy() {
-		return securityPolicy;
+	public NotificationChain basicSetSecurityPolicy(RegistryKeyProperty newSecurityPolicy, NotificationChain msgs) {
+		RegistryKeyProperty oldSecurityPolicy = securityPolicy;
+		securityPolicy = newSecurityPolicy;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.ABSTRACT_END_POINT__SECURITY_POLICY, oldSecurityPolicy, newSecurityPolicy);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -732,10 +792,75 @@ public abstract class AbstractEndPointImpl extends EndPointImpl implements Abstr
 	 * @generated
 	 */
 	public void setSecurityPolicy(RegistryKeyProperty newSecurityPolicy) {
-		RegistryKeyProperty oldSecurityPolicy = securityPolicy;
-		securityPolicy = newSecurityPolicy;
+		if (newSecurityPolicy != securityPolicy) {
+			NotificationChain msgs = null;
+			if (securityPolicy != null)
+				msgs = ((InternalEObject)securityPolicy).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.ABSTRACT_END_POINT__SECURITY_POLICY, null, msgs);
+			if (newSecurityPolicy != null)
+				msgs = ((InternalEObject)newSecurityPolicy).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.ABSTRACT_END_POINT__SECURITY_POLICY, null, msgs);
+			msgs = basicSetSecurityPolicy(newSecurityPolicy, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ABSTRACT_END_POINT__SECURITY_POLICY, newSecurityPolicy, newSecurityPolicy));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EndPointMessageFormat getFormat() {
+		return format;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFormat(EndPointMessageFormat newFormat) {
+		EndPointMessageFormat oldFormat = format;
+		format = newFormat == null ? FORMAT_EDEFAULT : newFormat;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ABSTRACT_END_POINT__SECURITY_POLICY, oldSecurityPolicy, securityPolicy));
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ABSTRACT_END_POINT__FORMAT, oldFormat, format));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EndPointAttachmentOptimization getOptimize() {
+		return optimize;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOptimize(EndPointAttachmentOptimization newOptimize) {
+		EndPointAttachmentOptimization oldOptimize = optimize;
+		optimize = newOptimize == null ? OPTIMIZE_EDEFAULT : newOptimize;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ABSTRACT_END_POINT__OPTIMIZE, oldOptimize, optimize));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case EsbPackage.ABSTRACT_END_POINT__RELIABLE_MESSAGING_POLICY:
+				return basicSetReliableMessagingPolicy(null, msgs);
+			case EsbPackage.ABSTRACT_END_POINT__SECURITY_POLICY:
+				return basicSetSecurityPolicy(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -776,11 +901,13 @@ public abstract class AbstractEndPointImpl extends EndPointImpl implements Abstr
 			case EsbPackage.ABSTRACT_END_POINT__SUSPEND_PROGRESSION_FACTOR:
 				return getSuspendProgressionFactor();
 			case EsbPackage.ABSTRACT_END_POINT__RELIABLE_MESSAGING_POLICY:
-				if (resolve) return getReliableMessagingPolicy();
-				return basicGetReliableMessagingPolicy();
+				return getReliableMessagingPolicy();
 			case EsbPackage.ABSTRACT_END_POINT__SECURITY_POLICY:
-				if (resolve) return getSecurityPolicy();
-				return basicGetSecurityPolicy();
+				return getSecurityPolicy();
+			case EsbPackage.ABSTRACT_END_POINT__FORMAT:
+				return getFormat();
+			case EsbPackage.ABSTRACT_END_POINT__OPTIMIZE:
+				return getOptimize();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -841,6 +968,12 @@ public abstract class AbstractEndPointImpl extends EndPointImpl implements Abstr
 				return;
 			case EsbPackage.ABSTRACT_END_POINT__SECURITY_POLICY:
 				setSecurityPolicy((RegistryKeyProperty)newValue);
+				return;
+			case EsbPackage.ABSTRACT_END_POINT__FORMAT:
+				setFormat((EndPointMessageFormat)newValue);
+				return;
+			case EsbPackage.ABSTRACT_END_POINT__OPTIMIZE:
+				setOptimize((EndPointAttachmentOptimization)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -903,6 +1036,12 @@ public abstract class AbstractEndPointImpl extends EndPointImpl implements Abstr
 			case EsbPackage.ABSTRACT_END_POINT__SECURITY_POLICY:
 				setSecurityPolicy((RegistryKeyProperty)null);
 				return;
+			case EsbPackage.ABSTRACT_END_POINT__FORMAT:
+				setFormat(FORMAT_EDEFAULT);
+				return;
+			case EsbPackage.ABSTRACT_END_POINT__OPTIMIZE:
+				setOptimize(OPTIMIZE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -948,6 +1087,10 @@ public abstract class AbstractEndPointImpl extends EndPointImpl implements Abstr
 				return reliableMessagingPolicy != null;
 			case EsbPackage.ABSTRACT_END_POINT__SECURITY_POLICY:
 				return securityPolicy != null;
+			case EsbPackage.ABSTRACT_END_POINT__FORMAT:
+				return format != FORMAT_EDEFAULT;
+			case EsbPackage.ABSTRACT_END_POINT__OPTIMIZE:
+				return optimize != OPTIMIZE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -991,6 +1134,10 @@ public abstract class AbstractEndPointImpl extends EndPointImpl implements Abstr
 		result.append(suspendMaximumDuration);
 		result.append(", suspendProgressionFactor: ");
 		result.append(suspendProgressionFactor);
+		result.append(", format: ");
+		result.append(format);
+		result.append(", optimize: ");
+		result.append(optimize);
 		result.append(')');
 		return result.toString();
 	}

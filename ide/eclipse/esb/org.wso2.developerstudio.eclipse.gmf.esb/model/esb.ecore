@@ -175,7 +175,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeOutDuration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"
         defaultValueLiteral="0"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeOutAction" eType="#//EndPointTimeOutAction"
-        defaultValueLiteral="discard"/>
+        defaultValueLiteral="never"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="retryErrorCodes" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="retryCount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         defaultValueLiteral="0"/>
@@ -183,14 +183,17 @@
         defaultValueLiteral="0"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="suspendErrorCodes" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="suspendInitialDuration"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong" defaultValueLiteral="0"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong" defaultValueLiteral="-1"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="suspendMaximumDuration"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong" defaultValueLiteral="0"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="suspendProgressionFactor"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat" defaultValueLiteral="1.0"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat" defaultValueLiteral="-1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="reliableMessagingPolicy"
-        eType="#//RegistryKeyProperty"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="securityPolicy" eType="#//RegistryKeyProperty"/>
+        eType="#//RegistryKeyProperty" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="securityPolicy" eType="#//RegistryKeyProperty"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="format" eType="#//EndPointMessageFormat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="optimize" eType="#//EndPointAttachmentOptimization"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MessageMediator" eSuperTypes="#//EsbElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="inputConnector" eType="#//MessageInputConnector"
@@ -309,15 +312,17 @@
     <eLiterals name="SUBMISSION" value="1" literal="submission"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="EndPointTimeOutAction">
-    <eLiterals name="DISCARD" literal="discard"/>
-    <eLiterals name="FAULT" value="1" literal="fault"/>
+    <eLiterals name="NEVER" value="100" literal="never"/>
+    <eLiterals name="DISCARD" value="101" literal="discard"/>
+    <eLiterals name="FAULT" value="102" literal="fault"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="EndPointMessageFormat">
-    <eLiterals name="LEAVE_AS_IS"/>
+    <eLiterals name="LEAVE_AS_IS" literal="LEAVE_AS_IS"/>
     <eLiterals name="SOAP_1_1" value="1" literal="soap11"/>
     <eLiterals name="SOAP_1_2" value="2" literal="soap12"/>
     <eLiterals name="POX" value="3" literal="pox"/>
     <eLiterals name="GET" value="4" literal="get"/>
+    <eLiterals name="REST" value="5" literal="rest"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="EndPointAttachmentOptimization">
     <eLiterals name="LEAVE_AS_IS"/>

@@ -31,6 +31,8 @@ package org.wso2.developerstudio.eclipse.gmf.esb;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint#getSuspendProgressionFactor <em>Suspend Progression Factor</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint#getReliableMessagingPolicy <em>Reliable Messaging Policy</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint#getSecurityPolicy <em>Security Policy</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint#getFormat <em>Format</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint#getOptimize <em>Optimize</em>}</li>
  * </ul>
  * </p>
  *
@@ -206,7 +208,7 @@ public interface AbstractEndPoint extends EndPoint {
 
 	/**
 	 * Returns the value of the '<em><b>Time Out Action</b></em>' attribute.
-	 * The default value is <code>"discard"</code>.
+	 * The default value is <code>"never"</code>.
 	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.gmf.esb.EndPointTimeOutAction}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -218,7 +220,7 @@ public interface AbstractEndPoint extends EndPoint {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EndPointTimeOutAction
 	 * @see #setTimeOutAction(EndPointTimeOutAction)
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getAbstractEndPoint_TimeOutAction()
-	 * @model default="discard"
+	 * @model default="never"
 	 * @generated
 	 */
 	EndPointTimeOutAction getTimeOutAction();
@@ -342,7 +344,7 @@ public interface AbstractEndPoint extends EndPoint {
 
 	/**
 	 * Returns the value of the '<em><b>Suspend Initial Duration</b></em>' attribute.
-	 * The default value is <code>"0"</code>.
+	 * The default value is <code>"-1"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Suspend Initial Duration</em>' attribute isn't clear,
@@ -352,7 +354,7 @@ public interface AbstractEndPoint extends EndPoint {
 	 * @return the value of the '<em>Suspend Initial Duration</em>' attribute.
 	 * @see #setSuspendInitialDuration(long)
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getAbstractEndPoint_SuspendInitialDuration()
-	 * @model default="0"
+	 * @model default="-1"
 	 * @generated
 	 */
 	long getSuspendInitialDuration();
@@ -396,7 +398,7 @@ public interface AbstractEndPoint extends EndPoint {
 
 	/**
 	 * Returns the value of the '<em><b>Suspend Progression Factor</b></em>' attribute.
-	 * The default value is <code>"1.0"</code>.
+	 * The default value is <code>"-1"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Suspend Progression Factor</em>' attribute isn't clear,
@@ -406,7 +408,7 @@ public interface AbstractEndPoint extends EndPoint {
 	 * @return the value of the '<em>Suspend Progression Factor</em>' attribute.
 	 * @see #setSuspendProgressionFactor(float)
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getAbstractEndPoint_SuspendProgressionFactor()
-	 * @model default="1.0"
+	 * @model default="-1"
 	 * @generated
 	 */
 	float getSuspendProgressionFactor();
@@ -422,55 +424,113 @@ public interface AbstractEndPoint extends EndPoint {
 	void setSuspendProgressionFactor(float value);
 
 	/**
-	 * Returns the value of the '<em><b>Reliable Messaging Policy</b></em>' reference.
+	 * Returns the value of the '<em><b>Reliable Messaging Policy</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Reliable Messaging Policy</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Reliable Messaging Policy</em>' reference.
+	 * @return the value of the '<em>Reliable Messaging Policy</em>' containment reference.
 	 * @see #setReliableMessagingPolicy(RegistryKeyProperty)
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getAbstractEndPoint_ReliableMessagingPolicy()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	RegistryKeyProperty getReliableMessagingPolicy();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint#getReliableMessagingPolicy <em>Reliable Messaging Policy</em>}' reference.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint#getReliableMessagingPolicy <em>Reliable Messaging Policy</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Reliable Messaging Policy</em>' reference.
+	 * @param value the new value of the '<em>Reliable Messaging Policy</em>' containment reference.
 	 * @see #getReliableMessagingPolicy()
 	 * @generated
 	 */
 	void setReliableMessagingPolicy(RegistryKeyProperty value);
 
 	/**
-	 * Returns the value of the '<em><b>Security Policy</b></em>' reference.
+	 * Returns the value of the '<em><b>Security Policy</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Security Policy</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Security Policy</em>' reference.
+	 * @return the value of the '<em>Security Policy</em>' containment reference.
 	 * @see #setSecurityPolicy(RegistryKeyProperty)
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getAbstractEndPoint_SecurityPolicy()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	RegistryKeyProperty getSecurityPolicy();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint#getSecurityPolicy <em>Security Policy</em>}' reference.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint#getSecurityPolicy <em>Security Policy</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Security Policy</em>' reference.
+	 * @param value the new value of the '<em>Security Policy</em>' containment reference.
 	 * @see #getSecurityPolicy()
 	 * @generated
 	 */
 	void setSecurityPolicy(RegistryKeyProperty value);
+
+	/**
+	 * Returns the value of the '<em><b>Format</b></em>' attribute.
+	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.gmf.esb.EndPointMessageFormat}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Format</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Format</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EndPointMessageFormat
+	 * @see #setFormat(EndPointMessageFormat)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getAbstractEndPoint_Format()
+	 * @model
+	 * @generated
+	 */
+	EndPointMessageFormat getFormat();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint#getFormat <em>Format</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Format</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EndPointMessageFormat
+	 * @see #getFormat()
+	 * @generated
+	 */
+	void setFormat(EndPointMessageFormat value);
+
+	/**
+	 * Returns the value of the '<em><b>Optimize</b></em>' attribute.
+	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.gmf.esb.EndPointAttachmentOptimization}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Optimize</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Optimize</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EndPointAttachmentOptimization
+	 * @see #setOptimize(EndPointAttachmentOptimization)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getAbstractEndPoint_Optimize()
+	 * @model
+	 * @generated
+	 */
+	EndPointAttachmentOptimization getOptimize();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint#getOptimize <em>Optimize</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Optimize</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EndPointAttachmentOptimization
+	 * @see #getOptimize()
+	 * @generated
+	 */
+	void setOptimize(EndPointAttachmentOptimization value);
 
 } // AbstractEndPoint

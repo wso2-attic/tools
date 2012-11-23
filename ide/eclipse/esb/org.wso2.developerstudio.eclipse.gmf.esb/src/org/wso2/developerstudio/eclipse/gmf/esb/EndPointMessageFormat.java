@@ -70,7 +70,15 @@ public enum EndPointMessageFormat implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	GET(4, "GET", "get");
+	GET(4, "GET", "get"), /**
+	 * The '<em><b>REST</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #REST_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	REST(5, "REST", "rest");
 
 	/**
 	 * The '<em><b>LEAVE AS IS</b></em>' literal value.
@@ -148,6 +156,21 @@ public enum EndPointMessageFormat implements Enumerator {
 	public static final int GET_VALUE = 4;
 
 	/**
+	 * The '<em><b>REST</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>REST</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #REST
+	 * @model literal="rest"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int REST_VALUE = 5;
+
+	/**
 	 * An array of all the '<em><b>End Point Message Format</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -160,6 +183,7 @@ public enum EndPointMessageFormat implements Enumerator {
 			SOAP_12,
 			POX,
 			GET,
+			REST,
 		};
 
 	/**
@@ -215,6 +239,7 @@ public enum EndPointMessageFormat implements Enumerator {
 			case SOAP_12_VALUE: return SOAP_12;
 			case POX_VALUE: return POX;
 			case GET_VALUE: return GET;
+			case REST_VALUE: return REST;
 		}
 		return null;
 	}

@@ -1111,7 +1111,7 @@ public interface EsbPackage extends EPackage {
 	int ABSTRACT_END_POINT__SUSPEND_PROGRESSION_FACTOR = END_POINT_FEATURE_COUNT + 13;
 
 	/**
-	 * The feature id for the '<em><b>Reliable Messaging Policy</b></em>' reference.
+	 * The feature id for the '<em><b>Reliable Messaging Policy</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1120,7 +1120,7 @@ public interface EsbPackage extends EPackage {
 	int ABSTRACT_END_POINT__RELIABLE_MESSAGING_POLICY = END_POINT_FEATURE_COUNT + 14;
 
 	/**
-	 * The feature id for the '<em><b>Security Policy</b></em>' reference.
+	 * The feature id for the '<em><b>Security Policy</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1129,13 +1129,31 @@ public interface EsbPackage extends EPackage {
 	int ABSTRACT_END_POINT__SECURITY_POLICY = END_POINT_FEATURE_COUNT + 15;
 
 	/**
+	 * The feature id for the '<em><b>Format</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_END_POINT__FORMAT = END_POINT_FEATURE_COUNT + 16;
+
+	/**
+	 * The feature id for the '<em><b>Optimize</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_END_POINT__OPTIMIZE = END_POINT_FEATURE_COUNT + 17;
+
+	/**
 	 * The number of structural features of the '<em>Abstract End Point</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_END_POINT_FEATURE_COUNT = END_POINT_FEATURE_COUNT + 16;
+	int ABSTRACT_END_POINT_FEATURE_COUNT = END_POINT_FEATURE_COUNT + 18;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.MessageMediatorImpl <em>Message Mediator</em>}' class.
@@ -1385,7 +1403,7 @@ public interface EsbPackage extends EPackage {
 	int DEFAULT_END_POINT__SUSPEND_PROGRESSION_FACTOR = ABSTRACT_END_POINT__SUSPEND_PROGRESSION_FACTOR;
 
 	/**
-	 * The feature id for the '<em><b>Reliable Messaging Policy</b></em>' reference.
+	 * The feature id for the '<em><b>Reliable Messaging Policy</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1394,13 +1412,31 @@ public interface EsbPackage extends EPackage {
 	int DEFAULT_END_POINT__RELIABLE_MESSAGING_POLICY = ABSTRACT_END_POINT__RELIABLE_MESSAGING_POLICY;
 
 	/**
-	 * The feature id for the '<em><b>Security Policy</b></em>' reference.
+	 * The feature id for the '<em><b>Security Policy</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int DEFAULT_END_POINT__SECURITY_POLICY = ABSTRACT_END_POINT__SECURITY_POLICY;
+
+	/**
+	 * The feature id for the '<em><b>Format</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEFAULT_END_POINT__FORMAT = ABSTRACT_END_POINT__FORMAT;
+
+	/**
+	 * The feature id for the '<em><b>Optimize</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEFAULT_END_POINT__OPTIMIZE = ABSTRACT_END_POINT__OPTIMIZE;
 
 	/**
 	 * The feature id for the '<em><b>Input Connector</b></em>' containment reference.
@@ -1640,7 +1676,7 @@ public interface EsbPackage extends EPackage {
 	int ADDRESS_END_POINT__SUSPEND_PROGRESSION_FACTOR = ABSTRACT_END_POINT__SUSPEND_PROGRESSION_FACTOR;
 
 	/**
-	 * The feature id for the '<em><b>Reliable Messaging Policy</b></em>' reference.
+	 * The feature id for the '<em><b>Reliable Messaging Policy</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1649,13 +1685,31 @@ public interface EsbPackage extends EPackage {
 	int ADDRESS_END_POINT__RELIABLE_MESSAGING_POLICY = ABSTRACT_END_POINT__RELIABLE_MESSAGING_POLICY;
 
 	/**
-	 * The feature id for the '<em><b>Security Policy</b></em>' reference.
+	 * The feature id for the '<em><b>Security Policy</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int ADDRESS_END_POINT__SECURITY_POLICY = ABSTRACT_END_POINT__SECURITY_POLICY;
+
+	/**
+	 * The feature id for the '<em><b>Format</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADDRESS_END_POINT__FORMAT = ABSTRACT_END_POINT__FORMAT;
+
+	/**
+	 * The feature id for the '<em><b>Optimize</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADDRESS_END_POINT__OPTIMIZE = ABSTRACT_END_POINT__OPTIMIZE;
 
 	/**
 	 * The feature id for the '<em><b>Input Connector</b></em>' containment reference.
@@ -11881,7 +11935,7 @@ public interface EsbPackage extends EPackage {
 	int WSDL_END_POINT__SUSPEND_PROGRESSION_FACTOR = ABSTRACT_END_POINT__SUSPEND_PROGRESSION_FACTOR;
 
 	/**
-	 * The feature id for the '<em><b>Reliable Messaging Policy</b></em>' reference.
+	 * The feature id for the '<em><b>Reliable Messaging Policy</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -11890,13 +11944,31 @@ public interface EsbPackage extends EPackage {
 	int WSDL_END_POINT__RELIABLE_MESSAGING_POLICY = ABSTRACT_END_POINT__RELIABLE_MESSAGING_POLICY;
 
 	/**
-	 * The feature id for the '<em><b>Security Policy</b></em>' reference.
+	 * The feature id for the '<em><b>Security Policy</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int WSDL_END_POINT__SECURITY_POLICY = ABSTRACT_END_POINT__SECURITY_POLICY;
+
+	/**
+	 * The feature id for the '<em><b>Format</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WSDL_END_POINT__FORMAT = ABSTRACT_END_POINT__FORMAT;
+
+	/**
+	 * The feature id for the '<em><b>Optimize</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WSDL_END_POINT__OPTIMIZE = ABSTRACT_END_POINT__OPTIMIZE;
 
 	/**
 	 * The feature id for the '<em><b>WSDL Definition</b></em>' reference list.
@@ -13162,7 +13234,7 @@ public interface EsbPackage extends EPackage {
 	int NAMED_ENDPOINT__SUSPEND_PROGRESSION_FACTOR = ABSTRACT_END_POINT__SUSPEND_PROGRESSION_FACTOR;
 
 	/**
-	 * The feature id for the '<em><b>Reliable Messaging Policy</b></em>' reference.
+	 * The feature id for the '<em><b>Reliable Messaging Policy</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -13171,13 +13243,31 @@ public interface EsbPackage extends EPackage {
 	int NAMED_ENDPOINT__RELIABLE_MESSAGING_POLICY = ABSTRACT_END_POINT__RELIABLE_MESSAGING_POLICY;
 
 	/**
-	 * The feature id for the '<em><b>Security Policy</b></em>' reference.
+	 * The feature id for the '<em><b>Security Policy</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int NAMED_ENDPOINT__SECURITY_POLICY = ABSTRACT_END_POINT__SECURITY_POLICY;
+
+	/**
+	 * The feature id for the '<em><b>Format</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_ENDPOINT__FORMAT = ABSTRACT_END_POINT__FORMAT;
+
+	/**
+	 * The feature id for the '<em><b>Optimize</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_ENDPOINT__OPTIMIZE = ABSTRACT_END_POINT__OPTIMIZE;
 
 	/**
 	 * The feature id for the '<em><b>Input Connector</b></em>' containment reference.
@@ -14020,7 +14110,7 @@ public interface EsbPackage extends EPackage {
 	int API_RESOURCE_ENDPOINT__SUSPEND_PROGRESSION_FACTOR = ABSTRACT_END_POINT__SUSPEND_PROGRESSION_FACTOR;
 
 	/**
-	 * The feature id for the '<em><b>Reliable Messaging Policy</b></em>' reference.
+	 * The feature id for the '<em><b>Reliable Messaging Policy</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -14029,13 +14119,31 @@ public interface EsbPackage extends EPackage {
 	int API_RESOURCE_ENDPOINT__RELIABLE_MESSAGING_POLICY = ABSTRACT_END_POINT__RELIABLE_MESSAGING_POLICY;
 
 	/**
-	 * The feature id for the '<em><b>Security Policy</b></em>' reference.
+	 * The feature id for the '<em><b>Security Policy</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
 	int API_RESOURCE_ENDPOINT__SECURITY_POLICY = ABSTRACT_END_POINT__SECURITY_POLICY;
+
+	/**
+	 * The feature id for the '<em><b>Format</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_RESOURCE_ENDPOINT__FORMAT = ABSTRACT_END_POINT__FORMAT;
+
+	/**
+	 * The feature id for the '<em><b>Optimize</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_RESOURCE_ENDPOINT__OPTIMIZE = ABSTRACT_END_POINT__OPTIMIZE;
 
 	/**
 	 * The feature id for the '<em><b>Input Connector</b></em>' containment reference.
@@ -15921,10 +16029,10 @@ public interface EsbPackage extends EPackage {
 	EAttribute getAbstractEndPoint_SuspendProgressionFactor();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint#getReliableMessagingPolicy <em>Reliable Messaging Policy</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint#getReliableMessagingPolicy <em>Reliable Messaging Policy</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Reliable Messaging Policy</em>'.
+	 * @return the meta object for the containment reference '<em>Reliable Messaging Policy</em>'.
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint#getReliableMessagingPolicy()
 	 * @see #getAbstractEndPoint()
 	 * @generated
@@ -15932,15 +16040,37 @@ public interface EsbPackage extends EPackage {
 	EReference getAbstractEndPoint_ReliableMessagingPolicy();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint#getSecurityPolicy <em>Security Policy</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint#getSecurityPolicy <em>Security Policy</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Security Policy</em>'.
+	 * @return the meta object for the containment reference '<em>Security Policy</em>'.
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint#getSecurityPolicy()
 	 * @see #getAbstractEndPoint()
 	 * @generated
 	 */
 	EReference getAbstractEndPoint_SecurityPolicy();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint#getFormat <em>Format</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Format</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint#getFormat()
+	 * @see #getAbstractEndPoint()
+	 * @generated
+	 */
+	EAttribute getAbstractEndPoint_Format();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint#getOptimize <em>Optimize</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Optimize</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint#getOptimize()
+	 * @see #getAbstractEndPoint()
+	 * @generated
+	 */
+	EAttribute getAbstractEndPoint_Optimize();
 
 	/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.gmf.esb.MessageMediator <em>Message Mediator</em>}'.
@@ -26301,7 +26431,7 @@ public interface EsbPackage extends EPackage {
 		EAttribute ABSTRACT_END_POINT__SUSPEND_PROGRESSION_FACTOR = eINSTANCE.getAbstractEndPoint_SuspendProgressionFactor();
 
 		/**
-		 * The meta object literal for the '<em><b>Reliable Messaging Policy</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Reliable Messaging Policy</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -26309,12 +26439,28 @@ public interface EsbPackage extends EPackage {
 		EReference ABSTRACT_END_POINT__RELIABLE_MESSAGING_POLICY = eINSTANCE.getAbstractEndPoint_ReliableMessagingPolicy();
 
 		/**
-		 * The meta object literal for the '<em><b>Security Policy</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Security Policy</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference ABSTRACT_END_POINT__SECURITY_POLICY = eINSTANCE.getAbstractEndPoint_SecurityPolicy();
+
+		/**
+		 * The meta object literal for the '<em><b>Format</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_END_POINT__FORMAT = eINSTANCE.getAbstractEndPoint_Format();
+
+		/**
+		 * The meta object literal for the '<em><b>Optimize</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_END_POINT__OPTIMIZE = eINSTANCE.getAbstractEndPoint_Optimize();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.MessageMediatorImpl <em>Message Mediator</em>}' class.

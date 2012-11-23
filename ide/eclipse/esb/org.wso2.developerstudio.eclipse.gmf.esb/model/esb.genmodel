@@ -54,6 +54,7 @@
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//EndPointAddressingVersion/SUBMISSION"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//EndPointTimeOutAction">
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//EndPointTimeOutAction/NEVER"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//EndPointTimeOutAction/DISCARD"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//EndPointTimeOutAction/FAULT"/>
     </genEnums>
@@ -63,6 +64,7 @@
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//EndPointMessageFormat/SOAP_1_2"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//EndPointMessageFormat/POX"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//EndPointMessageFormat/GET"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//EndPointMessageFormat/REST"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//EndPointAttachmentOptimization">
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//EndPointAttachmentOptimization/LEAVE_AS_IS"/>
@@ -544,6 +546,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//AbstractEndPoint/suspendProgressionFactor"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esb.ecore#//AbstractEndPoint/reliableMessagingPolicy"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esb.ecore#//AbstractEndPoint/securityPolicy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//AbstractEndPoint/format"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//AbstractEndPoint/optimize"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//MessageMediator">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//MessageMediator/inputConnector"/>
