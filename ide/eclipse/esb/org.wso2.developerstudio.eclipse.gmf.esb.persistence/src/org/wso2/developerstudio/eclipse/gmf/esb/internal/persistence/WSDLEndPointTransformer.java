@@ -21,7 +21,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.SequenceInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.WSDLEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
 
-public class WSDLEndPointTransformer extends AbstractEsbNodeTransformer{
+public class WSDLEndPointTransformer extends AbstractEndpointTransformer{
 
 	public void transform(TransformationInfo information, EsbNode subject)
 			throws Exception {
@@ -118,7 +118,10 @@ public class WSDLEndPointTransformer extends AbstractEsbNodeTransformer{
 	
 	public WSDLEndpoint create(WSDLEndPoint visualEndPoint,String name){
 		WSDLEndpoint synapseWSDLEP = new WSDLEndpoint();
-		EndpointDefinition synapseEPDef = new EndpointDefinition();
+		
+		createAdvanceOptions(visualEndPoint,synapseWSDLEP);
+		
+/*		EndpointDefinition synapseEPDef = new EndpointDefinition();
 		synapseWSDLEP.setWsdlURI(visualEndPoint.getWsdlUri());
 		synapseWSDLEP.setServiceName(visualEndPoint.getService());
 		synapseWSDLEP.setPortName(visualEndPoint.getPort());
@@ -155,7 +158,7 @@ public class WSDLEndPointTransformer extends AbstractEsbNodeTransformer{
 			synapseEPDef.addSuspendErrorCode(ValidationUtil
 					.getInt(visualEndPoint.getSuspendErrorCodes()));
 		
-		synapseWSDLEP.setDefinition(synapseEPDef);
+		synapseWSDLEP.setDefinition(synapseEPDef);*/
 		
 		return synapseWSDLEP;
 	}

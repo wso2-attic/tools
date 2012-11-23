@@ -53,7 +53,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
  * {@link org.wso2.developerstudio.eclipse.gmf.esb.EndPoint} model objects into
  * corresponding synapse artifact(s).
  */
-public class DefaultEndPointTransformer extends AbstractEsbNodeTransformer {
+public class DefaultEndPointTransformer extends AbstractEndpointTransformer {
 	/**
 	 * {@inheritDoc}
 	 */
@@ -157,7 +157,9 @@ public class DefaultEndPointTransformer extends AbstractEsbNodeTransformer {
 		if(name!=null){
 			synapseEP.setName(name);
 		}
-		EndpointDefinition synapseEPDef = new EndpointDefinition();
+		createAdvanceOptions(visualEndPoint,synapseEP);
+		
+		/*EndpointDefinition synapseEPDef = new EndpointDefinition();
 		// synapseEPDef.setCharSetEncoding(charSetEncoding);
 		if (visualEndPoint.isAddressingEnabled()) {
 			synapseEPDef.setAddressingOn(true);
@@ -187,7 +189,7 @@ public class DefaultEndPointTransformer extends AbstractEsbNodeTransformer {
 			synapseEPDef.addSuspendErrorCode(ValidationUtil.getInt(visualEndPoint
 					.getSuspendErrorCodes()));
 
-		synapseEP.setDefinition(synapseEPDef);
+		synapseEP.setDefinition(synapseEPDef);*/
 		
 		return synapseEP;
 		

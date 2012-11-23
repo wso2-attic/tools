@@ -35,7 +35,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.persistence.EsbNodeTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.EsbTransformerRegistry;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
 
-public class FailoverEndPointTransformer extends AbstractEsbNodeTransformer{
+public class FailoverEndPointTransformer extends AbstractEndpointTransformer{
 
 	public void transform(TransformationInfo info, EsbNode subject)
 			throws Exception {

@@ -42,7 +42,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
  * {@link org.wso2.developerstudio.eclipse.gmf.esb.EndPoint} model objects into
  * corresponding synapse artifact(s).
  */
-public class AddressEndPointTransformer extends AbstractEsbNodeTransformer {
+public class AddressEndPointTransformer extends AbstractEndpointTransformer {
 	/**
 	 * {@inheritDoc}
 	 */
@@ -108,7 +108,11 @@ public class AddressEndPointTransformer extends AbstractEsbNodeTransformer {
 		Assert.isTrue(subject instanceof AddressEndPoint, "Invalid subject");
 		AddressEndPoint addressEndPoint = (AddressEndPoint) subject;	
 		AddressEndpoint synapseAddEP = new AddressEndpoint();
-		EndpointDefinition synapseEPDef = new EndpointDefinition();
+		
+		createAdvanceOptions(addressEndPoint,synapseAddEP);
+		synapseAddEP.getDefinition().setAddress(addressEndPoint.getURI());
+		
+		/*EndpointDefinition synapseEPDef = new EndpointDefinition();
 		synapseEPDef.setAddress(addressEndPoint.getURI());
 		// TODO: Configure endpoint with values extracted from the visual model.
 
@@ -142,7 +146,7 @@ public class AddressEndPointTransformer extends AbstractEsbNodeTransformer {
 			synapseEPDef.addSuspendErrorCode(ValidationUtil
 					.getInt(addressEndPoint.getSuspendErrorCodes()));
 
-		synapseAddEP.setDefinition(synapseEPDef);
+		synapseAddEP.setDefinition(synapseEPDef);*/
 		// sendMediator.setEndpoint(synapseAddEP);
 
 		Endpoint endPoint = (Endpoint) synapseAddEP;
@@ -192,6 +196,11 @@ public class AddressEndPointTransformer extends AbstractEsbNodeTransformer {
 		if(name !=null){
 			synapseAddEP.setName(name);
 		}
+		
+		createAdvanceOptions(addressEndPoint,synapseAddEP);
+		synapseAddEP.getDefinition().setAddress(addressEndPoint.getURI());
+		
+/*		
 		EndpointDefinition synapseEPDef = new EndpointDefinition();
 		synapseEPDef.setAddress(addressEndPoint.getURI());
 		// TODO: Configure endpoint with values extracted from the visual model.
@@ -227,7 +236,7 @@ public class AddressEndPointTransformer extends AbstractEsbNodeTransformer {
 					.getInt(addressEndPoint.getSuspendErrorCodes()));
 
 		synapseAddEP.setDefinition(synapseEPDef);
-		
+		*/
 		return synapseAddEP;
 	} 
 
