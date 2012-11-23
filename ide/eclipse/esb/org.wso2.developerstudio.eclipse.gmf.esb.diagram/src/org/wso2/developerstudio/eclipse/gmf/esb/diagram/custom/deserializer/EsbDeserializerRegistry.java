@@ -21,6 +21,11 @@ import java.util.Map;
 
 
 import org.apache.synapse.core.axis2.ProxyService;
+import org.apache.synapse.endpoints.AddressEndpoint;
+import org.apache.synapse.endpoints.DefaultEndpoint;
+import org.apache.synapse.endpoints.FailoverEndpoint;
+import org.apache.synapse.endpoints.LoadbalanceEndpoint;
+import org.apache.synapse.endpoints.WSDLEndpoint;
 
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.apache.synapse.mediators.bsf.ScriptMediator;
@@ -52,6 +57,9 @@ import org.apache.synapse.mediators.transform.XSLTMediator;
 import org.apache.synapse.mediators.transform.url.URLRewriteMediator;
 import org.apache.synapse.mediators.xquery.XQueryMediator;
 import org.apache.synapse.rest.API;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Event;
+import org.eclipse.swt.widgets.Listener;
 import org.wso2.carbon.identity.entitlement.mediator.EntitlementMediator;
 import org.wso2.carbon.identity.oauth.mediator.OAuthMediator;
 import org.wso2.carbon.mediator.event.EventMediator;
@@ -134,6 +142,11 @@ public class EsbDeserializerRegistry {
 		addDeserializer(InvokeMediator.class, new CallTemplateMediatorDeserializer());
 		addDeserializer(CacheMediator.class, new CacheMediatorDeserializer());
 		addDeserializer(IterateMediator.class, new IterateMediatorDeserializer());
+		addDeserializer(DefaultEndpoint.class, new DefaultEndpointDeserializer());
+		addDeserializer(AddressEndpoint.class, new AddressEndpointDeserializer());
+		addDeserializer(WSDLEndpoint.class, new WSDLEndpointDeserializer());
+		addDeserializer(FailoverEndpoint.class, new FailoverEndpointDeserializer());
+		addDeserializer(LoadbalanceEndpoint.class, new LoadBalanceEndpointDeserializer());
 	}
 	
 	/**
