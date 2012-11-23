@@ -46,6 +46,7 @@ import org.apache.synapse.mediators.eip.splitter.IterateMediator;
 import org.apache.synapse.mediators.elementary.EnrichMediator;
 import org.apache.synapse.mediators.filters.FilterMediator;
 import org.apache.synapse.mediators.filters.SwitchMediator;
+import org.apache.synapse.mediators.filters.router.ConditionalRouterMediator;
 import org.apache.synapse.mediators.spring.SpringMediator;
 import org.apache.synapse.mediators.store.MessageStoreMediator;
 import org.apache.synapse.mediators.template.InvokeMediator;
@@ -147,6 +148,7 @@ public class EsbDeserializerRegistry {
 		addDeserializer(WSDLEndpoint.class, new WSDLEndpointDeserializer());
 		addDeserializer(FailoverEndpoint.class, new FailoverEndpointDeserializer());
 		addDeserializer(LoadbalanceEndpoint.class, new LoadBalanceEndpointDeserializer());
+		addDeserializer(ConditionalRouterMediator.class, new ConditionalRouterMediatorDeserializer());
 	}
 	
 	/**
