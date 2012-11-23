@@ -57,12 +57,17 @@ public class AbstractEndPointItemProvider
 	 * @generated NOT
 	 */
 	
-	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
+	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {		
+		if (itemPropertyDescriptors != null) {
+			itemPropertyDescriptors.clear();
+		}
 			super.getPropertyDescriptors(object);
 
 	        AbstractEndPoint endPoint = (AbstractEndPoint) object;
 
+	        addFormatPropertyDescriptor(object);
+	        addOptimizePropertyDescriptor(object);
+	        
 	        // Reliable messaging.
 	        addReliableMessagingEnabledPropertyDescriptor(object);
 	        if (endPoint.isReliableMessagingEnabled()) {
@@ -113,7 +118,7 @@ public class AbstractEndPointItemProvider
 //			addSuspendProgressionFactorPropertyDescriptor(object);
 //			addReliableMessagingPolicyPropertyDescriptor(object);
 //			addSecurityPolicyPropertyDescriptor(object);
-		}
+	
 		return itemPropertyDescriptors;
 	}
 
@@ -470,6 +475,50 @@ public class AbstractEndPointItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Format feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addFormatPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AbstractEndPoint_format_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AbstractEndPoint_format_feature", "_UI_AbstractEndPoint_type"),
+				 EsbPackage.Literals.ABSTRACT_END_POINT__FORMAT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Optimize feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOptimizePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AbstractEndPoint_optimize_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AbstractEndPoint_optimize_feature", "_UI_AbstractEndPoint_type"),
+				 EsbPackage.Literals.ABSTRACT_END_POINT__OPTIMIZE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -511,6 +560,8 @@ public class AbstractEndPointItemProvider
 			case EsbPackage.ABSTRACT_END_POINT__SUSPEND_INITIAL_DURATION:
 			case EsbPackage.ABSTRACT_END_POINT__SUSPEND_MAXIMUM_DURATION:
 			case EsbPackage.ABSTRACT_END_POINT__SUSPEND_PROGRESSION_FACTOR:
+			case EsbPackage.ABSTRACT_END_POINT__FORMAT:
+			case EsbPackage.ABSTRACT_END_POINT__OPTIMIZE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
