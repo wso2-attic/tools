@@ -57,6 +57,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EndpointDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbElement;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbServer;
+import org.wso2.developerstudio.eclipse.gmf.esb.FailoverEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.LocalEntry;
 import org.wso2.developerstudio.eclipse.gmf.esb.MessageMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyService;
@@ -206,6 +208,12 @@ public class DefaultEsbModelExporter implements EsbModelTransformer {
 		}else if(((EndpointDiagram) visualEndpoint).getChild() instanceof AddressEndPoint){
 			AddressEndPointTransformer transformer= new AddressEndPointTransformer();
 			return transformer.create((AddressEndPoint) ((EndpointDiagram) visualEndpoint).getChild(),visualEndpoint.getName());
+		}else if(((EndpointDiagram) visualEndpoint).getChild() instanceof FailoverEndPoint){
+			FailoverEndPointTransformer transformer= new FailoverEndPointTransformer();
+			return transformer.create(new TransformationInfo(),(FailoverEndPoint) ((EndpointDiagram) visualEndpoint).getChild(),visualEndpoint.getName(),null);
+		}else if(((EndpointDiagram) visualEndpoint).getChild() instanceof LoadBalanceEndPoint){
+			LoadBalanceEndPointTransformer transformer= new LoadBalanceEndPointTransformer();
+			return transformer.create(new TransformationInfo(),(LoadBalanceEndPoint) ((EndpointDiagram) visualEndpoint).getChild(),visualEndpoint.getName(),null);
 		}else{
 			return null;
 		}		

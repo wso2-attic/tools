@@ -4,8 +4,10 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.synapse.endpoints.DefaultEndpoint;
 import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.endpoints.EndpointDefinition;
+import org.apache.synapse.endpoints.FailoverEndpoint;
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.apache.synapse.mediators.builtin.SendMediator;
 import org.eclipse.core.resources.IFile;
@@ -25,6 +27,7 @@ import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.PlatformUI;
 import org.wso2.developerstudio.eclipse.gmf.esb.ComplexEndpoints;
 import org.wso2.developerstudio.eclipse.gmf.esb.ComplexEndpointsOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.DefaultEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbElement;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
@@ -51,7 +54,7 @@ public class FailoverEndPointTransformer extends AbstractEndpointTransformer{
 			sendMediator = new SendMediator();
 			info.getParentSequence().addChild(sendMediator);
 		}
-		org.apache.synapse.endpoints.FailoverEndpoint synapseFailEP = new org.apache.synapse.endpoints.FailoverEndpoint();
+/*		org.apache.synapse.endpoints.FailoverEndpoint synapseFailEP = new org.apache.synapse.endpoints.FailoverEndpoint();
 		EndpointDefinition synapseEPDef = new EndpointDefinition();
 		EndpointDefinition synapseEPDef2 = new EndpointDefinition();
 		synapseEPDef2.setAddress("adrress1111........");
@@ -60,11 +63,12 @@ public class FailoverEndPointTransformer extends AbstractEndpointTransformer{
 		
 		List<Endpoint>endPoints= new ArrayList<Endpoint>();
 		synapseFailEP.setChildren(endPoints);
-		synapseFailEP.setDefinition(synapseEPDef);
+		synapseFailEP.setDefinition(synapseEPDef);*/
 		
-		sendMediator.setEndpoint(synapseFailEP);
+		//sendMediator.setEndpoint(synapseFailEP);
+		sendMediator.setEndpoint(create(info,visualEndPoint,null,null));
 		
-		if(!info.isEndPointFound){
+/*		if(!info.isEndPointFound){
 			info.isEndPointFound=true;
 			info.firstEndPoint=visualEndPoint;
 		}		
@@ -81,7 +85,7 @@ public class FailoverEndPointTransformer extends AbstractEndpointTransformer{
 						
 			}
 			}
-		}
+		}*/
 		
 	}
 	catch(Exception e){
@@ -92,11 +96,13 @@ public class FailoverEndPointTransformer extends AbstractEndpointTransformer{
 
 	public void createSynapseObject(TransformationInfo info, EObject subject,
 			List<Endpoint> endPoints) {
-		try{
+		
+		//try{
 		Assert.isTrue(subject instanceof FailoverEndPoint, "Invalid subject.");
 		FailoverEndPoint visualEndPoint = (FailoverEndPoint) subject;
+		create(info, visualEndPoint, null,endPoints);
 		
-		org.apache.synapse.endpoints.FailoverEndpoint synapseFailEP = new org.apache.synapse.endpoints.FailoverEndpoint();
+/*		org.apache.synapse.endpoints.FailoverEndpoint synapseFailEP = new org.apache.synapse.endpoints.FailoverEndpoint();
 		EndpointDefinition synapseEPDef = new EndpointDefinition();
 		
 		List<Endpoint>endPointsList= new ArrayList<Endpoint>();
@@ -119,16 +125,55 @@ public class FailoverEndPointTransformer extends AbstractEndpointTransformer{
 			transformer.createSynapseObject(info,esbNode,endPointsList);						
 			}
 			}
-		}
-		}
+		}*/
+/*		}
 		catch(Exception e){
 			e.printStackTrace();
-		}		
+		}	*/	
 	}
 
 	public void transformWithinSequence(TransformationInfo information,
 			EsbNode subject, SequenceMediator sequence) throws Exception {
 		
+	}
+	
+	public FailoverEndpoint create(TransformationInfo info, FailoverEndPoint visualEndPoint,
+			String name,List<Endpoint> endPoints) {
+		FailoverEndpoint synapseFailEP = new FailoverEndpoint();
+		if (name != null) {
+			synapseFailEP.setName(name);
+		}
+		EndpointDefinition synapseEPDef = new EndpointDefinition();
+		List<Endpoint> endPointsList = new ArrayList<Endpoint>();
+		synapseFailEP.setChildren(endPointsList);
+		synapseFailEP.setDefinition(synapseEPDef);
+		if(endPoints!=null){
+			endPoints.add(synapseFailEP);
+		}
+
+		if (!info.isEndPointFound) {
+			info.isEndPointFound = true;
+			info.firstEndPoint = visualEndPoint;
+		}
+		try {
+			ArrayList<ComplexEndpointsOutputConnector> connectors = createAllEndpoints(visualEndPoint);
+
+			for (ComplexEndpointsOutputConnector outputConnector : connectors) {
+				if (outputConnector.getOutgoingLink() != null) {
+					if (outputConnector.getOutgoingLink().getTarget() != null) {
+						EsbNode esbNode = (EsbNode) outputConnector.getOutgoingLink().getTarget()
+								.eContainer();
+						EsbNodeTransformer transformer = EsbTransformerRegistry.getInstance()
+								.getTransformer(esbNode);
+						transformer.createSynapseObject(info, esbNode, endPointsList);
+
+					}
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return synapseFailEP;
 	}
 	
 	private ArrayList<ComplexEndpointsOutputConnector> createAllEndpoints(FailoverEndPoint failoverEndPoint) throws Exception{

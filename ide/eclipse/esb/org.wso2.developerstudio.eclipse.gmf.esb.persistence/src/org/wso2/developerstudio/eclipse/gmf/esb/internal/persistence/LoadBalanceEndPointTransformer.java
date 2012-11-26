@@ -6,6 +6,8 @@ import java.util.List;
 
 import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.endpoints.EndpointDefinition;
+import org.apache.synapse.endpoints.FailoverEndpoint;
+import org.apache.synapse.endpoints.LoadbalanceEndpoint;
 import org.apache.synapse.endpoints.algorithms.RoundRobin;
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.apache.synapse.mediators.builtin.SendMediator;
@@ -29,6 +31,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.ComplexEndpointsOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbElement;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
+import org.wso2.developerstudio.eclipse.gmf.esb.FailoverEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.EsbNodeTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.EsbTransformerRegistry;
@@ -38,7 +41,7 @@ public class LoadBalanceEndPointTransformer extends AbstractEndpointTransformer{
 
 	public void transform(TransformationInfo information, EsbNode subject)
 			throws Exception {
-		try{
+		//try{
 		Assert.isTrue(subject instanceof LoadBalanceEndPoint, "Invalid subject.");
 		LoadBalanceEndPoint visualEndPoint = (LoadBalanceEndPoint) subject;
 		
@@ -50,7 +53,7 @@ public class LoadBalanceEndPointTransformer extends AbstractEndpointTransformer{
 		} else {
 			sendMediator = new SendMediator();			
 		}
-		org.apache.synapse.endpoints.LoadbalanceEndpoint synapseLoadEP = new org.apache.synapse.endpoints.LoadbalanceEndpoint();
+/*		org.apache.synapse.endpoints.LoadbalanceEndpoint synapseLoadEP = new org.apache.synapse.endpoints.LoadbalanceEndpoint();
 		EndpointDefinition synapseEPDef = new EndpointDefinition();
 		
 		//We should give this LoadbalanceAlgorithm class at runtime.User should be requested to give a class.
@@ -62,10 +65,10 @@ public class LoadBalanceEndPointTransformer extends AbstractEndpointTransformer{
 		
 		synapseLoadEP.setChildren(endPoints);
 		
-		synapseLoadEP.setDefinition(synapseEPDef);
+		synapseLoadEP.setDefinition(synapseEPDef);*/
 		
-		sendMediator.setEndpoint(synapseLoadEP);
-		information.getParentSequence().addChild(sendMediator);
+		sendMediator.setEndpoint(create(information, visualEndPoint, null, null));
+/*		information.getParentSequence().addChild(sendMediator);
 		
 		if(!information.isEndPointFound){
 			information.isEndPointFound=true;
@@ -82,20 +85,21 @@ public class LoadBalanceEndPointTransformer extends AbstractEndpointTransformer{
 			transformer.createSynapseObject(information,esbNode,endPoints);						
 			}
 			}
-		}
-	}	catch(Exception e){
+		}*/
+/*	}	catch(Exception e){
 		e.printStackTrace();
-	}		
+	}*/		
 		
 	}
 
 	public void createSynapseObject(TransformationInfo info, EObject subject,
 			List<Endpoint> endPoints) {
-		try{
+		//try{
 		Assert.isTrue(subject instanceof LoadBalanceEndPoint, "Invalid subject.");
 		LoadBalanceEndPoint visualEndPoint = (LoadBalanceEndPoint) subject;
+		create(info, visualEndPoint, null, endPoints);
 		
-		org.apache.synapse.endpoints.LoadbalanceEndpoint synapseLoadEP = new org.apache.synapse.endpoints.LoadbalanceEndpoint();
+/*		org.apache.synapse.endpoints.LoadbalanceEndpoint synapseLoadEP = new org.apache.synapse.endpoints.LoadbalanceEndpoint();
 		EndpointDefinition synapseEPDef = new EndpointDefinition();
 		
 		//We should give this LoadbalanceAlgorithm class at runtime.User should be requested to give a class.
@@ -129,13 +133,55 @@ public class LoadBalanceEndPointTransformer extends AbstractEndpointTransformer{
 				
 		}	catch(Exception e){
 			e.printStackTrace();
-		}
+		}*/
 	}
 	
 	public void transformWithinSequence(TransformationInfo information,
 			EsbNode subject, SequenceMediator sequence) throws Exception {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	public LoadbalanceEndpoint create(TransformationInfo info, LoadBalanceEndPoint visualEndPoint,
+			String name,List<Endpoint> endPoints) {
+		LoadbalanceEndpoint synapseLBEP = new LoadbalanceEndpoint();
+		if (name != null) {
+			synapseLBEP.setName(name);
+		}
+		EndpointDefinition synapseEPDef = new EndpointDefinition();
+		/*
+		 * We should give this LoadbalanceAlgorithm class at runtime.User should be requested to give a class.		
+		 */
+		synapseLBEP.setAlgorithm(new RoundRobin());
+		List<Endpoint> endPointsList = new ArrayList<Endpoint>();
+		synapseLBEP.setChildren(endPointsList);
+		synapseLBEP.setDefinition(synapseEPDef);
+		if(endPoints!=null){
+			endPoints.add(synapseLBEP);
+		}
+
+		if (!info.isEndPointFound) {
+			info.isEndPointFound = true;
+			info.firstEndPoint = visualEndPoint;
+		}
+		try {
+			ArrayList<ComplexEndpointsOutputConnector> connectors = createAllEndpoints(visualEndPoint);
+
+			for (ComplexEndpointsOutputConnector outputConnector : connectors) {
+				if (outputConnector.getOutgoingLink() != null) {
+					if (outputConnector.getOutgoingLink().getTarget() != null) {
+						EsbNode esbNode = (EsbNode) outputConnector.getOutgoingLink().getTarget()
+								.eContainer();
+						EsbNodeTransformer transformer = EsbTransformerRegistry.getInstance()
+								.getTransformer(esbNode);
+						transformer.createSynapseObject(info, esbNode, endPointsList);
+					}
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return synapseLBEP;
 	}
 	
 	private ArrayList<ComplexEndpointsOutputConnector> createAllEndpoints(LoadBalanceEndPoint loadBalanceEndPoint) throws Exception{
