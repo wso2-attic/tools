@@ -48,6 +48,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPointOutputConnect
 import org.wso2.developerstudio.eclipse.gmf.esb.NamedEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.WSDLEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpointInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpointOutputConnectorEditPart;
@@ -65,6 +66,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.MediatorFl
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.MediatorFlowMediatorFlowCompartment5ItemSemanticEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbPaletteFactory.NodeToolEntry;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 
 /**
  * @generated NOT
@@ -83,6 +86,7 @@ public class MediatorFlowMediatorFlowCompartment5EditPart extends
 	AbstractBorderItemEditPart sourceOutputConnector = null;
 	AbstractBorderItemEditPart outputConnectorEditPart = null;
 	ShapeNodeEditPart sourceEditPart = null;
+	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
 
 	/**
 	 * @generated
@@ -271,7 +275,29 @@ public class MediatorFlowMediatorFlowCompartment5EditPart extends
 			figureInput.removeAll();
 			Figure emptyFigure = new Figure();
 			figureInput.add(emptyFigure);
+		}	
+		
+		if (child instanceof NamedEndpointEditPart) {
+			NamedEndpointEditPart namedEndPointEditPart = (NamedEndpointEditPart) child;
+			EditPart editpart = (EditPart) ((StructuredSelection) namedEndPointEditPart.getViewer()
+					.getEditDomain().getPaletteViewer().getSelection()).getFirstElement();
+			if (editpart instanceof ToolEntryEditPart) {
+				if (((ToolEntryEditPart) editpart).getModel() instanceof NodeToolEntry) {
+					String label = ((NodeToolEntry) ((ToolEntryEditPart) editpart).getModel())
+							.getLabel();
+					if ((!label.equals("")) && (!label.equals("NamedEndpoint"))) {
+						try {
+							((NamedEndpoint) ((View) namedEndPointEditPart.getModel()).getElement())
+									.setName(label);
+						} catch (java.lang.IllegalStateException e) {
+							log.error("This is occured while set name operation..", e);
+						}
+					}
+				}
+			}
 		}
+		
+		
 
 		/*if (child instanceof FailoverEndPointEditPart) {
 			FailoverEndPointEditPart endpointEditPart = (FailoverEndPointEditPart) child;

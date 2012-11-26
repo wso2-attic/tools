@@ -39,7 +39,7 @@ public class EndpointCreationWizardPage extends WizardPage implements Observer{
 		endpointTypeCombo = new Combo(container, SWT.SINGLE | SWT.BORDER);
 		endpointTypeCombo.setLayoutData(gd);
 		endpointTypeCombo.setItems(new String[] { "Default Endpoint",
-				"Address Endpoint", "WSDL Endpoint" });
+				"Address Endpoint", "WSDL Endpoint", "Loadbalance Endpoint", "Failover Endpoint" });
 		endpointTypeCombo.addSelectionListener(new SelectionListener() {
 			public void widgetSelected(SelectionEvent arg0) {
 				selection = endpointTypeCombo.getSelectionIndex();

@@ -4,6 +4,7 @@ import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -24,16 +25,27 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.graphics.Font;
+import org.eclipse.swt.graphics.FontData;
+import org.wso2.developerstudio.eclipse.gmf.esb.ComplexEndpoints;
+import org.wso2.developerstudio.eclipse.gmf.esb.FailoverEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.Sequences;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractSequencesEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ComplexFiguredAbstractEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShapeWithLabel;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.OpenSeparatelyEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.FailoverEndPoint2CanonicalEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.FailoverEndPoint2ItemSemanticEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
 
 /**
- * @generated
+ * @generated NOT
  */
-public class FailoverEndPoint2EditPart extends AbstractBorderedShapeEditPart {
+public class FailoverEndPoint2EditPart extends ComplexFiguredAbstractEndpoint {
 
 	/**
 	 * @generated
@@ -58,7 +70,7 @@ public class FailoverEndPoint2EditPart extends AbstractBorderedShapeEditPart {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void createDefaultEditPolicies() {
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
@@ -71,6 +83,9 @@ public class FailoverEndPoint2EditPart extends AbstractBorderedShapeEditPart {
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
 				new FailoverEndPoint2CanonicalEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
+		// For handle Double click Event.
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
+				new OpenSeparatelyEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
@@ -123,7 +138,7 @@ public class FailoverEndPoint2EditPart extends AbstractBorderedShapeEditPart {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof FailoverEndPointEndPointName2EditPart) {
@@ -133,30 +148,37 @@ public class FailoverEndPoint2EditPart extends AbstractBorderedShapeEditPart {
 			return true;
 		}
 		if (childEditPart instanceof FailoverEndPointInputConnector2EditPart) {
-			BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
-					PositionConstants.WEST);
-			getBorderedFigure()
-					.getBorderItemContainer()
-					.add(((FailoverEndPointInputConnector2EditPart) childEditPart)
-							.getFigure(), locator);
-			return true;
-		}
-		if (childEditPart instanceof FailoverEndPointOutputConnector2EditPart) {
-			BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
-					PositionConstants.EAST);
-			getBorderedFigure()
-					.getBorderItemContainer()
-					.add(((FailoverEndPointOutputConnector2EditPart) childEditPart)
-							.getFigure(), locator);
+			double position;
+			EObject parentEndpoint = ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (childEditPart
+					.getParent()).getModel()).getElement();
+			if (((FailoverEndPoint) parentEndpoint).getInputConnector()
+					.getIncomingLinks().size() != 0) {
+				EObject source = ((FailoverEndPoint) parentEndpoint)
+						.getInputConnector().getIncomingLinks().get(0)
+						.getSource().eContainer();
+				/*
+				 * Position of input connector of the endpoint should be 0.5 inside ComplexEndpoints and Sequences. 
+				 */
+				position = ((source instanceof ComplexEndpoints)||(source.eContainer().eContainer() instanceof Sequences)) ? 0.5: 0.25;
+			} else {
+				position = ((this.getParent().getParent().getParent() instanceof ComplexEndpointsEditPart)||
+				(this.getParent().getParent().getParent() instanceof AbstractSequencesEditPart)) ? 0.5:0.25;
+			}
+			IFigure borderItemFigure = ((FailoverEndPointInputConnector2EditPart) childEditPart)
+					.getFigure();
+			BorderItemLocator locator = new FixedBorderItemLocator(
+					getMainFigure(), borderItemFigure, PositionConstants.WEST,
+					position);
+			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
+					locator);
 			return true;
 		}
 		if (childEditPart instanceof FailoverEndPointWestOutputConnector2EditPart) {
-			BorderItemLocator locator = new BorderItemLocator(getMainFigure(),
-					PositionConstants.WEST);
-			getBorderedFigure()
-					.getBorderItemContainer()
-					.add(((FailoverEndPointWestOutputConnector2EditPart) childEditPart)
-							.getFigure(), locator);
+			IFigure borderItemFigure = ((FailoverEndPointWestOutputConnector2EditPart) childEditPart)
+					.getFigure();
+			BorderItemLocator locator = new FixedBorderItemLocator(getMainFigure(),
+					borderItemFigure, PositionConstants.WEST, 0.75);
+			getBorderedFigure().getBorderItemContainer().add(borderItemFigure, locator);
 			return true;
 		}
 		return false;
@@ -316,9 +338,9 @@ public class FailoverEndPoint2EditPart extends AbstractBorderedShapeEditPart {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
-	public class FailoverEndPointFigure extends EsbGraphicalShape {
+	public class FailoverEndPointFigure extends EsbGraphicalShapeWithLabel {
 
 		/**
 		 * @generated
@@ -335,14 +357,19 @@ public class FailoverEndPoint2EditPart extends AbstractBorderedShapeEditPart {
 		}
 
 		/**
-		 * @generated
+		 * @generated NOT
 		 */
 		private void createContents() {
-
 			fFigureFailoverEndPointNamePropertyLabel = new WrappingLabel();
-			fFigureFailoverEndPointNamePropertyLabel.setText("<...>");
+			fFigureFailoverEndPointNamePropertyLabel.setText("");
+			fFigureFailoverEndPointNamePropertyLabel
+					.setAlignment(PositionConstants.TOP
+							| PositionConstants.CENTER);
+			fFigureFailoverEndPointNamePropertyLabel.setFont(new Font(null,
+					new FontData("Courier", 8, SWT.BOLD)));
 
-			this.add(fFigureFailoverEndPointNamePropertyLabel);
+			this.getPropertyValueRectangle1().add(
+					fFigureFailoverEndPointNamePropertyLabel);
 
 		}
 
@@ -351,6 +378,18 @@ public class FailoverEndPoint2EditPart extends AbstractBorderedShapeEditPart {
 		 */
 		public WrappingLabel getFigureFailoverEndPointNamePropertyLabel() {
 			return fFigureFailoverEndPointNamePropertyLabel;
+		}
+		
+		public String getIconPath() {
+			return "icons/ico20/failover-endpoint.gif";
+		}
+
+		public String getNodeName() {
+			return "FailOver-EP";
+		}
+
+		public Color getBackgroundColor() {
+			return THIS_BACK;
 		}
 
 	}

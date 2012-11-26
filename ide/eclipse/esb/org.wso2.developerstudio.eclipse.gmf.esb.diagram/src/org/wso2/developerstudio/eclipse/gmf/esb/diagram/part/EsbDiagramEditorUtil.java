@@ -308,6 +308,14 @@ public class EsbDiagramEditorUtil {
 						endpoints.setChild(EsbFactory.eINSTANCE
 								.createWSDLEndPoint());
 						break;
+					case 3:
+						endpoints.setChild(EsbFactory.eINSTANCE
+								.createLoadBalanceEndPoint());
+						break;
+					case 4:
+						endpoints.setChild(EsbFactory.eINSTANCE
+								.createFailoverEndPoint());
+						break;
 
 					default:
 						break;

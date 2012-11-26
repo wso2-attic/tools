@@ -414,7 +414,7 @@ public class NamedEndpointEditPart extends AbstractEndpoint {
 							| SWT.BORDER);
 					endpointTypeCombo.setItems(new String[] {
 							"Default Endpoint", "Address Endpoint",
-							"WSDL Endpoint" });
+							"WSDL Endpoint", "Loadbalance Endpoint", "Failover Endpoint" });
 					endpointTypeCombo
 							.addSelectionListener(new SelectionListener() {
 								public void widgetSelected(SelectionEvent arg0) {
