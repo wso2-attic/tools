@@ -163,13 +163,34 @@ public class RegistryResourcePOMGenMojo extends AbstractPOMGenMojo {
 			}
 			if (file.isFile()) {
 				FileUtils.copy(file,
-				               new File(projectLocation, "resources" + File.separator + ((RegistryItem)registryItem).getFile()));
+				               new File(projectLocation, "resources" + File.separator + file.getName()));
 			} else {
 				FileUtils.copyDirectory(file,
 				                        new File(projectLocation, "resources" + File.separator +
-				                        		((RegistryCollection)registryItem).getDirectory()));
+				                        		file.getName()));
 			}
         }
+		
+		for (RegistryElement registryElement : allESBArtifacts) {
+			File file = null;
+			if (registryElement instanceof RegistryItem) {
+				file =
+				       new File(artifact.getSource().getParentFile().getPath(),
+				                ((RegistryItem) registryElement).getFile());
+				((RegistryItem) registryElement).setFile(file.getName());
+			} else if (registryElement instanceof RegistryCollection) {
+				file =
+				       new File(artifact.getSource().getParentFile().getPath(),
+				                ((RegistryCollection) registryElement).getDirectory());
+				((RegistryCollection) registryElement).setDirectory(file.getName());
+			}
+			try {
+				regInfo.toFile();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 		
 //		if(artifact.getFile().isDirectory()){
 //			File file = new File(artifact.getFile().getParentFile(),"resources");
