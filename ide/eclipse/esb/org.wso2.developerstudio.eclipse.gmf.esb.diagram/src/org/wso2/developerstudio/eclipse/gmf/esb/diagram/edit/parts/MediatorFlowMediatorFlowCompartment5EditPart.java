@@ -1,10 +1,15 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
+import org.eclipse.draw2d.Figure;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.AddCommand;
+import org.eclipse.emf.edit.command.DeleteCommand;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gef.EditPart;
@@ -27,6 +32,8 @@ import org.eclipse.gmf.runtime.diagram.ui.requests.CreateConnectionViewAndElemen
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.emf.type.core.IHintedType;
+import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
+import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.wso2.developerstudio.eclipse.gmf.esb.AddressEndPoint;
@@ -35,6 +42,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.FailoverEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.FailoverEndPointOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.InputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPointOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamedEndpoint;
@@ -43,11 +51,13 @@ import org.wso2.developerstudio.eclipse.gmf.esb.WSDLEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpointInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpointOutputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorFlowCompartmentEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractOutputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.SlidingBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.editpolicy.FeedbackIndicateDragDropEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.utils.SwitchMediatorUtils;
@@ -153,6 +163,21 @@ public class MediatorFlowMediatorFlowCompartment5EditPart extends
 			getContentPane().remove(childFigure);
 		}
 	}
+		
+	protected void removeChild(EditPart child) {
+		super.removeChild(child);
+		if(child instanceof AbstractEndpoint){
+			InputConnector connector=(InputConnector) ((Node)EditorUtils.getInputConnector((ShapeNodeEditPart) this.getParent().getParent()).getModel()).getElement();
+			if(connector.getIncomingLinks().isEmpty()){
+				if(borderedNodeFigure.getBorderItemContainer().getChildren().size()==0){
+					SequencesInputConnectorEditPart inputConnectorEditPart=(SequencesInputConnectorEditPart) EditorUtils.getInputConnector((ShapeNodeEditPart) this.getParent().getParent());
+					NodeFigure figureInput = inputConnectorEditPart.getNodeFigure();
+					figureInput.removeAll();
+					figureInput.add(inputConnectorEditPart.getPrimaryShape());
+				}
+			}
+		}
+	}
 
 	protected void addChild(EditPart child, int index) {
 		super.addChild(child, index);
@@ -239,8 +264,16 @@ public class MediatorFlowMediatorFlowCompartment5EditPart extends
 				}
 			}
 		}
+		
+		if(child instanceof AbstractEndpoint){			
+			SequencesInputConnectorEditPart inputConnectorEditPart=(SequencesInputConnectorEditPart) EditorUtils.getInputConnector((ShapeNodeEditPart) this.getParent().getParent());
+			NodeFigure figureInput = inputConnectorEditPart.getNodeFigure();
+			figureInput.removeAll();
+			Figure emptyFigure = new Figure();
+			figureInput.add(emptyFigure);
+		}
 
-		if (child instanceof FailoverEndPointEditPart) {
+		/*if (child instanceof FailoverEndPointEditPart) {
 			FailoverEndPointEditPart endpointEditPart = (FailoverEndPointEditPart) child;
 			EObject parentEndpoint = ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (endpointEditPart)
 					.getModel()).getElement();
@@ -383,7 +416,7 @@ public class MediatorFlowMediatorFlowCompartment5EditPart extends
 					}
 				}
 			}
-		}
+		}*/
 	}
 
 	/**
@@ -421,8 +454,9 @@ public class MediatorFlowMediatorFlowCompartment5EditPart extends
 
 			}
 			if (outputConnectorEditPart == null) {
-				outputConnectorEditPart = (AbstractOutputConnectorEditPart) this
-						.getParent().getParent().getChildren().get(2);
+				outputConnectorEditPart = EditorUtils.getOutputConnector((ShapeNodeEditPart) this.getParent().getParent());
+				/*outputConnectorEditPart = (AbstractOutputConnectorEditPart) this
+						.getParent().getParent().getChildren().get(2);*/
 			}
 			if (sourceEditPart == null || sourceEditPart.getRoot() == null) {
 				sourceEditPart = (AbstractBorderedShapeEditPart) this

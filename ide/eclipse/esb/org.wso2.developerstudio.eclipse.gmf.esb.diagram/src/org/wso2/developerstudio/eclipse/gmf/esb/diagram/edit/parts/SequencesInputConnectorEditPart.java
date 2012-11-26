@@ -33,6 +33,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.InputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EastPointerShape;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.SequencesInputConnectorItemSemanticEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramEditorPlugin;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
@@ -104,6 +105,10 @@ public class SequencesInputConnectorEditPart extends
 		};
 		return lep;
 	}
+	
+	public NodeFigure getNodeFigure(){
+		return super.getNodeFigure();
+	}
 
 	public void notifyChanged(Notification notification) {
 		super.notifyChanged(notification);
@@ -113,7 +118,18 @@ public class SequencesInputConnectorEditPart extends
 	}
 
 	private void toggleVisibility(InputConnector inputConnector) {
-		if (inputConnector.getIncomingLinks().size() != 0) {
+		boolean isEndpointcountZero=false;
+		for(Object child:this.getParent().getChildren()){
+			if(child instanceof MediatorFlow5EditPart){
+				if(((MediatorFlowMediatorFlowCompartment5EditPart)((MediatorFlow5EditPart) child).getChildren().get(0))
+						.borderedNodeFigure.getBorderItemContainer().getChildren().size()==0){	
+					isEndpointcountZero=true;
+				}else{
+					isEndpointcountZero=false;
+				}
+			}
+		}
+		if ((inputConnector.getIncomingLinks().size() != 0)||(!isEndpointcountZero)) {
 			/*
 			 * This will remove the arrow head of output connector if it is
 			 * connected to any other input connector.
@@ -123,6 +139,7 @@ public class SequencesInputConnectorEditPart extends
 			Figure emptyFigure = new Figure();
 			figureInput.add(emptyFigure);
 		} else {
+			
 			/*
 			 * This will add the arrow head of output connector if it is not
 			 * connected to any other input connector.

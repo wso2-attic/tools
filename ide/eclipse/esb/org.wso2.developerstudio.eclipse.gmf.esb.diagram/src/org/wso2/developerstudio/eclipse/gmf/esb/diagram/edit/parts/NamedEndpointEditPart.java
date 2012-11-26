@@ -84,8 +84,10 @@ import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamedEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.SendMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
+import org.wso2.developerstudio.eclipse.gmf.esb.Sequences;
 import org.wso2.developerstudio.eclipse.gmf.esb.WSDLEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractSequencesEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShapeWithLabel;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
@@ -230,9 +232,13 @@ public class NamedEndpointEditPart extends AbstractEndpoint {
 				EObject source = ((NamedEndpoint) parentEndpoint)
 						.getInputConnector().getIncomingLinks().get(0)
 						.getSource().eContainer();
-				position = (source instanceof ComplexEndpoints) ? 0.5: 0.25;
+				/*
+				 * Position of input connector of the endpoint should be 0.5 inside ComplexEndpoints and Sequences. 
+				 */
+				position = ((source instanceof ComplexEndpoints)||(source.eContainer().eContainer() instanceof Sequences)) ? 0.5: 0.25;
 			} else {
-				position = (this.getParent().getParent().getParent() instanceof ComplexEndpointsEditPart) ? 0.5:0.25;
+				position = ((this.getParent().getParent().getParent() instanceof ComplexEndpointsEditPart)||
+				(this.getParent().getParent().getParent() instanceof AbstractSequencesEditPart)) ? 0.5:0.25;
 			}
 			IFigure borderItemFigure = ((NamedEndpointInputConnectorEditPart) childEditPart)
 					.getFigure();
