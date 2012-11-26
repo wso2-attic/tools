@@ -18,6 +18,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.editpolicy;
 
 import java.awt.MouseInfo;
 import java.awt.Point;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
@@ -32,6 +33,7 @@ import org.eclipse.gef.requests.ChangeBoundsRequest;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeCompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateUnspecifiedTypeRequest;
+import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Control;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment5EditPart;
@@ -145,16 +147,27 @@ public class FeedbackIndicateDragDropEditPolicy extends DragDropEditPolicy {
 			 * compartment
 			 */
 			if (!(getHost() instanceof MediatorFlowMediatorFlowCompartmentEditPart || getHost() instanceof MediatorFlowMediatorFlowCompartment5EditPart)) {
+				@SuppressWarnings("rawtypes")
 				List elementTypes = ((CreateUnspecifiedTypeRequest) request).getElementTypes();
+				@SuppressWarnings("rawtypes")
 				Iterator types = elementTypes.iterator();
+				
+				List<IElementType> endPointTypes = Arrays.asList(
+						EsbElementTypes.AddressEndPoint_3610, 
+						EsbElementTypes.DefaultEndPoint_3609,
+						EsbElementTypes.WSDLEndPoint_3612, 
+						EsbElementTypes.AddressEndPoint_3646,
+						EsbElementTypes.DefaultEndPoint_3643, 
+						EsbElementTypes.WSDLEndPoint_3653,
+						EsbElementTypes.NamedEndpoint_3660,
+						EsbElementTypes.LoadBalanceEndPoint_3613,
+						EsbElementTypes.LoadBalanceEndPoint_3656,
+						EsbElementTypes.FailoverEndPoint_3611,
+						EsbElementTypes.FailoverEndPoint_3649);
+				
 				while(types.hasNext()){
 					Object object = types.next();
-					if (object.equals(EsbElementTypes.AddressEndPoint_3610)
-							|| object.equals(EsbElementTypes.DefaultEndPoint_3609)
-							|| object.equals(EsbElementTypes.WSDLEndPoint_3612) 
-							|| object.equals(EsbElementTypes.AddressEndPoint_3646)
-							|| object.equals(EsbElementTypes.DefaultEndPoint_3643)
-							|| object.equals(EsbElementTypes.WSDLEndPoint_3653)) {
+					if(endPointTypes.contains(object)){
 						return UnexecutableCommand.INSTANCE;
 					}
 				}
