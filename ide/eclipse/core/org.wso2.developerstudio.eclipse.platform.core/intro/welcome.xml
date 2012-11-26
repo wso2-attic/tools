@@ -32,7 +32,7 @@
         id="comdeveloperwelcome-introLink-group">
       <link 
           label="WSO2 Developer Studio - Quick Overview"
-          url="http://builder1.us1.wso2.org/~developerstudio/developer-studio/2.0.0/Beta/documentation/overview.html"
+          url="http://dist.wso2.org/products/developer-studio/2.1.0/docs/overview.html"
           id="carbonStudio-introLink"
           style-id="content-link">
         <text>Welcome to WSO2 Developer Studio !! Here we give you a quick overview of WSO2 Developer 
@@ -46,7 +46,7 @@
         icon="icons/carbon-normal.png">
       <link 
           label="Getting Started with WSO2 Developer Studio"
-          url="http://builder1.us1.wso2.org/~developerstudio/developer-studio/2.0.0/Beta/documentation/getting_started_category.html"
+          url="http://dist.wso2.org/products/developer-studio/2.1.0/docs/getting_started_category.html"
           id="getting-started-link"
           style-id="content-link">
         <text>This tutorial explains how to create a Carbon Application (C-App) project using WSO2 Developer Studio. 
