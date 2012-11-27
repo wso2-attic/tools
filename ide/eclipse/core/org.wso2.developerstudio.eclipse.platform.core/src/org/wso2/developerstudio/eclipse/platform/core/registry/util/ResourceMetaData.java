@@ -62,9 +62,9 @@ public class ResourceMetaData extends AbstractXMLDoc{
 						"<mediaType>" + mediaType + "</mediaType>" + 
 						"<version>1844</version>" + 
 						"<creator>admin</creator>" + 
-						"<createdTime>1277482288897</createdTime>" + 
+						"<createdTime>" + System.currentTimeMillis() + "</createdTime>" + 
 						"<lastUpdater>admin</lastUpdater>" + 
-						"<lastModified>1277482288897</lastModified> " + 
+						"<lastModified>" + System.currentTimeMillis() + "</lastModified> " + 
 						"<description>" + "" + "</description>" + 
 						"</resource>";
 		}else{
@@ -77,9 +77,9 @@ public class ResourceMetaData extends AbstractXMLDoc{
 						"<mediaType>" + "" + "</mediaType>" + 
 						"<version>1844</version>" + 
 						"<creator>admin</creator>" + 
-						"<createdTime>1277482288897</createdTime>" + 
+						"<createdTime>" + System.currentTimeMillis() + "</createdTime>" + 
 						"<lastUpdater>admin</lastUpdater>" + 
-						"<lastModified>1277482288897</lastModified> " + 
+						"<lastModified>" + System.currentTimeMillis() + "</lastModified> " + 
 						"<description>" + "" + "</description>"+ 
 						"</resource>";
 		}
