@@ -62,6 +62,7 @@ import org.eclipse.ui.ide.IDE;
 import org.eclipse.ui.ide.IGotoMarker;
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.MultiPageEditorPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.ArtifactType;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbElement;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbLink;
@@ -309,7 +310,16 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
      */
     protected void createPages() {
         createPage0();
-        createPage1();
+        EsbDiagram diagram = (EsbDiagram) graphicalEditor.getDiagram().getElement();
+		EsbServer server = diagram.getServer();	
+        switch (server.getType()) {
+		case COMPLEX_ENDPOINT:			
+			break;
+		default:
+			createPage1();
+			break;
+		}
+        
         //createPage2();
     }
     
@@ -350,13 +360,14 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 //		if (null != sourceEditor.getObject()) {
 //			rebuildModelObject(objectSourceEditor.getObject());
 //		}
-		
-		String xmlSource = sourceEditor.getDocument().get();
-		if(xmlSource!=null && sourceDirty){
-			  if(!xmlSource.trim().isEmpty()){
-				  rebuildModelObject(xmlSource); 
-			  }
-		} 
+		if(sourceEditor!=null){
+			String xmlSource = sourceEditor.getDocument().get();
+			if(xmlSource!=null && sourceDirty){
+				  if(!xmlSource.trim().isEmpty()){
+					  rebuildModelObject(xmlSource); 
+				  }
+			}
+		}
 		
 	}
 

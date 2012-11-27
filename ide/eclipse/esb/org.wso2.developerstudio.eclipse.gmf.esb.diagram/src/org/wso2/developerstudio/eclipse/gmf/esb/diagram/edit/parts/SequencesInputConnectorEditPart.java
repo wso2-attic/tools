@@ -26,6 +26,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
+import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.graphics.Color;
@@ -64,6 +65,11 @@ public class SequencesInputConnectorEditPart extends
 	 */
 	public SequencesInputConnectorEditPart(View view) {
 		super(view);
+	}	
+	
+	public void activate() {
+		super.activate();
+		toggleVisibility((InputConnector)((Node)this.getModel()).getElement());
 	}
 
 	/**

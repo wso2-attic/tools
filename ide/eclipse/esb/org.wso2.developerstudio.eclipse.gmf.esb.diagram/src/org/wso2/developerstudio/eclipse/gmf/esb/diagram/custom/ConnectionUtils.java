@@ -41,22 +41,24 @@ public class ConnectionUtils {
 					.getFigure()).getChildren().get(0) instanceof EastPointerFigure))) {
 				CompoundCommand cc = new CompoundCommand("Create Link");
 
-				ICommand createSubTopicsCmd = new DeferredCreateConnectionViewAndElementCommand(
-						new CreateConnectionViewAndElementRequest(
-								EsbElementTypes.EsbLink_4001,
-								((IHintedType) EsbElementTypes.EsbLink_4001)
-										.getSemanticHint(),
-								((ShapeNodeEditPart) source.getParent())
-										.getDiagramPreferencesHint()),
-						new EObjectAdapter((EObject) source.getModel()),
-						new EObjectAdapter((EObject) target.getModel()),
-						((ShapeNodeEditPart) source.getParent()).getViewer());
-
-				cc.add(new ICommandProxy(createSubTopicsCmd));
-				target.getDiagramEditDomain().getDiagramCommandStack()
-						.execute(cc);
-
-				return true;
+				if(((ShapeNodeEditPart) source.getParent()).getRoot()!=null){
+					ICommand createSubTopicsCmd = new DeferredCreateConnectionViewAndElementCommand(
+							new CreateConnectionViewAndElementRequest(
+									EsbElementTypes.EsbLink_4001,
+									((IHintedType) EsbElementTypes.EsbLink_4001)
+											.getSemanticHint(),
+									((ShapeNodeEditPart) source.getParent())
+											.getDiagramPreferencesHint()),
+							new EObjectAdapter((EObject) source.getModel()),
+							new EObjectAdapter((EObject) target.getModel()),
+							((ShapeNodeEditPart) source.getParent()).getViewer());
+	
+					cc.add(new ICommandProxy(createSubTopicsCmd));
+					target.getDiagramEditDomain().getDiagramCommandStack()
+							.execute(cc);
+	
+					return true;
+				}
 			}
 		}
 		return false;
