@@ -20,6 +20,7 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Observable;
 
 import org.eclipse.jface.window.Window;
@@ -39,24 +40,29 @@ import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
-import org.wso2.developerstudio.eclipse.greg.base.ui.dialog.RegistryTreeBrowserDialog;
+import org.wso2.developerstudio.eclipse.esb.EsbFactory;
+import org.wso2.developerstudio.eclipse.esb.RegistryKeyProperty;
+import static org.wso2.developerstudio.eclipse.esb.core.utils.ESBMediaTypeConstants.*;
+import org.wso2.developerstudio.eclipse.esb.presentation.ui.NamedEntityDescriptor;
+import org.wso2.developerstudio.eclipse.esb.presentation.ui.RegistryKeyPropertyEditorDialog;
 import org.wso2.developerstudio.eclipse.artifact.proxyservice.model.ProxyServiceModel;
 import org.wso2.developerstudio.eclipse.artifact.proxyservice.model.ProxyServiceModel.TargetEPType;
 import org.wso2.developerstudio.eclipse.artifact.proxyservice.utils.PsArtifactConstants;
 import org.wso2.developerstudio.eclipse.artifact.proxyservice.validators.EndPointsList;
-import org.wso2.developerstudio.eclipse.greg.base.model.RegistryResourceNode;
-import org.wso2.developerstudio.eclipse.greg.base.persistent.RegistryURLInfo;
-import org.wso2.developerstudio.eclipse.greg.base.persistent.RegistryUrlStore;
+import static org.wso2.developerstudio.eclipse.platform.core.mediatype.PlatformMediaTypeConstants.*;
 import org.wso2.developerstudio.eclipse.platform.core.model.AbstractComposite;
 import org.wso2.developerstudio.eclipse.platform.core.model.AbstractListDataProvider.ListData;
 import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectDataModel;
 import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectOptionData;
 import org.wso2.developerstudio.eclipse.platform.core.templates.ArtifactTemplate;
+import static org.wso2.developerstudio.eclipse.platform.core.utils.CSProviderConstants.*;
+import org.wso2.developerstudio.eclipse.platform.core.utils.DeveloperStudioProviderUtils;
 import org.wso2.developerstudio.eclipse.platform.core.utils.ResourceManager;
 
 public class AdvancedConfigComposite extends AbstractComposite {
 
 	private static final String SYMBOLIC_NAME = "org.wso2.developerstudio.eclipse.artifact.proxyservice";
+	private static final String REG_BROWSE_TOOL_TIP = "browse key from registry, workspace or local entries";
 	private ProxyServiceModel model;
 
 	/* common */
@@ -67,8 +73,7 @@ public class AdvancedConfigComposite extends AbstractComposite {
 	private Label lblEndpoint;
 	private Combo cmbPredefinedEP;
 	private Label lblEndPointkey;
-	private Button cmdEndPointGovRegBrowse;
-	private Button cmdEndPointConRegBrowse;
+	private Button cmdEndPointRegBrowse;
 	private Button optPredefinedEndpoint;
 	private Button optfromRegistry;
 	private Button optEnterURL;
@@ -84,11 +89,8 @@ public class AdvancedConfigComposite extends AbstractComposite {
 	private Label lblResponseXSLT;
 	private Text txtResponseXSLT;
 
-	private Button cmdReqXSLTConRegBrowse;
-	private Button cmdReqXSLTGovRegBrowse;
-
-	private Button cmdResXSLTConRegBrowse;
-	private Button cmdResXSLTGovRegBrowse;
+	private Button cmdReqXSLTRegBrowse;
+	private Button cmdResXSLTRegBrowse;
 
 	/* Logging proxy */
 	private Label lblReqLogLevel;
@@ -112,8 +114,7 @@ public class AdvancedConfigComposite extends AbstractComposite {
 	/* secure proxy */
 	private Label lblSecPolicy;
 	private Text txtSecPolicy;
-	private Button cmdSecPolicyConRegBrowse;
-	private Button cmdSecPolicyGovRegBrowse;
+	private Button cmdSecPolicyRegBrowse;
 
 	/**
 	 * Create the composite.
@@ -143,14 +144,14 @@ public class AdvancedConfigComposite extends AbstractComposite {
 			public void widgetSelected(SelectionEvent e) {
 				if (optEnterURL.getSelection()) {
 					hideControls(lblEndPointkey, txtEndPointkey,
-							cmdEndPointConRegBrowse, cmdEndPointGovRegBrowse);
+							cmdEndPointRegBrowse);
 					hideControls(lblEndpoint, cmbPredefinedEP);
 					showControls(lbltxtEndPointUrl, txtEndPointUrl);
 					setModelPropertyValue("proxy.target.ep.type",
 							TargetEPType.URL);
 				} else if (optPredefinedEndpoint.getSelection()) {
 					hideControls(lblEndPointkey, txtEndPointkey,
-							cmdEndPointConRegBrowse, cmdEndPointGovRegBrowse);
+							cmdEndPointRegBrowse);
 					hideControls(lbltxtEndPointUrl, txtEndPointUrl);
 					showControls(lblEndpoint, cmbPredefinedEP);
 					setModelPropertyValue("proxy.target.ep.type",
@@ -159,7 +160,7 @@ public class AdvancedConfigComposite extends AbstractComposite {
 					hideControls(lblEndpoint, cmbPredefinedEP);
 					hideControls(lbltxtEndPointUrl, txtEndPointUrl);
 					showControls(lblEndPointkey, txtEndPointkey,
-							cmdEndPointConRegBrowse, cmdEndPointGovRegBrowse);
+							cmdEndPointRegBrowse);
 					setModelPropertyValue("proxy.target.ep.type",
 							TargetEPType.REGISTRY);
 				}
@@ -244,9 +245,8 @@ public class AdvancedConfigComposite extends AbstractComposite {
 		hideControls(lblEndPointkey);
 
 		txtEndPointkey = new Text(this, SWT.BORDER);
-		GridData gd_txtEndPointkey = new GridData(SWT.LEFT, SWT.CENTER, false,
+		GridData gd_txtEndPointkey = new GridData(SWT.FILL, SWT.CENTER, false,
 				false, 2, 1);
-		gd_txtEndPointkey.widthHint = 200;
 		txtEndPointkey.setLayoutData(gd_txtEndPointkey);
 		txtEndPointkey.addModifyListener(new ModifyListener() {
 
@@ -258,16 +258,17 @@ public class AdvancedConfigComposite extends AbstractComposite {
 			}
 		});
 		hideControls(txtEndPointkey);
-
-		cmdEndPointConRegBrowse = new Button(this, SWT.NONE);
-		cmdEndPointConRegBrowse.setLayoutData(new GridData(SWT.CENTER,
-				SWT.CENTER, false, false, 1, 1));
-		cmdEndPointConRegBrowse.setImage(ResourceManager.getPluginImage(SYMBOLIC_NAME, "icons/registry-16x16.png"));
-		cmdEndPointConRegBrowse.setToolTipText("Configuration registry");
-		cmdEndPointConRegBrowse.addSelectionListener(new SelectionListener() {
+		
+		cmdEndPointRegBrowse = new Button(this, SWT.NONE);
+		cmdEndPointRegBrowse.setLayoutData(new GridData(SWT.LEFT,
+				SWT.CENTER, false, false, 2, 1));
+		cmdEndPointRegBrowse.setImage(ResourceManager.getPluginImage(SYMBOLIC_NAME, "icons/registry.png"));
+		cmdEndPointRegBrowse.setToolTipText(REG_BROWSE_TOOL_TIP);
+		cmdEndPointRegBrowse.setText("Browse...");
+		cmdEndPointRegBrowse.addSelectionListener(new SelectionListener() {
 
 			public void widgetSelected(SelectionEvent evt) {
-				selectRegistryResource(txtEndPointkey, 2);
+				selectRegistryResource(txtEndPointkey,MEDIA_TYPE_ENDPOINT);
 			}
 
 			public void widgetDefaultSelected(SelectionEvent evt) {
@@ -275,24 +276,7 @@ public class AdvancedConfigComposite extends AbstractComposite {
 			}
 		});
 
-		hideControls(cmdEndPointConRegBrowse);
-
-		cmdEndPointGovRegBrowse = new Button(this, SWT.NONE);
-		cmdEndPointGovRegBrowse.setLayoutData(new GridData(SWT.LEFT,
-				SWT.CENTER, false, false, 1, 1));
-		cmdEndPointGovRegBrowse.setImage(ResourceManager.getPluginImage(SYMBOLIC_NAME, "icons/registry_picker.gif"));
-		cmdEndPointGovRegBrowse.setToolTipText("Governance registry");
-		cmdEndPointGovRegBrowse.addSelectionListener(new SelectionListener() {
-
-			public void widgetSelected(SelectionEvent evt) {
-				selectRegistryResource(txtEndPointkey, 3);
-			}
-
-			public void widgetDefaultSelected(SelectionEvent evt) {
-				widgetSelected(evt);
-			}
-		});
-		hideControls(cmdEndPointGovRegBrowse);
+		hideControls(cmdEndPointRegBrowse);
 
 		/* Transformer Proxy */
 		lblReqXSLT = new Label(this, SWT.NONE);
@@ -301,9 +285,8 @@ public class AdvancedConfigComposite extends AbstractComposite {
 		lblReqXSLT.setText("Request XSLT");
 
 		txtReqXSLT = new Text(this, SWT.BORDER);
-		GridData gd_txtReqXSLT = new GridData(SWT.LEFT, SWT.CENTER, false,
+		GridData gd_txtReqXSLT = new GridData(SWT.FILL, SWT.CENTER, false,
 				false, 2, 1);
-		gd_txtReqXSLT.widthHint = 200;
 		txtReqXSLT.setLayoutData(gd_txtReqXSLT);
 		txtReqXSLT.addModifyListener(new ModifyListener() {
 
@@ -314,39 +297,23 @@ public class AdvancedConfigComposite extends AbstractComposite {
 
 			}
 		});
-
-		cmdReqXSLTConRegBrowse = new Button(this, SWT.NONE);
-		cmdReqXSLTConRegBrowse.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER,
-				false, false, 1, 1));
-		cmdReqXSLTConRegBrowse.addSelectionListener(new SelectionListener() {
+		
+		cmdReqXSLTRegBrowse = new Button(this, SWT.NONE);
+		cmdReqXSLTRegBrowse.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER,
+				false, false, 2, 1));
+		cmdReqXSLTRegBrowse.setText("Browse...");
+		cmdReqXSLTRegBrowse.addSelectionListener(new SelectionListener() {
 
 			public void widgetSelected(SelectionEvent evt) {
-				selectRegistryResource(txtReqXSLT, 2);
+				selectRegistryResource(txtReqXSLT, MEDIA_TYPE_XSLT);
 			}
 
 			public void widgetDefaultSelected(SelectionEvent evt) {
 				widgetSelected(evt);
 			}
 		});
-		cmdReqXSLTConRegBrowse.setImage(ResourceManager.getPluginImage(SYMBOLIC_NAME, "icons/registry-16x16.png"));
-		cmdReqXSLTConRegBrowse.setToolTipText("Configuration registry");
-		
-		cmdReqXSLTGovRegBrowse = new Button(this, SWT.NONE);
-		cmdReqXSLTGovRegBrowse.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER,
-				false, false, 1, 1));
-		cmdReqXSLTGovRegBrowse.addSelectionListener(new SelectionListener() {
-
-			public void widgetSelected(SelectionEvent evt) {
-				selectRegistryResource(txtReqXSLT, 3);
-			}
-
-			public void widgetDefaultSelected(SelectionEvent evt) {
-				widgetSelected(evt);
-			}
-		});
-		cmdReqXSLTGovRegBrowse.setImage(ResourceManager.getPluginImage(SYMBOLIC_NAME, "icons/registry_picker.gif"));
-		cmdReqXSLTGovRegBrowse.setToolTipText("Governance registry");
-		
+		cmdReqXSLTRegBrowse.setImage(ResourceManager.getPluginImage(SYMBOLIC_NAME, "icons/registry.png"));
+		cmdReqXSLTRegBrowse.setToolTipText(REG_BROWSE_TOOL_TIP);
 
 		chkTransformResponses = new Button(this, SWT.CHECK);
 		chkTransformResponses.setLayoutData(new GridData(SWT.FILL, SWT.CENTER,
@@ -360,10 +327,10 @@ public class AdvancedConfigComposite extends AbstractComposite {
 						((Button) e.widget).getSelection());
 				if (((Button) e.widget).getSelection()) {
 					showControls(lblResponseXSLT, txtResponseXSLT,
-							cmdResXSLTConRegBrowse, cmdResXSLTGovRegBrowse);
+							cmdResXSLTRegBrowse);
 				} else {
 					hideControls(lblResponseXSLT, txtResponseXSLT,
-							cmdResXSLTConRegBrowse, cmdResXSLTGovRegBrowse);
+							cmdResXSLTRegBrowse);
 				}
 				AdvancedConfigComposite.this.layout();
 			}
@@ -376,9 +343,8 @@ public class AdvancedConfigComposite extends AbstractComposite {
 		hideControls(lblResponseXSLT);
 
 		txtResponseXSLT = new Text(this, SWT.BORDER);
-		GridData gd_txtResponseXSLT = new GridData(SWT.LEFT, SWT.CENTER, false,
+		GridData gd_txtResponseXSLT = new GridData(SWT.FILL, SWT.CENTER, false,
 				false, 2, 1);
-		gd_txtResponseXSLT.widthHint = 200;
 		txtResponseXSLT.setLayoutData(gd_txtResponseXSLT);
 		txtResponseXSLT.addModifyListener(new ModifyListener() {
 
@@ -388,40 +354,24 @@ public class AdvancedConfigComposite extends AbstractComposite {
 			}
 		});
 		hideControls(txtResponseXSLT);
-
-		cmdResXSLTConRegBrowse = new Button(this, SWT.NONE);
-		cmdResXSLTConRegBrowse.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER,
-				false, false, 1, 1));
-		cmdResXSLTConRegBrowse.setImage(ResourceManager.getPluginImage(SYMBOLIC_NAME, "icons/registry-16x16.png"));
-		cmdResXSLTConRegBrowse.setToolTipText("Configuration registry");
-		cmdResXSLTConRegBrowse.addSelectionListener(new SelectionListener() {
+		
+		cmdResXSLTRegBrowse = new Button(this, SWT.NONE);
+		cmdResXSLTRegBrowse.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER,
+				false, false, 2, 1));
+		cmdResXSLTRegBrowse.setImage(ResourceManager.getPluginImage(SYMBOLIC_NAME, "icons/registry.png"));
+		cmdResXSLTRegBrowse.setToolTipText(REG_BROWSE_TOOL_TIP);
+		cmdResXSLTRegBrowse.setText("Browse..");
+		cmdResXSLTRegBrowse.addSelectionListener(new SelectionListener() {
 
 			public void widgetSelected(SelectionEvent evt) {
-				selectRegistryResource(txtResponseXSLT, 2);
+				selectRegistryResource(txtResponseXSLT, MEDIA_TYPE_XSLT);
 			}
 
 			public void widgetDefaultSelected(SelectionEvent evt) {
 				widgetSelected(evt);
 			}
 		});
-		hideControls(cmdResXSLTConRegBrowse);
-
-		cmdResXSLTGovRegBrowse = new Button(this, SWT.NONE);
-		cmdResXSLTGovRegBrowse.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER,
-				false, false, 1, 1));
-		cmdResXSLTGovRegBrowse.setImage(ResourceManager.getPluginImage(SYMBOLIC_NAME, "icons/registry_picker.gif"));
-		cmdResXSLTGovRegBrowse.setToolTipText("Governance registry");
-		cmdResXSLTGovRegBrowse.addSelectionListener(new SelectionListener() {
-
-			public void widgetSelected(SelectionEvent evt) {
-				selectRegistryResource(txtResponseXSLT, 3);
-			}
-
-			public void widgetDefaultSelected(SelectionEvent evt) {
-				widgetSelected(evt);
-			}
-		});
-		hideControls(cmdResXSLTGovRegBrowse);
+		hideControls(cmdResXSLTRegBrowse);
 
 		/* logging proxy */
 		lblReqLogLevel = new Label(this, SWT.NONE);
@@ -506,7 +456,7 @@ public class AdvancedConfigComposite extends AbstractComposite {
 		cmdTestUri = new Button(this, SWT.NONE);
 		cmdTestUri.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false,
 				false, 1, 1));
-		cmdTestUri.setText("Test URI");
+		cmdTestUri.setText(" Test URI ");
 		cmdTestUri.addSelectionListener(new SelectionListener() {
 
 			public void widgetSelected(SelectionEvent evt) {
@@ -602,9 +552,8 @@ public class AdvancedConfigComposite extends AbstractComposite {
 		hideControls(lblSecPolicy);
 
 		txtSecPolicy = new Text(this, SWT.BORDER);
-		GridData gd_txtSecPolicy = new GridData(SWT.LEFT, SWT.CENTER, false,
+		GridData gd_txtSecPolicy = new GridData(SWT.FILL, SWT.CENTER, false,
 				false, 2, 1);
-		gd_txtSecPolicy.widthHint = 200;
 		txtSecPolicy.setLayoutData(gd_txtSecPolicy);
 		hideControls(txtSecPolicy);
 		txtSecPolicy.addModifyListener(new ModifyListener() {
@@ -616,40 +565,24 @@ public class AdvancedConfigComposite extends AbstractComposite {
 
 			}
 		});
-
-		cmdSecPolicyConRegBrowse = new Button(this, SWT.NONE);
-		cmdSecPolicyConRegBrowse.setLayoutData(new GridData(SWT.CENTER,
-				SWT.CENTER, false, false, 1, 1));
-		cmdSecPolicyConRegBrowse.setImage(ResourceManager.getPluginImage(SYMBOLIC_NAME, "icons/registry-16x16.png"));
-		cmdSecPolicyConRegBrowse.setToolTipText("Configuration registry");
-		cmdSecPolicyConRegBrowse.addSelectionListener(new SelectionListener() {
+		
+		cmdSecPolicyRegBrowse = new Button(this, SWT.NONE);
+		cmdSecPolicyRegBrowse.setLayoutData(new GridData(SWT.LEFT,
+				SWT.CENTER, false, false, 2, 1));
+		cmdSecPolicyRegBrowse.setImage(ResourceManager.getPluginImage(SYMBOLIC_NAME, "icons/registry.png"));
+		cmdSecPolicyRegBrowse.setToolTipText(REG_BROWSE_TOOL_TIP);
+		cmdSecPolicyRegBrowse.setText("Browse...");
+		cmdSecPolicyRegBrowse.addSelectionListener(new SelectionListener() {
 
 			public void widgetSelected(SelectionEvent evt) {
-				selectRegistryResource(txtSecPolicy, 2);
+				selectRegistryResource(txtSecPolicy, MEDIA_TYPE_WSPOLICY);
 			}
 
 			public void widgetDefaultSelected(SelectionEvent evt) {
 				widgetSelected(evt);
 			}
 		});
-		hideControls(cmdSecPolicyConRegBrowse);
-
-		cmdSecPolicyGovRegBrowse = new Button(this, SWT.NONE);
-		cmdSecPolicyGovRegBrowse.setLayoutData(new GridData(SWT.LEFT,
-				SWT.CENTER, false, false, 1, 1));
-		cmdSecPolicyGovRegBrowse.setImage(ResourceManager.getPluginImage(SYMBOLIC_NAME, "icons/registry_picker.gif"));
-		cmdSecPolicyGovRegBrowse.setToolTipText("Governance registry");
-		cmdSecPolicyGovRegBrowse.addSelectionListener(new SelectionListener() {
-
-			public void widgetSelected(SelectionEvent evt) {
-				selectRegistryResource(txtSecPolicy, 3);
-			}
-
-			public void widgetDefaultSelected(SelectionEvent evt) {
-				widgetSelected(evt);
-			}
-		});
-		hideControls(cmdSecPolicyGovRegBrowse);
+		hideControls(cmdSecPolicyRegBrowse);
 
 	}
 
@@ -686,6 +619,9 @@ public class AdvancedConfigComposite extends AbstractComposite {
 		return EmptyLabel;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
+	 */
 	public void update(Observable o, Object arg) {
 		ArtifactTemplate selectedTemplate = AdvancedConfigComposite.this
 				.getModel().getSelectedTemplate();
@@ -702,20 +638,17 @@ public class AdvancedConfigComposite extends AbstractComposite {
 			hideControls(lblWsdlUri, txtWsdlUri, lblWsdlPort, txtWsdlPort,
 					lblWsdlService, txtWsdlService, publishSameServiceContract,
 					cmdTestUri);
-			hideControls(lblSecPolicy, txtSecPolicy, cmdSecPolicyConRegBrowse,
-					cmdSecPolicyGovRegBrowse);
+				hideControls(lblSecPolicy, txtSecPolicy, cmdSecPolicyRegBrowse);
 			optListener.widgetSelected(null);
-			showControls(cmdReqXSLTGovRegBrowse, cmdReqXSLTConRegBrowse,
+			showControls(cmdReqXSLTRegBrowse,
 					lblReqXSLT, txtReqXSLT, chkTransformResponses);
 		} else if (templateId
 				.equals(PsArtifactConstants.LOGGING_PROXY_TEMPL_ID)) {
-			hideControls(lblSecPolicy, txtSecPolicy, cmdSecPolicyConRegBrowse,
-					cmdSecPolicyGovRegBrowse);
+			hideControls(lblSecPolicy, txtSecPolicy,cmdSecPolicyRegBrowse );
 			showControls(lblTargetEndpoint, optPredefinedEndpoint,
 					optfromRegistry, optEnterURL);
-			hideControls(cmdResXSLTGovRegBrowse, cmdResXSLTConRegBrowse,
-					txtResponseXSLT, lblResponseXSLT, cmdReqXSLTGovRegBrowse,
-					cmdReqXSLTConRegBrowse, lblReqXSLT, txtReqXSLT,
+			hideControls(cmdResXSLTRegBrowse,
+					txtResponseXSLT, lblResponseXSLT,cmdReqXSLTRegBrowse, lblReqXSLT, txtReqXSLT,
 					chkTransformResponses);
 			hideControls(lblWsdlUri, txtWsdlUri, lblWsdlPort, txtWsdlPort,
 					lblWsdlService, txtWsdlService, publishSameServiceContract,
@@ -725,32 +658,27 @@ public class AdvancedConfigComposite extends AbstractComposite {
 					cmbResLogLevel);
 		} else if (templateId
 				.equals(PsArtifactConstants.PASS_THROUGH_PROXY_TEMPL_ID)) {
-			hideControls(lblSecPolicy, txtSecPolicy, cmdSecPolicyConRegBrowse,
-					cmdSecPolicyGovRegBrowse);
+			hideControls(lblSecPolicy, txtSecPolicy, cmdSecPolicyRegBrowse);
 			hideControls(lblReqLogLevel, cmbReqLogLevel, lblResLogLevel,
 					cmbResLogLevel);
 			hideControls(lblWsdlUri, txtWsdlUri, lblWsdlPort, txtWsdlPort,
 					lblWsdlService, txtWsdlService, publishSameServiceContract,
 					cmdTestUri);
-			hideControls(cmdResXSLTGovRegBrowse, cmdResXSLTConRegBrowse,
-					txtResponseXSLT, lblResponseXSLT, cmdReqXSLTGovRegBrowse,
-					cmdReqXSLTConRegBrowse, lblReqXSLT, txtReqXSLT,
+				hideControls(cmdResXSLTRegBrowse,
+					txtResponseXSLT, lblResponseXSLT, cmdReqXSLTRegBrowse, lblReqXSLT, txtReqXSLT,
 					chkTransformResponses);
 			showControls(lblTargetEndpoint, optPredefinedEndpoint,
 					optfromRegistry, optEnterURL);
 			optListener.widgetSelected(null);
 		} else if (templateId
 				.equals(PsArtifactConstants.WSDL_BASED_PROXY_TEMPL_ID)) {
-			hideControls(lblSecPolicy, txtSecPolicy, cmdSecPolicyConRegBrowse,
-					cmdSecPolicyGovRegBrowse);
-			hideControls(cmdResXSLTGovRegBrowse, cmdResXSLTConRegBrowse,
-					txtResponseXSLT, lblResponseXSLT, cmdReqXSLTGovRegBrowse,
-					cmdReqXSLTConRegBrowse, lblReqXSLT, txtReqXSLT,
+			hideControls(lblSecPolicy, txtSecPolicy,cmdSecPolicyRegBrowse);
+			hideControls(cmdResXSLTRegBrowse,
+					txtResponseXSLT, lblResponseXSLT,cmdReqXSLTRegBrowse, lblReqXSLT, txtReqXSLT,
 					chkTransformResponses);
 			hideControls(lblTargetEndpoint, txtEndPointUrl, txtEndPointkey,
 					lbltxtEndPointUrl, lblEndpoint, cmbPredefinedEP,
-					lblEndPointkey, cmdEndPointGovRegBrowse,
-					cmdEndPointConRegBrowse, optPredefinedEndpoint,
+					lblEndPointkey, cmdEndPointRegBrowse, optPredefinedEndpoint,
 					optfromRegistry, optEnterURL);
 			hideControls(lblReqLogLevel, cmbReqLogLevel, lblResLogLevel,
 					cmbResLogLevel);
@@ -760,34 +688,29 @@ public class AdvancedConfigComposite extends AbstractComposite {
 		} else if (templateId.equals(PsArtifactConstants.SECURE_PROXY_TEMPL_ID)) {
 			hideControls(lblReqLogLevel, cmbReqLogLevel, lblResLogLevel,
 					cmbResLogLevel);
-			hideControls(cmdResXSLTGovRegBrowse, cmdResXSLTConRegBrowse,
-					txtResponseXSLT, lblResponseXSLT, cmdReqXSLTGovRegBrowse,
-					cmdReqXSLTConRegBrowse, lblReqXSLT, txtReqXSLT,
+			hideControls(cmdResXSLTRegBrowse,
+					txtResponseXSLT, lblResponseXSLT,cmdReqXSLTRegBrowse, lblReqXSLT, txtReqXSLT,
 					chkTransformResponses);
 			hideControls(lblWsdlUri, txtWsdlUri, lblWsdlPort, txtWsdlPort,
 					lblWsdlService, txtWsdlService, publishSameServiceContract,
 					cmdTestUri);
 			showControls(lblTargetEndpoint, optPredefinedEndpoint,
 					optfromRegistry, optEnterURL);
-			showControls(lblSecPolicy, txtSecPolicy, cmdSecPolicyConRegBrowse,
-					cmdSecPolicyGovRegBrowse);
+			showControls(lblSecPolicy, txtSecPolicy,cmdSecPolicyRegBrowse);
 			optListener.widgetSelected(null);
 		} else if (templateId.equals(PsArtifactConstants.CUSTOM_PROXY_TEMPL_ID) || selectedTemplate.isCustom()) {
-			hideControls(lblSecPolicy, txtSecPolicy, cmdSecPolicyConRegBrowse,
-					cmdSecPolicyGovRegBrowse);
+			hideControls(lblSecPolicy, txtSecPolicy,cmdSecPolicyRegBrowse );
 			hideControls(lblReqLogLevel, cmbReqLogLevel, lblResLogLevel,
 					cmbResLogLevel);
-			hideControls(cmdResXSLTGovRegBrowse, cmdResXSLTConRegBrowse,
-					txtResponseXSLT, lblResponseXSLT, cmdReqXSLTGovRegBrowse,
-					cmdReqXSLTConRegBrowse, lblReqXSLT, txtReqXSLT,
+			hideControls(cmdResXSLTRegBrowse,
+					txtResponseXSLT, lblResponseXSLT,cmdReqXSLTRegBrowse, lblReqXSLT, txtReqXSLT,
 					chkTransformResponses);
 			hideControls(lblWsdlUri, txtWsdlUri, lblWsdlPort, txtWsdlPort,
 					lblWsdlService, txtWsdlService, publishSameServiceContract,
 					cmdTestUri);
 			hideControls(lblTargetEndpoint, txtEndPointUrl, txtEndPointkey,
 					lbltxtEndPointUrl, lblEndpoint, cmbPredefinedEP,
-					lblEndPointkey, cmdEndPointGovRegBrowse,
-					cmdEndPointConRegBrowse, optPredefinedEndpoint,
+					lblEndPointkey, cmdEndPointRegBrowse, optPredefinedEndpoint,
 					optfromRegistry, optEnterURL);
 		}
 		AdvancedConfigComposite.this.layout();
@@ -795,41 +718,25 @@ public class AdvancedConfigComposite extends AbstractComposite {
 	}
 
 	/**
-	 * Select registry resource path form configuration registry or governance
-	 * registry
-	 * 
-	 * @param textBox
-	 * @param defaultPathId
-	 *            Conf.Reg=2 and Gov.Reg=3
+	 * Browse key from registry, workspace or local entries
+	 * @param textBox 
+	 * @param mediaType
 	 */
-	private void selectRegistryResource(Text textBox, int defaultPathId) {
-		RegistryResourceNode selectedRegistryResourceNode = null;
-		RegistryTreeBrowserDialog r = new RegistryTreeBrowserDialog(getShell(),
-				RegistryTreeBrowserDialog.SELECT_REGISTRY_RESOURCE,
-				defaultPathId);
-		r.create();
-		List<RegistryURLInfo> allRegistryUrls = RegistryUrlStore.getInstance()
-				.getAllRegistryUrls();
-		for (RegistryURLInfo registryURLInfo : allRegistryUrls) {
-			r.addRegistryNode(registryURLInfo, null);
-		}
-		if (r.open() == Window.OK) {
-			selectedRegistryResourceNode = r
-					.getSelectedRegistryResourceNodeResource();
-			String ResourcePath = selectedRegistryResourceNode
-					.getRegistryResourcePath();
-			if (ResourcePath.startsWith("/_system/config")) {
-				textBox.setText(ResourcePath.replaceFirst("/_system/config",
-						"conf:"));
-			} else if (ResourcePath.startsWith("/_system/governance")) {
-				textBox.setText(ResourcePath.replaceFirst(
-						"/_system/governance", "gov:"));
-			} else {
-				MessageBox msgBox = new MessageBox(getShell(),
-						SWT.ICON_INFORMATION);
-				msgBox.setMessage("invalid selection.");
-				msgBox.open();
-			}
+	@SuppressWarnings("unchecked")
+	private void selectRegistryResource(Text textBox, String mediaType) {
+		RegistryKeyProperty registryKeyProperty = EsbFactory.eINSTANCE.createRegistryKeyProperty();
+		
+		DeveloperStudioProviderUtils.addFilter(
+				(Map<String, List<String>>) registryKeyProperty.getFilters(),
+				FILTER_MEDIA_TYPE,
+				mediaType);
+		registryKeyProperty.setKeyValue(textBox.getText());
+		RegistryKeyPropertyEditorDialog dialog = new RegistryKeyPropertyEditorDialog(getShell(), SWT.NULL,
+				registryKeyProperty, new ArrayList<NamedEntityDescriptor>());
+		int open = dialog.open();
+		if(open== Window.OK){
+			String keyValue = registryKeyProperty.getKeyValue();
+			textBox.setText(keyValue);
 		}
 	}
 
