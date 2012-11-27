@@ -538,4 +538,13 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 		return nsp;
 	}
 	
+	protected NamespacedProperty createNamespacedProperty(String xpath,Map<String, String> namespaces) {			
+		NamespacedProperty nsp = EsbFactory.eINSTANCE.createNamespacedProperty();				
+		nsp.setPropertyValue(xpath.toString());				
+		if (namespaces != null) {
+			nsp.setNamespaces(namespaces);
+		}
+		return nsp;
+	}
+	
 }

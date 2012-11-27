@@ -36,7 +36,8 @@ public class MediatorFactoryUtils {
 	private static final Class[] mediatorFactories = { 
 		ClassMediatorExtFactory.class,
 		POJOCommandMediatorExtFactory.class,
-		BuilderMediatorExtFactory.class
+		BuilderMediatorExtFactory.class,
+		RuleMediatorExtFactory.class
 	};
 	
 	public static synchronized void registerFactories() {

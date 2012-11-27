@@ -59,9 +59,6 @@ import org.apache.synapse.mediators.transform.XSLTMediator;
 import org.apache.synapse.mediators.transform.url.URLRewriteMediator;
 import org.apache.synapse.mediators.xquery.XQueryMediator;
 import org.apache.synapse.rest.API;
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.widgets.Event;
-import org.eclipse.swt.widgets.Listener;
 import org.wso2.carbon.identity.entitlement.mediator.EntitlementMediator;
 import org.wso2.carbon.identity.oauth.mediator.OAuthMediator;
 import org.wso2.carbon.mediator.event.EventMediator;
@@ -151,6 +148,7 @@ public class EsbDeserializerRegistry {
 		addDeserializer(LoadbalanceEndpoint.class, new LoadBalanceEndpointDeserializer());
 		addDeserializer(ConditionalRouterMediator.class, new ConditionalRouterMediatorDeserializer());
 		addDeserializer(ThrottleMediator.class, new ThrottleMediatorDeserializer());
+		addDeserializer(RuleMediatorExt.class, new RuleMediatorDeserializer());
 	}
 	
 	/**
