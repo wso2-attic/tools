@@ -51,7 +51,12 @@ public class JaxwsArtfactExportHandler extends ProjectArtifactHandler {
 			FileUtils.copyDirectoryContents(webapp.toFile(), webappResources); // copy webapp files
 			File classes = new File(webappResources, "WEB-INF" + File.separator + "classes");
 			classes.mkdirs();
-			FileUtils.copyDirectoryContents(outPutPath.toFile(), classes); // copy webapp files
+			FileUtils.copyDirectoryContents(outPutPath.toFile(), classes); // copy class files
+			
+			IPath resources = getResourcePath(project); //get resource location
+			if(resources.toFile().exists()) {
+	        	FileUtils.copyDirectoryContents(resources.toFile(), classes); // copy resources
+	        }
 		}
 		File tmpArchive = new File(tempProject, project.getName().concat(".war"));
 		archiveManipulator.archiveDir(tmpArchive.toString(), webappResources.toString());
