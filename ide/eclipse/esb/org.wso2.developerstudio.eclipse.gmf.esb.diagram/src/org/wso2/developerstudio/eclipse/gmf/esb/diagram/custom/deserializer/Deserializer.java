@@ -20,9 +20,11 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import org.apache.synapse.Mediator;
 import org.apache.synapse.config.Entry;
 import org.apache.synapse.config.SynapseConfiguration;
 import org.apache.synapse.config.SynapseConfigurationBuilder;
@@ -65,7 +67,9 @@ import org.apache.synapse.config.xml.ProxyServiceFactory;
 import org.apache.synapse.config.xml.rest.APIFactory;
 import org.apache.synapse.config.xml.SequenceMediatorFactory;
 import org.apache.synapse.config.xml.EntryFactory;
+import org.apache.synapse.config.xml.TemplateMediatorFactory;
 import org.apache.synapse.config.xml.endpoints.EndpointFactory;
+import org.apache.synapse.config.xml.endpoints.TemplateFactory;
 import org.apache.synapse.task.TaskDescription;
 import org.apache.synapse.task.TaskDescriptionFactory;
 
@@ -250,7 +254,20 @@ public class Deserializer {
 			artifacts.put(task.getName(), task);
 			break;
 		case TEMPLATE:
-			//TODO : implement for templates
+			@SuppressWarnings("rawtypes")
+			Iterator childElements = element.getChildElements();
+			if(childElements.hasNext()){
+				OMElement child = (OMElement) childElements.next();
+				if(child.getLocalName().equals("sequence")){
+					TemplateMediatorFactory templateMediatorFactory = new TemplateMediatorFactory();
+					TemplateMediator templateMediator = (TemplateMediator) templateMediatorFactory.createMediator(element, null);
+					artifacts.put(templateMediator.getName(), templateMediator);
+				} else if (child.getLocalName().equals("endpoint")){
+					TemplateFactory templateFactory = new TemplateFactory();
+					Template template = templateFactory.createEndpointTemplate(element, null);
+					artifacts.put(template.getName(), template);
+				}
+			}
 			break;
 		default:
 			break;

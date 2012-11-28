@@ -19,9 +19,11 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
+import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequences;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.TemplateTemplateCompartmentEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.*;
 
@@ -38,7 +40,9 @@ public class SequenceDeserializer extends AbstractEsbNodeDeserializer<SequenceMe
 			executeSetValueCommand(sequenceModel, SEQUENCE__NAME, sequence.getKey().getKeyValue());
 			node = sequenceModel;
 		} else if(sequence.getName()!=null){
-			Sequences sequenceModel = (Sequences) DeserializerUtils.createNode(part, EsbElementTypes.Sequences_3614);
+			IElementType sequencesType = (part instanceof TemplateTemplateCompartmentEditPart) ? EsbElementTypes.Sequences_3665
+					: EsbElementTypes.Sequences_3614;
+			Sequences sequenceModel = (Sequences) DeserializerUtils.createNode(part, sequencesType);
 			executeSetValueCommand(sequenceModel, SEQUENCES__NAME, sequence.getName());
 			refreshEditPartMap();
 			addRootInputConnector(sequenceModel.getInputConnector());
