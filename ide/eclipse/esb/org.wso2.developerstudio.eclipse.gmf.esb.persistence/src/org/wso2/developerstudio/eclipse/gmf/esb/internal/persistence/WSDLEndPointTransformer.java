@@ -118,6 +118,9 @@ public class WSDLEndPointTransformer extends AbstractEndpointTransformer{
 	
 	public WSDLEndpoint create(WSDLEndPoint visualEndPoint,String name){
 		WSDLEndpoint synapseWSDLEP = new WSDLEndpoint();
+		synapseWSDLEP.setWsdlURI(visualEndPoint.getWsdlUri());
+		synapseWSDLEP.setServiceName(visualEndPoint.getService());
+		synapseWSDLEP.setPortName(visualEndPoint.getPort());
 		
 		createAdvanceOptions(visualEndPoint,synapseWSDLEP);
 		
