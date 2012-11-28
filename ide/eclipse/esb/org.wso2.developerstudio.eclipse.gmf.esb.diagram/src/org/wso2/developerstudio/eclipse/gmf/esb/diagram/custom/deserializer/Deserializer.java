@@ -23,6 +23,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Properties;
 
 import org.apache.synapse.config.Entry;
 import org.apache.synapse.config.SynapseConfiguration;
@@ -184,6 +185,8 @@ public class Deserializer {
 			artifactType=ArtifactType.API;
 		} else if("template".equals(localName)){
 			artifactType=ArtifactType.TEMPLATE;
+		} else if("endpoint".equals(localName)){
+			artifactType=ArtifactType.ENDPOINT;
 		} 
 		return artifactType;
 	}
@@ -240,8 +243,9 @@ public class Deserializer {
 			artifacts.put(api.getName(), api);
 			break;
 		case ENDPOINT:
-			Endpoint endpoint = EndpointFactory.getEndpointFromElement(element, false, null);
-			artifacts.put(endpoint.getName(), endpoint);
+			Endpoint endpoint = EndpointFactory.getEndpointFromElement(element, false, new Properties());
+			EndpointWrapper wrapper = new EndpointWrapper(endpoint,endpoint.getName());
+			artifacts.put(wrapper.getName(), wrapper);
 			break;
 		case LOCAL_ENTRY:
 			Entry entry = EntryFactory.createEntry(element, null);

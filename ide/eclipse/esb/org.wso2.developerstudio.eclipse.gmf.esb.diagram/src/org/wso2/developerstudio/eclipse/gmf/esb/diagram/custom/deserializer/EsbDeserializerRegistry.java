@@ -153,6 +153,7 @@ public class EsbDeserializerRegistry {
 		addDeserializer(RuleMediatorExt.class, new RuleMediatorDeserializer());
 		addDeserializer(TemplateMediator.class, new SequenceTemplateDeserializer());
 		addDeserializer(Template.class, new EndPointTemplateDeserializer());
+		addDeserializer(EndpointWrapper.class, new EndPointDeserializer());
 	}
 	
 	/**
