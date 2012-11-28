@@ -122,9 +122,10 @@ public class ConditionalRouterMediatorEditPart extends
 		return primaryShape = new ConditionalRouterMediatorFigure() {
 			public void setBounds(org.eclipse.draw2d.geometry.Rectangle rect) {
 				super.setBounds(rect);
-				if (this.getBounds().getLocation().x != 0
-						&& this.getBounds().getLocation().y != 0) {
+				if ((!connected)&&(this.getBounds().getLocation().x != 0
+						&& this.getBounds().getLocation().y != 0)) {
 					getMostSuitableElementToConnect();
+					connected=true;
 				}
 			};
 		};

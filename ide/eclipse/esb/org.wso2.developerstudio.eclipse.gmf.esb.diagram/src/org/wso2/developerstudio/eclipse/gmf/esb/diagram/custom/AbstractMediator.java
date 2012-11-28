@@ -13,6 +13,7 @@ import org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
+import org.eclipse.gmf.runtime.diagram.ui.render.editparts.RenderedDiagramRootEditPart;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
@@ -344,8 +345,20 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 			EditPart element = (EditPart) getViewer().getEditPartRegistry()
 					.values().toArray()[i];
 
-			if (element instanceof EsbLinkEditPart) {
+			if (element instanceof EsbLinkEditPart) {				
+				if((EditorUtils.getMediator(((EsbLinkEditPart)element).getSource())!=null)&&
+						(EditorUtils.getMediator(this.getParent())!=null)){
+					if(!(EditorUtils.getMediator(((EsbLinkEditPart)element).getSource())).equals(EditorUtils.getMediator(this.getParent()))
+							||(((EsbLinkEditPart)element).getSource().getParent().getParent().equals(this.getParent()))){
+						continue;
+					}
+				}else if(EditorUtils.getEndpoint((AbstractConnectorEditPart) ((EsbLinkEditPart)element).getSource())!=null){
+					if(!((EsbLinkEditPart)element).getSource().getParent().getParent().equals(this.getParent())){
+						continue;
+					}
+				}
 				ESBLinkEditpart.add((EsbLinkEditPart) element);
+				
 			} else if (element instanceof AbstractOutputConnectorEditPart) {
 
 				if (((AbstractOutputConnectorEditPart) element).getParent()
