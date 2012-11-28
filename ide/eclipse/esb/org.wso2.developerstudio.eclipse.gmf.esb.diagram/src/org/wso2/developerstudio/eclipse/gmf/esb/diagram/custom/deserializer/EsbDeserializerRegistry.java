@@ -25,6 +25,7 @@ import org.apache.synapse.endpoints.AddressEndpoint;
 import org.apache.synapse.endpoints.DefaultEndpoint;
 import org.apache.synapse.endpoints.FailoverEndpoint;
 import org.apache.synapse.endpoints.LoadbalanceEndpoint;
+import org.apache.synapse.endpoints.Template;
 import org.apache.synapse.endpoints.WSDLEndpoint;
 
 import org.apache.synapse.mediators.base.SequenceMediator;
@@ -151,6 +152,7 @@ public class EsbDeserializerRegistry {
 		addDeserializer(ThrottleMediator.class, new ThrottleMediatorDeserializer());
 		addDeserializer(RuleMediatorExt.class, new RuleMediatorDeserializer());
 		addDeserializer(TemplateMediator.class, new SequenceTemplateDeserializer());
+		addDeserializer(Template.class, new EndPointTemplateDeserializer());
 	}
 	
 	/**

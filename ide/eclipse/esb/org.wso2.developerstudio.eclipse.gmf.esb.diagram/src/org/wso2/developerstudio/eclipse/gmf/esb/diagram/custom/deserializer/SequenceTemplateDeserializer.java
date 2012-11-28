@@ -52,12 +52,12 @@ public class SequenceTemplateDeserializer extends AbstractEsbNodeDeserializer<Te
 		@SuppressWarnings("rawtypes")
 		IEsbNodeDeserializer deserializer = EsbDeserializerRegistry.getInstance()
 		.getDeserializer(sequenceMediator);
-		IGraphicalEditPart gEditpart = (IGraphicalEditPart) getEditpart(templateModel).getChildren().get(0);
+		IGraphicalEditPart compartment = (IGraphicalEditPart) getEditpart(templateModel).getChildren().get(0);
 		if (deserializer != null) {
-			EsbNode node = deserializer.createNode(gEditpart,sequenceMediator);
+			EsbNode node = deserializer.createNode(compartment,sequenceMediator);
 			if (node!=null) {
-				AbstractEsbNodeDeserializer.refreshEditPartMap();
-				IGraphicalEditPart graphicalNode = (IGraphicalEditPart) AbstractEsbNodeDeserializer.getEditpart(node);
+				refreshEditPartMap();
+				IGraphicalEditPart graphicalNode = (IGraphicalEditPart) getEditpart(node);
 				if(graphicalNode!=null){
 					Rectangle rect = new Rectangle(new Point(), graphicalNode.getFigure().getPreferredSize()).getCopy();
 					rect.x = 0;
