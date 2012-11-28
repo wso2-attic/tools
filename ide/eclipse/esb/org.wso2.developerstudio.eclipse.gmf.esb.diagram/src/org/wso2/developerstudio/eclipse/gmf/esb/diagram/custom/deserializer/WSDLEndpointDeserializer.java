@@ -5,6 +5,7 @@ import org.eclipse.core.runtime.Assert;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.*;
 
 public class WSDLEndpointDeserializer extends AbstractEndpointDeserializer{
 	
@@ -16,6 +17,11 @@ public class WSDLEndpointDeserializer extends AbstractEndpointDeserializer{
 		AbstractEndPoint endPoint = (AbstractEndPoint) DeserializerUtils.createNode(part, EsbElementTypes.WSDLEndPoint_3612);
 		setElementToEdit(endPoint);
 		deserializeEndpoint(wsdlEndpoint,endPoint);
+		
+		executeSetValueCommand(WSDL_END_POINT__WSDL_URI, wsdlEndpoint.getWsdlURI());
+		executeSetValueCommand(WSDL_END_POINT__PORT, wsdlEndpoint.getPortName());
+		executeSetValueCommand(WSDL_END_POINT__SERVICE, wsdlEndpoint.getServiceName());
+		
 		return endPoint;
 	}
 

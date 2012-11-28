@@ -5,6 +5,7 @@ import org.eclipse.core.runtime.Assert;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.*;
 
 public class AddressEndpointDeserializer extends AbstractEndpointDeserializer{
 	
@@ -16,6 +17,9 @@ public class AddressEndpointDeserializer extends AbstractEndpointDeserializer{
 		AbstractEndPoint endPoint = (AbstractEndPoint) DeserializerUtils.createNode(part, EsbElementTypes.AddressEndPoint_3610);
 		setElementToEdit(endPoint);
 		deserializeEndpoint(addressEndpoint,endPoint);
+		
+		executeSetValueCommand(ADDRESS_END_POINT__URI, addressEndpoint.getDefinition().getAddress());
+		
 		return endPoint;
 	}
 
