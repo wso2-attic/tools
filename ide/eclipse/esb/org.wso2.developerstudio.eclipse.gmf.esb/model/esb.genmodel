@@ -640,10 +640,10 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//BeanMediator/property"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//BeanMediator/valueType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//BeanMediator/valueLiteral"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//BeanMediator/valueExpression"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//BeanMediator/valueExpression"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//BeanMediator/targetType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//BeanMediator/targetLiteral"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//BeanMediator/targetExpression"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//BeanMediator/targetExpression"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//BeanMediatorInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//BeanMediatorOutputConnector"/>
@@ -655,7 +655,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EJBMediator/method"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EJBMediator/sessionIdType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EJBMediator/sessionIdLiteral"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//EJBMediator/sessionIdExpression"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//EJBMediator/sessionIdExpression"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EJBMediator/remove"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EJBMediator/target"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EJBMediator/JNDIName"/>

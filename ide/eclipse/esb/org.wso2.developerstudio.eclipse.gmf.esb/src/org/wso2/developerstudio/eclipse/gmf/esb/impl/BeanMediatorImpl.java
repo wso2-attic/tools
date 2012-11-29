@@ -259,10 +259,21 @@ public class BeanMediatorImpl extends MediatorImpl implements BeanMediator {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected BeanMediatorImpl() {
 		super();
+		NamespacedProperty valueExpression = EsbFactoryImpl.eINSTANCE.createNamespacedProperty();
+		valueExpression.setPrettyName("Value Expression");
+		valueExpression.setPropertyName("expression");
+		valueExpression.setPropertyValue("/default/expression");
+		setValueExpression(valueExpression);
+		
+		NamespacedProperty targetExpression = EsbFactoryImpl.eINSTANCE.createNamespacedProperty();
+		targetExpression.setPrettyName("Target Expression");
+		targetExpression.setPropertyName("expression");
+		targetExpression.setPropertyValue("/default/expression");
+		setTargetExpression(targetExpression);
 	}
 
 	/**
