@@ -37,7 +37,8 @@ public class MediatorFactoryUtils {
 		ClassMediatorExtFactory.class,
 		POJOCommandMediatorExtFactory.class,
 		BuilderMediatorExtFactory.class,
-		RuleMediatorExtFactory.class
+		RuleMediatorExtFactory.class,
+		EJBMediatorExtFactory.class
 	};
 	
 	public static synchronized void registerFactories() {
