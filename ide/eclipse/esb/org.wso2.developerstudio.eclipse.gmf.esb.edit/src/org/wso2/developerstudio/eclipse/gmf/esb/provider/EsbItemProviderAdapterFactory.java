@@ -974,6 +974,213 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.BAMMediator} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BAMMediatorItemProvider bamMediatorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.BAMMediator}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBAMMediatorAdapter() {
+		if (bamMediatorItemProvider == null) {
+			bamMediatorItemProvider = new BAMMediatorItemProvider(this);
+		}
+
+		return bamMediatorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.BAMMediatorInputConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BAMMediatorInputConnectorItemProvider bamMediatorInputConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.BAMMediatorInputConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBAMMediatorInputConnectorAdapter() {
+		if (bamMediatorInputConnectorItemProvider == null) {
+			bamMediatorInputConnectorItemProvider = new BAMMediatorInputConnectorItemProvider(this);
+		}
+
+		return bamMediatorInputConnectorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.BAMMediatorOutputConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BAMMediatorOutputConnectorItemProvider bamMediatorOutputConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.BAMMediatorOutputConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBAMMediatorOutputConnectorAdapter() {
+		if (bamMediatorOutputConnectorItemProvider == null) {
+			bamMediatorOutputConnectorItemProvider = new BAMMediatorOutputConnectorItemProvider(this);
+		}
+
+		return bamMediatorOutputConnectorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.BeanMediator} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BeanMediatorItemProvider beanMediatorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.BeanMediator}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBeanMediatorAdapter() {
+		if (beanMediatorItemProvider == null) {
+			beanMediatorItemProvider = new BeanMediatorItemProvider(this);
+		}
+
+		return beanMediatorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.BeanMediatorInputConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BeanMediatorInputConnectorItemProvider beanMediatorInputConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.BeanMediatorInputConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBeanMediatorInputConnectorAdapter() {
+		if (beanMediatorInputConnectorItemProvider == null) {
+			beanMediatorInputConnectorItemProvider = new BeanMediatorInputConnectorItemProvider(this);
+		}
+
+		return beanMediatorInputConnectorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.BeanMediatorOutputConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BeanMediatorOutputConnectorItemProvider beanMediatorOutputConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.BeanMediatorOutputConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBeanMediatorOutputConnectorAdapter() {
+		if (beanMediatorOutputConnectorItemProvider == null) {
+			beanMediatorOutputConnectorItemProvider = new BeanMediatorOutputConnectorItemProvider(this);
+		}
+
+		return beanMediatorOutputConnectorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.EJBMediator} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EJBMediatorItemProvider ejbMediatorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.EJBMediator}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEJBMediatorAdapter() {
+		if (ejbMediatorItemProvider == null) {
+			ejbMediatorItemProvider = new EJBMediatorItemProvider(this);
+		}
+
+		return ejbMediatorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.EJBMediatorInputConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EJBMediatorInputConnectorItemProvider ejbMediatorInputConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.EJBMediatorInputConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEJBMediatorInputConnectorAdapter() {
+		if (ejbMediatorInputConnectorItemProvider == null) {
+			ejbMediatorInputConnectorItemProvider = new EJBMediatorInputConnectorItemProvider(this);
+		}
+
+		return ejbMediatorInputConnectorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.EJBMediatorOutputConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EJBMediatorOutputConnectorItemProvider ejbMediatorOutputConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.EJBMediatorOutputConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEJBMediatorOutputConnectorAdapter() {
+		if (ejbMediatorOutputConnectorItemProvider == null) {
+			ejbMediatorOutputConnectorItemProvider = new EJBMediatorOutputConnectorItemProvider(this);
+		}
+
+		return ejbMediatorOutputConnectorItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.AddressEndPoint} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6306,6 +6513,15 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 		if (logMediatorInputConnectorItemProvider != null) logMediatorInputConnectorItemProvider.dispose();
 		if (logMediatorOutputConnectorItemProvider != null) logMediatorOutputConnectorItemProvider.dispose();
 		if (logPropertyItemProvider != null) logPropertyItemProvider.dispose();
+		if (bamMediatorItemProvider != null) bamMediatorItemProvider.dispose();
+		if (bamMediatorInputConnectorItemProvider != null) bamMediatorInputConnectorItemProvider.dispose();
+		if (bamMediatorOutputConnectorItemProvider != null) bamMediatorOutputConnectorItemProvider.dispose();
+		if (beanMediatorItemProvider != null) beanMediatorItemProvider.dispose();
+		if (beanMediatorInputConnectorItemProvider != null) beanMediatorInputConnectorItemProvider.dispose();
+		if (beanMediatorOutputConnectorItemProvider != null) beanMediatorOutputConnectorItemProvider.dispose();
+		if (ejbMediatorItemProvider != null) ejbMediatorItemProvider.dispose();
+		if (ejbMediatorInputConnectorItemProvider != null) ejbMediatorInputConnectorItemProvider.dispose();
+		if (ejbMediatorOutputConnectorItemProvider != null) ejbMediatorOutputConnectorItemProvider.dispose();
 		if (registryKeyPropertyItemProvider != null) registryKeyPropertyItemProvider.dispose();
 		if (propertyMediatorItemProvider != null) propertyMediatorItemProvider.dispose();
 		if (propertyMediatorInputConnectorItemProvider != null) propertyMediatorInputConnectorItemProvider.dispose();

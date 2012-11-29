@@ -223,6 +223,21 @@ public class EsbSequenceItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(EsbPackage.Literals.ESB_SEQUENCE__CHILD_MEDIATORS,
+				 EsbFactory.eINSTANCE.createBAMMediator()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.ESB_SEQUENCE__CHILD_MEDIATORS,
+				 EsbFactory.eINSTANCE.createBeanMediator()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.ESB_SEQUENCE__CHILD_MEDIATORS,
+				 EsbFactory.eINSTANCE.createEJBMediator()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.ESB_SEQUENCE__CHILD_MEDIATORS,
 				 EsbFactory.eINSTANCE.createPropertyMediator()));
 
 		newChildDescriptors.add
