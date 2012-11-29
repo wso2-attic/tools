@@ -66,22 +66,32 @@ public class EJBMediatorItemProvider
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
-			super.getPropertyDescriptors(object);
-
-			addBeanstalkPropertyDescriptor(object);
-			addClassPropertyDescriptor(object);
-			addMethodPropertyDescriptor(object);
-			addSessionIdTypePropertyDescriptor(object);
-			addSessionIdLiteralPropertyDescriptor(object);
-			addRemovePropertyDescriptor(object);
-			addTargetPropertyDescriptor(object);
-			addJNDINamePropertyDescriptor(object);
+		EJBMediator ejbMediator=(EJBMediator)object;
+		if (itemPropertyDescriptors != null) {
+			itemPropertyDescriptors.clear();
 		}
+		super.getPropertyDescriptors(object);
+
+		addBeanstalkPropertyDescriptor(object);
+		addClassPropertyDescriptor(object);
+		addMethodPropertyDescriptor(object);
+		addSessionIdTypePropertyDescriptor(object);
+		switch (ejbMediator.getSessionIdType()) {
+		case LITERAL:
+			addSessionIdLiteralPropertyDescriptor(object);
+			break;
+		case EXPRESSION:
+			addSessionIdExpressionPropertyDescriptor(object);
+			break;
+		}		
+		addRemovePropertyDescriptor(object);
+		addTargetPropertyDescriptor(object);
+		addJNDINamePropertyDescriptor(object);
+			
 		return itemPropertyDescriptors;
 	}
 
@@ -191,6 +201,28 @@ public class EJBMediatorItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Session Id Expression feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSessionIdExpressionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EJBMediator_sessionIdExpression_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EJBMediator_sessionIdExpression_feature", "_UI_EJBMediator_type"),
+				 EsbPackage.Literals.EJB_MEDIATOR__SESSION_ID_EXPRESSION,
+				 true,
+				 false,
+				 false,
+				 null,
 				 null,
 				 null));
 	}

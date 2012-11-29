@@ -37,6 +37,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.wso2.developerstudio.eclipse.gmf.esb.BeanMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
+import org.wso2.developerstudio.eclipse.gmf.esb.PropertyValueType;
 
 /**
  * This is the item provider adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.BeanMediator} object.
@@ -66,22 +67,39 @@ public class BeanMediatorItemProvider
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
-			super.getPropertyDescriptors(object);
-
-			addClassPropertyDescriptor(object);
-			addActionPropertyDescriptor(object);
-			addVarPropertyDescriptor(object);
-			addPropertyPropertyDescriptor(object);
-			addValueTypePropertyDescriptor(object);
-			addValueLiteralPropertyDescriptor(object);
-			addTargetTypePropertyDescriptor(object);
-			addTargetLiteralPropertyDescriptor(object);
+		BeanMediator beanMediator=(BeanMediator)object;
+		if (itemPropertyDescriptors != null) {
+			itemPropertyDescriptors.clear();
 		}
+		super.getPropertyDescriptors(object);
+
+		addClassPropertyDescriptor(object);
+		addActionPropertyDescriptor(object);
+		addVarPropertyDescriptor(object);
+		addPropertyPropertyDescriptor(object);
+		addValueTypePropertyDescriptor(object);
+		switch (beanMediator.getValueType()) {
+		case LITERAL:
+			addValueLiteralPropertyDescriptor(object);
+			break;
+		case EXPRESSION:
+			addValueExpressionPropertyDescriptor(object);
+			break;
+		}
+		addTargetTypePropertyDescriptor(object);
+		switch (beanMediator.getTargetType()) {
+		case LITERAL:
+			addTargetLiteralPropertyDescriptor(object);
+			break;
+		case EXPRESSION:
+			addTargetExpressionPropertyDescriptor(object);
+			break;
+		}	
+			
 		return itemPropertyDescriptors;
 	}
 
@@ -218,6 +236,28 @@ public class BeanMediatorItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Value Expression feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addValueExpressionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_BeanMediator_valueExpression_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BeanMediator_valueExpression_feature", "_UI_BeanMediator_type"),
+				 EsbPackage.Literals.BEAN_MEDIATOR__VALUE_EXPRESSION,
+				 true,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Target Type feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -257,6 +297,28 @@ public class BeanMediatorItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Target Expression feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTargetExpressionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_BeanMediator_targetExpression_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BeanMediator_targetExpression_feature", "_UI_BeanMediator_type"),
+				 EsbPackage.Literals.BEAN_MEDIATOR__TARGET_EXPRESSION,
+				 true,
+				 false,
+				 false,
+				 null,
 				 null,
 				 null));
 	}
