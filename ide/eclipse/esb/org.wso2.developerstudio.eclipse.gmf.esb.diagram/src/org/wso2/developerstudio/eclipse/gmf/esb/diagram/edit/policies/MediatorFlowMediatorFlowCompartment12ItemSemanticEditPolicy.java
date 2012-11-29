@@ -5,6 +5,8 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.APIResourceEndpointCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.AddressEndPointCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.AggregateMediatorCreateCommand;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.BAMMediatorCreateCommand;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.BeanMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.BuilderMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.CacheMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.CallTemplateMediatorCreateCommand;
@@ -17,6 +19,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.DBLookupMe
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.DBReportMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.DefaultEndPointCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.DropMediatorCreateCommand;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.EJBMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.EnqueueMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.EnrichMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.EntitlementMediatorCreateCommand;
@@ -185,9 +188,17 @@ public class MediatorFlowMediatorFlowCompartment12ItemSemanticEditPolicy extends
 		if (EsbElementTypes.RouterMediator_3628 == req.getElementType()) {
 			return getGEFWrapper(new RouterMediatorCreateCommand(req));
 		}
-		if (EsbElementTypes.ConditionalRouterMediator_3635 == req
-				.getElementType()) {
+		if (EsbElementTypes.ConditionalRouterMediator_3635 == req.getElementType()) {
 			return getGEFWrapper(new ConditionalRouterMediatorCreateCommand(req));
+		}
+		if (EsbElementTypes.BAMMediator_3680 == req.getElementType()) {
+			return getGEFWrapper(new BAMMediatorCreateCommand(req));
+		}
+		if (EsbElementTypes.BeanMediator_3683 == req.getElementType()) {
+			return getGEFWrapper(new BeanMediatorCreateCommand(req));
+		}
+		if (EsbElementTypes.EJBMediator_3686 == req.getElementType()) {
+			return getGEFWrapper(new EJBMediatorCreateCommand(req));
 		}
 		if (EsbElementTypes.DefaultEndPoint_3609 == req.getElementType()) {
 			return getGEFWrapper(new DefaultEndPointCreateCommand(req));

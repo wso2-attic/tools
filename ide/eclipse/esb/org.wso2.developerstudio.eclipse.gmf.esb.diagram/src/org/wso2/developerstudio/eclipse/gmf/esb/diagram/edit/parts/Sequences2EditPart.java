@@ -74,20 +74,15 @@ public class Sequences2EditPart extends AbstractSequencesEditPart {
 	 * @generated NOT
 	 */
 	protected void createDefaultEditPolicies() {
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new CreationEditPolicy());
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new Sequences2ItemSemanticEditPolicy());
-		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
-				new DragDropEditPolicy());
-		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
-				new Sequences2CanonicalEditPolicy());
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new Sequences2ItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
+		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE, new Sequences2CanonicalEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		/* disabling proxyService Tool item from palette*/
 		ToolEntry proxyServiceTool = (ToolEntry) (((PaletteContainer) getEditDomain()
-				.getPaletteViewer().getPaletteRoot().getChildren().get(1))
-				.getChildren().get(0));
+				.getPaletteViewer().getPaletteRoot().getChildren().get(1)).getChildren().get(0));
 		proxyServiceTool.setVisible(false);
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
@@ -106,8 +101,7 @@ public class Sequences2EditPart extends AbstractSequencesEditPart {
 				case SequencesOutputConnectorEditPart.VISUAL_ID:
 					return new BorderItemSelectionEditPolicy();
 				}
-				EditPolicy result = child
-						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+				EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
 				if (result == null) {
 					result = new NonResizableEditPolicy();
 				}
@@ -140,30 +134,25 @@ public class Sequences2EditPart extends AbstractSequencesEditPart {
 
 	private void alignLeft(int y, int width, int height) {
 		Rectangle constraints = new Rectangle(0, y, width, height);
-		((GraphicalEditPart) getParent()).setLayoutConstraint(this,
-				getFigure(), constraints);
+		((GraphicalEditPart) getParent()).setLayoutConstraint(this, getFigure(), constraints);
 	}
 
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof SequencesInputConnectorEditPart) {
 			IFigure borderItemFigure = ((SequencesInputConnectorEditPart) childEditPart)
 					.getFigure();
-			BorderItemLocator locator = new FixedBorderItemLocator(
-					getMainFigure(), borderItemFigure, PositionConstants.EAST,
-					0.5);
-			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
-					locator);
+			BorderItemLocator locator = new FixedBorderItemLocator(getMainFigure(),
+					borderItemFigure, PositionConstants.EAST, 0.5);
+			getBorderedFigure().getBorderItemContainer().add(borderItemFigure, locator);
 			inputConnectorFigure = borderItemFigure;
 			return true;
 		}
 		if (childEditPart instanceof SequencesOutputConnectorEditPart) {
 			IFigure borderItemFigure = ((SequencesOutputConnectorEditPart) childEditPart)
 					.getFigure();
-			BorderItemLocator locator = new FixedBorderItemLocator(
-					getMainFigure(), borderItemFigure, PositionConstants.WEST,
-					0.5);
-			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
-					locator);
+			BorderItemLocator locator = new FixedBorderItemLocator(getMainFigure(),
+					borderItemFigure, PositionConstants.WEST, 0.5);
+			getBorderedFigure().getBorderItemContainer().add(borderItemFigure, locator);
 			outputConnectorFigure = borderItemFigure;
 			return true;
 		}
@@ -184,8 +173,7 @@ public class Sequences2EditPart extends AbstractSequencesEditPart {
 		return primaryShape = new SequencesFigure() {
 			public void setBounds(org.eclipse.draw2d.geometry.Rectangle rect) {
 				super.setBounds(rect);
-				if (this.getBounds().getLocation().x != 0
-						&& this.getBounds().getLocation().y != 0) {
+				if (this.getBounds().getLocation().x != 0 && this.getBounds().getLocation().y != 0) {
 					alignLeft();
 				}
 			};
@@ -313,12 +301,9 @@ public class Sequences2EditPart extends AbstractSequencesEditPart {
 			 layoutThis.makeColumnsEqualWidth = true;
 			 this.setLayoutManager(layoutThis);
 			 */
-			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(1000),
-					getMapMode().DPtoLP(200)));
-			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
-					getMapMode().DPtoLP(8)));
-			LineBorder border0 = new LineBorder(new Color(null, 0, 0, 0), 1,
-					SWT.BORDER_SOLID);
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(1000), getMapMode().DPtoLP(200)));
+			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8), getMapMode().DPtoLP(8)));
+			LineBorder border0 = new LineBorder(new Color(null, 0, 0, 0), 1, SWT.BORDER_SOLID);
 			this.setBorder(border0);
 			this.setBackgroundColor(THIS_BACK);
 		}

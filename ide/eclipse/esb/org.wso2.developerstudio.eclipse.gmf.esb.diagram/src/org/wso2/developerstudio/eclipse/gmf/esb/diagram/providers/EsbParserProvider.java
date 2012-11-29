@@ -54,8 +54,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry
 /**
  * @generated
  */
-public class EsbParserProvider extends AbstractProvider implements
-		IParserProvider {
+public class EsbParserProvider extends AbstractProvider implements IParserProvider {
 
 	/**
 	 * @generated
@@ -67,8 +66,7 @@ public class EsbParserProvider extends AbstractProvider implements
 	 */
 	private IParser getProxyServiceName_5003Parser() {
 		if (proxyServiceName_5003Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getProxyService_Name() };
+			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE.getProxyService_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			proxyServiceName_5003Parser = parser;
 		}
@@ -175,8 +173,7 @@ public class EsbParserProvider extends AbstractProvider implements
 	 */
 	private IParser getSequenceName_5132Parser() {
 		if (sequenceName_5132Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getSequence_Name() };
+			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE.getSequence_Name() };
 			MessageFormatParser parser = new MessageFormatParser(features);
 			sequenceName_5132Parser = parser;
 		}
@@ -571,12 +568,10 @@ public class EsbParserProvider extends AbstractProvider implements
 	 */
 	private IParser getNamedEndpointName_5165Parser() {
 		if (namedEndpointName_5165Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getNamedEndpoint_Name() };
+			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE.getNamedEndpoint_Name() };
 			EAttribute[] editableFeatures = new EAttribute[] { EsbPackage.eINSTANCE
 					.getNamedEndpoint_Name() };
-			MessageFormatParser parser = new MessageFormatParser(features,
-					editableFeatures);
+			MessageFormatParser parser = new MessageFormatParser(features, editableFeatures);
 			namedEndpointName_5165Parser = parser;
 		}
 		return namedEndpointName_5165Parser;
@@ -773,10 +768,8 @@ public class EsbParserProvider extends AbstractProvider implements
 	 * Utility method that consults ParserService
 	 * @generated
 	 */
-	public static IParser getParser(IElementType type, EObject object,
-			String parserHint) {
-		return ParserService.getInstance().getParser(
-				new HintAdapter(type, object, parserHint));
+	public static IParser getParser(IElementType type, EObject object, String parserHint) {
+		return ParserService.getInstance().getParser(new HintAdapter(type, object, parserHint));
 	}
 
 	/**

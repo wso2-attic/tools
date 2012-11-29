@@ -708,6 +708,36 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String BAMMediator40CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String BAMMediator40CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String BeanMediator41CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String BeanMediator41CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String EJBMediator42CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String EJBMediator42CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
 	public static String DefaultEndPoint1CreationTool_title;
 
 	/**
@@ -963,6 +993,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_BAMMediatorOutputConnector_3682_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_SequencesInputConnector_3616_incominglinks;
 
 	/**
@@ -979,6 +1014,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_ThrottleMediatorOutputConnector_3122_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_BeanMediatorInputConnector_3684_incominglinks;
 
 	/**
 	 * @generated
@@ -1113,6 +1153,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_EJBMediatorOutputConnector_3688_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_SmooksMediatorOutputConnector_3083_outgoinglinks;
 
 	/**
@@ -1213,6 +1258,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_BeanMediatorOutputConnector_3685_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_EnrichMediatorInputConnector_3036_incominglinks;
 
 	/**
@@ -1294,6 +1344,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_AddressEndPointInputConnector_3030_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_BAMMediatorInputConnector_3681_incominglinks;
 
 	/**
 	 * @generated
@@ -1504,6 +1559,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_SwitchMediatorInputConnector_3042_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_EJBMediatorInputConnector_3687_incominglinks;
 
 	/**
 	 * @generated

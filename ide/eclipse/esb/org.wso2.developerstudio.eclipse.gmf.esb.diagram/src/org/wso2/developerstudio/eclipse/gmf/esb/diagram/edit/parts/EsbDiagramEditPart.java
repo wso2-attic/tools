@@ -46,10 +46,8 @@ public class EsbDiagramEditPart extends DiagramEditPart {
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new EsbDiagramItemSemanticEditPolicy());
-		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
-				new EsbDiagramCanonicalEditPolicy());
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new EsbDiagramItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE, new EsbDiagramCanonicalEditPolicy());
 		final FigureCanvas canvas = (FigureCanvas) getViewer().getControl();
 		canvas.addControlListener(new ControlListener() {
 
@@ -84,8 +82,7 @@ public class EsbDiagramEditPart extends DiagramEditPart {
 	/**
 	 * @generated
 	 */
-	/*package-local*/static class NodeLabelDragPolicy extends
-			NonResizableEditPolicy {
+	/*package-local*/static class NodeLabelDragPolicy extends NonResizableEditPolicy {
 
 		/**
 		 * @generated

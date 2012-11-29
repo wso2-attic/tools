@@ -76,21 +76,15 @@ public class FilterMediatorEditPart extends complexFiguredAbstractMediator {
 	 * @generated NOT
 	 */
 	protected void createDefaultEditPolicies() {
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new CreationEditPolicy());
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new FilterMediatorItemSemanticEditPolicy());
-		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
-				new DragDropEditPolicy());
-		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
-				new FeedbackIndicateDragDropEditPolicy());
-		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
-				new FilterMediatorCanonicalEditPolicy());
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new FilterMediatorItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
+		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new FeedbackIndicateDragDropEditPolicy());
+		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE, new FilterMediatorCanonicalEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// For handle Double click Event.
-		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
-				new ShowPropertyViewEditPolicy());
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new ShowPropertyViewEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
@@ -109,8 +103,7 @@ public class FilterMediatorEditPart extends complexFiguredAbstractMediator {
 				case FilterMediatorFailOutputConnectorEditPart.VISUAL_ID:
 					return new BorderItemSelectionEditPolicy();
 				}
-				EditPolicy result = child
-						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+				EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
 				if (result == null) {
 					result = new NonResizableEditPolicy();
 				}
@@ -135,10 +128,10 @@ public class FilterMediatorEditPart extends complexFiguredAbstractMediator {
 		return primaryShape = new FilterMediatorFigure() {
 			public void setBounds(org.eclipse.draw2d.geometry.Rectangle rect) {
 				super.setBounds(rect);
-				if ((!connected)&&(this.getBounds().getLocation().x != 0
-						&& this.getBounds().getLocation().y != 0)) {
+				if ((!connected)
+						&& (this.getBounds().getLocation().x != 0 && this.getBounds().getLocation().y != 0)) {
 					getMostSuitableElementToConnect();
-					connected=true;
+					connected = true;
 				}
 			};
 		};
@@ -156,29 +149,24 @@ public class FilterMediatorEditPart extends complexFiguredAbstractMediator {
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof FilterMediatorConditionTypeEditPart) {
-			((FilterMediatorConditionTypeEditPart) childEditPart)
-					.setLabel(getPrimaryShape()
-							.getFigureFilterMediatorPropertyValue());
+			((FilterMediatorConditionTypeEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getFigureFilterMediatorPropertyValue());
 			return true;
 		}
 		if (childEditPart instanceof FilterMediatorInputConnectorEditPart) {
 			IFigure borderItemFigure = ((FilterMediatorInputConnectorEditPart) childEditPart)
 					.getFigure();
-			BorderItemLocator locator = new FixedBorderItemLocator(
-					getMainFigure(), borderItemFigure, PositionConstants.WEST,
-					0.5);
-			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
-					locator);
+			BorderItemLocator locator = new FixedBorderItemLocator(getMainFigure(),
+					borderItemFigure, PositionConstants.WEST, 0.5);
+			getBorderedFigure().getBorderItemContainer().add(borderItemFigure, locator);
 			return true;
 		}
 		if (childEditPart instanceof FilterMediatorOutputConnectorEditPart) {
 			IFigure borderItemFigure = ((FilterMediatorOutputConnectorEditPart) childEditPart)
 					.getFigure();
-			BorderItemLocator locator = new FixedBorderItemLocator(
-					getMainFigure(), borderItemFigure, PositionConstants.EAST,
-					0.5);
-			getBorderedFigure().getBorderItemContainer().add(borderItemFigure,
-					locator);
+			BorderItemLocator locator = new FixedBorderItemLocator(getMainFigure(),
+					borderItemFigure, PositionConstants.EAST, 0.5);
+			getBorderedFigure().getBorderItemContainer().add(borderItemFigure, locator);
 			return true;
 		}
 		if (childEditPart instanceof FilterMediatorPassOutputConnectorEditPart) {
@@ -201,20 +189,17 @@ public class FilterMediatorEditPart extends complexFiguredAbstractMediator {
 		}
 		if (childEditPart instanceof FilterMediatorInputConnectorEditPart) {
 			getBorderedFigure().getBorderItemContainer().remove(
-					((FilterMediatorInputConnectorEditPart) childEditPart)
-							.getFigure());
+					((FilterMediatorInputConnectorEditPart) childEditPart).getFigure());
 			return true;
 		}
 		if (childEditPart instanceof FilterMediatorPassOutputConnectorEditPart) {
 			getBorderedFigure().getBorderItemContainer().remove(
-					((FilterMediatorPassOutputConnectorEditPart) childEditPart)
-							.getFigure());
+					((FilterMediatorPassOutputConnectorEditPart) childEditPart).getFigure());
 			return true;
 		}
 		if (childEditPart instanceof FilterMediatorFailOutputConnectorEditPart) {
 			getBorderedFigure().getBorderItemContainer().remove(
-					((FilterMediatorFailOutputConnectorEditPart) childEditPart)
-							.getFigure());
+					((FilterMediatorFailOutputConnectorEditPart) childEditPart).getFigure());
 			return true;
 		}
 		return false;
@@ -365,8 +350,7 @@ public class FilterMediatorEditPart extends complexFiguredAbstractMediator {
 			layoutThis.setSpacing(0);
 			layoutThis.setVertical(false);
 			this.setLayoutManager(layoutThis);
-			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(325),
-					getMapMode().DPtoLP(175)));
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(325), getMapMode().DPtoLP(175)));
 			this.setOutline(true);
 			this.setBackgroundColor(THIS_BACK);
 			createContents();
@@ -421,8 +405,7 @@ public class FilterMediatorEditPart extends complexFiguredAbstractMediator {
 		}
 
 		public IFigure getToolTip() {
-			return new Label(
-					"Filter a messages using XPath, If else kind of logic");
+			return new Label("Filter a messages using XPath, If else kind of logic");
 		}
 
 	}

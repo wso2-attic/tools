@@ -1051,6 +1051,51 @@ public class EsbElementTypes {
 	/**
 	 * @generated
 	 */
+	public static final IElementType BAMMediator_3680 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.BAMMediator_3680"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType BAMMediatorInputConnector_3681 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.BAMMediatorInputConnector_3681"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType BAMMediatorOutputConnector_3682 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.BAMMediatorOutputConnector_3682"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType BeanMediator_3683 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.BeanMediator_3683"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType BeanMediatorInputConnector_3684 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.BeanMediatorInputConnector_3684"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType BeanMediatorOutputConnector_3685 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.BeanMediatorOutputConnector_3685"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType EJBMediator_3686 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.EJBMediator_3686"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType EJBMediatorInputConnector_3687 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.EJBMediatorInputConnector_3687"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType EJBMediatorOutputConnector_3688 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.EJBMediatorOutputConnector_3688"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
 	public static final IElementType DefaultEndPoint_3609 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.DefaultEndPoint_3609"); //$NON-NLS-1$
 
 	/**
@@ -1263,26 +1308,22 @@ public class EsbElementTypes {
 	/**
 	 * @generated
 	 */
-	private static ImageDescriptor getProvidedImageDescriptor(
-			ENamedElement element) {
+	private static ImageDescriptor getProvidedImageDescriptor(ENamedElement element) {
 		if (element instanceof EStructuralFeature) {
 			EStructuralFeature feature = ((EStructuralFeature) element);
 			EClass eContainingClass = feature.getEContainingClass();
 			EClassifier eType = feature.getEType();
 			if (eContainingClass != null && !eContainingClass.isAbstract()) {
 				element = eContainingClass;
-			} else if (eType instanceof EClass
-					&& !((EClass) eType).isAbstract()) {
+			} else if (eType instanceof EClass && !((EClass) eType).isAbstract()) {
 				element = eType;
 			}
 		}
 		if (element instanceof EClass) {
 			EClass eClass = (EClass) element;
 			if (!eClass.isAbstract()) {
-				return EsbDiagramEditorPlugin.getInstance()
-						.getItemImageDescriptor(
-								eClass.getEPackage().getEFactoryInstance()
-										.create(eClass));
+				return EsbDiagramEditorPlugin.getInstance().getItemImageDescriptor(
+						eClass.getEPackage().getEFactoryInstance().create(eClass));
 			}
 		}
 		// TODO : support structural features
@@ -1358,14 +1399,11 @@ public class EsbElementTypes {
 
 			elements.put(EsbServer_2001, EsbPackage.eINSTANCE.getEsbServer());
 
-			elements.put(ProxyService_3001,
-					EsbPackage.eINSTANCE.getProxyService());
+			elements.put(ProxyService_3001, EsbPackage.eINSTANCE.getProxyService());
 
-			elements.put(ProxyOutputConnector_3002,
-					EsbPackage.eINSTANCE.getProxyOutputConnector());
+			elements.put(ProxyOutputConnector_3002, EsbPackage.eINSTANCE.getProxyOutputConnector());
 
-			elements.put(ProxyInputConnector_3003,
-					EsbPackage.eINSTANCE.getProxyInputConnector());
+			elements.put(ProxyInputConnector_3003, EsbPackage.eINSTANCE.getProxyInputConnector());
 
 			elements.put(ProxyFaultInputConnector_3489,
 					EsbPackage.eINSTANCE.getProxyFaultInputConnector());
@@ -1374,20 +1412,16 @@ public class EsbElementTypes {
 					EsbPackage.eINSTANCE.getProxyServiceContainer());
 
 			elements.put(ProxyServiceSequenceAndEndpointContainer_3487,
-					EsbPackage.eINSTANCE
-							.getProxyServiceSequenceAndEndpointContainer());
+					EsbPackage.eINSTANCE.getProxyServiceSequenceAndEndpointContainer());
 
-			elements.put(MediatorFlow_3608,
-					EsbPackage.eINSTANCE.getMediatorFlow());
+			elements.put(MediatorFlow_3608, EsbPackage.eINSTANCE.getMediatorFlow());
 
-			elements.put(DropMediator_3491,
-					EsbPackage.eINSTANCE.getDropMediator());
+			elements.put(DropMediator_3491, EsbPackage.eINSTANCE.getDropMediator());
 
 			elements.put(DropMediatorInputConnector_3008,
 					EsbPackage.eINSTANCE.getDropMediatorInputConnector());
 
-			elements.put(PropertyMediator_3492,
-					EsbPackage.eINSTANCE.getPropertyMediator());
+			elements.put(PropertyMediator_3492, EsbPackage.eINSTANCE.getPropertyMediator());
 
 			elements.put(PropertyMediatorInputConnector_3033,
 					EsbPackage.eINSTANCE.getPropertyMediatorInputConnector());
@@ -1395,8 +1429,7 @@ public class EsbElementTypes {
 			elements.put(PropertyMediatorOutputConnector_3034,
 					EsbPackage.eINSTANCE.getPropertyMediatorOutputConnector());
 
-			elements.put(ThrottleMediator_3493,
-					EsbPackage.eINSTANCE.getThrottleMediator());
+			elements.put(ThrottleMediator_3493, EsbPackage.eINSTANCE.getThrottleMediator());
 
 			elements.put(ThrottleMediatorInputConnector_3121,
 					EsbPackage.eINSTANCE.getThrottleMediatorInputConnector());
@@ -1405,24 +1438,19 @@ public class EsbElementTypes {
 					EsbPackage.eINSTANCE.getThrottleMediatorOutputConnector());
 
 			elements.put(ThrottleMediatorOnAcceptOutputConnector_3581,
-					EsbPackage.eINSTANCE
-							.getThrottleMediatorOnAcceptOutputConnector());
+					EsbPackage.eINSTANCE.getThrottleMediatorOnAcceptOutputConnector());
 
 			elements.put(ThrottleMediatorOnRejectOutputConnector_3582,
-					EsbPackage.eINSTANCE
-							.getThrottleMediatorOnRejectOutputConnector());
+					EsbPackage.eINSTANCE.getThrottleMediatorOnRejectOutputConnector());
 
-			elements.put(ThrottleContainer_3583,
-					EsbPackage.eINSTANCE.getThrottleContainer());
+			elements.put(ThrottleContainer_3583, EsbPackage.eINSTANCE.getThrottleContainer());
 
 			elements.put(ThrottleOnAcceptContainer_3584,
 					EsbPackage.eINSTANCE.getThrottleOnAcceptContainer());
 
-			elements.put(MediatorFlow_3585,
-					EsbPackage.eINSTANCE.getMediatorFlow());
+			elements.put(MediatorFlow_3585, EsbPackage.eINSTANCE.getMediatorFlow());
 
-			elements.put(FilterMediator_3494,
-					EsbPackage.eINSTANCE.getFilterMediator());
+			elements.put(FilterMediator_3494, EsbPackage.eINSTANCE.getFilterMediator());
 
 			elements.put(FilterMediatorInputConnector_3010,
 					EsbPackage.eINSTANCE.getFilterMediatorInputConnector());
@@ -1436,17 +1464,13 @@ public class EsbElementTypes {
 			elements.put(FilterMediatorFailOutputConnector_3012,
 					EsbPackage.eINSTANCE.getFilterMediatorFailOutputConnector());
 
-			elements.put(FilterContainer_3531,
-					EsbPackage.eINSTANCE.getFilterContainer());
+			elements.put(FilterContainer_3531, EsbPackage.eINSTANCE.getFilterContainer());
 
-			elements.put(FilterPassContainer_3535,
-					EsbPackage.eINSTANCE.getFilterPassContainer());
+			elements.put(FilterPassContainer_3535, EsbPackage.eINSTANCE.getFilterPassContainer());
 
-			elements.put(MediatorFlow_3536,
-					EsbPackage.eINSTANCE.getMediatorFlow());
+			elements.put(MediatorFlow_3536, EsbPackage.eINSTANCE.getMediatorFlow());
 
-			elements.put(LogMediator_3495,
-					EsbPackage.eINSTANCE.getLogMediator());
+			elements.put(LogMediator_3495, EsbPackage.eINSTANCE.getLogMediator());
 
 			elements.put(LogMediatorInputConnector_3018,
 					EsbPackage.eINSTANCE.getLogMediatorInputConnector());
@@ -1454,8 +1478,7 @@ public class EsbElementTypes {
 			elements.put(LogMediatorOutputConnector_3019,
 					EsbPackage.eINSTANCE.getLogMediatorOutputConnector());
 
-			elements.put(EnrichMediator_3496,
-					EsbPackage.eINSTANCE.getEnrichMediator());
+			elements.put(EnrichMediator_3496, EsbPackage.eINSTANCE.getEnrichMediator());
 
 			elements.put(EnrichMediatorInputConnector_3036,
 					EsbPackage.eINSTANCE.getEnrichMediatorInputConnector());
@@ -1463,8 +1486,7 @@ public class EsbElementTypes {
 			elements.put(EnrichMediatorOutputConnector_3037,
 					EsbPackage.eINSTANCE.getEnrichMediatorOutputConnector());
 
-			elements.put(XSLTMediator_3497,
-					EsbPackage.eINSTANCE.getXSLTMediator());
+			elements.put(XSLTMediator_3497, EsbPackage.eINSTANCE.getXSLTMediator());
 
 			elements.put(XSLTMediatorInputConnector_3039,
 					EsbPackage.eINSTANCE.getXSLTMediatorInputConnector());
@@ -1472,8 +1494,7 @@ public class EsbElementTypes {
 			elements.put(XSLTMediatorOutputConnector_3040,
 					EsbPackage.eINSTANCE.getXSLTMediatorOutputConnector());
 
-			elements.put(SwitchMediator_3498,
-					EsbPackage.eINSTANCE.getSwitchMediator());
+			elements.put(SwitchMediator_3498, EsbPackage.eINSTANCE.getSwitchMediator());
 
 			elements.put(SwitchMediatorInputConnector_3042,
 					EsbPackage.eINSTANCE.getSwitchMediatorInputConnector());
@@ -1482,8 +1503,7 @@ public class EsbElementTypes {
 					EsbPackage.eINSTANCE.getSwitchCaseBranchOutputConnector());
 
 			elements.put(SwitchDefaultBranchOutputConnector_3044,
-					EsbPackage.eINSTANCE
-							.getSwitchDefaultBranchOutputConnector());
+					EsbPackage.eINSTANCE.getSwitchDefaultBranchOutputConnector());
 
 			elements.put(SwitchMediatorOutputConnector_3499,
 					EsbPackage.eINSTANCE.getSwitchMediatorOutputConnector());
@@ -1491,11 +1511,9 @@ public class EsbElementTypes {
 			elements.put(SwitchMediatorContainer_3500,
 					EsbPackage.eINSTANCE.getSwitchMediatorContainer());
 
-			elements.put(SwitchCaseContainer_3501,
-					EsbPackage.eINSTANCE.getSwitchCaseContainer());
+			elements.put(SwitchCaseContainer_3501, EsbPackage.eINSTANCE.getSwitchCaseContainer());
 
-			elements.put(MediatorFlow_3502,
-					EsbPackage.eINSTANCE.getMediatorFlow());
+			elements.put(MediatorFlow_3502, EsbPackage.eINSTANCE.getMediatorFlow());
 
 			elements.put(Sequence_3503, EsbPackage.eINSTANCE.getSequence());
 
@@ -1505,8 +1523,7 @@ public class EsbElementTypes {
 			elements.put(SequenceOutputConnector_3050,
 					EsbPackage.eINSTANCE.getSequenceOutputConnector());
 
-			elements.put(EventMediator_3504,
-					EsbPackage.eINSTANCE.getEventMediator());
+			elements.put(EventMediator_3504, EsbPackage.eINSTANCE.getEventMediator());
 
 			elements.put(EventMediatorInputConnector_3052,
 					EsbPackage.eINSTANCE.getEventMediatorInputConnector());
@@ -1514,18 +1531,15 @@ public class EsbElementTypes {
 			elements.put(EventMediatorOutputConnector_3053,
 					EsbPackage.eINSTANCE.getEventMediatorOutputConnector());
 
-			elements.put(EntitlementMediator_3505,
-					EsbPackage.eINSTANCE.getEntitlementMediator());
+			elements.put(EntitlementMediator_3505, EsbPackage.eINSTANCE.getEntitlementMediator());
 
 			elements.put(EntitlementMediatorInputConnector_3055,
 					EsbPackage.eINSTANCE.getEntitlementMediatorInputConnector());
 
 			elements.put(EntitlementMediatorOutputConnector_3056,
-					EsbPackage.eINSTANCE
-							.getEntitlementMediatorOutputConnector());
+					EsbPackage.eINSTANCE.getEntitlementMediatorOutputConnector());
 
-			elements.put(ClassMediator_3506,
-					EsbPackage.eINSTANCE.getClassMediator());
+			elements.put(ClassMediator_3506, EsbPackage.eINSTANCE.getClassMediator());
 
 			elements.put(ClassMediatorInputConnector_3058,
 					EsbPackage.eINSTANCE.getClassMediatorInputConnector());
@@ -1533,8 +1547,7 @@ public class EsbElementTypes {
 			elements.put(ClassMediatorOutputConnector_3059,
 					EsbPackage.eINSTANCE.getClassMediatorOutputConnector());
 
-			elements.put(SpringMediator_3507,
-					EsbPackage.eINSTANCE.getSpringMediator());
+			elements.put(SpringMediator_3507, EsbPackage.eINSTANCE.getSpringMediator());
 
 			elements.put(SpringMediatorInputConnector_3061,
 					EsbPackage.eINSTANCE.getSpringMediatorInputConnector());
@@ -1542,8 +1555,7 @@ public class EsbElementTypes {
 			elements.put(SpringMediatorOutputConnector_3062,
 					EsbPackage.eINSTANCE.getSpringMediatorOutputConnector());
 
-			elements.put(ScriptMediator_3508,
-					EsbPackage.eINSTANCE.getScriptMediator());
+			elements.put(ScriptMediator_3508, EsbPackage.eINSTANCE.getScriptMediator());
 
 			elements.put(ScriptMediatorInputConnector_3064,
 					EsbPackage.eINSTANCE.getScriptMediatorInputConnector());
@@ -1551,8 +1563,7 @@ public class EsbElementTypes {
 			elements.put(ScriptMediatorOutputConnector_3065,
 					EsbPackage.eINSTANCE.getScriptMediatorOutputConnector());
 
-			elements.put(FaultMediator_3509,
-					EsbPackage.eINSTANCE.getFaultMediator());
+			elements.put(FaultMediator_3509, EsbPackage.eINSTANCE.getFaultMediator());
 
 			elements.put(FaultMediatorInputConnector_3067,
 					EsbPackage.eINSTANCE.getFaultMediatorInputConnector());
@@ -1560,8 +1571,7 @@ public class EsbElementTypes {
 			elements.put(FaultMediatorOutputConnector_3068,
 					EsbPackage.eINSTANCE.getFaultMediatorOutputConnector());
 
-			elements.put(XQueryMediator_3510,
-					EsbPackage.eINSTANCE.getXQueryMediator());
+			elements.put(XQueryMediator_3510, EsbPackage.eINSTANCE.getXQueryMediator());
 
 			elements.put(XQueryMediatorInputConnector_3070,
 					EsbPackage.eINSTANCE.getXQueryMediatorInputConnector());
@@ -1569,8 +1579,7 @@ public class EsbElementTypes {
 			elements.put(XQueryMediatorOutputConnector_3071,
 					EsbPackage.eINSTANCE.getXQueryMediatorOutputConnector());
 
-			elements.put(CommandMediator_3511,
-					EsbPackage.eINSTANCE.getCommandMediator());
+			elements.put(CommandMediator_3511, EsbPackage.eINSTANCE.getCommandMediator());
 
 			elements.put(CommandMediatorInputConnector_3073,
 					EsbPackage.eINSTANCE.getCommandMediatorInputConnector());
@@ -1578,8 +1587,7 @@ public class EsbElementTypes {
 			elements.put(CommandMediatorOutputConnector_3074,
 					EsbPackage.eINSTANCE.getCommandMediatorOutputConnector());
 
-			elements.put(DBLookupMediator_3512,
-					EsbPackage.eINSTANCE.getDBLookupMediator());
+			elements.put(DBLookupMediator_3512, EsbPackage.eINSTANCE.getDBLookupMediator());
 
 			elements.put(DBLookupMediatorInputConnector_3076,
 					EsbPackage.eINSTANCE.getDBLookupMediatorInputConnector());
@@ -1587,8 +1595,7 @@ public class EsbElementTypes {
 			elements.put(DBLookupMediatorOutputConnector_3077,
 					EsbPackage.eINSTANCE.getDBLookupMediatorOutputConnector());
 
-			elements.put(DBReportMediator_3513,
-					EsbPackage.eINSTANCE.getDBReportMediator());
+			elements.put(DBReportMediator_3513, EsbPackage.eINSTANCE.getDBReportMediator());
 
 			elements.put(DBReportMediatorInputConnector_3079,
 					EsbPackage.eINSTANCE.getDBReportMediatorInputConnector());
@@ -1596,8 +1603,7 @@ public class EsbElementTypes {
 			elements.put(DBReportMediatorOutputConnector_3080,
 					EsbPackage.eINSTANCE.getDBReportMediatorOutputConnector());
 
-			elements.put(SmooksMediator_3514,
-					EsbPackage.eINSTANCE.getSmooksMediator());
+			elements.put(SmooksMediator_3514, EsbPackage.eINSTANCE.getSmooksMediator());
 
 			elements.put(SmooksMediatorInputConnector_3082,
 					EsbPackage.eINSTANCE.getSmooksMediatorInputConnector());
@@ -1605,8 +1611,7 @@ public class EsbElementTypes {
 			elements.put(SmooksMediatorOutputConnector_3083,
 					EsbPackage.eINSTANCE.getSmooksMediatorOutputConnector());
 
-			elements.put(SendMediator_3515,
-					EsbPackage.eINSTANCE.getSendMediator());
+			elements.put(SendMediator_3515, EsbPackage.eINSTANCE.getSendMediator());
 
 			elements.put(SendMediatorInputConnector_3085,
 					EsbPackage.eINSTANCE.getSendMediatorInputConnector());
@@ -1615,14 +1620,11 @@ public class EsbElementTypes {
 					EsbPackage.eINSTANCE.getSendMediatorOutputConnector());
 
 			elements.put(SendMediatorEndpointOutputConnector_3539,
-					EsbPackage.eINSTANCE
-							.getSendMediatorEndpointOutputConnector());
+					EsbPackage.eINSTANCE.getSendMediatorEndpointOutputConnector());
 
-			elements.put(EndpointFlow_3562,
-					EsbPackage.eINSTANCE.getEndpointFlow());
+			elements.put(EndpointFlow_3562, EsbPackage.eINSTANCE.getEndpointFlow());
 
-			elements.put(HeaderMediator_3516,
-					EsbPackage.eINSTANCE.getHeaderMediator());
+			elements.put(HeaderMediator_3516, EsbPackage.eINSTANCE.getHeaderMediator());
 
 			elements.put(HeaderMediatorInputConnector_3100,
 					EsbPackage.eINSTANCE.getHeaderMediatorInputConnector());
@@ -1630,8 +1632,7 @@ public class EsbElementTypes {
 			elements.put(HeaderMediatorOutputConnector_3101,
 					EsbPackage.eINSTANCE.getHeaderMediatorOutputConnector());
 
-			elements.put(CloneMediator_3517,
-					EsbPackage.eINSTANCE.getCloneMediator());
+			elements.put(CloneMediator_3517, EsbPackage.eINSTANCE.getCloneMediator());
 
 			elements.put(CloneMediatorInputConnector_3103,
 					EsbPackage.eINSTANCE.getCloneMediatorInputConnector());
@@ -1640,20 +1641,16 @@ public class EsbElementTypes {
 					EsbPackage.eINSTANCE.getCloneMediatorOutputConnector());
 
 			elements.put(CloneMediatorTargetOutputConnector_3133,
-					EsbPackage.eINSTANCE
-							.getCloneMediatorTargetOutputConnector());
+					EsbPackage.eINSTANCE.getCloneMediatorTargetOutputConnector());
 
 			elements.put(CloneMediatorContainer_3603,
 					EsbPackage.eINSTANCE.getCloneMediatorContainer());
 
-			elements.put(CloneTargetContainer_3604,
-					EsbPackage.eINSTANCE.getCloneTargetContainer());
+			elements.put(CloneTargetContainer_3604, EsbPackage.eINSTANCE.getCloneTargetContainer());
 
-			elements.put(MediatorFlow_3605,
-					EsbPackage.eINSTANCE.getMediatorFlow());
+			elements.put(MediatorFlow_3605, EsbPackage.eINSTANCE.getMediatorFlow());
 
-			elements.put(CacheMediator_3518,
-					EsbPackage.eINSTANCE.getCacheMediator());
+			elements.put(CacheMediator_3518, EsbPackage.eINSTANCE.getCacheMediator());
 
 			elements.put(CacheMediatorInputConnector_3106,
 					EsbPackage.eINSTANCE.getCacheMediatorInputConnector());
@@ -1664,11 +1661,9 @@ public class EsbElementTypes {
 			elements.put(CacheMediatorOnHitOutputConnector_3618,
 					EsbPackage.eINSTANCE.getCacheMediatorOnHitOutputConnector());
 
-			elements.put(MediatorFlow_3619,
-					EsbPackage.eINSTANCE.getMediatorFlow());
+			elements.put(MediatorFlow_3619, EsbPackage.eINSTANCE.getMediatorFlow());
 
-			elements.put(IterateMediator_3519,
-					EsbPackage.eINSTANCE.getIterateMediator());
+			elements.put(IterateMediator_3519, EsbPackage.eINSTANCE.getIterateMediator());
 
 			elements.put(IterateMediatorInputConnector_3109,
 					EsbPackage.eINSTANCE.getIterateMediatorInputConnector());
@@ -1677,14 +1672,11 @@ public class EsbElementTypes {
 					EsbPackage.eINSTANCE.getIterateMediatorOutputConnector());
 
 			elements.put(IterateMediatorTargetOutputConnector_3606,
-					EsbPackage.eINSTANCE
-							.getIterateMediatorTargetOutputConnector());
+					EsbPackage.eINSTANCE.getIterateMediatorTargetOutputConnector());
 
-			elements.put(MediatorFlow_3607,
-					EsbPackage.eINSTANCE.getMediatorFlow());
+			elements.put(MediatorFlow_3607, EsbPackage.eINSTANCE.getMediatorFlow());
 
-			elements.put(CalloutMediator_3520,
-					EsbPackage.eINSTANCE.getCalloutMediator());
+			elements.put(CalloutMediator_3520, EsbPackage.eINSTANCE.getCalloutMediator());
 
 			elements.put(CalloutMediatorInputConnector_3115,
 					EsbPackage.eINSTANCE.getCalloutMediatorInputConnector());
@@ -1692,18 +1684,15 @@ public class EsbElementTypes {
 			elements.put(CalloutMediatorOutputConnector_3116,
 					EsbPackage.eINSTANCE.getCalloutMediatorOutputConnector());
 
-			elements.put(TransactionMediator_3521,
-					EsbPackage.eINSTANCE.getTransactionMediator());
+			elements.put(TransactionMediator_3521, EsbPackage.eINSTANCE.getTransactionMediator());
 
 			elements.put(TransactionMediatorInputConnector_3118,
 					EsbPackage.eINSTANCE.getTransactionMediatorInputConnector());
 
 			elements.put(TransactionMediatorOutputConnector_3119,
-					EsbPackage.eINSTANCE
-							.getTransactionMediatorOutputConnector());
+					EsbPackage.eINSTANCE.getTransactionMediatorOutputConnector());
 
-			elements.put(RMSequenceMediator_3522,
-					EsbPackage.eINSTANCE.getRMSequenceMediator());
+			elements.put(RMSequenceMediator_3522, EsbPackage.eINSTANCE.getRMSequenceMediator());
 
 			elements.put(RMSequenceMediatorInputConnector_3124,
 					EsbPackage.eINSTANCE.getRMSequenceMediatorInputConnector());
@@ -1711,8 +1700,7 @@ public class EsbElementTypes {
 			elements.put(RMSequenceMediatorOutputConnector_3125,
 					EsbPackage.eINSTANCE.getRMSequenceMediatorOutputConnector());
 
-			elements.put(RuleMediator_3523,
-					EsbPackage.eINSTANCE.getRuleMediator());
+			elements.put(RuleMediator_3523, EsbPackage.eINSTANCE.getRuleMediator());
 
 			elements.put(RuleMediatorInputConnector_3127,
 					EsbPackage.eINSTANCE.getRuleMediatorInputConnector());
@@ -1721,14 +1709,11 @@ public class EsbElementTypes {
 					EsbPackage.eINSTANCE.getRuleMediatorOutputConnector());
 
 			elements.put(RuleMediatorChildMediatorsOutputConnector_3640,
-					EsbPackage.eINSTANCE
-							.getRuleMediatorChildMediatorsOutputConnector());
+					EsbPackage.eINSTANCE.getRuleMediatorChildMediatorsOutputConnector());
 
-			elements.put(MediatorFlow_3641,
-					EsbPackage.eINSTANCE.getMediatorFlow());
+			elements.put(MediatorFlow_3641, EsbPackage.eINSTANCE.getMediatorFlow());
 
-			elements.put(OAuthMediator_3524,
-					EsbPackage.eINSTANCE.getOAuthMediator());
+			elements.put(OAuthMediator_3524, EsbPackage.eINSTANCE.getOAuthMediator());
 
 			elements.put(OAuthMediatorInputConnector_3130,
 					EsbPackage.eINSTANCE.getOAuthMediatorInputConnector());
@@ -1736,8 +1721,7 @@ public class EsbElementTypes {
 			elements.put(OAuthMediatorOutputConnector_3131,
 					EsbPackage.eINSTANCE.getOAuthMediatorOutputConnector());
 
-			elements.put(AggregateMediator_3525,
-					EsbPackage.eINSTANCE.getAggregateMediator());
+			elements.put(AggregateMediator_3525, EsbPackage.eINSTANCE.getAggregateMediator());
 
 			elements.put(AggregateMediatorInputConnector_3112,
 					EsbPackage.eINSTANCE.getAggregateMediatorInputConnector());
@@ -1746,14 +1730,11 @@ public class EsbElementTypes {
 					EsbPackage.eINSTANCE.getAggregateMediatorOutputConnector());
 
 			elements.put(AggregateMediatorOnCompleteOutputConnector_3132,
-					EsbPackage.eINSTANCE
-							.getAggregateMediatorOnCompleteOutputConnector());
+					EsbPackage.eINSTANCE.getAggregateMediatorOnCompleteOutputConnector());
 
-			elements.put(MediatorFlow_3526,
-					EsbPackage.eINSTANCE.getMediatorFlow());
+			elements.put(MediatorFlow_3526, EsbPackage.eINSTANCE.getMediatorFlow());
 
-			elements.put(StoreMediator_3588,
-					EsbPackage.eINSTANCE.getStoreMediator());
+			elements.put(StoreMediator_3588, EsbPackage.eINSTANCE.getStoreMediator());
 
 			elements.put(StoreMediatorInputConnector_3589,
 					EsbPackage.eINSTANCE.getStoreMediatorInputConnector());
@@ -1761,8 +1742,7 @@ public class EsbElementTypes {
 			elements.put(StoreMediatorOutputConnector_3590,
 					EsbPackage.eINSTANCE.getStoreMediatorOutputConnector());
 
-			elements.put(BuilderMediator_3591,
-					EsbPackage.eINSTANCE.getBuilderMediator());
+			elements.put(BuilderMediator_3591, EsbPackage.eINSTANCE.getBuilderMediator());
 
 			elements.put(BuilderMediatorInputConnector_3592,
 					EsbPackage.eINSTANCE.getBuilderMediatorInputConnector());
@@ -1770,30 +1750,24 @@ public class EsbElementTypes {
 			elements.put(BuilderMediatorOutputConector_3593,
 					EsbPackage.eINSTANCE.getBuilderMediatorOutputConector());
 
-			elements.put(CallTemplateMediator_3594,
-					EsbPackage.eINSTANCE.getCallTemplateMediator());
+			elements.put(CallTemplateMediator_3594, EsbPackage.eINSTANCE.getCallTemplateMediator());
 
 			elements.put(CallTemplateMediatorInputConnector_3595,
-					EsbPackage.eINSTANCE
-							.getCallTemplateMediatorInputConnector());
+					EsbPackage.eINSTANCE.getCallTemplateMediatorInputConnector());
 
 			elements.put(CallTemplateMediatorOutputConnector_3596,
-					EsbPackage.eINSTANCE
-							.getCallTemplateMediatorOutputConnector());
+					EsbPackage.eINSTANCE.getCallTemplateMediatorOutputConnector());
 
 			elements.put(PayloadFactoryMediator_3597,
 					EsbPackage.eINSTANCE.getPayloadFactoryMediator());
 
 			elements.put(PayloadFactoryMediatorInputConnector_3598,
-					EsbPackage.eINSTANCE
-							.getPayloadFactoryMediatorInputConnector());
+					EsbPackage.eINSTANCE.getPayloadFactoryMediatorInputConnector());
 
 			elements.put(PayloadFactoryMediatorOutputConnector_3599,
-					EsbPackage.eINSTANCE
-							.getPayloadFactoryMediatorOutputConnector());
+					EsbPackage.eINSTANCE.getPayloadFactoryMediatorOutputConnector());
 
-			elements.put(EnqueueMediator_3600,
-					EsbPackage.eINSTANCE.getEnqueueMediator());
+			elements.put(EnqueueMediator_3600, EsbPackage.eINSTANCE.getEnqueueMediator());
 
 			elements.put(EnqueueMediatorInputConnector_3601,
 					EsbPackage.eINSTANCE.getEnqueueMediatorInputConnector());
@@ -1801,8 +1775,7 @@ public class EsbElementTypes {
 			elements.put(EnqueueMediatorOutputConnector_3602,
 					EsbPackage.eINSTANCE.getEnqueueMediatorOutputConnector());
 
-			elements.put(URLRewriteMediator_3620,
-					EsbPackage.eINSTANCE.getURLRewriteMediator());
+			elements.put(URLRewriteMediator_3620, EsbPackage.eINSTANCE.getURLRewriteMediator());
 
 			elements.put(URLRewriteMediatorInputConnector_3621,
 					EsbPackage.eINSTANCE.getURLRewriteMediatorInputConnector());
@@ -1810,8 +1783,7 @@ public class EsbElementTypes {
 			elements.put(URLRewriteMediatorOutputConnector_3622,
 					EsbPackage.eINSTANCE.getURLRewriteMediatorOutputConnector());
 
-			elements.put(ValidateMediator_3623,
-					EsbPackage.eINSTANCE.getValidateMediator());
+			elements.put(ValidateMediator_3623, EsbPackage.eINSTANCE.getValidateMediator());
 
 			elements.put(ValidateMediatorInputConnector_3624,
 					EsbPackage.eINSTANCE.getValidateMediatorInputConnector());
@@ -1820,14 +1792,11 @@ public class EsbElementTypes {
 					EsbPackage.eINSTANCE.getValidateMediatorOutputConnector());
 
 			elements.put(ValidateMediatorOnFailOutputConnector_3626,
-					EsbPackage.eINSTANCE
-							.getValidateMediatorOnFailOutputConnector());
+					EsbPackage.eINSTANCE.getValidateMediatorOnFailOutputConnector());
 
-			elements.put(MediatorFlow_3627,
-					EsbPackage.eINSTANCE.getMediatorFlow());
+			elements.put(MediatorFlow_3627, EsbPackage.eINSTANCE.getMediatorFlow());
 
-			elements.put(RouterMediator_3628,
-					EsbPackage.eINSTANCE.getRouterMediator());
+			elements.put(RouterMediator_3628, EsbPackage.eINSTANCE.getRouterMediator());
 
 			elements.put(RouterMediatorInputConnector_3629,
 					EsbPackage.eINSTANCE.getRouterMediatorInputConnector());
@@ -1836,8 +1805,7 @@ public class EsbElementTypes {
 					EsbPackage.eINSTANCE.getRouterMediatorOutputConnector());
 
 			elements.put(RouterMediatorTargetOutputConnector_3631,
-					EsbPackage.eINSTANCE
-							.getRouterMediatorTargetOutputConnector());
+					EsbPackage.eINSTANCE.getRouterMediatorTargetOutputConnector());
 
 			elements.put(RouterMediatorContainer_3632,
 					EsbPackage.eINSTANCE.getRouterMediatorContainer());
@@ -1845,30 +1813,47 @@ public class EsbElementTypes {
 			elements.put(RouterTargetContainer_3633,
 					EsbPackage.eINSTANCE.getRouterTargetContainer());
 
-			elements.put(MediatorFlow_3634,
-					EsbPackage.eINSTANCE.getMediatorFlow());
+			elements.put(MediatorFlow_3634, EsbPackage.eINSTANCE.getMediatorFlow());
 
 			elements.put(ConditionalRouterMediator_3635,
 					EsbPackage.eINSTANCE.getConditionalRouterMediator());
 
 			elements.put(ConditionalRouterMediatorInputConnector_3636,
-					EsbPackage.eINSTANCE
-							.getConditionalRouterMediatorInputConnector());
+					EsbPackage.eINSTANCE.getConditionalRouterMediatorInputConnector());
 
 			elements.put(ConditionalRouterMediatorOutputConnector_3637,
-					EsbPackage.eINSTANCE
-							.getConditionalRouterMediatorOutputConnector());
+					EsbPackage.eINSTANCE.getConditionalRouterMediatorOutputConnector());
 
-			elements.put(
-					ConditionalRouterMediatorAdditionalOutputConnector_3638,
-					EsbPackage.eINSTANCE
-							.getConditionalRouterMediatorAdditionalOutputConnector());
+			elements.put(ConditionalRouterMediatorAdditionalOutputConnector_3638,
+					EsbPackage.eINSTANCE.getConditionalRouterMediatorAdditionalOutputConnector());
 
-			elements.put(MediatorFlow_3639,
-					EsbPackage.eINSTANCE.getMediatorFlow());
+			elements.put(MediatorFlow_3639, EsbPackage.eINSTANCE.getMediatorFlow());
 
-			elements.put(DefaultEndPoint_3609,
-					EsbPackage.eINSTANCE.getDefaultEndPoint());
+			elements.put(BAMMediator_3680, EsbPackage.eINSTANCE.getBAMMediator());
+
+			elements.put(BAMMediatorInputConnector_3681,
+					EsbPackage.eINSTANCE.getBAMMediatorInputConnector());
+
+			elements.put(BAMMediatorOutputConnector_3682,
+					EsbPackage.eINSTANCE.getBAMMediatorOutputConnector());
+
+			elements.put(BeanMediator_3683, EsbPackage.eINSTANCE.getBeanMediator());
+
+			elements.put(BeanMediatorInputConnector_3684,
+					EsbPackage.eINSTANCE.getBeanMediatorInputConnector());
+
+			elements.put(BeanMediatorOutputConnector_3685,
+					EsbPackage.eINSTANCE.getBeanMediatorOutputConnector());
+
+			elements.put(EJBMediator_3686, EsbPackage.eINSTANCE.getEJBMediator());
+
+			elements.put(EJBMediatorInputConnector_3687,
+					EsbPackage.eINSTANCE.getEJBMediatorInputConnector());
+
+			elements.put(EJBMediatorOutputConnector_3688,
+					EsbPackage.eINSTANCE.getEJBMediatorOutputConnector());
+
+			elements.put(DefaultEndPoint_3609, EsbPackage.eINSTANCE.getDefaultEndPoint());
 
 			elements.put(DefaultEndPointInputConnector_3021,
 					EsbPackage.eINSTANCE.getDefaultEndPointInputConnector());
@@ -1876,8 +1861,7 @@ public class EsbElementTypes {
 			elements.put(DefaultEndPointOutputConnector_3022,
 					EsbPackage.eINSTANCE.getDefaultEndPointOutputConnector());
 
-			elements.put(AddressEndPoint_3610,
-					EsbPackage.eINSTANCE.getAddressEndPoint());
+			elements.put(AddressEndPoint_3610, EsbPackage.eINSTANCE.getAddressEndPoint());
 
 			elements.put(AddressEndPointInputConnector_3030,
 					EsbPackage.eINSTANCE.getAddressEndPointInputConnector());
@@ -1885,8 +1869,7 @@ public class EsbElementTypes {
 			elements.put(AddressEndPointOutputConnector_3031,
 					EsbPackage.eINSTANCE.getAddressEndPointOutputConnector());
 
-			elements.put(FailoverEndPoint_3611,
-					EsbPackage.eINSTANCE.getFailoverEndPoint());
+			elements.put(FailoverEndPoint_3611, EsbPackage.eINSTANCE.getFailoverEndPoint());
 
 			elements.put(FailoverEndPointInputConnector_3088,
 					EsbPackage.eINSTANCE.getFailoverEndPointInputConnector());
@@ -1895,11 +1878,9 @@ public class EsbElementTypes {
 					EsbPackage.eINSTANCE.getFailoverEndPointOutputConnector());
 
 			elements.put(FailoverEndPointWestOutputConnector_3097,
-					EsbPackage.eINSTANCE
-							.getFailoverEndPointWestOutputConnector());
+					EsbPackage.eINSTANCE.getFailoverEndPointWestOutputConnector());
 
-			elements.put(WSDLEndPoint_3612,
-					EsbPackage.eINSTANCE.getWSDLEndPoint());
+			elements.put(WSDLEndPoint_3612, EsbPackage.eINSTANCE.getWSDLEndPoint());
 
 			elements.put(WSDLEndPointInputConnector_3092,
 					EsbPackage.eINSTANCE.getWSDLEndPointInputConnector());
@@ -1907,8 +1888,7 @@ public class EsbElementTypes {
 			elements.put(WSDLEndPointOutputConnector_3093,
 					EsbPackage.eINSTANCE.getWSDLEndPointOutputConnector());
 
-			elements.put(NamedEndpoint_3660,
-					EsbPackage.eINSTANCE.getNamedEndpoint());
+			elements.put(NamedEndpoint_3660, EsbPackage.eINSTANCE.getNamedEndpoint());
 
 			elements.put(NamedEndpointInputConnector_3661,
 					EsbPackage.eINSTANCE.getNamedEndpointInputConnector());
@@ -1916,56 +1896,45 @@ public class EsbElementTypes {
 			elements.put(NamedEndpointOutputConnector_3662,
 					EsbPackage.eINSTANCE.getNamedEndpointOutputConnector());
 
-			elements.put(LoadBalanceEndPoint_3613,
-					EsbPackage.eINSTANCE.getLoadBalanceEndPoint());
+			elements.put(LoadBalanceEndPoint_3613, EsbPackage.eINSTANCE.getLoadBalanceEndPoint());
 
 			elements.put(LoadBalanceEndPointInputConnector_3095,
 					EsbPackage.eINSTANCE.getLoadBalanceEndPointInputConnector());
 
 			elements.put(LoadBalanceEndPointOutputConnector_3096,
-					EsbPackage.eINSTANCE
-							.getLoadBalanceEndPointOutputConnector());
+					EsbPackage.eINSTANCE.getLoadBalanceEndPointOutputConnector());
 
 			elements.put(LoadBalanceEndPointWestOutputConnector_3098,
-					EsbPackage.eINSTANCE
-							.getLoadBalanceEndPointWestOutputConnector());
+					EsbPackage.eINSTANCE.getLoadBalanceEndPointWestOutputConnector());
 
-			elements.put(APIResourceEndpoint_3674,
-					EsbPackage.eINSTANCE.getAPIResourceEndpoint());
+			elements.put(APIResourceEndpoint_3674, EsbPackage.eINSTANCE.getAPIResourceEndpoint());
 
 			elements.put(APIResourceEndpointInputConnector_3675,
 					EsbPackage.eINSTANCE.getAPIResourceEndpointInputConnector());
 
 			elements.put(APIResourceEndpointOutputConnector_3676,
-					EsbPackage.eINSTANCE
-							.getAPIResourceEndpointOutputConnector());
+					EsbPackage.eINSTANCE.getAPIResourceEndpointOutputConnector());
 
 			elements.put(SwitchDefaultContainer_3527,
 					EsbPackage.eINSTANCE.getSwitchDefaultContainer());
 
-			elements.put(MediatorFlow_3528,
-					EsbPackage.eINSTANCE.getMediatorFlow());
+			elements.put(MediatorFlow_3528, EsbPackage.eINSTANCE.getMediatorFlow());
 
-			elements.put(FilterFailContainer_3537,
-					EsbPackage.eINSTANCE.getFilterFailContainer());
+			elements.put(FilterFailContainer_3537, EsbPackage.eINSTANCE.getFilterFailContainer());
 
-			elements.put(MediatorFlow_3538,
-					EsbPackage.eINSTANCE.getMediatorFlow());
+			elements.put(MediatorFlow_3538, EsbPackage.eINSTANCE.getMediatorFlow());
 
 			elements.put(ThrottleOnRejectContainer_3586,
 					EsbPackage.eINSTANCE.getThrottleOnRejectContainer());
 
-			elements.put(MediatorFlow_3587,
-					EsbPackage.eINSTANCE.getMediatorFlow());
+			elements.put(MediatorFlow_3587, EsbPackage.eINSTANCE.getMediatorFlow());
 
 			elements.put(ProxyServiceFaultContainer_3488,
 					EsbPackage.eINSTANCE.getProxyServiceFaultContainer());
 
-			elements.put(MediatorFlow_3530,
-					EsbPackage.eINSTANCE.getMediatorFlow());
+			elements.put(MediatorFlow_3530, EsbPackage.eINSTANCE.getMediatorFlow());
 
-			elements.put(MessageMediator_3045,
-					EsbPackage.eINSTANCE.getMessageMediator());
+			elements.put(MessageMediator_3045, EsbPackage.eINSTANCE.getMessageMediator());
 
 			elements.put(MessageInputConnector_3046,
 					EsbPackage.eINSTANCE.getMessageInputConnector());
@@ -1986,8 +1955,7 @@ public class EsbElementTypes {
 
 			elements.put(Sequences_3614, EsbPackage.eINSTANCE.getSequences());
 
-			elements.put(MediatorFlow_3615,
-					EsbPackage.eINSTANCE.getMediatorFlow());
+			elements.put(MediatorFlow_3615, EsbPackage.eINSTANCE.getMediatorFlow());
 
 			elements.put(SequencesInputConnector_3616,
 					EsbPackage.eINSTANCE.getSequencesInputConnector());
@@ -1995,11 +1963,9 @@ public class EsbElementTypes {
 			elements.put(SequencesOutputConnector_3617,
 					EsbPackage.eINSTANCE.getSequencesOutputConnector());
 
-			elements.put(EndpointDiagram_3642,
-					EsbPackage.eINSTANCE.getEndpointDiagram());
+			elements.put(EndpointDiagram_3642, EsbPackage.eINSTANCE.getEndpointDiagram());
 
-			elements.put(DefaultEndPoint_3643,
-					EsbPackage.eINSTANCE.getDefaultEndPoint());
+			elements.put(DefaultEndPoint_3643, EsbPackage.eINSTANCE.getDefaultEndPoint());
 
 			elements.put(DefaultEndPointInputConnector_3644,
 					EsbPackage.eINSTANCE.getDefaultEndPointInputConnector());
@@ -2007,8 +1973,7 @@ public class EsbElementTypes {
 			elements.put(DefaultEndPointOutputConnector_3645,
 					EsbPackage.eINSTANCE.getDefaultEndPointOutputConnector());
 
-			elements.put(AddressEndPoint_3646,
-					EsbPackage.eINSTANCE.getAddressEndPoint());
+			elements.put(AddressEndPoint_3646, EsbPackage.eINSTANCE.getAddressEndPoint());
 
 			elements.put(AddressEndPointInputConnector_3647,
 					EsbPackage.eINSTANCE.getAddressEndPointInputConnector());
@@ -2016,8 +1981,7 @@ public class EsbElementTypes {
 			elements.put(AddressEndPointOutputConnector_3648,
 					EsbPackage.eINSTANCE.getAddressEndPointOutputConnector());
 
-			elements.put(FailoverEndPoint_3649,
-					EsbPackage.eINSTANCE.getFailoverEndPoint());
+			elements.put(FailoverEndPoint_3649, EsbPackage.eINSTANCE.getFailoverEndPoint());
 
 			elements.put(FailoverEndPointInputConnector_3650,
 					EsbPackage.eINSTANCE.getFailoverEndPointInputConnector());
@@ -2026,11 +1990,9 @@ public class EsbElementTypes {
 					EsbPackage.eINSTANCE.getFailoverEndPointOutputConnector());
 
 			elements.put(FailoverEndPointWestOutputConnector_3652,
-					EsbPackage.eINSTANCE
-							.getFailoverEndPointWestOutputConnector());
+					EsbPackage.eINSTANCE.getFailoverEndPointWestOutputConnector());
 
-			elements.put(WSDLEndPoint_3653,
-					EsbPackage.eINSTANCE.getWSDLEndPoint());
+			elements.put(WSDLEndPoint_3653, EsbPackage.eINSTANCE.getWSDLEndPoint());
 
 			elements.put(WSDLEndPointInputConnector_3654,
 					EsbPackage.eINSTANCE.getWSDLEndPointInputConnector());
@@ -2038,19 +2000,16 @@ public class EsbElementTypes {
 			elements.put(WSDLEndPointOutputConnector_3655,
 					EsbPackage.eINSTANCE.getWSDLEndPointOutputConnector());
 
-			elements.put(LoadBalanceEndPoint_3656,
-					EsbPackage.eINSTANCE.getLoadBalanceEndPoint());
+			elements.put(LoadBalanceEndPoint_3656, EsbPackage.eINSTANCE.getLoadBalanceEndPoint());
 
 			elements.put(LoadBalanceEndPointInputConnector_3657,
 					EsbPackage.eINSTANCE.getLoadBalanceEndPointInputConnector());
 
 			elements.put(LoadBalanceEndPointOutputConnector_3658,
-					EsbPackage.eINSTANCE
-							.getLoadBalanceEndPointOutputConnector());
+					EsbPackage.eINSTANCE.getLoadBalanceEndPointOutputConnector());
 
 			elements.put(LoadBalanceEndPointWestOutputConnector_3659,
-					EsbPackage.eINSTANCE
-							.getLoadBalanceEndPointWestOutputConnector());
+					EsbPackage.eINSTANCE.getLoadBalanceEndPointWestOutputConnector());
 
 			elements.put(LocalEntry_3663, EsbPackage.eINSTANCE.getLocalEntry());
 
@@ -2058,15 +2017,13 @@ public class EsbElementTypes {
 
 			elements.put(Sequences_3665, EsbPackage.eINSTANCE.getSequences());
 
-			elements.put(EndpointDiagram_3666,
-					EsbPackage.eINSTANCE.getEndpointDiagram());
+			elements.put(EndpointDiagram_3666, EsbPackage.eINSTANCE.getEndpointDiagram());
 
 			elements.put(Task_3667, EsbPackage.eINSTANCE.getTask());
 
 			elements.put(SynapseAPI_3668, EsbPackage.eINSTANCE.getSynapseAPI());
 
-			elements.put(APIResource_3669,
-					EsbPackage.eINSTANCE.getAPIResource());
+			elements.put(APIResource_3669, EsbPackage.eINSTANCE.getAPIResource());
 
 			elements.put(APIResourceInputConnector_3670,
 					EsbPackage.eINSTANCE.getAPIResourceInputConnector());
@@ -2080,11 +2037,9 @@ public class EsbElementTypes {
 			elements.put(ProxyServiceContainer_3673,
 					EsbPackage.eINSTANCE.getProxyServiceContainer());
 
-			elements.put(ComplexEndpoints_3677,
-					EsbPackage.eINSTANCE.getComplexEndpoints());
+			elements.put(ComplexEndpoints_3677, EsbPackage.eINSTANCE.getComplexEndpoints());
 
-			elements.put(MediatorFlow_3678,
-					EsbPackage.eINSTANCE.getMediatorFlow());
+			elements.put(MediatorFlow_3678, EsbPackage.eINSTANCE.getMediatorFlow());
 
 			elements.put(ComplexEndpointsOutputConnector_3679,
 					EsbPackage.eINSTANCE.getComplexEndpointsOutputConnector());
@@ -2114,8 +2069,7 @@ public class EsbElementTypes {
 			KNOWN_ELEMENT_TYPES.add(ProxyInputConnector_3003);
 			KNOWN_ELEMENT_TYPES.add(ProxyFaultInputConnector_3489);
 			KNOWN_ELEMENT_TYPES.add(ProxyServiceContainer_3486);
-			KNOWN_ELEMENT_TYPES
-					.add(ProxyServiceSequenceAndEndpointContainer_3487);
+			KNOWN_ELEMENT_TYPES.add(ProxyServiceSequenceAndEndpointContainer_3487);
 			KNOWN_ELEMENT_TYPES.add(MediatorFlow_3608);
 			KNOWN_ELEMENT_TYPES.add(DropMediator_3491);
 			KNOWN_ELEMENT_TYPES.add(DropMediatorInputConnector_3008);
@@ -2125,10 +2079,8 @@ public class EsbElementTypes {
 			KNOWN_ELEMENT_TYPES.add(ThrottleMediator_3493);
 			KNOWN_ELEMENT_TYPES.add(ThrottleMediatorInputConnector_3121);
 			KNOWN_ELEMENT_TYPES.add(ThrottleMediatorOutputConnector_3122);
-			KNOWN_ELEMENT_TYPES
-					.add(ThrottleMediatorOnAcceptOutputConnector_3581);
-			KNOWN_ELEMENT_TYPES
-					.add(ThrottleMediatorOnRejectOutputConnector_3582);
+			KNOWN_ELEMENT_TYPES.add(ThrottleMediatorOnAcceptOutputConnector_3581);
+			KNOWN_ELEMENT_TYPES.add(ThrottleMediatorOnRejectOutputConnector_3582);
 			KNOWN_ELEMENT_TYPES.add(ThrottleContainer_3583);
 			KNOWN_ELEMENT_TYPES.add(ThrottleOnAcceptContainer_3584);
 			KNOWN_ELEMENT_TYPES.add(MediatorFlow_3585);
@@ -2230,8 +2182,7 @@ public class EsbElementTypes {
 			KNOWN_ELEMENT_TYPES.add(RuleMediator_3523);
 			KNOWN_ELEMENT_TYPES.add(RuleMediatorInputConnector_3127);
 			KNOWN_ELEMENT_TYPES.add(RuleMediatorOutputConnector_3128);
-			KNOWN_ELEMENT_TYPES
-					.add(RuleMediatorChildMediatorsOutputConnector_3640);
+			KNOWN_ELEMENT_TYPES.add(RuleMediatorChildMediatorsOutputConnector_3640);
 			KNOWN_ELEMENT_TYPES.add(MediatorFlow_3641);
 			KNOWN_ELEMENT_TYPES.add(OAuthMediator_3524);
 			KNOWN_ELEMENT_TYPES.add(OAuthMediatorInputConnector_3130);
@@ -2239,8 +2190,7 @@ public class EsbElementTypes {
 			KNOWN_ELEMENT_TYPES.add(AggregateMediator_3525);
 			KNOWN_ELEMENT_TYPES.add(AggregateMediatorInputConnector_3112);
 			KNOWN_ELEMENT_TYPES.add(AggregateMediatorOutputConnector_3113);
-			KNOWN_ELEMENT_TYPES
-					.add(AggregateMediatorOnCompleteOutputConnector_3132);
+			KNOWN_ELEMENT_TYPES.add(AggregateMediatorOnCompleteOutputConnector_3132);
 			KNOWN_ELEMENT_TYPES.add(MediatorFlow_3526);
 			KNOWN_ELEMENT_TYPES.add(StoreMediator_3588);
 			KNOWN_ELEMENT_TYPES.add(StoreMediatorInputConnector_3589);
@@ -2273,13 +2223,19 @@ public class EsbElementTypes {
 			KNOWN_ELEMENT_TYPES.add(RouterTargetContainer_3633);
 			KNOWN_ELEMENT_TYPES.add(MediatorFlow_3634);
 			KNOWN_ELEMENT_TYPES.add(ConditionalRouterMediator_3635);
-			KNOWN_ELEMENT_TYPES
-					.add(ConditionalRouterMediatorInputConnector_3636);
-			KNOWN_ELEMENT_TYPES
-					.add(ConditionalRouterMediatorOutputConnector_3637);
-			KNOWN_ELEMENT_TYPES
-					.add(ConditionalRouterMediatorAdditionalOutputConnector_3638);
+			KNOWN_ELEMENT_TYPES.add(ConditionalRouterMediatorInputConnector_3636);
+			KNOWN_ELEMENT_TYPES.add(ConditionalRouterMediatorOutputConnector_3637);
+			KNOWN_ELEMENT_TYPES.add(ConditionalRouterMediatorAdditionalOutputConnector_3638);
 			KNOWN_ELEMENT_TYPES.add(MediatorFlow_3639);
+			KNOWN_ELEMENT_TYPES.add(BAMMediator_3680);
+			KNOWN_ELEMENT_TYPES.add(BAMMediatorInputConnector_3681);
+			KNOWN_ELEMENT_TYPES.add(BAMMediatorOutputConnector_3682);
+			KNOWN_ELEMENT_TYPES.add(BeanMediator_3683);
+			KNOWN_ELEMENT_TYPES.add(BeanMediatorInputConnector_3684);
+			KNOWN_ELEMENT_TYPES.add(BeanMediatorOutputConnector_3685);
+			KNOWN_ELEMENT_TYPES.add(EJBMediator_3686);
+			KNOWN_ELEMENT_TYPES.add(EJBMediatorInputConnector_3687);
+			KNOWN_ELEMENT_TYPES.add(EJBMediatorOutputConnector_3688);
 			KNOWN_ELEMENT_TYPES.add(DefaultEndPoint_3609);
 			KNOWN_ELEMENT_TYPES.add(DefaultEndPointInputConnector_3021);
 			KNOWN_ELEMENT_TYPES.add(DefaultEndPointOutputConnector_3022);
@@ -2299,8 +2255,7 @@ public class EsbElementTypes {
 			KNOWN_ELEMENT_TYPES.add(LoadBalanceEndPoint_3613);
 			KNOWN_ELEMENT_TYPES.add(LoadBalanceEndPointInputConnector_3095);
 			KNOWN_ELEMENT_TYPES.add(LoadBalanceEndPointOutputConnector_3096);
-			KNOWN_ELEMENT_TYPES
-					.add(LoadBalanceEndPointWestOutputConnector_3098);
+			KNOWN_ELEMENT_TYPES.add(LoadBalanceEndPointWestOutputConnector_3098);
 			KNOWN_ELEMENT_TYPES.add(APIResourceEndpoint_3674);
 			KNOWN_ELEMENT_TYPES.add(APIResourceEndpointInputConnector_3675);
 			KNOWN_ELEMENT_TYPES.add(APIResourceEndpointOutputConnector_3676);
@@ -2340,8 +2295,7 @@ public class EsbElementTypes {
 			KNOWN_ELEMENT_TYPES.add(LoadBalanceEndPoint_3656);
 			KNOWN_ELEMENT_TYPES.add(LoadBalanceEndPointInputConnector_3657);
 			KNOWN_ELEMENT_TYPES.add(LoadBalanceEndPointOutputConnector_3658);
-			KNOWN_ELEMENT_TYPES
-					.add(LoadBalanceEndPointWestOutputConnector_3659);
+			KNOWN_ELEMENT_TYPES.add(LoadBalanceEndPointWestOutputConnector_3659);
 			KNOWN_ELEMENT_TYPES.add(LocalEntry_3663);
 			KNOWN_ELEMENT_TYPES.add(Template_3664);
 			KNOWN_ELEMENT_TYPES.add(Sequences_3665);
@@ -2696,6 +2650,24 @@ public class EsbElementTypes {
 			return ConditionalRouterMediatorAdditionalOutputConnector_3638;
 		case MediatorFlow16EditPart.VISUAL_ID:
 			return MediatorFlow_3639;
+		case BAMMediatorEditPart.VISUAL_ID:
+			return BAMMediator_3680;
+		case BAMMediatorInputConnectorEditPart.VISUAL_ID:
+			return BAMMediatorInputConnector_3681;
+		case BAMMediatorOutputConnectorEditPart.VISUAL_ID:
+			return BAMMediatorOutputConnector_3682;
+		case BeanMediatorEditPart.VISUAL_ID:
+			return BeanMediator_3683;
+		case BeanMediatorInputConnectorEditPart.VISUAL_ID:
+			return BeanMediatorInputConnector_3684;
+		case BeanMediatorOutputConnectorEditPart.VISUAL_ID:
+			return BeanMediatorOutputConnector_3685;
+		case EJBMediatorEditPart.VISUAL_ID:
+			return EJBMediator_3686;
+		case EJBMediatorInputConnectorEditPart.VISUAL_ID:
+			return EJBMediatorInputConnector_3687;
+		case EJBMediatorOutputConnectorEditPart.VISUAL_ID:
+			return EJBMediatorOutputConnector_3688;
 		case DefaultEndPointEditPart.VISUAL_ID:
 			return DefaultEndPoint_3609;
 		case DefaultEndPointInputConnectorEditPart.VISUAL_ID:

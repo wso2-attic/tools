@@ -29,8 +29,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementType
 /**
  * @generated
  */
-public class APIResourceEndpointInputConnectorEditPart extends
-		AbstractBorderItemEditPart {
+public class APIResourceEndpointInputConnectorEditPart extends AbstractBorderItemEditPart {
 
 	/**
 	 * @generated
@@ -59,8 +58,7 @@ public class APIResourceEndpointInputConnectorEditPart extends
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
-				getPrimaryDragEditPolicy());
+		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, getPrimaryDragEditPolicy());
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new APIResourceEndpointInputConnectorItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
@@ -75,8 +73,7 @@ public class APIResourceEndpointInputConnectorEditPart extends
 		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
 			protected EditPolicy createChildEditPolicy(EditPart child) {
-				EditPolicy result = child
-						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+				EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
 				if (result == null) {
 					result = new NonResizableEditPolicy();
 				}
@@ -262,6 +259,9 @@ public class APIResourceEndpointInputConnectorEditPart extends
 			types.add(EsbElementTypes.RouterMediatorTargetOutputConnector_3631);
 			types.add(EsbElementTypes.ConditionalRouterMediatorOutputConnector_3637);
 			types.add(EsbElementTypes.ConditionalRouterMediatorAdditionalOutputConnector_3638);
+			types.add(EsbElementTypes.BAMMediatorOutputConnector_3682);
+			types.add(EsbElementTypes.BeanMediatorOutputConnector_3685);
+			types.add(EsbElementTypes.EJBMediatorOutputConnector_3688);
 			types.add(EsbElementTypes.DefaultEndPointOutputConnector_3022);
 			types.add(EsbElementTypes.AddressEndPointOutputConnector_3031);
 			types.add(EsbElementTypes.FailoverEndPointOutputConnector_3090);
@@ -298,8 +298,7 @@ public class APIResourceEndpointInputConnectorEditPart extends
 		public EastPointerFigure() {
 
 			this.setBackgroundColor(THIS_BACK);
-			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(12),
-					getMapMode().DPtoLP(10)));
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(12), getMapMode().DPtoLP(10)));
 		}
 
 	}

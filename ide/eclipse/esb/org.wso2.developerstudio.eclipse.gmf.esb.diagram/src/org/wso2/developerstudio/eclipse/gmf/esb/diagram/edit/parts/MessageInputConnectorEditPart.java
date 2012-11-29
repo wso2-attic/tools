@@ -58,8 +58,7 @@ public class MessageInputConnectorEditPart extends AbstractBorderItemEditPart {
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
-				getPrimaryDragEditPolicy());
+		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, getPrimaryDragEditPolicy());
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new MessageInputConnectorItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
@@ -74,8 +73,7 @@ public class MessageInputConnectorEditPart extends AbstractBorderItemEditPart {
 		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
 			protected EditPolicy createChildEditPolicy(EditPart child) {
-				EditPolicy result = child
-						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+				EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
 				if (result == null) {
 					result = new NonResizableEditPolicy();
 				}
@@ -261,6 +259,9 @@ public class MessageInputConnectorEditPart extends AbstractBorderItemEditPart {
 			types.add(EsbElementTypes.RouterMediatorTargetOutputConnector_3631);
 			types.add(EsbElementTypes.ConditionalRouterMediatorOutputConnector_3637);
 			types.add(EsbElementTypes.ConditionalRouterMediatorAdditionalOutputConnector_3638);
+			types.add(EsbElementTypes.BAMMediatorOutputConnector_3682);
+			types.add(EsbElementTypes.BeanMediatorOutputConnector_3685);
+			types.add(EsbElementTypes.EJBMediatorOutputConnector_3688);
 			types.add(EsbElementTypes.DefaultEndPointOutputConnector_3022);
 			types.add(EsbElementTypes.AddressEndPointOutputConnector_3031);
 			types.add(EsbElementTypes.FailoverEndPointOutputConnector_3090);
@@ -297,8 +298,7 @@ public class MessageInputConnectorEditPart extends AbstractBorderItemEditPart {
 		public WestPointerFigure() {
 
 			this.setBackgroundColor(THIS_BACK);
-			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(12),
-					getMapMode().DPtoLP(10)));
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(12), getMapMode().DPtoLP(10)));
 		}
 
 	}
