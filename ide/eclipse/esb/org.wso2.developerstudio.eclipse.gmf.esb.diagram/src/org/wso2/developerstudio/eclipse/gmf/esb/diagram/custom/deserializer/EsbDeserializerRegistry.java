@@ -20,6 +20,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
+import org.apache.synapse.config.Entry;
 import org.apache.synapse.core.axis2.ProxyService;
 import org.apache.synapse.endpoints.AddressEndpoint;
 import org.apache.synapse.endpoints.DefaultEndpoint;
@@ -156,6 +157,7 @@ public class EsbDeserializerRegistry {
 		addDeserializer(Template.class, new EndPointTemplateDeserializer());
 		addDeserializer(EndpointWrapper.class, new EndPointDeserializer());
 		addDeserializer(TaskDescription.class, new TaskDeserializer());
+		addDeserializer(Entry.class, new LocalEntryDeserializer());
 	}
 	
 	/**
