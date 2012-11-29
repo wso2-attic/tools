@@ -19,6 +19,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.wso2.developerstudio.eclipse.gmf.esb.APIResource;
+import org.wso2.developerstudio.eclipse.gmf.esb.BAMMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.BeanMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.BuilderMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.ConditionalRouterMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamedEndpoint;
@@ -72,6 +74,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.XSLTMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.APIResourceTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.AddressEndPointTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.AggregateMediatorTransformer;
+import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.BAMMediatorTransformer;
+import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.BeanMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.BuilderMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.CacheMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.CallTemplateMediatorTransformer;
@@ -191,6 +195,8 @@ public class EsbTransformerRegistry {
 		addTransformer(NamedEndpoint.class, new NamedEndPointTransformer());
 		addTransformer(APIResource.class, new APIResourceTransformer());
 		addTransformer(Template.class, new TemplateTransformer());
+		addTransformer(BAMMediator.class, new BAMMediatorTransformer());
+		addTransformer(BeanMediator.class, new BeanMediatorTransformer());
 	}
 	
 	/**
