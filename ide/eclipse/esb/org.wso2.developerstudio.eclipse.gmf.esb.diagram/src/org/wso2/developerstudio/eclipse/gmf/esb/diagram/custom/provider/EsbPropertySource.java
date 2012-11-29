@@ -213,6 +213,15 @@ public class EsbPropertySource extends PropertySource {
 			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
 		}
 		
+		else if(pkg.getBeanMediator_ValueExpression().equals(feature)){
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
+		}else if(pkg.getBeanMediator_TargetExpression().equals(feature)){
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
+		}else if(pkg.getEJBMediator_SessionIdExpression().equals(feature)){
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
+		}
+		
+		
 			
 		// Else, default EMF behavior
 		else {
