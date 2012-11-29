@@ -72,6 +72,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramEditor;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.BuilderMediatorExt;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.ClassMediatorExt;
+import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.EJBMediatorExt;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.POJOCommandMediatorExt;
@@ -158,6 +159,7 @@ public class EsbDeserializerRegistry {
 		addDeserializer(EndpointWrapper.class, new EndPointDeserializer());
 		addDeserializer(TaskDescription.class, new TaskDeserializer());
 		addDeserializer(Entry.class, new LocalEntryDeserializer());
+		addDeserializer(EJBMediatorExt.class, new EJBMediatorDeserializer());
 	}
 	
 	/**
