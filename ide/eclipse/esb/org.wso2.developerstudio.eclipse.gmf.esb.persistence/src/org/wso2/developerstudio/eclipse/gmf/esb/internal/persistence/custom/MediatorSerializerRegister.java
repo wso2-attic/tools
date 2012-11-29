@@ -30,15 +30,17 @@ public class MediatorSerializerRegister {
 	}
 	
 	/* custom mediator serializers */
+	@SuppressWarnings("rawtypes")
 	private static final Class[] mediatorSerializers = { 
 		ClassMediatorExtSerializer.class,
 		POJOCommandMediatorExtSerializer.class,
 		BuilderMediatorExtSerializer.class,
-		RuleMediatorExtSerialize.class};
+		RuleMediatorExtSerialize.class,
+		EJBMediatorExtSerializer.class};
 
 	public static synchronized void registerSerializers() {
 		Map<String, MediatorSerializer> serializerMap = mediatorSerializerFinder.getSerializerMap();
-		for (Class c : mediatorSerializers) {
+		for (@SuppressWarnings("rawtypes") Class c : mediatorSerializers) {
 			try {
 				MediatorSerializer ser = (MediatorSerializer) c.newInstance();
 				String mediatorClassName = ser.getMediatorClassName();

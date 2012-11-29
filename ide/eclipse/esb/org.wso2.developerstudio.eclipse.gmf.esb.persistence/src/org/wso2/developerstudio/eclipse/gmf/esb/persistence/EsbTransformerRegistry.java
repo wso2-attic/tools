@@ -23,6 +23,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.BAMMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.BeanMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.BuilderMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.ConditionalRouterMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.EJBMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamedEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.RouterMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.AddressEndPoint;
@@ -88,6 +89,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.DBLookupMed
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.DBReportMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.DefaultEndPointTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.DropMediatorTransformer;
+import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.EJBMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.EnqueueMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.EnrichMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.EntitlementMediatorTransformer;
@@ -196,6 +198,7 @@ public class EsbTransformerRegistry {
 		addTransformer(APIResource.class, new APIResourceTransformer());
 		addTransformer(Template.class, new TemplateTransformer());
 		addTransformer(BAMMediator.class, new BAMMediatorTransformer());
+		addTransformer(EJBMediator.class, new EJBMediatorTransformer());
 		addTransformer(BeanMediator.class, new BeanMediatorTransformer());
 	}
 	
