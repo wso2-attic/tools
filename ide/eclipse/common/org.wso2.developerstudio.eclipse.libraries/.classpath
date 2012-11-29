@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+	<classpathentry exported="true" kind="lib" path="lib/org.wso2.carbon.databridge.agent.thrift-4.0.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/org.wso2.carbon.mediator.bam.config-4.0.3.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/org.wso2.carbon.mediator.bam-4.0.1.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/jettison_1.1.0.wso2v1.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/axis2-json_1.6.1.wso2v6.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/spring.framework_3.1.0.wso2v1.jar"/>
