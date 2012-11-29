@@ -395,6 +395,87 @@ public interface EsbFactory extends EFactory {
 	LogProperty createLogProperty();
 
 	/**
+	 * Returns a new object of class '<em>BAM Mediator</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>BAM Mediator</em>'.
+	 * @generated
+	 */
+	BAMMediator createBAMMediator();
+
+	/**
+	 * Returns a new object of class '<em>BAM Mediator Input Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>BAM Mediator Input Connector</em>'.
+	 * @generated
+	 */
+	BAMMediatorInputConnector createBAMMediatorInputConnector();
+
+	/**
+	 * Returns a new object of class '<em>BAM Mediator Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>BAM Mediator Output Connector</em>'.
+	 * @generated
+	 */
+	BAMMediatorOutputConnector createBAMMediatorOutputConnector();
+
+	/**
+	 * Returns a new object of class '<em>Bean Mediator</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Bean Mediator</em>'.
+	 * @generated
+	 */
+	BeanMediator createBeanMediator();
+
+	/**
+	 * Returns a new object of class '<em>Bean Mediator Input Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Bean Mediator Input Connector</em>'.
+	 * @generated
+	 */
+	BeanMediatorInputConnector createBeanMediatorInputConnector();
+
+	/**
+	 * Returns a new object of class '<em>Bean Mediator Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Bean Mediator Output Connector</em>'.
+	 * @generated
+	 */
+	BeanMediatorOutputConnector createBeanMediatorOutputConnector();
+
+	/**
+	 * Returns a new object of class '<em>EJB Mediator</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>EJB Mediator</em>'.
+	 * @generated
+	 */
+	EJBMediator createEJBMediator();
+
+	/**
+	 * Returns a new object of class '<em>EJB Mediator Input Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>EJB Mediator Input Connector</em>'.
+	 * @generated
+	 */
+	EJBMediatorInputConnector createEJBMediatorInputConnector();
+
+	/**
+	 * Returns a new object of class '<em>EJB Mediator Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>EJB Mediator Output Connector</em>'.
+	 * @generated
+	 */
+	EJBMediatorOutputConnector createEJBMediatorOutputConnector();
+
+	/**
 	 * Returns a new object of class '<em>Registry Key Property</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

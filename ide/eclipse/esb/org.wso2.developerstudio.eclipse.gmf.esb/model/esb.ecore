@@ -307,6 +307,61 @@
     <eLiterals name="CUSTOM" value="3" literal="custom"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LogProperty" eSuperTypes="#//AbstractNameValueExpressionProperty"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BAMMediator" eSuperTypes="#//Mediator">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inputConnector" eType="#//BAMMediatorInputConnector"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outputConnector" eType="#//BAMMediatorOutputConnector"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="serverProfile" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="streamName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="streamVersion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BAMMediatorInputConnector" eSuperTypes="#//InputConnector"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BAMMediatorOutputConnector" eSuperTypes="#//OutputConnector"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BeanMediator" eSuperTypes="#//Mediator">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inputConnector" eType="#//BeanMediatorInputConnector"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outputConnector" eType="#//BeanMediatorOutputConnector"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="class" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="action" eType="#//BeanMediatorAction"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="var" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="property" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valueType" eType="#//PropertyValueType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valueLiteral" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="valueExpression" eType="#//NamespacedProperty"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetType" eType="#//PropertyValueType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetLiteral" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="targetExpression" eType="#//NamespacedProperty"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BeanMediatorInputConnector" eSuperTypes="#//InputConnector"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BeanMediatorOutputConnector" eSuperTypes="#//OutputConnector"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="BeanMediatorAction">
+    <eLiterals name="CREATE"/>
+    <eLiterals name="REMOVE" value="1"/>
+    <eLiterals name="SET_PROPERTY" value="2"/>
+    <eLiterals name="GET_PROPERTY" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EJBMediator" eSuperTypes="#//Mediator">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inputConnector" eType="#//EJBMediatorInputConnector"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outputConnector" eType="#//EJBMediatorOutputConnector"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="beanstalk" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="class" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="method" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sessionIdType" eType="#//PropertyValueType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sessionIdLiteral" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sessionIdExpression" eType="#//NamespacedProperty"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="remove" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="target" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="JNDIName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EJBMediatorInputConnector" eSuperTypes="#//InputConnector"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EJBMediatorOutputConnector" eSuperTypes="#//OutputConnector"/>
   <eClassifiers xsi:type="ecore:EEnum" name="EndPointAddressingVersion">
     <eLiterals name="FINAL" literal="final"/>
     <eLiterals name="SUBMISSION" value="1" literal="submission"/>

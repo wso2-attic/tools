@@ -471,6 +471,81 @@ public class EsbSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case EsbPackage.BAM_MEDIATOR: {
+				BAMMediator bamMediator = (BAMMediator)theEObject;
+				T result = caseBAMMediator(bamMediator);
+				if (result == null) result = caseMediator(bamMediator);
+				if (result == null) result = caseEsbElement(bamMediator);
+				if (result == null) result = caseEsbNode(bamMediator);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.BAM_MEDIATOR_INPUT_CONNECTOR: {
+				BAMMediatorInputConnector bamMediatorInputConnector = (BAMMediatorInputConnector)theEObject;
+				T result = caseBAMMediatorInputConnector(bamMediatorInputConnector);
+				if (result == null) result = caseInputConnector(bamMediatorInputConnector);
+				if (result == null) result = caseEsbConnector(bamMediatorInputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.BAM_MEDIATOR_OUTPUT_CONNECTOR: {
+				BAMMediatorOutputConnector bamMediatorOutputConnector = (BAMMediatorOutputConnector)theEObject;
+				T result = caseBAMMediatorOutputConnector(bamMediatorOutputConnector);
+				if (result == null) result = caseOutputConnector(bamMediatorOutputConnector);
+				if (result == null) result = caseEsbConnector(bamMediatorOutputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.BEAN_MEDIATOR: {
+				BeanMediator beanMediator = (BeanMediator)theEObject;
+				T result = caseBeanMediator(beanMediator);
+				if (result == null) result = caseMediator(beanMediator);
+				if (result == null) result = caseEsbElement(beanMediator);
+				if (result == null) result = caseEsbNode(beanMediator);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.BEAN_MEDIATOR_INPUT_CONNECTOR: {
+				BeanMediatorInputConnector beanMediatorInputConnector = (BeanMediatorInputConnector)theEObject;
+				T result = caseBeanMediatorInputConnector(beanMediatorInputConnector);
+				if (result == null) result = caseInputConnector(beanMediatorInputConnector);
+				if (result == null) result = caseEsbConnector(beanMediatorInputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.BEAN_MEDIATOR_OUTPUT_CONNECTOR: {
+				BeanMediatorOutputConnector beanMediatorOutputConnector = (BeanMediatorOutputConnector)theEObject;
+				T result = caseBeanMediatorOutputConnector(beanMediatorOutputConnector);
+				if (result == null) result = caseOutputConnector(beanMediatorOutputConnector);
+				if (result == null) result = caseEsbConnector(beanMediatorOutputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.EJB_MEDIATOR: {
+				EJBMediator ejbMediator = (EJBMediator)theEObject;
+				T result = caseEJBMediator(ejbMediator);
+				if (result == null) result = caseMediator(ejbMediator);
+				if (result == null) result = caseEsbElement(ejbMediator);
+				if (result == null) result = caseEsbNode(ejbMediator);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.EJB_MEDIATOR_INPUT_CONNECTOR: {
+				EJBMediatorInputConnector ejbMediatorInputConnector = (EJBMediatorInputConnector)theEObject;
+				T result = caseEJBMediatorInputConnector(ejbMediatorInputConnector);
+				if (result == null) result = caseInputConnector(ejbMediatorInputConnector);
+				if (result == null) result = caseEsbConnector(ejbMediatorInputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.EJB_MEDIATOR_OUTPUT_CONNECTOR: {
+				EJBMediatorOutputConnector ejbMediatorOutputConnector = (EJBMediatorOutputConnector)theEObject;
+				T result = caseEJBMediatorOutputConnector(ejbMediatorOutputConnector);
+				if (result == null) result = caseOutputConnector(ejbMediatorOutputConnector);
+				if (result == null) result = caseEsbConnector(ejbMediatorOutputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case EsbPackage.REGISTRY_KEY_PROPERTY: {
 				RegistryKeyProperty registryKeyProperty = (RegistryKeyProperty)theEObject;
 				T result = caseRegistryKeyProperty(registryKeyProperty);
@@ -2983,6 +3058,141 @@ public class EsbSwitch<T> {
 	 * @generated
 	 */
 	public T caseLogProperty(LogProperty object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>BAM Mediator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>BAM Mediator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBAMMediator(BAMMediator object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>BAM Mediator Input Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>BAM Mediator Input Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBAMMediatorInputConnector(BAMMediatorInputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>BAM Mediator Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>BAM Mediator Output Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBAMMediatorOutputConnector(BAMMediatorOutputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Bean Mediator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Bean Mediator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBeanMediator(BeanMediator object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Bean Mediator Input Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Bean Mediator Input Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBeanMediatorInputConnector(BeanMediatorInputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Bean Mediator Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Bean Mediator Output Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBeanMediatorOutputConnector(BeanMediatorOutputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>EJB Mediator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>EJB Mediator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEJBMediator(EJBMediator object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>EJB Mediator Input Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>EJB Mediator Input Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEJBMediatorInputConnector(EJBMediatorInputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>EJB Mediator Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>EJB Mediator Output Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEJBMediatorOutputConnector(EJBMediatorOutputConnector object) {
 		return null;
 	}
 

@@ -1567,6 +1567,57 @@
             blue="255"/>
       </actualFigure>
     </descriptors>
+    <descriptors
+        name="BAMMediatorFigure">
+      <actualFigure
+          xsi:type="gmfgraph:CustomFigure"
+          name="BAMMediatorGraphicalFigure"
+          qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="230"
+            green="230"
+            blue="230"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="BAMPropertyLabel"
+            text="&lt;...>"/>
+      </actualFigure>
+    </descriptors>
+    <descriptors
+        name="BeanMediatorFigure">
+      <actualFigure
+          xsi:type="gmfgraph:CustomFigure"
+          name="BeanMediatorGraphicalFigure"
+          qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="230"
+            green="230"
+            blue="230"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="BeanMediatorPropertyValueLabel"
+            text="&lt;...>"/>
+      </actualFigure>
+    </descriptors>
+    <descriptors
+        name="EJBMediatorFigure">
+      <actualFigure
+          xsi:type="gmfgraph:CustomFigure"
+          name="EJBMediatorGraphicalFigure"
+          qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="230"
+            green="230"
+            blue="230"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="EJBMediatorPropertyValueLabel"
+            text="&lt;...>"/>
+      </actualFigure>
+    </descriptors>
   </figures>
   <nodes
       name="EsbServer"
@@ -2342,6 +2393,39 @@
       name="ComplexEndpointsOutputConnector"
       figure="EastPointerFigure"
       affixedParentSide="WEST"/>
+  <nodes
+      name="BAMMediator"
+      figure="BAMMediatorFigure"/>
+  <nodes
+      name="BAMMediatorInputConnector"
+      figure="EastPointerFigure"
+      affixedParentSide="WEST"/>
+  <nodes
+      name="BAMMediatorOutputConnector"
+      figure="EastPointerFigure"
+      affixedParentSide="EAST"/>
+  <nodes
+      name="BeanMediator"
+      figure="BeanMediatorFigure"/>
+  <nodes
+      name="BeanMediatorInputConnector"
+      figure="EastPointerFigure"
+      affixedParentSide="WEST"/>
+  <nodes
+      name="BeanMediatorOutputConnector"
+      figure="EastPointerFigure"
+      affixedParentSide="EAST"/>
+  <nodes
+      name="EJBMediator"
+      figure="EJBMediatorFigure"/>
+  <nodes
+      name="EJBMediatorInputConnector"
+      figure="EastPointerFigure"
+      affixedParentSide="WEST"/>
+  <nodes
+      name="EJBMediatorOutputConnector"
+      figure="EastPointerFigure"
+      affixedParentSide="EAST"/>
   <connections
       name="EsbLink"
       figure="PlainConnectionFigure"/>

@@ -46,6 +46,13 @@ import org.wso2.developerstudio.eclipse.gmf.esb.ApiResourceUrlStyle;
 import org.wso2.developerstudio.eclipse.gmf.esb.ArtifactType;
 import org.wso2.developerstudio.eclipse.gmf.esb.AutoscaleInMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.AutoscaleOutMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.BAMMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.BAMMediatorInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.BAMMediatorOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.BeanMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.BeanMediatorAction;
+import org.wso2.developerstudio.eclipse.gmf.esb.BeanMediatorInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.BeanMediatorOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.BuilderMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.BuilderMediatorInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.BuilderMediatorOutputConector;
@@ -104,6 +111,9 @@ import org.wso2.developerstudio.eclipse.gmf.esb.DefaultEndPointInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.DefaultEndPointOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.DropMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.DropMediatorInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.EJBMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.EJBMediatorInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.EJBMediatorOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPointAddressingVersion;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPointAttachmentOptimization;
@@ -744,6 +754,69 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	private EClass logPropertyEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass bamMediatorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass bamMediatorInputConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass bamMediatorOutputConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass beanMediatorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass beanMediatorInputConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass beanMediatorOutputConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass ejbMediatorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass ejbMediatorInputConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass ejbMediatorOutputConnectorEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -2347,6 +2420,13 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	private EEnum logLevelEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum beanMediatorActionEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -4250,6 +4330,339 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 */
 	public EClass getLogProperty() {
 		return logPropertyEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBAMMediator() {
+		return bamMediatorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBAMMediator_InputConnector() {
+		return (EReference)bamMediatorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBAMMediator_OutputConnector() {
+		return (EReference)bamMediatorEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBAMMediator_ServerProfile() {
+		return (EAttribute)bamMediatorEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBAMMediator_StreamName() {
+		return (EAttribute)bamMediatorEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBAMMediator_StreamVersion() {
+		return (EAttribute)bamMediatorEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBAMMediatorInputConnector() {
+		return bamMediatorInputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBAMMediatorOutputConnector() {
+		return bamMediatorOutputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBeanMediator() {
+		return beanMediatorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBeanMediator_InputConnector() {
+		return (EReference)beanMediatorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBeanMediator_OutputConnector() {
+		return (EReference)beanMediatorEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBeanMediator_Class() {
+		return (EAttribute)beanMediatorEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBeanMediator_Action() {
+		return (EAttribute)beanMediatorEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBeanMediator_Var() {
+		return (EAttribute)beanMediatorEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBeanMediator_Property() {
+		return (EAttribute)beanMediatorEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBeanMediator_ValueType() {
+		return (EAttribute)beanMediatorEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBeanMediator_ValueLiteral() {
+		return (EAttribute)beanMediatorEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBeanMediator_ValueExpression() {
+		return (EReference)beanMediatorEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBeanMediator_TargetType() {
+		return (EAttribute)beanMediatorEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBeanMediator_TargetLiteral() {
+		return (EAttribute)beanMediatorEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBeanMediator_TargetExpression() {
+		return (EReference)beanMediatorEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBeanMediatorInputConnector() {
+		return beanMediatorInputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBeanMediatorOutputConnector() {
+		return beanMediatorOutputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getEJBMediator() {
+		return ejbMediatorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEJBMediator_InputConnector() {
+		return (EReference)ejbMediatorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEJBMediator_OutputConnector() {
+		return (EReference)ejbMediatorEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getEJBMediator_Beanstalk() {
+		return (EAttribute)ejbMediatorEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getEJBMediator_Class() {
+		return (EAttribute)ejbMediatorEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getEJBMediator_Method() {
+		return (EAttribute)ejbMediatorEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getEJBMediator_SessionIdType() {
+		return (EAttribute)ejbMediatorEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getEJBMediator_SessionIdLiteral() {
+		return (EAttribute)ejbMediatorEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEJBMediator_SessionIdExpression() {
+		return (EReference)ejbMediatorEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getEJBMediator_Remove() {
+		return (EAttribute)ejbMediatorEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getEJBMediator_Target() {
+		return (EAttribute)ejbMediatorEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getEJBMediator_JNDIName() {
+		return (EAttribute)ejbMediatorEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getEJBMediatorInputConnector() {
+		return ejbMediatorInputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getEJBMediatorOutputConnector() {
+		return ejbMediatorOutputConnectorEClass;
 	}
 
 	/**
@@ -11205,6 +11618,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getBeanMediatorAction() {
+		return beanMediatorActionEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getEndPointAddressingVersion() {
 		return endPointAddressingVersionEEnum;
 	}
@@ -12082,6 +12504,52 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		logMediatorOutputConnectorEClass = createEClass(LOG_MEDIATOR_OUTPUT_CONNECTOR);
 
 		logPropertyEClass = createEClass(LOG_PROPERTY);
+
+		bamMediatorEClass = createEClass(BAM_MEDIATOR);
+		createEReference(bamMediatorEClass, BAM_MEDIATOR__INPUT_CONNECTOR);
+		createEReference(bamMediatorEClass, BAM_MEDIATOR__OUTPUT_CONNECTOR);
+		createEAttribute(bamMediatorEClass, BAM_MEDIATOR__SERVER_PROFILE);
+		createEAttribute(bamMediatorEClass, BAM_MEDIATOR__STREAM_NAME);
+		createEAttribute(bamMediatorEClass, BAM_MEDIATOR__STREAM_VERSION);
+
+		bamMediatorInputConnectorEClass = createEClass(BAM_MEDIATOR_INPUT_CONNECTOR);
+
+		bamMediatorOutputConnectorEClass = createEClass(BAM_MEDIATOR_OUTPUT_CONNECTOR);
+
+		beanMediatorEClass = createEClass(BEAN_MEDIATOR);
+		createEReference(beanMediatorEClass, BEAN_MEDIATOR__INPUT_CONNECTOR);
+		createEReference(beanMediatorEClass, BEAN_MEDIATOR__OUTPUT_CONNECTOR);
+		createEAttribute(beanMediatorEClass, BEAN_MEDIATOR__CLASS);
+		createEAttribute(beanMediatorEClass, BEAN_MEDIATOR__ACTION);
+		createEAttribute(beanMediatorEClass, BEAN_MEDIATOR__VAR);
+		createEAttribute(beanMediatorEClass, BEAN_MEDIATOR__PROPERTY);
+		createEAttribute(beanMediatorEClass, BEAN_MEDIATOR__VALUE_TYPE);
+		createEAttribute(beanMediatorEClass, BEAN_MEDIATOR__VALUE_LITERAL);
+		createEReference(beanMediatorEClass, BEAN_MEDIATOR__VALUE_EXPRESSION);
+		createEAttribute(beanMediatorEClass, BEAN_MEDIATOR__TARGET_TYPE);
+		createEAttribute(beanMediatorEClass, BEAN_MEDIATOR__TARGET_LITERAL);
+		createEReference(beanMediatorEClass, BEAN_MEDIATOR__TARGET_EXPRESSION);
+
+		beanMediatorInputConnectorEClass = createEClass(BEAN_MEDIATOR_INPUT_CONNECTOR);
+
+		beanMediatorOutputConnectorEClass = createEClass(BEAN_MEDIATOR_OUTPUT_CONNECTOR);
+
+		ejbMediatorEClass = createEClass(EJB_MEDIATOR);
+		createEReference(ejbMediatorEClass, EJB_MEDIATOR__INPUT_CONNECTOR);
+		createEReference(ejbMediatorEClass, EJB_MEDIATOR__OUTPUT_CONNECTOR);
+		createEAttribute(ejbMediatorEClass, EJB_MEDIATOR__BEANSTALK);
+		createEAttribute(ejbMediatorEClass, EJB_MEDIATOR__CLASS);
+		createEAttribute(ejbMediatorEClass, EJB_MEDIATOR__METHOD);
+		createEAttribute(ejbMediatorEClass, EJB_MEDIATOR__SESSION_ID_TYPE);
+		createEAttribute(ejbMediatorEClass, EJB_MEDIATOR__SESSION_ID_LITERAL);
+		createEReference(ejbMediatorEClass, EJB_MEDIATOR__SESSION_ID_EXPRESSION);
+		createEAttribute(ejbMediatorEClass, EJB_MEDIATOR__REMOVE);
+		createEAttribute(ejbMediatorEClass, EJB_MEDIATOR__TARGET);
+		createEAttribute(ejbMediatorEClass, EJB_MEDIATOR__JNDI_NAME);
+
+		ejbMediatorInputConnectorEClass = createEClass(EJB_MEDIATOR_INPUT_CONNECTOR);
+
+		ejbMediatorOutputConnectorEClass = createEClass(EJB_MEDIATOR_OUTPUT_CONNECTOR);
 
 		registryKeyPropertyEClass = createEClass(REGISTRY_KEY_PROPERTY);
 		createEAttribute(registryKeyPropertyEClass, REGISTRY_KEY_PROPERTY__PRETTY_NAME);
@@ -13079,6 +13547,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		filterConditionTypeEEnum = createEEnum(FILTER_CONDITION_TYPE);
 		logCategoryEEnum = createEEnum(LOG_CATEGORY);
 		logLevelEEnum = createEEnum(LOG_LEVEL);
+		beanMediatorActionEEnum = createEEnum(BEAN_MEDIATOR_ACTION);
 		endPointAddressingVersionEEnum = createEEnum(END_POINT_ADDRESSING_VERSION);
 		endPointTimeOutActionEEnum = createEEnum(END_POINT_TIME_OUT_ACTION);
 		endPointMessageFormatEEnum = createEEnum(END_POINT_MESSAGE_FORMAT);
@@ -13230,6 +13699,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		logMediatorInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
 		logMediatorOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
 		logPropertyEClass.getESuperTypes().add(this.getAbstractNameValueExpressionProperty());
+		bamMediatorEClass.getESuperTypes().add(this.getMediator());
+		bamMediatorInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
+		bamMediatorOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
+		beanMediatorEClass.getESuperTypes().add(this.getMediator());
+		beanMediatorInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
+		beanMediatorOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
+		ejbMediatorEClass.getESuperTypes().add(this.getMediator());
+		ejbMediatorInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
+		ejbMediatorOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
 		propertyMediatorEClass.getESuperTypes().add(this.getMediator());
 		propertyMediatorInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
 		propertyMediatorOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
@@ -13640,6 +14118,52 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEClass(logMediatorOutputConnectorEClass, LogMediatorOutputConnector.class, "LogMediatorOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(logPropertyEClass, LogProperty.class, "LogProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(bamMediatorEClass, BAMMediator.class, "BAMMediator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBAMMediator_InputConnector(), this.getBAMMediatorInputConnector(), null, "inputConnector", null, 0, 1, BAMMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBAMMediator_OutputConnector(), this.getBAMMediatorOutputConnector(), null, "outputConnector", null, 0, 1, BAMMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBAMMediator_ServerProfile(), ecorePackage.getEString(), "serverProfile", null, 0, 1, BAMMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBAMMediator_StreamName(), ecorePackage.getEString(), "streamName", null, 0, 1, BAMMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBAMMediator_StreamVersion(), ecorePackage.getEString(), "streamVersion", null, 0, 1, BAMMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(bamMediatorInputConnectorEClass, BAMMediatorInputConnector.class, "BAMMediatorInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(bamMediatorOutputConnectorEClass, BAMMediatorOutputConnector.class, "BAMMediatorOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(beanMediatorEClass, BeanMediator.class, "BeanMediator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBeanMediator_InputConnector(), this.getBeanMediatorInputConnector(), null, "inputConnector", null, 0, 1, BeanMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBeanMediator_OutputConnector(), this.getBeanMediatorOutputConnector(), null, "outputConnector", null, 0, 1, BeanMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBeanMediator_Class(), ecorePackage.getEString(), "class", null, 0, 1, BeanMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBeanMediator_Action(), this.getBeanMediatorAction(), "action", null, 0, 1, BeanMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBeanMediator_Var(), ecorePackage.getEString(), "var", null, 0, 1, BeanMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBeanMediator_Property(), ecorePackage.getEString(), "property", null, 0, 1, BeanMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBeanMediator_ValueType(), this.getPropertyValueType(), "valueType", null, 0, 1, BeanMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBeanMediator_ValueLiteral(), ecorePackage.getEString(), "valueLiteral", null, 0, 1, BeanMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBeanMediator_ValueExpression(), this.getNamespacedProperty(), null, "valueExpression", null, 0, 1, BeanMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBeanMediator_TargetType(), this.getPropertyValueType(), "targetType", null, 0, 1, BeanMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBeanMediator_TargetLiteral(), ecorePackage.getEString(), "targetLiteral", null, 0, 1, BeanMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBeanMediator_TargetExpression(), this.getNamespacedProperty(), null, "targetExpression", null, 0, 1, BeanMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(beanMediatorInputConnectorEClass, BeanMediatorInputConnector.class, "BeanMediatorInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(beanMediatorOutputConnectorEClass, BeanMediatorOutputConnector.class, "BeanMediatorOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(ejbMediatorEClass, EJBMediator.class, "EJBMediator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getEJBMediator_InputConnector(), this.getEJBMediatorInputConnector(), null, "inputConnector", null, 0, 1, EJBMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEJBMediator_OutputConnector(), this.getEJBMediatorOutputConnector(), null, "outputConnector", null, 0, 1, EJBMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEJBMediator_Beanstalk(), ecorePackage.getEString(), "beanstalk", null, 0, 1, EJBMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEJBMediator_Class(), ecorePackage.getEString(), "class", null, 0, 1, EJBMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEJBMediator_Method(), ecorePackage.getEString(), "method", null, 0, 1, EJBMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEJBMediator_SessionIdType(), this.getPropertyValueType(), "sessionIdType", null, 0, 1, EJBMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEJBMediator_SessionIdLiteral(), ecorePackage.getEString(), "sessionIdLiteral", null, 0, 1, EJBMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEJBMediator_SessionIdExpression(), this.getNamespacedProperty(), null, "sessionIdExpression", null, 0, 1, EJBMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEJBMediator_Remove(), ecorePackage.getEBoolean(), "remove", null, 0, 1, EJBMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEJBMediator_Target(), ecorePackage.getEString(), "target", null, 0, 1, EJBMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEJBMediator_JNDIName(), ecorePackage.getEString(), "JNDIName", null, 0, 1, EJBMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(ejbMediatorInputConnectorEClass, EJBMediatorInputConnector.class, "EJBMediatorInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(ejbMediatorOutputConnectorEClass, EJBMediatorOutputConnector.class, "EJBMediatorOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(registryKeyPropertyEClass, RegistryKeyProperty.class, "RegistryKeyProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRegistryKeyProperty_PrettyName(), ecorePackage.getEString(), "prettyName", "Registry Key", 0, 1, RegistryKeyProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -14681,6 +15205,12 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		addEEnumLiteral(logLevelEEnum, LogLevel.HEADERS);
 		addEEnumLiteral(logLevelEEnum, LogLevel.FULL);
 		addEEnumLiteral(logLevelEEnum, LogLevel.CUSTOM);
+
+		initEEnum(beanMediatorActionEEnum, BeanMediatorAction.class, "BeanMediatorAction");
+		addEEnumLiteral(beanMediatorActionEEnum, BeanMediatorAction.CREATE);
+		addEEnumLiteral(beanMediatorActionEEnum, BeanMediatorAction.REMOVE);
+		addEEnumLiteral(beanMediatorActionEEnum, BeanMediatorAction.SET_PROPERTY);
+		addEEnumLiteral(beanMediatorActionEEnum, BeanMediatorAction.GET_PROPERTY);
 
 		initEEnum(endPointAddressingVersionEEnum, EndPointAddressingVersion.class, "EndPointAddressingVersion");
 		addEEnumLiteral(endPointAddressingVersionEEnum, EndPointAddressingVersion.FINAL);

@@ -49,6 +49,12 @@
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//LogLevel/FULL"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//LogLevel/CUSTOM"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//BeanMediatorAction">
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//BeanMediatorAction/CREATE"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//BeanMediatorAction/REMOVE"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//BeanMediatorAction/SET_PROPERTY"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//BeanMediatorAction/GET_PROPERTY"/>
+    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//EndPointAddressingVersion">
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//EndPointAddressingVersion/FINAL"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//EndPointAddressingVersion/SUBMISSION"/>
@@ -616,6 +622,46 @@
     <genClasses ecoreClass="esb.ecore#//LogMediatorInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//LogMediatorOutputConnector"/>
     <genClasses ecoreClass="esb.ecore#//LogProperty"/>
+    <genClasses ecoreClass="esb.ecore#//BAMMediator">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//BAMMediator/inputConnector"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//BAMMediator/outputConnector"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//BAMMediator/serverProfile"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//BAMMediator/streamName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//BAMMediator/streamVersion"/>
+    </genClasses>
+    <genClasses ecoreClass="esb.ecore#//BAMMediatorInputConnector"/>
+    <genClasses ecoreClass="esb.ecore#//BAMMediatorOutputConnector"/>
+    <genClasses ecoreClass="esb.ecore#//BeanMediator">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//BeanMediator/inputConnector"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//BeanMediator/outputConnector"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//BeanMediator/class"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//BeanMediator/action"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//BeanMediator/var"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//BeanMediator/property"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//BeanMediator/valueType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//BeanMediator/valueLiteral"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//BeanMediator/valueExpression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//BeanMediator/targetType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//BeanMediator/targetLiteral"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//BeanMediator/targetExpression"/>
+    </genClasses>
+    <genClasses ecoreClass="esb.ecore#//BeanMediatorInputConnector"/>
+    <genClasses ecoreClass="esb.ecore#//BeanMediatorOutputConnector"/>
+    <genClasses ecoreClass="esb.ecore#//EJBMediator">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//EJBMediator/inputConnector"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//EJBMediator/outputConnector"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EJBMediator/beanstalk"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EJBMediator/class"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EJBMediator/method"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EJBMediator/sessionIdType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EJBMediator/sessionIdLiteral"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//EJBMediator/sessionIdExpression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EJBMediator/remove"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EJBMediator/target"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EJBMediator/JNDIName"/>
+    </genClasses>
+    <genClasses ecoreClass="esb.ecore#//EJBMediatorInputConnector"/>
+    <genClasses ecoreClass="esb.ecore#//EJBMediatorOutputConnector"/>
     <genClasses ecoreClass="esb.ecore#//RegistryKeyProperty">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//RegistryKeyProperty/prettyName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//RegistryKeyProperty/keyName"/>

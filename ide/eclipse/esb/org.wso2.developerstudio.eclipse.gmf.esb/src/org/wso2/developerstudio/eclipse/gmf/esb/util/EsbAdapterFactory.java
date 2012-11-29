@@ -273,6 +273,42 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 				return createLogPropertyAdapter();
 			}
 			@Override
+			public Adapter caseBAMMediator(BAMMediator object) {
+				return createBAMMediatorAdapter();
+			}
+			@Override
+			public Adapter caseBAMMediatorInputConnector(BAMMediatorInputConnector object) {
+				return createBAMMediatorInputConnectorAdapter();
+			}
+			@Override
+			public Adapter caseBAMMediatorOutputConnector(BAMMediatorOutputConnector object) {
+				return createBAMMediatorOutputConnectorAdapter();
+			}
+			@Override
+			public Adapter caseBeanMediator(BeanMediator object) {
+				return createBeanMediatorAdapter();
+			}
+			@Override
+			public Adapter caseBeanMediatorInputConnector(BeanMediatorInputConnector object) {
+				return createBeanMediatorInputConnectorAdapter();
+			}
+			@Override
+			public Adapter caseBeanMediatorOutputConnector(BeanMediatorOutputConnector object) {
+				return createBeanMediatorOutputConnectorAdapter();
+			}
+			@Override
+			public Adapter caseEJBMediator(EJBMediator object) {
+				return createEJBMediatorAdapter();
+			}
+			@Override
+			public Adapter caseEJBMediatorInputConnector(EJBMediatorInputConnector object) {
+				return createEJBMediatorInputConnectorAdapter();
+			}
+			@Override
+			public Adapter caseEJBMediatorOutputConnector(EJBMediatorOutputConnector object) {
+				return createEJBMediatorOutputConnectorAdapter();
+			}
+			@Override
 			public Adapter caseRegistryKeyProperty(RegistryKeyProperty object) {
 				return createRegistryKeyPropertyAdapter();
 			}
@@ -1882,6 +1918,132 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createLogPropertyAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.BAMMediator <em>BAM Mediator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.BAMMediator
+	 * @generated
+	 */
+	public Adapter createBAMMediatorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.BAMMediatorInputConnector <em>BAM Mediator Input Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.BAMMediatorInputConnector
+	 * @generated
+	 */
+	public Adapter createBAMMediatorInputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.BAMMediatorOutputConnector <em>BAM Mediator Output Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.BAMMediatorOutputConnector
+	 * @generated
+	 */
+	public Adapter createBAMMediatorOutputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.BeanMediator <em>Bean Mediator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.BeanMediator
+	 * @generated
+	 */
+	public Adapter createBeanMediatorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.BeanMediatorInputConnector <em>Bean Mediator Input Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.BeanMediatorInputConnector
+	 * @generated
+	 */
+	public Adapter createBeanMediatorInputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.BeanMediatorOutputConnector <em>Bean Mediator Output Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.BeanMediatorOutputConnector
+	 * @generated
+	 */
+	public Adapter createBeanMediatorOutputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.EJBMediator <em>EJB Mediator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EJBMediator
+	 * @generated
+	 */
+	public Adapter createEJBMediatorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.EJBMediatorInputConnector <em>EJB Mediator Input Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EJBMediatorInputConnector
+	 * @generated
+	 */
+	public Adapter createEJBMediatorInputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.EJBMediatorOutputConnector <em>EJB Mediator Output Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EJBMediatorOutputConnector
+	 * @generated
+	 */
+	public Adapter createEJBMediatorOutputConnectorAdapter() {
 		return null;
 	}
 

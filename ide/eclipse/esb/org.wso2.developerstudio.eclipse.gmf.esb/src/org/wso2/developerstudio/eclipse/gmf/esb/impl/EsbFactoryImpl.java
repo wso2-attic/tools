@@ -112,6 +112,15 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 			case EsbPackage.LOG_MEDIATOR_INPUT_CONNECTOR: return createLogMediatorInputConnector();
 			case EsbPackage.LOG_MEDIATOR_OUTPUT_CONNECTOR: return createLogMediatorOutputConnector();
 			case EsbPackage.LOG_PROPERTY: return createLogProperty();
+			case EsbPackage.BAM_MEDIATOR: return createBAMMediator();
+			case EsbPackage.BAM_MEDIATOR_INPUT_CONNECTOR: return createBAMMediatorInputConnector();
+			case EsbPackage.BAM_MEDIATOR_OUTPUT_CONNECTOR: return createBAMMediatorOutputConnector();
+			case EsbPackage.BEAN_MEDIATOR: return createBeanMediator();
+			case EsbPackage.BEAN_MEDIATOR_INPUT_CONNECTOR: return createBeanMediatorInputConnector();
+			case EsbPackage.BEAN_MEDIATOR_OUTPUT_CONNECTOR: return createBeanMediatorOutputConnector();
+			case EsbPackage.EJB_MEDIATOR: return createEJBMediator();
+			case EsbPackage.EJB_MEDIATOR_INPUT_CONNECTOR: return createEJBMediatorInputConnector();
+			case EsbPackage.EJB_MEDIATOR_OUTPUT_CONNECTOR: return createEJBMediatorOutputConnector();
 			case EsbPackage.REGISTRY_KEY_PROPERTY: return createRegistryKeyProperty();
 			case EsbPackage.PROPERTY_MEDIATOR: return createPropertyMediator();
 			case EsbPackage.PROPERTY_MEDIATOR_INPUT_CONNECTOR: return createPropertyMediatorInputConnector();
@@ -356,6 +365,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 				return createLogCategoryFromString(eDataType, initialValue);
 			case EsbPackage.LOG_LEVEL:
 				return createLogLevelFromString(eDataType, initialValue);
+			case EsbPackage.BEAN_MEDIATOR_ACTION:
+				return createBeanMediatorActionFromString(eDataType, initialValue);
 			case EsbPackage.END_POINT_ADDRESSING_VERSION:
 				return createEndPointAddressingVersionFromString(eDataType, initialValue);
 			case EsbPackage.END_POINT_TIME_OUT_ACTION:
@@ -528,6 +539,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 				return convertLogCategoryToString(eDataType, instanceValue);
 			case EsbPackage.LOG_LEVEL:
 				return convertLogLevelToString(eDataType, instanceValue);
+			case EsbPackage.BEAN_MEDIATOR_ACTION:
+				return convertBeanMediatorActionToString(eDataType, instanceValue);
 			case EsbPackage.END_POINT_ADDRESSING_VERSION:
 				return convertEndPointAddressingVersionToString(eDataType, instanceValue);
 			case EsbPackage.END_POINT_TIME_OUT_ACTION:
@@ -1094,6 +1107,102 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 		logProperty.setPropertyName("property_name");
 		logProperty.setPropertyValue("property_value");
 		return logProperty;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public BAMMediator createBAMMediator() {
+		BAMMediatorImpl bamMediator = new BAMMediatorImpl();
+		bamMediator.setInputConnector(createBAMMediatorInputConnector());
+		bamMediator.setOutputConnector(createBAMMediatorOutputConnector());
+		return bamMediator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BAMMediatorInputConnector createBAMMediatorInputConnector() {
+		BAMMediatorInputConnectorImpl bamMediatorInputConnector = new BAMMediatorInputConnectorImpl();
+		return bamMediatorInputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BAMMediatorOutputConnector createBAMMediatorOutputConnector() {
+		BAMMediatorOutputConnectorImpl bamMediatorOutputConnector = new BAMMediatorOutputConnectorImpl();
+		return bamMediatorOutputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public BeanMediator createBeanMediator() {
+		BeanMediatorImpl beanMediator = new BeanMediatorImpl();
+		beanMediator.setInputConnector(createBeanMediatorInputConnector());
+		beanMediator.setOutputConnector(createBeanMediatorOutputConnector());
+		return beanMediator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BeanMediatorInputConnector createBeanMediatorInputConnector() {
+		BeanMediatorInputConnectorImpl beanMediatorInputConnector = new BeanMediatorInputConnectorImpl();
+		return beanMediatorInputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BeanMediatorOutputConnector createBeanMediatorOutputConnector() {
+		BeanMediatorOutputConnectorImpl beanMediatorOutputConnector = new BeanMediatorOutputConnectorImpl();
+		return beanMediatorOutputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public EJBMediator createEJBMediator() {
+		EJBMediatorImpl ejbMediator = new EJBMediatorImpl();
+		ejbMediator.setInputConnector(createEJBMediatorInputConnector());
+		ejbMediator.setOutputConnector(createEJBMediatorOutputConnector());
+		return ejbMediator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EJBMediatorInputConnector createEJBMediatorInputConnector() {
+		EJBMediatorInputConnectorImpl ejbMediatorInputConnector = new EJBMediatorInputConnectorImpl();
+		return ejbMediatorInputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EJBMediatorOutputConnector createEJBMediatorOutputConnector() {
+		EJBMediatorOutputConnectorImpl ejbMediatorOutputConnector = new EJBMediatorOutputConnectorImpl();
+		return ejbMediatorOutputConnector;
 	}
 
 	/**
@@ -3594,6 +3703,26 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	 * @generated
 	 */
 	public String convertLogLevelToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BeanMediatorAction createBeanMediatorActionFromString(EDataType eDataType, String initialValue) {
+		BeanMediatorAction result = BeanMediatorAction.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertBeanMediatorActionToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
