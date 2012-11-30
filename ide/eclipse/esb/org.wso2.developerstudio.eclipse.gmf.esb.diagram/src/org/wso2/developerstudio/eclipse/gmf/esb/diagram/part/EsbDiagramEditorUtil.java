@@ -134,7 +134,7 @@ public class EsbDiagramEditorUtil {
 			fileName = fileName.replaceAll("\\d+$", "");
 		}
 
-		String finalName = fileName;
+		String finalName = fileName + "1";
 		int i = 1;
 
 		if (containerFullPath != null) {
