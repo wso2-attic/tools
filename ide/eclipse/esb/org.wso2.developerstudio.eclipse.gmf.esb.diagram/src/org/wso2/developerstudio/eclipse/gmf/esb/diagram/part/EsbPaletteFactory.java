@@ -92,8 +92,7 @@ public class EsbPaletteFactory {
 		paletteContainer.setId("createNodes1Group"); //$NON-NLS-1$
 		//paletteContainer.add(createEsbServer1CreationTool());
 		paletteContainer.add(createProxyService2CreationTool());
-		//paletteContainer.add(createMessageMediator3CreationTool());
-		paletteContainer.add(createSequence4CreationTool());
+		//paletteContainer.add(createMessageMediator3CreationTool());		
 		paletteContainer.add(createAPIResource5CreationTool());
 		return paletteContainer;
 	}
@@ -114,6 +113,7 @@ public class EsbPaletteFactory {
 		paletteContainer.add(createSendMediator19CreationTool());
 		paletteContainer.add(createCallTemplateMediator33CreationTool());
 		paletteContainer.add(createEnqueueMediator35CreationTool());
+		paletteContainer.add(createSequence4CreationTool());
 
 		paletteContainer.add(new PaletteSeparator());
 		paletteContainer.add(createFilterMediator2CreationTool());
@@ -147,13 +147,13 @@ public class EsbPaletteFactory {
 		paletteContainer.add(createStoreMediator31CreationTool());
 		paletteContainer.add(createBuilderMediator32CreationTool());
 		paletteContainer.add(createEJBMediator42CreationTool());
+		paletteContainer.add(createSmooksMediator18CreationTool());
 
 		paletteContainer.add(new PaletteSeparator());
 		paletteContainer.add(createBeanMediator41CreationTool());
 		paletteContainer.add(createClassMediator10CreationTool());
 		paletteContainer.add(createSpringMediator11CreationTool());
 		paletteContainer.add(createScriptMediator12CreationTool());
-		paletteContainer.add(createSmooksMediator18CreationTool());
 		paletteContainer.add(createCommandMediator15CreationTool());
 		
 		paletteContainer.add(new PaletteSeparator());
@@ -1068,7 +1068,7 @@ public class EsbPaletteFactory {
 			PaletteContainer defineEpPalette = (PaletteContainer) paletteContainer.getChildren()
 					.get(6);
 			ToolEntry proxyServiceTool = (ToolEntry) (nodePalette.getChildren().get(0));
-			ToolEntry apiResourceTool = (ToolEntry) (nodePalette.getChildren().get(2));
+			ToolEntry apiResourceTool = (ToolEntry) (nodePalette.getChildren().get(1));
 			if (server != null) {
 				switch (server.getType()) {
 				case PROXY:
