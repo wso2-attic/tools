@@ -46,10 +46,9 @@ public String getMediatorClassName() {
 		List<Fact> factsList = new ArrayList<Fact>();
 		for (RuleFact ruleFact : facts) {
 			Fact fact = new Fact();
-			fact.setElementName(visualRule.getInputWrapperName());
-			fact.setNamespace(visualRule.getInputNameSpace());
+			fact.setElementName(ruleFact.getFactName());
 			fact.setPrefixToNamespaceMap(ruleFact.getValueExpression().getNamespaces());
-			fact.setType(ruleFact.getFactName());
+			fact.setType(ruleFact.getFactType().getLiteral());
 			fact.setTypeClass(ruleFact.getFactType().getClass());
 			fact.setXpath(ruleFact.getValueExpression().getPropertyValue());
 			factsList.add(fact);
@@ -64,10 +63,9 @@ public String getMediatorClassName() {
         List<Fact> resultfactsList = new ArrayList<Fact>();
         for (RuleResult ruleResult : results) {
         	Fact fact = new Fact();
-			fact.setElementName(visualRule.getOutputWrapperName());
-			fact.setNamespace(visualRule.getOutputNameSpace());
+			fact.setElementName(ruleResult.getResultName());
 			fact.setPrefixToNamespaceMap(ruleResult.getValueExpression().getNamespaces());
-			fact.setType(ruleResult.getResultName());
+			fact.setType(ruleResult.getResultType().toString());
 			fact.setTypeClass(ruleResult.getResultType().getClass());
 			fact.setXpath(ruleResult.getValueExpression().getPropertyValue());
 			resultfactsList.add(fact);
