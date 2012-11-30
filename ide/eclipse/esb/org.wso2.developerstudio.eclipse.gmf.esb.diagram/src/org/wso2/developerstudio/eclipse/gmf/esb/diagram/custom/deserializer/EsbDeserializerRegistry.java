@@ -70,6 +70,7 @@ import org.wso2.carbon.mediator.transform.SmooksMediator;
 import org.wso2.carbon.mediators.router.impl.RouterMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramEditor;
+import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.BeanMediatorExt;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.BuilderMediatorExt;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.ClassMediatorExt;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.EJBMediatorExt;
@@ -160,6 +161,7 @@ public class EsbDeserializerRegistry {
 		addDeserializer(TaskDescription.class, new TaskDeserializer());
 		addDeserializer(Entry.class, new LocalEntryDeserializer());
 		addDeserializer(EJBMediatorExt.class, new EJBMediatorDeserializer());
+		addDeserializer(BeanMediatorExt.class, new BeanMediatorDeserializer());
 	}
 	
 	/**

@@ -26,7 +26,6 @@ import org.apache.synapse.config.xml.AbstractMediatorFactory;
 import org.apache.synapse.config.xml.ValueFactory;
 import org.apache.synapse.config.xml.XMLConfigConstants;
 import org.apache.synapse.mediators.bean.BeanConstants;
-import org.apache.synapse.mediators.bean.Target;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.BeanMediatorExt;
 import static org.apache.synapse.mediators.bean.BeanMediator.*;
 
@@ -119,7 +118,7 @@ public class BeanMediatorExtFactory extends AbstractMediatorFactory {
 		populatePropertyName(mediator, elem);
 
 		if (elem.getAttributeValue(new QName(BeanConstants.TARGET)) != null) {
-			mediator.setTarget(new Target(BeanConstants.TARGET, elem));
+			mediator.setTargetValue(new ValueFactory().createValue(BeanConstants.TARGET, elem));
 		} else {
 			handleException("'target' attribute of Bean mediator is required when 'GET_PROPERTY' "
 					+ "action is set.");
