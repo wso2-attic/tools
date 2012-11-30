@@ -75,7 +75,7 @@ public class BeanMediatorExtSerializer extends BeanMediatorSerializer {
 
         if (mediator.getClassName() != null) {
             mediatorElem.addAttribute(fac.createOMAttribute(
-                    BeanConstants.CLASS, nullNS, mediator.getClazz().getName()));
+                    BeanConstants.CLASS, nullNS, mediator.getClassName()));
         } else {
             handleException();
         }
@@ -98,12 +98,13 @@ public class BeanMediatorExtSerializer extends BeanMediatorSerializer {
         }
     }
 
-    private void serializeGetPropertyCase(OMElement mediatorElem, BeanMediator mediator) {
+    private void serializeGetPropertyCase(OMElement mediatorElem, BeanMediatorExt mediator) {
 
         serializePropertyName(mediatorElem, mediator);
 
-        if (mediator.getTarget() != null) {
-            mediator.getTarget().serializeTarget(BeanConstants.TARGET, mediatorElem);
+        if (mediator.getTargetValue() != null) {
+        	 new ValueSerializer().serializeValue(
+        			 mediator.getTargetValue(), BeanConstants.TARGET, mediatorElem);
         } else {
             handleException();
         }
