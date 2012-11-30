@@ -75,6 +75,7 @@ public class BeanMediatorTransformer extends AbstractEsbNodeTransformer{
 			break;
 		case GET_PROPERTY:
 			beanMediator.setAction(Action.GET_PROPERTY);
+			beanMediator.setPropertyName(visualBeanMediator.getProperty());
 			if(visualBeanMediator.getTargetType()==PropertyValueType.EXPRESSION){
 				NamespacedProperty sessionExpression = visualBeanMediator.getTargetExpression();
 				if (sessionExpression != null
