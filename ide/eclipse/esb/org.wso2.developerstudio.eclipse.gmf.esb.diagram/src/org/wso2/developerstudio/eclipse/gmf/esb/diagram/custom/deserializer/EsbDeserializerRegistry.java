@@ -65,6 +65,7 @@ import org.apache.synapse.rest.API;
 import org.apache.synapse.task.TaskDescription;
 import org.wso2.carbon.identity.entitlement.mediator.EntitlementMediator;
 import org.wso2.carbon.identity.oauth.mediator.OAuthMediator;
+import org.wso2.carbon.mediator.bam.BamMediator;
 import org.wso2.carbon.mediator.event.EventMediator;
 import org.wso2.carbon.mediator.transform.SmooksMediator;
 import org.wso2.carbon.mediators.router.impl.RouterMediator;
@@ -162,6 +163,7 @@ public class EsbDeserializerRegistry {
 		addDeserializer(Entry.class, new LocalEntryDeserializer());
 		addDeserializer(EJBMediatorExt.class, new EJBMediatorDeserializer());
 		addDeserializer(BeanMediatorExt.class, new BeanMediatorDeserializer());
+		addDeserializer(BamMediator.class, new BAMMediatorDeserializer());
 	}
 	
 	/**
