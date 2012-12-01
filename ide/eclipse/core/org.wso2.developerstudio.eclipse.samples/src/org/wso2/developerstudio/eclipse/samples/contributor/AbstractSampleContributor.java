@@ -26,6 +26,7 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.swt.widgets.Shell;
 import org.wso2.developerstudio.eclipse.utils.archive.ArchiveManipulator;
+import org.wso2.developerstudio.eclipse.utils.data.ITemporaryFileTag;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 
 public abstract class AbstractSampleContributor implements IDeveloperStudioSampleContributor {
@@ -37,7 +38,7 @@ public abstract class AbstractSampleContributor implements IDeveloperStudioSampl
 	static String PROXY_SAMPLE_TYPE="proxy";
 	
 	public void addSampleTo(IProject project) throws Exception {
-    	
+    	ITemporaryFileTag sampleTempTag = FileUtils.createNewTempTag();
 	    File resourceFile = getSampleResourceFile();
 	    File tempDir = FileUtils.createTempDirectory();
 	    File target = project.getLocation().toFile();
@@ -64,7 +65,7 @@ public abstract class AbstractSampleContributor implements IDeveloperStudioSampl
 		project.refreshLocal(IResource.DEPTH_INFINITE, null);
 		project.open(new NullProgressMonitor());
 		project.refreshLocal(IResource.DEPTH_INFINITE, null);
-		
+		sampleTempTag.clearAndEnd();
     }
 	
 	 public String getCopyResourceContentProjectName(String projectType){

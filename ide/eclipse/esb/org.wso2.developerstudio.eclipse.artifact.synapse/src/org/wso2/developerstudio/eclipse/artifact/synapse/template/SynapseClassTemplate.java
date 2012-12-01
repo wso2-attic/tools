@@ -21,6 +21,7 @@ import java.io.File;
 import org.wso2.developerstudio.eclipse.artifact.synapse.Activator;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
+import org.wso2.developerstudio.eclipse.utils.data.ITemporaryFileTag;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 
 public class SynapseClassTemplate {
@@ -54,9 +55,11 @@ public class SynapseClassTemplate {
 
 	public static String getRichTemplate() {
 		try {
+			ITemporaryFileTag mediatorTempTag = FileUtils.createNewTempTag();
 			File resourceFile = new SynapseTemplateUtils()
 					.getResourceFile("template/synapseConfig.temp");
 			String fileContent = FileUtils.getContentAsString(resourceFile);
+			mediatorTempTag.clearAndEnd();
 			return fileContent;
 		} catch (Exception e) {
 			log.error("Error reading templete", e);

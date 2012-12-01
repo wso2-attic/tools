@@ -3,13 +3,14 @@ package org.wso2.developerstudio.eclipse.artifact.carbon.ui.bundle.templates;
 import java.io.File;
 
 import org.wso2.developerstudio.eclipse.artifact.carbon.ui.bundle.model.CarbonUiModel;
+import org.wso2.developerstudio.eclipse.utils.data.ITemporaryFileTag;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 
 
 public class CarbonUIbudleTemplate {
 
 	public static String createActivatorClassTemplete(String packgeName,String className) throws Exception{
-		 
+		 		ITemporaryFileTag carbonUITempTag = FileUtils.createNewTempTag();
 				File resourceFile = new CarbonUIBundleTemplateUtils().getResourceFile("templates/Activator.temp");
 				String fileContent = FileUtils.getContentAsString(resourceFile);
 				
@@ -18,15 +19,15 @@ public class CarbonUIbudleTemplate {
 				}else{
 					fileContent = fileContent.replace("package","");
 				}
-				
+				carbonUITempTag.clearAndEnd();
 				return fileContent;
 	}
 	
 	public static String createTemplete(String resourceName) throws Exception{
-		 
+		ITemporaryFileTag carbonUITempTag = FileUtils.createNewTempTag();
 		File resourceFile = new CarbonUIBundleTemplateUtils().getResourceFile("templates/" + resourceName);
 		String fileContent = FileUtils.getContentAsString(resourceFile);
-		
+		carbonUITempTag.clearAndEnd();
 		return fileContent;
 }
 

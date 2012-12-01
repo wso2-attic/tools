@@ -43,6 +43,7 @@ import org.wso2.developerstudio.eclipse.platform.core.utils.XMLUtil;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.pages.MavenDetailsPage;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.pages.ProjectOptionsDataPage;
+import org.wso2.developerstudio.eclipse.utils.data.ITemporaryFileTag;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 
@@ -122,6 +123,7 @@ public class DataServiceProjectCreationWizard extends AbstractWSO2ProjectCreatio
 
 	private File addDSTemplate(IProject project) throws Exception {
 		String eol = System.getProperty("line.separator"); 
+		ITemporaryFileTag dsTempTag = FileUtils.createNewTempTag();
 		StringBuffer sb=new StringBuffer();
 		File dsTemplateFile = new DataServiceTemplateUtils().getResourceFile("templates/Dataservice1.dbs");
 		String templateContent = FileUtils.getContentAsString(dsTemplateFile);
@@ -147,6 +149,7 @@ public class DataServiceProjectCreationWizard extends AbstractWSO2ProjectCreatio
 		templateContent = templateContent.replace("<?xml version=\"1.0\" encoding=\"UTF-8\"?>","");
 		templateContent = templateContent.replaceAll("^"+eol,"");
 		FileUtils.createFile(template,templateContent);
+		dsTempTag.clearAndEnd();
 		return template;
 	}
 

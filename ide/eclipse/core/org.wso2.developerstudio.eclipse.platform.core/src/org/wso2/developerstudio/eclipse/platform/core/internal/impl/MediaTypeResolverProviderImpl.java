@@ -15,6 +15,7 @@ import org.wso2.developerstudio.eclipse.platform.core.interfaces.IMediaTypeFromF
 import org.wso2.developerstudio.eclipse.platform.core.interfaces.IMediaTypeFromStreamResolver;
 import org.wso2.developerstudio.eclipse.platform.core.interfaces.IMediaTypeResolver;
 import org.wso2.developerstudio.eclipse.platform.core.interfaces.IMediaTypeResolverProvider;
+import org.wso2.developerstudio.eclipse.utils.data.ITemporaryFileTag;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 
 public class MediaTypeResolverProviderImpl implements
@@ -123,10 +124,13 @@ public class MediaTypeResolverProviderImpl implements
 
 	public boolean isMediaType(URL url) {
 		try {
+			ITemporaryFileTag mediaTypeTempTag = FileUtils.createNewTempTag();
 			File tempFile = new File(FileUtils.createTempDirectory(),url.getFile());
 			tempFile.getParentFile().mkdirs();
 			FileUtils.createFile(tempFile, url.openStream());
-			return isMediaType(tempFile);
+			boolean isMediaType = isMediaType(tempFile);
+			mediaTypeTempTag.clearAndEnd();
+			return isMediaType;
 		} catch (FileNotFoundException e) {
 			// never going to happen
 		} catch (IOException e) {

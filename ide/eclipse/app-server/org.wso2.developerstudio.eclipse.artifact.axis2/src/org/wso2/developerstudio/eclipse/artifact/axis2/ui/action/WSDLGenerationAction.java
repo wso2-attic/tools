@@ -50,6 +50,7 @@ import org.eclipse.ui.ide.IDE;
 import org.wso2.developerstudio.eclipse.artifact.axis2.Activator;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
+import org.wso2.developerstudio.eclipse.utils.data.ITemporaryFileTag;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 import org.wso2.developerstudio.eclipse.utils.jdt.JavaUtils;
 import org.wso2.developerstudio.eclipse.utils.wst.Axis2ServiceUtils;
@@ -98,6 +99,7 @@ public class WSDLGenerationAction  implements IActionDelegate {
 		if (openNewFile == null) {
 			return;
 		}
+		ITemporaryFileTag wsdlTempTag = FileUtils.createNewTempTag();
 		File wsdlFile = generateWSDLFromJavaClass(serviceName,classpathLocations.toArray(new File[]{}),serviceClassName);
 		if (openNewFile.exists()){
 			openNewFile.setContents(new FileInputStream(wsdlFile), IResource.FORCE, null);
@@ -107,7 +109,11 @@ public class WSDLGenerationAction  implements IActionDelegate {
 		project.refreshLocal(IResource.DEPTH_INFINITE, null);
 		try {
 			IDE.openEditor(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage(),openNewFile);
-		} catch (Exception e) { /* ignore */}
+		} catch (Exception e) { /* ignore */
+			
+		}finally{
+			wsdlTempTag.clearAndEnd();
+		}
 	}
 	
 	public File generateWSDLFromJavaClass(String serviceName, File[] classpathLocations,

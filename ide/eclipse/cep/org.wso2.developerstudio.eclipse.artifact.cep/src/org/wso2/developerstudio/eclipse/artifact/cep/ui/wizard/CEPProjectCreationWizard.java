@@ -40,6 +40,7 @@ import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.platform.core.utils.XMLUtil;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
+import org.wso2.developerstudio.eclipse.utils.data.ITemporaryFileTag;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 
@@ -125,7 +126,7 @@ public class CEPProjectCreationWizard extends AbstractWSO2ProjectCreationWizard 
 
 	private File addCEPTemplate(IProject project) throws Exception {
 		String eol = System.getProperty("line.separator");
-
+		ITemporaryFileTag cepTempTag = FileUtils.createNewTempTag();
 		File cepTemplateFile = new CEPTemplateUtils()
 				.getResourceFile("templates" + File.separator
 						+ "cepservice.xml");
@@ -141,6 +142,7 @@ public class CEPProjectCreationWizard extends AbstractWSO2ProjectCreationWizard 
 		templateContent = XMLUtil.prettify(templateContent);
 		templateContent = templateContent.replaceAll("^" + eol, "");
 		FileUtils.createFile(template, templateContent);
+		cepTempTag.clearAndEnd();
 		return template;
 	}
 

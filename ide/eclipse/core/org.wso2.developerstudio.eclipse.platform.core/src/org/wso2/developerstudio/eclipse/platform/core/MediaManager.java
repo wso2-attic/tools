@@ -9,6 +9,7 @@ import java.util.List;
 
 import org.wso2.developerstudio.eclipse.platform.core.interfaces.IMediaTypeResolverProvider;
 import org.wso2.developerstudio.eclipse.platform.core.utils.CSMediaUtils;
+import org.wso2.developerstudio.eclipse.utils.data.ITemporaryFileTag;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 
 public class MediaManager {
@@ -84,9 +85,12 @@ public class MediaManager {
 	public static IMediaTypeResolverProvider getMediaTypeResolver(URL url) throws IOException {
 		if (url.getProtocol().toLowerCase().startsWith("http")){
 			try {
+				ITemporaryFileTag mediaTypeTempTag = FileUtils.createNewTempTag();
 				File tempFile = FileUtils.createTempFile();
 				FileUtils.createFile(tempFile, url.openStream());
-				return getMediaTypeResolver(tempFile);
+				IMediaTypeResolverProvider mediaTypeResolver = getMediaTypeResolver(tempFile);
+				mediaTypeTempTag.clearAndEnd();
+				return mediaTypeResolver;
 			} catch (FileNotFoundException e) {
 				// not gonna happen
 			}

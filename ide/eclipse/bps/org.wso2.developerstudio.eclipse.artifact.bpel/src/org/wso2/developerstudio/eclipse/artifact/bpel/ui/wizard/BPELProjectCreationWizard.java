@@ -32,6 +32,7 @@ import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
 import org.wso2.developerstudio.eclipse.utils.archive.ArchiveManipulator;
+import org.wso2.developerstudio.eclipse.utils.data.ITemporaryFileTag;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 import org.wso2.developerstudio.eclipse.artifact.bpel.Activator;
@@ -215,13 +216,16 @@ public class BPELProjectCreationWizard extends AbstractWSO2ProjectCreationWizard
 	}
 	
 	private void extractBPELSettingsTemplate(IProject importProject) throws IOException{
+		ITemporaryFileTag bpelTempTag = FileUtils.createNewTempTag();
 		File bpelTemplateFile = new BPELTemplateUtils().getResourceFile("templates/bpel-settings.zip");
 		ArchiveManipulator archiveManipulator = new ArchiveManipulator();
 		archiveManipulator.extract(bpelTemplateFile, importProject.getLocation().toFile());
+		bpelTempTag.clearAndEnd();
 	}
 	
 	private void addBPELTemplate(IProject newProject) throws IOException{
 		File bpelTemplateFile = null;
+		ITemporaryFileTag bpelTempTag = FileUtils.createNewTempTag();
 		if(BPELArtifactConstants.ASYNCHRONOUS_BPEL_PROCESS.equals(bpelModel.getSelectedTemplate())){
 			bpelTemplateFile = new BPELTemplateUtils().getResourceFile("templates/asynchronous-bpel-template.zip");
 		}else if(BPELArtifactConstants.SYNCHRONOUS_BPEL_PROCESS.equals(bpelModel.getSelectedTemplate())){
@@ -234,6 +238,7 @@ public class BPELProjectCreationWizard extends AbstractWSO2ProjectCreationWizard
 		
 		ArchiveManipulator archiveManipulator = new ArchiveManipulator();
 		archiveManipulator.extract(bpelTemplateFile, newProject.getLocation().toFile());
+		bpelTempTag.clearAndEnd();
 	} 
 
 }

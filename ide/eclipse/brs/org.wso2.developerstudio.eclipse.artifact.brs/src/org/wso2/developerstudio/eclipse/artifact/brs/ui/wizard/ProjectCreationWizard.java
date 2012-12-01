@@ -42,6 +42,7 @@ import org.wso2.developerstudio.eclipse.platform.core.utils.XMLUtil;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.pages.MavenDetailsPage;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.pages.ProjectOptionsDataPage;
+import org.wso2.developerstudio.eclipse.utils.data.ITemporaryFileTag;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 import org.wso2.developerstudio.eclipse.utils.jdt.JavaUtils;
 import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
@@ -184,6 +185,7 @@ public class ProjectCreationWizard extends AbstractWSO2ProjectCreationWizard {
 
 	private File addBRSTemplate(IProject project) throws Exception {
 		String eol = System.getProperty("line.separator");
+		ITemporaryFileTag brsTempTag = FileUtils.createNewTempTag();
 		File ruleServiceTemplateFile =
 			new RuleServiceTemplateUtils().getResourceFile("templates/schema.rsl");
 		String templateContent = FileUtils.getContentAsString(ruleServiceTemplateFile);
@@ -202,6 +204,7 @@ public class ProjectCreationWizard extends AbstractWSO2ProjectCreationWizard {
 		templateContent = templateContent.replaceAll("^" + eol, "");
 		
 		FileUtils.createFile(template, templateContent);
+		brsTempTag.clearAndEnd();
 		return template;
 	}
 

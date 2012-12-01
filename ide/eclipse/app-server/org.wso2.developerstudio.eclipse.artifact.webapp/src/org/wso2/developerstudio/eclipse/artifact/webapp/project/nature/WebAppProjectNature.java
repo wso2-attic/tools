@@ -7,6 +7,8 @@ import org.eclipse.core.runtime.CoreException;
 import org.wso2.developerstudio.eclipse.artifact.webapp.utils.WebAppTemplateUtils;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.platform.core.nature.AbstractWSO2ProjectNature;
+import org.wso2.developerstudio.eclipse.utils.data.ITemporaryFileTag;
+import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 import org.wso2.developerstudio.eclipse.utils.wst.WebUtils;
 
@@ -31,9 +33,11 @@ public class WebAppProjectNature extends AbstractWSO2ProjectNature {
 		if (webXmlLocation == null) {
 			IFolder webappFolder =
 			        ProjectUtils.getWorkspaceFolder(getProject(), "src", "main", "webapp");
+			ITemporaryFileTag warTempTag = FileUtils.createNewTempTag();
 			File webappTemplateArchive =
 			        new WebAppTemplateUtils().getResourceFile("webapp-template.war");
 			WebUtils.extractWAR(webappFolder, webappTemplateArchive);
+			warTempTag.clearAndEnd();
 		}
 	}
 

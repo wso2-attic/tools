@@ -21,6 +21,7 @@ import org.wso2.developerstudio.eclipse.artifact.webapp.model.WebXMLModel;
 import org.wso2.developerstudio.eclipse.artifact.webapp.utils.WebAppImageUtils;
 import org.wso2.developerstudio.eclipse.artifact.webapp.utils.WebAppTemplateUtils;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
+import org.wso2.developerstudio.eclipse.utils.data.ITemporaryFileTag;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 import org.wso2.developerstudio.eclipse.utils.wst.WebUtils;
@@ -52,9 +53,11 @@ public class WebAppCreationWizard extends AbstractWSO2ProjectCreationWizard {
 				project = createNewProject();
 				IFolder webappFolder =
 				        ProjectUtils.getWorkspaceFolder(project, "src", "main", "webapp");
+				ITemporaryFileTag warTempTag = FileUtils.createNewTempTag();
 				File webappTemplateArchive =
 				        new WebAppTemplateUtils().getResourceFile("templates/webapp-template.war");
 				WebUtils.extractWAR(webappFolder, webappTemplateArchive);
+				warTempTag.clearAndEnd();
 			}
 			IFile webXmlLocation = WebUtils.getWEBXmlLocation(project);
 			updateWebContextRoot(webXmlLocation, webAppModel.getWebContextRoot());
