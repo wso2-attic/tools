@@ -21,6 +21,7 @@ import java.util.regex.Pattern;
 
 import org.wso2.developerstudio.eclipse.artifact.task.Activator;
 import org.wso2.developerstudio.eclipse.artifact.task.model.TaskModel;
+import org.wso2.developerstudio.eclipse.artifact.task.util.TaskImageUtils;
 import org.wso2.developerstudio.eclipse.artifact.task.validator.TriggerTypeList.TriggerType;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBArtifact;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
@@ -51,6 +52,8 @@ private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	public TaskCreationWizard() {
 		artifactModel = new TaskModel();
 		setModel(artifactModel);
+		setWindowTitle("New Scheduled Task");
+		setDefaultPageImageDescriptor(TaskImageUtils.getInstance().getImageDescriptor("taskLarge.png"));
 	}
 
 	@Override
