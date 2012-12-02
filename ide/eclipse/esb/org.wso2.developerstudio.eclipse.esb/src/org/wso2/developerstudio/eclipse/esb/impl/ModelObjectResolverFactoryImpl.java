@@ -26,6 +26,7 @@ import org.wso2.developerstudio.eclipse.esb.ModelObjectResolver;
 import org.wso2.developerstudio.eclipse.esb.ModelObjectResolverFactory;
 import org.wso2.developerstudio.eclipse.esb.ProxyService;
 import org.wso2.developerstudio.eclipse.esb.ProxyWsdlConfiguration;
+import org.wso2.developerstudio.eclipse.esb.SynapseAPI;
 import org.wso2.developerstudio.eclipse.esb.mediators.ClassMediator;
 import org.wso2.developerstudio.eclipse.esb.mediators.CloneMediator;
 import org.wso2.developerstudio.eclipse.esb.mediators.CommandMediator;
@@ -467,6 +468,10 @@ public class ModelObjectResolverFactoryImpl implements
 					obj = getEsbFactory().createProxyWsdlResource();
 				} else if (parent instanceof XSLTMediator) {
 					obj = getMediatorFactory().createXSLTResource();
+				}else if(parent instanceof ValidateMediator){
+					obj = getMediatorFactory().createValidateResource();
+				}else if(parent instanceof SynapseAPI){
+					obj = getEsbFactory().createApiResource();
 				}
 				return obj;
 			}
@@ -998,14 +1003,14 @@ public class ModelObjectResolverFactoryImpl implements
 			}
 		});
 		
-		/**
-		 * Resolver Corresponding to <resource/> tag.
-		 */
-		localNameToResolverMap.put("resource", new ModelObjectResolver() {			
-			public ModelObject resolve(Element elem, ModelObject parent) {
-			return getEsbFactory().createApiResource();
-			}
-		});
+//		/**
+//		 * Resolver Corresponding to <resource/> tag.
+//		 */
+//		localNameToResolverMap.put("resource", new ModelObjectResolver() {			
+//			public ModelObject resolve(Element elem, ModelObject parent) {
+//			return getEsbFactory().createApiResource();
+//			}
+//		});
 		
 		
 	}

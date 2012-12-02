@@ -31,6 +31,7 @@ import org.wso2.developerstudio.eclipse.esb.NamespacedProperty;
  *   <li>{@link org.wso2.developerstudio.eclipse.esb.mediators.ValidateMediator#getOnFailBranch <em>On Fail Branch</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.esb.mediators.ValidateMediator#getFeatures <em>Features</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.esb.mediators.ValidateMediator#getSchemas <em>Schemas</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.esb.mediators.ValidateMediator#getResources <em>Resources</em>}</li>
  * </ul>
  * </p>
  *
@@ -122,5 +123,21 @@ public interface ValidateMediator extends Mediator {
 	 * @generated
 	 */
 	EList<ValidateSchema> getSchemas();
+
+	/**
+	 * Returns the value of the '<em><b>Resources</b></em>' containment reference list.
+	 * The list contents are of type {@link org.wso2.developerstudio.eclipse.esb.mediators.ValidateResource}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Resources</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Resources</em>' containment reference list.
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getValidateMediator_Resources()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<ValidateResource> getResources();
 
 } // ValidateMediator

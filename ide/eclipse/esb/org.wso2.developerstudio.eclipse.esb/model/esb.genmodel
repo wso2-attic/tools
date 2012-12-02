@@ -762,6 +762,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mediator.ecore#//ValidateMediator/onFailBranch"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mediator.ecore#//ValidateMediator/features"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mediator.ecore#//ValidateMediator/schemas"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mediator.ecore#//ValidateMediator/resources"/>
     </genClasses>
     <genClasses ecoreClass="mediator.ecore#//ValidateOnFailBranch"/>
     <genClasses ecoreClass="mediator.ecore#//ValidateFeature"/>
@@ -771,6 +772,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mediator.ecore#//ValidateSchema/validateSchemaKeyType"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference mediator.ecore#//ValidateSchema/schemaKey"/>
     </genClasses>
+    <genClasses ecoreClass="mediator.ecore#//ValidateResource"/>
     <genClasses ecoreClass="mediator.ecore#//ScriptMediator">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mediator.ecore#//ScriptMediator/scriptType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mediator.ecore#//ScriptMediator/scriptLanguage"/>

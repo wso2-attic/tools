@@ -89,6 +89,7 @@ public class MediatorsFactoryImpl extends EFactoryImpl implements MediatorsFacto
 			case MediatorsPackage.VALIDATE_ON_FAIL_BRANCH: return createValidateOnFailBranch();
 			case MediatorsPackage.VALIDATE_FEATURE: return createValidateFeature();
 			case MediatorsPackage.VALIDATE_SCHEMA: return createValidateSchema();
+			case MediatorsPackage.VALIDATE_RESOURCE: return createValidateResource();
 			case MediatorsPackage.SCRIPT_MEDIATOR: return createScriptMediator();
 			case MediatorsPackage.ENRICH_MEDIATOR: return createEnrichMediator();
 			case MediatorsPackage.FAULT_MEDIATOR: return createFaultMediator();
@@ -641,6 +642,16 @@ public class MediatorsFactoryImpl extends EFactoryImpl implements MediatorsFacto
 	public ValidateSchema createValidateSchema() {
 		ValidateSchemaImpl validateSchema = new ValidateSchemaImpl();
 		return validateSchema;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ValidateResource createValidateResource() {
+		ValidateResourceImpl validateResource = new ValidateResourceImpl();
+		return validateResource;
 	}
 
 	/**

@@ -34,6 +34,7 @@ import org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage;
 import org.wso2.developerstudio.eclipse.esb.mediators.ValidateFeature;
 import org.wso2.developerstudio.eclipse.esb.mediators.ValidateMediator;
 import org.wso2.developerstudio.eclipse.esb.mediators.ValidateOnFailBranch;
+import org.wso2.developerstudio.eclipse.esb.mediators.ValidateResource;
 import org.wso2.developerstudio.eclipse.esb.mediators.ValidateSchema;
 import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
 
@@ -48,6 +49,7 @@ import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
  *   <li>{@link org.wso2.developerstudio.eclipse.esb.mediators.impl.ValidateMediatorImpl#getOnFailBranch <em>On Fail Branch</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.esb.mediators.impl.ValidateMediatorImpl#getFeatures <em>Features</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.esb.mediators.impl.ValidateMediatorImpl#getSchemas <em>Schemas</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.esb.mediators.impl.ValidateMediatorImpl#getResources <em>Resources</em>}</li>
  * </ul>
  * </p>
  *
@@ -95,6 +97,16 @@ public class ValidateMediatorImpl extends MediatorImpl implements ValidateMediat
 	protected EList<ValidateSchema> schemas;
 
 	/**
+	 * The cached value of the '{@link #getResources() <em>Resources</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getResources()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ValidateResource> resources;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 */
@@ -137,6 +149,14 @@ public class ValidateMediatorImpl extends MediatorImpl implements ValidateMediat
 				getSchemas().add(object);				
 			}			
 		});	
+		
+		//Resources
+		loadObjects(self, "resource", ValidateResource.class, new ObjectHandler<ValidateResource>() {
+			public void handle(ValidateResource object) {
+				getResources().add(object);
+			}
+		});
+		
 		super.doLoad(self);
 	}
 
@@ -158,7 +178,13 @@ public class ValidateMediatorImpl extends MediatorImpl implements ValidateMediat
 		// Schemas.
 		for (ValidateSchema schema : getSchemas()) {
 			schema.save(self);
-		}						
+		}	
+		
+		// Resources
+		for(ValidateResource resource : getResources()){
+			resource.save(self);
+		}
+		
 		if(description!=null)
 			description.save(self);
 		
@@ -292,6 +318,18 @@ public class ValidateMediatorImpl extends MediatorImpl implements ValidateMediat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<ValidateResource> getResources() {
+		if (resources == null) {
+			resources = new EObjectContainmentEList<ValidateResource>(ValidateResource.class, this, MediatorsPackage.VALIDATE_MEDIATOR__RESOURCES);
+		}
+		return resources;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID,
@@ -305,6 +343,8 @@ public class ValidateMediatorImpl extends MediatorImpl implements ValidateMediat
 				return ((InternalEList<?>)getFeatures()).basicRemove(otherEnd, msgs);
 			case MediatorsPackage.VALIDATE_MEDIATOR__SCHEMAS:
 				return ((InternalEList<?>)getSchemas()).basicRemove(otherEnd, msgs);
+			case MediatorsPackage.VALIDATE_MEDIATOR__RESOURCES:
+				return ((InternalEList<?>)getResources()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -326,6 +366,8 @@ public class ValidateMediatorImpl extends MediatorImpl implements ValidateMediat
 				return getFeatures();
 			case MediatorsPackage.VALIDATE_MEDIATOR__SCHEMAS:
 				return getSchemas();
+			case MediatorsPackage.VALIDATE_MEDIATOR__RESOURCES:
+				return getResources();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -354,6 +396,10 @@ public class ValidateMediatorImpl extends MediatorImpl implements ValidateMediat
 				getSchemas().clear();
 				getSchemas().addAll((Collection<? extends ValidateSchema>)newValue);
 				return;
+			case MediatorsPackage.VALIDATE_MEDIATOR__RESOURCES:
+				getResources().clear();
+				getResources().addAll((Collection<? extends ValidateResource>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -379,6 +425,9 @@ public class ValidateMediatorImpl extends MediatorImpl implements ValidateMediat
 			case MediatorsPackage.VALIDATE_MEDIATOR__SCHEMAS:
 				getSchemas().clear();
 				return;
+			case MediatorsPackage.VALIDATE_MEDIATOR__RESOURCES:
+				getResources().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -400,6 +449,8 @@ public class ValidateMediatorImpl extends MediatorImpl implements ValidateMediat
 				return features != null && !features.isEmpty();
 			case MediatorsPackage.VALIDATE_MEDIATOR__SCHEMAS:
 				return schemas != null && !schemas.isEmpty();
+			case MediatorsPackage.VALIDATE_MEDIATOR__RESOURCES:
+				return resources != null && !resources.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -114,6 +114,8 @@
         eType="#//ValidateFeature" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="schemas" upperBound="-1"
         eType="#//ValidateSchema" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resources" upperBound="-1"
+        eType="#//ValidateResource" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ValidateOnFailBranch" eSuperTypes="esb.ecore#//MediatorBranch"/>
   <eClassifiers xsi:type="ecore:EClass" name="ValidateFeature" eSuperTypes="esb.ecore#//AbstractBooleanFeature"/>
@@ -126,6 +128,7 @@
         eType="#//KeyType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="schemaKey" eType="ecore:EClass esb.ecore#//RegistryKeyProperty"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ValidateResource" eSuperTypes="esb.ecore#//AbstractLocationKeyResource"/>
   <eClassifiers xsi:type="ecore:EClass" name="ScriptMediator" eSuperTypes="esb.ecore#//Mediator">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="scriptType" eType="#//ScriptType"
         defaultValueLiteral="REGISTRY_REFERENCE"/>

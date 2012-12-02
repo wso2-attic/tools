@@ -224,6 +224,15 @@ public interface MediatorsFactory extends EFactory {
 	ValidateSchema createValidateSchema();
 
 	/**
+	 * Returns a new object of class '<em>Validate Resource</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Validate Resource</em>'.
+	 * @generated
+	 */
+	ValidateResource createValidateResource();
+
+	/**
 	 * Returns a new object of class '<em>Script Mediator</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

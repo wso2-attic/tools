@@ -600,6 +600,29 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.ValidateResource} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ValidateResourceItemProvider validateResourceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.ValidateResource}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createValidateResourceAdapter() {
+		if (validateResourceItemProvider == null) {
+			validateResourceItemProvider = new ValidateResourceItemProvider(this);
+		}
+
+		return validateResourceItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.ScriptMediator} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2330,6 +2353,7 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 		if (validateOnFailBranchItemProvider != null) validateOnFailBranchItemProvider.dispose();
 		if (validateFeatureItemProvider != null) validateFeatureItemProvider.dispose();
 		if (validateSchemaItemProvider != null) validateSchemaItemProvider.dispose();
+		if (validateResourceItemProvider != null) validateResourceItemProvider.dispose();
 		if (scriptMediatorItemProvider != null) scriptMediatorItemProvider.dispose();
 		if (enrichMediatorItemProvider != null) enrichMediatorItemProvider.dispose();
 		if (faultMediatorItemProvider != null) faultMediatorItemProvider.dispose();

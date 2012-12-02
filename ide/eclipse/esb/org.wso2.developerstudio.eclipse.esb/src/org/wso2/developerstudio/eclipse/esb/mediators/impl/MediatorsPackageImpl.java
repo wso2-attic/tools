@@ -166,6 +166,7 @@ import org.wso2.developerstudio.eclipse.esb.mediators.URLRewriteRuleAction;
 import org.wso2.developerstudio.eclipse.esb.mediators.ValidateFeature;
 import org.wso2.developerstudio.eclipse.esb.mediators.ValidateMediator;
 import org.wso2.developerstudio.eclipse.esb.mediators.ValidateOnFailBranch;
+import org.wso2.developerstudio.eclipse.esb.mediators.ValidateResource;
 import org.wso2.developerstudio.eclipse.esb.mediators.ValidateSchema;
 import org.wso2.developerstudio.eclipse.esb.mediators.XQueryMediator;
 import org.wso2.developerstudio.eclipse.esb.mediators.XQueryVariable;
@@ -330,6 +331,13 @@ public class MediatorsPackageImpl extends EPackageImpl implements MediatorsPacka
 	 * @generated
 	 */
 	private EClass validateSchemaEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass validateResourceEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1764,6 +1772,15 @@ public class MediatorsPackageImpl extends EPackageImpl implements MediatorsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getValidateMediator_Resources() {
+		return (EReference)validateMediatorEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getValidateOnFailBranch() {
 		return validateOnFailBranchEClass;
 	}
@@ -1820,6 +1837,15 @@ public class MediatorsPackageImpl extends EPackageImpl implements MediatorsPacka
 	 */
 	public EReference getValidateSchema_SchemaKey() {
 		return (EReference)validateSchemaEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getValidateResource() {
+		return validateResourceEClass;
 	}
 
 	/**
@@ -5464,6 +5490,7 @@ public class MediatorsPackageImpl extends EPackageImpl implements MediatorsPacka
 		createEReference(validateMediatorEClass, VALIDATE_MEDIATOR__ON_FAIL_BRANCH);
 		createEReference(validateMediatorEClass, VALIDATE_MEDIATOR__FEATURES);
 		createEReference(validateMediatorEClass, VALIDATE_MEDIATOR__SCHEMAS);
+		createEReference(validateMediatorEClass, VALIDATE_MEDIATOR__RESOURCES);
 
 		validateOnFailBranchEClass = createEClass(VALIDATE_ON_FAIL_BRANCH);
 
@@ -5474,6 +5501,8 @@ public class MediatorsPackageImpl extends EPackageImpl implements MediatorsPacka
 		createEReference(validateSchemaEClass, VALIDATE_SCHEMA__VALIDATE_DYNAMIC_SCHEMA_KEY);
 		createEAttribute(validateSchemaEClass, VALIDATE_SCHEMA__VALIDATE_SCHEMA_KEY_TYPE);
 		createEReference(validateSchemaEClass, VALIDATE_SCHEMA__SCHEMA_KEY);
+
+		validateResourceEClass = createEClass(VALIDATE_RESOURCE);
 
 		scriptMediatorEClass = createEClass(SCRIPT_MEDIATOR);
 		createEAttribute(scriptMediatorEClass, SCRIPT_MEDIATOR__SCRIPT_TYPE);
@@ -5992,6 +6021,7 @@ public class MediatorsPackageImpl extends EPackageImpl implements MediatorsPacka
 		validateOnFailBranchEClass.getESuperTypes().add(theEsbPackage.getMediatorBranch());
 		validateFeatureEClass.getESuperTypes().add(theEsbPackage.getAbstractBooleanFeature());
 		validateSchemaEClass.getESuperTypes().add(theEsbPackage.getModelObject());
+		validateResourceEClass.getESuperTypes().add(theEsbPackage.getAbstractLocationKeyResource());
 		scriptMediatorEClass.getESuperTypes().add(theEsbPackage.getMediator());
 		enrichMediatorEClass.getESuperTypes().add(theEsbPackage.getMediator());
 		faultMediatorEClass.getESuperTypes().add(theEsbPackage.getMediator());
@@ -6130,6 +6160,7 @@ public class MediatorsPackageImpl extends EPackageImpl implements MediatorsPacka
 		initEReference(getValidateMediator_OnFailBranch(), this.getValidateOnFailBranch(), null, "onFailBranch", null, 0, 1, ValidateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getValidateMediator_Features(), this.getValidateFeature(), null, "features", null, 0, -1, ValidateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getValidateMediator_Schemas(), this.getValidateSchema(), null, "schemas", null, 0, -1, ValidateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getValidateMediator_Resources(), this.getValidateResource(), null, "resources", null, 0, -1, ValidateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(validateOnFailBranchEClass, ValidateOnFailBranch.class, "ValidateOnFailBranch", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -6140,6 +6171,8 @@ public class MediatorsPackageImpl extends EPackageImpl implements MediatorsPacka
 		initEReference(getValidateSchema_ValidateDynamicSchemaKey(), theEsbPackage.getNamespacedProperty(), null, "validateDynamicSchemaKey", null, 0, 1, ValidateSchema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getValidateSchema_ValidateSchemaKeyType(), this.getKeyType(), "validateSchemaKeyType", null, 0, 1, ValidateSchema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getValidateSchema_SchemaKey(), theEsbPackage.getRegistryKeyProperty(), null, "schemaKey", null, 0, 1, ValidateSchema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(validateResourceEClass, ValidateResource.class, "ValidateResource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(scriptMediatorEClass, ScriptMediator.class, "ScriptMediator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getScriptMediator_ScriptType(), this.getScriptType(), "scriptType", "REGISTRY_REFERENCE", 0, 1, ScriptMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

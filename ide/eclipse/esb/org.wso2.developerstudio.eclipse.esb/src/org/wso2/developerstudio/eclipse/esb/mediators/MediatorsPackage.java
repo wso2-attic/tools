@@ -1889,13 +1889,22 @@ public interface MediatorsPackage extends EPackage {
 	int VALIDATE_MEDIATOR__SCHEMAS = EsbPackage.MEDIATOR_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Resources</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALIDATE_MEDIATOR__RESOURCES = EsbPackage.MEDIATOR_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Validate Mediator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VALIDATE_MEDIATOR_FEATURE_COUNT = EsbPackage.MEDIATOR_FEATURE_COUNT + 4;
+	int VALIDATE_MEDIATOR_FEATURE_COUNT = EsbPackage.MEDIATOR_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.impl.ValidateOnFailBranchImpl <em>Validate On Fail Branch</em>}' class.
@@ -2180,6 +2189,97 @@ public interface MediatorsPackage extends EPackage {
 	int VALIDATE_SCHEMA_FEATURE_COUNT = EsbPackage.MODEL_OBJECT_FEATURE_COUNT + 4;
 
 	/**
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.impl.ValidateResourceImpl <em>Validate Resource</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.ValidateResourceImpl
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getValidateResource()
+	 * @generated
+	 */
+	int VALIDATE_RESOURCE = 21;
+
+	/**
+	 * The feature id for the '<em><b>Object State</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALIDATE_RESOURCE__OBJECT_STATE = EsbPackage.ABSTRACT_LOCATION_KEY_RESOURCE__OBJECT_STATE;
+
+	/**
+	 * The feature id for the '<em><b>Source Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALIDATE_RESOURCE__SOURCE_TEXT = EsbPackage.ABSTRACT_LOCATION_KEY_RESOURCE__SOURCE_TEXT;
+
+	/**
+	 * The feature id for the '<em><b>Default Namespace</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALIDATE_RESOURCE__DEFAULT_NAMESPACE = EsbPackage.ABSTRACT_LOCATION_KEY_RESOURCE__DEFAULT_NAMESPACE;
+
+	/**
+	 * The feature id for the '<em><b>Additional Namespaces</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALIDATE_RESOURCE__ADDITIONAL_NAMESPACES = EsbPackage.ABSTRACT_LOCATION_KEY_RESOURCE__ADDITIONAL_NAMESPACES;
+
+	/**
+	 * The feature id for the '<em><b>Current Esb Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALIDATE_RESOURCE__CURRENT_ESB_VERSION = EsbPackage.ABSTRACT_LOCATION_KEY_RESOURCE__CURRENT_ESB_VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALIDATE_RESOURCE__COMMENT = EsbPackage.ABSTRACT_LOCATION_KEY_RESOURCE__COMMENT;
+
+	/**
+	 * The feature id for the '<em><b>Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALIDATE_RESOURCE__LOCATION = EsbPackage.ABSTRACT_LOCATION_KEY_RESOURCE__LOCATION;
+
+	/**
+	 * The feature id for the '<em><b>Key</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALIDATE_RESOURCE__KEY = EsbPackage.ABSTRACT_LOCATION_KEY_RESOURCE__KEY;
+
+	/**
+	 * The number of structural features of the '<em>Validate Resource</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALIDATE_RESOURCE_FEATURE_COUNT = EsbPackage.ABSTRACT_LOCATION_KEY_RESOURCE_FEATURE_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.impl.ScriptMediatorImpl <em>Script Mediator</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2187,7 +2287,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getScriptMediator()
 	 * @generated
 	 */
-	int SCRIPT_MEDIATOR = 21;
+	int SCRIPT_MEDIATOR = 22;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -2314,7 +2414,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getEnrichMediator()
 	 * @generated
 	 */
-	int ENRICH_MEDIATOR = 22;
+	int ENRICH_MEDIATOR = 23;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -2495,7 +2595,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getFaultMediator()
 	 * @generated
 	 */
-	int FAULT_MEDIATOR = 23;
+	int FAULT_MEDIATOR = 24;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -2712,7 +2812,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getAggregateMediator()
 	 * @generated
 	 */
-	int AGGREGATE_MEDIATOR = 24;
+	int AGGREGATE_MEDIATOR = 25;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -2848,7 +2948,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getAggregateOnCompleteBranch()
 	 * @generated
 	 */
-	int AGGREGATE_ON_COMPLETE_BRANCH = 25;
+	int AGGREGATE_ON_COMPLETE_BRANCH = 26;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -2957,7 +3057,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getRouterMediator()
 	 * @generated
 	 */
-	int ROUTER_MEDIATOR = 26;
+	int ROUTER_MEDIATOR = 27;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -3057,7 +3157,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getRouterRoute()
 	 * @generated
 	 */
-	int ROUTER_ROUTE = 27;
+	int ROUTER_ROUTE = 28;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -3166,7 +3266,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getRouteTarget()
 	 * @generated
 	 */
-	int ROUTE_TARGET = 28;
+	int ROUTE_TARGET = 29;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -3293,7 +3393,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getCloneMediator()
 	 * @generated
 	 */
-	int CLONE_MEDIATOR = 29;
+	int CLONE_MEDIATOR = 30;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -3411,7 +3511,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getCloneTarget()
 	 * @generated
 	 */
-	int CLONE_TARGET = 30;
+	int CLONE_TARGET = 31;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -3556,7 +3656,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getIterateMediator()
 	 * @generated
 	 */
-	int ITERATE_MEDIATOR = 31;
+	int ITERATE_MEDIATOR = 32;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -3701,7 +3801,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getIterateTarget()
 	 * @generated
 	 */
-	int ITERATE_TARGET = 32;
+	int ITERATE_TARGET = 33;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -3846,7 +3946,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getCacheMediator()
 	 * @generated
 	 */
-	int CACHE_MEDIATOR = 33;
+	int CACHE_MEDIATOR = 34;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -4009,7 +4109,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getCacheOnHitBranch()
 	 * @generated
 	 */
-	int CACHE_ON_HIT_BRANCH = 34;
+	int CACHE_ON_HIT_BRANCH = 35;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -4109,7 +4209,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getXSLTMediator()
 	 * @generated
 	 */
-	int XSLT_MEDIATOR = 35;
+	int XSLT_MEDIATOR = 36;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -4263,7 +4363,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getXSLTProperty()
 	 * @generated
 	 */
-	int XSLT_PROPERTY = 36;
+	int XSLT_PROPERTY = 37;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -4372,7 +4472,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getXSLTFeature()
 	 * @generated
 	 */
-	int XSLT_FEATURE = 37;
+	int XSLT_FEATURE = 38;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -4463,7 +4563,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getXSLTResource()
 	 * @generated
 	 */
-	int XSLT_RESOURCE = 38;
+	int XSLT_RESOURCE = 39;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -4554,7 +4654,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getXQueryMediator()
 	 * @generated
 	 */
-	int XQUERY_MEDIATOR = 39;
+	int XQUERY_MEDIATOR = 40;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -4690,7 +4790,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getXQueryVariable()
 	 * @generated
 	 */
-	int XQUERY_VARIABLE = 40;
+	int XQUERY_VARIABLE = 41;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -4817,7 +4917,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getCalloutMediator()
 	 * @generated
 	 */
-	int CALLOUT_MEDIATOR = 41;
+	int CALLOUT_MEDIATOR = 42;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -5025,7 +5125,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getRMSequenceMediator()
 	 * @generated
 	 */
-	int RM_SEQUENCE_MEDIATOR = 42;
+	int RM_SEQUENCE_MEDIATOR = 43;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -5143,7 +5243,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getTransactionMediator()
 	 * @generated
 	 */
-	int TRANSACTION_MEDIATOR = 43;
+	int TRANSACTION_MEDIATOR = 44;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -5234,7 +5334,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getPropertyMediator()
 	 * @generated
 	 */
-	int PROPERTY_MEDIATOR = 44;
+	int PROPERTY_MEDIATOR = 45;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -5406,7 +5506,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getOAuthMediator()
 	 * @generated
 	 */
-	int OAUTH_MEDIATOR = 45;
+	int OAUTH_MEDIATOR = 46;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -5497,7 +5597,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getAutoscaleInMediator()
 	 * @generated
 	 */
-	int AUTOSCALE_IN_MEDIATOR = 46;
+	int AUTOSCALE_IN_MEDIATOR = 47;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -5579,7 +5679,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getAutoscaleOutMediator()
 	 * @generated
 	 */
-	int AUTOSCALE_OUT_MEDIATOR = 47;
+	int AUTOSCALE_OUT_MEDIATOR = 48;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -5661,7 +5761,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getHeaderMediator()
 	 * @generated
 	 */
-	int HEADER_MEDIATOR = 48;
+	int HEADER_MEDIATOR = 49;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -5788,7 +5888,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getThrottleMediator()
 	 * @generated
 	 */
-	int THROTTLE_MEDIATOR = 49;
+	int THROTTLE_MEDIATOR = 50;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -5906,7 +6006,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getThrottlePolicyConfiguration()
 	 * @generated
 	 */
-	int THROTTLE_POLICY_CONFIGURATION = 50;
+	int THROTTLE_POLICY_CONFIGURATION = 51;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -6015,7 +6115,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getThrottlePolicyEntry()
 	 * @generated
 	 */
-	int THROTTLE_POLICY_ENTRY = 51;
+	int THROTTLE_POLICY_ENTRY = 52;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -6142,7 +6242,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getThrottleOnAcceptBranch()
 	 * @generated
 	 */
-	int THROTTLE_ON_ACCEPT_BRANCH = 52;
+	int THROTTLE_ON_ACCEPT_BRANCH = 53;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -6242,7 +6342,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getThrottleOnRejectBranch()
 	 * @generated
 	 */
-	int THROTTLE_ON_REJECT_BRANCH = 53;
+	int THROTTLE_ON_REJECT_BRANCH = 54;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -6342,7 +6442,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getCommandMediator()
 	 * @generated
 	 */
-	int COMMAND_MEDIATOR = 54;
+	int COMMAND_MEDIATOR = 55;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -6442,7 +6542,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getCommandProperty()
 	 * @generated
 	 */
-	int COMMAND_PROPERTY = 55;
+	int COMMAND_PROPERTY = 56;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -6578,7 +6678,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getEventMediator()
 	 * @generated
 	 */
-	int EVENT_MEDIATOR = 56;
+	int EVENT_MEDIATOR = 57;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -6705,7 +6805,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getAbstractSqlExecutorMediator()
 	 * @generated
 	 */
-	int ABSTRACT_SQL_EXECUTOR_MEDIATOR = 57;
+	int ABSTRACT_SQL_EXECUTOR_MEDIATOR = 58;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -6976,7 +7076,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getSqlStatement()
 	 * @generated
 	 */
-	int SQL_STATEMENT = 58;
+	int SQL_STATEMENT = 59;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -7085,7 +7185,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getSqlParameterDefinition()
 	 * @generated
 	 */
-	int SQL_PARAMETER_DEFINITION = 59;
+	int SQL_PARAMETER_DEFINITION = 60;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -7194,7 +7294,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getSqlResultMapping()
 	 * @generated
 	 */
-	int SQL_RESULT_MAPPING = 60;
+	int SQL_RESULT_MAPPING = 61;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -7285,7 +7385,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getDBLookupMediator()
 	 * @generated
 	 */
-	int DB_LOOKUP_MEDIATOR = 61;
+	int DB_LOOKUP_MEDIATOR = 62;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -7556,7 +7656,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getDBReportMediator()
 	 * @generated
 	 */
-	int DB_REPORT_MEDIATOR = 62;
+	int DB_REPORT_MEDIATOR = 63;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -7836,7 +7936,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getRuleMediator()
 	 * @generated
 	 */
-	int RULE_MEDIATOR = 63;
+	int RULE_MEDIATOR = 64;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -7963,7 +8063,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getRuleSetConfiguration()
 	 * @generated
 	 */
-	int RULE_SET_CONFIGURATION = 64;
+	int RULE_SET_CONFIGURATION = 65;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -8072,7 +8172,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getRuleSetCreationProperty()
 	 * @generated
 	 */
-	int RULE_SET_CREATION_PROPERTY = 65;
+	int RULE_SET_CREATION_PROPERTY = 66;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -8163,7 +8263,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getRuleSessionConfiguration()
 	 * @generated
 	 */
-	int RULE_SESSION_CONFIGURATION = 66;
+	int RULE_SESSION_CONFIGURATION = 67;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -8254,7 +8354,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getRuleSessionProperty()
 	 * @generated
 	 */
-	int RULE_SESSION_PROPERTY = 67;
+	int RULE_SESSION_PROPERTY = 68;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -8345,7 +8445,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getRuleFactsConfiguration()
 	 * @generated
 	 */
-	int RULE_FACTS_CONFIGURATION = 68;
+	int RULE_FACTS_CONFIGURATION = 69;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -8427,7 +8527,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getRuleFact()
 	 * @generated
 	 */
-	int RULE_FACT = 69;
+	int RULE_FACT = 70;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -8563,7 +8663,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getRuleResultsConfiguration()
 	 * @generated
 	 */
-	int RULE_RESULTS_CONFIGURATION = 70;
+	int RULE_RESULTS_CONFIGURATION = 71;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -8645,7 +8745,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getRuleResult()
 	 * @generated
 	 */
-	int RULE_RESULT = 71;
+	int RULE_RESULT = 72;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -8781,7 +8881,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getRuleChildMediatorsConfiguration()
 	 * @generated
 	 */
-	int RULE_CHILD_MEDIATORS_CONFIGURATION = 72;
+	int RULE_CHILD_MEDIATORS_CONFIGURATION = 73;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -8863,7 +8963,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getSequenceMediator()
 	 * @generated
 	 */
-	int SEQUENCE_MEDIATOR = 73;
+	int SEQUENCE_MEDIATOR = 74;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -8981,7 +9081,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getBuilderMediator()
 	 * @generated
 	 */
-	int BUILDER_MEDIATOR = 74;
+	int BUILDER_MEDIATOR = 75;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -9072,7 +9172,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getMessageBuilder()
 	 * @generated
 	 */
-	int MESSAGE_BUILDER = 75;
+	int MESSAGE_BUILDER = 76;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -9172,7 +9272,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getSmooksMediator()
 	 * @generated
 	 */
-	int SMOOKS_MEDIATOR = 76;
+	int SMOOKS_MEDIATOR = 77;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -9281,7 +9381,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getSmooksInConfiguration()
 	 * @generated
 	 */
-	int SMOOKS_IN_CONFIGURATION = 77;
+	int SMOOKS_IN_CONFIGURATION = 78;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -9372,7 +9472,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getSmooksOutConfiguration()
 	 * @generated
 	 */
-	int SMOOKS_OUT_CONFIGURATION = 78;
+	int SMOOKS_OUT_CONFIGURATION = 79;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -9490,7 +9590,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getStoreMediator()
 	 * @generated
 	 */
-	int STORE_MEDIATOR = 79;
+	int STORE_MEDIATOR = 80;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -9590,7 +9690,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getConditionalRouteBranch()
 	 * @generated
 	 */
-	int CONDITIONAL_ROUTE_BRANCH = 80;
+	int CONDITIONAL_ROUTE_BRANCH = 81;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -9699,7 +9799,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getConditionalRouterMediator()
 	 * @generated
 	 */
-	int CONDITIONAL_ROUTER_MEDIATOR = 81;
+	int CONDITIONAL_ROUTER_MEDIATOR = 82;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -9799,7 +9899,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getURLRewriteRuleAction()
 	 * @generated
 	 */
-	int URL_REWRITE_RULE_ACTION = 82;
+	int URL_REWRITE_RULE_ACTION = 83;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -9926,7 +10026,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getURLRewriteRule()
 	 * @generated
 	 */
-	int URL_REWRITE_RULE = 83;
+	int URL_REWRITE_RULE = 84;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -10017,7 +10117,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getURLRewriteMediator()
 	 * @generated
 	 */
-	int URL_REWRITE_MEDIATOR = 84;
+	int URL_REWRITE_MEDIATOR = 85;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -10126,7 +10226,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getCallTemplateMediator()
 	 * @generated
 	 */
-	int CALL_TEMPLATE_MEDIATOR = 85;
+	int CALL_TEMPLATE_MEDIATOR = 86;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -10226,7 +10326,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getCallTemplateParameter()
 	 * @generated
 	 */
-	int CALL_TEMPLATE_PARAMETER = 86;
+	int CALL_TEMPLATE_PARAMETER = 87;
 
 	/**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -10335,7 +10435,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getPayloadFactoryMediator()
 	 * @generated
 	 */
-    int PAYLOAD_FACTORY_MEDIATOR = 87;
+    int PAYLOAD_FACTORY_MEDIATOR = 88;
 
     /**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -10435,7 +10535,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getPayloadFactoryArgument()
 	 * @generated
 	 */
-    int PAYLOAD_FACTORY_ARGUMENT = 88;
+    int PAYLOAD_FACTORY_ARGUMENT = 89;
 
     /**
 	 * The feature id for the '<em><b>Object State</b></em>' attribute.
@@ -10535,7 +10635,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getLogCategory()
 	 * @generated
 	 */
-	int LOG_CATEGORY = 89;
+	int LOG_CATEGORY = 90;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.LogLevel <em>Log Level</em>}' enum.
@@ -10545,7 +10645,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getLogLevel()
 	 * @generated
 	 */
-	int LOG_LEVEL = 90;
+	int LOG_LEVEL = 91;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.FilterConditionType <em>Filter Condition Type</em>}' enum.
@@ -10555,7 +10655,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getFilterConditionType()
 	 * @generated
 	 */
-	int FILTER_CONDITION_TYPE = 91;
+	int FILTER_CONDITION_TYPE = 92;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.ScriptType <em>Script Type</em>}' enum.
@@ -10565,7 +10665,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getScriptType()
 	 * @generated
 	 */
-	int SCRIPT_TYPE = 92;
+	int SCRIPT_TYPE = 93;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.ScriptLanguage <em>Script Language</em>}' enum.
@@ -10575,7 +10675,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getScriptLanguage()
 	 * @generated
 	 */
-	int SCRIPT_LANGUAGE = 93;
+	int SCRIPT_LANGUAGE = 94;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.EnrichSourceType <em>Enrich Source Type</em>}' enum.
@@ -10585,7 +10685,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getEnrichSourceType()
 	 * @generated
 	 */
-	int ENRICH_SOURCE_TYPE = 94;
+	int ENRICH_SOURCE_TYPE = 95;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.EnrichTargetAction <em>Enrich Target Action</em>}' enum.
@@ -10595,7 +10695,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getEnrichTargetAction()
 	 * @generated
 	 */
-	int ENRICH_TARGET_ACTION = 95;
+	int ENRICH_TARGET_ACTION = 96;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.EnrichTargetType <em>Enrich Target Type</em>}' enum.
@@ -10605,7 +10705,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getEnrichTargetType()
 	 * @generated
 	 */
-	int ENRICH_TARGET_TYPE = 96;
+	int ENRICH_TARGET_TYPE = 97;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.FaultSoapVersion <em>Fault Soap Version</em>}' enum.
@@ -10615,7 +10715,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getFaultSoapVersion()
 	 * @generated
 	 */
-	int FAULT_SOAP_VERSION = 97;
+	int FAULT_SOAP_VERSION = 98;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.FaultCodeSoap11 <em>Fault Code Soap11</em>}' enum.
@@ -10625,7 +10725,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getFaultCodeSoap11()
 	 * @generated
 	 */
-	int FAULT_CODE_SOAP11 = 98;
+	int FAULT_CODE_SOAP11 = 99;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.FaultCodeSoap12 <em>Fault Code Soap12</em>}' enum.
@@ -10635,7 +10735,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getFaultCodeSoap12()
 	 * @generated
 	 */
-	int FAULT_CODE_SOAP12 = 99;
+	int FAULT_CODE_SOAP12 = 100;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.FaultStringType <em>Fault String Type</em>}' enum.
@@ -10645,7 +10745,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getFaultStringType()
 	 * @generated
 	 */
-	int FAULT_STRING_TYPE = 100;
+	int FAULT_STRING_TYPE = 101;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.FaultReasonType <em>Fault Reason Type</em>}' enum.
@@ -10655,7 +10755,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getFaultReasonType()
 	 * @generated
 	 */
-	int FAULT_REASON_TYPE = 101;
+	int FAULT_REASON_TYPE = 102;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.FaultDetailType <em>Fault Detail Type</em>}' enum.
@@ -10665,7 +10765,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getFaultDetailType()
 	 * @generated
 	 */
-	int FAULT_DETAIL_TYPE = 102;
+	int FAULT_DETAIL_TYPE = 103;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.AggregateSequenceType <em>Aggregate Sequence Type</em>}' enum.
@@ -10675,7 +10775,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getAggregateSequenceType()
 	 * @generated
 	 */
-	int AGGREGATE_SEQUENCE_TYPE = 103;
+	int AGGREGATE_SEQUENCE_TYPE = 104;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.CacheSequenceType <em>Cache Sequence Type</em>}' enum.
@@ -10685,7 +10785,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getCacheSequenceType()
 	 * @generated
 	 */
-	int CACHE_SEQUENCE_TYPE = 104;
+	int CACHE_SEQUENCE_TYPE = 105;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.CacheImplementationType <em>Cache Implementation Type</em>}' enum.
@@ -10695,7 +10795,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getCacheImplementationType()
 	 * @generated
 	 */
-	int CACHE_IMPLEMENTATION_TYPE = 105;
+	int CACHE_IMPLEMENTATION_TYPE = 106;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.CacheAction <em>Cache Action</em>}' enum.
@@ -10705,7 +10805,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getCacheAction()
 	 * @generated
 	 */
-	int CACHE_ACTION = 106;
+	int CACHE_ACTION = 107;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.CacheScope <em>Cache Scope</em>}' enum.
@@ -10715,7 +10815,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getCacheScope()
 	 * @generated
 	 */
-	int CACHE_SCOPE = 107;
+	int CACHE_SCOPE = 108;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.XQueryVariableType <em>XQuery Variable Type</em>}' enum.
@@ -10725,7 +10825,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getXQueryVariableType()
 	 * @generated
 	 */
-	int XQUERY_VARIABLE_TYPE = 108;
+	int XQUERY_VARIABLE_TYPE = 109;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.XQueryVariableValueType <em>XQuery Variable Value Type</em>}' enum.
@@ -10735,7 +10835,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getXQueryVariableValueType()
 	 * @generated
 	 */
-	int XQUERY_VARIABLE_VALUE_TYPE = 109;
+	int XQUERY_VARIABLE_VALUE_TYPE = 110;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.CalloutPayloadType <em>Callout Payload Type</em>}' enum.
@@ -10745,7 +10845,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getCalloutPayloadType()
 	 * @generated
 	 */
-	int CALLOUT_PAYLOAD_TYPE = 110;
+	int CALLOUT_PAYLOAD_TYPE = 111;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.CalloutResultType <em>Callout Result Type</em>}' enum.
@@ -10755,7 +10855,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getCalloutResultType()
 	 * @generated
 	 */
-	int CALLOUT_RESULT_TYPE = 111;
+	int CALLOUT_RESULT_TYPE = 112;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.RMSpecVersion <em>RM Spec Version</em>}' enum.
@@ -10765,7 +10865,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getRMSpecVersion()
 	 * @generated
 	 */
-	int RM_SPEC_VERSION = 112;
+	int RM_SPEC_VERSION = 113;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.RMSequenceType <em>RM Sequence Type</em>}' enum.
@@ -10775,7 +10875,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getRMSequenceType()
 	 * @generated
 	 */
-	int RM_SEQUENCE_TYPE = 113;
+	int RM_SEQUENCE_TYPE = 114;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.TransactionAction <em>Transaction Action</em>}' enum.
@@ -10785,7 +10885,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getTransactionAction()
 	 * @generated
 	 */
-	int TRANSACTION_ACTION = 114;
+	int TRANSACTION_ACTION = 115;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.PropertyDataType <em>Property Data Type</em>}' enum.
@@ -10795,7 +10895,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getPropertyDataType()
 	 * @generated
 	 */
-	int PROPERTY_DATA_TYPE = 115;
+	int PROPERTY_DATA_TYPE = 116;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.PropertyAction <em>Property Action</em>}' enum.
@@ -10805,7 +10905,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getPropertyAction()
 	 * @generated
 	 */
-	int PROPERTY_ACTION = 116;
+	int PROPERTY_ACTION = 117;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.PropertyScope <em>Property Scope</em>}' enum.
@@ -10815,7 +10915,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getPropertyScope()
 	 * @generated
 	 */
-	int PROPERTY_SCOPE = 117;
+	int PROPERTY_SCOPE = 118;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.PropertyValueType <em>Property Value Type</em>}' enum.
@@ -10825,7 +10925,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getPropertyValueType()
 	 * @generated
 	 */
-	int PROPERTY_VALUE_TYPE = 118;
+	int PROPERTY_VALUE_TYPE = 119;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.HeaderAction <em>Header Action</em>}' enum.
@@ -10835,7 +10935,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getHeaderAction()
 	 * @generated
 	 */
-	int HEADER_ACTION = 119;
+	int HEADER_ACTION = 120;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.HeaderValueType <em>Header Value Type</em>}' enum.
@@ -10845,7 +10945,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getHeaderValueType()
 	 * @generated
 	 */
-	int HEADER_VALUE_TYPE = 120;
+	int HEADER_VALUE_TYPE = 121;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.ThrottlePolicyType <em>Throttle Policy Type</em>}' enum.
@@ -10855,7 +10955,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getThrottlePolicyType()
 	 * @generated
 	 */
-	int THROTTLE_POLICY_TYPE = 121;
+	int THROTTLE_POLICY_TYPE = 122;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.ThrottleConditionType <em>Throttle Condition Type</em>}' enum.
@@ -10865,7 +10965,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getThrottleConditionType()
 	 * @generated
 	 */
-	int THROTTLE_CONDITION_TYPE = 122;
+	int THROTTLE_CONDITION_TYPE = 123;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.ThrottleAccessType <em>Throttle Access Type</em>}' enum.
@@ -10875,7 +10975,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getThrottleAccessType()
 	 * @generated
 	 */
-	int THROTTLE_ACCESS_TYPE = 123;
+	int THROTTLE_ACCESS_TYPE = 124;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.ThrottleSequenceType <em>Throttle Sequence Type</em>}' enum.
@@ -10885,7 +10985,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getThrottleSequenceType()
 	 * @generated
 	 */
-	int THROTTLE_SEQUENCE_TYPE = 124;
+	int THROTTLE_SEQUENCE_TYPE = 125;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.CommandPropertyValueType <em>Command Property Value Type</em>}' enum.
@@ -10895,7 +10995,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getCommandPropertyValueType()
 	 * @generated
 	 */
-	int COMMAND_PROPERTY_VALUE_TYPE = 125;
+	int COMMAND_PROPERTY_VALUE_TYPE = 126;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.CommandPropertyMessageAction <em>Command Property Message Action</em>}' enum.
@@ -10905,7 +11005,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getCommandPropertyMessageAction()
 	 * @generated
 	 */
-	int COMMAND_PROPERTY_MESSAGE_ACTION = 126;
+	int COMMAND_PROPERTY_MESSAGE_ACTION = 127;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.CommandPropertyContextAction <em>Command Property Context Action</em>}' enum.
@@ -10915,7 +11015,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getCommandPropertyContextAction()
 	 * @generated
 	 */
-	int COMMAND_PROPERTY_CONTEXT_ACTION = 127;
+	int COMMAND_PROPERTY_CONTEXT_ACTION = 128;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.SqlExecutorConnectionType <em>Sql Executor Connection Type</em>}' enum.
@@ -10925,7 +11025,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getSqlExecutorConnectionType()
 	 * @generated
 	 */
-	int SQL_EXECUTOR_CONNECTION_TYPE = 128;
+	int SQL_EXECUTOR_CONNECTION_TYPE = 129;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.SqlExecutorDatasourceType <em>Sql Executor Datasource Type</em>}' enum.
@@ -10935,7 +11035,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getSqlExecutorDatasourceType()
 	 * @generated
 	 */
-	int SQL_EXECUTOR_DATASOURCE_TYPE = 129;
+	int SQL_EXECUTOR_DATASOURCE_TYPE = 130;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.SqlExecutorBooleanValue <em>Sql Executor Boolean Value</em>}' enum.
@@ -10945,7 +11045,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getSqlExecutorBooleanValue()
 	 * @generated
 	 */
-	int SQL_EXECUTOR_BOOLEAN_VALUE = 130;
+	int SQL_EXECUTOR_BOOLEAN_VALUE = 131;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.SqlExecutorIsolationLevel <em>Sql Executor Isolation Level</em>}' enum.
@@ -10955,7 +11055,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getSqlExecutorIsolationLevel()
 	 * @generated
 	 */
-	int SQL_EXECUTOR_ISOLATION_LEVEL = 131;
+	int SQL_EXECUTOR_ISOLATION_LEVEL = 132;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.SqlParameterValueType <em>Sql Parameter Value Type</em>}' enum.
@@ -10965,7 +11065,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getSqlParameterValueType()
 	 * @generated
 	 */
-	int SQL_PARAMETER_VALUE_TYPE = 132;
+	int SQL_PARAMETER_VALUE_TYPE = 133;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.SqlParameterDataType <em>Sql Parameter Data Type</em>}' enum.
@@ -10975,7 +11075,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getSqlParameterDataType()
 	 * @generated
 	 */
-	int SQL_PARAMETER_DATA_TYPE = 133;
+	int SQL_PARAMETER_DATA_TYPE = 134;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.RuleSourceType <em>Rule Source Type</em>}' enum.
@@ -10985,7 +11085,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getRuleSourceType()
 	 * @generated
 	 */
-	int RULE_SOURCE_TYPE = 134;
+	int RULE_SOURCE_TYPE = 135;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.RuleFactType <em>Rule Fact Type</em>}' enum.
@@ -10995,7 +11095,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getRuleFactType()
 	 * @generated
 	 */
-	int RULE_FACT_TYPE = 135;
+	int RULE_FACT_TYPE = 136;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.RuleFactValueType <em>Rule Fact Value Type</em>}' enum.
@@ -11005,7 +11105,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getRuleFactValueType()
 	 * @generated
 	 */
-	int RULE_FACT_VALUE_TYPE = 136;
+	int RULE_FACT_VALUE_TYPE = 137;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.RuleResultType <em>Rule Result Type</em>}' enum.
@@ -11015,7 +11115,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getRuleResultType()
 	 * @generated
 	 */
-	int RULE_RESULT_TYPE = 137;
+	int RULE_RESULT_TYPE = 138;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.RuleResultValueType <em>Rule Result Value Type</em>}' enum.
@@ -11025,7 +11125,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getRuleResultValueType()
 	 * @generated
 	 */
-	int RULE_RESULT_VALUE_TYPE = 138;
+	int RULE_RESULT_VALUE_TYPE = 139;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.SmooksIODataType <em>Smooks IO Data Type</em>}' enum.
@@ -11035,7 +11135,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getSmooksIODataType()
 	 * @generated
 	 */
-	int SMOOKS_IO_DATA_TYPE = 139;
+	int SMOOKS_IO_DATA_TYPE = 140;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.ExpressionAction <em>Expression Action</em>}' enum.
@@ -11045,7 +11145,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getExpressionAction()
 	 * @generated
 	 */
-	int EXPRESSION_ACTION = 140;
+	int EXPRESSION_ACTION = 141;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.OutputMethod <em>Output Method</em>}' enum.
@@ -11055,7 +11155,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getOutputMethod()
 	 * @generated
 	 */
-	int OUTPUT_METHOD = 141;
+	int OUTPUT_METHOD = 142;
 
 
 	/**
@@ -11066,7 +11166,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getReceivingSequenceType()
 	 * @generated
 	 */
-	int RECEIVING_SEQUENCE_TYPE = 142;
+	int RECEIVING_SEQUENCE_TYPE = 143;
 
 
 	/**
@@ -11077,7 +11177,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getKeyType()
 	 * @generated
 	 */
-	int KEY_TYPE = 143;
+	int KEY_TYPE = 144;
 
 
 	/**
@@ -11088,7 +11188,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getRuleActionType()
 	 * @generated
 	 */
-	int RULE_ACTION_TYPE = 144;
+	int RULE_ACTION_TYPE = 145;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.RuleFragmentType <em>Rule Fragment Type</em>}' enum.
@@ -11098,7 +11198,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getRuleFragmentType()
 	 * @generated
 	 */
-	int RULE_FRAGMENT_TYPE = 145;
+	int RULE_FRAGMENT_TYPE = 146;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.RuleOptionType <em>Rule Option Type</em>}' enum.
@@ -11108,7 +11208,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getRuleOptionType()
 	 * @generated
 	 */
-	int RULE_OPTION_TYPE = 146;
+	int RULE_OPTION_TYPE = 147;
 
 
 	/**
@@ -11119,7 +11219,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getEnrichSourceInlineType()
 	 * @generated
 	 */
-	int ENRICH_SOURCE_INLINE_TYPE = 147;
+	int ENRICH_SOURCE_INLINE_TYPE = 148;
 
 
 	/**
@@ -11130,7 +11230,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getPayloadFactoryArgumentType()
 	 * @generated
 	 */
-    int PAYLOAD_FACTORY_ARGUMENT_TYPE = 148;
+    int PAYLOAD_FACTORY_ARGUMENT_TYPE = 149;
 
 
     /**
@@ -11141,7 +11241,7 @@ public interface MediatorsPackage extends EPackage {
 	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getCallOutMediatorEndpointType()
 	 * @generated
 	 */
-	int CALL_OUT_MEDIATOR_ENDPOINT_TYPE = 149;
+	int CALL_OUT_MEDIATOR_ENDPOINT_TYPE = 150;
 
 
 				/**
@@ -11688,6 +11788,17 @@ public interface MediatorsPackage extends EPackage {
 	EReference getValidateMediator_Schemas();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link org.wso2.developerstudio.eclipse.esb.mediators.ValidateMediator#getResources <em>Resources</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Resources</em>'.
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.ValidateMediator#getResources()
+	 * @see #getValidateMediator()
+	 * @generated
+	 */
+	EReference getValidateMediator_Resources();
+
+	/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.esb.mediators.ValidateOnFailBranch <em>Validate On Fail Branch</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -11760,6 +11871,16 @@ public interface MediatorsPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getValidateSchema_SchemaKey();
+
+	/**
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.esb.mediators.ValidateResource <em>Validate Resource</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Validate Resource</em>'.
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.ValidateResource
+	 * @generated
+	 */
+	EClass getValidateResource();
 
 	/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.esb.mediators.ScriptMediator <em>Script Mediator</em>}'.
@@ -16433,6 +16554,14 @@ public interface MediatorsPackage extends EPackage {
 		EReference VALIDATE_MEDIATOR__SCHEMAS = eINSTANCE.getValidateMediator_Schemas();
 
 		/**
+		 * The meta object literal for the '<em><b>Resources</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VALIDATE_MEDIATOR__RESOURCES = eINSTANCE.getValidateMediator_Resources();
+
+		/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.impl.ValidateOnFailBranchImpl <em>Validate On Fail Branch</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -16493,6 +16622,16 @@ public interface MediatorsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference VALIDATE_SCHEMA__SCHEMA_KEY = eINSTANCE.getValidateSchema_SchemaKey();
+
+		/**
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.impl.ValidateResourceImpl <em>Validate Resource</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.ValidateResourceImpl
+		 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getValidateResource()
+		 * @generated
+		 */
+		EClass VALIDATE_RESOURCE = eINSTANCE.getValidateResource();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.impl.ScriptMediatorImpl <em>Script Mediator</em>}' class.

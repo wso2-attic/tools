@@ -286,6 +286,14 @@ public class MediatorsSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case MediatorsPackage.VALIDATE_RESOURCE: {
+				ValidateResource validateResource = (ValidateResource)theEObject;
+				T result = caseValidateResource(validateResource);
+				if (result == null) result = caseAbstractLocationKeyResource(validateResource);
+				if (result == null) result = caseModelObject(validateResource);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case MediatorsPackage.SCRIPT_MEDIATOR: {
 				ScriptMediator scriptMediator = (ScriptMediator)theEObject;
 				T result = caseScriptMediator(scriptMediator);
@@ -1160,6 +1168,21 @@ public class MediatorsSwitch<T> {
 	 * @generated
 	 */
 	public T caseValidateSchema(ValidateSchema object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Validate Resource</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Validate Resource</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseValidateResource(ValidateResource object) {
 		return null;
 	}
 

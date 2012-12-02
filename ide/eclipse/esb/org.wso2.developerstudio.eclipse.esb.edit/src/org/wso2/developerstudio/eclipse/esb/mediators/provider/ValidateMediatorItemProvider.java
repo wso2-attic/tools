@@ -115,6 +115,7 @@ public class ValidateMediatorItemProvider extends MediatorItemProvider
 			childrenFeatures.add(MediatorsPackage.Literals.VALIDATE_MEDIATOR__ON_FAIL_BRANCH);
 			childrenFeatures.add(MediatorsPackage.Literals.VALIDATE_MEDIATOR__FEATURES);
 			childrenFeatures.add(MediatorsPackage.Literals.VALIDATE_MEDIATOR__SCHEMAS);
+			childrenFeatures.add(MediatorsPackage.Literals.VALIDATE_MEDIATOR__RESOURCES);
 		}
 		return childrenFeatures;
 	}
@@ -174,6 +175,7 @@ public class ValidateMediatorItemProvider extends MediatorItemProvider
 			case MediatorsPackage.VALIDATE_MEDIATOR__ON_FAIL_BRANCH:
 			case MediatorsPackage.VALIDATE_MEDIATOR__FEATURES:
 			case MediatorsPackage.VALIDATE_MEDIATOR__SCHEMAS:
+			case MediatorsPackage.VALIDATE_MEDIATOR__RESOURCES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -206,6 +208,11 @@ public class ValidateMediatorItemProvider extends MediatorItemProvider
 			(createChildParameter
 				(MediatorsPackage.Literals.VALIDATE_MEDIATOR__SCHEMAS,
 				 MediatorsFactory.eINSTANCE.createValidateSchema()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MediatorsPackage.Literals.VALIDATE_MEDIATOR__RESOURCES,
+				 MediatorsFactory.eINSTANCE.createValidateResource()));
 	}
 
 	/**

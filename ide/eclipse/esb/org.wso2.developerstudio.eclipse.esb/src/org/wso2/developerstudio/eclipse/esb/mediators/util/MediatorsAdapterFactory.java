@@ -173,6 +173,10 @@ public class MediatorsAdapterFactory extends AdapterFactoryImpl {
 				return createValidateSchemaAdapter();
 			}
 			@Override
+			public Adapter caseValidateResource(ValidateResource object) {
+				return createValidateResourceAdapter();
+			}
+			@Override
 			public Adapter caseScriptMediator(ScriptMediator object) {
 				return createScriptMediatorAdapter();
 			}
@@ -477,12 +481,12 @@ public class MediatorsAdapterFactory extends AdapterFactoryImpl {
 				return createAbstractBooleanFeatureAdapter();
 			}
 			@Override
-			public Adapter caseAbstractCommonTarget(AbstractCommonTarget object) {
-				return createAbstractCommonTargetAdapter();
-			}
-			@Override
 			public Adapter caseAbstractLocationKeyResource(AbstractLocationKeyResource object) {
 				return createAbstractLocationKeyResourceAdapter();
+			}
+			@Override
+			public Adapter caseAbstractCommonTarget(AbstractCommonTarget object) {
+				return createAbstractCommonTargetAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -796,6 +800,20 @@ public class MediatorsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createValidateSchemaAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.esb.mediators.ValidateResource <em>Validate Resource</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.ValidateResource
+	 * @generated
+	 */
+	public Adapter createValidateResourceAdapter() {
 		return null;
 	}
 
