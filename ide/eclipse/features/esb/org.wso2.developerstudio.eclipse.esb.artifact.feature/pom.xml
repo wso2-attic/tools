@@ -56,6 +56,8 @@
                                 <bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.artifact.localentry:${esb.tools.version}</bundleDef>
                                 <bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.artifact.mediator:${esb.tools.version}</bundleDef>
 				<bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.artifact.synapse:${esb.tools.version}</bundleDef>
+				<bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.artifact.synapse.api:${esb.api.artifact.version}</bundleDef>
+				<bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.artifact.task:${esb.task.artifact.version}</bundleDef>
                             </bundles>
                         </configuration>
                     </execution>

@@ -232,6 +232,8 @@
         <ds.tools.version>3.0.0-SNAPSHOT</ds.tools.version>  
 	<ds.tools.artifact.version>3.0.0-SNAPSHOT</ds.tools.artifact.version>
         <esb.tools.version>3.0.0-SNAPSHOT</esb.tools.version>  
+	<esb.api.artifact.version>1.0.0-SNAPSHOT</esb.api.artifact.version>
+	<esb.task.artifact.version>1.0.0-SNAPSHOT</esb.task.artifact.version>
         <common.ui.version>3.0.0-SNAPSHOT</common.ui.version>                   
         <common.maven.version>3.0.0-SNAPSHOT</common.maven.version>    
         <common.tools.version>3.0.0-SNAPSHOT</common.tools.version>                         
