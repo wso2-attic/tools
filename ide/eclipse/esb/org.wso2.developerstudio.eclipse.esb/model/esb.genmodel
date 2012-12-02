@@ -908,6 +908,7 @@
       <genFeatures createChild="false" propertyCategory="Result" ecoreFeature="ecore:EReference mediator.ecore#//CalloutMediator/resultMessageXpath"/>
       <genFeatures createChild="false" propertyCategory="Result" ecoreFeature="ecore:EAttribute mediator.ecore#//CalloutMediator/resultContextProperty"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mediator.ecore#//CalloutMediator/passHeaders"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mediator.ecore#//CalloutMediator/useServerConfig"/>
     </genClasses>
     <genClasses ecoreClass="mediator.ecore#//RMSequenceMediator">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mediator.ecore#//RMSequenceMediator/rmSpecVersion"/>

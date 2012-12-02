@@ -2935,6 +2935,15 @@ public class MediatorsPackageImpl extends EPackageImpl implements MediatorsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getCalloutMediator_UseServerConfig() {
+		return (EAttribute)calloutMediatorEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getRMSequenceMediator() {
 		return rmSequenceMediatorEClass;
 	}
@@ -5575,6 +5584,7 @@ public class MediatorsPackageImpl extends EPackageImpl implements MediatorsPacka
 		createEReference(calloutMediatorEClass, CALLOUT_MEDIATOR__RESULT_MESSAGE_XPATH);
 		createEAttribute(calloutMediatorEClass, CALLOUT_MEDIATOR__RESULT_CONTEXT_PROPERTY);
 		createEAttribute(calloutMediatorEClass, CALLOUT_MEDIATOR__PASS_HEADERS);
+		createEAttribute(calloutMediatorEClass, CALLOUT_MEDIATOR__USE_SERVER_CONFIG);
 
 		rmSequenceMediatorEClass = createEClass(RM_SEQUENCE_MEDIATOR);
 		createEAttribute(rmSequenceMediatorEClass, RM_SEQUENCE_MEDIATOR__RM_SPEC_VERSION);
@@ -6237,6 +6247,7 @@ public class MediatorsPackageImpl extends EPackageImpl implements MediatorsPacka
 		initEReference(getCalloutMediator_ResultMessageXpath(), theEsbPackage.getNamespacedProperty(), null, "resultMessageXpath", null, 0, 1, CalloutMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCalloutMediator_ResultContextProperty(), ecorePackage.getEString(), "resultContextProperty", "context_property_name", 0, 1, CalloutMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCalloutMediator_PassHeaders(), ecorePackage.getEBoolean(), "passHeaders", null, 0, 1, CalloutMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCalloutMediator_UseServerConfig(), ecorePackage.getEBoolean(), "useServerConfig", null, 0, 1, CalloutMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(rmSequenceMediatorEClass, RMSequenceMediator.class, "RMSequenceMediator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRMSequenceMediator_RmSpecVersion(), this.getRMSpecVersion(), "rmSpecVersion", "VERSION_1_0", 0, 1, RMSequenceMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

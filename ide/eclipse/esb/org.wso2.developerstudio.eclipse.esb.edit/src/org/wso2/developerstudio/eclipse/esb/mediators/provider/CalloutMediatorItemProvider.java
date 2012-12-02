@@ -96,6 +96,7 @@ public class CalloutMediatorItemProvider
 			addResultContextPropertyPropertyDescriptor(object);
 		}	
 		
+		addUseServerConfigPropertyDescriptor(object);
 		
 		return itemPropertyDescriptors;
 	}
@@ -343,6 +344,28 @@ public class CalloutMediatorItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Use Server Config feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addUseServerConfigPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CalloutMediator_useServerConfig_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CalloutMediator_useServerConfig_feature", "_UI_CalloutMediator_type"),
+				 MediatorsPackage.Literals.CALLOUT_MEDIATOR__USE_SERVER_CONFIG,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns CalloutMediator.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -388,6 +411,7 @@ public class CalloutMediatorItemProvider
 			case MediatorsPackage.CALLOUT_MEDIATOR__RESULT_MESSAGE_XPATH:
 			case MediatorsPackage.CALLOUT_MEDIATOR__RESULT_CONTEXT_PROPERTY:
 			case MediatorsPackage.CALLOUT_MEDIATOR__PASS_HEADERS:
+			case MediatorsPackage.CALLOUT_MEDIATOR__USE_SERVER_CONFIG:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

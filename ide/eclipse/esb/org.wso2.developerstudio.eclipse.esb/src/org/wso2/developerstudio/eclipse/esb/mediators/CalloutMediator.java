@@ -39,6 +39,7 @@ import org.wso2.developerstudio.eclipse.esb.RegistryKeyProperty;
  *   <li>{@link org.wso2.developerstudio.eclipse.esb.mediators.CalloutMediator#getResultMessageXpath <em>Result Message Xpath</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.esb.mediators.CalloutMediator#getResultContextProperty <em>Result Context Property</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.esb.mediators.CalloutMediator#isPassHeaders <em>Pass Headers</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.esb.mediators.CalloutMediator#isUseServerConfig <em>Use Server Config</em>}</li>
  * </ul>
  * </p>
  *
@@ -345,5 +346,31 @@ public interface CalloutMediator extends Mediator {
 	 * @generated
 	 */
 	void setPassHeaders(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Use Server Config</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Use Server Config</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Use Server Config</em>' attribute.
+	 * @see #setUseServerConfig(boolean)
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage#getCalloutMediator_UseServerConfig()
+	 * @model
+	 * @generated
+	 */
+	boolean isUseServerConfig();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.esb.mediators.CalloutMediator#isUseServerConfig <em>Use Server Config</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Use Server Config</em>' attribute.
+	 * @see #isUseServerConfig()
+	 * @generated
+	 */
+	void setUseServerConfig(boolean value);
 
 } // CalloutMediator

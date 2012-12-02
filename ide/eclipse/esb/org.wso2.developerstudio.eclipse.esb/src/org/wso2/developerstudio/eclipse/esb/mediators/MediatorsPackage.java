@@ -4982,13 +4982,22 @@ public interface MediatorsPackage extends EPackage {
 	int CALLOUT_MEDIATOR__PASS_HEADERS = EsbPackage.MEDIATOR_FEATURE_COUNT + 10;
 
 	/**
+	 * The feature id for the '<em><b>Use Server Config</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CALLOUT_MEDIATOR__USE_SERVER_CONFIG = EsbPackage.MEDIATOR_FEATURE_COUNT + 11;
+
+	/**
 	 * The number of structural features of the '<em>Callout Mediator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CALLOUT_MEDIATOR_FEATURE_COUNT = EsbPackage.MEDIATOR_FEATURE_COUNT + 11;
+	int CALLOUT_MEDIATOR_FEATURE_COUNT = EsbPackage.MEDIATOR_FEATURE_COUNT + 12;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.impl.RMSequenceMediatorImpl <em>RM Sequence Mediator</em>}' class.
@@ -13067,6 +13076,17 @@ public interface MediatorsPackage extends EPackage {
 	EAttribute getCalloutMediator_PassHeaders();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.esb.mediators.CalloutMediator#isUseServerConfig <em>Use Server Config</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Use Server Config</em>'.
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.CalloutMediator#isUseServerConfig()
+	 * @see #getCalloutMediator()
+	 * @generated
+	 */
+	EAttribute getCalloutMediator_UseServerConfig();
+
+	/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.esb.mediators.RMSequenceMediator <em>RM Sequence Mediator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -17446,6 +17466,14 @@ public interface MediatorsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CALLOUT_MEDIATOR__PASS_HEADERS = eINSTANCE.getCalloutMediator_PassHeaders();
+
+		/**
+		 * The meta object literal for the '<em><b>Use Server Config</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CALLOUT_MEDIATOR__USE_SERVER_CONFIG = eINSTANCE.getCalloutMediator_UseServerConfig();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.impl.RMSequenceMediatorImpl <em>RM Sequence Mediator</em>}' class.

@@ -51,6 +51,7 @@ import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
  *   <li>{@link org.wso2.developerstudio.eclipse.esb.mediators.impl.CalloutMediatorImpl#getResultMessageXpath <em>Result Message Xpath</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.esb.mediators.impl.CalloutMediatorImpl#getResultContextProperty <em>Result Context Property</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.esb.mediators.impl.CalloutMediatorImpl#isPassHeaders <em>Pass Headers</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.esb.mediators.impl.CalloutMediatorImpl#isUseServerConfig <em>Use Server Config</em>}</li>
  * </ul>
  * </p>
  *
@@ -244,6 +245,26 @@ public class CalloutMediatorImpl extends MediatorImpl implements
 	protected boolean passHeaders = PASS_HEADERS_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #isUseServerConfig() <em>Use Server Config</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isUseServerConfig()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean USE_SERVER_CONFIG_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isUseServerConfig() <em>Use Server Config</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isUseServerConfig()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean useServerConfig = USE_SERVER_CONFIG_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
 	protected CalloutMediatorImpl() {
@@ -302,6 +323,14 @@ public class CalloutMediatorImpl extends MediatorImpl implements
 		} else {
 			setPassHeaders(false);
 		}
+				
+		// Use Server Config
+		if (self.hasAttribute("useServerConfig")) {
+			setUseServerConfig(self.getAttribute("useServerConfig").equals(
+					"true") ? true : false);
+		} else {
+			setUseServerConfig(false);
+		}
 
 		// Payload.
 		Element sourceElem = getChildElement(self, "source");
@@ -353,6 +382,11 @@ public class CalloutMediatorImpl extends MediatorImpl implements
 		// Pass Headers
 		if (isPassHeaders()) {
 			self.setAttribute("passHeaders", "true");
+		}
+				
+		// Use Server Configs
+		if (isUseServerConfig()) {
+			self.setAttribute("useServerConfig", "true");
 		}
 
 		// Configuration.
@@ -682,6 +716,27 @@ public class CalloutMediatorImpl extends MediatorImpl implements
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isUseServerConfig() {
+		return useServerConfig;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setUseServerConfig(boolean newUseServerConfig) {
+		boolean oldUseServerConfig = useServerConfig;
+		useServerConfig = newUseServerConfig;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.CALLOUT_MEDIATOR__USE_SERVER_CONFIG, oldUseServerConfig, useServerConfig));
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -730,6 +785,8 @@ public class CalloutMediatorImpl extends MediatorImpl implements
 				return getResultContextProperty();
 			case MediatorsPackage.CALLOUT_MEDIATOR__PASS_HEADERS:
 				return isPassHeaders();
+			case MediatorsPackage.CALLOUT_MEDIATOR__USE_SERVER_CONFIG:
+				return isUseServerConfig();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -774,6 +831,9 @@ public class CalloutMediatorImpl extends MediatorImpl implements
 				return;
 			case MediatorsPackage.CALLOUT_MEDIATOR__PASS_HEADERS:
 				setPassHeaders((Boolean)newValue);
+				return;
+			case MediatorsPackage.CALLOUT_MEDIATOR__USE_SERVER_CONFIG:
+				setUseServerConfig((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -820,6 +880,9 @@ public class CalloutMediatorImpl extends MediatorImpl implements
 			case MediatorsPackage.CALLOUT_MEDIATOR__PASS_HEADERS:
 				setPassHeaders(PASS_HEADERS_EDEFAULT);
 				return;
+			case MediatorsPackage.CALLOUT_MEDIATOR__USE_SERVER_CONFIG:
+				setUseServerConfig(USE_SERVER_CONFIG_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -854,6 +917,8 @@ public class CalloutMediatorImpl extends MediatorImpl implements
 				return RESULT_CONTEXT_PROPERTY_EDEFAULT == null ? resultContextProperty != null : !RESULT_CONTEXT_PROPERTY_EDEFAULT.equals(resultContextProperty);
 			case MediatorsPackage.CALLOUT_MEDIATOR__PASS_HEADERS:
 				return passHeaders != PASS_HEADERS_EDEFAULT;
+			case MediatorsPackage.CALLOUT_MEDIATOR__USE_SERVER_CONFIG:
+				return useServerConfig != USE_SERVER_CONFIG_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -884,6 +949,8 @@ public class CalloutMediatorImpl extends MediatorImpl implements
 		result.append(resultContextProperty);
 		result.append(", passHeaders: ");
 		result.append(passHeaders);
+		result.append(", useServerConfig: ");
+		result.append(useServerConfig);
 		result.append(')');
 		return result.toString();
 	}
