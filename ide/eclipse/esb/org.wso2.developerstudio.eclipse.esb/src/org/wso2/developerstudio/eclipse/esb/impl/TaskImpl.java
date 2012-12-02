@@ -622,23 +622,28 @@ public class TaskImpl extends ConfigurationElementImpl implements Task {
 	@Override
 	protected void doLoad(Element self) throws Exception {
 		setTaskName(self.getAttribute("name"));
-		setTaskGroup(self.getAttribute("class"));
-		setPinnedServers(self.getAttribute("pinnedServers"));
+		setTaskGroup(self.getAttribute("group"));
+		
+		if(self.hasAttribute("pinnedServers")){
+			setPinnedServers(self.getAttribute("pinnedServers"));
+		}
 		
 		Element trigger = getChildElement(self, "trigger");
-		if(trigger.getAttribute("cron")==null || trigger.getAttribute("cron").trim().isEmpty()){
+		if(trigger.hasAttribute("once") && trigger.getAttribute("once").equalsIgnoreCase("true")){
+			setTriggerType(TaskTriggerType.SIMPLE);
+			setCount(1);
+			setInterval(0);
+		} else if(trigger.getAttribute("cron")==null || trigger.getAttribute("cron").trim().isEmpty()){
 			setTriggerType(TaskTriggerType.SIMPLE);
 			try {
-				setCount(Long.parseLong(trigger.getAttribute("count")));
+				setCount(Math.abs(Long.parseLong(trigger.getAttribute("count"))));
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				setCount(1);
 			}
 			try {
-				setInterval(Long.parseLong(trigger.getAttribute("interval")));
+				setInterval(Math.abs(Long.parseLong(trigger.getAttribute("interval"))));
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				setInterval(0);
 			}
 		}else{
 			setTriggerType(TaskTriggerType.CRON);
@@ -678,12 +683,18 @@ public class TaskImpl extends ConfigurationElementImpl implements Task {
 		
 		self.setAttribute("name", getTaskName());
 		self.setAttribute("group", getTaskGroup());
-		self.setAttribute("pinnedServers", getPinnedServers());
+		if(getPinnedServers()!=null && !getPinnedServers().trim().isEmpty()){
+			self.setAttribute("pinnedServers", getPinnedServers());
+		}
 		
 		Element triggerNode = createChildElement(self, "trigger");
 		if(getTriggerType().equals(TaskTriggerType.SIMPLE)){
-			triggerNode.setAttribute("count", ""+getCount());
-			triggerNode.setAttribute("interval", ""+getInterval());
+			if(getCount() <= 1 && getInterval() == 0){
+				triggerNode.setAttribute("once", "true");
+			} else{
+				triggerNode.setAttribute("count", "" + Math.abs(getCount()));
+				triggerNode.setAttribute("interval", "" + Math.abs(getInterval()));
+			}
 		}else{
 			triggerNode.setAttribute("cron", getCron());
 		}
