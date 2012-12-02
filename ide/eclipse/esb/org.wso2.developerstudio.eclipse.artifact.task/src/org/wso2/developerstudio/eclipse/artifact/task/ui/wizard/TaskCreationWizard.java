@@ -23,12 +23,20 @@ import org.wso2.developerstudio.eclipse.artifact.task.Activator;
 import org.wso2.developerstudio.eclipse.artifact.task.model.TaskModel;
 import org.wso2.developerstudio.eclipse.artifact.task.util.TaskImageUtils;
 import org.wso2.developerstudio.eclipse.artifact.task.validator.TriggerTypeList.TriggerType;
+import org.wso2.developerstudio.eclipse.capp.maven.utils.MavenConstants;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBArtifact;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
+import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
+import org.apache.maven.model.Plugin;
+import org.apache.maven.model.PluginExecution;
+import org.apache.maven.model.Repository;
+import org.apache.maven.model.RepositoryPolicy;
+import org.apache.maven.project.MavenProject;
+import org.codehaus.plexus.util.xml.Xpp3Dom;
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
@@ -71,7 +79,8 @@ private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 			if (!pomfile.exists()) {
 				createPOM(pomfile);
 			}
-			// FIXME : implement updatePOM()
+		
+			updatePom();
 
 			esbProject.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 
@@ -156,6 +165,51 @@ private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 		artifact.setGroupId(groupId);
 		artifact.setFile(path);
 		return artifact;
+	}
+	
+	public void updatePom() throws Exception{
+		File mavenProjectPomLocation = esbProject.getFile("pom.xml").getLocation().toFile();
+		MavenProject mavenProject = MavenUtils.getMavenProject(mavenProjectPomLocation);
+
+		boolean pluginExists = MavenUtils.checkOldPluginEntry(mavenProject,
+				"org.wso2.maven", "wso2-esb-task-plugin",
+				MavenConstants.WSO2_ESB_TASK_VERSION);
+		if(pluginExists){
+			return ;
+		}
+		
+		Plugin plugin = MavenUtils.createPluginEntry(mavenProject, "org.wso2.maven", "wso2-esb-task-plugin", MavenConstants.WSO2_ESB_TASK_VERSION, true);
+		
+		PluginExecution pluginExecution = new PluginExecution();
+		pluginExecution.addGoal("pom-gen");
+		pluginExecution.setPhase("process-resources");
+		pluginExecution.setId("task");
+		
+		Xpp3Dom configurationNode = MavenUtils.createMainConfigurationNode();
+		Xpp3Dom artifactLocationNode = MavenUtils.createXpp3Node(configurationNode, "artifactLocation");
+		artifactLocationNode.setValue(".");
+		Xpp3Dom typeListNode = MavenUtils.createXpp3Node(configurationNode, "typeList");
+		typeListNode.setValue("${artifact.types}");
+		pluginExecution.setConfiguration(configurationNode);
+		
+		plugin.addExecution(pluginExecution);
+		Repository repo = new Repository();
+		repo.setUrl("http://maven.wso2.org/nexus/content/groups/wso2-public/");
+		repo.setId("wso2-nexus");
+		
+		RepositoryPolicy releasePolicy=new RepositoryPolicy();
+		releasePolicy.setEnabled(true);
+		releasePolicy.setUpdatePolicy("daily");
+		releasePolicy.setChecksumPolicy("ignore");
+		
+		repo.setReleases(releasePolicy);
+		
+		if (!mavenProject.getRepositories().contains(repo)) {
+	        mavenProject.getModel().addRepository(repo);
+	        mavenProject.getModel().addPluginRepository(repo);
+        }
+		
+		MavenUtils.saveMavenProject(mavenProject, mavenProjectPomLocation);
 	}
 
 }
