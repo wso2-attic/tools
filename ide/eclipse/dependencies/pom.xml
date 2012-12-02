@@ -27,6 +27,9 @@
 	    <module>wso2-esb-localentry-plugin</module>
             <module>wso2-general-project-plugin</module>
 	    <module>wso2-esb-synapse-plugin</module>
+	    <module>wso2-esb-api-plugin</module>
+	    <module>wso2-esb-task-plugin</module>
+	    <module>wso2-esb-template-plugin</module>
 	    <module>maven-proxy-plugin</module>
 	    <module>maven-localentry-plugin</module>
 	    <module>maven-registry-plugin</module>

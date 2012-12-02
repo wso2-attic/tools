@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.wso2.maven.proxy;
+package org.wso2.maven.template;
 
 import java.io.File;
 import java.io.IOException;
@@ -42,7 +42,7 @@ import org.wso2.maven.esb.utils.ESBMavenUtils;
  * @goal pom-gen
  * 
  */
-public class ProxyServicePOMGenMojo extends AbstractPOMGenMojo {
+public class ESBTemplatePOMGenMojo extends AbstractPOMGenMojo {
 
 	/**
 	 * @parameter default-value="${project}"
@@ -93,7 +93,7 @@ public class ProxyServicePOMGenMojo extends AbstractPOMGenMojo {
 	
 	private MavenProject mavenModuleProject;
 
-	private static final String ARTIFACT_TYPE="synapse/proxy-service";
+	private static final String ARTIFACT_TYPE="synapse/template";
 	
 	private List<ESBArtifact> retrieveArtifacts() {
 		return ESBMavenUtils.retrieveArtifacts(getArtifactLocation());
@@ -129,7 +129,9 @@ public class ProxyServicePOMGenMojo extends AbstractPOMGenMojo {
 	}
 	
 	protected void addPlugins(MavenProject artifactMavenProject, Artifact artifact) {
-		Plugin plugin = CAppMavenUtils.createPluginEntry(artifactMavenProject,"org.wso2.maven","maven-proxy-plugin",WSO2MavenPluginConstantants.MAVEN_PROXY_PLUGIN_VERSION,true);
+		Plugin plugin = CAppMavenUtils.createPluginEntry(artifactMavenProject,
+				"org.wso2.maven", "wso2-esb-template-plugin",
+				WSO2MavenPluginConstantants.WSO2_ESB_TEMPLATE_VERSION,true);
 		Xpp3Dom configuration = (Xpp3Dom)plugin.getConfiguration();
 		//add configuration
 		Xpp3Dom aritfact = CAppMavenUtils.createConfigurationNode(configuration,"artifact");

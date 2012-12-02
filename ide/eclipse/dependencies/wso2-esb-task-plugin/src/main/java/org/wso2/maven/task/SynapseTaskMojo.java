@@ -1,4 +1,4 @@
-package org.wso2.maven.proxy;
+package org.wso2.maven.task;
 
 import java.io.File;
 import java.io.IOException;
@@ -13,9 +13,9 @@ import org.codehaus.plexus.util.FileUtils;
 /**
  * Prepare an artifact to be installed in the local Maven repository
  * 
- * @goal package-proxy
+ * @goal package-task
  */
-public class ProxyServiceMojo extends AbstractMojo{
+public class SynapseTaskMojo extends AbstractMojo{
 
 	/**
 	 * @parameter default-value="${project}"

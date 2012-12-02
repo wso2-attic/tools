@@ -20,7 +20,7 @@
   <components>
     <component>
       <role>org.apache.maven.lifecycle.mapping.LifecycleMapping</role>
-      <role-hint>synapse/proxy-service</role-hint>
+      <role-hint>synapse/api</role-hint>
       <implementation>org.apache.maven.lifecycle.mapping.DefaultLifecycleMapping</implementation>
       <configuration>
         <lifecycles>
@@ -32,7 +32,7 @@
               <process-test-resources>org.apache.maven.plugins:maven-resources-plugin:testResources</process-test-resources>
               <test-compile>org.apache.maven.plugins:maven-compiler-plugin:testCompile</test-compile>
               <test>org.apache.maven.plugins:maven-surefire-plugin:test</test>
-              <package>org.wso2.maven:wso2-esb-proxy-plugin:package-proxy</package>
+              <package>org.wso2.maven:wso2-esb-api-plugin:package-api</package>
               <install>
                 org.apache.maven.plugins:maven-install-plugin:install
               </install>
@@ -46,10 +46,10 @@
     </component>
     <component>
       <role>org.apache.maven.artifact.handler.ArtifactHandler</role>
-      <role-hint>synapse/proxy-service</role-hint>
+      <role-hint>synapse/api</role-hint>
       <implementation>org.apache.maven.artifact.handler.DefaultArtifactHandler</implementation>
       <configuration>
-        <type>synapse/proxy-service</type>
+        <type>synapse/api</type>
         <includesDependencies>false</includesDependencies>
         <extension>xml</extension>
         <addedToClasspath>false</addedToClasspath>
