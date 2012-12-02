@@ -290,6 +290,8 @@ public class MediatorsFactoryImpl extends EFactoryImpl implements MediatorsFacto
 				return createEnrichSourceInlineTypeFromString(eDataType, initialValue);
 			case MediatorsPackage.PAYLOAD_FACTORY_ARGUMENT_TYPE:
 				return createPayloadFactoryArgumentTypeFromString(eDataType, initialValue);
+			case MediatorsPackage.CALL_OUT_MEDIATOR_ENDPOINT_TYPE:
+				return createCallOutMediatorEndpointTypeFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -424,6 +426,8 @@ public class MediatorsFactoryImpl extends EFactoryImpl implements MediatorsFacto
 				return convertEnrichSourceInlineTypeToString(eDataType, instanceValue);
 			case MediatorsPackage.PAYLOAD_FACTORY_ARGUMENT_TYPE:
 				return convertPayloadFactoryArgumentTypeToString(eDataType, instanceValue);
+			case MediatorsPackage.CALL_OUT_MEDIATOR_ENDPOINT_TYPE:
+				return convertCallOutMediatorEndpointTypeToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -2510,6 +2514,26 @@ public class MediatorsFactoryImpl extends EFactoryImpl implements MediatorsFacto
 	}
 
     /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CallOutMediatorEndpointType createCallOutMediatorEndpointTypeFromString(EDataType eDataType, String initialValue) {
+		CallOutMediatorEndpointType result = CallOutMediatorEndpointType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertCallOutMediatorEndpointTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+				/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated

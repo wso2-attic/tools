@@ -4991,13 +4991,31 @@ public interface MediatorsPackage extends EPackage {
 	int CALLOUT_MEDIATOR__USE_SERVER_CONFIG = EsbPackage.MEDIATOR_FEATURE_COUNT + 11;
 
 	/**
+	 * The feature id for the '<em><b>Endpoint Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CALLOUT_MEDIATOR__ENDPOINT_TYPE = EsbPackage.MEDIATOR_FEATURE_COUNT + 12;
+
+	/**
+	 * The feature id for the '<em><b>Endpoint Key</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CALLOUT_MEDIATOR__ENDPOINT_KEY = EsbPackage.MEDIATOR_FEATURE_COUNT + 13;
+
+	/**
 	 * The number of structural features of the '<em>Callout Mediator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CALLOUT_MEDIATOR_FEATURE_COUNT = EsbPackage.MEDIATOR_FEATURE_COUNT + 12;
+	int CALLOUT_MEDIATOR_FEATURE_COUNT = EsbPackage.MEDIATOR_FEATURE_COUNT + 14;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.impl.RMSequenceMediatorImpl <em>RM Sequence Mediator</em>}' class.
@@ -11116,6 +11134,17 @@ public interface MediatorsPackage extends EPackage {
 
 
     /**
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.CallOutMediatorEndpointType <em>Call Out Mediator Endpoint Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.CallOutMediatorEndpointType
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getCallOutMediatorEndpointType()
+	 * @generated
+	 */
+	int CALL_OUT_MEDIATOR_ENDPOINT_TYPE = 149;
+
+
+				/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.esb.mediators.InMediator <em>In Mediator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -13085,6 +13114,28 @@ public interface MediatorsPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getCalloutMediator_UseServerConfig();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.esb.mediators.CalloutMediator#getEndpointType <em>Endpoint Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Endpoint Type</em>'.
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.CalloutMediator#getEndpointType()
+	 * @see #getCalloutMediator()
+	 * @generated
+	 */
+	EAttribute getCalloutMediator_EndpointType();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.wso2.developerstudio.eclipse.esb.mediators.CalloutMediator#getEndpointKey <em>Endpoint Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Endpoint Key</em>'.
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.CalloutMediator#getEndpointKey()
+	 * @see #getCalloutMediator()
+	 * @generated
+	 */
+	EReference getCalloutMediator_EndpointKey();
 
 	/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.esb.mediators.RMSequenceMediator <em>RM Sequence Mediator</em>}'.
@@ -15906,6 +15957,16 @@ public interface MediatorsPackage extends EPackage {
     EEnum getPayloadFactoryArgumentType();
 
     /**
+	 * Returns the meta object for enum '{@link org.wso2.developerstudio.eclipse.esb.mediators.CallOutMediatorEndpointType <em>Call Out Mediator Endpoint Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Call Out Mediator Endpoint Type</em>'.
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.CallOutMediatorEndpointType
+	 * @generated
+	 */
+	EEnum getCallOutMediatorEndpointType();
+
+				/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -17474,6 +17535,22 @@ public interface MediatorsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CALLOUT_MEDIATOR__USE_SERVER_CONFIG = eINSTANCE.getCalloutMediator_UseServerConfig();
+
+		/**
+		 * The meta object literal for the '<em><b>Endpoint Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CALLOUT_MEDIATOR__ENDPOINT_TYPE = eINSTANCE.getCalloutMediator_EndpointType();
+
+		/**
+		 * The meta object literal for the '<em><b>Endpoint Key</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CALLOUT_MEDIATOR__ENDPOINT_KEY = eINSTANCE.getCalloutMediator_EndpointKey();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.impl.RMSequenceMediatorImpl <em>RM Sequence Mediator</em>}' class.
@@ -19816,6 +19893,16 @@ public interface MediatorsPackage extends EPackage {
 		 * @generated
 		 */
         EEnum PAYLOAD_FACTORY_ARGUMENT_TYPE = eINSTANCE.getPayloadFactoryArgumentType();
+
+								/**
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.esb.mediators.CallOutMediatorEndpointType <em>Call Out Mediator Endpoint Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.wso2.developerstudio.eclipse.esb.mediators.CallOutMediatorEndpointType
+		 * @see org.wso2.developerstudio.eclipse.esb.mediators.impl.MediatorsPackageImpl#getCallOutMediatorEndpointType()
+		 * @generated
+		 */
+		EEnum CALL_OUT_MEDIATOR_ENDPOINT_TYPE = eINSTANCE.getCallOutMediatorEndpointType();
 
 	}
 

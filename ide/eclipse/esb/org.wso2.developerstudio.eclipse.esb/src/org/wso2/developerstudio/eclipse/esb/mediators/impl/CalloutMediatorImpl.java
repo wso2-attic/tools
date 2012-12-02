@@ -16,6 +16,7 @@
 package org.wso2.developerstudio.eclipse.esb.mediators.impl;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
@@ -27,12 +28,16 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.w3c.dom.Element;
 import org.wso2.developerstudio.eclipse.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.esb.RegistryKeyProperty;
+import org.wso2.developerstudio.eclipse.esb.core.utils.ESBMediaTypeConstants;
 import org.wso2.developerstudio.eclipse.esb.impl.MediatorImpl;
+import org.wso2.developerstudio.eclipse.esb.mediators.CallOutMediatorEndpointType;
 import org.wso2.developerstudio.eclipse.esb.mediators.CalloutMediator;
 import org.wso2.developerstudio.eclipse.esb.mediators.CalloutPayloadType;
 import org.wso2.developerstudio.eclipse.esb.mediators.CalloutResultType;
 import org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage;
 import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
+import org.wso2.developerstudio.eclipse.platform.core.utils.CSProviderConstants;
+import org.wso2.developerstudio.eclipse.platform.core.utils.DeveloperStudioProviderUtils;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
@@ -52,6 +57,8 @@ import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
  *   <li>{@link org.wso2.developerstudio.eclipse.esb.mediators.impl.CalloutMediatorImpl#getResultContextProperty <em>Result Context Property</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.esb.mediators.impl.CalloutMediatorImpl#isPassHeaders <em>Pass Headers</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.esb.mediators.impl.CalloutMediatorImpl#isUseServerConfig <em>Use Server Config</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.esb.mediators.impl.CalloutMediatorImpl#getEndpointType <em>Endpoint Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.esb.mediators.impl.CalloutMediatorImpl#getEndpointKey <em>Endpoint Key</em>}</li>
  * </ul>
  * </p>
  *
@@ -265,6 +272,36 @@ public class CalloutMediatorImpl extends MediatorImpl implements
 	protected boolean useServerConfig = USE_SERVER_CONFIG_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getEndpointType() <em>Endpoint Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEndpointType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final CallOutMediatorEndpointType ENDPOINT_TYPE_EDEFAULT = CallOutMediatorEndpointType.ANONYMOUS;
+
+	/**
+	 * The cached value of the '{@link #getEndpointType() <em>Endpoint Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEndpointType()
+	 * @generated
+	 * @ordered
+	 */
+	protected CallOutMediatorEndpointType endpointType = ENDPOINT_TYPE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getEndpointKey() <em>Endpoint Key</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEndpointKey()
+	 * @generated
+	 * @ordered
+	 */
+	protected RegistryKeyProperty endpointKey;
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 */
 	protected CalloutMediatorImpl() {
@@ -293,6 +330,16 @@ public class CalloutMediatorImpl extends MediatorImpl implements
 		resultXpath.setPropertyName("xpath");
 		resultXpath.setPropertyValue(DEFAULT_XPATH_PROPERTY_VALUE);
 		setResultMessageXpath(resultXpath);
+		
+		// Endpoint registry key.
+		RegistryKeyProperty endpointKey = getEsbFactory()
+				.createRegistryKeyProperty();
+		//Setting up filters to filter in only the relevant items from the list 
+		DeveloperStudioProviderUtils.addFilter((Map<String, List<String>>)endpointKey.getFilters(), CSProviderConstants.FILTER_MEDIA_TYPE, ESBMediaTypeConstants.MEDIA_TYPE_ENDPOINT);
+		endpointKey.setPrettyName("Endpoint Key");
+		endpointKey.setKeyName("endpointKey");
+		endpointKey.setKeyValue(DEFAULT_REGISTRY_KEY);
+		setEndpointKey(endpointKey);
 	}
 
 	/**
@@ -302,6 +349,14 @@ public class CalloutMediatorImpl extends MediatorImpl implements
 		// Service URL.
 		if (self.hasAttribute("serviceURL")) {
 			setServiceURL(self.getAttribute("serviceURL"));
+			setEndpointType(CallOutMediatorEndpointType.ANONYMOUS);
+		} else if(self.hasAttribute("endpointKey")){
+			setEndpointType(CallOutMediatorEndpointType.REGISTRY_REFERENCE);
+			RegistryKeyProperty endPointKey = getEsbFactory().createRegistryKeyProperty();
+			endPointKey.setKeyValue(self.getAttribute("endpointKey"));
+			endPointKey.setPrettyName("Endpoint Key");
+			endPointKey.setKeyName("endpointKey");
+			setEndpointKey(endPointKey);
 		} else {
 			throw new Exception("Expected service url.");
 		}
@@ -373,7 +428,13 @@ public class CalloutMediatorImpl extends MediatorImpl implements
 	 */
 	protected Element doSave(Element parent) throws Exception {
 		Element self = createChildElement(parent, "callout");
-		self.setAttribute("serviceURL", getServiceURL());
+		
+		if(getEndpointType()==CallOutMediatorEndpointType.ANONYMOUS){
+			self.setAttribute("serviceURL", getServiceURL());
+		}else{
+			self.setAttribute("endpointKey", getEndpointKey().getKeyValue());
+		}
+		
 
 		if (!StringUtils.isBlank(getSoapAction())) {
 			self.setAttribute("action", getSoapAction());
@@ -737,6 +798,65 @@ public class CalloutMediatorImpl extends MediatorImpl implements
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CallOutMediatorEndpointType getEndpointType() {
+		return endpointType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEndpointType(CallOutMediatorEndpointType newEndpointType) {
+		CallOutMediatorEndpointType oldEndpointType = endpointType;
+		endpointType = newEndpointType == null ? ENDPOINT_TYPE_EDEFAULT : newEndpointType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.CALLOUT_MEDIATOR__ENDPOINT_TYPE, oldEndpointType, endpointType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RegistryKeyProperty getEndpointKey() {
+		if (endpointKey != null && endpointKey.eIsProxy()) {
+			InternalEObject oldEndpointKey = (InternalEObject)endpointKey;
+			endpointKey = (RegistryKeyProperty)eResolveProxy(oldEndpointKey);
+			if (endpointKey != oldEndpointKey) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MediatorsPackage.CALLOUT_MEDIATOR__ENDPOINT_KEY, oldEndpointKey, endpointKey));
+			}
+		}
+		return endpointKey;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RegistryKeyProperty basicGetEndpointKey() {
+		return endpointKey;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEndpointKey(RegistryKeyProperty newEndpointKey) {
+		RegistryKeyProperty oldEndpointKey = endpointKey;
+		endpointKey = newEndpointKey;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MediatorsPackage.CALLOUT_MEDIATOR__ENDPOINT_KEY, oldEndpointKey, endpointKey));
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -787,6 +907,11 @@ public class CalloutMediatorImpl extends MediatorImpl implements
 				return isPassHeaders();
 			case MediatorsPackage.CALLOUT_MEDIATOR__USE_SERVER_CONFIG:
 				return isUseServerConfig();
+			case MediatorsPackage.CALLOUT_MEDIATOR__ENDPOINT_TYPE:
+				return getEndpointType();
+			case MediatorsPackage.CALLOUT_MEDIATOR__ENDPOINT_KEY:
+				if (resolve) return getEndpointKey();
+				return basicGetEndpointKey();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -834,6 +959,12 @@ public class CalloutMediatorImpl extends MediatorImpl implements
 				return;
 			case MediatorsPackage.CALLOUT_MEDIATOR__USE_SERVER_CONFIG:
 				setUseServerConfig((Boolean)newValue);
+				return;
+			case MediatorsPackage.CALLOUT_MEDIATOR__ENDPOINT_TYPE:
+				setEndpointType((CallOutMediatorEndpointType)newValue);
+				return;
+			case MediatorsPackage.CALLOUT_MEDIATOR__ENDPOINT_KEY:
+				setEndpointKey((RegistryKeyProperty)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -883,6 +1014,12 @@ public class CalloutMediatorImpl extends MediatorImpl implements
 			case MediatorsPackage.CALLOUT_MEDIATOR__USE_SERVER_CONFIG:
 				setUseServerConfig(USE_SERVER_CONFIG_EDEFAULT);
 				return;
+			case MediatorsPackage.CALLOUT_MEDIATOR__ENDPOINT_TYPE:
+				setEndpointType(ENDPOINT_TYPE_EDEFAULT);
+				return;
+			case MediatorsPackage.CALLOUT_MEDIATOR__ENDPOINT_KEY:
+				setEndpointKey((RegistryKeyProperty)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -919,6 +1056,10 @@ public class CalloutMediatorImpl extends MediatorImpl implements
 				return passHeaders != PASS_HEADERS_EDEFAULT;
 			case MediatorsPackage.CALLOUT_MEDIATOR__USE_SERVER_CONFIG:
 				return useServerConfig != USE_SERVER_CONFIG_EDEFAULT;
+			case MediatorsPackage.CALLOUT_MEDIATOR__ENDPOINT_TYPE:
+				return endpointType != ENDPOINT_TYPE_EDEFAULT;
+			case MediatorsPackage.CALLOUT_MEDIATOR__ENDPOINT_KEY:
+				return endpointKey != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -951,6 +1092,8 @@ public class CalloutMediatorImpl extends MediatorImpl implements
 		result.append(passHeaders);
 		result.append(", useServerConfig: ");
 		result.append(useServerConfig);
+		result.append(", EndpointType: ");
+		result.append(endpointType);
 		result.append(')');
 		return result.toString();
 	}

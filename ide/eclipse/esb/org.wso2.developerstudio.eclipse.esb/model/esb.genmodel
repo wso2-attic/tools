@@ -698,6 +698,10 @@
       <genEnumLiterals ecoreEnumLiteral="mediator.ecore#//PayloadFactoryArgumentType/VALUE"/>
       <genEnumLiterals ecoreEnumLiteral="mediator.ecore#//PayloadFactoryArgumentType/EXPRESSION"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="mediator.ecore#//CallOutMediatorEndpointType">
+      <genEnumLiterals ecoreEnumLiteral="mediator.ecore#//CallOutMediatorEndpointType/ANONYMOUS"/>
+      <genEnumLiterals ecoreEnumLiteral="mediator.ecore#//CallOutMediatorEndpointType/REGISTRY_REFERENCE"/>
+    </genEnums>
     <genClasses ecoreClass="mediator.ecore#//InMediator"/>
     <genClasses ecoreClass="mediator.ecore#//OutMediator"/>
     <genClasses ecoreClass="mediator.ecore#//DropMediator"/>
@@ -909,6 +913,8 @@
       <genFeatures createChild="false" propertyCategory="Result" ecoreFeature="ecore:EAttribute mediator.ecore#//CalloutMediator/resultContextProperty"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mediator.ecore#//CalloutMediator/passHeaders"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mediator.ecore#//CalloutMediator/useServerConfig"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mediator.ecore#//CalloutMediator/EndpointType"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference mediator.ecore#//CalloutMediator/endpointKey"/>
     </genClasses>
     <genClasses ecoreClass="mediator.ecore#//RMSequenceMediator">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mediator.ecore#//RMSequenceMediator/rmSpecVersion"/>

@@ -36,6 +36,7 @@ import org.wso2.developerstudio.eclipse.esb.mediators.CacheMediator;
 import org.wso2.developerstudio.eclipse.esb.mediators.CacheOnHitBranch;
 import org.wso2.developerstudio.eclipse.esb.mediators.CacheScope;
 import org.wso2.developerstudio.eclipse.esb.mediators.CacheSequenceType;
+import org.wso2.developerstudio.eclipse.esb.mediators.CallOutMediatorEndpointType;
 import org.wso2.developerstudio.eclipse.esb.mediators.CallTemplateMediator;
 import org.wso2.developerstudio.eclipse.esb.mediators.CallTemplateParameter;
 import org.wso2.developerstudio.eclipse.esb.mediators.CalloutMediator;
@@ -1227,6 +1228,13 @@ public class MediatorsPackageImpl extends EPackageImpl implements MediatorsPacka
     private EEnum payloadFactoryArgumentTypeEEnum = null;
 
     /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum callOutMediatorEndpointTypeEEnum = null;
+
+				/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -2937,6 +2945,24 @@ public class MediatorsPackageImpl extends EPackageImpl implements MediatorsPacka
 	 */
 	public EAttribute getCalloutMediator_UseServerConfig() {
 		return (EAttribute)calloutMediatorEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCalloutMediator_EndpointType() {
+		return (EAttribute)calloutMediatorEClass.getEStructuralFeatures().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCalloutMediator_EndpointKey() {
+		return (EReference)calloutMediatorEClass.getEStructuralFeatures().get(13);
 	}
 
 	/**
@@ -5338,6 +5364,15 @@ public class MediatorsPackageImpl extends EPackageImpl implements MediatorsPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getCallOutMediatorEndpointType() {
+		return callOutMediatorEndpointTypeEEnum;
+	}
+
+				/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public MediatorsFactory getMediatorsFactory() {
 		return (MediatorsFactory)getEFactoryInstance();
 	}
@@ -5585,6 +5620,8 @@ public class MediatorsPackageImpl extends EPackageImpl implements MediatorsPacka
 		createEAttribute(calloutMediatorEClass, CALLOUT_MEDIATOR__RESULT_CONTEXT_PROPERTY);
 		createEAttribute(calloutMediatorEClass, CALLOUT_MEDIATOR__PASS_HEADERS);
 		createEAttribute(calloutMediatorEClass, CALLOUT_MEDIATOR__USE_SERVER_CONFIG);
+		createEAttribute(calloutMediatorEClass, CALLOUT_MEDIATOR__ENDPOINT_TYPE);
+		createEReference(calloutMediatorEClass, CALLOUT_MEDIATOR__ENDPOINT_KEY);
 
 		rmSequenceMediatorEClass = createEClass(RM_SEQUENCE_MEDIATOR);
 		createEAttribute(rmSequenceMediatorEClass, RM_SEQUENCE_MEDIATOR__RM_SPEC_VERSION);
@@ -5900,6 +5937,7 @@ public class MediatorsPackageImpl extends EPackageImpl implements MediatorsPacka
 		ruleOptionTypeEEnum = createEEnum(RULE_OPTION_TYPE);
 		enrichSourceInlineTypeEEnum = createEEnum(ENRICH_SOURCE_INLINE_TYPE);
 		payloadFactoryArgumentTypeEEnum = createEEnum(PAYLOAD_FACTORY_ARGUMENT_TYPE);
+		callOutMediatorEndpointTypeEEnum = createEEnum(CALL_OUT_MEDIATOR_ENDPOINT_TYPE);
 	}
 
 	/**
@@ -6248,6 +6286,8 @@ public class MediatorsPackageImpl extends EPackageImpl implements MediatorsPacka
 		initEAttribute(getCalloutMediator_ResultContextProperty(), ecorePackage.getEString(), "resultContextProperty", "context_property_name", 0, 1, CalloutMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCalloutMediator_PassHeaders(), ecorePackage.getEBoolean(), "passHeaders", null, 0, 1, CalloutMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCalloutMediator_UseServerConfig(), ecorePackage.getEBoolean(), "useServerConfig", null, 0, 1, CalloutMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCalloutMediator_EndpointType(), this.getCallOutMediatorEndpointType(), "EndpointType", "ANONYMOUS", 0, 1, CalloutMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCalloutMediator_EndpointKey(), theEsbPackage.getRegistryKeyProperty(), null, "endpointKey", null, 0, 1, CalloutMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(rmSequenceMediatorEClass, RMSequenceMediator.class, "RMSequenceMediator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRMSequenceMediator_RmSpecVersion(), this.getRMSpecVersion(), "rmSpecVersion", "VERSION_1_0", 0, 1, RMSequenceMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -6828,6 +6868,10 @@ public class MediatorsPackageImpl extends EPackageImpl implements MediatorsPacka
 		initEEnum(payloadFactoryArgumentTypeEEnum, PayloadFactoryArgumentType.class, "PayloadFactoryArgumentType");
 		addEEnumLiteral(payloadFactoryArgumentTypeEEnum, PayloadFactoryArgumentType.VALUE);
 		addEEnumLiteral(payloadFactoryArgumentTypeEEnum, PayloadFactoryArgumentType.EXPRESSION);
+
+		initEEnum(callOutMediatorEndpointTypeEEnum, CallOutMediatorEndpointType.class, "CallOutMediatorEndpointType");
+		addEEnumLiteral(callOutMediatorEndpointTypeEEnum, CallOutMediatorEndpointType.ANONYMOUS);
+		addEEnumLiteral(callOutMediatorEndpointTypeEEnum, CallOutMediatorEndpointType.REGISTRY_REFERENCE);
 
 		// Create resource
 		createResource(eNS_URI);

@@ -428,6 +428,9 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="context_property_name"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="passHeaders" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="useServerConfig" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="EndpointType" eType="#//CallOutMediatorEndpointType"
+        defaultValueLiteral="ANONYMOUS"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="endpointKey" eType="ecore:EClass esb.ecore#//RegistryKeyProperty"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="CalloutPayloadType">
     <eLiterals name="MESSAGE_ELEMENT"/>
@@ -1014,5 +1017,9 @@
   <eClassifiers xsi:type="ecore:EEnum" name="PayloadFactoryArgumentType">
     <eLiterals name="VALUE" literal="Value"/>
     <eLiterals name="EXPRESSION" value="1" literal="Expression"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="CallOutMediatorEndpointType">
+    <eLiterals name="ANONYMOUS"/>
+    <eLiterals name="REGISTRY_REFERENCE" value="1"/>
   </eClassifiers>
 </ecore:EPackage>

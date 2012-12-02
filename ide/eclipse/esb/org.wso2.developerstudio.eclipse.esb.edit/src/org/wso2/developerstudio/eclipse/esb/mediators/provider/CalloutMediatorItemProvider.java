@@ -32,6 +32,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.wso2.developerstudio.eclipse.esb.ModelObjectState;
+import org.wso2.developerstudio.eclipse.esb.mediators.CallOutMediatorEndpointType;
 import org.wso2.developerstudio.eclipse.esb.mediators.CalloutMediator;
 import org.wso2.developerstudio.eclipse.esb.mediators.CalloutPayloadType;
 import org.wso2.developerstudio.eclipse.esb.mediators.CalloutResultType;
@@ -76,7 +77,13 @@ public class CalloutMediatorItemProvider
 		}
 		super.getPropertyDescriptors(object);
 		
-		addServiceURLPropertyDescriptor(object);
+		addEndpointTypePropertyDescriptor(object);
+		if(calloutMediator.getEndpointType()==CallOutMediatorEndpointType.ANONYMOUS){
+			addServiceURLPropertyDescriptor(object);
+		}else{
+			addEndpointKeyPropertyDescriptor(object);
+		}
+		
 		addSoapActionPropertyDescriptor(object);
 		addPathToAxis2xmlPropertyDescriptor(object);
 		addPathToAxis2RepositoryPropertyDescriptor(object);
@@ -366,6 +373,48 @@ public class CalloutMediatorItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Endpoint Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	protected void addEndpointTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CalloutMediator_EndpointType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CalloutMediator_EndpointType_feature", "_UI_CalloutMediator_type"),
+				 MediatorsPackage.Literals.CALLOUT_MEDIATOR__ENDPOINT_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI_BasicPropertyCategory"),
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Endpoint Key feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 */
+	protected void addEndpointKeyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CalloutMediator_endpointKey_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CalloutMediator_endpointKey_feature", "_UI_CalloutMediator_type"),
+				 MediatorsPackage.Literals.CALLOUT_MEDIATOR__ENDPOINT_KEY,
+				 true,
+				 false,
+				 true,
+				 null,
+				 getString("_UI_BasicPropertyCategory"),
+				 null));
+	}
+
+	/**
 	 * This returns CalloutMediator.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -412,6 +461,7 @@ public class CalloutMediatorItemProvider
 			case MediatorsPackage.CALLOUT_MEDIATOR__RESULT_CONTEXT_PROPERTY:
 			case MediatorsPackage.CALLOUT_MEDIATOR__PASS_HEADERS:
 			case MediatorsPackage.CALLOUT_MEDIATOR__USE_SERVER_CONFIG:
+			case MediatorsPackage.CALLOUT_MEDIATOR__ENDPOINT_TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
