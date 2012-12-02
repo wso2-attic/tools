@@ -21,6 +21,7 @@ import java.util.regex.Pattern;
 
 import org.wso2.developerstudio.eclipse.artifact.synapse.api.Activator;
 import org.wso2.developerstudio.eclipse.artifact.synapse.api.model.APIArtifactModel;
+import org.wso2.developerstudio.eclipse.artifact.synapse.api.util.APIImageUtils;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBArtifact;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
@@ -51,6 +52,8 @@ public class SynapseAPICreationWizard extends AbstractWSO2ProjectCreationWizard 
 	public SynapseAPICreationWizard() {
 		artifactModel = new APIArtifactModel();
 		setModel(artifactModel);
+		setWindowTitle("New Synapse API");
+		setDefaultPageImageDescriptor(APIImageUtils.getInstance().getImageDescriptor("synapseAPILarge.png"));
 	}
 
 	@Override
