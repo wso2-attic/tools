@@ -36,6 +36,13 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.gef.EditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramEditDomain;
+import org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramGraphicalViewer;
+import org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramWorkbenchPart;
+import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDocumentEditor;
+import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDocumentProvider;
+import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.impl.NodeImpl;
 import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
@@ -52,6 +59,7 @@ import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorReference;
 import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.IFileEditorInput;
+import org.eclipse.ui.IReusableEditor;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PartInitException;
@@ -87,7 +95,7 @@ import static org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtil
  * </ul>
  */
 public class EsbMultiPageEditor extends MultiPageEditorPart implements
-        IGotoMarker {
+        IGotoMarker,IDiagramWorkbenchPart{
 
     /** Our all new graphical editor */
     private EsbDiagramEditor graphicalEditor;
@@ -623,5 +631,20 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 		}
 	}
 	
+	public IDiagramGraphicalViewer getDiagramGraphicalViewer() {
+		return graphicalEditor.getDiagramGraphicalViewer();
+	}
+	
+	public IDiagramEditDomain getDiagramEditDomain() {
+		return graphicalEditor.getDiagramEditDomain();
+	}
+	
+	public Diagram getDiagram() {
+		return graphicalEditor.getDiagram();
+	}
+	
+	public DiagramEditPart getDiagramEditPart() {
+		return graphicalEditor.getDiagramEditPart();
+	}
 	
 }
