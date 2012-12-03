@@ -7,6 +7,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
@@ -1020,19 +1021,22 @@ public class EsbPaletteFactory {
 			IFile file = input.getFile();
 			IProject activeProject = file.getProject();
 			try {
-				IResource[] Members = activeProject.getFolder(dir).members();
-				for (int j = 0; j < Members.length; ++j) {
+				IFolder artifactDir = activeProject.getFolder(dir);
+				if (artifactDir.exists()) {
+					IResource[] Members = artifactDir.members();
+					for (int j = 0; j < Members.length; ++j) {
 
-					Pattern p = Pattern.compile(".esb_diagram");
-					Matcher m = p.matcher(Members[j].getName());
-					StringBuffer sb = new StringBuffer();
-					boolean result = m.find();
+						Pattern p = Pattern.compile(".esb_diagram");
+						Matcher m = p.matcher(Members[j].getName());
+						StringBuffer sb = new StringBuffer();
+						boolean result = m.find();
 
-					if (result) {
-						String[] splittedFilename = Members[j].getName().split(".esb_diagram");
-						if (splittedFilename[0] != null) {
-							String[] tempName = splittedFilename[0].split(artifactPrefix);
-							definedArtifacts.add(tempName[1].trim());
+						if (result) {
+							String[] splittedFilename = Members[j].getName().split(".esb_diagram");
+							if (splittedFilename[0] != null) {
+								String[] tempName = splittedFilename[0].split(artifactPrefix);
+								definedArtifacts.add(tempName[1].trim());
+							}
 						}
 					}
 				}
