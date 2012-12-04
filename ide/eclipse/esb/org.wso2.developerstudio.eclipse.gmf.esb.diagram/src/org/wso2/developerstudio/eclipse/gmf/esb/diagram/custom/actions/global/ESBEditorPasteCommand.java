@@ -9,6 +9,7 @@ import java.util.Map;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.commands.CompoundCommand;
@@ -18,6 +19,7 @@ import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramWorkbenchPart;
 import org.eclipse.gmf.runtime.diagram.ui.requests.DuplicateRequest;
+import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PlatformUI;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractConnectorEditPart;
@@ -72,7 +74,13 @@ public class ESBEditorPasteCommand extends org.eclipse.gmf.runtime.common.core.c
 			}
 		}else {
 		}
-		connect();
+		if(!ESBClipboard.isCut()){
+			connect();
+		}else{
+			deleteElement(editParts);
+			ESBClipboard.setCut(false);
+			ESBClipboard.getToCopyEditParts().clear();
+		}
 	}
 	
 	private List<IGraphicalEditPart> removeLinks(List<IGraphicalEditPart> list){
@@ -136,6 +144,18 @@ public class ESBEditorPasteCommand extends org.eclipse.gmf.runtime.common.core.c
 		dl.add(new ICommandProxy(delCmd));
 		if (delCmd.canExecute()) {
 			editPart.getDiagramEditDomain().getDiagramCommandStack().execute(dl);
+		}
+	}
+	
+	private void deleteElement(List<IGraphicalEditPart> editParts) {
+		for (int i = 0; i < editParts.size(); ++i) {
+			Collection<EObject> col = new ArrayList<EObject>();
+			col.add(((Node) editParts.get(i).getModel()).getElement());
+			org.eclipse.emf.edit.command.DeleteCommand del = new org.eclipse.emf.edit.command.DeleteCommand(
+					editParts.get(i).getEditingDomain(), col);
+			if (del.canExecute()) {
+				editParts.get(i).getEditingDomain().getCommandStack().execute(del);
+			}
 		}
 	}
 	

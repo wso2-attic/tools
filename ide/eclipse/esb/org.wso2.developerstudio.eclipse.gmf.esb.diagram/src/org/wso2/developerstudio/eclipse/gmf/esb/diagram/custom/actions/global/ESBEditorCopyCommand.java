@@ -25,7 +25,8 @@ public class ESBEditorCopyCommand extends org.eclipse.gmf.runtime.common.core.co
 	protected CommandResult doExecuteWithResult(
 			IProgressMonitor progressMonitor, IAdaptable info)
 			throws ExecutionException {			
-		ESBClipboard.setToCopyEditParts(toCopyEditParts);	
+		ESBClipboard.setToCopyEditParts(toCopyEditParts);
+		ESBClipboard.setCut(false);
 		return CommandResult.newOKCommandResult();
 	}
 

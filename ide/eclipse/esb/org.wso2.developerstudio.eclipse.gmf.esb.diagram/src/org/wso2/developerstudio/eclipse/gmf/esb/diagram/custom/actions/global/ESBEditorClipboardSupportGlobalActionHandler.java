@@ -31,7 +31,8 @@ public class ESBEditorClipboardSupportGlobalActionHandler extends DiagramGlobalA
 
 	@Override
 	protected boolean canPaste(IGlobalActionContext cntxt) {
-		return !ESBEditorCopyCommand.toCopyEditParts.isEmpty();
+		return ((ESBEditorCopyCommand.toCopyEditParts!=null)&&(!ESBEditorCopyCommand.toCopyEditParts.isEmpty()))||
+		((ESBEditorCutCommand.toCutEditParts!=null)&&(!ESBEditorCutCommand.toCutEditParts.isEmpty()));
 	}
 
 	public ICommand getCommand(IGlobalActionContext cntxt) {
@@ -67,6 +68,15 @@ public class ESBEditorClipboardSupportGlobalActionHandler extends DiagramGlobalA
 		ESBEditorCopyCommand copyCmd = new ESBEditorCopyCommand("Copy", toCopyElements,
 				toCopyEditParts);
 		return copyCmd;
+	}
+		
+	protected ICommand getCutCommand(IGlobalActionContext cntxt, IDiagramWorkbenchPart diagramPart) {
+		List toCutElements = this.getSelectedElements(cntxt.getSelection());
+		List toCutEditParts = this.getSelectedEditParts(cntxt.getSelection());
+		ESBEditorCutCommand cutCmd = new ESBEditorCutCommand("Cut", toCutElements,
+				toCutEditParts);
+		return cutCmd;
+		//return super.getCutCommand(cntxt, diagramPart);
 	}
 
 	private ICommand getPasteCommand(IGlobalActionContext cntxt, IDiagramWorkbenchPart diagramPart) {
