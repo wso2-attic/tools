@@ -20,6 +20,9 @@ public class CustomDiagramGraphicalViewerKeyHandler extends DiagramGraphicalView
 	public CustomDiagramGraphicalViewerKeyHandler(IWorkbenchPart part,GraphicalViewer viewer) {
 		super(viewer);
 		this.part=part;
+		deleteAction = new DeleteElementAction(part);
+		deleteAction.init();
+		deleteAction.setAccelerator(SWT.DEL);
 		//viewer.getContents().getViewer()viewer.getEditDomain().get
 		// TODO Auto-generated constructor stub
 	}
@@ -29,12 +32,12 @@ public class CustomDiagramGraphicalViewerKeyHandler extends DiagramGraphicalView
 		
 		switch (event.keyCode) {
 		case SWT.DEL :
-			deleteAction = new DeleteElementAction(part);
-			deleteAction.init();
 			deleteAction.run(null);		
 			return true; 			
 		}	
 		
 		return super.keyPressed(event);
 	}
+	
+	
 }

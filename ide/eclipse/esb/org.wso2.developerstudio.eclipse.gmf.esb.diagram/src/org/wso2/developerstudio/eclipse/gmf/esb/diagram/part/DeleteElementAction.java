@@ -3,6 +3,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.part;
 import java.util.Iterator;
 import java.util.List;
 
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.Request;
@@ -16,6 +17,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramUIMessages;
 import org.eclipse.gmf.runtime.emf.commands.core.command.CompositeTransactionalCommand;
 import org.eclipse.gmf.runtime.notation.Node;
+import org.eclipse.swt.SWT;
 import org.eclipse.ui.ISharedImages;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchPart;
@@ -66,15 +68,17 @@ public class DeleteElementAction extends AbstractDeleteFromAction {
 		setImageDescriptor(workbenchImages.getImageDescriptor(ISharedImages.IMG_TOOL_DELETE));
 		setDisabledImageDescriptor(workbenchImages
 				.getImageDescriptor(ISharedImages.IMG_TOOL_DELETE_DISABLED));
+		setAccelerator(SWT.DEL);
+		
 	}
-
+	
 	/**
 	 * @generated
 	 */
 	protected String getCommandLabel() {
 		return DiagramUIMessages.DiagramEditor_Delete_from_Model;
 	}
-
+	
 	/**
 	 * @generated NOT
 	 */
