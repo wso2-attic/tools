@@ -300,7 +300,7 @@ public class EJBMediatorEditPart extends FixedSizedAbstractMediator {
 		}
 		
 		public String getIconPath() {
-			return "icons/ico20/builder-mediator.gif";
+			return "icons/ico20/ejb-mediator.gif";
 		}
 
 		public String getNodeName() {

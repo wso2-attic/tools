@@ -303,7 +303,7 @@ public class BeanMediatorEditPart extends FixedSizedAbstractMediator {
 		}
 		
 		public String getIconPath() {
-			return "icons/ico20/builder-mediator.gif";
+			return "icons/ico20/bean-mediator.gif";
 		}
 
 		public String getNodeName() {

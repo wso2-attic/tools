@@ -299,7 +299,7 @@ public class BAMMediatorEditPart extends FixedSizedAbstractMediator {
 		}
 		
 		public String getIconPath() {
-			return "icons/ico20/builder-mediator.gif";
+			return "icons/ico20/bam-mediator.gif";
 		}
 
 		public String getNodeName() {
