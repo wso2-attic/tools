@@ -26,7 +26,7 @@
 					<a href="#Introduction">Introduction</a>
 				</li>
 				<li>
-					<a href="#System">Pre-requisites</a>
+					<a href="#System">System Requirements</a>
 				</li>
 				<li>
 					<a href="#install2">Download and Install</a>
@@ -43,41 +43,48 @@
 		<h2 id="Introduction">Introduction</h2>
 		<p>WSO2 Developer Studio is a fully tooling environment which facilitate you to develop, test, debug and deploy WSO2 Carbon Artifacts.</p>
 
-		<h2 id="System">Prerequisites</h2>
+		<h2 id="System">System Requirements</h2>
 		<table border="2">
 			<tbody>
 				<tr>
 					<td>Java Runtime Environment</td>
-					<td>1.6 (For instructions on setting up the JRE in different operating systems, visit<a class="externalLink" href="http://java.sun.com">http://java.sun.com</a>)</td>
+					<td>1.6 (For instructions on setting up the JRE in different operating systems, visit <a class="externalLink" href="http://java.sun.com">http://java.sun.com</a>)</td>
 				</tr>
 				<tr>
-					<td>IDE</td>
+					<td>Eclipse IDE</td>
 					<td>Eclipse WTP 3.1.0 or higher (If you are planing to install offline, we recommend you to use 
 					<a href="http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/heliossr2">Eclipse IDE for Java EE Developers</a>)</td>
 				</tr>
 				<tr>
 					<td>WSO2 Developer Studio</td>
 					<td>
-						<!--<p>
-							<a href="http://builder1.us1.wso2.org/~developerstudio/developer-studio/2.0.0/RC1/wso2-developer-studio_2.0.0.RC1_without_dependencies.zip">2.0.0-without dependencies</a>
-						</p>-->
 						<p>
-							<a href="http://dist.wso2.org/products/developer-studio/2.0.0/wso2-developer-studio-2.0.0.zip">2.0.0-with dependencies</a>
+							<a href="http://wso2.com/products/developer-studio" class="externalLink">3.0.0</a>
 						</p >
 					</td>
 				</tr>
 				<tr>
-					<td>WSO2 Carbon Server</td>
+					<td>Heap Memory</td>
 					<td>
-						<p>
-							<a href="http://wso2.org/downloads">3.0.1 or later</a>
-						</p>
+						1.5 GB (Minimum)
+					</td>
+				</tr>
+				<tr>
+					<td>PermGen Memory</td>
+					<td>
+						512 MB (Minimum)
+					</td>
+				</tr>
+				<tr>
+					<td>Processor</td>
+					<td>
+						2GHz Core 2 Duo (Minimum)
 					</td>
 				</tr>
 				<tr>
 					<td>Disk Space</td>
 					<td>
-						<p>Approximately 300MB</p>
+						<p>Approximately 512 MB</p>
 					</td>
 				</tr>
 			</tbody>
