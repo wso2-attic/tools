@@ -26,7 +26,6 @@
 	    <item name="Gadget Server Tools" href="gadget_category.html"/>
 	    <item name="Carbon Tools" href="carbon_category.html"/>
 	    <item name="Packaging" href="packaging.html"/>
-	    <item name="Life Cycle Management of a CAR file" href="lifecyclemanagement.html"/>
 	    <item name="Advance Server Extensions" href="server_extensions_category.html"/>
 	    <item name="Apache Maven Support" href="devs_maven_support.html"/>
 	    <item name="Testing and Deploying" href="testing_deploying_category.html"/>
@@ -37,6 +36,13 @@
             <item name="Retail Banking Sample" href="banking_sample.html"/>
        </menu>
        
+       <menu name="Developer Resources">
+            <item name="Enterprise Use Case: Application Development Using the WSO2 Developer Studio" href="http://wso2.org/library/webinars/2012/05/enterprise-use-case-application-development-using-wso2-developer-studio"/>
+            <item name="Apache Axis2 integration with Eclipse" href="http://wso2.org/library/articles/2012/06/apache-axis2-integration-eclipse"/>
+            <item name="How to develop and deploy web applications using WSO2 Developer Studio" href="http://wso2.org/library/articles/2012/09/develop-deploy-web-applications-using-wso2-developer-studio"/>
+            <item name="How to develop WS-BPEL for Apache ODE with WSO2 Developer studio 2.0" href="http://wso2.org/library/articles/2012/09/develop-wsbpel-apache-ode-wso2-developer-studio"/>
+            <item name="How to develop CXF based JAX-WS with WSO2 Developer Studio" href="http://melannj.blogspot.com/2012/06/how-to-develop-cxf-based-jax-ws-web.html"/>
+       </menu>
        
        <menu name="Get Involved" href="overview.html">
             <item name="Checkout the Source" href="source-repository.html"/>

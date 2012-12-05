@@ -238,12 +238,6 @@ permissions and ~ limitations under the License.
 				</ul>
 			</li>
 			
-			<li><a href="lifecyclemanagement.html">Life Cycle Management of a Carbon Application Archive (CAR)</a>
-			<ul>
-				<li>This explain how to manage different life cycles of your application.</li>
-			</ul>
-			</li>
-			
 			 <li><a href="devs_maven_support.html">Apache Maven Support</a>
             	<ul>
 					<li>
