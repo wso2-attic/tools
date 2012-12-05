@@ -134,12 +134,18 @@ public class EsbDiagramEditor extends DiagramDocumentEditor implements IGotoMark
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	public TransactionalEditingDomain getEditingDomain() {
-		IDocument document = getEditorInput() != null ? getDocumentProvider(getEditorInput()).getDocument(
-				getEditorInput()) : null;
-		if (document != null && document instanceof IDiagramDocument) {
+		IDocument document=null;
+		if(getDocumentProvider()!=null){
+			document = getEditorInput() != null ? getDocumentProvider().getDocument(
+					getEditorInput()) : null;
+		}else{
+			document = getEditorInput() != null ? getDocumentProvider(getEditorInput()).getDocument(
+					getEditorInput()) : null;
+		}
+		if (document instanceof IDiagramDocument) {
 			return ((IDiagramDocument) document).getEditingDomain();
 		}
 		return super.getEditingDomain();
