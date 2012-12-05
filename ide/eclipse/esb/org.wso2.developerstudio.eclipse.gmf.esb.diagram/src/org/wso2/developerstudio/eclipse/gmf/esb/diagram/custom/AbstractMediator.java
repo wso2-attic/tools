@@ -480,8 +480,7 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 			}
 
 			if (nearestESBLink != null) {
-				DeleteCommand delCmd = new DeleteCommand(ConnectionCalculator
-						.getNearestLinkEditPart(ESBLinkEditpart, this)
+				DeleteCommand delCmd = new DeleteCommand(nearestESBLink
 						.getNotationView());
 				CompoundCommand dl = new CompoundCommand("Delete Link");
 				dl.add(new ICommandProxy(delCmd));
