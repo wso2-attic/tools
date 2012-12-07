@@ -67,7 +67,7 @@ public class APITransformer extends AbstractEsbNodeTransformer{
 	
 	public API create(SynapseAPI visualAPI){
 		API api=null;
-		if(visualAPI.getContext() ==null || visualAPI.getContext().startsWith("/") ){
+		if(visualAPI.getContext() ==null || !visualAPI.getContext().startsWith("/") ){
 			api=new API(visualAPI.getApiName(), "/default");
 		}else{
 			api=new API(visualAPI.getApiName(), visualAPI.getContext());
