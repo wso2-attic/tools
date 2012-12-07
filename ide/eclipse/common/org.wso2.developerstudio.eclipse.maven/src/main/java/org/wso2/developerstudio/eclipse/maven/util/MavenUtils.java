@@ -488,7 +488,7 @@ public class MavenUtils {
 		Plugin plugin;
 		
 		PluginExecution pluginExecution;
-		plugin = MavenUtils.createPluginEntry(mavenProject, "org.wso2.maven", "maven-bpel-plugin", "2.0.1", true);
+		plugin = MavenUtils.createPluginEntry(mavenProject, "org.wso2.maven", "maven-bpel-plugin", "2.0.2", true);
 //		pluginExecution=new PluginExecution();
 //		pluginExecution.addGoal("bpel");
 //		pluginExecution.setPhase("package");

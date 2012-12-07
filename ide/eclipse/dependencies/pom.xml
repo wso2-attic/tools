@@ -14,7 +14,7 @@
         </repository>
     </distributionManagement>
     <modules>
-            <module>carbon-p2-plugin</module>
+            <!--module>carbon-p2-plugin</module-->
 	    <module>org.wso2.maven.utils</module>
 	    <module>org.wso2.maven.core</module>
 	    <module>org.wso2.maven.capp</module>
