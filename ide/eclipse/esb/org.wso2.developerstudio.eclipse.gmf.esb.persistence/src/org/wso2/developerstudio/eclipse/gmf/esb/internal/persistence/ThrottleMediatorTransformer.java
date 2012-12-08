@@ -99,7 +99,7 @@ public class ThrottleMediatorTransformer extends AbstractEsbNodeTransformer  {
 		SequenceMediator onAccept = new SequenceMediator();
 		throttleMediator.setOnAcceptMediator(onAccept);
 		TransformationInfo newOnAcceptInfo = new TransformationInfo();
-		newOnAcceptInfo.setTraversalDirection(TransformationInfo.TRAVERSAL_DIRECTION_IN);
+		newOnAcceptInfo.setTraversalDirection(information.getTraversalDirection());
 		newOnAcceptInfo.setSynapseConfiguration(information.getSynapseConfiguration());
 		newOnAcceptInfo.setOriginInSequence(information.getOriginInSequence());
 		newOnAcceptInfo.setOriginOutSequence(information.getOriginOutSequence());
@@ -113,7 +113,7 @@ public class ThrottleMediatorTransformer extends AbstractEsbNodeTransformer  {
 		SequenceMediator onReject = new SequenceMediator();
 		throttleMediator.setOnRejectMediator(onReject);
 		TransformationInfo newOnRejectInfo = new TransformationInfo();
-		newOnRejectInfo.setTraversalDirection(TransformationInfo.TRAVERSAL_DIRECTION_IN);
+		newOnRejectInfo.setTraversalDirection(information.getTraversalDirection());
 		newOnRejectInfo.setSynapseConfiguration(information.getSynapseConfiguration());
 		newOnRejectInfo.setOriginInSequence(information.getOriginInSequence());
 		newOnRejectInfo.setOriginOutSequence(information.getOriginOutSequence());

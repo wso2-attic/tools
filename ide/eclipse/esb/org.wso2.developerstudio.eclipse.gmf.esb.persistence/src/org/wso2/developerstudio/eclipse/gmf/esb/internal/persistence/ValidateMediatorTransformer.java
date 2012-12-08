@@ -108,7 +108,7 @@ public class ValidateMediatorTransformer  extends AbstractEsbNodeTransformer {
 		
 		ListMediator onFailMediatorList = new AnonymousListMediator();
 		TransformationInfo newOnFailInfo = new TransformationInfo();
-		newOnFailInfo.setTraversalDirection(TransformationInfo.TRAVERSAL_DIRECTION_IN);
+		newOnFailInfo.setTraversalDirection(information.getTraversalDirection());
 		newOnFailInfo.setSynapseConfiguration(information.getSynapseConfiguration());
 		newOnFailInfo.setOriginInSequence(information.getOriginInSequence());
 		newOnFailInfo.setOriginOutSequence(information.getOriginOutSequence());
