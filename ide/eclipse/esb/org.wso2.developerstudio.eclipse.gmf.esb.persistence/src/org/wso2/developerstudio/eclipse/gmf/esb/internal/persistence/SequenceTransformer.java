@@ -123,9 +123,12 @@ public class SequenceTransformer extends AbstractEsbNodeTransformer{
 				}
 			}
 			OutputConnector source=((EsbLink)currentSequence.getInputConnector().getIncomingLinks().get(0)).getSource();
-			InputConnector target = currentSequence.getOutputConnector().getOutgoingLink().getTarget();
+			InputConnector target=null;
+			if(currentSequence.getOutputConnector().getOutgoingLink()!=null){
+				target = currentSequence.getOutputConnector().getOutgoingLink().getTarget();
+			}
 			
-			if((source.eContainer() instanceof AbstractEndPoint)&&(target.eContainer() instanceof AbstractEndPoint)){
+			if((source.eContainer() instanceof AbstractEndPoint)&&((target!=null)&&(target.eContainer() instanceof AbstractEndPoint))){
 				
 				EsbNodeTransformer transformer=EsbTransformerRegistry.getInstance().getTransformer((EsbNode)target.eContainer());
 				TransformationInfo transformationInfo=new TransformationInfo();
