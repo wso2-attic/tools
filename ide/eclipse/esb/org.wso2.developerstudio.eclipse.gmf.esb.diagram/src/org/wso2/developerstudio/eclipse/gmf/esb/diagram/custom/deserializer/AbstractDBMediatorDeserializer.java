@@ -146,11 +146,21 @@ public abstract class AbstractDBMediatorDeserializer extends AbstractEsbNodeDese
 			executeSetValueCommand(ABSTRACT_SQL_EXECUTOR_MEDIATOR__PROPERTY_ISOLATION, SqlExecutorIsolationLevel.TRANSACTION_SERIALIZABLE);
 		}
 		
-		executeSetValueCommand(ABSTRACT_SQL_EXECUTOR_MEDIATOR__PROPERTY_MAXACTIVE, Integer.parseInt(dbMediator.getDataSourceProps().get("maxactive")));
-		executeSetValueCommand(ABSTRACT_SQL_EXECUTOR_MEDIATOR__PROPERTY_MAXIDLE, Integer.parseInt(dbMediator.getDataSourceProps().get("maxidle")));
-		executeSetValueCommand(ABSTRACT_SQL_EXECUTOR_MEDIATOR__PROPERTY_MAXOPENSTATEMENTS, Integer.parseInt(dbMediator.getDataSourceProps().get("maxopenstatements")));
-		executeSetValueCommand(ABSTRACT_SQL_EXECUTOR_MEDIATOR__PROPERTY_MAXWAIT, Integer.parseInt(dbMediator.getDataSourceProps().get("maxwait")));
-		executeSetValueCommand(ABSTRACT_SQL_EXECUTOR_MEDIATOR__PROPERTY_MINIDLE, Integer.parseInt(dbMediator.getDataSourceProps().get("minidle")));
+		if(dbMediator.getDataSourceProps().get("maxactive")!=null){
+			executeSetValueCommand(ABSTRACT_SQL_EXECUTOR_MEDIATOR__PROPERTY_MAXACTIVE, Integer.parseInt(dbMediator.getDataSourceProps().get("maxactive")));
+		}
+		if(dbMediator.getDataSourceProps().get("maxidle")!=null){
+			executeSetValueCommand(ABSTRACT_SQL_EXECUTOR_MEDIATOR__PROPERTY_MAXIDLE, Integer.parseInt(dbMediator.getDataSourceProps().get("maxidle")));
+		}
+		if(dbMediator.getDataSourceProps().get("maxopenstatements")!=null){
+			executeSetValueCommand(ABSTRACT_SQL_EXECUTOR_MEDIATOR__PROPERTY_MAXOPENSTATEMENTS, Integer.parseInt(dbMediator.getDataSourceProps().get("maxopenstatements")));
+		}
+		if(dbMediator.getDataSourceProps().get("maxwait")!=null){
+			executeSetValueCommand(ABSTRACT_SQL_EXECUTOR_MEDIATOR__PROPERTY_MAXWAIT, Integer.parseInt(dbMediator.getDataSourceProps().get("maxwait")));
+		}
+		if(dbMediator.getDataSourceProps().get("minidle")!=null){
+			executeSetValueCommand(ABSTRACT_SQL_EXECUTOR_MEDIATOR__PROPERTY_MINIDLE, Integer.parseInt(dbMediator.getDataSourceProps().get("minidle")));
+		}
 		
 		
 		if(dbMediator.getDataSourceProps().get("poolstatements")==null){
@@ -178,7 +188,9 @@ public abstract class AbstractDBMediatorDeserializer extends AbstractEsbNodeDese
 		}
 		
 		executeSetValueCommand(ABSTRACT_SQL_EXECUTOR_MEDIATOR__PROPERTY_VALIDATIONQUERY, dbMediator.getDataSourceProps().get("validationquery"));
-		executeSetValueCommand(ABSTRACT_SQL_EXECUTOR_MEDIATOR__PROPERTY_INITIALSIZE, Integer.parseInt(dbMediator.getDataSourceProps().get("initialsize")));
+		if(dbMediator.getDataSourceProps().get("initialsize")!=null){
+			executeSetValueCommand(ABSTRACT_SQL_EXECUTOR_MEDIATOR__PROPERTY_INITIALSIZE, Integer.parseInt(dbMediator.getDataSourceProps().get("initialsize")));
+		}
 
 	}
 	
