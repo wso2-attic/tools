@@ -345,14 +345,18 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 			EditPart element = (EditPart) getViewer().getEditPartRegistry()
 					.values().toArray()[i];
 
-			if (element instanceof EsbLinkEditPart) {				
-				if((EditorUtils.getMediator(((EsbLinkEditPart)element).getSource())!=null)&&
+			if (element instanceof EsbLinkEditPart) {	
+				/*
+				 * Fixing TOOLS-1410 
+				 */
+/*				if((EditorUtils.getMediator(((EsbLinkEditPart)element).getSource())!=null)&&
 						(EditorUtils.getMediator(this.getParent())!=null)){
+					
 					if(!(EditorUtils.getMediator(((EsbLinkEditPart)element).getSource())).equals(EditorUtils.getMediator(this.getParent()))
 							||(((EsbLinkEditPart)element).getSource().getParent().getParent().equals(this.getParent()))){
 						continue;
 					}
-				}else if(EditorUtils.getEndpoint((AbstractConnectorEditPart) ((EsbLinkEditPart)element).getSource())!=null){
+				}else*/ if(EditorUtils.getEndpoint((AbstractConnectorEditPart) ((EsbLinkEditPart)element).getSource())!=null){
 					if(!((EsbLinkEditPart)element).getSource().getParent().getParent().equals(this.getParent())){
 						continue;
 					}
