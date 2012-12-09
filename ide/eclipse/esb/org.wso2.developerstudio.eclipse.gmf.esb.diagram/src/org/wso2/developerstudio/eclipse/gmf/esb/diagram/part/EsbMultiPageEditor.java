@@ -45,6 +45,7 @@ import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDocumentPro
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.impl.NodeImpl;
 import org.eclipse.jface.dialogs.ErrorDialog;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.text.DocumentEvent;
@@ -53,6 +54,7 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
@@ -624,10 +626,15 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 		
 		try {
 			Deserializer.getInstance().updateDesign(xml, graphicalEditor);
+		} catch (Exception e) {
+			log.error("Error while generating diagram from source", e);
+			MessageDialog.openError(Display.getCurrent().getActiveShell(), "Error",
+					"Error occuerd during buidling the esb design view."
+							+ " Any changes you make in the source view to be discarded."
+							+ "\n\nplease see the log for more details.");
+		} finally{
 			sourceDirty=false;
 			firePropertyChange(PROP_DIRTY);
-		} catch (Exception e) {
-			log.error("Error while generating diagram from source",e);
 		}
 	}
 	

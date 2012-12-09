@@ -109,6 +109,9 @@ public class Deserializer {
 	 */
 	@SuppressWarnings("unchecked")
 	public void updateDesign(String source, EsbDiagramEditor graphicalEditor) throws Exception {
+		
+		Map<String, Object> artifacts = getArtifacts(source);
+		
 		EsbDeserializerRegistry.getInstance().init(graphicalEditor);
 		Diagram diagram = graphicalEditor.getDiagram();
 		EsbDiagram esbDiagram = (EsbDiagram) diagram.getElement();
@@ -127,8 +130,6 @@ public class Deserializer {
 		if (resultCommand.canExecute()) {
 			domain.getCommandStack().execute(resultCommand);
 		}
-
-		Map<String, Object> artifacts = getArtifacts(source);
 		
 		int locationY = 0;
 		
@@ -187,7 +188,9 @@ public class Deserializer {
 			artifactType=ArtifactType.TEMPLATE;
 		} else if("endpoint".equals(localName)){
 			artifactType=ArtifactType.ENDPOINT;
-		} 
+		} else{
+			throw new Exception("Unrecognized source configuration section " + localName);
+		}
 		return artifactType;
 	}
 	
@@ -196,7 +199,6 @@ public class Deserializer {
 		
 		ArtifactType artifactType = getArtifactType(source);
 		OMElement element = AXIOMUtil.stringToOM(source);
-		try{
 		switch (artifactType) {
 		case SYNAPSE_CONFIG:
 			File tempfile = File.createTempFile("file", ".tmp");
@@ -275,15 +277,7 @@ public class Deserializer {
 		default:
 			break;
 		}
-		} catch (org.apache.synapse.SynapseException exception) {
-
-			if (exception.getCause() != null) {
-				MessageDialog.openError(Display.getCurrent().getActiveShell(),
-						"Error occuerd during buidling the esb design view.",
-						exception.getCause().toString());
-			}
-		}
-		
+	
 		return artifacts;
 	}
 
