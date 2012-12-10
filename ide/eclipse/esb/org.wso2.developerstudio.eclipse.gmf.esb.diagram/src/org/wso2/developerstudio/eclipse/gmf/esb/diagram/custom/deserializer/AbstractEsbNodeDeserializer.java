@@ -49,6 +49,7 @@ import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.runtime.notation.impl.ConnectorImpl;
+import org.wso2.developerstudio.eclipse.gmf.esb.APIResource;
 import org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbConnector;
@@ -59,6 +60,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbServer;
 import org.wso2.developerstudio.eclipse.gmf.esb.InputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.OutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.ProxyService;
 import org.wso2.developerstudio.eclipse.gmf.esb.SendMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequences;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
@@ -365,7 +367,7 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 	
 	private static void relocateFlow(EsbConnector connector, LinkedList<EsbNode> nodeList) {
 		if(!currentLocation.containsKey(connector)){
-			currentLocation.put(connector, new Rectangle(25, 10,0,0));
+			currentLocation.put(connector, new Rectangle(25, getInitialY(connector, nodeList), 0, 0));
 		}
 		
 		Rectangle point = currentLocation.get(connector);
@@ -384,6 +386,34 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 	
 	}
 	
+	private static int getInitialY(EsbConnector connector, LinkedList<EsbNode> nodeList) {
+		int y = 10;
+
+		EObject eContainer = connector.eContainer();
+
+		if (eContainer != null) {
+			//FIXME : Remove hard-coded values
+			if (eContainer instanceof ProxyService || eContainer instanceof APIResource) {
+				y = 103; // Initial y of proxy, api resource output connector 
+			} else if (eContainer instanceof Sequences) {
+				y = 146; // Initial y of sequence output connector 
+			} else {
+				return y;
+			}
+			if (nodeList.size() > 0) {
+				EditPart editpart = getEditpart(nodeList.getFirst());
+				if (editpart != null) {
+					if (!(editpart instanceof complexFiguredAbstractMediator)) {
+						GraphicalEditPart gEditpart = (GraphicalEditPart) editpart;
+						y = y - (gEditpart.getFigure().getPreferredSize().height / 2);
+					}
+				}
+			}
+		}
+
+		return y;
+	}
+
 	/**
 	 * Clear links 
 	 */
