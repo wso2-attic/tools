@@ -63,6 +63,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.SendMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequences;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorCompartmentEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ConnectionUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils;
@@ -321,6 +322,9 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 							pointY += (point.y + point.height) + 20; 
 							rectCopy.height = Math.max(rectCopy.height, pointY);
 						}
+						if(((complexFiguredAbstractMediator)editpart).reversed){
+							rect.width +=50; // no effect on width
+						}
 					}
 				}
 			}
@@ -337,13 +341,35 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 		
 	}
 	
+	private static Iterator<EsbNode> getNodeIterator(LinkedList<EsbNode> nodeList) {
+		Iterator<EsbNode> iterator = nodeList.iterator();
+		
+		if (nodeList.size() > 0) {
+			EditPart editpart = getEditpart(nodeList.getFirst());
+			if (editpart != null) {
+				if (editpart.getParent() instanceof AbstractMediatorCompartmentEditPart) {
+					if (editpart.getParent().getParent() instanceof ShapeNodeEditPart) {
+						EditPart container = editpart.getParent().getParent().getParent();
+						if (container instanceof complexFiguredAbstractMediator) {
+							if (((complexFiguredAbstractMediator) container).reversed) {
+								iterator = nodeList.descendingIterator();
+							}
+						}
+					}
+				}
+			}
+		}
+
+		return iterator;
+	}
+	
 	private static void relocateFlow(EsbConnector connector, LinkedList<EsbNode> nodeList) {
 		if(!currentLocation.containsKey(connector)){
 			currentLocation.put(connector, new Rectangle(25, 10,0,0));
 		}
 		
 		Rectangle point = currentLocation.get(connector);
-		Iterator<EsbNode> iterator = nodeList.iterator();
+		Iterator<EsbNode> iterator = getNodeIterator(nodeList);
 
 		while (iterator.hasNext()) {
 			EsbNode mediatornode = iterator.next();
