@@ -120,7 +120,7 @@ public class SequencesInputConnectorEditPart extends AbstractInputConnectorEditP
 		}
 	}
 
-	private void toggleVisibility(InputConnector inputConnector) {
+	public void toggleVisibility(InputConnector inputConnector) {
 		boolean isEndpointcountZero = false;
 		for (Object child : this.getParent().getChildren()) {
 			if (child instanceof MediatorFlow5EditPart) {
