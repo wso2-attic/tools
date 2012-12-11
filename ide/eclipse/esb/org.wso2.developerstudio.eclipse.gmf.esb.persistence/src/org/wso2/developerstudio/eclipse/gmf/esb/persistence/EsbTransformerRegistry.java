@@ -60,6 +60,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.ScriptMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.SendMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
+import org.wso2.developerstudio.eclipse.gmf.esb.Sequences;
 import org.wso2.developerstudio.eclipse.gmf.esb.SmooksMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.SpringMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.StoreMediator;
@@ -113,6 +114,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.RuleMediato
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.ScriptMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.SendMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.SequenceMediatorTransformer;
+import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.SequenceTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.SmooksMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.SpringMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.StoreMediatorTransformer;
@@ -200,6 +202,7 @@ public class EsbTransformerRegistry {
 		addTransformer(BAMMediator.class, new BAMMediatorTransformer());
 		addTransformer(EJBMediator.class, new EJBMediatorTransformer());
 		addTransformer(BeanMediator.class, new BeanMediatorTransformer());
+		addTransformer(Sequences.class, new SequenceTransformer());
 	}
 	
 	/**

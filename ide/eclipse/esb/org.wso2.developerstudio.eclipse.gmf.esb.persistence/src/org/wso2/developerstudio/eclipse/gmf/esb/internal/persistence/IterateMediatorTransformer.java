@@ -92,7 +92,7 @@ public class IterateMediatorTransformer extends AbstractEsbNodeTransformer{
 			target.setSoapAction(visualIterate.getTarget().getSoapAction());
 			target.setToAddress(visualIterate.getTarget().getToAddress());
 			
-			ListMediator targetList = new AnonymousListMediator();
+			//ListMediator targetList = new AnonymousListMediator();
 			SequenceMediator targetSequence=new SequenceMediator();
 			
 			TransformationInfo newInfo = new TransformationInfo();
@@ -100,10 +100,10 @@ public class IterateMediatorTransformer extends AbstractEsbNodeTransformer{
 			newInfo.setSynapseConfiguration(information.getSynapseConfiguration());
 			newInfo.setOriginInSequence(information.getOriginInSequence());
 			newInfo.setOriginOutSequence(information.getOriginOutSequence());
-			newInfo.setParentSequence(targetList);
+			newInfo.setParentSequence(targetSequence);
 			doTransform(newInfo,visualIterate.getTargetOutputConnector());
 			
-			targetSequence.addAll(targetList.getList());
+			//targetSequence.addAll(targetList.getList());
 			target.setSequence(targetSequence);
 			
 			

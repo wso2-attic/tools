@@ -66,8 +66,15 @@ public abstract class AbstractEsbNodeTransformer implements EsbNodeTransformer {
 				InputConnector inputConnector = outgoingLink.getTarget();
 				Assert.isNotNull(inputConnector, "Input connector should not be null.");
 				
+				EObject nextNode = inputConnector.eContainer();
+				Assert.isTrue(nextNode instanceof EsbNode, "Unknown target node.");
+
+				EsbNode esbNode = (EsbNode) nextNode;
+				EsbNodeTransformer transformer = EsbTransformerRegistry.getInstance().getTransformer(esbNode);
+				Assert.isNotNull(transformer, "No registered transformer for given node.");
+				
 				if(inputConnector instanceof SequencesInputConnector){
-					if(info.currentSequence!=null){
+/*					if(info.currentSequence!=null){
 						if(info.currentSequence.getOutputConnector().getOutgoingLink()!=null){
 							EsbNode esbNode=(EsbNode)info.currentSequence.getOutputConnector().getOutgoingLink().getTarget().eContainer();
 							EsbNodeTransformer transformer = EsbTransformerRegistry.getInstance().getTransformer(esbNode);					
@@ -78,20 +85,17 @@ public abstract class AbstractEsbNodeTransformer implements EsbNodeTransformer {
 						if (info.getParentSequence()!=null){ 
 							info.getParentSequence().addChild(new DropMediator());
 							}
-					}
+					}*/
+					
+					info.setParentSequence(sequence);
+					transformer.transform(info, esbNode);
+					
 				}
 				else{
-					EObject nextNode = inputConnector.eContainer();
-					Assert.isTrue(nextNode instanceof EsbNode, "Unknown target node.");
-
-					EsbNode esbNode = (EsbNode) nextNode;
-					EsbNodeTransformer transformer = EsbTransformerRegistry.getInstance().getTransformer(esbNode);
-					Assert.isNotNull(transformer, "No registered transformer for given node.");
-
 					transformer.transformWithinSequence(info, esbNode,sequence);
 				}
 			} else {
-				sequence.addChild(new DropMediator());
+				//sequence.addChild(new DropMediator());
 				/*// TODO: Might be better to automatically log the message before dropping. 
 				if (info.getParentSequence()!=null){ //TODO temp
 				info.getParentSequence().addChild(new DropMediator());

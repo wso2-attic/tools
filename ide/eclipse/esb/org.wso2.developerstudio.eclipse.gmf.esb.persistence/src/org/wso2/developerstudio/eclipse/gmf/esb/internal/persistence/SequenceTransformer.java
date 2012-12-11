@@ -44,8 +44,15 @@ import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
 public class SequenceTransformer extends AbstractEsbNodeTransformer{
 
 	public void transform(TransformationInfo information, EsbNode subject)
-			throws Exception {
-	
+			throws Exception {	
+		// Check subject.
+		Assert.isTrue(
+				subject instanceof org.wso2.developerstudio.eclipse.gmf.esb.Sequences,
+				"Invalid subject.");
+		org.wso2.developerstudio.eclipse.gmf.esb.Sequences visualSequence = (org.wso2.developerstudio.eclipse.gmf.esb.Sequences) subject;
+		if(visualSequence.isRecieveSequence()){
+			handleServiceChaining(visualSequence,(SequenceMediator) information.getParentSequence(),visualSequence.getAssociatedProxy());
+		}
 	}
 
 	public void createSynapseObject(TransformationInfo info, EObject subject,
@@ -62,9 +69,6 @@ public class SequenceTransformer extends AbstractEsbNodeTransformer{
 		org.wso2.developerstudio.eclipse.gmf.esb.Sequences visualSequence = (org.wso2.developerstudio.eclipse.gmf.esb.Sequences) subject;
 		EsbLink outgoingLink= visualSequence.getOutputConnector().getOutgoingLink();
 		doTransformWithinSequence(information, outgoingLink, sequence);	
-		if(visualSequence.isRecieveSequence()){
-			handleServiceChaining(visualSequence,sequence,visualSequence.getAssociatedProxy());
-		}
 	}
 	
 	private void handleServiceChaining(org.wso2.developerstudio.eclipse.gmf.esb.Sequences visualSequence,SequenceMediator sequence,List proxyNames) throws Exception{

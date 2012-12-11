@@ -184,7 +184,7 @@ public class AggregateMediatorTransformer extends AbstractEsbNodeTransformer {
 				/*
 				 * onComplete
 				 */
-				ListMediator onCompleteMediatorList = new AnonymousListMediator();
+				//ListMediator onCompleteMediatorList = new AnonymousListMediator();
 				SequenceMediator onCompleteSequence = new SequenceMediator();
 
 				TransformationInfo newOnCompleteInfo = new TransformationInfo();
@@ -192,10 +192,10 @@ public class AggregateMediatorTransformer extends AbstractEsbNodeTransformer {
 				newOnCompleteInfo.setSynapseConfiguration(information.getSynapseConfiguration());
 				newOnCompleteInfo.setOriginInSequence(information.getOriginInSequence());
 				newOnCompleteInfo.setOriginOutSequence(information.getOriginOutSequence());
-				newOnCompleteInfo.setParentSequence(onCompleteMediatorList);
+				newOnCompleteInfo.setParentSequence(onCompleteSequence);
 				doTransform(newOnCompleteInfo, visualAggregate.getOnCompleteOutputConnector());
 
-				onCompleteSequence.addAll(onCompleteMediatorList.getList());
+				//onCompleteSequence.addAll(onCompleteMediatorList.getList());
 				aggregateMediator.setOnCompleteSequence(onCompleteSequence);
 			}
 		}

@@ -83,7 +83,7 @@ public class CloneMediatorTransformer extends AbstractEsbNodeTransformer {
 					CloneMediatorTargetOutputConnector outputConnector = visualClone
 							.getTargetsOutputConnector().get(i);
 
-					ListMediator listMediator = new AnonymousListMediator();
+					//ListMediator listMediator = new AnonymousListMediator();
 
 					SequenceMediator targetSequence = new SequenceMediator();
 
@@ -96,10 +96,10 @@ public class CloneMediatorTransformer extends AbstractEsbNodeTransformer {
 							.getOriginInSequence());
 					newInfo.setOriginOutSequence(information
 							.getOriginOutSequence());
-					newInfo.setParentSequence(listMediator);
+					newInfo.setParentSequence(targetSequence);
 					doTransform(newInfo, outputConnector);
 
-					targetSequence.addAll(listMediator.getList());
+					//targetSequence.addAll(listMediator.getList());
 					target.setSequence(targetSequence);
 
 				} else if (visualTarget.getSequenceType().equals(

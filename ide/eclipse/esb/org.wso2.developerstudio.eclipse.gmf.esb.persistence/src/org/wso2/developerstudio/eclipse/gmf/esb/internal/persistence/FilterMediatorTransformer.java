@@ -97,7 +97,8 @@ public class FilterMediatorTransformer extends AbstractEsbNodeTransformer {
 		// Transform pass output data flow path.
 		filterMediator.setThenElementPresent(true);
 		TransformationInfo newThenInfo = new TransformationInfo();
-		newThenInfo.setTraversalDirection(TransformationInfo.TRAVERSAL_DIRECTION_IN);
+		//newThenInfo.setTraversalDirection(TransformationInfo.TRAVERSAL_DIRECTION_IN);
+		newThenInfo.setTraversalDirection(info.getTraversalDirection());
 		newThenInfo.setSynapseConfiguration(info.getSynapseConfiguration());
 		newThenInfo.setOriginInSequence(info.getOriginInSequence());
 		newThenInfo.setOriginOutSequence(info.getOriginOutSequence());
@@ -108,7 +109,8 @@ public class FilterMediatorTransformer extends AbstractEsbNodeTransformer {
 		ListMediator elseMediator = new AnonymousListMediator();
 		filterMediator.setElseMediator(elseMediator);
 		TransformationInfo newElseInfo = new TransformationInfo();
-		newElseInfo.setTraversalDirection(TransformationInfo.TRAVERSAL_DIRECTION_IN);
+		//newElseInfo.setTraversalDirection(TransformationInfo.TRAVERSAL_DIRECTION_IN);
+		newElseInfo.setTraversalDirection(info.getTraversalDirection());
 		newElseInfo.setSynapseConfiguration(info.getSynapseConfiguration());
 		newElseInfo.setOriginInSequence(info.getOriginInSequence());
 		newElseInfo.setOriginOutSequence(info.getOriginOutSequence());

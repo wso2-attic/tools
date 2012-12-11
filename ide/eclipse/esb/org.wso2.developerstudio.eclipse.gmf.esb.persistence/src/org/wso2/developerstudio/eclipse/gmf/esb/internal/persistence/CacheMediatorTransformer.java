@@ -92,7 +92,7 @@ public class CacheMediatorTransformer extends AbstractEsbNodeTransformer {
 				 }
 			} else {
 				
-				ListMediator onCacheHitMediatorList = new AnonymousListMediator();
+				//ListMediator onCacheHitMediatorList = new AnonymousListMediator();
 				SequenceMediator onCacheHitSequence = new SequenceMediator();
 
 				TransformationInfo newOnCacheHitInfo = new TransformationInfo();
@@ -100,10 +100,10 @@ public class CacheMediatorTransformer extends AbstractEsbNodeTransformer {
 				newOnCacheHitInfo.setSynapseConfiguration(info.getSynapseConfiguration());
 				newOnCacheHitInfo.setOriginInSequence(info.getOriginInSequence());
 				newOnCacheHitInfo.setOriginOutSequence(info.getOriginOutSequence());
-				newOnCacheHitInfo.setParentSequence(onCacheHitMediatorList);
+				newOnCacheHitInfo.setParentSequence(onCacheHitSequence);
 				doTransform(newOnCacheHitInfo, visualCache.getOnHitOutputConnector());
 
-				onCacheHitSequence.addAll(onCacheHitMediatorList.getList());
+				//onCacheHitSequence.addAll(onCacheHitMediatorList.getList());
 				cacheMediator.setOnCacheHitSequence(onCacheHitSequence);
 			}
 
