@@ -262,7 +262,7 @@ public class CarbonServer40Utils {
 	}
 
 	public static String getAxis2XmlPathFromLocalWorkspaceRepo(String workspaceRepo){
-		return FileUtils.addNodesToPath(getConfPathFromLocalWorkspaceRepo(workspaceRepo),new String[]{"axis2.xml"});
+		return FileUtils.addNodesToPath(getConfPathFromLocalWorkspaceRepo(workspaceRepo),new String[]{"axis2","axis2.xml"});
 	}
 
 	
@@ -281,10 +281,11 @@ public class CarbonServer40Utils {
 	}
 	
 	public static boolean updateAndSaveAxis2Ports(String axis2Xml,IServer server){
-		loadServerInstanceProperties(server);
+		//loadServerInstanceProperties(server);
 		XPathFactory factory = XPathFactory.newInstance();
 		ServerPort[] serverPorts=CarbonServerManager.getInstance().getServerPorts(server);
     	try {
+    		
     		File xmlDocument = new File(axis2Xml);
     		if (xmlDocument.exists()) {
 				DocumentBuilder builder = DocumentBuilderFactory.newInstance()
@@ -346,7 +347,7 @@ public class CarbonServer40Utils {
 	
 	public static boolean updateAndSaveTransportsPorts(String carbonXml, String catelinaXml, IServer server){
 //		return true;
-		loadServerInstanceProperties(server);
+		//loadServerInstanceProperties(server);
 		NamespaceContext cntx =  CarbonServer40Utils.getCarbonNamespace();
 		XPathFactory factory = XPathFactory.newInstance();
 		ServerPort[] serverPorts=CarbonServerManager.getInstance().getServerPorts(server);
@@ -385,9 +386,13 @@ public class CarbonServer40Utils {
 					if (port.getId().equalsIgnoreCase("carbon.https"))
 						httpsNode.setTextContent(Integer.toString(serverPort
 								.getPort()));
-					if (port.getId().equalsIgnoreCase("carbon.offset"))
-						offSet.setTextContent(Integer.toString(serverPort
-								.getPort()));
+					if (port.getId().equalsIgnoreCase("carbon.offset")){
+						  int port2 = serverPort.getPort();
+						  String strPort = Integer.toString(port2);
+						  offSet.setTextContent(strPort);  
+						/*offSet.setTextContent(Integer.toString(serverPort
+								.getPort()));*/
+					}
 				}
 				Transformer t = TransformerFactory.newInstance()
 						.newTransformer();
@@ -546,9 +551,9 @@ public class CarbonServer40Utils {
 		String loaded="loaded";
 		GenericServer gserver = (GenericServer) server.getAdapter(GenericServer.class);
 		if (gserver==null ||gserver.getServerInstanceProperties()==null) return null;
-		if (gserver.getServerInstanceProperties().get(loaded)==null){
+		/*if (gserver.getServerInstanceProperties().get(loaded)==null){
 			loadServerInstanceProperties(server);
-		}
+		}*/
 		Object object = gserver.getServerInstanceProperties().get(key);
 		if (object!=null)
 			return object.toString();

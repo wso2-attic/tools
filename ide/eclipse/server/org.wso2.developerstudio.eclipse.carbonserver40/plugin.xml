@@ -109,7 +109,7 @@
             typeIds="org.wso2.developerstudio.eclipse.carbon.runtime40">
       </fragment>
       <fragment
-            class="org.eclipse.jst.server.generic.ui.internal.GenericServerWizardFragment"
+            class="org.wso2.developerstudio.eclipse.carbonserver.base.internal.CarbonServerWizardFragment"
             id="org.eclipse.jst.server.generic.server"
             typeIds="org.wso2.developerstudio.eclipse.carbon.server40">
       </fragment>
@@ -177,4 +177,11 @@
          class="org.wso2.developerstudio.eclipse.carbonserver40.configuration.ConfigurationCredentialsEditorSection">
   	</section-->
    </extension>
+  <extension
+        point="org.wso2.developerstudio.eclipse.carbonserver.base.serverProperties">
+     <properties
+           class="org.wso2.developerstudio.eclipse.carbonserver40.ServerProperties"
+           serverId="org.wso2.developerstudio.eclipse.carbon.runtime40">
+     </properties>
+  </extension>
 </plugin>

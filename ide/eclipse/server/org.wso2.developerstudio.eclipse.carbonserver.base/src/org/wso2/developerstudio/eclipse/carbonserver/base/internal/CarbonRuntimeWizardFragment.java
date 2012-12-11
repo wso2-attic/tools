@@ -18,29 +18,31 @@ package org.wso2.developerstudio.eclipse.carbonserver.base.internal;
 
 import java.util.Map;
 
-import org.eclipse.wst.server.core.IRuntimeWorkingCopy;
-import org.eclipse.wst.server.core.TaskModel;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.jst.server.generic.core.internal.GenericServerRuntime;
 import org.eclipse.jst.server.generic.ui.internal.GenericServerRuntimeWizardFragment;
+import org.eclipse.wst.server.core.IRuntimeWorkingCopy;
+import org.eclipse.wst.server.core.TaskModel;
+
 
 @SuppressWarnings("restriction")
 public class CarbonRuntimeWizardFragment extends GenericServerRuntimeWizardFragment {
 
+	public IRuntimeWorkingCopy runtime;
 	public boolean isComplete() {
-		IRuntimeWorkingCopy runtime = (IRuntimeWorkingCopy) getTaskModel().getObject(TaskModel.TASK_RUNTIME);
+		  runtime = (IRuntimeWorkingCopy) getTaskModel().getObject(TaskModel.TASK_RUNTIME);
+		
 		if(runtime!=null){
 			GenericServerRuntime gRuntime = (GenericServerRuntime) runtime.loadAdapter(
 	                GenericServerRuntime.class, new NullProgressMonitor() );
+			
 			Map properties = gRuntime.getServerInstanceProperties();
-			if(properties.containsKey("server.name")){
 				String serverName = (String) properties.get("server.name");
-				if(serverName!=null)
+				if(serverName!=null){
 				runtime.setName(serverName);
 			}
-			
 		}
 		return super.isComplete();
-	}
-	
+	}	 
 }
+ 
