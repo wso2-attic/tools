@@ -22,6 +22,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.Sequence#getInputConnector <em>Input Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.Sequence#getOutputConnector <em>Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.Sequence#getIncludedMediators <em>Included Mediators</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.Sequence#isReceiveSequence <em>Receive Sequence</em>}</li>
  * </ul>
  * </p>
  *
@@ -151,5 +152,31 @@ public interface Sequence extends Mediator {
 	 * @generated
 	 */
 	EList<Mediator> getIncludedMediators();
+
+	/**
+	 * Returns the value of the '<em><b>Receive Sequence</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Receive Sequence</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Receive Sequence</em>' attribute.
+	 * @see #setReceiveSequence(boolean)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getSequence_ReceiveSequence()
+	 * @model
+	 * @generated
+	 */
+	boolean isReceiveSequence();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.Sequence#isReceiveSequence <em>Receive Sequence</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Receive Sequence</em>' attribute.
+	 * @see #isReceiveSequence()
+	 * @generated
+	 */
+	void setReceiveSequence(boolean value);
 
 } // Sequence

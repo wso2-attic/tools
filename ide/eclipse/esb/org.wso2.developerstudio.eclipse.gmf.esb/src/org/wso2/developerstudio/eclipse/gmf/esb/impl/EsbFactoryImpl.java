@@ -737,7 +737,7 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 		proxyService.setInputConnector(createProxyInputConnector());
 		proxyService.setFaultInputConnector(createProxyFaultInputConnector());
 		proxyService.setContainer(createProxyServiceContainer());
-		proxyService.setName("proxy" +proxyservicecount);
+		//proxyService.setName("proxy" +proxyservicecount);
 		return proxyService;
 	}
 

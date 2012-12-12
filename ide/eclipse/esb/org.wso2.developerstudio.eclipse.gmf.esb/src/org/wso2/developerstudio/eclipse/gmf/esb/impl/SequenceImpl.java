@@ -40,6 +40,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.SequenceOutputConnector;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SequenceImpl#getInputConnector <em>Input Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SequenceImpl#getOutputConnector <em>Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SequenceImpl#getIncludedMediators <em>Included Mediators</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SequenceImpl#isReceiveSequence <em>Receive Sequence</em>}</li>
  * </ul>
  * </p>
  *
@@ -115,6 +116,26 @@ public class SequenceImpl extends MediatorImpl implements Sequence {
 	 * @ordered
 	 */
 	protected EList<Mediator> includedMediators;
+
+	/**
+	 * The default value of the '{@link #isReceiveSequence() <em>Receive Sequence</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isReceiveSequence()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean RECEIVE_SEQUENCE_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isReceiveSequence() <em>Receive Sequence</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isReceiveSequence()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean receiveSequence = RECEIVE_SEQUENCE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -281,6 +302,27 @@ public class SequenceImpl extends MediatorImpl implements Sequence {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isReceiveSequence() {
+		return receiveSequence;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setReceiveSequence(boolean newReceiveSequence) {
+		boolean oldReceiveSequence = receiveSequence;
+		receiveSequence = newReceiveSequence;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.SEQUENCE__RECEIVE_SEQUENCE, oldReceiveSequence, receiveSequence));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -314,6 +356,8 @@ public class SequenceImpl extends MediatorImpl implements Sequence {
 				return getOutputConnector();
 			case EsbPackage.SEQUENCE__INCLUDED_MEDIATORS:
 				return getIncludedMediators();
+			case EsbPackage.SEQUENCE__RECEIVE_SEQUENCE:
+				return isReceiveSequence();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -344,6 +388,9 @@ public class SequenceImpl extends MediatorImpl implements Sequence {
 				getIncludedMediators().clear();
 				getIncludedMediators().addAll((Collection<? extends Mediator>)newValue);
 				return;
+			case EsbPackage.SEQUENCE__RECEIVE_SEQUENCE:
+				setReceiveSequence((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -372,6 +419,9 @@ public class SequenceImpl extends MediatorImpl implements Sequence {
 			case EsbPackage.SEQUENCE__INCLUDED_MEDIATORS:
 				getIncludedMediators().clear();
 				return;
+			case EsbPackage.SEQUENCE__RECEIVE_SEQUENCE:
+				setReceiveSequence(RECEIVE_SEQUENCE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -395,6 +445,8 @@ public class SequenceImpl extends MediatorImpl implements Sequence {
 				return outputConnector != null;
 			case EsbPackage.SEQUENCE__INCLUDED_MEDIATORS:
 				return includedMediators != null && !includedMediators.isEmpty();
+			case EsbPackage.SEQUENCE__RECEIVE_SEQUENCE:
+				return receiveSequence != RECEIVE_SEQUENCE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -414,6 +466,8 @@ public class SequenceImpl extends MediatorImpl implements Sequence {
 		result.append(name);
 		result.append(", key: ");
 		result.append(key);
+		result.append(", receiveSequence: ");
+		result.append(receiveSequence);
 		result.append(')');
 		return result.toString();
 	}

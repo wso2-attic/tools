@@ -5686,6 +5686,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getSequence_ReceiveSequence() {
+		return (EAttribute)sequenceEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSequenceInputConnector() {
 		return sequenceInputConnectorEClass;
 	}
@@ -12721,6 +12730,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEReference(sequenceEClass, SEQUENCE__INPUT_CONNECTOR);
 		createEReference(sequenceEClass, SEQUENCE__OUTPUT_CONNECTOR);
 		createEReference(sequenceEClass, SEQUENCE__INCLUDED_MEDIATORS);
+		createEAttribute(sequenceEClass, SEQUENCE__RECEIVE_SEQUENCE);
 
 		sequenceInputConnectorEClass = createEClass(SEQUENCE_INPUT_CONNECTOR);
 
@@ -14349,6 +14359,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEReference(getSequence_InputConnector(), this.getSequenceInputConnector(), null, "inputConnector", null, 0, 1, Sequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSequence_OutputConnector(), this.getSequenceOutputConnector(), null, "outputConnector", null, 0, 1, Sequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSequence_IncludedMediators(), this.getMediator(), null, "includedMediators", null, 0, -1, Sequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSequence_ReceiveSequence(), ecorePackage.getEBoolean(), "receiveSequence", null, 0, 1, Sequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sequenceInputConnectorEClass, SequenceInputConnector.class, "SequenceInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

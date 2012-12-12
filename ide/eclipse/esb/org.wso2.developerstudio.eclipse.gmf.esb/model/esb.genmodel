@@ -791,6 +791,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//Sequence/inputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//Sequence/outputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//Sequence/includedMediators"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//Sequence/receiveSequence"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//SequenceInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//SequenceOutputConnector"/>

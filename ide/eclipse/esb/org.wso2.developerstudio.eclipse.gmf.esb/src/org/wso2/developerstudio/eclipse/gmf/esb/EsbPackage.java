@@ -4591,13 +4591,22 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	int SEQUENCE__INCLUDED_MEDIATORS = MEDIATOR_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Receive Sequence</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEQUENCE__RECEIVE_SEQUENCE = MEDIATOR_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Sequence</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEQUENCE_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 5;
+	int SEQUENCE_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SequenceInputConnectorImpl <em>Sequence Input Connector</em>}' class.
@@ -18830,6 +18839,17 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	EReference getSequence_IncludedMediators();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.Sequence#isReceiveSequence <em>Receive Sequence</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Receive Sequence</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.Sequence#isReceiveSequence()
+	 * @see #getSequence()
+	 * @generated
+	 */
+	EAttribute getSequence_ReceiveSequence();
+
+	/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.gmf.esb.SequenceInputConnector <em>Sequence Input Connector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -29236,6 +29256,14 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		 * @generated
 		 */
 		EReference SEQUENCE__INCLUDED_MEDIATORS = eINSTANCE.getSequence_IncludedMediators();
+
+		/**
+		 * The meta object literal for the '<em><b>Receive Sequence</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SEQUENCE__RECEIVE_SEQUENCE = eINSTANCE.getSequence_ReceiveSequence();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SequenceInputConnectorImpl <em>Sequence Input Connector</em>}' class.
