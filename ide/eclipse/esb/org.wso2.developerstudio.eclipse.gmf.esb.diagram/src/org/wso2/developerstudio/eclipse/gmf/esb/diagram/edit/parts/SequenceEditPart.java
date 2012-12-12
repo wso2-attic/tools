@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import org.apache.commons.lang.RandomStringUtils;
 import org.apache.maven.project.MavenProject;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
@@ -77,6 +78,7 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.FileEditorInput;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBArtifact;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
+import org.wso2.developerstudio.eclipse.esb.project.utils.ESBProjectUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyService;
@@ -154,7 +156,7 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 		sequenceEditPart = this;
 		info = new SequencesInfo();
 	}
-
+	
 	/**
 	 * @generated NOT
 	 */
@@ -419,7 +421,7 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 		return getChildBySemanticHint(EsbVisualIDRegistry.getType(SequenceNameEditPart.VISUAL_ID));
 	}
 
-	private IProject getActiveProject() {
+	public IProject getActiveProject() {
 		IEditorPart editorPart = null;
 		IProject activeProject = null;
 		IEditorReference editorReferences[] = PlatformUI.getWorkbench().getActiveWorkbenchWindow()
@@ -513,6 +515,7 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 					URI.createURI(basePath + fileURI2), new NullProgressMonitor(), "sequence",
 					name, info);
 			try {
+				addSequenceToArtifactXML(name);
 				EsbDiagramEditorUtil.openDiagram(diagram);
 
 			} catch (PartInitException e) {
@@ -578,7 +581,8 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 				}
 
 			};
-			String defaultName = "Default" + (((EsbDiagram) diagram).getTest() + 1);
+			//String defaultName = "Sequence_" + (((EsbDiagram) diagram).getTest() + 1);
+			String defaultName =calculateDefaultName();
 			final InputDialog sequenceNameInput = new InputDialog(new Shell(),
 					"Enter Sequence Name", "Sequence Name", defaultName, validator) {
 				protected Control createDialogArea(Composite parent) {
@@ -605,7 +609,7 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 					public void run() {
 						String sequenceName = sequenceNameInput.getValue();
 						TransactionalEditingDomain editingDomain = getEditingDomain();
-						SetRequest setRequestSequenceCount = new SetRequest(editingDomain, diagram,
+/*						SetRequest setRequestSequenceCount = new SetRequest(editingDomain, diagram,
 								EsbPackage.eINSTANCE.getEsbDiagram_Test(), ((EsbDiagram) diagram)
 										.getTest() + 1);
 						SetValueCommand operationSequenceCount = new SetValueCommand(
@@ -624,7 +628,7 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 								operationSequenceCount);
 						if (commandSequenceCount.canExecute()) {
 							getEditDomain().getCommandStack().execute(commandSequenceCount);
-						}
+						}*/
 
 						SetRequest setRequest = new SetRequest(editingDomain, sequence,
 								EsbPackage.eINSTANCE.getSequence_Name(), sequenceName);
@@ -648,7 +652,7 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 									.getName());
 						}
 
-						IProject activeProject = getActiveProject();
+/*						IProject activeProject = getActiveProject();
 						ESBProjectArtifact esbProjectArtifact = new ESBProjectArtifact();
 						try {
 							esbProjectArtifact.fromFile(activeProject.getFile("artifact.xml")
@@ -660,13 +664,47 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 							esbProjectArtifact.toFile();
 						} catch (Exception e) {
 							log.error("Error while updating Artifact.xml");
-						}
+						}*/
 						openWithSeparateEditor();
 					}
 				});
 			}
 		} else {
 			openWithSeparateEditor();
+		}
+	}
+	
+	public String calculateDefaultName(){		
+		IProject activeProject=getActiveProject();
+		String finalName="Sequence_1";
+		int i = 1;
+		
+		try{
+		while (ESBProjectUtils.artifactExists(activeProject, finalName)) {
+			finalName = finalName.replaceAll("\\d+$", "");
+			i++;
+			finalName = finalName.concat(i + "");
+		}
+		}catch (Exception e) {
+			finalName = finalName.concat("_").concat(RandomStringUtils.randomAlphabetic(5))
+			.concat("_" + i);
+		}
+		return finalName;
+	}
+	
+	private void addSequenceToArtifactXML(String sequenceName){
+		IProject activeProject = getActiveProject();
+		ESBProjectArtifact esbProjectArtifact = new ESBProjectArtifact();
+		try {
+			esbProjectArtifact.fromFile(activeProject.getFile("artifact.xml")
+					.getLocation().toFile());
+			esbProjectArtifact.addESBArtifact(createArtifact(sequenceName,
+					getMavenGroupID(activeProject), "1.0.0",
+					"src/main/synapse-config/sequences/" + sequenceName + ".xml",
+					"synapse/sequence"));
+			esbProjectArtifact.toFile();
+		} catch (Exception e) {
+			log.error("Error while updating Artifact.xml");
 		}
 	}
 

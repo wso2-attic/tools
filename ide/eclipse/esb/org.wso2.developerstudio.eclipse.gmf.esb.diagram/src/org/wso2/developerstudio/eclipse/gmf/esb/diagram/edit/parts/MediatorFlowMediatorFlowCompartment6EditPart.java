@@ -109,7 +109,7 @@ public class MediatorFlowMediatorFlowCompartment6EditPart extends
 			SwitchMediatorUtils.addCaseBranchInitially(switchMediatorEditPart, getEditingDomain());
 		}
 
-		if (child instanceof SequenceEditPart) {
+/*		if (child instanceof SequenceEditPart) {
 			SequenceEditPart sequenceEditPart = (SequenceEditPart) child;
 			EditPart editpart = (EditPart) ((StructuredSelection) sequenceEditPart.getViewer()
 					.getEditDomain().getPaletteViewer().getSelection()).getFirstElement();
@@ -130,7 +130,7 @@ public class MediatorFlowMediatorFlowCompartment6EditPart extends
 					}
 				}
 			}
-		}
+		}*/
 	}
 
 	protected void removeChild(EditPart child) {
