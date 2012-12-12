@@ -268,6 +268,7 @@ public class ConfigureProxyWSDLResourceDialog extends Dialog {
 
 			public void modifyText(ModifyEvent e) {
 //				item.setText(0,txtLocation.getText());
+				((ProxyWSDLResource)item.getData()).setLocation(txtLocation.getText());
 				item.setData("location", txtLocation.getText());
 			}
 		});
@@ -287,6 +288,7 @@ public class ConfigureProxyWSDLResourceDialog extends Dialog {
 				item.setText(resourceKey.getText());
 				Object property = resourceKey.getProperty();
 				if(property instanceof RegistryKeyProperty){
+					((ProxyWSDLResource)item.getData()).setKey((RegistryKeyProperty)property);
 					item.setData("key",(RegistryKeyProperty)property);
 				} 
 			}
@@ -334,109 +336,16 @@ public class ConfigureProxyWSDLResourceDialog extends Dialog {
 
 		for (TableItem item : resourcesTable.getItems()) {
 
-			CallTemplateParameter param = (CallTemplateParameter) item
+			ProxyWSDLResource resource = (ProxyWSDLResource) item
 					.getData();
-			NamespacedProperty expression = (NamespacedProperty)item.getData("exp");
-
-			if (param.eContainer() == null) {
-
-				param.setParameterName(item.getText(0));
-
-				if (item.getText(2).equals(VALUE_TYPE)) {
-
-					param.setTemplateParameterType(RuleOptionType.VALUE);
-					param.setParameterValue(item.getText(1));
-				}
-
-				if (item.getText(2).equals(EXPRESSION_TYPE)) {
-
-					param.setTemplateParameterType(RuleOptionType.EXPRESSION);
-					NamespacedProperty namespaceProperty = EsbFactoryImpl.eINSTANCE
-							.createNamespacedProperty();
-					namespaceProperty.setPropertyValue(item.getText(1));
-					namespaceProperty.setNamespaces(expression.getNamespaces());
-					param.setParameterExpression(namespaceProperty);
-				}
-
-				AddCommand addCmd = new AddCommand(
-						editingDomain,
-						proxyService,
-						EsbPackage.Literals.CALL_TEMPLATE_MEDIATOR__TEMPLATE_PARAMETERS,
-						param);
-				getResultCommand().append(addCmd);
-
-			} else {
-
-				if (!param.getParameterName().equals(item.getText(0))) {
-
-					SetCommand setCmd = new SetCommand(
-							editingDomain,
-							param,
-							EsbPackage.Literals.CALL_TEMPLATE_PARAMETER__PARAMETER_NAME,
-							item.getText(0));
-
-					getResultCommand().append(setCmd);
-				}
-
-				if (item.getText(2).equals(VALUE_TYPE)) {
-
-					SetCommand setCmdValueType = new SetCommand(
-							editingDomain,
-							param,
-							EsbPackage.Literals.CALL_TEMPLATE_PARAMETER__TEMPLATE_PARAMETER_TYPE,
-							RuleOptionType.VALUE);
-					getResultCommand().append(setCmdValueType);
-
-					if (!param.getParameterValue().equals(item.getText(1))) {
-
-						SetCommand setCmd = new SetCommand(
-								editingDomain,
-								param,
-								EsbPackage.Literals.CALL_TEMPLATE_PARAMETER__PARAMETER_VALUE,
-								item.getText(1));
-						getResultCommand().append(setCmd);
-					}
-				}
-
-				if (item.getText(2).equals(EXPRESSION_TYPE)) {
-
-					SetCommand setCmdExpType = new SetCommand(
-							editingDomain,
-							param,
-							EsbPackage.Literals.CALL_TEMPLATE_PARAMETER__TEMPLATE_PARAMETER_TYPE,
-							RuleOptionType.EXPRESSION);
-					getResultCommand().append(setCmdExpType);
-
-					if (param.getParameterExpression() == null) {
-
-						NamespacedProperty namespaceProperty = EsbFactoryImpl.eINSTANCE
-								.createNamespacedProperty();
-						namespaceProperty.setPropertyValue(item.getText(1));
-						namespaceProperty.setNamespaces(expression.getNamespaces());
-						AddCommand addCmd = new AddCommand(
-								editingDomain,
-								param,
-								EsbPackage.Literals.CALL_TEMPLATE_PARAMETER__PARAMETER_EXPRESSION,
-								namespaceProperty);
-						getResultCommand().append(addCmd);
-
-					} else {
-
-						NamespacedProperty namespaceProperty = EsbFactoryImpl.eINSTANCE
-								.createNamespacedProperty();
-						namespaceProperty.setPropertyValue(item.getText(1));
-						namespaceProperty.setNamespaces(expression.getNamespaces());
-
-						SetCommand setCmd = new SetCommand(
-								editingDomain,
-								param,
-								EsbPackage.Literals.CALL_TEMPLATE_PARAMETER__PARAMETER_EXPRESSION,
-								namespaceProperty);
-						getResultCommand().append(setCmd);
-					}
-				}
-
-			}
+			
+			//SetCommand setCmd=new SetCommand(editingDomain, proxyService, EsbPackage.Literals.PROXY_SERVICE__WSDL_RESOURCES, resource);
+			AddCommand addCmd = new AddCommand(
+					editingDomain,
+					proxyService,
+					EsbPackage.Literals.PROXY_SERVICE__WSDL_RESOURCES,
+					resource);
+			getResultCommand().append(addCmd);
 
 		}
 

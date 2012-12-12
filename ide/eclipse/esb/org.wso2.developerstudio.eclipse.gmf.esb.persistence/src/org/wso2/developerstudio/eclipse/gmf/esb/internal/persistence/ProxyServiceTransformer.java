@@ -17,6 +17,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence;
 
 import java.net.URI;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.apache.axiom.om.OMElement;
@@ -28,6 +29,7 @@ import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.apache.synapse.mediators.filters.InMediator;
 import org.apache.synapse.mediators.filters.OutMediator;
+import org.apache.synapse.util.resolver.ResourceMap;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
@@ -55,6 +57,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.LogMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.OAuthMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.PropertyMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.ProxyWSDLResource;
 import org.wso2.developerstudio.eclipse.gmf.esb.RMSequenceMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.ScriptMediator;
@@ -275,6 +278,12 @@ public class ProxyServiceTransformer extends AbstractEsbNodeTransformer {
 			case NONE:
 				break;
 			}
+			
+			proxyService.setResourceMap(new ResourceMap()); 
+			for (ProxyWSDLResource wsdlResource : visualService.getWsdlResources()) {
+				proxyService.getResourceMap().addResource(wsdlResource.getLocation(), wsdlResource.getKey().getKeyValue());
+			}
+			
 			String pinnedServerInfo = visualService.getPinnedServers();
 			if (pinnedServerInfo != null && !pinnedServerInfo.equals("")) {
 				for (String a : pinnedServerInfo.split(",")) {

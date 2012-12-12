@@ -36,7 +36,6 @@ import org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceOutSequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceParameter;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyServicePolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyWSDLResource;
-import org.wso2.developerstudio.eclipse.gmf.esb.ProxyWSDLConfiguration;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceSequenceAndEndpointContainer;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceSequenceContainer;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyWsdlType;
