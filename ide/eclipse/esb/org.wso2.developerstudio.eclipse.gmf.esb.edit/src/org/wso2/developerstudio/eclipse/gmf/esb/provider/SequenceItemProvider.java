@@ -69,6 +69,7 @@ public class SequenceItemProvider
 
 		addNamePropertyDescriptor(object);
 		addKeyPropertyDescriptor(object);
+		addReceiveSequencePropertyDescriptor(object);
 		return itemPropertyDescriptors;
 	}
 
@@ -112,6 +113,28 @@ public class SequenceItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Receive Sequence feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addReceiveSequencePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Sequence_receiveSequence_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Sequence_receiveSequence_feature", "_UI_Sequence_type"),
+				 EsbPackage.Literals.SEQUENCE__RECEIVE_SEQUENCE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -192,6 +215,7 @@ public class SequenceItemProvider
 		switch (notification.getFeatureID(Sequence.class)) {
 			case EsbPackage.SEQUENCE__NAME:
 			case EsbPackage.SEQUENCE__KEY:
+			case EsbPackage.SEQUENCE__RECEIVE_SEQUENCE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case EsbPackage.SEQUENCE__INPUT_CONNECTOR:
