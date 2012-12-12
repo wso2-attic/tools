@@ -129,6 +129,10 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 				return createProxyInputConnectorAdapter();
 			}
 			@Override
+			public Adapter caseProxyWSDLResource(ProxyWSDLResource object) {
+				return createProxyWSDLResourceAdapter();
+			}
+			@Override
 			public Adapter caseProxyFaultInputConnector(ProxyFaultInputConnector object) {
 				return createProxyFaultInputConnectorAdapter();
 			}
@@ -1414,6 +1418,20 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createProxyInputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyWSDLResource <em>Proxy WSDL Resource</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.ProxyWSDLResource
+	 * @generated
+	 */
+	public Adapter createProxyWSDLResourceAdapter() {
 		return null;
 	}
 

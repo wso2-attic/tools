@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyFaultInputConnector;
@@ -34,6 +35,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceInSequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceOutSequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceParameter;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyServicePolicy;
+import org.wso2.developerstudio.eclipse.gmf.esb.ProxyWSDLResource;
+import org.wso2.developerstudio.eclipse.gmf.esb.ProxyWSDLConfiguration;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceSequenceAndEndpointContainer;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceSequenceContainer;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyWsdlType;
@@ -61,10 +64,6 @@ import org.wso2.developerstudio.eclipse.platform.core.utils.DeveloperStudioProvi
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#getTransports <em>Transports</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#isReliableMessagingEnabled <em>Reliable Messaging Enabled</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#isSecurityEnabled <em>Security Enabled</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#getWsdlType <em>Wsdl Type</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#getWsdlXML <em>Wsdl XML</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#getWsdlURL <em>Wsdl URL</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#getWsdlKey <em>Wsdl Key</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#getServiceParameters <em>Service Parameters</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#getServicePolicies <em>Service Policies</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#getContainer <em>Container</em>}</li>
@@ -78,6 +77,11 @@ import org.wso2.developerstudio.eclipse.platform.core.utils.DeveloperStudioProvi
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#getFaultSequenceKey <em>Fault Sequence Key</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#getFaultSequenceName <em>Fault Sequence Name</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#isMainSequence <em>Main Sequence</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#getWsdlType <em>Wsdl Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#getWsdlXML <em>Wsdl XML</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#getWsdlURL <em>Wsdl URL</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#getWsdlKey <em>Wsdl Key</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#getWsdlResources <em>Wsdl Resources</em>}</li>
  * </ul>
  * </p>
  *
@@ -273,76 +277,6 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 	 * @ordered
 	 */
 	protected boolean securityEnabled = SECURITY_ENABLED_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getWsdlType() <em>Wsdl Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getWsdlType()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final ProxyWsdlType WSDL_TYPE_EDEFAULT = ProxyWsdlType.NONE;
-
-	/**
-	 * The cached value of the '{@link #getWsdlType() <em>Wsdl Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getWsdlType()
-	 * @generated
-	 * @ordered
-	 */
-	protected ProxyWsdlType wsdlType = WSDL_TYPE_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getWsdlXML() <em>Wsdl XML</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getWsdlXML()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String WSDL_XML_EDEFAULT = "<definitions/>";
-
-	/**
-	 * The cached value of the '{@link #getWsdlXML() <em>Wsdl XML</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getWsdlXML()
-	 * @generated
-	 * @ordered
-	 */
-	protected String wsdlXML = WSDL_XML_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getWsdlURL() <em>Wsdl URL</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getWsdlURL()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String WSDL_URL_EDEFAULT = "http://default/wsdl/url";
-
-	/**
-	 * The cached value of the '{@link #getWsdlURL() <em>Wsdl URL</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getWsdlURL()
-	 * @generated
-	 * @ordered
-	 */
-	protected String wsdlURL = WSDL_URL_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getWsdlKey() <em>Wsdl Key</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getWsdlKey()
-	 * @generated
-	 * @ordered
-	 */
-	protected RegistryKeyProperty wsdlKey;
 
 	/**
 	 * The cached value of the '{@link #getServiceParameters() <em>Service Parameters</em>}' containment reference list.
@@ -545,6 +479,86 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 	protected boolean mainSequence = MAIN_SEQUENCE_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getWsdlType() <em>Wsdl Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getWsdlType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final ProxyWsdlType WSDL_TYPE_EDEFAULT = ProxyWsdlType.NONE;
+
+	/**
+	 * The cached value of the '{@link #getWsdlType() <em>Wsdl Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getWsdlType()
+	 * @generated
+	 * @ordered
+	 */
+	protected ProxyWsdlType wsdlType = WSDL_TYPE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getWsdlXML() <em>Wsdl XML</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getWsdlXML()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String WSDL_XML_EDEFAULT = "<definitions/>";
+
+	/**
+	 * The cached value of the '{@link #getWsdlXML() <em>Wsdl XML</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getWsdlXML()
+	 * @generated
+	 * @ordered
+	 */
+	protected String wsdlXML = WSDL_XML_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getWsdlURL() <em>Wsdl URL</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getWsdlURL()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String WSDL_URL_EDEFAULT = "http://default/wsdl/url";
+
+	/**
+	 * The cached value of the '{@link #getWsdlURL() <em>Wsdl URL</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getWsdlURL()
+	 * @generated
+	 * @ordered
+	 */
+	protected String wsdlURL = WSDL_URL_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getWsdlKey() <em>Wsdl Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getWsdlKey()
+	 * @generated
+	 * @ordered
+	 */
+	protected RegistryKeyProperty wsdlKey;
+
+	/**
+	 * The cached value of the '{@link #getWsdlResources() <em>Wsdl Resources</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getWsdlResources()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ProxyWSDLResource> wsdlResources;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
@@ -578,7 +592,7 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 		faultSequenceKey.setKeyName("key");
 		faultSequenceKey.setKeyValue(DEFAULT_REGISTRY_KEY);
 		setFaultSequenceKey(faultSequenceKey);
-
+		
 	}
 
 	/**
@@ -887,112 +901,6 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 		securityEnabled = newSecurityEnabled;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.PROXY_SERVICE__SECURITY_ENABLED, oldSecurityEnabled, securityEnabled));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ProxyWsdlType getWsdlType() {
-		return wsdlType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setWsdlType(ProxyWsdlType newWsdlType) {
-		ProxyWsdlType oldWsdlType = wsdlType;
-		wsdlType = newWsdlType == null ? WSDL_TYPE_EDEFAULT : newWsdlType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.PROXY_SERVICE__WSDL_TYPE, oldWsdlType, wsdlType));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getWsdlXML() {
-		return wsdlXML;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setWsdlXML(String newWsdlXML) {
-		String oldWsdlXML = wsdlXML;
-		wsdlXML = newWsdlXML;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.PROXY_SERVICE__WSDL_XML, oldWsdlXML, wsdlXML));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getWsdlURL() {
-		return wsdlURL;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setWsdlURL(String newWsdlURL) {
-		String oldWsdlURL = wsdlURL;
-		wsdlURL = newWsdlURL;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.PROXY_SERVICE__WSDL_URL, oldWsdlURL, wsdlURL));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RegistryKeyProperty getWsdlKey() {
-		return wsdlKey;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetWsdlKey(RegistryKeyProperty newWsdlKey, NotificationChain msgs) {
-		RegistryKeyProperty oldWsdlKey = wsdlKey;
-		wsdlKey = newWsdlKey;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.PROXY_SERVICE__WSDL_KEY, oldWsdlKey, newWsdlKey);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setWsdlKey(RegistryKeyProperty newWsdlKey) {
-		if (newWsdlKey != wsdlKey) {
-			NotificationChain msgs = null;
-			if (wsdlKey != null)
-				msgs = ((InternalEObject)wsdlKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.PROXY_SERVICE__WSDL_KEY, null, msgs);
-			if (newWsdlKey != null)
-				msgs = ((InternalEObject)newWsdlKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.PROXY_SERVICE__WSDL_KEY, null, msgs);
-			msgs = basicSetWsdlKey(newWsdlKey, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.PROXY_SERVICE__WSDL_KEY, newWsdlKey, newWsdlKey));
 	}
 
 	/**
@@ -1343,6 +1251,124 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ProxyWsdlType getWsdlType() {
+		return wsdlType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setWsdlType(ProxyWsdlType newWsdlType) {
+		ProxyWsdlType oldWsdlType = wsdlType;
+		wsdlType = newWsdlType == null ? WSDL_TYPE_EDEFAULT : newWsdlType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.PROXY_SERVICE__WSDL_TYPE, oldWsdlType, wsdlType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getWsdlXML() {
+		return wsdlXML;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setWsdlXML(String newWsdlXML) {
+		String oldWsdlXML = wsdlXML;
+		wsdlXML = newWsdlXML;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.PROXY_SERVICE__WSDL_XML, oldWsdlXML, wsdlXML));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getWsdlURL() {
+		return wsdlURL;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setWsdlURL(String newWsdlURL) {
+		String oldWsdlURL = wsdlURL;
+		wsdlURL = newWsdlURL;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.PROXY_SERVICE__WSDL_URL, oldWsdlURL, wsdlURL));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RegistryKeyProperty getWsdlKey() {
+		return wsdlKey;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetWsdlKey(RegistryKeyProperty newWsdlKey, NotificationChain msgs) {
+		RegistryKeyProperty oldWsdlKey = wsdlKey;
+		wsdlKey = newWsdlKey;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.PROXY_SERVICE__WSDL_KEY, oldWsdlKey, newWsdlKey);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setWsdlKey(RegistryKeyProperty newWsdlKey) {
+		if (newWsdlKey != wsdlKey) {
+			NotificationChain msgs = null;
+			if (wsdlKey != null)
+				msgs = ((InternalEObject)wsdlKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.PROXY_SERVICE__WSDL_KEY, null, msgs);
+			if (newWsdlKey != null)
+				msgs = ((InternalEObject)newWsdlKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.PROXY_SERVICE__WSDL_KEY, null, msgs);
+			msgs = basicSetWsdlKey(newWsdlKey, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.PROXY_SERVICE__WSDL_KEY, newWsdlKey, newWsdlKey));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ProxyWSDLResource> getWsdlResources() {
+		if (wsdlResources == null) {
+			wsdlResources = new EObjectContainmentEList<ProxyWSDLResource>(ProxyWSDLResource.class, this, EsbPackage.PROXY_SERVICE__WSDL_RESOURCES);
+		}
+		return wsdlResources;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -1353,8 +1379,6 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 				return basicSetInputConnector(null, msgs);
 			case EsbPackage.PROXY_SERVICE__FAULT_INPUT_CONNECTOR:
 				return basicSetFaultInputConnector(null, msgs);
-			case EsbPackage.PROXY_SERVICE__WSDL_KEY:
-				return basicSetWsdlKey(null, msgs);
 			case EsbPackage.PROXY_SERVICE__SERVICE_PARAMETERS:
 				return ((InternalEList<?>)getServiceParameters()).basicRemove(otherEnd, msgs);
 			case EsbPackage.PROXY_SERVICE__SERVICE_POLICIES:
@@ -1367,6 +1391,10 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 				return basicSetOutSequenceKey(null, msgs);
 			case EsbPackage.PROXY_SERVICE__FAULT_SEQUENCE_KEY:
 				return basicSetFaultSequenceKey(null, msgs);
+			case EsbPackage.PROXY_SERVICE__WSDL_KEY:
+				return basicSetWsdlKey(null, msgs);
+			case EsbPackage.PROXY_SERVICE__WSDL_RESOURCES:
+				return ((InternalEList<?>)getWsdlResources()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -1402,14 +1430,6 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 				return isReliableMessagingEnabled();
 			case EsbPackage.PROXY_SERVICE__SECURITY_ENABLED:
 				return isSecurityEnabled();
-			case EsbPackage.PROXY_SERVICE__WSDL_TYPE:
-				return getWsdlType();
-			case EsbPackage.PROXY_SERVICE__WSDL_XML:
-				return getWsdlXML();
-			case EsbPackage.PROXY_SERVICE__WSDL_URL:
-				return getWsdlURL();
-			case EsbPackage.PROXY_SERVICE__WSDL_KEY:
-				return getWsdlKey();
 			case EsbPackage.PROXY_SERVICE__SERVICE_PARAMETERS:
 				return getServiceParameters();
 			case EsbPackage.PROXY_SERVICE__SERVICE_POLICIES:
@@ -1436,6 +1456,16 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 				return getFaultSequenceName();
 			case EsbPackage.PROXY_SERVICE__MAIN_SEQUENCE:
 				return isMainSequence();
+			case EsbPackage.PROXY_SERVICE__WSDL_TYPE:
+				return getWsdlType();
+			case EsbPackage.PROXY_SERVICE__WSDL_XML:
+				return getWsdlXML();
+			case EsbPackage.PROXY_SERVICE__WSDL_URL:
+				return getWsdlURL();
+			case EsbPackage.PROXY_SERVICE__WSDL_KEY:
+				return getWsdlKey();
+			case EsbPackage.PROXY_SERVICE__WSDL_RESOURCES:
+				return getWsdlResources();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1483,18 +1513,6 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 			case EsbPackage.PROXY_SERVICE__SECURITY_ENABLED:
 				setSecurityEnabled((Boolean)newValue);
 				return;
-			case EsbPackage.PROXY_SERVICE__WSDL_TYPE:
-				setWsdlType((ProxyWsdlType)newValue);
-				return;
-			case EsbPackage.PROXY_SERVICE__WSDL_XML:
-				setWsdlXML((String)newValue);
-				return;
-			case EsbPackage.PROXY_SERVICE__WSDL_URL:
-				setWsdlURL((String)newValue);
-				return;
-			case EsbPackage.PROXY_SERVICE__WSDL_KEY:
-				setWsdlKey((RegistryKeyProperty)newValue);
-				return;
 			case EsbPackage.PROXY_SERVICE__SERVICE_PARAMETERS:
 				getServiceParameters().clear();
 				getServiceParameters().addAll((Collection<? extends ProxyServiceParameter>)newValue);
@@ -1535,6 +1553,22 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 				return;
 			case EsbPackage.PROXY_SERVICE__MAIN_SEQUENCE:
 				setMainSequence((Boolean)newValue);
+				return;
+			case EsbPackage.PROXY_SERVICE__WSDL_TYPE:
+				setWsdlType((ProxyWsdlType)newValue);
+				return;
+			case EsbPackage.PROXY_SERVICE__WSDL_XML:
+				setWsdlXML((String)newValue);
+				return;
+			case EsbPackage.PROXY_SERVICE__WSDL_URL:
+				setWsdlURL((String)newValue);
+				return;
+			case EsbPackage.PROXY_SERVICE__WSDL_KEY:
+				setWsdlKey((RegistryKeyProperty)newValue);
+				return;
+			case EsbPackage.PROXY_SERVICE__WSDL_RESOURCES:
+				getWsdlResources().clear();
+				getWsdlResources().addAll((Collection<? extends ProxyWSDLResource>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -1582,18 +1616,6 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 			case EsbPackage.PROXY_SERVICE__SECURITY_ENABLED:
 				setSecurityEnabled(SECURITY_ENABLED_EDEFAULT);
 				return;
-			case EsbPackage.PROXY_SERVICE__WSDL_TYPE:
-				setWsdlType(WSDL_TYPE_EDEFAULT);
-				return;
-			case EsbPackage.PROXY_SERVICE__WSDL_XML:
-				setWsdlXML(WSDL_XML_EDEFAULT);
-				return;
-			case EsbPackage.PROXY_SERVICE__WSDL_URL:
-				setWsdlURL(WSDL_URL_EDEFAULT);
-				return;
-			case EsbPackage.PROXY_SERVICE__WSDL_KEY:
-				setWsdlKey((RegistryKeyProperty)null);
-				return;
 			case EsbPackage.PROXY_SERVICE__SERVICE_PARAMETERS:
 				getServiceParameters().clear();
 				return;
@@ -1633,6 +1655,21 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 			case EsbPackage.PROXY_SERVICE__MAIN_SEQUENCE:
 				setMainSequence(MAIN_SEQUENCE_EDEFAULT);
 				return;
+			case EsbPackage.PROXY_SERVICE__WSDL_TYPE:
+				setWsdlType(WSDL_TYPE_EDEFAULT);
+				return;
+			case EsbPackage.PROXY_SERVICE__WSDL_XML:
+				setWsdlXML(WSDL_XML_EDEFAULT);
+				return;
+			case EsbPackage.PROXY_SERVICE__WSDL_URL:
+				setWsdlURL(WSDL_URL_EDEFAULT);
+				return;
+			case EsbPackage.PROXY_SERVICE__WSDL_KEY:
+				setWsdlKey((RegistryKeyProperty)null);
+				return;
+			case EsbPackage.PROXY_SERVICE__WSDL_RESOURCES:
+				getWsdlResources().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1668,14 +1705,6 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 				return reliableMessagingEnabled != RELIABLE_MESSAGING_ENABLED_EDEFAULT;
 			case EsbPackage.PROXY_SERVICE__SECURITY_ENABLED:
 				return securityEnabled != SECURITY_ENABLED_EDEFAULT;
-			case EsbPackage.PROXY_SERVICE__WSDL_TYPE:
-				return wsdlType != WSDL_TYPE_EDEFAULT;
-			case EsbPackage.PROXY_SERVICE__WSDL_XML:
-				return WSDL_XML_EDEFAULT == null ? wsdlXML != null : !WSDL_XML_EDEFAULT.equals(wsdlXML);
-			case EsbPackage.PROXY_SERVICE__WSDL_URL:
-				return WSDL_URL_EDEFAULT == null ? wsdlURL != null : !WSDL_URL_EDEFAULT.equals(wsdlURL);
-			case EsbPackage.PROXY_SERVICE__WSDL_KEY:
-				return wsdlKey != null;
 			case EsbPackage.PROXY_SERVICE__SERVICE_PARAMETERS:
 				return serviceParameters != null && !serviceParameters.isEmpty();
 			case EsbPackage.PROXY_SERVICE__SERVICE_POLICIES:
@@ -1702,6 +1731,16 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 				return FAULT_SEQUENCE_NAME_EDEFAULT == null ? faultSequenceName != null : !FAULT_SEQUENCE_NAME_EDEFAULT.equals(faultSequenceName);
 			case EsbPackage.PROXY_SERVICE__MAIN_SEQUENCE:
 				return mainSequence != MAIN_SEQUENCE_EDEFAULT;
+			case EsbPackage.PROXY_SERVICE__WSDL_TYPE:
+				return wsdlType != WSDL_TYPE_EDEFAULT;
+			case EsbPackage.PROXY_SERVICE__WSDL_XML:
+				return WSDL_XML_EDEFAULT == null ? wsdlXML != null : !WSDL_XML_EDEFAULT.equals(wsdlXML);
+			case EsbPackage.PROXY_SERVICE__WSDL_URL:
+				return WSDL_URL_EDEFAULT == null ? wsdlURL != null : !WSDL_URL_EDEFAULT.equals(wsdlURL);
+			case EsbPackage.PROXY_SERVICE__WSDL_KEY:
+				return wsdlKey != null;
+			case EsbPackage.PROXY_SERVICE__WSDL_RESOURCES:
+				return wsdlResources != null && !wsdlResources.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -1733,12 +1772,6 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 		result.append(reliableMessagingEnabled);
 		result.append(", securityEnabled: ");
 		result.append(securityEnabled);
-		result.append(", wsdlType: ");
-		result.append(wsdlType);
-		result.append(", wsdlXML: ");
-		result.append(wsdlXML);
-		result.append(", wsdlURL: ");
-		result.append(wsdlURL);
 		result.append(", inSequenceType: ");
 		result.append(inSequenceType);
 		result.append(", inSequenceName: ");
@@ -1753,6 +1786,12 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 		result.append(faultSequenceName);
 		result.append(", mainSequence: ");
 		result.append(mainSequence);
+		result.append(", wsdlType: ");
+		result.append(wsdlType);
+		result.append(", wsdlXML: ");
+		result.append(wsdlXML);
+		result.append(", wsdlURL: ");
+		result.append(wsdlURL);
 		result.append(')');
 		return result.toString();
 	}

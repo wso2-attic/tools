@@ -491,10 +491,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ProxyService/transports"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ProxyService/reliableMessagingEnabled"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ProxyService/securityEnabled"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ProxyService/wsdlType"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ProxyService/wsdlXML"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ProxyService/wsdlURL"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyService/wsdlKey"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyService/serviceParameters"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyService/servicePolicies"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyService/container"/>
@@ -508,9 +504,15 @@
       <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyService/faultSequenceKey"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ProxyService/faultSequenceName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ProxyService/mainSequence"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ProxyService/wsdlType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ProxyService/wsdlXML"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ProxyService/wsdlURL"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyService/wsdlKey"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyService/wsdlResources"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//ProxyOutputConnector"/>
     <genClasses ecoreClass="esb.ecore#//ProxyInputConnector"/>
+    <genClasses ecoreClass="esb.ecore#//ProxyWSDLResource"/>
     <genClasses ecoreClass="esb.ecore#//ProxyFaultInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//ProxyServiceParameter">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ProxyServiceParameter/name"/>

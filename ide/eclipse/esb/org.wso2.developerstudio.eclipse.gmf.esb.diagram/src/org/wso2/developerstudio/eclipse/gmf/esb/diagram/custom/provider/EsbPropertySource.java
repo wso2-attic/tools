@@ -7,6 +7,7 @@ import org.eclipse.emf.edit.ui.provider.PropertySource;
 import org.eclipse.ui.views.properties.IPropertyDescriptor;
 import org.wso2.developerstudio.eclipse.esb.core.Activator;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.ui.ConfigureProxyServiceDialog;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 
@@ -219,6 +220,8 @@ public class EsbPropertySource extends PropertySource {
 			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
 		}else if(pkg.getEJBMediator_SessionIdExpression().equals(feature)){
 			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
+		}else if(pkg.getProxyService_WsdlResources().equals(feature)){
+			return new ProxyServiceWSDLResourcePropertyDescriptor(object, itemPropertyDescriptor);
 		}
 		
 		

@@ -80,6 +80,15 @@ public interface EsbFactory extends EFactory {
 	ProxyInputConnector createProxyInputConnector();
 
 	/**
+	 * Returns a new object of class '<em>Proxy WSDL Resource</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Proxy WSDL Resource</em>'.
+	 * @generated
+	 */
+	ProxyWSDLResource createProxyWSDLResource();
+
+	/**
 	 * Returns a new object of class '<em>Proxy Fault Input Connector</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

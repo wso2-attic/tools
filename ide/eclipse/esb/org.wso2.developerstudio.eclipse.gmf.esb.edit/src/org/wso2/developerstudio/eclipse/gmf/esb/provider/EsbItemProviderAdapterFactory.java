@@ -218,6 +218,29 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyWSDLResource} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ProxyWSDLResourceItemProvider proxyWSDLResourceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyWSDLResource}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createProxyWSDLResourceAdapter() {
+		if (proxyWSDLResourceItemProvider == null) {
+			proxyWSDLResourceItemProvider = new ProxyWSDLResourceItemProvider(this);
+		}
+
+		return proxyWSDLResourceItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyFaultInputConnector} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6478,6 +6501,7 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 		if (proxyServiceItemProvider != null) proxyServiceItemProvider.dispose();
 		if (proxyOutputConnectorItemProvider != null) proxyOutputConnectorItemProvider.dispose();
 		if (proxyInputConnectorItemProvider != null) proxyInputConnectorItemProvider.dispose();
+		if (proxyWSDLResourceItemProvider != null) proxyWSDLResourceItemProvider.dispose();
 		if (proxyFaultInputConnectorItemProvider != null) proxyFaultInputConnectorItemProvider.dispose();
 		if (proxyServiceParameterItemProvider != null) proxyServiceParameterItemProvider.dispose();
 		if (proxyServicePolicyItemProvider != null) proxyServicePolicyItemProvider.dispose();

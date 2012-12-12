@@ -79,7 +79,6 @@ public class ProxyServiceItemProvider
 			
 			// WSDL Type.
 			addWsdlTypePropertyDescriptor(object);
-			
 			switch (proxy.getWsdlType()) {
 				case INLINE: {
 					addWsdlXMLPropertyDescriptor(object);
@@ -96,6 +95,7 @@ public class ProxyServiceItemProvider
 					break;
 				}
 			}
+			addWsdlResourcesPropertyDescriptor(object);
 			
 			addInSequenceTypePropertyDescriptor(object);
 			switch (proxy.getInSequenceType()){
@@ -377,6 +377,28 @@ public class ProxyServiceItemProvider
 	}	
 	
 	/**
+	 * This adds a property descriptor for the Wsdl Resources feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addWsdlResourcesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ProxyService_wsdlResources_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ProxyService_wsdlResources_feature", "_UI_ProxyService_type"),
+				 EsbPackage.Literals.PROXY_SERVICE__WSDL_RESOURCES,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                 "WSDL",
+				 null));
+	}
+
+	/**
 	 * This adds a property descriptor for the In Sequence Type feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -628,13 +650,13 @@ public class ProxyServiceItemProvider
 			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE__OUTPUT_CONNECTOR);
 			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE__INPUT_CONNECTOR);
 			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE__FAULT_INPUT_CONNECTOR);
-			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE__WSDL_KEY);
 			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE__SERVICE_PARAMETERS);
 			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE__SERVICE_POLICIES);
 			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE__CONTAINER);
 			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE__IN_SEQUENCE_KEY);
 			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE__OUT_SEQUENCE_KEY);
 			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE__FAULT_SEQUENCE_KEY);
+			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE__WSDL_KEY);
 		}
 		return childrenFeatures;
 	}
@@ -701,9 +723,6 @@ public class ProxyServiceItemProvider
 			case EsbPackage.PROXY_SERVICE__TRANSPORTS:
 			case EsbPackage.PROXY_SERVICE__RELIABLE_MESSAGING_ENABLED:
 			case EsbPackage.PROXY_SERVICE__SECURITY_ENABLED:
-			case EsbPackage.PROXY_SERVICE__WSDL_TYPE:
-			case EsbPackage.PROXY_SERVICE__WSDL_XML:
-			case EsbPackage.PROXY_SERVICE__WSDL_URL:
 			case EsbPackage.PROXY_SERVICE__IN_SEQUENCE_TYPE:
 			case EsbPackage.PROXY_SERVICE__IN_SEQUENCE_NAME:
 			case EsbPackage.PROXY_SERVICE__OUT_SEQUENCE_TYPE:
@@ -711,18 +730,21 @@ public class ProxyServiceItemProvider
 			case EsbPackage.PROXY_SERVICE__FAULT_SEQUENCE_TYPE:
 			case EsbPackage.PROXY_SERVICE__FAULT_SEQUENCE_NAME:
 			case EsbPackage.PROXY_SERVICE__MAIN_SEQUENCE:
+			case EsbPackage.PROXY_SERVICE__WSDL_TYPE:
+			case EsbPackage.PROXY_SERVICE__WSDL_XML:
+			case EsbPackage.PROXY_SERVICE__WSDL_URL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case EsbPackage.PROXY_SERVICE__OUTPUT_CONNECTOR:
 			case EsbPackage.PROXY_SERVICE__INPUT_CONNECTOR:
 			case EsbPackage.PROXY_SERVICE__FAULT_INPUT_CONNECTOR:
-			case EsbPackage.PROXY_SERVICE__WSDL_KEY:
 			case EsbPackage.PROXY_SERVICE__SERVICE_PARAMETERS:
 			case EsbPackage.PROXY_SERVICE__SERVICE_POLICIES:
 			case EsbPackage.PROXY_SERVICE__CONTAINER:
 			case EsbPackage.PROXY_SERVICE__IN_SEQUENCE_KEY:
 			case EsbPackage.PROXY_SERVICE__OUT_SEQUENCE_KEY:
 			case EsbPackage.PROXY_SERVICE__FAULT_SEQUENCE_KEY:
+			case EsbPackage.PROXY_SERVICE__WSDL_KEY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -758,11 +780,6 @@ public class ProxyServiceItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.PROXY_SERVICE__WSDL_KEY,
-				 EsbFactory.eINSTANCE.createRegistryKeyProperty()));
-
-		newChildDescriptors.add
-			(createChildParameter
 				(EsbPackage.Literals.PROXY_SERVICE__SERVICE_PARAMETERS,
 				 EsbFactory.eINSTANCE.createProxyServiceParameter()));
 
@@ -790,6 +807,11 @@ public class ProxyServiceItemProvider
 			(createChildParameter
 				(EsbPackage.Literals.PROXY_SERVICE__FAULT_SEQUENCE_KEY,
 				 EsbFactory.eINSTANCE.createRegistryKeyProperty()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.PROXY_SERVICE__WSDL_KEY,
+				 EsbFactory.eINSTANCE.createRegistryKeyProperty()));
 	}
 
 	/**
@@ -804,10 +826,10 @@ public class ProxyServiceItemProvider
 		Object childObject = child;
 
 		boolean qualify =
-			childFeature == EsbPackage.Literals.PROXY_SERVICE__WSDL_KEY ||
 			childFeature == EsbPackage.Literals.PROXY_SERVICE__IN_SEQUENCE_KEY ||
 			childFeature == EsbPackage.Literals.PROXY_SERVICE__OUT_SEQUENCE_KEY ||
-			childFeature == EsbPackage.Literals.PROXY_SERVICE__FAULT_SEQUENCE_KEY;
+			childFeature == EsbPackage.Literals.PROXY_SERVICE__FAULT_SEQUENCE_KEY ||
+			childFeature == EsbPackage.Literals.PROXY_SERVICE__WSDL_KEY;
 
 		if (qualify) {
 			return getString

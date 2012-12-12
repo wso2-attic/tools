@@ -77,6 +77,7 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 			case EsbPackage.PROXY_SERVICE: return createProxyService();
 			case EsbPackage.PROXY_OUTPUT_CONNECTOR: return createProxyOutputConnector();
 			case EsbPackage.PROXY_INPUT_CONNECTOR: return createProxyInputConnector();
+			case EsbPackage.PROXY_WSDL_RESOURCE: return createProxyWSDLResource();
 			case EsbPackage.PROXY_FAULT_INPUT_CONNECTOR: return createProxyFaultInputConnector();
 			case EsbPackage.PROXY_SERVICE_PARAMETER: return createProxyServiceParameter();
 			case EsbPackage.PROXY_SERVICE_POLICY: return createProxyServicePolicy();
@@ -758,6 +759,16 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	public ProxyInputConnector createProxyInputConnector() {
 		ProxyInputConnectorImpl proxyInputConnector = new ProxyInputConnectorImpl();
 		return proxyInputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ProxyWSDLResource createProxyWSDLResource() {
+		ProxyWSDLResourceImpl proxyWSDLResource = new ProxyWSDLResourceImpl();
+		return proxyWSDLResource;
 	}
 
 	/**

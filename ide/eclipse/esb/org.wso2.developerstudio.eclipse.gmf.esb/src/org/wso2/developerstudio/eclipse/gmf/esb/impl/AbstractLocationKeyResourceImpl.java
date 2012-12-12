@@ -34,6 +34,11 @@ import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
  */
 public abstract class AbstractLocationKeyResourceImpl extends EsbNodeImpl implements AbstractLocationKeyResource {
 	/**
+	 * Default property value used for resource reference registry keys.
+	 */
+	protected static final String DEFAULT_RESOURCE_REFERENCE_REGISTRY_KEY = "/default/resource";
+	
+	/**
 	 * The default value of the '{@link #getLocation() <em>Location</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -186,6 +186,14 @@ public class EsbSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case EsbPackage.PROXY_WSDL_RESOURCE: {
+				ProxyWSDLResource proxyWSDLResource = (ProxyWSDLResource)theEObject;
+				T result = caseProxyWSDLResource(proxyWSDLResource);
+				if (result == null) result = caseAbstractLocationKeyResource(proxyWSDLResource);
+				if (result == null) result = caseEsbNode(proxyWSDLResource);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case EsbPackage.PROXY_FAULT_INPUT_CONNECTOR: {
 				ProxyFaultInputConnector proxyFaultInputConnector = (ProxyFaultInputConnector)theEObject;
 				T result = caseProxyFaultInputConnector(proxyFaultInputConnector);
@@ -2518,6 +2526,21 @@ public class EsbSwitch<T> {
 	 * @generated
 	 */
 	public T caseProxyInputConnector(ProxyInputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Proxy WSDL Resource</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Proxy WSDL Resource</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseProxyWSDLResource(ProxyWSDLResource object) {
 		return null;
 	}
 

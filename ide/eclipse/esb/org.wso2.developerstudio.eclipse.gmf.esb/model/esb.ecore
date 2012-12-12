@@ -86,14 +86,6 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="securityEnabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="false"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="wsdlType" eType="#//ProxyWsdlType"
-        defaultValueLiteral="NONE"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="wsdlXML" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        defaultValueLiteral="&lt;definitions/>"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="wsdlURL" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        defaultValueLiteral="http://default/wsdl/url"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="wsdlKey" eType="#//RegistryKeyProperty"
-        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="serviceParameters" upperBound="-1"
         eType="#//ProxyServiceParameter" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="servicePolicies" upperBound="-1"
@@ -113,6 +105,16 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="faultSequenceName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mainSequence" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="wsdlType" eType="#//ProxyWsdlType"
+        defaultValueLiteral="NONE"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="wsdlXML" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="&lt;definitions/>"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="wsdlURL" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="http://default/wsdl/url"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="wsdlKey" eType="#//RegistryKeyProperty"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="wsdlResources" upperBound="-1"
+        eType="#//ProxyWSDLResource" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="SequenceType">
     <eLiterals name="Anonymous"/>
@@ -127,6 +129,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProxyOutputConnector" eSuperTypes="#//OutputConnector"/>
   <eClassifiers xsi:type="ecore:EClass" name="ProxyInputConnector" eSuperTypes="#//InputConnector"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ProxyWSDLResource" eSuperTypes="#//AbstractLocationKeyResource"/>
   <eClassifiers xsi:type="ecore:EClass" name="ProxyFaultInputConnector" eSuperTypes="#//InputConnector"/>
   <eClassifiers xsi:type="ecore:EClass" name="ProxyServiceParameter">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"

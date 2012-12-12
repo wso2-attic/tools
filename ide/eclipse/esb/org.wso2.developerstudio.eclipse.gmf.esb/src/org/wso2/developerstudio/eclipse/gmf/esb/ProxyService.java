@@ -28,10 +28,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getTransports <em>Transports</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#isReliableMessagingEnabled <em>Reliable Messaging Enabled</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#isSecurityEnabled <em>Security Enabled</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getWsdlType <em>Wsdl Type</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getWsdlXML <em>Wsdl XML</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getWsdlURL <em>Wsdl URL</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getWsdlKey <em>Wsdl Key</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getServiceParameters <em>Service Parameters</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getServicePolicies <em>Service Policies</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getContainer <em>Container</em>}</li>
@@ -45,6 +41,11 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getFaultSequenceKey <em>Fault Sequence Key</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getFaultSequenceName <em>Fault Sequence Name</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#isMainSequence <em>Main Sequence</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getWsdlType <em>Wsdl Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getWsdlXML <em>Wsdl XML</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getWsdlURL <em>Wsdl URL</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getWsdlKey <em>Wsdl Key</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getWsdlResources <em>Wsdl Resources</em>}</li>
  * </ul>
  * </p>
  *
@@ -342,116 +343,6 @@ public interface ProxyService extends EsbElement {
 	 * @generated
 	 */
 	void setSecurityEnabled(boolean value);
-
-	/**
-	 * Returns the value of the '<em><b>Wsdl Type</b></em>' attribute.
-	 * The default value is <code>"NONE"</code>.
-	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyWsdlType}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Wsdl Type</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Wsdl Type</em>' attribute.
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.ProxyWsdlType
-	 * @see #setWsdlType(ProxyWsdlType)
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getProxyService_WsdlType()
-	 * @model default="NONE"
-	 * @generated
-	 */
-	ProxyWsdlType getWsdlType();
-
-	/**
-	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getWsdlType <em>Wsdl Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Wsdl Type</em>' attribute.
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.ProxyWsdlType
-	 * @see #getWsdlType()
-	 * @generated
-	 */
-	void setWsdlType(ProxyWsdlType value);
-
-	/**
-	 * Returns the value of the '<em><b>Wsdl XML</b></em>' attribute.
-	 * The default value is <code>"<definitions/>"</code>.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Wsdl XML</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Wsdl XML</em>' attribute.
-	 * @see #setWsdlXML(String)
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getProxyService_WsdlXML()
-	 * @model default="<definitions/>"
-	 * @generated
-	 */
-	String getWsdlXML();
-
-	/**
-	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getWsdlXML <em>Wsdl XML</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Wsdl XML</em>' attribute.
-	 * @see #getWsdlXML()
-	 * @generated
-	 */
-	void setWsdlXML(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Wsdl URL</b></em>' attribute.
-	 * The default value is <code>"http://default/wsdl/url"</code>.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Wsdl URL</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Wsdl URL</em>' attribute.
-	 * @see #setWsdlURL(String)
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getProxyService_WsdlURL()
-	 * @model default="http://default/wsdl/url"
-	 * @generated
-	 */
-	String getWsdlURL();
-
-	/**
-	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getWsdlURL <em>Wsdl URL</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Wsdl URL</em>' attribute.
-	 * @see #getWsdlURL()
-	 * @generated
-	 */
-	void setWsdlURL(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Wsdl Key</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Wsdl Key</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Wsdl Key</em>' containment reference.
-	 * @see #setWsdlKey(RegistryKeyProperty)
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getProxyService_WsdlKey()
-	 * @model containment="true"
-	 * @generated
-	 */
-	RegistryKeyProperty getWsdlKey();
-
-	/**
-	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getWsdlKey <em>Wsdl Key</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Wsdl Key</em>' containment reference.
-	 * @see #getWsdlKey()
-	 * @generated
-	 */
-	void setWsdlKey(RegistryKeyProperty value);
 
 	/**
 	 * Returns the value of the '<em><b>Service Parameters</b></em>' containment reference list.
@@ -779,5 +670,131 @@ public interface ProxyService extends EsbElement {
 	 * @generated
 	 */
 	void setMainSequence(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Wsdl Type</b></em>' attribute.
+	 * The default value is <code>"NONE"</code>.
+	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyWsdlType}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Wsdl Type</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Wsdl Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.ProxyWsdlType
+	 * @see #setWsdlType(ProxyWsdlType)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getProxyService_WsdlType()
+	 * @model default="NONE"
+	 * @generated
+	 */
+	ProxyWsdlType getWsdlType();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getWsdlType <em>Wsdl Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Wsdl Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.ProxyWsdlType
+	 * @see #getWsdlType()
+	 * @generated
+	 */
+	void setWsdlType(ProxyWsdlType value);
+
+	/**
+	 * Returns the value of the '<em><b>Wsdl XML</b></em>' attribute.
+	 * The default value is <code>"<definitions/>"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Wsdl XML</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Wsdl XML</em>' attribute.
+	 * @see #setWsdlXML(String)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getProxyService_WsdlXML()
+	 * @model default="<definitions/>"
+	 * @generated
+	 */
+	String getWsdlXML();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getWsdlXML <em>Wsdl XML</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Wsdl XML</em>' attribute.
+	 * @see #getWsdlXML()
+	 * @generated
+	 */
+	void setWsdlXML(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Wsdl URL</b></em>' attribute.
+	 * The default value is <code>"http://default/wsdl/url"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Wsdl URL</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Wsdl URL</em>' attribute.
+	 * @see #setWsdlURL(String)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getProxyService_WsdlURL()
+	 * @model default="http://default/wsdl/url"
+	 * @generated
+	 */
+	String getWsdlURL();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getWsdlURL <em>Wsdl URL</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Wsdl URL</em>' attribute.
+	 * @see #getWsdlURL()
+	 * @generated
+	 */
+	void setWsdlURL(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Wsdl Key</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Wsdl Key</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Wsdl Key</em>' containment reference.
+	 * @see #setWsdlKey(RegistryKeyProperty)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getProxyService_WsdlKey()
+	 * @model containment="true"
+	 * @generated
+	 */
+	RegistryKeyProperty getWsdlKey();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getWsdlKey <em>Wsdl Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Wsdl Key</em>' containment reference.
+	 * @see #getWsdlKey()
+	 * @generated
+	 */
+	void setWsdlKey(RegistryKeyProperty value);
+
+	/**
+	 * Returns the value of the '<em><b>Wsdl Resources</b></em>' containment reference list.
+	 * The list contents are of type {@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyWSDLResource}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Wsdl Resources</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Wsdl Resources</em>' containment reference list.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getProxyService_WsdlResources()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<ProxyWSDLResource> getWsdlResources();
 
 } // ProxyService
