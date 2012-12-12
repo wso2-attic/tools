@@ -36,12 +36,12 @@ public class EsbGraphicalEditorPerspective implements IPerspectiveFactory {
 
 		// Bottom left: Outline view and Property Sheet view
 		IFolderLayout bottomLeft = layout.createFolder("bottomLeft",
-				IPageLayout.BOTTOM, 0.60f, "topLeft");
+				IPageLayout.BOTTOM, 0.65f, "topLeft");
 		bottomLeft.addView(IPageLayout.ID_OUTLINE);
 		// bottomLeft.addView(IPageLayout.ID_PROP_SHEET);
 
-		IFolderLayout rightArea = layout.createFolder("rightArea",
-				IPageLayout.RIGHT, (float) 0.70, editorArea);
+		IFolderLayout rightArea = layout.createFolder("bottom",
+				IPageLayout.BOTTOM, 0.65f, editorArea);
 		rightArea.addView(IPageLayout.ID_PROP_SHEET);
 	}
 }
