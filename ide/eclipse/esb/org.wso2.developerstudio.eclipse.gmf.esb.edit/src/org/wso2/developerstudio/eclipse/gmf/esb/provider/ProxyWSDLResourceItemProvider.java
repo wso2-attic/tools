@@ -89,10 +89,10 @@ public class ProxyWSDLResourceItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ProxyWSDLResource)object).getLocation();
+		String label = ((ProxyWSDLResource)object).getKey().getKeyValue();
 		return label == null || label.length() == 0 ?
 			getString("_UI_ProxyWSDLResource_type") :
-			getString("_UI_ProxyWSDLResource_type") + " " + label;
+			label;
 	}
 
 	/**

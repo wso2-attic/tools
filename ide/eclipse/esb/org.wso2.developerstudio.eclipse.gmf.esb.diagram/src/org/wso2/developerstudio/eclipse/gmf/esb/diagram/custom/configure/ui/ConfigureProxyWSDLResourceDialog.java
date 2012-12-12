@@ -338,18 +338,46 @@ public class ConfigureProxyWSDLResourceDialog extends Dialog {
 		for (TableItem item : resourcesTable.getItems()) {
 
 			ProxyWSDLResource resource = (ProxyWSDLResource) item
-					.getData();
+			.getData();
 			
-			//SetCommand setCmd=new SetCommand(editingDomain, proxyService, EsbPackage.Literals.PROXY_SERVICE__WSDL_RESOURCES, resource);
-			AddCommand addCmd = new AddCommand(
-					editingDomain,
-					proxyService,
-					EsbPackage.Literals.PROXY_SERVICE__WSDL_RESOURCES,
-					resource);
-			getResultCommand().append(addCmd);
+			if (resource.eContainer() == null) {
+				
+				//SetCommand setCmd=new SetCommand(editingDomain, proxyService, EsbPackage.Literals.PROXY_SERVICE__WSDL_RESOURCES, resource);
+				AddCommand addCmd = new AddCommand(
+						editingDomain,
+						proxyService,
+						EsbPackage.Literals.PROXY_SERVICE__WSDL_RESOURCES,
+						resource);
+				getResultCommand().append(addCmd);
+
+			} else {
+
+				if (!resource.getKey().getKeyValue().equals(item.getText(0))) {
+
+					SetCommand setCmd = new SetCommand(
+							editingDomain,
+							resource,
+							EsbPackage.Literals.CALL_TEMPLATE_PARAMETER__PARAMETER_NAME,
+							item.getText(0));
+
+					getResultCommand().append(setCmd);
+				}
+				
+				if (!resource.getLocation().equals(item.getText(1))) {
+
+					SetCommand setCmd = new SetCommand(
+							editingDomain,
+							resource,
+							EsbPackage.Literals.CALL_TEMPLATE_PARAMETER__PARAMETER_NAME,
+							item.getText(1));
+
+					getResultCommand().append(setCmd);
+				}
+
+			}
 
 		}
-
+		
 		if (getResultCommand().canExecute()) {
 			editingDomain.getCommandStack().execute(getResultCommand());
 		}

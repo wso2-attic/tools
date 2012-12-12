@@ -58,6 +58,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.OAuthMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.PropertyMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyWSDLResource;
+import org.wso2.developerstudio.eclipse.gmf.esb.ProxyWsdlType;
 import org.wso2.developerstudio.eclipse.gmf.esb.RMSequenceMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.ScriptMediator;
@@ -279,11 +280,12 @@ public class ProxyServiceTransformer extends AbstractEsbNodeTransformer {
 				break;
 			}
 			
-			proxyService.setResourceMap(new ResourceMap()); 
-			for (ProxyWSDLResource wsdlResource : visualService.getWsdlResources()) {
-				proxyService.getResourceMap().addResource(wsdlResource.getLocation(), wsdlResource.getKey().getKeyValue());
+			if (visualService.getWsdlType()!=ProxyWsdlType.NONE) {
+				proxyService.setResourceMap(new ResourceMap());
+				for (ProxyWSDLResource wsdlResource : visualService.getWsdlResources()) {
+					proxyService.getResourceMap().addResource(wsdlResource.getLocation(),wsdlResource.getKey().getKeyValue());
+				}
 			}
-			
 			String pinnedServerInfo = visualService.getPinnedServers();
 			if (pinnedServerInfo != null && !pinnedServerInfo.equals("")) {
 				for (String a : pinnedServerInfo.split(",")) {

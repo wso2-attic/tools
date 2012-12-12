@@ -25,6 +25,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyService;
+import org.wso2.developerstudio.eclipse.gmf.esb.ProxyWsdlType;
 
 /**
  * This is the item provider adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService} object.
@@ -95,7 +96,9 @@ public class ProxyServiceItemProvider
 					break;
 				}
 			}
-			addWsdlResourcesPropertyDescriptor(object);
+			if(proxy.getWsdlType()!=ProxyWsdlType.NONE){
+				addWsdlResourcesPropertyDescriptor(object);
+			}
 			
 			addInSequenceTypePropertyDescriptor(object);
 			switch (proxy.getInSequenceType()){
@@ -829,7 +832,8 @@ public class ProxyServiceItemProvider
 			childFeature == EsbPackage.Literals.PROXY_SERVICE__IN_SEQUENCE_KEY ||
 			childFeature == EsbPackage.Literals.PROXY_SERVICE__OUT_SEQUENCE_KEY ||
 			childFeature == EsbPackage.Literals.PROXY_SERVICE__FAULT_SEQUENCE_KEY ||
-			childFeature == EsbPackage.Literals.PROXY_SERVICE__WSDL_KEY;
+			childFeature == EsbPackage.Literals.PROXY_SERVICE__WSDL_KEY ||
+			childFeature == EsbPackage.Literals.PROXY_SERVICE__WSDL_RESOURCES;
 
 		if (qualify) {
 			return getString
