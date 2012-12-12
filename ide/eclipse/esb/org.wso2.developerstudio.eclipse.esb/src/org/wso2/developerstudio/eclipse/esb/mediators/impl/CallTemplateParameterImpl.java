@@ -29,7 +29,6 @@ import org.wso2.developerstudio.eclipse.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.esb.impl.ModelObjectImpl;
 import org.wso2.developerstudio.eclipse.esb.mediators.CallTemplateParameter;
 import org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage;
-import org.wso2.developerstudio.eclipse.esb.mediators.ReceivingSequenceType;
 import org.wso2.developerstudio.eclipse.esb.mediators.RuleOptionType;
 import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
 
@@ -142,8 +141,7 @@ public class CallTemplateParameterImpl extends ModelObjectImpl implements CallTe
 			attributeValue = attributeValue.trim();
 			if (attributeValue.startsWith("{") && attributeValue.endsWith("}")) {
 				setTemplateParameterType(RuleOptionType.EXPRESSION);
-				attributeValue = attributeValue.substring(1,
-						attributeValue.length() - 2);
+				attributeValue = attributeValue.replaceAll("^{","").replaceAll("}$", "");
 				getParameterExpression().setPropertyValue(attributeValue);
 			} else {
 				setTemplateParameterType(RuleOptionType.VALUE);
@@ -180,8 +178,7 @@ public class CallTemplateParameterImpl extends ModelObjectImpl implements CallTe
 			break;
 		case EXPRESSION:
 			if (null != getParameterExpression().getPropertyValue()) {
-				self.setAttribute(getParameterExpression()
-						.getPropertyName(), "{"
+				self.setAttribute("value", "{"
 						+ getParameterExpression().getPropertyValue()
 						+ "}");
 			}
