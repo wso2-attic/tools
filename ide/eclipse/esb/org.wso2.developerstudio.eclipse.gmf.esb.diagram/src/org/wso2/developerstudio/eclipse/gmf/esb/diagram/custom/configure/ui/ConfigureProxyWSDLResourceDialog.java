@@ -310,7 +310,8 @@ public class ConfigureProxyWSDLResourceDialog extends Dialog {
 
 	private TableItem bindPram(ProxyWSDLResource param) {
 		TableItem item = new TableItem(resourcesTable, SWT.NONE);
-		item.setText(param.getKey().getKeyValue());
+		item.setText(0,param.getKey().getKeyValue());
+		item.setText(1, param.getLocation());
 		item.setData(param);
 		item.setData("key", param.getKey());
 		item.setData("location", param.getLocation());
