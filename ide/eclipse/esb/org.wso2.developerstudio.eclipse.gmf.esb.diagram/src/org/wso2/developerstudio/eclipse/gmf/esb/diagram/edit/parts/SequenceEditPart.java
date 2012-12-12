@@ -144,7 +144,7 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 	private float inputCount = 0, outputCount = 0;
 
 	private Button recieveCheckBox;
-	private boolean checked;
+	//private boolean checked;
 	private SequenceEditPart sequenceEditPart;
 	private SequencesInfo info;
 
@@ -509,6 +509,13 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 		String basePath = "platform:/resource/" + currentProject.getName() + "/"
 				+ SEQUENCE_RESOURCE_DIR + "/";
 		IFile file = currentProject.getFile(SEQUENCE_RESOURCE_DIR + "/" + fileURI1);
+		
+		if (((Sequence)((Node)sequenceEditPart.getModel()).getElement()).isReceiveSequence()) {
+			info.setRecieveSequence(true);
+			info.setAssociatedProxy(((ProxyService) ((Node) EditorUtils.getProxy(
+					sequenceEditPart.getParent()).getModel()).getElement())
+					.getName());
+		}
 
 		if (!file.exists()) {
 			diagram = EsbDiagramEditorUtil.createDiagram(URI.createURI(basePath + fileURI1),
@@ -587,7 +594,7 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 					"Enter Sequence Name", "Sequence Name", defaultName, validator) {
 				protected Control createDialogArea(Composite parent) {
 					Composite composite = (Composite) super.createDialogArea(parent);
-					recieveCheckBox = new Button(composite, SWT.CHECK);
+/*					recieveCheckBox = new Button(composite, SWT.CHECK);
 					recieveCheckBox.setText("Use this sequence as a Recieving sequence.");
 					recieveCheckBox.addSelectionListener(new SelectionListener() {
 
@@ -598,7 +605,7 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 						public void widgetDefaultSelected(SelectionEvent arg0) {
 
 						}
-					});
+					});*/
 					return composite;
 				}
 			};
@@ -645,12 +652,12 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 
 						getEditDomain().getCommandStack().execute(new ICommandProxy(operation));
 
-						if (checked) {
+/*						if (checked) {
 							info.setRecieveSequence(true);
 							info.setAssociatedProxy(((ProxyService) ((Node) EditorUtils.getProxy(
 									sequenceEditPart.getParent()).getModel()).getElement())
 									.getName());
-						}
+						}*/
 
 /*						IProject activeProject = getActiveProject();
 						ESBProjectArtifact esbProjectArtifact = new ESBProjectArtifact();
