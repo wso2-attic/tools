@@ -357,7 +357,7 @@ public class ConfigureProxyWSDLResourceDialog extends Dialog {
 					SetCommand setCmd = new SetCommand(
 							editingDomain,
 							resource,
-							EsbPackage.Literals.CALL_TEMPLATE_PARAMETER__PARAMETER_NAME,
+							EsbPackage.Literals.PROXY_SERVICE__WSDL_RESOURCES,
 							item.getText(0));
 
 					getResultCommand().append(setCmd);
@@ -368,7 +368,7 @@ public class ConfigureProxyWSDLResourceDialog extends Dialog {
 					SetCommand setCmd = new SetCommand(
 							editingDomain,
 							resource,
-							EsbPackage.Literals.CALL_TEMPLATE_PARAMETER__PARAMETER_NAME,
+							EsbPackage.Literals.PROXY_SERVICE__WSDL_RESOURCES,
 							item.getText(1));
 
 					getResultCommand().append(setCmd);
