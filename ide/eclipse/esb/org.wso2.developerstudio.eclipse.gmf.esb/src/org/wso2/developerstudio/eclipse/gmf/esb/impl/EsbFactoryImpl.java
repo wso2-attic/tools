@@ -391,8 +391,6 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 				return createEnrichTargetActionFromString(eDataType, initialValue);
 			case EsbPackage.ENRICH_TARGET_TYPE:
 				return createEnrichTargetTypeFromString(eDataType, initialValue);
-			case EsbPackage.EVENT_TOPIC_TYPE:
-				return createEventTopicTypeFromString(eDataType, initialValue);
 			case EsbPackage.SCRIPT_TYPE:
 				return createScriptTypeFromString(eDataType, initialValue);
 			case EsbPackage.SCRIPT_LANGUAGE:
@@ -565,8 +563,6 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 				return convertEnrichTargetActionToString(eDataType, instanceValue);
 			case EsbPackage.ENRICH_TARGET_TYPE:
 				return convertEnrichTargetTypeToString(eDataType, instanceValue);
-			case EsbPackage.EVENT_TOPIC_TYPE:
-				return convertEventTopicTypeToString(eDataType, instanceValue);
 			case EsbPackage.SCRIPT_TYPE:
 				return convertScriptTypeToString(eDataType, instanceValue);
 			case EsbPackage.SCRIPT_LANGUAGE:
@@ -3985,6 +3981,26 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	 * @generated
 	 */
 	public String convertEventTopicTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public scriptKeyTypeEnum createscriptKeyTypeEnumFromString(EDataType eDataType, String initialValue) {
+		scriptKeyTypeEnum result = scriptKeyTypeEnum.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertscriptKeyTypeEnumToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

@@ -123,6 +123,10 @@
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//EventTopicType/STATIC"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//EventTopicType/DYNAMIC"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//scriptKeyTypeEnum">
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//scriptKeyTypeEnum/STATIC_KEY"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//scriptKeyTypeEnum/DYNAMIC_kEY"/>
+    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//ScriptType">
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ScriptType/INLINE"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ScriptType/REGISTRY_REFERENCE"/>
@@ -848,10 +852,13 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ScriptMediator/scriptType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ScriptMediator/scriptLanguage"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ScriptMediator/mediateFunction"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ScriptMediator/scriptKey"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ScriptMediator/scriptDynamicKey"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ScriptMediator/scriptBody"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ScriptMediator/inputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ScriptMediator/outputConnector"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ScriptMediator/keyType"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ScriptMediator/scriptStaticKey"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ScriptMediator/scriptKeys"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//ScriptMediatorInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//ScriptMediatorOutputConnector"/>

@@ -5481,13 +5481,13 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	int SCRIPT_MEDIATOR__MEDIATE_FUNCTION = MEDIATOR_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Script Key</b></em>' containment reference.
+	 * The feature id for the '<em><b>Script Dynamic Key</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCRIPT_MEDIATOR__SCRIPT_KEY = MEDIATOR_FEATURE_COUNT + 3;
+	int SCRIPT_MEDIATOR__SCRIPT_DYNAMIC_KEY = MEDIATOR_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Script Body</b></em>' attribute.
@@ -5517,13 +5517,40 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	int SCRIPT_MEDIATOR__OUTPUT_CONNECTOR = MEDIATOR_FEATURE_COUNT + 6;
 
 	/**
+	 * The feature id for the '<em><b>Key Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPT_MEDIATOR__KEY_TYPE = MEDIATOR_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Script Static Key</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPT_MEDIATOR__SCRIPT_STATIC_KEY = MEDIATOR_FEATURE_COUNT + 8;
+
+	/**
+	 * The feature id for the '<em><b>Script Keys</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCRIPT_MEDIATOR__SCRIPT_KEYS = MEDIATOR_FEATURE_COUNT + 9;
+
+	/**
 	 * The number of structural features of the '<em>Script Mediator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCRIPT_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 7;
+	int SCRIPT_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 10;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ScriptMediatorInputConnectorImpl <em>Script Mediator Input Connector</em>}' class.
@@ -15099,6 +15126,16 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	int EVENT_TOPIC_TYPE = 302;
 
 	/**
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.scriptKeyTypeEnum <em>script Key Type Enum</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.scriptKeyTypeEnum
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getscriptKeyTypeEnum()
+	 * @generated
+	 */
+	int SCRIPT_KEY_TYPE_ENUM = 302;
+
+	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ScriptType <em>Script Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -20378,15 +20415,15 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	EAttribute getScriptMediator_MediateFunction();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.ScriptMediator#getScriptKey <em>Script Key</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.ScriptMediator#getScriptDynamicKey <em>Script Dynamic Key</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Script Key</em>'.
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.ScriptMediator#getScriptKey()
+	 * @return the meta object for the containment reference '<em>Script Dynamic Key</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.ScriptMediator#getScriptDynamicKey()
 	 * @see #getScriptMediator()
 	 * @generated
 	 */
-	EReference getScriptMediator_ScriptKey();
+	EReference getScriptMediator_ScriptDynamicKey();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.ScriptMediator#getScriptBody <em>Script Body</em>}'.
@@ -20420,6 +20457,39 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 */
 	EReference getScriptMediator_OutputConnector();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.ScriptMediator#getKeyType <em>Key Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Key Type</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.ScriptMediator#getKeyType()
+	 * @see #getScriptMediator()
+	 * @generated
+	 */
+	EAttribute getScriptMediator_KeyType();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.ScriptMediator#getScriptStaticKey <em>Script Static Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Script Static Key</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.ScriptMediator#getScriptStaticKey()
+	 * @see #getScriptMediator()
+	 * @generated
+	 */
+	EReference getScriptMediator_ScriptStaticKey();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.wso2.developerstudio.eclipse.gmf.esb.ScriptMediator#getScriptKeys <em>Script Keys</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Script Keys</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.ScriptMediator#getScriptKeys()
+	 * @see #getScriptMediator()
+	 * @generated
+	 */
+	EReference getScriptMediator_ScriptKeys();
 
 	/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.gmf.esb.ScriptMediatorInputConnector <em>Script Mediator Input Connector</em>}'.
@@ -26132,6 +26202,16 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	EEnum getEventTopicType();
 
 	/**
+	 * Returns the meta object for enum '{@link org.wso2.developerstudio.eclipse.gmf.esb.scriptKeyTypeEnum <em>script Key Type Enum</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>script Key Type Enum</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.scriptKeyTypeEnum
+	 * @generated
+	 */
+	EEnum getscriptKeyTypeEnum();
+
+	/**
 	 * Returns the meta object for enum '{@link org.wso2.developerstudio.eclipse.gmf.esb.ScriptType <em>Script Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -30539,12 +30619,12 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		EAttribute SCRIPT_MEDIATOR__MEDIATE_FUNCTION = eINSTANCE.getScriptMediator_MediateFunction();
 
 		/**
-		 * The meta object literal for the '<em><b>Script Key</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Script Dynamic Key</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SCRIPT_MEDIATOR__SCRIPT_KEY = eINSTANCE.getScriptMediator_ScriptKey();
+		EReference SCRIPT_MEDIATOR__SCRIPT_DYNAMIC_KEY = eINSTANCE.getScriptMediator_ScriptDynamicKey();
 
 		/**
 		 * The meta object literal for the '<em><b>Script Body</b></em>' attribute feature.
@@ -30569,6 +30649,30 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		 * @generated
 		 */
 		EReference SCRIPT_MEDIATOR__OUTPUT_CONNECTOR = eINSTANCE.getScriptMediator_OutputConnector();
+
+		/**
+		 * The meta object literal for the '<em><b>Key Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SCRIPT_MEDIATOR__KEY_TYPE = eINSTANCE.getScriptMediator_KeyType();
+
+		/**
+		 * The meta object literal for the '<em><b>Script Static Key</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SCRIPT_MEDIATOR__SCRIPT_STATIC_KEY = eINSTANCE.getScriptMediator_ScriptStaticKey();
+
+		/**
+		 * The meta object literal for the '<em><b>Script Keys</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SCRIPT_MEDIATOR__SCRIPT_KEYS = eINSTANCE.getScriptMediator_ScriptKeys();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ScriptMediatorInputConnectorImpl <em>Script Mediator Input Connector</em>}' class.
@@ -35169,6 +35273,16 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		 * @generated
 		 */
 		EEnum EVENT_TOPIC_TYPE = eINSTANCE.getEventTopicType();
+
+		/**
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.scriptKeyTypeEnum <em>script Key Type Enum</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.wso2.developerstudio.eclipse.gmf.esb.scriptKeyTypeEnum
+		 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getscriptKeyTypeEnum()
+		 * @generated
+		 */
+		EEnum SCRIPT_KEY_TYPE_ENUM = eINSTANCE.getscriptKeyTypeEnum();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ScriptType <em>Script Type</em>}' enum.

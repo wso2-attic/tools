@@ -6,21 +6,27 @@
  */
 package org.wso2.developerstudio.eclipse.gmf.esb.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
+import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.ScriptLanguage;
 import org.wso2.developerstudio.eclipse.gmf.esb.ScriptMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.ScriptMediatorInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.ScriptMediatorOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.ScriptType;
+import org.wso2.developerstudio.eclipse.gmf.esb.scriptKeyTypeEnum;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,10 +38,13 @@ import org.wso2.developerstudio.eclipse.gmf.esb.ScriptType;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ScriptMediatorImpl#getScriptType <em>Script Type</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ScriptMediatorImpl#getScriptLanguage <em>Script Language</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ScriptMediatorImpl#getMediateFunction <em>Mediate Function</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ScriptMediatorImpl#getScriptKey <em>Script Key</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ScriptMediatorImpl#getScriptDynamicKey <em>Script Dynamic Key</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ScriptMediatorImpl#getScriptBody <em>Script Body</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ScriptMediatorImpl#getInputConnector <em>Input Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ScriptMediatorImpl#getOutputConnector <em>Output Connector</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ScriptMediatorImpl#getKeyType <em>Key Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ScriptMediatorImpl#getScriptStaticKey <em>Script Static Key</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ScriptMediatorImpl#getScriptKeys <em>Script Keys</em>}</li>
  * </ul>
  * </p>
  *
@@ -103,14 +112,14 @@ public class ScriptMediatorImpl extends MediatorImpl implements ScriptMediator {
 	protected String mediateFunction = MEDIATE_FUNCTION_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getScriptKey() <em>Script Key</em>}' containment reference.
+	 * The cached value of the '{@link #getScriptDynamicKey() <em>Script Dynamic Key</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getScriptKey()
+	 * @see #getScriptDynamicKey()
 	 * @generated
 	 * @ordered
 	 */
-	protected RegistryKeyProperty scriptKey;
+	protected NamespacedProperty scriptDynamicKey;
 
 	/**
 	 * The default value of the '{@link #getScriptBody() <em>Script Body</em>}' attribute.
@@ -153,6 +162,46 @@ public class ScriptMediatorImpl extends MediatorImpl implements ScriptMediator {
 	protected ScriptMediatorOutputConnector outputConnector;
 
 	/**
+	 * The default value of the '{@link #getKeyType() <em>Key Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getKeyType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final scriptKeyTypeEnum KEY_TYPE_EDEFAULT = scriptKeyTypeEnum.STATIC_KEY;
+
+	/**
+	 * The cached value of the '{@link #getKeyType() <em>Key Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getKeyType()
+	 * @generated
+	 * @ordered
+	 */
+	protected scriptKeyTypeEnum keyType = KEY_TYPE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getScriptStaticKey() <em>Script Static Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getScriptStaticKey()
+	 * @generated
+	 * @ordered
+	 */
+	protected RegistryKeyProperty scriptStaticKey;
+
+	/**
+	 * The cached value of the '{@link #getScriptKeys() <em>Script Keys</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getScriptKeys()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<RegistryKeyProperty> scriptKeys;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
@@ -165,7 +214,13 @@ public class ScriptMediatorImpl extends MediatorImpl implements ScriptMediator {
 		key.setPrettyName("Script Key");
 		key.setKeyName("key");
 		key.setKeyValue(DEFAULT_REGISTRY_KEY);
-		setScriptKey(key);
+		setScriptStaticKey(key);
+		NamespacedProperty namespacedProperty = EsbFactoryImpl.eINSTANCE.createNamespacedProperty();
+		namespacedProperty.setPrettyName("");
+		namespacedProperty.setPropertyName("dynamic key");
+		namespacedProperty.setPropertyValue("/xpath/expression");
+		setScriptDynamicKey(namespacedProperty);
+
 	}
 
 	/**
@@ -247,8 +302,8 @@ public class ScriptMediatorImpl extends MediatorImpl implements ScriptMediator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RegistryKeyProperty getScriptKey() {
-		return scriptKey;
+	public NamespacedProperty getScriptDynamicKey() {
+		return scriptDynamicKey;
 	}
 
 	/**
@@ -256,11 +311,11 @@ public class ScriptMediatorImpl extends MediatorImpl implements ScriptMediator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetScriptKey(RegistryKeyProperty newScriptKey, NotificationChain msgs) {
-		RegistryKeyProperty oldScriptKey = scriptKey;
-		scriptKey = newScriptKey;
+	public NotificationChain basicSetScriptDynamicKey(NamespacedProperty newScriptDynamicKey, NotificationChain msgs) {
+		NamespacedProperty oldScriptDynamicKey = scriptDynamicKey;
+		scriptDynamicKey = newScriptDynamicKey;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.SCRIPT_MEDIATOR__SCRIPT_KEY, oldScriptKey, newScriptKey);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.SCRIPT_MEDIATOR__SCRIPT_DYNAMIC_KEY, oldScriptDynamicKey, newScriptDynamicKey);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -271,18 +326,18 @@ public class ScriptMediatorImpl extends MediatorImpl implements ScriptMediator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setScriptKey(RegistryKeyProperty newScriptKey) {
-		if (newScriptKey != scriptKey) {
+	public void setScriptDynamicKey(NamespacedProperty newScriptDynamicKey) {
+		if (newScriptDynamicKey != scriptDynamicKey) {
 			NotificationChain msgs = null;
-			if (scriptKey != null)
-				msgs = ((InternalEObject)scriptKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.SCRIPT_MEDIATOR__SCRIPT_KEY, null, msgs);
-			if (newScriptKey != null)
-				msgs = ((InternalEObject)newScriptKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.SCRIPT_MEDIATOR__SCRIPT_KEY, null, msgs);
-			msgs = basicSetScriptKey(newScriptKey, msgs);
+			if (scriptDynamicKey != null)
+				msgs = ((InternalEObject)scriptDynamicKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.SCRIPT_MEDIATOR__SCRIPT_DYNAMIC_KEY, null, msgs);
+			if (newScriptDynamicKey != null)
+				msgs = ((InternalEObject)newScriptDynamicKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.SCRIPT_MEDIATOR__SCRIPT_DYNAMIC_KEY, null, msgs);
+			msgs = basicSetScriptDynamicKey(newScriptDynamicKey, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.SCRIPT_MEDIATOR__SCRIPT_KEY, newScriptKey, newScriptKey));
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.SCRIPT_MEDIATOR__SCRIPT_DYNAMIC_KEY, newScriptDynamicKey, newScriptDynamicKey));
 	}
 
 	/**
@@ -397,16 +452,96 @@ public class ScriptMediatorImpl extends MediatorImpl implements ScriptMediator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public scriptKeyTypeEnum getKeyType() {
+		return keyType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setKeyType(scriptKeyTypeEnum newKeyType) {
+		scriptKeyTypeEnum oldKeyType = keyType;
+		keyType = newKeyType == null ? KEY_TYPE_EDEFAULT : newKeyType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.SCRIPT_MEDIATOR__KEY_TYPE, oldKeyType, keyType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RegistryKeyProperty getScriptStaticKey() {
+		return scriptStaticKey;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetScriptStaticKey(RegistryKeyProperty newScriptStaticKey, NotificationChain msgs) {
+		RegistryKeyProperty oldScriptStaticKey = scriptStaticKey;
+		scriptStaticKey = newScriptStaticKey;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.SCRIPT_MEDIATOR__SCRIPT_STATIC_KEY, oldScriptStaticKey, newScriptStaticKey);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setScriptStaticKey(RegistryKeyProperty newScriptStaticKey) {
+		if (newScriptStaticKey != scriptStaticKey) {
+			NotificationChain msgs = null;
+			if (scriptStaticKey != null)
+				msgs = ((InternalEObject)scriptStaticKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.SCRIPT_MEDIATOR__SCRIPT_STATIC_KEY, null, msgs);
+			if (newScriptStaticKey != null)
+				msgs = ((InternalEObject)newScriptStaticKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.SCRIPT_MEDIATOR__SCRIPT_STATIC_KEY, null, msgs);
+			msgs = basicSetScriptStaticKey(newScriptStaticKey, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.SCRIPT_MEDIATOR__SCRIPT_STATIC_KEY, newScriptStaticKey, newScriptStaticKey));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<RegistryKeyProperty> getScriptKeys() {
+		if (scriptKeys == null) {
+			scriptKeys = new EObjectContainmentEList<RegistryKeyProperty>(RegistryKeyProperty.class, this, EsbPackage.SCRIPT_MEDIATOR__SCRIPT_KEYS);
+		}
+		return scriptKeys;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case EsbPackage.SCRIPT_MEDIATOR__SCRIPT_KEY:
-				return basicSetScriptKey(null, msgs);
+			case EsbPackage.SCRIPT_MEDIATOR__SCRIPT_DYNAMIC_KEY:
+				return basicSetScriptDynamicKey(null, msgs);
 			case EsbPackage.SCRIPT_MEDIATOR__INPUT_CONNECTOR:
 				return basicSetInputConnector(null, msgs);
 			case EsbPackage.SCRIPT_MEDIATOR__OUTPUT_CONNECTOR:
 				return basicSetOutputConnector(null, msgs);
+			case EsbPackage.SCRIPT_MEDIATOR__SCRIPT_STATIC_KEY:
+				return basicSetScriptStaticKey(null, msgs);
+			case EsbPackage.SCRIPT_MEDIATOR__SCRIPT_KEYS:
+				return ((InternalEList<?>)getScriptKeys()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -426,14 +561,20 @@ public class ScriptMediatorImpl extends MediatorImpl implements ScriptMediator {
 				return getScriptLanguage();
 			case EsbPackage.SCRIPT_MEDIATOR__MEDIATE_FUNCTION:
 				return getMediateFunction();
-			case EsbPackage.SCRIPT_MEDIATOR__SCRIPT_KEY:
-				return getScriptKey();
+			case EsbPackage.SCRIPT_MEDIATOR__SCRIPT_DYNAMIC_KEY:
+				return getScriptDynamicKey();
 			case EsbPackage.SCRIPT_MEDIATOR__SCRIPT_BODY:
 				return getScriptBody();
 			case EsbPackage.SCRIPT_MEDIATOR__INPUT_CONNECTOR:
 				return getInputConnector();
 			case EsbPackage.SCRIPT_MEDIATOR__OUTPUT_CONNECTOR:
 				return getOutputConnector();
+			case EsbPackage.SCRIPT_MEDIATOR__KEY_TYPE:
+				return getKeyType();
+			case EsbPackage.SCRIPT_MEDIATOR__SCRIPT_STATIC_KEY:
+				return getScriptStaticKey();
+			case EsbPackage.SCRIPT_MEDIATOR__SCRIPT_KEYS:
+				return getScriptKeys();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -444,6 +585,7 @@ public class ScriptMediatorImpl extends MediatorImpl implements ScriptMediator {
 	 * @generated
 	 */
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -456,8 +598,8 @@ public class ScriptMediatorImpl extends MediatorImpl implements ScriptMediator {
 			case EsbPackage.SCRIPT_MEDIATOR__MEDIATE_FUNCTION:
 				setMediateFunction((String)newValue);
 				return;
-			case EsbPackage.SCRIPT_MEDIATOR__SCRIPT_KEY:
-				setScriptKey((RegistryKeyProperty)newValue);
+			case EsbPackage.SCRIPT_MEDIATOR__SCRIPT_DYNAMIC_KEY:
+				setScriptDynamicKey((NamespacedProperty)newValue);
 				return;
 			case EsbPackage.SCRIPT_MEDIATOR__SCRIPT_BODY:
 				setScriptBody((String)newValue);
@@ -467,6 +609,16 @@ public class ScriptMediatorImpl extends MediatorImpl implements ScriptMediator {
 				return;
 			case EsbPackage.SCRIPT_MEDIATOR__OUTPUT_CONNECTOR:
 				setOutputConnector((ScriptMediatorOutputConnector)newValue);
+				return;
+			case EsbPackage.SCRIPT_MEDIATOR__KEY_TYPE:
+				setKeyType((scriptKeyTypeEnum)newValue);
+				return;
+			case EsbPackage.SCRIPT_MEDIATOR__SCRIPT_STATIC_KEY:
+				setScriptStaticKey((RegistryKeyProperty)newValue);
+				return;
+			case EsbPackage.SCRIPT_MEDIATOR__SCRIPT_KEYS:
+				getScriptKeys().clear();
+				getScriptKeys().addAll((Collection<? extends RegistryKeyProperty>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -490,8 +642,8 @@ public class ScriptMediatorImpl extends MediatorImpl implements ScriptMediator {
 			case EsbPackage.SCRIPT_MEDIATOR__MEDIATE_FUNCTION:
 				setMediateFunction(MEDIATE_FUNCTION_EDEFAULT);
 				return;
-			case EsbPackage.SCRIPT_MEDIATOR__SCRIPT_KEY:
-				setScriptKey((RegistryKeyProperty)null);
+			case EsbPackage.SCRIPT_MEDIATOR__SCRIPT_DYNAMIC_KEY:
+				setScriptDynamicKey((NamespacedProperty)null);
 				return;
 			case EsbPackage.SCRIPT_MEDIATOR__SCRIPT_BODY:
 				setScriptBody(SCRIPT_BODY_EDEFAULT);
@@ -501,6 +653,15 @@ public class ScriptMediatorImpl extends MediatorImpl implements ScriptMediator {
 				return;
 			case EsbPackage.SCRIPT_MEDIATOR__OUTPUT_CONNECTOR:
 				setOutputConnector((ScriptMediatorOutputConnector)null);
+				return;
+			case EsbPackage.SCRIPT_MEDIATOR__KEY_TYPE:
+				setKeyType(KEY_TYPE_EDEFAULT);
+				return;
+			case EsbPackage.SCRIPT_MEDIATOR__SCRIPT_STATIC_KEY:
+				setScriptStaticKey((RegistryKeyProperty)null);
+				return;
+			case EsbPackage.SCRIPT_MEDIATOR__SCRIPT_KEYS:
+				getScriptKeys().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -521,14 +682,20 @@ public class ScriptMediatorImpl extends MediatorImpl implements ScriptMediator {
 				return scriptLanguage != SCRIPT_LANGUAGE_EDEFAULT;
 			case EsbPackage.SCRIPT_MEDIATOR__MEDIATE_FUNCTION:
 				return MEDIATE_FUNCTION_EDEFAULT == null ? mediateFunction != null : !MEDIATE_FUNCTION_EDEFAULT.equals(mediateFunction);
-			case EsbPackage.SCRIPT_MEDIATOR__SCRIPT_KEY:
-				return scriptKey != null;
+			case EsbPackage.SCRIPT_MEDIATOR__SCRIPT_DYNAMIC_KEY:
+				return scriptDynamicKey != null;
 			case EsbPackage.SCRIPT_MEDIATOR__SCRIPT_BODY:
 				return SCRIPT_BODY_EDEFAULT == null ? scriptBody != null : !SCRIPT_BODY_EDEFAULT.equals(scriptBody);
 			case EsbPackage.SCRIPT_MEDIATOR__INPUT_CONNECTOR:
 				return inputConnector != null;
 			case EsbPackage.SCRIPT_MEDIATOR__OUTPUT_CONNECTOR:
 				return outputConnector != null;
+			case EsbPackage.SCRIPT_MEDIATOR__KEY_TYPE:
+				return keyType != KEY_TYPE_EDEFAULT;
+			case EsbPackage.SCRIPT_MEDIATOR__SCRIPT_STATIC_KEY:
+				return scriptStaticKey != null;
+			case EsbPackage.SCRIPT_MEDIATOR__SCRIPT_KEYS:
+				return scriptKeys != null && !scriptKeys.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -552,6 +719,8 @@ public class ScriptMediatorImpl extends MediatorImpl implements ScriptMediator {
 		result.append(mediateFunction);
 		result.append(", scriptBody: ");
 		result.append(scriptBody);
+		result.append(", keyType: ");
+		result.append(keyType);
 		result.append(')');
 		return result.toString();
 	}

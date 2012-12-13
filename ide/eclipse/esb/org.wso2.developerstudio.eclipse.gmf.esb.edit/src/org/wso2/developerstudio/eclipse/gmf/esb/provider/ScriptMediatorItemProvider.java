@@ -28,6 +28,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.ScriptMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.ScriptType;
+import org.wso2.developerstudio.eclipse.gmf.esb.scriptKeyTypeEnum;
 
 /**
  * This is the item provider adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.ScriptMediator} object.
@@ -59,21 +60,25 @@ public class ScriptMediatorItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	
-	
+ 
+	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		ScriptMediator script = (ScriptMediator) object;
 		if (itemPropertyDescriptors != null) {
-        	itemPropertyDescriptors.clear();            
-        } 
+			itemPropertyDescriptors.clear();
+		}
 		super.getPropertyDescriptors(object);
-		
-		addScriptLanguagePropertyDescriptor(object);				
-		
-		addScriptTypePropertyDescriptor(object);		
-		if (script.getScriptType().equals(ScriptType.REGISTRY_REFERENCE)){			
-			addScriptKeyPropertyDescriptor(object);
+		addScriptLanguagePropertyDescriptor(object);
+		addScriptTypePropertyDescriptor(object);
+		if (script.getScriptType().equals(ScriptType.REGISTRY_REFERENCE)) {
+			addKeyTypePropertyDescriptor(object);
+			if (script.getKeyType().equals(scriptKeyTypeEnum.DYNAMIC_KEY)) {
+				addScriptDynamicKeyPropertyDescriptor(object);
+			} else {
+				addScriptStaticKeyPropertyDescriptor(object);
+			}
 			addMediateFunctionPropertyDescriptor(object);
+			addScriptKeysPropertyDescriptor(object);
 		} else {
 			addScriptBodyPropertyDescriptor(object);
 		}
@@ -147,6 +152,28 @@ public class ScriptMediatorItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Script Dynamic Key feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addScriptDynamicKeyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ScriptMediator_scriptDynamicKey_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ScriptMediator_scriptDynamicKey_feature", "_UI_ScriptMediator_type"),
+				 EsbPackage.Literals.SCRIPT_MEDIATOR__SCRIPT_DYNAMIC_KEY,
+				 true,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Script Body feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -168,21 +195,72 @@ public class ScriptMediatorItemProvider
 				 null));
 	}
 	
-	protected void addScriptKeyPropertyDescriptor(Object object) {
-        itemPropertyDescriptors.add
-            (createItemPropertyDescriptor
-                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                 getResourceLocator(),
-                 getString("_UI_ScriptMediator_scriptKey_feature"),
-                 getString("_UI_PropertyDescriptor_description", "_UI_ScriptMediator_scriptKey_feature", "_UI_ScriptMediator_type"),
-                 EsbPackage.Literals.SCRIPT_MEDIATOR__SCRIPT_KEY,
-                 true,
-                 false,
-                 false,
-                 null,
-                 null,
-                 null));
-    }
+	/**
+	 * This adds a property descriptor for the Key Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addKeyTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ScriptMediator_keyType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ScriptMediator_keyType_feature", "_UI_ScriptMediator_type"),
+				 EsbPackage.Literals.SCRIPT_MEDIATOR__KEY_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+
+	/**
+	 * This adds a property descriptor for the Script Static Key feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addScriptStaticKeyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ScriptMediator_scriptStaticKey_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ScriptMediator_scriptStaticKey_feature", "_UI_ScriptMediator_type"),
+				 EsbPackage.Literals.SCRIPT_MEDIATOR__SCRIPT_STATIC_KEY,
+				 true,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Script Keys feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addScriptKeysPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ScriptMediator_scriptKeys_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ScriptMediator_scriptKeys_feature", "_UI_ScriptMediator_type"),
+				 EsbPackage.Literals.SCRIPT_MEDIATOR__SCRIPT_KEYS,
+				 true,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
+	}
 
 	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
@@ -197,9 +275,11 @@ public class ScriptMediatorItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(EsbPackage.Literals.SCRIPT_MEDIATOR__SCRIPT_KEY);
+			childrenFeatures.add(EsbPackage.Literals.SCRIPT_MEDIATOR__SCRIPT_DYNAMIC_KEY);
 			childrenFeatures.add(EsbPackage.Literals.SCRIPT_MEDIATOR__INPUT_CONNECTOR);
 			childrenFeatures.add(EsbPackage.Literals.SCRIPT_MEDIATOR__OUTPUT_CONNECTOR);
+			childrenFeatures.add(EsbPackage.Literals.SCRIPT_MEDIATOR__SCRIPT_STATIC_KEY);
+			childrenFeatures.add(EsbPackage.Literals.SCRIPT_MEDIATOR__SCRIPT_KEYS);
 		}
 		return childrenFeatures;
 	}
@@ -260,11 +340,14 @@ public class ScriptMediatorItemProvider
 			case EsbPackage.SCRIPT_MEDIATOR__SCRIPT_LANGUAGE:
 			case EsbPackage.SCRIPT_MEDIATOR__MEDIATE_FUNCTION:
 			case EsbPackage.SCRIPT_MEDIATOR__SCRIPT_BODY:
+			case EsbPackage.SCRIPT_MEDIATOR__KEY_TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case EsbPackage.SCRIPT_MEDIATOR__SCRIPT_KEY:
+			case EsbPackage.SCRIPT_MEDIATOR__SCRIPT_DYNAMIC_KEY:
 			case EsbPackage.SCRIPT_MEDIATOR__INPUT_CONNECTOR:
 			case EsbPackage.SCRIPT_MEDIATOR__OUTPUT_CONNECTOR:
+			case EsbPackage.SCRIPT_MEDIATOR__SCRIPT_STATIC_KEY:
+			case EsbPackage.SCRIPT_MEDIATOR__SCRIPT_KEYS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -285,8 +368,8 @@ public class ScriptMediatorItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.SCRIPT_MEDIATOR__SCRIPT_KEY,
-				 EsbFactory.eINSTANCE.createRegistryKeyProperty()));
+				(EsbPackage.Literals.SCRIPT_MEDIATOR__SCRIPT_DYNAMIC_KEY,
+				 EsbFactory.eINSTANCE.createNamespacedProperty()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -297,6 +380,39 @@ public class ScriptMediatorItemProvider
 			(createChildParameter
 				(EsbPackage.Literals.SCRIPT_MEDIATOR__OUTPUT_CONNECTOR,
 				 EsbFactory.eINSTANCE.createScriptMediatorOutputConnector()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.SCRIPT_MEDIATOR__SCRIPT_STATIC_KEY,
+				 EsbFactory.eINSTANCE.createRegistryKeyProperty()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.SCRIPT_MEDIATOR__SCRIPT_KEYS,
+				 EsbFactory.eINSTANCE.createRegistryKeyProperty()));
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify =
+			childFeature == EsbPackage.Literals.SCRIPT_MEDIATOR__SCRIPT_STATIC_KEY ||
+			childFeature == EsbPackage.Literals.SCRIPT_MEDIATOR__SCRIPT_KEYS;
+
+		if (qualify) {
+			return getString
+				("_UI_CreateChild_text2",
+				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 }

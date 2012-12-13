@@ -732,7 +732,7 @@
         defaultValueLiteral="JAVASCRIPT"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mediateFunction" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="mediate"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="scriptKey" eType="#//RegistryKeyProperty"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="scriptDynamicKey" eType="#//NamespacedProperty"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="scriptBody" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="script_code"/>
@@ -740,6 +740,16 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outputConnector" eType="#//ScriptMediatorOutputConnector"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="keyType" eType="#//scriptKeyTypeEnum"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="scriptStaticKey" eType="#//RegistryKeyProperty"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="scriptKeys" upperBound="-1"
+        eType="#//RegistryKeyProperty" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="scriptKeyTypeEnum">
+    <eLiterals name="STATIC_KEY" literal="STATIC_KEY"/>
+    <eLiterals name="DYNAMIC_kEY" value="1" literal="DYNAMIC_kEY"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ScriptMediatorInputConnector" eSuperTypes="#//InputConnector"/>
   <eClassifiers xsi:type="ecore:EClass" name="ScriptMediatorOutputConnector" eSuperTypes="#//OutputConnector"/>

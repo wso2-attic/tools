@@ -118,8 +118,6 @@ public class EsbPropertySource extends PropertySource {
 			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
 		} else if(pkg.getSpringMediator_ConfigurationKey().equals(feature)){
 			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
-		} else if(pkg.getScriptMediator_ScriptKey().equals(feature)){
-			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
 		} else if(pkg.getSmooksMediator_ConfigurationKey().equals(feature)){
 			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
 		} else if(pkg.getSmooksMediator_InputExpression() .equals(feature)){
@@ -181,10 +179,7 @@ public class EsbPropertySource extends PropertySource {
 			//Validate Mediator Features Custom property descriptors.
 		}else if(pkg.getValidateMediator_Features().equals(feature)){			
 			return new ValidateFeaturePropertyDescriptor(object, itemPropertyDescriptor);			
-		}else if(pkg.getValidateMediator_Resources().equals(feature)){
-			return new ValidateResourcePropertyDescriptor(object, itemPropertyDescriptor);
-		}
-		else if(pkg.getURLRewriteMediator_UrlRewriteRules().equals(feature)){			
+		}else if(pkg.getURLRewriteMediator_UrlRewriteRules().equals(feature)){			
 			return new URLRewiterConfigurationPropertyDescriptor(object, itemPropertyDescriptor);			
 			//Builder Mediator message builder custom property descriptor.
 		}else if(pkg.getBuilderMediator_MessageBuilders().equals(feature)){			
@@ -209,14 +204,11 @@ public class EsbPropertySource extends PropertySource {
 			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
 		}else if(pkg.getAPIResource_FaultSequenceKey().equals(feature)){
 			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
-		}
-		
-		else if(pkg.getAbstractEndPoint_ReliableMessagingPolicy().equals(feature)){
+		}else if(pkg.getAbstractEndPoint_ReliableMessagingPolicy().equals(feature)){
 			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
 		}else if(pkg.getAbstractEndPoint_SecurityPolicy().equals(feature)){
 			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
-		}
-		
+		}		
 		else if(pkg.getBeanMediator_ValueExpression().equals(feature)){
 			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
 		}else if(pkg.getBeanMediator_TargetExpression().equals(feature)){
@@ -225,9 +217,17 @@ public class EsbPropertySource extends PropertySource {
 			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
 		}else if(pkg.getProxyService_WsdlResources().equals(feature)){
 			return new ProxyServiceWSDLResourcePropertyDescriptor(object, itemPropertyDescriptor);
+
+		} else if (pkg.getScriptMediator_ScriptDynamicKey().equals(feature)) {
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
+		} else if (pkg.getScriptMediator_ScriptKeys().equals(feature)) {
+
+			return new ScriptKeysPropertyDescriptor(object,
+					itemPropertyDescriptor);
+
+		} else if (pkg.getScriptMediator_ScriptStaticKey().equals(feature)) {
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
 		}
-		
-		
 			
 		// Else, default EMF behavior
 		else {

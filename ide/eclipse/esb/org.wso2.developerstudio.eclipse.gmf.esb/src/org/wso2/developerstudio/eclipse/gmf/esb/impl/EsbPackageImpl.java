@@ -397,6 +397,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.XSLTMediatorInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.XSLTMediatorOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.XSLTProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.XSLTResource;
+import org.wso2.developerstudio.eclipse.gmf.esb.scriptKeyTypeEnum;
 import org.wso2.developerstudio.eclipse.gmf.esb.propertyTaskString;
 import org.wso2.developerstudio.eclipse.gmf.esb.propertyTaskXML;
 
@@ -2527,6 +2528,13 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	private EEnum eventTopicTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum scriptKeyTypeEnumEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -6954,7 +6962,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getScriptMediator_ScriptKey() {
+	public EReference getScriptMediator_ScriptDynamicKey() {
 		return (EReference)scriptMediatorEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -6983,6 +6991,33 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 */
 	public EReference getScriptMediator_OutputConnector() {
 		return (EReference)scriptMediatorEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getScriptMediator_KeyType() {
+		return (EAttribute)scriptMediatorEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getScriptMediator_ScriptStaticKey() {
+		return (EReference)scriptMediatorEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getScriptMediator_ScriptKeys() {
+		return (EReference)scriptMediatorEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -11796,6 +11831,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getscriptKeyTypeEnum() {
+		return scriptKeyTypeEnumEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getScriptType() {
 		return scriptTypeEEnum;
 	}
@@ -12826,10 +12870,13 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEAttribute(scriptMediatorEClass, SCRIPT_MEDIATOR__SCRIPT_TYPE);
 		createEAttribute(scriptMediatorEClass, SCRIPT_MEDIATOR__SCRIPT_LANGUAGE);
 		createEAttribute(scriptMediatorEClass, SCRIPT_MEDIATOR__MEDIATE_FUNCTION);
-		createEReference(scriptMediatorEClass, SCRIPT_MEDIATOR__SCRIPT_KEY);
+		createEReference(scriptMediatorEClass, SCRIPT_MEDIATOR__SCRIPT_DYNAMIC_KEY);
 		createEAttribute(scriptMediatorEClass, SCRIPT_MEDIATOR__SCRIPT_BODY);
 		createEReference(scriptMediatorEClass, SCRIPT_MEDIATOR__INPUT_CONNECTOR);
 		createEReference(scriptMediatorEClass, SCRIPT_MEDIATOR__OUTPUT_CONNECTOR);
+		createEAttribute(scriptMediatorEClass, SCRIPT_MEDIATOR__KEY_TYPE);
+		createEReference(scriptMediatorEClass, SCRIPT_MEDIATOR__SCRIPT_STATIC_KEY);
+		createEReference(scriptMediatorEClass, SCRIPT_MEDIATOR__SCRIPT_KEYS);
 
 		scriptMediatorInputConnectorEClass = createEClass(SCRIPT_MEDIATOR_INPUT_CONNECTOR);
 
@@ -13628,6 +13675,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		enrichTargetActionEEnum = createEEnum(ENRICH_TARGET_ACTION);
 		enrichTargetTypeEEnum = createEEnum(ENRICH_TARGET_TYPE);
 		eventTopicTypeEEnum = createEEnum(EVENT_TOPIC_TYPE);
+		scriptKeyTypeEnumEEnum = createEEnum(SCRIPT_KEY_TYPE_ENUM);
 		scriptTypeEEnum = createEEnum(SCRIPT_TYPE);
 		scriptLanguageEEnum = createEEnum(SCRIPT_LANGUAGE);
 		faultSoapVersionEEnum = createEEnum(FAULT_SOAP_VERSION);
@@ -14459,10 +14507,13 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEAttribute(getScriptMediator_ScriptType(), this.getScriptType(), "scriptType", "REGISTRY_REFERENCE", 0, 1, ScriptMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getScriptMediator_ScriptLanguage(), this.getScriptLanguage(), "scriptLanguage", "JAVASCRIPT", 0, 1, ScriptMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getScriptMediator_MediateFunction(), ecorePackage.getEString(), "mediateFunction", "mediate", 0, 1, ScriptMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getScriptMediator_ScriptKey(), this.getRegistryKeyProperty(), null, "scriptKey", null, 0, 1, ScriptMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getScriptMediator_ScriptDynamicKey(), this.getNamespacedProperty(), null, "scriptDynamicKey", null, 0, 1, ScriptMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getScriptMediator_ScriptBody(), ecorePackage.getEString(), "scriptBody", "script_code", 0, 1, ScriptMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getScriptMediator_InputConnector(), this.getScriptMediatorInputConnector(), null, "inputConnector", null, 0, 1, ScriptMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getScriptMediator_OutputConnector(), this.getScriptMediatorOutputConnector(), null, "outputConnector", null, 0, 1, ScriptMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getScriptMediator_KeyType(), this.getscriptKeyTypeEnum(), "keyType", "", 0, 1, ScriptMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getScriptMediator_ScriptStaticKey(), this.getRegistryKeyProperty(), null, "scriptStaticKey", null, 0, 1, ScriptMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getScriptMediator_ScriptKeys(), this.getRegistryKeyProperty(), null, "scriptKeys", null, 0, -1, ScriptMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(scriptMediatorInputConnectorEClass, ScriptMediatorInputConnector.class, "ScriptMediatorInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -15356,6 +15407,10 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEEnum(eventTopicTypeEEnum, EventTopicType.class, "EventTopicType");
 		addEEnumLiteral(eventTopicTypeEEnum, EventTopicType.STATIC);
 		addEEnumLiteral(eventTopicTypeEEnum, EventTopicType.DYNAMIC);
+
+		initEEnum(scriptKeyTypeEnumEEnum, scriptKeyTypeEnum.class, "scriptKeyTypeEnum");
+		addEEnumLiteral(scriptKeyTypeEnumEEnum, scriptKeyTypeEnum.STATIC_KEY);
+		addEEnumLiteral(scriptKeyTypeEnumEEnum, scriptKeyTypeEnum.DYNAMIC_KEY);
 
 		initEEnum(scriptTypeEEnum, ScriptType.class, "ScriptType");
 		addEEnumLiteral(scriptTypeEEnum, ScriptType.INLINE);

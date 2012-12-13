@@ -832,8 +832,7 @@ public class ProxyServiceItemProvider
 			childFeature == EsbPackage.Literals.PROXY_SERVICE__IN_SEQUENCE_KEY ||
 			childFeature == EsbPackage.Literals.PROXY_SERVICE__OUT_SEQUENCE_KEY ||
 			childFeature == EsbPackage.Literals.PROXY_SERVICE__FAULT_SEQUENCE_KEY ||
-			childFeature == EsbPackage.Literals.PROXY_SERVICE__WSDL_KEY ||
-			childFeature == EsbPackage.Literals.PROXY_SERVICE__WSDL_RESOURCES;
+			childFeature == EsbPackage.Literals.PROXY_SERVICE__WSDL_KEY;
 
 		if (qualify) {
 			return getString
