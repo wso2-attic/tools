@@ -141,7 +141,7 @@ public class CallTemplateParameterImpl extends ModelObjectImpl implements CallTe
 			attributeValue = attributeValue.trim();
 			if (attributeValue.startsWith("{") && attributeValue.endsWith("}")) {
 				setTemplateParameterType(RuleOptionType.EXPRESSION);
-				attributeValue = attributeValue.replaceAll("^{","").replaceAll("}$", "");
+				attributeValue = attributeValue.replaceAll("^\\{","").replaceAll("\\}$", "");
 				getParameterExpression().setPropertyValue(attributeValue);
 			} else {
 				setTemplateParameterType(RuleOptionType.VALUE);
