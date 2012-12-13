@@ -942,6 +942,15 @@ public interface EsbFactory extends EFactory {
 	ValidateMediator createValidateMediator();
 
 	/**
+	 * Returns a new object of class '<em>Validate Resource</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Validate Resource</em>'.
+	 * @generated
+	 */
+	ValidateResource createValidateResource();
+
+	/**
 	 * Returns a new object of class '<em>Validate Feature</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

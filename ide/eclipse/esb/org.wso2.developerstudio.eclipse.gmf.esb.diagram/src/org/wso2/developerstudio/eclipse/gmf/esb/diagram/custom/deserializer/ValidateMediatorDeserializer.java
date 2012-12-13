@@ -15,14 +15,19 @@
  */
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 
-import java.util.ArrayList;
-import java.util.List;
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.VALIDATE_MEDIATOR__FEATURES;
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.VALIDATE_MEDIATOR__RESOURCES;
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.VALIDATE_MEDIATOR__SCHEMAS;
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.VALIDATE_MEDIATOR__SOURCE_XPATH;
+
 import java.util.Map;
+import java.util.Map.Entry;
 
 import org.apache.synapse.mediators.AbstractMediator;
 import org.apache.synapse.mediators.MediatorProperty;
 import org.apache.synapse.mediators.Value;
 import org.apache.synapse.mediators.base.SequenceMediator;
+import org.apache.synapse.util.resolver.ResourceMap;
 import org.apache.synapse.util.xpath.SynapseXPath;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.common.util.BasicEList;
@@ -35,9 +40,9 @@ import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.ValidateFeature;
 import org.wso2.developerstudio.eclipse.gmf.esb.ValidateMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.ValidateResource;
 import org.wso2.developerstudio.eclipse.gmf.esb.ValidateSchema;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
-import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.*;
 
 public class ValidateMediatorDeserializer extends AbstractEsbNodeDeserializer<AbstractMediator, ValidateMediator>{
 
@@ -140,9 +145,33 @@ public class ValidateMediatorDeserializer extends AbstractEsbNodeDeserializer<Ab
 			validateFeatureList.add(feature);
 		}
 		
-		//vishualValidator.getFeatures().addAll(validateFeatureList);
 		executeSetValueCommand(VALIDATE_MEDIATOR__FEATURES, validateFeatureList);
 		
+		EList<ValidateResource> validateResourceList = new BasicEList<ValidateResource>();
+
+		if (validateMediator.getResourceMap() != null) {
+
+			ResourceMap rMap = validateMediator.getResourceMap();
+
+			for (Entry<String, String> entry : rMap.getResources().entrySet()) {
+
+				ValidateResource resource = EsbFactory.eINSTANCE
+						.createValidateResource();
+
+				resource.setLocation(entry.getKey());
+
+				RegistryKeyProperty regkey = EsbFactory.eINSTANCE
+						.createRegistryKeyProperty();
+				regkey.setKeyValue(entry.getValue());
+
+				resource.setKey(regkey);
+
+				validateResourceList.add(resource);
+			}
+		}
+
+		executeSetValueCommand(VALIDATE_MEDIATOR__RESOURCES,validateResourceList);
+
 		if(validateMediator.getList().size()>0){
 			SequenceMediator sequence = new SequenceMediator();
 			sequence.addAll(validateMediator.getList());

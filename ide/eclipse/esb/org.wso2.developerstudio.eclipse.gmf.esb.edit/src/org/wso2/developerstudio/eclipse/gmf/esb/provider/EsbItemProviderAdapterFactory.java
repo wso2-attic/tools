@@ -2422,6 +2422,29 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.ValidateResource} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ValidateResourceItemProvider validateResourceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.ValidateResource}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createValidateResourceAdapter() {
+		if (validateResourceItemProvider == null) {
+			validateResourceItemProvider = new ValidateResourceItemProvider(this);
+		}
+
+		return validateResourceItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.ValidateFeature} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6741,6 +6764,7 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 		if (urlRewriteMediatorOutputConnectorItemProvider != null) urlRewriteMediatorOutputConnectorItemProvider.dispose();
 		if (evaluatorExpressionPropertyItemProvider != null) evaluatorExpressionPropertyItemProvider.dispose();
 		if (validateMediatorItemProvider != null) validateMediatorItemProvider.dispose();
+		if (validateResourceItemProvider != null) validateResourceItemProvider.dispose();
 		if (validateFeatureItemProvider != null) validateFeatureItemProvider.dispose();
 		if (validateSchemaItemProvider != null) validateSchemaItemProvider.dispose();
 		if (validateMediatorInputConnectorItemProvider != null) validateMediatorInputConnectorItemProvider.dispose();

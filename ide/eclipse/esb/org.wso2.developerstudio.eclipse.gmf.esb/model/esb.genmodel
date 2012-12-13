@@ -1471,7 +1471,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ValidateMediator/outputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ValidateMediator/onFailOutputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ValidateMediator/mediatorFlow"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ValidateMediator/resources"/>
     </genClasses>
+    <genClasses ecoreClass="esb.ecore#//ValidateResource"/>
     <genClasses ecoreClass="esb.ecore#//ValidateFeature"/>
     <genClasses ecoreClass="esb.ecore#//ValidateSchema">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esb.ecore#//ValidateSchema/validateStaticSchemaKey"/>

@@ -377,6 +377,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.ValidateMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.ValidateMediatorInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.ValidateMediatorOnFailOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.ValidateMediatorOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.ValidateResource;
 import org.wso2.developerstudio.eclipse.gmf.esb.ValidateOnFailBranch;
 import org.wso2.developerstudio.eclipse.gmf.esb.ValidateSchema;
 import org.wso2.developerstudio.eclipse.gmf.esb.WSDLDefinition;
@@ -1189,6 +1190,13 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	private EClass validateMediatorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass validateResourceEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -6165,6 +6173,24 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 */
 	public EReference getValidateMediator_MediatorFlow() {
 		return (EReference)validateMediatorEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getValidateMediator_Resources() {
+		return (EReference)validateMediatorEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getValidateResource() {
+		return validateResourceEClass;
 	}
 
 	/**
@@ -13477,6 +13503,9 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEReference(validateMediatorEClass, VALIDATE_MEDIATOR__OUTPUT_CONNECTOR);
 		createEReference(validateMediatorEClass, VALIDATE_MEDIATOR__ON_FAIL_OUTPUT_CONNECTOR);
 		createEReference(validateMediatorEClass, VALIDATE_MEDIATOR__MEDIATOR_FLOW);
+		createEReference(validateMediatorEClass, VALIDATE_MEDIATOR__RESOURCES);
+
+		validateResourceEClass = createEClass(VALIDATE_RESOURCE);
 
 		validateFeatureEClass = createEClass(VALIDATE_FEATURE);
 
@@ -13927,6 +13956,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		urlRewriteMediatorOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
 		evaluatorExpressionPropertyEClass.getESuperTypes().add(this.getEsbNode());
 		validateMediatorEClass.getESuperTypes().add(this.getMediator());
+		validateResourceEClass.getESuperTypes().add(this.getAbstractLocationKeyResource());
 		validateFeatureEClass.getESuperTypes().add(this.getAbstractBooleanFeature());
 		validateSchemaEClass.getESuperTypes().add(this.getEsbNode());
 		validateMediatorInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
@@ -15106,6 +15136,9 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEReference(getValidateMediator_OutputConnector(), this.getValidateMediatorOutputConnector(), null, "outputConnector", null, 0, 1, ValidateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getValidateMediator_OnFailOutputConnector(), this.getValidateMediatorOnFailOutputConnector(), null, "onFailOutputConnector", null, 0, 1, ValidateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getValidateMediator_MediatorFlow(), this.getMediatorFlow(), null, "mediatorFlow", null, 0, 1, ValidateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getValidateMediator_Resources(), this.getValidateResource(), null, "resources", null, 0, -1, ValidateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(validateResourceEClass, ValidateResource.class, "ValidateResource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(validateFeatureEClass, ValidateFeature.class, "ValidateFeature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

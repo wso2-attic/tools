@@ -1955,7 +1955,10 @@
         eType="#//ValidateMediatorOnFailOutputConnector" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="mediatorFlow" eType="#//MediatorFlow"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resources" upperBound="-1"
+        eType="#//ValidateResource" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ValidateResource" eSuperTypes="#//AbstractLocationKeyResource"/>
   <eClassifiers xsi:type="ecore:EClass" name="ValidateFeature" eSuperTypes="#//AbstractBooleanFeature"/>
   <eClassifiers xsi:type="ecore:EClass" name="ValidateSchema" eSuperTypes="#//EsbNode">
     <eStructuralFeatures xsi:type="ecore:EReference" name="validateStaticSchemaKey"

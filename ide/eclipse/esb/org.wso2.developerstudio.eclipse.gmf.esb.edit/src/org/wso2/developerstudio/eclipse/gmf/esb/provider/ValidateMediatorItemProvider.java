@@ -69,6 +69,7 @@ public class ValidateMediatorItemProvider
 			addSchemasPropertyDescriptor(object);
 			addSourceXpathPropertyDescriptor(object);
 			addFeaturesPropertyDescriptor(object);
+			addResourcesPropertyDescriptor(object);
 			
 		return itemPropertyDescriptors;
 	}
@@ -140,6 +141,28 @@ public class ValidateMediatorItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Resources feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addResourcesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ValidateMediator_resources_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ValidateMediator_resources_feature", "_UI_ValidateMediator_type"),
+				 EsbPackage.Literals.VALIDATE_MEDIATOR__RESOURCES,
+				 true,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -159,6 +182,7 @@ public class ValidateMediatorItemProvider
 			childrenFeatures.add(EsbPackage.Literals.VALIDATE_MEDIATOR__OUTPUT_CONNECTOR);
 			childrenFeatures.add(EsbPackage.Literals.VALIDATE_MEDIATOR__ON_FAIL_OUTPUT_CONNECTOR);
 			childrenFeatures.add(EsbPackage.Literals.VALIDATE_MEDIATOR__MEDIATOR_FLOW);
+			childrenFeatures.add(EsbPackage.Literals.VALIDATE_MEDIATOR__RESOURCES);
 		}
 		return childrenFeatures;
 	}
@@ -222,6 +246,7 @@ public class ValidateMediatorItemProvider
 			case EsbPackage.VALIDATE_MEDIATOR__OUTPUT_CONNECTOR:
 			case EsbPackage.VALIDATE_MEDIATOR__ON_FAIL_OUTPUT_CONNECTOR:
 			case EsbPackage.VALIDATE_MEDIATOR__MEDIATOR_FLOW:
+			case EsbPackage.VALIDATE_MEDIATOR__RESOURCES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -274,6 +299,11 @@ public class ValidateMediatorItemProvider
 			(createChildParameter
 				(EsbPackage.Literals.VALIDATE_MEDIATOR__MEDIATOR_FLOW,
 				 EsbFactory.eINSTANCE.createMediatorFlow()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.VALIDATE_MEDIATOR__RESOURCES,
+				 EsbFactory.eINSTANCE.createValidateResource()));
 	}
 
 }

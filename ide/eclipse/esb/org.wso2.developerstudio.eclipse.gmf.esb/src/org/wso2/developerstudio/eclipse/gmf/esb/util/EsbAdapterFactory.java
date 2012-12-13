@@ -1113,6 +1113,10 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 				return createValidateMediatorAdapter();
 			}
 			@Override
+			public Adapter caseValidateResource(ValidateResource object) {
+				return createValidateResourceAdapter();
+			}
+			@Override
 			public Adapter caseValidateFeature(ValidateFeature object) {
 				return createValidateFeatureAdapter();
 			}
@@ -2790,6 +2794,20 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createValidateMediatorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.ValidateResource <em>Validate Resource</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.ValidateResource
+	 * @generated
+	 */
+	public Adapter createValidateResourceAdapter() {
 		return null;
 	}
 

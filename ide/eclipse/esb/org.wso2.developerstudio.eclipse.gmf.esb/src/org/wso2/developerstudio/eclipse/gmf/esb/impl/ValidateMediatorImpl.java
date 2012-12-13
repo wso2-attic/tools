@@ -29,6 +29,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.ValidateMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.ValidateMediatorInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.ValidateMediatorOnFailOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.ValidateMediatorOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.ValidateResource;
 import org.wso2.developerstudio.eclipse.gmf.esb.ValidateOnFailBranch;
 import org.wso2.developerstudio.eclipse.gmf.esb.ValidateSchema;
 
@@ -46,6 +47,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.ValidateSchema;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ValidateMediatorImpl#getOutputConnector <em>Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ValidateMediatorImpl#getOnFailOutputConnector <em>On Fail Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ValidateMediatorImpl#getMediatorFlow <em>Mediator Flow</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ValidateMediatorImpl#getResources <em>Resources</em>}</li>
  * </ul>
  * </p>
  *
@@ -121,6 +123,16 @@ public class ValidateMediatorImpl extends MediatorImpl implements ValidateMediat
 	 * @ordered
 	 */
 	protected MediatorFlow mediatorFlow;
+
+	/**
+	 * The cached value of the '{@link #getResources() <em>Resources</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getResources()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ValidateResource> resources;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -391,6 +403,18 @@ public class ValidateMediatorImpl extends MediatorImpl implements ValidateMediat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<ValidateResource> getResources() {
+		if (resources == null) {
+			resources = new EObjectContainmentEList<ValidateResource>(ValidateResource.class, this, EsbPackage.VALIDATE_MEDIATOR__RESOURCES);
+		}
+		return resources;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -409,6 +433,8 @@ public class ValidateMediatorImpl extends MediatorImpl implements ValidateMediat
 				return basicSetOnFailOutputConnector(null, msgs);
 			case EsbPackage.VALIDATE_MEDIATOR__MEDIATOR_FLOW:
 				return basicSetMediatorFlow(null, msgs);
+			case EsbPackage.VALIDATE_MEDIATOR__RESOURCES:
+				return ((InternalEList<?>)getResources()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -436,6 +462,8 @@ public class ValidateMediatorImpl extends MediatorImpl implements ValidateMediat
 				return getOnFailOutputConnector();
 			case EsbPackage.VALIDATE_MEDIATOR__MEDIATOR_FLOW:
 				return getMediatorFlow();
+			case EsbPackage.VALIDATE_MEDIATOR__RESOURCES:
+				return getResources();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -473,6 +501,10 @@ public class ValidateMediatorImpl extends MediatorImpl implements ValidateMediat
 			case EsbPackage.VALIDATE_MEDIATOR__MEDIATOR_FLOW:
 				setMediatorFlow((MediatorFlow)newValue);
 				return;
+			case EsbPackage.VALIDATE_MEDIATOR__RESOURCES:
+				getResources().clear();
+				getResources().addAll((Collection<? extends ValidateResource>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -507,6 +539,9 @@ public class ValidateMediatorImpl extends MediatorImpl implements ValidateMediat
 			case EsbPackage.VALIDATE_MEDIATOR__MEDIATOR_FLOW:
 				setMediatorFlow((MediatorFlow)null);
 				return;
+			case EsbPackage.VALIDATE_MEDIATOR__RESOURCES:
+				getResources().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -534,6 +569,8 @@ public class ValidateMediatorImpl extends MediatorImpl implements ValidateMediat
 				return onFailOutputConnector != null;
 			case EsbPackage.VALIDATE_MEDIATOR__MEDIATOR_FLOW:
 				return mediatorFlow != null;
+			case EsbPackage.VALIDATE_MEDIATOR__RESOURCES:
+				return resources != null && !resources.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

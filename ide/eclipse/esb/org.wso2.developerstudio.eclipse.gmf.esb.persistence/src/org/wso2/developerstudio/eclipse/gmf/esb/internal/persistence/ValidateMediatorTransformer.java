@@ -9,6 +9,7 @@ import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.mediators.ListMediator;
 import org.apache.synapse.mediators.Value;
 import org.apache.synapse.mediators.base.SequenceMediator;
+import org.apache.synapse.util.resolver.ResourceMap;
 import org.apache.synapse.util.xpath.SynapseXPath;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EObject;
@@ -17,6 +18,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.KeyType;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.ValidateFeature;
 import org.wso2.developerstudio.eclipse.gmf.esb.ValidateMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.ValidateResource;
 import org.wso2.developerstudio.eclipse.gmf.esb.ValidateSchema;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.Activator;
@@ -117,7 +119,6 @@ public class ValidateMediatorTransformer  extends AbstractEsbNodeTransformer {
 		doTransform(newOnFailInfo, visualValidateMediator.getOnFailOutputConnector());
 		validateMediator.addAll(onFailMediatorList.getList());
 	
-		//TODO implement feature transformation logic
 		
 		
 		for(ValidateFeature feature : visualValidateMediator.getFeatures()){
@@ -129,6 +130,23 @@ public class ValidateMediatorTransformer  extends AbstractEsbNodeTransformer {
 			}
 			
 		}
+		
+		if(!visualValidateMediator.getResources().isEmpty()){
+			
+			ResourceMap rMap = new ResourceMap();
+			
+			for(ValidateResource resource : visualValidateMediator.getResources()){
+				
+				if(resource.getLocation() != null && resource.getKey() != null){
+					
+				rMap.addResource(resource.getLocation(), resource.getKey().getKeyValue());
+				
+				}
+			}
+			
+			validateMediator.setResourceMap(rMap);
+		}
+		
 		
 		return validateMediator;
 	}

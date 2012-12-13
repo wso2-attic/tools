@@ -317,6 +317,7 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 			case EsbPackage.URL_REWRITE_MEDIATOR_OUTPUT_CONNECTOR: return createURLRewriteMediatorOutputConnector();
 			case EsbPackage.EVALUATOR_EXPRESSION_PROPERTY: return createEvaluatorExpressionProperty();
 			case EsbPackage.VALIDATE_MEDIATOR: return createValidateMediator();
+			case EsbPackage.VALIDATE_RESOURCE: return createValidateResource();
 			case EsbPackage.VALIDATE_FEATURE: return createValidateFeature();
 			case EsbPackage.VALIDATE_SCHEMA: return createValidateSchema();
 			case EsbPackage.VALIDATE_MEDIATOR_INPUT_CONNECTOR: return createValidateMediatorInputConnector();
@@ -1780,6 +1781,16 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 		validateMediator.setOnFailOutputConnector(createValidateMediatorOnFailOutputConnector());
 		validateMediator.setMediatorFlow(createMediatorFlow());
 		return validateMediator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ValidateResource createValidateResource() {
+		ValidateResourceImpl validateResource = new ValidateResourceImpl();
+		return validateResource;
 	}
 
 	/**

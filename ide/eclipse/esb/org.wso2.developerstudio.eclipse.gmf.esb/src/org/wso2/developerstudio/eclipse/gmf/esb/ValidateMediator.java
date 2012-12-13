@@ -23,6 +23,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ValidateMediator#getOutputConnector <em>Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ValidateMediator#getOnFailOutputConnector <em>On Fail Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ValidateMediator#getMediatorFlow <em>Mediator Flow</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ValidateMediator#getResources <em>Resources</em>}</li>
  * </ul>
  * </p>
  *
@@ -192,5 +193,21 @@ public interface ValidateMediator extends Mediator {
 	 * @generated
 	 */
 	void setMediatorFlow(MediatorFlow value);
+
+	/**
+	 * Returns the value of the '<em><b>Resources</b></em>' containment reference list.
+	 * The list contents are of type {@link org.wso2.developerstudio.eclipse.gmf.esb.ValidateResource}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Resources</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Resources</em>' containment reference list.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getValidateMediator_Resources()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<ValidateResource> getResources();
 
 } // ValidateMediator
