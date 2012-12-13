@@ -293,7 +293,7 @@ public class EsbCreationWizard extends Wizard implements INewWizard, IExecutable
 			relativePathDiagram = relativePathDiagram.replaceFirst("/graphical-synapse-config",
 					"/synapse-config");
 			esbProjectArtifact.addESBArtifact(createArtifact(diagramModelFilePage.getFileName(),
-					getMavenGroupID(esbProject), "1.0.0", relativePathDiagram, type));
+					getMavenGroupID(esbProject, type), "1.0.0", relativePathDiagram, type));
 
 			esbProjectArtifact.toFile();
 			esbProject.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
@@ -433,7 +433,7 @@ public class EsbCreationWizard extends Wizard implements INewWizard, IExecutable
 		}
 	}
 
-	private String getMavenGroupID(IProject project) {
+	private String getMavenGroupID(IProject project, String type) {
 		String groupID = "com.example";
 		try {
 			MavenProject mavenProject = MavenUtils.getMavenProject(project.getFile("pom.xml")
@@ -442,8 +442,8 @@ public class EsbCreationWizard extends Wizard implements INewWizard, IExecutable
 		} catch (Exception e) {
 			//ignore. Then group id would be default. 
 		}
-
-		return groupID;
+		
+		return groupID+"."+type.substring(type.indexOf('/')+1);
 	}
 
 	public void setDefaultFilename(String defaultFilename) {
