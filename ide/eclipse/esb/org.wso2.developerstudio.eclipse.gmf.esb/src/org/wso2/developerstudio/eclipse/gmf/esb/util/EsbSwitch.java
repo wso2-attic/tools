@@ -2323,6 +2323,32 @@ public class EsbSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case EsbPackage.ADDRESSING_ENDPOINT: {
+				AddressingEndpoint addressingEndpoint = (AddressingEndpoint)theEObject;
+				T result = caseAddressingEndpoint(addressingEndpoint);
+				if (result == null) result = caseAbstractEndPoint(addressingEndpoint);
+				if (result == null) result = caseEndPoint(addressingEndpoint);
+				if (result == null) result = caseEsbElement(addressingEndpoint);
+				if (result == null) result = caseEsbNode(addressingEndpoint);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.ADDRESSING_ENDPOINT_INPUT_CONNECTOR: {
+				AddressingEndpointInputConnector addressingEndpointInputConnector = (AddressingEndpointInputConnector)theEObject;
+				T result = caseAddressingEndpointInputConnector(addressingEndpointInputConnector);
+				if (result == null) result = caseInputConnector(addressingEndpointInputConnector);
+				if (result == null) result = caseEsbConnector(addressingEndpointInputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.ADDRESSING_ENDPOINT_OUTPUT_CONNECTOR: {
+				AddressingEndpointOutputConnector addressingEndpointOutputConnector = (AddressingEndpointOutputConnector)theEObject;
+				T result = caseAddressingEndpointOutputConnector(addressingEndpointOutputConnector);
+				if (result == null) result = caseOutputConnector(addressingEndpointOutputConnector);
+				if (result == null) result = caseEsbConnector(addressingEndpointOutputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -4364,6 +4390,51 @@ public class EsbSwitch<T> {
 	 * @generated
 	 */
 	public T caseComplexEndpointsOutputConnector(ComplexEndpointsOutputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Addressing Endpoint</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Addressing Endpoint</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAddressingEndpoint(AddressingEndpoint object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Addressing Endpoint Input Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Addressing Endpoint Input Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAddressingEndpointInputConnector(AddressingEndpointInputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Addressing Endpoint Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Addressing Endpoint Output Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAddressingEndpointOutputConnector(AddressingEndpointOutputConnector object) {
 		return null;
 	}
 

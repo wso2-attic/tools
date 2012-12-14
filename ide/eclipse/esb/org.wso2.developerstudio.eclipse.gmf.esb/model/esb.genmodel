@@ -482,6 +482,7 @@
     <genClasses ecoreClass="esb.ecore#//EndPoint">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EndPoint/endPointName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EndPoint/anonymous"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EndPoint/InLine"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//ProxyService">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyService/outputConnector"/>
@@ -1571,5 +1572,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ComplexEndpoints/name"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//ComplexEndpointsOutputConnector"/>
+    <genClasses ecoreClass="esb.ecore#//AddressingEndpoint">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//AddressingEndpoint/inputConnector"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//AddressingEndpoint/outputConnector"/>
+    </genClasses>
+    <genClasses ecoreClass="esb.ecore#//AddressingEndpointInputConnector"/>
+    <genClasses ecoreClass="esb.ecore#//AddressingEndpointOutputConnector"/>
   </genPackages>
 </genmodel:GenModel>

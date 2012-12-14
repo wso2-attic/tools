@@ -341,6 +341,9 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 			case EsbPackage.API_RESOURCE_ENDPOINT_OUTPUT_CONNECTOR: return createAPIResourceEndpointOutputConnector();
 			case EsbPackage.COMPLEX_ENDPOINTS: return createComplexEndpoints();
 			case EsbPackage.COMPLEX_ENDPOINTS_OUTPUT_CONNECTOR: return createComplexEndpointsOutputConnector();
+			case EsbPackage.ADDRESSING_ENDPOINT: return createAddressingEndpoint();
+			case EsbPackage.ADDRESSING_ENDPOINT_INPUT_CONNECTOR: return createAddressingEndpointInputConnector();
+			case EsbPackage.ADDRESSING_ENDPOINT_OUTPUT_CONNECTOR: return createAddressingEndpointOutputConnector();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -391,6 +394,10 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 				return createEnrichTargetActionFromString(eDataType, initialValue);
 			case EsbPackage.ENRICH_TARGET_TYPE:
 				return createEnrichTargetTypeFromString(eDataType, initialValue);
+			case EsbPackage.EVENT_TOPIC_TYPE:
+				return createEventTopicTypeFromString(eDataType, initialValue);
+			case EsbPackage.SCRIPT_KEY_TYPE_ENUM:
+				return createscriptKeyTypeEnumFromString(eDataType, initialValue);
 			case EsbPackage.SCRIPT_TYPE:
 				return createScriptTypeFromString(eDataType, initialValue);
 			case EsbPackage.SCRIPT_LANGUAGE:
@@ -563,6 +570,10 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 				return convertEnrichTargetActionToString(eDataType, instanceValue);
 			case EsbPackage.ENRICH_TARGET_TYPE:
 				return convertEnrichTargetTypeToString(eDataType, instanceValue);
+			case EsbPackage.EVENT_TOPIC_TYPE:
+				return convertEventTopicTypeToString(eDataType, instanceValue);
+			case EsbPackage.SCRIPT_KEY_TYPE_ENUM:
+				return convertscriptKeyTypeEnumToString(eDataType, instanceValue);
 			case EsbPackage.SCRIPT_TYPE:
 				return convertScriptTypeToString(eDataType, instanceValue);
 			case EsbPackage.SCRIPT_LANGUAGE:
@@ -2023,6 +2034,38 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	public ComplexEndpointsOutputConnector createComplexEndpointsOutputConnector() {
 		ComplexEndpointsOutputConnectorImpl complexEndpointsOutputConnector = new ComplexEndpointsOutputConnectorImpl();
 		return complexEndpointsOutputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public AddressingEndpoint createAddressingEndpoint() {
+		AddressingEndpointImpl addressingEndpoint = new AddressingEndpointImpl();
+		addressingEndpoint.setInputConnector(createAddressingEndpointInputConnector());
+		addressingEndpoint.setOutputConnector(createAddressingEndpointOutputConnector());
+		return addressingEndpoint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AddressingEndpointInputConnector createAddressingEndpointInputConnector() {
+		AddressingEndpointInputConnectorImpl addressingEndpointInputConnector = new AddressingEndpointInputConnectorImpl();
+		return addressingEndpointInputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AddressingEndpointOutputConnector createAddressingEndpointOutputConnector() {
+		AddressingEndpointOutputConnectorImpl addressingEndpointOutputConnector = new AddressingEndpointOutputConnectorImpl();
+		return addressingEndpointOutputConnector;
 	}
 
 	/**

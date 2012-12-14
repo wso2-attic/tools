@@ -24,6 +24,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
  * <ul>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.EndPointImpl#getEndPointName <em>End Point Name</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.EndPointImpl#isAnonymous <em>Anonymous</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.EndPointImpl#isInLine <em>In Line</em>}</li>
  * </ul>
  * </p>
  *
@@ -69,6 +70,26 @@ public abstract class EndPointImpl extends EsbElementImpl implements EndPoint {
 	 * @ordered
 	 */
 	protected boolean anonymous = ANONYMOUS_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isInLine() <em>In Line</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isInLine()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean IN_LINE_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isInLine() <em>In Line</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isInLine()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean inLine = IN_LINE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -137,6 +158,27 @@ public abstract class EndPointImpl extends EsbElementImpl implements EndPoint {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isInLine() {
+		return inLine;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInLine(boolean newInLine) {
+		boolean oldInLine = inLine;
+		inLine = newInLine;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.END_POINT__IN_LINE, oldInLine, inLine));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
@@ -145,6 +187,8 @@ public abstract class EndPointImpl extends EsbElementImpl implements EndPoint {
 				return getEndPointName();
 			case EsbPackage.END_POINT__ANONYMOUS:
 				return isAnonymous();
+			case EsbPackage.END_POINT__IN_LINE:
+				return isInLine();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -163,6 +207,9 @@ public abstract class EndPointImpl extends EsbElementImpl implements EndPoint {
 				return;
 			case EsbPackage.END_POINT__ANONYMOUS:
 				setAnonymous((Boolean)newValue);
+				return;
+			case EsbPackage.END_POINT__IN_LINE:
+				setInLine((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -183,6 +230,9 @@ public abstract class EndPointImpl extends EsbElementImpl implements EndPoint {
 			case EsbPackage.END_POINT__ANONYMOUS:
 				setAnonymous(ANONYMOUS_EDEFAULT);
 				return;
+			case EsbPackage.END_POINT__IN_LINE:
+				setInLine(IN_LINE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -200,6 +250,8 @@ public abstract class EndPointImpl extends EsbElementImpl implements EndPoint {
 				return END_POINT_NAME_EDEFAULT == null ? endPointName != null : !END_POINT_NAME_EDEFAULT.equals(endPointName);
 			case EsbPackage.END_POINT__ANONYMOUS:
 				return anonymous != ANONYMOUS_EDEFAULT;
+			case EsbPackage.END_POINT__IN_LINE:
+				return inLine != IN_LINE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -219,6 +271,8 @@ public abstract class EndPointImpl extends EsbElementImpl implements EndPoint {
 		result.append(endPointName);
 		result.append(", anonymous: ");
 		result.append(anonymous);
+		result.append(", InLine: ");
+		result.append(inLine);
 		result.append(')');
 		return result.toString();
 	}

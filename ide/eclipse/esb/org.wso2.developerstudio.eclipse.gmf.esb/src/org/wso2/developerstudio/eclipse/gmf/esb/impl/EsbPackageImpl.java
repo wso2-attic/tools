@@ -37,6 +37,9 @@ import org.wso2.developerstudio.eclipse.gmf.esb.AdditionalOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.AddressEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.AddressEndPointInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.AddressEndPointOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.AddressingEndpoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.AddressingEndpointInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.AddressingEndpointOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediatorInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediatorOnCompleteOutputConnector;
@@ -1359,6 +1362,27 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	private EClass complexEndpointsOutputConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass addressingEndpointEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass addressingEndpointInputConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass addressingEndpointOutputConnectorEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -3238,6 +3262,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 */
 	public EAttribute getEndPoint_Anonymous() {
 		return (EAttribute)endPointEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getEndPoint_InLine() {
+		return (EAttribute)endPointEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -6901,6 +6934,51 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 */
 	public EClass getComplexEndpointsOutputConnector() {
 		return complexEndpointsOutputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAddressingEndpoint() {
+		return addressingEndpointEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAddressingEndpoint_InputConnector() {
+		return (EReference)addressingEndpointEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAddressingEndpoint_OutputConnector() {
+		return (EReference)addressingEndpointEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAddressingEndpointInputConnector() {
+		return addressingEndpointInputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAddressingEndpointOutputConnector() {
+		return addressingEndpointOutputConnectorEClass;
 	}
 
 	/**
@@ -12446,6 +12524,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		endPointEClass = createEClass(END_POINT);
 		createEAttribute(endPointEClass, END_POINT__END_POINT_NAME);
 		createEAttribute(endPointEClass, END_POINT__ANONYMOUS);
+		createEAttribute(endPointEClass, END_POINT__IN_LINE);
 
 		proxyServiceEClass = createEClass(PROXY_SERVICE);
 		createEReference(proxyServiceEClass, PROXY_SERVICE__OUTPUT_CONNECTOR);
@@ -13655,6 +13734,14 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 
 		complexEndpointsOutputConnectorEClass = createEClass(COMPLEX_ENDPOINTS_OUTPUT_CONNECTOR);
 
+		addressingEndpointEClass = createEClass(ADDRESSING_ENDPOINT);
+		createEReference(addressingEndpointEClass, ADDRESSING_ENDPOINT__INPUT_CONNECTOR);
+		createEReference(addressingEndpointEClass, ADDRESSING_ENDPOINT__OUTPUT_CONNECTOR);
+
+		addressingEndpointInputConnectorEClass = createEClass(ADDRESSING_ENDPOINT_INPUT_CONNECTOR);
+
+		addressingEndpointOutputConnectorEClass = createEClass(ADDRESSING_ENDPOINT_OUTPUT_CONNECTOR);
+
 		// Create enums
 		artifactTypeEEnum = createEEnum(ARTIFACT_TYPE);
 		sequenceTypeEEnum = createEEnum(SEQUENCE_TYPE);
@@ -14028,6 +14115,9 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		apiResourceEndpointOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
 		complexEndpointsEClass.getESuperTypes().add(this.getEsbElement());
 		complexEndpointsOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
+		addressingEndpointEClass.getESuperTypes().add(this.getAbstractEndPoint());
+		addressingEndpointInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
+		addressingEndpointOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(esbDiagramEClass, EsbDiagram.class, "EsbDiagram", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -14073,6 +14163,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEClass(endPointEClass, EndPoint.class, "EndPoint", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getEndPoint_EndPointName(), ecorePackage.getEString(), "endPointName", null, 0, 1, EndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEndPoint_Anonymous(), ecorePackage.getEBoolean(), "anonymous", "false", 0, 1, EndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEndPoint_InLine(), ecorePackage.getEBoolean(), "InLine", "false", 0, 1, EndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(proxyServiceEClass, ProxyService.class, "ProxyService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getProxyService_OutputConnector(), this.getProxyOutputConnector(), null, "outputConnector", null, 0, 1, ProxyService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -15291,6 +15382,14 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEAttribute(getComplexEndpoints_Name(), ecorePackage.getEString(), "name", null, 0, 1, ComplexEndpoints.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(complexEndpointsOutputConnectorEClass, ComplexEndpointsOutputConnector.class, "ComplexEndpointsOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(addressingEndpointEClass, AddressingEndpoint.class, "AddressingEndpoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAddressingEndpoint_InputConnector(), this.getAddressingEndpointInputConnector(), null, "inputConnector", null, 0, 1, AddressingEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAddressingEndpoint_OutputConnector(), this.getAddressingEndpointOutputConnector(), null, "outputConnector", null, 0, 1, AddressingEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(addressingEndpointInputConnectorEClass, AddressingEndpointInputConnector.class, "AddressingEndpointInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(addressingEndpointOutputConnectorEClass, AddressingEndpointOutputConnector.class, "AddressingEndpointOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(artifactTypeEEnum, ArtifactType.class, "ArtifactType");

@@ -1618,6 +1618,26 @@
             text="&lt;...>"/>
       </actualFigure>
     </descriptors>
+    <descriptors
+        name="AddressingEndpointFigure">
+      <actualFigure
+          xsi:type="gmfgraph:CustomFigure"
+          name="AddressingEndPointGraphicalFigure"
+          qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="40"
+            green="151"
+            blue="248"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="AddressingEndPointNamePropertyLabel"
+            text="&lt;...>"/>
+      </actualFigure>
+      <accessors
+          accessor="getFigureAddressingEndPointNamePropertyLabel"
+          figure="//@figures.0/@descriptors.93/@actualFigure/@children.0"/>
+    </descriptors>
   </figures>
   <nodes
       name="EsbServer"
@@ -2426,6 +2446,17 @@
       name="EJBMediatorOutputConnector"
       figure="EastPointerFigure"
       affixedParentSide="EAST"/>
+  <nodes
+      name="AddressingEndpoint"
+      figure="AddressingEndpointFigure"/>
+  <nodes
+      name="AddressingEndpointInputConnector"
+      figure="EastPointerFigure"
+      affixedParentSide="WEST"/>
+  <nodes
+      name="AddressingEndpointOutputConnector"
+      figure="WestPointerFigure"
+      affixedParentSide="WEST"/>
   <connections
       name="EsbLink"
       figure="PlainConnectionFigure"/>

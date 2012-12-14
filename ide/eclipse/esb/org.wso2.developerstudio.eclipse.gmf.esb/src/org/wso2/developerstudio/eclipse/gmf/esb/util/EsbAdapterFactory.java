@@ -1209,6 +1209,18 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 				return createComplexEndpointsOutputConnectorAdapter();
 			}
 			@Override
+			public Adapter caseAddressingEndpoint(AddressingEndpoint object) {
+				return createAddressingEndpointAdapter();
+			}
+			@Override
+			public Adapter caseAddressingEndpointInputConnector(AddressingEndpointInputConnector object) {
+				return createAddressingEndpointInputConnectorAdapter();
+			}
+			@Override
+			public Adapter caseAddressingEndpointOutputConnector(AddressingEndpointOutputConnector object) {
+				return createAddressingEndpointOutputConnectorAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -3130,6 +3142,48 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createComplexEndpointsOutputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.AddressingEndpoint <em>Addressing Endpoint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.AddressingEndpoint
+	 * @generated
+	 */
+	public Adapter createAddressingEndpointAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.AddressingEndpointInputConnector <em>Addressing Endpoint Input Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.AddressingEndpointInputConnector
+	 * @generated
+	 */
+	public Adapter createAddressingEndpointInputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.AddressingEndpointOutputConnector <em>Addressing Endpoint Output Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.AddressingEndpointOutputConnector
+	 * @generated
+	 */
+	public Adapter createAddressingEndpointOutputConnectorAdapter() {
 		return null;
 	}
 
