@@ -239,28 +239,28 @@ public class MediatorFlowMediatorFlowCompartment5EditPart extends
 			SwitchMediatorUtils.addCaseBranchInitially(switchMediatorEditPart, getEditingDomain());
 
 		}
-/*		if (child instanceof SequenceEditPart) {
-			SequenceEditPart sequenceEditPart = (SequenceEditPart) child;
-			EditPart editpart = (EditPart) ((StructuredSelection) sequenceEditPart.getViewer()
-					.getEditDomain().getPaletteViewer().getSelection()).getFirstElement();
-			if (editpart instanceof ToolEntryEditPart) {
-				if (((ToolEntryEditPart) editpart).getModel() instanceof NodeToolEntry) {
-					String label = ((NodeToolEntry) ((ToolEntryEditPart) editpart).getModel())
-							.getLabel();
-					if ((!label.equals("")) && (!label.equals("Sequence"))) {
-						((Sequence) ((View) sequenceEditPart.getModel()).getElement())
-								.setName(label);
-					}
-				} else if (((ToolEntryEditPart) editpart).getModel() instanceof SequenceEditPart.NodeToolEntry) {
-					String label = ((SequenceEditPart.NodeToolEntry) ((ToolEntryEditPart) editpart)
-							.getModel()).getLabel();
-					if ((!label.equals("")) && (!label.equals("Sequence"))) {
-						((Sequence) ((View) sequenceEditPart.getModel()).getElement())
-								.setName(label);
-					}
-				}
-			}
-		}*/
+		/*		if (child instanceof SequenceEditPart) {
+		 SequenceEditPart sequenceEditPart = (SequenceEditPart) child;
+		 EditPart editpart = (EditPart) ((StructuredSelection) sequenceEditPart.getViewer()
+		 .getEditDomain().getPaletteViewer().getSelection()).getFirstElement();
+		 if (editpart instanceof ToolEntryEditPart) {
+		 if (((ToolEntryEditPart) editpart).getModel() instanceof NodeToolEntry) {
+		 String label = ((NodeToolEntry) ((ToolEntryEditPart) editpart).getModel())
+		 .getLabel();
+		 if ((!label.equals("")) && (!label.equals("Sequence"))) {
+		 ((Sequence) ((View) sequenceEditPart.getModel()).getElement())
+		 .setName(label);
+		 }
+		 } else if (((ToolEntryEditPart) editpart).getModel() instanceof SequenceEditPart.NodeToolEntry) {
+		 String label = ((SequenceEditPart.NodeToolEntry) ((ToolEntryEditPart) editpart)
+		 .getModel()).getLabel();
+		 if ((!label.equals("")) && (!label.equals("Sequence"))) {
+		 ((Sequence) ((View) sequenceEditPart.getModel()).getElement())
+		 .setName(label);
+		 }
+		 }
+		 }
+		 }*/
 
 		if (child instanceof AbstractEndpoint) {
 			SequencesInputConnectorEditPart inputConnectorEditPart = (SequencesInputConnectorEditPart) EditorUtils

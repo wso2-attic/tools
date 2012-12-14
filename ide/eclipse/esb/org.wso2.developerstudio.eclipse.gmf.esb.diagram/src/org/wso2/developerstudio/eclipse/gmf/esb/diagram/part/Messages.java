@@ -798,6 +798,16 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String AddressingEndpoint7CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String AddressingEndpoint7CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
 	public static String MergeNode1CreationTool_title;
 
 	/**
@@ -1093,6 +1103,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_AddressingEndpointOutputConnector_3691_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_CallTemplateMediatorOutputConnector_3596_outgoinglinks;
 
 	/**
@@ -1114,6 +1129,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_FailoverEndPointOutputConnector_3090_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_AddressingEndpointInputConnector_3690_incominglinks;
 
 	/**
 	 * @generated

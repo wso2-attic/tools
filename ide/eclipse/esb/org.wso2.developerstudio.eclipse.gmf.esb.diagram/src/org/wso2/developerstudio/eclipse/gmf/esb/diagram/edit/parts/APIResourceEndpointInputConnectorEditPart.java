@@ -271,6 +271,7 @@ public class APIResourceEndpointInputConnectorEditPart extends AbstractBorderIte
 			types.add(EsbElementTypes.LoadBalanceEndPointOutputConnector_3096);
 			types.add(EsbElementTypes.LoadBalanceEndPointWestOutputConnector_3098);
 			types.add(EsbElementTypes.APIResourceEndpointOutputConnector_3676);
+			types.add(EsbElementTypes.AddressingEndpointOutputConnector_3691);
 			types.add(EsbElementTypes.MessageOutputConnector_3047);
 			types.add(EsbElementTypes.MergeNodeOutputConnector_3016);
 			types.add(EsbElementTypes.SequencesOutputConnector_3617);

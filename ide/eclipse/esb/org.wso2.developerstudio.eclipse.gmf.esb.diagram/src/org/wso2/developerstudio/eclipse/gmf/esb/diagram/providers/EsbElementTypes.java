@@ -746,6 +746,21 @@ public class EsbElementTypes {
 	/**
 	 * @generated
 	 */
+	public static final IElementType AddressingEndpoint_3689 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.AddressingEndpoint_3689"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType AddressingEndpointInputConnector_3690 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.AddressingEndpointInputConnector_3690"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType AddressingEndpointOutputConnector_3691 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.AddressingEndpointOutputConnector_3691"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
 	public static final IElementType ProxyServiceFaultContainer_3488 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.ProxyServiceFaultContainer_3488"); //$NON-NLS-1$
 
 	/**
@@ -1915,6 +1930,14 @@ public class EsbElementTypes {
 			elements.put(APIResourceEndpointOutputConnector_3676,
 					EsbPackage.eINSTANCE.getAPIResourceEndpointOutputConnector());
 
+			elements.put(AddressingEndpoint_3689, EsbPackage.eINSTANCE.getAddressingEndpoint());
+
+			elements.put(AddressingEndpointInputConnector_3690,
+					EsbPackage.eINSTANCE.getAddressingEndpointInputConnector());
+
+			elements.put(AddressingEndpointOutputConnector_3691,
+					EsbPackage.eINSTANCE.getAddressingEndpointOutputConnector());
+
 			elements.put(SwitchDefaultContainer_3527,
 					EsbPackage.eINSTANCE.getSwitchDefaultContainer());
 
@@ -2259,6 +2282,9 @@ public class EsbElementTypes {
 			KNOWN_ELEMENT_TYPES.add(APIResourceEndpoint_3674);
 			KNOWN_ELEMENT_TYPES.add(APIResourceEndpointInputConnector_3675);
 			KNOWN_ELEMENT_TYPES.add(APIResourceEndpointOutputConnector_3676);
+			KNOWN_ELEMENT_TYPES.add(AddressingEndpoint_3689);
+			KNOWN_ELEMENT_TYPES.add(AddressingEndpointInputConnector_3690);
+			KNOWN_ELEMENT_TYPES.add(AddressingEndpointOutputConnector_3691);
 			KNOWN_ELEMENT_TYPES.add(SwitchDefaultContainer_3527);
 			KNOWN_ELEMENT_TYPES.add(MediatorFlow_3528);
 			KNOWN_ELEMENT_TYPES.add(FilterFailContainer_3537);
@@ -2714,6 +2740,12 @@ public class EsbElementTypes {
 			return APIResourceEndpointInputConnector_3675;
 		case APIResourceEndpointOutputConnectorEditPart.VISUAL_ID:
 			return APIResourceEndpointOutputConnector_3676;
+		case AddressingEndpointEditPart.VISUAL_ID:
+			return AddressingEndpoint_3689;
+		case AddressingEndpointInputConnectorEditPart.VISUAL_ID:
+			return AddressingEndpointInputConnector_3690;
+		case AddressingEndpointOutputConnectorEditPart.VISUAL_ID:
+			return AddressingEndpointOutputConnector_3691;
 		case SwitchDefaultContainerEditPart.VISUAL_ID:
 			return SwitchDefaultContainer_3527;
 		case MediatorFlow4EditPart.VISUAL_ID:

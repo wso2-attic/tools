@@ -16,6 +16,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.NamedEndpo
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.RouterMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.APIResourceEndpointEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AddressEndPointEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AddressingEndpointEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AggregateMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.BAMMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.BeanMediatorEditPart;
@@ -408,6 +409,12 @@ public class MediatorFlowItemSemanticEditPolicy extends EsbBaseItemSemanticEditP
 						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
 						break;
 					case APIResourceEndpointEditPart.VISUAL_ID:
+						cmd.add(new DestroyElementCommand(new DestroyElementRequest(
+								getEditingDomain(), cnode.getElement(), false))); // directlyOwned: true
+						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
+						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
+						break;
+					case AddressingEndpointEditPart.VISUAL_ID:
 						cmd.add(new DestroyElementCommand(new DestroyElementRequest(
 								getEditingDomain(), cnode.getElement(), false))); // directlyOwned: true
 						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 

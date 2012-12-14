@@ -68,17 +68,15 @@ public class DeleteElementAction extends AbstractDeleteFromAction {
 		setImageDescriptor(workbenchImages.getImageDescriptor(ISharedImages.IMG_TOOL_DELETE));
 		setDisabledImageDescriptor(workbenchImages
 				.getImageDescriptor(ISharedImages.IMG_TOOL_DELETE_DISABLED));
-		setAccelerator(SWT.DEL);
-		
 	}
-	
+
 	/**
 	 * @generated
 	 */
 	protected String getCommandLabel() {
 		return DiagramUIMessages.DiagramEditor_Delete_from_Model;
 	}
-	
+
 	/**
 	 * @generated NOT
 	 */

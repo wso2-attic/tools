@@ -442,8 +442,8 @@ public class EsbCreationWizard extends Wizard implements INewWizard, IExecutable
 		} catch (Exception e) {
 			//ignore. Then group id would be default. 
 		}
-		
-		return groupID+"."+type.substring(type.indexOf('/')+1);
+
+		return groupID + "." + type.substring(type.indexOf('/') + 1);
 	}
 
 	public void setDefaultFilename(String defaultFilename) {

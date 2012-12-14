@@ -199,32 +199,32 @@ public class MediatorFlowMediatorFlowCompartmentEditPart extends
 			SwitchMediatorUtils.addCaseBranchInitially(switchMediatorEditPart, getEditingDomain());
 
 		}
-/*		if (child instanceof SequenceEditPart) {
-			SequenceEditPart sequenceEditPart = (SequenceEditPart) child;
-			EditPart editpart = (EditPart) ((StructuredSelection) sequenceEditPart.getViewer()
-					.getEditDomain().getPaletteViewer().getSelection()).getFirstElement();
-			if (editpart instanceof ToolEntryEditPart) {
-				if (((ToolEntryEditPart) editpart).getModel() instanceof NodeToolEntry) {
-					String label = ((NodeToolEntry) ((ToolEntryEditPart) editpart).getModel())
-							.getLabel();
-					if ((!label.equals("")) && (!label.equals("Sequence"))) {
-						try {
-							((Sequence) ((View) sequenceEditPart.getModel()).getElement())
-									.setName(label);
-						} catch (java.lang.IllegalStateException e) {
-							log.error("This is occured while undo operation..", e);
-						}
-					}
-				} else if (((ToolEntryEditPart) editpart).getModel() instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceEditPart.NodeToolEntry) {
-					String label = ((org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceEditPart.NodeToolEntry) ((ToolEntryEditPart) editpart)
-							.getModel()).getLabel();
-					if ((!label.equals("")) && (!label.equals("Sequence"))) {
-						((Sequence) ((View) sequenceEditPart.getModel()).getElement())
-								.setName(label);
-					}
-				}
-			}
-		}*/
+		/*		if (child instanceof SequenceEditPart) {
+		 SequenceEditPart sequenceEditPart = (SequenceEditPart) child;
+		 EditPart editpart = (EditPart) ((StructuredSelection) sequenceEditPart.getViewer()
+		 .getEditDomain().getPaletteViewer().getSelection()).getFirstElement();
+		 if (editpart instanceof ToolEntryEditPart) {
+		 if (((ToolEntryEditPart) editpart).getModel() instanceof NodeToolEntry) {
+		 String label = ((NodeToolEntry) ((ToolEntryEditPart) editpart).getModel())
+		 .getLabel();
+		 if ((!label.equals("")) && (!label.equals("Sequence"))) {
+		 try {
+		 ((Sequence) ((View) sequenceEditPart.getModel()).getElement())
+		 .setName(label);
+		 } catch (java.lang.IllegalStateException e) {
+		 log.error("This is occured while undo operation..", e);
+		 }
+		 }
+		 } else if (((ToolEntryEditPart) editpart).getModel() instanceof org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceEditPart.NodeToolEntry) {
+		 String label = ((org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceEditPart.NodeToolEntry) ((ToolEntryEditPart) editpart)
+		 .getModel()).getLabel();
+		 if ((!label.equals("")) && (!label.equals("Sequence"))) {
+		 ((Sequence) ((View) sequenceEditPart.getModel()).getElement())
+		 .setName(label);
+		 }
+		 }
+		 }
+		 }*/
 
 		if (child instanceof FailoverEndPointEditPart) {
 			FailoverEndPointEditPart endpointEditPart = (FailoverEndPointEditPart) child;

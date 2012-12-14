@@ -156,7 +156,7 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 		sequenceEditPart = this;
 		info = new SequencesInfo();
 	}
-	
+
 	/**
 	 * @generated NOT
 	 */
@@ -509,12 +509,11 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 		String basePath = "platform:/resource/" + currentProject.getName() + "/"
 				+ SEQUENCE_RESOURCE_DIR + "/";
 		IFile file = currentProject.getFile(SEQUENCE_RESOURCE_DIR + "/" + fileURI1);
-		
-		if (((Sequence)((Node)sequenceEditPart.getModel()).getElement()).isReceiveSequence()) {
+
+		if (((Sequence) ((Node) sequenceEditPart.getModel()).getElement()).isReceiveSequence()) {
 			info.setRecieveSequence(true);
 			info.setAssociatedProxy(((ProxyService) ((Node) EditorUtils.getProxy(
-					sequenceEditPart.getParent()).getModel()).getElement())
-					.getName());
+					sequenceEditPart.getParent()).getModel()).getElement()).getName());
 		}
 
 		if (!file.exists()) {
@@ -589,23 +588,23 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 
 			};
 			//String defaultName = "Sequence_" + (((EsbDiagram) diagram).getTest() + 1);
-			String defaultName =calculateDefaultName();
+			String defaultName = calculateDefaultName();
 			final InputDialog sequenceNameInput = new InputDialog(new Shell(),
 					"Enter Sequence Name", "Sequence Name", defaultName, validator) {
 				protected Control createDialogArea(Composite parent) {
 					Composite composite = (Composite) super.createDialogArea(parent);
-/*					recieveCheckBox = new Button(composite, SWT.CHECK);
-					recieveCheckBox.setText("Use this sequence as a Recieving sequence.");
-					recieveCheckBox.addSelectionListener(new SelectionListener() {
+					/*					recieveCheckBox = new Button(composite, SWT.CHECK);
+					 recieveCheckBox.setText("Use this sequence as a Recieving sequence.");
+					 recieveCheckBox.addSelectionListener(new SelectionListener() {
 
-						public void widgetSelected(SelectionEvent arg0) {
-							checked = recieveCheckBox.getSelection();
-						}
+					 public void widgetSelected(SelectionEvent arg0) {
+					 checked = recieveCheckBox.getSelection();
+					 }
 
-						public void widgetDefaultSelected(SelectionEvent arg0) {
+					 public void widgetDefaultSelected(SelectionEvent arg0) {
 
-						}
-					});*/
+					 }
+					 });*/
 					return composite;
 				}
 			};
@@ -616,26 +615,26 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 					public void run() {
 						String sequenceName = sequenceNameInput.getValue();
 						TransactionalEditingDomain editingDomain = getEditingDomain();
-/*						SetRequest setRequestSequenceCount = new SetRequest(editingDomain, diagram,
-								EsbPackage.eINSTANCE.getEsbDiagram_Test(), ((EsbDiagram) diagram)
-										.getTest() + 1);
-						SetValueCommand operationSequenceCount = new SetValueCommand(
-								setRequestSequenceCount) {
+						/*						SetRequest setRequestSequenceCount = new SetRequest(editingDomain, diagram,
+						 EsbPackage.eINSTANCE.getEsbDiagram_Test(), ((EsbDiagram) diagram)
+						 .getTest() + 1);
+						 SetValueCommand operationSequenceCount = new SetValueCommand(
+						 setRequestSequenceCount) {
 
-							public boolean canUndo() {
-								return true;
-							}
+						 public boolean canUndo() {
+						 return true;
+						 }
 
-							public boolean canRedo() {
-								return true;
-							}
-						};
+						 public boolean canRedo() {
+						 return true;
+						 }
+						 };
 
-						ICommandProxy commandSequenceCount = new ICommandProxy(
-								operationSequenceCount);
-						if (commandSequenceCount.canExecute()) {
-							getEditDomain().getCommandStack().execute(commandSequenceCount);
-						}*/
+						 ICommandProxy commandSequenceCount = new ICommandProxy(
+						 operationSequenceCount);
+						 if (commandSequenceCount.canExecute()) {
+						 getEditDomain().getCommandStack().execute(commandSequenceCount);
+						 }*/
 
 						SetRequest setRequest = new SetRequest(editingDomain, sequence,
 								EsbPackage.eINSTANCE.getSequence_Name(), sequenceName);
@@ -652,26 +651,26 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 
 						getEditDomain().getCommandStack().execute(new ICommandProxy(operation));
 
-/*						if (checked) {
-							info.setRecieveSequence(true);
-							info.setAssociatedProxy(((ProxyService) ((Node) EditorUtils.getProxy(
-									sequenceEditPart.getParent()).getModel()).getElement())
-									.getName());
-						}*/
+						/*						if (checked) {
+						 info.setRecieveSequence(true);
+						 info.setAssociatedProxy(((ProxyService) ((Node) EditorUtils.getProxy(
+						 sequenceEditPart.getParent()).getModel()).getElement())
+						 .getName());
+						 }*/
 
-/*						IProject activeProject = getActiveProject();
-						ESBProjectArtifact esbProjectArtifact = new ESBProjectArtifact();
-						try {
-							esbProjectArtifact.fromFile(activeProject.getFile("artifact.xml")
-									.getLocation().toFile());
-							esbProjectArtifact.addESBArtifact(createArtifact(sequenceName,
-									getMavenGroupID(activeProject), "1.0.0",
-									"src/main/synapse-config/sequences/" + sequenceName + ".xml",
-									"synapse/sequence"));
-							esbProjectArtifact.toFile();
-						} catch (Exception e) {
-							log.error("Error while updating Artifact.xml");
-						}*/
+						/*						IProject activeProject = getActiveProject();
+						 ESBProjectArtifact esbProjectArtifact = new ESBProjectArtifact();
+						 try {
+						 esbProjectArtifact.fromFile(activeProject.getFile("artifact.xml")
+						 .getLocation().toFile());
+						 esbProjectArtifact.addESBArtifact(createArtifact(sequenceName,
+						 getMavenGroupID(activeProject), "1.0.0",
+						 "src/main/synapse-config/sequences/" + sequenceName + ".xml",
+						 "synapse/sequence"));
+						 esbProjectArtifact.toFile();
+						 } catch (Exception e) {
+						 log.error("Error while updating Artifact.xml");
+						 }*/
 						openWithSeparateEditor();
 					}
 				});
@@ -680,35 +679,34 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 			openWithSeparateEditor();
 		}
 	}
-	
-	public String calculateDefaultName(){		
-		IProject activeProject=getActiveProject();
-		String finalName="Sequence_1";
+
+	public String calculateDefaultName() {
+		IProject activeProject = getActiveProject();
+		String finalName = "Sequence_1";
 		int i = 1;
-		
-		try{
-		while (ESBProjectUtils.artifactExists(activeProject, finalName)) {
-			finalName = finalName.replaceAll("\\d+$", "");
-			i++;
-			finalName = finalName.concat(i + "");
-		}
-		}catch (Exception e) {
+
+		try {
+			while (ESBProjectUtils.artifactExists(activeProject, finalName)) {
+				finalName = finalName.replaceAll("\\d+$", "");
+				i++;
+				finalName = finalName.concat(i + "");
+			}
+		} catch (Exception e) {
 			finalName = finalName.concat("_").concat(RandomStringUtils.randomAlphabetic(5))
-			.concat("_" + i);
+					.concat("_" + i);
 		}
 		return finalName;
 	}
-	
-	private void addSequenceToArtifactXML(String sequenceName){
+
+	private void addSequenceToArtifactXML(String sequenceName) {
 		IProject activeProject = getActiveProject();
 		ESBProjectArtifact esbProjectArtifact = new ESBProjectArtifact();
 		try {
-			esbProjectArtifact.fromFile(activeProject.getFile("artifact.xml")
-					.getLocation().toFile());
+			esbProjectArtifact.fromFile(activeProject.getFile("artifact.xml").getLocation()
+					.toFile());
 			esbProjectArtifact.addESBArtifact(createArtifact(sequenceName,
-					getMavenGroupID(activeProject), "1.0.0",
-					"src/main/synapse-config/sequences/" + sequenceName + ".xml",
-					"synapse/sequence"));
+					getMavenGroupID(activeProject), "1.0.0", "src/main/synapse-config/sequences/"
+							+ sequenceName + ".xml", "synapse/sequence"));
 			esbProjectArtifact.toFile();
 		} catch (Exception e) {
 			log.error("Error while updating Artifact.xml");

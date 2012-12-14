@@ -314,6 +314,9 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 				case APIResourceEndpointEditPart.VISUAL_ID:
 				case APIResourceEndpointInputConnectorEditPart.VISUAL_ID:
 				case APIResourceEndpointOutputConnectorEditPart.VISUAL_ID:
+				case AddressingEndpointEditPart.VISUAL_ID:
+				case AddressingEndpointInputConnectorEditPart.VISUAL_ID:
+				case AddressingEndpointOutputConnectorEditPart.VISUAL_ID:
 				case SwitchDefaultContainerEditPart.VISUAL_ID:
 				case FilterFailContainerEditPart.VISUAL_ID:
 				case ThrottleOnRejectContainerEditPart.VISUAL_ID:
@@ -583,6 +586,9 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 				|| APIResourceEndpointEditPart.VISUAL_ID == visualID
 				|| APIResourceEndpointInputConnectorEditPart.VISUAL_ID == visualID
 				|| APIResourceEndpointOutputConnectorEditPart.VISUAL_ID == visualID
+				|| AddressingEndpointEditPart.VISUAL_ID == visualID
+				|| AddressingEndpointInputConnectorEditPart.VISUAL_ID == visualID
+				|| AddressingEndpointOutputConnectorEditPart.VISUAL_ID == visualID
 				|| SwitchDefaultContainerEditPart.VISUAL_ID == visualID
 				|| MediatorFlow4EditPart.VISUAL_ID == visualID
 				|| FilterFailContainerEditPart.VISUAL_ID == visualID
@@ -1271,6 +1277,15 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 					index, persisted, preferencesHint);
 		case APIResourceEndpointOutputConnectorEditPart.VISUAL_ID:
 			return createAPIResourceEndpointOutputConnector_3676(domainElement, containerView,
+					index, persisted, preferencesHint);
+		case AddressingEndpointEditPart.VISUAL_ID:
+			return createAddressingEndpoint_3689(domainElement, containerView, index, persisted,
+					preferencesHint);
+		case AddressingEndpointInputConnectorEditPart.VISUAL_ID:
+			return createAddressingEndpointInputConnector_3690(domainElement, containerView, index,
+					persisted, preferencesHint);
+		case AddressingEndpointOutputConnectorEditPart.VISUAL_ID:
+			return createAddressingEndpointOutputConnector_3691(domainElement, containerView,
 					index, persisted, preferencesHint);
 		case SwitchDefaultContainerEditPart.VISUAL_ID:
 			return createSwitchDefaultContainer_3527(domainElement, containerView, index,
@@ -6540,6 +6555,116 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
 		node.setType(EsbVisualIDRegistry
 				.getType(APIResourceEndpointOutputConnectorEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
+				IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node,
+				NotationPackage.eINSTANCE.getLineStyle_LineColor(),
+				FigureUtilities.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter.getColor(prefStore,
+					IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
+		}
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createAddressingEndpoint_3689(EObject domainElement, View containerView, int index,
+			boolean persisted, PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createLineStyle());
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(EsbVisualIDRegistry.getType(AddressingEndpointEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
+				IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node,
+				NotationPackage.eINSTANCE.getLineStyle_LineColor(),
+				FigureUtilities.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter.getColor(prefStore,
+					IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
+		}
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createAddressingEndpointInputConnector_3690(EObject domainElement,
+			View containerView, int index, boolean persisted, PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createLineStyle());
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(EsbVisualIDRegistry
+				.getType(AddressingEndpointInputConnectorEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
+				IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node,
+				NotationPackage.eINSTANCE.getLineStyle_LineColor(),
+				FigureUtilities.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter.getColor(prefStore,
+					IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
+		}
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createAddressingEndpointOutputConnector_3691(EObject domainElement,
+			View containerView, int index, boolean persisted, PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createLineStyle());
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(EsbVisualIDRegistry
+				.getType(AddressingEndpointOutputConnectorEditPart.VISUAL_ID));
 		ViewUtil.insertChildView(containerView, node, index, persisted);
 		node.setElement(domainElement);
 		// initializeFromPreferences 

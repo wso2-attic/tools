@@ -113,7 +113,7 @@ public class BeanMediatorEditPart extends FixedSizedAbstractMediator {
 	 * @generated NOT
 	 */
 	protected IFigure createNodeShape() {
-		return primaryShape = new BeanMediatorFigure(){
+		return primaryShape = new BeanMediatorFigure() {
 			public void setBounds(org.eclipse.draw2d.geometry.Rectangle rect) {
 				super.setBounds(rect);
 				if (this.getBounds().getLocation().x != 0 && this.getBounds().getLocation().y != 0) {
@@ -137,7 +137,7 @@ public class BeanMediatorEditPart extends FixedSizedAbstractMediator {
 		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
 		return result;
 	}
-	
+
 	protected boolean addFixedChild(EditPart childEditPart) {
 
 		if (childEditPart instanceof BeanMediatorInputConnectorEditPart) {
@@ -182,7 +182,7 @@ public class BeanMediatorEditPart extends FixedSizedAbstractMediator {
 		}
 		super.addChildVisual(childEditPart, -1);
 	}
-	
+
 	protected void removeChildVisual(EditPart childEditPart) {
 		if (removeFixedChild(childEditPart)) {
 			return;
@@ -301,7 +301,7 @@ public class BeanMediatorEditPart extends FixedSizedAbstractMediator {
 			this.getPropertyValueRectangle1().add(beanMediatorPropertyValueLabel0);
 
 		}
-		
+
 		public String getIconPath() {
 			return "icons/ico20/bean-mediator.gif";
 		}

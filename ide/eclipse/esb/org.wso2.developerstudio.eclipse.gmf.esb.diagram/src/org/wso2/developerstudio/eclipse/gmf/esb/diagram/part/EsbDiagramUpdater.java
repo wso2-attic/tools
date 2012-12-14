@@ -155,6 +155,8 @@ public class EsbDiagramUpdater {
 			return getLoadBalanceEndPoint_3613SemanticChildren(view);
 		case APIResourceEndpointEditPart.VISUAL_ID:
 			return getAPIResourceEndpoint_3674SemanticChildren(view);
+		case AddressingEndpointEditPart.VISUAL_ID:
+			return getAddressingEndpoint_3689SemanticChildren(view);
 		case SwitchDefaultContainerEditPart.VISUAL_ID:
 			return getSwitchDefaultContainer_3527SemanticChildren(view);
 		case FilterFailContainerEditPart.VISUAL_ID:
@@ -2088,6 +2090,32 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<EsbNodeDescriptor> getAddressingEndpoint_3689SemanticChildren(View view) {
+		if (!view.isSetElement()) {
+			return Collections.emptyList();
+		}
+		AddressingEndpoint modelElement = (AddressingEndpoint) view.getElement();
+		LinkedList<EsbNodeDescriptor> result = new LinkedList<EsbNodeDescriptor>();
+		{
+			AddressingEndpointInputConnector childElement = modelElement.getInputConnector();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view, childElement);
+			if (visualID == AddressingEndpointInputConnectorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+			}
+		}
+		{
+			AddressingEndpointOutputConnector childElement = modelElement.getOutputConnector();
+			int visualID = EsbVisualIDRegistry.getNodeVisualID(view, childElement);
+			if (visualID == AddressingEndpointOutputConnectorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<EsbNodeDescriptor> getSwitchDefaultContainer_3527SemanticChildren(View view) {
 		if (!view.isSetElement()) {
 			return Collections.emptyList();
@@ -2803,6 +2831,10 @@ public class EsbDiagramUpdater {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 				continue;
 			}
+			if (visualID == AddressingEndpointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
 		}
 		return result;
 	}
@@ -3021,6 +3053,10 @@ public class EsbDiagramUpdater {
 				continue;
 			}
 			if (visualID == APIResourceEndpointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == AddressingEndpointEditPart.VISUAL_ID) {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -3245,6 +3281,10 @@ public class EsbDiagramUpdater {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 				continue;
 			}
+			if (visualID == AddressingEndpointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
 		}
 		return result;
 	}
@@ -3463,6 +3503,10 @@ public class EsbDiagramUpdater {
 				continue;
 			}
 			if (visualID == APIResourceEndpointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == AddressingEndpointEditPart.VISUAL_ID) {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -3687,6 +3731,10 @@ public class EsbDiagramUpdater {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 				continue;
 			}
+			if (visualID == AddressingEndpointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
 		}
 		return result;
 	}
@@ -3905,6 +3953,10 @@ public class EsbDiagramUpdater {
 				continue;
 			}
 			if (visualID == APIResourceEndpointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == AddressingEndpointEditPart.VISUAL_ID) {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -4129,6 +4181,10 @@ public class EsbDiagramUpdater {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 				continue;
 			}
+			if (visualID == AddressingEndpointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
 		}
 		return result;
 	}
@@ -4347,6 +4403,10 @@ public class EsbDiagramUpdater {
 				continue;
 			}
 			if (visualID == APIResourceEndpointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == AddressingEndpointEditPart.VISUAL_ID) {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -4571,6 +4631,10 @@ public class EsbDiagramUpdater {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 				continue;
 			}
+			if (visualID == AddressingEndpointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
 		}
 		return result;
 	}
@@ -4789,6 +4853,10 @@ public class EsbDiagramUpdater {
 				continue;
 			}
 			if (visualID == APIResourceEndpointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == AddressingEndpointEditPart.VISUAL_ID) {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -5013,6 +5081,10 @@ public class EsbDiagramUpdater {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 				continue;
 			}
+			if (visualID == AddressingEndpointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
 		}
 		return result;
 	}
@@ -5231,6 +5303,10 @@ public class EsbDiagramUpdater {
 				continue;
 			}
 			if (visualID == APIResourceEndpointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == AddressingEndpointEditPart.VISUAL_ID) {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -5455,6 +5531,10 @@ public class EsbDiagramUpdater {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 				continue;
 			}
+			if (visualID == AddressingEndpointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
 		}
 		return result;
 	}
@@ -5673,6 +5753,10 @@ public class EsbDiagramUpdater {
 				continue;
 			}
 			if (visualID == APIResourceEndpointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == AddressingEndpointEditPart.VISUAL_ID) {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -5897,6 +5981,10 @@ public class EsbDiagramUpdater {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 				continue;
 			}
+			if (visualID == AddressingEndpointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
 		}
 		return result;
 	}
@@ -6118,6 +6206,10 @@ public class EsbDiagramUpdater {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 				continue;
 			}
+			if (visualID == AddressingEndpointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
 		}
 		return result;
 	}
@@ -6336,6 +6428,10 @@ public class EsbDiagramUpdater {
 				continue;
 			}
 			if (visualID == APIResourceEndpointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == AddressingEndpointEditPart.VISUAL_ID) {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -6680,6 +6776,10 @@ public class EsbDiagramUpdater {
 				continue;
 			}
 			if (visualID == APIResourceEndpointEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == AddressingEndpointEditPart.VISUAL_ID) {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -7105,6 +7205,12 @@ public class EsbDiagramUpdater {
 			return getAPIResourceEndpointInputConnector_3675ContainedLinks(view);
 		case APIResourceEndpointOutputConnectorEditPart.VISUAL_ID:
 			return getAPIResourceEndpointOutputConnector_3676ContainedLinks(view);
+		case AddressingEndpointEditPart.VISUAL_ID:
+			return getAddressingEndpoint_3689ContainedLinks(view);
+		case AddressingEndpointInputConnectorEditPart.VISUAL_ID:
+			return getAddressingEndpointInputConnector_3690ContainedLinks(view);
+		case AddressingEndpointOutputConnectorEditPart.VISUAL_ID:
+			return getAddressingEndpointOutputConnector_3691ContainedLinks(view);
 		case SwitchDefaultContainerEditPart.VISUAL_ID:
 			return getSwitchDefaultContainer_3527ContainedLinks(view);
 		case MediatorFlow4EditPart.VISUAL_ID:
@@ -7610,6 +7716,12 @@ public class EsbDiagramUpdater {
 			return getAPIResourceEndpointInputConnector_3675IncomingLinks(view);
 		case APIResourceEndpointOutputConnectorEditPart.VISUAL_ID:
 			return getAPIResourceEndpointOutputConnector_3676IncomingLinks(view);
+		case AddressingEndpointEditPart.VISUAL_ID:
+			return getAddressingEndpoint_3689IncomingLinks(view);
+		case AddressingEndpointInputConnectorEditPart.VISUAL_ID:
+			return getAddressingEndpointInputConnector_3690IncomingLinks(view);
+		case AddressingEndpointOutputConnectorEditPart.VISUAL_ID:
+			return getAddressingEndpointOutputConnector_3691IncomingLinks(view);
 		case SwitchDefaultContainerEditPart.VISUAL_ID:
 			return getSwitchDefaultContainer_3527IncomingLinks(view);
 		case MediatorFlow4EditPart.VISUAL_ID:
@@ -8115,6 +8227,12 @@ public class EsbDiagramUpdater {
 			return getAPIResourceEndpointInputConnector_3675OutgoingLinks(view);
 		case APIResourceEndpointOutputConnectorEditPart.VISUAL_ID:
 			return getAPIResourceEndpointOutputConnector_3676OutgoingLinks(view);
+		case AddressingEndpointEditPart.VISUAL_ID:
+			return getAddressingEndpoint_3689OutgoingLinks(view);
+		case AddressingEndpointInputConnectorEditPart.VISUAL_ID:
+			return getAddressingEndpointInputConnector_3690OutgoingLinks(view);
+		case AddressingEndpointOutputConnectorEditPart.VISUAL_ID:
+			return getAddressingEndpointOutputConnector_3691OutgoingLinks(view);
 		case SwitchDefaultContainerEditPart.VISUAL_ID:
 			return getSwitchDefaultContainer_3527OutgoingLinks(view);
 		case MediatorFlow4EditPart.VISUAL_ID:
@@ -9426,6 +9544,33 @@ public class EsbDiagramUpdater {
 	public static List<EsbLinkDescriptor> getAPIResourceEndpointOutputConnector_3676ContainedLinks(
 			View view) {
 		APIResourceEndpointOutputConnector modelElement = (APIResourceEndpointOutputConnector) view
+				.getElement();
+		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getAddressingEndpoint_3689ContainedLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getAddressingEndpointInputConnector_3690ContainedLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getAddressingEndpointOutputConnector_3691ContainedLinks(
+			View view) {
+		AddressingEndpointOutputConnector modelElement = (AddressingEndpointOutputConnector) view
 				.getElement();
 		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
@@ -11629,6 +11774,35 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<EsbLinkDescriptor> getAddressingEndpoint_3689IncomingLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getAddressingEndpointInputConnector_3690IncomingLinks(
+			View view) {
+		AddressingEndpointInputConnector modelElement = (AddressingEndpointInputConnector) view
+				.getElement();
+		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+				.find(view.eResource().getResourceSet().getResources());
+		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		result.addAll(getIncomingTypeModelFacetLinks_EsbLink_4001(modelElement, crossReferences));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getAddressingEndpointOutputConnector_3691IncomingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<EsbLinkDescriptor> getProxyServiceFaultContainer_3488IncomingLinks(View view) {
 		return Collections.emptyList();
 	}
@@ -13767,6 +13941,33 @@ public class EsbDiagramUpdater {
 	public static List<EsbLinkDescriptor> getAPIResourceEndpointOutputConnector_3676OutgoingLinks(
 			View view) {
 		APIResourceEndpointOutputConnector modelElement = (APIResourceEndpointOutputConnector) view
+				.getElement();
+		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
+		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getAddressingEndpoint_3689OutgoingLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getAddressingEndpointInputConnector_3690OutgoingLinks(
+			View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getAddressingEndpointOutputConnector_3691OutgoingLinks(
+			View view) {
+		AddressingEndpointOutputConnector modelElement = (AddressingEndpointOutputConnector) view
 				.getElement();
 		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
 		result.addAll(getOutgoingTypeModelFacetLinks_EsbLink_4001(modelElement));

@@ -709,6 +709,15 @@ public class EsbEditPartFactory implements EditPartFactory {
 			case APIResourceEndpointOutputConnectorEditPart.VISUAL_ID:
 				return new APIResourceEndpointOutputConnectorEditPart(view);
 
+			case AddressingEndpointEditPart.VISUAL_ID:
+				return new AddressingEndpointEditPart(view);
+
+			case AddressingEndpointInputConnectorEditPart.VISUAL_ID:
+				return new AddressingEndpointInputConnectorEditPart(view);
+
+			case AddressingEndpointOutputConnectorEditPart.VISUAL_ID:
+				return new AddressingEndpointOutputConnectorEditPart(view);
+
 			case SwitchDefaultContainerEditPart.VISUAL_ID:
 				return new SwitchDefaultContainerEditPart(view);
 

@@ -156,7 +156,7 @@ public class EsbPaletteFactory {
 		paletteContainer.add(createSpringMediator11CreationTool());
 		paletteContainer.add(createScriptMediator12CreationTool());
 		paletteContainer.add(createCommandMediator15CreationTool());
-		
+
 		paletteContainer.add(new PaletteSeparator());
 		paletteContainer.add(createBAMMediator40CreationTool());
 
@@ -176,6 +176,7 @@ public class EsbPaletteFactory {
 		paletteContainer.add(createWSDLEndPoint4CreationTool());
 		paletteContainer.add(createLoadBalanceEndPoint5CreationTool());
 		paletteContainer.add(createNamedEndpoint6CreationTool());
+		paletteContainer.add(createAddressingEndpoint7CreationTool());
 		return paletteContainer;
 	}
 
@@ -913,6 +914,20 @@ public class EsbPaletteFactory {
 				Collections.singletonList(EsbElementTypes.NamedEndpoint_3660));
 		entry.setId("createNamedEndpoint6CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(EsbElementTypes.getImageDescriptor(EsbElementTypes.NamedEndpoint_3660));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createAddressingEndpoint7CreationTool() {
+		NodeToolEntry entry = new NodeToolEntry(Messages.AddressingEndpoint7CreationTool_title,
+				Messages.AddressingEndpoint7CreationTool_desc,
+				Collections.singletonList(EsbElementTypes.AddressingEndpoint_3689));
+		entry.setId("createAddressingEndpoint7CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(EsbElementTypes
+				.getImageDescriptor(EsbElementTypes.AddressingEndpoint_3689));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

@@ -113,7 +113,7 @@ public class BAMMediatorEditPart extends FixedSizedAbstractMediator {
 	 * @generated NOT
 	 */
 	protected IFigure createNodeShape() {
-		return primaryShape = new BAMMediatorFigure(){
+		return primaryShape = new BAMMediatorFigure() {
 			public void setBounds(org.eclipse.draw2d.geometry.Rectangle rect) {
 				super.setBounds(rect);
 				if (this.getBounds().getLocation().x != 0 && this.getBounds().getLocation().y != 0) {
@@ -129,7 +129,7 @@ public class BAMMediatorEditPart extends FixedSizedAbstractMediator {
 	public BAMMediatorFigure getPrimaryShape() {
 		return (BAMMediatorFigure) primaryShape;
 	}
-	
+
 	protected boolean addFixedChild(EditPart childEditPart) {
 
 		if (childEditPart instanceof BAMMediatorInputConnectorEditPart) {
@@ -297,7 +297,7 @@ public class BAMMediatorEditPart extends FixedSizedAbstractMediator {
 			this.getPropertyValueRectangle1().add(bAMPropertyLabel0);
 
 		}
-		
+
 		public String getIconPath() {
 			return "icons/ico20/bam-mediator.gif";
 		}

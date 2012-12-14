@@ -113,7 +113,7 @@ public class EJBMediatorEditPart extends FixedSizedAbstractMediator {
 	 * @generated NOT
 	 */
 	protected IFigure createNodeShape() {
-		return primaryShape = new EJBMediatorFigure(){
+		return primaryShape = new EJBMediatorFigure() {
 			public void setBounds(org.eclipse.draw2d.geometry.Rectangle rect) {
 				super.setBounds(rect);
 				if (this.getBounds().getLocation().x != 0 && this.getBounds().getLocation().y != 0) {
@@ -137,7 +137,7 @@ public class EJBMediatorEditPart extends FixedSizedAbstractMediator {
 		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
 		return result;
 	}
-	
+
 	protected boolean addFixedChild(EditPart childEditPart) {
 
 		if (childEditPart instanceof EJBMediatorInputConnectorEditPart) {
@@ -179,7 +179,7 @@ public class EJBMediatorEditPart extends FixedSizedAbstractMediator {
 		}
 		super.addChildVisual(childEditPart, -1);
 	}
-	
+
 	protected void removeChildVisual(EditPart childEditPart) {
 		if (removeFixedChild(childEditPart)) {
 			return;
@@ -298,7 +298,7 @@ public class EJBMediatorEditPart extends FixedSizedAbstractMediator {
 			this.getPropertyValueRectangle1().add(eJBMediatorPropertyValueLabel0);
 
 		}
-		
+
 		public String getIconPath() {
 			return "icons/ico20/ejb-mediator.gif";
 		}

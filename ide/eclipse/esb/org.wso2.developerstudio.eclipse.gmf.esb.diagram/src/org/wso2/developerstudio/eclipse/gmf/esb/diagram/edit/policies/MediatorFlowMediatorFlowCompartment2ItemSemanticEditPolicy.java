@@ -4,6 +4,7 @@ import org.eclipse.gef.commands.Command;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.APIResourceEndpointCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.AddressEndPointCreateCommand;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.AddressingEndpointCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.AggregateMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.BAMMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.BeanMediatorCreateCommand;
@@ -220,6 +221,9 @@ public class MediatorFlowMediatorFlowCompartment2ItemSemanticEditPolicy extends
 		}
 		if (EsbElementTypes.APIResourceEndpoint_3674 == req.getElementType()) {
 			return getGEFWrapper(new APIResourceEndpointCreateCommand(req));
+		}
+		if (EsbElementTypes.AddressingEndpoint_3689 == req.getElementType()) {
+			return getGEFWrapper(new AddressingEndpointCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}
