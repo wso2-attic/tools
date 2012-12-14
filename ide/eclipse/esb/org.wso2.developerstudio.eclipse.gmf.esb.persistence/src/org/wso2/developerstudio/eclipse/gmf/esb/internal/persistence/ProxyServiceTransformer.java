@@ -250,6 +250,7 @@ public class ProxyServiceTransformer extends AbstractEsbNodeTransformer {
 
 			ProxyService proxyService = new org.apache.synapse.core.axis2.ProxyService(
 					visualService.getName());
+			info.setCurrentProxy(proxyService);
 
 			if (visualService.getServiceGroup() != null) {
 				proxyService.setServiceGroup(visualService.getServiceGroup());

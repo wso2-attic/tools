@@ -19,6 +19,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.wso2.developerstudio.eclipse.gmf.esb.APIResource;
+import org.wso2.developerstudio.eclipse.gmf.esb.AddressingEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.BAMMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.BeanMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.BuilderMediator;
@@ -74,6 +75,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.WSDLEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.XQueryMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.XSLTMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.APIResourceTransformer;
+import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.AddresingEndPointTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.AddressEndPointTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.AggregateMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.BAMMediatorTransformer;
@@ -203,6 +205,7 @@ public class EsbTransformerRegistry {
 		addTransformer(EJBMediator.class, new EJBMediatorTransformer());
 		addTransformer(BeanMediator.class, new BeanMediatorTransformer());
 		addTransformer(Sequences.class, new SequenceTransformer());
+		addTransformer(AddressingEndpoint.class, new AddresingEndPointTransformer());
 	}
 	
 	/**

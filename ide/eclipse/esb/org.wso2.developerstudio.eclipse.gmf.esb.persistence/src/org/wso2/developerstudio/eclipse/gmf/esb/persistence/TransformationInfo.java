@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.synapse.config.SynapseConfiguration;
+import org.apache.synapse.core.axis2.ProxyService;
 import org.apache.synapse.mediators.ListMediator;
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.apache.synapse.rest.API;
@@ -31,6 +32,16 @@ public class TransformationInfo {
 	public EsbLink sequenceIncomingLink;
 	public Sequence currentSequence;
 	public EObject previousNode;
+	private ProxyService currentProxy;
+	
+	public ProxyService getCurrentProxy() {
+		return currentProxy;
+	}
+
+	public void setCurrentProxy(ProxyService currentProxy) {
+		this.currentProxy = currentProxy;
+	}
+
 	private static List<EsbNode> transformedMediators = new ArrayList<EsbNode>();
 	
 	public ListMediator getOriginInSequence() {

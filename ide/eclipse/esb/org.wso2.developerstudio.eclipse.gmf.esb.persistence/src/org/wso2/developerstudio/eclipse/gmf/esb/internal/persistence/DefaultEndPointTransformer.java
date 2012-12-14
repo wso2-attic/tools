@@ -74,8 +74,12 @@ public class DefaultEndPointTransformer extends AbstractEndpointTransformer {
 			sendMediator = new SendMediator();
 			info.getParentSequence().addChild(sendMediator);
 		}		
-		if(sendMediator!=null){
-			sendMediator.setEndpoint(create(visualEP,null));
+		if(visualEP.isInLine()){
+			info.getCurrentProxy().setTargetInLineEndpoint(create(visualEP,null));
+		}else{
+			if(sendMediator !=null){
+				sendMediator.setEndpoint(create(visualEP,null));
+			}
 		}
 		
 		if(!info.isEndPointFound){

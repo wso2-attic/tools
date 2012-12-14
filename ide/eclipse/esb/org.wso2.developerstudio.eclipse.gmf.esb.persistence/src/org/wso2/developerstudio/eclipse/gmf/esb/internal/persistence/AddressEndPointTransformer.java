@@ -62,9 +62,12 @@ public class AddressEndPointTransformer extends AbstractEndpointTransformer {
 		sendMediator = new SendMediator();
 			info.getParentSequence().addChild(sendMediator);
 		}
-		
-		if(sendMediator !=null){
-			sendMediator.setEndpoint(create(visualEndPoint,null));
+		if(visualEndPoint.isInLine()){
+			info.getCurrentProxy().setTargetInLineEndpoint(create(visualEndPoint,null));
+		}else{
+			if(sendMediator !=null){
+				sendMediator.setEndpoint(create(visualEndPoint,null));
+			}
 		}
 
 		if (!info.isEndPointFound) {

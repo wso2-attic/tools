@@ -66,7 +66,17 @@ public class FailoverEndPointTransformer extends AbstractEndpointTransformer{
 		synapseFailEP.setDefinition(synapseEPDef);*/
 		
 		//sendMediator.setEndpoint(synapseFailEP);
-		sendMediator.setEndpoint(create(info,visualEndPoint,null,null));
+		//sendMediator.setEndpoint(create(info,visualEndPoint,null,null));
+		
+		if(visualEndPoint.isInLine()){
+			info.getCurrentProxy().setTargetInLineEndpoint(create(info,visualEndPoint,null,null));
+		}else{
+			if(sendMediator !=null){
+				sendMediator.setEndpoint(create(info,visualEndPoint,null,null));
+			}
+		}
+		
+		
 		
 /*		if(!info.isEndPointFound){
 			info.isEndPointFound=true;

@@ -41,8 +41,12 @@ public class WSDLEndPointTransformer extends AbstractEndpointTransformer{
 			sendMediator = new SendMediator();
 			information.getParentSequence().addChild(sendMediator);
 		}		
-		if(sendMediator !=null){
-			sendMediator.setEndpoint(create(visualEndPoint,null));
+		if(visualEndPoint.isInLine()){
+			information.getCurrentProxy().setTargetInLineEndpoint(create(visualEndPoint,null));
+		}else{
+			if(sendMediator !=null){
+				sendMediator.setEndpoint(create(visualEndPoint,null));
+			}
 		}
 		
 		if(visualEndPoint.getOutputConnector().getOutgoingLink() !=null){

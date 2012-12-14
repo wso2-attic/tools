@@ -67,7 +67,16 @@ public class LoadBalanceEndPointTransformer extends AbstractEndpointTransformer{
 		
 		synapseLoadEP.setDefinition(synapseEPDef);*/
 		
-		sendMediator.setEndpoint(create(information, visualEndPoint, null, null));
+		//sendMediator.setEndpoint(create(information, visualEndPoint, null, null));
+		
+		if(visualEndPoint.isInLine()){
+			information.getCurrentProxy().setTargetInLineEndpoint(create(information, visualEndPoint, null, null));
+		}else{
+			if(sendMediator !=null){
+				sendMediator.setEndpoint(create(information, visualEndPoint, null, null));
+			}
+		}
+		
 /*		information.getParentSequence().addChild(sendMediator);
 		
 		if(!information.isEndPointFound){
