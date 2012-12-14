@@ -2976,6 +2976,75 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.AddressingEndpoint} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AddressingEndpointItemProvider addressingEndpointItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.AddressingEndpoint}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAddressingEndpointAdapter() {
+		if (addressingEndpointItemProvider == null) {
+			addressingEndpointItemProvider = new AddressingEndpointItemProvider(this);
+		}
+
+		return addressingEndpointItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.AddressingEndpointInputConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AddressingEndpointInputConnectorItemProvider addressingEndpointInputConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.AddressingEndpointInputConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAddressingEndpointInputConnectorAdapter() {
+		if (addressingEndpointInputConnectorItemProvider == null) {
+			addressingEndpointInputConnectorItemProvider = new AddressingEndpointInputConnectorItemProvider(this);
+		}
+
+		return addressingEndpointInputConnectorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.AddressingEndpointOutputConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AddressingEndpointOutputConnectorItemProvider addressingEndpointOutputConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.AddressingEndpointOutputConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAddressingEndpointOutputConnectorAdapter() {
+		if (addressingEndpointOutputConnectorItemProvider == null) {
+			addressingEndpointOutputConnectorItemProvider = new AddressingEndpointOutputConnectorItemProvider(this);
+		}
+
+		return addressingEndpointOutputConnectorItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.ScriptMediator} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6788,6 +6857,9 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 		if (apiResourceEndpointOutputConnectorItemProvider != null) apiResourceEndpointOutputConnectorItemProvider.dispose();
 		if (complexEndpointsItemProvider != null) complexEndpointsItemProvider.dispose();
 		if (complexEndpointsOutputConnectorItemProvider != null) complexEndpointsOutputConnectorItemProvider.dispose();
+		if (addressingEndpointItemProvider != null) addressingEndpointItemProvider.dispose();
+		if (addressingEndpointInputConnectorItemProvider != null) addressingEndpointInputConnectorItemProvider.dispose();
+		if (addressingEndpointOutputConnectorItemProvider != null) addressingEndpointOutputConnectorItemProvider.dispose();
 	}
 
 }

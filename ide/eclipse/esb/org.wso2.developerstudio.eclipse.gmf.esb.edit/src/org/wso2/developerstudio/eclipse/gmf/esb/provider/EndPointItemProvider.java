@@ -52,17 +52,20 @@ public class EndPointItemProvider
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
-			super.getPropertyDescriptors(object);
-
-			addEndPointNamePropertyDescriptor(object);
-			addAnonymousPropertyDescriptor(object);
+		if (itemPropertyDescriptors != null) {
+			itemPropertyDescriptors.clear();
 		}
+		
+		super.getPropertyDescriptors(object);
+		//addEndPointNamePropertyDescriptor(object);
+		//addAnonymousPropertyDescriptor(object);
+		addInLinePropertyDescriptor(object);
+		
 		return itemPropertyDescriptors;
 	}
 
@@ -111,6 +114,28 @@ public class EndPointItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the In Line feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addInLinePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EndPoint_InLine_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EndPoint_InLine_feature", "_UI_EndPoint_type"),
+				 EsbPackage.Literals.END_POINT__IN_LINE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 "Basic",
+				 null));
+	}
+
+	/**
 	 * This returns EndPoint.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -152,6 +177,7 @@ public class EndPointItemProvider
 		switch (notification.getFeatureID(EndPoint.class)) {
 			case EsbPackage.END_POINT__END_POINT_NAME:
 			case EsbPackage.END_POINT__ANONYMOUS:
+			case EsbPackage.END_POINT__IN_LINE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
