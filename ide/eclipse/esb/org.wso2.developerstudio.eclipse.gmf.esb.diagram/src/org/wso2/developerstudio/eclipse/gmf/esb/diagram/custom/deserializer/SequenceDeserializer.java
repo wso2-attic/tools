@@ -18,11 +18,14 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.eclipse.core.runtime.Assert;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
+import org.eclipse.ui.part.FileEditorInput;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequences;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.utils.EndPointDuplicator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.TemplateTemplateCompartmentEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.*;
@@ -39,6 +42,7 @@ public class SequenceDeserializer extends AbstractEsbNodeDeserializer<SequenceMe
 			Sequence sequenceModel = (Sequence) DeserializerUtils.createNode(part, EsbElementTypes.Sequence_3503);
 			executeSetValueCommand(sequenceModel, SEQUENCE__NAME, sequence.getKey().getKeyValue());
 			node = sequenceModel;
+			duplicatorEndPoints(getRootCompartment(),sequence.getKey().getKeyValue()); 
 		} else if(sequence.getName()!=null){
 			IElementType sequencesType = (part instanceof TemplateTemplateCompartmentEditPart) ? EsbElementTypes.Sequences_3665
 					: EsbElementTypes.Sequences_3614;
@@ -56,6 +60,13 @@ public class SequenceDeserializer extends AbstractEsbNodeDeserializer<SequenceMe
 		}
 		
 		return node;
+	}
+
+	private void duplicatorEndPoints(GraphicalEditPart rootCompartment, String key) {
+		FileEditorInput input = (FileEditorInput) getDiagramEditor().getEditorInput();
+		EndPointDuplicator duplicator = new EndPointDuplicator(input.getFile().getProject());
+		duplicator.duplicateEndPoints(rootCompartment, key);
+		
 	}
 
 }

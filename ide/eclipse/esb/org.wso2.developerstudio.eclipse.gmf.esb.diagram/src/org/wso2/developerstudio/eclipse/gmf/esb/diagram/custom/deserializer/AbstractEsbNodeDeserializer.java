@@ -94,7 +94,7 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 
 	private static Map<EsbConnector, Rectangle> currentLocation ;
 	
-	public EsbDiagramEditor getDiagramEditor() {
+	public static EsbDiagramEditor getDiagramEditor() {
 		return diagramEditor;
 	}
 
