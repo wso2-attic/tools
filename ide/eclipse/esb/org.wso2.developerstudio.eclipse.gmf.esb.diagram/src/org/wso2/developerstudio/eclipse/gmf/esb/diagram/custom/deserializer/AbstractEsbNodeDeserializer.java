@@ -87,6 +87,7 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 	private static GraphicalEditPart rootCompartment;
 	private static List<EsbConnector> rootInputConnectors = new ArrayList<EsbConnector>();
 	private EObject elementToEdit;
+	private boolean reversed;
 	
 	public void setElementToEdit(EObject elementToEdit) {
 		this.elementToEdit = elementToEdit;
@@ -148,6 +149,7 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 		IEsbNodeDeserializer deserializer = EsbDeserializerRegistry.getInstance().getDeserializer(
 				mediator);
 		if (deserializer != null) {
+			deserializer.setReversed(reversed);
 			@SuppressWarnings("unchecked")
 			EsbNode node = deserializer.createNode(part, mediator);
 			if (node!=null) {
@@ -604,6 +606,14 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 			nsp.setNamespaces(namespaces);
 		}
 		return nsp;
+	}
+
+	public boolean isReversed() {
+		return reversed;
+	}
+
+	public void setReversed(boolean reversed) {
+		this.reversed = reversed;
 	}
 	
 }

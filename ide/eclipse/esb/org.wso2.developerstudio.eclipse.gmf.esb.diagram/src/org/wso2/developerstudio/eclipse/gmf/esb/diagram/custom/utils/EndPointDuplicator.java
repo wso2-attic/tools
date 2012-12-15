@@ -77,7 +77,7 @@ public class EndPointDuplicator {
 	 */
 	public EndPointDuplicator(IProject project,EsbDiagramEditor diagramEditor) {
 		this(project);
-		if (AbstractEsbNodeDeserializer.getDiagramEditor()!=null) {
+		if (AbstractEsbNodeDeserializer.getDiagramEditor()==null) {
 			if(diagramEditor!=null){
 				 EsbDeserializerRegistry.getInstance().init(diagramEditor);
 			} else {

@@ -23,7 +23,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramEditor;
 public interface IEsbNodeDeserializer<T,R extends EsbNode> {
 	
 	void setDiagramEditor(EsbDiagramEditor diagramEditor);
-//	R createNode(T object);
 	R createNode(IGraphicalEditPart part, T object);
+	public boolean isReversed();
+	public void setReversed(boolean reversed);
 
 }
