@@ -31,11 +31,9 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.APIResourceEd
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.APIResourceFaultInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ComplexEndpointsEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ComplexEndpointsOutputConnectorEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartmentEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyFaultInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceSequenceAndEndpointContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequencesEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramEditor;
 
@@ -215,17 +213,6 @@ public class EditorUtils {
 			return null;
 		}
 	}
-	
-	public static MediatorFlowMediatorFlowCompartmentEditPart getSequenceAndEndpointCompartmentEditPart(EditPart child){
-		while ((child.getParent()!=null)&&!(child.getParent() instanceof MediatorFlowMediatorFlowCompartmentEditPart)){
-			child=child.getParent();
-		}		
-		if(child.getParent()!=null){
-			return (MediatorFlowMediatorFlowCompartmentEditPart) child.getParent();
-		}else{
-			return null;
-		}
-	}	
 	
 	public static AbstractSequencesEditPart getSequence(AbstractConnectorEditPart connector){
 		EditPart temp=connector;
