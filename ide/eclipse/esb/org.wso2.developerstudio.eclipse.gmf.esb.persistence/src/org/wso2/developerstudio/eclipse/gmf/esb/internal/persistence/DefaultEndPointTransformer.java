@@ -87,23 +87,27 @@ public class DefaultEndPointTransformer extends AbstractEndpointTransformer {
 			info.firstEndPoint=visualEP;
 		}
 		
-		if(visualEP.getOutputConnector().getOutgoingLink() !=null){
-		if((!(visualEP.getOutputConnector().getOutgoingLink().getTarget() instanceof SequenceInputConnector))||
-				(!(((Sequence)visualEP.getOutputConnector().getOutgoingLink().getTarget().eContainer()).getOutputConnector().getOutgoingLink().getTarget().eContainer() instanceof EndPoint))){
-		info.setParentSequence(info.getOriginOutSequence());
-		info.setTraversalDirection(TransformationInfo.TRAVERSAL_DIRECTION_OUT);
-		}else if(visualEP.getInputConnector().getIncomingLinks().get(0).getSource().eContainer() instanceof Sequence){
-			info.setParentSequence(info.getCurrentReferredSequence());
-		}
+		if(visualEP.getOutputConnector()!=null){
+			if(visualEP.getOutputConnector().getOutgoingLink() !=null){
+			if((!(visualEP.getOutputConnector().getOutgoingLink().getTarget() instanceof SequenceInputConnector))||
+					(!(((Sequence)visualEP.getOutputConnector().getOutgoingLink().getTarget().eContainer()).getOutputConnector().getOutgoingLink().getTarget().eContainer() instanceof EndPoint))){
+			info.setParentSequence(info.getOriginOutSequence());
+			info.setTraversalDirection(TransformationInfo.TRAVERSAL_DIRECTION_OUT);
+			}else if(visualEP.getInputConnector().getIncomingLinks().get(0).getSource().eContainer() instanceof Sequence){
+				info.setParentSequence(info.getCurrentReferredSequence());
+			}
+			}
 		}
 		
 		try{
 			List<EsbNode> transformedMediators = info.getTransformedMediators();
-			EsbNode nextElement=(EsbNode) visualEP.getOutputConnector().getOutgoingLink().getTarget().eContainer();
-			if(transformedMediators.contains(nextElement)){
-				return;
+			if(visualEP.getOutputConnector()!=null){
+				EsbNode nextElement=(EsbNode) visualEP.getOutputConnector().getOutgoingLink().getTarget().eContainer();
+				if(transformedMediators.contains(nextElement)){
+					return;
+				}
+				transformedMediators.add(nextElement);
 			}
-			transformedMediators.add(nextElement);
 		}
 		catch(NullPointerException e){
 			MessageDialog

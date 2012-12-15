@@ -44,15 +44,17 @@ public class NamedEndPointTransformer extends AbstractEsbNodeTransformer{
 			}
 		}
 		
-		if(visualEndPoint.getOutputConnector().getOutgoingLink() !=null){
-			if((!(visualEndPoint.getOutputConnector().getOutgoingLink().getTarget() instanceof SequenceInputConnector))||
-					(!(((Sequence)visualEndPoint.getOutputConnector().getOutgoingLink().getTarget().eContainer()).getOutputConnector().getOutgoingLink().getTarget().eContainer() instanceof EndPoint))){
-			information.setParentSequence(information.getOriginOutSequence());
-			information.setTraversalDirection(TransformationInfo.TRAVERSAL_DIRECTION_OUT);
-			}else if(visualEndPoint.getInputConnector().getIncomingLinks().get(0).getSource().eContainer() instanceof Sequence){
-				information.setParentSequence(information.getCurrentReferredSequence());
-			}
-			}
+		if(visualEndPoint.getOutputConnector()!=null){
+			if(visualEndPoint.getOutputConnector().getOutgoingLink() !=null){
+				if((!(visualEndPoint.getOutputConnector().getOutgoingLink().getTarget() instanceof SequenceInputConnector))||
+						(!(((Sequence)visualEndPoint.getOutputConnector().getOutgoingLink().getTarget().eContainer()).getOutputConnector().getOutgoingLink().getTarget().eContainer() instanceof EndPoint))){
+				information.setParentSequence(information.getOriginOutSequence());
+				information.setTraversalDirection(TransformationInfo.TRAVERSAL_DIRECTION_OUT);
+				}else if(visualEndPoint.getInputConnector().getIncomingLinks().get(0).getSource().eContainer() instanceof Sequence){
+					information.setParentSequence(information.getCurrentReferredSequence());
+				}
+				}
+		}
 
 			if(!information.isEndPointFound){
 				information.isEndPointFound=true;
@@ -61,11 +63,13 @@ public class NamedEndPointTransformer extends AbstractEsbNodeTransformer{
 		
 		try{
 			List<EsbNode> transformedMediators = information.getTransformedMediators();
-			EsbNode nextElement=(EsbNode) visualEndPoint.getOutputConnector().getOutgoingLink().getTarget().eContainer();
-			if(transformedMediators.contains(nextElement)){
-				return;
+			if(visualEndPoint.getOutputConnector()!=null){
+				EsbNode nextElement=(EsbNode) visualEndPoint.getOutputConnector().getOutgoingLink().getTarget().eContainer();
+				if(transformedMediators.contains(nextElement)){
+					return;
+				}
+				transformedMediators.add(nextElement);
 			}
-			transformedMediators.add(nextElement);
 		}
 		catch(NullPointerException e){
 			MessageDialog

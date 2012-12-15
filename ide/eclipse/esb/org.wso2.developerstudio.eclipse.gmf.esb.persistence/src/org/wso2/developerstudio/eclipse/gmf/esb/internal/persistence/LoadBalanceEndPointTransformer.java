@@ -51,7 +51,8 @@ public class LoadBalanceEndPointTransformer extends AbstractEndpointTransformer{
 			sendMediator = (SendMediator) information.getParentSequence().getList()
 					.get(information.getParentSequence().getList().size() - 1);
 		} else {
-			sendMediator = new SendMediator();			
+			sendMediator = new SendMediator();	
+			information.getParentSequence().addChild(sendMediator);
 		}
 /*		org.apache.synapse.endpoints.LoadbalanceEndpoint synapseLoadEP = new org.apache.synapse.endpoints.LoadbalanceEndpoint();
 		EndpointDefinition synapseEPDef = new EndpointDefinition();
