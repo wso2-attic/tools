@@ -16,8 +16,6 @@
 
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 
-import java.util.Map;
-
 import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.mediators.AbstractMediator;
 import org.apache.synapse.mediators.Value;
@@ -25,9 +23,8 @@ import org.apache.synapse.util.xpath.SynapseXPath;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.AddressingEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
-import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
-import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.ReceivingSequenceType;
 import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.SendMediator;
@@ -67,33 +64,24 @@ public class SendMediatorDeserializer extends AbstractEsbNodeDeserializer<Abstra
 			
 			//For Dynamic sequence type.
 			if(receivingSequenceValue.getExpression() != null){
-				
-				//vishualSend.setReceivingSequenceType(ReceivingSequenceType.DYNAMIC);
+
 				executeSetValueCommand(SEND_MEDIATOR__RECEIVING_SEQUENCE_TYPE,ReceivingSequenceType.DYNAMIC);
 				
 				SynapseXPath xpath  = receivingSequenceValue.getExpression();
-				
-				NamespacedProperty nsp = EsbFactory.eINSTANCE.createNamespacedProperty();
-				
-				nsp.setPropertyValue(xpath.toString());
-				
-				if (xpath.getNamespaces() != null) {
-
-					@SuppressWarnings("unchecked")
-					Map<String, String> map = xpath.getNamespaces();
-
-					nsp.setNamespaces(map);
-				}
-					
-				//vishualSend.setDynamicReceivingSequence(nsp);
-				executeSetValueCommand(SEND_MEDIATOR__DYNAMIC_RECEIVING_SEQUENCE,nsp);
+				executeSetValueCommand(SEND_MEDIATOR__DYNAMIC_RECEIVING_SEQUENCE,createNamespacedProperty(xpath));
 			}
 		}
 		
 		Endpoint endpoint = sendMediator.getEndpoint();
 		if(endpoint!=null){
+			@SuppressWarnings("rawtypes")
 			IEsbNodeDeserializer deserializer = EsbDeserializerRegistry.getInstance().getDeserializer(endpoint);
+			@SuppressWarnings("unchecked")
 			AbstractEndPoint visualEndPoint = (AbstractEndPoint) deserializer.createNode(getRootCompartment(), endpoint);
+			visualSendMediator.setNextNode(visualEndPoint);
+		} else{
+			AddressingEndpoint visualEndPoint = (AddressingEndpoint) DeserializerUtils.createNode(
+					part, EsbElementTypes.AddressingEndpoint_3689);
 			visualSendMediator.setNextNode(visualEndPoint);
 		}
 			

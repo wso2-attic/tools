@@ -185,7 +185,10 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 					targetConnector = EditorUtils
 					.getInputConnector((ShapeNodeEditPart) getEditpart(outSeq.getLast()));
 				} else{
-					targetConnector = (AbstractConnectorEditPart) pair.getValue();
+					if(pair.getValue() instanceof AbstractConnectorEditPart){
+						targetConnector = (AbstractConnectorEditPart) pair.getValue();
+					} else continue;
+					
 				}
 				
 				if (sourceConnector != null && targetConnector != null) {
