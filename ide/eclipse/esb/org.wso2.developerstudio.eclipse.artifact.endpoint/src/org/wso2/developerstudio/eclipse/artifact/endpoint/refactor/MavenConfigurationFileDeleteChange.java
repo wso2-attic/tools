@@ -18,6 +18,9 @@ package org.wso2.developerstudio.eclipse.artifact.endpoint.refactor;
 
 import org.apache.maven.model.Dependency;
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.ltk.core.refactoring.Change;
 import org.eclipse.ltk.core.refactoring.TextFileChange;
 import org.eclipse.text.edits.DeleteEdit;
 import org.eclipse.text.edits.MultiTextEdit;
@@ -45,15 +48,13 @@ public class MavenConfigurationFileDeleteChange extends TextFileChange {
 
 		addTextEdits();
 	}
-
+	
 	private void addTextEdits() {
 
 		multiEdit = new MultiTextEdit();
 		setEdit(multiEdit);
 
 		setSaveMode(FORCE_SAVE);
-
-		// addEdit(new ReplaceEdit(991, 229, "\n"));
 
 		if (pomFile.exists()) {
 			identifyDepenencyEntry();

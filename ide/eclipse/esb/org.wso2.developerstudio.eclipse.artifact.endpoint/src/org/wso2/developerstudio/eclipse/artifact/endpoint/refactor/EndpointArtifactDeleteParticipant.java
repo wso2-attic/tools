@@ -20,21 +20,32 @@ import org.apache.maven.model.Dependency;
 import org.apache.maven.project.MavenProject;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.OperationCanceledException;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.ltk.core.refactoring.Change;
 import org.eclipse.ltk.core.refactoring.CompositeChange;
 import org.eclipse.ltk.core.refactoring.RefactoringStatus;
 import org.eclipse.ltk.core.refactoring.participants.CheckConditionsContext;
 import org.eclipse.ltk.core.refactoring.participants.DeleteParticipant;
+import org.eclipse.ltk.core.refactoring.resource.DeleteResourceChange;
 import org.wso2.developerstudio.eclipse.artifact.endpoint.Activator;
+import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBArtifact;
+import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
+import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 
+import java.io.File;
 import java.util.Iterator;
 import java.util.List;
+import java.util.regex.Pattern;
+
+import javax.xml.stream.FactoryConfigurationError;
 
 public class EndpointArtifactDeleteParticipant extends DeleteParticipant{
 	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
@@ -60,8 +71,19 @@ public class EndpointArtifactDeleteParticipant extends DeleteParticipant{
 	        	try {
 					IFile pomFile = project.getFile("pom.xml");
 					MavenProject mavenProject = RefactorUtils.getMavenProject(project);
-					Dependency projectDependency = RefactorUtils.getDependencyForTheProject(originalFile);
-					projectDependency.setArtifactId(originalFile.getName().substring(0,originalFile.getName().length()-originalFile.getFileExtension().length()-1));
+					
+					ESBArtifact esbArtifactFromFile = RefactorUtils.getESBArtifactFromFile(originalFile, "org.wso2.developerstudio.eclipse.esb.project.nature");
+					Dependency projectDependency = null;
+					
+					if(esbArtifactFromFile != null){
+						projectDependency = new Dependency();
+						projectDependency.setGroupId(esbArtifactFromFile.getGroupId());
+						projectDependency.setArtifactId(originalFile.getName().substring(0,originalFile.getName().length()-originalFile.getFileExtension().length()-1));
+						projectDependency.setVersion(esbArtifactFromFile.getVersion());
+					}else{
+						projectDependency = RefactorUtils.getDependencyForTheProject(originalFile);
+						projectDependency.setArtifactId(originalFile.getName().substring(0,originalFile.getName().length()-originalFile.getFileExtension().length()-1));
+					}
 					
 					List<?> dependencies = mavenProject.getDependencies();
 					for (Iterator<?> iterator = dependencies.iterator(); iterator.hasNext();) {
@@ -96,8 +118,36 @@ public class EndpointArtifactDeleteParticipant extends DeleteParticipant{
 	@Override
     public Change createChange(IProgressMonitor arg0) throws CoreException,
                                                      OperationCanceledException {
-	    // TODO Auto-generated method stub
-	    return null;
+		CompositeChange deleteChange=new CompositeChange("Delete ESB Graphical Artifact Metadata");
+		
+		IProject esbProject = originalFile.getProject();
+		esbProject.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
+		
+		ESBArtifact esbArtifact = RefactorUtils.getESBArtifactFromFile(originalFile, "org.wso2.developerstudio.eclipse.esb.project.nature");
+		
+		if(esbArtifact != null){
+			String type=esbArtifact.getType().substring("synapse/".length());
+			String path=type;
+			String prefix=type;
+			if(type.equalsIgnoreCase("proxy-service")){
+				path="proxy-services";
+				prefix="proxy";
+			}else if(type.equalsIgnoreCase("local-entry")){
+				prefix="localentry";
+				path="local-entries";
+			}
+			
+			IFile file = esbProject.getFolder("src").getFolder("main").getFolder("graphical-synapse-config").getFolder(path).getFile(prefix+"_"+originalFile.getName().substring(0, originalFile.getName().length()-3)+"esb_diagram");
+			IFile file2 = esbProject.getFolder("src").getFolder("main").getFolder("graphical-synapse-config").getFolder(path).getFile(prefix+"_"+originalFile.getName().substring(0, originalFile.getName().length()-3)+"esb");
+			DeleteResourceChange deleteResourceChange = new DeleteResourceChange(file.getFullPath(), true,true);
+			DeleteResourceChange deleteResourceChange1 = new DeleteResourceChange(file2.getFullPath(), true,true);
+			ResourcesPlugin.getWorkspace().getRoot().findMember(file.getFullPath());
+			ResourcesPlugin.getWorkspace().getRoot().findMember(file2.getFullPath());
+			deleteChange.add(deleteResourceChange);
+			deleteChange.add(deleteResourceChange1);
+		}
+		
+		return deleteChange;
     }
 
 }

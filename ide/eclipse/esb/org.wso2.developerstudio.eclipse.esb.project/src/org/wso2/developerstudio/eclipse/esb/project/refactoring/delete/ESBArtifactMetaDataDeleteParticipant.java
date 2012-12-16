@@ -18,8 +18,10 @@ package org.wso2.developerstudio.eclipse.esb.project.refactoring.delete;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.ltk.core.refactoring.Change;
 import org.eclipse.ltk.core.refactoring.CompositeChange;
@@ -41,6 +43,7 @@ public class ESBArtifactMetaDataDeleteParticipant extends DeleteParticipant {
 	public Change createChange(IProgressMonitor arg0) throws CoreException,
 	                                                 OperationCanceledException {
 		CompositeChange change = new CompositeChange("ESB Artifact Rename");
+		esbProject.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 		change.add(new ESBMetaDataFileDeleteChange(esbProject.getName(),
 		                                           esbProject.getFile("artifact.xml"), originalFile));
 		return change;

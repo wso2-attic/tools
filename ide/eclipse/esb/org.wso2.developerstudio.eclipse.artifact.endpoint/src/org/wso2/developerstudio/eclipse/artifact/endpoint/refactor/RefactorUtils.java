@@ -17,15 +17,25 @@
 package org.wso2.developerstudio.eclipse.artifact.endpoint.refactor;
 
 import java.io.File;
+import java.util.List;
+import java.util.regex.Pattern;
+
+import javax.xml.stream.FactoryConfigurationError;
 
 import org.apache.maven.model.Dependency;
 import org.apache.maven.project.MavenProject;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.NullProgressMonitor;
 import org.wso2.developerstudio.eclipse.artifact.endpoint.Activator;
+import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBArtifact;
+import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
+import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 
 public class RefactorUtils {
 	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
@@ -85,6 +95,41 @@ public class RefactorUtils {
 	public static int charsOnTheLine(String line) {
 		// Here we need to add one to represent the newline character
 		return line.length()+1;
+	}
+	
+	public static ESBArtifact getESBArtifactFromFile(IFile refactoredFile, String projectNatureFilter){
+		IProject esbProject = refactoredFile.getProject();
+		try {
+			esbProject.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
+			
+			if(esbProject.isOpen() && esbProject.hasNature(projectNatureFilter)){
+				
+				ESBProjectArtifact esbProjectArtifact = new ESBProjectArtifact();
+					esbProjectArtifact.fromFile(esbProject.getFile("artifact.xml")
+							.getLocation().toFile());
+					List<ESBArtifact> allESBArtifacts = esbProjectArtifact.getAllESBArtifacts();
+					
+					String originalFileRelativePath = FileUtils.getRelativePath(esbProject.getLocation()
+							.toFile(), refactoredFile.getLocation().toFile()).replaceAll(Pattern.quote(File.separator), "/");
+					
+					for (ESBArtifact esbArtifact : allESBArtifacts) {
+						if(esbArtifact.getFile().equals(originalFileRelativePath)){
+							return esbArtifact;
+						}
+					}
+			}
+		} catch (CoreException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (FactoryConfigurationError e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return null;
 	}
 
 }
