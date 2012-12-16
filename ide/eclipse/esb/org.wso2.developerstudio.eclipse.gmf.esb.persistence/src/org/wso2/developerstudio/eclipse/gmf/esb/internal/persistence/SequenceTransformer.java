@@ -67,6 +67,9 @@ public class SequenceTransformer extends AbstractEsbNodeTransformer{
 				subject instanceof org.wso2.developerstudio.eclipse.gmf.esb.Sequences,
 				"Invalid subject.");
 		org.wso2.developerstudio.eclipse.gmf.esb.Sequences visualSequence = (org.wso2.developerstudio.eclipse.gmf.esb.Sequences) subject;
+		if(!visualSequence.getOnError().getKeyValue().equals("")){
+			sequence.setErrorHandler(visualSequence.getOnError().getKeyValue());
+		}
 		EsbLink outgoingLink= visualSequence.getOutputConnector().getOutgoingLink();
 		doTransformWithinSequence(information, outgoingLink, sequence);	
 	}
