@@ -23,6 +23,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.Sequences#getName <em>Name</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.Sequences#isRecieveSequence <em>Recieve Sequence</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.Sequences#getAssociatedProxy <em>Associated Proxy</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.Sequences#getOnError <em>On Error</em>}</li>
  * </ul>
  * </p>
  *
@@ -125,6 +126,32 @@ public interface Sequences extends EsbElement {
 	 * @generated
 	 */
 	EList<String> getAssociatedProxy();
+
+	/**
+	 * Returns the value of the '<em><b>On Error</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>On Error</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>On Error</em>' containment reference.
+	 * @see #setOnError(RegistryKeyProperty)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getSequences_OnError()
+	 * @model containment="true"
+	 * @generated
+	 */
+	RegistryKeyProperty getOnError();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.Sequences#getOnError <em>On Error</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>On Error</em>' containment reference.
+	 * @see #getOnError()
+	 * @generated
+	 */
+	void setOnError(RegistryKeyProperty value);
 
 	/**
 	 * Returns the value of the '<em><b>Output Connector</b></em>' containment reference.

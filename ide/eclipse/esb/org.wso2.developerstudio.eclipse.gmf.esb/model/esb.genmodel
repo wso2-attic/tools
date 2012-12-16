@@ -1442,6 +1442,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//Sequences/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//Sequences/recieveSequence"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//Sequences/associatedProxy"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//Sequences/onError"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//SequencesOutputConnector"/>
     <genClasses ecoreClass="esb.ecore#//SequencesInputConnector"/>

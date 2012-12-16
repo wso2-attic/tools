@@ -11522,6 +11522,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getSequences_OnError() {
+		return (EReference)sequencesEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getSequences_OutputConnector() {
 		return (EReference)sequencesEClass.getEStructuralFeatures().get(0);
 	}
@@ -13588,6 +13597,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEAttribute(sequencesEClass, SEQUENCES__NAME);
 		createEAttribute(sequencesEClass, SEQUENCES__RECIEVE_SEQUENCE);
 		createEAttribute(sequencesEClass, SEQUENCES__ASSOCIATED_PROXY);
+		createEReference(sequencesEClass, SEQUENCES__ON_ERROR);
 
 		sequencesOutputConnectorEClass = createEClass(SEQUENCES_OUTPUT_CONNECTOR);
 
@@ -15237,6 +15247,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEAttribute(getSequences_Name(), ecorePackage.getEString(), "name", null, 0, 1, Sequences.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSequences_RecieveSequence(), ecorePackage.getEBoolean(), "recieveSequence", null, 0, 1, Sequences.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSequences_AssociatedProxy(), ecorePackage.getEString(), "associatedProxy", null, 0, -1, Sequences.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSequences_OnError(), this.getRegistryKeyProperty(), null, "onError", null, 0, 1, Sequences.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sequencesOutputConnectorEClass, SequencesOutputConnector.class, "SequencesOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

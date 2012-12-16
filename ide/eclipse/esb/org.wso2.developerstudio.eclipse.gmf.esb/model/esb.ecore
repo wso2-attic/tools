@@ -1895,6 +1895,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="recieveSequence" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="associatedProxy" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="onError" eType="#//RegistryKeyProperty"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SequencesOutputConnector" eSuperTypes="#//OutputConnector"/>
   <eClassifiers xsi:type="ecore:EClass" name="SequencesInputConnector" eSuperTypes="#//InputConnector"/>

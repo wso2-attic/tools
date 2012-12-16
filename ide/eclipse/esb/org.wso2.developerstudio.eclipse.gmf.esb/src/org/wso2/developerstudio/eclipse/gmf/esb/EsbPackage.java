@@ -13144,13 +13144,22 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	int SEQUENCES__ASSOCIATED_PROXY = ESB_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>On Error</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEQUENCES__ON_ERROR = ESB_ELEMENT_FEATURE_COUNT + 6;
+
+	/**
 	 * The number of structural features of the '<em>Sequences</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEQUENCES_FEATURE_COUNT = ESB_ELEMENT_FEATURE_COUNT + 6;
+	int SEQUENCES_FEATURE_COUNT = ESB_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SequencesOutputConnectorImpl <em>Sequences Output Connector</em>}' class.
@@ -26189,6 +26198,17 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	EAttribute getSequences_AssociatedProxy();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.Sequences#getOnError <em>On Error</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>On Error</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.Sequences#getOnError()
+	 * @see #getSequences()
+	 * @generated
+	 */
+	EReference getSequences_OnError();
+
+	/**
 	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.Sequences#getOutputConnector <em>Output Connector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -35368,6 +35388,14 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		 * @generated
 		 */
 		EAttribute SEQUENCES__ASSOCIATED_PROXY = eINSTANCE.getSequences_AssociatedProxy();
+
+		/**
+		 * The meta object literal for the '<em><b>On Error</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SEQUENCES__ON_ERROR = eINSTANCE.getSequences_OnError();
 
 		/**
 		 * The meta object literal for the '<em><b>Output Connector</b></em>' containment reference feature.

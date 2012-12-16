@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.MediatorFlow;
+import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequences;
 import org.wso2.developerstudio.eclipse.gmf.esb.SequencesInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.SequencesOutputConnector;
@@ -34,6 +35,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.SequencesOutputConnector;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SequencesImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SequencesImpl#isRecieveSequence <em>Recieve Sequence</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SequencesImpl#getAssociatedProxy <em>Associated Proxy</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SequencesImpl#getOnError <em>On Error</em>}</li>
  * </ul>
  * </p>
  *
@@ -117,12 +119,27 @@ public class SequencesImpl extends EsbElementImpl implements Sequences {
 	protected EList<String> associatedProxy;
 
 	/**
+	 * The cached value of the '{@link #getOnError() <em>On Error</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @see #getOnError()
 	 * @generated
+	 * @ordered
+	 */
+	protected RegistryKeyProperty onError;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
 	 */
 	protected SequencesImpl() {
 		super();
+		RegistryKeyProperty sequenceKey = EsbFactoryImpl.eINSTANCE.createRegistryKeyProperty();
+		sequenceKey.setKeyName("OnError sequence Key");
+		sequenceKey.setPrettyName("OnError sequence Key");
+		sequenceKey.setKeyValue("");
+		setOnError(sequenceKey);
 	}
 
 	/**
@@ -237,6 +254,49 @@ public class SequencesImpl extends EsbElementImpl implements Sequences {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public RegistryKeyProperty getOnError() {
+		return onError;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetOnError(RegistryKeyProperty newOnError, NotificationChain msgs) {
+		RegistryKeyProperty oldOnError = onError;
+		onError = newOnError;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.SEQUENCES__ON_ERROR, oldOnError, newOnError);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOnError(RegistryKeyProperty newOnError) {
+		if (newOnError != onError) {
+			NotificationChain msgs = null;
+			if (onError != null)
+				msgs = ((InternalEObject)onError).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.SEQUENCES__ON_ERROR, null, msgs);
+			if (newOnError != null)
+				msgs = ((InternalEObject)newOnError).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.SEQUENCES__ON_ERROR, null, msgs);
+			msgs = basicSetOnError(newOnError, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.SEQUENCES__ON_ERROR, newOnError, newOnError));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public SequencesOutputConnector getOutputConnector() {
 		return outputConnector;
 	}
@@ -332,6 +392,8 @@ public class SequencesImpl extends EsbElementImpl implements Sequences {
 				return basicSetInputConnector(null, msgs);
 			case EsbPackage.SEQUENCES__MEDIATOR_FLOW:
 				return basicSetMediatorFlow(null, msgs);
+			case EsbPackage.SEQUENCES__ON_ERROR:
+				return basicSetOnError(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -356,6 +418,8 @@ public class SequencesImpl extends EsbElementImpl implements Sequences {
 				return isRecieveSequence();
 			case EsbPackage.SEQUENCES__ASSOCIATED_PROXY:
 				return getAssociatedProxy();
+			case EsbPackage.SEQUENCES__ON_ERROR:
+				return getOnError();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -388,6 +452,9 @@ public class SequencesImpl extends EsbElementImpl implements Sequences {
 				getAssociatedProxy().clear();
 				getAssociatedProxy().addAll((Collection<? extends String>)newValue);
 				return;
+			case EsbPackage.SEQUENCES__ON_ERROR:
+				setOnError((RegistryKeyProperty)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -418,6 +485,9 @@ public class SequencesImpl extends EsbElementImpl implements Sequences {
 			case EsbPackage.SEQUENCES__ASSOCIATED_PROXY:
 				getAssociatedProxy().clear();
 				return;
+			case EsbPackage.SEQUENCES__ON_ERROR:
+				setOnError((RegistryKeyProperty)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -442,6 +512,8 @@ public class SequencesImpl extends EsbElementImpl implements Sequences {
 				return recieveSequence != RECIEVE_SEQUENCE_EDEFAULT;
 			case EsbPackage.SEQUENCES__ASSOCIATED_PROXY:
 				return associatedProxy != null && !associatedProxy.isEmpty();
+			case EsbPackage.SEQUENCES__ON_ERROR:
+				return onError != null;
 		}
 		return super.eIsSet(featureID);
 	}
