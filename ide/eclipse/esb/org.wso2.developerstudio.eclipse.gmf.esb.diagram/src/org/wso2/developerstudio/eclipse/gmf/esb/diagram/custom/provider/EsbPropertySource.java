@@ -227,6 +227,8 @@ public class EsbPropertySource extends PropertySource {
 
 		} else if (pkg.getScriptMediator_ScriptStaticKey().equals(feature)) {
 			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
+		} else if(pkg.getSequences_OnError().equals(feature)){
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
 		}
 			
 		// Else, default EMF behavior

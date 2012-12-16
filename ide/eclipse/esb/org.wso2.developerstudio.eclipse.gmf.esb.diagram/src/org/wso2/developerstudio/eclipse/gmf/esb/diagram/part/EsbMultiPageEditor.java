@@ -16,8 +16,10 @@ import java.io.File;
 import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
@@ -37,12 +39,14 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramEditDomain;
 import org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramGraphicalViewer;
 import org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramWorkbenchPart;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDocumentEditor;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDocumentProvider;
 import org.eclipse.gmf.runtime.notation.Diagram;
+import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.impl.NodeImpl;
 import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.jface.dialogs.MessageDialog;
@@ -80,7 +84,10 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbServer;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequences;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer.Deserializer;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.utils.EndPointDuplicator;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbLinkEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.EsbModelTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.SequenceInfo;
@@ -439,6 +446,52 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 			}
 		}
 	}
+	
+	private void updateAssociatedDiagrams() {
+		
+		EsbDiagram diagram = (EsbDiagram) graphicalEditor.getDiagram().getElement();
+		EsbServer server = diagram.getServer();
+		switch (server.getType()) {
+		case SEQUENCE:
+			Object child = server.getChildren().get(0);
+			if (child instanceof Sequences) {
+				IFileEditorInput input = (IFileEditorInput) this.getEditorInput();
+				IFile file = input.getFile();
+
+				IEditorReference editorReferences[] = PlatformUI.getWorkbench()
+						.getActiveWorkbenchWindow().getActivePage().getEditorReferences();
+				for (int i = 0; i < editorReferences.length; i++) {
+					IEditorPart editor = editorReferences[i].getEditor(false);
+					if ((editor instanceof EsbMultiPageEditor)&&(!editor.equals(this))) {
+						Map registry = ((EsbMultiPageEditor) editor).getDiagramEditPart()
+								.getViewer().getEditPartRegistry();
+
+						
+						Collection<Object> values=new ArrayList<Object>();
+						values.addAll(registry.values());
+						
+						for (int j = 0; j < values.size(); ++j) {
+							EditPart element = (EditPart) values.toArray()[j];
+							if (element instanceof SequenceEditPart) {
+								String key = ((Sequence) ((Node) element.getModel()).getElement())
+										.getName();
+								String name = ((Sequences) child).getName();
+								if (key.equals(name)) {
+									EndPointDuplicator endPointDuplicator = new EndPointDuplicator(file.getProject(),
+											((EsbMultiPageEditor) editor).graphicalEditor);
+									GraphicalEditPart rootCompartment = EditorUtils
+											.getSequenceAndEndpointCompartmentEditPart(element);
+									endPointDuplicator.duplicateEndPoints(rootCompartment,
+											((Sequences) child).getName());
+								}
+							}
+						}
+					}
+				}
+			}
+			break;
+		}
+	}
     
 
 	/**
@@ -451,6 +504,7 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
     	sourceDirty=false;
         getEditor(0).doSave(monitor);
         updateAssociatedXMLFile(monitor);
+        //updateAssociatedDiagrams();
     }
     
 
