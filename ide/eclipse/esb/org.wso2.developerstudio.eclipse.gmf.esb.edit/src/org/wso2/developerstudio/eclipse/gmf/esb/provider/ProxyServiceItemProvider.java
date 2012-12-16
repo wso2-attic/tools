@@ -59,15 +59,16 @@ public class ProxyServiceItemProvider
 	 */
 	
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		
-		ProxyService proxy = (ProxyService) object;	
-		
+
+		ProxyService proxy = (ProxyService) object;
+
 		if (itemPropertyDescriptors != null) {
 			itemPropertyDescriptors.clear();
 		}
 
 		super.getPropertyDescriptors(object);
-		
+
+		if (!proxy.isMainSequence()) {
 			addNamePropertyDescriptor(object);
 			addPinnedServersPropertyDescriptor(object);
 			addServiceGroupPropertyDescriptor(object);
@@ -76,64 +77,62 @@ public class ProxyServiceItemProvider
 			addTransportsPropertyDescriptor(object);
 			addReliableMessagingEnabledPropertyDescriptor(object);
 			addSecurityEnabledPropertyDescriptor(object);
-			//addWsdlTypePropertyDescriptor(object);			
-			
+			// addWsdlTypePropertyDescriptor(object);
 			// WSDL Type.
 			addWsdlTypePropertyDescriptor(object);
 			switch (proxy.getWsdlType()) {
-				case INLINE: {
-					addWsdlXMLPropertyDescriptor(object);
-					break;
-				}
-				
-				case SOURCE_URL: {
-					addWsdlURLPropertyDescriptor(object);
-					break;
-				}
-				
-				case REGISTRY_KEY: {
-					addWsdlKeyPropertyDescriptor(object);
-					break;
-				}
+			case INLINE: {
+				addWsdlXMLPropertyDescriptor(object);
+				break;
 			}
-			if(proxy.getWsdlType()!=ProxyWsdlType.NONE){
+
+			case SOURCE_URL: {
+				addWsdlURLPropertyDescriptor(object);
+				break;
+			}
+
+			case REGISTRY_KEY: {
+				addWsdlKeyPropertyDescriptor(object);
+				break;
+			}
+			}
+			if (proxy.getWsdlType() != ProxyWsdlType.NONE) {
 				addWsdlResourcesPropertyDescriptor(object);
 			}
-			
 			addInSequenceTypePropertyDescriptor(object);
-			switch (proxy.getInSequenceType()){
-				case REGISTRY_REFERENCE:{
-					addInSequenceKeyPropertyDescriptor(object);
-					break;
-				}
-				case NAMED_REFERENCE:{
-					addInSequenceNamePropertyDescriptor(object);
-					break;
-				}
+			switch (proxy.getInSequenceType()) {
+			case REGISTRY_REFERENCE: {
+				addInSequenceKeyPropertyDescriptor(object);
+				break;
+			}
+			case NAMED_REFERENCE: {
+				addInSequenceNamePropertyDescriptor(object);
+				break;
+			}
 			}
 			addOutSequenceTypePropertyDescriptor(object);
 			switch (proxy.getOutSequenceType()) {
-				case REGISTRY_REFERENCE: {
-					addOutSequenceKeyPropertyDescriptor(object);
-					break;
-				}
-				case NAMED_REFERENCE: {
-					addOutSequenceNamePropertyDescriptor(object);
-					break;
-				}
-				}
+			case REGISTRY_REFERENCE: {
+				addOutSequenceKeyPropertyDescriptor(object);
+				break;
+			}
+			case NAMED_REFERENCE: {
+				addOutSequenceNamePropertyDescriptor(object);
+				break;
+			}
+			}
 			addFaultSequenceTypePropertyDescriptor(object);
-			switch (proxy.getFaultSequenceType()){
-				case REGISTRY_REFERENCE:{
-					addFaultSequenceKeyPropertyDescriptor(object);
-					break;
-				}
-				case NAMED_REFERENCE:{
-					addFaultSequenceNamePropertyDescriptor(object);
-					break;
-				}
+			switch (proxy.getFaultSequenceType()) {
+			case REGISTRY_REFERENCE: {
+				addFaultSequenceKeyPropertyDescriptor(object);
+				break;
+			}
+			case NAMED_REFERENCE: {
+				addFaultSequenceNamePropertyDescriptor(object);
+				break;
+			}
+			}
 		}
-		
 		return itemPropertyDescriptors;
 	}
 
