@@ -19,6 +19,7 @@ package org.wso2.developerstudio.eclipse.artifact.endpoint.refactor;
 import org.apache.maven.model.Dependency;
 import org.apache.maven.project.MavenProject;
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -137,14 +138,27 @@ public class EndpointArtifactDeleteParticipant extends DeleteParticipant{
 				path="local-entries";
 			}
 			
-			IFile file = esbProject.getFolder("src").getFolder("main").getFolder("graphical-synapse-config").getFolder(path).getFile(prefix+"_"+originalFile.getName().substring(0, originalFile.getName().length()-3)+"esb_diagram");
-			IFile file2 = esbProject.getFolder("src").getFolder("main").getFolder("graphical-synapse-config").getFolder(path).getFile(prefix+"_"+originalFile.getName().substring(0, originalFile.getName().length()-3)+"esb");
-			DeleteResourceChange deleteResourceChange = new DeleteResourceChange(file.getFullPath(), true,true);
-			DeleteResourceChange deleteResourceChange1 = new DeleteResourceChange(file2.getFullPath(), true,true);
-			ResourcesPlugin.getWorkspace().getRoot().findMember(file.getFullPath());
-			ResourcesPlugin.getWorkspace().getRoot().findMember(file2.getFullPath());
-			deleteChange.add(deleteResourceChange);
-			deleteChange.add(deleteResourceChange1);
+			IFolder graphicalArtifactFolder = esbProject.getFolder("src").getFolder("main").getFolder("graphical-synapse-config");
+			if (graphicalArtifactFolder.exists()) {
+				IFile file = graphicalArtifactFolder.getFolder(path).getFile(
+						prefix
+								+ "_"
+								+ originalFile.getName().substring(0,
+										originalFile.getName().length() - 3)
+								+ "esb_diagram");
+				IFile file2 = graphicalArtifactFolder.getFolder(path).getFile(
+						prefix
+								+ "_"
+								+ originalFile.getName().substring(0,
+										originalFile.getName().length() - 3)
+								+ "esb");
+				DeleteResourceChange deleteResourceChange = new DeleteResourceChange(
+						file.getFullPath(), true, true);
+				DeleteResourceChange deleteResourceChange1 = new DeleteResourceChange(
+						file2.getFullPath(), true, true);
+				deleteChange.add(deleteResourceChange);
+				deleteChange.add(deleteResourceChange1);
+			}
 		}
 		
 		return deleteChange;
