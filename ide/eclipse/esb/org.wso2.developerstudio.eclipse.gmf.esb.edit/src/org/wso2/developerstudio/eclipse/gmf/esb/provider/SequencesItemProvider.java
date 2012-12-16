@@ -55,17 +55,19 @@ public class SequencesItemProvider
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
-			super.getPropertyDescriptors(object);
-
-			addNamePropertyDescriptor(object);
-			addRecieveSequencePropertyDescriptor(object);
-			addAssociatedProxyPropertyDescriptor(object);
+		if (itemPropertyDescriptors != null) {
+			itemPropertyDescriptors.clear();
 		}
+		super.getPropertyDescriptors(object);
+
+		addNamePropertyDescriptor(object);
+		//addRecieveSequencePropertyDescriptor(object);
+		//addAssociatedProxyPropertyDescriptor(object);
+		addOnErrorPropertyDescriptor(object);
 		return itemPropertyDescriptors;
 	}
 
@@ -136,6 +138,28 @@ public class SequencesItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the On Error feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOnErrorPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Sequences_onError_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Sequences_onError_feature", "_UI_Sequences_type"),
+				 EsbPackage.Literals.SEQUENCES__ON_ERROR,
+				 true,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -150,6 +174,7 @@ public class SequencesItemProvider
 			childrenFeatures.add(EsbPackage.Literals.SEQUENCES__OUTPUT_CONNECTOR);
 			childrenFeatures.add(EsbPackage.Literals.SEQUENCES__INPUT_CONNECTOR);
 			childrenFeatures.add(EsbPackage.Literals.SEQUENCES__MEDIATOR_FLOW);
+			childrenFeatures.add(EsbPackage.Literals.SEQUENCES__ON_ERROR);
 		}
 		return childrenFeatures;
 	}
@@ -212,6 +237,7 @@ public class SequencesItemProvider
 			case EsbPackage.SEQUENCES__OUTPUT_CONNECTOR:
 			case EsbPackage.SEQUENCES__INPUT_CONNECTOR:
 			case EsbPackage.SEQUENCES__MEDIATOR_FLOW:
+			case EsbPackage.SEQUENCES__ON_ERROR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -243,6 +269,11 @@ public class SequencesItemProvider
 			(createChildParameter
 				(EsbPackage.Literals.SEQUENCES__MEDIATOR_FLOW,
 				 EsbFactory.eINSTANCE.createMediatorFlow()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.SEQUENCES__ON_ERROR,
+				 EsbFactory.eINSTANCE.createRegistryKeyProperty()));
 	}
 
 }
