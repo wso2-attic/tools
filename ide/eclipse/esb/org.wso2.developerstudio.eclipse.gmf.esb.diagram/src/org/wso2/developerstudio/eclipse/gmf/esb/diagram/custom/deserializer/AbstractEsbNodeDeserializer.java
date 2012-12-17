@@ -51,6 +51,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.runtime.notation.impl.ConnectorImpl;
 import org.wso2.developerstudio.eclipse.gmf.esb.APIResource;
 import org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.AddressingEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
@@ -200,7 +201,8 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 				}
 			}
 		}
-		//looking for other possible connections
+		//looking for other possible connections  : around 1
+		//Connecting endpoints to last node of out-sequence  
 		Iterator<EsbConnector> iterator = getRootInputConnectors().iterator();
 		while (iterator.hasNext()) {
 			EsbConnector rootConnector = iterator.next();
@@ -227,6 +229,37 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 						}
 					}
 				}
+		}
+		
+		//looking for other possible connections : around 2
+		//Connecting send mediators to an inline endpoint or a dummy endpoint
+		EsbNode targetNode = null;
+		List<EsbNode> sourceNodes = new LinkedList<EsbNode>();
+		for (LinkedList<EsbNode> nodes : connectionFlowMap.values()) {
+			if (targetNode==null) {
+				if (nodes.size() > 0 && nodes.getLast() instanceof AbstractEndPoint) {
+					AbstractEndPoint endPoint = (AbstractEndPoint) nodes.getLast();
+					if (endPoint instanceof AddressingEndpoint || endPoint.isInLine()) {
+						targetNode = endPoint;
+					}
+				}
+			}
+			
+			if (nodes.size() > 0 && nodes.getLast() instanceof SendMediator) {
+				sourceNodes.add(nodes.getLast());
+			}
+		}
+		
+		if(targetNode!=null && sourceNodes.size()>0){
+			AbstractConnectorEditPart targetConnector = EditorUtils
+			.getInputConnector((ShapeNodeEditPart) getEditpart(targetNode));
+			for (EsbNode sourceNode : sourceNodes) {
+				AbstractConnectorEditPart sourceConnector = EditorUtils
+				.getOutputConnector((ShapeNodeEditPart) getEditpart(sourceNode));
+				if (sourceConnector != null && targetConnector != null) {
+					ConnectionUtils.createConnection(targetConnector, sourceConnector);
+				}
+			}
 		}
 
 	}
