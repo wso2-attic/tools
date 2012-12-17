@@ -98,6 +98,7 @@ public class RouterMediatorTransformer extends AbstractEsbNodeTransformer {
 				newOnCompleteInfo.setSynapseConfiguration(information.getSynapseConfiguration());
 				newOnCompleteInfo.setOriginInSequence(information.getOriginInSequence());
 				newOnCompleteInfo.setOriginOutSequence(information.getOriginOutSequence());
+				newOnCompleteInfo.setCurrentProxy(information.getCurrentProxy());
 				newOnCompleteInfo.setParentSequence(targetSequence);
 				doTransform(newOnCompleteInfo, routerModel.getTargetOutputConnector().get(i));
 

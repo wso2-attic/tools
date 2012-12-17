@@ -81,7 +81,7 @@ public class SendMediatorDeserializer extends AbstractEsbNodeDeserializer<Abstra
 			visualSendMediator.setNextNode(visualEndPoint);
 		} else if (!isReversed()){
 			AddressingEndpoint visualEndPoint = (AddressingEndpoint) DeserializerUtils.createNode(
-					part, EsbElementTypes.AddressingEndpoint_3689);
+					getRootCompartment(), EsbElementTypes.AddressingEndpoint_3689);
 			visualSendMediator.setNextNode(visualEndPoint);
 			refreshEditPartMap();
 		}

@@ -100,6 +100,7 @@ public class CacheMediatorTransformer extends AbstractEsbNodeTransformer {
 				newOnCacheHitInfo.setSynapseConfiguration(info.getSynapseConfiguration());
 				newOnCacheHitInfo.setOriginInSequence(info.getOriginInSequence());
 				newOnCacheHitInfo.setOriginOutSequence(info.getOriginOutSequence());
+				newOnCacheHitInfo.setCurrentProxy(info.getCurrentProxy());
 				newOnCacheHitInfo.setParentSequence(onCacheHitSequence);
 				doTransform(newOnCacheHitInfo, visualCache.getOnHitOutputConnector());
 

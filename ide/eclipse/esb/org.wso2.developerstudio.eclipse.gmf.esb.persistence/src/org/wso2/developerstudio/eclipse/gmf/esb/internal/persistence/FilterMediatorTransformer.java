@@ -102,6 +102,7 @@ public class FilterMediatorTransformer extends AbstractEsbNodeTransformer {
 		newThenInfo.setSynapseConfiguration(info.getSynapseConfiguration());
 		newThenInfo.setOriginInSequence(info.getOriginInSequence());
 		newThenInfo.setOriginOutSequence(info.getOriginOutSequence());
+		newThenInfo.setCurrentProxy(info.getCurrentProxy());
 		newThenInfo.setParentSequence(filterMediator);
 		doTransform(newThenInfo, visualFilter.getPassOutputConnector());		
 		
@@ -114,6 +115,7 @@ public class FilterMediatorTransformer extends AbstractEsbNodeTransformer {
 		newElseInfo.setSynapseConfiguration(info.getSynapseConfiguration());
 		newElseInfo.setOriginInSequence(info.getOriginInSequence());
 		newElseInfo.setOriginOutSequence(info.getOriginOutSequence());
+		newElseInfo.setCurrentProxy(info.getCurrentProxy());
 		newElseInfo.setParentSequence(elseMediator);
 		doTransform(newElseInfo, visualFilter.getFailOutputConnector());
 		

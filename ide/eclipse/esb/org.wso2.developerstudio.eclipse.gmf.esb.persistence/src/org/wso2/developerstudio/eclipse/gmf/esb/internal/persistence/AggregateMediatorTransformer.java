@@ -192,6 +192,7 @@ public class AggregateMediatorTransformer extends AbstractEsbNodeTransformer {
 				newOnCompleteInfo.setSynapseConfiguration(information.getSynapseConfiguration());
 				newOnCompleteInfo.setOriginInSequence(information.getOriginInSequence());
 				newOnCompleteInfo.setOriginOutSequence(information.getOriginOutSequence());
+				newOnCompleteInfo.setCurrentProxy(information.getCurrentProxy());
 				newOnCompleteInfo.setParentSequence(onCompleteSequence);
 				doTransform(newOnCompleteInfo, visualAggregate.getOnCompleteOutputConnector());
 

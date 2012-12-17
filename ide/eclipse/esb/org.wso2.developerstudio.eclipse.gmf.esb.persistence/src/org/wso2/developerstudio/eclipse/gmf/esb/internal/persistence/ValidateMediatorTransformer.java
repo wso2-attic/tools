@@ -115,6 +115,7 @@ public class ValidateMediatorTransformer  extends AbstractEsbNodeTransformer {
 		newOnFailInfo.setSynapseConfiguration(information.getSynapseConfiguration());
 		newOnFailInfo.setOriginInSequence(information.getOriginInSequence());
 		newOnFailInfo.setOriginOutSequence(information.getOriginOutSequence());
+		newOnFailInfo.setCurrentProxy(information.getCurrentProxy());
 		newOnFailInfo.setParentSequence(onFailMediatorList);
 		doTransform(newOnFailInfo, visualValidateMediator.getOnFailOutputConnector());
 		validateMediator.addAll(onFailMediatorList.getList());

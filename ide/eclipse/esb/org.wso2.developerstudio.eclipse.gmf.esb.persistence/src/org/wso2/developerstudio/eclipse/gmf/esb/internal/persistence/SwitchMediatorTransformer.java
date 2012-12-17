@@ -93,6 +93,7 @@ public class SwitchMediatorTransformer extends AbstractEsbNodeTransformer {
 			switchMediator.addCase(switchCase);
 			TransformationInfo newInfo = new TransformationInfo();
 			//newInfo.setTraversalDirection(TransformationInfo.TRAVERSAL_DIRECTION_IN);
+			newInfo.setCurrentProxy(info.getCurrentProxy());
 			newInfo.setTraversalDirection(info.getTraversalDirection());
 			newInfo.setSynapseConfiguration(info.getSynapseConfiguration());
 			newInfo.setOriginInSequence(info.getOriginInSequence());
@@ -107,6 +108,7 @@ public class SwitchMediatorTransformer extends AbstractEsbNodeTransformer {
 		switchMediator.setDefaultCase(switchCase);
 		TransformationInfo newInfo = new TransformationInfo();
 		//newInfo.setTraversalDirection(TransformationInfo.TRAVERSAL_DIRECTION_IN);
+		newInfo.setCurrentProxy(info.getCurrentProxy());
 		newInfo.setTraversalDirection(info.getTraversalDirection());
 		newInfo.setSynapseConfiguration(info.getSynapseConfiguration());
 		newInfo.setOriginInSequence(info.getOriginInSequence());

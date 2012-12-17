@@ -100,6 +100,7 @@ public class IterateMediatorTransformer extends AbstractEsbNodeTransformer{
 			newInfo.setSynapseConfiguration(information.getSynapseConfiguration());
 			newInfo.setOriginInSequence(information.getOriginInSequence());
 			newInfo.setOriginOutSequence(information.getOriginOutSequence());
+			newInfo.setCurrentProxy(information.getCurrentProxy());
 			newInfo.setParentSequence(targetSequence);
 			doTransform(newInfo,visualIterate.getTargetOutputConnector());
 			

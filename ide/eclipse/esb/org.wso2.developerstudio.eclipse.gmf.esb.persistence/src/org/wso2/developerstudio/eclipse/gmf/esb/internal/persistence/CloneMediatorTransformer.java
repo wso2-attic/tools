@@ -96,6 +96,7 @@ public class CloneMediatorTransformer extends AbstractEsbNodeTransformer {
 							.getOriginInSequence());
 					newInfo.setOriginOutSequence(information
 							.getOriginOutSequence());
+					newInfo.setCurrentProxy(information.getCurrentProxy());
 					newInfo.setParentSequence(targetSequence);
 					doTransform(newInfo, outputConnector);
 
