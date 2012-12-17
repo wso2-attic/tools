@@ -88,6 +88,8 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 	private static List<EsbConnector> rootInputConnectors = new ArrayList<EsbConnector>();
 	private EObject elementToEdit;
 	private boolean reversed;
+	private static boolean hasInlineEndPoint;
+	private static boolean addedAddressingEndPoint;
 	
 	public void setElementToEdit(EObject elementToEdit) {
 		this.elementToEdit = elementToEdit;
@@ -614,6 +616,26 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 
 	public void setReversed(boolean reversed) {
 		this.reversed = reversed;
+	}
+
+	protected static LinkedList<EsbNode> getConnectionFlow(EsbConnector connector) {
+		return connectionFlowMap.get(connector);
+	}
+
+	protected static void setHasInlineEndPoint(boolean hasInlineEndPoint) {
+		AbstractEsbNodeDeserializer.hasInlineEndPoint = hasInlineEndPoint;
+	}
+
+	protected static boolean hasInlineEndPoint() {
+		return hasInlineEndPoint;
+	}
+
+	protected static void setAddedAddressingEndPoint(boolean addedAddressingEndPoint) {
+		AbstractEsbNodeDeserializer.addedAddressingEndPoint = addedAddressingEndPoint;
+	}
+
+	protected static boolean isAddedAddressingEndPoint() {
+		return addedAddressingEndPoint;
 	}
 	
 }

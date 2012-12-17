@@ -16,16 +16,20 @@
 
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 
+import java.io.ObjectInputStream.GetField;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import org.apache.synapse.config.xml.EntrySerializer;
+
 import org.apache.synapse.core.axis2.ProxyService;
+import org.apache.synapse.endpoints.Endpoint;
+import org.apache.synapse.endpoints.IndirectEndpoint;
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.MediatorFlow;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceParameter;
@@ -63,6 +67,11 @@ public class ProxyServiceDeserializer extends AbstractEsbNodeDeserializer<ProxyS
 		}else{
 			executeSetValueCommand(PROXY_SERVICE__WSDL_TYPE, ProxyWsdlType.NONE);
 			hasPublishWsdl=false;
+		}
+		
+		Endpoint targetInLineEndpoint = object.getTargetInLineEndpoint();
+		if(object.getTargetEndpoint()!=null || targetInLineEndpoint!=null){
+			setHasInlineEndPoint(true);
 		}
 		
 		if(hasPublishWsdl && object.getResourceMap()!=null){
@@ -107,7 +116,28 @@ public class ProxyServiceDeserializer extends AbstractEsbNodeDeserializer<ProxyS
 		if(inSequence!=null){	
 			setRootCompartment(compartment);	
 			deserializeSequence(compartment, inSequence, proxy.getOutputConnector());
+			if (hasInlineEndPoint()) {
+				if (object.getTargetEndpoint() != null) {
+					IndirectEndpoint indirectEndpoint = new IndirectEndpoint();
+					indirectEndpoint.setKey(object.getTargetEndpoint());
+					targetInLineEndpoint = indirectEndpoint;
+				}
+				@SuppressWarnings("rawtypes")
+				IEsbNodeDeserializer deserializer = EsbDeserializerRegistry.getInstance()
+						.getDeserializer(targetInLineEndpoint);
+
+				if (deserializer != null) {
+					@SuppressWarnings("unchecked")
+					AbstractEndPoint endPointModel = (AbstractEndPoint) deserializer.createNode(
+							getRootCompartment(), targetInLineEndpoint);
+					executeSetValueCommand(endPointModel, END_POINT__IN_LINE, true);
+					getConnectionFlow(proxy.getOutputConnector()).add(endPointModel);
+				}
+
+			}
+			setHasInlineEndPoint(false);
 			setRootCompartment(null);	
+			setAddedAddressingEndPoint(false);
 		} else{
 			String inSequenceName = object.getTargetInSequence();
 			if(inSequenceName!=null){
