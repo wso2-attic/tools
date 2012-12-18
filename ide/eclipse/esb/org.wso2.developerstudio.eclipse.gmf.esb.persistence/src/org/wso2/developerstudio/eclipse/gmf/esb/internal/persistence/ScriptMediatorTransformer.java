@@ -8,6 +8,7 @@ import java.util.TreeMap;
 import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.mediators.Value;
 import org.apache.synapse.mediators.base.SequenceMediator;
+import org.apache.synapse.util.xpath.SynapseXPath;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
@@ -64,9 +65,10 @@ public class ScriptMediatorTransformer extends AbstractEsbNodeTransformer {
 			Value value=null;
 		    if(keyType.getValue()==keyType.STATIC_KEY_VALUE){	
 		    	value = new Value(visualScript.getScriptStaticKey().getKeyValue());
+		    	 
 		    }else{
-		    	
-		       value = new Value(visualScript.getScriptDynamicKey().getPropertyValue());
+		    	SynapseXPath synapseXPath = new SynapseXPath(visualScript.getScriptDynamicKey().getPropertyValue());
+		        value = new Value(synapseXPath);
 		    }
 			scriptMediator = new org.apache.synapse.mediators.bsf.ScriptMediator(language,includeMap,value,visualScript.getMediateFunction());
 		}

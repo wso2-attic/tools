@@ -19,6 +19,7 @@ import org.eclipse.gmf.runtime.diagram.ui.commands.DeferredLayoutCommand;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.commands.SetViewMutabilityCommand;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CanonicalEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateConnectionViewRequest;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewRequest;
@@ -29,6 +30,7 @@ import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.*;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramUpdater;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbLinkDescriptor;
@@ -186,6 +188,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 		Collection<EsbLinkDescriptor> linkDescriptors = collectAllLinks(getDiagram(),
 				domain2NotationMap);
 		Collection existingLinks = new LinkedList(getDiagram().getEdges());
+		
 		for (Iterator linksIterator = existingLinks.iterator(); linksIterator.hasNext();) {
 			Edge nextDiagramLink = (Edge) linksIterator.next();
 			int diagramLinkVisualID = EsbVisualIDRegistry.getVisualID(nextDiagramLink);
@@ -197,19 +200,24 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 			}
 			EObject diagramLinkObject = nextDiagramLink.getElement();
 			EObject diagramLinkSrc = nextDiagramLink.getSource().getElement();
-			EObject diagramLinkDst = nextDiagramLink.getTarget().getElement();
+			View elementtarget = nextDiagramLink.getTarget();
+			//targetConnector = EditorUtils.getInputConnector((ShapeNodeEditPart) getDiagram().);
+			 if(elementtarget!=null){
+				 EObject diagramLinkDst = nextDiagramLink.getTarget().getElement();
 			for (Iterator<EsbLinkDescriptor> linkDescriptorsIterator = linkDescriptors.iterator(); linkDescriptorsIterator
-					.hasNext();) {
-				EsbLinkDescriptor nextLinkDescriptor = linkDescriptorsIterator.next();
-				if (diagramLinkObject == nextLinkDescriptor.getModelElement()
-						&& diagramLinkSrc == nextLinkDescriptor.getSource()
-						&& diagramLinkDst == nextLinkDescriptor.getDestination()
-						&& diagramLinkVisualID == nextLinkDescriptor.getVisualID()) {
-					linksIterator.remove();
-					linkDescriptorsIterator.remove();
-					break;
-				}
-			}
+			.hasNext();) {
+		EsbLinkDescriptor nextLinkDescriptor = linkDescriptorsIterator.next();
+		if (diagramLinkObject == nextLinkDescriptor.getModelElement()
+				&& diagramLinkSrc == nextLinkDescriptor.getSource()
+				&& diagramLinkDst == nextLinkDescriptor.getDestination()
+				&& diagramLinkVisualID == nextLinkDescriptor.getVisualID()) {
+			linksIterator.remove();
+			linkDescriptorsIterator.remove();
+			break;
+		}
+	}
+			 }
+		
 		}
 		deleteViews(existingLinks.iterator());
 		return createConnections(linkDescriptors, domain2NotationMap);

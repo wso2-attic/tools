@@ -434,7 +434,7 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 		if (eContainer != null) {
 			//FIXME : Remove hard-coded values
 			if (eContainer instanceof ProxyService || eContainer instanceof APIResource) {
-				y = 103; // Initial y of proxy, api resource output connector 
+				y = 95; // Initial y of proxy, api resource output connector 
 			} else if (eContainer instanceof Sequences) {
 				y = 146; // Initial y of sequence output connector 
 			} else {
