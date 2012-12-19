@@ -16,7 +16,15 @@
 
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 
-import java.util.Map;
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.PROPERTY_MEDIATOR__PROPERTY_ACTION;
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.PROPERTY_MEDIATOR__PROPERTY_DATA_TYPE;
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.PROPERTY_MEDIATOR__PROPERTY_NAME;
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.PROPERTY_MEDIATOR__PROPERTY_SCOPE;
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.PROPERTY_MEDIATOR__VALUE_EXPRESSION;
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.PROPERTY_MEDIATOR__VALUE_LITERAL;
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.PROPERTY_MEDIATOR__VALUE_STRING_PATTERN;
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.PROPERTY_MEDIATOR__VALUE_TYPE;
+
 import java.util.regex.Pattern;
 
 import org.apache.synapse.config.xml.XMLConfigConstants;
@@ -24,14 +32,13 @@ import org.apache.synapse.mediators.AbstractMediator;
 import org.apache.synapse.util.xpath.SynapseXPath;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.PropertyAction;
 import org.wso2.developerstudio.eclipse.gmf.esb.PropertyDataType;
 import org.wso2.developerstudio.eclipse.gmf.esb.PropertyMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.PropertyScope;
+import org.wso2.developerstudio.eclipse.gmf.esb.PropertyValueType;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
-import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.*;
 
 public class PropertyMediatorDeserializer extends
 		AbstractEsbNodeDeserializer<AbstractMediator, PropertyMediator> {
@@ -55,7 +62,23 @@ public class PropertyMediatorDeserializer extends
 			//vishualProp.setPropertyName(propertyMediator.getName());
 			executeSetValueCommand(PROPERTY_MEDIATOR__PROPERTY_NAME, propertyMediator.getName());
 		}
-
+		
+		String scope = propertyMediator.getScope();
+		if (scope != null) {
+			if (scope.equals(XMLConfigConstants.SCOPE_AXIS2)) {
+				//vishualProp.setPropertyScope(PropertyScope.AXIS2);
+				executeSetValueCommand(PROPERTY_MEDIATOR__PROPERTY_SCOPE, PropertyScope.AXIS2);
+			} else if (scope.equals(XMLConfigConstants.SCOPE_CLIENT)) {
+				//vishualProp.setPropertyScope(PropertyScope.AXIS2_CLIENT);
+				executeSetValueCommand(PROPERTY_MEDIATOR__PROPERTY_SCOPE, PropertyScope.AXIS2_CLIENT);
+			} else if (scope.equals(XMLConfigConstants.SCOPE_DEFAULT)) {
+				//vishualProp.setPropertyScope(PropertyScope.SYNAPSE);
+				executeSetValueCommand(PROPERTY_MEDIATOR__PROPERTY_SCOPE, PropertyScope.SYNAPSE);
+			} else if (scope.equals(XMLConfigConstants.SCOPE_TRANSPORT)) {
+				//vishualProp.setPropertyScope(PropertyScope.TRANSPORT);
+				executeSetValueCommand(PROPERTY_MEDIATOR__PROPERTY_SCOPE, PropertyScope.TRANSPORT);
+			}
+		}
 		// For the remove action
 		if (propertyMediator.getAction() == org.apache.synapse.mediators.builtin.PropertyMediator.ACTION_REMOVE) {
 
@@ -73,24 +96,10 @@ public class PropertyMediatorDeserializer extends
 			
 			// If it's an Expression
 			if (propertyMediator.getExpression() != null) {
-
-				NamespacedProperty namespaceProp = EsbFactory.eINSTANCE
-						.createNamespacedProperty();
-
 				SynapseXPath xpath = propertyMediator.getExpression();
-
-				namespaceProp.setPropertyValue(propertyMediator.getExpression()
-						.toString());
-
-				if (xpath.getNamespaces() != null) {
-
-					@SuppressWarnings("unchecked")
-					Map<String, String> map = xpath.getNamespaces();
-
-					namespaceProp.setNamespaces(map);
-				}
-
+				NamespacedProperty namespaceProp = createNamespacedProperty(xpath);
 				//vishualProp.setValueExpression(namespaceProp);
+				executeSetValueCommand(PROPERTY_MEDIATOR__VALUE_TYPE, PropertyValueType.EXPRESSION);
 				executeSetValueCommand(PROPERTY_MEDIATOR__VALUE_EXPRESSION, namespaceProp);
 
 				// If it's an Value
@@ -152,31 +161,6 @@ public class PropertyMediatorDeserializer extends
 
 					//vishualProp.setPropertyDataType(PropertyDataType.BOOLEAN);
 					executeSetValueCommand(PROPERTY_MEDIATOR__PROPERTY_DATA_TYPE, PropertyDataType.BOOLEAN);
-				}
-			}
-
-			String scope = propertyMediator.getScope();
-
-			if (scope != null) {
-				if (scope.equals(XMLConfigConstants.SCOPE_AXIS2)) {
-
-					//vishualProp.setPropertyScope(PropertyScope.AXIS2);
-					executeSetValueCommand(PROPERTY_MEDIATOR__PROPERTY_SCOPE, PropertyScope.AXIS2);
-
-				} else if (scope.equals(XMLConfigConstants.SCOPE_CLIENT)) {
-
-					//vishualProp.setPropertyScope(PropertyScope.AXIS2_CLIENT);
-					executeSetValueCommand(PROPERTY_MEDIATOR__PROPERTY_SCOPE, PropertyScope.AXIS2_CLIENT);
-
-				} else if (scope.equals(XMLConfigConstants.SCOPE_DEFAULT)) {
-
-					//vishualProp.setPropertyScope(PropertyScope.SYNAPSE);
-					executeSetValueCommand(PROPERTY_MEDIATOR__PROPERTY_SCOPE, PropertyScope.SYNAPSE);
-
-				} else if (scope.equals(XMLConfigConstants.SCOPE_TRANSPORT)) {
-
-					//vishualProp.setPropertyScope(PropertyScope.TRANSPORT);
-					executeSetValueCommand(PROPERTY_MEDIATOR__PROPERTY_SCOPE, PropertyScope.TRANSPORT);
 				}
 			}
 
