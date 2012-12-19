@@ -24,6 +24,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.w3c.dom.Element;
+import org.w3c.dom.NamedNodeMap;
+import org.w3c.dom.Node;
 
 import org.wso2.developerstudio.eclipse.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.esb.impl.ModelObjectImpl;
@@ -133,6 +135,7 @@ public class CallTemplateParameterImpl extends ModelObjectImpl implements CallTe
 	 * {@inheritDoc}
 	 */
 	protected void doLoad(Element self) throws Exception {
+		Map<String,String> nsMap = new HashMap<String, String>();
 		if (self.hasAttribute("value")) {
 			String attributeValue = self.getAttribute("value");
 			if (attributeValue == null) {
@@ -143,6 +146,16 @@ public class CallTemplateParameterImpl extends ModelObjectImpl implements CallTe
 				setTemplateParameterType(RuleOptionType.EXPRESSION);
 				attributeValue = attributeValue.replaceAll("^\\{","").replaceAll("\\}$", "");
 				getParameterExpression().setPropertyValue(attributeValue);
+				NamedNodeMap nsList = self.getAttributes();
+				if (nsList.getLength() > 0) {
+					for (int i = 0; i < nsList.getLength(); i++) {
+						Node item = nsList.item(i);
+						if (null != item.getPrefix() && "xmlns".equals(item.getPrefix())) {
+							nsMap.put(item.getLocalName(), item.getNodeValue());
+						}
+					}
+					getParameterExpression().setNamespaces(nsMap);
+				}
 			} else {
 				setTemplateParameterType(RuleOptionType.VALUE);
 				setParameterValue(attributeValue);
@@ -181,6 +194,10 @@ public class CallTemplateParameterImpl extends ModelObjectImpl implements CallTe
 				self.setAttribute("value", "{"
 						+ getParameterExpression().getPropertyValue()
 						+ "}");
+				Map<String, String> namespaces = getParameterExpression().getNamespaces();
+				for (String ns : namespaces.keySet()) {
+		            self.setAttribute("xmlns:"+ns,namespaces.get(ns));
+	            }
 			}
 			break;
 		}
