@@ -43,6 +43,7 @@ import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.IEditorInput;
+import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorReference;
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
@@ -58,6 +59,7 @@ import org.wso2.developerstudio.eclipse.platform.core.Activator;
 import org.wso2.developerstudio.eclipse.platform.core.model.MavenInfo;
 import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectDataModel;
 import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectWizardSettings;
+import org.wso2.developerstudio.eclipse.platform.ui.editor.Refreshable;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.pages.MavenDetailsPage;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.pages.ProjectOptionsDataPage;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.pages.ProjectOptionsPage;
@@ -193,26 +195,16 @@ public abstract class AbstractWSO2ProjectCreationWizard extends Wizard implement
 	
 	public void refreshDistProjects(){
 		try {
-			IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
-			IWorkbenchPage page = window.getActivePage();
-			List<IEditorReference> openEditors = new ArrayList<IEditorReference>();
-			List<IFile> openFiles = new ArrayList<IFile>();
 			IEditorReference[] editorReferences = PlatformUI.getWorkbench()
 					.getActiveWorkbenchWindow().getActivePage().getEditorReferences();
-			for (IEditorReference iEditorReference : editorReferences) {
-				if (DIST_EDITOR_ID.equals(iEditorReference.getId())) {
-					openEditors.add(iEditorReference);
-					IEditorInput editorInput = iEditorReference.getEditorInput();
-					if (editorInput instanceof FileEditorInput) {
-						openFiles.add(((FileEditorInput) editorInput).getFile());
+			for (IEditorReference reference : editorReferences) {
+				if (DIST_EDITOR_ID.equals(reference.getId())) {
+					IEditorPart editor = reference.getEditor(false);
+					if(editor instanceof Refreshable){
+						Refreshable refreshable = (Refreshable) editor;
+						refreshable.refresh();
 					}
 				}
-			}
-			if (openEditors.size() > 0) {
-				page.closeEditors(openEditors.toArray(new IEditorReference[] {}), false);
-			}
-			for (IFile file : openFiles) {
-				page.openEditor(new FileEditorInput(file), DIST_EDITOR_ID);
 			}
 		} catch (Exception e) { 
 			log.warn("Cannot refresh Carbon application project list", e);
