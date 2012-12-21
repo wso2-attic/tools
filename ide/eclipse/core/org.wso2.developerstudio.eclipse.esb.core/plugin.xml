@@ -18,7 +18,7 @@
           class="org.wso2.developerstudio.eclipse.esb.core.internal.impl.EndpointMediaTypeResolver"
           extensions="xml"
           id="org.wso2.developerstudio.eclipse.esb.core.resolver.endpoint"
-          mediaType="application/vnd+wso2.endpoint"
+          mediaType="application/vnd.wso2.esb.endpoint"
           name="Endpoint Media type"
           priority="20">
     </resolver>
@@ -26,7 +26,7 @@
           class="org.wso2.developerstudio.eclipse.esb.core.internal.impl.SequenceMediaTypeResolver"
           extensions="xml"
           id="org.wso2.developerstudio.eclipse.esb.core.resolver.sequence"
-          mediaType="application/vnd+wso2.sequence"
+          mediaType="application/vnd.wso2.sequence"
           name="Sequence Media type"
           priority="10">
     </resolver>

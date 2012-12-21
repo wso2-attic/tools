@@ -26,6 +26,7 @@ import org.apache.axiom.om.OMElement;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.platform.core.Activator;
+import org.wso2.developerstudio.eclipse.platform.core.MediaManager;
 import org.wso2.developerstudio.eclipse.platform.core.manifest.AbstractXMLDoc;
 
 public class RegistryResourceInfoDoc extends AbstractXMLDoc {
@@ -56,6 +57,7 @@ public class RegistryResourceInfoDoc extends AbstractXMLDoc {
 		} else {
 			RegistryResourceInfo info = new RegistryResourceInfo(path,
 					inputFile, type, base, relativePath);
+			info.setMediaType(MediaManager.getMediaType(inputFile));
 			getRegistryResources().add(info);
 		}
 	}
