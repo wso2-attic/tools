@@ -36,8 +36,9 @@ import org.eclipse.ui.part.FileEditorInput;
 import org.wso2.developerstudio.eclipse.distribution.project.Activator;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
+import org.wso2.developerstudio.eclipse.platform.ui.editor.Refreshable;
 
-public class DistProjectEditor extends FormEditor {
+public class DistProjectEditor extends FormEditor implements Refreshable {
  private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
  private DistProjectEditorPage distProjectEditorPage;
  private StructuredTextEditor sourceEditor;
@@ -184,6 +185,12 @@ public class DistProjectEditor extends FormEditor {
 	
 	public boolean isSaveAsAllowed() {
 		return false;
+	}
+	
+	public void refresh() {
+		if (distProjectEditorPage != null) {
+			distProjectEditorPage.getRefreshAction().run();
+		}
 	}
 	
 	
