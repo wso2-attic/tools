@@ -66,7 +66,6 @@ import org.wso2.developerstudio.eclipse.platform.core.registry.util.RegistryReso
 import org.wso2.developerstudio.eclipse.platform.core.registry.util.RegistryResourceUtils;
 import org.wso2.developerstudio.eclipse.platform.core.templates.ArtifactTemplate;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
-import org.wso2.developerstudio.eclipse.platform.ui.wizard.pages.ProjectOptionsPage;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 
 public class EndpointProjectCreationWizard extends AbstractWSO2ProjectCreationWizard {
@@ -275,6 +274,7 @@ public class EndpointProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 				item = new RegistryItem();
 				((RegistryItem) item).setFile(registryResourceInfo
 						.getResourceBaseRelativePath());
+				((RegistryItem) item).setMediaType(registryResourceInfo.getMediaType());
 			}
 			item.setPath(registryResourceInfo.getDeployPath().replaceAll("/$",
 					""));
