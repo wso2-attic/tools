@@ -2,6 +2,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import org.eclipse.draw2d.Figure;
 import org.eclipse.draw2d.GridData;
@@ -113,8 +114,11 @@ public abstract class AbstractEndpointInputConnectorEditPart extends AbstractInp
 					EditPart sourceOutputConnector = ((EsbLinkEditPart) this.getTargetConnections()
 							.get(0)).getSource();
 					if((sourceOutputConnector !=null)&&(sourceOutputConnector.getParent() instanceof SequenceEditPart)){
-						if(((EsbLinkEditPart)((AbstractMediatorInputConnectorEditPart)sourceOutputConnector.getParent().getChildren().get(1)).getTargetConnections().get(0)).getSource() instanceof AbstractEndpointOutputConnectorEditPart){
-						((SequenceEditPart)sourceOutputConnector.getParent()).moveConnectorsRightSide();
+						List connections=((AbstractMediatorInputConnectorEditPart)sourceOutputConnector.getParent().getChildren().get(1)).getTargetConnections();
+						if(connections.size()>0){
+							if(((EsbLinkEditPart)connections.get(0)).getSource() instanceof AbstractEndpointOutputConnectorEditPart){
+							((SequenceEditPart)sourceOutputConnector.getParent()).moveConnectorsRightSide();
+							}
 						}
 					}
 					

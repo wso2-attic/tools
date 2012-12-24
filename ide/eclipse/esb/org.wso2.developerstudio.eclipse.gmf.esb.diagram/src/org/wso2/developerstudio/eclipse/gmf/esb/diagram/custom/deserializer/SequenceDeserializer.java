@@ -29,7 +29,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.MediatorFlow;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyService;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequences;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.utils.EndPointDuplicator;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.utils.ElementDuplicator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.TemplateTemplateCompartmentEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.*;
@@ -46,7 +46,7 @@ public class SequenceDeserializer extends AbstractEsbNodeDeserializer<SequenceMe
 			Sequence sequenceModel = (Sequence) DeserializerUtils.createNode(part, EsbElementTypes.Sequence_3503);
 			executeSetValueCommand(sequenceModel, SEQUENCE__NAME, sequence.getKey().getKeyValue());
 			node = sequenceModel;
-			duplicatorEndPoints(getRootCompartment(),sequence.getKey().getKeyValue()); 
+			//duplicatorEndPoints(getRootCompartment(),sequence.getKey().getKeyValue()); 
 		} else if(sequence.getName()!=null){
 			/* Expecting following configuration for main sequence
 			 * <sequence xmlns="http://ws.apache.org/ns/synapse" name="main">
@@ -125,8 +125,8 @@ public class SequenceDeserializer extends AbstractEsbNodeDeserializer<SequenceMe
 
 	private void duplicatorEndPoints(GraphicalEditPart rootCompartment, String key) {
 		FileEditorInput input = (FileEditorInput) getDiagramEditor().getEditorInput();
-		EndPointDuplicator duplicator = new EndPointDuplicator(input.getFile().getProject());
-		duplicator.duplicateEndPoints(rootCompartment, key);
+		ElementDuplicator duplicator = new ElementDuplicator(input.getFile().getProject());
+		//duplicator.duplicateEndPoints(rootCompartment, key);
 		
 	}
 

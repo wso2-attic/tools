@@ -73,9 +73,11 @@ public class EditorUtils {
 	}
 	
 	public static AbstractMediatorInputConnectorEditPart getMediatorInputConnector(ShapeNodeEditPart parent){
-		for(int i=0;i<parent.getChildren().size();++i){					
-			if(parent.getChildren().get(i) instanceof AbstractMediatorInputConnectorEditPart){
-				return (AbstractMediatorInputConnectorEditPart) parent.getChildren().get(i);
+		if(parent!=null){
+			for(int i=0;i<parent.getChildren().size();++i){					
+				if(parent.getChildren().get(i) instanceof AbstractMediatorInputConnectorEditPart){
+					return (AbstractMediatorInputConnectorEditPart) parent.getChildren().get(i);
+				}
 			}
 		}
 		return null;

@@ -86,6 +86,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.Sequences;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer.Deserializer;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.utils.ElementDuplicator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.utils.EndPointDuplicator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbLinkEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceEditPart;
@@ -108,7 +109,7 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 
     /** Our all new graphical editor */
     private EsbDiagramEditor graphicalEditor;
-    
+
 	/**
 	 * {@link ModelObject} source editor.
 	 */
@@ -504,6 +505,10 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
     	sourceDirty=false;
         getEditor(0).doSave(monitor);
         updateAssociatedXMLFile(monitor);
+        
+		IFile file = ((IFileEditorInput)getEditorInput()).getFile();
+        ElementDuplicator endPointDuplicator = new ElementDuplicator(file.getProject(),getGraphicalEditor());        
+        endPointDuplicator.updateAssociatedDiagrams(this);
         //updateAssociatedDiagrams();
     }
     
@@ -707,6 +712,10 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 	
 	public DiagramEditPart getDiagramEditPart() {
 		return graphicalEditor.getDiagramEditPart();
+	}
+    
+	public EsbDiagramEditor getGraphicalEditor() {
+		return graphicalEditor;
 	}
 	
 }
