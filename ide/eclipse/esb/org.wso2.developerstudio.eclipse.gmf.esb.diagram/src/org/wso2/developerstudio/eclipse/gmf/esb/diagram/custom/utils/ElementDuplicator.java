@@ -120,13 +120,14 @@ public class ElementDuplicator {
 	 */
 	public ElementDuplicator(IProject project,EsbDiagramEditor diagramEditor) {
 		this(project);
-		if (AbstractEsbNodeDeserializer.getDiagramEditor()==null) {
+		EsbDeserializerRegistry.getInstance().init(diagramEditor);
+		/*if (AbstractEsbNodeDeserializer.getDiagramEditor()==null) {
 			if(diagramEditor!=null){
 				 EsbDeserializerRegistry.getInstance().init(diagramEditor);
 			} else {
 				throw new IllegalArgumentException("diagramEditor cannot be null");
 			}
-		} 
+		}*/ 
 	}
 	
 	/**
