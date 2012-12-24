@@ -65,8 +65,6 @@ import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.platform.core.templates.ArtifactTemplate;
 import org.wso2.developerstudio.eclipse.platform.core.templates.ArtifactTemplateHandler;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
-import org.wso2.developerstudio.eclipse.platform.ui.wizard.pages.ProjectOptionsDataPage;
-import org.wso2.developerstudio.eclipse.platform.ui.wizard.pages.ProjectOptionsPage;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 
 public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWizard {
@@ -283,6 +281,7 @@ public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 			if (registryResourceInfo.getType() == REGISTRY_RESOURCE) {
 				item = new RegistryItem();
 				((RegistryItem) item).setFile(registryResourceInfo.getResourceBaseRelativePath());
+				((RegistryItem) item).setMediaType(registryResourceInfo.getMediaType());
 			} 
 			item.setPath(registryResourceInfo.getDeployPath().replaceAll("/$",""));
 			artifact.addRegistryElement(item);
