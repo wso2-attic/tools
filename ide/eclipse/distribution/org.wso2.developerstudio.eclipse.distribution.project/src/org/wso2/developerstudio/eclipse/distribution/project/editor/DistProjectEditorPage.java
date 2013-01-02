@@ -32,8 +32,11 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.MultiStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.QualifiedName;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.resource.ImageDescriptor;
@@ -80,6 +83,7 @@ import org.wso2.developerstudio.eclipse.platform.core.model.AbstractListDataProv
 import org.wso2.developerstudio.eclipse.platform.core.project.export.util.ExportUtil;
 import org.wso2.developerstudio.eclipse.platform.core.utils.SWTResourceManager;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
+import org.eclipse.jface.dialogs.ErrorDialog;
 
 public class DistProjectEditorPage extends FormPage {
 	
@@ -98,7 +102,7 @@ public class DistProjectEditorPage extends FormPage {
 	private Text txtDescription;
 	private boolean pageDirty;
 	
-	
+	IStatus editorStatus = new Status(IStatus.OK, Activator.PLUGIN_ID, "");
 
 	private Map<String,Dependency> dependencyList = new HashMap<String, Dependency>();
 	private Map<String,String> serverRoleList = new HashMap<String, String>();
@@ -165,6 +169,12 @@ public class DistProjectEditorPage extends FormPage {
 	}
 	
 	public void savePOM() throws Exception{
+		if (editorStatus!=null){
+			if(!editorStatus.isOK()){
+				ErrorDialog.openError(getSite().getShell(), "Warning", "The following warning(s) have been detected", editorStatus);
+				editorStatus= new Status(IStatus.OK, Activator.PLUGIN_ID, ""); // clear error
+			}
+		}
 		parentPrj.setGroupId(getGroupId());
 		parentPrj.setVersion(getVersion());
 		parentPrj.setDescription(getDescription());
@@ -589,12 +599,15 @@ public class DistProjectEditorPage extends FormPage {
 		}
 
 		if (getMissingDependencyList().size() > 0) {
+			editorStatus = new MultiStatus(Activator.PLUGIN_ID, IStatus.WARNING,
+					"One or more dependencies can't be resolved, for more information click 'details' below", null);
 			for (String dependency : getMissingDependencyList().keySet()) {
 				createNode(trDependencies, getMissingDependencyList().get(dependency), false);
+				((MultiStatus)editorStatus).add(new Status( IStatus.WARNING, Activator.PLUGIN_ID,dependency + " is unresolvable"));
 			}
 			setPageDirty(true);
 			updateDirtyState();
-		}
+		} 
 		trDependencies.layout();
 	}
 	
