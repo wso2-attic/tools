@@ -158,12 +158,16 @@ public class EndpointArtifactDeleteParticipant extends DeleteParticipant{
 								+ originalFile.getName().substring(0,
 										originalFile.getName().length() - 3)
 								+ "esb");
-				DeleteResourceChange deleteResourceChange = new DeleteResourceChange(
-						file.getFullPath(), true, true);
-				DeleteResourceChange deleteResourceChange1 = new DeleteResourceChange(
-						file2.getFullPath(), true, true);
-				deleteChange.add(deleteResourceChange);
-				deleteChange.add(deleteResourceChange1);
+				if (file.exists()) {
+					DeleteResourceChange deleteResourceChange = new DeleteResourceChange(
+							file.getFullPath(), true, true);
+					deleteChange.add(deleteResourceChange);
+				}
+				if (file2.exists()) {
+					DeleteResourceChange deleteResourceChange1 = new DeleteResourceChange(
+							file2.getFullPath(), true, true);
+					deleteChange.add(deleteResourceChange1);
+				}
 			}
 		}
 		
