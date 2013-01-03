@@ -187,42 +187,45 @@ public class ElementDuplicator {
 
 		for (int j = 0; j < values.size(); ++j) {
 			EditPart element = (EditPart) values.toArray()[j];
-			if (element instanceof SendMediatorEditPart) {
-				OutputConnector outputConnector = ((org.wso2.developerstudio.eclipse.gmf.esb.SendMediator) ((org.eclipse.gmf.runtime.notation.Node) ((SendMediatorEditPart) element)
-						.getModel()).getElement()).getOutputConnector();
-				if(outputConnector.getOutgoingLink()!=null){
-				EObject node = outputConnector.getOutgoingLink().getTarget().eContainer();
-				parent = node.eContainer();
-
-				EList<EObject> child = node.eContents();
-				for (int i = 0; i < child.size(); ++i) {
-					if (child.get(i) instanceof OutputConnector) {
-						outputConnector = (OutputConnector) child.get(i);
-						break;
-					}
-				}
-				firstLink = outputConnector.getOutgoingLink();			
-				
-				/*
-				 * Collect elements to be deleted. 
-				 */
-				while ((outputConnector.getOutgoingLink() != null)&&(!isOutSequenceStarted(outputConnector.getOutgoingLink()))) {
-
-					node = outputConnector.getOutgoingLink().getTarget().eContainer();
-					if(elements.contains(node)){
-						break;
-					}
-					elements.add(node);
-					child = node.eContents();
-					for (int i = 0; i < child.size(); ++i) {
-						if (child.get(i) instanceof OutputConnector) {
-							outputConnector = (OutputConnector) child.get(i);
-							break;
+			if (element instanceof SendMediatorEditPart) {			
+				org.wso2.developerstudio.eclipse.gmf.esb.SendMediator sendMediator=(org.wso2.developerstudio.eclipse.gmf.esb.SendMediator) ((org.eclipse.gmf.runtime.notation.Node) ((SendMediatorEditPart) element)
+						.getModel()).getElement();
+				if(sendMediator.getReceivingSequenceType().getValue()==1){
+					OutputConnector outputConnector = sendMediator.getOutputConnector();				
+					if(outputConnector.getOutgoingLink()!=null){
+						EObject node = outputConnector.getOutgoingLink().getTarget().eContainer();
+						parent = node.eContainer();
+		
+						EList<EObject> child = node.eContents();
+						for (int i = 0; i < child.size(); ++i) {
+							if (child.get(i) instanceof OutputConnector) {
+								outputConnector = (OutputConnector) child.get(i);
+								break;
+							}
 						}
-					}					
+						firstLink = outputConnector.getOutgoingLink();			
+						
+						/*
+						 * Collect elements to be deleted. 
+						 */
+						while ((outputConnector.getOutgoingLink() != null)&&(!isOutSequenceStarted(outputConnector.getOutgoingLink()))) {
+		
+							node = outputConnector.getOutgoingLink().getTarget().eContainer();
+							if(elements.contains(node)){
+								break;
+							}
+							elements.add(node);
+							child = node.eContents();
+							for (int i = 0; i < child.size(); ++i) {
+								if (child.get(i) instanceof OutputConnector) {
+									outputConnector = (OutputConnector) child.get(i);
+									break;
+								}
+							}					
+						}
+					}
 				}
 			}
-		}
 		}
 		CompoundCommand resultCommand = new CompoundCommand();
 		TransactionalEditingDomain domain = ((EsbMultiPageEditor) editor).getDiagramEditPart()
