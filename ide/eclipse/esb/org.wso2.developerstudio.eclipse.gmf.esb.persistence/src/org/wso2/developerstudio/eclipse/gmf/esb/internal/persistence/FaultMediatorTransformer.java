@@ -97,12 +97,15 @@ public class FaultMediatorTransformer extends AbstractEsbNodeTransformer {
 				case MUST_UNDERSTAND:
 					faultMediator.setFaultCodeValue(new QName(soap11EnvNS,
 							"MustUnderstand", "soap11Env"));
+					break;
 				case SERVER:
 					faultMediator.setFaultCodeValue(new QName(soap11EnvNS,
 							"Server", "soap11Env"));
+					break;
 				case CLIENT:
 					faultMediator.setFaultCodeValue(new QName(soap11EnvNS,
 							"Client", "soap11Env"));
+					break;
 				}
 				
 				switch (visualFault.getFaultStringType()){
@@ -137,15 +140,19 @@ public class FaultMediatorTransformer extends AbstractEsbNodeTransformer {
 				case MUST_UNDERSTAND:
 					faultMediator.setFaultCodeValue(new QName(soap12EnvNS,
 							"MustUnderstand", "soap12Env"));
+					break;
 				case SENDER:
 					faultMediator.setFaultCodeValue(new QName(soap12EnvNS,
-							"Server", "soap12Env"));
+							"Sender", "soap12Env"));
+					break;
 				case RECEIVER:
 					faultMediator.setFaultCodeValue(new QName(soap12EnvNS,
-							"Client", "soap12Env"));
+							"Receiver", "soap12Env"));
+					break;
 				case DATA_ENCODING_UNKNOWN:
 					faultMediator.setFaultCodeValue(new QName(soap12EnvNS,
 							"DataEncodingUnknown", "soap12Env"));
+					break;
 				}
 				
 				switch (visualFault.getFaultReasonType()){
