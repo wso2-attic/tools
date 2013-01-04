@@ -54,10 +54,11 @@ public class ConnectionUtils {
 							((ShapeNodeEditPart) source.getParent()).getViewer());
 	
 					cc.add(new ICommandProxy(createSubTopicsCmd));
-					target.getDiagramEditDomain().getDiagramCommandStack()
-							.execute(cc);
-	
-					return true;
+					if(target.getDiagramEditDomain()!=null){
+						target.getDiagramEditDomain().getDiagramCommandStack()
+							.execute(cc);	
+						return true;
+					}
 				}
 			}
 		}

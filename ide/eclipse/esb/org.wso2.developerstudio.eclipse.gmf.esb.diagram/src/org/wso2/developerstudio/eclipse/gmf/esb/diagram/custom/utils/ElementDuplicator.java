@@ -56,6 +56,8 @@ import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
+import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorReference;
 import org.eclipse.ui.IFileEditorInput;
@@ -121,13 +123,6 @@ public class ElementDuplicator {
 	public ElementDuplicator(IProject project,EsbDiagramEditor diagramEditor) {
 		this(project);
 		EsbDeserializerRegistry.getInstance().init(diagramEditor);
-		/*if (AbstractEsbNodeDeserializer.getDiagramEditor()==null) {
-			if(diagramEditor!=null){
-				 EsbDeserializerRegistry.getInstance().init(diagramEditor);
-			} else {
-				throw new IllegalArgumentException("diagramEditor cannot be null");
-			}
-		}*/ 
 	}
 	
 	/**
@@ -142,27 +137,6 @@ public class ElementDuplicator {
 		}
 	}
 	
-	/**
-	 * Scan and duplicators endpoints into proxy service diagram 
-	 * @param rootCompartment
-	 * @param sequenceKey
-	 */
-/*	public void duplicateEndPoints(GraphicalEditPart rootCompartment,String sequenceKey){
-		List<Endpoint> endpoints = getEndpoints(sequenceKey);
-		for (Endpoint endpoint : endpoints) {
-			try {
-				@SuppressWarnings("rawtypes")
-				IEsbNodeDeserializer deserializer = EsbDeserializerRegistry.getInstance().getDeserializer(endpoint);
-				if(deserializer!=null){
-					AbstractEndPoint endPoint = (AbstractEndPoint) deserializer.createNode(rootCompartment, endpoint);
-					//FIXME: set inline
-				}
-			} catch (NullPointerException e) {
-				log.error("EsbDeserializerRegistry must be initialized before it can be used",e);
-			}
-		}
-	}*/	
-
 	public void updateAssociatedDiagrams(EsbMultiPageEditor currentEditor) {
 		EsbDiagram diagram = (EsbDiagram) currentEditor.getDiagram().getElement();
 		EsbServer server = diagram.getServer();
@@ -256,7 +230,8 @@ public class ElementDuplicator {
 	
 	private void duplicateElemets(IFile file, IEditorPart editor) {
 		List<EsbNode> esbNodes = null;
-		Map registry = ((EsbMultiPageEditor) editor).getDiagramEditPart().getViewer().getEditPartRegistry();
+		Map registry = ((EsbMultiPageEditor) editor).getDiagramEditPart().getViewer()
+				.getEditPartRegistry();
 		Collection<Object> values = new ArrayList<Object>();
 		values.addAll(registry.values());
 
@@ -265,14 +240,25 @@ public class ElementDuplicator {
 			if (element instanceof SequenceEditPart) {
 
 			} else if (element instanceof SendMediatorEditPart) {
-				if (((org.wso2.developerstudio.eclipse.gmf.esb.SendMediator) ((org.eclipse.gmf.runtime.notation.Node) ((SendMediatorEditPart) element).getModel())
-						.getElement()).getReceivingSequenceType().getValue() == 1) {
-					String name = ((org.wso2.developerstudio.eclipse.gmf.esb.SendMediator) ((org.eclipse.gmf.runtime.notation.Node) ((SendMediatorEditPart) element)
-							.getModel()).getElement()).getStaticReceivingSequence().getKeyValue();
-					GraphicalEditPart rootCompartment = EditorUtils
-							.getSequenceAndEndpointCompartmentEditPart(element);
-					esbNodes = duplicateElements(rootCompartment, name);
-					createLinks(esbNodes, editor, (SendMediatorEditPart) element);
+				if (((org.wso2.developerstudio.eclipse.gmf.esb.SendMediator) ((org.eclipse.gmf.runtime.notation.Node) ((SendMediatorEditPart) element)
+						.getModel()).getElement()).getReceivingSequenceType().getValue() == 1) {
+					AbstractMediatorOutputConnectorEditPart sendMediatorOutputConnector = EditorUtils
+							.getMediatorOutputConnector((SendMediatorEditPart) element);
+					if (sendMediatorOutputConnector.getSourceConnections().size() != 0) {
+						String name = ((org.wso2.developerstudio.eclipse.gmf.esb.SendMediator) ((org.eclipse.gmf.runtime.notation.Node) ((SendMediatorEditPart) element)
+								.getModel()).getElement()).getStaticReceivingSequence()
+								.getKeyValue();
+						GraphicalEditPart rootCompartment = EditorUtils
+								.getSequenceAndEndpointCompartmentEditPart(element);
+						esbNodes = duplicateElements(rootCompartment, name);
+						createLinks(esbNodes, editor, (SendMediatorEditPart) element);
+					}else{
+						MessageDialog
+						.openError(
+								Display.getCurrent().getActiveShell(),
+								"Diagram Incomplete ! ",
+								"Output connector of the send mediator must be connected to an endpoint since send mediator has a receiving sequence.");
+					}
 				}
 			}
 		}
@@ -309,23 +295,28 @@ public class ElementDuplicator {
 	}
 	
 	
-	private void createLinks(List<EsbNode> nodes,IEditorPart editor,SendMediatorEditPart sendMediatorEditPart){
+	private void createLinks(List<EsbNode> nodes, IEditorPart editor,
+			SendMediatorEditPart sendMediatorEditPart) {
 		AbstractConnectorEditPart sourceConnector = null;
 		AbstractConnectorEditPart targetConnector = null;
-		
-		AbstractMediatorOutputConnectorEditPart sendMediatorOutputConnector=EditorUtils.getMediatorOutputConnector(sendMediatorEditPart);
-		ShapeNodeEditPart endpoint=(ShapeNodeEditPart) ((EsbLinkEditPart)sendMediatorOutputConnector.getSourceConnections().get(0)).getTarget().getParent();
-		AbstractEndpointOutputConnectorEditPart endpointOutputConnector=EditorUtils.getEndpointOutputConnector(endpoint);
+
+		AbstractMediatorOutputConnectorEditPart sendMediatorOutputConnector = EditorUtils
+				.getMediatorOutputConnector(sendMediatorEditPart);
+		ShapeNodeEditPart endpoint = (ShapeNodeEditPart) ((EsbLinkEditPart) sendMediatorOutputConnector
+				.getSourceConnections().get(0)).getTarget().getParent();
+		AbstractEndpointOutputConnectorEditPart endpointOutputConnector = EditorUtils
+				.getEndpointOutputConnector(endpoint);
 		refreshEditPartMap(editor);
-		
-		AbstractMediatorInputConnectorEditPart sequenceInputConnector= EditorUtils.getMediatorInputConnector((ShapeNodeEditPart) getEditpart(nodes.get(0)));
+
+		AbstractMediatorInputConnectorEditPart sequenceInputConnector = EditorUtils
+				.getMediatorInputConnector((ShapeNodeEditPart) getEditpart(nodes.get(0)));
 		ConnectionUtils.createConnection(sequenceInputConnector, endpointOutputConnector);
-		
-		Iterator<EsbNode> iterator=((LinkedList<EsbNode>)nodes).iterator();
-		
+
+		Iterator<EsbNode> iterator = ((LinkedList<EsbNode>) nodes).iterator();
+
 		while (iterator.hasNext()) {
 			EsbNode mediatornode = iterator.next();
-			
+
 			AbstractConnectorEditPart nextSourceConnector = null;
 			targetConnector = null;
 
@@ -335,16 +326,18 @@ public class ElementDuplicator {
 				nextSourceConnector = EditorUtils.getOutputConnector((ShapeNodeEditPart) editpart);
 			}
 
-			if (targetConnector != null && sourceConnector != null) {		
+			if (targetConnector != null && sourceConnector != null) {
 				ConnectionUtils.createConnection(targetConnector, sourceConnector);
 			}
 			sourceConnector = nextSourceConnector;
-			
+
 		}
-		ConnectionUtils.createConnection((AbstractConnectorEditPart) getEditpart(inputConnector), sourceConnector);
-		
+		if (EditorUtils.getEndpoint(sourceConnector) != null) {
+			ConnectionUtils.createConnection(
+					(AbstractConnectorEditPart) getEditpart(inputConnector), sourceConnector);
+		}
 		nodes.clear();
-		
+
 	}
 	
 	public List<EsbNode> duplicateElements(GraphicalEditPart rootCompartment,String sequenceKey){		
@@ -402,7 +395,10 @@ public class ElementDuplicator {
 				inputConnector=(InputConnector) child.get(i);
 			}
 		}
-		if(outputConnector.getOutgoingLink().getTarget().eContainer() instanceof EndPoint){
+		if(outputConnector.getOutgoingLink()==null){
+			return false;
+		}
+		if((outputConnector.getOutgoingLink()!=null)&&(outputConnector.getOutgoingLink().getTarget().eContainer() instanceof EndPoint)){
 			return false;
 		}
 				
@@ -419,79 +415,6 @@ public class ElementDuplicator {
 		}
 		return null;
 	}
-
-/*	private List<Endpoint> getEndpoints(String key) {
-		List<Endpoint> epList = new LinkedList<Endpoint>();
-		
-		String fileLocation = getFileLocation(key); 
-		if(fileLocation==null) {
-			log.error("Cannot find sequence '" + key + "'");
-			return Collections.EMPTY_LIST;
-		}
-
-		DocumentBuilderFactory domFactory = DocumentBuilderFactory.newInstance();
-		domFactory.setNamespaceAware(true);
-		NamespaceContext ctx = new NamespaceContext() {
-			public String getNamespaceURI(String prefix) {
-				return "http://ws.apache.org/ns/synapse";
-			}
-
-			public String getPrefix(String str) {
-				return null;
-			}
-
-			public Iterator<?> getPrefixes(String str) {
-				return null;
-			}
-		};
-		try {
-			DocumentBuilder builder = domFactory.newDocumentBuilder();
-			Document doc = builder.parse(fileLocation);
-			XPath xpath = XPathFactory.newInstance().newXPath();
-			xpath.setNamespaceContext(ctx);
-			
-			XPathExpression expr = xpath.compile("//:endpoint");
-
-			Object result = expr.evaluate(doc, XPathConstants.NODESET);
-			NodeList nodes = (NodeList) result;
-			for (int i = 0; i < nodes.getLength(); i++) {
-				try {
-					Node item = nodes.item(i);
-					StringWriter writer = new StringWriter();
-					Transformer transformer = TransformerFactory.newInstance().newTransformer();
-					transformer.transform(new DOMSource(item), new StreamResult(writer));
-					OMElement element = AXIOMUtil.stringToOM(writer.toString());
-					epList.add(EndpointFactory.getEndpointFromElement(element, false,
-							new Properties()));
-				} catch (Exception e) {
-					//FIXME: log real error message
-					log.error("An unexpected error has occurred",e);
-				} 
-			}
-			
-			expr = xpath.compile("//:sequence[@key]");
-
-			result = expr.evaluate(doc, XPathConstants.NODESET);
-			nodes = (NodeList) result;
-			for (int i = 0; i < nodes.getLength(); i++) {
-				try {
-					if(nodes.item(i) instanceof Attr){
-						Attr attr = (Attr) nodes.item(i);
-						epList.addAll(getEndpoints(attr.getValue()));
-					}
-				} catch (Exception e) {
-					//FIXME: log real error message
-					log.error("An unexpected error has occurred",e);
-				} 
-			}
-		} catch (Exception e) {
-			//FIXME: log real error message
-			log.error("error",e);
-		}
-
-		return epList;
-	}*/
-	
 	
 	private List<SendMediator> getSendMediators(String key) {
 		List<SendMediator> sendList = new LinkedList<SendMediator>();
