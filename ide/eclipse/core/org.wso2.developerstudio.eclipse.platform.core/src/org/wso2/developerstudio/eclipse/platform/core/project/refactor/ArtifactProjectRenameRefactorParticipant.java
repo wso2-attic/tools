@@ -38,12 +38,28 @@ import org.wso2.developerstudio.eclipse.platform.core.Activator;
 import java.util.Iterator;
 import java.util.List;
 
+/***
+ * This class is used to provide refactoring support for Artifact projects when
+ * the projects are renamed.
+ * For example when a project is renamed we need to change the name artifact ids
+ * of the project pom as well as update distribution
+ * projects referring that same project.
+ * 
+ */
 public class ArtifactProjectRenameRefactorParticipant extends RenameParticipant {
 	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
 
 	private IProject originalProject;
 	private String latestName;
 
+	/**
+	 * This method is used to check the pre-conditions for the refactoring.
+	 * This method can be used to communicate with user about refactoring about
+	 * to happen such as
+	 * if there is an fatal issue related to refactoring, you can create a
+	 * Status with Fatal error, or
+	 * you can create a warning status where user can be informed.
+	 */
 	@Override
 	public RefactoringStatus checkConditions(IProgressMonitor arg0, CheckConditionsContext arg1)
 	                                                                                            throws OperationCanceledException {
@@ -53,6 +69,15 @@ public class ArtifactProjectRenameRefactorParticipant extends RenameParticipant 
 		                                             latestName);
 	}
 
+	/**
+	 * This method gets executed before the refactoring gets executed on
+	 * original file which means
+	 * this method is executed before the actual project is deleted from the
+	 * workspace.
+	 * If you have any task need to run before the project is deleted, you need
+	 * to generate Changes
+	 * for those tasks in this method.
+	 */
 	@Override
 	public Change createPreChange(IProgressMonitor arg0) throws CoreException,
 	                                                    OperationCanceledException {
@@ -117,6 +142,11 @@ public class ArtifactProjectRenameRefactorParticipant extends RenameParticipant 
 		return false;
 	}
 
+	/**
+	 * This method gets executed after performing the actual refactoring task.
+	 * Normally this method is used
+	 * for clean up tasks.
+	 */
 	@Override
 	public Change createChange(IProgressMonitor arg0) throws CoreException,
 	                                                 OperationCanceledException {

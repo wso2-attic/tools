@@ -29,6 +29,16 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
+/***
+ * This class represents all the changes we need to perform when an artifact
+ * project rename refactoring is executed.
+ * For example, when a project is renamed, there are 2 things that we need to
+ * perform on generic WSO2 Project.
+ * 1. Update necessary fields in pom.xml of the project 2. Update pom.xml of
+ * distribution projects.
+ * This change is generating a composite change for that.
+ * 
+ */
 public class MavenConfigurationFileChange extends TextFileChange {
 	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
 
@@ -62,10 +72,19 @@ public class MavenConfigurationFileChange extends TextFileChange {
 
 			try {
 				if (pomFile.exists()) {
+					// This is for the requirement (1) indicated above where all
+					// the artifacts projects
+					// should update the pom.xml of their own project once the
+					// refactoring is performed.
+					// In this case they need to update the artifactId of the
+					// pom.
 					identifyIdArtifactReplacement();
 
 					try {
 						if (refactoringProject.hasNature("org.wso2.developerstudio.eclipse.distribution.project.nature")) {
+							// If the project is a distribution project, then we
+							// need to refactor the dependencies section as
+							// well.
 							dependencyReplacement();
 						}
 					} catch (Exception e) {
@@ -80,6 +99,12 @@ public class MavenConfigurationFileChange extends TextFileChange {
 		}
 	}
 
+	/**
+	 * This method is used to identify and replace the value in the artifactId
+	 * of the pom.xml
+	 * 
+	 * @throws IOException
+	 */
 	private void identifyIdArtifactReplacement() throws IOException {
 		int fullIndex = 0;
 		BufferedReader reader = new BufferedReader(new FileReader(pomFile.getLocation().toFile()));
@@ -99,6 +124,8 @@ public class MavenConfigurationFileChange extends TextFileChange {
 				isDependencies = false;
 			}
 
+			// This is to check the artifact id of the pom.xml and it is
+			// identified by not selecting the one in dependencies section.
 			if (!isDependencies && line.contains(artifactId)) {
 				if (line.contains(case1String) ||
 				    (previousLine.contains(case1String) && !previousLine.contains(case2String))) {
@@ -116,6 +143,12 @@ public class MavenConfigurationFileChange extends TextFileChange {
 		reader.close();
 	}
 
+	/**
+	 * This method is used to check for the dependency which represents the
+	 * deleted project and replace the current artifact id with new one
+	 * 
+	 * @throws IOException
+	 */
 	private void dependencyReplacement() throws IOException {
 		int fullIndex = 0;
 		BufferedReader reader = new BufferedReader(new FileReader(pomFile.getLocation().toFile()));

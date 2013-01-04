@@ -20,13 +20,23 @@ import org.eclipse.core.expressions.PropertyTester;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 
+/***
+ * This class is used to test whether the selected project is a WSO2 project or
+ * not.
+ * Currently we test only based on maven pom file.
+ * But we need to extend this to check for a common Eclipse project nature as
+ * indicated in
+ * {@link <a href="https://wso2.org/jira/browse/TOOLS-1029">TOOLS-1029</a>}
+ * 
+ */
 public class ArtifactProjectRenameParticipantPropertyTester extends PropertyTester {
 
 	public boolean test(Object arg0, String arg1, Object[] arg2, Object arg3) {
 		IProject projectToBeRenamed = (IProject) arg0;
 		if (projectToBeRenamed.isOpen()) {
 			IFile pomFile = projectToBeRenamed.getFile("pom.xml");
-			// TODO: Add other validations including adding an unique WSO2 nature so that we can
+			// TODO: Add other validations including adding an unique WSO2
+			// nature so that we can
 			// identify
 			if (pomFile.exists()) {
 				return true;

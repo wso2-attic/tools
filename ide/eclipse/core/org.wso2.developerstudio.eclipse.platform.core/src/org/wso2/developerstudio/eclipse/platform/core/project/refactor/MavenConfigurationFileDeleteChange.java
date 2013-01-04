@@ -32,6 +32,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/***
+ * This class represent the changes that we need to perform when a project is
+ * deleted.
+ * These changes including deleting the dependency from distribution projects.
+ * 
+ */
 public class MavenConfigurationFileDeleteChange extends TextFileChange {
 	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
 
@@ -61,6 +67,9 @@ public class MavenConfigurationFileDeleteChange extends TextFileChange {
 		}
 	}
 
+	/**
+	 * This method is checking for dependencies for the correct dependency.
+	 */
 	private void identifyDepenencyEntry() {
 		FileReader fileReader = null;
 		BufferedReader reader = null;
@@ -138,8 +147,7 @@ public class MavenConfigurationFileDeleteChange extends TextFileChange {
 								int start = line.indexOf(artifactIdStart);
 								int end = line.indexOf(artifactIdEnd);
 
-								String artifactId =
-								                    line.substring(start + artifactIdStart.length(),
+								String artifactId = line.substring(start + artifactIdStart.length(),
 								                                   end);
 								if (artifactId.equalsIgnoreCase(dependencyForTheProject.getArtifactId())) {
 									isArtifactMatch = true;
@@ -204,21 +212,21 @@ public class MavenConfigurationFileDeleteChange extends TextFileChange {
 			}
 		} catch (Exception e) {
 			log.error("Error occured while trying to generate the Refactoring for the project", e);
-		}finally{
+		} finally {
 			try {
-	            if (fileReader != null) {
-	                fileReader.close();
-                }
-            } catch (IOException e) {
-            	log.error("Error occured while trying to close the file stream", e);
-            }
+				if (fileReader != null) {
+					fileReader.close();
+				}
+			} catch (IOException e) {
+				log.error("Error occured while trying to close the file stream", e);
+			}
 			try {
 				if (reader != null) {
-	                reader.close();
-                }
-            } catch (IOException e) {
-            	log.error("Error occured while trying to close the file stream.", e);
-            }
+					reader.close();
+				}
+			} catch (IOException e) {
+				log.error("Error occured while trying to close the file stream.", e);
+			}
 		}
 
 	}
