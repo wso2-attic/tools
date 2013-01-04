@@ -40,15 +40,12 @@ public class ProjectRefactorUtils {
 	 */
 	public static Dependency getDependencyForTheProject(IProject project) {
 		MavenProject mavenProject = getMavenProject(project);
-		Dependency dependency = new Dependency();
-
+		Dependency dependency = null;
 		if (mavenProject != null) {
-			String groupId = mavenProject.getGroupId();
-			String artifactId = mavenProject.getArtifactId();
-			String version = mavenProject.getVersion();
-			dependency.setGroupId(groupId);
-			dependency.setArtifactId(artifactId);
-			dependency.setVersion(version);
+			dependency = new Dependency();
+			dependency.setGroupId(mavenProject.getGroupId());
+			dependency.setArtifactId(mavenProject.getArtifactId());
+			dependency.setVersion(mavenProject.getVersion());
 		}
 		return dependency;
 	}

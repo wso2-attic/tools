@@ -96,119 +96,125 @@ public class MavenConfigurationFileDeleteChange extends TextFileChange {
 			Dependency dependencyForTheProject =
 			                                     ProjectRefactorUtils.getDependencyForTheProject(deletingProject);
 
-			fileReader = new FileReader(pomFile.getLocation().toFile());
-			reader = new BufferedReader(fileReader);
+			if (dependencyForTheProject != null) {
+				fileReader = new FileReader(pomFile.getLocation().toFile());
+				reader = new BufferedReader(fileReader);
+				String line = reader.readLine();
+				while (line != null) {
 
-			String line = reader.readLine();
-
-			while (line != null) {
-
-				if (!isDependencies && line.contains(dependenciesStart)) {
-					isDependencies = true;
-				}
-
-				if (isDependencies && line.contains(dependenciesEnd)) {
-					isDependencies = false;
-				}
-
-				if (isDependencies) {
-					if (line.contains(dependencyStart)) {
-						isDependency = true;
-						dependencyEntry.clear();
-						int dependencyEntryindex = line.indexOf(dependencyStart);
-						startIndex = fullIndex + dependencyEntryindex;
-						if (dependencyEntryindex != -1) {
-							dependencyEntry.add(line.substring(dependencyEntryindex));
-						}
+					if (!isDependencies && line.contains(dependenciesStart)) {
+						isDependencies = true;
 					}
 
-					if (isDependency) {
-						if (line.contains(groupIdStart) && line.contains(groupIdEnd)) {
-							if (line.contains(dependencyForTheProject.getGroupId())) {
-								int start = line.indexOf(groupIdStart);
-								int end = line.indexOf(groupIdEnd);
+					if (isDependencies && line.contains(dependenciesEnd)) {
+						isDependencies = false;
+					}
 
-								String groupId = line.substring(start + groupIdStart.length(), end);
-								if (groupId.equalsIgnoreCase(dependencyForTheProject.getGroupId())) {
-									isGroupMatch = true;
-									if (!dependencyEntry.contains(line)) {
-										dependencyEntry.add(line);
-									}
-								} else {
-									isGroupMatch = false;
-									dependencyEntry.clear();
-								}
+					if (isDependencies) {
+						if (line.contains(dependencyStart)) {
+							isDependency = true;
+							dependencyEntry.clear();
+							int dependencyEntryindex = line.indexOf(dependencyStart);
+							startIndex = fullIndex + dependencyEntryindex;
+							if (dependencyEntryindex != -1) {
+								dependencyEntry.add(line.substring(dependencyEntryindex));
 							}
 						}
 
-						if (isGroupMatch && line.contains(artifactIdStart) &&
-						    line.contains(artifactIdEnd)) {
-							if (line.contains(dependencyForTheProject.getArtifactId())) {
-								int start = line.indexOf(artifactIdStart);
-								int end = line.indexOf(artifactIdEnd);
+						if (isDependency) {
+							if (line.contains(groupIdStart) && line.contains(groupIdEnd)) {
+								if (line.contains(dependencyForTheProject.getGroupId())) {
+									int start = line.indexOf(groupIdStart);
+									int end = line.indexOf(groupIdEnd);
 
-								String artifactId = line.substring(start + artifactIdStart.length(),
-								                                   end);
-								if (artifactId.equalsIgnoreCase(dependencyForTheProject.getArtifactId())) {
-									isArtifactMatch = true;
+									String groupId =
+									                 line.substring(start + groupIdStart.length(),
+									                                end);
+									if (groupId.equalsIgnoreCase(dependencyForTheProject.getGroupId())) {
+										isGroupMatch = true;
+										if (!dependencyEntry.contains(line)) {
+											dependencyEntry.add(line);
+										}
+									} else {
+										isGroupMatch = false;
+										dependencyEntry.clear();
+									}
+								}
+							}
+
+							if (isGroupMatch && line.contains(artifactIdStart) &&
+							    line.contains(artifactIdEnd)) {
+								if (line.contains(dependencyForTheProject.getArtifactId())) {
+									int start = line.indexOf(artifactIdStart);
+									int end = line.indexOf(artifactIdEnd);
+
+									String artifactId =
+									                    line.substring(start +
+									                                           artifactIdStart.length(),
+									                                   end);
+									if (artifactId.equalsIgnoreCase(dependencyForTheProject.getArtifactId())) {
+										isArtifactMatch = true;
+										if (!dependencyEntry.contains(line)) {
+											dependencyEntry.add(line);
+										}
+									} else {
+										isArtifactMatch = false;
+										dependencyEntry.clear();
+									}
+								}
+							}
+
+							if (isGroupMatch && isArtifactMatch && line.contains(versionStart) &&
+							    line.contains(versionEnd)) {
+								if (line.contains(dependencyForTheProject.getVersion())) {
+									int start = line.indexOf(versionStart);
+									int end = line.indexOf(versionEnd);
+
+									String version =
+									                 line.substring(start + versionStart.length(),
+									                                end);
+									if (version.equalsIgnoreCase(dependencyForTheProject.getVersion())) {
+										isVersionMatch = true;
+										if (!dependencyEntry.contains(line)) {
+											dependencyEntry.add(line);
+										}
+									} else {
+										isVersionMatch = false;
+										dependencyEntry.clear();
+									}
+								}
+							}
+
+							if (isGroupMatch && isArtifactMatch && isVersionMatch) {
+								if (line.contains(dependencyEnd)) {
+									int end = line.indexOf(dependencyEnd) + dependencyEnd.length();
+									String finalEntry = line.substring(0, end);
+									if (!dependencyEntry.contains(finalEntry)) {
+										dependencyEntry.add(finalEntry);
+									}
+
+									int length = 0;
+									for (String string : dependencyEntry) {
+										length += ProjectRefactorUtils.charsOnTheLine(string);
+									}
+
+									addEdit(new DeleteEdit(startIndex, length));
+
+									dependencyEntry.clear();
+									break;
+								} else {
 									if (!dependencyEntry.contains(line)) {
 										dependencyEntry.add(line);
 									}
-								} else {
-									isArtifactMatch = false;
-									dependencyEntry.clear();
 								}
 							}
-						}
 
-						if (isGroupMatch && isArtifactMatch && line.contains(versionStart) &&
-						    line.contains(versionEnd)) {
-							if (line.contains(dependencyForTheProject.getVersion())) {
-								int start = line.indexOf(versionStart);
-								int end = line.indexOf(versionEnd);
-
-								String version = line.substring(start + versionStart.length(), end);
-								if (version.equalsIgnoreCase(dependencyForTheProject.getVersion())) {
-									isVersionMatch = true;
-									if (!dependencyEntry.contains(line)) {
-										dependencyEntry.add(line);
-									}
-								} else {
-									isVersionMatch = false;
-									dependencyEntry.clear();
-								}
-							}
-						}
-
-						if (isGroupMatch && isArtifactMatch && isVersionMatch) {
-							if (line.contains(dependencyEnd)) {
-								int end = line.indexOf(dependencyEnd) + dependencyEnd.length();
-								String finalEntry = line.substring(0, end);
-								if (!dependencyEntry.contains(finalEntry)) {
-									dependencyEntry.add(finalEntry);
-								}
-
-								int length = 0;
-								for (String string : dependencyEntry) {
-									length += ProjectRefactorUtils.charsOnTheLine(string);
-								}
-
-								addEdit(new DeleteEdit(startIndex, length));
-
-								dependencyEntry.clear();
-								break;
-							} else {
-								if (!dependencyEntry.contains(line)) {
-									dependencyEntry.add(line);
-								}
-							}
 						}
 
 					}
-
+					fullIndex += ProjectRefactorUtils.charsOnTheLine(line);
+					line = reader.readLine();
 				}
-				fullIndex += ProjectRefactorUtils.charsOnTheLine(line);
-				line = reader.readLine();
 			}
 		} catch (Exception e) {
 			log.error("Error occured while trying to generate the Refactoring for the project", e);

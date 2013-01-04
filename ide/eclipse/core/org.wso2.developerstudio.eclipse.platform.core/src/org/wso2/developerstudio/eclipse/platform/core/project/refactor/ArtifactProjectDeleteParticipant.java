@@ -85,15 +85,18 @@ public class ArtifactProjectDeleteParticipant extends DeleteParticipant {
 					Dependency projectDependency =
 					                               ProjectRefactorUtils.getDependencyForTheProject(originalProject);
 					List<?> dependencies = mavenProject.getDependencies();
-					for (Iterator<?> iterator = dependencies.iterator(); iterator.hasNext();) {
-						Dependency dependency = (Dependency) iterator.next();
-						if (ProjectRefactorUtils.isDependenciesEqual(projectDependency, dependency)) {
-							deleteChange.add(new MavenConfigurationFileDeleteChange(
-							                                                        project.getName(),
-							                                                        pomFile,
-							                                                        originalProject));
-						}
-					}
+					if (projectDependency != null) {
+	                    for (Iterator<?> iterator = dependencies.iterator(); iterator.hasNext();) {
+		                    Dependency dependency = (Dependency) iterator.next();
+		                    if (ProjectRefactorUtils.isDependenciesEqual(projectDependency,
+		                                                                 dependency)) {
+			                    deleteChange.add(new MavenConfigurationFileDeleteChange(
+			                                                                            project.getName(),
+			                                                                            pomFile,
+			                                                                            originalProject));
+		                    }
+	                    }
+                    }
 				} catch (Exception e) {
 					log.error("Error occured while trying to generate the Refactoring", e);
 				}
