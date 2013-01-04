@@ -41,6 +41,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPointAddressingVersion;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.FailoverEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.InputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.SequenceInputConnector;
@@ -89,8 +90,9 @@ public class DefaultEndPointTransformer extends AbstractEndpointTransformer {
 		
 		if(visualEP.getOutputConnector()!=null){
 			if(visualEP.getOutputConnector().getOutgoingLink() !=null){
-			if((!(visualEP.getOutputConnector().getOutgoingLink().getTarget() instanceof SequenceInputConnector))||
-					(!(((Sequence)visualEP.getOutputConnector().getOutgoingLink().getTarget().eContainer()).getOutputConnector().getOutgoingLink().getTarget().eContainer() instanceof EndPoint))){
+			InputConnector nextInputConnector=visualEP.getOutputConnector().getOutgoingLink().getTarget();
+			if((!(nextInputConnector instanceof SequenceInputConnector))||
+					((((Sequence)nextInputConnector.eContainer()).getOutputConnector().getOutgoingLink()!=null)&&(!(((Sequence)nextInputConnector.eContainer()).getOutputConnector().getOutgoingLink().getTarget().eContainer() instanceof EndPoint)))){
 			info.setParentSequence(info.getOriginOutSequence());
 			info.setTraversalDirection(TransformationInfo.TRAVERSAL_DIRECTION_OUT);
 			}else if(visualEP.getInputConnector().getIncomingLinks().get(0).getSource().eContainer() instanceof Sequence){

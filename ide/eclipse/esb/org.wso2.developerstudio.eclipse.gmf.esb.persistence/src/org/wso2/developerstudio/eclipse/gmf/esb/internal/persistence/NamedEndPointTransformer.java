@@ -12,6 +12,7 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Display;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
+import org.wso2.developerstudio.eclipse.gmf.esb.InputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamedEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.SequenceInputConnector;
@@ -46,8 +47,9 @@ public class NamedEndPointTransformer extends AbstractEsbNodeTransformer{
 		
 		if(visualEndPoint.getOutputConnector()!=null){
 			if(visualEndPoint.getOutputConnector().getOutgoingLink() !=null){
-				if((!(visualEndPoint.getOutputConnector().getOutgoingLink().getTarget() instanceof SequenceInputConnector))||
-						(!(((Sequence)visualEndPoint.getOutputConnector().getOutgoingLink().getTarget().eContainer()).getOutputConnector().getOutgoingLink().getTarget().eContainer() instanceof EndPoint))){
+				InputConnector nextInputConnector=visualEndPoint.getOutputConnector().getOutgoingLink().getTarget();
+				if((!(nextInputConnector instanceof SequenceInputConnector))||
+						((((Sequence)nextInputConnector.eContainer()).getOutputConnector().getOutgoingLink()!=null)&&(!(((Sequence)nextInputConnector.eContainer()).getOutputConnector().getOutgoingLink().getTarget().eContainer() instanceof EndPoint)))){
 				information.setParentSequence(information.getOriginOutSequence());
 				information.setTraversalDirection(TransformationInfo.TRAVERSAL_DIRECTION_OUT);
 				}else if(visualEndPoint.getInputConnector().getIncomingLinks().get(0).getSource().eContainer() instanceof Sequence){
