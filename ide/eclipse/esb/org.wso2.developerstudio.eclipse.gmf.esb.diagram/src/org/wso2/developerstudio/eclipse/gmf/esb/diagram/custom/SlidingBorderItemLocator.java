@@ -15,7 +15,9 @@
  */
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.PositionConstants;
@@ -44,6 +46,11 @@ public class SlidingBorderItemLocator extends BorderItemLocator {
 	 * Gap between border item figures.
 	 */
 	private int interval;
+	
+	/**
+	 * Map of predefined Y values
+	 */
+	private static Map<IFigure,Integer> predefinedYValues = new HashMap<IFigure, Integer>();
 
 	/**
 	 * Creates a new {@link SlidingBorderItemLocator} instance.
@@ -87,7 +94,15 @@ public class SlidingBorderItemLocator extends BorderItemLocator {
 			y += parentFigureHeight / 2 - borderItemSize.height / 2;
 		} else if (side == PositionConstants.EAST) {
 			x = parentFigureX + parentFigureWidth - getBorderItemOffset().width;
-			y = borderItem.getBounds().getLocation().y;
+			int predefinedYValue = getPredefinedYValue(borderItem); 
+			// checking for Checking for predefined Y value
+			if(predefinedYValue > 1){
+				y = predefinedYValue;
+				setPredefinedYValue(borderItem,-1); // Disposing value
+			} else{
+				y = borderItem.getBounds().getLocation().y;
+			}
+			
 			//y += parentFigureHeight / 2 - borderItemSize.height / 2;
 		} else if (side == PositionConstants.NORTH) {
 			x += parentFigureWidth / 2 - borderItemSize.width / 2;
@@ -222,5 +237,26 @@ public class SlidingBorderItemLocator extends BorderItemLocator {
 		Point ptNewLocation = locateOnBorder(getPreferredLocation(borderItem), getPreferredSideOfParent(), 0,
 				borderItem);
 		borderItem.setBounds(new Rectangle(ptNewLocation, size));
+	}
+	
+	/**
+	 * Set the Y value for a figure
+	 * @param figure
+	 * @param predefinedValue
+	 */
+	public static void setPredefinedYValue(IFigure figure,int predefinedValue) {
+		predefinedYValues.put(figure, predefinedValue);
+	}
+
+	/**
+	 * Get predefined Y value of a figure
+	 * @param figure
+	 * @return
+	 */
+	public static int getPredefinedYValue(IFigure figure) {
+		if (predefinedYValues.containsKey(figure)) {
+			return predefinedYValues.get(figure);
+		}
+		return -1;
 	}
 }

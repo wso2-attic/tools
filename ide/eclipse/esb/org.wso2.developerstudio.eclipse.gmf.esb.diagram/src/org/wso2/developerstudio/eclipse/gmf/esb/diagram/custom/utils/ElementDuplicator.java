@@ -48,14 +48,20 @@ import org.apache.synapse.mediators.builtin.SendMediator;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.draw2d.geometry.Point;
+import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gef.EditPart;
+import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
+import org.eclipse.gmf.runtime.diagram.ui.commands.SetBoundsCommand;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
+import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
+import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IEditorPart;
@@ -85,6 +91,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorI
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ConnectionUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.SlidingBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer.AbstractEsbNodeDeserializer;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer.EsbDeserializerRegistry;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer.IEsbNodeDeserializer;
@@ -251,6 +258,7 @@ public class ElementDuplicator {
 						GraphicalEditPart rootCompartment = EditorUtils
 								.getSequenceAndEndpointCompartmentEditPart(element);
 						esbNodes = duplicateElements(rootCompartment, name);
+						relocateNodes(esbNodes, editor, (SendMediatorEditPart) element);
 						createLinks(esbNodes, editor, (SendMediatorEditPart) element);
 					}else{
 						MessageDialog
@@ -263,6 +271,39 @@ public class ElementDuplicator {
 			}
 		}
 
+	}
+	
+	private void relocateNodes(List<EsbNode> nodes, IEditorPart editor,
+			SendMediatorEditPart sendMediatorEP) {
+		Rectangle sendMedRect = sendMediatorEP.getFigure().getBounds().getCopy();
+		Rectangle parentRect = ((GraphicalEditPart)sendMediatorEP.getParent()).getFigure().getBounds().getCopy();
+		refreshEditPartMap(editor);
+		int initialYPos= sendMedRect.y + sendMedRect.height;
+		for (EsbNode node : nodes) {
+			GraphicalEditPart editpart = (GraphicalEditPart) getEditpart(node);
+			Rectangle rect = new Rectangle(new Point(), editpart.getFigure().getPreferredSize()).getCopy();
+			
+			initialYPos += 60;
+			rect.y = initialYPos;
+			if(node instanceof EndPoint){
+				SlidingBorderItemLocator.setPredefinedYValue(editpart.getFigure(),rect.y);
+			} else{
+				rect.x = ((sendMedRect.x + parentRect.width) / 2) - 75;
+			}
+			
+			if(rect.y> parentRect.height){
+				//FIXME : resize parent, GMF's auto-resizing capability may not sufficient
+			}
+			
+			SetBoundsCommand sbc = new SetBoundsCommand(editpart.getEditingDomain(),
+					"change location", new EObjectAdapter((View) editpart.getModel()), rect);
+
+			editpart.getDiagramEditDomain().getDiagramCommandStack()
+					.execute(new ICommandProxy(sbc));
+			
+			
+		}
+		
 	}
 	
 	public void refreshEditPartMap(IEditorPart editor){
