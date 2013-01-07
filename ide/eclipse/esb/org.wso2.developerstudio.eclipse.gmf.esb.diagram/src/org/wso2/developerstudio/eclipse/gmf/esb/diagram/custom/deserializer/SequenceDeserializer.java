@@ -71,6 +71,7 @@ public class SequenceDeserializer extends AbstractEsbNodeDeserializer<SequenceMe
 				addRootInputConnector(sequenceModel.getInputConnector());
 				IGraphicalEditPart compartment = (IGraphicalEditPart) getEditpart(
 						sequenceModel.getMediatorFlow()).getChildren().get(0);
+				setRootCompartment((GraphicalEditPart)compartment);
 				deserializeSequence(compartment, sequence, sequenceModel.getOutputConnector());
 				deserializeSequence(compartment, new SequenceMediator(),
 						sequenceModel.getInputConnector());
