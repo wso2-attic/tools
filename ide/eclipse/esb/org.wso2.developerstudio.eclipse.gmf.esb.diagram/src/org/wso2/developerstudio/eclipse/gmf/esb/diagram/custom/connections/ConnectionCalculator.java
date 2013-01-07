@@ -117,7 +117,6 @@ public class ConnectionCalculator {
 
 			for (int i = 0; i < connectors.size(); ++i) {
 
-				System.out.println("");
 				IFigure figure = (IFigure) ((DefaultSizeNodeFigure) connectors
 						.get(i).getFigure()).getChildren().get(0);
 
