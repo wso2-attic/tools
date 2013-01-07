@@ -67,9 +67,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IEditorPart;
-import org.eclipse.ui.IEditorReference;
 import org.eclipse.ui.IFileEditorInput;
-import org.eclipse.ui.PlatformUI;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -82,19 +80,15 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbServer;
 import org.wso2.developerstudio.eclipse.gmf.esb.InputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.OutputConnector;
-import org.wso2.developerstudio.eclipse.gmf.esb.ProxyInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
-import org.wso2.developerstudio.eclipse.gmf.esb.Sequences;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpointOutputConnectorEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ConnectionUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.SlidingBorderItemLocator;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer.AbstractEsbNodeDeserializer;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer.EsbDeserializerRegistry;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer.IEsbNodeDeserializer;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbLinkEditPart;
@@ -202,10 +196,10 @@ public class ElementDuplicator {
 						
 						collectElementsToBeDeleted(firstLinks, elements, outputConnector);
 						
-/*						firstLinks.add(outputConnector.getOutgoingLink());			
+	/*					firstLinks.add(outputConnector.getOutgoingLink());			
 						
 						
-						 * Collect elements to be deleted. 
+						* Collect elements to be deleted. 
 						 
 						while ((outputConnector.getOutgoingLink() != null)&&(!isOutSequenceStarted(outputConnector.getOutgoingLink()))) {
 		
@@ -351,7 +345,7 @@ public class ElementDuplicator {
 						GraphicalEditPart rootCompartment = EditorUtils
 								.getSequenceAndEndpointCompartmentEditPart(element);
 						esbNodes = duplicateElementsForReceivingSequence(rootCompartment, name);
-						relocateNodes(esbNodes,editor,(SendMediatorEditPart) element);
+						relocateNodes(esbNodes,editor,(GraphicalEditPart) element);
 						createLinksForReceivingSequence(esbNodes, editor, (SendMediatorEditPart) element);						
 					}else{
 						MessageDialog
@@ -367,26 +361,27 @@ public class ElementDuplicator {
 	}
 	
 	private void relocateNodes(List<EsbNode> nodes, IEditorPart editor,
-			SendMediatorEditPart sendMediatorEP) {
-		Rectangle sendMedRect = sendMediatorEP.getFigure().getBounds().getCopy();
-		Rectangle parentRect = ((GraphicalEditPart)sendMediatorEP.getParent()).getFigure().getBounds().getCopy();
+			GraphicalEditPart editPart) {
+		Rectangle medRect = editPart.getFigure().getBounds().getCopy();
+		GraphicalEditPart parent = (GraphicalEditPart)editPart.getParent();
+		Rectangle parentRect = parent.getFigure().getBounds().getCopy();
 		refreshEditPartMap(editor);
-		int initialYPos= sendMedRect.y + sendMedRect.height;
+		GraphicalEditPart container = EditorUtils.getProxy(editPart); 
+		Rectangle containerRect = container.getFigure().getBounds().getCopy();
+		int initialYPos= medRect.y + medRect.height;
 		for (EsbNode node : nodes) {
 			GraphicalEditPart editpart = (GraphicalEditPart) getEditpart(node);
 			Rectangle rect = new Rectangle(new Point(), editpart.getFigure().getPreferredSize()).getCopy();
 			
-			initialYPos += 60;
+			initialYPos += 50;
 			rect.y = initialYPos;
 			if(node instanceof EndPoint){
 				SlidingBorderItemLocator.setPredefinedYValue(editpart.getFigure(),rect.y);
 			} else{
-				rect.x = ((sendMedRect.x + parentRect.width) / 2) - 75;
+				initialYPos += 60;
+				rect.x = ((medRect.x + parentRect.width) / 2) - 75;
 			}
 			
-			if(rect.y> parentRect.height){
-				//FIXME : resize parent, GMF's auto-resizing capability may not sufficient
-			}
 			
 			SetBoundsCommand sbc = new SetBoundsCommand(editpart.getEditingDomain(),
 					"change location", new EObjectAdapter((View) editpart.getModel()), rect);
@@ -394,8 +389,18 @@ public class ElementDuplicator {
 			editpart.getDiagramEditDomain().getDiagramCommandStack()
 					.execute(new ICommandProxy(sbc));
 			
-			
 		}
+		
+		if(initialYPos> parentRect.height){
+			
+			containerRect.height += (initialYPos - parentRect.height);
+			containerRect.height += 40;
+				SetBoundsCommand sbc = new SetBoundsCommand(container.getEditingDomain(),
+						"change location", new EObjectAdapter((View) container.getModel()), containerRect);
+
+				container.getDiagramEditDomain().getDiagramCommandStack()
+						.execute(new ICommandProxy(sbc));
+			}
 		
 	}
 	
