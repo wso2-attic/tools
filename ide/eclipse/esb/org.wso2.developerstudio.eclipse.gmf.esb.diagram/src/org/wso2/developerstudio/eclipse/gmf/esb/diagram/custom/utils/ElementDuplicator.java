@@ -56,10 +56,12 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gef.EditPart;
+import org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.commands.SetBoundsCommand;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramEditDomain;
 import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.dialogs.MessageDialog;
@@ -154,13 +156,21 @@ public class ElementDuplicator {
 			deleteElements(currentEditor);
 			duplicateElemets(file, currentEditor);
 			break;
+		case MAIN_SEQUENCE:
+			deleteElements(currentEditor);
+			duplicateElemets(file, currentEditor);
+			break;
+		case API:
+			deleteElements(currentEditor);
+			duplicateElemets(file, currentEditor);
+			break;			
 		}
 	}
 	
 	private void deleteElements(IEditorPart editor) {		
 		EObject parent = null;
 		List<EsbLink> firstLinks = new ArrayList<EsbLink>();
-		InputConnector target=null;
+		List<EsbLinkEditPart> firstLinksEditparts=new ArrayList<EsbLinkEditPart>();
 		List<EObject> elements = new ArrayList<EObject>();
 		Map registry = ((EsbMultiPageEditor) editor).getDiagramEditPart().getViewer().getEditPartRegistry();
 		Collection<Object> values = new ArrayList<Object>();
@@ -184,6 +194,11 @@ public class ElementDuplicator {
 								break;
 							}
 						}					
+						
+						EsbLinkEditPart firstLinkEditPart=getFirstLinkEditpart(element);
+						if(firstLinkEditPart!=null){
+							firstLinksEditparts.add(firstLinkEditPart);
+						}
 						
 						collectElementsToBeDeleted(firstLinks, elements, outputConnector);
 						
@@ -210,7 +225,7 @@ public class ElementDuplicator {
 					}
 				}
 			}else if(element instanceof SequenceEditPart){
-				OutputConnector outputConnector=null;
+/*				OutputConnector outputConnector=null;
 				
 				Sequence sequence=(Sequence) ((org.eclipse.gmf.runtime.notation.Node)((SequenceEditPart)element).getModel()).getElement();
 				parent = sequence.eContainer();
@@ -224,12 +239,13 @@ public class ElementDuplicator {
 				}
 				if(outputConnector!=null){
 					collectElementsToBeDeleted(firstLinks, elements, outputConnector);
-				}
+				}*/
 			}
 		}
 		CompoundCommand resultCommand = new CompoundCommand();
 		TransactionalEditingDomain domain = ((EsbMultiPageEditor) editor).getDiagramEditPart()
 				.getEditingDomain();
+		IDiagramEditDomain editDomain=((EsbMultiPageEditor) editor).getDiagramEditPart().getDiagramEditDomain();
 		/*
 		 * We have to delete first link from the model by force.(It's view will get deleted while other elements getting deleted.)
 		 */
@@ -240,6 +256,17 @@ public class ElementDuplicator {
 		if (del.canExecute()) {
 			domain.getCommandStack().execute(del);
 		}
+		
+		for(int i=0;i<firstLinksEditparts.size();++i){
+			DeleteCommand delCmd = new DeleteCommand(((EsbLinkEditPart)firstLinksEditparts.get(i))
+					.getNotationView());
+			org.eclipse.gef.commands.CompoundCommand dl = new org.eclipse.gef.commands.CompoundCommand("Delete Link");
+			dl.add(new ICommandProxy(delCmd));
+			if (delCmd.canExecute()) {
+				editDomain.getDiagramCommandStack().execute(dl);
+			}
+		}
+		
 		/*
 		 * Delete elements recursively. 
 		 */
@@ -251,6 +278,23 @@ public class ElementDuplicator {
 
 		if (resultCommand.canExecute()) {
 			domain.getCommandStack().execute(resultCommand);
+		}
+	}
+	
+	private EsbLinkEditPart getFirstLinkEditpart(EditPart element){
+		AbstractMediatorOutputConnectorEditPart abstractMediatorOutputConnectorEditPart=EditorUtils.getMediatorOutputConnector((SendMediatorEditPart)element);
+		EditPart targetEditPart=null;
+		AbstractEndpointOutputConnectorEditPart abstractEndpointOutputConnectorEditPart=null;
+		if(abstractMediatorOutputConnectorEditPart.getSourceConnections().size()!=0){
+			targetEditPart=((EsbLinkEditPart)abstractMediatorOutputConnectorEditPart.getSourceConnections().get(0)).getTarget();
+			abstractEndpointOutputConnectorEditPart=EditorUtils.getEndpointOutputConnector((ShapeNodeEditPart) targetEditPart.getParent());
+			if(abstractEndpointOutputConnectorEditPart.getSourceConnections().size()!=0){
+				return (EsbLinkEditPart) abstractEndpointOutputConnectorEditPart.getSourceConnections().get(0);
+			}else{
+				return null;
+			}
+		}else {
+			return null;
 		}
 	}
 	
@@ -290,11 +334,10 @@ public class ElementDuplicator {
 			EditPart element = (EditPart) values.toArray()[j];
 			if (element instanceof SequenceEditPart) {
 
-				GraphicalEditPart rootCompartment = EditorUtils.getSequenceAndEndpointCompartmentEditPart(element);
+/*				GraphicalEditPart rootCompartment = EditorUtils.getSequenceAndEndpointCompartmentEditPart(element);
 				esbNodes.add((Sequence)((org.eclipse.gmf.runtime.notation.Node)element.getModel()).getElement());
 				esbNodes.addAll(duplicateElements(rootCompartment, ((Sequence)((org.eclipse.gmf.runtime.notation.Node)element.getModel()).getElement()).getName()));
-				relocateNodes(esbNodes,editor,(SendMediatorEditPart) element);
-				createLinks(esbNodes, editor);				
+				createLinks(esbNodes, editor);	*/			
 				
 			} else if (element instanceof SendMediatorEditPart) {
 				if (((org.wso2.developerstudio.eclipse.gmf.esb.SendMediator) ((org.eclipse.gmf.runtime.notation.Node) ((SendMediatorEditPart) element)
