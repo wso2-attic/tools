@@ -338,6 +338,10 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 			break;
 		}
         
+		IFile file = ((IFileEditorInput)getEditorInput()).getFile();
+        ElementDuplicator endPointDuplicator = new ElementDuplicator(file.getProject(),getGraphicalEditor());        
+        endPointDuplicator.updateAssociatedDiagrams(this);
+        
         //createPage2();
     }
     
@@ -464,7 +468,15 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 				for (int i = 0; i < editorReferences.length; i++) {
 					IEditorPart editor = editorReferences[i].getEditor(false);
 					if ((editor instanceof EsbMultiPageEditor)&&(!editor.equals(this))) {
-						Map registry = ((EsbMultiPageEditor) editor).getDiagramEditPart()
+						
+						
+						
+						IFile openedFile = ((IFileEditorInput)editor.getEditorInput()).getFile();
+				        ElementDuplicator endPointDuplicator = new ElementDuplicator(openedFile.getProject(),((EsbMultiPageEditor)editor).getGraphicalEditor());        
+				        endPointDuplicator.updateAssociatedDiagrams((EsbMultiPageEditor)editor);
+						
+						
+/*						Map registry = ((EsbMultiPageEditor) editor).getDiagramEditPart()
 								.getViewer().getEditPartRegistry();
 
 						
@@ -486,7 +498,7 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 											((Sequences) child).getName());
 								}
 							}
-						}
+						}*/
 					}
 				}
 			}
@@ -509,7 +521,8 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 		IFile file = ((IFileEditorInput)getEditorInput()).getFile();
         ElementDuplicator endPointDuplicator = new ElementDuplicator(file.getProject(),getGraphicalEditor());        
         endPointDuplicator.updateAssociatedDiagrams(this);
-        //updateAssociatedDiagrams();
+        updateAssociatedDiagrams();
+        getEditor(0).doSave(monitor);
     }
     
 

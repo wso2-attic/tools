@@ -1,5 +1,6 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
 
+import org.eclipse.core.resources.IFile;
 import org.eclipse.draw2d.GridData;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Label;
@@ -9,6 +10,8 @@ import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.ToolbarLayout;
 import org.eclipse.draw2d.geometry.Dimension;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -30,6 +33,10 @@ import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
+import org.eclipse.ui.IEditorPart;
+import org.eclipse.ui.IFileEditorInput;
+import org.eclipse.ui.PlatformUI;
+import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGroupingShape;
@@ -38,9 +45,11 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedSizedAbstrac
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.SendMediatorGraphicalShape;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ShowPropertyViewEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.editpolicy.FeedbackIndicateDragDropEditPolicy;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.utils.ElementDuplicator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.utils.MediatorFigureReverser;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.SendMediatorCanonicalEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.SendMediatorItemSemanticEditPolicy;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbMultiPageEditor;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
 
 /**
@@ -118,6 +127,28 @@ public class SendMediatorEditPart extends FixedSizedAbstractMediator {
 		};
 		return lep;
 	}
+	
+	/*	public void notifyChanged(Notification notification) {
+		super.notifyChanged(notification);
+		if(notification.getFeature() instanceof EReference){
+		if("StaticReceivingSequence".equals(((EReference)notification.getFeature()).getName())){
+			
+			String oldValue=((RegistryKeyProperty) notification.getOldValue()).getKeyValue();
+			String newValue=((RegistryKeyProperty) notification.getNewValue()).getKeyValue();
+			if(!oldValue.equals(newValue)){
+
+				IEditorPart activeEditor=PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor();
+				if (activeEditor instanceof EsbMultiPageEditor) {
+					IFile openedFile = ((IFileEditorInput)activeEditor.getEditorInput()).getFile();
+			        ElementDuplicator endPointDuplicator = new ElementDuplicator(openedFile.getProject(),((EsbMultiPageEditor)activeEditor).getGraphicalEditor());        
+			        endPointDuplicator.updateAssociatedDiagrams((EsbMultiPageEditor)activeEditor);
+				}
+			}
+		}
+	}
+		
+	}
+	*/
 
 	/**
 	 * @generated NOT
