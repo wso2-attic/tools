@@ -232,12 +232,12 @@ public class Deserializer {
 				artifacts.putAll(endpointTemplates);
 			break;
 		case PROXY:
-			ProxyService proxy = ProxyServiceFactory.createProxy(element, null);
+			ProxyService proxy = ProxyServiceFactory.createProxy(element, new Properties());
 			artifacts.put(proxy.getName(), proxy);
 			break;
 		case SEQUENCE:
 			SequenceMediatorFactory sequenceMediatorFactory = new SequenceMediatorFactory();
-			SequenceMediator sequence = (SequenceMediator) sequenceMediatorFactory.createSpecificMediator(element, null);
+			SequenceMediator sequence = (SequenceMediator) sequenceMediatorFactory.createSpecificMediator(element, new Properties());
 			artifacts.put(sequence.getName(), sequence);
 			break;
 		case API:

@@ -6,6 +6,7 @@ import java.util.Map;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.PositionConstants;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
@@ -16,6 +17,7 @@ import org.eclipse.gef.commands.CompoundCommand;
 import org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderItemEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeCompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
@@ -30,12 +32,15 @@ import org.wso2.developerstudio.eclipse.gmf.esb.ComplexEndpoints;
 import org.wso2.developerstudio.eclipse.gmf.esb.ComplexEndpointsOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ConnectionUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.SlidingBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.connections.ConnectionCalculator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.MediatorFlowMediatorFlowCompartment18CanonicalEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.MediatorFlowMediatorFlowCompartment18ItemSemanticEditPolicy;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramEditor;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.Messages;
 
 /**
@@ -47,6 +52,7 @@ public class MediatorFlowMediatorFlowCompartment18EditPart extends ShapeCompartm
 	AbstractBorderItemEditPart sourceOutputConnector = null;
 	AbstractBorderItemEditPart outputConnectorEditPart = null;
 	ShapeNodeEditPart sourceEditPart = null;
+	private Map<EObject,ShapeNodeEditPart> editPartMap = new HashMap<EObject, ShapeNodeEditPart>();
 	Map<AbstractEndpoint, ComplexEndpointsOutputConnector> connectorAndEndpointMap = new HashMap<AbstractEndpoint, ComplexEndpointsOutputConnector>();
 	private ComplexEndpoints complexEndpoints;
 
@@ -348,14 +354,58 @@ public class MediatorFlowMediatorFlowCompartment18EditPart extends ShapeCompartm
 	private void addConnectorAndLink(EditPart child) {
 		ComplexEndpointsOutputConnector connector = EsbFactory.eINSTANCE
 				.createComplexEndpointsOutputConnector();
-		AddCommand addCmd = new AddCommand(TransactionUtil.getEditingDomain(complexEndpoints),
+		EditingDomain editingDomain=((IGraphicalEditPart)child).getEditingDomain();
+		AddCommand addCmd = new AddCommand(editingDomain,
 				complexEndpoints, EsbPackage.Literals.COMPLEX_ENDPOINTS__OUTPUT_CONNECTOR,
 				connector);
 		if (addCmd.canExecute()) {
-			TransactionUtil.getEditingDomain(complexEndpoints).getCommandStack().execute(addCmd);
+			editingDomain.getCommandStack().execute(addCmd);
 			connectorAndEndpointMap.put((AbstractEndpoint) child, connector);
+		}
+		//get the created sub endpoint
+		AbstractEndpoint absEndPoint = (AbstractEndpoint) child;
+		//get the Input connector of it
+		AbstractConnectorEditPart targetConnectionEditPart = EditorUtils.getEndpointInputConnector(absEndPoint);
+		//refresh The EditPartMap populate with it newly added edit part elements
+		refreshEditPartMap();
+		//get the relevent source edit part from the load balancer diagram.
+		EditPart iEditpart = getEditpart(connector);
+		
+		if(iEditpart instanceof ComplexEndpointsOutputConnectorEditPart){
+			
+			ComplexEndpointsOutputConnectorEditPart outputConnector = (ComplexEndpointsOutputConnectorEditPart)iEditpart;
+			
+			//Connect source and traget using ConnectionUtils
+			ConnectionUtils.createConnection(targetConnectionEditPart,outputConnector);
 		}
 
 	}
+
+	private void refreshEditPartMap(){
+		@SuppressWarnings("rawtypes")
+		Map editPartRegistry = this.getViewer().getEditPartRegistry();
+		for (Object object : editPartRegistry.keySet()) {
+			if(object instanceof Node){
+				Node nodeImpl = (Node) object;
+					Object ep = editPartRegistry.get(nodeImpl);
+					if(ep instanceof ShapeNodeEditPart){
+						editPartMap.put(nodeImpl.getElement(), (ShapeNodeEditPart)ep);
+					}
+			}
+		}
+	}
+	
+	/**
+	 * Get corresponding EditPart of EObject
+	 * @param node
+	 * @return
+	 */
+	private EditPart getEditpart(EObject node) {
+		if(editPartMap.containsKey(node)){
+			return editPartMap.get(node);
+		}
+		return null;
+	}
+
 
 }

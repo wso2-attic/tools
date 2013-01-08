@@ -155,7 +155,7 @@ public class SendMediatorImpl extends MediatorImpl implements SendMediator {
     /**
      * value of the next node (non-EMF)
      */
-    protected AbstractEndPoint nextNode;
+    protected EndPoint nextNode;
 
     /**
 	 * <!-- begin-user-doc -->
@@ -662,12 +662,12 @@ public class SendMediatorImpl extends MediatorImpl implements SendMediator {
 	}
 
 	@Override
-	public void setNextNode(AbstractEndPoint node) {
+	public void setNextNode(EndPoint node) {
 		this.nextNode = node;		
 	}
 
 	@Override
-	public AbstractEndPoint getNextNode() {
+	public EndPoint getNextNode() {
 		return nextNode;
 	}
 

@@ -237,13 +237,13 @@ public interface SendMediator extends Mediator {
      * Sets the value of the next node
      * @param node
      */
-    void setNextNode(AbstractEndPoint node);
+    void setNextNode(EndPoint node);
     
     /**
      * Returns the value of the next node
      * @return
      */
-    AbstractEndPoint getNextNode();
+    EndPoint getNextNode();
     
 
 } // SendMediator

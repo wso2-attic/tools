@@ -24,6 +24,7 @@ import org.eclipse.core.runtime.Assert;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.AddressingEndpoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.EndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.ReceivingSequenceType;
 import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
@@ -77,7 +78,7 @@ public class SendMediatorDeserializer extends AbstractEsbNodeDeserializer<Abstra
 			@SuppressWarnings("rawtypes")
 			IEsbNodeDeserializer deserializer = EsbDeserializerRegistry.getInstance().getDeserializer(endpoint);
 			@SuppressWarnings("unchecked")
-			AbstractEndPoint visualEndPoint = (AbstractEndPoint) deserializer.createNode(getRootCompartment(), endpoint);
+			EndPoint visualEndPoint = (EndPoint) deserializer.createNode(getRootCompartment(), endpoint);
 			visualSendMediator.setNextNode(visualEndPoint);
 		} else if (!(isReversed() || hasInlineEndPoint() || isAddedAddressingEndPoint())){
 			AddressingEndpoint visualEndPoint = (AddressingEndpoint) DeserializerUtils.createNode(
