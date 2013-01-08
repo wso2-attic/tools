@@ -54,7 +54,10 @@ import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.RemoveCommand;
+import org.eclipse.emf.edit.command.SetCommand;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.gef.EditDomain;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
@@ -98,6 +101,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramEditor;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbMultiPageEditor;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.*;
 
 /**
  * 
@@ -219,22 +223,22 @@ public class ElementDuplicator {
 					}
 				}
 			} else if (element instanceof SequenceEditPart) {
-				/*
-				 * OutputConnector outputConnector=null;
-				 * 
-				 * Sequence sequence=(Sequence)
-				 * ((org.eclipse.gmf.runtime.notation
-				 * .Node)((SequenceEditPart)element).getModel()).getElement();
-				 * parent = sequence.eContainer(); EList<EObject> child =
-				 * sequence.eContents();
-				 * 
-				 * for (int i = 0; i < child.size(); ++i) { if (child.get(i)
-				 * instanceof OutputConnector) { outputConnector =
-				 * (OutputConnector) child.get(i); break; } }
-				 * if(outputConnector!=null){
-				 * collectElementsToBeDeleted(firstLinks, elements,
-				 * outputConnector); }
-				 */
+				Sequence sequence = (Sequence) ((org.eclipse.gmf.runtime.notation.Node) element
+						.getModel()).getElement();
+				if (!sequence.isDuplicate()) {
+					OutputConnector outputConnector = null;
+					parent = sequence.eContainer();
+					EList<EObject> child = sequence.eContents();
+					for (int i = 0; i < child.size(); ++i) {
+						if (child.get(i) instanceof OutputConnector) {
+							outputConnector = (OutputConnector) child.get(i);
+							break;
+						}
+					}
+					if (outputConnector != null) {
+						collectElementsToBeDeleted(firstLinks, elements, outputConnector);
+					}
+				}
 			}
 		}
 		CompoundCommand resultCommand = new CompoundCommand();
@@ -333,12 +337,14 @@ public class ElementDuplicator {
 		for (int j = 0; j < values.size(); ++j) {
 			EditPart element = (EditPart) values.toArray()[j];
 			if (element instanceof SequenceEditPart) {
-
-/*				GraphicalEditPart rootCompartment = EditorUtils.getSequenceAndEndpointCompartmentEditPart(element);
-				esbNodes.add((Sequence)((org.eclipse.gmf.runtime.notation.Node)element.getModel()).getElement());
-				esbNodes.addAll(duplicateElements(rootCompartment, ((Sequence)((org.eclipse.gmf.runtime.notation.Node)element.getModel()).getElement()).getName()));
-				createLinks(esbNodes, editor);	*/			
-				
+				Sequence sequence=(Sequence)((org.eclipse.gmf.runtime.notation.Node)element.getModel()).getElement();
+				if(!sequence.isDuplicate()){
+					GraphicalEditPart rootCompartment = EditorUtils.getSequenceAndEndpointCompartmentEditPart(element);
+					esbNodes.add((Sequence)((org.eclipse.gmf.runtime.notation.Node)element.getModel()).getElement());
+					esbNodes.addAll(duplicateElements(rootCompartment, ((Sequence)((org.eclipse.gmf.runtime.notation.Node)element.getModel()).getElement()).getName()));
+					relocateNodes(esbNodes,editor,(GraphicalEditPart) element);
+					createLinks(esbNodes, editor);	
+				}				
 			} else if (element instanceof SendMediatorEditPart) {
 				if (((org.wso2.developerstudio.eclipse.gmf.esb.SendMediator) ((org.eclipse.gmf.runtime.notation.Node) ((SendMediatorEditPart) element)
 						.getModel()).getElement()).getReceivingSequenceType().getValue() == 1) {
@@ -504,7 +510,12 @@ public class ElementDuplicator {
 			IEsbNodeDeserializer SequenceMediatorDeserializer = EsbDeserializerRegistry.getInstance().getDeserializer(sequenceMediator);
 			if(SequenceMediatorDeserializer!=null){
 				Sequence sequence = (Sequence) SequenceMediatorDeserializer.createNode(rootCompartment, sequenceMediator);
-				esbNodes.add(sequence);
+				EditingDomain editingDomain=rootCompartment.getEditingDomain();
+				SetCommand setCmd=new SetCommand(editingDomain, sequence,SEQUENCE__DUPLICATE , true);
+				if(setCmd.canExecute()){
+					editingDomain.getCommandStack().execute(setCmd);
+					esbNodes.add(sequence);
+				}				
 				//FIXME: set inline
 			}
 		}
@@ -521,7 +532,12 @@ public class ElementDuplicator {
 				IEsbNodeDeserializer deserializer = EsbDeserializerRegistry.getInstance().getDeserializer(endpoint);
 				if(deserializer!=null){
 					AbstractEndPoint endPoint = (AbstractEndPoint) deserializer.createNode(rootCompartment, endpoint);
-					esbNodes.add(endPoint);
+					EditingDomain editingDomain=rootCompartment.getEditingDomain();
+					SetCommand setCmd=new SetCommand(editingDomain, endPoint,END_POINT__DUPLICATE , true);
+					if(setCmd.canExecute()){
+						editingDomain.getCommandStack().execute(setCmd);
+						esbNodes.add(endPoint);
+					}						
 					//FIXME: set inline
 				}
 				
