@@ -172,68 +172,69 @@ public class ElementDuplicator {
 
 		for (int j = 0; j < values.size(); ++j) {
 			EditPart element = (EditPart) values.toArray()[j];
-			if (element instanceof SendMediatorEditPart) {			
-				org.wso2.developerstudio.eclipse.gmf.esb.SendMediator sendMediator=(org.wso2.developerstudio.eclipse.gmf.esb.SendMediator) ((org.eclipse.gmf.runtime.notation.Node) ((SendMediatorEditPart) element)
+			if (element instanceof SendMediatorEditPart) {
+				org.wso2.developerstudio.eclipse.gmf.esb.SendMediator sendMediator = (org.wso2.developerstudio.eclipse.gmf.esb.SendMediator) ((org.eclipse.gmf.runtime.notation.Node) ((SendMediatorEditPart) element)
 						.getModel()).getElement();
-				if(sendMediator.getReceivingSequenceType().getValue()==1){
-					OutputConnector outputConnector = sendMediator.getOutputConnector();				
-					if(outputConnector.getOutgoingLink()!=null){
-						EObject node = outputConnector.getOutgoingLink().getTarget().eContainer();
+				// if(sendMediator.getReceivingSequenceType().getValue()==1){
+				OutputConnector outputConnector = sendMediator.getOutputConnector();
+				if (outputConnector.getOutgoingLink() != null) {
+					EObject node = outputConnector.getOutgoingLink().getTarget().eContainer();
+					if (node instanceof EndPoint) {
 						parent = node.eContainer();
-		
+
 						EList<EObject> child = node.eContents();
 						for (int i = 0; i < child.size(); ++i) {
 							if (child.get(i) instanceof OutputConnector) {
 								outputConnector = (OutputConnector) child.get(i);
 								break;
 							}
-						}					
-						
-						EsbLinkEditPart firstLinkEditPart=getFirstLinkEditpart(element);
-						if(firstLinkEditPart!=null){
+						}
+
+						EsbLinkEditPart firstLinkEditPart = getFirstLinkEditpart(element);
+						if (firstLinkEditPart != null) {
 							firstLinksEditparts.add(firstLinkEditPart);
 						}
-						
+
 						collectElementsToBeDeleted(firstLinks, elements, outputConnector);
-						
-	/*					firstLinks.add(outputConnector.getOutgoingLink());			
-						
-						
-						* Collect elements to be deleted. 
-						 
-						while ((outputConnector.getOutgoingLink() != null)&&(!isOutSequenceStarted(outputConnector.getOutgoingLink()))) {
-		
-							node = outputConnector.getOutgoingLink().getTarget().eContainer();
-							if(elements.contains(node)){
-								break;
-							}
-							elements.add(node);
-							child = node.eContents();
-							for (int i = 0; i < child.size(); ++i) {
-								if (child.get(i) instanceof OutputConnector) {
-									outputConnector = (OutputConnector) child.get(i);
-									break;
-								}
-							}					
-						}*/
+
+						/*
+						 * firstLinks.add(outputConnector.getOutgoingLink());
+						 * 
+						 * 
+						 * Collect elements to be deleted.
+						 * 
+						 * while ((outputConnector.getOutgoingLink() !=
+						 * null)&&(!
+						 * isOutSequenceStarted(outputConnector.getOutgoingLink
+						 * ()))) {
+						 * 
+						 * node =
+						 * outputConnector.getOutgoingLink().getTarget().eContainer
+						 * (); if(elements.contains(node)){ break; }
+						 * elements.add(node); child = node.eContents(); for
+						 * (int i = 0; i < child.size(); ++i) { if (child.get(i)
+						 * instanceof OutputConnector) { outputConnector =
+						 * (OutputConnector) child.get(i); break; } } }
+						 */
 					}
 				}
-			}else if(element instanceof SequenceEditPart){
-/*				OutputConnector outputConnector=null;
-				
-				Sequence sequence=(Sequence) ((org.eclipse.gmf.runtime.notation.Node)((SequenceEditPart)element).getModel()).getElement();
-				parent = sequence.eContainer();
-				EList<EObject> child = sequence.eContents();
-				
-				for (int i = 0; i < child.size(); ++i) {
-					if (child.get(i) instanceof OutputConnector) {
-						outputConnector = (OutputConnector) child.get(i);
-						break;
-					}
-				}
-				if(outputConnector!=null){
-					collectElementsToBeDeleted(firstLinks, elements, outputConnector);
-				}*/
+			} else if (element instanceof SequenceEditPart) {
+				/*
+				 * OutputConnector outputConnector=null;
+				 * 
+				 * Sequence sequence=(Sequence)
+				 * ((org.eclipse.gmf.runtime.notation
+				 * .Node)((SequenceEditPart)element).getModel()).getElement();
+				 * parent = sequence.eContainer(); EList<EObject> child =
+				 * sequence.eContents();
+				 * 
+				 * for (int i = 0; i < child.size(); ++i) { if (child.get(i)
+				 * instanceof OutputConnector) { outputConnector =
+				 * (OutputConnector) child.get(i); break; } }
+				 * if(outputConnector!=null){
+				 * collectElementsToBeDeleted(firstLinks, elements,
+				 * outputConnector); }
+				 */
 			}
 		}
 		CompoundCommand resultCommand = new CompoundCommand();
@@ -276,18 +277,23 @@ public class ElementDuplicator {
 	}
 	
 	private EsbLinkEditPart getFirstLinkEditpart(EditPart element){
+		AbstractEndpointOutputConnectorEditPart abstractEndpointOutputConnectorEditPart=getEndpointOutputConnector(element);
+			if((abstractEndpointOutputConnectorEditPart!=null)&&(abstractEndpointOutputConnectorEditPart.getSourceConnections().size()!=0)){
+				return (EsbLinkEditPart) abstractEndpointOutputConnectorEditPart.getSourceConnections().get(0);
+			}else{
+				return null;
+			}
+	}
+	
+	private AbstractEndpointOutputConnectorEditPart getEndpointOutputConnector(EditPart element){
 		AbstractMediatorOutputConnectorEditPart abstractMediatorOutputConnectorEditPart=EditorUtils.getMediatorOutputConnector((SendMediatorEditPart)element);
 		EditPart targetEditPart=null;
 		AbstractEndpointOutputConnectorEditPart abstractEndpointOutputConnectorEditPart=null;
 		if(abstractMediatorOutputConnectorEditPart.getSourceConnections().size()!=0){
 			targetEditPart=((EsbLinkEditPart)abstractMediatorOutputConnectorEditPart.getSourceConnections().get(0)).getTarget();
 			abstractEndpointOutputConnectorEditPart=EditorUtils.getEndpointOutputConnector((ShapeNodeEditPart) targetEditPart.getParent());
-			if(abstractEndpointOutputConnectorEditPart.getSourceConnections().size()!=0){
-				return (EsbLinkEditPart) abstractEndpointOutputConnectorEditPart.getSourceConnections().get(0);
-			}else{
-				return null;
-			}
-		}else {
+			return abstractEndpointOutputConnectorEditPart;
+		}else{
 			return null;
 		}
 	}
@@ -354,6 +360,10 @@ public class ElementDuplicator {
 								"Diagram Incomplete ! ",
 								"Output connector of the send mediator must be connected to an endpoint since send mediator has a receiving sequence.");
 					}
+				}else{
+					refreshEditPartMap(editor);
+					ConnectionUtils.createConnection(
+							(AbstractConnectorEditPart) getEditpart(inputConnector), getEndpointOutputConnector(element));
 				}
 			}
 		}
