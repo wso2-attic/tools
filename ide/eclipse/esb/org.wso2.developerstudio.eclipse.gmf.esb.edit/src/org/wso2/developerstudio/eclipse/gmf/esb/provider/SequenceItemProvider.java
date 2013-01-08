@@ -140,6 +140,28 @@ public class SequenceItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Duplicate feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDuplicatePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Sequence_duplicate_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Sequence_duplicate_feature", "_UI_Sequence_type"),
+				 EsbPackage.Literals.SEQUENCE__DUPLICATE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -216,6 +238,7 @@ public class SequenceItemProvider
 			case EsbPackage.SEQUENCE__NAME:
 			case EsbPackage.SEQUENCE__KEY:
 			case EsbPackage.SEQUENCE__RECEIVE_SEQUENCE:
+			case EsbPackage.SEQUENCE__DUPLICATE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case EsbPackage.SEQUENCE__INPUT_CONNECTOR:
