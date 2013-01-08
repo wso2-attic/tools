@@ -52,8 +52,7 @@ public class MediatorFlowMediatorFlowCompartment18EditPart extends ShapeCompartm
 	AbstractBorderItemEditPart sourceOutputConnector = null;
 	AbstractBorderItemEditPart outputConnectorEditPart = null;
 	ShapeNodeEditPart sourceEditPart = null;
-	private Map<EObject,ShapeNodeEditPart> editPartMap = new HashMap<EObject, ShapeNodeEditPart>();
-	Map<AbstractEndpoint, ComplexEndpointsOutputConnector> connectorAndEndpointMap = new HashMap<AbstractEndpoint, ComplexEndpointsOutputConnector>();
+	Map<ComplexEndpointsOutputConnector,AbstractEndpoint> connectorAndEndpointMap = new HashMap<ComplexEndpointsOutputConnector,AbstractEndpoint>();
 	private ComplexEndpoints complexEndpoints;
 
 	/**
@@ -360,52 +359,7 @@ public class MediatorFlowMediatorFlowCompartment18EditPart extends ShapeCompartm
 				connector);
 		if (addCmd.canExecute()) {
 			editingDomain.getCommandStack().execute(addCmd);
-			connectorAndEndpointMap.put((AbstractEndpoint) child, connector);
-		}
-		//get the created sub endpoint
-		AbstractEndpoint absEndPoint = (AbstractEndpoint) child;
-		//get the Input connector of it
-		AbstractConnectorEditPart targetConnectionEditPart = EditorUtils.getEndpointInputConnector(absEndPoint);
-		//refresh The EditPartMap populate with it newly added edit part elements
-		refreshEditPartMap();
-		//get the relevent source edit part from the load balancer diagram.
-		EditPart iEditpart = getEditpart(connector);
-		
-		if(iEditpart instanceof ComplexEndpointsOutputConnectorEditPart){
-			
-			ComplexEndpointsOutputConnectorEditPart outputConnector = (ComplexEndpointsOutputConnectorEditPart)iEditpart;
-			
-			//Connect source and traget using ConnectionUtils
-			ConnectionUtils.createConnection(targetConnectionEditPart,outputConnector);
-		}
-
-	}
-
-	private void refreshEditPartMap(){
-		@SuppressWarnings("rawtypes")
-		Map editPartRegistry = this.getViewer().getEditPartRegistry();
-		for (Object object : editPartRegistry.keySet()) {
-			if(object instanceof Node){
-				Node nodeImpl = (Node) object;
-					Object ep = editPartRegistry.get(nodeImpl);
-					if(ep instanceof ShapeNodeEditPart){
-						editPartMap.put(nodeImpl.getElement(), (ShapeNodeEditPart)ep);
-					}
-			}
+			connectorAndEndpointMap.put(connector,(AbstractEndpoint) child);
 		}
 	}
-	
-	/**
-	 * Get corresponding EditPart of EObject
-	 * @param node
-	 * @return
-	 */
-	private EditPart getEditpart(EObject node) {
-		if(editPartMap.containsKey(node)){
-			return editPartMap.get(node);
-		}
-		return null;
-	}
-
-
 }
