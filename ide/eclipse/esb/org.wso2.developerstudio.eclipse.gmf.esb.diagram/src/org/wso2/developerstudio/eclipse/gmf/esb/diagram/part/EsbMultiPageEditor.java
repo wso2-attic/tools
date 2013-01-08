@@ -362,6 +362,17 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 		switch (pageIndex) {
 		case DESIGN_VIEW_PAGE_INDEX: {
 			handleDesignViewActivatedEvent(); 
+			final EsbMultiPageEditor currentEditor = this;
+			Display.getCurrent().asyncExec(new Runnable() {
+				
+				@Override
+				public void run() {
+					IFile file = ((IFileEditorInput)getEditorInput()).getFile();
+			        ElementDuplicator endPointDuplicator = new ElementDuplicator(file.getProject(),getGraphicalEditor());        
+			        endPointDuplicator.updateAssociatedDiagrams(currentEditor);
+				}
+			});
+		
 			break;
 		}
 		case SOURCE_VIEW_PAGE_INDEX: {

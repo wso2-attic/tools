@@ -386,6 +386,11 @@ public class ElementDuplicator {
 		Rectangle containerRect = container.getFigure().getBounds().getCopy();
 		int initialYPos= medRect.y + medRect.height;
 		for (EsbNode node : nodes) {
+			
+			if(((View)editPart.getModel()).getElement().equals(node)){
+				continue;
+			}
+			
 			GraphicalEditPart editpart = (GraphicalEditPart) getEditpart(node);
 			Rectangle rect = new Rectangle(new Point(), editpart.getFigure().getPreferredSize()).getCopy();
 			
