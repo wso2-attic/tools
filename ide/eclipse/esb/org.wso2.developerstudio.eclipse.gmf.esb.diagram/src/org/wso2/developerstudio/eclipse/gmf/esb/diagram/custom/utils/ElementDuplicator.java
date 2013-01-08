@@ -386,7 +386,7 @@ public class ElementDuplicator {
 			initialYPos += 50;
 			rect.y = initialYPos;
 			if(node instanceof EndPoint){
-				SlidingBorderItemLocator.setPredefinedYValue(editpart.getFigure(),rect.y);
+				SlidingBorderItemLocator.setPredefinedYValue(editpart.getFigure(),rect.y + containerRect.y);
 			} else{
 				initialYPos += 60;
 				rect.x = ((medRect.x + parentRect.width) / 2) - 75;
