@@ -3278,6 +3278,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getEndPoint_Duplicate() {
+		return (EAttribute)endPointEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getProxyService() {
 		return proxyServiceEClass;
 	}
@@ -5737,6 +5746,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 */
 	public EAttribute getSequence_ReceiveSequence() {
 		return (EAttribute)sequenceEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSequence_Duplicate() {
+		return (EAttribute)sequenceEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -12534,6 +12552,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEAttribute(endPointEClass, END_POINT__END_POINT_NAME);
 		createEAttribute(endPointEClass, END_POINT__ANONYMOUS);
 		createEAttribute(endPointEClass, END_POINT__IN_LINE);
+		createEAttribute(endPointEClass, END_POINT__DUPLICATE);
 
 		proxyServiceEClass = createEClass(PROXY_SERVICE);
 		createEReference(proxyServiceEClass, PROXY_SERVICE__OUTPUT_CONNECTOR);
@@ -12889,6 +12908,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEReference(sequenceEClass, SEQUENCE__OUTPUT_CONNECTOR);
 		createEReference(sequenceEClass, SEQUENCE__INCLUDED_MEDIATORS);
 		createEAttribute(sequenceEClass, SEQUENCE__RECEIVE_SEQUENCE);
+		createEAttribute(sequenceEClass, SEQUENCE__DUPLICATE);
 
 		sequenceInputConnectorEClass = createEClass(SEQUENCE_INPUT_CONNECTOR);
 
@@ -14174,6 +14194,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEAttribute(getEndPoint_EndPointName(), ecorePackage.getEString(), "endPointName", null, 0, 1, EndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEndPoint_Anonymous(), ecorePackage.getEBoolean(), "anonymous", "false", 0, 1, EndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEndPoint_InLine(), ecorePackage.getEBoolean(), "InLine", "false", 0, 1, EndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEndPoint_Duplicate(), ecorePackage.getEBoolean(), "duplicate", null, 0, 1, EndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(proxyServiceEClass, ProxyService.class, "ProxyService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getProxyService_OutputConnector(), this.getProxyOutputConnector(), null, "outputConnector", null, 0, 1, ProxyService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -14539,6 +14560,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEReference(getSequence_OutputConnector(), this.getSequenceOutputConnector(), null, "outputConnector", null, 0, 1, Sequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSequence_IncludedMediators(), this.getMediator(), null, "includedMediators", null, 0, -1, Sequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSequence_ReceiveSequence(), ecorePackage.getEBoolean(), "receiveSequence", null, 0, 1, Sequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSequence_Duplicate(), ecorePackage.getEBoolean(), "duplicate", null, 0, 1, Sequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sequenceInputConnectorEClass, SequenceInputConnector.class, "SequenceInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

@@ -23,6 +23,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.Sequence#getOutputConnector <em>Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.Sequence#getIncludedMediators <em>Included Mediators</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.Sequence#isReceiveSequence <em>Receive Sequence</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.Sequence#isDuplicate <em>Duplicate</em>}</li>
  * </ul>
  * </p>
  *
@@ -178,5 +179,31 @@ public interface Sequence extends Mediator {
 	 * @generated
 	 */
 	void setReceiveSequence(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Duplicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Duplicate</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Duplicate</em>' attribute.
+	 * @see #setDuplicate(boolean)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getSequence_Duplicate()
+	 * @model
+	 * @generated
+	 */
+	boolean isDuplicate();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.Sequence#isDuplicate <em>Duplicate</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Duplicate</em>' attribute.
+	 * @see #isDuplicate()
+	 * @generated
+	 */
+	void setDuplicate(boolean value);
 
 } // Sequence

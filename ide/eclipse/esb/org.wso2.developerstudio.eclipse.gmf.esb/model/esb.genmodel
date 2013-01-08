@@ -483,6 +483,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EndPoint/endPointName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EndPoint/anonymous"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EndPoint/InLine"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EndPoint/duplicate"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//ProxyService">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyService/outputConnector"/>
@@ -797,6 +798,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//Sequence/outputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//Sequence/includedMediators"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//Sequence/receiveSequence"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//Sequence/duplicate"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//SequenceInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//SequenceOutputConnector"/>

@@ -388,13 +388,22 @@ public interface EsbPackage extends EPackage {
 	int END_POINT__IN_LINE = ESB_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Duplicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int END_POINT__DUPLICATE = ESB_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>End Point</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int END_POINT_FEATURE_COUNT = ESB_ELEMENT_FEATURE_COUNT + 3;
+	int END_POINT_FEATURE_COUNT = ESB_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl <em>Proxy Service</em>}' class.
@@ -1546,6 +1555,15 @@ public interface EsbPackage extends EPackage {
 	int ABSTRACT_END_POINT__IN_LINE = END_POINT__IN_LINE;
 
 	/**
+	 * The feature id for the '<em><b>Duplicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_END_POINT__DUPLICATE = END_POINT__DUPLICATE;
+
+	/**
 	 * The feature id for the '<em><b>Reliable Messaging Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1807,6 +1825,15 @@ public interface EsbPackage extends EPackage {
 	int DEFAULT_END_POINT__IN_LINE = ABSTRACT_END_POINT__IN_LINE;
 
 	/**
+	 * The feature id for the '<em><b>Duplicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEFAULT_END_POINT__DUPLICATE = ABSTRACT_END_POINT__DUPLICATE;
+
+	/**
 	 * The feature id for the '<em><b>Reliable Messaging Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2057,6 +2084,15 @@ public interface EsbPackage extends EPackage {
 	 * @ordered
 	 */
 	int ADDRESS_END_POINT__IN_LINE = ABSTRACT_END_POINT__IN_LINE;
+
+	/**
+	 * The feature id for the '<em><b>Duplicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADDRESS_END_POINT__DUPLICATE = ABSTRACT_END_POINT__DUPLICATE;
 
 	/**
 	 * The feature id for the '<em><b>Reliable Messaging Enabled</b></em>' attribute.
@@ -4636,13 +4672,22 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	int SEQUENCE__RECEIVE_SEQUENCE = MEDIATOR_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Duplicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEQUENCE__DUPLICATE = MEDIATOR_FEATURE_COUNT + 6;
+
+	/**
 	 * The number of structural features of the '<em>Sequence</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEQUENCE_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 6;
+	int SEQUENCE_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 7;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SequenceInputConnectorImpl <em>Sequence Input Connector</em>}' class.
@@ -12219,6 +12264,15 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	int PARENT_END_POINT__IN_LINE = END_POINT__IN_LINE;
 
 	/**
+	 * The feature id for the '<em><b>Duplicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARENT_END_POINT__DUPLICATE = END_POINT__DUPLICATE;
+
+	/**
 	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -12281,6 +12335,15 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @ordered
 	 */
 	int FAILOVER_END_POINT__IN_LINE = PARENT_END_POINT__IN_LINE;
+
+	/**
+	 * The feature id for the '<em><b>Duplicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FAILOVER_END_POINT__DUPLICATE = PARENT_END_POINT__DUPLICATE;
 
 	/**
 	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
@@ -12456,6 +12519,15 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @ordered
 	 */
 	int WSDL_END_POINT__IN_LINE = ABSTRACT_END_POINT__IN_LINE;
+
+	/**
+	 * The feature id for the '<em><b>Duplicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WSDL_END_POINT__DUPLICATE = ABSTRACT_END_POINT__DUPLICATE;
 
 	/**
 	 * The feature id for the '<em><b>Reliable Messaging Enabled</b></em>' attribute.
@@ -12821,6 +12893,15 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @ordered
 	 */
 	int LOAD_BALANCE_END_POINT__IN_LINE = PARENT_END_POINT__IN_LINE;
+
+	/**
+	 * The feature id for the '<em><b>Duplicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOAD_BALANCE_END_POINT__DUPLICATE = PARENT_END_POINT__DUPLICATE;
 
 	/**
 	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
@@ -13830,6 +13911,15 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	int NAMED_ENDPOINT__IN_LINE = ABSTRACT_END_POINT__IN_LINE;
 
 	/**
+	 * The feature id for the '<em><b>Duplicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_ENDPOINT__DUPLICATE = ABSTRACT_END_POINT__DUPLICATE;
+
+	/**
 	 * The feature id for the '<em><b>Reliable Messaging Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -14715,6 +14805,15 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	int API_RESOURCE_ENDPOINT__IN_LINE = ABSTRACT_END_POINT__IN_LINE;
 
 	/**
+	 * The feature id for the '<em><b>Duplicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_RESOURCE_ENDPOINT__DUPLICATE = ABSTRACT_END_POINT__DUPLICATE;
+
+	/**
 	 * The feature id for the '<em><b>Reliable Messaging Enabled</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -15069,6 +15168,15 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @ordered
 	 */
 	int ADDRESSING_ENDPOINT__IN_LINE = ABSTRACT_END_POINT__IN_LINE;
+
+	/**
+	 * The feature id for the '<em><b>Duplicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADDRESSING_ENDPOINT__DUPLICATE = ABSTRACT_END_POINT__DUPLICATE;
 
 	/**
 	 * The feature id for the '<em><b>Reliable Messaging Enabled</b></em>' attribute.
@@ -16390,6 +16498,17 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 */
 	EAttribute getEndPoint_InLine();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.EndPoint#isDuplicate <em>Duplicate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Duplicate</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EndPoint#isDuplicate()
+	 * @see #getEndPoint()
+	 * @generated
+	 */
+	EAttribute getEndPoint_Duplicate();
 
 	/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService <em>Proxy Service</em>}'.
@@ -19323,6 +19442,17 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 */
 	EAttribute getSequence_ReceiveSequence();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.Sequence#isDuplicate <em>Duplicate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Duplicate</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.Sequence#isDuplicate()
+	 * @see #getSequence()
+	 * @generated
+	 */
+	EAttribute getSequence_Duplicate();
 
 	/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.gmf.esb.SequenceInputConnector <em>Sequence Input Connector</em>}'.
@@ -27522,6 +27652,14 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		EAttribute END_POINT__IN_LINE = eINSTANCE.getEndPoint_InLine();
 
 		/**
+		 * The meta object literal for the '<em><b>Duplicate</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute END_POINT__DUPLICATE = eINSTANCE.getEndPoint_Duplicate();
+
+		/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl <em>Proxy Service</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -29874,6 +30012,14 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		 * @generated
 		 */
 		EAttribute SEQUENCE__RECEIVE_SEQUENCE = eINSTANCE.getSequence_ReceiveSequence();
+
+		/**
+		 * The meta object literal for the '<em><b>Duplicate</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SEQUENCE__DUPLICATE = eINSTANCE.getSequence_Duplicate();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SequenceInputConnectorImpl <em>Sequence Input Connector</em>}' class.

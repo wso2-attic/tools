@@ -41,6 +41,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.SequenceOutputConnector;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SequenceImpl#getOutputConnector <em>Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SequenceImpl#getIncludedMediators <em>Included Mediators</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SequenceImpl#isReceiveSequence <em>Receive Sequence</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SequenceImpl#isDuplicate <em>Duplicate</em>}</li>
  * </ul>
  * </p>
  *
@@ -136,6 +137,26 @@ public class SequenceImpl extends MediatorImpl implements Sequence {
 	 * @ordered
 	 */
 	protected boolean receiveSequence = RECEIVE_SEQUENCE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isDuplicate() <em>Duplicate</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isDuplicate()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean DUPLICATE_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isDuplicate() <em>Duplicate</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isDuplicate()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean duplicate = DUPLICATE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -323,6 +344,27 @@ public class SequenceImpl extends MediatorImpl implements Sequence {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isDuplicate() {
+		return duplicate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDuplicate(boolean newDuplicate) {
+		boolean oldDuplicate = duplicate;
+		duplicate = newDuplicate;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.SEQUENCE__DUPLICATE, oldDuplicate, duplicate));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -358,6 +400,8 @@ public class SequenceImpl extends MediatorImpl implements Sequence {
 				return getIncludedMediators();
 			case EsbPackage.SEQUENCE__RECEIVE_SEQUENCE:
 				return isReceiveSequence();
+			case EsbPackage.SEQUENCE__DUPLICATE:
+				return isDuplicate();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -391,6 +435,9 @@ public class SequenceImpl extends MediatorImpl implements Sequence {
 			case EsbPackage.SEQUENCE__RECEIVE_SEQUENCE:
 				setReceiveSequence((Boolean)newValue);
 				return;
+			case EsbPackage.SEQUENCE__DUPLICATE:
+				setDuplicate((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -422,6 +469,9 @@ public class SequenceImpl extends MediatorImpl implements Sequence {
 			case EsbPackage.SEQUENCE__RECEIVE_SEQUENCE:
 				setReceiveSequence(RECEIVE_SEQUENCE_EDEFAULT);
 				return;
+			case EsbPackage.SEQUENCE__DUPLICATE:
+				setDuplicate(DUPLICATE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -447,6 +497,8 @@ public class SequenceImpl extends MediatorImpl implements Sequence {
 				return includedMediators != null && !includedMediators.isEmpty();
 			case EsbPackage.SEQUENCE__RECEIVE_SEQUENCE:
 				return receiveSequence != RECEIVE_SEQUENCE_EDEFAULT;
+			case EsbPackage.SEQUENCE__DUPLICATE:
+				return duplicate != DUPLICATE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -468,6 +520,8 @@ public class SequenceImpl extends MediatorImpl implements Sequence {
 		result.append(key);
 		result.append(", receiveSequence: ");
 		result.append(receiveSequence);
+		result.append(", duplicate: ");
+		result.append(duplicate);
 		result.append(')');
 		return result.toString();
 	}

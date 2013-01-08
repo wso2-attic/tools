@@ -18,6 +18,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.EndPoint#getEndPointName <em>End Point Name</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.EndPoint#isAnonymous <em>Anonymous</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.EndPoint#isInLine <em>In Line</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.EndPoint#isDuplicate <em>Duplicate</em>}</li>
  * </ul>
  * </p>
  *
@@ -105,5 +106,31 @@ public interface EndPoint extends EsbElement {
 	 * @generated
 	 */
 	void setInLine(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Duplicate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Duplicate</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Duplicate</em>' attribute.
+	 * @see #setDuplicate(boolean)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getEndPoint_Duplicate()
+	 * @model
+	 * @generated
+	 */
+	boolean isDuplicate();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.EndPoint#isDuplicate <em>Duplicate</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Duplicate</em>' attribute.
+	 * @see #isDuplicate()
+	 * @generated
+	 */
+	void setDuplicate(boolean value);
 
 } // EndPoint
