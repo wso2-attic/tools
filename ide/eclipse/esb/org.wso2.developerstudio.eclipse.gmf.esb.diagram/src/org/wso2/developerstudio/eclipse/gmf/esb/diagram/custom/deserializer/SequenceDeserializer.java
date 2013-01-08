@@ -33,6 +33,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.utils.ElementDupl
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.TemplateTemplateCompartmentEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.*;
+import org.apache.commons.lang.StringUtils;
 
 /**
  *  Sequence mediator deserializer
@@ -65,8 +66,10 @@ public class SequenceDeserializer extends AbstractEsbNodeDeserializer<SequenceMe
 				Sequences sequenceModel = (Sequences) DeserializerUtils.createNode(part,
 						sequencesType);
 				executeSetValueCommand(sequenceModel, SEQUENCES__NAME, sequence.getName());
-				executeSetValueCommand(sequenceModel.getOnError(),
-						REGISTRY_KEY_PROPERTY__KEY_VALUE, sequence.getErrorHandler());
+				if(StringUtils.isNotBlank(sequence.getErrorHandler())){
+					executeSetValueCommand(sequenceModel.getOnError(),
+							REGISTRY_KEY_PROPERTY__KEY_VALUE, sequence.getErrorHandler());
+				}
 				refreshEditPartMap();
 				addRootInputConnector(sequenceModel.getInputConnector());
 				IGraphicalEditPart compartment = (IGraphicalEditPart) getEditpart(
