@@ -21,6 +21,8 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorReference;
 import org.eclipse.ui.IFileEditorInput;
@@ -28,12 +30,16 @@ import org.eclipse.ui.PlatformUI;
 import org.wso2.developerstudio.eclipse.gmf.esb.ComplexEndpoints;
 import org.wso2.developerstudio.eclipse.gmf.esb.ComplexEndpointsOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.DefaultEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.EndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbElement;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.FailoverEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.FailoverEndPointOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.InputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
+import org.wso2.developerstudio.eclipse.gmf.esb.SequenceInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.EsbNodeTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.EsbTransformerRegistry;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
@@ -42,7 +48,7 @@ public class FailoverEndPointTransformer extends AbstractEndpointTransformer{
 
 	public void transform(TransformationInfo info, EsbNode subject)
 			throws Exception {
-		try{
+		//try{
 		Assert.isTrue(subject instanceof FailoverEndPoint, "Invalid subject.");
 		FailoverEndPoint visualEndPoint = (FailoverEndPoint) subject;
 		
@@ -50,6 +56,8 @@ public class FailoverEndPointTransformer extends AbstractEndpointTransformer{
 		if (info.getPreviouNode() instanceof org.wso2.developerstudio.eclipse.gmf.esb.SendMediator) {
 			sendMediator = (SendMediator) info.getParentSequence().getList()
 					.get(info.getParentSequence().getList().size() - 1);
+		}else if(info.getPreviouNode() instanceof org.wso2.developerstudio.eclipse.gmf.esb.Sequence){
+			sendMediator=null;
 		} else {
 			sendMediator = new SendMediator();
 			info.getParentSequence().addChild(sendMediator);
@@ -76,6 +84,44 @@ public class FailoverEndPointTransformer extends AbstractEndpointTransformer{
 			}
 		}
 		
+		if(!info.isEndPointFound){
+			info.isEndPointFound=true;
+			info.firstEndPoint=visualEndPoint;
+		}
+		
+		if(visualEndPoint.getWestOutputConnector()!=null){
+			if(visualEndPoint.getWestOutputConnector().getOutgoingLink() !=null){
+			InputConnector nextInputConnector=visualEndPoint.getWestOutputConnector().getOutgoingLink().getTarget();
+			if((!(nextInputConnector instanceof SequenceInputConnector))||
+					((((Sequence)nextInputConnector.eContainer()).getOutputConnector().getOutgoingLink()!=null)&&(!(((Sequence)nextInputConnector.eContainer()).getOutputConnector().getOutgoingLink().getTarget().eContainer() instanceof EndPoint)))){
+				info.setParentSequence(info.getOriginOutSequence());
+				info.setTraversalDirection(TransformationInfo.TRAVERSAL_DIRECTION_OUT);
+			}else if(visualEndPoint.getInputConnector().getIncomingLinks().get(0).getSource().eContainer() instanceof Sequence){
+				info.setParentSequence(info.getCurrentReferredSequence());
+			}
+			}
+		}
+		
+		try{
+			List<EsbNode> transformedMediators = info.getTransformedMediators();
+			if(visualEndPoint.getOutputConnector()!=null){
+				EsbNode nextElement=(EsbNode) visualEndPoint.getWestOutputConnector().getOutgoingLink().getTarget().eContainer();
+				if(transformedMediators.contains(nextElement)){
+					return;
+				}
+				transformedMediators.add(nextElement);
+			}
+		}
+		catch(NullPointerException e){
+			MessageDialog
+			.openError(
+					Display.getCurrent().getActiveShell(),
+					"Diagram Incomplete ! ",
+					"Output connector of an Endpoint must be connected to an Recieve Sequence or Out Sequence.");
+		}
+		
+		doTransform(info, visualEndPoint.getWestOutputConnector());
+		
 		
 		
 /*		if(!info.isEndPointFound){
@@ -97,10 +143,10 @@ public class FailoverEndPointTransformer extends AbstractEndpointTransformer{
 			}
 		}*/
 		
-	}
+/*	}
 	catch(Exception e){
 		e.printStackTrace();
-	}
+	}*/
 		
 	}
 
@@ -144,7 +190,17 @@ public class FailoverEndPointTransformer extends AbstractEndpointTransformer{
 
 	public void transformWithinSequence(TransformationInfo information,
 			EsbNode subject, SequenceMediator sequence) throws Exception {
+		Assert.isTrue(subject instanceof FailoverEndPoint, "Invalid subject");
+		FailoverEndPoint visualEndPoint = (FailoverEndPoint) subject;
 		
+		SendMediator sendMediator = null;
+		if (sequence.getList().get(sequence.getList().size()-1) instanceof SendMediator) {			
+			sendMediator = (SendMediator)sequence.getList().get(sequence.getList().size()-1);
+		} else {
+			sendMediator = new SendMediator();
+			sequence.addChild(sendMediator);
+		}		
+		sendMediator.setEndpoint(create(information,visualEndPoint,null,null));
 	}
 	
 	public FailoverEndpoint create(TransformationInfo info, FailoverEndPoint visualEndPoint,
