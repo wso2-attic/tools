@@ -85,6 +85,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.InputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.OutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractBaseFigureEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpointOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorInputConnectorEditPart;
@@ -114,8 +115,8 @@ public class ElementDuplicator {
 	
 	private List<EsbNode> esbNodes=new LinkedList<EsbNode>();
 	private Map<EObject,ShapeNodeEditPart> editPartMap = new HashMap<EObject, ShapeNodeEditPart>();
-	
-	private InputConnector inputConnector=null;
+	private Map<EObject,InputConnector> outSequenceFirstConnectorMap = new HashMap<EObject, InputConnector>();
+
 	
 	/**
 	 * DeveloperStudio logger
@@ -279,7 +280,7 @@ public class ElementDuplicator {
 		 * Delete elements recursively. 
 		 */
 		for (int j = 0; j < elements.size(); ++j) {
-			RemoveCommand removeCmd = new RemoveCommand(domain, parent,
+			RemoveCommand removeCmd = new RemoveCommand(domain, elements.get(j).eContainer(),
 					EsbPackage.Literals.MEDIATOR_FLOW__CHILDREN, elements.get(j));
 			resultCommand.append(removeCmd);
 		}
@@ -391,6 +392,8 @@ public class ElementDuplicator {
 					}
 				}else{
 					refreshEditPartMap(editor);
+					EObject root=((org.eclipse.gmf.runtime.notation.Node)EditorUtils.getRootContainer(element).getModel()).getElement();
+					InputConnector inputConnector =outSequenceFirstConnectorMap.get(root);
 					ConnectionUtils.createConnection(
 							(AbstractConnectorEditPart) getEditpart(inputConnector), getEndpointOutputConnector(element));
 				}
@@ -521,6 +524,8 @@ public class ElementDuplicator {
 
 		}
 		if (EditorUtils.getEndpoint(sourceConnector) != null) {
+			EObject root=((org.eclipse.gmf.runtime.notation.Node)EditorUtils.getRootContainer(sourceConnector).getModel()).getElement();
+			InputConnector inputConnector =outSequenceFirstConnectorMap.get(root);
 			ConnectionUtils.createConnection(
 					(AbstractConnectorEditPart) getEditpart(inputConnector), sourceConnector);
 		}
@@ -595,7 +600,8 @@ public class ElementDuplicator {
 				outputConnector = (OutputConnector) child.get(i);
 			}
 			else if(child.get(i) instanceof InputConnector){
-				inputConnector=(InputConnector) child.get(i);
+				EObject rootContainer=EditorUtils.getRootContainerModel(child.get(i));
+				outSequenceFirstConnectorMap.put(rootContainer, (InputConnector) child.get(i));
 			}
 		}
 		if(outputConnector.getOutgoingLink()==null){

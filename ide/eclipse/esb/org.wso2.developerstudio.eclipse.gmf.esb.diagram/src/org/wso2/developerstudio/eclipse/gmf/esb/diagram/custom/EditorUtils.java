@@ -18,9 +18,12 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom;
 
 import java.util.ArrayList;
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.APIResource;
+import org.wso2.developerstudio.eclipse.gmf.esb.ProxyService;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.APIResourceEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.APIResourceFaultInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ComplexEndpointsEditPart;
@@ -215,6 +218,18 @@ public class EditorUtils {
 		}
 		if (child.getParent() != null) {
 			return (IGraphicalEditPart) child.getParent();
+		} else {
+			return null;
+		}
+	}
+	
+	public static EObject getRootContainerModel(EObject child) {
+		while ((child.eContainer() != null)
+				&& !(child.eContainer() instanceof ProxyService || child.eContainer() instanceof APIResource)) {
+			child = child.eContainer();
+		}
+		if (child.eContainer() != null) {
+			return (EObject) child.eContainer();
 		} else {
 			return null;
 		}
