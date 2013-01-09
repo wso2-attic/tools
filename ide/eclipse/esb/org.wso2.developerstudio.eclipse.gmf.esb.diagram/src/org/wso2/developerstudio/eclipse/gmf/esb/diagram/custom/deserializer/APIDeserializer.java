@@ -85,7 +85,7 @@ public class APIDeserializer extends AbstractEsbNodeDeserializer<API, SynapseAPI
 			if(dispatcherHelper instanceof URITemplateHelper){
 				URITemplateHelper helper = (URITemplateHelper) dispatcherHelper;
 				executeSetValueCommand(API_RESOURCE__URL_STYLE, ApiResourceUrlStyle.URI_TEMPLATE);
-				executeSetValueCommand(API_RESOURCE__URI_TEMPLATE, helper.getUriTemplate().toString());
+				executeSetValueCommand(API_RESOURCE__URI_TEMPLATE, helper.getString());
 			} else if(dispatcherHelper instanceof URLMappingHelper){
 				URLMappingHelper helper = (URLMappingHelper) dispatcherHelper; 
 				executeSetValueCommand(API_RESOURCE__URL_STYLE,ApiResourceUrlStyle.URL_MAPPING);
