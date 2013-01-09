@@ -16,28 +16,18 @@
 
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom;
 
-import java.awt.List;
 import java.util.ArrayList;
-import java.util.Map;
 
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gef.EditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeCompartmentEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
-import org.eclipse.gmf.runtime.notation.Node;
-import org.wso2.developerstudio.eclipse.gmf.esb.APIResourceFaultInputConnector;
-import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.APIResourceEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.APIResourceFaultInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ComplexEndpointsEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ComplexEndpointsOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartmentEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyFaultInputConnectorEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceSequenceAndEndpointContainerEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequencesEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramEditor;
 
 public class EditorUtils {
 	
@@ -214,6 +204,18 @@ public class EditorUtils {
 		if(child.getParent()!=null){
 			return (ProxyServiceEditPart) child.getParent();
 		}else{
+			return null;
+		}
+	}
+	
+	public static IGraphicalEditPart getRootContainer(EditPart child) {
+		while ((child.getParent() != null)
+				&& !(child.getParent() instanceof ProxyServiceEditPart || child.getParent() instanceof APIResourceEditPart)) {
+			child = child.getParent();
+		}
+		if (child.getParent() != null) {
+			return (IGraphicalEditPart) child.getParent();
+		} else {
 			return null;
 		}
 	}

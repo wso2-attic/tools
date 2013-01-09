@@ -382,7 +382,7 @@ public class ElementDuplicator {
 		GraphicalEditPart parent = (GraphicalEditPart)editPart.getParent();
 		Rectangle parentRect = parent.getFigure().getBounds().getCopy();
 		refreshEditPartMap(editor);
-		GraphicalEditPart container = EditorUtils.getProxy(editPart); 
+		GraphicalEditPart container = (GraphicalEditPart) EditorUtils.getRootContainer(editPart); 
 		Rectangle containerRect = container.getFigure().getBounds().getCopy();
 		int initialYPos= medRect.y + medRect.height;
 		for (EsbNode node : nodes) {
