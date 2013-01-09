@@ -183,6 +183,8 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
         esbPaletteFactory.addDefinedSequences(getEditor(0));
         esbPaletteFactory.addDefinedEndpoints(getEditor(0));
         esbPaletteFactory.updateToolPaletteItems(graphicalEditor);
+        
+        EditorUtils.setLockmode(graphicalEditor, false);
     }
 
     /**
@@ -337,10 +339,11 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 			createPage1();
 			break;
 		}
-        
+        EditorUtils.setLockmode(graphicalEditor, true);
 		IFile file = ((IFileEditorInput)getEditorInput()).getFile();
         ElementDuplicator endPointDuplicator = new ElementDuplicator(file.getProject(),getGraphicalEditor());        
         endPointDuplicator.updateAssociatedDiagrams(this);
+        EditorUtils.setLockmode(graphicalEditor, false);
         
         //createPage2();
     }
@@ -367,9 +370,11 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 				
 				@Override
 				public void run() {
+					EditorUtils.setLockmode(graphicalEditor, true);
 					IFile file = ((IFileEditorInput)getEditorInput()).getFile();
 			        ElementDuplicator endPointDuplicator = new ElementDuplicator(file.getProject(),getGraphicalEditor());        
 			        endPointDuplicator.updateAssociatedDiagrams(currentEditor);
+			        EditorUtils.setLockmode(graphicalEditor, false);
 				}
 			});
 		
@@ -528,12 +533,16 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
     	sourceDirty=false;
         getEditor(0).doSave(monitor);
         updateAssociatedXMLFile(monitor);
+       
+		EditorUtils.setLockmode(graphicalEditor, true);
         
 		IFile file = ((IFileEditorInput)getEditorInput()).getFile();
         ElementDuplicator endPointDuplicator = new ElementDuplicator(file.getProject(),getGraphicalEditor());        
         endPointDuplicator.updateAssociatedDiagrams(this);
         updateAssociatedDiagrams();
         getEditor(0).doSave(monitor);
+        
+		EditorUtils.setLockmode(graphicalEditor, false);
     }
     
 

@@ -116,6 +116,7 @@ public class Deserializer {
 		Diagram diagram = graphicalEditor.getDiagram();
 		EsbDiagram esbDiagram = (EsbDiagram) diagram.getElement();
 		EsbServer esbServer = esbDiagram.getServer();
+		esbServer.setLockmode(true);
 		CompoundCommand resultCommand = new CompoundCommand();
 
 		TransactionalEditingDomain domain = TransactionUtil.getEditingDomain(esbServer);
@@ -164,6 +165,7 @@ public class Deserializer {
 		if(artifacts.size()>0){
 			AbstractEsbNodeDeserializer.connectMediatorFlows();
 		}
+		esbServer.setLockmode(false);
 
 	}
 	

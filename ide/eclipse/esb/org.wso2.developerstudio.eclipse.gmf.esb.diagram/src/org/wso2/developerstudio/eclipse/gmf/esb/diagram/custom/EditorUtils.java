@@ -20,17 +20,25 @@ import java.util.ArrayList;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gef.EditPart;
+import org.eclipse.gef.RootEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
+import org.eclipse.gmf.runtime.notation.Diagram;
+import org.eclipse.gmf.runtime.notation.View;
 import org.wso2.developerstudio.eclipse.gmf.esb.APIResource;
+import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
+import org.wso2.developerstudio.eclipse.gmf.esb.EsbServer;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyService;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.APIResourceEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.APIResourceFaultInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ComplexEndpointsEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ComplexEndpointsOutputConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbDiagramEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartmentEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyFaultInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramEditor;
 
 public class EditorUtils {
 	
@@ -213,7 +221,7 @@ public class EditorUtils {
 	
 	public static IGraphicalEditPart getRootContainer(EditPart child) {
 		while ((child.getParent() != null)
-				&& !(child.getParent() instanceof ProxyServiceEditPart || child.getParent() instanceof APIResourceEditPart)) {
+				&& !(child.getParent() instanceof AbstractBaseFigureEditPart)) {
 			child = child.getParent();
 		}
 		if (child.getParent() != null) {
@@ -284,5 +292,88 @@ public class EditorUtils {
 			return null;
 		}
 	}
+	
+	/**
+	 * Sets the status of the lock attribute.
+	 * @param editor
+	 * @param lockmode
+	 */
+	public static void setLockmode(EsbDiagramEditor editor, boolean lockmode) {
+		EsbServer esbServer = getEsbServer(editor);
+		if (esbServer != null) {
+			esbServer.setLockmode(lockmode);
+		}
+
+	}
+
+	/**
+	 * Returns the status of the lock attribute.
+	 * @param editor
+	 * @return
+	 */
+	public static boolean isLockmode(EsbDiagramEditor editor) {
+		EsbServer esbServer = getEsbServer(editor);
+		if (esbServer != null) {
+			return esbServer.isLockmode();
+		}
+		return false;
+	}
+	
+	/**
+	 * Sets the status of the lock attribute.
+	 * @param editPart
+	 * @param lockmode
+	 */
+	public static void setLockmode(GraphicalEditPart editPart, boolean lockmode) {
+		EsbServer esbServer = getEsbServer(editPart);
+		if (esbServer != null) {
+			esbServer.setLockmode(lockmode);
+		}
+
+	}
+
+	/**
+	 * Returns the status of the lock attribute.
+	 * @param editPart
+	 * @return
+	 */
+	public static boolean isLockmode(GraphicalEditPart editPart) {
+		EsbServer esbServer = getEsbServer(editPart);
+		if (esbServer != null) {
+			return esbServer.isLockmode();
+		}
+		return false;
+	}
+
+	/**
+	 * Returns the EsbServer model
+	 * @param editor
+	 * @return
+	 */
+	public static EsbServer getEsbServer(EsbDiagramEditor editor) {
+		Diagram diagram = editor.getDiagram();
+		EsbDiagram esbDiagram = (EsbDiagram) diagram.getElement();
+		EsbServer esbServer = esbDiagram.getServer();
+		return esbServer;
+	}
+	
+	/**
+	 * Returns the EsbServer model
+	 * @param editPart
+	 * @return
+	 */
+	public static EsbServer getEsbServer(GraphicalEditPart editPart) {
+		RootEditPart root = editPart.getRoot();
+		if (root.getChildren().size() == 1
+				&& root.getChildren().get(0) instanceof EsbDiagramEditPart) {
+			EsbDiagramEditPart EsbDiagramEditPart = (EsbDiagramEditPart) root.getChildren().get(0);
+			EsbDiagram esbDiagram = (EsbDiagram) ((View) EsbDiagramEditPart.getModel())
+					.getElement();
+			EsbServer esbServer = esbDiagram.getServer();
+			return esbServer;
+		}
+		return null;
+	}
+
 	
 }

@@ -8,6 +8,7 @@ import org.eclipse.draw2d.Figure;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.gef.EditPart;
+import org.eclipse.gef.RootEditPart;
 import org.eclipse.gef.commands.CompoundCommand;
 import org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
@@ -15,10 +16,13 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPar
 import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
 import org.eclipse.gmf.runtime.diagram.ui.render.editparts.RenderedDiagramRootEditPart;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
+import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbLink;
+import org.wso2.developerstudio.eclipse.gmf.esb.EsbServer;
 import org.wso2.developerstudio.eclipse.gmf.esb.Mediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.OutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.SequenceInputConnector;
@@ -30,6 +34,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AggregateMedi
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CacheMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloneMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ConditionalRouterMediatorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbDiagramEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbLinkEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FilterMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.IterateMediatorEditPart;
@@ -329,6 +334,11 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 	
 	protected void getMostSuitableElementToConnect() {
 
+		if(isLockmode()) {
+			/*This feature not available in Lock-mode */
+			return;
+		}
+		
 		ArrayList<EsbLinkEditPart> ESBLinkEditpart = new ArrayList<EsbLinkEditPart>();
 		ArrayList<AbstractConnectorEditPart> outputConnectorEditpart = new ArrayList<AbstractConnectorEditPart>();
 		ArrayList<AbstractConnectorEditPart> inputConnectorEditpart = new ArrayList<AbstractConnectorEditPart>();
@@ -556,5 +566,9 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 		}
 		
 		return ConnectionUtils.createConnection(target, source);
+	}
+	
+	protected boolean isLockmode() {
+		return EditorUtils.isLockmode(this);
 	}
 }
