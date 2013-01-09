@@ -7,6 +7,7 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.impl;
 
 import java.util.Collection;
+import java.util.Iterator;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -21,6 +22,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbLink;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.InputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.OutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.EsbLink;
 
 /**
  * <!-- begin-user-doc -->
@@ -86,12 +88,22 @@ public abstract class InputConnectorImpl extends EsbConnectorImpl implements Inp
 		EObject container = sourceEnd.eContainer();
 		if (this.eContainer.equals(container)) {
 			return false;
-		}else if(sourceEnd.eContainer() instanceof EndPoint){
+		} else if(sourceEnd.eContainer() instanceof EndPoint){
 			if((getIncomingLinks().size() !=0) && (getIncomingLinks().get(0).getSource().eContainer() instanceof EndPoint)){
+				if(sourceEnd.equals(getIncomingLinks().get(0).getSource())){
+					/* Avoid connecting same nodes multiple times */
+					return false;
+				}
 				return true;
 			}
 			
-		}else if(this.eContainer instanceof EndPoint){
+		} else if(this.eContainer instanceof EndPoint){
+			for (Iterator<EsbLink> i = getIncomingLinks().iterator(); i.hasNext();){
+				if(i.next().getSource().equals(sourceEnd)){
+					/* Avoid connecting same nodes multiple times */
+					return false;
+				}
+			}
 			return true;
 		}
 		// By default we allow only one incoming connection from any source.
