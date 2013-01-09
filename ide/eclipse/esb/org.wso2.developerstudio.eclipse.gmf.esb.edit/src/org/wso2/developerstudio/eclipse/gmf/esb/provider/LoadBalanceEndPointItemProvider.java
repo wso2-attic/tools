@@ -67,6 +67,7 @@ public class LoadBalanceEndPointItemProvider
 			addSessionPropertyDescriptor(object);
 			addFailoverPropertyDescriptor(object);
 			addPolicyPropertyDescriptor(object);
+			addMemberPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -138,6 +139,28 @@ public class LoadBalanceEndPointItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Member feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMemberPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_LoadBalanceEndPoint_member_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_LoadBalanceEndPoint_member_feature", "_UI_LoadBalanceEndPoint_type"),
+				 EsbPackage.Literals.LOAD_BALANCE_END_POINT__MEMBER,
+				 true,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -152,6 +175,7 @@ public class LoadBalanceEndPointItemProvider
 			childrenFeatures.add(EsbPackage.Literals.LOAD_BALANCE_END_POINT__INPUT_CONNECTOR);
 			childrenFeatures.add(EsbPackage.Literals.LOAD_BALANCE_END_POINT__OUTPUT_CONNECTOR);
 			childrenFeatures.add(EsbPackage.Literals.LOAD_BALANCE_END_POINT__WEST_OUTPUT_CONNECTOR);
+			childrenFeatures.add(EsbPackage.Literals.LOAD_BALANCE_END_POINT__MEMBER);
 		}
 		return childrenFeatures;
 	}
@@ -213,6 +237,7 @@ public class LoadBalanceEndPointItemProvider
 			case EsbPackage.LOAD_BALANCE_END_POINT__INPUT_CONNECTOR:
 			case EsbPackage.LOAD_BALANCE_END_POINT__OUTPUT_CONNECTOR:
 			case EsbPackage.LOAD_BALANCE_END_POINT__WEST_OUTPUT_CONNECTOR:
+			case EsbPackage.LOAD_BALANCE_END_POINT__MEMBER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -244,6 +269,11 @@ public class LoadBalanceEndPointItemProvider
 			(createChildParameter
 				(EsbPackage.Literals.LOAD_BALANCE_END_POINT__WEST_OUTPUT_CONNECTOR,
 				 EsbFactory.eINSTANCE.createLoadBalanceEndPointWestOutputConnector()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.LOAD_BALANCE_END_POINT__MEMBER,
+				 EsbFactory.eINSTANCE.createMember()));
 	}
 
 }

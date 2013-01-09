@@ -1423,6 +1423,13 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//LoadBalanceEndPoint/inputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//LoadBalanceEndPoint/outputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//LoadBalanceEndPoint/westOutputConnector"/>
+      <genFeatures children="true" createChild="true" propertyCategory="" propertyDescription=""
+          ecoreFeature="ecore:EReference esb.ecore#//LoadBalanceEndPoint/member"/>
+    </genClasses>
+    <genClasses ecoreClass="esb.ecore#//Member">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//Member/hostName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//Member/httpPort"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//Member/httpsPort"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//LoadBalanceEndPointInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//LoadBalanceEndPointOutputConnector"/>

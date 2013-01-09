@@ -206,6 +206,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.LogProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.Mediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.MediatorFlow;
 import org.wso2.developerstudio.eclipse.gmf.esb.MediatorSequence;
+import org.wso2.developerstudio.eclipse.gmf.esb.Member;
 import org.wso2.developerstudio.eclipse.gmf.esb.MergeNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.MergeNodeFirstInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.MergeNodeOutputConnector;
@@ -2335,6 +2336,13 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	private EClass loadBalanceEndPointEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass memberEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -11396,6 +11404,51 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getLoadBalanceEndPoint_Member() {
+		return (EReference)loadBalanceEndPointEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getMember() {
+		return memberEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMember_HostName() {
+		return (EAttribute)memberEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMember_HttpPort() {
+		return (EAttribute)memberEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMember_HttpsPort() {
+		return (EAttribute)memberEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getLoadBalanceEndPointInputConnector() {
 		return loadBalanceEndPointInputConnectorEClass;
 	}
@@ -13593,6 +13646,12 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEReference(loadBalanceEndPointEClass, LOAD_BALANCE_END_POINT__INPUT_CONNECTOR);
 		createEReference(loadBalanceEndPointEClass, LOAD_BALANCE_END_POINT__OUTPUT_CONNECTOR);
 		createEReference(loadBalanceEndPointEClass, LOAD_BALANCE_END_POINT__WEST_OUTPUT_CONNECTOR);
+		createEReference(loadBalanceEndPointEClass, LOAD_BALANCE_END_POINT__MEMBER);
+
+		memberEClass = createEClass(MEMBER);
+		createEAttribute(memberEClass, MEMBER__HOST_NAME);
+		createEAttribute(memberEClass, MEMBER__HTTP_PORT);
+		createEAttribute(memberEClass, MEMBER__HTTPS_PORT);
 
 		loadBalanceEndPointInputConnectorEClass = createEClass(LOAD_BALANCE_END_POINT_INPUT_CONNECTOR);
 
@@ -15245,6 +15304,12 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEReference(getLoadBalanceEndPoint_InputConnector(), this.getLoadBalanceEndPointInputConnector(), null, "inputConnector", null, 0, 1, LoadBalanceEndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLoadBalanceEndPoint_OutputConnector(), this.getLoadBalanceEndPointOutputConnector(), null, "outputConnector", null, 0, -1, LoadBalanceEndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLoadBalanceEndPoint_WestOutputConnector(), this.getLoadBalanceEndPointWestOutputConnector(), null, "westOutputConnector", null, 0, 1, LoadBalanceEndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLoadBalanceEndPoint_Member(), this.getMember(), null, "member", null, 0, -1, LoadBalanceEndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+
+		initEClass(memberEClass, Member.class, "Member", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getMember_HostName(), ecorePackage.getEString(), "hostName", null, 0, 1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMember_HttpPort(), ecorePackage.getEString(), "httpPort", null, 0, 1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMember_HttpsPort(), ecorePackage.getEString(), "httpsPort", null, 0, 1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(loadBalanceEndPointInputConnectorEClass, LoadBalanceEndPointInputConnector.class, "LoadBalanceEndPointInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

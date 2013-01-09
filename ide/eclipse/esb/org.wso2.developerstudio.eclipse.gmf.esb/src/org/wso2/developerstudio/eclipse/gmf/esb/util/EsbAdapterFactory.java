@@ -1053,6 +1053,10 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 				return createLoadBalanceEndPointAdapter();
 			}
 			@Override
+			public Adapter caseMember(Member object) {
+				return createMemberAdapter();
+			}
+			@Override
 			public Adapter caseLoadBalanceEndPointInputConnector(LoadBalanceEndPointInputConnector object) {
 				return createLoadBalanceEndPointInputConnectorAdapter();
 			}
@@ -5060,6 +5064,20 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createLoadBalanceEndPointAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.Member <em>Member</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.Member
+	 * @generated
+	 */
+	public Adapter createMemberAdapter() {
 		return null;
 	}
 

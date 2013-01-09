@@ -302,6 +302,7 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 			case EsbPackage.WSDL_END_POINT_INPUT_CONNECTOR: return createWSDLEndPointInputConnector();
 			case EsbPackage.WSDL_END_POINT_OUTPUT_CONNECTOR: return createWSDLEndPointOutputConnector();
 			case EsbPackage.LOAD_BALANCE_END_POINT: return createLoadBalanceEndPoint();
+			case EsbPackage.MEMBER: return createMember();
 			case EsbPackage.LOAD_BALANCE_END_POINT_INPUT_CONNECTOR: return createLoadBalanceEndPointInputConnector();
 			case EsbPackage.LOAD_BALANCE_END_POINT_OUTPUT_CONNECTOR: return createLoadBalanceEndPointOutputConnector();
 			case EsbPackage.LOAD_BALANCE_END_POINT_WEST_OUTPUT_CONNECTOR: return createLoadBalanceEndPointWestOutputConnector();
@@ -3540,6 +3541,16 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 		LoadBalanceEndPointImpl loadBalanceEndPoint = new LoadBalanceEndPointImpl();		
 		loadBalanceEndPoint.setInputConnector(createLoadBalanceEndPointInputConnector());	
 		return loadBalanceEndPoint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Member createMember() {
+		MemberImpl member = new MemberImpl();
+		return member;
 	}
 
 	/**

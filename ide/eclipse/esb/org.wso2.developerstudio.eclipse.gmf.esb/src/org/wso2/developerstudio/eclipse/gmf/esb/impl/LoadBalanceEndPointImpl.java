@@ -26,6 +26,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPointInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPointOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPointWestOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.Member;
 import org.wso2.developerstudio.eclipse.gmf.esb.Session;
 
 /**
@@ -41,6 +42,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.Session;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.LoadBalanceEndPointImpl#getInputConnector <em>Input Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.LoadBalanceEndPointImpl#getOutputConnector <em>Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.LoadBalanceEndPointImpl#getWestOutputConnector <em>West Output Connector</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.LoadBalanceEndPointImpl#getMember <em>Member</em>}</li>
  * </ul>
  * </p>
  *
@@ -126,6 +128,16 @@ public class LoadBalanceEndPointImpl extends ParentEndPointImpl implements LoadB
 	 * @ordered
 	 */
 	protected LoadBalanceEndPointWestOutputConnector westOutputConnector;
+
+	/**
+	 * The cached value of the '{@link #getMember() <em>Member</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMember()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Member> member;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -329,6 +341,18 @@ public class LoadBalanceEndPointImpl extends ParentEndPointImpl implements LoadB
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Member> getMember() {
+		if (member == null) {
+			member = new EObjectContainmentEList<Member>(Member.class, this, EsbPackage.LOAD_BALANCE_END_POINT__MEMBER);
+		}
+		return member;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -338,6 +362,8 @@ public class LoadBalanceEndPointImpl extends ParentEndPointImpl implements LoadB
 				return ((InternalEList<?>)getOutputConnector()).basicRemove(otherEnd, msgs);
 			case EsbPackage.LOAD_BALANCE_END_POINT__WEST_OUTPUT_CONNECTOR:
 				return basicSetWestOutputConnector(null, msgs);
+			case EsbPackage.LOAD_BALANCE_END_POINT__MEMBER:
+				return ((InternalEList<?>)getMember()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -363,6 +389,8 @@ public class LoadBalanceEndPointImpl extends ParentEndPointImpl implements LoadB
 				return getOutputConnector();
 			case EsbPackage.LOAD_BALANCE_END_POINT__WEST_OUTPUT_CONNECTOR:
 				return getWestOutputConnector();
+			case EsbPackage.LOAD_BALANCE_END_POINT__MEMBER:
+				return getMember();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -395,6 +423,10 @@ public class LoadBalanceEndPointImpl extends ParentEndPointImpl implements LoadB
 			case EsbPackage.LOAD_BALANCE_END_POINT__WEST_OUTPUT_CONNECTOR:
 				setWestOutputConnector((LoadBalanceEndPointWestOutputConnector)newValue);
 				return;
+			case EsbPackage.LOAD_BALANCE_END_POINT__MEMBER:
+				getMember().clear();
+				getMember().addAll((Collection<? extends Member>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -425,6 +457,9 @@ public class LoadBalanceEndPointImpl extends ParentEndPointImpl implements LoadB
 			case EsbPackage.LOAD_BALANCE_END_POINT__WEST_OUTPUT_CONNECTOR:
 				setWestOutputConnector((LoadBalanceEndPointWestOutputConnector)null);
 				return;
+			case EsbPackage.LOAD_BALANCE_END_POINT__MEMBER:
+				getMember().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -449,6 +484,8 @@ public class LoadBalanceEndPointImpl extends ParentEndPointImpl implements LoadB
 				return outputConnector != null && !outputConnector.isEmpty();
 			case EsbPackage.LOAD_BALANCE_END_POINT__WEST_OUTPUT_CONNECTOR:
 				return westOutputConnector != null;
+			case EsbPackage.LOAD_BALANCE_END_POINT__MEMBER:
+				return member != null && !member.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -22,6 +22,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPoint#getInputConnector <em>Input Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPoint#getOutputConnector <em>Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPoint#getWestOutputConnector <em>West Output Connector</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPoint#getMember <em>Member</em>}</li>
  * </ul>
  * </p>
  *
@@ -175,5 +176,21 @@ public interface LoadBalanceEndPoint extends ParentEndPoint {
 	 * @generated
 	 */
 	void setWestOutputConnector(LoadBalanceEndPointWestOutputConnector value);
+
+	/**
+	 * Returns the value of the '<em><b>Member</b></em>' containment reference list.
+	 * The list contents are of type {@link org.wso2.developerstudio.eclipse.gmf.esb.Member}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Member</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Member</em>' containment reference list.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getLoadBalanceEndPoint_Member()
+	 * @model containment="true" derived="true"
+	 * @generated
+	 */
+	EList<Member> getMember();
 
 } // LoadBalanceEndPoint

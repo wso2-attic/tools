@@ -6164,6 +6164,29 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.Member} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MemberItemProvider memberItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.Member}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMemberAdapter() {
+		if (memberItemProvider == null) {
+			memberItemProvider = new MemberItemProvider(this);
+		}
+
+		return memberItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPointInputConnector} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6818,6 +6841,7 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 		if (wsdlEndPointInputConnectorItemProvider != null) wsdlEndPointInputConnectorItemProvider.dispose();
 		if (wsdlEndPointOutputConnectorItemProvider != null) wsdlEndPointOutputConnectorItemProvider.dispose();
 		if (loadBalanceEndPointItemProvider != null) loadBalanceEndPointItemProvider.dispose();
+		if (memberItemProvider != null) memberItemProvider.dispose();
 		if (loadBalanceEndPointInputConnectorItemProvider != null) loadBalanceEndPointInputConnectorItemProvider.dispose();
 		if (loadBalanceEndPointOutputConnectorItemProvider != null) loadBalanceEndPointOutputConnectorItemProvider.dispose();
 		if (loadBalanceEndPointWestOutputConnectorItemProvider != null) loadBalanceEndPointWestOutputConnectorItemProvider.dispose();

@@ -2382,6 +2382,15 @@ public interface EsbFactory extends EFactory {
 	LoadBalanceEndPoint createLoadBalanceEndPoint();
 
 	/**
+	 * Returns a new object of class '<em>Member</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Member</em>'.
+	 * @generated
+	 */
+	Member createMember();
+
+	/**
 	 * Returns a new object of class '<em>Load Balance End Point Input Connector</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
