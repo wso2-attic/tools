@@ -564,7 +564,7 @@ public class ElementDuplicator {
 				Object endpoint=sendMediator.getEndpoint();
 				IEsbNodeDeserializer deserializer = EsbDeserializerRegistry.getInstance().getDeserializer(endpoint);
 				if(deserializer!=null){
-					AbstractEndPoint endPoint = (AbstractEndPoint) deserializer.createNode(rootCompartment, endpoint);
+					EndPoint endPoint = (EndPoint) deserializer.createNode(rootCompartment, endpoint);
 					EditingDomain editingDomain=rootCompartment.getEditingDomain();
 					SetCommand setCmd=new SetCommand(editingDomain, endPoint,END_POINT__DUPLICATE , true);
 					if(setCmd.canExecute()){
