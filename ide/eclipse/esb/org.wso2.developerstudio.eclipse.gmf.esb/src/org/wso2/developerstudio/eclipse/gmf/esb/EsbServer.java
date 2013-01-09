@@ -97,5 +97,17 @@ public interface EsbServer extends EsbNode {
 	 * @generated
 	 */
 	void setType(ArtifactType value);
+	
+	/**
+	 * Sets the status of the lock attribute.
+	 * @param editmode
+	 */
+	void setLockmode(boolean lockmode);
+
+	/**
+	 * Returns the status of the lock attribute.
+	 * @return
+	 */
+	boolean isLockmode();
 
 } // EsbServer

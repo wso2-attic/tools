@@ -81,6 +81,12 @@ public class EsbServerImpl extends EsbNodeImpl implements EsbServer {
 	 * @ordered
 	 */
 	protected ArtifactType type = TYPE_EDEFAULT;
+	
+	
+	/**
+	 * The cached status of the lock attribute.
+	 */
+	private boolean lockmode;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -293,6 +299,20 @@ public class EsbServerImpl extends EsbNodeImpl implements EsbServer {
 		result.append(type);
 		result.append(')');
 		return result.toString();
+	}
+
+	/**
+	 * Sets the status of the lock attribute.
+	 */
+	public void setLockmode(boolean lockmode) {
+		this.lockmode = lockmode;
+	}
+
+	/**
+	 * Returns the status of the lock attribute.
+	 */
+	public boolean isLockmode() {
+		return lockmode;
 	}
 
 } //EsbServerImpl
