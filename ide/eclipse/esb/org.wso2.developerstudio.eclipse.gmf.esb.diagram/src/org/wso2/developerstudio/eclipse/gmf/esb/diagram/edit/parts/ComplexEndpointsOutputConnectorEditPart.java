@@ -97,9 +97,11 @@ AbstractOutputConnectorEditPart {
 	private void connectToEndpoint() {
 		Map map = ((MediatorFlowMediatorFlowCompartment18EditPart) ((EditPart) (this.getParent()).getChildren()
 				.get(0)).getChildren().get(0)).connectorAndEndpointMap;
-		ConnectionUtils.createConnection(EditorUtils
-				.getEndpointInputConnector((ShapeNodeEditPart) (map.get(((Node) this
-						.getModel()).getElement()))), (AbstractConnectorEditPart) this);
+		ShapeNodeEditPart endpoint=(ShapeNodeEditPart) (map.get(((Node) this.getModel()).getElement()));
+		if(endpoint!=null){
+			ConnectionUtils.createConnection(EditorUtils
+					.getEndpointInputConnector(endpoint), (AbstractConnectorEditPart) this);
+		}
 	}
 
 	/**
