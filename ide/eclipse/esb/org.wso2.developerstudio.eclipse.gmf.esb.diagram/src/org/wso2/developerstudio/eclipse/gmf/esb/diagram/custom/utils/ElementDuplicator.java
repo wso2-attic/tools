@@ -196,7 +196,16 @@ public class ElementDuplicator {
 
 						EsbLinkEditPart firstLinkEditPart = getFirstLinkEditpart(element);
 						if (firstLinkEditPart != null) {
-							firstLinksEditparts.add(firstLinkEditPart);
+							if(sendMediator.getReceivingSequenceType().getValue()==0){
+								EObject targetElement=((org.eclipse.gmf.runtime.notation.Node)firstLinkEditPart.getTarget().getParent().getModel()).getElement();
+								if(targetElement instanceof Sequence){
+									if(((Sequence)targetElement).isDuplicate()){
+										firstLinksEditparts.add(firstLinkEditPart);
+									}
+								}
+							}else{
+								firstLinksEditparts.add(firstLinkEditPart);
+							}
 						}
 
 						collectElementsToBeDeleted(firstLinks, elements, outputConnector);
@@ -305,7 +314,21 @@ public class ElementDuplicator {
 	private void collectElementsToBeDeleted(List<EsbLink> firstLinks,List<EObject> elements,OutputConnector outputConnector){
 		EObject node=null;
 		EList<EObject> child=null;
-		firstLinks.add(outputConnector.getOutgoingLink());			
+		if(outputConnector.getOutgoingLink() !=null){
+			EObject targetElement=outputConnector.getOutgoingLink().getTarget().eContainer();
+			if(outputConnector.eContainer() instanceof org.wso2.developerstudio.eclipse.gmf.esb.SendMediator){
+				org.wso2.developerstudio.eclipse.gmf.esb.SendMediator send=(org.wso2.developerstudio.eclipse.gmf.esb.SendMediator)outputConnector.eContainer();
+				if(send.getReceivingSequenceType().getValue()==0){
+					if(targetElement instanceof Sequence){
+						if(((Sequence)targetElement).isDuplicate()){
+							firstLinks.add(outputConnector.getOutgoingLink());
+						}
+					}
+				}else{
+					firstLinks.add(outputConnector.getOutgoingLink());
+				}
+			}	
+		}
 		
 		/*
 		 * Collect elements to be deleted. 
