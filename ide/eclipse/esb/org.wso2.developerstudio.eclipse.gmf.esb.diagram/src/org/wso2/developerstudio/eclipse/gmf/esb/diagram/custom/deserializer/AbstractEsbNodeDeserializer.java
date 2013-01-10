@@ -78,6 +78,19 @@ import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
 
+/**
+ * This class provides a skeletal implementation of the IEsbNodeDeserializer
+ * interface, deserializers are used to deserialize the objects from synapse to
+ * a EMF object that can be of any type that the developer wants.
+ * 
+ * Instances of AbstractEsbNodeDeserializer are not safe for use by multiple
+ * threads and should NOT be initialized by multiple editor instances
+ * 
+ * @param <T>
+ *            Return type of createNode()
+ * @param <R>
+ *            Return type of createNode()
+ */
 public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implements IEsbNodeDeserializer<T,R> {
 	private static EsbDiagramEditor diagramEditor;
 	private static Map<EsbConnector, LinkedList<EsbNode>> connectionFlowMap = new LinkedHashMap<EsbConnector, LinkedList<EsbNode>>();
@@ -99,6 +112,15 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 	private static Map<EsbConnector, Rectangle> currentLocation ;
 	
 	public static EsbDiagramEditor getDiagramEditor() {
+		/* Always refers EsbDiagramEditor from EsbDeserializerRegistry unless it is NULL
+		 * This ensures that the operations are executed by deserializer performs against the EsbDiagramEditor
+		 * initialized in EsbDeserializerRegistry 
+		 * */
+		EsbDiagramEditor diagramEditorRef = EsbDeserializerRegistry.getInstance().getDiagramEditor();
+		if(diagramEditorRef!=null){
+			diagramEditor = diagramEditorRef;
+			return diagramEditorRef;
+		}
 		return diagramEditor;
 	}
 
@@ -459,7 +481,7 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 	 */
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private static void clearLinks() {
-		Collection values = diagramEditor.getDiagramGraphicalViewer().getEditPartRegistry().values();
+		Collection values = getDiagramEditor().getDiagramGraphicalViewer().getEditPartRegistry().values();
 		Iterator iterator = values.iterator();
 		CompoundCommand ccModel = new CompoundCommand();
 		org.eclipse.gef.commands.CompoundCommand ccView = new org.eclipse.gef.commands.CompoundCommand();
@@ -471,7 +493,7 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 				Collection linkCollection = new ArrayList();
 				linkCollection.add(((ConnectorImpl) linkEditPart.getModel()).getElement());
 				org.eclipse.emf.edit.command.DeleteCommand modelDeleteCommand = new org.eclipse.emf.edit.command.DeleteCommand(
-						diagramEditor.getEditingDomain(), linkCollection);
+						getDiagramEditor().getEditingDomain(), linkCollection);
 				if (modelDeleteCommand.canExecute()) {
 					ccModel.append(modelDeleteCommand);
 				}
@@ -483,10 +505,10 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 		}
 
 		if (ccModel.canExecute()) {
-			diagramEditor.getEditingDomain().getCommandStack().execute(ccModel);
+			getDiagramEditor().getEditingDomain().getCommandStack().execute(ccModel);
 		}
 		if (ccView.canExecute()) {
-			diagramEditor.getDiagramEditDomain().getDiagramCommandStack()
+			getDiagramEditor().getDiagramEditDomain().getDiagramCommandStack()
 					.execute(ccView);
 		}
 	}
@@ -541,11 +563,11 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 	public static void refreshEditPartMap(){
 		editPartMap.clear();
 		
-		if(diagramEditor==null)
+		if(getDiagramEditor()==null)
 			return;
 		
 		@SuppressWarnings("rawtypes")
-		Map editPartRegistry = diagramEditor.getDiagramEditPart().getViewer().getEditPartRegistry();
+		Map editPartRegistry = getDiagramEditor().getDiagramEditPart().getViewer().getEditPartRegistry();
 		for (Object object : editPartRegistry.keySet()) {
 			if(object instanceof Node){
 				Node nodeImpl = (Node) object;
@@ -598,11 +620,11 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 		
 	protected boolean executeSetValueCommand(EObject elementToEdit,
 			EStructuralFeature feature, Object value) {
-		SetRequest reqSet = new SetRequest(diagramEditor.getEditingDomain(),
+		SetRequest reqSet = new SetRequest(getDiagramEditor().getEditingDomain(),
 				elementToEdit, feature, value);
 		SetValueCommand operation = new SetValueCommand(reqSet);
 		if (operation.canExecute()) {
-			diagramEditor.getDiagramEditDomain().getDiagramCommandStack()
+			getDiagramEditor().getDiagramEditDomain().getDiagramCommandStack()
 					.execute(new ICommandProxy(operation));
 			return true;
 		}
@@ -610,7 +632,7 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 	}
 		
 	protected <E extends EObject> boolean executeAddValueCommand(final EList<E> list, final E value) {
-		TransactionalEditingDomain editingDomain = diagramEditor.getEditingDomain();
+		TransactionalEditingDomain editingDomain = getDiagramEditor().getEditingDomain();
 		RecordingCommand command = new RecordingCommand(editingDomain) {
 			protected void doExecute() {
 				list.add(value);

@@ -53,12 +53,13 @@ public abstract class AbstractComplexEndPointDeserializer extends AbstractEsbNod
 			
 			mainDiagramEditorRef = getDiagramEditor();
 			
+			executeSetValueCommand(EsbPackage.Literals.PARENT_END_POINT__NAME, endpointName);
+			
 			//We can not get the editorPart without opening the editor.
 			IEditorPart editorPart = createFiles(endpointName,
 					"complex_endpoint_" + endpointName + ".esb_diagram",
 					"complex_endpoint_" + endpointName + ".esb");
 			
-			executeSetValueCommand(EsbPackage.Literals.PARENT_END_POINT__NAME, endpointName);
 			
 			if (editorPart != null && editorPart instanceof EsbMultiPageEditor) {
 
