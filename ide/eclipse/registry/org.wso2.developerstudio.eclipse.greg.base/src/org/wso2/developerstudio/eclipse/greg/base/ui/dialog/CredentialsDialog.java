@@ -65,12 +65,12 @@ public class CredentialsDialog extends Dialog {
 	 */
 	public CredentialsDialog(Shell parentShell, String registryUrl,String username) {
 		super(parentShell);
-		oldUsername = username;
 		if ("null".equals(username)) {
 			userName = "admin";
 		} else {
 			userName = username;
-		     }
+		}
+		oldUsername = username;
 		this.registryUrl = registryUrl;
 	}
 
@@ -230,21 +230,23 @@ public class CredentialsDialog extends Dialog {
         try {
 	        hostUrl = new URL(getServerUrl());
 //	        if(urlValid(hostUrl)){
-				ResourceAdmin rsAdmin = new ResourceAdmin(getServerUrl(), getUserName(), getPasswd());
-				if(rsAdmin.isUserAuthenticate(getUserName(), getPasswd(), hostUrl)){
-			 
-				     if(!oldUsername.equals(userName)){
-				         RegistryUrlStore.getInstance().modifyRegistryUrl(registryUrl, userName, oldUsername);
-					  }
-					super.okPressed();
-	//			}
-	//			if(passwd.equals(RegistryCredentialData.getInstance().getPassword(registryUrl))){
-	//				super.okPressed();
-				}else{
-					exceptionHandler.showMessage(getShell(), "Incorrect credentials");
-	//				usernameField.setText("");
-					passwordField.setText("");
+			ResourceAdmin rsAdmin = new ResourceAdmin(getServerUrl(),
+					getUserName(), getPasswd());
+			if (rsAdmin.isUserAuthenticate(getUserName(), getPasswd(), hostUrl)) {
+				if (oldUsername==null || !userName.equals(oldUsername)) {
+					RegistryUrlStore.getInstance().modifyRegistryUrl(
+							registryUrl, userName, oldUsername);
 				}
+				super.okPressed();
+				// }
+				// if(passwd.equals(RegistryCredentialData.getInstance().getPassword(registryUrl))){
+				// super.okPressed();
+			} else {
+				exceptionHandler.showMessage(getShell(),
+						"Incorrect credentials");
+				// usernameField.setText("");
+				passwordField.setText("");
+			}
 //	        }else{
 //	        	exceptionHandler.showMessage(getShell(), "Cannot establish the connection with given URL.");
 //	        }

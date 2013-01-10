@@ -198,7 +198,7 @@ public final class RegistryUrlStore {
 		while (iterator.hasNext()) {
 			RegistryURLInfo reginfo = iterator.next();
 			if (registryUrl.equals(reginfo.getUrl().toString())
-					&& (oldUser.equals(reginfo.getUsername()))) {
+					&& (oldUser==null || oldUser.equals(reginfo.getUsername()))) {
 				reginfo.setUsername(username);
 			}
 		}
