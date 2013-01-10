@@ -113,30 +113,20 @@ public interface Sequence extends Mediator {
 	void setInputConnector(SequenceInputConnector value);
 
 	/**
-	 * Returns the value of the '<em><b>Output Connector</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Output Connector</b></em>' containment reference list.
+	 * The list contents are of type {@link org.wso2.developerstudio.eclipse.gmf.esb.SequenceOutputConnector}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Output Connector</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Output Connector</em>' containment reference.
-	 * @see #setOutputConnector(SequenceOutputConnector)
+	 * @return the value of the '<em>Output Connector</em>' containment reference list.
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getSequence_OutputConnector()
 	 * @model containment="true"
 	 * @generated
 	 */
-	SequenceOutputConnector getOutputConnector();
-
-	/**
-	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.Sequence#getOutputConnector <em>Output Connector</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Output Connector</em>' containment reference.
-	 * @see #getOutputConnector()
-	 * @generated
-	 */
-	void setOutputConnector(SequenceOutputConnector value);
+	EList<SequenceOutputConnector> getOutputConnector();
 
 	/**
 	 * Returns the value of the '<em><b>Included Mediators</b></em>' containment reference list.

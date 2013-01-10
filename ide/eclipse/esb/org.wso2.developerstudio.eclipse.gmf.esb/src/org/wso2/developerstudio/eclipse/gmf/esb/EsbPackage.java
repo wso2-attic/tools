@@ -4645,7 +4645,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	int SEQUENCE__INPUT_CONNECTOR = MEDIATOR_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Output Connector</b></em>' containment reference.
+	 * The feature id for the '<em><b>Output Connector</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -19466,10 +19466,10 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	EReference getSequence_InputConnector();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.Sequence#getOutputConnector <em>Output Connector</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.wso2.developerstudio.eclipse.gmf.esb.Sequence#getOutputConnector <em>Output Connector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Output Connector</em>'.
+	 * @return the meta object for the containment reference list '<em>Output Connector</em>'.
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.Sequence#getOutputConnector()
 	 * @see #getSequence()
 	 * @generated
@@ -30099,7 +30099,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		EReference SEQUENCE__INPUT_CONNECTOR = eINSTANCE.getSequence_InputConnector();
 
 		/**
-		 * The meta object literal for the '<em><b>Output Connector</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Output Connector</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

@@ -99,14 +99,14 @@ public class SequenceImpl extends MediatorImpl implements Sequence {
 	protected SequenceInputConnector inputConnector;
 
 	/**
-	 * The cached value of the '{@link #getOutputConnector() <em>Output Connector</em>}' containment reference.
+	 * The cached value of the '{@link #getOutputConnector() <em>Output Connector</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getOutputConnector()
 	 * @generated
 	 * @ordered
 	 */
-	protected SequenceOutputConnector outputConnector;
+	protected EList<SequenceOutputConnector> outputConnector;
 
 	/**
 	 * The cached value of the '{@link #getIncludedMediators() <em>Included Mediators</em>}' containment reference list.
@@ -268,42 +268,11 @@ public class SequenceImpl extends MediatorImpl implements Sequence {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SequenceOutputConnector getOutputConnector() {
+	public EList<SequenceOutputConnector> getOutputConnector() {
+		if (outputConnector == null) {
+			outputConnector = new EObjectContainmentEList<SequenceOutputConnector>(SequenceOutputConnector.class, this, EsbPackage.SEQUENCE__OUTPUT_CONNECTOR);
+		}
 		return outputConnector;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetOutputConnector(SequenceOutputConnector newOutputConnector, NotificationChain msgs) {
-		SequenceOutputConnector oldOutputConnector = outputConnector;
-		outputConnector = newOutputConnector;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.SEQUENCE__OUTPUT_CONNECTOR, oldOutputConnector, newOutputConnector);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setOutputConnector(SequenceOutputConnector newOutputConnector) {
-		if (newOutputConnector != outputConnector) {
-			NotificationChain msgs = null;
-			if (outputConnector != null)
-				msgs = ((InternalEObject)outputConnector).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.SEQUENCE__OUTPUT_CONNECTOR, null, msgs);
-			if (newOutputConnector != null)
-				msgs = ((InternalEObject)newOutputConnector).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.SEQUENCE__OUTPUT_CONNECTOR, null, msgs);
-			msgs = basicSetOutputConnector(newOutputConnector, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.SEQUENCE__OUTPUT_CONNECTOR, newOutputConnector, newOutputConnector));
 	}
 
 	/**
@@ -372,7 +341,7 @@ public class SequenceImpl extends MediatorImpl implements Sequence {
 			case EsbPackage.SEQUENCE__INPUT_CONNECTOR:
 				return basicSetInputConnector(null, msgs);
 			case EsbPackage.SEQUENCE__OUTPUT_CONNECTOR:
-				return basicSetOutputConnector(null, msgs);
+				return ((InternalEList<?>)getOutputConnector()).basicRemove(otherEnd, msgs);
 			case EsbPackage.SEQUENCE__INCLUDED_MEDIATORS:
 				return ((InternalEList<?>)getIncludedMediators()).basicRemove(otherEnd, msgs);
 		}
@@ -426,7 +395,8 @@ public class SequenceImpl extends MediatorImpl implements Sequence {
 				setInputConnector((SequenceInputConnector)newValue);
 				return;
 			case EsbPackage.SEQUENCE__OUTPUT_CONNECTOR:
-				setOutputConnector((SequenceOutputConnector)newValue);
+				getOutputConnector().clear();
+				getOutputConnector().addAll((Collection<? extends SequenceOutputConnector>)newValue);
 				return;
 			case EsbPackage.SEQUENCE__INCLUDED_MEDIATORS:
 				getIncludedMediators().clear();
@@ -461,7 +431,7 @@ public class SequenceImpl extends MediatorImpl implements Sequence {
 				setInputConnector((SequenceInputConnector)null);
 				return;
 			case EsbPackage.SEQUENCE__OUTPUT_CONNECTOR:
-				setOutputConnector((SequenceOutputConnector)null);
+				getOutputConnector().clear();
 				return;
 			case EsbPackage.SEQUENCE__INCLUDED_MEDIATORS:
 				getIncludedMediators().clear();
@@ -492,7 +462,7 @@ public class SequenceImpl extends MediatorImpl implements Sequence {
 			case EsbPackage.SEQUENCE__INPUT_CONNECTOR:
 				return inputConnector != null;
 			case EsbPackage.SEQUENCE__OUTPUT_CONNECTOR:
-				return outputConnector != null;
+				return outputConnector != null && !outputConnector.isEmpty();
 			case EsbPackage.SEQUENCE__INCLUDED_MEDIATORS:
 				return includedMediators != null && !includedMediators.isEmpty();
 			case EsbPackage.SEQUENCE__RECEIVE_SEQUENCE:

@@ -1582,8 +1582,7 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	 */
 	public Sequence createSequence() {
 		SequenceImpl sequence = new SequenceImpl();
-		sequence.setInputConnector(createSequenceInputConnector());
-		sequence.setOutputConnector(createSequenceOutputConnector());
+		sequence.setInputConnector(createSequenceInputConnector());		
 		return sequence;
 	}
 
