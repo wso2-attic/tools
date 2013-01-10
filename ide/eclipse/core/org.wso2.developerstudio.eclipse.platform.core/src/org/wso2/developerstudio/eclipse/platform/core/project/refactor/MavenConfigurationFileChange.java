@@ -109,52 +109,52 @@ public class MavenConfigurationFileChange extends TextFileChange {
 	private void identifyIdArtifactReplacement() throws IOException {
 		BufferedReader reader = null;
 		FileReader fileReader = null;
-        try {
-	        int fullIndex = 0;
-	        fileReader = new FileReader(pomFile.getLocation().toFile());
-	        reader = new BufferedReader(fileReader);
-	        String dependenciesStart = "<dependencies>";
-	        String dependenciesEnd = "</dependencies>";
-	        boolean isDependencies = false;
-	        String case1String = "<artifactId>";
-	        String case2String = "</artifactId>";
-	        String artifactId = previousName;
-	        String line = reader.readLine();
-	        while (line != null) {
-	        	if (!isDependencies && line.contains(dependenciesStart)) {
-	        		isDependencies = true;
-	        	}
+		try {
+			int fullIndex = 0;
+			fileReader = new FileReader(pomFile.getLocation().toFile());
+			reader = new BufferedReader(fileReader);
+			String dependenciesStart = "<dependencies>";
+			String dependenciesEnd = "</dependencies>";
+			boolean isDependencies = false;
+			String case1String = "<artifactId>";
+			String case2String = "</artifactId>";
+			String artifactId = previousName;
+			String line = reader.readLine();
+			while (line != null) {
+				if (!isDependencies && line.contains(dependenciesStart)) {
+					isDependencies = true;
+				}
 
-	        	if (isDependencies && line.contains(dependenciesEnd)) {
-	        		isDependencies = false;
-	        	}
+				if (isDependencies && line.contains(dependenciesEnd)) {
+					isDependencies = false;
+				}
 
-	        	// This is to check the artifact id of the pom.xml and it is
-	        	// identified by not selecting the one in dependencies section.
-	        	if (!isDependencies && line.contains(artifactId)) {
-	        		if (line.contains(case1String) ||
-	        		    (previousLine.contains(case1String) && !previousLine.contains(case2String))) {
-	        			int case1LineIndex = line.indexOf(artifactId);
-	        			addEdit(new ReplaceEdit(fullIndex + case1LineIndex, artifactId.length(),
-	        			                        newName));
-	        			break;
+				// This is to check the artifact id of the pom.xml and it is
+				// identified by not selecting the one in dependencies section.
+				if (!isDependencies && line.contains(artifactId)) {
+					if (line.contains(case1String) ||
+					    (previousLine.contains(case1String) && !previousLine.contains(case2String))) {
+						int case1LineIndex = line.indexOf(artifactId);
+						addEdit(new ReplaceEdit(fullIndex + case1LineIndex, artifactId.length(),
+						                        newName));
+						break;
 
-	        		}
-	        	}
-	        	fullIndex += ProjectRefactorUtils.charsOnTheLine(line);
-	        	previousLine = line;
-	        	line = reader.readLine();
-	        }
-        } catch (MalformedTreeException e) {
-	        log.error("Cannot generate the change for the given edits", e);
-        }finally{
-        	if (fileReader != null) {
+					}
+				}
+				fullIndex += ProjectRefactorUtils.charsOnTheLine(line);
+				previousLine = line;
+				line = reader.readLine();
+			}
+		} catch (MalformedTreeException e) {
+			log.error("Cannot generate the change for the given edits", e);
+		} finally {
+			if (fileReader != null) {
 				fileReader.close();
 			}
-        	if (reader != null) {
+			if (reader != null) {
 				reader.close();
 			}
-        }
+		}
 	}
 
 	/**

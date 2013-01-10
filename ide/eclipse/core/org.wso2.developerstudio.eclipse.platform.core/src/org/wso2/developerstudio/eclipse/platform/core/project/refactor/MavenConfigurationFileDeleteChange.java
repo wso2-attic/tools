@@ -60,8 +60,6 @@ public class MavenConfigurationFileDeleteChange extends TextFileChange {
 
 		setSaveMode(FORCE_SAVE);
 
-		// addEdit(new ReplaceEdit(991, 229, "\n"));
-
 		if (pomFile.exists()) {
 			identifyDepenencyEntry();
 		}
