@@ -16,6 +16,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorReference;
 import org.eclipse.ui.IFileEditorInput;
@@ -39,7 +40,7 @@ public abstract class AbstractComplexEndPointDeserializer extends AbstractEsbNod
 
 	private static IDeveloperStudioLog log = Logger.getLog("org.wso2.developerstudio.eclipse.gmf.esb.diagram");
 	
-	private EsbDiagramEditor mainEditorRef;
+	private EsbDiagramEditor mainDiagramEditorRef;
 	
 	protected <T extends AbstractEndpoint> void deserializeComplexEndpoint(T endpoint){	
 		
@@ -50,8 +51,9 @@ public abstract class AbstractComplexEndPointDeserializer extends AbstractEsbNod
 			long lDateTime = new Date().getTime();
 			final String endpointName = String.valueOf(lDateTime);
 			
-			mainEditorRef = getDiagramEditor();
+			mainDiagramEditorRef = getDiagramEditor();
 			
+			//We can not get the editorPart without opening the editor.
 			IEditorPart editorPart = createFiles(endpointName,
 					"complex_endpoint_" + endpointName + ".esb_diagram",
 					"complex_endpoint_" + endpointName + ".esb");
@@ -97,17 +99,34 @@ public abstract class AbstractComplexEndPointDeserializer extends AbstractEsbNod
 							}
 					}
 				}
+				
+				final IEditorPart tempEp = editorPart;
 
+				Display.getCurrent().asyncExec(new Runnable() {
+					
+					@Override
+					public void run() {
+							
+						//Save the sub editor when the work done
+						tempEp.doSave(new NullProgressMonitor());
+												
+						IWorkbenchPage activePage = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
+						activePage.closeEditor(tempEp, false);
+					}
+				});
+				
 				/*
 				 * Setting back main editor editing domain to deserializerRegistry.
 				 */
 				
-				if(mainEditorRef != null){
-					EsbDeserializerRegistry.getInstance().init(mainEditorRef);
+				if(mainDiagramEditorRef != null){
+					EsbDeserializerRegistry.getInstance().init(mainDiagramEditorRef);
 				}
+							
 			}
 		}
 	}
+	
 	protected IGraphicalEditPart findRelevntEditPart(EditPart childEditPart) {
 		
 		IGraphicalEditPart gpartTemp = null;

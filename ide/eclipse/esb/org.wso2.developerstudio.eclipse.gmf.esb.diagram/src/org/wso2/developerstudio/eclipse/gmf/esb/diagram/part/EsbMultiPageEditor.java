@@ -67,6 +67,7 @@ import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.IReusableEditor;
 import org.eclipse.ui.IWorkbench;
+import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
@@ -532,8 +533,14 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
     	}
     	sourceDirty=false;
         getEditor(0).doSave(monitor);
-        updateAssociatedXMLFile(monitor);
-       
+        EsbServer esbServer = EditorUtils.getEsbServer(graphicalEditor);
+        
+        //Since Complex endpoint type editors dose not have assiociated xml file do not need to call this.
+        if(!esbServer.getType().equals(ArtifactType.COMPLEX_ENDPOINT)){
+        	
+        	updateAssociatedXMLFile(monitor);
+        }
+        
 		EditorUtils.setLockmode(graphicalEditor, true);
         
 		IFile file = ((IFileEditorInput)getEditorInput()).getFile();
@@ -719,6 +726,16 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 		
 		try {
 			Deserializer.getInstance().updateDesign(xml, graphicalEditor);
+			
+			final EsbMultiPageEditor tempEditor = this;
+			Display.getDefault().asyncExec(new Runnable() {
+				public void run() {
+					IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
+					page.activate(tempEditor);
+					
+				}
+			});
+			
 		} catch (Exception e) {
 			log.error("Error while generating diagram from source", e);
 			MessageDialog.openError(Display.getCurrent().getActiveShell(), "Error",
