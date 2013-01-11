@@ -4,7 +4,6 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.synapse.endpoints.DefaultEndpoint;
 import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.endpoints.EndpointDefinition;
 import org.apache.synapse.endpoints.FailoverEndpoint;
@@ -29,15 +28,12 @@ import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.PlatformUI;
 import org.wso2.developerstudio.eclipse.gmf.esb.ComplexEndpoints;
 import org.wso2.developerstudio.eclipse.gmf.esb.ComplexEndpointsOutputConnector;
-import org.wso2.developerstudio.eclipse.gmf.esb.DefaultEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbElement;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.FailoverEndPoint;
-import org.wso2.developerstudio.eclipse.gmf.esb.FailoverEndPointOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.InputConnector;
-import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.SequenceInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.EsbNodeTransformer;
@@ -62,19 +58,6 @@ public class FailoverEndPointTransformer extends AbstractEndpointTransformer{
 			sendMediator = new SendMediator();
 			info.getParentSequence().addChild(sendMediator);
 		}
-/*		org.apache.synapse.endpoints.FailoverEndpoint synapseFailEP = new org.apache.synapse.endpoints.FailoverEndpoint();
-		EndpointDefinition synapseEPDef = new EndpointDefinition();
-		EndpointDefinition synapseEPDef2 = new EndpointDefinition();
-		synapseEPDef2.setAddress("adrress1111........");
-		EndpointDefinition synapseEPDef3 = new EndpointDefinition();
-		synapseEPDef3.setAddress("adrress2222........");
-		
-		List<Endpoint>endPoints= new ArrayList<Endpoint>();
-		synapseFailEP.setChildren(endPoints);
-		synapseFailEP.setDefinition(synapseEPDef);*/
-		
-		//sendMediator.setEndpoint(synapseFailEP);
-		//sendMediator.setEndpoint(create(info,visualEndPoint,null,null));
 		
 		if(visualEndPoint.isInLine()){
 			info.getCurrentProxy().setTargetInLineEndpoint(create(info,visualEndPoint,null,null));
@@ -119,9 +102,6 @@ public class FailoverEndPointTransformer extends AbstractEndpointTransformer{
 					"Diagram Incomplete ! ",
 					"Output connector of an Endpoint must be connected to an Recieve Sequence or Out Sequence.");
 		}
-		
-		doTransform(info, visualEndPoint.getWestOutputConnector());
-		
 		
 		
 /*		if(!info.isEndPointFound){
