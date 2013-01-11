@@ -58,7 +58,7 @@ public class SequenceMediatorTransformer extends AbstractEsbNodeTransformer {
 		}
 		try {
 			if ((information.getPreviouNode() instanceof org.wso2.developerstudio.eclipse.gmf.esb.EndPoint)&&
-					((visualSequence.getOutputConnector().getOutgoingLink()==null)||(visualSequence.getOutputConnector().getOutgoingLink().getTarget().eContainer() instanceof EndPoint))) {
+					((visualSequence.getOutputConnector().get(0).getOutgoingLink()==null)||(visualSequence.getOutputConnector().get(0).getOutgoingLink().getTarget().eContainer() instanceof EndPoint))) {
 /*				if(information.getParentSequence()!=null){
 					Object lastMediator = information
 							.getParentSequence()
@@ -83,7 +83,7 @@ public class SequenceMediatorTransformer extends AbstractEsbNodeTransformer {
 	
 		doTransformWithinSequence(information, SequenceInfo.sequenceMap.get(visualSequence.getName()),sequence); */
 		doTransform(information,
-				((Sequence)subject).getOutputConnector());
+				((Sequence)subject).getOutputConnector().get(0));
 		
 	}
 
@@ -104,7 +104,7 @@ public class SequenceMediatorTransformer extends AbstractEsbNodeTransformer {
 		refferingSequence.setKey(value);
 		
 		sequence.addChild(refferingSequence);
-		doTransformWithinSequence(information,visualSequence.getOutputConnector().getOutgoingLink(),sequence);		
+		doTransformWithinSequence(information,visualSequence.getOutputConnector().get(0).getOutgoingLink(),sequence);		
 	}
 
 }

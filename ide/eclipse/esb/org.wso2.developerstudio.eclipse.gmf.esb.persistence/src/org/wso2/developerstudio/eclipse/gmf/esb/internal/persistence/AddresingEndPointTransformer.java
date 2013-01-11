@@ -51,7 +51,7 @@ public class AddresingEndPointTransformer extends AbstractEndpointTransformer{
 		if(visualEP.getOutputConnector().getOutgoingLink() !=null){
 			InputConnector nextInputConnector=visualEP.getOutputConnector().getOutgoingLink().getTarget();
 			if((!(nextInputConnector instanceof SequenceInputConnector))||
-					((((Sequence)nextInputConnector.eContainer()).getOutputConnector().getOutgoingLink()!=null)&&(!(((Sequence)nextInputConnector.eContainer()).getOutputConnector().getOutgoingLink().getTarget().eContainer() instanceof EndPoint)))){
+					((((Sequence)nextInputConnector.eContainer()).getOutputConnector().get(0).getOutgoingLink()!=null)&&(!(((Sequence)nextInputConnector.eContainer()).getOutputConnector().get(0).getOutgoingLink().getTarget().eContainer() instanceof EndPoint)))){
 				information.setParentSequence(information.getOriginOutSequence());
 				information.setTraversalDirection(TransformationInfo.TRAVERSAL_DIRECTION_OUT);
 			}else if(visualEP.getInputConnector().getIncomingLinks().get(0).getSource().eContainer() instanceof Sequence){

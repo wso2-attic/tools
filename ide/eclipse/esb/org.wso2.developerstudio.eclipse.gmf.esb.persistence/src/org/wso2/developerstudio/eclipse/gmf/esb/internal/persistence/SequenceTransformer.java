@@ -131,8 +131,8 @@ public class SequenceTransformer extends AbstractEsbNodeTransformer{
 			}
 			OutputConnector source=((EsbLink)currentSequence.getInputConnector().getIncomingLinks().get(0)).getSource();
 			InputConnector target=null;
-			if(currentSequence.getOutputConnector().getOutgoingLink()!=null){
-				target = currentSequence.getOutputConnector().getOutgoingLink().getTarget();
+			if(currentSequence.getOutputConnector().get(0).getOutgoingLink()!=null){
+				target = currentSequence.getOutputConnector().get(0).getOutgoingLink().getTarget();
 			}
 			
 			if((source.eContainer() instanceof AbstractEndPoint)&&((target!=null)&&(target.eContainer() instanceof AbstractEndPoint))){
@@ -147,7 +147,7 @@ public class SequenceTransformer extends AbstractEsbNodeTransformer{
 					InputConnector nextTarget=(getEndpointOutputConnector((AbstractEndPoint) target.eContainer())).getOutgoingLink().getTarget();
 					if(nextTarget.eContainer() instanceof Sequence){
 						String sequenceName=((Sequence)nextTarget.eContainer()).getName();
-						if(((Sequence)nextTarget.eContainer()).getOutputConnector().getOutgoingLink().getTarget().eContainer() instanceof AbstractEndPoint){
+						if(((Sequence)nextTarget.eContainer()).getOutputConnector().get(0).getOutgoingLink().getTarget().eContainer() instanceof AbstractEndPoint){
 							sendMediator.setReceivingSequence(new Value(sequenceName));
 						}
 					}
