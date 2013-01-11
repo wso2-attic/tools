@@ -30,7 +30,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementType
 /**
  * @generated NOT
  */
-public class AddressingEndpointInputConnectorEditPart extends AbstractEndpointInputConnectorEditPart {
+public class AddressingEndpointInputConnectorEditPart extends
+		AbstractEndpointInputConnectorEditPart {
 
 	/**
 	 * @generated

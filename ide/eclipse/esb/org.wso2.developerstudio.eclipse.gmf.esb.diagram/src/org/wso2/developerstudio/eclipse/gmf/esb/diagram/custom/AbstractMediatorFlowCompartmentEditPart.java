@@ -2,14 +2,21 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom;
 
 import org.apache.commons.lang.RandomStringUtils;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.edit.command.AddCommand;
+import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.internal.ui.palette.editparts.ToolEntryEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeCompartmentEditPart;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.wso2.developerstudio.eclipse.esb.project.utils.ESBProjectUtils;
+import org.wso2.developerstudio.eclipse.gmf.esb.DefaultEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
+import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DefaultEndPointEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbPaletteFactory.NodeToolEntry;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
@@ -65,6 +72,17 @@ public class AbstractMediatorFlowCompartmentEditPart extends ShapeCompartmentEdi
 							.getElement()).setName(sequenceName);
 				}
 			}
+			
+			EObject sequence = ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (sequenceEditPart)
+					.getModel()).getElement();
+				if (((Sequence) sequence).getOutputConnector().size() == 0) {
+					AddCommand addCmd = new AddCommand(getEditingDomain(), sequence,
+							EsbPackage.Literals.SEQUENCE__OUTPUT_CONNECTOR,
+							EsbFactory.eINSTANCE.createSequenceOutputConnector());
+					if (addCmd.canExecute()) {
+						getEditingDomain().getCommandStack().execute(addCmd);
+					}
+				}
 		}
 	}
 	

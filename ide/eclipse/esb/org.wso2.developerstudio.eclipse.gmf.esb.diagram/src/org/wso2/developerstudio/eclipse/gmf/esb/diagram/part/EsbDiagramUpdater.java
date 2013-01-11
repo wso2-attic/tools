@@ -775,11 +775,12 @@ public class EsbDiagramUpdater {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 			}
 		}
-		{
-			SequenceOutputConnector childElement = modelElement.getOutputConnector();
+		for (Iterator<?> it = modelElement.getOutputConnector().iterator(); it.hasNext();) {
+			SequenceOutputConnector childElement = (SequenceOutputConnector) it.next();
 			int visualID = EsbVisualIDRegistry.getNodeVisualID(view, childElement);
 			if (visualID == SequenceOutputConnectorEditPart.VISUAL_ID) {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
 			}
 		}
 		return result;

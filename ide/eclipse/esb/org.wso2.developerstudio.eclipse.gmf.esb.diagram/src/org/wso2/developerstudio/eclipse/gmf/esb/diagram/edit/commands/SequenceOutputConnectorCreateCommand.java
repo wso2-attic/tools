@@ -43,10 +43,6 @@ public class SequenceOutputConnectorCreateCommand extends EditElementCommand {
 	 * @generated
 	 */
 	public boolean canExecute() {
-		Sequence container = (Sequence) getElementToEdit();
-		if (container.getOutputConnector() != null) {
-			return false;
-		}
 		return true;
 
 	}
@@ -59,7 +55,7 @@ public class SequenceOutputConnectorCreateCommand extends EditElementCommand {
 		SequenceOutputConnector newElement = EsbFactory.eINSTANCE.createSequenceOutputConnector();
 
 		Sequence owner = (Sequence) getElementToEdit();
-		owner.setOutputConnector(newElement);
+		owner.getOutputConnector().add(newElement);
 
 		doConfigure(newElement, monitor, info);
 

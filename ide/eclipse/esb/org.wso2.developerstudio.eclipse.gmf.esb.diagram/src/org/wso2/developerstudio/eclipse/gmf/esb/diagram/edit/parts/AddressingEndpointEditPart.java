@@ -69,7 +69,7 @@ public class AddressingEndpointEditPart extends AbstractEndpoint {
 
 	/**
 	 * @generated NOT
-	 */ 
+	 */
 	protected void createDefaultEditPolicies() {
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
 		super.createDefaultEditPolicies();
@@ -120,7 +120,7 @@ public class AddressingEndpointEditPart extends AbstractEndpoint {
 	 * @generated NOT
 	 */
 	protected IFigure createNodeShape() {
-		return primaryShape = new AddressingEndpointFigure(){
+		return primaryShape = new AddressingEndpointFigure() {
 			public void setBounds(org.eclipse.draw2d.geometry.Rectangle rect) {
 				super.setBounds(rect);
 				if (!connected) {
@@ -137,7 +137,7 @@ public class AddressingEndpointEditPart extends AbstractEndpoint {
 	public AddressingEndpointFigure getPrimaryShape() {
 		return (AddressingEndpointFigure) primaryShape;
 	}
-	
+
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof AddressingEndpointInputConnectorEditPart) {
 			double position;
@@ -173,7 +173,7 @@ public class AddressingEndpointEditPart extends AbstractEndpoint {
 		}
 		return false;
 	}
-	
+
 	protected boolean removeFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof AddressingEndpointInputConnectorEditPart) {
 			getBorderedFigure().getBorderItemContainer().remove(
@@ -187,14 +187,14 @@ public class AddressingEndpointEditPart extends AbstractEndpoint {
 		}
 		return false;
 	}
-	
+
 	protected void addChildVisual(EditPart childEditPart, int index) {
 		if (addFixedChild(childEditPart)) {
 			return;
 		}
 		super.addChildVisual(childEditPart, -1);
 	}
-	
+
 	protected void removeChildVisual(EditPart childEditPart) {
 		if (removeFixedChild(childEditPart)) {
 			return;
@@ -208,7 +208,7 @@ public class AddressingEndpointEditPart extends AbstractEndpoint {
 		}
 		return getContentPane();
 	}
-	
+
 	/**
 	 * @generated
 	 */
@@ -332,7 +332,7 @@ public class AddressingEndpointEditPart extends AbstractEndpoint {
 		public WrappingLabel getFigureAddressingEndPointNamePropertyLabel() {
 			return fFigureAddressingEndPointNamePropertyLabel;
 		}
-		
+
 		public String getIconPath() {
 			return "icons/ico20/defalut-endpoint.gif";
 		}
@@ -355,7 +355,7 @@ public class AddressingEndpointEditPart extends AbstractEndpoint {
 	 * @generated
 	 */
 	static final Color THIS_BACK = new Color(null, 40, 151, 248);
-	
+
 	static final Color THIS_LABEL_BACK = new Color(null, 113, 198, 113);
 
 }

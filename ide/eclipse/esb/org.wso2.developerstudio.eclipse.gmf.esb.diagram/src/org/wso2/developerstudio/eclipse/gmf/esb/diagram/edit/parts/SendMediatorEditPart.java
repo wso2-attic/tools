@@ -127,7 +127,7 @@ public class SendMediatorEditPart extends FixedSizedAbstractMediator {
 		};
 		return lep;
 	}
-	
+
 	/*	public void notifyChanged(Notification notification) {
 		super.notifyChanged(notification);
 		if(notification.getFeature() instanceof EReference){
@@ -148,7 +148,7 @@ public class SendMediatorEditPart extends FixedSizedAbstractMediator {
 	}
 		
 	}
-	*/
+	 */
 
 	/**
 	 * @generated NOT

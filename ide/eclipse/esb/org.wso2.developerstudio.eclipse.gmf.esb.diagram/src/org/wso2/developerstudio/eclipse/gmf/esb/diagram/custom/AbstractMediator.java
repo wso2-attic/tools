@@ -129,7 +129,7 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 		if ((i == 1)&& this.reversed) {
 			MediatorFigureReverser.reverse(this, true);
 		}
-		if(this instanceof SequenceEditPart) {
+		if((i == 1)&&(this instanceof SequenceEditPart)) {
 			SequenceInputConnectorEditPart seqInputConnectorEditPart=(SequenceInputConnectorEditPart)((SequenceEditPart)this).getChildren().get(1);
 			SequenceInputConnector seqInputConnector=(SequenceInputConnector)((org.eclipse.gmf.runtime.notation.impl.NodeImpl)(seqInputConnectorEditPart).getModel()).getElement();
 			SequenceOutputConnectorEditPart seqOutputConnectorEditPart=(SequenceOutputConnectorEditPart)((SequenceEditPart)this).getChildren().get(2);

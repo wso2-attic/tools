@@ -50,8 +50,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementType
 /**
  * @generated NOT
  */
-public class ComplexEndpointsOutputConnectorEditPart extends
-AbstractOutputConnectorEditPart {
+public class ComplexEndpointsOutputConnectorEditPart extends AbstractOutputConnectorEditPart {
 
 	/**
 	 * @generated
@@ -67,24 +66,24 @@ AbstractOutputConnectorEditPart {
 	 * @generated
 	 */
 	protected IFigure primaryShape;
-	
+
 	protected IFigure primaryShapeForward;
 
 	public NodeFigure figure_;
-	
+
 	/**
 	 * @generated
 	 */
 	public ComplexEndpointsOutputConnectorEditPart(View view) {
 		super(view);
-	}	
+	}
 
 	public NodeFigure getNodeFigureOutput() {
 		return figure_;
 	}
-	
+
 	public IFigure createNodeShapeForward() {
-		return primaryShapeForward = new EastPointerFigure(){
+		return primaryShapeForward = new EastPointerFigure() {
 			public void setBounds(org.eclipse.draw2d.geometry.Rectangle rect) {
 				super.setBounds(rect);
 				if (this.getBounds().getLocation().x != 0 && this.getBounds().getLocation().y != 0) {
@@ -92,15 +91,16 @@ AbstractOutputConnectorEditPart {
 				}
 			};
 		};
-	}	
-	
+	}
+
 	private void connectToEndpoint() {
-		Map map = ((MediatorFlowMediatorFlowCompartment18EditPart) ((EditPart) (this.getParent()).getChildren()
-				.get(0)).getChildren().get(0)).connectorAndEndpointMap;
-		ShapeNodeEditPart endpoint=(ShapeNodeEditPart) (map.get(((Node) this.getModel()).getElement()));
-		if(endpoint!=null){
-			ConnectionUtils.createConnection(EditorUtils
-					.getEndpointInputConnector(endpoint), (AbstractConnectorEditPart) this);
+		Map map = ((MediatorFlowMediatorFlowCompartment18EditPart) ((EditPart) (this.getParent())
+				.getChildren().get(0)).getChildren().get(0)).connectorAndEndpointMap;
+		ShapeNodeEditPart endpoint = (ShapeNodeEditPart) (map.get(((Node) this.getModel())
+				.getElement()));
+		if (endpoint != null) {
+			ConnectionUtils.createConnection(EditorUtils.getEndpointInputConnector(endpoint),
+					(AbstractConnectorEditPart) this);
 		}
 	}
 
@@ -601,7 +601,7 @@ AbstractOutputConnectorEditPart {
 	 * @generated
 	 */
 	static final Color THIS_BACK = new Color(null, 50, 50, 50);
-	
+
 	public IFigure createNodeShapeReverse() {
 		return null;
 	}

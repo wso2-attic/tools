@@ -52,7 +52,7 @@ public class MediatorFlowMediatorFlowCompartment18EditPart extends ShapeCompartm
 	AbstractBorderItemEditPart sourceOutputConnector = null;
 	AbstractBorderItemEditPart outputConnectorEditPart = null;
 	ShapeNodeEditPart sourceEditPart = null;
-	Map<ComplexEndpointsOutputConnector,AbstractEndpoint> connectorAndEndpointMap = new HashMap<ComplexEndpointsOutputConnector,AbstractEndpoint>();
+	Map<ComplexEndpointsOutputConnector, AbstractEndpoint> connectorAndEndpointMap = new HashMap<ComplexEndpointsOutputConnector, AbstractEndpoint>();
 	private ComplexEndpoints complexEndpoints;
 
 	/**
@@ -353,13 +353,12 @@ public class MediatorFlowMediatorFlowCompartment18EditPart extends ShapeCompartm
 	private void addConnectorAndLink(EditPart child) {
 		ComplexEndpointsOutputConnector connector = EsbFactory.eINSTANCE
 				.createComplexEndpointsOutputConnector();
-		EditingDomain editingDomain=((IGraphicalEditPart)child).getEditingDomain();
-		AddCommand addCmd = new AddCommand(editingDomain,
-				complexEndpoints, EsbPackage.Literals.COMPLEX_ENDPOINTS__OUTPUT_CONNECTOR,
-				connector);
+		EditingDomain editingDomain = ((IGraphicalEditPart) child).getEditingDomain();
+		AddCommand addCmd = new AddCommand(editingDomain, complexEndpoints,
+				EsbPackage.Literals.COMPLEX_ENDPOINTS__OUTPUT_CONNECTOR, connector);
 		if (addCmd.canExecute()) {
 			editingDomain.getCommandStack().execute(addCmd);
-			connectorAndEndpointMap.put(connector,(AbstractEndpoint) child);
+			connectorAndEndpointMap.put(connector, (AbstractEndpoint) child);
 		}
 	}
 }

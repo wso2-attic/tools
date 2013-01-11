@@ -53,6 +53,7 @@ import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
@@ -63,6 +64,7 @@ import org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.commands.SetBoundsCommand;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramEditDomain;
 import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
@@ -77,6 +79,7 @@ import org.w3c.dom.NodeList;
 import org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
+import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbLink;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
@@ -84,6 +87,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbServer;
 import org.wso2.developerstudio.eclipse.gmf.esb.InputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.OutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
+import org.wso2.developerstudio.eclipse.gmf.esb.SequenceOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractBaseFigureEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractConnectorEditPart;
@@ -98,6 +102,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer.IEsb
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbLinkEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SendMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramEditor;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbMultiPageEditor;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
@@ -116,6 +121,8 @@ public class ElementDuplicator {
 	private List<EsbNode> esbNodes=new LinkedList<EsbNode>();
 	private Map<EObject,ShapeNodeEditPart> editPartMap = new HashMap<EObject, ShapeNodeEditPart>();
 	private Map<EObject,InputConnector> outSequenceFirstConnectorMap = new HashMap<EObject, InputConnector>();
+	private HashMap<EndPoint,Sequence> nodesMap=new HashMap<EndPoint,Sequence>();
+	private LinkedList<Sequence> currentSequence =new LinkedList<Sequence>();
 
 	
 	/**
@@ -236,17 +243,36 @@ public class ElementDuplicator {
 				Sequence sequence = (Sequence) ((org.eclipse.gmf.runtime.notation.Node) element
 						.getModel()).getElement();
 				if (!sequence.isDuplicate()) {
-					OutputConnector outputConnector = null;
+					ArrayList<OutputConnector> outputConnectors = new ArrayList<OutputConnector>();
 					parent = sequence.eContainer();
 					EList<EObject> child = sequence.eContents();
 					for (int i = 0; i < child.size(); ++i) {
 						if (child.get(i) instanceof OutputConnector) {
-							outputConnector = (OutputConnector) child.get(i);
-							break;
+							outputConnectors.add((OutputConnector) child.get(i));
 						}
 					}
-					if (outputConnector != null) {
-						collectElementsToBeDeleted(firstLinks, elements, outputConnector);
+					for(int k=0;k<outputConnectors.size();++k){
+						OutputConnector outputConnector=outputConnectors.get(k);
+						if (outputConnector != null) {
+							if((outputConnector.getOutgoingLink()!=null)&&(outputConnector.getOutgoingLink().getTarget().eContainer() instanceof EndPoint)){
+								collectElementsToBeDeleted(firstLinks, elements, outputConnector);
+	/*							for(int i=0;i<element.getChildren().size();++i){
+									if(element.getChildren().get(i) instanceof SequenceOutputConnectorEditPart){
+										firstLinksEditparts.add((EsbLinkEditPart) ((SequenceOutputConnectorEditPart)element.getChildren().get(i)).getSourceConnections().get(0));
+									}
+								}*/
+							}
+						}					
+					}
+					for(int i=0;i<element.getChildren().size();++i){
+						if(element.getChildren().get(i) instanceof SequenceOutputConnectorEditPart){
+							List sourceConnections = ((SequenceOutputConnectorEditPart)element.getChildren().get(i)).getSourceConnections();
+							if(sourceConnections.size()!=0){
+								if(((org.eclipse.gmf.runtime.notation.Node)((EsbLinkEditPart)sourceConnections.get(0)).getTarget().getModel()).getElement().eContainer() instanceof EndPoint){
+									firstLinksEditparts.add((EsbLinkEditPart) sourceConnections.get(0));
+								}
+							}
+						}
 					}
 				}
 			}
@@ -334,6 +360,28 @@ public class ElementDuplicator {
 		/*
 		 * Collect elements to be deleted. 
 		 */
+		deleteRecursively(elements,outputConnector);
+/*		while ((outputConnector.getOutgoingLink() != null)&&(!isOutSequenceStarted(outputConnector.getOutgoingLink()))) {
+
+			node = outputConnector.getOutgoingLink().getTarget().eContainer();
+			if(elements.contains(node)){
+				break;
+			}
+			elements.add(node);
+			System.out.println("Delete  "+node);
+			child = node.eContents();
+			for (int i = 0; i < child.size(); ++i) {
+				if (child.get(i) instanceof OutputConnector) {
+					outputConnector = (OutputConnector) child.get(i);
+					break;
+				}
+			}					
+		}*/
+	}
+	
+	private void deleteRecursively(List<EObject> elements,OutputConnector outputConnector){
+		EObject node=null;
+		EList<EObject> child=null;
 		while ((outputConnector.getOutgoingLink() != null)&&(!isOutSequenceStarted(outputConnector.getOutgoingLink()))) {
 
 			node = outputConnector.getOutgoingLink().getTarget().eContainer();
@@ -345,7 +393,7 @@ public class ElementDuplicator {
 			for (int i = 0; i < child.size(); ++i) {
 				if (child.get(i) instanceof OutputConnector) {
 					outputConnector = (OutputConnector) child.get(i);
-					break;
+					deleteRecursively(elements,outputConnector);
 				}
 			}					
 		}
@@ -364,6 +412,7 @@ public class ElementDuplicator {
 				Sequence sequence=(Sequence)((org.eclipse.gmf.runtime.notation.Node)element.getModel()).getElement();
 				if(!sequence.isDuplicate()){
 					GraphicalEditPart rootCompartment = EditorUtils.getSequenceAndEndpointCompartmentEditPart(element);
+					currentSequence.addLast((Sequence)((org.eclipse.gmf.runtime.notation.Node)element.getModel()).getElement());
 					esbNodes.add((Sequence)((org.eclipse.gmf.runtime.notation.Node)element.getModel()).getElement());
 					esbNodes.addAll(duplicateElements(rootCompartment, ((Sequence)((org.eclipse.gmf.runtime.notation.Node)element.getModel()).getElement()).getName()));
 					relocateNodes(esbNodes,editor,(GraphicalEditPart) element);
@@ -497,42 +546,65 @@ public class ElementDuplicator {
 		createLinks(nodes,editor);
 	}
 	
-	private void createLinks(List<EsbNode> nodes, IEditorPart editor) {
-		AbstractConnectorEditPart sourceConnector = null;
+	private void createLinks(List<EsbNode> nodes, IEditorPart editor) {		
+		LinkedList<AbstractConnectorEditPart> sourceConnectors = new LinkedList<AbstractConnectorEditPart>();
 		AbstractConnectorEditPart targetConnector = null;
-
-
+		
 		refreshEditPartMap(editor);
 		Iterator<EsbNode> iterator = ((LinkedList<EsbNode>) nodes).iterator();
-
 		while (iterator.hasNext()) {
 			EsbNode mediatornode = iterator.next();
+			if(mediatornode instanceof EndPoint){				
+				AbstractConnectorEditPart nextSourceConnector = null;
+				targetConnector = null;
 
-			AbstractConnectorEditPart nextSourceConnector = null;
-			targetConnector = null;
+				EditPart editpart = getEditpart(mediatornode);
+				if (editpart instanceof ShapeNodeEditPart) {
+					targetConnector = EditorUtils.getInputConnector((ShapeNodeEditPart) editpart);
+					nextSourceConnector = EditorUtils.getOutputConnector((ShapeNodeEditPart) editpart);
+				}
+				if (targetConnector != null) {
+					Sequence parentSequence=nodesMap.get(mediatornode);
+					if(parentSequence.getOutputConnector().get(0).getOutgoingLink() ==null){
+						ConnectionUtils.createConnection(targetConnector, (AbstractConnectorEditPart) getEditpart(parentSequence.getOutputConnector().get(0)));
+					}else{
+						AddCommand addCmd = new AddCommand(((IGraphicalEditPart)editpart).getEditingDomain(), parentSequence,
+								EsbPackage.Literals.SEQUENCE__OUTPUT_CONNECTOR,
+								EsbFactory.eINSTANCE.createSequenceOutputConnector());
+						if (addCmd.canExecute()) {
+							((IGraphicalEditPart)editpart).getEditingDomain().getCommandStack().execute(addCmd);							
+						}
+						SequenceOutputConnector sequenceOutputConnector = parentSequence.getOutputConnector().get(parentSequence.getOutputConnector().size()-1);
+						refreshEditPartMap(editor);						
+						ConnectionUtils.createConnection(targetConnector, (AbstractConnectorEditPart) getEditpart(sequenceOutputConnector));
+					}					
+				}
+				sourceConnectors.addLast(nextSourceConnector);	
+				
+			}else if(mediatornode instanceof Sequence){					
+				targetConnector = null;
 
-			EditPart editpart = getEditpart(mediatornode);
-			if (editpart instanceof ShapeNodeEditPart) {
-				targetConnector = EditorUtils.getInputConnector((ShapeNodeEditPart) editpart);
-				nextSourceConnector = EditorUtils.getOutputConnector((ShapeNodeEditPart) editpart);
+				EditPart editpart = getEditpart(mediatornode);
+				if (editpart instanceof ShapeNodeEditPart) {
+					targetConnector = EditorUtils.getInputConnector((ShapeNodeEditPart) editpart);
+				}
+				if (targetConnector != null && sourceConnectors.size()!=0 ) {
+					ConnectionUtils.createConnection(targetConnector, sourceConnectors.getLast());
+					sourceConnectors.removeLast();
+				}
 			}
-
-			if (targetConnector != null && sourceConnector != null) {
-				ConnectionUtils.createConnection(targetConnector, sourceConnector);
-			}
-			sourceConnector = nextSourceConnector;
-
 		}
-		if (EditorUtils.getEndpoint(sourceConnector) != null) {
-			EObject root=((org.eclipse.gmf.runtime.notation.Node)EditorUtils.getRootContainer(sourceConnector).getModel()).getElement();
-			InputConnector inputConnector =outSequenceFirstConnectorMap.get(root);
-			ConnectionUtils.createConnection(
-					(AbstractConnectorEditPart) getEditpart(inputConnector), sourceConnector);
+		for(int i=0;i<sourceConnectors.size();++i){
+			if (EditorUtils.getEndpoint(sourceConnectors.get(i)) != null) {
+				EObject root=((org.eclipse.gmf.runtime.notation.Node)EditorUtils.getRootContainer(sourceConnectors.get(i)).getModel()).getElement();
+				InputConnector inputConnector =outSequenceFirstConnectorMap.get(root);
+				refreshEditPartMap(editor);
+				ConnectionUtils.createConnection(
+						(AbstractConnectorEditPart) getEditpart(inputConnector), sourceConnectors.get(i));
+			}
 		}
 		nodes.clear();
-
-	}
-	
+	}	
 	
 	public List<EsbNode> duplicateElementsForReceivingSequence(GraphicalEditPart rootCompartment,String sequenceKey){
 		Value recievingSequence=new Value(sequenceKey);
@@ -548,11 +620,14 @@ public class ElementDuplicator {
 				if(setCmd.canExecute()){
 					editingDomain.getCommandStack().execute(setCmd);
 					esbNodes.add(sequence);
+					currentSequence.addLast(sequence);
 				}				
 				//FIXME: set inline
 			}
 		}
-		return duplicateElements(rootCompartment,sequenceKey);
+		List<EsbNode> duplicateElements = duplicateElements(rootCompartment,sequenceKey);
+		currentSequence.removeLast();
+		return duplicateElements;
 	}
 	
 	public List<EsbNode> duplicateElements(GraphicalEditPart rootCompartment,String sequenceKey){					
@@ -570,6 +645,7 @@ public class ElementDuplicator {
 					if(setCmd.canExecute()){
 						editingDomain.getCommandStack().execute(setCmd);
 						esbNodes.add(endPoint);
+						nodesMap.put(endPoint,currentSequence.getLast());
 					}						
 					//FIXME: set inline
 				}
@@ -590,6 +666,8 @@ public class ElementDuplicator {
 	
 	private boolean isOutSequenceStarted(EsbLink link){
 		OutputConnector	outputConnector=null;
+		InputConnector inputConnector=null;
+		EObject rootContainer=null;
 		EObject node = link.getTarget().eContainer();
 		if(node instanceof EndPoint){
 			return false;
@@ -600,8 +678,8 @@ public class ElementDuplicator {
 				outputConnector = (OutputConnector) child.get(i);
 			}
 			else if(child.get(i) instanceof InputConnector){
-				EObject rootContainer=EditorUtils.getRootContainerModel(child.get(i));
-				outSequenceFirstConnectorMap.put(rootContainer, (InputConnector) child.get(i));
+				rootContainer=EditorUtils.getRootContainerModel(child.get(i));
+				inputConnector=(InputConnector) child.get(i);				
 			}
 		}
 		if(outputConnector.getOutgoingLink()==null){
@@ -610,7 +688,7 @@ public class ElementDuplicator {
 		if((outputConnector.getOutgoingLink()!=null)&&(outputConnector.getOutgoingLink().getTarget().eContainer() instanceof EndPoint)){
 			return false;
 		}
-				
+		outSequenceFirstConnectorMap.put(rootContainer, inputConnector);		
 		return true;
 	}
 
