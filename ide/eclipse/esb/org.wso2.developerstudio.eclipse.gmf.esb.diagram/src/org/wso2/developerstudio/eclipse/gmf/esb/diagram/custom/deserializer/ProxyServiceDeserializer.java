@@ -16,7 +16,6 @@
 
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 
-import java.io.ObjectInputStream.GetField;
 import java.util.Map;
 import java.util.Map.Entry;
 

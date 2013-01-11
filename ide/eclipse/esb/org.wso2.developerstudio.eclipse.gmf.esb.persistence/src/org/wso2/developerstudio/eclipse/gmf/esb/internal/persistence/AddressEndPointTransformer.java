@@ -28,9 +28,7 @@ import org.eclipse.swt.widgets.Display;
 import org.wso2.developerstudio.eclipse.gmf.esb.AddressEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
-import org.wso2.developerstudio.eclipse.gmf.esb.FailoverEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.InputConnector;
-import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.SequenceInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.EsbNodeTransformer;
@@ -166,36 +164,12 @@ public class AddressEndPointTransformer extends AbstractEndpointTransformer {
 
 		// Transform endpoint output data flow.
 
-		if (!info.isOutputPathSet) {
-			if (info.firstEndPoint instanceof FailoverEndPoint) {
-				try {
-					doTransform(info,
-							((FailoverEndPoint) info.firstEndPoint)
-									.getWestOutputConnector());
-				} catch (Exception e) {
-					// TODO Auto-generated catch block
-					System.out
-							.println("Error addressEndpointTransformer class.");
-					e.printStackTrace();
-				}
-			}
-			if (info.firstEndPoint instanceof LoadBalanceEndPoint) {
-				try {
-					doTransform(info,
-							((LoadBalanceEndPoint) info.firstEndPoint)
-									.getWestOutputConnector());
-				} catch (Exception e) {
-					// TODO Auto-generated catch block
-					System.out
-							.println("Error addressEndpointTransformer class.");
-					e.printStackTrace();
-				}
-			}
-			info.isOutputPathSet = true;
-		}
+		transformEndpointOutflow(info);
 
 		// return synapseAddEP;
 	}
+
+	
 	
 	public AddressEndpoint create(AddressEndPoint visualEndPoint,String name){ 
 		AddressEndPoint addressEndPoint = visualEndPoint;	

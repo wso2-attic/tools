@@ -7,6 +7,12 @@ import org.apache.synapse.endpoints.AbstractEndpoint;
 import org.apache.synapse.endpoints.EndpointDefinition;
 import org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPointAddressingVersion;
+import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
+import org.wso2.developerstudio.eclipse.gmf.esb.FailoverEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.FailoverEndPointWestOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPointWestOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
 
 public abstract class AbstractEndpointTransformer extends AbstractEsbNodeTransformer{
 
@@ -66,6 +72,54 @@ public abstract class AbstractEndpointTransformer extends AbstractEsbNodeTransfo
 		
 		endpoint.setDefinition(synapseEPDef);
 
+	}
+	
+	/**
+	 * transform Endpoint Output flow
+	 * @param info
+	 */
+	protected void transformEndpointOutflow(TransformationInfo info) {
+		if (!info.isOutputPathSet) {
+			if (info.firstEndPoint instanceof FailoverEndPoint) {
+				try {
+					FailoverEndPointWestOutputConnector westOutputConnector = ((FailoverEndPoint) info.firstEndPoint)
+							.getWestOutputConnector();
+					
+					List<EsbNode> transformedMediators = info.getTransformedMediators();
+					if(westOutputConnector!=null){
+						EsbNode nextElement=(EsbNode) westOutputConnector.getOutgoingLink().getTarget().eContainer();
+						if(!transformedMediators.contains(nextElement)){
+							doTransform(info,
+									westOutputConnector);
+							transformedMediators.add(nextElement);
+						}
+						
+					}
+					
+				} catch (Exception e) {
+					log.warn("Error while executing outflow  serialization", e);
+				}
+			}
+			if (info.firstEndPoint instanceof LoadBalanceEndPoint) {
+				try {
+					LoadBalanceEndPointWestOutputConnector westOutputConnector = ((LoadBalanceEndPoint) info.firstEndPoint)
+							.getWestOutputConnector();
+					List<EsbNode> transformedMediators = info.getTransformedMediators();
+					if(westOutputConnector!=null){
+						EsbNode nextElement=(EsbNode) westOutputConnector.getOutgoingLink().getTarget().eContainer();
+						if(!transformedMediators.contains(nextElement)){
+							doTransform(info,
+									westOutputConnector);
+							transformedMediators.add(nextElement);
+						}
+						
+					}
+				} catch (Exception e) {
+					log.warn("Error while executing outflow  serialization", e);
+				}
+			}
+			info.isOutputPathSet = true;
+		}
 	}
 	
 }

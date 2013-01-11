@@ -1,21 +1,23 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence;
 
 import org.apache.synapse.mediators.base.SequenceMediator;
-import org.apache.synapse.mediators.builtin.DropMediator;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EObject;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbLink;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
-import org.wso2.developerstudio.eclipse.gmf.esb.EsbSequenceOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.InputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.OutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.SequencesInputConnector;
-import org.wso2.developerstudio.eclipse.gmf.esb.SequencesOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.persistence.Activator;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.EsbNodeTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.EsbTransformerRegistry;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 
 public abstract class AbstractEsbNodeTransformer implements EsbNodeTransformer {
+	
+	protected final IDeveloperStudioLog log= Logger.getLog(Activator.PLUGIN_ID);
 	
 	/**
 	 * Performs the transformation of the data-flow path begining with the
