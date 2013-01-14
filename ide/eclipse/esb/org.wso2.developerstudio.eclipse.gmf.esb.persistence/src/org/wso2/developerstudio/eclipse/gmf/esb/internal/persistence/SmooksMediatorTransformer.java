@@ -66,11 +66,13 @@ public class SmooksMediatorTransformer extends AbstractEsbNodeTransformer {
 		{
 			Input input = new Input();
 			NamespacedProperty inputExp = visualSmooks.getInputExpression();
-			SynapseXPath inputExpression = new SynapseXPath(inputExp.getPropertyValue());
-			for (Entry<String, String> entry : inputExp.getNamespaces().entrySet()) {
-				inputExpression.addNamespace(entry.getKey(), entry.getValue());
+			if(!"".equals(inputExp.getPropertyValue())){
+				SynapseXPath inputExpression = new SynapseXPath(inputExp.getPropertyValue());
+				for (Entry<String, String> entry : inputExp.getNamespaces().entrySet()) {
+					inputExpression.addNamespace(entry.getKey(), entry.getValue());
+				}
+				input.setExpression(inputExpression);
 			}
-			input.setExpression(inputExpression);
 			input.setType((visualSmooks.getInputType().equals(SmooksIODataType.XML)) ? TYPES.XML
 					: TYPES.TEXT);
 			smooksMediator.setInput(input);

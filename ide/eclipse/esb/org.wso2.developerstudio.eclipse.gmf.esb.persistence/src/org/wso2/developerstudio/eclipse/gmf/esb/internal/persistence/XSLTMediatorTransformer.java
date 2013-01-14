@@ -75,7 +75,7 @@ public class XSLTMediatorTransformer extends AbstractEsbNodeTransformer {
 		
 		Value xsltKey = null;
 		
-		if(visualXSLT.getXsltSchemaKeyType()==KeyType.DYNAMIC){
+		if(visualXSLT.getXsltSchemaKeyType()==KeyType.STATIC){
 			String key = visualXSLT.getXsltStaticSchemaKey().getKeyValue();
 			if(key!=null && !key.equals("")){
 				xsltKey = new Value(key);
