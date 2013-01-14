@@ -229,7 +229,7 @@ public class SmooksMediatorImpl extends MediatorImpl implements SmooksMediator {
 		NamespacedProperty inputExpression = EsbFactoryImpl.eINSTANCE.createNamespacedProperty();
 		inputExpression.setPrettyName("Expression");
 		inputExpression.setPropertyName("expression");
-		inputExpression.setPropertyValue("/default/expression");
+		inputExpression.setPropertyValue("");
 		setInputExpression(inputExpression);
 	}
 
