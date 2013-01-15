@@ -17,6 +17,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.export;
 
 import java.util.Iterator;
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
@@ -27,6 +28,7 @@ import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.commands.UnexecutableCommand;
 import org.eclipse.gmf.runtime.diagram.ui.actions.DiagramAction;
 import org.eclipse.gmf.runtime.diagram.ui.requests.EditCommandRequestWrapper;
+import org.eclipse.gmf.runtime.notation.Shape;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.ui.ISharedImages;
 import org.eclipse.ui.IWorkbenchPart;
@@ -103,7 +105,14 @@ public class EsbModelExportAction extends DiagramAction {
 		Iterator<?> editParts = getOperationSet().iterator();		
 		while (editParts.hasNext()) {
 			EditPart editPart = (EditPart) editParts.next();
-			resource = ((View) editPart.getModel()).getElement().eResource();
+			if(editPart.getModel() instanceof Shape){
+				continue;
+			}
+			EObject element = ((View) editPart.getModel()).getElement();
+			if(element==null){
+				continue;
+			}
+			resource = element.eResource();
 			if (null != resource) break;
 		}
 		

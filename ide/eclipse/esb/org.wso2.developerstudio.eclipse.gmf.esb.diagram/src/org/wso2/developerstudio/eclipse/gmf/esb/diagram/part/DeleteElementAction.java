@@ -17,6 +17,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramUIMessages;
 import org.eclipse.gmf.runtime.emf.commands.core.command.CompositeTransactionalCommand;
 import org.eclipse.gmf.runtime.notation.Node;
+import org.eclipse.gmf.runtime.notation.Shape;
 import org.eclipse.swt.SWT;
 import org.eclipse.ui.ISharedImages;
 import org.eclipse.ui.IWorkbenchPage;
@@ -133,9 +134,15 @@ public class DeleteElementAction extends AbstractDeleteFromAction {
 	 */
 	private boolean canDelete(EditPart editPart) {
 		Object model = editPart.getModel();
-		if (model instanceof Node) {
+		if(model instanceof Shape){
+			return true;
+		}
+		else if (model instanceof Node) {
 			Node node = (Node) model;
 			EObject element = node.getElement();
+			if(element==null){
+				return true;
+			}
 			EObject eContainer = element.eContainer();
 			if (eContainer instanceof EsbServer) {
 				EsbServer server = (EsbServer) eContainer;
