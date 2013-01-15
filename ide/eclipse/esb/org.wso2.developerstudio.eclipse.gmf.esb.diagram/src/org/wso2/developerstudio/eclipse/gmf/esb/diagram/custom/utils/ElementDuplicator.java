@@ -447,8 +447,11 @@ public class ElementDuplicator {
 					refreshEditPartMap(editor);
 					EObject root=((org.eclipse.gmf.runtime.notation.Node)EditorUtils.getRootContainer(element).getModel()).getElement();
 					InputConnector inputConnector =outSequenceFirstConnectorMap.get(root);
-					ConnectionUtils.createConnection(
-							(AbstractConnectorEditPart) getEditpart(inputConnector), getEndpointOutputConnector(element));
+					EditPart connector=getEditpart(inputConnector);
+					if(connector instanceof AbstractConnectorEditPart){
+						ConnectionUtils.createConnection(
+								(AbstractConnectorEditPart) connector, getEndpointOutputConnector(element));
+					}
 				}
 			}
 		}
@@ -470,7 +473,11 @@ public class ElementDuplicator {
 				continue;
 			}
 			
-			GraphicalEditPart editpart = (GraphicalEditPart) getEditpart(node);
+			EditPart nodeEditPart=getEditpart(node);
+			if(!(nodeEditPart instanceof GraphicalEditPart)){
+				continue;
+			}
+			GraphicalEditPart editpart = (GraphicalEditPart) nodeEditPart;
 			Rectangle rect = new Rectangle(new Point(), editpart.getFigure().getPreferredSize()).getCopy();
 			
 			initialYPos += 50;
@@ -544,9 +551,12 @@ public class ElementDuplicator {
 				.getEndpointOutputConnector(endpoint);
 		refreshEditPartMap(editor);
 
-		AbstractMediatorInputConnectorEditPart sequenceInputConnector = EditorUtils
-				.getMediatorInputConnector((ShapeNodeEditPart) getEditpart(nodes.get(0)));
-		ConnectionUtils.createConnection(sequenceInputConnector, endpointOutputConnector);
+		EditPart nodeEditPart=getEditpart(nodes.get(0));
+		if(nodeEditPart instanceof ShapeNodeEditPart){
+			AbstractMediatorInputConnectorEditPart sequenceInputConnector = EditorUtils
+					.getMediatorInputConnector((ShapeNodeEditPart) nodeEditPart);
+			ConnectionUtils.createConnection(sequenceInputConnector, endpointOutputConnector);
+		}
 		createLinks(nodes,editor);
 	}
 	
@@ -575,7 +585,10 @@ public class ElementDuplicator {
 						 * If outgoingLink.getTarget().eContainer().equals(mediatornode) expression is true in the above line, 
 						 * following line of code doesn't create a connection as there is a created connection already. 
 						 */
-						ConnectionUtils.createConnection(targetConnector, (AbstractConnectorEditPart) getEditpart(parentSequence.getOutputConnector().get(0)));
+						EditPart connector=getEditpart(parentSequence.getOutputConnector().get(0));
+						if(connector instanceof AbstractConnectorEditPart){
+							ConnectionUtils.createConnection(targetConnector, (AbstractConnectorEditPart) connector);
+						}
 					}else{
 						AddCommand addCmd = new AddCommand(((IGraphicalEditPart)editpart).getEditingDomain(), parentSequence,
 								EsbPackage.Literals.SEQUENCE__OUTPUT_CONNECTOR,
@@ -584,8 +597,11 @@ public class ElementDuplicator {
 							((IGraphicalEditPart)editpart).getEditingDomain().getCommandStack().execute(addCmd);							
 						}
 						SequenceOutputConnector sequenceOutputConnector = parentSequence.getOutputConnector().get(parentSequence.getOutputConnector().size()-1);
-						refreshEditPartMap(editor);						
-						ConnectionUtils.createConnection(targetConnector, (AbstractConnectorEditPart) getEditpart(sequenceOutputConnector));
+						refreshEditPartMap(editor);	
+						EditPart connection=getEditpart(sequenceOutputConnector);
+						if(connection instanceof AbstractConnectorEditPart){
+							ConnectionUtils.createConnection(targetConnector, (AbstractConnectorEditPart) connection);
+						}
 					}					
 				}
 				sourceConnectors.addLast(nextSourceConnector);	
@@ -608,8 +624,11 @@ public class ElementDuplicator {
 				EObject root=((org.eclipse.gmf.runtime.notation.Node)EditorUtils.getRootContainer(sourceConnectors.get(i)).getModel()).getElement();
 				InputConnector inputConnector =outSequenceFirstConnectorMap.get(root);
 				refreshEditPartMap(editor);
-				ConnectionUtils.createConnection(
-						(AbstractConnectorEditPart) getEditpart(inputConnector), sourceConnectors.get(i));
+				EditPart connector=getEditpart(inputConnector);
+				if(connector instanceof AbstractConnectorEditPart){
+					ConnectionUtils.createConnection(
+							(AbstractConnectorEditPart) connector, sourceConnectors.get(i));
+				}
 			}
 		}
 		nodes.clear();
