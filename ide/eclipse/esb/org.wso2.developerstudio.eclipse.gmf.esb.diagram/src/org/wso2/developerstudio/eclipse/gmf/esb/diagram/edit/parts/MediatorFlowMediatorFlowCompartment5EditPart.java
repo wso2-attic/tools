@@ -99,7 +99,7 @@ public class MediatorFlowMediatorFlowCompartment5EditPart extends
 	 * @generated NOT
 	 */
 	public String getCompartmentName() {
-		return "";
+		return null;
 	}
 
 	/**

@@ -72,7 +72,7 @@ public class MediatorFlowMediatorFlowCompartment18EditPart extends ShapeCompartm
 	 */
 	public String getCompartmentName() {
 		//return Messages.MediatorFlowMediatorFlowCompartment18EditPart_title;
-		return "";
+		return null;
 	}
 
 	protected IFigure createFigure() {

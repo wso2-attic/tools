@@ -87,7 +87,7 @@ public class MediatorFlowMediatorFlowCompartmentEditPart extends
 	 * @generated NOT
 	 */
 	public String getCompartmentName() {
-		return "";
+		return null;
 		//return Messages.MediatorFlowMediatorFlowCompartmentEditPart_title;
 	}
 
