@@ -68,6 +68,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramEditDomain;
 import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
+import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Display;
@@ -77,6 +78,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.AddressingEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
@@ -97,6 +99,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorO
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ConnectionUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.SlidingBorderItemLocator;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer.DeserializerUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer.EsbDeserializerRegistry;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer.IEsbNodeDeserializer;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbLinkEditPart;
@@ -105,6 +108,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceEditP
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramEditor;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbMultiPageEditor;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.*;
@@ -565,7 +569,12 @@ public class ElementDuplicator {
 				}
 				if (targetConnector != null) {
 					Sequence parentSequence=nodesMap.get(mediatornode);
-					if(parentSequence.getOutputConnector().get(0).getOutgoingLink() ==null){
+					EsbLink outgoingLink = parentSequence.getOutputConnector().get(0).getOutgoingLink();
+					if((outgoingLink ==null)||(outgoingLink.getTarget().eContainer().equals(mediatornode))){
+						/*
+						 * If outgoingLink.getTarget().eContainer().equals(mediatornode) expression is true in the above line, 
+						 * following line of code doesn't create a connection as there is a created connection already. 
+						 */
 						ConnectionUtils.createConnection(targetConnector, (AbstractConnectorEditPart) getEditpart(parentSequence.getOutputConnector().get(0)));
 					}else{
 						AddCommand addCmd = new AddCommand(((IGraphicalEditPart)editpart).getEditingDomain(), parentSequence,
@@ -637,27 +646,30 @@ public class ElementDuplicator {
 			try {
 				@SuppressWarnings("rawtypes")
 				Object endpoint=sendMediator.getEndpoint();
-				IEsbNodeDeserializer deserializer = EsbDeserializerRegistry.getInstance().getDeserializer(endpoint);
-				if(deserializer!=null){
-					EndPoint endPoint = (EndPoint) deserializer.createNode(rootCompartment, endpoint);
-					EditingDomain editingDomain=rootCompartment.getEditingDomain();
-					SetCommand setCmd=new SetCommand(editingDomain, endPoint,END_POINT__DUPLICATE , true);
-					if(setCmd.canExecute()){
-						editingDomain.getCommandStack().execute(setCmd);
-						esbNodes.add(endPoint);
-						nodesMap.put(endPoint,currentSequence.getLast());
-					}						
-					//FIXME: set inline
-				}
-				
+				EndPoint visualEndPoint=null;
+				if(endpoint==null){
+					IElementType endpointType = EsbElementTypes.AddressingEndpoint_3689;
+					visualEndPoint = (AbstractEndPoint) DeserializerUtils.createNode(rootCompartment, endpointType);
+				}else{
+					IEsbNodeDeserializer deserializer = EsbDeserializerRegistry.getInstance().getDeserializer(endpoint);
+					if(deserializer!=null){
+						visualEndPoint = (EndPoint) deserializer.createNode(rootCompartment, endpoint);
+					}
+				}				
+				EditingDomain editingDomain=rootCompartment.getEditingDomain();
+				SetCommand setCmd=new SetCommand(editingDomain, visualEndPoint,END_POINT__DUPLICATE , true);
+				if(setCmd.canExecute()){
+					editingDomain.getCommandStack().execute(setCmd);
+					esbNodes.add(visualEndPoint);
+					nodesMap.put(visualEndPoint,currentSequence.getLast());
+				}				
 				if(sendMediator.getReceivingSequence()!=null){
 					duplicateElementsForReceivingSequence(rootCompartment,sendMediator.getReceivingSequence().getKeyValue());
 				}
 				
 			} catch (NullPointerException e) {
 				log.error("EsbDeserializerRegistry must be initialized before it can be used",e);
-			}
-			
+			}	
 			
 		}
 		return esbNodes;
