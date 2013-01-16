@@ -1,26 +1,43 @@
+/*
+ * Copyright 2012 WSO2, Inc. (http://wso2.com)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 
-import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.THROTTLE_MEDIATOR__GROUP_ID;
-import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.THROTTLE_MEDIATOR__MAX_CONCURRENT_ACCESS_COUNT;
-import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.THROTTLE_MEDIATOR__POLICY_TYPE;
 
 import java.util.Iterator;
-
 import javax.xml.namespace.QName;
-
 import org.apache.axiom.om.OMAttribute;
 import org.apache.axiom.om.OMElement;
 import org.apache.commons.lang.StringUtils;
 import org.apache.synapse.mediators.AbstractMediator;
+import org.apache.synapse.mediators.base.SequenceMediator;
 import org.eclipse.core.runtime.Assert;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
+import org.wso2.developerstudio.eclipse.gmf.esb.MediatorFlow;
+import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.ThrottleAccessType;
 import org.wso2.developerstudio.eclipse.gmf.esb.ThrottleConditionType;
 import org.wso2.developerstudio.eclipse.gmf.esb.ThrottleMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.ThrottlePolicyEntry;
 import org.wso2.developerstudio.eclipse.gmf.esb.ThrottlePolicyType;
+import org.wso2.developerstudio.eclipse.gmf.esb.ThrottleSequenceType;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.*;
 
 public class ThrottleMediatorDeserializer extends AbstractEsbNodeDeserializer<AbstractMediator,ThrottleMediator> {
 
@@ -31,9 +48,10 @@ public class ThrottleMediatorDeserializer extends AbstractEsbNodeDeserializer<Ab
 		
 		org.apache.synapse.mediators.throttle.ThrottleMediator throttleMediator = (org.apache.synapse.mediators.throttle.ThrottleMediator)mediator;
 		
-		ThrottleMediator vishualThrottle = (ThrottleMediator)DeserializerUtils.createNode(part, EsbElementTypes.ThrottleMediator_3493);
+		ThrottleMediator visualThrottle = (ThrottleMediator)DeserializerUtils.createNode(part, EsbElementTypes.ThrottleMediator_3493);
 		
-		setElementToEdit(vishualThrottle);
+		setElementToEdit(visualThrottle);
+		refreshEditPartMap();
 		
 		if(throttleMediator.getId() != null){
 			
@@ -76,7 +94,7 @@ public class ThrottleMediatorDeserializer extends AbstractEsbNodeDeserializer<Ab
 								
 							     ThrottlePolicyEntry throttlePolicyEntry = createVishualPolicyEntry(outerPolicy);
 							    
-							     executeAddValueCommand(vishualThrottle.getPolicyEntries(), throttlePolicyEntry);
+							     executeAddValueCommand(visualThrottle.getPolicyEntries(), throttlePolicyEntry);
 							 
 							}
 						}
@@ -85,14 +103,52 @@ public class ThrottleMediatorDeserializer extends AbstractEsbNodeDeserializer<Ab
 			}
 			
 		}
+		
+		if(throttleMediator.getOnAcceptMediator()!=null){
+			if(throttleMediator.getOnAcceptMediator() instanceof SequenceMediator){
+				MediatorFlow mediatorFlow = visualThrottle.getThrottleContainer().getOnAcceptContainer().getMediatorFlow();
+				GraphicalEditPart compartment = (GraphicalEditPart)((getEditpart(mediatorFlow)).getChildren().get(0));
+				deserializeSequence(compartment, (SequenceMediator)throttleMediator.getOnAcceptMediator(), visualThrottle.getOnAcceptOutputConnector());
+			} else{
+				getLog().warn("Ignoring configuration : throttle OnAcceptMediator is not an instanceof SequenceMediator");
+			}
+			executeSetValueCommand(THROTTLE_MEDIATOR__ON_ACCEPT_BRANCHSEQUENCE_TYPE, ThrottleSequenceType.ANONYMOUS);
+		} else {
+			String onAcceptSeqKey = throttleMediator.getOnAcceptSeqKey();
+			if(StringUtils.isBlank(onAcceptSeqKey)){
+					executeSetValueCommand(THROTTLE_MEDIATOR__ON_ACCEPT_BRANCHSEQUENCE_TYPE, ThrottleSequenceType.REGISTRY_REFERENCE);
+					RegistryKeyProperty keyProperty = EsbFactory.eINSTANCE.createRegistryKeyProperty();
+					keyProperty.setKeyValue(onAcceptSeqKey);
+					executeSetValueCommand(THROTTLE_MEDIATOR__ON_ACCEPT_BRANCHSEQUENCE_KEY, keyProperty);
+			}
+		}
+		
+		if(throttleMediator.getOnRejectMediator()!=null){
+			if(throttleMediator.getOnRejectMediator() instanceof SequenceMediator){
+				MediatorFlow mediatorFlow = visualThrottle.getThrottleContainer().getOnRejectContainer().getMediatorFlow();
+				GraphicalEditPart compartment = (GraphicalEditPart)((getEditpart(mediatorFlow)).getChildren().get(0));
+				deserializeSequence(compartment, (SequenceMediator)throttleMediator.getOnAcceptMediator(), visualThrottle.getOnRejectOutputConnector());
+			} else{
+				getLog().warn("Ignoring configuration : throttle OnRejectMediator is not an instanceof SequenceMediator");
+			}
+			executeSetValueCommand(THROTTLE_MEDIATOR__ON_REJECT_BRANCHSEQUENCE_TYPE, ThrottleSequenceType.ANONYMOUS);
+		} else {
+			String onRejectSeqKey = throttleMediator.getOnRejectSeqKey();
+			if(StringUtils.isBlank(onRejectSeqKey)){
+				executeSetValueCommand(THROTTLE_MEDIATOR__ON_REJECT_BRANCHSEQUENCE_TYPE, ThrottleSequenceType.REGISTRY_REFERENCE);
+				RegistryKeyProperty keyProperty = EsbFactory.eINSTANCE.createRegistryKeyProperty();
+				keyProperty.setKeyValue(onRejectSeqKey);
+				executeSetValueCommand(THROTTLE_MEDIATOR__ON_REJECT_BRANCHSEQUENCE_KEY, keyProperty);
+			}
+		}
 	
-		return vishualThrottle;
+		return visualThrottle;
 	}
 	
 	
 	private ThrottlePolicyEntry createVishualPolicyEntry(OMElement outerPolicy){
 		
-		ThrottlePolicyEntry vishualPolicyEntry = EsbFactory.eINSTANCE.createThrottlePolicyEntry();
+		ThrottlePolicyEntry visualPolicyEntry = EsbFactory.eINSTANCE.createThrottlePolicyEntry();
 		
 		@SuppressWarnings("unchecked")
 		Iterator<OMElement> policyIdElemItr = outerPolicy.getChildrenWithLocalName("ID");
@@ -111,12 +167,12 @@ public class ThrottleMediatorDeserializer extends AbstractEsbNodeDeserializer<Ab
 
 					if (type.equals("IP")) {
 
-						vishualPolicyEntry
+						visualPolicyEntry
 								.setThrottleType(ThrottleConditionType.IP);
 
 					} else if (type.equals("DOMAIN")) {
 
-						vishualPolicyEntry
+						visualPolicyEntry
 								.setThrottleType(ThrottleConditionType.DOMAIN);
 
 					}
@@ -125,7 +181,7 @@ public class ThrottleMediatorDeserializer extends AbstractEsbNodeDeserializer<Ab
 			//Setting range text
 			if(policyIdElem.getText() != null && !StringUtils.isBlank(policyIdElem.getText().trim())){
 				
-				 vishualPolicyEntry.setThrottleRange(policyIdElem.getText());
+				 visualPolicyEntry.setThrottleRange(policyIdElem.getText());
 			}
 		}
 		@SuppressWarnings("unchecked")
@@ -140,27 +196,27 @@ public class ThrottleMediatorDeserializer extends AbstractEsbNodeDeserializer<Ab
 				
 				if(accessTypeElem.getLocalName().equals("Allow")){
 					
-					vishualPolicyEntry.setAccessType(ThrottleAccessType.ALLOW);
+					visualPolicyEntry.setAccessType(ThrottleAccessType.ALLOW);
 					
 				}else if(accessTypeElem.getLocalName().equals("Deny")){
 					
-					vishualPolicyEntry.setAccessType(ThrottleAccessType.DENY);
+					visualPolicyEntry.setAccessType(ThrottleAccessType.DENY);
 					
 				}else if(accessTypeElem.getLocalName().equals("Control")){
 					
-					vishualPolicyEntry.setAccessType(ThrottleAccessType.CONTROL);
+					visualPolicyEntry.setAccessType(ThrottleAccessType.CONTROL);
 					
-					configureAccessControlParams(vishualPolicyEntry,accessTypeElem);
+					configureAccessControlParams(visualPolicyEntry,accessTypeElem);
 					
 				}
 			}
 		}
 			
-		return vishualPolicyEntry;
+		return visualPolicyEntry;
 		
 	}
 	
-	private void configureAccessControlParams(ThrottlePolicyEntry vishualPolicyEntry, OMElement accessTypeElem){
+	private void configureAccessControlParams(ThrottlePolicyEntry visualPolicyEntry, OMElement accessTypeElem){
 		
 		@SuppressWarnings("unchecked")
 		Iterator<OMElement> accessPolicyElemItr = accessTypeElem.getChildrenWithLocalName("Policy");
@@ -172,7 +228,7 @@ public class ThrottleMediatorDeserializer extends AbstractEsbNodeDeserializer<Ab
 		
 		if(maximumCountElem != null && maximumCountElem.getText() != null && DeserializerUtils.isInteger(maximumCountElem.getText().trim())){
 			
-			vishualPolicyEntry.setMaxRequestCount(Integer.parseInt(maximumCountElem.getText()));
+			visualPolicyEntry.setMaxRequestCount(Integer.parseInt(maximumCountElem.getText()));
 		}
 		
 		@SuppressWarnings("unchecked")
@@ -181,7 +237,7 @@ public class ThrottleMediatorDeserializer extends AbstractEsbNodeDeserializer<Ab
 		
 		if(unitTimeElem != null && unitTimeElem.getText() != null && DeserializerUtils.isInteger(unitTimeElem.getText())){
 			
-			vishualPolicyEntry.setUnitTime(Integer.parseInt(unitTimeElem.getText()));
+			visualPolicyEntry.setUnitTime(Integer.parseInt(unitTimeElem.getText()));
 		}
 		
 		@SuppressWarnings("unchecked")
@@ -190,7 +246,7 @@ public class ThrottleMediatorDeserializer extends AbstractEsbNodeDeserializer<Ab
 		
 		if(prohibitTimePeriodElem != null && prohibitTimePeriodElem.getText() != null && DeserializerUtils.isInteger(prohibitTimePeriodElem.getText())){
 			
-			vishualPolicyEntry.setProhibitPeriod(Integer.parseInt(prohibitTimePeriodElem.getText()));
+			visualPolicyEntry.setProhibitPeriod(Integer.parseInt(prohibitTimePeriodElem.getText()));
 		}
 	}
 
