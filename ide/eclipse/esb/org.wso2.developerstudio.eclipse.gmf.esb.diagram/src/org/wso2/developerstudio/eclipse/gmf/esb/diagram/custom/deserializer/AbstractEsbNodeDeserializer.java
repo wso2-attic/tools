@@ -81,7 +81,7 @@ import org.eclipse.draw2d.geometry.Rectangle;
 /**
  * This class provides a skeletal implementation of the IEsbNodeDeserializer
  * interface, deserializers are used to deserialize the objects from synapse to
- * a EMF object that can be of any type that the developer wants.
+ * an EMF object that can be of any type that the developer wants.
  * 
  * Instances of AbstractEsbNodeDeserializer are not safe for use by multiple
  * threads and should NOT be initialized by multiple editor instances
@@ -203,6 +203,11 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 		for (Map.Entry<EsbConnector, EsbConnector> pair : pairMediatorFlowMap.entrySet()) {
 			LinkedList<EsbNode> inSeq = connectionFlowMap.get(pair.getKey());
 			LinkedList<EsbNode> outSeq = connectionFlowMap.get(pair.getValue());
+			
+			if (inSeq == null || outSeq == null) {
+				continue;
+			}
+			
 			if (inSeq.size() > 0 && inSeq.getLast() instanceof EndPoint) {
 				EsbNode last = inSeq.getLast();
 				AbstractConnectorEditPart sourceConnector = EditorUtils
@@ -307,10 +312,29 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 			connectMediatorFlow(flow.getKey(), flow.getValue());
 		}
 		pairMediatorFlows();
-		connectionFlowMap.clear();
-		reversedNodes.clear();
-		pairMediatorFlowMap.clear();
-		rootInputConnectors.clear();
+		cleanupData();
+	}
+
+	/**
+	 * Cleanup everything used by deserializers
+	 */
+	public static void cleanupData() {
+		if(connectionFlowMap!=null){
+			connectionFlowMap.clear();
+		}
+			
+		if(reversedNodes!=null){
+			reversedNodes.clear();
+		}
+		
+		if(pairMediatorFlowMap!=null){
+			pairMediatorFlowMap.clear();
+		}
+		
+		if(rootInputConnectors!=null){
+			rootInputConnectors.clear();
+		}
+		
 	}
 	
 	

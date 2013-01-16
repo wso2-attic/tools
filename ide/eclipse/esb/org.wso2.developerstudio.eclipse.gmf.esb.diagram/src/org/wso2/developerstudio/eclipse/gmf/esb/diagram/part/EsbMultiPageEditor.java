@@ -86,6 +86,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequences;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer.AbstractEsbNodeDeserializer;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer.Deserializer;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.utils.ElementDuplicator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.utils.EndPointDuplicator;
@@ -743,6 +744,7 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 							+ " Any changes you make in the source view to be discarded."
 							+ "\n\nplease see the log for more details.");
 		} finally{
+			AbstractEsbNodeDeserializer.cleanupData();
 			sourceDirty=false;
 			firePropertyChange(PROP_DIRTY);
 		}
