@@ -1,13 +1,26 @@
+/*
+ * Copyright 2012 WSO2, Inc. (http://wso2.com)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 
 import org.apache.axiom.om.OMAbstractFactory;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
-import org.apache.axiom.om.OMNamespace;
-import org.apache.synapse.SynapseConstants;
 import org.apache.synapse.commons.evaluators.Evaluator;
 import org.apache.synapse.commons.evaluators.EvaluatorException;
-import org.apache.synapse.commons.evaluators.config.EvaluatorFactoryFinder;
 import org.apache.synapse.commons.evaluators.config.EvaluatorSerializerFinder;
 import org.apache.synapse.mediators.AbstractMediator;
 import org.apache.synapse.mediators.transform.url.RewriteAction;
@@ -18,7 +31,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EvaluatorExpressionProperty;
-import org.wso2.developerstudio.eclipse.gmf.esb.HeaderMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleActionType;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleFragmentType;
 import org.wso2.developerstudio.eclipse.gmf.esb.URLRewriteMediator;
@@ -33,34 +45,36 @@ public class URLRewriteMediatorDeserializer extends AbstractEsbNodeDeserializer<
 	public URLRewriteMediator createNode(IGraphicalEditPart part,AbstractMediator mediator) {
 		Assert.isTrue(mediator instanceof org.apache.synapse.mediators.transform.url.URLRewriteMediator, "Unsupported mediator passed in for deserialization at "+ this.getClass());
 		
-		org.apache.synapse.mediators.transform.url.URLRewriteMediator URLRewriteMediator = (org.apache.synapse.mediators.transform.url.URLRewriteMediator)mediator;
+		org.apache.synapse.mediators.transform.url.URLRewriteMediator urlRewriteMediator = (org.apache.synapse.mediators.transform.url.URLRewriteMediator)mediator;
 		
 		URLRewriteMediator visualURLRewriteMediator = (URLRewriteMediator) DeserializerUtils.createNode(part, EsbElementTypes.URLRewriteMediator_3620);
 		setElementToEdit(visualURLRewriteMediator);
 		
-		executeSetValueCommand(URL_REWRITE_MEDIATOR__IN_PROPERTY, URLRewriteMediator.getInputProperty());
-		executeSetValueCommand(URL_REWRITE_MEDIATOR__OUT_PROPERTY, URLRewriteMediator.getOutputProperty());
+		executeSetValueCommand(URL_REWRITE_MEDIATOR__IN_PROPERTY, urlRewriteMediator.getInputProperty());
+		executeSetValueCommand(URL_REWRITE_MEDIATOR__OUT_PROPERTY, urlRewriteMediator.getOutputProperty());
 		
 		EList<URLRewriteRule> urlRewriteRules=new BasicEList<URLRewriteRule>();
-		for(RewriteRule rewriteRule : URLRewriteMediator.getRules()){
+		for(RewriteRule rewriteRule : urlRewriteMediator.getRules()){
 			URLRewriteRule urlRewriteRule=EsbFactory.eINSTANCE.createURLRewriteRule();
 			EvaluatorExpressionProperty evaluatorExpressionProperty= EsbFactory.eINSTANCE.createEvaluatorExpressionProperty();
 			Evaluator evaluator=rewriteRule.getCondition();			
-			String condition=null;
-			OMFactory fac = OMAbstractFactory.getOMFactory();		
-	        EvaluatorSerializer evaluatorSerializer =
-                EvaluatorSerializerFinder.getInstance().getSerializer(evaluator.getName());
-        if (evaluatorSerializer != null) {
-            OMElement conditionElem = fac.createOMElement("condition", null);
-            try {
-                evaluatorSerializer.serialize(conditionElem, evaluator);
-            } catch (EvaluatorException e) {
-				e.printStackTrace();
-            }
-            condition = conditionElem.getFirstOMChild().toString();
-        }
-			evaluatorExpressionProperty.setEvaluatorValue(condition);
-			urlRewriteRule.setUrlRewriteRuleCondition(evaluatorExpressionProperty);
+			if (evaluator!=null) {
+				OMFactory fac = OMAbstractFactory.getOMFactory();
+				EvaluatorSerializer evaluatorSerializer = EvaluatorSerializerFinder.getInstance()
+						.getSerializer(evaluator.getName());
+				if (evaluatorSerializer != null) {
+					OMElement conditionElem = fac.createOMElement("condition", null);
+					try {
+						evaluatorSerializer.serialize(conditionElem, evaluator);
+						String condition = conditionElem.getFirstOMChild().toString();
+						evaluatorExpressionProperty.setEvaluatorValue(condition);
+						urlRewriteRule.setUrlRewriteRuleCondition(evaluatorExpressionProperty);
+					} catch (EvaluatorException e) {
+						getLog().warn("", e);
+					}
+				}
+				
+			}
 			for(RewriteAction rewriteActions : rewriteRule.getActions()){
 				URLRewriteRuleAction urlRewriteRuleAction=EsbFactory.eINSTANCE.createURLRewriteRuleAction();
 				if(rewriteActions.getActionType()==0){
