@@ -47,8 +47,6 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.swt.widgets.Display;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbElement;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
@@ -70,6 +68,7 @@ import org.apache.synapse.config.xml.EntryFactory;
 import org.apache.synapse.config.xml.TemplateMediatorFactory;
 import org.apache.synapse.config.xml.endpoints.EndpointFactory;
 import org.apache.synapse.config.xml.endpoints.TemplateFactory;
+import org.apache.synapse.config.xml.endpoints.WSDLEndpointFactory;
 import org.apache.synapse.task.TaskDescription;
 import org.apache.synapse.task.TaskDescriptionFactory;
 
@@ -201,6 +200,10 @@ public class Deserializer {
 		
 		ArtifactType artifactType = getArtifactType(source);
 		OMElement element = AXIOMUtil.stringToOM(source);
+		
+		Properties properties = new Properties();
+		properties.put(WSDLEndpointFactory.SKIP_WSDL_PARSING, "true");
+		
 		switch (artifactType) {
 		case SYNAPSE_CONFIG:
 			File tempfile = File.createTempFile("file", ".tmp");
@@ -234,12 +237,12 @@ public class Deserializer {
 				artifacts.putAll(endpointTemplates);
 			break;
 		case PROXY:
-			ProxyService proxy = ProxyServiceFactory.createProxy(element, new Properties());
+			ProxyService proxy = ProxyServiceFactory.createProxy(element, properties);
 			artifacts.put(proxy.getName(), proxy);
 			break;
 		case SEQUENCE:
 			SequenceMediatorFactory sequenceMediatorFactory = new SequenceMediatorFactory();
-			SequenceMediator sequence = (SequenceMediator) sequenceMediatorFactory.createSpecificMediator(element, new Properties());
+			SequenceMediator sequence = (SequenceMediator) sequenceMediatorFactory.createSpecificMediator(element, properties);
 			artifacts.put(sequence.getName(), sequence);
 			break;
 		case API:
@@ -247,12 +250,12 @@ public class Deserializer {
 			artifacts.put(api.getName(), api);
 			break;
 		case ENDPOINT:
-			Endpoint endpoint = EndpointFactory.getEndpointFromElement(element, false, new Properties());
+			Endpoint endpoint = EndpointFactory.getEndpointFromElement(element, false, properties);
 			EndpointWrapper wrapper = new EndpointWrapper(endpoint,endpoint.getName());
 			artifacts.put(wrapper.getName(), wrapper);
 			break;
 		case LOCAL_ENTRY:
-			Entry entry = EntryFactory.createEntry(element, null);
+			Entry entry = EntryFactory.createEntry(element, properties);
 			artifacts.put(entry.getKey(), entry);
 			break;
 		case TASK:
@@ -267,11 +270,11 @@ public class Deserializer {
 				OMElement child = (OMElement) childElements.next();
 				if(child.getLocalName().equals("sequence")){
 					TemplateMediatorFactory templateMediatorFactory = new TemplateMediatorFactory();
-					TemplateMediator templateMediator = (TemplateMediator) templateMediatorFactory.createMediator(element, null);
+					TemplateMediator templateMediator = (TemplateMediator) templateMediatorFactory.createMediator(element, properties);
 					artifacts.put(templateMediator.getName(), templateMediator);
 				} else if (child.getLocalName().equals("endpoint")){
 					TemplateFactory templateFactory = new TemplateFactory();
-					Template template = templateFactory.createEndpointTemplate(element, null);
+					Template template = templateFactory.createEndpointTemplate(element, properties);
 					artifacts.put(template.getName(), template);
 				}
 			}
