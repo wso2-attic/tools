@@ -16,6 +16,10 @@
 
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 
+import java.util.Iterator;
+import java.util.List;
+
+import org.apache.synapse.Mediator;
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.apache.synapse.mediators.filters.InMediator;
 import org.apache.synapse.mediators.filters.OutMediator;
@@ -47,18 +51,8 @@ public class SequenceDeserializer extends AbstractEsbNodeDeserializer<SequenceMe
 			Sequence sequenceModel = (Sequence) DeserializerUtils.createNode(part, EsbElementTypes.Sequence_3503);
 			executeSetValueCommand(sequenceModel, SEQUENCE__NAME, sequence.getKey().getKeyValue());
 			node = sequenceModel;
-			//duplicatorEndPoints(getRootCompartment(),sequence.getKey().getKeyValue()); 
 		} else if(sequence.getName()!=null){
-			/* Expecting following configuration for main sequence
-			 * <sequence xmlns="http://ws.apache.org/ns/synapse" name="main">
-			 * <in/>
-			 * <out/> 
-			 * </sequence>
-			 */
-			if ("main".equals(sequence.getName())
-					&& sequence.getList().size() == 2
-					&& (sequence.getList().get(0) instanceof InMediator && sequence.getList()
-							.get(1) instanceof OutMediator)) {
+			if ("main".equals(sequence.getName())) {
 				node = deserializeMainSequence(part,sequence);
 			} else{
 				IElementType sequencesType = (part instanceof TemplateTemplateCompartmentEditPart) ? EsbElementTypes.Sequences_3665
@@ -104,28 +98,64 @@ public class SequenceDeserializer extends AbstractEsbNodeDeserializer<SequenceMe
 		GraphicalEditPart compartment = (GraphicalEditPart) ((getEditpart(mediatorFlow))
 				.getChildren().get(0));
 
-		if (sequence.getList().get(0) instanceof InMediator) {
-			InMediator inMediator = (InMediator) sequence.getList().get(0);
-			SequenceMediator inSequence = new SequenceMediator();
-			inSequence.addAll(inMediator.getList());
-			setRootCompartment(compartment);
-			deserializeSequence(compartment, inSequence, sequenceModel.getOutputConnector());
-			setRootCompartment(null);
-		}
-		
-		if (sequence.getList().get(1) instanceof OutMediator){
-			OutMediator outMediator = (OutMediator) sequence.getList().get(1);
-			SequenceMediator outSequence = new SequenceMediator();
-			outSequence.addAll(outMediator.getList());
-			setRootCompartment(compartment);
-			deserializeSequence(compartment, outSequence, sequenceModel.getInputConnector());
-			setRootCompartment(null);
-		}
+		InMediator inMediator = getInMediator(sequence);
+		SequenceMediator inSequence = new SequenceMediator();
+		inSequence.addAll(inMediator.getList());
+		setRootCompartment(compartment);
+		deserializeSequence(compartment, inSequence, sequenceModel.getOutputConnector());
+		setRootCompartment(null);
+
+		OutMediator outMediator = getOutMediator(sequence);
+		SequenceMediator outSequence = new SequenceMediator();
+		outSequence.addAll(outMediator.getList());
+		setRootCompartment(compartment);
+		deserializeSequence(compartment, outSequence, sequenceModel.getInputConnector());
+		setRootCompartment(null);
 		
 		addPairMediatorFlow(sequenceModel.getOutputConnector(),sequenceModel.getInputConnector());
 		
 		return sequenceModel;
 	}
+	
+	private InMediator getInMediator(SequenceMediator sequence) {
+		InMediator inMediator = null;
+		List<Mediator> mediatorList = sequence.getList();
+		for(Iterator<Mediator> i = mediatorList.iterator();i.hasNext();){
+			Mediator next = i.next();
+			if(next instanceof InMediator){
+				inMediator = (InMediator) next;
+				break;
+			}
+		}
+		if(inMediator == null){
+			inMediator = new InMediator();
+			for(Iterator<Mediator> i = mediatorList.iterator();i.hasNext();){
+				Mediator next = i.next();
+				if(!(next instanceof OutMediator)){
+					inMediator.addChild(next);
+				}
+			}
+		}
+		return inMediator;
+	}
+	
+	private OutMediator getOutMediator(SequenceMediator sequence) {
+		OutMediator outMediator = null;
+		List<Mediator> mediatorList = sequence.getList();
+		for(Iterator<Mediator> i = mediatorList.iterator();i.hasNext();){
+			Mediator next = i.next();
+			if(next instanceof OutMediator){
+				outMediator = (OutMediator) next;
+				break;
+			}
+		}
+		if(outMediator == null){
+			outMediator = new OutMediator();
+			
+		}
+		return outMediator;
+	}
+	
 
 	private void duplicatorEndPoints(GraphicalEditPart rootCompartment, String key) {
 		FileEditorInput input = (FileEditorInput) getDiagramEditor().getEditorInput();
