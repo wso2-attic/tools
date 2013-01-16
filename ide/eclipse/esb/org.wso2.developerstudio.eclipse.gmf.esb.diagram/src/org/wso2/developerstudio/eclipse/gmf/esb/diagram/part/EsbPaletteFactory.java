@@ -1146,6 +1146,15 @@ public class EsbPaletteFactory {
 					linksPalette.setVisible(true);
 					apiResourceTool.setVisible(false);
 					break;
+				case MAIN_SEQUENCE:
+					proxyServiceTool.setVisible(false);
+					mediatorPalette.setVisible(true);
+					nodePalette.setVisible(false);
+					endpoitPalette.setVisible(true);
+					defineEpPalette.setVisible(true);
+					linksPalette.setVisible(true);
+					apiResourceTool.setVisible(false);
+					break;
 				case SYNAPSE_CONFIG:
 				default:
 					proxyServiceTool.setVisible(true);

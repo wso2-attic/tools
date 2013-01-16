@@ -57,15 +57,14 @@ public class ScriptMediatorDeserializer extends AbstractEsbNodeDeserializer<Abst
 		  Value key = scriptMediator.getKey();
 		  SynapseXPath expression = key.getExpression();
 		  String keyValue = key.getKeyValue();
-		  scriptKeyTypeEnum keyType = visualScriptMediator.getKeyType();
 		  if(expression!=null){
 			  NamespacedProperty namespacedProperty = createNamespacedProperty(expression);
-			  executeSetValueCommand(EsbPackage.Literals.SCRIPT_MEDIATOR__KEY_TYPE, keyType.DYNAMIC_KEY);
+			  executeSetValueCommand(EsbPackage.Literals.SCRIPT_MEDIATOR__KEY_TYPE, scriptKeyTypeEnum.DYNAMIC_KEY);
 			  executeSetValueCommand(EsbPackage.Literals.SCRIPT_MEDIATOR__SCRIPT_DYNAMIC_KEY, namespacedProperty);
 		  }else if(keyValue!=null){
 			  RegistryKeyProperty registryKeyProperty = EsbFactory.eINSTANCE.createRegistryKeyProperty();
 			  registryKeyProperty.setKeyValue(keyValue);
-			  executeSetValueCommand(EsbPackage.Literals.SCRIPT_MEDIATOR__KEY_TYPE, keyType.STATIC_KEY);
+			  executeSetValueCommand(EsbPackage.Literals.SCRIPT_MEDIATOR__KEY_TYPE, scriptKeyTypeEnum.STATIC_KEY);
 			  executeSetValueCommand(EsbPackage.Literals.SCRIPT_MEDIATOR__SCRIPT_DYNAMIC_KEY, registryKeyProperty);
 		  }
 		  executeSetValueCommand(EsbPackage.Literals.SCRIPT_MEDIATOR__MEDIATE_FUNCTION, scriptMediator.getFunction());
