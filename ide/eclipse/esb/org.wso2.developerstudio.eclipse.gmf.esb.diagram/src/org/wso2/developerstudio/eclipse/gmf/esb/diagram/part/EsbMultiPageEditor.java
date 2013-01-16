@@ -181,6 +181,10 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
                             "ErrorCreatingNestedEditor", null, e.getStatus());
         }
         
+        /*
+         * This must be altered. 'addDefinedSequences' and 'addDefinedEndpoints' methods should not exist inside EsbPaletteFactory class. 
+         * Creating new instance of 'EsbPaletteFactory' must be avoided.
+         */
         EsbPaletteFactory esbPaletteFactory=new EsbPaletteFactory();
         esbPaletteFactory.addDefinedSequences(getEditor(0));
         esbPaletteFactory.addDefinedEndpoints(getEditor(0));

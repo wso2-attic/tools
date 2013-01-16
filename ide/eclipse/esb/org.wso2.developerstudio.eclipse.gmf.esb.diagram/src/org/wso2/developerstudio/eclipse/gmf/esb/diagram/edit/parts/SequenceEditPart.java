@@ -98,6 +98,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.editpolicy.Feedba
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.SequenceCanonicalEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.SequenceItemSemanticEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramEditorUtil;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbMultiPageEditor;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbPaletteFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.Messages;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
@@ -481,7 +483,7 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 			 * Tool group creations in the Tool pallete.
 			 */
 
-			if ((getEditDomain().getPaletteViewer().getPaletteRoot().getChildren().size() - 2) != ToolPalleteDetails.SEQUENCE) {
+/*			if ((getEditDomain().getPaletteViewer().getPaletteRoot().getChildren().size() - 2) != ToolPalleteDetails.SEQUENCE) {
 				getEditDomain().getPaletteViewer().getPaletteRoot().add(createSequenceGroup());
 			}
 
@@ -490,7 +492,7 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 						.getChildren().get(ToolPalleteDetails.SEQUENCE))
 						.add(createSequence4CreationTool(name));
 				definedSequenceNames.add(name);
-			}
+			}*/
 
 		}
 
@@ -499,6 +501,7 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 		 */
 		createFiles(name, "sequence_" + name + ".esb_diagram", "sequence_" + name + ".esb",
 				activeProject);
+		EditorUtils.updateToolpalette();
 
 	}
 

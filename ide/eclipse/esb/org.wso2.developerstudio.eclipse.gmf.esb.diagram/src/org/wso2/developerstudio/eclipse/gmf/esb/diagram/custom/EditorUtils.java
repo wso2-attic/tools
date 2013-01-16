@@ -26,6 +26,10 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.ui.IEditorPart;
+import org.eclipse.ui.IEditorReference;
+import org.eclipse.ui.PlatformUI;
 import org.wso2.developerstudio.eclipse.gmf.esb.APIResource;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbServer;
@@ -39,6 +43,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowM
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyFaultInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramEditor;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbMultiPageEditor;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbPaletteFactory;
 
 public class EditorUtils {
 	
@@ -375,5 +381,26 @@ public class EditorUtils {
 		return null;
 	}
 
-	
+	public static void updateToolpalette() {
+		Display.getCurrent().asyncExec(new Runnable() {			
+			public void run() {
+				IEditorReference editorReferences[] = PlatformUI.getWorkbench().getActiveWorkbenchWindow()
+						.getActivePage().getEditorReferences();
+				IEditorPart activeEditor=PlatformUI.getWorkbench().getActiveWorkbenchWindow()
+				.getActivePage().getActiveEditor();
+				for (int i = 0; i < editorReferences.length; i++) {
+					IEditorPart editor = editorReferences[i].getEditor(false);
+					if ((editor instanceof EsbMultiPageEditor)&&(!editor.equals(activeEditor))) {
+				        /*
+				         * This must be altered. 'addDefinedSequences' and 'addDefinedEndpoints' methods should not exist inside EsbPaletteFactory class. 
+				         * Creating new instance of 'EsbPaletteFactory' must be avoided.
+				         */
+				        EsbPaletteFactory esbPaletteFactory=new EsbPaletteFactory();
+				        esbPaletteFactory.addDefinedSequences(((EsbMultiPageEditor) editor).getGraphicalEditor());
+				        esbPaletteFactory.addDefinedEndpoints(((EsbMultiPageEditor) editor).getGraphicalEditor());
+					}
+				}
+			}
+		});
+	}
 }

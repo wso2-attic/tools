@@ -36,6 +36,7 @@ import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbServer;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.part.EndpointCreationWizardPage;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.part.TemplateCreationWizardPage;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.EsbModelTransformer;
@@ -215,6 +216,7 @@ public class EsbCreationWizard extends Wizard implements INewWizard, IExecutable
 			case SEQUENCE:
 				location = esbProject.getFolder(SEQUENCE_RESOURCE_DIR);
 				op = createDiagram("sequence_", SEQUENCE_RESOURCE_DIR, "sequence", null);
+				EditorUtils.updateToolpalette();
 				type = "synapse/sequence";
 				break;
 
@@ -228,6 +230,7 @@ public class EsbCreationWizard extends Wizard implements INewWizard, IExecutable
 				location = esbProject.getFolder(ENDPOINT_RESOURCE_DIR);
 				op = createDiagram("endpoint_", ENDPOINT_RESOURCE_DIR, "endpoint",
 						endpointCreationPage.selection);
+				EditorUtils.updateToolpalette();
 				type = "synapse/endpoint";
 				break;
 
@@ -382,7 +385,7 @@ public class EsbCreationWizard extends Wizard implements INewWizard, IExecutable
 		};
 		return op;
 	}
-
+	
 	protected void createXMLfile(String name, Resource resource, String dir) {
 
 		String xmlFilePath = dir.replaceAll("/graphical-synapse-config", "/synapse-config") + "/"

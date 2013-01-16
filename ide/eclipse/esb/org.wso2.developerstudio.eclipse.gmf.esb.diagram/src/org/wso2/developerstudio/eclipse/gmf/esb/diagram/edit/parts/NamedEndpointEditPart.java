@@ -88,6 +88,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.Sequences;
 import org.wso2.developerstudio.eclipse.gmf.esb.WSDLEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractSequencesEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShapeWithLabel;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
@@ -97,6 +98,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceEditP
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.NamedEndpointCanonicalEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.NamedEndpointItemSemanticEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramEditorUtil;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbMultiPageEditor;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbPaletteFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.Messages;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
@@ -538,7 +541,7 @@ public class NamedEndpointEditPart extends AbstractEndpoint {
 			 * Tool group creations in the Tool pallete.
 			 */
 
-			if ((getEditDomain().getPaletteViewer().getPaletteRoot().getChildren().size() - 1) != ToolPalleteDetails.DEFINED_ENDPOINT) {
+/*			if ((getEditDomain().getPaletteViewer().getPaletteRoot().getChildren().size() - 1) != ToolPalleteDetails.DEFINED_ENDPOINT) {
 				getEditDomain().getPaletteViewer().getPaletteRoot()
 						.add(createDefinedEndpointsGroup());
 			}
@@ -548,7 +551,7 @@ public class NamedEndpointEditPart extends AbstractEndpoint {
 						.getChildren().get(ToolPalleteDetails.DEFINED_ENDPOINT))
 						.add(createNamedEndpoint6CreationTool(name));
 				definedEndpointsNames.add(name);
-			}
+			}*/
 
 		}
 
@@ -557,6 +560,7 @@ public class NamedEndpointEditPart extends AbstractEndpoint {
 		 */
 		createFiles(name, "endpoint_" + name + ".esb_diagram", "endpoint_" + name + ".esb",
 				activeProject);
+		EditorUtils.updateToolpalette();
 
 	}
 
