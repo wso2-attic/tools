@@ -54,7 +54,7 @@ public class ProxyServiceDeserializer extends AbstractEsbNodeDeserializer<ProxyS
 		
 		if(object.getWsdlURI()!=null){
 			executeSetValueCommand(PROXY_SERVICE__WSDL_TYPE, ProxyWsdlType.SOURCE_URL);
-			executeSetValueCommand(PROXY_SERVICE__WSDL_URL, object.getWsdlURI());
+			executeSetValueCommand(PROXY_SERVICE__WSDL_URL, object.getWsdlURI().toString());
 		}else if(object.getWSDLKey()!=null){
 			executeSetValueCommand(PROXY_SERVICE__WSDL_TYPE, ProxyWsdlType.REGISTRY_KEY);
 			RegistryKeyProperty keyProperty = EsbFactory.eINSTANCE.createRegistryKeyProperty();
@@ -141,7 +141,7 @@ public class ProxyServiceDeserializer extends AbstractEsbNodeDeserializer<ProxyS
 			String inSequenceName = object.getTargetInSequence();
 			if(inSequenceName!=null){
 				if(inSequenceName.startsWith("/") || inSequenceName.startsWith("conf:") || inSequenceName.startsWith("gov:")){
-					proxy.setInSequenceType(SequenceType.REGISTRY_REFERENCE);
+					executeSetValueCommand(PROXY_SERVICE__IN_SEQUENCE_TYPE, SequenceType.REGISTRY_REFERENCE);
 					RegistryKeyProperty keyProperty = EsbFactory.eINSTANCE.createRegistryKeyProperty();
 					keyProperty.setKeyValue(inSequenceName);
 					executeSetValueCommand(PROXY_SERVICE__IN_SEQUENCE_KEY, keyProperty);
@@ -161,7 +161,7 @@ public class ProxyServiceDeserializer extends AbstractEsbNodeDeserializer<ProxyS
 			String outSequenceName = object.getTargetOutSequence();
 			if(outSequenceName!=null){
 				if(outSequenceName.startsWith("/") || outSequenceName.startsWith("conf:") || outSequenceName.startsWith("gov:")){
-					proxy.setOutSequenceType(SequenceType.REGISTRY_REFERENCE);
+					executeSetValueCommand(PROXY_SERVICE__OUT_SEQUENCE_TYPE, SequenceType.REGISTRY_REFERENCE);
 					RegistryKeyProperty keyProperty = EsbFactory.eINSTANCE.createRegistryKeyProperty();
 					keyProperty.setKeyValue(outSequenceName);
 					executeSetValueCommand(PROXY_SERVICE__OUT_SEQUENCE_KEY, keyProperty);
@@ -183,7 +183,7 @@ public class ProxyServiceDeserializer extends AbstractEsbNodeDeserializer<ProxyS
 			String faultSequenceName = object.getTargetFaultSequence();
 			if(faultSequenceName!=null){
 				if(faultSequenceName.startsWith("/") || faultSequenceName.startsWith("conf:") || faultSequenceName.startsWith("gov:")){
-					proxy.setFaultSequenceType(SequenceType.REGISTRY_REFERENCE);
+					executeSetValueCommand(PROXY_SERVICE__FAULT_SEQUENCE_TYPE, SequenceType.REGISTRY_REFERENCE);
 					RegistryKeyProperty keyProperty = EsbFactory.eINSTANCE.createRegistryKeyProperty();
 					keyProperty.setKeyValue(faultSequenceName);
 					executeSetValueCommand(PROXY_SERVICE__FAULT_SEQUENCE_KEY, keyProperty);
