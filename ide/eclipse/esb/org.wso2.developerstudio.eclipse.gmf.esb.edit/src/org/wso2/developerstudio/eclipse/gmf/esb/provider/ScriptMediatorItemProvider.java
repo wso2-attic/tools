@@ -177,7 +177,7 @@ public class ScriptMediatorItemProvider
 	 * This adds a property descriptor for the Script Body feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addScriptBodyPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
@@ -188,7 +188,7 @@ public class ScriptMediatorItemProvider
 				 getString("_UI_PropertyDescriptor_description", "_UI_ScriptMediator_scriptBody_feature", "_UI_ScriptMediator_type"),
 				 EsbPackage.Literals.SCRIPT_MEDIATOR__SCRIPT_BODY,
 				 true,
-				 false,
+				 true,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,

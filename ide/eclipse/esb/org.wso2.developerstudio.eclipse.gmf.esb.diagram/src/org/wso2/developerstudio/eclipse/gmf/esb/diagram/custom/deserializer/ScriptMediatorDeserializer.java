@@ -1,3 +1,19 @@
+/*
+ * Copyright 2012 WSO2, Inc. (http://wso2.com)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 
 import java.util.Set;
@@ -42,14 +58,13 @@ public class ScriptMediatorDeserializer extends AbstractEsbNodeDeserializer<Abst
 		  SynapseXPath expression = key.getExpression();
 		  String keyValue = key.getKeyValue();
 		  scriptKeyTypeEnum keyType = visualScriptMediator.getKeyType();
-		  NamespacedProperty namespacedProperty = createNamespacedProperty(expression);
-		  RegistryKeyProperty registryKeyProperty = EsbFactory.eINSTANCE.createRegistryKeyProperty();
-		  registryKeyProperty.setKeyValue(keyValue);
 		  if(expression!=null){
+			  NamespacedProperty namespacedProperty = createNamespacedProperty(expression);
 			  executeSetValueCommand(EsbPackage.Literals.SCRIPT_MEDIATOR__KEY_TYPE, keyType.DYNAMIC_KEY);
 			  executeSetValueCommand(EsbPackage.Literals.SCRIPT_MEDIATOR__SCRIPT_DYNAMIC_KEY, namespacedProperty);
-			 
 		  }else if(keyValue!=null){
+			  RegistryKeyProperty registryKeyProperty = EsbFactory.eINSTANCE.createRegistryKeyProperty();
+			  registryKeyProperty.setKeyValue(keyValue);
 			  executeSetValueCommand(EsbPackage.Literals.SCRIPT_MEDIATOR__KEY_TYPE, keyType.STATIC_KEY);
 			  executeSetValueCommand(EsbPackage.Literals.SCRIPT_MEDIATOR__SCRIPT_DYNAMIC_KEY, registryKeyProperty);
 		  }
