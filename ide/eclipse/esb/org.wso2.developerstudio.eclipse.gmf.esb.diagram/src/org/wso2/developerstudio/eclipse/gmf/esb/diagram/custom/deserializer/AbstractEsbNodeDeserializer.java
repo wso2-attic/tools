@@ -335,6 +335,9 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 			rootInputConnectors.clear();
 		}
 		
+		rootCompartment =null;
+		hasInlineEndPoint=false;
+		addedAddressingEndPoint=false;
 	}
 	
 	

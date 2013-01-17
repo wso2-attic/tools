@@ -17,10 +17,12 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.apache.synapse.Mediator;
 import org.apache.synapse.mediators.base.SequenceMediator;
+import org.apache.synapse.mediators.builtin.SendMediator;
 import org.apache.synapse.mediators.filters.InMediator;
 import org.apache.synapse.mediators.filters.OutMediator;
 import org.eclipse.core.runtime.Assert;
@@ -135,6 +137,15 @@ public class SequenceDeserializer extends AbstractEsbNodeDeserializer<SequenceMe
 					inMediator.addChild(next);
 				}
 			}
+		} 
+		LinkedList<Mediator> inMediatorList = new LinkedList<Mediator>(); 
+		inMediatorList.addAll(inMediator.getList());
+		Mediator last = null;
+		if(inMediatorList.size()>0){
+			last = inMediatorList.getLast();
+		} 
+		if (last == null || !(last instanceof SendMediator)) {
+			inMediator.addChild(new SendMediator());
 		}
 		return inMediator;
 	}
@@ -151,7 +162,21 @@ public class SequenceDeserializer extends AbstractEsbNodeDeserializer<SequenceMe
 		}
 		if(outMediator == null){
 			outMediator = new OutMediator();
-			
+			for(Iterator<Mediator> i = mediatorList.iterator();i.hasNext();){
+				Mediator next = i.next();
+				if(!(next instanceof InMediator)){
+					outMediator.addChild(next);
+				}
+			}
+		} 
+		LinkedList<Mediator> outMediatorList = new LinkedList<Mediator>(); 
+		outMediatorList.addAll(outMediator.getList());
+		Mediator last = null;
+		if(outMediatorList.size()>0){
+			last = outMediatorList.getLast();
+		} 
+		if (last == null || !(last instanceof SendMediator)) {
+			outMediator.addChild(new SendMediator());
 		}
 		return outMediator;
 	}
