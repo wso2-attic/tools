@@ -135,6 +135,17 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 	 * @param connector
 	 */
 	protected void deserializeSequence(IGraphicalEditPart part, SequenceMediator sequence, EsbConnector connector) {
+		deserializeSequence(part, sequence, connector, isReversed());
+	}
+	
+	/**
+	 * Deserialize a sequence
+	 * @param mediatorFlow
+	 * @param sequence
+	 * @param connector
+	 * @param reversed
+	 */
+	protected void deserializeSequence(IGraphicalEditPart part, SequenceMediator sequence, EsbConnector connector, boolean reversed) {
 		LinkedList<EsbNode> nodeList = new LinkedList<EsbNode>();
 	
 		Diagram diagram = getDiagramEditor().getDiagram();
@@ -145,7 +156,15 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 		if(connector instanceof OutputConnector){
 			for (int i = 0; i < sequence.getList().size(); ++i) {
 				AbstractMediator mediator = (AbstractMediator) sequence.getList().get(i);
-				executeMediatorDeserializer(part, nodeList, domain, mediator,false);
+				if(reversedNodes.contains(connector.eContainer())){
+					executeMediatorDeserializer(part, nodeList, domain, mediator,true);
+					reversedNodes.addAll(nodeList);
+				} else{
+					executeMediatorDeserializer(part, nodeList, domain, mediator,reversed);
+					if(reversed){
+						reversedNodes.addAll(nodeList);
+					}
+				}
 			}
 			connectionFlowMap.put(connector, nodeList);
 		} else if(connector instanceof InputConnector){
