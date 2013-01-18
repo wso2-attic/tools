@@ -87,7 +87,7 @@ import org.eclipse.draw2d.geometry.Rectangle;
  * threads and should NOT be initialized by multiple editor instances
  * 
  * @param <T>
- *            Return type of createNode()
+ *            Input synapse object
  * @param <R>
  *            Return type of createNode()
  */
@@ -97,6 +97,8 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 	private static Map<EObject,ShapeNodeEditPart> editPartMap = new HashMap<EObject, ShapeNodeEditPart>();
 	private static Map<EsbConnector, EsbConnector> pairMediatorFlowMap = new HashMap<EsbConnector, EsbConnector>();
 	private static List<EObject> reversedNodes = new ArrayList<EObject>();
+	private static Map<EsbConnector, LinkedList<EsbNode>> complexFiguredReversedFlows = new HashMap<EsbConnector, LinkedList<EsbNode>>();
+	private static Map<EsbNode, Rectangle> nodeBounds = new HashMap<EsbNode, Rectangle>();
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	private static GraphicalEditPart rootCompartment;
 	private static List<EsbConnector> rootInputConnectors = new ArrayList<EsbConnector>();
@@ -324,14 +326,51 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 		currentLocation = new HashMap<EsbConnector, Rectangle>();
 		for (Map.Entry<EsbConnector, LinkedList<EsbNode>> flow : connectionFlowMap.entrySet()) {
 			relocateFlow(flow.getKey(), flow.getValue());
+			EObject container = flow.getKey().eContainer();
+			if(reversedNodes.contains(container)){
+				EditPart editpart = getEditpart(container);
+				if (editpart instanceof complexFiguredAbstractMediator){
+					complexFiguredReversedFlows.put(flow.getKey(), flow.getValue());
+				}
+			}
 		}
 		clearLinks();
+		for (Map.Entry<EsbConnector, LinkedList<EsbNode>> flow : complexFiguredReversedFlows.entrySet()) {
+			ReverseComplexFlow(flow.getKey(), flow.getValue());
+		}
 		refreshEditPartMap();
 		for (Map.Entry<EsbConnector, LinkedList<EsbNode>> flow : connectionFlowMap.entrySet()) {
 			connectMediatorFlow(flow.getKey(), flow.getValue());
 		}
 		pairMediatorFlows();
 		cleanupData();
+	}
+	
+	/**
+	 * Reverse nodes in inside complexFigured mediators of out-sequence 
+	 * @param connector
+	 * @param nodes
+	 */
+	public static void ReverseComplexFlow(EsbConnector connector,
+			LinkedList<EsbNode> nodes) {
+		
+		Rectangle containerBounds = currentLocation.get(connector);
+		
+		if (containerBounds!=null) {
+			for (Iterator<EsbNode> i = nodes.iterator(); i.hasNext();) {
+				EsbNode node = i.next();
+				GraphicalEditPart editpart = (GraphicalEditPart) getEditpart(node);
+				Rectangle rect = nodeBounds.get(node);
+				if (rect!=null) {
+					rect.x = containerBounds.x - (rect.x + rect.width);
+					SetBoundsCommand sbc = new SetBoundsCommand(editpart.getEditingDomain(),
+							"change location", new EObjectAdapter((View) editpart.getModel()), rect);
+					editpart.getDiagramEditDomain().getDiagramCommandStack()
+							.execute(new ICommandProxy(sbc));
+				}
+			}
+		}
+		
 	}
 
 	/**
@@ -352,6 +391,14 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 		
 		if(rootInputConnectors!=null){
 			rootInputConnectors.clear();
+		}
+		
+		if(complexFiguredReversedFlows!=null){
+			complexFiguredReversedFlows.clear();
+		}
+		
+		if(nodeBounds!=null){
+			nodeBounds.clear();
 		}
 		
 		rootCompartment =null;
@@ -442,6 +489,7 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 			rect.y = location.y;
 			SetBoundsCommand sbc = new SetBoundsCommand(gEditpart.getEditingDomain(),
 					"change location", new EObjectAdapter((View) editpart.getModel()), rect);
+			nodeBounds.put((EsbNode)((View)editpart.getModel()).getElement(), rect.getCopy());
 
 			gEditpart.getDiagramEditDomain().getDiagramCommandStack()
 					.execute(new ICommandProxy(sbc));
