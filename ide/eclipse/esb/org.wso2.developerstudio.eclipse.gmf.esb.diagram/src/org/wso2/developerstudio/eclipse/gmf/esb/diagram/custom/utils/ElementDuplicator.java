@@ -713,7 +713,7 @@ public class ElementDuplicator {
 				inputConnector=(InputConnector) child.get(i);				
 			}
 		}
-		if(outputConnector.getOutgoingLink()==null){
+		if((node instanceof Sequence) && ((Sequence)node).isDuplicate()){
 			return false;
 		}
 		if((outputConnector.getOutgoingLink()!=null)&&(outputConnector.getOutgoingLink().getTarget().eContainer() instanceof EndPoint)){
