@@ -1,3 +1,19 @@
+/*
+ * Copyright 2012 WSO2, Inc. (http://wso2.com)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence;
 
 import java.util.List;
@@ -15,6 +31,7 @@ import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
+import org.wso2.developerstudio.eclipse.gmf.esb.EvaluatorExpressionProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.URLRewriteMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.URLRewriteRule;
 import org.wso2.developerstudio.eclipse.gmf.esb.URLRewriteRuleAction;
@@ -52,10 +69,16 @@ public class URLReWriterMediatorTransformer extends AbstractEsbNodeTransformer{
 			urlReWriterMediator.setOutputProperty(visualUrlRewriter.getOutProperty());
 			EList<URLRewriteRule> urlRewriteRules = visualUrlRewriter.getUrlRewriteRules();
 			for (URLRewriteRule urlRewriteRule : urlRewriteRules) {
-				 OMElement evaluatorExpressionOM = AXIOMUtil.stringToOM(urlRewriteRule.getUrlRewriteRuleCondition().getEvaluatorValue());
-		         Evaluator evaluator = EvaluatorFactoryFinder.getInstance().getEvaluator(evaluatorExpressionOM);
-		         RewriteRule rule = new RewriteRule();
-		         EList<URLRewriteRuleAction> rewriteRuleAction = urlRewriteRule.getRewriteRuleAction();
+				 RewriteRule rule = new RewriteRule();
+				 EvaluatorExpressionProperty ruleCondition = urlRewriteRule.getUrlRewriteRuleCondition();
+				 if (ruleCondition!=null) {
+					OMElement evaluatorExpressionOM = AXIOMUtil.stringToOM(ruleCondition
+							.getEvaluatorValue());
+					Evaluator evaluator = EvaluatorFactoryFinder.getInstance().getEvaluator(
+							evaluatorExpressionOM);
+					rule.setCondition(evaluator);
+				}
+				EList<URLRewriteRuleAction> rewriteRuleAction = urlRewriteRule.getRewriteRuleAction();
 		         for (URLRewriteRuleAction urlRewriteRuleAction : rewriteRuleAction) {
 		        	 RewriteAction rewriteAction = new RewriteAction();
 		        	 rewriteAction.setActionType(urlRewriteRuleAction.getRuleAction().getValue());
@@ -68,7 +91,7 @@ public class URLReWriterMediatorTransformer extends AbstractEsbNodeTransformer{
 		        	 }
 					 rule.getActions().add(rewriteAction);
 				}
-		         rule.setCondition(evaluator);
+		        
 		         urlReWriterMediator.addRule(rule);
 			}
 		}
