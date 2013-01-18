@@ -3,6 +3,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.ui;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.edit.command.AddCommand;
@@ -101,7 +102,7 @@ public class ConfigureURLrewriteruleDialog extends Dialog {
 				String rule = txtRuleEditor.getText();
 				if (selectionIndex > -1) {
 					TableItem item = tableRules.getItem(selectionIndex);
-					item.setText(txtRuleEditor.getText());
+					//item.setText(txtRuleEditor.getText());
 					EvaluatorExpressionProperty property = EsbFactory.eINSTANCE
 							.createEvaluatorExpressionProperty();
 					property.setEvaluatorName("Condition");
@@ -141,7 +142,7 @@ public class ConfigureURLrewriteruleDialog extends Dialog {
 					rulesWrapper.setUrlRule(EsbFactory.eINSTANCE
 							.createURLRewriteRule());
 					TableItem item = bindRules(rulesWrapper);
-					item.setText(rule);
+					item.setText("Rule");
 				}
 			}
 		});
@@ -293,8 +294,10 @@ public class ConfigureURLrewriteruleDialog extends Dialog {
 				TableItem item = tableRules.getItem(selectedIndex);
 				UrlRewriteRulesWrapper wraprule = (UrlRewriteRulesWrapper) item
 						.getData();
-				txtRuleEditor.setText(wraprule.getCondition()
-						.getEvaluatorValue());
+				if(wraprule.getCondition()!=null){
+					txtRuleEditor.setText(wraprule.getCondition()
+							.getEvaluatorValue());
+				}
 				txtRuleEditor.setEnabled(true);
 				btnRemoveAction.setEnabled(true);
 				btnAddAction.setEnabled(true);
@@ -324,9 +327,12 @@ public class ConfigureURLrewriteruleDialog extends Dialog {
 				.getUrlRewriteRules();
 		for (URLRewriteRule urlRewriteRule : urlRewriteRules) {
 			UrlRewriteRulesWrapper rulesWrapper = new UrlRewriteRulesWrapper();
-			rulesWrapper.setCondition(EsbFactory.eINSTANCE
-					.copyEvaluatorExpressionProperty(urlRewriteRule
-							.getUrlRewriteRuleCondition()));
+			EvaluatorExpressionProperty ruleCondition = urlRewriteRule
+					.getUrlRewriteRuleCondition();
+			if(null!=ruleCondition){
+				rulesWrapper.setCondition(EsbFactory.eINSTANCE
+						.copyEvaluatorExpressionProperty(ruleCondition));
+			}
 			List<UrlActionWrapper> actionWrapperslist = new ArrayList<UrlActionWrapper>();
 			EList<URLRewriteRuleAction> rewriteRuleAction = urlRewriteRule
 					.getRewriteRuleAction();
@@ -348,8 +354,8 @@ public class ConfigureURLrewriteruleDialog extends Dialog {
 			rulesWrapper.setActions(actionWrapperslist);
 			rulesWrapper.setUrlRule(urlRewriteRule);
 			TableItem bindRules = bindRules(rulesWrapper);
-			bindRules.setText(urlRewriteRule.getUrlRewriteRuleCondition()
-					.getEvaluatorValue());
+			bindRules.setText("Rule");
+			
 		}
 		return container;
 	}
@@ -659,12 +665,11 @@ public class ConfigureURLrewriteruleDialog extends Dialog {
 				getResultCommand().append(addCmd);
 			} else {
 				/* check the condition changes */
-				if (!rule.getUrlRewriteRuleCondition().getEvaluatorValue()
-						.equals(wraprule.getCondition().getEvaluatorValue())) {
+				if (rule.getUrlRewriteRuleCondition() == null
+						|| !(StringUtils.equals(rule.getUrlRewriteRuleCondition()
+								.getEvaluatorValue(), wraprule.getCondition().getEvaluatorValue()))) {
 
-					SetCommand command = new SetCommand(
-							editingDomain,
-							rule,
+					SetCommand command = new SetCommand(editingDomain, rule,
 							EsbPackage.Literals.URL_REWRITE_RULE__URL_REWRITE_RULE_CONDITION,
 							wraprule.getCondition());
 					getResultCommand().append(command);
