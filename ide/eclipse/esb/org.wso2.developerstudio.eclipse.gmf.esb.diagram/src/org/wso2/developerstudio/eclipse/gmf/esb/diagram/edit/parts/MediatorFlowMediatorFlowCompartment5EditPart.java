@@ -279,7 +279,7 @@ public class MediatorFlowMediatorFlowCompartment5EditPart extends
 				if (((ToolEntryEditPart) editpart).getModel() instanceof NodeToolEntry) {
 					String label = ((NodeToolEntry) ((ToolEntryEditPart) editpart).getModel())
 							.getLabel();
-					if ((!label.equals("")) && (!label.equals("NamedEndpoint"))) {
+					if ((!label.equals("")) && (!label.equals("Named EndPoint"))) {
 						try {
 							((NamedEndpoint) ((View) namedEndPointEditPart.getModel()).getElement())
 									.setName(label);

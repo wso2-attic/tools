@@ -1204,14 +1204,14 @@ public class EsbPaletteFactory {
 	}
 
 	private PaletteContainer createSequenceGroup() {
-		PaletteDrawer paletteContainer = new PaletteDrawer("Sequences");
+		PaletteDrawer paletteContainer = new PaletteDrawer("Defined Sequences");
 		paletteContainer.setId("Sequences"); //$NON-NLS-1$
 
 		return paletteContainer;
 	}
 
 	private PaletteContainer createDefinedEndpointGroup() {
-		PaletteDrawer paletteContainer = new PaletteDrawer("DefinedEndpoints");
+		PaletteDrawer paletteContainer = new PaletteDrawer("Defined EndPoints");
 		paletteContainer.setId("DefinedEndpoints"); //$NON-NLS-1$
 
 		return paletteContainer;
