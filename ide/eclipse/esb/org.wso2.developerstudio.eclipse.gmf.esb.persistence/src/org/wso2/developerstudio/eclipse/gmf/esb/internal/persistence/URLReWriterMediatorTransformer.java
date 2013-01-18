@@ -20,6 +20,7 @@ import java.util.List;
 
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.util.AXIOMUtil;
+import org.apache.commons.lang.StringUtils;
 import org.apache.synapse.commons.evaluators.Evaluator;
 import org.apache.synapse.commons.evaluators.config.EvaluatorFactoryFinder;
 import org.apache.synapse.endpoints.Endpoint;
@@ -72,11 +73,22 @@ public class URLReWriterMediatorTransformer extends AbstractEsbNodeTransformer{
 				 RewriteRule rule = new RewriteRule();
 				 EvaluatorExpressionProperty ruleCondition = urlRewriteRule.getUrlRewriteRuleCondition();
 				 if (ruleCondition!=null) {
-					OMElement evaluatorExpressionOM = AXIOMUtil.stringToOM(ruleCondition
-							.getEvaluatorValue());
-					Evaluator evaluator = EvaluatorFactoryFinder.getInstance().getEvaluator(
-							evaluatorExpressionOM);
-					rule.setCondition(evaluator);
+					 
+					 if(StringUtils.isBlank(ruleCondition
+								.getEvaluatorValue())){
+						 try {
+							OMElement evaluatorExpressionOM = AXIOMUtil.stringToOM(ruleCondition
+									.getEvaluatorValue());
+							Evaluator evaluator = EvaluatorFactoryFinder.getInstance()
+									.getEvaluator(evaluatorExpressionOM);
+							rule.setCondition(evaluator);
+						} catch (Exception e) {
+							log.error("Ignoring invalid condition configuration", e);
+						}
+					 } else{
+						 log.warn("Ignoring blank condition configuration");
+					 }
+					
 				}
 				EList<URLRewriteRuleAction> rewriteRuleAction = urlRewriteRule.getRewriteRuleAction();
 		         for (URLRewriteRuleAction urlRewriteRuleAction : rewriteRuleAction) {
