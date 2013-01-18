@@ -268,7 +268,7 @@ public class EsbCreationWizard extends Wizard implements INewWizard, IExecutable
 
 			case MAIN_SEQUENCE:
 				location = esbProject.getFolder(SEQUENCE_RESOURCE_DIR);
-				op = createDiagram("main_sequence_", SEQUENCE_RESOURCE_DIR, "main_sequence", null);
+				op = createDiagram("sequence_", SEQUENCE_RESOURCE_DIR, "main_sequence", null);
 				type = "synapse/main_sequence";
 				break;
 

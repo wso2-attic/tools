@@ -22,6 +22,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
+import java.util.regex.Pattern;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
@@ -598,7 +599,9 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
        // createModel(editorInput);
        super.init(site, editorInput);
        String name = editorInput.getName();
-       setTitle(name.substring(name.indexOf('_')+1,name.length()-"esb_diagram".length())+"xml");
+       name = name.replaceAll("^(endpoint_|localentry_|proxy_|sequence_|task_|template_|api_)", "");
+       name = name.replaceAll("esb_diagram$", "xml");
+       setTitle(name);
        
     }    
     
