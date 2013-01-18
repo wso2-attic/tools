@@ -29,7 +29,7 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>org.wso2.developerstudio.eclipse.bpel.artifact.feature</artifactId>
     <packaging>pom</packaging>
-    <name>Bussiness Process Server Artifact</name>
+    <name>Business Process Server Artifact</name>
     <url>http://wso2.org</url>
     <description>This feature contains WSO2 Developer Studio BPEL artifact Feature</description>
     <build>
