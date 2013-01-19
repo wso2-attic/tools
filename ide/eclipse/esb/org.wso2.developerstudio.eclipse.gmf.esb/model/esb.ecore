@@ -307,10 +307,10 @@
     <eLiterals name="FATAL" value="5"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="LogLevel">
-    <eLiterals name="SIMPLE" literal="simple"/>
-    <eLiterals name="HEADERS" value="1" literal="headers"/>
-    <eLiterals name="FULL" value="2" literal="full"/>
-    <eLiterals name="CUSTOM" value="3" literal="custom"/>
+    <eLiterals name="SIMPLE" literal="SIMPLE"/>
+    <eLiterals name="HEADERS" value="1" literal="HEADERS"/>
+    <eLiterals name="FULL" value="2" literal="FULL"/>
+    <eLiterals name="CUSTOM" value="3" literal="CUSTOM"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LogProperty" eSuperTypes="#//AbstractNameValueExpressionProperty"/>
   <eClassifiers xsi:type="ecore:EClass" name="BAMMediator" eSuperTypes="#//Mediator">

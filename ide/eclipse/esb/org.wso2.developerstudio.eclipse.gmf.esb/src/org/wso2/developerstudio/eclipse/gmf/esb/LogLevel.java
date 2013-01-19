@@ -30,7 +30,7 @@ public enum LogLevel implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SIMPLE(0, "SIMPLE", "simple"),
+	SIMPLE(0, "SIMPLE", "SIMPLE"),
 
 	/**
 	 * The '<em><b>HEADERS</b></em>' literal object.
@@ -40,7 +40,7 @@ public enum LogLevel implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	HEADERS(1, "HEADERS", "headers"),
+	HEADERS(1, "HEADERS", "HEADERS"),
 
 	/**
 	 * The '<em><b>FULL</b></em>' literal object.
@@ -50,7 +50,7 @@ public enum LogLevel implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	FULL(2, "FULL", "full"),
+	FULL(2, "FULL", "FULL"),
 
 	/**
 	 * The '<em><b>CUSTOM</b></em>' literal object.
@@ -60,7 +60,7 @@ public enum LogLevel implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CUSTOM(3, "CUSTOM", "custom");
+	CUSTOM(3, "CUSTOM", "CUSTOM");
 
 	/**
 	 * The '<em><b>SIMPLE</b></em>' literal value.
@@ -71,7 +71,7 @@ public enum LogLevel implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #SIMPLE
-	 * @model literal="simple"
+	 * @model
 	 * @generated
 	 * @ordered
 	 */
@@ -86,7 +86,7 @@ public enum LogLevel implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #HEADERS
-	 * @model literal="headers"
+	 * @model
 	 * @generated
 	 * @ordered
 	 */
@@ -101,7 +101,7 @@ public enum LogLevel implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #FULL
-	 * @model literal="full"
+	 * @model
 	 * @generated
 	 * @ordered
 	 */
@@ -116,7 +116,7 @@ public enum LogLevel implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #CUSTOM
-	 * @model literal="custom"
+	 * @model
 	 * @generated
 	 * @ordered
 	 */
