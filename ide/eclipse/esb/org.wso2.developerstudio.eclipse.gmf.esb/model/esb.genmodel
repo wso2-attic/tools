@@ -799,6 +799,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//Sequence/includedMediators"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//Sequence/receiveSequence"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//Sequence/duplicate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//Sequence/referringSequenceType"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//Sequence/dynamicReferenceKey"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//Sequence/staticReferenceKey"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//SequenceInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//SequenceOutputConnector"/>

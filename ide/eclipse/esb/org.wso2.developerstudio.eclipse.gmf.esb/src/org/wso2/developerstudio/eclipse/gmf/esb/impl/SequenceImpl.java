@@ -22,11 +22,14 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EnrichSourceType;
 import org.wso2.developerstudio.eclipse.gmf.esb.EnrichTargetAction;
 import org.wso2.developerstudio.eclipse.gmf.esb.EnrichTargetType;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
+import org.wso2.developerstudio.eclipse.gmf.esb.KeyType;
 import org.wso2.developerstudio.eclipse.gmf.esb.Mediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
+import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.SequenceInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.SequenceOutputConnector;
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -42,6 +45,9 @@ import org.wso2.developerstudio.eclipse.gmf.esb.SequenceOutputConnector;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SequenceImpl#getIncludedMediators <em>Included Mediators</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SequenceImpl#isReceiveSequence <em>Receive Sequence</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SequenceImpl#isDuplicate <em>Duplicate</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SequenceImpl#getReferringSequenceType <em>Referring Sequence Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SequenceImpl#getDynamicReferenceKey <em>Dynamic Reference Key</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SequenceImpl#getStaticReferenceKey <em>Static Reference Key</em>}</li>
  * </ul>
  * </p>
  *
@@ -159,12 +165,63 @@ public class SequenceImpl extends MediatorImpl implements Sequence {
 	protected boolean duplicate = DUPLICATE_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getReferringSequenceType() <em>Referring Sequence Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @see #getReferringSequenceType()
 	 * @generated
+	 * @ordered
+	 */
+	protected static final KeyType REFERRING_SEQUENCE_TYPE_EDEFAULT = KeyType.STATIC;
+
+	/**
+	 * The cached value of the '{@link #getReferringSequenceType() <em>Referring Sequence Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReferringSequenceType()
+	 * @generated
+	 * @ordered
+	 */
+	protected KeyType referringSequenceType = REFERRING_SEQUENCE_TYPE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getDynamicReferenceKey() <em>Dynamic Reference Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDynamicReferenceKey()
+	 * @generated
+	 * @ordered
+	 */
+	protected NamespacedProperty dynamicReferenceKey;
+
+	/**
+	 * The cached value of the '{@link #getStaticReferenceKey() <em>Static Reference Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStaticReferenceKey()
+	 * @generated
+	 * @ordered
+	 */
+	protected RegistryKeyProperty staticReferenceKey;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
 	 */
 	protected SequenceImpl() {
-		super();
+		super();		
+		NamespacedProperty dynamicKey = EsbFactoryImpl.eINSTANCE.createNamespacedProperty();
+		dynamicKey.setPrettyName("Sequence Expression");
+		dynamicKey.setPropertyName("expression");
+		dynamicKey.setPropertyValue("/default/expression");
+		setDynamicReferenceKey(dynamicKey);
+		
+		RegistryKeyProperty staticKey = EsbFactoryImpl.eINSTANCE.createRegistryKeyProperty();
+		staticKey.setKeyName("Sequence Key");
+		staticKey.setPrettyName("Sequence Key");
+		staticKey.setKeyValue("");
+		setStaticReferenceKey(staticKey);
 	}
 
 	/**
@@ -334,6 +391,113 @@ public class SequenceImpl extends MediatorImpl implements Sequence {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public KeyType getReferringSequenceType() {
+		return referringSequenceType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setReferringSequenceType(KeyType newReferringSequenceType) {
+		KeyType oldReferringSequenceType = referringSequenceType;
+		referringSequenceType = newReferringSequenceType == null ? REFERRING_SEQUENCE_TYPE_EDEFAULT : newReferringSequenceType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.SEQUENCE__REFERRING_SEQUENCE_TYPE, oldReferringSequenceType, referringSequenceType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NamespacedProperty getDynamicReferenceKey() {
+		return dynamicReferenceKey;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDynamicReferenceKey(NamespacedProperty newDynamicReferenceKey, NotificationChain msgs) {
+		NamespacedProperty oldDynamicReferenceKey = dynamicReferenceKey;
+		dynamicReferenceKey = newDynamicReferenceKey;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.SEQUENCE__DYNAMIC_REFERENCE_KEY, oldDynamicReferenceKey, newDynamicReferenceKey);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDynamicReferenceKey(NamespacedProperty newDynamicReferenceKey) {
+		if (newDynamicReferenceKey != dynamicReferenceKey) {
+			NotificationChain msgs = null;
+			if (dynamicReferenceKey != null)
+				msgs = ((InternalEObject)dynamicReferenceKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.SEQUENCE__DYNAMIC_REFERENCE_KEY, null, msgs);
+			if (newDynamicReferenceKey != null)
+				msgs = ((InternalEObject)newDynamicReferenceKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.SEQUENCE__DYNAMIC_REFERENCE_KEY, null, msgs);
+			msgs = basicSetDynamicReferenceKey(newDynamicReferenceKey, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.SEQUENCE__DYNAMIC_REFERENCE_KEY, newDynamicReferenceKey, newDynamicReferenceKey));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RegistryKeyProperty getStaticReferenceKey() {
+		return staticReferenceKey;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetStaticReferenceKey(RegistryKeyProperty newStaticReferenceKey, NotificationChain msgs) {
+		RegistryKeyProperty oldStaticReferenceKey = staticReferenceKey;
+		staticReferenceKey = newStaticReferenceKey;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.SEQUENCE__STATIC_REFERENCE_KEY, oldStaticReferenceKey, newStaticReferenceKey);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setStaticReferenceKey(RegistryKeyProperty newStaticReferenceKey) {
+		if (newStaticReferenceKey != staticReferenceKey) {
+			NotificationChain msgs = null;
+			if (staticReferenceKey != null)
+				msgs = ((InternalEObject)staticReferenceKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.SEQUENCE__STATIC_REFERENCE_KEY, null, msgs);
+			if (newStaticReferenceKey != null)
+				msgs = ((InternalEObject)newStaticReferenceKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.SEQUENCE__STATIC_REFERENCE_KEY, null, msgs);
+			msgs = basicSetStaticReferenceKey(newStaticReferenceKey, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.SEQUENCE__STATIC_REFERENCE_KEY, newStaticReferenceKey, newStaticReferenceKey));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -344,6 +508,10 @@ public class SequenceImpl extends MediatorImpl implements Sequence {
 				return ((InternalEList<?>)getOutputConnector()).basicRemove(otherEnd, msgs);
 			case EsbPackage.SEQUENCE__INCLUDED_MEDIATORS:
 				return ((InternalEList<?>)getIncludedMediators()).basicRemove(otherEnd, msgs);
+			case EsbPackage.SEQUENCE__DYNAMIC_REFERENCE_KEY:
+				return basicSetDynamicReferenceKey(null, msgs);
+			case EsbPackage.SEQUENCE__STATIC_REFERENCE_KEY:
+				return basicSetStaticReferenceKey(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -371,6 +539,12 @@ public class SequenceImpl extends MediatorImpl implements Sequence {
 				return isReceiveSequence();
 			case EsbPackage.SEQUENCE__DUPLICATE:
 				return isDuplicate();
+			case EsbPackage.SEQUENCE__REFERRING_SEQUENCE_TYPE:
+				return getReferringSequenceType();
+			case EsbPackage.SEQUENCE__DYNAMIC_REFERENCE_KEY:
+				return getDynamicReferenceKey();
+			case EsbPackage.SEQUENCE__STATIC_REFERENCE_KEY:
+				return getStaticReferenceKey();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -408,6 +582,15 @@ public class SequenceImpl extends MediatorImpl implements Sequence {
 			case EsbPackage.SEQUENCE__DUPLICATE:
 				setDuplicate((Boolean)newValue);
 				return;
+			case EsbPackage.SEQUENCE__REFERRING_SEQUENCE_TYPE:
+				setReferringSequenceType((KeyType)newValue);
+				return;
+			case EsbPackage.SEQUENCE__DYNAMIC_REFERENCE_KEY:
+				setDynamicReferenceKey((NamespacedProperty)newValue);
+				return;
+			case EsbPackage.SEQUENCE__STATIC_REFERENCE_KEY:
+				setStaticReferenceKey((RegistryKeyProperty)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -442,6 +625,15 @@ public class SequenceImpl extends MediatorImpl implements Sequence {
 			case EsbPackage.SEQUENCE__DUPLICATE:
 				setDuplicate(DUPLICATE_EDEFAULT);
 				return;
+			case EsbPackage.SEQUENCE__REFERRING_SEQUENCE_TYPE:
+				setReferringSequenceType(REFERRING_SEQUENCE_TYPE_EDEFAULT);
+				return;
+			case EsbPackage.SEQUENCE__DYNAMIC_REFERENCE_KEY:
+				setDynamicReferenceKey((NamespacedProperty)null);
+				return;
+			case EsbPackage.SEQUENCE__STATIC_REFERENCE_KEY:
+				setStaticReferenceKey((RegistryKeyProperty)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -469,6 +661,12 @@ public class SequenceImpl extends MediatorImpl implements Sequence {
 				return receiveSequence != RECEIVE_SEQUENCE_EDEFAULT;
 			case EsbPackage.SEQUENCE__DUPLICATE:
 				return duplicate != DUPLICATE_EDEFAULT;
+			case EsbPackage.SEQUENCE__REFERRING_SEQUENCE_TYPE:
+				return referringSequenceType != REFERRING_SEQUENCE_TYPE_EDEFAULT;
+			case EsbPackage.SEQUENCE__DYNAMIC_REFERENCE_KEY:
+				return dynamicReferenceKey != null;
+			case EsbPackage.SEQUENCE__STATIC_REFERENCE_KEY:
+				return staticReferenceKey != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -492,6 +690,8 @@ public class SequenceImpl extends MediatorImpl implements Sequence {
 		result.append(receiveSequence);
 		result.append(", duplicate: ");
 		result.append(duplicate);
+		result.append(", referringSequenceType: ");
+		result.append(referringSequenceType);
 		result.append(')');
 		return result.toString();
 	}

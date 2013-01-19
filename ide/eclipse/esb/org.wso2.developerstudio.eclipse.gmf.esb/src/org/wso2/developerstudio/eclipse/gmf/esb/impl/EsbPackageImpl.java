@@ -5770,6 +5770,33 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getSequence_ReferringSequenceType() {
+		return (EAttribute)sequenceEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSequence_DynamicReferenceKey() {
+		return (EReference)sequenceEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSequence_StaticReferenceKey() {
+		return (EReference)sequenceEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSequenceInputConnector() {
 		return sequenceInputConnectorEClass;
 	}
@@ -12962,6 +12989,9 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEReference(sequenceEClass, SEQUENCE__INCLUDED_MEDIATORS);
 		createEAttribute(sequenceEClass, SEQUENCE__RECEIVE_SEQUENCE);
 		createEAttribute(sequenceEClass, SEQUENCE__DUPLICATE);
+		createEAttribute(sequenceEClass, SEQUENCE__REFERRING_SEQUENCE_TYPE);
+		createEReference(sequenceEClass, SEQUENCE__DYNAMIC_REFERENCE_KEY);
+		createEReference(sequenceEClass, SEQUENCE__STATIC_REFERENCE_KEY);
 
 		sequenceInputConnectorEClass = createEClass(SEQUENCE_INPUT_CONNECTOR);
 
@@ -14620,6 +14650,9 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEReference(getSequence_IncludedMediators(), this.getMediator(), null, "includedMediators", null, 0, -1, Sequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSequence_ReceiveSequence(), ecorePackage.getEBoolean(), "receiveSequence", null, 0, 1, Sequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSequence_Duplicate(), ecorePackage.getEBoolean(), "duplicate", null, 0, 1, Sequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSequence_ReferringSequenceType(), this.getKeyType(), "referringSequenceType", null, 0, 1, Sequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSequence_DynamicReferenceKey(), this.getNamespacedProperty(), null, "dynamicReferenceKey", null, 0, 1, Sequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSequence_StaticReferenceKey(), this.getRegistryKeyProperty(), null, "staticReferenceKey", null, 0, 1, Sequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sequenceInputConnectorEClass, SequenceInputConnector.class, "SequenceInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

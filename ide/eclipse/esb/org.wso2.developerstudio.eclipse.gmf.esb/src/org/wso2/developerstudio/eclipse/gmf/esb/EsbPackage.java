@@ -4681,13 +4681,40 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	int SEQUENCE__DUPLICATE = MEDIATOR_FEATURE_COUNT + 6;
 
 	/**
+	 * The feature id for the '<em><b>Referring Sequence Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEQUENCE__REFERRING_SEQUENCE_TYPE = MEDIATOR_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Dynamic Reference Key</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEQUENCE__DYNAMIC_REFERENCE_KEY = MEDIATOR_FEATURE_COUNT + 8;
+
+	/**
+	 * The feature id for the '<em><b>Static Reference Key</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEQUENCE__STATIC_REFERENCE_KEY = MEDIATOR_FEATURE_COUNT + 9;
+
+	/**
 	 * The number of structural features of the '<em>Sequence</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEQUENCE_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 7;
+	int SEQUENCE_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 10;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SequenceInputConnectorImpl <em>Sequence Input Connector</em>}' class.
@@ -19510,6 +19537,39 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	EAttribute getSequence_Duplicate();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.Sequence#getReferringSequenceType <em>Referring Sequence Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Referring Sequence Type</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.Sequence#getReferringSequenceType()
+	 * @see #getSequence()
+	 * @generated
+	 */
+	EAttribute getSequence_ReferringSequenceType();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.Sequence#getDynamicReferenceKey <em>Dynamic Reference Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Dynamic Reference Key</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.Sequence#getDynamicReferenceKey()
+	 * @see #getSequence()
+	 * @generated
+	 */
+	EReference getSequence_DynamicReferenceKey();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.Sequence#getStaticReferenceKey <em>Static Reference Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Static Reference Key</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.Sequence#getStaticReferenceKey()
+	 * @see #getSequence()
+	 * @generated
+	 */
+	EReference getSequence_StaticReferenceKey();
+
+	/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.gmf.esb.SequenceInputConnector <em>Sequence Input Connector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -30129,6 +30189,30 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		 * @generated
 		 */
 		EAttribute SEQUENCE__DUPLICATE = eINSTANCE.getSequence_Duplicate();
+
+		/**
+		 * The meta object literal for the '<em><b>Referring Sequence Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SEQUENCE__REFERRING_SEQUENCE_TYPE = eINSTANCE.getSequence_ReferringSequenceType();
+
+		/**
+		 * The meta object literal for the '<em><b>Dynamic Reference Key</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SEQUENCE__DYNAMIC_REFERENCE_KEY = eINSTANCE.getSequence_DynamicReferenceKey();
+
+		/**
+		 * The meta object literal for the '<em><b>Static Reference Key</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SEQUENCE__STATIC_REFERENCE_KEY = eINSTANCE.getSequence_StaticReferenceKey();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SequenceInputConnectorImpl <em>Sequence Input Connector</em>}' class.
