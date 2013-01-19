@@ -8,6 +8,7 @@ import org.apache.synapse.mediators.Value;
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.apache.synapse.mediators.builtin.LogMediator;
 import org.apache.synapse.mediators.builtin.SendMediator;
+import org.apache.synapse.util.xpath.SynapseXPath;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.dialogs.MessageDialog;
@@ -18,6 +19,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbSequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbServer;
+import org.wso2.developerstudio.eclipse.gmf.esb.KeyType;
 import org.wso2.developerstudio.eclipse.gmf.esb.ScriptMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.SequenceInfo;
@@ -34,7 +36,18 @@ public class SequenceMediatorTransformer extends AbstractEsbNodeTransformer {
 		org.apache.synapse.mediators.base.SequenceMediator sequence =new SequenceMediator();
 		org.apache.synapse.mediators.base.SequenceMediator refferingSequence =new SequenceMediator();
 		sequence.setName(visualSequence.getName());
-		Value value=new Value(visualSequence.getName());
+		Value value=null;
+		if(visualSequence.getReferringSequenceType()==KeyType.DYNAMIC){			
+			SynapseXPath synapseXPath= new SynapseXPath(visualSequence.getDynamicReferenceKey().getPropertyValue());
+			for (int i = 0; i < visualSequence.getDynamicReferenceKey().getNamespaces().keySet().size(); ++i) {
+				String prefix = (String) visualSequence.getDynamicReferenceKey().getNamespaces().keySet().toArray()[i];
+				String namespaceUri = visualSequence.getDynamicReferenceKey().getNamespaces().get(prefix);
+				synapseXPath.addNamespace(prefix, namespaceUri);
+			}
+			value=new Value(synapseXPath);
+		}else{
+			value=new Value(visualSequence.getStaticReferenceKey().getKeyValue());
+		}
 		refferingSequence.setKey(value);
 		
 		//System.out.println(EsbSequenceMultiPageEditor.sequenceGraphicalEditor.getDiagram().getElement().getClass());
