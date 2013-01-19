@@ -231,14 +231,21 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 			}else if(notification.getFeature() instanceof EAttribute){
 				if("name".equals(((EAttribute)notification.getFeature()).getName())){
 					String name=(String) notification.getNewValue();
-					RegistryKeyProperty registryKeyProperty=((Sequence)notifier).getStaticReferenceKey();
-					setValue(registryKeyProperty, REGISTRY_KEY_PROPERTY__KEY_VALUE, name);
+					if("{XPath}".equals(name)){
+						setValue((Sequence)notifier, SEQUENCE__REFERRING_SEQUENCE_TYPE, KeyType.DYNAMIC);
+					}else{
+						setValue((Sequence)notifier, SEQUENCE__REFERRING_SEQUENCE_TYPE, KeyType.STATIC);
+						RegistryKeyProperty registryKeyProperty=((Sequence)notifier).getStaticReferenceKey();
+						setValue(registryKeyProperty, REGISTRY_KEY_PROPERTY__KEY_VALUE, name);
+					}
 				}else if("referringSequenceType".equals(((EAttribute)notification.getFeature()).getName())){
 					KeyType type=(KeyType) notification.getNewValue();
 					if(KeyType.DYNAMIC==type){
 						setValue((Sequence)notifier, SEQUENCE__NAME, "{XPath}");
 					}else{
-						setValue((Sequence)notifier, SEQUENCE__NAME, "");
+						if("{XPath}".equals(((Sequence)notifier).getName())){
+							setValue((Sequence)notifier, SEQUENCE__NAME, "");
+						}
 					}
 				}
 				
