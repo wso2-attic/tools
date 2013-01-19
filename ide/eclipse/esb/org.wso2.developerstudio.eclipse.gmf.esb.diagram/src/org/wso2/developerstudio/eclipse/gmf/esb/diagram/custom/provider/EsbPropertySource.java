@@ -217,19 +217,20 @@ public class EsbPropertySource extends PropertySource {
 			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
 		}else if(pkg.getProxyService_WsdlResources().equals(feature)){
 			return new ProxyServiceWSDLResourcePropertyDescriptor(object, itemPropertyDescriptor);
-
 		} else if (pkg.getScriptMediator_ScriptDynamicKey().equals(feature)) {
 			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
 		} else if (pkg.getScriptMediator_ScriptKeys().equals(feature)) {
-
 			return new ScriptKeysPropertyDescriptor(object,
 					itemPropertyDescriptor);
-
 		} else if (pkg.getScriptMediator_ScriptStaticKey().equals(feature)) {
 			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
 		} else if(pkg.getSequences_OnError().equals(feature)){
 			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
-		}
+		} else if(pkg.getSequence_DynamicReferenceKey().equals(feature)){
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
+		} else if(pkg.getSequence_StaticReferenceKey().equals(feature)){
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
+		}  
 			
 		// Else, default EMF behavior
 		else {
