@@ -56,7 +56,7 @@ public class LogMediatorImpl extends MediatorImpl implements LogMediator {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final LogCategory LOG_CATEGORY_EDEFAULT = LogCategory.TRACE;
+	protected static final LogCategory LOG_CATEGORY_EDEFAULT = LogCategory.INFO;
 
 	/**
 	 * The cached value of the '{@link #getLogCategory() <em>Log Category</em>}' attribute.

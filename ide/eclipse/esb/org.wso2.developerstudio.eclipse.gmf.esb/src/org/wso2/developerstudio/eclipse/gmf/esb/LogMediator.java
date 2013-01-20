@@ -32,6 +32,7 @@ import org.eclipse.emf.common.util.EList;
 public interface LogMediator extends Mediator {
 	/**
 	 * Returns the value of the '<em><b>Log Category</b></em>' attribute.
+	 * The default value is <code>"INFO"</code>.
 	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.gmf.esb.LogCategory}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -43,7 +44,7 @@ public interface LogMediator extends Mediator {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.LogCategory
 	 * @see #setLogCategory(LogCategory)
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getLogMediator_LogCategory()
-	 * @model
+	 * @model default="INFO"
 	 * @generated
 	 */
 	LogCategory getLogCategory();

@@ -285,7 +285,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="MergeNodeSecondInputConnector" eSuperTypes="#//InputConnector"/>
   <eClassifiers xsi:type="ecore:EClass" name="MergeNodeOutputConnector" eSuperTypes="#//OutputConnector"/>
   <eClassifiers xsi:type="ecore:EClass" name="LogMediator" eSuperTypes="#//Mediator">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="logCategory" eType="#//LogCategory"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="logCategory" eType="#//LogCategory"
+        defaultValueLiteral="INFO"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="logLevel" eType="#//LogLevel"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="logSeparator" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral=","/>
