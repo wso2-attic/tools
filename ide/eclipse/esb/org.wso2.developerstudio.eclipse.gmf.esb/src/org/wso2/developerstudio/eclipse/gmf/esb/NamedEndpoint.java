@@ -18,6 +18,9 @@ package org.wso2.developerstudio.eclipse.gmf.esb;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.NamedEndpoint#getInputConnector <em>Input Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.NamedEndpoint#getOutputConnector <em>Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.NamedEndpoint#getName <em>Name</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.NamedEndpoint#getReferringEndpointType <em>Referring Endpoint Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.NamedEndpoint#getDynamicReferenceKey <em>Dynamic Reference Key</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.NamedEndpoint#getStaticReferenceKey <em>Static Reference Key</em>}</li>
  * </ul>
  * </p>
  *
@@ -103,5 +106,86 @@ public interface NamedEndpoint extends AbstractEndPoint {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Referring Endpoint Type</b></em>' attribute.
+	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.gmf.esb.KeyType}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Referring Endpoint Type</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Referring Endpoint Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.KeyType
+	 * @see #setReferringEndpointType(KeyType)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getNamedEndpoint_ReferringEndpointType()
+	 * @model
+	 * @generated
+	 */
+	KeyType getReferringEndpointType();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.NamedEndpoint#getReferringEndpointType <em>Referring Endpoint Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Referring Endpoint Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.KeyType
+	 * @see #getReferringEndpointType()
+	 * @generated
+	 */
+	void setReferringEndpointType(KeyType value);
+
+	/**
+	 * Returns the value of the '<em><b>Dynamic Reference Key</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Dynamic Reference Key</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Dynamic Reference Key</em>' containment reference.
+	 * @see #setDynamicReferenceKey(NamespacedProperty)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getNamedEndpoint_DynamicReferenceKey()
+	 * @model containment="true"
+	 * @generated
+	 */
+	NamespacedProperty getDynamicReferenceKey();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.NamedEndpoint#getDynamicReferenceKey <em>Dynamic Reference Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Dynamic Reference Key</em>' containment reference.
+	 * @see #getDynamicReferenceKey()
+	 * @generated
+	 */
+	void setDynamicReferenceKey(NamespacedProperty value);
+
+	/**
+	 * Returns the value of the '<em><b>Static Reference Key</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Static Reference Key</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Static Reference Key</em>' containment reference.
+	 * @see #setStaticReferenceKey(RegistryKeyProperty)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getNamedEndpoint_StaticReferenceKey()
+	 * @model containment="true"
+	 * @generated
+	 */
+	RegistryKeyProperty getStaticReferenceKey();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.NamedEndpoint#getStaticReferenceKey <em>Static Reference Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Static Reference Key</em>' containment reference.
+	 * @see #getStaticReferenceKey()
+	 * @generated
+	 */
+	void setStaticReferenceKey(RegistryKeyProperty value);
 
 } // NamedEndpoint

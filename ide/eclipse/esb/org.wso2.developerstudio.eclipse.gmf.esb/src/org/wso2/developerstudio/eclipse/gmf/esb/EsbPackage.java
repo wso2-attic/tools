@@ -14191,13 +14191,40 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	int NAMED_ENDPOINT__NAME = ABSTRACT_END_POINT_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Referring Endpoint Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_ENDPOINT__REFERRING_ENDPOINT_TYPE = ABSTRACT_END_POINT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Dynamic Reference Key</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_ENDPOINT__DYNAMIC_REFERENCE_KEY = ABSTRACT_END_POINT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Static Reference Key</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_ENDPOINT__STATIC_REFERENCE_KEY = ABSTRACT_END_POINT_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Named Endpoint</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NAMED_ENDPOINT_FEATURE_COUNT = ABSTRACT_END_POINT_FEATURE_COUNT + 3;
+	int NAMED_ENDPOINT_FEATURE_COUNT = ABSTRACT_END_POINT_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.NamedEndpointInputConnectorImpl <em>Named Endpoint Input Connector</em>}' class.
@@ -20321,6 +20348,39 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 */
 	EAttribute getNamedEndpoint_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.NamedEndpoint#getReferringEndpointType <em>Referring Endpoint Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Referring Endpoint Type</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.NamedEndpoint#getReferringEndpointType()
+	 * @see #getNamedEndpoint()
+	 * @generated
+	 */
+	EAttribute getNamedEndpoint_ReferringEndpointType();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.NamedEndpoint#getDynamicReferenceKey <em>Dynamic Reference Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Dynamic Reference Key</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.NamedEndpoint#getDynamicReferenceKey()
+	 * @see #getNamedEndpoint()
+	 * @generated
+	 */
+	EReference getNamedEndpoint_DynamicReferenceKey();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.NamedEndpoint#getStaticReferenceKey <em>Static Reference Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Static Reference Key</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.NamedEndpoint#getStaticReferenceKey()
+	 * @see #getNamedEndpoint()
+	 * @generated
+	 */
+	EReference getNamedEndpoint_StaticReferenceKey();
 
 	/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.gmf.esb.NamedEndpointInputConnector <em>Named Endpoint Input Connector</em>}'.
@@ -30837,6 +30897,30 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		 * @generated
 		 */
 		EAttribute NAMED_ENDPOINT__NAME = eINSTANCE.getNamedEndpoint_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Referring Endpoint Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NAMED_ENDPOINT__REFERRING_ENDPOINT_TYPE = eINSTANCE.getNamedEndpoint_ReferringEndpointType();
+
+		/**
+		 * The meta object literal for the '<em><b>Dynamic Reference Key</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NAMED_ENDPOINT__DYNAMIC_REFERENCE_KEY = eINSTANCE.getNamedEndpoint_DynamicReferenceKey();
+
+		/**
+		 * The meta object literal for the '<em><b>Static Reference Key</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NAMED_ENDPOINT__STATIC_REFERENCE_KEY = eINSTANCE.getNamedEndpoint_StaticReferenceKey();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.NamedEndpointInputConnectorImpl <em>Named Endpoint Input Connector</em>}' class.

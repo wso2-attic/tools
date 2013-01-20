@@ -6436,6 +6436,33 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getNamedEndpoint_ReferringEndpointType() {
+		return (EAttribute)namedEndpointEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getNamedEndpoint_DynamicReferenceKey() {
+		return (EReference)namedEndpointEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getNamedEndpoint_StaticReferenceKey() {
+		return (EReference)namedEndpointEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getNamedEndpointInputConnector() {
 		return namedEndpointInputConnectorEClass;
 	}
@@ -13774,6 +13801,9 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEReference(namedEndpointEClass, NAMED_ENDPOINT__INPUT_CONNECTOR);
 		createEReference(namedEndpointEClass, NAMED_ENDPOINT__OUTPUT_CONNECTOR);
 		createEAttribute(namedEndpointEClass, NAMED_ENDPOINT__NAME);
+		createEAttribute(namedEndpointEClass, NAMED_ENDPOINT__REFERRING_ENDPOINT_TYPE);
+		createEReference(namedEndpointEClass, NAMED_ENDPOINT__DYNAMIC_REFERENCE_KEY);
+		createEReference(namedEndpointEClass, NAMED_ENDPOINT__STATIC_REFERENCE_KEY);
 
 		namedEndpointInputConnectorEClass = createEClass(NAMED_ENDPOINT_INPUT_CONNECTOR);
 
@@ -15435,6 +15465,9 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEReference(getNamedEndpoint_InputConnector(), this.getNamedEndpointInputConnector(), null, "inputConnector", null, 0, 1, NamedEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getNamedEndpoint_OutputConnector(), this.getNamedEndpointOutputConnector(), null, "outputConnector", null, 0, 1, NamedEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getNamedEndpoint_Name(), ecorePackage.getEString(), "name", null, 0, 1, NamedEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNamedEndpoint_ReferringEndpointType(), this.getKeyType(), "referringEndpointType", null, 0, 1, NamedEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNamedEndpoint_DynamicReferenceKey(), this.getNamespacedProperty(), null, "dynamicReferenceKey", null, 0, 1, NamedEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNamedEndpoint_StaticReferenceKey(), this.getRegistryKeyProperty(), null, "staticReferenceKey", null, 0, 1, NamedEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(namedEndpointInputConnectorEClass, NamedEndpointInputConnector.class, "NamedEndpointInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

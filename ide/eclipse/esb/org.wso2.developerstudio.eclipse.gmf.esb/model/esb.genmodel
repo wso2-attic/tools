@@ -1513,6 +1513,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//NamedEndpoint/inputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//NamedEndpoint/outputConnector"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//NamedEndpoint/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//NamedEndpoint/referringEndpointType"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//NamedEndpoint/dynamicReferenceKey"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//NamedEndpoint/staticReferenceKey"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//NamedEndpointInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//NamedEndpointOutputConnector"/>
