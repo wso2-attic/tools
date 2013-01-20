@@ -13,9 +13,15 @@ import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.geometry.Dimension;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
@@ -80,8 +86,10 @@ import org.wso2.developerstudio.eclipse.gmf.esb.ComplexEndpoints;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.FailoverEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.KeyType;
 import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamedEndpoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.SendMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequences;
@@ -107,7 +115,11 @@ import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.REGISTRY_KEY_PROPERTY__KEY_VALUE;
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.SEQUENCE__NAME;
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.SEQUENCE__REFERRING_SEQUENCE_TYPE;
 import static org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils.*;
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.*;
 
 /**
  * @generated NOT
@@ -190,6 +202,48 @@ public class NamedEndpointEditPart extends AbstractEndpoint {
 		};
 		return lep;
 	}
+	
+	public void notifyChanged(Notification notification) {
+		super.notifyChanged(notification);
+		Object notifier=((ENotificationImpl)notification).getNotifier();
+		if(notifier instanceof NamedEndpoint){
+			if(notification.getFeature() instanceof EReference){
+				if("staticReferenceKey".equals(((EReference)notification.getFeature()).getName())){
+					String keyValue=((RegistryKeyProperty)notification.getNewValue()).getKeyValue();
+					setValue((NamedEndpoint)notifier,NAMED_ENDPOINT__NAME,keyValue);
+				}
+			}else if(notification.getFeature() instanceof EAttribute){
+				if("name".equals(((EAttribute)notification.getFeature()).getName())){
+					String name=(String) notification.getNewValue();
+					if("{XPath}".equals(name)){
+						setValue((NamedEndpoint)notifier, NAMED_ENDPOINT__REFERRING_ENDPOINT_TYPE, KeyType.DYNAMIC);
+					}else{
+						setValue((NamedEndpoint)notifier, NAMED_ENDPOINT__REFERRING_ENDPOINT_TYPE, KeyType.STATIC);
+						RegistryKeyProperty registryKeyProperty=((NamedEndpoint)notifier).getStaticReferenceKey();
+						setValue(registryKeyProperty, REGISTRY_KEY_PROPERTY__KEY_VALUE, name);
+					}
+				}else if("referringEndpointType".equals(((EAttribute)notification.getFeature()).getName())){
+					KeyType type=(KeyType) notification.getNewValue();
+					if(KeyType.DYNAMIC==type){
+						setValue((NamedEndpoint)notifier, NAMED_ENDPOINT__NAME, "{XPath}");
+					}else{
+						if("{XPath}".equals(((NamedEndpoint)notifier).getName())){
+							setValue((NamedEndpoint)notifier, NAMED_ENDPOINT__NAME, "");
+						}
+					}
+				}
+				
+			}
+		}
+	}
+	
+	private void setValue(EObject owner, EStructuralFeature feature, Object value){
+		SetCommand setCommand =new SetCommand(getEditingDomain(), owner, feature , value);
+		if(setCommand.canExecute()){
+			getEditingDomain().getCommandStack().execute(setCommand);
+		}
+	}
+	
 
 	/**
 	 * @generated NOT

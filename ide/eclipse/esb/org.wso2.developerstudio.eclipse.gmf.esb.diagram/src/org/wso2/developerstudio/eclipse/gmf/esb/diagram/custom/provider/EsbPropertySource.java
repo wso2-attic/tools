@@ -230,7 +230,11 @@ public class EsbPropertySource extends PropertySource {
 			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
 		} else if(pkg.getSequence_StaticReferenceKey().equals(feature)){
 			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
-		}  
+		} else if(pkg.getNamedEndpoint_DynamicReferenceKey().equals(feature)){
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
+		} else if(pkg.getNamedEndpoint_StaticReferenceKey().equals(feature)){
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
+		}
 			
 		// Else, default EMF behavior
 		else {

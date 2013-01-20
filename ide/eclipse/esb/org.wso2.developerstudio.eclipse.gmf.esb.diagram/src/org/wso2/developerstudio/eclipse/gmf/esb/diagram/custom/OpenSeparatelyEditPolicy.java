@@ -4,6 +4,7 @@ import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.OpenEditPolicy;
 import org.eclipse.gmf.runtime.notation.Node;
+import org.wso2.developerstudio.eclipse.gmf.esb.NamedEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.NamedEndpointEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceEditPart;
@@ -18,7 +19,14 @@ public class OpenSeparatelyEditPolicy extends OpenEditPolicy {
 			}
 			
 		}else if(getTargetEditPart(request) instanceof NamedEndpointEditPart){
-			((NamedEndpointEditPart) getTargetEditPart(request)).createDialogBox();
+			String name=((NamedEndpoint)((Node)((NamedEndpointEditPart)getTargetEditPart(request)).getModel()).getElement()).getName();
+			if(name!=null){
+				if(!"{XPath}".equals(name) && !name.startsWith("conf:")){
+					((NamedEndpointEditPart) getTargetEditPart(request)).createDialogBox();
+				}
+			}else{
+				((NamedEndpointEditPart) getTargetEditPart(request)).createDialogBox();
+			}
 			
 		}else if(getTargetEditPart(request) instanceof ComplexFiguredAbstractEndpoint){
 			((ComplexFiguredAbstractEndpoint)getTargetEditPart(request)).openPage();

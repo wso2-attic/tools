@@ -72,7 +72,7 @@ public class EsbGraphicalShapeWithLabel extends RoundedRectangle {
 		gc.dispose();
 		
 		
-		ImageFigure mainImg = new ImageFigure(scaled);
+		ImageFigure mainImg = new ImageFigure(image);
 		mainImg.setSize(new Dimension(75, 50));
 		RectangleFigure mainImageRectangle = new RectangleFigure();
 		mainImageRectangle.setOutline(false);

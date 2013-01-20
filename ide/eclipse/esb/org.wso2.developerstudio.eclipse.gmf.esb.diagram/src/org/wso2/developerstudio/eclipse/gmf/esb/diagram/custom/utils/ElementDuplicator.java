@@ -716,7 +716,7 @@ public class ElementDuplicator {
 		if((node instanceof Sequence) && ((Sequence)node).isDuplicate()){
 			return false;
 		}
-		if((outputConnector.getOutgoingLink()!=null)&&(outputConnector.getOutgoingLink().getTarget().eContainer() instanceof EndPoint)){
+		if((outputConnector!=null)&&(outputConnector.getOutgoingLink()!=null)&&(outputConnector.getOutgoingLink().getTarget().eContainer() instanceof EndPoint)){
 			return false;
 		}
 		outSequenceFirstConnectorMap.put(rootContainer, inputConnector);		
