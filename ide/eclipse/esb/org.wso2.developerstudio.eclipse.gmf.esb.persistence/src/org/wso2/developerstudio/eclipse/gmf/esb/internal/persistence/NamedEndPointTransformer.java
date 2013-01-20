@@ -4,8 +4,11 @@ import java.util.List;
 
 import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.endpoints.IndirectEndpoint;
+import org.apache.synapse.endpoints.ResolvingEndpoint;
+import org.apache.synapse.mediators.Value;
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.apache.synapse.mediators.builtin.SendMediator;
+import org.apache.synapse.util.xpath.SynapseXPath;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.dialogs.MessageDialog;
@@ -13,6 +16,7 @@ import org.eclipse.swt.widgets.Display;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.InputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.KeyType;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamedEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.SequenceInputConnector;
@@ -108,10 +112,23 @@ public class NamedEndPointTransformer extends AbstractEsbNodeTransformer{
 		
 	}
 	
-	public IndirectEndpoint create(NamedEndpoint visualEndPoint,String name){
-		IndirectEndpoint endpoint=new IndirectEndpoint();
-		endpoint.setKey(visualEndPoint.getName());
-		return endpoint;
+	public Endpoint create(NamedEndpoint visualEndPoint,String name) throws Exception {
+		if(visualEndPoint.getReferringEndpointType()==KeyType.DYNAMIC){			
+			SynapseXPath synapseXPath= new SynapseXPath(visualEndPoint.getDynamicReferenceKey().getPropertyValue());
+			for (int i = 0; i < visualEndPoint.getDynamicReferenceKey().getNamespaces().keySet().size(); ++i) {
+				String prefix = (String) visualEndPoint.getDynamicReferenceKey().getNamespaces().keySet().toArray()[i];
+				String namespaceUri = visualEndPoint.getDynamicReferenceKey().getNamespaces().get(prefix);
+				synapseXPath.addNamespace(prefix, namespaceUri);
+			}
+			ResolvingEndpoint resolvingEndpoint=new ResolvingEndpoint();
+			resolvingEndpoint.setKeyExpression(synapseXPath);
+			return resolvingEndpoint;
+		}else{
+			IndirectEndpoint indirectEndpoint=new IndirectEndpoint();
+			indirectEndpoint.setKey(visualEndPoint.getStaticReferenceKey().getKeyValue());
+			return indirectEndpoint;
+		}
+		
 	}
 
 }
