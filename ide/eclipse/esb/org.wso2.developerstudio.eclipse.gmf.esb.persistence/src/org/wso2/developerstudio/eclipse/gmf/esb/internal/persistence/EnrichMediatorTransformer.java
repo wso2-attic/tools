@@ -89,9 +89,16 @@ public class EnrichMediatorTransformer extends AbstractEsbNodeTransformer {
 					break;
 				case INLINE:
 					source.setSourceType(org.apache.synapse.mediators.elementary.EnrichMediator.INLINE);
-					String str = visualEnrich.getSourceXML();
-					OMElement payload = AXIOMUtil.stringToOM(str); 
-					if (str!=null) source.setInlineOMNode(payload);
+					switch(visualEnrich.getInlineType()){
+					case CONTENT:
+						String str = visualEnrich.getSourceXML();
+						OMElement payload = AXIOMUtil.stringToOM(str); 
+						if (str!=null) source.setInlineOMNode(payload);
+						break;
+					case KEY:
+						source.setInlineKey(visualEnrich.getInlineRegistryKey().getKeyValue());
+						break;
+					}				
 					break;
 				case CUSTOM:
 					source.setSourceType(org.apache.synapse.mediators.elementary.EnrichMediator.CUSTOM);
