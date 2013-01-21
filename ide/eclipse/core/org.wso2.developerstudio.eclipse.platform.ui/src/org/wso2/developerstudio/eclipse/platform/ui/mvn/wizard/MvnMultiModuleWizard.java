@@ -40,6 +40,8 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 public class MvnMultiModuleWizard extends AbstractWSO2ProjectCreationWizard {
+	private static final String MAVEN_MULTI_MODULE_PROJECT_NATURE = "org.wso2.developerstudio.eclipse.mavenmultimodule.project.nature";
+
 	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
 
 	private MvnMultiModuleModel moduleModel;
@@ -170,7 +172,7 @@ public class MvnMultiModuleWizard extends AbstractWSO2ProjectCreationWizard {
 
 	private void addMavenMultiModuleProjectNature(IProject projectToAdddNature){
 		try {
-			ProjectUtils.addNatureToProject(projectToAdddNature, false,"org.wso2.developerstudio.eclipse.mavenmultimodule.project.nature");
+			ProjectUtils.addNatureToProject(projectToAdddNature, false,MAVEN_MULTI_MODULE_PROJECT_NATURE);
 			projectToAdddNature.refreshLocal(IResource.DEPTH_INFINITE,new NullProgressMonitor());
 		} catch (CoreException e) {
 			log.error("Error occured while adding the Maven Multi Module Nature to Project", e);
@@ -201,6 +203,18 @@ public class MvnMultiModuleWizard extends AbstractWSO2ProjectCreationWizard {
 		} catch (Exception e) {
 			log.error("Error occured while trying to save the maven project", e);
 		}
+		
+		try {
+			MavenUtils
+			.updateWithMavenEclipsePlugin(
+					pomFile.getLocation().toFile(),
+					new String[] {  },
+					new String[] { MAVEN_MULTI_MODULE_PROJECT_NATURE });
+			selectedProject.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
+		} catch (Exception e) {
+			log.error("Error occured while trying to update the maven project with Eclipse Maven plugin.", e);
+		}
+		
 	}
 
 	@Override
