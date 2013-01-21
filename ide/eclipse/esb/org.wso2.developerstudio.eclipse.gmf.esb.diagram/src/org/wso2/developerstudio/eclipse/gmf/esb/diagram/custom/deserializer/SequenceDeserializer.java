@@ -30,15 +30,18 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.ui.part.FileEditorInput;
+import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.MediatorFlow;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyService;
+import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequences;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.utils.ElementDuplicator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.TemplateTemplateCompartmentEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.*;
+
 import org.apache.commons.lang.StringUtils;
 
 /**
@@ -99,6 +102,12 @@ public class SequenceDeserializer extends AbstractEsbNodeDeserializer<SequenceMe
 				.getMediatorFlow();
 		GraphicalEditPart compartment = (GraphicalEditPart) ((getEditpart(mediatorFlow))
 				.getChildren().get(0));
+		
+		if(StringUtils.isNotBlank(sequence.getErrorHandler())){
+			RegistryKeyProperty onErrorSeq = EsbFactory.eINSTANCE.createRegistryKeyProperty();
+			onErrorSeq.setKeyValue(sequence.getErrorHandler());
+			executeSetValueCommand(PROXY_SERVICE__ON_ERROR, onErrorSeq);
+		}
 
 		InMediator inMediator = getInMediator(sequence);
 		SequenceMediator inSequence = new SequenceMediator();
