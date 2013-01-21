@@ -57,7 +57,7 @@ public class LoadBalanceEndPointItemProvider
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
@@ -65,7 +65,7 @@ public class LoadBalanceEndPointItemProvider
 			super.getPropertyDescriptors(object);
 
 			addSessionPropertyDescriptor(object);
-			addFailoverPropertyDescriptor(object);
+			//addFailoverPropertyDescriptor(object);
 			addPolicyPropertyDescriptor(object);
 			addMemberPropertyDescriptor(object);
 		}
