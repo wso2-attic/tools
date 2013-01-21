@@ -58,8 +58,8 @@ public class ProxyServiceItemProvider
 	 * @generated NOT
 	 */
 	
+	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-
 		ProxyService proxy = (ProxyService) object;
 
 		if (itemPropertyDescriptors != null) {
@@ -132,6 +132,8 @@ public class ProxyServiceItemProvider
 				break;
 			}
 			}
+		} else{
+			addOnErrorPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -401,6 +403,28 @@ public class ProxyServiceItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the On Error feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOnErrorPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ProxyService_OnError_feature"),
+				 getString("_UI_ProxyService_OnError_description"),
+				 EsbPackage.Literals.PROXY_SERVICE__ON_ERROR,
+				 true,
+				 false,
+				 false,
+				 null,
+				 getString("_UI_BasicPropertyCategory"),
+				 null));
+	}
+
+	/**
 	 * This adds a property descriptor for the In Sequence Type feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -659,6 +683,7 @@ public class ProxyServiceItemProvider
 			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE__OUT_SEQUENCE_KEY);
 			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE__FAULT_SEQUENCE_KEY);
 			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE__WSDL_KEY);
+			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE__ON_ERROR);
 		}
 		return childrenFeatures;
 	}
@@ -747,6 +772,7 @@ public class ProxyServiceItemProvider
 			case EsbPackage.PROXY_SERVICE__OUT_SEQUENCE_KEY:
 			case EsbPackage.PROXY_SERVICE__FAULT_SEQUENCE_KEY:
 			case EsbPackage.PROXY_SERVICE__WSDL_KEY:
+			case EsbPackage.PROXY_SERVICE__ON_ERROR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -814,6 +840,11 @@ public class ProxyServiceItemProvider
 			(createChildParameter
 				(EsbPackage.Literals.PROXY_SERVICE__WSDL_KEY,
 				 EsbFactory.eINSTANCE.createRegistryKeyProperty()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.PROXY_SERVICE__ON_ERROR,
+				 EsbFactory.eINSTANCE.createRegistryKeyProperty()));
 	}
 
 	/**
@@ -831,7 +862,8 @@ public class ProxyServiceItemProvider
 			childFeature == EsbPackage.Literals.PROXY_SERVICE__IN_SEQUENCE_KEY ||
 			childFeature == EsbPackage.Literals.PROXY_SERVICE__OUT_SEQUENCE_KEY ||
 			childFeature == EsbPackage.Literals.PROXY_SERVICE__FAULT_SEQUENCE_KEY ||
-			childFeature == EsbPackage.Literals.PROXY_SERVICE__WSDL_KEY;
+			childFeature == EsbPackage.Literals.PROXY_SERVICE__WSDL_KEY ||
+			childFeature == EsbPackage.Literals.PROXY_SERVICE__ON_ERROR;
 
 		if (qualify) {
 			return getString
