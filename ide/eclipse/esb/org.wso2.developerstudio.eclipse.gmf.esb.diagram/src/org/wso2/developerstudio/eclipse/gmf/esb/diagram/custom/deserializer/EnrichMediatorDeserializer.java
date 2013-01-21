@@ -26,6 +26,7 @@ import org.apache.synapse.util.xpath.SynapseXPath;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.EnrichMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.EnrichSourceInlineType;
 import org.wso2.developerstudio.eclipse.gmf.esb.EnrichSourceType;
 import org.wso2.developerstudio.eclipse.gmf.esb.EnrichTargetAction;
 import org.wso2.developerstudio.eclipse.gmf.esb.EnrichTargetType;
@@ -90,11 +91,14 @@ public class EnrichMediatorDeserializer extends AbstractEsbNodeDeserializer<Abst
 				
 				//vishualEnrich.setSourceType(EnrichSourceType.INLINE);
 				executeSetValueCommand(ENRICH_MEDIATOR__SOURCE_TYPE, EnrichSourceType.INLINE);
-				
 				if(source.getInlineOMNode() != null){
 					
 					//vishualEnrich.setSourceXML(source.getInlineOMNode().toString());
 					executeSetValueCommand(ENRICH_MEDIATOR__SOURCE_XML, source.getInlineOMNode().toString());
+					executeSetValueCommand(ENRICH_MEDIATOR__INLINE_TYPE, EnrichSourceInlineType.CONTENT);
+				}else if(source.getInlineKey()!=null){
+					executeSetValueCommand(visualEnrichMediator.getInlineRegistryKey(),REGISTRY_KEY_PROPERTY__KEY_VALUE, source.getInlineKey());
+					executeSetValueCommand(ENRICH_MEDIATOR__INLINE_TYPE, EnrichSourceInlineType.KEY);
 				}
 				break;
 			
