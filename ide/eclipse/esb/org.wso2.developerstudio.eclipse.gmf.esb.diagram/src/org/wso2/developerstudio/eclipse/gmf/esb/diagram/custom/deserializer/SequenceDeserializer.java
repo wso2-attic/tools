@@ -138,6 +138,7 @@ public class SequenceDeserializer extends AbstractEsbNodeDeserializer<SequenceMe
 				}
 			}
 		} 
+		/* TOOLS-1510
 		LinkedList<Mediator> inMediatorList = new LinkedList<Mediator>(); 
 		inMediatorList.addAll(inMediator.getList());
 		Mediator last = null;
@@ -146,7 +147,7 @@ public class SequenceDeserializer extends AbstractEsbNodeDeserializer<SequenceMe
 		} 
 		if (last == null || !(last instanceof SendMediator)) {
 			inMediator.addChild(new SendMediator());
-		}
+		}*/
 		return inMediator;
 	}
 	
@@ -169,15 +170,17 @@ public class SequenceDeserializer extends AbstractEsbNodeDeserializer<SequenceMe
 				}
 			}
 		} 
+		/* TOOLS-1510 
 		LinkedList<Mediator> outMediatorList = new LinkedList<Mediator>(); 
 		outMediatorList.addAll(outMediator.getList());
+
 		Mediator last = null;
 		if(outMediatorList.size()>0){
 			last = outMediatorList.getLast();
 		} 
 		if (last == null || !(last instanceof SendMediator)) {
 			outMediator.addChild(new SendMediator());
-		}
+		}*/
 		return outMediator;
 	}
 	

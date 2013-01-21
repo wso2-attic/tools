@@ -164,7 +164,13 @@ public class Deserializer {
 		if(artifacts.size()>0){
 			AbstractEsbNodeDeserializer.connectMediatorFlows();
 		}
-		esbServer.setLockmode(false);
+		/*
+		 * Following code snippet is use to release the lock of automatic
+		 * connecting logic. we are commenting following code since we have
+		 * released the lock appropriately in our code.
+		 * Please make sure to release the lock appropriately in your code.
+		 */
+		//esbServer.setLockmode(false); 
 
 	}
 	
