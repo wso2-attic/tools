@@ -81,7 +81,17 @@ public class EnrichMediatorItemProvider
 			}
 			
 			case INLINE: {
-				addSourceXMLPropertyDescriptor(object);
+				addInlineTypePropertyDescriptor(object);
+				switch (enrichMediator.getInlineType()) {
+				case CONTENT: {
+					addSourceXMLPropertyDescriptor(object);
+					break;
+				}
+				case KEY: {
+					addInlineRegistryKeyPropertyDescriptor(object);
+					break;
+				}
+				}
 				break;
 			}
 		}
@@ -290,6 +300,50 @@ public class EnrichMediatorItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Inline Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addInlineTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EnrichMediator_inlineType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EnrichMediator_inlineType_feature", "_UI_EnrichMediator_type"),
+				 EsbPackage.Literals.ENRICH_MEDIATOR__INLINE_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 "Source",
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Inline Registry Key feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addInlineRegistryKeyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EnrichMediator_inlineRegistryKey_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EnrichMediator_inlineRegistryKey_feature", "_UI_EnrichMediator_type"),
+				 EsbPackage.Literals.ENRICH_MEDIATOR__INLINE_REGISTRY_KEY,
+				 true,
+				 false,
+				 false,
+				 null,
+				 "Source",
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -304,6 +358,7 @@ public class EnrichMediatorItemProvider
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(EsbPackage.Literals.ENRICH_MEDIATOR__SOURCE_XPATH);
 			childrenFeatures.add(EsbPackage.Literals.ENRICH_MEDIATOR__TARGET_XPATH);
+			childrenFeatures.add(EsbPackage.Literals.ENRICH_MEDIATOR__INLINE_REGISTRY_KEY);
 			childrenFeatures.add(EsbPackage.Literals.ENRICH_MEDIATOR__INPUT_CONNECTOR);
 			childrenFeatures.add(EsbPackage.Literals.ENRICH_MEDIATOR__OUTPUT_CONNECTOR);
 		}
@@ -369,10 +424,12 @@ public class EnrichMediatorItemProvider
 			case EsbPackage.ENRICH_MEDIATOR__TARGET_ACTION:
 			case EsbPackage.ENRICH_MEDIATOR__TARGET_TYPE:
 			case EsbPackage.ENRICH_MEDIATOR__TARGET_PROPERTY:
+			case EsbPackage.ENRICH_MEDIATOR__INLINE_TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case EsbPackage.ENRICH_MEDIATOR__SOURCE_XPATH:
 			case EsbPackage.ENRICH_MEDIATOR__TARGET_XPATH:
+			case EsbPackage.ENRICH_MEDIATOR__INLINE_REGISTRY_KEY:
 			case EsbPackage.ENRICH_MEDIATOR__INPUT_CONNECTOR:
 			case EsbPackage.ENRICH_MEDIATOR__OUTPUT_CONNECTOR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
@@ -402,6 +459,11 @@ public class EnrichMediatorItemProvider
 			(createChildParameter
 				(EsbPackage.Literals.ENRICH_MEDIATOR__TARGET_XPATH,
 				 EsbFactory.eINSTANCE.createNamespacedProperty()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.ENRICH_MEDIATOR__INLINE_REGISTRY_KEY,
+				 EsbFactory.eINSTANCE.createRegistryKeyProperty()));
 
 		newChildDescriptors.add
 			(createChildParameter
