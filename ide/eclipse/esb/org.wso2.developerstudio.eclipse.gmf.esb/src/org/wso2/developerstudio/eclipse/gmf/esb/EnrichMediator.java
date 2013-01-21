@@ -24,6 +24,8 @@ package org.wso2.developerstudio.eclipse.gmf.esb;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.EnrichMediator#getTargetType <em>Target Type</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.EnrichMediator#getTargetXpath <em>Target Xpath</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.EnrichMediator#getTargetProperty <em>Target Property</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.EnrichMediator#getInlineType <em>Inline Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.EnrichMediator#getInlineRegistryKey <em>Inline Registry Key</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.EnrichMediator#getInputConnector <em>Input Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.EnrichMediator#getOutputConnector <em>Output Connector</em>}</li>
  * </ul>
@@ -283,6 +285,61 @@ public interface EnrichMediator extends Mediator {
 	 * @generated
 	 */
 	void setTargetProperty(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Inline Type</b></em>' attribute.
+	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.gmf.esb.EnrichSourceInlineType}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Inline Type</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Inline Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EnrichSourceInlineType
+	 * @see #setInlineType(EnrichSourceInlineType)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getEnrichMediator_InlineType()
+	 * @model
+	 * @generated
+	 */
+	EnrichSourceInlineType getInlineType();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.EnrichMediator#getInlineType <em>Inline Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Inline Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EnrichSourceInlineType
+	 * @see #getInlineType()
+	 * @generated
+	 */
+	void setInlineType(EnrichSourceInlineType value);
+
+	/**
+	 * Returns the value of the '<em><b>Inline Registry Key</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Inline Registry Key</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Inline Registry Key</em>' containment reference.
+	 * @see #setInlineRegistryKey(RegistryKeyProperty)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getEnrichMediator_InlineRegistryKey()
+	 * @model containment="true"
+	 * @generated
+	 */
+	RegistryKeyProperty getInlineRegistryKey();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.EnrichMediator#getInlineRegistryKey <em>Inline Registry Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Inline Registry Key</em>' containment reference.
+	 * @see #getInlineRegistryKey()
+	 * @generated
+	 */
+	void setInlineRegistryKey(RegistryKeyProperty value);
 
 	/**
 	 * Returns the value of the '<em><b>Input Connector</b></em>' containment reference.

@@ -495,10 +495,17 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetProperty" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="target_property"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="inlineType" eType="#//EnrichSourceInlineType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inlineRegistryKey" eType="#//RegistryKeyProperty"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="inputConnector" eType="#//EnrichMediatorInputConnector"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outputConnector" eType="#//EnrichMediatorOutputConnector"
         containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="EnrichSourceInlineType">
+    <eLiterals name="CONTENT" literal="SourceXML"/>
+    <eLiterals name="KEY" value="1" literal="RegistryKey"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EnrichMediatorInputConnector" eSuperTypes="#//InputConnector"/>
   <eClassifiers xsi:type="ecore:EClass" name="EnrichMediatorOutputConnector" eSuperTypes="#//OutputConnector"/>

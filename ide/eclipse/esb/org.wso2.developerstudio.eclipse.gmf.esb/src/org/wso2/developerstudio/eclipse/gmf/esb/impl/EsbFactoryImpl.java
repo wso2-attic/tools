@@ -389,6 +389,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 				return createPropertyScopeFromString(eDataType, initialValue);
 			case EsbPackage.PROPERTY_VALUE_TYPE:
 				return createPropertyValueTypeFromString(eDataType, initialValue);
+			case EsbPackage.ENRICH_SOURCE_INLINE_TYPE:
+				return createEnrichSourceInlineTypeFromString(eDataType, initialValue);
 			case EsbPackage.ENRICH_SOURCE_TYPE:
 				return createEnrichSourceTypeFromString(eDataType, initialValue);
 			case EsbPackage.ENRICH_TARGET_ACTION:
@@ -565,6 +567,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 				return convertPropertyScopeToString(eDataType, instanceValue);
 			case EsbPackage.PROPERTY_VALUE_TYPE:
 				return convertPropertyValueTypeToString(eDataType, instanceValue);
+			case EsbPackage.ENRICH_SOURCE_INLINE_TYPE:
+				return convertEnrichSourceInlineTypeToString(eDataType, instanceValue);
 			case EsbPackage.ENRICH_SOURCE_TYPE:
 				return convertEnrichSourceTypeToString(eDataType, instanceValue);
 			case EsbPackage.ENRICH_TARGET_ACTION:
@@ -3954,6 +3958,26 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	 * @generated
 	 */
 	public String convertPropertyValueTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EnrichSourceInlineType createEnrichSourceInlineTypeFromString(EDataType eDataType, String initialValue) {
+		EnrichSourceInlineType result = EnrichSourceInlineType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertEnrichSourceInlineTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

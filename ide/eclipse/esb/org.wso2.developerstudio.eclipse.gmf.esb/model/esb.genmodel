@@ -101,6 +101,10 @@
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//PropertyValueType/LITERAL"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//PropertyValueType/EXPRESSION"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//EnrichSourceInlineType">
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//EnrichSourceInlineType/CONTENT"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//EnrichSourceInlineType/KEY"/>
+    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//EnrichSourceType">
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//EnrichSourceType/CUSTOM"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//EnrichSourceType/ENVELOPE"/>
@@ -711,6 +715,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EnrichMediator/targetType"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//EnrichMediator/targetXpath"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EnrichMediator/targetProperty"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EnrichMediator/inlineType"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//EnrichMediator/inlineRegistryKey"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//EnrichMediator/inputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//EnrichMediator/outputConnector"/>
     </genClasses>

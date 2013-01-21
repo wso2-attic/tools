@@ -130,6 +130,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EnqueueMediatorOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.EnrichMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.EnrichMediatorInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.EnrichMediatorOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.EnrichSourceInlineType;
 import org.wso2.developerstudio.eclipse.gmf.esb.EnrichSourceType;
 import org.wso2.developerstudio.eclipse.gmf.esb.EnrichTargetAction;
 import org.wso2.developerstudio.eclipse.gmf.esb.EnrichTargetType;
@@ -2532,6 +2533,13 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	private EEnum propertyValueTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum enrichSourceInlineTypeEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -5104,8 +5112,26 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getEnrichMediator_InlineType() {
+		return (EAttribute)enrichMediatorEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEnrichMediator_InlineRegistryKey() {
+		return (EReference)enrichMediatorEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getEnrichMediator_InputConnector() {
-		return (EReference)enrichMediatorEClass.getEStructuralFeatures().get(9);
+		return (EReference)enrichMediatorEClass.getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -5114,7 +5140,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	public EReference getEnrichMediator_OutputConnector() {
-		return (EReference)enrichMediatorEClass.getEStructuralFeatures().get(10);
+		return (EReference)enrichMediatorEClass.getEStructuralFeatures().get(12);
 	}
 
 	/**
@@ -12007,6 +12033,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getEnrichSourceInlineType() {
+		return enrichSourceInlineTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getEnrichSourceType() {
 		return enrichSourceTypeEEnum;
 	}
@@ -12916,6 +12951,8 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEAttribute(enrichMediatorEClass, ENRICH_MEDIATOR__TARGET_TYPE);
 		createEReference(enrichMediatorEClass, ENRICH_MEDIATOR__TARGET_XPATH);
 		createEAttribute(enrichMediatorEClass, ENRICH_MEDIATOR__TARGET_PROPERTY);
+		createEAttribute(enrichMediatorEClass, ENRICH_MEDIATOR__INLINE_TYPE);
+		createEReference(enrichMediatorEClass, ENRICH_MEDIATOR__INLINE_REGISTRY_KEY);
 		createEReference(enrichMediatorEClass, ENRICH_MEDIATOR__INPUT_CONNECTOR);
 		createEReference(enrichMediatorEClass, ENRICH_MEDIATOR__OUTPUT_CONNECTOR);
 
@@ -13907,6 +13944,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		propertyActionEEnum = createEEnum(PROPERTY_ACTION);
 		propertyScopeEEnum = createEEnum(PROPERTY_SCOPE);
 		propertyValueTypeEEnum = createEEnum(PROPERTY_VALUE_TYPE);
+		enrichSourceInlineTypeEEnum = createEEnum(ENRICH_SOURCE_INLINE_TYPE);
 		enrichSourceTypeEEnum = createEEnum(ENRICH_SOURCE_TYPE);
 		enrichTargetActionEEnum = createEEnum(ENRICH_TARGET_ACTION);
 		enrichTargetTypeEEnum = createEEnum(ENRICH_TARGET_TYPE);
@@ -14580,6 +14618,8 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEAttribute(getEnrichMediator_TargetType(), this.getEnrichTargetType(), "targetType", "CUSTOM", 0, 1, EnrichMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEnrichMediator_TargetXpath(), this.getNamespacedProperty(), null, "targetXpath", null, 0, 1, EnrichMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEnrichMediator_TargetProperty(), ecorePackage.getEString(), "targetProperty", "target_property", 0, 1, EnrichMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEnrichMediator_InlineType(), this.getEnrichSourceInlineType(), "inlineType", null, 0, 1, EnrichMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEnrichMediator_InlineRegistryKey(), this.getRegistryKeyProperty(), null, "inlineRegistryKey", null, 0, 1, EnrichMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEnrichMediator_InputConnector(), this.getEnrichMediatorInputConnector(), null, "inputConnector", null, 0, 1, EnrichMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEnrichMediator_OutputConnector(), this.getEnrichMediatorOutputConnector(), null, "outputConnector", null, 0, 1, EnrichMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -15648,6 +15688,10 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEEnum(propertyValueTypeEEnum, PropertyValueType.class, "PropertyValueType");
 		addEEnumLiteral(propertyValueTypeEEnum, PropertyValueType.LITERAL);
 		addEEnumLiteral(propertyValueTypeEEnum, PropertyValueType.EXPRESSION);
+
+		initEEnum(enrichSourceInlineTypeEEnum, EnrichSourceInlineType.class, "EnrichSourceInlineType");
+		addEEnumLiteral(enrichSourceInlineTypeEEnum, EnrichSourceInlineType.CONTENT);
+		addEEnumLiteral(enrichSourceInlineTypeEEnum, EnrichSourceInlineType.KEY);
 
 		initEEnum(enrichSourceTypeEEnum, EnrichSourceType.class, "EnrichSourceType");
 		addEEnumLiteral(enrichSourceTypeEEnum, EnrichSourceType.CUSTOM);

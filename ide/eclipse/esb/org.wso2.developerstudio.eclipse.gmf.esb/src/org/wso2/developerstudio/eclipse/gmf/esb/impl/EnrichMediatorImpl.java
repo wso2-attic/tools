@@ -6,6 +6,9 @@
  */
 package org.wso2.developerstudio.eclipse.gmf.esb.impl;
 
+import java.util.List;
+import java.util.Map;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -14,15 +17,20 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.wso2.developerstudio.eclipse.esb.core.utils.ESBMediaTypeConstants;
 import org.wso2.developerstudio.eclipse.gmf.esb.EnrichMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.EnrichMediatorInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.EnrichMediatorOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.EnrichSourceInlineType;
 import org.wso2.developerstudio.eclipse.gmf.esb.EnrichSourceType;
 import org.wso2.developerstudio.eclipse.gmf.esb.EnrichTargetAction;
 import org.wso2.developerstudio.eclipse.gmf.esb.EnrichTargetType;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
+import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
+import org.wso2.developerstudio.eclipse.platform.core.utils.CSProviderConstants;
+import org.wso2.developerstudio.eclipse.platform.core.utils.DeveloperStudioProviderUtils;
 
 /**
  * <!-- begin-user-doc -->
@@ -40,6 +48,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.EnrichMediatorImpl#getTargetType <em>Target Type</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.EnrichMediatorImpl#getTargetXpath <em>Target Xpath</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.EnrichMediatorImpl#getTargetProperty <em>Target Property</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.EnrichMediatorImpl#getInlineType <em>Inline Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.EnrichMediatorImpl#getInlineRegistryKey <em>Inline Registry Key</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.EnrichMediatorImpl#getInputConnector <em>Input Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.EnrichMediatorImpl#getOutputConnector <em>Output Connector</em>}</li>
  * </ul>
@@ -209,6 +219,36 @@ public class EnrichMediatorImpl extends MediatorImpl implements EnrichMediator {
 	protected String targetProperty = TARGET_PROPERTY_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getInlineType() <em>Inline Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInlineType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final EnrichSourceInlineType INLINE_TYPE_EDEFAULT = EnrichSourceInlineType.CONTENT;
+
+	/**
+	 * The cached value of the '{@link #getInlineType() <em>Inline Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInlineType()
+	 * @generated
+	 * @ordered
+	 */
+	protected EnrichSourceInlineType inlineType = INLINE_TYPE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getInlineRegistryKey() <em>Inline Registry Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInlineRegistryKey()
+	 * @generated
+	 * @ordered
+	 */
+	protected RegistryKeyProperty inlineRegistryKey;
+
+	/**
 	 * The cached value of the '{@link #getInputConnector() <em>Input Connector</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -249,6 +289,17 @@ public class EnrichMediatorImpl extends MediatorImpl implements EnrichMediator {
 		targetXpath.setPropertyName("xpath");
 		targetXpath.setPropertyValue(DEFAULT_XPATH_PROPERTY_VALUE);
 		setTargetXpath(targetXpath);
+		
+		// Inline Registry Key
+		inlineRegistryKey = EsbFactory.eINSTANCE.createRegistryKeyProperty();
+		DeveloperStudioProviderUtils.addFilter(
+				(Map<String, List<String>>) inlineRegistryKey.getFilters(),
+				CSProviderConstants.FILTER_MEDIA_TYPE,
+				ESBMediaTypeConstants.MEDIA_TYPE_SEQUENCE);
+		inlineRegistryKey.setPrettyName("InlineKey");
+		inlineRegistryKey.setKeyName("key");
+		inlineRegistryKey.setKeyValue(DEFAULT_SEQUENCE_REFERENCE_REGISTRY_KEY);
+		setInlineRegistryKey(inlineRegistryKey);
 	}
 
 	/**
@@ -500,6 +551,70 @@ public class EnrichMediatorImpl extends MediatorImpl implements EnrichMediator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EnrichSourceInlineType getInlineType() {
+		return inlineType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInlineType(EnrichSourceInlineType newInlineType) {
+		EnrichSourceInlineType oldInlineType = inlineType;
+		inlineType = newInlineType == null ? INLINE_TYPE_EDEFAULT : newInlineType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ENRICH_MEDIATOR__INLINE_TYPE, oldInlineType, inlineType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RegistryKeyProperty getInlineRegistryKey() {
+		return inlineRegistryKey;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetInlineRegistryKey(RegistryKeyProperty newInlineRegistryKey, NotificationChain msgs) {
+		RegistryKeyProperty oldInlineRegistryKey = inlineRegistryKey;
+		inlineRegistryKey = newInlineRegistryKey;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.ENRICH_MEDIATOR__INLINE_REGISTRY_KEY, oldInlineRegistryKey, newInlineRegistryKey);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInlineRegistryKey(RegistryKeyProperty newInlineRegistryKey) {
+		if (newInlineRegistryKey != inlineRegistryKey) {
+			NotificationChain msgs = null;
+			if (inlineRegistryKey != null)
+				msgs = ((InternalEObject)inlineRegistryKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.ENRICH_MEDIATOR__INLINE_REGISTRY_KEY, null, msgs);
+			if (newInlineRegistryKey != null)
+				msgs = ((InternalEObject)newInlineRegistryKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.ENRICH_MEDIATOR__INLINE_REGISTRY_KEY, null, msgs);
+			msgs = basicSetInlineRegistryKey(newInlineRegistryKey, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.ENRICH_MEDIATOR__INLINE_REGISTRY_KEY, newInlineRegistryKey, newInlineRegistryKey));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EnrichMediatorInputConnector getInputConnector() {
 		return inputConnector;
 	}
@@ -594,6 +709,8 @@ public class EnrichMediatorImpl extends MediatorImpl implements EnrichMediator {
 				return basicSetSourceXpath(null, msgs);
 			case EsbPackage.ENRICH_MEDIATOR__TARGET_XPATH:
 				return basicSetTargetXpath(null, msgs);
+			case EsbPackage.ENRICH_MEDIATOR__INLINE_REGISTRY_KEY:
+				return basicSetInlineRegistryKey(null, msgs);
 			case EsbPackage.ENRICH_MEDIATOR__INPUT_CONNECTOR:
 				return basicSetInputConnector(null, msgs);
 			case EsbPackage.ENRICH_MEDIATOR__OUTPUT_CONNECTOR:
@@ -629,6 +746,10 @@ public class EnrichMediatorImpl extends MediatorImpl implements EnrichMediator {
 				return getTargetXpath();
 			case EsbPackage.ENRICH_MEDIATOR__TARGET_PROPERTY:
 				return getTargetProperty();
+			case EsbPackage.ENRICH_MEDIATOR__INLINE_TYPE:
+				return getInlineType();
+			case EsbPackage.ENRICH_MEDIATOR__INLINE_REGISTRY_KEY:
+				return getInlineRegistryKey();
 			case EsbPackage.ENRICH_MEDIATOR__INPUT_CONNECTOR:
 				return getInputConnector();
 			case EsbPackage.ENRICH_MEDIATOR__OUTPUT_CONNECTOR:
@@ -672,6 +793,12 @@ public class EnrichMediatorImpl extends MediatorImpl implements EnrichMediator {
 				return;
 			case EsbPackage.ENRICH_MEDIATOR__TARGET_PROPERTY:
 				setTargetProperty((String)newValue);
+				return;
+			case EsbPackage.ENRICH_MEDIATOR__INLINE_TYPE:
+				setInlineType((EnrichSourceInlineType)newValue);
+				return;
+			case EsbPackage.ENRICH_MEDIATOR__INLINE_REGISTRY_KEY:
+				setInlineRegistryKey((RegistryKeyProperty)newValue);
 				return;
 			case EsbPackage.ENRICH_MEDIATOR__INPUT_CONNECTOR:
 				setInputConnector((EnrichMediatorInputConnector)newValue);
@@ -719,6 +846,12 @@ public class EnrichMediatorImpl extends MediatorImpl implements EnrichMediator {
 			case EsbPackage.ENRICH_MEDIATOR__TARGET_PROPERTY:
 				setTargetProperty(TARGET_PROPERTY_EDEFAULT);
 				return;
+			case EsbPackage.ENRICH_MEDIATOR__INLINE_TYPE:
+				setInlineType(INLINE_TYPE_EDEFAULT);
+				return;
+			case EsbPackage.ENRICH_MEDIATOR__INLINE_REGISTRY_KEY:
+				setInlineRegistryKey((RegistryKeyProperty)null);
+				return;
 			case EsbPackage.ENRICH_MEDIATOR__INPUT_CONNECTOR:
 				setInputConnector((EnrichMediatorInputConnector)null);
 				return;
@@ -756,6 +889,10 @@ public class EnrichMediatorImpl extends MediatorImpl implements EnrichMediator {
 				return targetXpath != null;
 			case EsbPackage.ENRICH_MEDIATOR__TARGET_PROPERTY:
 				return TARGET_PROPERTY_EDEFAULT == null ? targetProperty != null : !TARGET_PROPERTY_EDEFAULT.equals(targetProperty);
+			case EsbPackage.ENRICH_MEDIATOR__INLINE_TYPE:
+				return inlineType != INLINE_TYPE_EDEFAULT;
+			case EsbPackage.ENRICH_MEDIATOR__INLINE_REGISTRY_KEY:
+				return inlineRegistryKey != null;
 			case EsbPackage.ENRICH_MEDIATOR__INPUT_CONNECTOR:
 				return inputConnector != null;
 			case EsbPackage.ENRICH_MEDIATOR__OUTPUT_CONNECTOR:
@@ -789,6 +926,8 @@ public class EnrichMediatorImpl extends MediatorImpl implements EnrichMediator {
 		result.append(targetType);
 		result.append(", targetProperty: ");
 		result.append(targetProperty);
+		result.append(", inlineType: ");
+		result.append(inlineType);
 		result.append(')');
 		return result.toString();
 	}
