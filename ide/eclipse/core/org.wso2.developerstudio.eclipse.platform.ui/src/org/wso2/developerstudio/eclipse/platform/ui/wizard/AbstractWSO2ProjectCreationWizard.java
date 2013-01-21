@@ -190,7 +190,7 @@ public abstract class AbstractWSO2ProjectCreationWizard extends Wizard implement
 						
 						parentProject.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 					} catch (Exception e) {
-						e.printStackTrace();
+						log.error("Error occured while adding "+name+"  to "+parentProject.getName()+" module list.",e);
 					}
 				}
 			}
