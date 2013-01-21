@@ -333,12 +333,11 @@ public class MavenUtils {
 		
 	}
 	
-	private static void updateDependecyList(IProject project, MavenProject mavenProject) throws Exception {
+	public static void updateDependecyList(IProject project, MavenProject mavenProject) throws Exception {
 		List<Dependency> existingDependencies = mavenProject.getModel().getDependencies();
 //		List<String> newDependencyStrings=new ArrayList<String>();
 //		List<String> existingDependencyStrings=new ArrayList<String>();
 		List<Dependency> newDependencyList = new ArrayList<Dependency>();
-		boolean found=false;
 		
 		Map<String, JavaLibraryBean> dependencyInfoMap = JavaLibraryUtil.getDependencyInfoMap(project);
 		Map<String, String> map = ProjectDependencyConstants.DEPENDENCY_MAP;
@@ -366,6 +365,7 @@ public class MavenUtils {
 //		}
 		
 		for (Dependency newDependency : newDependencyList) {
+			boolean found=false;
 			for (Dependency existingDependency : existingDependencies) {
 				if(newDependency.getArtifactId().equals(existingDependency.getArtifactId()) &&
 						newDependency.getGroupId().equals(existingDependency.getGroupId()) &&

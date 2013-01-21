@@ -270,4 +270,22 @@
 			natureId="org.wso2.developerstudio.eclipse.mavenmultimodule.project.nature" icon="icons/maven-12x12.png">
 		</image>
 	</extension>
+	
+	<extension point="org.eclipse.ui.popupMenus">
+		<objectContribution objectClass="org.eclipse.core.resources.IProject"
+			id="org.wso2.developerstudio.eclipse.maven.contribution">
+
+			<menu id="org.wso2.developerstudio.eclipse.maven.contribution"
+				label="Maven" path="additions">
+				<separator name="group1" />
+			</menu>
+			<action
+				id="org.wso2.developerstudio.eclipse.maven.contribution.genpom"
+				label="Sync Project dependencies with pom.xml"
+				menubarPath="org.wso2.developerstudio.eclipse.maven.contribution/group1"
+				class="org.wso2.developerstudio.eclipse.platform.ui.action.SyncDependenciesAction"
+				enablesFor="1">
+			</action>
+		</objectContribution>
+	</extension>
 </plugin>
