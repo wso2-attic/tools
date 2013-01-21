@@ -217,6 +217,8 @@ public class EsbPropertySource extends PropertySource {
 			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
 		}else if(pkg.getProxyService_WsdlResources().equals(feature)){
 			return new ProxyServiceWSDLResourcePropertyDescriptor(object, itemPropertyDescriptor);
+		} else if(pkg.getProxyService_OnError().equals(feature)){
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
 		} else if (pkg.getScriptMediator_ScriptDynamicKey().equals(feature)) {
 			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
 		} else if (pkg.getScriptMediator_ScriptKeys().equals(feature)) {
