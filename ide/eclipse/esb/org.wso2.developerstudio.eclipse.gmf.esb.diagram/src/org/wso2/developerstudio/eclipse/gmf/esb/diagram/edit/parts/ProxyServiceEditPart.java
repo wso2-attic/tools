@@ -1,14 +1,12 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
 
 import java.beans.PropertyChangeListener;
+import java.util.ListIterator;
 
 import org.eclipse.draw2d.FigureCanvas;
-import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.GridData;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.LineBorder;
-import org.eclipse.draw2d.MarginBorder;
-import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
@@ -25,32 +23,28 @@ import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IBorderItemEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.BorderItemSelectionEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
-import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
-import org.eclipse.gmf.runtime.notation.Bounds;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.runtime.notation.impl.BoundsImpl;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractBaseFigureEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ProxyServiceGroupBox;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ShowPropertyViewEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.editpolicy.FeedbackIndicateDragDropEditPolicy;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.utils.MediatorFigureReverser;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.ProxyServiceCanonicalEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.ProxyServiceItemSemanticEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
+import org.wso2.developerstudio.eclipse.gmf.esb.ProxyService;
 
 /**
  * @generated NOT
@@ -71,6 +65,11 @@ public class ProxyServiceEditPart extends AbstractBaseFigureEditPart {
 	 * @generated
 	 */
 	protected IFigure primaryShape;
+	
+	/**
+	 * figure update status
+	 */
+	private boolean figureUpdated;
 
 	/**
 	 * @generated
@@ -137,6 +136,7 @@ public class ProxyServiceEditPart extends AbstractBaseFigureEditPart {
 						((BoundsImpl) notification.getNotifier()).getHeight());
 				FigureCanvas canvas = (FigureCanvas) getViewer().getControl();
 				canvas.getViewport().repaint();
+				
 			}
 		}
 	}
@@ -151,8 +151,45 @@ public class ProxyServiceEditPart extends AbstractBaseFigureEditPart {
 				if (this.getBounds().getLocation().x != 0 && this.getBounds().getLocation().y != 0) {
 					alignLeft();
 				}
+				if(!figureUpdated){
+					updateFigure();
+				}
+				
 			};
 		};
+	}
+	
+	private void updateFigure() {
+		ProxyService proxyService = (ProxyService) (((View) getModel()).getElement());
+		if (proxyService.isMainSequence()) {
+			OUTER:
+			for (ListIterator<?> i = getChildren().listIterator(); i.hasNext();) {
+				Object next = i.next();
+				if (next instanceof ProxyServiceContainerEditPart) {
+					ProxyServiceContainerEditPart proxyContainerEP = (ProxyServiceContainerEditPart) next;
+					for (ListIterator<?> j = proxyContainerEP.getChildren().listIterator(); 
+						j.hasNext();) {
+						Object nextChild = j.next();
+						if (nextChild instanceof ProxyServiceFaultContainerEditPart) {
+							ProxyServiceFaultContainerEditPart faultContainerEP = (ProxyServiceFaultContainerEditPart) nextChild;
+							IFigure faultContainerFigure = faultContainerEP.getFigure();
+
+							faultContainerFigure.setPreferredSize(new Dimension(0, 0));
+							faultContainerFigure.setMaximumSize(new Dimension(0, 0));
+							faultContainerFigure.setMinimumSize(new Dimension(0, 0));
+							faultContainerFigure.setVisible(false);
+
+							break OUTER;
+						}
+					}
+
+				}
+			}
+			if (faultInputnputConnectorFigure != null) {
+				faultInputnputConnectorFigure.setVisible(false);
+			}
+			figureUpdated=true;
+		}
 	}
 
 	private void alignLeft() {
