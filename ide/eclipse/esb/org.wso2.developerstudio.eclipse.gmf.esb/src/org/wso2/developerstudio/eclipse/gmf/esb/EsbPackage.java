@@ -677,13 +677,22 @@ public interface EsbPackage extends EPackage {
 	int PROXY_SERVICE__WSDL_RESOURCES = ESB_ELEMENT_FEATURE_COUNT + 28;
 
 	/**
+	 * The feature id for the '<em><b>On Error</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROXY_SERVICE__ON_ERROR = ESB_ELEMENT_FEATURE_COUNT + 29;
+
+	/**
 	 * The number of structural features of the '<em>Proxy Service</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROXY_SERVICE_FEATURE_COUNT = ESB_ELEMENT_FEATURE_COUNT + 29;
+	int PROXY_SERVICE_FEATURE_COUNT = ESB_ELEMENT_FEATURE_COUNT + 30;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyOutputConnectorImpl <em>Proxy Output Connector</em>}' class.
@@ -16977,6 +16986,17 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	EReference getProxyService_WsdlResources();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getOnError <em>On Error</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>On Error</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getOnError()
+	 * @see #getProxyService()
+	 * @generated
+	 */
+	EReference getProxyService_OnError();
+
+	/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyOutputConnector <em>Proxy Output Connector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -28189,6 +28209,14 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		 * @generated
 		 */
 		EReference PROXY_SERVICE__WSDL_RESOURCES = eINSTANCE.getProxyService_WsdlResources();
+
+		/**
+		 * The meta object literal for the '<em><b>On Error</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROXY_SERVICE__ON_ERROR = eINSTANCE.getProxyService_OnError();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyOutputConnectorImpl <em>Proxy Output Connector</em>}' class.

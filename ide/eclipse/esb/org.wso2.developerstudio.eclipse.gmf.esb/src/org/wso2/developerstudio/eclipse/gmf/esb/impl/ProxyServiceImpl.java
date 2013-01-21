@@ -81,6 +81,7 @@ import org.wso2.developerstudio.eclipse.platform.core.utils.DeveloperStudioProvi
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#getWsdlURL <em>Wsdl URL</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#getWsdlKey <em>Wsdl Key</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#getWsdlResources <em>Wsdl Resources</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#getOnError <em>On Error</em>}</li>
  * </ul>
  * </p>
  *
@@ -558,6 +559,16 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 	protected EList<ProxyWSDLResource> wsdlResources;
 
 	/**
+	 * The cached value of the '{@link #getOnError() <em>On Error</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOnError()
+	 * @generated
+	 * @ordered
+	 */
+	protected RegistryKeyProperty onError;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated NOT
@@ -591,6 +602,12 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 		faultSequenceKey.setKeyName("key");
 		faultSequenceKey.setKeyValue(DEFAULT_REGISTRY_KEY);
 		setFaultSequenceKey(faultSequenceKey);
+		
+		RegistryKeyProperty onErrorSequenceKey = EsbFactoryImpl.eINSTANCE.createRegistryKeyProperty();
+		onErrorSequenceKey.setPrettyName("On Error Sequence Reference");
+		onErrorSequenceKey.setKeyName("key");
+		onErrorSequenceKey.setKeyValue("");
+		setOnError(onErrorSequenceKey);
 		
 	}
 
@@ -1368,6 +1385,49 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public RegistryKeyProperty getOnError() {
+		return onError;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetOnError(RegistryKeyProperty newOnError, NotificationChain msgs) {
+		RegistryKeyProperty oldOnError = onError;
+		onError = newOnError;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.PROXY_SERVICE__ON_ERROR, oldOnError, newOnError);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOnError(RegistryKeyProperty newOnError) {
+		if (newOnError != onError) {
+			NotificationChain msgs = null;
+			if (onError != null)
+				msgs = ((InternalEObject)onError).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.PROXY_SERVICE__ON_ERROR, null, msgs);
+			if (newOnError != null)
+				msgs = ((InternalEObject)newOnError).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.PROXY_SERVICE__ON_ERROR, null, msgs);
+			msgs = basicSetOnError(newOnError, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.PROXY_SERVICE__ON_ERROR, newOnError, newOnError));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -1394,6 +1454,8 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 				return basicSetWsdlKey(null, msgs);
 			case EsbPackage.PROXY_SERVICE__WSDL_RESOURCES:
 				return ((InternalEList<?>)getWsdlResources()).basicRemove(otherEnd, msgs);
+			case EsbPackage.PROXY_SERVICE__ON_ERROR:
+				return basicSetOnError(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -1465,6 +1527,8 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 				return getWsdlKey();
 			case EsbPackage.PROXY_SERVICE__WSDL_RESOURCES:
 				return getWsdlResources();
+			case EsbPackage.PROXY_SERVICE__ON_ERROR:
+				return getOnError();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1569,6 +1633,9 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 				getWsdlResources().clear();
 				getWsdlResources().addAll((Collection<? extends ProxyWSDLResource>)newValue);
 				return;
+			case EsbPackage.PROXY_SERVICE__ON_ERROR:
+				setOnError((RegistryKeyProperty)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -1669,6 +1736,9 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 			case EsbPackage.PROXY_SERVICE__WSDL_RESOURCES:
 				getWsdlResources().clear();
 				return;
+			case EsbPackage.PROXY_SERVICE__ON_ERROR:
+				setOnError((RegistryKeyProperty)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1740,6 +1810,8 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 				return wsdlKey != null;
 			case EsbPackage.PROXY_SERVICE__WSDL_RESOURCES:
 				return wsdlResources != null && !wsdlResources.isEmpty();
+			case EsbPackage.PROXY_SERVICE__ON_ERROR:
+				return onError != null;
 		}
 		return super.eIsSet(featureID);
 	}

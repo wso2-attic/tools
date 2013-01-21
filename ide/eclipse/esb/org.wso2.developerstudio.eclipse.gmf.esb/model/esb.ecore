@@ -118,6 +118,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="wsdlResources" upperBound="-1"
         eType="#//ProxyWSDLResource" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="OnError" eType="#//RegistryKeyProperty"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="SequenceType">
     <eLiterals name="Anonymous"/>

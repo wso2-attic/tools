@@ -3573,6 +3573,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getProxyService_OnError() {
+		return (EReference)proxyServiceEClass.getEStructuralFeatures().get(29);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getProxyOutputConnector() {
 		return proxyOutputConnectorEClass;
 	}
@@ -12726,6 +12735,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEAttribute(proxyServiceEClass, PROXY_SERVICE__WSDL_URL);
 		createEReference(proxyServiceEClass, PROXY_SERVICE__WSDL_KEY);
 		createEReference(proxyServiceEClass, PROXY_SERVICE__WSDL_RESOURCES);
+		createEReference(proxyServiceEClass, PROXY_SERVICE__ON_ERROR);
 
 		proxyOutputConnectorEClass = createEClass(PROXY_OUTPUT_CONNECTOR);
 
@@ -14383,6 +14393,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEAttribute(getProxyService_WsdlURL(), ecorePackage.getEString(), "wsdlURL", "http://default/wsdl/url", 0, 1, ProxyService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProxyService_WsdlKey(), this.getRegistryKeyProperty(), null, "wsdlKey", null, 0, 1, ProxyService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProxyService_WsdlResources(), this.getProxyWSDLResource(), null, "wsdlResources", null, 0, -1, ProxyService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProxyService_OnError(), this.getRegistryKeyProperty(), null, "OnError", null, 0, 1, ProxyService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(proxyOutputConnectorEClass, ProxyOutputConnector.class, "ProxyOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

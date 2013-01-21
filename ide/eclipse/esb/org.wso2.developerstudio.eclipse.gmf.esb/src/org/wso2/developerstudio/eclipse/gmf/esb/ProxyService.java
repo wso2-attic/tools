@@ -46,6 +46,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getWsdlURL <em>Wsdl URL</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getWsdlKey <em>Wsdl Key</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getWsdlResources <em>Wsdl Resources</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getOnError <em>On Error</em>}</li>
  * </ul>
  * </p>
  *
@@ -796,5 +797,31 @@ public interface ProxyService extends EsbElement {
 	 * @generated
 	 */
 	EList<ProxyWSDLResource> getWsdlResources();
+
+	/**
+	 * Returns the value of the '<em><b>On Error</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>On Error</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>On Error</em>' containment reference.
+	 * @see #setOnError(RegistryKeyProperty)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getProxyService_OnError()
+	 * @model containment="true"
+	 * @generated
+	 */
+	RegistryKeyProperty getOnError();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getOnError <em>On Error</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>On Error</em>' containment reference.
+	 * @see #getOnError()
+	 * @generated
+	 */
+	void setOnError(RegistryKeyProperty value);
 
 } // ProxyService
