@@ -63,6 +63,7 @@ import org.wso2.developerstudio.eclipse.platform.ui.editor.Refreshable;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.pages.MavenDetailsPage;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.pages.ProjectOptionsDataPage;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.pages.ProjectOptionsPage;
+import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 
 public abstract class AbstractWSO2ProjectCreationWizard extends Wizard implements INewWizard,
                                                                       IExecutableExtension {
@@ -160,8 +161,40 @@ public abstract class AbstractWSO2ProjectCreationWizard extends Wizard implement
 			newProjectDescription.setLocationURI(location.toURI());
 			project.create(newProjectDescription, null);
 			project.open(null);
+			updateMMMPModuleList(name, location, root);
 		}
+		
 		return project;
+	}
+
+	/**
+	 * This method is used to update the module list of Maven multi module project upon a project creation under MMM project.
+	 * Fixed TOOLS-1492
+	 * @param name
+	 * @param location
+	 * @param root
+	 * @throws CoreException
+	 */
+	private void updateMMMPModuleList(String name, File location,
+			IWorkspaceRoot root) throws CoreException {
+		IResource resource = root.findMember(FileUtils.getRelativePath(root.getLocation().toFile(), location.getParentFile()));
+		if(resource instanceof IProject){
+			IProject parentProject = (IProject)resource;
+			if(parentProject.isOpen() && parentProject.hasNature("org.wso2.developerstudio.eclipse.mavenmultimodule.project.nature")){
+				IFile pomFile = parentProject.getFile("pom.xml");
+				if(pomFile.exists()){
+					try {
+						MavenProject mavenProject = MavenUtils.getMavenProject(pomFile.getLocation().toFile());
+						mavenProject.getModules().add(name);
+						MavenUtils.saveMavenProject(mavenProject, pomFile.getLocation().toFile());
+						
+						parentProject.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		}
 	}
 
 	public void createPOM(File pomLocation) throws Exception {
