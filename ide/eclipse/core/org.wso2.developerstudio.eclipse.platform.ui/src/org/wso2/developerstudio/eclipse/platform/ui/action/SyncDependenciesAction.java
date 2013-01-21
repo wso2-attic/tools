@@ -20,7 +20,6 @@ public class SyncDependenciesAction implements IObjectActionDelegate {
 	private IProject project;
 	private IFile mavenProjectFile;
 
-	@Override
 	public void run(IAction arg0) {
 		MavenProject mavenProject;
 		try {
@@ -34,7 +33,6 @@ public class SyncDependenciesAction implements IObjectActionDelegate {
 		}
 	}
 
-	@Override
 	public void selectionChanged(IAction arg0, ISelection arg1) {
 		if (arg1 instanceof TreeSelection) {
 			TreeSelection treeSelection = (TreeSelection) arg1;
@@ -52,7 +50,6 @@ public class SyncDependenciesAction implements IObjectActionDelegate {
 		}
 	}
 
-	@Override
 	public void setActivePart(IAction arg0, IWorkbenchPart arg1) {
 		
 	}
