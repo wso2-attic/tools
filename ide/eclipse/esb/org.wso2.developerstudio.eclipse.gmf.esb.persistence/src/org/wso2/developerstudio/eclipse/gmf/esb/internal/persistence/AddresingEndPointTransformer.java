@@ -58,21 +58,14 @@ public class AddresingEndPointTransformer extends AbstractEndpointTransformer{
 				information.setParentSequence(information.getCurrentReferredSequence());
 			}
 		}
-		
-		try{
-			List<EsbNode> transformedMediators = information.getTransformedMediators();
-			EsbNode nextElement=(EsbNode) visualEP.getOutputConnector().getOutgoingLink().getTarget().eContainer();
-			if(transformedMediators.contains(nextElement)){
+
+		List<EsbNode> transformedMediators = information.getTransformedMediators();
+		if (visualEP.getOutputConnector() != null && visualEP.getOutputConnector().getOutgoingLink()!=null) {
+			EsbNode nextElement = (EsbNode) visualEP.getOutputConnector().getOutgoingLink().getTarget().eContainer();
+			if (transformedMediators.contains(nextElement)) {
 				return;
 			}
 			transformedMediators.add(nextElement);
-		}
-		catch(NullPointerException e){
-			MessageDialog
-			.openError(
-					Display.getCurrent().getActiveShell(),
-					"Diagram Incomplete ! ",
-					"Output connector of an Endpoint must be connected to an Recieve Sequence or Out Sequence.");
 		}
 
 		// Transform endpoint output data flow.

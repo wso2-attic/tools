@@ -85,24 +85,16 @@ public class DefaultEndPointTransformer extends AbstractEndpointTransformer {
 			}
 			}
 		}
-		
-		try{
-			List<EsbNode> transformedMediators = info.getTransformedMediators();
-			if(visualEP.getOutputConnector()!=null){
-				EsbNode nextElement=(EsbNode) visualEP.getOutputConnector().getOutgoingLink().getTarget().eContainer();
-				if(transformedMediators.contains(nextElement)){
-					return;
-				}
-				transformedMediators.add(nextElement);
+
+		List<EsbNode> transformedMediators = info.getTransformedMediators();
+		if (visualEP.getOutputConnector() != null && visualEP.getOutputConnector().getOutgoingLink() != null) {
+			EsbNode nextElement = (EsbNode) visualEP.getOutputConnector().getOutgoingLink().getTarget().eContainer();
+			if (transformedMediators.contains(nextElement)) {
+				return;
 			}
+			transformedMediators.add(nextElement);
 		}
-		catch(NullPointerException e){
-			MessageDialog
-			.openError(
-					Display.getCurrent().getActiveShell(),
-					"Diagram Incomplete ! ",
-					"Output connector of an Endpoint must be connected to an Recieve Sequence or Out Sequence.");
-		}
+
 
 		// Transform endpoint output data flow.
 		// TODO: find out why this was commented out.

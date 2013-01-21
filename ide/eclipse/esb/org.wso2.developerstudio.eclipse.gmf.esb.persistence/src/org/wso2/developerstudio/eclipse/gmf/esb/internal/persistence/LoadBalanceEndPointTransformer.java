@@ -101,24 +101,16 @@ public class LoadBalanceEndPointTransformer extends AbstractEndpointTransformer{
 			}
 			}
 		}
-		
-		try{
-			List<EsbNode> transformedMediators = information.getTransformedMediators();
-			if(visualEndPoint.getOutputConnector()!=null){
-				EsbNode nextElement=(EsbNode) visualEndPoint.getWestOutputConnector().getOutgoingLink().getTarget().eContainer();
-				if(transformedMediators.contains(nextElement)){
-					return;
-				}
-				transformedMediators.add(nextElement);
+
+		List<EsbNode> transformedMediators = information.getTransformedMediators();
+		if (visualEndPoint.getOutputConnector() != null && visualEndPoint.getWestOutputConnector().getOutgoingLink()!=null) {
+			EsbNode nextElement = (EsbNode) visualEndPoint.getWestOutputConnector().getOutgoingLink().getTarget().eContainer();
+			if (transformedMediators.contains(nextElement)) {
+				return;
 			}
+			transformedMediators.add(nextElement);
 		}
-		catch(NullPointerException e){
-			MessageDialog
-			.openError(
-					Display.getCurrent().getActiveShell(),
-					"Diagram Incomplete ! ",
-					"Output connector of an Endpoint must be connected to an Recieve Sequence or Out Sequence.");
-		}
+
 		
 		
 /*		information.getParentSequence().addChild(sendMediator);

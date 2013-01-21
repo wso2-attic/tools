@@ -66,24 +66,16 @@ public class NamedEndPointTransformer extends AbstractEsbNodeTransformer{
 				information.isEndPointFound=true;
 				information.firstEndPoint=visualEndPoint;
 			}
-		
-		try{
-			List<EsbNode> transformedMediators = information.getTransformedMediators();
-			if(visualEndPoint.getOutputConnector()!=null){
-				EsbNode nextElement=(EsbNode) visualEndPoint.getOutputConnector().getOutgoingLink().getTarget().eContainer();
-				if(transformedMediators.contains(nextElement)){
-					return;
-				}
-				transformedMediators.add(nextElement);
+
+		List<EsbNode> transformedMediators = information.getTransformedMediators();
+		if (visualEndPoint.getOutputConnector() != null && visualEndPoint.getOutputConnector().getOutgoingLink()!=null) {
+			EsbNode nextElement = (EsbNode) visualEndPoint.getOutputConnector().getOutgoingLink().getTarget().eContainer();
+			if (transformedMediators.contains(nextElement)) {
+				return;
 			}
+			transformedMediators.add(nextElement);
 		}
-		catch(NullPointerException e){
-			MessageDialog
-			.openError(
-					Display.getCurrent().getActiveShell(),
-					"Diagram Incomplete ! ",
-					"Output connector of an Endpoint must be connected to an Recieve Sequence or Out Sequence.");
-		}
+
 			
 		doTransform(information, visualEndPoint.getOutputConnector());
 		
