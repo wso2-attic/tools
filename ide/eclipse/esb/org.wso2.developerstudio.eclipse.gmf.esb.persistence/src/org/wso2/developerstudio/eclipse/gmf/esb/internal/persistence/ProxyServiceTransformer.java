@@ -23,6 +23,7 @@ import java.util.List;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMNode;
 import org.apache.axiom.om.util.AXIOMUtil;
+import org.apache.commons.lang.StringUtils;
 import org.apache.synapse.config.SynapseConfigUtils;
 import org.apache.synapse.core.axis2.ProxyService;
 import org.apache.synapse.endpoints.Endpoint;
@@ -60,6 +61,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.PropertyMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyWSDLResource;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyWsdlType;
 import org.wso2.developerstudio.eclipse.gmf.esb.RMSequenceMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.ScriptMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.SendMediator;
@@ -395,6 +397,13 @@ public class ProxyServiceTransformer extends AbstractEsbNodeTransformer {
 
 			org.apache.synapse.mediators.base.SequenceMediator sequence =new SequenceMediator();
 			sequence.setName("main");
+			
+			RegistryKeyProperty onErrorSeq = visualService.getOnError();
+			if(onErrorSeq!=null){
+				if(!StringUtils.isBlank(onErrorSeq.getKeyValue())){
+					sequence.setErrorHandler(onErrorSeq.getKeyValue());
+				}
+			}
 			
 			InMediator inMediator=new InMediator();
 			OutMediator outMediator=new OutMediator();
