@@ -599,10 +599,7 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
        // createModel(editorInput);
        super.init(site, editorInput);
        String name = editorInput.getName();
-       name = name.replaceAll("^(endpoint_|localentry_|proxy_|sequence_|task_|template_|api_)", "");
-       name = name.replaceAll("esb_diagram$", "xml");
-       setTitle(name);
-       
+       setTitle(name.substring(name.indexOf('_')+1,name.length()-"esb_diagram".length())+"xml");
     }    
     
 
