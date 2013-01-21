@@ -287,6 +287,11 @@ public class LibraryArtifactCreationWizard extends
 			
 			ProjectUtils.addNatureToProject(project, false,
 					Constants.LIBRARY_PROJECT_NATURE);
+			MavenUtils
+			.updateWithMavenEclipsePlugin(
+					pomfile,
+					new String[] { },
+					new String[] { Constants.LIBRARY_PROJECT_NATURE });
 			project.refreshLocal(IResource.DEPTH_INFINITE,
 					new NullProgressMonitor());
 			refreshDistProjects();

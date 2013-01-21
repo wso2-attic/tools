@@ -30,6 +30,7 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.ide.IDE;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
+import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
 import org.wso2.developerstudio.eclipse.utils.archive.ArchiveManipulator;
 import org.wso2.developerstudio.eclipse.utils.data.ITemporaryFileTag;
@@ -133,6 +134,17 @@ public class BPELProjectCreationWizard extends AbstractWSO2ProjectCreationWizard
 													"org.eclipse.wst.common.project.facet.core.builder", 
 													"org.eclipse.wst.validation.validationbuilder",
 													"org.eclipse.bpel.validator.builder");
+		MavenUtils
+		.updateWithMavenEclipsePlugin(
+				pomfile,
+				new String[] { "org.eclipse.wst.common.project.facet.core.builder", 
+						"org.eclipse.wst.validation.validationbuilder",
+						"org.eclipse.bpel.validator.builder" },
+				new String[] {
+						"org.eclipse.jem.workbench.JavaEMFNature",
+						"org.eclipse.wst.common.modulecore.ModuleCoreNature",
+						"org.eclipse.wst.common.project.facet.core.nature",
+                        "org.wso2.developerstudio.eclipse.bpel.project.nature" });
 	}
 	
 	

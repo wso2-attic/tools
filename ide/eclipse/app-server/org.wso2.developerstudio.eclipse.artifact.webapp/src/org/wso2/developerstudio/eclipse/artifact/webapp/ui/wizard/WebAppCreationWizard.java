@@ -20,6 +20,7 @@ import org.wso2.developerstudio.eclipse.artifact.webapp.model.WebAppModel;
 import org.wso2.developerstudio.eclipse.artifact.webapp.model.WebXMLModel;
 import org.wso2.developerstudio.eclipse.artifact.webapp.utils.WebAppImageUtils;
 import org.wso2.developerstudio.eclipse.artifact.webapp.utils.WebAppTemplateUtils;
+import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
 import org.wso2.developerstudio.eclipse.utils.data.ITemporaryFileTag;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
@@ -27,6 +28,7 @@ import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 import org.wso2.developerstudio.eclipse.utils.wst.WebUtils;
 
 public class WebAppCreationWizard extends AbstractWSO2ProjectCreationWizard {
+	private static final String WEBAPP_PROJECT_NATURE = "org.wso2.developerstudio.eclipse.webapp.project.nature";
 	private WebAppModel webAppModel;
 	private IProject project;
 
@@ -66,7 +68,14 @@ public class WebAppCreationWizard extends AbstractWSO2ProjectCreationWizard {
 			createPOM(pomfile);
 			ProjectUtils.addNatureToProject(project,
 											false,
-			                                "org.wso2.developerstudio.eclipse.webapp.project.nature");
+			                                WEBAPP_PROJECT_NATURE);
+			MavenUtils
+			.updateWithMavenEclipsePlugin(
+					pomfile,
+					new String[] { JDT_BUILD_COMMAND },
+					new String[] {
+							WEBAPP_PROJECT_NATURE,
+							JDT_PROJECT_NATURE });
 			getModel().addToWorkingSet(project);
 			project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 			try {

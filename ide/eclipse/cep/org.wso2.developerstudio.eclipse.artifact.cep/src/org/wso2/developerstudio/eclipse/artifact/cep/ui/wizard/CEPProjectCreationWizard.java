@@ -38,6 +38,7 @@ import org.wso2.developerstudio.eclipse.artifact.cep.utils.CEPTemplateUtils;
 
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
+import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.platform.core.utils.XMLUtil;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
 import org.wso2.developerstudio.eclipse.utils.data.ITemporaryFileTag;
@@ -45,6 +46,7 @@ import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 
 public class CEPProjectCreationWizard extends AbstractWSO2ProjectCreationWizard {
+	private static final String CEP_PROJECT_NATURE = "org.wso2.developerstudio.eclipse.cep.project.nature";
 	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
 	private final CEPModel cepModel;
 	private static final String CEP_WIZARD_WINDOW_TITLE = "Create New CEP Project";
@@ -93,7 +95,12 @@ public class CEPProjectCreationWizard extends AbstractWSO2ProjectCreationWizard 
 						"cep/bucket");
 				createPOM(pomfile);
 				ProjectUtils.addNatureToProject(project, false,
-						"org.wso2.developerstudio.eclipse.cep.project.nature");
+						CEP_PROJECT_NATURE);
+				MavenUtils
+				.updateWithMavenEclipsePlugin(
+						pomfile,
+						new String[] {  },
+						new String[] { CEP_PROJECT_NATURE });
 				getModel().addToWorkingSet(project);
 				project.refreshLocal(IResource.DEPTH_INFINITE,
 						new NullProgressMonitor());

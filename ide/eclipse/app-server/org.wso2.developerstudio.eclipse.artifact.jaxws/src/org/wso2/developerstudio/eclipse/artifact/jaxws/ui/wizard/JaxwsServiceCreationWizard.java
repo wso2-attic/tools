@@ -37,6 +37,7 @@ import org.wso2.developerstudio.eclipse.artifact.jaxws.utils.JaxUtil;
 import org.wso2.developerstudio.eclipse.artifact.jaxws.utils.JaxWSImageUtils;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
+import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
 import org.wso2.developerstudio.eclipse.utils.jdt.JavaUtils;
 import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
@@ -51,6 +52,7 @@ import org.eclipse.jdt.launching.IVMInstall;
 import org.eclipse.jdt.launching.JavaRuntime;
 
 public class JaxwsServiceCreationWizard  extends AbstractWSO2ProjectCreationWizard{
+	private static final String JAXWS_PROJECT_NATURE = "org.wso2.developerstudio.eclipse.jaxws.project.nature";
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	private JaxwsModel jaxwsModel;
 	IProject project;
@@ -113,7 +115,14 @@ public class JaxwsServiceCreationWizard  extends AbstractWSO2ProjectCreationWiza
 			createPOM(pomfile);
 			ProjectUtils.addNatureToProject(project,
 			                                false,
-											"org.wso2.developerstudio.eclipse.jaxws.project.nature");
+											JAXWS_PROJECT_NATURE);
+			MavenUtils
+			.updateWithMavenEclipsePlugin(
+					pomfile,
+					new String[] { JDT_BUILD_COMMAND },
+					new String[] {
+							JAXWS_PROJECT_NATURE,
+							JDT_PROJECT_NATURE });
 			getModel().addToWorkingSet(project);
 			project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 			refreshDistProjects();

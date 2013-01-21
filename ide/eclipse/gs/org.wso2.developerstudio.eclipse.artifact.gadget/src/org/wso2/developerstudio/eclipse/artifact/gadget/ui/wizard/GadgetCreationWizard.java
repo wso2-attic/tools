@@ -30,6 +30,7 @@ import org.wso2.developerstudio.eclipse.utils.jdt.JavaUtils;
 import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 
 public class GadgetCreationWizard extends AbstractWSO2ProjectCreationWizard {
+	private static final String GADGET_PROJECT_NATURE = "org.wso2.developerstudio.eclipse.artifact.gadget.project.nature";
 	private GadgetModel gadgetModel;
     private  IProject project;
     private static final String GADGET_CONF_FILE = "gadget-conf.xml";
@@ -90,7 +91,12 @@ public class GadgetCreationWizard extends AbstractWSO2ProjectCreationWizard {
 		}
 		project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 		ProjectUtils.addNatureToProject(project,false,
-		                       "org.wso2.developerstudio.eclipse.artifact.gadget.project.nature");
+		                       GADGET_PROJECT_NATURE);
+		MavenUtils
+		.updateWithMavenEclipsePlugin(
+				pomfile,
+				new String[] { },
+				new String[] { GADGET_PROJECT_NATURE });
 		getModel().addToWorkingSet(project);
 		project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 		

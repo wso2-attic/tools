@@ -71,7 +71,9 @@ public abstract class AbstractWSO2ProjectCreationWizard extends Wizard implement
 	private ProjectDataModel model;
 	private IConfigurationElement configElement;
 	private ISelection currentSelection;
-	final String DIST_EDITOR_ID = "org.wso2.developerstudio.eclipse.distribution.project.editor.DistProjectEditor";
+	protected final static String DIST_EDITOR_ID = "org.wso2.developerstudio.eclipse.distribution.project.editor.DistProjectEditor";
+	protected final static String JDT_BUILD_COMMAND="org.eclipse.jdt.core.javabuilder";
+	protected final static String JDT_PROJECT_NATURE="org.eclipse.jdt.core.javanature";
     private Map<String,Text> map = new HashMap<String,Text>();
 	
 	public void setMap(String label, Text txt) {

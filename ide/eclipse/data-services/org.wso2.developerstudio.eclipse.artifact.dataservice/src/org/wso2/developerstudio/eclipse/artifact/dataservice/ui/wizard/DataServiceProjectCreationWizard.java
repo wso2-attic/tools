@@ -39,6 +39,7 @@ import org.wso2.developerstudio.eclipse.artifact.dataservice.utils.DataServiceIm
 import org.wso2.developerstudio.eclipse.artifact.dataservice.utils.DataServiceTemplateUtils;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
+import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.platform.core.utils.XMLUtil;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.pages.MavenDetailsPage;
@@ -48,6 +49,7 @@ import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 
 public class DataServiceProjectCreationWizard extends AbstractWSO2ProjectCreationWizard {
+	private static final String DS_PROJECT_NATURE = "org.wso2.developerstudio.eclipse.ds.project.nature";
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	private final DataServiceModel dsModel;
 	private static final String DS_WIZARD_WINDOW_TITLE = "Create New Data Service Project";
@@ -87,8 +89,12 @@ public class DataServiceProjectCreationWizard extends AbstractWSO2ProjectCreatio
 			createPOM(pomfile);
 			ProjectUtils.addNatureToProject(project,
 											false,
-			                                "org.wso2.developerstudio.eclipse.ds.project.nature");
-		
+			                                DS_PROJECT_NATURE);
+			MavenUtils
+			.updateWithMavenEclipsePlugin(
+					pomfile,
+					new String[] {  },
+					new String[] { DS_PROJECT_NATURE});
 			getModel().addToWorkingSet(project);
 			project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 			try {

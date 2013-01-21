@@ -424,6 +424,25 @@ public class MavenUtils {
 		plugin.addExecution(pluginExecution);		
 	}
 	
+	public static void updateWithMavenEclipsePlugin(File pomLocation, String[] buildCommands, String[] projectNatures) throws Exception{
+		Plugin plugin;
+		MavenProject mavenProject = MavenUtils.getMavenProject(pomLocation);
+		plugin = MavenUtils.createPluginEntry(mavenProject, "org.apache.maven.plugins", "maven-eclipse-plugin", "2.9", false);
+		Xpp3Dom configurationNode = createMainConfigurationNode();
+		Xpp3Dom buildCommandsNode = createXpp3Node(configurationNode, "buildcommands");
+		for (String string : buildCommands) {
+			Xpp3Dom buildCommand = createXpp3Node(buildCommandsNode, "buildcommand");
+			buildCommand.setValue(string);
+		}
+		Xpp3Dom projectNaturesNode = createXpp3Node(configurationNode, "projectnatures");
+		for (String string : projectNatures) {
+			Xpp3Dom projectNature = createXpp3Node(projectNaturesNode, "projectnature");
+			projectNature.setValue(string);
+		}
+		plugin.setConfiguration(configurationNode);	
+		MavenUtils.saveMavenProject(mavenProject, pomLocation);
+	}
+	
 	public static void addMavenBundlePluginForCarbonUI(MavenProject mavenProject, IProject eclipseProject){
 //		Plugin plugin;
 //		PluginExecution pluginExecution;

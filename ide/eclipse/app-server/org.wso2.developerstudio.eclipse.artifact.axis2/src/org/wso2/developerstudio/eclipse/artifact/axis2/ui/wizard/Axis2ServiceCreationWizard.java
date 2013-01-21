@@ -20,6 +20,7 @@ import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.util.Arrays;
 
 import org.apache.axis2.wsdl.WSDL2Java;
 import org.eclipse.core.resources.IFile;
@@ -50,6 +51,7 @@ import org.wso2.developerstudio.eclipse.artifact.axis2.utils.Axis2ParametersUtil
 import org.wso2.developerstudio.eclipse.libraries.utils.LibraryUtils;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
+import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.pages.MavenDetailsPage;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.pages.ProjectOptionsDataPage;
@@ -59,6 +61,8 @@ import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 
 public class Axis2ServiceCreationWizard  extends AbstractWSO2ProjectCreationWizard{
 	
+	private static final String AXIS2_PROJECT_NATURE = "org.wso2.developerstudio.eclipse.axis2.project.nature";
+
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	
 	private Axis2Model axis2Model;
@@ -93,7 +97,14 @@ public class Axis2ServiceCreationWizard  extends AbstractWSO2ProjectCreationWiza
 			getModel().addToWorkingSet(project);
 			ProjectUtils.addNatureToProject(project,
 											false,
-			                                "org.wso2.developerstudio.eclipse.axis2.project.nature");
+			                                AXIS2_PROJECT_NATURE);
+			MavenUtils
+					.updateWithMavenEclipsePlugin(
+							pomfile,
+							new String[] { JDT_BUILD_COMMAND},
+							new String[] {
+									AXIS2_PROJECT_NATURE,
+									JDT_PROJECT_NATURE});
 			
 			project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 			

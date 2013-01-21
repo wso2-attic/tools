@@ -25,12 +25,14 @@ import org.eclipse.jface.viewers.ISelection;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
 import org.wso2.developerstudio.eclipse.esb.project.model.ESBProjectModel;
 import org.wso2.developerstudio.eclipse.esb.project.utils.ESBImageUtils;
+import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
 import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 
 import java.io.File;
 
 public class ESBProjectWizard extends AbstractWSO2ProjectCreationWizard {
+	private static final String ESB_PROJECT_NATURE = "org.wso2.developerstudio.eclipse.esb.project.nature";
 	private IProject project;
 
 	public ESBProjectWizard() {
@@ -45,7 +47,12 @@ public class ESBProjectWizard extends AbstractWSO2ProjectCreationWizard {
 			createPOM(pomfile,"pom");
 			ProjectUtils.addNatureToProject(project,
 											false,
-			                                "org.wso2.developerstudio.eclipse.esb.project.nature");
+			                                ESB_PROJECT_NATURE);
+			MavenUtils
+			.updateWithMavenEclipsePlugin(
+					pomfile,
+					new String[] { },
+					new String[] { ESB_PROJECT_NATURE });
 			
 			//Creating the metadata file artifact.xml while creating the ESB project. It will be hidden and users won't be able to see it via Eclipse.
 			ESBProjectArtifact artifact=new ESBProjectArtifact();

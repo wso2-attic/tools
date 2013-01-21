@@ -51,7 +51,8 @@ import org.wso2.developerstudio.eclipse.utils.jdt.JavaUtils;
 import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 
 public class CustomMediatorCreationWizard extends AbstractWSO2ProjectCreationWizard {
-    private  CustomMediatorModel customMediatorModel;
+    private static final String MEDIATOR_PROJECT_NATURE = "org.wso2.developerstudio.eclipse.artifact.mediator.project.nature";
+	private  CustomMediatorModel customMediatorModel;
     private  IProject project;
     private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	
@@ -164,8 +165,14 @@ public class CustomMediatorCreationWizard extends AbstractWSO2ProjectCreationWiz
 
 			project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 			ProjectUtils.addNatureToProject(project,false,
-			                       "org.wso2.developerstudio.eclipse.artifact.mediator.project.nature");
-			
+			                       MEDIATOR_PROJECT_NATURE);
+			MavenUtils
+			.updateWithMavenEclipsePlugin(
+					pomfile,
+					new String[] { JDT_BUILD_COMMAND },
+					new String[] {
+							MEDIATOR_PROJECT_NATURE,
+							JDT_PROJECT_NATURE });
 			customMediatorModel.addToWorkingSet(project);
 			project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 			refreshDistProjects();

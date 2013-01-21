@@ -49,6 +49,7 @@ import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 
 public class DistributionProjectWizard extends
 		AbstractWSO2ProjectCreationWizard {
+	private static final String DISTRIBUTION_PROJECT_NATURE = "org.wso2.developerstudio.eclipse.distribution.project.nature";
 	private IProject project;
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 
@@ -70,7 +71,12 @@ public class DistributionProjectWizard extends
 			createPOM(pomfile);
 			ProjectUtils
 					.addNatureToProject(project, false,
-							"org.wso2.developerstudio.eclipse.distribution.project.nature");
+							DISTRIBUTION_PROJECT_NATURE);
+			MavenUtils
+			.updateWithMavenEclipsePlugin(
+					pomfile,
+					new String[] { },
+					new String[] { DISTRIBUTION_PROJECT_NATURE });
 			project.refreshLocal(IResource.DEPTH_INFINITE,
 					new NullProgressMonitor());
 

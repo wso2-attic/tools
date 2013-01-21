@@ -26,11 +26,13 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import org.wso2.developerstudio.eclipse.general.project.artifact.GeneralProjectArtifact;
 import org.wso2.developerstudio.eclipse.general.project.model.GeneralProjectModel;
 import org.wso2.developerstudio.eclipse.general.project.utils.GeneralProjectImageUtils;
+import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
 import org.wso2.developerstudio.eclipse.utils.jdt.JavaUtils;
 import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 
 public class GeneralProjectWizard extends AbstractWSO2ProjectCreationWizard {
+	private static final String GENERAL_PROJECT_NATURE = "org.wso2.developerstudio.eclipse.general.project.nature";
 	private IProject project;
 
 	public GeneralProjectWizard() {
@@ -51,8 +53,14 @@ public class GeneralProjectWizard extends AbstractWSO2ProjectCreationWizard {
 			createPOM(pomfile,"pom");
 			
 			ProjectUtils.addNatureToProject(project,
-			                                false, "org.wso2.developerstudio.eclipse.general.project.nature");
-			
+			                                false, GENERAL_PROJECT_NATURE);
+			MavenUtils
+			.updateWithMavenEclipsePlugin(
+					pomfile,
+					new String[] { JDT_BUILD_COMMAND },
+					new String[] {
+							GENERAL_PROJECT_NATURE,
+							JDT_PROJECT_NATURE });
 
 			//Creating the metadata file artifact.xml while creating the ESB project. It will be hidden and users won't be able to see it via Eclipse.
 			GeneralProjectArtifact artifact=new GeneralProjectArtifact();

@@ -53,7 +53,8 @@ import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 
 public class DataServiceValidatorCreationWizard extends AbstractWSO2ProjectCreationWizard {
 	
-    private static  DataServiceValidatorModel dsValidatorModel;
+    private static final String DS_VALIDATOR_PROJECT_NATURE = "org.wso2.developerstudio.eclipse.artifact.ds.validator.project.nature";
+	private static  DataServiceValidatorModel dsValidatorModel;
 	private  IProject project;
 	private IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	
@@ -135,7 +136,14 @@ public class DataServiceValidatorCreationWizard extends AbstractWSO2ProjectCreat
 			}
 			project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 			ProjectUtils.addNatureToProject(project,false,
-			                       "org.wso2.developerstudio.eclipse.artifact.ds.validator.project.nature");
+			                       DS_VALIDATOR_PROJECT_NATURE);
+			MavenUtils
+			.updateWithMavenEclipsePlugin(
+					pomfile,
+					new String[] { JDT_BUILD_COMMAND },
+					new String[] {
+							DS_VALIDATOR_PROJECT_NATURE,
+							JDT_PROJECT_NATURE });
 			getModel().addToWorkingSet(project);
 			project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 			refreshDistProjects();

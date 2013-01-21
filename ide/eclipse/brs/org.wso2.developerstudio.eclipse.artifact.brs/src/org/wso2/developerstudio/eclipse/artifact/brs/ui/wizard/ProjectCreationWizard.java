@@ -38,6 +38,7 @@ import org.wso2.developerstudio.eclipse.artifact.brs.utils.RuleServiceImageUtils
 import org.wso2.developerstudio.eclipse.artifact.brs.utils.RuleServiceTemplateUtils;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
+import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.platform.core.utils.XMLUtil;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.pages.MavenDetailsPage;
@@ -159,6 +160,13 @@ public class ProjectCreationWizard extends AbstractWSO2ProjectCreationWizard {
 			ProjectUtils.addNatureToProject(project, false,
 					RuleServiceArtifactConstants.RULE_SERVICE_PROJECT_NATURE_ID);
 			getModel().addToWorkingSet(project);
+			MavenUtils
+			.updateWithMavenEclipsePlugin(
+					pomFile,
+					new String[] { JDT_BUILD_COMMAND },
+					new String[] {
+							RuleServiceArtifactConstants.RULE_SERVICE_PROJECT_NATURE_ID,
+							JDT_PROJECT_NATURE });
 			project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 		} catch (CoreException e1) {
 			e1.printStackTrace();

@@ -144,6 +144,13 @@ public class RegistryFilterCreationWizard extends
 			ProjectUtils.addNatureToProject(project,
                     false,
                     Constants.REGISTRY_FILTER_PROJECT_NATURE);
+			MavenUtils
+			.updateWithMavenEclipsePlugin(
+					pomfile,
+					new String[] { JDT_BUILD_COMMAND },
+					new String[] {
+							Constants.REGISTRY_FILTER_PROJECT_NATURE,
+							JDT_PROJECT_NATURE });
 			project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 			
 			try {

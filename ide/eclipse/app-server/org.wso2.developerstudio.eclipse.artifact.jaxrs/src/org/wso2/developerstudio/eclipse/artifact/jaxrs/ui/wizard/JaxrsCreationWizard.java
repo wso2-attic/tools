@@ -31,6 +31,7 @@ import org.wso2.developerstudio.eclipse.artifact.jaxrs.Activator;
 import org.wso2.developerstudio.eclipse.artifact.jaxrs.utils.JaxUtil;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
+import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
 import org.wso2.developerstudio.eclipse.utils.jdt.JavaUtils;
 import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
@@ -41,6 +42,7 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.IWorkbench;
 
 public class JaxrsCreationWizard  extends AbstractWSO2ProjectCreationWizard{
+	private static final String JAXRS_PROJECT_NATURE = "org.wso2.developerstudio.eclipse.jaxrs.project.nature";
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	private JaxrsProjectModel model;
 	IProject project;
@@ -93,7 +95,14 @@ public class JaxrsCreationWizard  extends AbstractWSO2ProjectCreationWizard{
 			JavaUtils.addJarLibraryToProject(javaProject, dependencyPath);
 			ProjectUtils.addNatureToProject(project,
 			                                false,
-											"org.wso2.developerstudio.eclipse.jaxrs.project.nature");
+											JAXRS_PROJECT_NATURE);
+			MavenUtils
+			.updateWithMavenEclipsePlugin(
+					pomfile,
+					new String[] { JDT_BUILD_COMMAND },
+					new String[] {
+							JAXRS_PROJECT_NATURE,
+							JDT_PROJECT_NATURE });
 			getModel().addToWorkingSet(project);
 			project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 			refreshDistProjects();

@@ -60,7 +60,8 @@ import org.wso2.developerstudio.eclipse.utils.jdt.JavaUtils;
 import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 
 public class CarbonUIbundleWizard extends AbstractWSO2ProjectCreationWizard {
-    private static CarbonUiModel uibundleModel;
+    private static final String CARBON_UI_BUNDLE_PROJECT_NATURE = "org.wso2.developerstudio.eclipse.artifact.carbon.ui.bundle.project.nature";
+	private static CarbonUiModel uibundleModel;
 	private  IProject project;
 	private Map<String, Text> controlersMap ;
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
@@ -208,7 +209,14 @@ public class CarbonUIbundleWizard extends AbstractWSO2ProjectCreationWizard {
 			}
 			project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 			ProjectUtils.addNatureToProject(project,false,
-			                       "org.wso2.developerstudio.eclipse.artifact.carbon.ui.bundle.project.nature");
+			                       CARBON_UI_BUNDLE_PROJECT_NATURE);
+			MavenUtils
+			.updateWithMavenEclipsePlugin(
+					pomfile,
+					new String[] { JDT_BUILD_COMMAND },
+					new String[] {
+							CARBON_UI_BUNDLE_PROJECT_NATURE,
+							JDT_PROJECT_NATURE });
 			project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 			
 			try {

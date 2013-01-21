@@ -169,6 +169,13 @@ public class RegistryHandlerCreationWizard extends
 						createPOM(pomfile);
 					}
 					ProjectUtils.addNatureToProject(project, false, Constants.REGISTRY_HANDLER_PROJECT_NATURE);
+					MavenUtils
+					.updateWithMavenEclipsePlugin(
+							pomfile,
+							new String[] { JDT_BUILD_COMMAND },
+							new String[] {
+									Constants.REGISTRY_HANDLER_PROJECT_NATURE,
+									JDT_PROJECT_NATURE });
 					project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 					updatePom(project);
 					project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
