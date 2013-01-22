@@ -2,7 +2,10 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 
 import static org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils.COMPLEX_ENDPOINT_RESOURCE_DIR;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
 
 import org.apache.synapse.endpoints.AbstractEndpoint;
 import org.apache.synapse.endpoints.Endpoint;
@@ -12,10 +15,16 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.gef.EditPart;
+import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
+import org.eclipse.gmf.runtime.diagram.ui.commands.SetBoundsCommand;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
+import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
+import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorReference;
@@ -73,6 +82,8 @@ public abstract class AbstractComplexEndPointDeserializer extends AbstractEsbNod
 					EsbDeserializerRegistry.getInstance().init(subDiagramEditor);
 				}
 				
+				final List<EditPart> editPartList = new ArrayList<EditPart>();
+				
 				if (editor.getDiagramEditPart() != null) {
 
 					EsbDiagramEditPart esbDiagramEditPart = (EsbDiagramEditPart) editor.getDiagramEditPart();
@@ -94,7 +105,11 @@ public abstract class AbstractComplexEndPointDeserializer extends AbstractEsbNod
 									 	@SuppressWarnings("rawtypes")
 									 	IEsbNodeDeserializer deserializer = EsbDeserializerRegistry.getInstance().getDeserializer(ep);
 
-										EsbNode vishualEndpoint = deserializer.createNode(gpart, ep);
+										@SuppressWarnings("unchecked")
+										EsbNode visualEndpoint = deserializer.createNode(gpart, ep);
+										refreshEditPartMap();
+										EditPart endpointEP = getEditpart(visualEndpoint);
+										editPartList.add(endpointEP);
 									
 								}
 							}
@@ -107,7 +122,7 @@ public abstract class AbstractComplexEndPointDeserializer extends AbstractEsbNod
 					
 					@Override
 					public void run() {
-							
+						relocateEndPoints(editPartList);	
 						//Save the sub editor when the work done
 						tempEp.doSave(new NullProgressMonitor());
 												
@@ -126,6 +141,34 @@ public abstract class AbstractComplexEndPointDeserializer extends AbstractEsbNod
 							
 			}
 		}
+	}
+	
+	/**
+	 * This is to avoid RJS0007E Semantic refresh failed issue appears in
+	 * compartments, which has only one node. This should be replaced with the
+	 * better approach
+	 */
+	public static void relocateEndPoints(List<EditPart> editPartList){
+		for (Iterator<EditPart> it = editPartList.iterator(); it.hasNext();) {
+			EditPart next = it.next();
+
+			GraphicalEditPart gEditpart = (GraphicalEditPart) next;
+			Rectangle rect = gEditpart.getFigure().getBounds().getCopy();
+			rect.y++;
+			SetBoundsCommand sbc = new SetBoundsCommand(gEditpart.getEditingDomain(),
+					"change location", new EObjectAdapter((View) next.getModel()), rect);
+
+			gEditpart.getDiagramEditDomain().getDiagramCommandStack()
+					.execute(new ICommandProxy(sbc));
+			
+			try {
+				Thread.sleep(50);
+			} catch (InterruptedException e) {
+				//ignored
+			}
+
+		}
+		editPartList = new ArrayList<EditPart>();
 	}
 	
 	protected IGraphicalEditPart findRelevntEditPart(EditPart childEditPart) {
