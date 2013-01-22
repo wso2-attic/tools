@@ -147,8 +147,10 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 	 * @param connector
 	 * @param reversed
 	 */
-	protected void deserializeSequence(IGraphicalEditPart part, SequenceMediator sequence, EsbConnector connector, boolean reversed) {
+	protected void deserializeSequence(IGraphicalEditPart part, SequenceMediator sequenceMediator, EsbConnector connector, boolean reversed) {
 		LinkedList<EsbNode> nodeList = new LinkedList<EsbNode>();
+		
+		SequenceMediator sequence = EditorUtils.stripUnsupportedMediators(sequenceMediator);
 	
 		Diagram diagram = getDiagramEditor().getDiagram();
 		EsbDiagram esbDiagram = (EsbDiagram) diagram.getElement();

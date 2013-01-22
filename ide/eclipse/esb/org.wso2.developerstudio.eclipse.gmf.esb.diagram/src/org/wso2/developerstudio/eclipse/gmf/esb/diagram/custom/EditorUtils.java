@@ -17,7 +17,12 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.LinkedList;
 
+import org.apache.synapse.Mediator;
+import org.apache.synapse.mediators.base.SequenceMediator;
+import org.apache.synapse.mediators.builtin.SendMediator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.RootEditPart;
@@ -402,5 +407,30 @@ public class EditorUtils {
 				}
 			}
 		});
+	}
+	
+	/**
+	 * A utility method to remove currently unsupported mediators/flows from a
+	 * sequence
+	 * 
+	 * @param sequence
+	 * @return
+	 */
+	public static SequenceMediator stripUnsupportedMediators(SequenceMediator sequence) {
+		SequenceMediator newSequence = new SequenceMediator();
+		for (Iterator<Mediator> i = sequence.getList().iterator(); i.hasNext();) {
+			Mediator next = i.next();
+			newSequence.addChild(next);
+			if (next instanceof SendMediator) {
+				/*
+				 * current impemetaion does not support any mediator after send
+				 * mediator in given sequence, this might be changed in next
+				 * releases
+				 */
+				break;
+			}
+
+		}
+		return newSequence;
 	}
 }
