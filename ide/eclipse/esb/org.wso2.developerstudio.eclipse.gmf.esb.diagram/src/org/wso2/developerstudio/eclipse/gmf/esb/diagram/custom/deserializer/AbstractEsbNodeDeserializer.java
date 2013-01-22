@@ -34,7 +34,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
-import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
@@ -45,7 +44,6 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.emf.type.core.commands.SetValueCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
-import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.runtime.notation.impl.ConnectorImpl;
@@ -54,10 +52,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.AddressingEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbConnector;
-import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
-import org.wso2.developerstudio.eclipse.gmf.esb.EsbServer;
 import org.wso2.developerstudio.eclipse.gmf.esb.InputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.OutputConnector;
@@ -102,6 +98,7 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	private static GraphicalEditPart rootCompartment;
 	private static List<EsbConnector> rootInputConnectors = new ArrayList<EsbConnector>();
+	private static List<EditPart> startNodes = new ArrayList<EditPart>();
 	private EObject elementToEdit;
 	private boolean reversed;
 	private static boolean hasInlineEndPoint;
@@ -152,16 +149,13 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 		
 		SequenceMediator sequence = EditorUtils.stripUnsupportedMediators(sequenceMediator);
 	
-		Diagram diagram = getDiagramEditor().getDiagram();
-		EsbDiagram esbDiagram = (EsbDiagram) diagram.getElement();
-		EsbServer esbServer = esbDiagram.getServer();
-		TransactionalEditingDomain domain = TransactionUtil.getEditingDomain(esbServer);
+		TransactionalEditingDomain domain = part.getEditingDomain();
 
 		if(connector instanceof OutputConnector){
 			for (int i = 0; i < sequence.getList().size(); ++i) {
 				AbstractMediator mediator = (AbstractMediator) sequence.getList().get(i);
 				if(reversedNodes.contains(connector.eContainer())){
-					executeMediatorDeserializer(part, nodeList, domain, mediator,true);
+					executeMediatorDeserializer(part, nodeList, domain, mediator,true);					
 					reversedNodes.addAll(nodeList);
 				} else{
 					executeMediatorDeserializer(part, nodeList, domain, mediator,reversed);
@@ -530,10 +524,13 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 		
 		Rectangle point = currentLocation.get(connector);
 		Iterator<EsbNode> iterator = getNodeIterator(nodeList);
-
+		int count=0;
 		while (iterator.hasNext()) {
 			EsbNode mediatornode = iterator.next();
 			EditPart editpart = getEditpart(mediatornode);
+			if(++count==1){
+				startNodes.add(editpart);
+			}
 			relocateNode(point, editpart);
 		}
 		
@@ -542,6 +539,34 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 			currentLocation.put(pairConnector, new Rectangle(25, Math.max(200, point.height+30),0,0));
 		}
 	
+	}
+	
+	/**
+	 * This is to avoid RJS0007E Semantic refresh failed issue appears in
+	 * compartments, which has only one node. This should be replaced with the
+	 * better approach
+	 */
+	public static void relocateStartNodes(){
+		for (Iterator<EditPart> it = startNodes.iterator(); it.hasNext();) {
+			EditPart next = it.next();
+
+			GraphicalEditPart gEditpart = (GraphicalEditPart) next;
+			Rectangle rect = gEditpart.getFigure().getBounds().getCopy();
+			rect.x++;
+			SetBoundsCommand sbc = new SetBoundsCommand(gEditpart.getEditingDomain(),
+					"change location", new EObjectAdapter((View) next.getModel()), rect);
+
+			gEditpart.getDiagramEditDomain().getDiagramCommandStack()
+					.execute(new ICommandProxy(sbc));
+			
+			try {
+				Thread.sleep(50);
+			} catch (InterruptedException e) {
+				//ignored
+			}
+
+		}
+		startNodes = new ArrayList<EditPart>();
 	}
 	
 	private static int getInitialY(EsbConnector connector, LinkedList<EsbNode> nodeList) {
