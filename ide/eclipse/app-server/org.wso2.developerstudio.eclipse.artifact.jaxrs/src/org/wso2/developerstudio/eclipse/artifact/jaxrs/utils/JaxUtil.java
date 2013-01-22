@@ -96,14 +96,14 @@ public class JaxUtil {
 			buffer.append("\t@GET\n");
 			buffer.append("\t@Path(\"/add/{a}/{b}\")\n");
 			buffer.append("\t@Produces(MediaType.TEXT_XML)\n");
-			buffer.append("\tpublic String add(");
+			buffer.append("\tpublic double add(");
 			buffer.append("@PathParam(\"a\") double a,");
 			buffer.append("@PathParam(\"b\") double b);\n\n");
 			
 			buffer.append("\t@GET\n");
 			buffer.append("\t@Path(\"/sub/{a}/{b}\")\n");
 			buffer.append("\t@Produces(MediaType.TEXT_XML)\n");
-			buffer.append("\tpublic String sub(");
+			buffer.append("\tpublic double sub(");
 			buffer.append("@PathParam(\"a\") double a,");
 			buffer.append("@PathParam(\"b\") double b);\n\n");
 		}
@@ -150,7 +150,7 @@ public class JaxUtil {
 		private static final String SOAP_NS = "http://cxf.apache.org/bindings/soap";
 		private static final String SOAP_XSD = "http://cxf.apache.org/schemas/configuration/soap.xsd";
 		private static final String DEFAULT_NS = "http://www.springframework.org/schema/beans";
-		private static final String BEANS_XSD = "http://www.springframework.org/schema/beans";
+		private static final String BEANS_XSD = "http://www.springframework.org/schema/beans/spring-beans-2.0.xsd";
 		
 		private static final String SCHEMA_LOCATION = String.format("%s %s %s %s %s %s",
 				DEFAULT_NS, BEANS_XSD, SOAP_NS, SOAP_XSD, JAXRS_NS, JAXRS_XSD);
@@ -253,7 +253,7 @@ public class JaxUtil {
 				serverElement.addAttribute("id",s.getId(),null);
 				serverElement.addAttribute("address",s.getAddress(),null);
 				if(s.getBeanClass()!=null){
-					OMElement serviceBeanElement = factory.createOMElement("serviceBean",jaxrs);
+					OMElement serviceBeanElement = factory.createOMElement("serviceBeans",jaxrs);
 					OMElement beanRef = factory.createOMElement(new QName("ref"));
 					beanRef.addAttribute("bean",s.getId().concat("Bean"),null);
 					serviceBeanElement.addChild(beanRef);
