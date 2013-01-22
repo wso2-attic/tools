@@ -25,7 +25,9 @@ permissions and ~ limitations under the License.
 				<li>
 					<a href="#MavenMultiModule">Maven Multi Module Project</a>
 				</li>
-				
+				<li>
+					<a href="sync_eclipse_project_with_pom.html">Synchronization of Dependencies between Eclipse Project and Maven pom.xml</a>
+				</li>
 			</ul>
 		</div>
 		
