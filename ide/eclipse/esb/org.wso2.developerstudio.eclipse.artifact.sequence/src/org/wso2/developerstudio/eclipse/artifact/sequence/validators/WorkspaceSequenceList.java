@@ -73,7 +73,7 @@ public class WorkspaceSequenceList extends AbstractListDataProvider{
 							workspaceProject.getLocation().toOSString(), null,
 							"xml", allMatchingFiles,skipList);
 
-					allMatchingFiles=Arrays.asList(allFiles);
+					allMatchingFiles.addAll(Arrays.asList(allFiles));
 				}
 			}
 		}
