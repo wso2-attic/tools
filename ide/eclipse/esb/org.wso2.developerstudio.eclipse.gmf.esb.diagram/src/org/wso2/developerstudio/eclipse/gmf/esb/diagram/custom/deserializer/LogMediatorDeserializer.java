@@ -16,6 +16,9 @@
 
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 
+import java.util.Map;
+import java.util.Set;
+
 import org.apache.commons.lang.StringUtils;
 import org.apache.synapse.mediators.AbstractMediator;
 import org.apache.synapse.mediators.MediatorProperty;
@@ -127,6 +130,11 @@ public class LogMediatorDeserializer extends AbstractEsbNodeDeserializer<Abstrac
 				logProperty.setPropertyValueType(PropertyValueType.EXPRESSION);
 				NamespacedProperty namespaceProp = EsbFactory.eINSTANCE.createNamespacedProperty();
 				namespaceProp.setPropertyValue(mediatorProprety.getExpression().toString());
+				Map namespaces = mediatorProprety.getExpression().getNamespaces();
+				Object[] namespacesKeys=namespaces.keySet().toArray();
+				for(int i=0;i<namespacesKeys.length;++i){
+					namespaceProp.getNamespaces().put((String) namespacesKeys[i], (String) namespaces.get(namespacesKeys[i]));
+				}
 				logProperty.setPropertyExpression(namespaceProp);
 				
 			}
