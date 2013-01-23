@@ -64,34 +64,14 @@ public class LoadBalanceEndPointItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addSessionPropertyDescriptor(object);
+			addSessionTypePropertyDescriptor(object);
+			addSessionTimeoutPropertyDescriptor(object);
+			addAlgorithmPropertyDescriptor(object);
 			//addFailoverPropertyDescriptor(object);
-			addPolicyPropertyDescriptor(object);
-			addMemberPropertyDescriptor(object);
+			//addPolicyPropertyDescriptor(object);
+			//addMemberPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Session feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSessionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_LoadBalanceEndPoint_session_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_LoadBalanceEndPoint_session_feature", "_UI_LoadBalanceEndPoint_type"),
-				 EsbPackage.Literals.LOAD_BALANCE_END_POINT__SESSION,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -157,6 +137,72 @@ public class LoadBalanceEndPointItemProvider
 				 false,
 				 null,
 				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Session Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addSessionTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_LoadBalanceEndPoint_sessionType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_LoadBalanceEndPoint_sessionType_feature", "_UI_LoadBalanceEndPoint_type"),
+				 EsbPackage.Literals.LOAD_BALANCE_END_POINT__SESSION_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 "Basic",
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Algorithm feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addAlgorithmPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_LoadBalanceEndPoint_algorithm_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_LoadBalanceEndPoint_algorithm_feature", "_UI_LoadBalanceEndPoint_type"),
+				 EsbPackage.Literals.LOAD_BALANCE_END_POINT__ALGORITHM,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 "Basic",
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Session Timeout feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addSessionTimeoutPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_LoadBalanceEndPoint_sessionTimeout_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_LoadBalanceEndPoint_sessionTimeout_feature", "_UI_LoadBalanceEndPoint_type"),
+				 EsbPackage.Literals.LOAD_BALANCE_END_POINT__SESSION_TIMEOUT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 "Basic",
 				 null));
 	}
 
@@ -232,6 +278,9 @@ public class LoadBalanceEndPointItemProvider
 		switch (notification.getFeatureID(LoadBalanceEndPoint.class)) {
 			case EsbPackage.LOAD_BALANCE_END_POINT__FAILOVER:
 			case EsbPackage.LOAD_BALANCE_END_POINT__POLICY:
+			case EsbPackage.LOAD_BALANCE_END_POINT__SESSION_TYPE:
+			case EsbPackage.LOAD_BALANCE_END_POINT__ALGORITHM:
+			case EsbPackage.LOAD_BALANCE_END_POINT__SESSION_TIMEOUT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case EsbPackage.LOAD_BALANCE_END_POINT__INPUT_CONNECTOR:
