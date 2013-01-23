@@ -7,11 +7,14 @@ import org.apache.synapse.endpoints.AbstractEndpoint;
 import org.apache.synapse.endpoints.EndpointDefinition;
 import org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPointAddressingVersion;
+import org.wso2.developerstudio.eclipse.gmf.esb.EsbLink;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.FailoverEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.FailoverEndPointWestOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.InputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPointWestOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.OutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
 
 public abstract class AbstractEndpointTransformer extends AbstractEsbNodeTransformer{
@@ -87,11 +90,12 @@ public abstract class AbstractEndpointTransformer extends AbstractEsbNodeTransfo
 					
 					List<EsbNode> transformedMediators = info.getTransformedMediators();
 					if(westOutputConnector!=null){
-						EsbNode nextElement=(EsbNode) westOutputConnector.getOutgoingLink().getTarget().eContainer();
-						if(!transformedMediators.contains(nextElement)){
-							doTransform(info,
-									westOutputConnector);
-							transformedMediators.add(nextElement);
+						EsbNode nextElement = getTargetContainer(westOutputConnector);
+						if (nextElement != null) {
+							if (!transformedMediators.contains(nextElement)) {
+								doTransform(info, westOutputConnector);
+								transformedMediators.add(nextElement);
+							}
 						}
 						
 					}
@@ -106,11 +110,12 @@ public abstract class AbstractEndpointTransformer extends AbstractEsbNodeTransfo
 							.getWestOutputConnector();
 					List<EsbNode> transformedMediators = info.getTransformedMediators();
 					if(westOutputConnector!=null){
-						EsbNode nextElement=(EsbNode) westOutputConnector.getOutgoingLink().getTarget().eContainer();
-						if(!transformedMediators.contains(nextElement)){
-							doTransform(info,
-									westOutputConnector);
-							transformedMediators.add(nextElement);
+						EsbNode nextElement = getTargetContainer(westOutputConnector);
+						if (nextElement != null) {
+							if (!transformedMediators.contains(nextElement)) {
+								doTransform(info, westOutputConnector);
+								transformedMediators.add(nextElement);
+							}
 						}
 						
 					}
@@ -120,6 +125,25 @@ public abstract class AbstractEndpointTransformer extends AbstractEsbNodeTransfo
 			}
 			info.isOutputPathSet = true;
 		}
+	}
+
+	/**
+	 * Get target node
+	 * @param outputConnector
+	 * @return
+	 */
+	protected EsbNode getTargetContainer(OutputConnector outputConnector) {
+		EsbNode node = null;
+		EsbLink outgoingLink = outputConnector.getOutgoingLink();
+		if (outgoingLink != null) {
+			InputConnector target = outgoingLink.getTarget();
+			if (target != null) {
+				if (target.eContainer() instanceof EsbNode) {
+					node = (EsbNode) target.eContainer();
+				}
+			}
+		}
+		return node;
 	}
 	
 }
