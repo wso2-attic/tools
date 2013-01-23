@@ -69,6 +69,7 @@ public class NamedEndpointItemProvider
 		}else{
 	        itemPropertyDescriptors = new ArrayList<IItemPropertyDescriptor>();
 	    }
+		addInLinePropertyDescriptor(object);
 		addReferringEndpointTypePropertyDescriptor(object);
 		if(((NamedEndpoint)object).getReferringEndpointType().equals(KeyType.DYNAMIC)){
 			addDynamicReferenceKeyPropertyDescriptor(object);
