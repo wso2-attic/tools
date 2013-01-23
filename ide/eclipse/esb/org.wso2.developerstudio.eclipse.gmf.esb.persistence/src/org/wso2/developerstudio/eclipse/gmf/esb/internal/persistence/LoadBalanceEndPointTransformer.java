@@ -63,8 +63,8 @@ public class LoadBalanceEndPointTransformer extends AbstractEndpointTransformer{
 		}else if(information.getPreviouNode() instanceof org.wso2.developerstudio.eclipse.gmf.esb.Sequence){
 			sendMediator=null;
 		} else {
-			sendMediator = new SendMediator();	
-			information.getParentSequence().addChild(sendMediator);
+			//sendMediator = new SendMediator();	
+			//information.getParentSequence().addChild(sendMediator);
 		}
 /*		org.apache.synapse.endpoints.LoadbalanceEndpoint synapseLoadEP = new org.apache.synapse.endpoints.LoadbalanceEndpoint();
 		EndpointDefinition synapseEPDef = new EndpointDefinition();

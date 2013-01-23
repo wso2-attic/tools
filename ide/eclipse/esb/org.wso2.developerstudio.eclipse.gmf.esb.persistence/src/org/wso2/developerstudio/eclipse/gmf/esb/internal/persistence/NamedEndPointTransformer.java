@@ -37,8 +37,8 @@ public class NamedEndPointTransformer extends AbstractEsbNodeTransformer{
 		}else if(information.getPreviouNode() instanceof org.wso2.developerstudio.eclipse.gmf.esb.Sequence){			
 			sendMediator=null;
 		}else {
-			sendMediator = new SendMediator();
-			information.getParentSequence().addChild(sendMediator);
+			//sendMediator = new SendMediator();
+			//information.getParentSequence().addChild(sendMediator);
 		}		
 		
 		if(visualEndPoint.isInLine()){

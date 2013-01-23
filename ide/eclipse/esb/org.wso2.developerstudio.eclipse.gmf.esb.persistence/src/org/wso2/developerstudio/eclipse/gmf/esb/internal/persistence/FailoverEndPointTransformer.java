@@ -55,8 +55,8 @@ public class FailoverEndPointTransformer extends AbstractEndpointTransformer{
 		}else if(info.getPreviouNode() instanceof org.wso2.developerstudio.eclipse.gmf.esb.Sequence){
 			sendMediator=null;
 		} else {
-			sendMediator = new SendMediator();
-			info.getParentSequence().addChild(sendMediator);
+			//sendMediator = new SendMediator();
+			//info.getParentSequence().addChild(sendMediator);
 		}
 		
 		if(visualEndPoint.isInLine()){

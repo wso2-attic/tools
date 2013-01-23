@@ -32,8 +32,8 @@ public class AddresingEndPointTransformer extends AbstractEndpointTransformer{
 		} else if(information.getPreviouNode() instanceof org.wso2.developerstudio.eclipse.gmf.esb.Sequence){
 			sendMediator=null;
 		} else {
-			sendMediator = new SendMediator();
-			information.getParentSequence().addChild(sendMediator);
+			//sendMediator = new SendMediator();
+			//information.getParentSequence().addChild(sendMediator);
 		}		
 /*		if(visualEP.isInLine()){
 			information.getCurrentProxy().setTargetInLineEndpoint(create(visualEP,null));
