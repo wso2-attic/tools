@@ -795,7 +795,13 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 	}
 
 	protected static LinkedList<EsbNode> getConnectionFlow(EsbConnector connector) {
-		return connectionFlowMap.get(connector);
+		LinkedList<EsbNode> nodes = new LinkedList<EsbNode>();
+		if(connectionFlowMap.containsKey(connector)){
+			nodes = connectionFlowMap.get(connector);
+		} else{
+			connectionFlowMap.put(connector, nodes);
+		}
+		return nodes;
 	}
 
 	protected static void setHasInlineEndPoint(boolean hasInlineEndPoint) {

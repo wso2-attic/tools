@@ -29,6 +29,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.EndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.MediatorFlow;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceParameter;
@@ -112,31 +113,11 @@ public class ProxyServiceDeserializer extends AbstractEsbNodeDeserializer<ProxyS
 		MediatorFlow mediatorFlow = proxy.getContainer().getSequenceAndEndpointContainer().getMediatorFlow();
 		SequenceMediator inSequence = object.getTargetInLineInSequence();
 		GraphicalEditPart compartment = (GraphicalEditPart)((getEditpart(mediatorFlow)).getChildren().get(0));
+		setRootCompartment(compartment);
+		
 		if(inSequence!=null){	
-			setRootCompartment(compartment);	
 			deserializeSequence(compartment, inSequence, proxy.getOutputConnector());
-			if (hasInlineEndPoint()) {
-				if (object.getTargetEndpoint() != null) {
-					IndirectEndpoint indirectEndpoint = new IndirectEndpoint();
-					indirectEndpoint.setKey(object.getTargetEndpoint());
-					targetInLineEndpoint = indirectEndpoint;
-				}
-				@SuppressWarnings("rawtypes")
-				IEsbNodeDeserializer deserializer = EsbDeserializerRegistry.getInstance()
-						.getDeserializer(targetInLineEndpoint);
-
-				if (deserializer != null) {
-					@SuppressWarnings("unchecked")
-					AbstractEndPoint endPointModel = (AbstractEndPoint) deserializer.createNode(
-							getRootCompartment(), targetInLineEndpoint);
-					executeSetValueCommand(endPointModel, END_POINT__IN_LINE, true);
-					getConnectionFlow(proxy.getOutputConnector()).add(endPointModel);
-				}
-
-			}
-			setHasInlineEndPoint(false);
-			setRootCompartment(null);	
-			setAddedAddressingEndPoint(false);
+			
 		} else{
 			String inSequenceName = object.getTargetInSequence();
 			if(inSequenceName!=null){
@@ -151,6 +132,29 @@ public class ProxyServiceDeserializer extends AbstractEsbNodeDeserializer<ProxyS
 				}
 			}
 		}
+		
+		if (hasInlineEndPoint()) {
+			if (object.getTargetEndpoint() != null) {
+				IndirectEndpoint indirectEndpoint = new IndirectEndpoint();
+				indirectEndpoint.setKey(object.getTargetEndpoint());
+				targetInLineEndpoint = indirectEndpoint;
+			}
+			@SuppressWarnings("rawtypes")
+			IEsbNodeDeserializer deserializer = EsbDeserializerRegistry.getInstance()
+					.getDeserializer(targetInLineEndpoint);
+
+			if (deserializer != null) {
+				@SuppressWarnings("unchecked")
+				EndPoint endPointModel = (EndPoint) deserializer.createNode(
+						getRootCompartment(), targetInLineEndpoint);
+				executeSetValueCommand(endPointModel, END_POINT__IN_LINE, true);
+				getConnectionFlow(proxy.getOutputConnector()).add(endPointModel);
+			}
+		}
+		
+		setHasInlineEndPoint(false);
+		setRootCompartment(null);	
+		setAddedAddressingEndPoint(false);
 		
 		SequenceMediator outSequence = object.getTargetInLineOutSequence();
 		if(outSequence!=null){
