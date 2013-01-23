@@ -71,14 +71,13 @@ public class EndPointItemProvider
 		//addEndPointNamePropertyDescriptor(object);
 		//addAnonymousPropertyDescriptor(object);
 		
-		/* 'InLine' property only applicable for Proxies and APIs  */
+		/* 'InLine' property only applicable for Proxies */
 		EObject rootContainer = EcoreUtil.getRootContainer(endPoint);
 		if(rootContainer instanceof EsbDiagram){
 			EsbDiagram esbDiagram = (EsbDiagram) rootContainer;
 			ArtifactType type = esbDiagram.getServer().getType();
 			switch (type) {
 			case PROXY:
-			case API:
 				addInLinePropertyDescriptor(object);
 				break;
 			}
