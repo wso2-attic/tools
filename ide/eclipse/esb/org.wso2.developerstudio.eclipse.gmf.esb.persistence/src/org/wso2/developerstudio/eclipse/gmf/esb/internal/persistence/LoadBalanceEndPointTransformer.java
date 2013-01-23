@@ -7,6 +7,7 @@ import java.util.List;
 import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.endpoints.EndpointDefinition;
 import org.apache.synapse.endpoints.LoadbalanceEndpoint;
+import org.apache.synapse.endpoints.SALoadbalanceEndpoint;
 import org.apache.synapse.endpoints.algorithms.RoundRobin;
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.apache.synapse.mediators.builtin.SendMediator;
@@ -35,11 +36,16 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbElement;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.InputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceSessionType;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.SequenceInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.EsbNodeTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.EsbTransformerRegistry;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
+import org.apache.synapse.endpoints.dispatch.Dispatcher;
+import org.apache.synapse.endpoints.dispatch.HttpSessionDispatcher;
+import org.apache.synapse.endpoints.dispatch.SimpleClientSessionDispatcher;
+import org.apache.synapse.endpoints.dispatch.SoapSessionDispatcher;
 
 public class LoadBalanceEndPointTransformer extends AbstractEndpointTransformer{
 
@@ -199,7 +205,8 @@ public class LoadBalanceEndPointTransformer extends AbstractEndpointTransformer{
 	
 	public LoadbalanceEndpoint create(TransformationInfo info, LoadBalanceEndPoint visualEndPoint,
 			String name,List<Endpoint> endPoints) {
-		LoadbalanceEndpoint synapseLBEP = new LoadbalanceEndpoint();
+		//LoadbalanceEndpoint synapseLBEP = new LoadbalanceEndpoint();
+		SALoadbalanceEndpoint synapseLBEP =new SALoadbalanceEndpoint();
 		if (name != null) {
 			synapseLBEP.setName(name);
 		}
@@ -208,6 +215,24 @@ public class LoadBalanceEndPointTransformer extends AbstractEndpointTransformer{
 		 * We should give this LoadbalanceAlgorithm class at runtime.User should be requested to give a class.		
 		 */
 		synapseLBEP.setAlgorithm(new RoundRobin());
+		switch (visualEndPoint.getSessionType()) {
+		case SOAP:
+			Dispatcher soapDispatcher = new SoapSessionDispatcher();
+			synapseLBEP.setDispatcher(soapDispatcher);
+			break;
+		case TRANSPORT:
+			Dispatcher httpDispatcher = new HttpSessionDispatcher();
+			synapseLBEP.setDispatcher(httpDispatcher);
+			break;
+		case CLIENT_ID:
+			Dispatcher csDispatcher = new SimpleClientSessionDispatcher();
+			synapseLBEP.setDispatcher(csDispatcher);
+			break;
+		}
+		Long sessionTimeout=visualEndPoint.getSessionTimeout();
+		if (sessionTimeout != null) {
+				synapseLBEP.setSessionTimeout(sessionTimeout);
+		}
 		List<Endpoint> endPointsList = new ArrayList<Endpoint>();
 		synapseLBEP.setChildren(endPointsList);
 		synapseLBEP.setDefinition(synapseEPDef);
