@@ -1178,6 +1178,7 @@ public class EsbPaletteFactory {
 					defineEpPalette.setVisible(true);
 					linksPalette.setVisible(true);
 					apiResourceTool.setVisible(false);
+					seqPalette.setVisible(false);
 					break;
 				case MAIN_SEQUENCE:
 					proxyServiceTool.setVisible(false);
