@@ -192,10 +192,12 @@ import org.wso2.developerstudio.eclipse.gmf.esb.IterateMediatorOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.IterateMediatorTargetOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.IterateTarget;
 import org.wso2.developerstudio.eclipse.gmf.esb.KeyType;
+import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceAlgorithm;
 import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPointInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPointOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPointWestOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceSessionType;
 import org.wso2.developerstudio.eclipse.gmf.esb.LocalEntry;
 import org.wso2.developerstudio.eclipse.gmf.esb.LocalEntryValueType;
 import org.wso2.developerstudio.eclipse.gmf.esb.LogCategory;
@@ -2946,6 +2948,20 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	private EEnum typeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum loadBalanceSessionTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum loadBalanceAlgorithmEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -11439,17 +11455,8 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getLoadBalanceEndPoint_Session() {
-		return (EReference)loadBalanceEndPointEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getLoadBalanceEndPoint_Failover() {
-		return (EAttribute)loadBalanceEndPointEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)loadBalanceEndPointEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -11458,7 +11465,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	public EAttribute getLoadBalanceEndPoint_Policy() {
-		return (EAttribute)loadBalanceEndPointEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)loadBalanceEndPointEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -11467,7 +11474,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	public EReference getLoadBalanceEndPoint_InputConnector() {
-		return (EReference)loadBalanceEndPointEClass.getEStructuralFeatures().get(3);
+		return (EReference)loadBalanceEndPointEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -11476,7 +11483,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	public EReference getLoadBalanceEndPoint_OutputConnector() {
-		return (EReference)loadBalanceEndPointEClass.getEStructuralFeatures().get(4);
+		return (EReference)loadBalanceEndPointEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -11485,7 +11492,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	public EReference getLoadBalanceEndPoint_WestOutputConnector() {
-		return (EReference)loadBalanceEndPointEClass.getEStructuralFeatures().get(5);
+		return (EReference)loadBalanceEndPointEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -11494,7 +11501,34 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	public EReference getLoadBalanceEndPoint_Member() {
-		return (EReference)loadBalanceEndPointEClass.getEStructuralFeatures().get(6);
+		return (EReference)loadBalanceEndPointEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLoadBalanceEndPoint_SessionType() {
+		return (EAttribute)loadBalanceEndPointEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLoadBalanceEndPoint_Algorithm() {
+		return (EAttribute)loadBalanceEndPointEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLoadBalanceEndPoint_SessionTimeout() {
+		return (EAttribute)loadBalanceEndPointEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -12566,6 +12600,24 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 */
 	public EEnum getType() {
 		return typeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getLoadBalanceSessionType() {
+		return loadBalanceSessionTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getLoadBalanceAlgorithm() {
+		return loadBalanceAlgorithmEEnum;
 	}
 
 	/**
@@ -13744,13 +13796,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		wsdlEndPointOutputConnectorEClass = createEClass(WSDL_END_POINT_OUTPUT_CONNECTOR);
 
 		loadBalanceEndPointEClass = createEClass(LOAD_BALANCE_END_POINT);
-		createEReference(loadBalanceEndPointEClass, LOAD_BALANCE_END_POINT__SESSION);
 		createEAttribute(loadBalanceEndPointEClass, LOAD_BALANCE_END_POINT__FAILOVER);
 		createEAttribute(loadBalanceEndPointEClass, LOAD_BALANCE_END_POINT__POLICY);
 		createEReference(loadBalanceEndPointEClass, LOAD_BALANCE_END_POINT__INPUT_CONNECTOR);
 		createEReference(loadBalanceEndPointEClass, LOAD_BALANCE_END_POINT__OUTPUT_CONNECTOR);
 		createEReference(loadBalanceEndPointEClass, LOAD_BALANCE_END_POINT__WEST_OUTPUT_CONNECTOR);
 		createEReference(loadBalanceEndPointEClass, LOAD_BALANCE_END_POINT__MEMBER);
+		createEAttribute(loadBalanceEndPointEClass, LOAD_BALANCE_END_POINT__SESSION_TYPE);
+		createEAttribute(loadBalanceEndPointEClass, LOAD_BALANCE_END_POINT__ALGORITHM);
+		createEAttribute(loadBalanceEndPointEClass, LOAD_BALANCE_END_POINT__SESSION_TIMEOUT);
 
 		memberEClass = createEClass(MEMBER);
 		createEAttribute(memberEClass, MEMBER__HOST_NAME);
@@ -14013,6 +14067,8 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		keyTypeEEnum = createEEnum(KEY_TYPE);
 		payloadFactoryArgumentTypeEEnum = createEEnum(PAYLOAD_FACTORY_ARGUMENT_TYPE);
 		typeEEnum = createEEnum(TYPE);
+		loadBalanceSessionTypeEEnum = createEEnum(LOAD_BALANCE_SESSION_TYPE);
+		loadBalanceAlgorithmEEnum = createEEnum(LOAD_BALANCE_ALGORITHM);
 		localEntryValueTypeEEnum = createEEnum(LOCAL_ENTRY_VALUE_TYPE);
 		ruleActionTypeEEnum = createEEnum(RULE_ACTION_TYPE);
 		ruleFragmentTypeEEnum = createEEnum(RULE_FRAGMENT_TYPE);
@@ -15412,13 +15468,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEClass(wsdlEndPointOutputConnectorEClass, WSDLEndPointOutputConnector.class, "WSDLEndPointOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(loadBalanceEndPointEClass, LoadBalanceEndPoint.class, "LoadBalanceEndPoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getLoadBalanceEndPoint_Session(), this.getSession(), null, "session", null, 0, 1, LoadBalanceEndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLoadBalanceEndPoint_Failover(), ecorePackage.getEBoolean(), "failover", null, 0, 1, LoadBalanceEndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLoadBalanceEndPoint_Policy(), ecorePackage.getEString(), "policy", null, 0, 1, LoadBalanceEndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLoadBalanceEndPoint_InputConnector(), this.getLoadBalanceEndPointInputConnector(), null, "inputConnector", null, 0, 1, LoadBalanceEndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLoadBalanceEndPoint_OutputConnector(), this.getLoadBalanceEndPointOutputConnector(), null, "outputConnector", null, 0, -1, LoadBalanceEndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLoadBalanceEndPoint_WestOutputConnector(), this.getLoadBalanceEndPointWestOutputConnector(), null, "westOutputConnector", null, 0, 1, LoadBalanceEndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLoadBalanceEndPoint_Member(), this.getMember(), null, "member", null, 0, -1, LoadBalanceEndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLoadBalanceEndPoint_SessionType(), this.getLoadBalanceSessionType(), "sessionType", "NONE", 0, 1, LoadBalanceEndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLoadBalanceEndPoint_Algorithm(), this.getLoadBalanceAlgorithm(), "algorithm", "org.apache.synapse.endpoints.algorithms.RoundRobin", 0, 1, LoadBalanceEndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLoadBalanceEndPoint_SessionTimeout(), ecorePackage.getELong(), "sessionTimeout", "0", 0, 1, LoadBalanceEndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(memberEClass, Member.class, "Member", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMember_HostName(), ecorePackage.getEString(), "hostName", null, 0, 1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -16001,6 +16059,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEEnum(typeEEnum, Type.class, "Type");
 		addEEnumLiteral(typeEEnum, Type.HTTP);
 		addEEnumLiteral(typeEEnum, Type.SIMPLE_CLIENT_SESSION);
+
+		initEEnum(loadBalanceSessionTypeEEnum, LoadBalanceSessionType.class, "LoadBalanceSessionType");
+		addEEnumLiteral(loadBalanceSessionTypeEEnum, LoadBalanceSessionType.NONE);
+		addEEnumLiteral(loadBalanceSessionTypeEEnum, LoadBalanceSessionType.TRANSPORT);
+		addEEnumLiteral(loadBalanceSessionTypeEEnum, LoadBalanceSessionType.SOAP);
+		addEEnumLiteral(loadBalanceSessionTypeEEnum, LoadBalanceSessionType.CLIENT_ID);
+
+		initEEnum(loadBalanceAlgorithmEEnum, LoadBalanceAlgorithm.class, "LoadBalanceAlgorithm");
+		addEEnumLiteral(loadBalanceAlgorithmEEnum, LoadBalanceAlgorithm.ROUND_ROBIN);
 
 		initEEnum(localEntryValueTypeEEnum, LocalEntryValueType.class, "LocalEntryValueType");
 		addEEnumLiteral(localEntryValueTypeEEnum, LocalEntryValueType.LITERAL);

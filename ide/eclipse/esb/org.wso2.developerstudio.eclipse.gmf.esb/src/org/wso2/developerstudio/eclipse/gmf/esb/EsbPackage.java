@@ -12976,22 +12976,13 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	int LOAD_BALANCE_END_POINT__NAME = PARENT_END_POINT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Session</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LOAD_BALANCE_END_POINT__SESSION = PARENT_END_POINT_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Failover</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LOAD_BALANCE_END_POINT__FAILOVER = PARENT_END_POINT_FEATURE_COUNT + 1;
+	int LOAD_BALANCE_END_POINT__FAILOVER = PARENT_END_POINT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Policy</b></em>' attribute.
@@ -13000,7 +12991,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int LOAD_BALANCE_END_POINT__POLICY = PARENT_END_POINT_FEATURE_COUNT + 2;
+	int LOAD_BALANCE_END_POINT__POLICY = PARENT_END_POINT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Input Connector</b></em>' containment reference.
@@ -13009,7 +13000,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int LOAD_BALANCE_END_POINT__INPUT_CONNECTOR = PARENT_END_POINT_FEATURE_COUNT + 3;
+	int LOAD_BALANCE_END_POINT__INPUT_CONNECTOR = PARENT_END_POINT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Output Connector</b></em>' containment reference list.
@@ -13018,7 +13009,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int LOAD_BALANCE_END_POINT__OUTPUT_CONNECTOR = PARENT_END_POINT_FEATURE_COUNT + 4;
+	int LOAD_BALANCE_END_POINT__OUTPUT_CONNECTOR = PARENT_END_POINT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>West Output Connector</b></em>' containment reference.
@@ -13027,7 +13018,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int LOAD_BALANCE_END_POINT__WEST_OUTPUT_CONNECTOR = PARENT_END_POINT_FEATURE_COUNT + 5;
+	int LOAD_BALANCE_END_POINT__WEST_OUTPUT_CONNECTOR = PARENT_END_POINT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Member</b></em>' containment reference list.
@@ -13036,7 +13027,34 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int LOAD_BALANCE_END_POINT__MEMBER = PARENT_END_POINT_FEATURE_COUNT + 6;
+	int LOAD_BALANCE_END_POINT__MEMBER = PARENT_END_POINT_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Session Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOAD_BALANCE_END_POINT__SESSION_TYPE = PARENT_END_POINT_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Algorithm</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOAD_BALANCE_END_POINT__ALGORITHM = PARENT_END_POINT_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Session Timeout</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOAD_BALANCE_END_POINT__SESSION_TIMEOUT = PARENT_END_POINT_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of structural features of the '<em>Load Balance End Point</em>' class.
@@ -13045,7 +13063,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int LOAD_BALANCE_END_POINT_FEATURE_COUNT = PARENT_END_POINT_FEATURE_COUNT + 7;
+	int LOAD_BALANCE_END_POINT_FEATURE_COUNT = PARENT_END_POINT_FEATURE_COUNT + 9;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.MemberImpl <em>Member</em>}' class.
@@ -16301,6 +16319,26 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	int TYPE = 361;
 
 	/**
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceSessionType <em>Load Balance Session Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceSessionType
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getLoadBalanceSessionType()
+	 * @generated
+	 */
+	int LOAD_BALANCE_SESSION_TYPE = 362;
+
+	/**
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceAlgorithm <em>Load Balance Algorithm</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceAlgorithm
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getLoadBalanceAlgorithm()
+	 * @generated
+	 */
+	int LOAD_BALANCE_ALGORITHM = 363;
+
+	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.LocalEntryValueType <em>Local Entry Value Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -16308,7 +16346,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getLocalEntryValueType()
 	 * @generated
 	 */
-	int LOCAL_ENTRY_VALUE_TYPE = 362;
+	int LOCAL_ENTRY_VALUE_TYPE = 364;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleActionType <em>Rule Action Type</em>}' enum.
@@ -16318,7 +16356,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRuleActionType()
 	 * @generated
 	 */
-	int RULE_ACTION_TYPE = 363;
+	int RULE_ACTION_TYPE = 365;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleFragmentType <em>Rule Fragment Type</em>}' enum.
@@ -16328,7 +16366,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getRuleFragmentType()
 	 * @generated
 	 */
-	int RULE_FRAGMENT_TYPE = 364;
+	int RULE_FRAGMENT_TYPE = 366;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.TemplateType <em>Template Type</em>}' enum.
@@ -16338,7 +16376,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getTemplateType()
 	 * @generated
 	 */
-	int TEMPLATE_TYPE = 365;
+	int TEMPLATE_TYPE = 367;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.TaskPropertyType <em>Task Property Type</em>}' enum.
@@ -16348,7 +16386,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getTaskPropertyType()
 	 * @generated
 	 */
-	int TASK_PROPERTY_TYPE = 366;
+	int TASK_PROPERTY_TYPE = 368;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.TaskTriggerType <em>Task Trigger Type</em>}' enum.
@@ -16358,7 +16396,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getTaskTriggerType()
 	 * @generated
 	 */
-	int TASK_TRIGGER_TYPE = 367;
+	int TASK_TRIGGER_TYPE = 369;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ApiResourceUrlStyle <em>Api Resource Url Style</em>}' enum.
@@ -16368,7 +16406,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getApiResourceUrlStyle()
 	 * @generated
 	 */
-	int API_RESOURCE_URL_STYLE = 368;
+	int API_RESOURCE_URL_STYLE = 370;
 
 	/**
 	 * The meta object id for the '<em>Map</em>' data type.
@@ -16378,7 +16416,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getMap()
 	 * @generated
 	 */
-	int MAP = 369;
+	int MAP = 371;
 
 
 	/**
@@ -26337,17 +26375,6 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	EClass getLoadBalanceEndPoint();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPoint#getSession <em>Session</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Session</em>'.
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPoint#getSession()
-	 * @see #getLoadBalanceEndPoint()
-	 * @generated
-	 */
-	EReference getLoadBalanceEndPoint_Session();
-
-	/**
 	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPoint#isFailover <em>Failover</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -26412,6 +26439,39 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 */
 	EReference getLoadBalanceEndPoint_Member();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPoint#getSessionType <em>Session Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Session Type</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPoint#getSessionType()
+	 * @see #getLoadBalanceEndPoint()
+	 * @generated
+	 */
+	EAttribute getLoadBalanceEndPoint_SessionType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPoint#getAlgorithm <em>Algorithm</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Algorithm</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPoint#getAlgorithm()
+	 * @see #getLoadBalanceEndPoint()
+	 * @generated
+	 */
+	EAttribute getLoadBalanceEndPoint_Algorithm();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPoint#getSessionTimeout <em>Session Timeout</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Session Timeout</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPoint#getSessionTimeout()
+	 * @see #getLoadBalanceEndPoint()
+	 * @generated
+	 */
+	EAttribute getLoadBalanceEndPoint_SessionTimeout();
 
 	/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.gmf.esb.Member <em>Member</em>}'.
@@ -27634,6 +27694,26 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 */
 	EEnum getType();
+
+	/**
+	 * Returns the meta object for enum '{@link org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceSessionType <em>Load Balance Session Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Load Balance Session Type</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceSessionType
+	 * @generated
+	 */
+	EEnum getLoadBalanceSessionType();
+
+	/**
+	 * Returns the meta object for enum '{@link org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceAlgorithm <em>Load Balance Algorithm</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Load Balance Algorithm</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceAlgorithm
+	 * @generated
+	 */
+	EEnum getLoadBalanceAlgorithm();
 
 	/**
 	 * Returns the meta object for enum '{@link org.wso2.developerstudio.eclipse.gmf.esb.LocalEntryValueType <em>Local Entry Value Type</em>}'.
@@ -35729,14 +35809,6 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		EClass LOAD_BALANCE_END_POINT = eINSTANCE.getLoadBalanceEndPoint();
 
 		/**
-		 * The meta object literal for the '<em><b>Session</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference LOAD_BALANCE_END_POINT__SESSION = eINSTANCE.getLoadBalanceEndPoint_Session();
-
-		/**
 		 * The meta object literal for the '<em><b>Failover</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -35783,6 +35855,30 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		 * @generated
 		 */
 		EReference LOAD_BALANCE_END_POINT__MEMBER = eINSTANCE.getLoadBalanceEndPoint_Member();
+
+		/**
+		 * The meta object literal for the '<em><b>Session Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LOAD_BALANCE_END_POINT__SESSION_TYPE = eINSTANCE.getLoadBalanceEndPoint_SessionType();
+
+		/**
+		 * The meta object literal for the '<em><b>Algorithm</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LOAD_BALANCE_END_POINT__ALGORITHM = eINSTANCE.getLoadBalanceEndPoint_Algorithm();
+
+		/**
+		 * The meta object literal for the '<em><b>Session Timeout</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LOAD_BALANCE_END_POINT__SESSION_TIMEOUT = eINSTANCE.getLoadBalanceEndPoint_SessionTimeout();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.MemberImpl <em>Member</em>}' class.
@@ -36909,6 +37005,26 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		 * @generated
 		 */
 		EEnum TYPE = eINSTANCE.getType();
+
+		/**
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceSessionType <em>Load Balance Session Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceSessionType
+		 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getLoadBalanceSessionType()
+		 * @generated
+		 */
+		EEnum LOAD_BALANCE_SESSION_TYPE = eINSTANCE.getLoadBalanceSessionType();
+
+		/**
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceAlgorithm <em>Load Balance Algorithm</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceAlgorithm
+		 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getLoadBalanceAlgorithm()
+		 * @generated
+		 */
+		EEnum LOAD_BALANCE_ALGORITHM = eINSTANCE.getLoadBalanceAlgorithm();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.LocalEntryValueType <em>Local Entry Value Type</em>}' enum.

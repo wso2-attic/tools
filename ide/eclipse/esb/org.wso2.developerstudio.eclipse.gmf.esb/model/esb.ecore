@@ -1867,7 +1867,6 @@
     <eLiterals name="SIMPLE_CLIENT_SESSION" value="1" literal="simpleClientSession"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LoadBalanceEndPoint" eSuperTypes="#//ParentEndPoint">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="session" eType="#//Session"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="failover" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="policy" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="inputConnector" eType="#//LoadBalanceEndPointInputConnector"
@@ -1878,6 +1877,21 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="member" upperBound="-1"
         eType="#//Member" derived="true" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sessionType" eType="#//LoadBalanceSessionType"
+        defaultValueLiteral="NONE"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="algorithm" eType="#//LoadBalanceAlgorithm"
+        defaultValueLiteral="org.apache.synapse.endpoints.algorithms.RoundRobin"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sessionTimeout" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"
+        defaultValueLiteral="0"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="LoadBalanceSessionType">
+    <eLiterals name="NONE"/>
+    <eLiterals name="TRANSPORT" value="1" literal="http"/>
+    <eLiterals name="SOAP" value="2" literal="soap"/>
+    <eLiterals name="CLIENT_ID" value="3" literal="simpleClientSession"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="LoadBalanceAlgorithm">
+    <eLiterals name="ROUND_ROBIN" literal="org.apache.synapse.endpoints.algorithms.RoundRobin"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Member">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="hostName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

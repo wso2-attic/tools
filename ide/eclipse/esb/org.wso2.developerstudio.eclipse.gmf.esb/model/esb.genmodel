@@ -403,6 +403,15 @@
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//Type/HTTP"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//Type/SIMPLE_CLIENT_SESSION"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//LoadBalanceSessionType">
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//LoadBalanceSessionType/NONE"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//LoadBalanceSessionType/TRANSPORT"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//LoadBalanceSessionType/SOAP"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//LoadBalanceSessionType/CLIENT_ID"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//LoadBalanceAlgorithm">
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//LoadBalanceAlgorithm/ROUND_ROBIN"/>
+    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//LocalEntryValueType">
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//LocalEntryValueType/LITERAL"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//LocalEntryValueType/XML"/>
@@ -1428,7 +1437,6 @@
     <genClasses ecoreClass="esb.ecore#//WSDLEndPointInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//WSDLEndPointOutputConnector"/>
     <genClasses ecoreClass="esb.ecore#//LoadBalanceEndPoint">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esb.ecore#//LoadBalanceEndPoint/session"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//LoadBalanceEndPoint/failover"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//LoadBalanceEndPoint/policy"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//LoadBalanceEndPoint/inputConnector"/>
@@ -1436,6 +1444,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//LoadBalanceEndPoint/westOutputConnector"/>
       <genFeatures children="true" createChild="true" propertyCategory="" propertyDescription=""
           ecoreFeature="ecore:EReference esb.ecore#//LoadBalanceEndPoint/member"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//LoadBalanceEndPoint/sessionType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//LoadBalanceEndPoint/algorithm"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//LoadBalanceEndPoint/sessionTimeout"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//Member">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//Member/hostName"/>

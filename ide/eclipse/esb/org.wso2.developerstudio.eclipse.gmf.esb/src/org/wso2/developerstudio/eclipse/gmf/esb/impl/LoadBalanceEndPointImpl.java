@@ -22,10 +22,12 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
+import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceAlgorithm;
 import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPointInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPointOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPointWestOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceSessionType;
 import org.wso2.developerstudio.eclipse.gmf.esb.Member;
 import org.wso2.developerstudio.eclipse.gmf.esb.Session;
 
@@ -36,29 +38,21 @@ import org.wso2.developerstudio.eclipse.gmf.esb.Session;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.LoadBalanceEndPointImpl#getSession <em>Session</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.LoadBalanceEndPointImpl#isFailover <em>Failover</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.LoadBalanceEndPointImpl#getPolicy <em>Policy</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.LoadBalanceEndPointImpl#getInputConnector <em>Input Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.LoadBalanceEndPointImpl#getOutputConnector <em>Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.LoadBalanceEndPointImpl#getWestOutputConnector <em>West Output Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.LoadBalanceEndPointImpl#getMember <em>Member</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.LoadBalanceEndPointImpl#getSessionType <em>Session Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.LoadBalanceEndPointImpl#getAlgorithm <em>Algorithm</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.LoadBalanceEndPointImpl#getSessionTimeout <em>Session Timeout</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
 public class LoadBalanceEndPointImpl extends ParentEndPointImpl implements LoadBalanceEndPoint {
-	/**
-	 * The cached value of the '{@link #getSession() <em>Session</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSession()
-	 * @generated
-	 * @ordered
-	 */
-	protected Session session;
-
 	/**
 	 * The default value of the '{@link #isFailover() <em>Failover</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -140,6 +134,66 @@ public class LoadBalanceEndPointImpl extends ParentEndPointImpl implements LoadB
 	protected EList<Member> member;
 
 	/**
+	 * The default value of the '{@link #getSessionType() <em>Session Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSessionType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final LoadBalanceSessionType SESSION_TYPE_EDEFAULT = LoadBalanceSessionType.NONE;
+
+	/**
+	 * The cached value of the '{@link #getSessionType() <em>Session Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSessionType()
+	 * @generated
+	 * @ordered
+	 */
+	protected LoadBalanceSessionType sessionType = SESSION_TYPE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getAlgorithm() <em>Algorithm</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAlgorithm()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final LoadBalanceAlgorithm ALGORITHM_EDEFAULT = LoadBalanceAlgorithm.ROUND_ROBIN;
+
+	/**
+	 * The cached value of the '{@link #getAlgorithm() <em>Algorithm</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAlgorithm()
+	 * @generated
+	 * @ordered
+	 */
+	protected LoadBalanceAlgorithm algorithm = ALGORITHM_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getSessionTimeout() <em>Session Timeout</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSessionTimeout()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final long SESSION_TIMEOUT_EDEFAULT = 0L;
+
+	/**
+	 * The cached value of the '{@link #getSessionTimeout() <em>Session Timeout</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSessionTimeout()
+	 * @generated
+	 * @ordered
+	 */
+	protected long sessionTimeout = SESSION_TIMEOUT_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -156,44 +210,6 @@ public class LoadBalanceEndPointImpl extends ParentEndPointImpl implements LoadB
 	@Override
 	protected EClass eStaticClass() {
 		return EsbPackage.Literals.LOAD_BALANCE_END_POINT;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Session getSession() {
-		if (session != null && session.eIsProxy()) {
-			InternalEObject oldSession = (InternalEObject)session;
-			session = (Session)eResolveProxy(oldSession);
-			if (session != oldSession) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, EsbPackage.LOAD_BALANCE_END_POINT__SESSION, oldSession, session));
-			}
-		}
-		return session;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Session basicGetSession() {
-		return session;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSession(Session newSession) {
-		Session oldSession = session;
-		session = newSession;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.LOAD_BALANCE_END_POINT__SESSION, oldSession, session));
 	}
 
 	/**
@@ -353,6 +369,69 @@ public class LoadBalanceEndPointImpl extends ParentEndPointImpl implements LoadB
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public LoadBalanceSessionType getSessionType() {
+		return sessionType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSessionType(LoadBalanceSessionType newSessionType) {
+		LoadBalanceSessionType oldSessionType = sessionType;
+		sessionType = newSessionType == null ? SESSION_TYPE_EDEFAULT : newSessionType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.LOAD_BALANCE_END_POINT__SESSION_TYPE, oldSessionType, sessionType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public LoadBalanceAlgorithm getAlgorithm() {
+		return algorithm;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAlgorithm(LoadBalanceAlgorithm newAlgorithm) {
+		LoadBalanceAlgorithm oldAlgorithm = algorithm;
+		algorithm = newAlgorithm == null ? ALGORITHM_EDEFAULT : newAlgorithm;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.LOAD_BALANCE_END_POINT__ALGORITHM, oldAlgorithm, algorithm));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public long getSessionTimeout() {
+		return sessionTimeout;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSessionTimeout(long newSessionTimeout) {
+		long oldSessionTimeout = sessionTimeout;
+		sessionTimeout = newSessionTimeout;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.LOAD_BALANCE_END_POINT__SESSION_TIMEOUT, oldSessionTimeout, sessionTimeout));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -376,9 +455,6 @@ public class LoadBalanceEndPointImpl extends ParentEndPointImpl implements LoadB
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case EsbPackage.LOAD_BALANCE_END_POINT__SESSION:
-				if (resolve) return getSession();
-				return basicGetSession();
 			case EsbPackage.LOAD_BALANCE_END_POINT__FAILOVER:
 				return isFailover();
 			case EsbPackage.LOAD_BALANCE_END_POINT__POLICY:
@@ -391,6 +467,12 @@ public class LoadBalanceEndPointImpl extends ParentEndPointImpl implements LoadB
 				return getWestOutputConnector();
 			case EsbPackage.LOAD_BALANCE_END_POINT__MEMBER:
 				return getMember();
+			case EsbPackage.LOAD_BALANCE_END_POINT__SESSION_TYPE:
+				return getSessionType();
+			case EsbPackage.LOAD_BALANCE_END_POINT__ALGORITHM:
+				return getAlgorithm();
+			case EsbPackage.LOAD_BALANCE_END_POINT__SESSION_TIMEOUT:
+				return getSessionTimeout();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -404,9 +486,6 @@ public class LoadBalanceEndPointImpl extends ParentEndPointImpl implements LoadB
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case EsbPackage.LOAD_BALANCE_END_POINT__SESSION:
-				setSession((Session)newValue);
-				return;
 			case EsbPackage.LOAD_BALANCE_END_POINT__FAILOVER:
 				setFailover((Boolean)newValue);
 				return;
@@ -427,6 +506,15 @@ public class LoadBalanceEndPointImpl extends ParentEndPointImpl implements LoadB
 				getMember().clear();
 				getMember().addAll((Collection<? extends Member>)newValue);
 				return;
+			case EsbPackage.LOAD_BALANCE_END_POINT__SESSION_TYPE:
+				setSessionType((LoadBalanceSessionType)newValue);
+				return;
+			case EsbPackage.LOAD_BALANCE_END_POINT__ALGORITHM:
+				setAlgorithm((LoadBalanceAlgorithm)newValue);
+				return;
+			case EsbPackage.LOAD_BALANCE_END_POINT__SESSION_TIMEOUT:
+				setSessionTimeout((Long)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -439,9 +527,6 @@ public class LoadBalanceEndPointImpl extends ParentEndPointImpl implements LoadB
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case EsbPackage.LOAD_BALANCE_END_POINT__SESSION:
-				setSession((Session)null);
-				return;
 			case EsbPackage.LOAD_BALANCE_END_POINT__FAILOVER:
 				setFailover(FAILOVER_EDEFAULT);
 				return;
@@ -460,6 +545,15 @@ public class LoadBalanceEndPointImpl extends ParentEndPointImpl implements LoadB
 			case EsbPackage.LOAD_BALANCE_END_POINT__MEMBER:
 				getMember().clear();
 				return;
+			case EsbPackage.LOAD_BALANCE_END_POINT__SESSION_TYPE:
+				setSessionType(SESSION_TYPE_EDEFAULT);
+				return;
+			case EsbPackage.LOAD_BALANCE_END_POINT__ALGORITHM:
+				setAlgorithm(ALGORITHM_EDEFAULT);
+				return;
+			case EsbPackage.LOAD_BALANCE_END_POINT__SESSION_TIMEOUT:
+				setSessionTimeout(SESSION_TIMEOUT_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -472,8 +566,6 @@ public class LoadBalanceEndPointImpl extends ParentEndPointImpl implements LoadB
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case EsbPackage.LOAD_BALANCE_END_POINT__SESSION:
-				return session != null;
 			case EsbPackage.LOAD_BALANCE_END_POINT__FAILOVER:
 				return failover != FAILOVER_EDEFAULT;
 			case EsbPackage.LOAD_BALANCE_END_POINT__POLICY:
@@ -486,6 +578,12 @@ public class LoadBalanceEndPointImpl extends ParentEndPointImpl implements LoadB
 				return westOutputConnector != null;
 			case EsbPackage.LOAD_BALANCE_END_POINT__MEMBER:
 				return member != null && !member.isEmpty();
+			case EsbPackage.LOAD_BALANCE_END_POINT__SESSION_TYPE:
+				return sessionType != SESSION_TYPE_EDEFAULT;
+			case EsbPackage.LOAD_BALANCE_END_POINT__ALGORITHM:
+				return algorithm != ALGORITHM_EDEFAULT;
+			case EsbPackage.LOAD_BALANCE_END_POINT__SESSION_TIMEOUT:
+				return sessionTimeout != SESSION_TIMEOUT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -504,6 +602,12 @@ public class LoadBalanceEndPointImpl extends ParentEndPointImpl implements LoadB
 		result.append(failover);
 		result.append(", policy: ");
 		result.append(policy);
+		result.append(", sessionType: ");
+		result.append(sessionType);
+		result.append(", algorithm: ");
+		result.append(algorithm);
+		result.append(", sessionTimeout: ");
+		result.append(sessionTimeout);
 		result.append(')');
 		return result.toString();
 	}
