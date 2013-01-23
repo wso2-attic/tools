@@ -20,7 +20,7 @@
 					<a href="#projectToPom">Synchronize Eclipse Project Dependencies with Maven pom.xml</a>
 				</li>
 				<li>
-					<a href="#pomToProject">Synchronize Maven Dependencies with Eclipse Project </a>
+					<a href="#pomToProject">Synchronize Maven Dependencies with Eclipse Project</a>
 				</li>
 			</ul>
 		</div>
@@ -29,16 +29,20 @@
 		libraries in your project. Since your source code is using the APIs and utilities exposed by these 3rd party libraries, you need to
 		add these libraries to Eclipse project classpath (Project Buildpath) as Dependencies in order to continue the development without 
 		compilation errors in the Eclipse IDE.
-		
+		</p>
+		<p>
 		But if you are using Maven as your build tool, in order to compile your source code successfully you need to add these same set of 
 		libraries as Maven Dependencies in your Maven pom.xml file.
-		
+		</p>
+		<p>
 		Usually maintaining both Eclipse project and Maven pom.xml is a tedious task and it is a maintenance overhead when your project keep on 
 		growing.
-		
+		</p>
+		<p>
 		Therefore we have implemented a feature which allows you to make this process easy and manageable where you can update your Maven 
 		pom.xml with latest set of libraries used in the Eclipse project with couple of clicks. 
-		
+		</p>
+		<p>
 		Along with this feature we have improved our WSO2 Eclipse projects to include all the Maven metadata in order to sync the dependencies 
 		declared in pom.xml with Eclipse project without losing any other project metadata. Thus you can update your pom.xml with the new 
 		Maven dependencies and run a simple Maven command and it will preserve your existing Project Metadata while updating the project classpath
@@ -86,6 +90,102 @@
 		<p>
 			<br></br>
 			<img alt="MavenSync" src="images/MavenProjectToPomSynced.png"></img>
+			<br></br>
+		</p>
+		<h2 id="pomToProject">Synchronize Maven Dependencies with Eclipse Project </h2>
+		<p>
+		When you have a Maven Project, you may want to open that project with Eclipse and continue the development or you may already have an Eclipse
+		 project where it's 'dependencies are maintained using Apache Maven pom.xml. In first case you need to generate the Eclipse project metadata such
+		 as Project descriptors, Project Classpath descriptors, etc. For the 2nd case you need to update the existing Eclipse Project descriptors preserving
+		 all the existing information. 
+		</p>
+		<p>
+		Now with the introduction of this new feature for WSO2 Project types, you can achieve both scenarios we mentioned above. Assume you are using Subversion
+		as your Source Control System and your company policy dictates that you are not committing any IDE specific files to the Source control system, with this
+		 new feature you don't have to worry about it because we have included all the required project metadata to all WSO2 Project pom,xml file where you can 
+		 simply run <a href="http://maven.apache.org/plugins/maven-eclipse-plugin/eclipse-mojo.html">Maven eclipse goal</a> against your project and generate your 
+		 project descriptors or update existing project descriptors.  
+		</p>
+		<h3>Prerequisite</h3>
+		<table>
+			<tr>
+				<td><a href="http://wso2.com/products/developer-studio">WSO2 Developer Studio</a></td>
+				<td>3.0.0 or later</td>
+			</tr>
+			<tr>
+				<td><a href="http://download.eclipse.org/technology/m2e/releases">Eclipse M2Eclipse</a></td>
+				<td>1.2 or later</td>
+			</tr>
+			<tr>
+				<td><a href="http://maven.apache.org/download.cgi">Apache Maven</a></td>
+				<td>3.0.3 or later</td>
+			</tr>
+		</table>
+		<p>
+		Let's assume you have a WSO2 Maven Project called CustomMediator where you have only source files and Maven pom.xml file.
+		</p>
+		<p>
+			<br></br>
+			<img alt="MavenSync" src="images/MavenProject.png"></img>
+			<br></br>
+		</p>
+		<p>
+		Then open a Command Prompt/Shell in your environment and go to the file system location of your Maven Project. Then enter the command <strong>
+		mvn eclipse:eclipse</strong> as mentioned in the <strong><a href="http://maven.apache.org/plugins/maven-eclipse-plugin/eclipse-mojo.html">
+		Maven eclipse goal</a></strong>.
+		</p>
+		<p>
+			<br></br>
+			<img alt="MavenSync" src="images/MavenBuildStartCommand.png"></img>
+			<br></br>
+		</p>
+		<p>
+		If you have setup Apache Maven 3 or a later version in your environment you will see that your Maven project is being built as shown in the 
+		following image.
+		</p>
+		<p>
+			<br></br>
+			<img alt="MavenSync" src="images/MavenBuildRunning.png"></img>
+			<br></br>
+		</p>
+		<p>
+		If the build is completed successfully you will see an output similar to image below.
+		</p>
+		<p>
+			<br></br>
+			<img alt="MavenSync" src="images/MavenBuildFinished.png"></img>
+			<br></br>
+		</p>
+		<p>
+		Now open your Developer Studio instance and switch to <strong>Java EE</strong> perspective from <strong>Window->Open Perspective->Other</strong>.
+		Then go to <strong>Project Explorer</strong> view and Right click on the view and select <strong>Import->Import</strong>.
+		</p>
+		<p>
+			<br></br>
+			<img alt="MavenSync" src="images/MavenImportProjectMenu.png"></img>
+			<br></br>
+		</p>
+		<p>
+		Once you follow above steps it will open the <strong>Project Import wizard</strong>. From this wizard, select <strong>
+		WSO2->Existing WSO2 Projects in to workspace</strong> and click on <strong>Next ></strong> button.
+		</p>
+		<p>
+			<br></br>
+			<img alt="MavenSync" src="images/MavenProjectImportDialog.png"></img>
+			<br></br>
+		</p>
+		<p>
+		When you follow the above steps, it will show the <strong>Import Projects</strong> wizard page. In this wizard page you can point to your Maven 
+		project location in the file system using the <strong>Browse...</strong> button. When you point to that location, Eclipse will automatically 
+		scan the file system and locate all the projects and will show under <strong>Projects:</strong>. Once you click on <strong>Finish</strong> 
+		Eclipse will import the project to Eclipse.
+		</p>
+		<p>
+		Then you can open your project in Eclipse and continue your Development in WSO2 Developer Studio and Eclipse.
+		</p>
+		<p>
+			<br></br>
+			<img alt="MavenSync" src="images/MavenProjectImported.png"></img>
 			<br></br>
 		</p>
 	</body>

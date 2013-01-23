@@ -281,6 +281,7 @@ permissions and ~ limitations under the License.
 	        <li>Synapse Configurations</li>
 	        <li>Gadget</li>
 	        <li>Carbon UI Bundle</li>
+	        <li>Sync Dependencies between Eclipse Projects and Maven pom.xml</li>
 	    </ol>
 	    <h2 id="general">General</h2>
 	    <ul>
