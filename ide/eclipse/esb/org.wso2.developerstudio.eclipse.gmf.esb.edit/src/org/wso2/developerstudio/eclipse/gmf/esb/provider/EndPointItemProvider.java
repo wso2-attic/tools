@@ -12,6 +12,8 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -21,7 +23,9 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.wso2.developerstudio.eclipse.gmf.esb.ArtifactType;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 
 /**
@@ -61,10 +65,24 @@ public class EndPointItemProvider
 			itemPropertyDescriptors.clear();
 		}
 		
+		EndPoint endPoint = (EndPoint) object;
+		
 		super.getPropertyDescriptors(object);
 		//addEndPointNamePropertyDescriptor(object);
 		//addAnonymousPropertyDescriptor(object);
-		addInLinePropertyDescriptor(object);
+		
+		/* 'InLine' property only applicable for Proxies and APIs  */
+		EObject rootContainer = EcoreUtil.getRootContainer(endPoint);
+		if(rootContainer instanceof EsbDiagram){
+			EsbDiagram esbDiagram = (EsbDiagram) rootContainer;
+			ArtifactType type = esbDiagram.getServer().getType();
+			switch (type) {
+			case PROXY:
+			case API:
+				addInLinePropertyDescriptor(object);
+				break;
+			}
+		}
 		
 		return itemPropertyDescriptors;
 	}
