@@ -28,7 +28,6 @@ import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.MediatorFlow;
@@ -97,6 +96,9 @@ public class ProxyServiceDeserializer extends AbstractEsbNodeDeserializer<ProxyS
 		if(object.getPinnedServers().size()>0){
 			executeSetValueCommand(PROXY_SERVICE__PINNED_SERVERS,DeserializerUtils.join(object.getPinnedServers(), ","));
 		}
+		
+		executeSetValueCommand(PROXY_SERVICE__SECURITY_ENABLED, object.isWsSecEnabled());
+		executeSetValueCommand(PROXY_SERVICE__RELIABLE_MESSAGING_ENABLED, object.isWsRMEnabled());	
 		
 		EList<ProxyServiceParameter> parameters = new BasicEList<ProxyServiceParameter>();
 		for (Map.Entry<String, Object> entry : object.getParameterMap().entrySet()) {
