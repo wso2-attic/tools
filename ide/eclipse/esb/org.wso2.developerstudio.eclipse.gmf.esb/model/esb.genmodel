@@ -143,6 +143,7 @@
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//FaultSoapVersion">
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//FaultSoapVersion/SOAP_1_1"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//FaultSoapVersion/SOAP_1_2"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//FaultSoapVersion/POX"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//FaultCodeSoap11">
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//FaultCodeSoap11/VERSION_MISSMATCH"/>

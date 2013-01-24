@@ -325,7 +325,7 @@ public class FaultMediatorImpl extends MediatorImpl implements FaultMediator {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String FAULT_DETAIL_VALUE_EDEFAULT = "fault_detail";
+	protected static final String FAULT_DETAIL_VALUE_EDEFAULT = "";
 
 	/**
 	 * The cached value of the '{@link #getFaultDetailValue() <em>Fault Detail Value</em>}' attribute.

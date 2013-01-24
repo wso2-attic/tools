@@ -808,7 +808,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nodeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="faultDetailType" eType="#//FaultDetailType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="faultDetailValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        defaultValueLiteral="fault_detail"/>
+        defaultValueLiteral=""/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="faultDetailExpression"
         eType="#//NamespacedProperty" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="inputConnector" eType="#//FaultMediatorInputConnector"
@@ -821,6 +821,7 @@
   <eClassifiers xsi:type="ecore:EEnum" name="FaultSoapVersion">
     <eLiterals name="SOAP_1_1" literal="soap11"/>
     <eLiterals name="SOAP_1_2" value="1" literal="soap12"/>
+    <eLiterals name="POX" value="2" literal="POX"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="FaultCodeSoap11">
     <eLiterals name="VERSION_MISSMATCH" literal="VersionMismatch"/>

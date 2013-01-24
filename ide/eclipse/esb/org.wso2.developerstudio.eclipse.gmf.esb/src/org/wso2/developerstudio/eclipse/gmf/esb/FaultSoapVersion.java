@@ -40,7 +40,15 @@ public enum FaultSoapVersion implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SOAP_12(1, "SOAP_1_2", "soap12");
+	SOAP_12(1, "SOAP_1_2", "soap12"), /**
+	 * The '<em><b>POX</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #POX_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	POX(2, "POX", "POX");
 
 	/**
 	 * The '<em><b>SOAP 11</b></em>' literal value.
@@ -73,6 +81,21 @@ public enum FaultSoapVersion implements Enumerator {
 	public static final int SOAP_12_VALUE = 1;
 
 	/**
+	 * The '<em><b>POX</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>POX</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #POX
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int POX_VALUE = 2;
+
+	/**
 	 * An array of all the '<em><b>Fault Soap Version</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -82,6 +105,7 @@ public enum FaultSoapVersion implements Enumerator {
 		new FaultSoapVersion[] {
 			SOAP_11,
 			SOAP_12,
+			POX,
 		};
 
 	/**
@@ -134,6 +158,7 @@ public enum FaultSoapVersion implements Enumerator {
 		switch (value) {
 			case SOAP_11_VALUE: return SOAP_11;
 			case SOAP_12_VALUE: return SOAP_12;
+			case POX_VALUE: return POX;
 		}
 		return null;
 	}

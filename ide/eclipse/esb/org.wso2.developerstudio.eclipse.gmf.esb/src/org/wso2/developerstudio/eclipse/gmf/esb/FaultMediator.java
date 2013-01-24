@@ -433,7 +433,7 @@ public interface FaultMediator extends Mediator {
 
 	/**
 	 * Returns the value of the '<em><b>Fault Detail Value</b></em>' attribute.
-	 * The default value is <code>"fault_detail"</code>.
+	 * The default value is <code>""</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Fault Detail Value</em>' attribute isn't clear,
@@ -443,7 +443,7 @@ public interface FaultMediator extends Mediator {
 	 * @return the value of the '<em>Fault Detail Value</em>' attribute.
 	 * @see #setFaultDetailValue(String)
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getFaultMediator_FaultDetailValue()
-	 * @model default="fault_detail"
+	 * @model default=""
 	 * @generated
 	 */
 	String getFaultDetailValue();
