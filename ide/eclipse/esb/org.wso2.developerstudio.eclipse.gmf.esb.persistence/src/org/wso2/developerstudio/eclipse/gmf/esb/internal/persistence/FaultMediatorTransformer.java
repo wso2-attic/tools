@@ -20,7 +20,6 @@ import java.util.List;
 
 import javax.xml.namespace.QName;
 
-import org.apache.synapse.SynapseArtifact;
 import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.apache.synapse.util.xpath.SynapseXPath;
@@ -28,7 +27,6 @@ import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EObject;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.FaultMediator;
-import org.wso2.developerstudio.eclipse.gmf.esb.PropertyMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.EsbNodeTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
 
@@ -63,7 +61,6 @@ public class FaultMediatorTransformer extends AbstractEsbNodeTransformer {
 
 	public void transformWithinSequence(TransformationInfo information,
 			EsbNode subject, SequenceMediator sequence) throws Exception {
-		// TODO Auto-generated method stub
 		sequence.addChild(createFaultMediator(subject));
 		doTransformWithinSequence(information,((FaultMediator) subject).getOutputConnector().getOutgoingLink(),sequence);
 		
@@ -174,21 +171,50 @@ public class FaultMediatorTransformer extends AbstractEsbNodeTransformer {
 					faultMediator.setFaultNode(new URI(visualFault.getNodeName()));
 				}
 				break;
-			}
-			
-			switch (visualFault.getFaultDetailType()) {
-			case VALUE:
-				faultMediator.setFaultDetail(visualFault.getFaultDetailValue());
-				break;
-			case EXPRESSION:
-				SynapseXPath detailExpression = new SynapseXPath(visualFault.getFaultDetailExpression().getPropertyValue());
-				for(int i=0;i<visualFault.getFaultDetailExpression().getNamespaces().keySet().size();++i){				
-					String prefix=(String)visualFault.getFaultDetailExpression().getNamespaces().keySet().toArray()[i];
-					String namespaceUri=visualFault.getFaultDetailExpression().getNamespaces().get(prefix);
-					detailExpression.addNamespace(prefix, namespaceUri);
+				
+			case POX:
+				
+				faultMediator
+						.setSoapVersion(org.apache.synapse.mediators.transform.FaultMediator.POX);
+
+				switch (visualFault.getFaultReasonType()) {
+				case VALUE:
+					faultMediator.setFaultReasonValue(visualFault.getFaultReasonValue());
+					break;
+				case EXPRESSION:
+					SynapseXPath reasonExpression = new SynapseXPath(visualFault
+							.getFaultReasonExpression().getPropertyValue());
+					for (int i = 0; i < visualFault.getFaultReasonExpression().getNamespaces()
+							.keySet().size(); ++i) {
+						String prefix = (String) visualFault.getFaultReasonExpression()
+								.getNamespaces().keySet().toArray()[i];
+						String namespaceUri = visualFault.getFaultReasonExpression()
+								.getNamespaces().get(prefix);
+						reasonExpression.addNamespace(prefix, namespaceUri);
+					}
+					faultMediator.setFaultReasonExpr(reasonExpression);
+
+					break;
 				}
-				faultMediator.setFaultDetailExpr(detailExpression);
-				break;
+
+				switch (visualFault.getFaultDetailType()) {
+				case VALUE:
+					faultMediator.setFaultDetail(visualFault.getFaultDetailValue());
+					break;
+				case EXPRESSION:
+					SynapseXPath detailExpression = new SynapseXPath(visualFault
+							.getFaultDetailExpression().getPropertyValue());
+					for (int i = 0; i < visualFault.getFaultDetailExpression().getNamespaces()
+							.keySet().size(); ++i) {
+						String prefix = (String) visualFault.getFaultDetailExpression()
+								.getNamespaces().keySet().toArray()[i];
+						String namespaceUri = visualFault.getFaultDetailExpression()
+								.getNamespaces().get(prefix);
+						detailExpression.addNamespace(prefix, namespaceUri);
+					}
+					faultMediator.setFaultDetailExpr(detailExpression);
+					break;
+				}
 			}
 			// Response?.
 			faultMediator.setMarkAsResponse(visualFault.isMarkAsResponse());			
