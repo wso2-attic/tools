@@ -58,7 +58,7 @@ public class FaultMediatorItemProvider extends MediatorItemProvider implements
 	 * @generated NOT
 	 */
 	
-	
+	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		FaultMediator faultMediator = (FaultMediator) object;
 		if (itemPropertyDescriptors != null) {
@@ -78,7 +78,7 @@ public class FaultMediatorItemProvider extends MediatorItemProvider implements
 			}
 
 			addFaultActorPropertyDescriptor(object);
-		} else {
+		} if (faultMediator.getSoapVersion().equals(FaultSoapVersion.SOAP_12)) {
 			addFaultCodeSoap12PropertyDescriptor(object);
 
 			addFaultReasonTypePropertyDescriptor(object);
@@ -90,6 +90,15 @@ public class FaultMediatorItemProvider extends MediatorItemProvider implements
 
 			addRoleNamePropertyDescriptor(object);
 			addNodeNamePropertyDescriptor(object);
+		} else {
+
+			addFaultReasonTypePropertyDescriptor(object);
+			if (faultMediator.getFaultReasonType().equals(FaultReasonType.VALUE)) {
+				addFaultReasonValuePropertyDescriptor(object);
+			} else {
+				addFaultReasonExpressionPropertyDescriptor(object);
+			}
+
 		}
 
 		addFaultDetailTypePropertyDescriptor(object);
