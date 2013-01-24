@@ -14,10 +14,13 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementType
 import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.*;
 
 public class FaultMediatorDeserializer extends AbstractEsbNodeDeserializer<AbstractMediator, FaultMediator>{
+	
+	final static int POX = 3;
+	final static int SOAP11 = 1;
+	final static int SOAP12 = 2;
 
 	public FaultMediator createNode(IGraphicalEditPart part,AbstractMediator mediator) {
-		final int SOAP11 = 1;
-		final int SOAP12 = 2;
+
 		Assert.isTrue(mediator instanceof org.apache.synapse.mediators.transform.FaultMediator, "Unsupported mediator passed in for deserialization at "+ this.getClass());
 		
 		org.apache.synapse.mediators.transform.FaultMediator faultMediator = (org.apache.synapse.mediators.transform.FaultMediator)mediator;
@@ -52,7 +55,8 @@ public class FaultMediatorDeserializer extends AbstractEsbNodeDeserializer<Abstr
 			}
 			
 			break;
-			
+		
+		case 0:	
 		case SOAP12:
 			executeSetValueCommand(FAULT_MEDIATOR__SOAP_VERSION, FaultSoapVersion.SOAP_12);
 			
@@ -63,9 +67,9 @@ public class FaultMediatorDeserializer extends AbstractEsbNodeDeserializer<Abstr
 				executeSetValueCommand(FAULT_MEDIATOR__FAULT_CODE_SOAP12, FaultCodeSoap12.VERSION_MISSMATCH);
 			}else if("MustUnderstand".equals(faultMediator.getFaultCodeValue().getLocalPart())){
 				executeSetValueCommand(FAULT_MEDIATOR__FAULT_CODE_SOAP12, FaultCodeSoap12.MUST_UNDERSTAND);
-			}else if("Server".equals(faultMediator.getFaultCodeValue().getLocalPart())){
+			}else if("Sender".equals(faultMediator.getFaultCodeValue().getLocalPart())){
 				executeSetValueCommand(FAULT_MEDIATOR__FAULT_CODE_SOAP12, FaultCodeSoap12.SENDER);
-			}else if("Client".equals(faultMediator.getFaultCodeValue().getLocalPart())){
+			}else if("Receiver".equals(faultMediator.getFaultCodeValue().getLocalPart())){
 				executeSetValueCommand(FAULT_MEDIATOR__FAULT_CODE_SOAP12, FaultCodeSoap12.RECEIVER);
 			}else if("DataEncodingUnknown".equals(faultMediator.getFaultCodeValue().getLocalPart())){
 				executeSetValueCommand(FAULT_MEDIATOR__FAULT_CODE_SOAP12, FaultCodeSoap12.DATA_ENCODING_UNKNOWN);
@@ -81,7 +85,23 @@ public class FaultMediatorDeserializer extends AbstractEsbNodeDeserializer<Abstr
 			if(faultMediator.getFaultNode()!=null){
 				executeSetValueCommand(FAULT_MEDIATOR__NODE_NAME, faultMediator.getFaultNode().getPath());
 			}			
-			break;		
+			break;	
+			
+			
+		case POX:
+			executeSetValueCommand(FAULT_MEDIATOR__SOAP_VERSION, FaultSoapVersion.POX);
+			
+			if(faultMediator.getFaultReasonValue()!=null){
+				executeSetValueCommand(FAULT_MEDIATOR__FAULT_REASON_VALUE, faultMediator.getFaultReasonValue());
+				executeSetValueCommand(FAULT_MEDIATOR__FAULT_REASON_TYPE, FaultReasonType.VALUE);
+			}else if(faultMediator.getFaultReasonExpr()!=null){	
+				executeSetValueCommand(FAULT_MEDIATOR__FAULT_REASON_EXPRESSION, createNamespacedProperty(faultMediator.getFaultReasonExpr()));
+				executeSetValueCommand(FAULT_MEDIATOR__FAULT_REASON_TYPE, FaultReasonType.EXPRESSION);
+			}
+			if(faultMediator.getFaultNode()!=null){
+				executeSetValueCommand(FAULT_MEDIATOR__NODE_NAME, faultMediator.getFaultNode().getPath());
+			}			
+			break;	
 			
 		}	
 		if(faultMediator.getFaultDetail()!=null){
