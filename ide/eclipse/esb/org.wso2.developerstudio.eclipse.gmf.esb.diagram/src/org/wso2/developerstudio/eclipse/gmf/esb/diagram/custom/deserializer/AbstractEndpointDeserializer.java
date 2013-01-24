@@ -43,7 +43,7 @@ public abstract class AbstractEndpointDeserializer extends AbstractEsbNodeDeseri
 			}
 		}		
 		executeSetValueCommand(ABSTRACT_END_POINT__SUSPEND_ERROR_CODES, suspendErrorCodes);
-		executeSetValueCommand(ABSTRACT_END_POINT__SUSPEND_INITIAL_DURATION, visualEndpoint.getSuspendInitialDuration());
+		executeSetValueCommand(ABSTRACT_END_POINT__SUSPEND_INITIAL_DURATION, endpoint.getDefinition().getInitialSuspendDuration());
 		executeSetValueCommand(ABSTRACT_END_POINT__SUSPEND_MAXIMUM_DURATION, endpoint.getDefinition().getSuspendMaximumDuration());
 		executeSetValueCommand(ABSTRACT_END_POINT__SUSPEND_PROGRESSION_FACTOR, endpoint.getDefinition().getSuspendProgressionFactor());
 		
