@@ -8,6 +8,7 @@ import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.endpoints.EndpointDefinition;
 import org.apache.synapse.endpoints.LoadbalanceEndpoint;
 import org.apache.synapse.endpoints.SALoadbalanceEndpoint;
+import org.apache.synapse.endpoints.algorithms.LoadbalanceAlgorithm;
 import org.apache.synapse.endpoints.algorithms.RoundRobin;
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.apache.synapse.mediators.builtin.SendMediator;
@@ -214,7 +215,26 @@ public class LoadBalanceEndPointTransformer extends AbstractEndpointTransformer{
 		/*
 		 * We should give this LoadbalanceAlgorithm class at runtime.User should be requested to give a class.		
 		 */
-		synapseLBEP.setAlgorithm(new RoundRobin());
+		try {
+			Class algorithmClass= Class.forName(visualEndPoint.getAlgorithm().trim());
+			Object algorithm=algorithmClass.newInstance();
+			if(algorithm instanceof LoadbalanceAlgorithm){
+				synapseLBEP.setAlgorithm((LoadbalanceAlgorithm) algorithm);
+			}
+		} catch (ClassNotFoundException e1) {
+			MessageDialog.openError(Display.getCurrent().getActiveShell(),"Error in Loadbalance Endpoint ! ",
+					visualEndPoint.getAlgorithm().trim()+" algorithm class not found.");
+			e1.printStackTrace();
+		} catch (InstantiationException e) {
+			MessageDialog.openError(Display.getCurrent().getActiveShell(),"Error in Loadbalance Endpoint ! ",
+					visualEndPoint.getAlgorithm().trim()+" algorithm class cannot be instantiated.");
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			MessageDialog.openError(Display.getCurrent().getActiveShell(),"Error in Loadbalance Endpoint ! ",
+					"Illegal access to "+visualEndPoint.getAlgorithm().trim()+" algorithm class.");
+			e.printStackTrace();
+		} 
+		
 		switch (visualEndPoint.getSessionType()) {
 		case SOAP:
 			Dispatcher soapDispatcher = new SoapSessionDispatcher();
