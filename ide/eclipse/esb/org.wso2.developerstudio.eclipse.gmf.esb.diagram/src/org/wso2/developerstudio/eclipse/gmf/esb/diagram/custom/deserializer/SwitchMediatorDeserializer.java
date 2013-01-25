@@ -58,14 +58,18 @@ public class SwitchMediatorDeserializer extends
 			executeSetValueCommand(SWITCH_MEDIATOR__SOURCE_XPATH, sourceXPath);
 		}
 		
-		SequenceMediator defaultSequence = new SequenceMediator();
-		defaultSequence.addAll(switchMediator.getDefaultCase().getCaseMediator().getList());
-		IGraphicalEditPart defaultCompartment = (IGraphicalEditPart) getEditpart(
-				visualSwitchMediator.getSwitchContainer().getSwitchDefaultContainer()
-						.getMediatorFlow()).getChildren().get(0);
-		deserializeSequence((IGraphicalEditPart) defaultCompartment, defaultSequence,
-				visualSwitchMediator.getDefaultBranch());
-
+		
+		SwitchCase defaultCase = switchMediator.getDefaultCase();
+		
+		if (defaultCase!=null) {
+			SequenceMediator defaultSequence = new SequenceMediator();
+			defaultSequence.addAll(defaultCase.getCaseMediator().getList());
+			IGraphicalEditPart defaultCompartment = (IGraphicalEditPart) getEditpart(
+					visualSwitchMediator.getSwitchContainer().getSwitchDefaultContainer()
+							.getMediatorFlow()).getChildren().get(0);
+			deserializeSequence((IGraphicalEditPart) defaultCompartment, defaultSequence,
+					visualSwitchMediator.getDefaultBranch());
+		}
 		if (switchMediator.getCases() != null && !switchMediator.getCases().isEmpty()) {
 			int count=0;
 			for (SwitchCase switchCase : switchMediator.getCases()) {
