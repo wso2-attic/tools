@@ -1,5 +1,7 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.ADDRESS_END_POINT__URI;
+
 import org.apache.synapse.endpoints.AbstractEndpoint;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
@@ -7,6 +9,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.Member;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.*;
 
 public class LoadBalanceEndpointDeserializer extends AbstractComplexEndPointDeserializer{//AbstractEsbNodeDeserializer<AbstractEndpoint, LoadBalanceEndPoint>{
 	
@@ -20,6 +23,7 @@ public class LoadBalanceEndpointDeserializer extends AbstractComplexEndPointDese
 		LoadBalanceEndPoint vishualEndPoint = (LoadBalanceEndPoint) DeserializerUtils.createNode(part, EsbElementTypes.LoadBalanceEndPoint_3613);
 		setElementToEdit(vishualEndPoint);
 		
+		executeSetValueCommand(LOAD_BALANCE_END_POINT__ALGORITHM, loadbalanceEndpoint.getAlgorithm().getClass().getName());
 		if (loadbalanceEndpoint.getChildren() != null && !loadbalanceEndpoint.getChildren().isEmpty()) {
 			deserializeComplexEndpoint(loadbalanceEndpoint);
 			
