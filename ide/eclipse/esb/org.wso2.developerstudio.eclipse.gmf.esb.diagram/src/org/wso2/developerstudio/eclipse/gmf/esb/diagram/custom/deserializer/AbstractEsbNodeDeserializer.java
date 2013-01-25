@@ -63,6 +63,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.Sequences;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorCompartmentEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ConnectionUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils;
@@ -429,11 +430,11 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 			EditPart editpart = getEditpart(mediatornode);
 			if (editpart instanceof ShapeNodeEditPart) {
 				if(reversedMode){
-					targetConnector = EditorUtils.getOutputConnector((ShapeNodeEditPart) editpart);
+					targetConnector = getOutputConnector((ShapeNodeEditPart) editpart);
 					nextSourceConnector = EditorUtils.getInputConnector((ShapeNodeEditPart) editpart);
 				} else{
 					targetConnector = EditorUtils.getInputConnector((ShapeNodeEditPart) editpart);
-					nextSourceConnector = EditorUtils.getOutputConnector((ShapeNodeEditPart) editpart);
+					nextSourceConnector = getOutputConnector((ShapeNodeEditPart) editpart);
 				}
 			}
 
@@ -447,6 +448,16 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 			}
 			sourceConnector = nextSourceConnector;
 		}
+	}
+
+	/**
+	 * Look up OutputConnector by EditPart
+	 * @param editpart
+	 * @return
+	 */
+	private static AbstractConnectorEditPart getOutputConnector(ShapeNodeEditPart editpart) {
+		return EditorUtils.getOutputConnector(editpart,
+				AbstractMediatorOutputConnectorEditPart.class);
 	}
 
 	/**

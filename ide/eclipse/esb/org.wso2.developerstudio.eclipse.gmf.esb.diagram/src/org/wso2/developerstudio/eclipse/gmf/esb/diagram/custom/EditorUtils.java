@@ -18,7 +18,6 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.LinkedList;
 
 import org.apache.synapse.Mediator;
 import org.apache.synapse.mediators.base.SequenceMediator;
@@ -79,6 +78,23 @@ public class EditorUtils {
 		for(int i=0;i<parent.getChildren().size();++i){					
 			if(parent.getChildren().get(i) instanceof AbstractOutputConnectorEditPart){
 				return (AbstractOutputConnectorEditPart) parent.getChildren().get(i);
+			}
+		}
+		return null;
+	}
+	
+	/**
+	 * Look up OutputConnector by EditPart and type
+	 * @param <T>
+	 * @param parent
+	 * @param type
+	 * @return
+	 */
+	public static <T extends AbstractOutputConnectorEditPart> T getOutputConnector(
+			ShapeNodeEditPart parent, Class<T> type) {
+		for (int i = 0; i < parent.getChildren().size(); ++i) {
+			if (type.isInstance(parent.getChildren().get(i))) {
+				return type.cast(parent.getChildren().get(i));
 			}
 		}
 		return null;
