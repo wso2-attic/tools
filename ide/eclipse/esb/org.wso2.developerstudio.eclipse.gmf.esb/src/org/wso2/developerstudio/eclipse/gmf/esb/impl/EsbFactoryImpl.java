@@ -509,8 +509,6 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 				return createTypeFromString(eDataType, initialValue);
 			case EsbPackage.LOAD_BALANCE_SESSION_TYPE:
 				return createLoadBalanceSessionTypeFromString(eDataType, initialValue);
-			case EsbPackage.LOAD_BALANCE_ALGORITHM:
-				return createLoadBalanceAlgorithmFromString(eDataType, initialValue);
 			case EsbPackage.LOCAL_ENTRY_VALUE_TYPE:
 				return createLocalEntryValueTypeFromString(eDataType, initialValue);
 			case EsbPackage.RULE_ACTION_TYPE:
@@ -691,8 +689,6 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 				return convertTypeToString(eDataType, instanceValue);
 			case EsbPackage.LOAD_BALANCE_SESSION_TYPE:
 				return convertLoadBalanceSessionTypeToString(eDataType, instanceValue);
-			case EsbPackage.LOAD_BALANCE_ALGORITHM:
-				return convertLoadBalanceAlgorithmToString(eDataType, instanceValue);
 			case EsbPackage.LOCAL_ENTRY_VALUE_TYPE:
 				return convertLocalEntryValueTypeToString(eDataType, instanceValue);
 			case EsbPackage.RULE_ACTION_TYPE:
@@ -5166,26 +5162,6 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	 * @generated
 	 */
 	public String convertLoadBalanceSessionTypeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public LoadBalanceAlgorithm createLoadBalanceAlgorithmFromString(EDataType eDataType, String initialValue) {
-		LoadBalanceAlgorithm result = LoadBalanceAlgorithm.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertLoadBalanceAlgorithmToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

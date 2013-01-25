@@ -161,7 +161,7 @@ public class LoadBalanceEndPointImpl extends ParentEndPointImpl implements LoadB
 	 * @generated
 	 * @ordered
 	 */
-	protected static final LoadBalanceAlgorithm ALGORITHM_EDEFAULT = LoadBalanceAlgorithm.ROUND_ROBIN;
+	protected static final String ALGORITHM_EDEFAULT = "org.apache.synapse.endpoints.algorithms.RoundRobin";
 
 	/**
 	 * The cached value of the '{@link #getAlgorithm() <em>Algorithm</em>}' attribute.
@@ -171,7 +171,7 @@ public class LoadBalanceEndPointImpl extends ParentEndPointImpl implements LoadB
 	 * @generated
 	 * @ordered
 	 */
-	protected LoadBalanceAlgorithm algorithm = ALGORITHM_EDEFAULT;
+	protected String algorithm = ALGORITHM_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getSessionTimeout() <em>Session Timeout</em>}' attribute.
@@ -390,7 +390,7 @@ public class LoadBalanceEndPointImpl extends ParentEndPointImpl implements LoadB
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public LoadBalanceAlgorithm getAlgorithm() {
+	public String getAlgorithm() {
 		return algorithm;
 	}
 
@@ -399,9 +399,9 @@ public class LoadBalanceEndPointImpl extends ParentEndPointImpl implements LoadB
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setAlgorithm(LoadBalanceAlgorithm newAlgorithm) {
-		LoadBalanceAlgorithm oldAlgorithm = algorithm;
-		algorithm = newAlgorithm == null ? ALGORITHM_EDEFAULT : newAlgorithm;
+	public void setAlgorithm(String newAlgorithm) {
+		String oldAlgorithm = algorithm;
+		algorithm = newAlgorithm;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.LOAD_BALANCE_END_POINT__ALGORITHM, oldAlgorithm, algorithm));
 	}
@@ -510,7 +510,7 @@ public class LoadBalanceEndPointImpl extends ParentEndPointImpl implements LoadB
 				setSessionType((LoadBalanceSessionType)newValue);
 				return;
 			case EsbPackage.LOAD_BALANCE_END_POINT__ALGORITHM:
-				setAlgorithm((LoadBalanceAlgorithm)newValue);
+				setAlgorithm((String)newValue);
 				return;
 			case EsbPackage.LOAD_BALANCE_END_POINT__SESSION_TIMEOUT:
 				setSessionTimeout((Long)newValue);
@@ -581,7 +581,7 @@ public class LoadBalanceEndPointImpl extends ParentEndPointImpl implements LoadB
 			case EsbPackage.LOAD_BALANCE_END_POINT__SESSION_TYPE:
 				return sessionType != SESSION_TYPE_EDEFAULT;
 			case EsbPackage.LOAD_BALANCE_END_POINT__ALGORITHM:
-				return algorithm != ALGORITHM_EDEFAULT;
+				return ALGORITHM_EDEFAULT == null ? algorithm != null : !ALGORITHM_EDEFAULT.equals(algorithm);
 			case EsbPackage.LOAD_BALANCE_END_POINT__SESSION_TIMEOUT:
 				return sessionTimeout != SESSION_TIMEOUT_EDEFAULT;
 		}

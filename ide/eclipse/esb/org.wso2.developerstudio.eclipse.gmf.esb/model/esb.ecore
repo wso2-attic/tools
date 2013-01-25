@@ -1880,7 +1880,7 @@
         eType="#//Member" derived="true" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sessionType" eType="#//LoadBalanceSessionType"
         defaultValueLiteral="NONE"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="algorithm" eType="#//LoadBalanceAlgorithm"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="algorithm" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="org.apache.synapse.endpoints.algorithms.RoundRobin"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sessionTimeout" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"
         defaultValueLiteral="0"/>
@@ -1890,9 +1890,6 @@
     <eLiterals name="TRANSPORT" value="1" literal="http"/>
     <eLiterals name="SOAP" value="2" literal="soap"/>
     <eLiterals name="CLIENT_ID" value="3" literal="simpleClientSession"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="LoadBalanceAlgorithm">
-    <eLiterals name="ROUND_ROBIN" literal="org.apache.synapse.endpoints.algorithms.RoundRobin"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Member">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="hostName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

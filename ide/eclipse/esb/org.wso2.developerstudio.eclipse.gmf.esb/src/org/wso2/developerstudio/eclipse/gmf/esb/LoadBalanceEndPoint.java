@@ -202,7 +202,6 @@ public interface LoadBalanceEndPoint extends ParentEndPoint {
 	/**
 	 * Returns the value of the '<em><b>Algorithm</b></em>' attribute.
 	 * The default value is <code>"org.apache.synapse.endpoints.algorithms.RoundRobin"</code>.
-	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceAlgorithm}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Algorithm</em>' attribute isn't clear,
@@ -210,24 +209,22 @@ public interface LoadBalanceEndPoint extends ParentEndPoint {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Algorithm</em>' attribute.
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceAlgorithm
-	 * @see #setAlgorithm(LoadBalanceAlgorithm)
+	 * @see #setAlgorithm(String)
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getLoadBalanceEndPoint_Algorithm()
 	 * @model default="org.apache.synapse.endpoints.algorithms.RoundRobin"
 	 * @generated
 	 */
-	LoadBalanceAlgorithm getAlgorithm();
+	String getAlgorithm();
 
 	/**
 	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPoint#getAlgorithm <em>Algorithm</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Algorithm</em>' attribute.
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceAlgorithm
 	 * @see #getAlgorithm()
 	 * @generated
 	 */
-	void setAlgorithm(LoadBalanceAlgorithm value);
+	void setAlgorithm(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Session Timeout</b></em>' attribute.

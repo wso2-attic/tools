@@ -410,9 +410,6 @@
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//LoadBalanceSessionType/SOAP"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//LoadBalanceSessionType/CLIENT_ID"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//LoadBalanceAlgorithm">
-      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//LoadBalanceAlgorithm/ROUND_ROBIN"/>
-    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//LocalEntryValueType">
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//LocalEntryValueType/LITERAL"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//LocalEntryValueType/XML"/>
