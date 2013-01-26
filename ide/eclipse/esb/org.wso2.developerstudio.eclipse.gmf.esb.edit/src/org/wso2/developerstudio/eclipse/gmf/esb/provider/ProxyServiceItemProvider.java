@@ -135,6 +135,8 @@ public class ProxyServiceItemProvider
 		} else{
 			addOnErrorPropertyDescriptor(object);
 		}
+		addServicePoliciesPropertyDescriptor(object);
+		
 		return itemPropertyDescriptors;
 	}
 
@@ -311,6 +313,28 @@ public class ProxyServiceItemProvider
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 "QoS",
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Service Policies feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addServicePoliciesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ProxyService_servicePolicies_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ProxyService_servicePolicies_feature", "_UI_ProxyService_type"),
+				 EsbPackage.Literals.PROXY_SERVICE__SERVICE_POLICIES,
+				 true,
+				 false,
+				 false,
+				 null,
+				 "Policy",
 				 null));
 	}
 
