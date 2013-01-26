@@ -24,6 +24,7 @@ import org.apache.synapse.core.axis2.ProxyService;
 import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.endpoints.IndirectEndpoint;
 import org.apache.synapse.mediators.base.SequenceMediator;
+import org.apache.synapse.util.PolicyInfo;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
@@ -32,6 +33,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.MediatorFlow;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyServiceParameter;
+import org.wso2.developerstudio.eclipse.gmf.esb.ProxyServicePolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyWSDLResource;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyWsdlType;
 import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
@@ -109,7 +111,17 @@ public class ProxyServiceDeserializer extends AbstractEsbNodeDeserializer<ProxyS
 		}
 		if(parameters.size()>0){
 			executeSetValueCommand(PROXY_SERVICE__SERVICE_PARAMETERS,parameters);
+		}		
+		
+		EList<ProxyServicePolicy> policies = new BasicEList<ProxyServicePolicy>();
+		for (PolicyInfo entry : object.getPolicies()) {
+			ProxyServicePolicy policy = EsbFactory.eINSTANCE.createProxyServicePolicy();
+			policy.getPolicyKey().setKeyValue(entry.getPolicyKey());
+			policies.add(policy);
 		}
+		if(policies.size()>0){
+			executeSetValueCommand(PROXY_SERVICE__SERVICE_POLICIES,policies);
+		}		
 		
 		addRootInputConnector(proxy.getInputConnector());
 		MediatorFlow mediatorFlow = proxy.getContainer().getSequenceAndEndpointContainer().getMediatorFlow();
