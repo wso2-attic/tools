@@ -30,6 +30,7 @@ import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.apache.synapse.mediators.filters.InMediator;
 import org.apache.synapse.mediators.filters.OutMediator;
+import org.apache.synapse.util.PolicyInfo;
 import org.apache.synapse.util.resolver.ResourceMap;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.common.util.EList;
@@ -312,6 +313,11 @@ public class ProxyServiceTransformer extends AbstractEsbNodeTransformer {
 					proxyService.addParameter(
 							visualService.getServiceParameters().get(i).getName(), value);
 				}
+			}
+			
+			for(int i=0;i<visualService.getServicePolicies().size();++i){
+				PolicyInfo policyInfo = new PolicyInfo(visualService.getServicePolicies().get(i).getPolicyKey().getKeyValue());
+				proxyService.getPolicies().add(policyInfo);
 			}
 			
 
