@@ -30,6 +30,7 @@ import org.eclipse.gmf.runtime.emf.type.core.IHintedType;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.wso2.developerstudio.eclipse.gmf.esb.AddressEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.AddressingEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.DefaultEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
@@ -324,6 +325,20 @@ public class MediatorFlowMediatorFlowCompartmentEditPart extends
 					SetCommand addCmd = new SetCommand(getEditingDomain(), parentEndpoint,
 							EsbPackage.Literals.WSDL_END_POINT__OUTPUT_CONNECTOR,
 							EsbFactory.eINSTANCE.createWSDLEndPointOutputConnector());
+					if (addCmd.canExecute()) {
+						getEditingDomain().getCommandStack().execute(addCmd);
+					}
+				}
+			}
+		} else if (child instanceof AddressingEndpointEditPart) {
+			AddressingEndpointEditPart endpointEditPart = (AddressingEndpointEditPart) child;
+			EObject parentEndpoint = ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (endpointEditPart)
+					.getModel()).getElement();
+			if (((AddressingEndpoint) parentEndpoint).getInputConnector().getIncomingLinks().size() == 0) {
+				if (((AddressingEndpoint) parentEndpoint).getOutputConnector() == null) {
+					SetCommand addCmd = new SetCommand(getEditingDomain(), parentEndpoint,
+							EsbPackage.Literals.ADDRESSING_ENDPOINT__OUTPUT_CONNECTOR,
+							EsbFactory.eINSTANCE.createAddressingEndpointOutputConnector());
 					if (addCmd.canExecute()) {
 						getEditingDomain().getCommandStack().execute(addCmd);
 					}
