@@ -46,10 +46,15 @@ public class ProxyServicePolicyImpl extends EObjectImpl implements ProxyServiceP
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected ProxyServicePolicyImpl() {
-		super();
+		super();		
+		RegistryKeyProperty policyKey = EsbFactoryImpl.eINSTANCE.createRegistryKeyProperty();
+		policyKey.setPrettyName("Policy key");
+		policyKey.setKeyName("key");
+		policyKey.setKeyValue("/default/key");
+		setPolicyKey(policyKey);
 	}
 
 	/**
