@@ -2052,7 +2052,6 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	public AddressingEndpoint createAddressingEndpoint() {
 		AddressingEndpointImpl addressingEndpoint = new AddressingEndpointImpl();
 		addressingEndpoint.setInputConnector(createAddressingEndpointInputConnector());
-		addressingEndpoint.setOutputConnector(createAddressingEndpointOutputConnector());
 		return addressingEndpoint;
 	}
 
