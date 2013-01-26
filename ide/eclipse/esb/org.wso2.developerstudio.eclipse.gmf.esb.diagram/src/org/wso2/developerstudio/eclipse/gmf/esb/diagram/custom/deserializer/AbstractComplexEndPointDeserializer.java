@@ -137,6 +137,7 @@ public abstract class AbstractComplexEndPointDeserializer extends AbstractEsbNod
 				
 				if(mainDiagramEditorRef != null){
 					EsbDeserializerRegistry.getInstance().init(mainDiagramEditorRef);
+					refreshEditPartMap();
 				}
 							
 			}
