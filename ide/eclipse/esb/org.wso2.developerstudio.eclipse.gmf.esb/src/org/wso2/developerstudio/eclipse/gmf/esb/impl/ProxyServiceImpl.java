@@ -75,6 +75,9 @@ import org.wso2.developerstudio.eclipse.platform.core.utils.DeveloperStudioProvi
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#getFaultSequenceType <em>Fault Sequence Type</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#getFaultSequenceKey <em>Fault Sequence Key</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#getFaultSequenceName <em>Fault Sequence Name</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#getEndpointType <em>Endpoint Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#getEndpointKey <em>Endpoint Key</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#getEndpointName <em>Endpoint Name</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#isMainSequence <em>Main Sequence</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#getWsdlType <em>Wsdl Type</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#getWsdlXML <em>Wsdl XML</em>}</li>
@@ -459,6 +462,56 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 	protected String faultSequenceName = FAULT_SEQUENCE_NAME_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getEndpointType() <em>Endpoint Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEndpointType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final SequenceType ENDPOINT_TYPE_EDEFAULT = SequenceType.ANONYMOUS;
+
+	/**
+	 * The cached value of the '{@link #getEndpointType() <em>Endpoint Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEndpointType()
+	 * @generated
+	 * @ordered
+	 */
+	protected SequenceType endpointType = ENDPOINT_TYPE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getEndpointKey() <em>Endpoint Key</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEndpointKey()
+	 * @generated
+	 * @ordered
+	 */
+	protected RegistryKeyProperty endpointKey;
+
+	/**
+	 * The default value of the '{@link #getEndpointName() <em>Endpoint Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEndpointName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ENDPOINT_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getEndpointName() <em>Endpoint Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEndpointName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String endpointName = ENDPOINT_NAME_EDEFAULT;
+
+	/**
 	 * The default value of the '{@link #isMainSequence() <em>Main Sequence</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -602,6 +655,12 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 		faultSequenceKey.setKeyName("key");
 		faultSequenceKey.setKeyValue(DEFAULT_REGISTRY_KEY);
 		setFaultSequenceKey(faultSequenceKey);
+		
+		RegistryKeyProperty endpointKey = EsbFactoryImpl.eINSTANCE.createRegistryKeyProperty();
+		endpointKey.setPrettyName("Endpoint Reference");
+		endpointKey.setKeyName("key");
+		endpointKey.setKeyValue(DEFAULT_REGISTRY_KEY);
+		setEndpointKey(endpointKey);
 		
 		RegistryKeyProperty onErrorSequenceKey = EsbFactoryImpl.eINSTANCE.createRegistryKeyProperty();
 		onErrorSequenceKey.setPrettyName("On Error Sequence Reference");
@@ -1246,6 +1305,91 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public SequenceType getEndpointType() {
+		return endpointType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEndpointType(SequenceType newEndpointType) {
+		SequenceType oldEndpointType = endpointType;
+		endpointType = newEndpointType == null ? ENDPOINT_TYPE_EDEFAULT : newEndpointType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.PROXY_SERVICE__ENDPOINT_TYPE, oldEndpointType, endpointType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RegistryKeyProperty getEndpointKey() {
+		return endpointKey;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetEndpointKey(RegistryKeyProperty newEndpointKey, NotificationChain msgs) {
+		RegistryKeyProperty oldEndpointKey = endpointKey;
+		endpointKey = newEndpointKey;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.PROXY_SERVICE__ENDPOINT_KEY, oldEndpointKey, newEndpointKey);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEndpointKey(RegistryKeyProperty newEndpointKey) {
+		if (newEndpointKey != endpointKey) {
+			NotificationChain msgs = null;
+			if (endpointKey != null)
+				msgs = ((InternalEObject)endpointKey).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.PROXY_SERVICE__ENDPOINT_KEY, null, msgs);
+			if (newEndpointKey != null)
+				msgs = ((InternalEObject)newEndpointKey).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.PROXY_SERVICE__ENDPOINT_KEY, null, msgs);
+			msgs = basicSetEndpointKey(newEndpointKey, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.PROXY_SERVICE__ENDPOINT_KEY, newEndpointKey, newEndpointKey));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getEndpointName() {
+		return endpointName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEndpointName(String newEndpointName) {
+		String oldEndpointName = endpointName;
+		endpointName = newEndpointName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.PROXY_SERVICE__ENDPOINT_NAME, oldEndpointName, endpointName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean isMainSequence() {
 		return mainSequence;
 	}
@@ -1450,6 +1594,8 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 				return basicSetOutSequenceKey(null, msgs);
 			case EsbPackage.PROXY_SERVICE__FAULT_SEQUENCE_KEY:
 				return basicSetFaultSequenceKey(null, msgs);
+			case EsbPackage.PROXY_SERVICE__ENDPOINT_KEY:
+				return basicSetEndpointKey(null, msgs);
 			case EsbPackage.PROXY_SERVICE__WSDL_KEY:
 				return basicSetWsdlKey(null, msgs);
 			case EsbPackage.PROXY_SERVICE__WSDL_RESOURCES:
@@ -1515,6 +1661,12 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 				return getFaultSequenceKey();
 			case EsbPackage.PROXY_SERVICE__FAULT_SEQUENCE_NAME:
 				return getFaultSequenceName();
+			case EsbPackage.PROXY_SERVICE__ENDPOINT_TYPE:
+				return getEndpointType();
+			case EsbPackage.PROXY_SERVICE__ENDPOINT_KEY:
+				return getEndpointKey();
+			case EsbPackage.PROXY_SERVICE__ENDPOINT_NAME:
+				return getEndpointName();
 			case EsbPackage.PROXY_SERVICE__MAIN_SEQUENCE:
 				return isMainSequence();
 			case EsbPackage.PROXY_SERVICE__WSDL_TYPE:
@@ -1613,6 +1765,15 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 				return;
 			case EsbPackage.PROXY_SERVICE__FAULT_SEQUENCE_NAME:
 				setFaultSequenceName((String)newValue);
+				return;
+			case EsbPackage.PROXY_SERVICE__ENDPOINT_TYPE:
+				setEndpointType((SequenceType)newValue);
+				return;
+			case EsbPackage.PROXY_SERVICE__ENDPOINT_KEY:
+				setEndpointKey((RegistryKeyProperty)newValue);
+				return;
+			case EsbPackage.PROXY_SERVICE__ENDPOINT_NAME:
+				setEndpointName((String)newValue);
 				return;
 			case EsbPackage.PROXY_SERVICE__MAIN_SEQUENCE:
 				setMainSequence((Boolean)newValue);
@@ -1718,6 +1879,15 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 			case EsbPackage.PROXY_SERVICE__FAULT_SEQUENCE_NAME:
 				setFaultSequenceName(FAULT_SEQUENCE_NAME_EDEFAULT);
 				return;
+			case EsbPackage.PROXY_SERVICE__ENDPOINT_TYPE:
+				setEndpointType(ENDPOINT_TYPE_EDEFAULT);
+				return;
+			case EsbPackage.PROXY_SERVICE__ENDPOINT_KEY:
+				setEndpointKey((RegistryKeyProperty)null);
+				return;
+			case EsbPackage.PROXY_SERVICE__ENDPOINT_NAME:
+				setEndpointName(ENDPOINT_NAME_EDEFAULT);
+				return;
 			case EsbPackage.PROXY_SERVICE__MAIN_SEQUENCE:
 				setMainSequence(MAIN_SEQUENCE_EDEFAULT);
 				return;
@@ -1798,6 +1968,12 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 				return faultSequenceKey != null;
 			case EsbPackage.PROXY_SERVICE__FAULT_SEQUENCE_NAME:
 				return FAULT_SEQUENCE_NAME_EDEFAULT == null ? faultSequenceName != null : !FAULT_SEQUENCE_NAME_EDEFAULT.equals(faultSequenceName);
+			case EsbPackage.PROXY_SERVICE__ENDPOINT_TYPE:
+				return endpointType != ENDPOINT_TYPE_EDEFAULT;
+			case EsbPackage.PROXY_SERVICE__ENDPOINT_KEY:
+				return endpointKey != null;
+			case EsbPackage.PROXY_SERVICE__ENDPOINT_NAME:
+				return ENDPOINT_NAME_EDEFAULT == null ? endpointName != null : !ENDPOINT_NAME_EDEFAULT.equals(endpointName);
 			case EsbPackage.PROXY_SERVICE__MAIN_SEQUENCE:
 				return mainSequence != MAIN_SEQUENCE_EDEFAULT;
 			case EsbPackage.PROXY_SERVICE__WSDL_TYPE:
@@ -1855,6 +2031,10 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 		result.append(faultSequenceType);
 		result.append(", faultSequenceName: ");
 		result.append(faultSequenceName);
+		result.append(", endpointType: ");
+		result.append(endpointType);
+		result.append(", endpointName: ");
+		result.append(endpointName);
 		result.append(", mainSequence: ");
 		result.append(mainSequence);
 		result.append(", wsdlType: ");

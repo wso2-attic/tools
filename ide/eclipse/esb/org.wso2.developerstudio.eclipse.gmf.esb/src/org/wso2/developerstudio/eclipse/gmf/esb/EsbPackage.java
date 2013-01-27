@@ -623,13 +623,40 @@ public interface EsbPackage extends EPackage {
 	int PROXY_SERVICE__FAULT_SEQUENCE_NAME = ESB_ELEMENT_FEATURE_COUNT + 22;
 
 	/**
+	 * The feature id for the '<em><b>Endpoint Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROXY_SERVICE__ENDPOINT_TYPE = ESB_ELEMENT_FEATURE_COUNT + 23;
+
+	/**
+	 * The feature id for the '<em><b>Endpoint Key</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROXY_SERVICE__ENDPOINT_KEY = ESB_ELEMENT_FEATURE_COUNT + 24;
+
+	/**
+	 * The feature id for the '<em><b>Endpoint Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROXY_SERVICE__ENDPOINT_NAME = ESB_ELEMENT_FEATURE_COUNT + 25;
+
+	/**
 	 * The feature id for the '<em><b>Main Sequence</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROXY_SERVICE__MAIN_SEQUENCE = ESB_ELEMENT_FEATURE_COUNT + 23;
+	int PROXY_SERVICE__MAIN_SEQUENCE = ESB_ELEMENT_FEATURE_COUNT + 26;
 
 	/**
 	 * The feature id for the '<em><b>Wsdl Type</b></em>' attribute.
@@ -638,7 +665,7 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROXY_SERVICE__WSDL_TYPE = ESB_ELEMENT_FEATURE_COUNT + 24;
+	int PROXY_SERVICE__WSDL_TYPE = ESB_ELEMENT_FEATURE_COUNT + 27;
 
 	/**
 	 * The feature id for the '<em><b>Wsdl XML</b></em>' attribute.
@@ -647,7 +674,7 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROXY_SERVICE__WSDL_XML = ESB_ELEMENT_FEATURE_COUNT + 25;
+	int PROXY_SERVICE__WSDL_XML = ESB_ELEMENT_FEATURE_COUNT + 28;
 
 	/**
 	 * The feature id for the '<em><b>Wsdl URL</b></em>' attribute.
@@ -656,7 +683,7 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROXY_SERVICE__WSDL_URL = ESB_ELEMENT_FEATURE_COUNT + 26;
+	int PROXY_SERVICE__WSDL_URL = ESB_ELEMENT_FEATURE_COUNT + 29;
 
 	/**
 	 * The feature id for the '<em><b>Wsdl Key</b></em>' containment reference.
@@ -665,7 +692,7 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROXY_SERVICE__WSDL_KEY = ESB_ELEMENT_FEATURE_COUNT + 27;
+	int PROXY_SERVICE__WSDL_KEY = ESB_ELEMENT_FEATURE_COUNT + 30;
 
 	/**
 	 * The feature id for the '<em><b>Wsdl Resources</b></em>' containment reference list.
@@ -674,7 +701,7 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROXY_SERVICE__WSDL_RESOURCES = ESB_ELEMENT_FEATURE_COUNT + 28;
+	int PROXY_SERVICE__WSDL_RESOURCES = ESB_ELEMENT_FEATURE_COUNT + 31;
 
 	/**
 	 * The feature id for the '<em><b>On Error</b></em>' containment reference.
@@ -683,7 +710,7 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROXY_SERVICE__ON_ERROR = ESB_ELEMENT_FEATURE_COUNT + 29;
+	int PROXY_SERVICE__ON_ERROR = ESB_ELEMENT_FEATURE_COUNT + 32;
 
 	/**
 	 * The number of structural features of the '<em>Proxy Service</em>' class.
@@ -692,7 +719,7 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROXY_SERVICE_FEATURE_COUNT = ESB_ELEMENT_FEATURE_COUNT + 30;
+	int PROXY_SERVICE_FEATURE_COUNT = ESB_ELEMENT_FEATURE_COUNT + 33;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyOutputConnectorImpl <em>Proxy Output Connector</em>}' class.
@@ -16948,6 +16975,39 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	EAttribute getProxyService_FaultSequenceName();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getEndpointType <em>Endpoint Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Endpoint Type</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getEndpointType()
+	 * @see #getProxyService()
+	 * @generated
+	 */
+	EAttribute getProxyService_EndpointType();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getEndpointKey <em>Endpoint Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Endpoint Key</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getEndpointKey()
+	 * @see #getProxyService()
+	 * @generated
+	 */
+	EReference getProxyService_EndpointKey();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getEndpointName <em>Endpoint Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Endpoint Name</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getEndpointName()
+	 * @see #getProxyService()
+	 * @generated
+	 */
+	EAttribute getProxyService_EndpointName();
+
+	/**
 	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#isMainSequence <em>Main Sequence</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -28221,6 +28281,30 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		 * @generated
 		 */
 		EAttribute PROXY_SERVICE__FAULT_SEQUENCE_NAME = eINSTANCE.getProxyService_FaultSequenceName();
+
+		/**
+		 * The meta object literal for the '<em><b>Endpoint Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROXY_SERVICE__ENDPOINT_TYPE = eINSTANCE.getProxyService_EndpointType();
+
+		/**
+		 * The meta object literal for the '<em><b>Endpoint Key</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROXY_SERVICE__ENDPOINT_KEY = eINSTANCE.getProxyService_EndpointKey();
+
+		/**
+		 * The meta object literal for the '<em><b>Endpoint Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROXY_SERVICE__ENDPOINT_NAME = eINSTANCE.getProxyService_EndpointName();
 
 		/**
 		 * The meta object literal for the '<em><b>Main Sequence</b></em>' attribute feature.
