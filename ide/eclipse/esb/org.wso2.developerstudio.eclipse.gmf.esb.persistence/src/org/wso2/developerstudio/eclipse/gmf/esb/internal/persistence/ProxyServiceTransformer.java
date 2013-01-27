@@ -352,6 +352,20 @@ public class ProxyServiceTransformer extends AbstractEsbNodeTransformer {
 				proxyService.setTargetOutSequence(visualService.getOutSequenceKey().getKeyValue());
 				break;
 			}
+			
+			//Endpoint						
+			switch (visualService.getEndpointType()) {
+			case ANONYMOUS:
+				break;
+			
+			case NAMED_REFERENCE:
+				proxyService.setTargetEndpoint(visualService.getEndpointName());
+				break;
+
+			case REGISTRY_REFERENCE:
+				proxyService.setTargetEndpoint(visualService.getEndpointKey().getKeyValue());
+				break;
+			}
 
 			info.setOriginInSequence(inSequence);
 			info.setOriginOutSequence(outSequence);
