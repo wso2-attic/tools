@@ -71,7 +71,7 @@ public class ProxyServiceDeserializer extends AbstractEsbNodeDeserializer<ProxyS
 		}
 		
 		Endpoint targetInLineEndpoint = object.getTargetInLineEndpoint();
-		if(object.getTargetEndpoint()!=null || targetInLineEndpoint!=null){
+		if(targetInLineEndpoint!=null){
 			setHasInlineEndPoint(true);
 		}
 		
@@ -143,6 +143,21 @@ public class ProxyServiceDeserializer extends AbstractEsbNodeDeserializer<ProxyS
 				} else{
 					executeSetValueCommand(PROXY_SERVICE__IN_SEQUENCE_TYPE, SequenceType.NAMED_REFERENCE);
 					executeSetValueCommand(PROXY_SERVICE__IN_SEQUENCE_NAME, inSequenceName);
+				}
+			}
+		}
+		
+		if(object.getTargetInLineEndpoint() == null){
+			String endpointName = object.getTargetEndpoint();
+			if(endpointName!=null){
+				if(endpointName.startsWith("/") || endpointName.startsWith("conf:") || endpointName.startsWith("gov:")){
+					executeSetValueCommand(PROXY_SERVICE__ENDPOINT_TYPE, SequenceType.REGISTRY_REFERENCE);
+					RegistryKeyProperty keyProperty = EsbFactory.eINSTANCE.createRegistryKeyProperty();
+					keyProperty.setKeyValue(endpointName);
+					executeSetValueCommand(PROXY_SERVICE__ENDPOINT_KEY, keyProperty);
+				} else{
+					executeSetValueCommand(PROXY_SERVICE__ENDPOINT_TYPE, SequenceType.NAMED_REFERENCE);
+					executeSetValueCommand(PROXY_SERVICE__ENDPOINT_NAME, endpointName);
 				}
 			}
 		}
