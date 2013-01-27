@@ -132,6 +132,17 @@ public class ProxyServiceItemProvider
 				break;
 			}
 			}
+			addEndpointTypePropertyDescriptor(object);
+			switch (proxy.getEndpointType()) {
+			case REGISTRY_REFERENCE:{
+				addEndpointKeyPropertyDescriptor(object);
+				break;
+			}
+			case NAMED_REFERENCE:{
+				addEndpointNamePropertyDescriptor(object);
+				break;
+			}
+			}
 		} else{
 			addOnErrorPropertyDescriptor(object);
 		}
@@ -647,6 +658,72 @@ public class ProxyServiceItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Endpoint Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addEndpointTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ProxyService_endpointType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ProxyService_endpointType_feature", "_UI_ProxyService_type"),
+				 EsbPackage.Literals.PROXY_SERVICE__ENDPOINT_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 "Endpoint",
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Endpoint Key feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addEndpointKeyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ProxyService_endpointKey_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ProxyService_endpointKey_feature", "_UI_ProxyService_type"),
+				 EsbPackage.Literals.PROXY_SERVICE__ENDPOINT_KEY,
+				 true,
+				 false,
+				 false,
+				 null,
+				 "Endpoint",
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Endpoint Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	protected void addEndpointNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ProxyService_endpointName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ProxyService_endpointName_feature", "_UI_ProxyService_type"),
+				 EsbPackage.Literals.PROXY_SERVICE__ENDPOINT_NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 "Endpoint",
+				 null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Main Sequence feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -706,6 +783,7 @@ public class ProxyServiceItemProvider
 			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE__IN_SEQUENCE_KEY);
 			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE__OUT_SEQUENCE_KEY);
 			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE__FAULT_SEQUENCE_KEY);
+			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE__ENDPOINT_KEY);
 			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE__WSDL_KEY);
 			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE__ON_ERROR);
 		}
@@ -780,6 +858,8 @@ public class ProxyServiceItemProvider
 			case EsbPackage.PROXY_SERVICE__OUT_SEQUENCE_NAME:
 			case EsbPackage.PROXY_SERVICE__FAULT_SEQUENCE_TYPE:
 			case EsbPackage.PROXY_SERVICE__FAULT_SEQUENCE_NAME:
+			case EsbPackage.PROXY_SERVICE__ENDPOINT_TYPE:
+			case EsbPackage.PROXY_SERVICE__ENDPOINT_NAME:
 			case EsbPackage.PROXY_SERVICE__MAIN_SEQUENCE:
 			case EsbPackage.PROXY_SERVICE__WSDL_TYPE:
 			case EsbPackage.PROXY_SERVICE__WSDL_XML:
@@ -795,6 +875,7 @@ public class ProxyServiceItemProvider
 			case EsbPackage.PROXY_SERVICE__IN_SEQUENCE_KEY:
 			case EsbPackage.PROXY_SERVICE__OUT_SEQUENCE_KEY:
 			case EsbPackage.PROXY_SERVICE__FAULT_SEQUENCE_KEY:
+			case EsbPackage.PROXY_SERVICE__ENDPOINT_KEY:
 			case EsbPackage.PROXY_SERVICE__WSDL_KEY:
 			case EsbPackage.PROXY_SERVICE__ON_ERROR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
@@ -862,6 +943,11 @@ public class ProxyServiceItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(EsbPackage.Literals.PROXY_SERVICE__ENDPOINT_KEY,
+				 EsbFactory.eINSTANCE.createRegistryKeyProperty()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(EsbPackage.Literals.PROXY_SERVICE__WSDL_KEY,
 				 EsbFactory.eINSTANCE.createRegistryKeyProperty()));
 
@@ -886,6 +972,7 @@ public class ProxyServiceItemProvider
 			childFeature == EsbPackage.Literals.PROXY_SERVICE__IN_SEQUENCE_KEY ||
 			childFeature == EsbPackage.Literals.PROXY_SERVICE__OUT_SEQUENCE_KEY ||
 			childFeature == EsbPackage.Literals.PROXY_SERVICE__FAULT_SEQUENCE_KEY ||
+			childFeature == EsbPackage.Literals.PROXY_SERVICE__ENDPOINT_KEY ||
 			childFeature == EsbPackage.Literals.PROXY_SERVICE__WSDL_KEY ||
 			childFeature == EsbPackage.Literals.PROXY_SERVICE__ON_ERROR;
 
