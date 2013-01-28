@@ -37,13 +37,10 @@ import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
-import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.ui.PlatformUI;
-import org.eclipse.ui.ide.IDE;
 import org.wso2.developerstudio.eclipse.artifact.proxyservice.Activator;
 import org.wso2.developerstudio.eclipse.artifact.proxyservice.model.ProxyServiceModel;
 import org.wso2.developerstudio.eclipse.artifact.proxyservice.model.ProxyServiceModel.TargetEPType;
@@ -56,6 +53,8 @@ import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.platform.core.templates.ArtifactTemplate;
+import org.wso2.developerstudio.eclipse.platform.ui.editor.Openable;
+import org.wso2.developerstudio.eclipse.platform.ui.startup.ESBGraphicalEditor;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 
@@ -296,13 +295,19 @@ public class ProxyServiceProjectCreationWizard extends AbstractWSO2ProjectCreati
 	public void openEditor(File file){
 		try {
 			refreshDistProjects();
-			IFile dbsFile  = ResourcesPlugin
+	/*		IFile dbsFile  = ResourcesPlugin
 			.getWorkspace()
 			.getRoot()
 			.getFileForLocation(
 					Path.fromOSString(file.getAbsolutePath()));
-			IDE.openEditor(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage(),dbsFile);
-		} catch (Exception e) { /* ignore */}
+			IDE.openEditor(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage(),dbsFile);*/
+			String location = proxyServiceFile.getParent().getFullPath()+"/";
+			String source = FileUtils.getContentAsString(file);
+			Openable openable = ESBGraphicalEditor.getOpenable();
+			openable.editorOpen(file.getName(),"proxy",location+"proxy_", source);
+		} catch (Exception e) {
+                log.error("cannot open the Editor", e);
+		}
 	}
 	
 	private ESBArtifact createArtifact(String name,String groupId,String version,String path){
