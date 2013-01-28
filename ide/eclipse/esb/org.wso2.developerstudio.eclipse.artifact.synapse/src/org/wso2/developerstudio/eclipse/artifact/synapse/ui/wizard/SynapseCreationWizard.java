@@ -17,9 +17,9 @@
 package org.wso2.developerstudio.eclipse.artifact.synapse.ui.wizard;
 
 import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.regex.Pattern;
 
 import javax.xml.namespace.QName;
@@ -52,6 +52,8 @@ import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
+import org.wso2.developerstudio.eclipse.platform.ui.editor.Openable;
+import org.wso2.developerstudio.eclipse.platform.ui.startup.ESBGraphicalEditor;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 
@@ -64,7 +66,7 @@ public class SynapseCreationWizard extends AbstractWSO2ProjectCreationWizard {
 	private IFile synapseConfig;
 	private File pomfile;
 	private IContainer saveLocation;
-	private List<File> fileList = new ArrayList<File>();
+	private Map<File,String> fileList = new HashMap<File,String>();
 
 
 	public SynapseCreationWizard() {
@@ -113,7 +115,7 @@ public class SynapseCreationWizard extends AbstractWSO2ProjectCreationWizard {
 					MavenUtils.saveMavenProject(mavenProject, pomfile);
 					createArtifactMetaDataEntry(synConfig.getName().substring(0,synConfig.getName().lastIndexOf(".")), "synapse/configuration",
 					                            saveLocation.getLocation().toFile(),groupId + ".synapse");
-					fileList.add(synConfig);
+					fileList.put(synConfig,"synConfig");
 				}
 			}
 			updatePom();
@@ -122,7 +124,7 @@ public class SynapseCreationWizard extends AbstractWSO2ProjectCreationWizard {
 			if (!fileList.isEmpty()) {
 	            if (MessageDialog.openQuestion(getShell(), "Open file(s) in the Editor",
 	                                           "Do you like to open the file(s) in Developer Studio?")) {
-		            for (File file : fileList) {
+		            for (File file : fileList.keySet()) {
 			            openEditor(file);
 		            }
 	            }
@@ -197,7 +199,7 @@ public class SynapseCreationWizard extends AbstractWSO2ProjectCreationWizard {
 		MavenUtils.saveMavenProject(mavenProject, pomfile);
 		createArtifactMetaDataEntry(synapseModel.getName(), "synapse/configuration",
 		                            saveLocation.getLocation().toFile(),groupId + ".synapse");
-		fileList.add(synapseConfigFile);
+		fileList.put(synapseConfigFile,"synConfig");
 	}
 
 //	public boolean addPluginEntry(String groupId, String artifactId, String version) throws Exception {
@@ -244,17 +246,16 @@ public class SynapseCreationWizard extends AbstractWSO2ProjectCreationWizard {
 	}
 
 
-	public void copyImportFile(IContainer importLocation) throws IOException {
+	/*private void copyImportFile(IContainer importLocation) throws IOException {
 		File importFile = getModel().getImportFile();
 		File destFile = new File(importLocation.getLocation().toFile(), importFile.getName());
 		FileUtils.copy(importFile, destFile);
-		fileList.add(destFile);
-	}
+		fileList.put("destFile",destFile);
+	}*/
 
 	public void createESBArtifacts(List<OMElement> selectedElementsList,String groupId)
 	                                                                    throws FactoryConfigurationError,
 	                                                                    Exception {
-
 		if (selectedElementsList != null) {
 
 			for (OMElement element : selectedElementsList) {
@@ -280,7 +281,7 @@ public class SynapseCreationWizard extends AbstractWSO2ProjectCreationWizard {
 					MavenProject mavenProject = MavenUtils.getMavenProject(pomfile);
 					addPluginEntry(mavenProject,"org.wso2.maven","wso2-esb-sequence-plugin", MavenConstants.WSO2_ESB_SEQUENCE_VERSION,"sequence");
 					MavenUtils.saveMavenProject(mavenProject, pomfile);
-					fileList.add(destFile);
+					fileList.put(destFile,"sequence");
 					createArtifactMetaDataEntry(qName, "synapse/sequence", baseDir,groupId + ".sequence");
 				} else if (localName.equalsIgnoreCase("endpoint")) {
 					File baseDir = esbProject.getFolder(commonESBPath + "endpoints").getLocation().toFile();
@@ -289,7 +290,7 @@ public class SynapseCreationWizard extends AbstractWSO2ProjectCreationWizard {
 					MavenProject mavenProject = MavenUtils.getMavenProject(pomfile);
 					addPluginEntry(mavenProject,"org.wso2.maven","wso2-esb-endpoint-plugin", MavenConstants.WSO2_ESB_ENDPOINT_VERSION,"endpoint");
 					MavenUtils.saveMavenProject(mavenProject, pomfile);
-					fileList.add(destFile);
+					fileList.put(destFile,"endpoint");
 					createArtifactMetaDataEntry(qName, "synapse/endpoint", baseDir,groupId + ".endpoint");
 				}else if (localName.equalsIgnoreCase("proxy")) {
 					File baseDir = esbProject.getFolder(commonESBPath + "proxy-services").getLocation().toFile();
@@ -298,7 +299,7 @@ public class SynapseCreationWizard extends AbstractWSO2ProjectCreationWizard {
 					MavenProject mavenProject = MavenUtils.getMavenProject(pomfile);
 					addPluginEntry(mavenProject,"org.wso2.maven","wso2-esb-proxy-plugin", MavenConstants.WSO2_ESB_PROXY_VERSION,"proxy");
 					MavenUtils.saveMavenProject(mavenProject, pomfile);
-					fileList.add(destFile);
+					fileList.put(destFile,"proxy");
 					createArtifactMetaDataEntry(qName, "synapse/proxy-service", baseDir,groupId + ".proxy-service");
 				}else if (localName.equalsIgnoreCase("localEntry")) {
 					File baseDir = esbProject.getFolder(commonESBPath + "local-entries").getLocation().toFile();
@@ -307,8 +308,26 @@ public class SynapseCreationWizard extends AbstractWSO2ProjectCreationWizard {
 					MavenProject mavenProject = MavenUtils.getMavenProject(pomfile);
 					addPluginEntry(mavenProject,"org.wso2.maven","wso2-esb-localentry-plugin", MavenConstants.WSO2_ESB_LOCAL_ENTRY_VERSION,"localentry");
 					MavenUtils.saveMavenProject(mavenProject, pomfile);
-					fileList.add(destFile);
+					fileList.put(destFile,"localEntry");
 					createArtifactMetaDataEntry(qName, "synapse/local-entry", baseDir,groupId + ".local-entry");
+				}else if (localName.equalsIgnoreCase("task")) {
+					File baseDir = esbProject.getFolder(commonESBPath + "task").getLocation().toFile();
+					File destFile = new File(baseDir, qName + ".xml");
+					FileUtils.createFile(destFile, element.toString());
+					MavenProject mavenProject = MavenUtils.getMavenProject(pomfile);
+					addPluginEntry(mavenProject,"org.wso2.maven","wso2-esb-task-plugin", MavenConstants.WSO2_ESB_TASK_VERSION,"task");
+					MavenUtils.saveMavenProject(mavenProject, pomfile);
+					fileList.put(destFile,"task");
+					createArtifactMetaDataEntry(qName, "synapse/task", baseDir,groupId + ".task");
+				}else if (localName.equalsIgnoreCase("api")) {
+					File baseDir = esbProject.getFolder(commonESBPath + "api").getLocation().toFile();
+					File destFile = new File(baseDir, qName + ".xml");
+					FileUtils.createFile(destFile, element.toString());
+					MavenProject mavenProject = MavenUtils.getMavenProject(pomfile);
+					addPluginEntry(mavenProject,"org.wso2.maven","wso2-esb-api-plugin", MavenConstants.WSO2_ESB_API_VERSION,"api");
+					MavenUtils.saveMavenProject(mavenProject, pomfile);
+					fileList.put(destFile,"api");
+					createArtifactMetaDataEntry(qName, "synapse/api", baseDir,groupId + ".api");
 				}	
 			}
 		}
@@ -316,15 +335,23 @@ public class SynapseCreationWizard extends AbstractWSO2ProjectCreationWizard {
 	
 	public void openEditor(File file){
 		try {
+			String type = fileList.get(file);
 			IFile dbsFile  = ResourcesPlugin
 			.getWorkspace()
 			.getRoot()
 			.getFileForLocation(
 					Path.fromOSString(file.getAbsolutePath()));
-			IDE.openEditor(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage(),dbsFile);
+			if("localEntry".equals(type)||"synConfig".equals(type)){
+				IDE.openEditor(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage(),dbsFile);
+			}else{
+				String path = dbsFile.getParent().getFullPath()+"/";
+				String source = FileUtils.getContentAsString(file);
+				Openable openable = ESBGraphicalEditor.getOpenable();
+				openable.editorOpen(file.getName(),type,path+type+"_", source);
+			}
+
 		} catch (Exception e) { 
 			log.error("cannot open editor",e);
 		}
 	}
-
 }
