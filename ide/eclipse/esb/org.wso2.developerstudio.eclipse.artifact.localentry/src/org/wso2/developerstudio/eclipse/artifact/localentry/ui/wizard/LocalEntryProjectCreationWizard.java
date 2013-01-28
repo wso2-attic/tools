@@ -41,8 +41,6 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.ui.PlatformUI;
-import org.eclipse.ui.ide.IDE;
 import org.wso2.developerstudio.eclipse.artifact.localentry.Activator;
 import org.wso2.developerstudio.eclipse.artifact.localentry.model.LocalEntryModel;
 import org.wso2.developerstudio.eclipse.artifact.localentry.utils.LocalEntryArtifactConstants;
@@ -54,6 +52,8 @@ import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
+import org.wso2.developerstudio.eclipse.platform.ui.editor.Openable;
+import org.wso2.developerstudio.eclipse.platform.ui.startup.ESBGraphicalEditor;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 
@@ -276,15 +276,21 @@ public class LocalEntryProjectCreationWizard extends AbstractWSO2ProjectCreation
 		}
 	}
 	
-	public void openEditor(File file){
-		try {
-			refreshDistProjects();
-			IFile dbsFile  = ResourcesPlugin
-			.getWorkspace()
-			.getRoot()
-			.getFileForLocation(
-					Path.fromOSString(file.getAbsolutePath()));
-			IDE.openEditor(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage(),dbsFile);
-		} catch (Exception e) { /* ignore */}
+	public void openEditor(File file) {
+		try{
+		refreshDistProjects();
+		IFile dbsFile  = ResourcesPlugin
+		.getWorkspace()
+		.getRoot()
+		.getFileForLocation(
+				Path.fromOSString(file.getAbsolutePath()));
+		/*IDE.openEditor(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage(),dbsFile);*/
+		String path = dbsFile.getParent().getFullPath()+"/";
+		String source = FileUtils.getContentAsString(file);
+		Openable openable = ESBGraphicalEditor.getOpenable();
+		openable.editorOpen(file.getName(),"localentry",path+"localentry_", source);
+		}catch(Exception e){
+			log.error("Cannot open the editor", e);
+		}
 	}
 }

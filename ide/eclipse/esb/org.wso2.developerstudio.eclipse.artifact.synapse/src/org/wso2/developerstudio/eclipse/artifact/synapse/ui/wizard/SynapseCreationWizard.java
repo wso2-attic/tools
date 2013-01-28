@@ -341,7 +341,7 @@ public class SynapseCreationWizard extends AbstractWSO2ProjectCreationWizard {
 			.getRoot()
 			.getFileForLocation(
 					Path.fromOSString(file.getAbsolutePath()));
-			if("localEntry".equals(type)||"synConfig".equals(type)){
+			if("synConfig".equals(type)){
 				IDE.openEditor(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage(),dbsFile);
 			}else{
 				String path = dbsFile.getParent().getFullPath()+"/";

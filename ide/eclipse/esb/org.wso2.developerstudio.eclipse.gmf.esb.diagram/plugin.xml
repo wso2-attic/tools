@@ -39,7 +39,7 @@
       </context>
    </extension>
 
-   <extension point="org.eclipse.ui.newWizards" id="creation-wizard">
+   <!--extension point="org.eclipse.ui.newWizards" id="creation-wizard">
       <?gmfgen generated="false"?>
   	  <wizard
   	     name="%newWizardName"
@@ -49,7 +49,7 @@
   	     id="org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbCreationWizardID">
   	  	 <description>%newWizardDesc</description>  
       </wizard>
-   </extension>
+   </extension-->
    
    
    <!--extension point="org.eclipse.ui.newWizards"-->
@@ -3237,7 +3237,7 @@
 			</commonWizard>
 	</extension>
 
-	 <extension point="org.eclipse.ui.newWizards" id="creation-wizard">
+	 <!--extension point="org.eclipse.ui.newWizards" id="creation-wizard">
   	  <wizard
   	     name="Sequence (Graphical)"
   	     icon="icons/custom/sequence.png"
@@ -3363,10 +3363,10 @@
 					</or>
 				</enablement>
 			</commonWizard>
-	</extension>
+	</extension-->
 	
 	
-			<extension point="org.eclipse.ui.newWizards" id="creation-wizard">
+	<extension point="org.eclipse.ui.newWizards" id="creation-wizard">
   	  <wizard
   	     name="Template (Graphical)"
   	     icon="icons/custom/template.png"
@@ -3398,7 +3398,7 @@
 			</commonWizard>
 	</extension>
 	
-			<extension point="org.eclipse.ui.newWizards" id="creation-wizard">
+			<!--extension point="org.eclipse.ui.newWizards" id="creation-wizard">
   	  <wizard
   	     name="Task (Graphical)"
   	     icon="icons/custom/task.png"
@@ -3494,11 +3494,10 @@
 					</or>
 				</enablement>
 			</commonWizard>
-	</extension>
+	</extension-->
 	 <extension point="org.eclipse.ui.startup">
  		<startup class="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.startup.GraphicalEditorStartup"/>
  </extension>
 	
-
    <!-- optionally, specify keybindings -->
 </plugin>
