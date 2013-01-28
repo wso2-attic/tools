@@ -29,6 +29,8 @@ import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
+import org.wso2.developerstudio.eclipse.platform.ui.editor.Openable;
+import org.wso2.developerstudio.eclipse.platform.ui.startup.ESBGraphicalEditor;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 import org.apache.maven.model.Plugin;
@@ -41,6 +43,7 @@ import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
@@ -208,8 +211,25 @@ private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	        mavenProject.getModel().addRepository(repo);
 	        mavenProject.getModel().addPluginRepository(repo);
         }
-		
 		MavenUtils.saveMavenProject(mavenProject, mavenProjectPomLocation);
 	}
 
+	@Override
+		public void openEditor(File file) {
+		try{
+		refreshDistProjects();
+		IFile dbsFile  = ResourcesPlugin
+		.getWorkspace()
+		.getRoot()
+		.getFileForLocation(
+				Path.fromOSString(file.getAbsolutePath()));
+		/*IDE.openEditor(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage(),dbsFile);*/
+		String path = dbsFile.getParent().getFullPath()+"/";
+		String source = FileUtils.getContentAsString(file);
+		Openable openable = ESBGraphicalEditor.getOpenable();
+		openable.editorOpen(file.getName(),"task",path+"task_", source);
+		}catch(Exception e){
+			log.error("Cannot open the editor", e);
+		}
+	}
 }
