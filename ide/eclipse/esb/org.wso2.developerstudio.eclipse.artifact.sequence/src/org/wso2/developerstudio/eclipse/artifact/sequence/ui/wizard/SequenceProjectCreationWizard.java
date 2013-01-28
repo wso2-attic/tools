@@ -16,15 +16,14 @@
 
 package org.wso2.developerstudio.eclipse.artifact.sequence.ui.wizard;
 
+import static org.wso2.developerstudio.eclipse.platform.core.registry.util.Constants.REGISTRY_RESOURCE;
 import java.io.File;
 import java.io.IOException;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
-
 import javax.xml.namespace.QName;
-
 import org.apache.axiom.om.OMElement;
 import org.apache.maven.model.Plugin;
 import org.apache.maven.model.PluginExecution;
@@ -42,12 +41,6 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.wizard.IWizardPage;
-import org.eclipse.ui.PlatformUI;
-import org.eclipse.ui.ide.IDE;
-import org.wso2.developerstudio.eclipse.platform.core.registry.util.RegistryResourceInfo;
-import org.wso2.developerstudio.eclipse.platform.core.registry.util.RegistryResourceInfoDoc;
-import org.wso2.developerstudio.eclipse.platform.core.registry.util.RegistryResourceUtils;
-import static org.wso2.developerstudio.eclipse.platform.core.registry.util.Constants.*;
 import org.wso2.developerstudio.eclipse.artifact.sequence.Activator;
 import org.wso2.developerstudio.eclipse.artifact.sequence.model.SequenceModel;
 import org.wso2.developerstudio.eclipse.artifact.sequence.utils.SequenceImageUtils;
@@ -62,8 +55,13 @@ import org.wso2.developerstudio.eclipse.general.project.artifact.bean.RegistryIt
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
+import org.wso2.developerstudio.eclipse.platform.core.registry.util.RegistryResourceInfo;
+import org.wso2.developerstudio.eclipse.platform.core.registry.util.RegistryResourceInfoDoc;
+import org.wso2.developerstudio.eclipse.platform.core.registry.util.RegistryResourceUtils;
 import org.wso2.developerstudio.eclipse.platform.core.templates.ArtifactTemplate;
 import org.wso2.developerstudio.eclipse.platform.core.templates.ArtifactTemplateHandler;
+import org.wso2.developerstudio.eclipse.platform.ui.editor.Openable;
+import org.wso2.developerstudio.eclipse.platform.ui.startup.ESBGraphicalEditor;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 
@@ -76,6 +74,7 @@ public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 	private ESBProjectArtifact esbProjectArtifact;
 	private List<File> fileLst = new ArrayList<File>();
 	private IProject project;
+
 
 	public SequenceProjectCreationWizard() {
 		this.seqModel = new SequenceModel();
@@ -177,7 +176,7 @@ public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 
 	private boolean createSequenceArtifact(IProject prj,SequenceModel sequenceModel) throws Exception {
         boolean isNewArtifact =true;
-		IContainer location = project.getFolder("src" + File.separator + "main"
+        IContainer location = project.getFolder("src" + File.separator + "main"
 				+ File.separator + "synapse-config" + File.separator
 				+ "sequences");
 
@@ -383,8 +382,6 @@ public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 			esbProjectArtifact.addESBArtifact(artifact);
 			}
 		}
-		
-		
 	}
 	
 	public String createSequenceTemplate(String templateContent) throws IOException{
@@ -402,10 +399,7 @@ public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 		}
         return content;
 	}
-	
-	
 
-	
 	public IResource getCreatedResource() {
 		// TODO Auto-generated method stub
 		return null;
@@ -419,8 +413,18 @@ public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 			.getRoot()
 			.getFileForLocation(
 					Path.fromOSString(file.getAbsolutePath()));
-			IDE.openEditor(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage(),dbsFile);
-		} catch (Exception e) { /* ignore */}
+			/*IDE.openEditor(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage(),dbsFile);*/
+			String path = dbsFile.getParent().getFullPath()+"/";
+			String source = FileUtils.getContentAsString(file);
+			Openable openable = ESBGraphicalEditor.getOpenable();
+			String type="sequence";
+			if("main".equals(file.getName())){
+				type="main_sequence";
+			} 
+			openable.editorOpen(file.getName(),type,path+"sequence_", source);
+		} catch (Exception e) {
+			log.error("Cannot open the editor", e);
+         }
 	}
 
 }
