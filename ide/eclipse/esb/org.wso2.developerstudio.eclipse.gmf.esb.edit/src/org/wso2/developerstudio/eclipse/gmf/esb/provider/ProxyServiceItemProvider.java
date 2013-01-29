@@ -69,6 +69,7 @@ public class ProxyServiceItemProvider
 		super.getPropertyDescriptors(object);
 
 		if (!proxy.isMainSequence()) {
+			addServicePoliciesPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
 			addPinnedServersPropertyDescriptor(object);
 			addServiceGroupPropertyDescriptor(object);
@@ -146,7 +147,7 @@ public class ProxyServiceItemProvider
 		} else{
 			addOnErrorPropertyDescriptor(object);
 		}
-		addServicePoliciesPropertyDescriptor(object);
+		
 		
 		return itemPropertyDescriptors;
 	}

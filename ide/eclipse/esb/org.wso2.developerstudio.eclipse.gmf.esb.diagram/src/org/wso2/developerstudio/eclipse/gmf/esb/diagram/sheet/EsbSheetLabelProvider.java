@@ -7,6 +7,8 @@ import org.eclipse.jface.viewers.BaseLabelProvider;
 import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.graphics.Image;
+import org.wso2.developerstudio.eclipse.gmf.esb.ProxyService;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.navigator.EsbNavigatorGroup;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
@@ -17,12 +19,23 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementType
 public class EsbSheetLabelProvider extends BaseLabelProvider implements ILabelProvider {
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	public String getText(Object element) {
 		element = unwrap(element);
 		if (element instanceof EsbNavigatorGroup) {
 			return ((EsbNavigatorGroup) element).getGroupName();
+		} else if (element instanceof ProxyServiceEditPart){
+			ProxyServiceEditPart editPart = (ProxyServiceEditPart) element;
+			if(editPart.getModel() instanceof View){
+				View view = (View) editPart.getModel();
+				if(view.getElement() instanceof ProxyService){
+					ProxyService proxy = (ProxyService) view.getElement();
+					if(proxy.isMainSequence()){
+						return "Main-Sequence";
+					}
+				}
+			}
 		}
 		IElementType etype = getElementType(getView(element));
 		return etype == null ? "" : etype.getDisplayName();
