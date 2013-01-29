@@ -418,7 +418,7 @@ public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 			String source = FileUtils.getContentAsString(file);
 			Openable openable = ESBGraphicalEditor.getOpenable();
 			String type="sequence";
-			if("main".equals(file.getName())){
+			if("main.xml".equals(file.getName())){
 				type="main_sequence";
 			} 
 			openable.editorOpen(file.getName(),type,path+"sequence_", source);
