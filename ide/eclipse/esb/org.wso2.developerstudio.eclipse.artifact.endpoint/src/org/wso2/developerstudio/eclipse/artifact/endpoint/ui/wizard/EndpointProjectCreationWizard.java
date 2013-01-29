@@ -79,7 +79,6 @@ public class EndpointProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 	private List<File> fileLst = new ArrayList<File>();
 	private IProject project;
 
-
 	public EndpointProjectCreationWizard() {
 		this.epModel = new EndpointModel();
 		setModel(this.epModel);
@@ -176,16 +175,20 @@ public class EndpointProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 					EpArtifactConstants.ADDRESS_EP)) {
 				template = createEPTemplate(templateContent,
 						EpArtifactConstants.ADDRESS_EP);
+			
 			} else if (selectedTemplate.getName().equals(
 					EpArtifactConstants.WSDL_EP)) {
 				template = createEPTemplate(templateContent,
 						EpArtifactConstants.WSDL_EP);
+				
 			} else if (selectedTemplate.getName().equals(
 					EpArtifactConstants.TEMPLATE_EP)) {
 				template = createEPTemplate(templateContent,
 						EpArtifactConstants.TEMPLATE_EP);
+				
 			} else {
 				template = createEPTemplate(templateContent, "");
+				
 			}
 
 			endpointFile = location.getFile(new Path(epModel.getEpName()
@@ -233,16 +236,20 @@ public class EndpointProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 				EpArtifactConstants.ADDRESS_EP)) {
 			template = createEPTemplate(templateContent,
 					EpArtifactConstants.ADDRESS_EP);
+			
 		} else if (selectedTemplate.getName().equals(
 				EpArtifactConstants.WSDL_EP)) {
 			template = createEPTemplate(templateContent,
 					EpArtifactConstants.WSDL_EP);
+			
 		} else if (selectedTemplate.getName().equals(
 				EpArtifactConstants.TEMPLATE_EP)) {
 			template = createEPTemplate(templateContent,
 					EpArtifactConstants.TEMPLATE_EP);
+			
 		} else {
 			template = createEPTemplate(templateContent, "");
+			
 		}
 
 		endpointFile = location.getFile(new Path(epModel.getEpName()
@@ -457,15 +464,18 @@ public class EndpointProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 			OMElement documentElement = new StAXOMBuilder(new FileInputStream(file)).getDocumentElement();
 			String localName =documentElement.getFirstElement().getLocalName();
 			String type="endpoint";
-			if("dynamicLoadbalance".equalsIgnoreCase(localName)||"loadbalance".equalsIgnoreCase(localName)||"failover".equalsIgnoreCase(localName)){
-				type="complex_endpoint";
+			if ("address".equals(localName)) {
+				type=type+"-1";
+			} else if ("wsdl".equals(localName)) {
+				type=type+"-2";
+			} else if ("loadbalance".equals(localName)) {
+				type=type+"-3";
+			}else if ("failover".equals(localName)) {
+				type=type+"-4";
+			}else {
+				type=type+"-0";
 			}
-			/*IFile dbsFile  = ResourcesPlugin
-			.getWorkspace()
-			.getRoot()er
-			.getFileForLocation(
-					Path.fromOSString(file.getAbsolutePath()));
-			IDE.openEditor(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage(),dbsFile);*/
+	 
 			String location = endpointFile.getParent().getFullPath()+"/";
 			String source = FileUtils.getContentAsString(file);
 			Openable openable = ESBGraphicalEditor.getOpenable();

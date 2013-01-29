@@ -46,7 +46,9 @@ public class EndPointTemplateList extends AbstractListDataProvider{
 
 		if (modelProperty.equals("ep.type")){
 			for (ArtifactTemplate template : getArtifactTemplates()) {
-				data.add(new EndpointListData(template.getName(), template));
+				if("org.wso2.developerstudio.eclipse.esb.template.ep0".equals("org.wso2.developerstudio.eclipse.esb.template.ep0")){
+					data.add(new EndpointListData(template.getName(), template));
+				}
 			}
 		}
 		return data;

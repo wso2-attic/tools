@@ -40,9 +40,16 @@ public class GraphicalEditorStartupUtils implements Openable {
 	@Override
 	public void editorOpen(String name, String type, String locatioin,
 			String source) throws Exception {
-
+         Integer val =null;
 		if (name.indexOf(".") > 0) {
 			name = name.substring(0, name.lastIndexOf("."));
+		}
+		if(type.contains("endpoint")){
+			String[] types = type.split("-");
+			if(types.length>1){
+			type=types[0];
+			val = new Integer(types[1]);
+			}
 		}
 		locatioin = locatioin.replace("synapse-config",
 				"graphical-synapse-config");
@@ -51,7 +58,8 @@ public class GraphicalEditorStartupUtils implements Openable {
 						+ EditorUtils.DIAGRAM_FILE_EXTENSION, false),
 				URI.createPlatformResourceURI(locatioin + name
 						+ EditorUtils.DOMAIN_FILE_EXTENSION, false),
-				new NullProgressMonitor(), type, name, null);
+				new NullProgressMonitor(), type, name, val);
+		
 		String path = diagram.getURI().toPlatformString(true);
 		IFile diagramFile = (IFile) ResourcesPlugin.getWorkspace().getRoot()
 				.findMember(new Path(path));
