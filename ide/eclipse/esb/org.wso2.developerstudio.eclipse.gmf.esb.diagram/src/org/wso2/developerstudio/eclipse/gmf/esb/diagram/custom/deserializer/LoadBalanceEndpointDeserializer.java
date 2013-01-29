@@ -1,15 +1,17 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 
-import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.ADDRESS_END_POINT__URI;
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.LOAD_BALANCE_END_POINT__ALGORITHM;
 
 import org.apache.synapse.endpoints.AbstractEndpoint;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
+import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.Member;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EndpointDiagramEndpointCompartment2EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EndpointDiagramEndpointCompartmentEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
-import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.*;
 
 public class LoadBalanceEndpointDeserializer extends AbstractComplexEndPointDeserializer{//AbstractEsbNodeDeserializer<AbstractEndpoint, LoadBalanceEndPoint>{
 	
@@ -20,7 +22,10 @@ public class LoadBalanceEndpointDeserializer extends AbstractComplexEndPointDese
 		
 		org.apache.synapse.endpoints.LoadbalanceEndpoint loadbalanceEndpoint = (org.apache.synapse.endpoints.LoadbalanceEndpoint)object;
 		
-		LoadBalanceEndPoint vishualEndPoint = (LoadBalanceEndPoint) DeserializerUtils.createNode(part, EsbElementTypes.LoadBalanceEndPoint_3613);
+		IElementType endpointType = (part instanceof EndpointDiagramEndpointCompartment2EditPart ||
+				part instanceof EndpointDiagramEndpointCompartmentEditPart) ? EsbElementTypes.LoadBalanceEndPoint_3656
+				: EsbElementTypes.LoadBalanceEndPoint_3613;
+		LoadBalanceEndPoint vishualEndPoint = (LoadBalanceEndPoint) DeserializerUtils.createNode(part,endpointType);
 		setElementToEdit(vishualEndPoint);
 		
 		executeSetValueCommand(LOAD_BALANCE_END_POINT__ALGORITHM, loadbalanceEndpoint.getAlgorithm().getClass().getName());
