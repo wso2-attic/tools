@@ -17,6 +17,7 @@
 package org.wso2.developerstudio.eclipse.artifact.proxyservice.validators;
 
 import org.apache.axiom.om.OMElement;
+import org.apache.commons.lang.StringUtils;
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
@@ -115,7 +116,9 @@ public class ProxyServiceProjectFieldController extends AbstractFieldController 
 		} else if (modelProperty.equals("templ.logging.ps.resloglevel")) {
 									
 		} else if (modelProperty.equals("templ.transformer.ps.xslt")) {
-									
+				if(value==null || StringUtils.isBlank(value.toString())){
+					throw new FieldValidationException("Specified XSLT key");
+				}
 		} else if (modelProperty.equals("templ.common.ps.eplist")) {
 			if((((ProxyServiceModel)model).getTargetEPType()==TargetEPType.PREDEFINED) && (value==null || value.toString().equals(""))){
 				throw new FieldValidationException("Specified Target Predefined Endpoint key");
