@@ -25,6 +25,10 @@ public class SynapseFileUtils {
 			return "proxy";
 		case LOCAL_ENTRY:
 			return "localEntry";
+		case TASK:
+			return "task";
+		case API:
+			return "api";	
 		case ALL:
 			return "";
 		default:
@@ -77,6 +81,14 @@ public class SynapseFileUtils {
 						}
 
 					} else if (childnode.getLocalName().equals("localEntry")) {
+						if (!editorList.contains(childnode)) {
+							editorList.add(childnode);
+						}
+					} else if(childnode.getLocalName().equals("task")){
+						if (!editorList.contains(childnode)) {
+							editorList.add(childnode);
+						}
+					} else if(childnode.getLocalName().equals("api")){
 						if (!editorList.contains(childnode)) {
 							editorList.add(childnode);
 						}
