@@ -147,7 +147,13 @@ public class SynapseAPICreationWizard extends AbstractWSO2ProjectCreationWizard 
 			content += artifactModel.getPort();
 			content += "\"";
 		}
-		content += ">\n</api>";
+		content += ">\n";
+		content += "<resource methods=\"GET\">";
+		content += "<inSequence/>";
+		content += "<outSequence/>";
+		content += "<faultSequence/>";
+		content += "</resource>\n";
+		content += "</api>";
 		return content;
 	}
 	
