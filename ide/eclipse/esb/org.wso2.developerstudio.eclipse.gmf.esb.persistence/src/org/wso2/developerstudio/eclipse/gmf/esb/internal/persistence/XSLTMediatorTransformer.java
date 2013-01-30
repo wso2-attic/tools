@@ -19,6 +19,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence;
 import java.util.List;
 import java.util.Map.Entry;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.mediators.MediatorProperty;
 import org.apache.synapse.mediators.Value;
@@ -30,6 +31,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.KeyType;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
+import org.wso2.developerstudio.eclipse.gmf.esb.PropertyValueType;
 import org.wso2.developerstudio.eclipse.gmf.esb.XSLTFeature;
 import org.wso2.developerstudio.eclipse.gmf.esb.XSLTMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.XSLTProperty;
@@ -105,8 +107,20 @@ public class XSLTMediatorTransformer extends AbstractEsbNodeTransformer {
 		for (XSLTProperty property:visualXSLT.getProperties()){
 			MediatorProperty mProperty = new MediatorProperty();
 			mProperty.setName(property.getPropertyName());
-			mProperty.setValue(property.getPropertyValue());
-		//	mProperty.setExpression(new SynapseXPath(property.getPropertyExpression().getPropertyValue()));
+			
+			if(property.getPropertyValueType()==PropertyValueType.EXPRESSION){
+				NamespacedProperty propertyExpression = property.getPropertyExpression();
+				if(propertyExpression!=null && StringUtils.isNotBlank(propertyExpression.getPropertyValue())){
+					SynapseXPath expression = new SynapseXPath(propertyExpression.getPropertyValue());
+					for (Entry<String, String> entry : propertyExpression.getNamespaces().entrySet()) {
+						expression.addNamespace(entry.getKey(), entry.getValue());
+					}
+					mProperty.setExpression(expression);
+				}
+			} else{
+				mProperty.setValue(property.getPropertyValue());
+			}
+			
 			xsltMediator.addProperty(mProperty);
 		}
 		ResourceMap rMap = new ResourceMap();
