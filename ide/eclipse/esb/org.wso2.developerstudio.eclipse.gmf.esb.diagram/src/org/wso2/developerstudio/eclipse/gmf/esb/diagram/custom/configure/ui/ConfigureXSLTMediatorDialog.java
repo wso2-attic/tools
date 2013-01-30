@@ -35,9 +35,12 @@ import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.TabFolder;
 import org.eclipse.swt.widgets.TabItem;
@@ -48,6 +51,7 @@ import org.eclipse.swt.widgets.Text;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
+import org.wso2.developerstudio.eclipse.gmf.esb.PropertyValueType;
 import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.XSLTFeature;
 import org.wso2.developerstudio.eclipse.gmf.esb.XSLTMediator;
@@ -74,6 +78,22 @@ public class ConfigureXSLTMediatorDialog extends Dialog {
 	XSLTMediator mediator;
 	TransactionalEditingDomain domain;
 	private CompoundCommand resultCommand;
+	
+	/**
+	 * Table widgets
+	 */
+	private Combo cmbPropertyType;
+	private Text txtPropertyName;
+	private PropertyText propertyValue;
+
+	/**
+	 * Table editors
+	 * */
+	private TableEditor propertyTypeEditor;
+	private TableEditor propertyNameEditor;
+	private TableEditor propertyValueEditor;
+	
+	
 	/**
 	 * Dialog shell.
 	 */
@@ -209,8 +229,13 @@ public class ConfigureXSLTMediatorDialog extends Dialog {
 		tblProperties.setBounds(10, 10, 335, 162);
 
 		TableColumn colPropertyName = new TableColumn(tblProperties, SWT.NONE);
-		colPropertyName.setWidth(142);
+		colPropertyName.setWidth(100);
 		colPropertyName.setText("Name");
+		
+		
+		TableColumn colValueType = new TableColumn(tblProperties, SWT.NONE);
+		colValueType.setWidth(100);
+		colValueType.setText("Value Type");
 
 		TableColumn colPropertyValue = new TableColumn(tblProperties, SWT.NONE);
 		colPropertyValue.setWidth(167);
@@ -222,7 +247,15 @@ public class ConfigureXSLTMediatorDialog extends Dialog {
 		cmdNewProperty.addSelectionListener(new SelectionListener() {
 			
 			public void widgetSelected(SelectionEvent arg0) {
+				NamespacedProperty namespacedProperty = EsbFactory.eINSTANCE.createNamespacedProperty();
+				namespacedProperty.setPropertyName("expression");
+				namespacedProperty.setPropertyValue("/default/expression");
+				
 				TableItem item = new TableItem(tblProperties, SWT.NONE);
+				item.setText(0,"property_name");
+				item.setText(1,"LITERAL");
+				item.setText(2,"property_value");
+				item.setData("exp", namespacedProperty);
 				tblProperties.select(tblProperties.indexOf(item));
 				
 			}
@@ -238,6 +271,9 @@ public class ConfigureXSLTMediatorDialog extends Dialog {
 			public void widgetSelected(SelectionEvent arg0) {
 				if(tblProperties.getSelectionIndex()!=-1)
 					tblProperties.remove(tblProperties.getSelectionIndex());
+				initTableEditor(propertyNameEditor, tblProperties);
+				initTableEditor(propertyTypeEditor, tblProperties);
+				initTableEditor(propertyValueEditor, tblProperties);
 			}
 			
 			public void widgetDefaultSelected(SelectionEvent arg0) {}
@@ -253,6 +289,20 @@ public class ConfigureXSLTMediatorDialog extends Dialog {
 		tableResources.setLinesVisible(true);
 		tableResources.setHeaderVisible(true);
 		tableResources.setBounds(10, 10, 335, 162);
+		
+		Listener tblPropertiesListener = new Listener() {
+			
+			public void handleEvent(Event evt) {
+				if (null != evt.item) {
+					if (evt.item instanceof TableItem) {
+						TableItem item = (TableItem) evt.item;
+						editProperty(item);
+					}
+				} 
+			}
+		};
+
+		tblProperties.addListener(SWT.Selection, tblPropertiesListener);
 
 		TableColumn colResourceKey = new TableColumn(tableResources, SWT.NONE);
 		colResourceKey.setWidth(100);
@@ -316,7 +366,7 @@ public class ConfigureXSLTMediatorDialog extends Dialog {
 		}
 		
 		 setupTableEditor(tblFeatures);
-		 setupTableEditor(tblProperties);
+		// setupTableEditor(tblProperties);
 		 setupTableEditor(tableResources);
 		 
 		for (XSLTFeature feature : mediator.getFeatures()) {
@@ -328,7 +378,27 @@ public class ConfigureXSLTMediatorDialog extends Dialog {
 		for (XSLTProperty property : mediator.getProperties()) {
 			TableItem item = new TableItem(tblProperties, SWT.NONE);
 			item.setText(0, property.getPropertyName());
-			item.setText(1, property.getPropertyValue());
+			NamespacedProperty namespacedProperty = EsbFactory.eINSTANCE.createNamespacedProperty();
+			namespacedProperty.setPropertyName("expression");
+			namespacedProperty.setPropertyValue("/default/expression");
+			
+			if(property.getPropertyValueType()==PropertyValueType.EXPRESSION){
+				item.setText(1, "EXPRESSION");
+				NamespacedProperty propertyExpression = property.getPropertyExpression();
+				
+				
+				if(propertyExpression!=null){
+					item.setData("exp", EsbFactory.eINSTANCE.copyNamespacedProperty(propertyExpression));
+					item.setText(2, propertyExpression.getPropertyValue());
+				} else{
+					item.setData("exp",namespacedProperty );
+				}
+			}  else{
+				item.setText(1, "LITERAL");
+				item.setText(2, property.getPropertyValue());
+				item.setData("exp", namespacedProperty);
+			}
+			
 		}
 
 		for (XSLTResource resource : mediator.getResources()) {
@@ -387,7 +457,19 @@ public class ConfigureXSLTMediatorDialog extends Dialog {
 		for(TableItem item:tblProperties.getItems()){
 			XSLTProperty property = EsbFactory.eINSTANCE.createXSLTProperty();
 			property.setPropertyName(item.getText(0));
-			property.setPropertyValue(item.getText(1));
+			if("EXPRESSION".equalsIgnoreCase(item.getText(1))){
+				property.setPropertyValueType(PropertyValueType.EXPRESSION);
+				if (item.getData("exp") instanceof NamespacedProperty){
+					property.setPropertyExpression(EsbFactory.eINSTANCE
+							.copyNamespacedProperty((NamespacedProperty) item.getData("exp")));
+				} else{
+					property.setPropertyExpression(EsbFactory.eINSTANCE.createNamespacedProperty());
+				}
+			} else{
+				property.setPropertyValue(item.getText(2));
+				property.setPropertyValueType(PropertyValueType.LITERAL);
+				property.setPropertyExpression(EsbFactory.eINSTANCE.createNamespacedProperty());
+			}
 
 			AddCommand addCmd = new AddCommand(domain, mediator,EsbPackage.Literals.XSLT_MEDIATOR__PROPERTIES,property);
 			getResultCommand().append(addCmd);
@@ -434,6 +516,69 @@ public class ConfigureXSLTMediatorDialog extends Dialog {
 		super.configureShell(shell);
 		shell.setText("XSLT Mediator Configuration");
 	}
+	
+	private void editProperty(final TableItem item) {
+
+		NamespacedProperty expression = (NamespacedProperty) item.getData("exp");
+
+		propertyNameEditor = initTableEditor(propertyNameEditor, item.getParent());
+		txtPropertyName = new Text(item.getParent(), SWT.NONE);
+		txtPropertyName.setText(item.getText(0));
+		propertyNameEditor.setEditor(txtPropertyName, item, 0);
+		item.getParent().redraw();
+		item.getParent().layout();
+		txtPropertyName.addModifyListener(new ModifyListener() {
+
+			public void modifyText(ModifyEvent e) {
+				item.setText(0, txtPropertyName.getText());
+			}
+		});
+
+		propertyTypeEditor = initTableEditor(propertyTypeEditor, item.getParent());
+		cmbPropertyType = new Combo(item.getParent(), SWT.READ_ONLY);
+		cmbPropertyType.setItems(new String[] { "LITERAL", "EXPRESSION" });
+		cmbPropertyType.setText(item.getText(1));
+		propertyTypeEditor.setEditor(cmbPropertyType, item, 1);
+		item.getParent().redraw();
+		item.getParent().layout();
+		cmbPropertyType.addListener(SWT.Selection, new Listener() {
+			public void handleEvent(Event evt) {
+				item.setText(1, cmbPropertyType.getText());
+			}
+		});
+
+		propertyValueEditor = initTableEditor(propertyValueEditor, item.getParent());
+
+		propertyValue = new PropertyText(item.getParent(), SWT.NONE, cmbPropertyType);
+		propertyValue.addProperties(item.getText(2), expression);
+		propertyValueEditor.setEditor(propertyValue, item, 2);
+		item.getParent().redraw();
+		item.getParent().layout();
+		propertyValue.addModifyListener(new ModifyListener() {
+
+			public void modifyText(ModifyEvent e) {
+				item.setText(2, propertyValue.getText());
+				Object property = propertyValue.getProperty();
+				if (property instanceof NamespacedProperty) {
+					item.setData("exp", (NamespacedProperty) property);
+				}
+			}
+		});
+	}
+
+	private TableEditor initTableEditor(TableEditor editor, Table table) {
+		if (null != editor) {
+			Control lastCtrl = editor.getEditor();
+			if (null != lastCtrl) {
+				lastCtrl.dispose();
+			}
+		}
+		editor = new TableEditor(table);
+		editor.horizontalAlignment = SWT.LEFT;
+		editor.grabHorizontal = true;
+		return editor;
+	}
+
 	
 	/**
 	 * Sets up a table editor that allows users to edit cell values inline.

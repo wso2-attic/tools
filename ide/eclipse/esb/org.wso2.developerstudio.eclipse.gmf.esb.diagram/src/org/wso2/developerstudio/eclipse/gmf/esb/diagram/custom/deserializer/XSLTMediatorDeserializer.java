@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.synapse.mediators.AbstractMediator;
 import org.apache.synapse.mediators.MediatorProperty;
 import org.apache.synapse.mediators.Value;
@@ -17,6 +18,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.KeyType;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
+import org.wso2.developerstudio.eclipse.gmf.esb.PropertyValueType;
 import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.XSLTFeature;
 import org.wso2.developerstudio.eclipse.gmf.esb.XSLTMediator;
@@ -135,21 +137,22 @@ public class XSLTMediatorDeserializer extends
 
 			for (MediatorProperty propertyMediatorProperty : xsltMediator.getProperties()) {
 
-				XSLTProperty vishualProperty = EsbFactory.eINSTANCE.createXSLTProperty();
+				XSLTProperty visualProperty = EsbFactory.eINSTANCE.createXSLTProperty();
 
-				if (propertyMediatorProperty.getName() != null &&
-				    !propertyMediatorProperty.getName().equals("")) {
-
-					vishualProperty.setPropertyName(propertyMediatorProperty.getName());
+				if (StringUtils.isNotBlank(propertyMediatorProperty.getName())) {
+					visualProperty.setPropertyName(propertyMediatorProperty.getName());
 				}
 
-				if (propertyMediatorProperty.getValue() != null &&
-				    !propertyMediatorProperty.getValue().equals("")) {
-
-					vishualProperty.setPropertyValue(propertyMediatorProperty.getValue());
+				if (StringUtils.isNotBlank(propertyMediatorProperty.getValue())) {
+					visualProperty.setPropertyValue(propertyMediatorProperty.getValue());
+					visualProperty.setPropertyValueType(PropertyValueType.LITERAL);
+				} else if (propertyMediatorProperty != null) {
+					visualProperty.setPropertyExpression(createNamespacedProperty(propertyMediatorProperty
+									.getExpression()));
+					visualProperty.setPropertyValueType(PropertyValueType.EXPRESSION);
 				}
 
-				visualPropertyList.add(vishualProperty);
+				visualPropertyList.add(visualProperty);
 			}
 
 			//vishualXslt.getProperties().addAll(visualPropertyList);
