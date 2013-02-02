@@ -28,6 +28,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndpointDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.*;
 
 /**
  * Endpoint deserializer
@@ -52,6 +53,8 @@ public class EndPointDeserializer extends AbstractEsbNodeDeserializer<EndpointWr
 			if(endpointWrapper!=null){
 				Endpoint endpoint = endpointWrapper.getEndpoint();
 				if(endpoint!=null){
+					setElementToEdit(endpointDiagram);
+					executeSetValueCommand(ENDPOINT_DIAGRAM__NAME, endpoint.getName());
 					IGraphicalEditPart innerCompartment = (IGraphicalEditPart) graphicalNode.getChildren().get(0);
 					@SuppressWarnings("rawtypes")
 					IEsbNodeDeserializer deserializer = EsbDeserializerRegistry.getInstance().getDeserializer(endpoint);
