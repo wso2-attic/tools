@@ -1082,7 +1082,7 @@ public class EsbPaletteFactory {
 						if (result) {
 							String[] splittedFilename = Members[j].getName().split(".esb_diagram");
 							if (splittedFilename[0] != null) {
-								String[] tempName = splittedFilename[0].split(artifactPrefix);
+								String[] tempName = splittedFilename[0].split(artifactPrefix,2);
 								definedArtifacts.add(tempName[1].trim());
 							}
 						}
