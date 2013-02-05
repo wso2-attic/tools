@@ -261,7 +261,7 @@ public class Deserializer {
 			artifacts.put(wrapper.getName(), wrapper);
 			break;
 		case LOCAL_ENTRY:
-			Entry entry = EntryFactory.createEntry(element, properties);
+			Entry entry = EntryExtFactory.createEntry(element, properties);
 			artifacts.put(entry.getKey(), entry);
 			break;
 		case TASK:
