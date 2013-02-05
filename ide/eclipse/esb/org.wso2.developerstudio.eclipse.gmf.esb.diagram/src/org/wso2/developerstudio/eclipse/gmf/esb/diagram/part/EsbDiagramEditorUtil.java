@@ -271,25 +271,29 @@ public class EsbDiagramEditorUtil {
 					esbServer.setType(ArtifactType.PROXY);
 				} else if ("endpoint".equals(type)) {
 					EndpointDiagram endpoints = EsbFactory.eINSTANCE.createEndpointDiagram();
-					switch ((Integer) specificType) {
-					case 0:
+					if(specificType!=null){
+						switch ((Integer) specificType) {
+						case 0:
+							endpoints.setChild(EsbFactory.eINSTANCE.createDefaultEndPoint());
+							break;
+						case 1:
+							endpoints.setChild(EsbFactory.eINSTANCE.createAddressEndPoint());
+							break;
+						case 2:
+							endpoints.setChild(EsbFactory.eINSTANCE.createWSDLEndPoint());
+							break;
+						case 3:
+							endpoints.setChild(EsbFactory.eINSTANCE.createLoadBalanceEndPoint());
+							break;
+						case 4:
+							endpoints.setChild(EsbFactory.eINSTANCE.createFailoverEndPoint());
+							break;
+	
+						default:
+							break;
+						}
+					}else{
 						endpoints.setChild(EsbFactory.eINSTANCE.createDefaultEndPoint());
-						break;
-					case 1:
-						endpoints.setChild(EsbFactory.eINSTANCE.createAddressEndPoint());
-						break;
-					case 2:
-						endpoints.setChild(EsbFactory.eINSTANCE.createWSDLEndPoint());
-						break;
-					case 3:
-						endpoints.setChild(EsbFactory.eINSTANCE.createLoadBalanceEndPoint());
-						break;
-					case 4:
-						endpoints.setChild(EsbFactory.eINSTANCE.createFailoverEndPoint());
-						break;
-
-					default:
-						break;
 					}
 					endpoints.setName(name);
 					EStructuralFeature target = esbServer.eClass()
