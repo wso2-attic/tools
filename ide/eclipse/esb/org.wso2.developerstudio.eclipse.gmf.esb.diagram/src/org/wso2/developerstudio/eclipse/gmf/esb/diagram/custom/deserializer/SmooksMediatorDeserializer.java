@@ -1,5 +1,22 @@
+/*
+ * Copyright WSO2, Inc. (http://wso2.com)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.synapse.mediators.AbstractMediator;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
@@ -22,7 +39,11 @@ public class SmooksMediatorDeserializer extends AbstractEsbNodeDeserializer<Abst
 		SmooksMediator visualSmooksMediator = (SmooksMediator) DeserializerUtils.createNode(part, EsbElementTypes.SmooksMediator_3514);
 		setElementToEdit(visualSmooksMediator);		
 		
-		executeSetValueCommand(SMOOKS_MEDIATOR__INPUT_EXPRESSION, createNamespacedProperty(smooksMediator.getInput().getExpression()));
+		
+		if(smooksMediator.getInput().getExpression()!=null){
+			executeSetValueCommand(SMOOKS_MEDIATOR__INPUT_EXPRESSION, createNamespacedProperty(smooksMediator.getInput().getExpression()));
+		}
+		
 		if(smooksMediator.getInput().getType().equals(TYPES.XML)){
 			executeSetValueCommand(SMOOKS_MEDIATOR__INPUT_TYPE, SmooksIODataType.XML);
 		}else if(smooksMediator.getInput().getType().equals(TYPES.TEXT)){
@@ -39,9 +60,11 @@ public class SmooksMediatorDeserializer extends AbstractEsbNodeDeserializer<Abst
 				executeSetValueCommand(SMOOKS_MEDIATOR__OUTPUT_ACTION, ExpressionAction.SIBLING);
 			}	
 			executeSetValueCommand(SMOOKS_MEDIATOR__OUTPUT_METHOD, OutputMethod.EXPRESSION);
-		}else{
-			executeSetValueCommand(SMOOKS_MEDIATOR__OUTPUT_PROPERTY, smooksMediator.getOutput().getProperty());
+		}else if(StringUtils.isNotBlank(smooksMediator.getOutput().getProperty())){
+			executeSetValueCommand(SMOOKS_MEDIATOR__OUTPUT_PROPERTY,smooksMediator.getOutput().getProperty() );
 			executeSetValueCommand(SMOOKS_MEDIATOR__OUTPUT_METHOD, OutputMethod.PROPERTY);
+		} else{
+			executeSetValueCommand(SMOOKS_MEDIATOR__OUTPUT_METHOD, OutputMethod.DEFAULT);
 		}
 		if(smooksMediator.getOutput().getType().equals(TYPES.XML)){
 			executeSetValueCommand(SMOOKS_MEDIATOR__OUTPUT_TYPE, SmooksIODataType.XML);
