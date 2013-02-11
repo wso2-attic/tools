@@ -30,6 +30,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.ScriptMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.ScriptType;
 import org.wso2.developerstudio.eclipse.gmf.esb.scriptKeyTypeEnum;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 
@@ -44,10 +45,10 @@ public class ScriptMediatorDeserializer extends AbstractEsbNodeDeserializer<Abst
 
 		executeSetValueCommand(EsbPackage.Literals.SCRIPT_MEDIATOR__SCRIPT_LANGUAGE, scriptMediator.getLanguage());
 		if(type!=null){
-		   executeSetValueCommand(EsbPackage.Literals.SCRIPT_MEDIATOR__SCRIPT_TYPE, 0);
+		   executeSetValueCommand(EsbPackage.Literals.SCRIPT_MEDIATOR__SCRIPT_TYPE, ScriptType.INLINE);
 		   executeSetValueCommand(EsbPackage.Literals.SCRIPT_MEDIATOR__SCRIPT_BODY, scriptMediator.getScriptSrc());
 		}else{
-		   executeSetValueCommand(EsbPackage.Literals.SCRIPT_MEDIATOR__SCRIPT_TYPE, 1);
+		   executeSetValueCommand(EsbPackage.Literals.SCRIPT_MEDIATOR__SCRIPT_TYPE, ScriptType.REGISTRY_REFERENCE);
 		  Set<Value> keySet = scriptMediator.getIncludeMap().keySet();
 		  EList<Value>  keylis = new BasicEList<Value>();
 		  for (Value value : keySet) {
