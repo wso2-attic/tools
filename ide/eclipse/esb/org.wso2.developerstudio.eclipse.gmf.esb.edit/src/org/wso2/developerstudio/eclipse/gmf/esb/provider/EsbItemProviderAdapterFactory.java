@@ -146,6 +146,29 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.EndPointProperty} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EndPointPropertyItemProvider endPointPropertyItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.EndPointProperty}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEndPointPropertyAdapter() {
+		if (endPointPropertyItemProvider == null) {
+			endPointPropertyItemProvider = new EndPointPropertyItemProvider(this);
+		}
+
+		return endPointPropertyItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6613,6 +6636,7 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 		if (esbDiagramItemProvider != null) esbDiagramItemProvider.dispose();
 		if (esbServerItemProvider != null) esbServerItemProvider.dispose();
 		if (esbLinkItemProvider != null) esbLinkItemProvider.dispose();
+		if (endPointPropertyItemProvider != null) endPointPropertyItemProvider.dispose();
 		if (proxyServiceItemProvider != null) proxyServiceItemProvider.dispose();
 		if (proxyOutputConnectorItemProvider != null) proxyOutputConnectorItemProvider.dispose();
 		if (proxyInputConnectorItemProvider != null) proxyInputConnectorItemProvider.dispose();

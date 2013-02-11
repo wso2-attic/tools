@@ -70,6 +70,8 @@ public class EndPointItemProvider
 		super.getPropertyDescriptors(object);
 		//addEndPointNamePropertyDescriptor(object);
 		//addAnonymousPropertyDescriptor(object);
+
+		addPropertiesPropertyDescriptor(object);
 		
 		/* 'InLine' property only applicable for Proxies */
 		EObject rootContainer = EcoreUtil.getRootContainer(endPoint);
@@ -170,6 +172,28 @@ public class EndPointItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Properties feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPropertiesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EndPoint_properties_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EndPoint_properties_feature", "_UI_EndPoint_type"),
+				 EsbPackage.Literals.END_POINT__PROPERTIES,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}
