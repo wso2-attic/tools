@@ -242,6 +242,8 @@ public class EsbPropertySource extends PropertySource {
 			return new ProxyServicePolicyPropertyDescriptor(object, itemPropertyDescriptor);
 		} else if(pkg.getProxyService_EndpointKey().equals(feature)){
 			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
+		} else if(pkg.getEndPoint_Properties().equals(feature)){
+			return new EndPointPropertiesPropertyDescriptor(object, itemPropertyDescriptor);
 		}
 			
 		// Else, default EMF behavior
