@@ -38,6 +38,8 @@ public class LocalEntryProjectFieldController extends AbstractFieldController {
 
 	public void validate(String modelProperty, Object value,
 			ProjectDataModel model) throws FieldValidationException {
+		LocalEntryModel localEntryModel =(LocalEntryModel)model;
+		String selectedLocalEntryType = localEntryModel.getSelectedLocalEntryType();
 		if (modelProperty.equals(LocalEntryArtifactConstants.WIZARD_OPTION_LE_NAME)) {
 			CommonFieldValidator.validateArtifactName(value);
 			if (value != null) {
@@ -72,7 +74,30 @@ public class LocalEntryProjectFieldController extends AbstractFieldController {
 			if(resource==null || !resource.exists())	
 				throw new FieldValidationException("Specified project or path doesn't exist");
 		}
-		 
+		else if(modelProperty.equals("inline.text.value")){
+			if(LocalEntryArtifactConstants.TYPE_IN_LINE_TEXT_LE.equals(selectedLocalEntryType)){
+				String resource = value.toString();
+				if(resource==null||"".equals(resource)){
+					throw new FieldValidationException("Text value cannot be empty");
+				}				
+			} 
+		}	
+		else if(modelProperty.equals("inline.xml.value")){
+			if(LocalEntryArtifactConstants.TYPE_IN_LINE_XML_LE.equals(selectedLocalEntryType)){
+				String resource = value.toString();
+				if(resource==null||"".equals(resource)){
+					throw new FieldValidationException("XML value cannot be empty");
+				}
+			}
+		}
+		else if(modelProperty.equals("import.url")){
+			 if(LocalEntryArtifactConstants.TYPE_SOURCE_URL_LE.equals(selectedLocalEntryType)){
+				 String resource = value.toString();
+					if(resource==null||"".equals(resource)){
+						throw new FieldValidationException("Source URL cannot be empty");
+				}
+			}
+		}
 	}
 	
 	public boolean isVisibleField(String modelProperty, ProjectDataModel model) {
