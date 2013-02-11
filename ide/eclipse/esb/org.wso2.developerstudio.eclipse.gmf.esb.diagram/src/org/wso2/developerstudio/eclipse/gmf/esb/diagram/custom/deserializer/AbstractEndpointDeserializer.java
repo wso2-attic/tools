@@ -1,10 +1,31 @@
+/*
+ * Copyright WSO2, Inc. (http://wso2.com)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 
+import java.util.Iterator;
+
 import org.apache.synapse.endpoints.AbstractEndpoint;
+import org.apache.synapse.mediators.MediatorProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPointAddressingVersion;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPointAttachmentOptimization;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPointMessageFormat;
+import org.wso2.developerstudio.eclipse.gmf.esb.EndPointProperty;
+import org.wso2.developerstudio.eclipse.gmf.esb.EndPointPropertyScope;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPointTimeOutAction;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
@@ -91,6 +112,19 @@ public abstract class AbstractEndpointDeserializer extends AbstractEsbNodeDeseri
 			RegistryKeyProperty regkey = EsbFactory.eINSTANCE.createRegistryKeyProperty();
 			regkey.setKeyValue(endpoint.getDefinition().getWsSecPolicyKey());
 			executeSetValueCommand(ABSTRACT_END_POINT__SECURITY_POLICY, regkey);
+		}
+		
+		for (Iterator<MediatorProperty> i = endpoint.getProperties().iterator(); i.hasNext();) {
+			MediatorProperty next = i.next();
+			EndPointProperty property = EsbFactory.eINSTANCE.createEndPointProperty();
+			property.setName(next.getName());
+			property.setValue(next.getValue());
+			if(next.getScope()!=null){
+				property.setScope(EndPointPropertyScope.get(next.getScope().toLowerCase()));
+			} else{
+				property.setScope(EndPointPropertyScope.SYNAPSE);
+			}
+			executeAddValueCommand(visualEndpoint.getProperties(), property);
 		}
 		
 	}
