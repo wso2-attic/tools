@@ -256,6 +256,7 @@ public class LoadBalanceEndPointTransformer extends AbstractEndpointTransformer{
 		List<Endpoint> endPointsList = new ArrayList<Endpoint>();
 		synapseLBEP.setChildren(endPointsList);
 		synapseLBEP.setDefinition(synapseEPDef);
+		saveProperties(visualEndPoint,synapseLBEP);
 		if(endPoints!=null){
 			endPoints.add(synapseLBEP);
 		}

@@ -39,7 +39,7 @@ public enum EndPointPropertyScope implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SYNAPSE(0, "SYNAPSE", "Synapse"),
+	SYNAPSE(0, "SYNAPSE", "default"),
 
 	/**
 	 * The '<em><b>TRANSPORT</b></em>' literal object.
@@ -49,7 +49,7 @@ public enum EndPointPropertyScope implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	TRANSPORT(1, "TRANSPORT", "Transport"),
+	TRANSPORT(1, "TRANSPORT", "transport"),
 
 	/**
 	 * The '<em><b>AXIS2</b></em>' literal object.
@@ -59,7 +59,7 @@ public enum EndPointPropertyScope implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	AXIS2(2, "AXIS2", "Axis2"),
+	AXIS2(2, "AXIS2", "axis2"),
 
 	/**
 	 * The '<em><b>AXIS2 CLIENT</b></em>' literal object.
@@ -80,7 +80,7 @@ public enum EndPointPropertyScope implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #SYNAPSE
-	 * @model literal="Synapse"
+	 * @model literal="default"
 	 * @generated
 	 * @ordered
 	 */
@@ -95,7 +95,7 @@ public enum EndPointPropertyScope implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #TRANSPORT
-	 * @model literal="Transport"
+	 * @model literal="transport"
 	 * @generated
 	 * @ordered
 	 */
@@ -110,7 +110,7 @@ public enum EndPointPropertyScope implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #AXIS2
-	 * @model literal="Axis2"
+	 * @model literal="axis2"
 	 * @generated
 	 * @ordered
 	 */

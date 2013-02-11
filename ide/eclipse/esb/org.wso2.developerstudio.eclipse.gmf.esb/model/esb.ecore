@@ -73,9 +73,9 @@
         eType="#//EndPointProperty" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="EndPointPropertyScope">
-    <eLiterals name="SYNAPSE" literal="Synapse"/>
-    <eLiterals name="TRANSPORT" value="1" literal="Transport"/>
-    <eLiterals name="AXIS2" value="2" literal="Axis2"/>
+    <eLiterals name="SYNAPSE" literal="default"/>
+    <eLiterals name="TRANSPORT" value="1" literal="transport"/>
+    <eLiterals name="AXIS2" value="2" literal="axis2"/>
     <eLiterals name="AXIS2_CLIENT" value="3" literal="axis2-client"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EndPointProperty">

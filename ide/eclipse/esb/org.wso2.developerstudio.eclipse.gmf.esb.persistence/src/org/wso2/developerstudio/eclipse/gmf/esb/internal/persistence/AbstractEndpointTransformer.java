@@ -1,12 +1,16 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence;
 
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 
 import org.apache.synapse.endpoints.AbstractEndpoint;
 import org.apache.synapse.endpoints.EndpointDefinition;
+import org.apache.synapse.mediators.MediatorProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.EndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPointAddressingVersion;
+import org.wso2.developerstudio.eclipse.gmf.esb.EndPointProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbLink;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.FailoverEndPoint;
@@ -73,8 +77,27 @@ public abstract class AbstractEndpointTransformer extends AbstractEsbNodeTransfo
 			synapseEPDef.setWsSecPolicyKey(visualEndPoint.getSecurityPolicy().getKeyValue());
 		}
 		
+		saveProperties(visualEndPoint, endpoint);
+		
 		endpoint.setDefinition(synapseEPDef);
 
+	}
+
+	/**
+	 * Save endpoint properties
+	 * @param model
+	 * @param endpoint
+	 */
+	protected void saveProperties(EndPoint model, AbstractEndpoint endpoint) {
+		for (Iterator<EndPointProperty> iterator = model.getProperties().iterator(); iterator
+				.hasNext();) {
+			EndPointProperty property = iterator.next();
+			MediatorProperty mediatorProperty = new MediatorProperty();
+			mediatorProperty.setName(property.getName());
+			mediatorProperty.setValue(property.getValue());
+			mediatorProperty.setScope(property.getScope().toString().toLowerCase());
+			endpoint.addProperty(mediatorProperty);
+		}
 	}
 	
 	/**

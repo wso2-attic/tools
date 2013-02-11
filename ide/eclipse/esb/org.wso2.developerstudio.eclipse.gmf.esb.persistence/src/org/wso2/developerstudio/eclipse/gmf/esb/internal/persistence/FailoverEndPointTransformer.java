@@ -185,6 +185,7 @@ public class FailoverEndPointTransformer extends AbstractEndpointTransformer{
 		List<Endpoint> endPointsList = new ArrayList<Endpoint>();
 		synapseFailEP.setChildren(endPointsList);
 		synapseFailEP.setDefinition(synapseEPDef);
+		saveProperties(visualEndPoint,synapseFailEP);
 		if(endPoints!=null){
 			endPoints.add(synapseFailEP);
 		}
