@@ -6,6 +6,8 @@
  */
 package org.wso2.developerstudio.eclipse.gmf.esb;
 
+import org.eclipse.emf.common.util.EList;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -19,6 +21,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.EndPoint#isAnonymous <em>Anonymous</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.EndPoint#isInLine <em>In Line</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.EndPoint#isDuplicate <em>Duplicate</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.EndPoint#getProperties <em>Properties</em>}</li>
  * </ul>
  * </p>
  *
@@ -132,5 +135,21 @@ public interface EndPoint extends EsbElement {
 	 * @generated
 	 */
 	void setDuplicate(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Properties</b></em>' containment reference list.
+	 * The list contents are of type {@link org.wso2.developerstudio.eclipse.gmf.esb.EndPointProperty}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Properties</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Properties</em>' containment reference list.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getEndPoint_Properties()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<EndPointProperty> getProperties();
 
 } // EndPoint

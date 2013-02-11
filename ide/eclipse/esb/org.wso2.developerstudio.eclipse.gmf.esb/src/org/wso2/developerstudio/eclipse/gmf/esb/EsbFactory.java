@@ -53,6 +53,15 @@ public interface EsbFactory extends EFactory {
 	EsbLink createEsbLink();
 
 	/**
+	 * Returns a new object of class '<em>End Point Property</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>End Point Property</em>'.
+	 * @generated
+	 */
+	EndPointProperty createEndPointProperty();
+
+	/**
 	 * Returns a new object of class '<em>Proxy Service</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

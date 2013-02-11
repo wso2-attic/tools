@@ -20,6 +20,12 @@
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ArtifactType/MAIN_SEQUENCE"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ArtifactType/COMPLEX_ENDPOINT"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//EndPointPropertyScope">
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//EndPointPropertyScope/SYNAPSE"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//EndPointPropertyScope/TRANSPORT"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//EndPointPropertyScope/AXIS2"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//EndPointPropertyScope/AXIS2_CLIENT"/>
+    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//SequenceType">
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//SequenceType/Anonymous"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//SequenceType/RegistryReference"/>
@@ -495,6 +501,13 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EndPoint/anonymous"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EndPoint/InLine"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EndPoint/duplicate"/>
+      <genFeatures notify="false" createChild="false" propertyCategory="" propertySortChoices="true"
+          ecoreFeature="ecore:EReference esb.ecore#//EndPoint/properties"/>
+    </genClasses>
+    <genClasses ecoreClass="esb.ecore#//EndPointProperty">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EndPointProperty/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EndPointProperty/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EndPointProperty/scope"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//ProxyService">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyService/outputConnector"/>

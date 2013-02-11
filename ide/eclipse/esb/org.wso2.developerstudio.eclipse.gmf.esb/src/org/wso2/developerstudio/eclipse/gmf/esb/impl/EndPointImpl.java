@@ -6,13 +6,21 @@
  */
 package org.wso2.developerstudio.eclipse.gmf.esb.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.EndPointProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 
 /**
@@ -26,6 +34,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.EndPointImpl#isAnonymous <em>Anonymous</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.EndPointImpl#isInLine <em>In Line</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.EndPointImpl#isDuplicate <em>Duplicate</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.EndPointImpl#getProperties <em>Properties</em>}</li>
  * </ul>
  * </p>
  *
@@ -111,6 +120,16 @@ public abstract class EndPointImpl extends EsbElementImpl implements EndPoint {
 	 * @ordered
 	 */
 	protected boolean duplicate = DUPLICATE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProperties()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<EndPointProperty> properties;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -221,6 +240,32 @@ public abstract class EndPointImpl extends EsbElementImpl implements EndPoint {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<EndPointProperty> getProperties() {
+		if (properties == null) {
+			properties = new EObjectContainmentEList<EndPointProperty>(EndPointProperty.class, this, EsbPackage.END_POINT__PROPERTIES);
+		}
+		return properties;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case EsbPackage.END_POINT__PROPERTIES:
+				return ((InternalEList<?>)getProperties()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
@@ -233,6 +278,8 @@ public abstract class EndPointImpl extends EsbElementImpl implements EndPoint {
 				return isInLine();
 			case EsbPackage.END_POINT__DUPLICATE:
 				return isDuplicate();
+			case EsbPackage.END_POINT__PROPERTIES:
+				return getProperties();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -243,6 +290,7 @@ public abstract class EndPointImpl extends EsbElementImpl implements EndPoint {
 	 * @generated
 	 */
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -257,6 +305,10 @@ public abstract class EndPointImpl extends EsbElementImpl implements EndPoint {
 				return;
 			case EsbPackage.END_POINT__DUPLICATE:
 				setDuplicate((Boolean)newValue);
+				return;
+			case EsbPackage.END_POINT__PROPERTIES:
+				getProperties().clear();
+				getProperties().addAll((Collection<? extends EndPointProperty>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -283,6 +335,9 @@ public abstract class EndPointImpl extends EsbElementImpl implements EndPoint {
 			case EsbPackage.END_POINT__DUPLICATE:
 				setDuplicate(DUPLICATE_EDEFAULT);
 				return;
+			case EsbPackage.END_POINT__PROPERTIES:
+				getProperties().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -304,6 +359,8 @@ public abstract class EndPointImpl extends EsbElementImpl implements EndPoint {
 				return inLine != IN_LINE_EDEFAULT;
 			case EsbPackage.END_POINT__DUPLICATE:
 				return duplicate != DUPLICATE_EDEFAULT;
+			case EsbPackage.END_POINT__PROPERTIES:
+				return properties != null && !properties.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

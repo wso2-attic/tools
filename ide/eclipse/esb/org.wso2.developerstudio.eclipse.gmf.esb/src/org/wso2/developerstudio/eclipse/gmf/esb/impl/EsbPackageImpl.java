@@ -121,6 +121,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPointAddressingVersion;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPointAttachmentOptimization;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPointMessageFormat;
+import org.wso2.developerstudio.eclipse.gmf.esb.EndPointProperty;
+import org.wso2.developerstudio.eclipse.gmf.esb.EndPointPropertyScope;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPointTimeOutAction;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndpointDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndpointFlow;
@@ -491,6 +493,13 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	private EClass endPointEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass endPointPropertyEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1394,6 +1403,13 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	private EEnum artifactTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum endPointPropertyScopeEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -3305,6 +3321,51 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 */
 	public EAttribute getEndPoint_Duplicate() {
 		return (EAttribute)endPointEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEndPoint_Properties() {
+		return (EReference)endPointEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getEndPointProperty() {
+		return endPointPropertyEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getEndPointProperty_Name() {
+		return (EAttribute)endPointPropertyEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getEndPointProperty_Value() {
+		return (EAttribute)endPointPropertyEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getEndPointProperty_Scope() {
+		return (EAttribute)endPointPropertyEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -7139,6 +7200,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 */
 	public EEnum getArtifactType() {
 		return artifactTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getEndPointPropertyScope() {
+		return endPointPropertyScopeEEnum;
 	}
 
 	/**
@@ -12767,6 +12837,12 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEAttribute(endPointEClass, END_POINT__ANONYMOUS);
 		createEAttribute(endPointEClass, END_POINT__IN_LINE);
 		createEAttribute(endPointEClass, END_POINT__DUPLICATE);
+		createEReference(endPointEClass, END_POINT__PROPERTIES);
+
+		endPointPropertyEClass = createEClass(END_POINT_PROPERTY);
+		createEAttribute(endPointPropertyEClass, END_POINT_PROPERTY__NAME);
+		createEAttribute(endPointPropertyEClass, END_POINT_PROPERTY__VALUE);
+		createEAttribute(endPointPropertyEClass, END_POINT_PROPERTY__SCOPE);
 
 		proxyServiceEClass = createEClass(PROXY_SERVICE);
 		createEReference(proxyServiceEClass, PROXY_SERVICE__OUTPUT_CONNECTOR);
@@ -14008,6 +14084,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 
 		// Create enums
 		artifactTypeEEnum = createEEnum(ARTIFACT_TYPE);
+		endPointPropertyScopeEEnum = createEEnum(END_POINT_PROPERTY_SCOPE);
 		sequenceTypeEEnum = createEEnum(SEQUENCE_TYPE);
 		proxyWsdlTypeEEnum = createEEnum(PROXY_WSDL_TYPE);
 		filterConditionTypeEEnum = createEEnum(FILTER_CONDITION_TYPE);
@@ -14431,6 +14508,12 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEAttribute(getEndPoint_Anonymous(), ecorePackage.getEBoolean(), "anonymous", "false", 0, 1, EndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEndPoint_InLine(), ecorePackage.getEBoolean(), "InLine", "false", 0, 1, EndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEndPoint_Duplicate(), ecorePackage.getEBoolean(), "duplicate", null, 0, 1, EndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEndPoint_Properties(), this.getEndPointProperty(), null, "properties", null, 0, -1, EndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(endPointPropertyEClass, EndPointProperty.class, "EndPointProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getEndPointProperty_Name(), ecorePackage.getEString(), "name", null, 1, 1, EndPointProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEndPointProperty_Value(), ecorePackage.getEString(), "value", null, 1, 1, EndPointProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEndPointProperty_Scope(), this.getEndPointPropertyScope(), "scope", "", 1, 1, EndPointProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(proxyServiceEClass, ProxyService.class, "ProxyService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getProxyService_OutputConnector(), this.getProxyOutputConnector(), null, "outputConnector", null, 0, 1, ProxyService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -15692,6 +15775,12 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		addEEnumLiteral(artifactTypeEEnum, ArtifactType.API);
 		addEEnumLiteral(artifactTypeEEnum, ArtifactType.MAIN_SEQUENCE);
 		addEEnumLiteral(artifactTypeEEnum, ArtifactType.COMPLEX_ENDPOINT);
+
+		initEEnum(endPointPropertyScopeEEnum, EndPointPropertyScope.class, "EndPointPropertyScope");
+		addEEnumLiteral(endPointPropertyScopeEEnum, EndPointPropertyScope.SYNAPSE);
+		addEEnumLiteral(endPointPropertyScopeEEnum, EndPointPropertyScope.TRANSPORT);
+		addEEnumLiteral(endPointPropertyScopeEEnum, EndPointPropertyScope.AXIS2);
+		addEEnumLiteral(endPointPropertyScopeEEnum, EndPointPropertyScope.AXIS2_CLIENT);
 
 		initEEnum(sequenceTypeEEnum, SequenceType.class, "SequenceType");
 		addEEnumLiteral(sequenceTypeEEnum, SequenceType.ANONYMOUS);

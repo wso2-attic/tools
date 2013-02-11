@@ -69,6 +69,20 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="InLine" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="duplicate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+        eType="#//EndPointProperty" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="EndPointPropertyScope">
+    <eLiterals name="SYNAPSE" literal="Synapse"/>
+    <eLiterals name="TRANSPORT" value="1" literal="Transport"/>
+    <eLiterals name="AXIS2" value="2" literal="Axis2"/>
+    <eLiterals name="AXIS2_CLIENT" value="3" literal="axis2-client"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EndPointProperty">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="scope" lowerBound="1" eType="#//EndPointPropertyScope"
+        defaultValueLiteral=""/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProxyService" eSuperTypes="#//EsbElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="outputConnector" eType="#//ProxyOutputConnector"

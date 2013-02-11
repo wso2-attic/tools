@@ -74,6 +74,7 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 			case EsbPackage.ESB_DIAGRAM: return createEsbDiagram();
 			case EsbPackage.ESB_SERVER: return createEsbServer();
 			case EsbPackage.ESB_LINK: return createEsbLink();
+			case EsbPackage.END_POINT_PROPERTY: return createEndPointProperty();
 			case EsbPackage.PROXY_SERVICE: return createProxyService();
 			case EsbPackage.PROXY_OUTPUT_CONNECTOR: return createProxyOutputConnector();
 			case EsbPackage.PROXY_INPUT_CONNECTOR: return createProxyInputConnector();
@@ -361,6 +362,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 		switch (eDataType.getClassifierID()) {
 			case EsbPackage.ARTIFACT_TYPE:
 				return createArtifactTypeFromString(eDataType, initialValue);
+			case EsbPackage.END_POINT_PROPERTY_SCOPE:
+				return createEndPointPropertyScopeFromString(eDataType, initialValue);
 			case EsbPackage.SEQUENCE_TYPE:
 				return createSequenceTypeFromString(eDataType, initialValue);
 			case EsbPackage.PROXY_WSDL_TYPE:
@@ -541,6 +544,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 		switch (eDataType.getClassifierID()) {
 			case EsbPackage.ARTIFACT_TYPE:
 				return convertArtifactTypeToString(eDataType, instanceValue);
+			case EsbPackage.END_POINT_PROPERTY_SCOPE:
+				return convertEndPointPropertyScopeToString(eDataType, instanceValue);
 			case EsbPackage.SEQUENCE_TYPE:
 				return convertSequenceTypeToString(eDataType, instanceValue);
 			case EsbPackage.PROXY_WSDL_TYPE:
@@ -740,6 +745,16 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	public EsbLink createEsbLink() {
 		EsbLinkImpl esbLink = new EsbLinkImpl();
 		return esbLink;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EndPointProperty createEndPointProperty() {
+		EndPointPropertyImpl endPointProperty = new EndPointPropertyImpl();
+		return endPointProperty;
 	}
 
 	/**
@@ -2092,6 +2107,26 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	 * @generated
 	 */
 	public String convertArtifactTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EndPointPropertyScope createEndPointPropertyScopeFromString(EDataType eDataType, String initialValue) {
+		EndPointPropertyScope result = EndPointPropertyScope.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertEndPointPropertyScopeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

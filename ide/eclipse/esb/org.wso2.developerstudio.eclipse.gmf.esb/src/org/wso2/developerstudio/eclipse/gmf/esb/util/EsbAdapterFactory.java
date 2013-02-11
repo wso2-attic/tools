@@ -117,6 +117,10 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 				return createEndPointAdapter();
 			}
 			@Override
+			public Adapter caseEndPointProperty(EndPointProperty object) {
+				return createEndPointPropertyAdapter();
+			}
+			@Override
 			public Adapter caseProxyService(ProxyService object) {
 				return createProxyServiceAdapter();
 			}
@@ -1396,6 +1400,20 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createEndPointAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.EndPointProperty <em>End Point Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EndPointProperty
+	 * @generated
+	 */
+	public Adapter createEndPointPropertyAdapter() {
 		return null;
 	}
 

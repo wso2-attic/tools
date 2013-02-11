@@ -162,6 +162,12 @@ public class EsbSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case EsbPackage.END_POINT_PROPERTY: {
+				EndPointProperty endPointProperty = (EndPointProperty)theEObject;
+				T result = caseEndPointProperty(endPointProperty);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case EsbPackage.PROXY_SERVICE: {
 				ProxyService proxyService = (ProxyService)theEObject;
 				T result = caseProxyService(proxyService);
@@ -2521,6 +2527,21 @@ public class EsbSwitch<T> {
 	 * @generated
 	 */
 	public T caseEndPoint(EndPoint object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>End Point Property</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>End Point Property</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEndPointProperty(EndPointProperty object) {
 		return null;
 	}
 
