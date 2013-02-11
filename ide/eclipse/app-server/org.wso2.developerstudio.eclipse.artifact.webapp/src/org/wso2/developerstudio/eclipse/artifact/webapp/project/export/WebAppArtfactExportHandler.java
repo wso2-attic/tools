@@ -40,8 +40,7 @@ public class WebAppArtfactExportHandler extends ProjectArtifactHandler {
 		IPath outPutPath = buildJavaProject(project);
 
 		// get webapp files location
-		IPath webapp = project.getFolder(
-				"src" + File.separator + "main" + File.separator + "webapp").getLocation();
+		IPath webapp = project.getFolder("WebContent").getLocation();
 
 		File tempProject = createTempProject();
 

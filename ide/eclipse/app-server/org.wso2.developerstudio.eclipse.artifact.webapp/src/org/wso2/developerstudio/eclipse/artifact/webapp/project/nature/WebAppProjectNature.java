@@ -1,5 +1,24 @@
+/*
+ * Copyright (c) 2010, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package org.wso2.developerstudio.eclipse.artifact.webapp.project.nature;
 
+import org.apache.maven.model.Dependency;
+import org.apache.maven.model.Repository;
+import org.apache.maven.model.RepositoryPolicy;
 import org.apache.maven.project.MavenProject;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
@@ -14,6 +33,8 @@ import org.wso2.developerstudio.eclipse.utils.wst.WebUtils;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class WebAppProjectNature extends AbstractWSO2ProjectNature {
 
@@ -21,7 +42,7 @@ public class WebAppProjectNature extends AbstractWSO2ProjectNature {
 	public void configure() throws CoreException {
 		addJavaProjectNature();
 		try {
-			setupAsWebApp();
+			//setupAsWebApp();
 			updatePom();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -41,7 +62,6 @@ public class WebAppProjectNature extends AbstractWSO2ProjectNature {
 		}
 	}
 
-	
 	public void deconfigure() throws CoreException {
 
 	}
@@ -49,9 +69,29 @@ public class WebAppProjectNature extends AbstractWSO2ProjectNature {
 	public void updatePom() throws Exception {
 		File mavenProjectPomLocation = getProject().getFile("pom.xml").getLocation().toFile();
 		MavenProject mavenProject = MavenUtils.getMavenProject(mavenProjectPomLocation);
-//		IFile webXmlLocation = WebUtils.getWEBXmlLocation(getProject());
-		MavenUtils.updateMavenProjectWithWarBuilderPlugin(getProject(), mavenProject,
-		                                                  mavenProjectPomLocation);
+		/*Adding J2EE Dependency*/
+		List<Dependency> dependencies = new ArrayList<Dependency>();
+		Dependency j2eeDepen = new Dependency();
+		j2eeDepen.setGroupId("javax");
+		j2eeDepen.setArtifactId("javaee-web-api");
+		j2eeDepen.setVersion("6.0");
+		j2eeDepen.setScope("provided");
+		dependencies.add(j2eeDepen);
+		MavenUtils.addMavenDependency(mavenProject, dependencies);
+		/*Adding Plugins*/
+		MavenUtils.updateMavenProjectWithWarBuilderPlugin(getProject(), mavenProject,mavenProjectPomLocation);
+		
+		Repository repo = new Repository();
+		repo.setUrl("http://download.java.net/maven/2");
+		repo.setId("java.net2");
+		repo.setName("Repository hosting the jee6 artifacts");
+		RepositoryPolicy releasePolicy=new RepositoryPolicy();
+		releasePolicy.setEnabled(true);
+		releasePolicy.setUpdatePolicy("daily");
+		releasePolicy.setChecksumPolicy("ignore");
+		repo.setReleases(releasePolicy);
+		mavenProject.getModel().addRepository(repo);
+		
 		MavenUtils.saveMavenProject(mavenProject, mavenProjectPomLocation);
 	}
 
