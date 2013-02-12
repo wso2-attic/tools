@@ -1414,5 +1414,26 @@
              id="org.wso2.developerstudio.eclipse.esb.template.wsdl"
              name="WSDL File">
        </template>
+       
+       <template
+             file="resources/templates/sequence_template/sq_template.xml"
+             id="org.wso2.developerstudio.eclipse.esb.template.sq_template"
+             name="sequence_template">
+       </template>
+       <template
+             file="resources/templates/endpoint_templates/Address.xml"
+             id="org.wso2.developerstudio.eclipse.esb.template.endpoint_templates.Address"
+             name="endpoint_templates_addressEndpoint">
+       </template>
+        <template
+             file="resources/templates/endpoint_templates/default.xml"
+             id="org.wso2.developerstudio.eclipse.esb.template.endpoint_templates.default"
+             name="endpoint_templates_defaultEndpoint">
+       </template>
+        <template
+             file="resources/templates/endpoint_templates/wsdl.xml"
+             id="org.wso2.developerstudio.eclipse.esb.template.endpoint_templates.wsdl"
+             name="endpoint_templates_wsdlEndpoint">
+       </template>
     </extension>
 </plugin>

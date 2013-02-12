@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template xmlns="http://ws.apache.org/ns/synapse" name="{ep.name}">
+    <endpoint>
+        <address uri="http://www.example.org/service"/>
+    </endpoint>
+</template>
