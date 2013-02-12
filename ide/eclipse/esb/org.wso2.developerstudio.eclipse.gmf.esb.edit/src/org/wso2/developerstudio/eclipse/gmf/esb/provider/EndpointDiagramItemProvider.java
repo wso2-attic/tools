@@ -223,6 +223,11 @@ public class EndpointDiagramItemProvider
 			(createChildParameter
 				(EsbPackage.Literals.ENDPOINT_DIAGRAM__CHILD,
 				 EsbFactory.eINSTANCE.createAddressingEndpoint()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.ENDPOINT_DIAGRAM__CHILD,
+				 EsbFactory.eINSTANCE.createRecipientListEndPoint()));
 	}
 
 }

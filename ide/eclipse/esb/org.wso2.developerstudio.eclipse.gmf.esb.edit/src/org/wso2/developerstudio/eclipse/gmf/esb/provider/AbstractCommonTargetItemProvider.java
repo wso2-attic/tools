@@ -284,6 +284,11 @@ public class AbstractCommonTargetItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(EsbPackage.Literals.ABSTRACT_COMMON_TARGET__ENDPOINT,
+				 EsbFactory.eINSTANCE.createRecipientListEndPoint()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(EsbPackage.Literals.ABSTRACT_COMMON_TARGET__ENDPOINT_KEY,
 				 EsbFactory.eINSTANCE.createRegistryKeyProperty()));
 	}

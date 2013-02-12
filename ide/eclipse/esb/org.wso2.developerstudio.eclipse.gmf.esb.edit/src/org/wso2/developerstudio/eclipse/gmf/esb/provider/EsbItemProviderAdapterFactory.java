@@ -3068,6 +3068,98 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.RecipientListEndPoint} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RecipientListEndPointItemProvider recipientListEndPointItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.RecipientListEndPoint}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRecipientListEndPointAdapter() {
+		if (recipientListEndPointItemProvider == null) {
+			recipientListEndPointItemProvider = new RecipientListEndPointItemProvider(this);
+		}
+
+		return recipientListEndPointItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.RecipientListEndPointInputConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RecipientListEndPointInputConnectorItemProvider recipientListEndPointInputConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.RecipientListEndPointInputConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRecipientListEndPointInputConnectorAdapter() {
+		if (recipientListEndPointInputConnectorItemProvider == null) {
+			recipientListEndPointInputConnectorItemProvider = new RecipientListEndPointInputConnectorItemProvider(this);
+		}
+
+		return recipientListEndPointInputConnectorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.RecipientListEndPointOutputConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RecipientListEndPointOutputConnectorItemProvider recipientListEndPointOutputConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.RecipientListEndPointOutputConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRecipientListEndPointOutputConnectorAdapter() {
+		if (recipientListEndPointOutputConnectorItemProvider == null) {
+			recipientListEndPointOutputConnectorItemProvider = new RecipientListEndPointOutputConnectorItemProvider(this);
+		}
+
+		return recipientListEndPointOutputConnectorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.RecipientListEndPointWestOutputConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RecipientListEndPointWestOutputConnectorItemProvider recipientListEndPointWestOutputConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.RecipientListEndPointWestOutputConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRecipientListEndPointWestOutputConnectorAdapter() {
+		if (recipientListEndPointWestOutputConnectorItemProvider == null) {
+			recipientListEndPointWestOutputConnectorItemProvider = new RecipientListEndPointWestOutputConnectorItemProvider(this);
+		}
+
+		return recipientListEndPointWestOutputConnectorItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.ScriptMediator} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6908,6 +7000,10 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 		if (addressingEndpointItemProvider != null) addressingEndpointItemProvider.dispose();
 		if (addressingEndpointInputConnectorItemProvider != null) addressingEndpointInputConnectorItemProvider.dispose();
 		if (addressingEndpointOutputConnectorItemProvider != null) addressingEndpointOutputConnectorItemProvider.dispose();
+		if (recipientListEndPointItemProvider != null) recipientListEndPointItemProvider.dispose();
+		if (recipientListEndPointInputConnectorItemProvider != null) recipientListEndPointInputConnectorItemProvider.dispose();
+		if (recipientListEndPointOutputConnectorItemProvider != null) recipientListEndPointOutputConnectorItemProvider.dispose();
+		if (recipientListEndPointWestOutputConnectorItemProvider != null) recipientListEndPointWestOutputConnectorItemProvider.dispose();
 	}
 
 }
