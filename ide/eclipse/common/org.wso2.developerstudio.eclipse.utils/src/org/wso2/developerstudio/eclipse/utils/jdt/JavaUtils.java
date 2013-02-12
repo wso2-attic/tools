@@ -28,6 +28,7 @@ import java.util.Set;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IProjectNature;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IncrementalProjectBuilder;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -58,13 +59,17 @@ public class JavaUtils {
 	public static void addJavaSupportAndSourceFolder(IProject project, IFolder sourceFolder) throws CoreException,
 	        JavaModelException {
 		IJavaProject javaProject = addJavaNature(project,true);
-		if (sourceFolder!=null){
+		 if (sourceFolder!=null){
     		addJavaSourceFolder(sourceFolder, javaProject);
-		}
+		} 
 	}
 	
 	public static IJavaProject addJavaNature(IProject project, boolean rawClasspath) throws CoreException, JavaModelException {
-		ProjectUtils.addNatureToProject(project, true, ProjectConstants.JAVA_NATURE_ID);
+	 
+		 IProjectNature nature = project.getNature(ProjectConstants.JAVA_NATURE_ID);
+		 if(nature==null){
+		    ProjectUtils.addNatureToProject(project, true, ProjectConstants.JAVA_NATURE_ID);
+		 }
 		IJavaProject javaProject = JavaCore.create(project);
 		IFolder targetFolder = project.getFolder("target");
 		targetFolder.create(false, true, null);
@@ -73,7 +78,9 @@ public class JavaUtils {
 		if(rawClasspath){
 			entries.addAll(Arrays.asList(getClasspathEntries(javaProject)));
 		}
-		entries.add(JavaRuntime.getDefaultJREContainerEntry());
+		if(nature==null){
+			entries.add(JavaRuntime.getDefaultJREContainerEntry());
+		 }
 		javaProject.setRawClasspath(entries.toArray(new IClasspathEntry[entries.size()]), null);
 		return javaProject;
 	}
@@ -91,17 +98,17 @@ public class JavaUtils {
 	public static void addJavaSourceFolder(IFolder sourceFolder,
 			IJavaProject javaProject) throws CoreException, JavaModelException {
 		ProjectUtils.createFolder(sourceFolder);
-
+        int ClASSPATH_ENTRY_KIND=3;
 		IPackageFragmentRoot root = javaProject.getPackageFragmentRoot(sourceFolder);
 		IClasspathEntry[] oldEntries = getClasspathEntries(javaProject);
 		List<IClasspathEntry> validEntries = new ArrayList<IClasspathEntry>();
 		for (IClasspathEntry classpathEntry : oldEntries) {
-			if (!classpathEntry.getPath().equals(javaProject.getProject().getFullPath())) {
+			if (ClASSPATH_ENTRY_KIND!=classpathEntry.getEntryKind()) {
 				validEntries.add(classpathEntry);
-			}
+			} 
 		}
 		validEntries.add(JavaCore.newSourceEntry(root.getPath()));
-		javaProject.setRawClasspath(validEntries.toArray(new IClasspathEntry[] {}), null);
+		javaProject.setRawClasspath(validEntries.toArray(new IClasspathEntry[] {}),null);
 	}
 
 	public static List<IProject> getProjectsContainingClassName(String fullyQualifiedClassName) throws CoreException {
@@ -127,12 +134,15 @@ public class JavaUtils {
 	public static IPackageFragmentRoot[] getReferencedLibrariesForProject(IProject project) throws JavaModelException{
 		IJavaProject p = JavaCore.create(project);
 		IPackageFragmentRoot[] packageFragmentRoots = p.getPackageFragmentRoots();
+		
 		ArrayList<IPackageFragmentRoot> jarClassPaths = new ArrayList<IPackageFragmentRoot>();
 		for (IPackageFragmentRoot packageFragmentRoot : packageFragmentRoots) {
+			if(packageFragmentRoot.isArchive()){
 	        if (packageFragmentRoot.getRawClasspathEntry().getEntryKind()==IClasspathEntry.CPE_LIBRARY){
 	        	jarClassPaths.add(packageFragmentRoot);
 	        }
-        }
+		  }
+        } 
 		return jarClassPaths.toArray(new IPackageFragmentRoot[]{});
     }
 
@@ -153,11 +163,13 @@ public class JavaUtils {
 		IPackageFragmentRoot[] packageFragmentRoots = p.getPackageFragmentRoots();
 		ArrayList<IPackageFragmentRoot> jarClassPaths = new ArrayList<IPackageFragmentRoot>();
 		for (IPackageFragmentRoot packageFragmentRoot : packageFragmentRoots) {
+			if(packageFragmentRoot.isArchive()){
 	        IClasspathEntry rawClasspathEntry = packageFragmentRoot.getRawClasspathEntry();
 	        IClasspathEntry resolvedClasspathEntry = JavaCore.getResolvedClasspathEntry(rawClasspathEntry);
 			if (rawClasspathEntry.getEntryKind()==IClasspathEntry.CPE_VARIABLE && resolvedClasspathEntry.getEntryKind()==IClasspathEntry.CPE_LIBRARY){
 	        	jarClassPaths.add(packageFragmentRoot);
 	        }
+		  }
         }
 		return jarClassPaths.toArray(new IPackageFragmentRoot[]{});
     }
@@ -167,9 +179,11 @@ public class JavaUtils {
 		IPackageFragmentRoot[] packageFragmentRoots = p.getPackageFragmentRoots();
 		ArrayList<IPackageFragmentRoot> jarClassPaths = new ArrayList<IPackageFragmentRoot>();
 		for (IPackageFragmentRoot packageFragmentRoot : packageFragmentRoots) {
+			if(packageFragmentRoot.isArchive()){
 	        if (packageFragmentRoot.getRawClasspathEntry().getEntryKind()==IClasspathEntry.CPE_SOURCE){
 	        	jarClassPaths.add(packageFragmentRoot);
 	        }
+		 }
         }
 		return jarClassPaths.toArray(new IPackageFragmentRoot[]{});
     }

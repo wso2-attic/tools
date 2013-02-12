@@ -263,8 +263,8 @@ public class MavenUtils {
 		initializeBuildModel(mavenProject);
 		// TODO check if the configurations are already present
 		// before trying to add again
-//		updateDependecyList(project, mavenProject);
-//		updateSourceFolder(project, mavenProject, mavenProjectSaveLocation);
+		updateDependecyList(project, mavenProject);
+    	updateSourceFolder(project, mavenProject, mavenProjectSaveLocation);
 		updateMavenRepo(mavenProject);
 		addMavenBpelPlugin(mavenProject);
 //		addMavenCompilerPlugin(mavenProject);
@@ -498,7 +498,7 @@ public class MavenUtils {
 		Xpp3Dom config=(Xpp3Dom)plugin.getConfiguration();
 		
 		Xpp3Dom warSourceDir=createXpp3Node(config, "warSourceDirectory");
-		warSourceDir.setValue("src/main/webapp");
+		warSourceDir.setValue("WebContent");
 		
 		mavenProject.getModel().addProperty(PROPERTY_CAPP_TYPE, "web/application");
 	}
