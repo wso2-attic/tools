@@ -134,13 +134,12 @@ public class DeleteElementAction extends AbstractDeleteFromAction {
 	 */
 	private boolean canDelete(EditPart editPart) {
 		Object model = editPart.getModel();
-		if(model instanceof Shape){
+		if (model instanceof Shape) {
 			return true;
-		}
-		else if (model instanceof Node) {
+		} else if (model instanceof Node) {
 			Node node = (Node) model;
 			EObject element = node.getElement();
-			if(element==null){
+			if (element == null) {
 				return true;
 			}
 			EObject eContainer = element.eContainer();

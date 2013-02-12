@@ -256,6 +256,26 @@ public class EsbElementTypes {
 	/**
 	 * @generated
 	 */
+	public static final IElementType RecipientListEndPoint_3696 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.RecipientListEndPoint_3696"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType RecipientListEndPointInputConnector_3697 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.RecipientListEndPointInputConnector_3697"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType RecipientListEndPointOutputConnector_3698 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.RecipientListEndPointOutputConnector_3698"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType RecipientListEndPointWestOutputConnector_3699 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.RecipientListEndPointWestOutputConnector_3699"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
 	public static final IElementType WSDLEndPoint_3653 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.WSDLEndPoint_3653"); //$NON-NLS-1$
 
 	/**
@@ -677,6 +697,26 @@ public class EsbElementTypes {
 	 * @generated
 	 */
 	public static final IElementType FailoverEndPointWestOutputConnector_3097 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.FailoverEndPointWestOutputConnector_3097"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType RecipientListEndPoint_3692 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.RecipientListEndPoint_3692"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType RecipientListEndPointInputConnector_3693 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.RecipientListEndPointInputConnector_3693"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType RecipientListEndPointOutputConnector_3694 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.RecipientListEndPointOutputConnector_3694"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType RecipientListEndPointWestOutputConnector_3695 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.RecipientListEndPointWestOutputConnector_3695"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -1895,6 +1935,18 @@ public class EsbElementTypes {
 			elements.put(FailoverEndPointWestOutputConnector_3097,
 					EsbPackage.eINSTANCE.getFailoverEndPointWestOutputConnector());
 
+			elements.put(RecipientListEndPoint_3692,
+					EsbPackage.eINSTANCE.getRecipientListEndPoint());
+
+			elements.put(RecipientListEndPointInputConnector_3693,
+					EsbPackage.eINSTANCE.getRecipientListEndPointInputConnector());
+
+			elements.put(RecipientListEndPointOutputConnector_3694,
+					EsbPackage.eINSTANCE.getRecipientListEndPointOutputConnector());
+
+			elements.put(RecipientListEndPointWestOutputConnector_3695,
+					EsbPackage.eINSTANCE.getRecipientListEndPointWestOutputConnector());
+
 			elements.put(WSDLEndPoint_3612, EsbPackage.eINSTANCE.getWSDLEndPoint());
 
 			elements.put(WSDLEndPointInputConnector_3092,
@@ -2014,6 +2066,18 @@ public class EsbElementTypes {
 
 			elements.put(FailoverEndPointWestOutputConnector_3652,
 					EsbPackage.eINSTANCE.getFailoverEndPointWestOutputConnector());
+
+			elements.put(RecipientListEndPoint_3696,
+					EsbPackage.eINSTANCE.getRecipientListEndPoint());
+
+			elements.put(RecipientListEndPointInputConnector_3697,
+					EsbPackage.eINSTANCE.getRecipientListEndPointInputConnector());
+
+			elements.put(RecipientListEndPointOutputConnector_3698,
+					EsbPackage.eINSTANCE.getRecipientListEndPointOutputConnector());
+
+			elements.put(RecipientListEndPointWestOutputConnector_3699,
+					EsbPackage.eINSTANCE.getRecipientListEndPointWestOutputConnector());
 
 			elements.put(WSDLEndPoint_3653, EsbPackage.eINSTANCE.getWSDLEndPoint());
 
@@ -2269,6 +2333,10 @@ public class EsbElementTypes {
 			KNOWN_ELEMENT_TYPES.add(FailoverEndPointInputConnector_3088);
 			KNOWN_ELEMENT_TYPES.add(FailoverEndPointOutputConnector_3090);
 			KNOWN_ELEMENT_TYPES.add(FailoverEndPointWestOutputConnector_3097);
+			KNOWN_ELEMENT_TYPES.add(RecipientListEndPoint_3692);
+			KNOWN_ELEMENT_TYPES.add(RecipientListEndPointInputConnector_3693);
+			KNOWN_ELEMENT_TYPES.add(RecipientListEndPointOutputConnector_3694);
+			KNOWN_ELEMENT_TYPES.add(RecipientListEndPointWestOutputConnector_3695);
 			KNOWN_ELEMENT_TYPES.add(WSDLEndPoint_3612);
 			KNOWN_ELEMENT_TYPES.add(WSDLEndPointInputConnector_3092);
 			KNOWN_ELEMENT_TYPES.add(WSDLEndPointOutputConnector_3093);
@@ -2315,6 +2383,10 @@ public class EsbElementTypes {
 			KNOWN_ELEMENT_TYPES.add(FailoverEndPointInputConnector_3650);
 			KNOWN_ELEMENT_TYPES.add(FailoverEndPointOutputConnector_3651);
 			KNOWN_ELEMENT_TYPES.add(FailoverEndPointWestOutputConnector_3652);
+			KNOWN_ELEMENT_TYPES.add(RecipientListEndPoint_3696);
+			KNOWN_ELEMENT_TYPES.add(RecipientListEndPointInputConnector_3697);
+			KNOWN_ELEMENT_TYPES.add(RecipientListEndPointOutputConnector_3698);
+			KNOWN_ELEMENT_TYPES.add(RecipientListEndPointWestOutputConnector_3699);
 			KNOWN_ELEMENT_TYPES.add(WSDLEndPoint_3653);
 			KNOWN_ELEMENT_TYPES.add(WSDLEndPointInputConnector_3654);
 			KNOWN_ELEMENT_TYPES.add(WSDLEndPointOutputConnector_3655);
@@ -2714,6 +2786,14 @@ public class EsbElementTypes {
 			return FailoverEndPointOutputConnector_3090;
 		case FailoverEndPointWestOutputConnectorEditPart.VISUAL_ID:
 			return FailoverEndPointWestOutputConnector_3097;
+		case RecipientListEndPointEditPart.VISUAL_ID:
+			return RecipientListEndPoint_3692;
+		case RecipientListEndPointInputConnectorEditPart.VISUAL_ID:
+			return RecipientListEndPointInputConnector_3693;
+		case RecipientListEndPointOutputConnectorEditPart.VISUAL_ID:
+			return RecipientListEndPointOutputConnector_3694;
+		case RecipientListEndPointWestOutputConnectorEditPart.VISUAL_ID:
+			return RecipientListEndPointWestOutputConnector_3695;
 		case WSDLEndPointEditPart.VISUAL_ID:
 			return WSDLEndPoint_3612;
 		case WSDLEndPointInputConnectorEditPart.VISUAL_ID:
@@ -2806,6 +2886,14 @@ public class EsbElementTypes {
 			return FailoverEndPointOutputConnector_3651;
 		case FailoverEndPointWestOutputConnector2EditPart.VISUAL_ID:
 			return FailoverEndPointWestOutputConnector_3652;
+		case RecipientListEndPoint2EditPart.VISUAL_ID:
+			return RecipientListEndPoint_3696;
+		case RecipientListEndPointInputConnector2EditPart.VISUAL_ID:
+			return RecipientListEndPointInputConnector_3697;
+		case RecipientListEndPointOutputConnector2EditPart.VISUAL_ID:
+			return RecipientListEndPointOutputConnector_3698;
+		case RecipientListEndPointWestOutputConnector2EditPart.VISUAL_ID:
+			return RecipientListEndPointWestOutputConnector_3699;
 		case WSDLEndPoint2EditPart.VISUAL_ID:
 			return WSDLEndPoint_3653;
 		case WSDLEndPointInputConnector2EditPart.VISUAL_ID:

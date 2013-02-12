@@ -385,7 +385,7 @@ public class EsbCreationWizard extends Wizard implements INewWizard, IExecutable
 		};
 		return op;
 	}
-	
+
 	protected void createXMLfile(String name, Resource resource, String dir) {
 
 		String xmlFilePath = dir.replaceAll("/graphical-synapse-config", "/synapse-config") + "/"

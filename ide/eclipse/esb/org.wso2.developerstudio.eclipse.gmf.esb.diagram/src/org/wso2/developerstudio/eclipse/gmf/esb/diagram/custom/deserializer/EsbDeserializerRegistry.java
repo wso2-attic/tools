@@ -27,6 +27,7 @@ import org.apache.synapse.endpoints.DefaultEndpoint;
 import org.apache.synapse.endpoints.FailoverEndpoint;
 import org.apache.synapse.endpoints.IndirectEndpoint;
 import org.apache.synapse.endpoints.LoadbalanceEndpoint;
+import org.apache.synapse.endpoints.RecipientListEndpoint;
 import org.apache.synapse.endpoints.Template;
 import org.apache.synapse.endpoints.WSDLEndpoint;
 
@@ -166,6 +167,7 @@ public class EsbDeserializerRegistry {
 		addDeserializer(BeanMediatorExt.class, new BeanMediatorDeserializer());
 		addDeserializer(BamMediator.class, new BAMMediatorDeserializer());
 		addDeserializer(IndirectEndpoint.class, new IndirectEndpointDeserializer());
+		addDeserializer(RecipientListEndpoint.class, new RecipientListEndpointDeserializer());
 	}
 	
 	/**

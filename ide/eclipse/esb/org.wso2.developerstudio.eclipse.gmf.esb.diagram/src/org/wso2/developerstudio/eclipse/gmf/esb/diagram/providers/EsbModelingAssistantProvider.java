@@ -421,6 +421,13 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(EsbElementTypes.FailoverEndPointWestOutputConnector_3097);
 			return types;
 		}
+		if (editPart instanceof RecipientListEndPointEditPart) {
+			ArrayList<IElementType> types = new ArrayList<IElementType>(3);
+			types.add(EsbElementTypes.RecipientListEndPointInputConnector_3693);
+			types.add(EsbElementTypes.RecipientListEndPointOutputConnector_3694);
+			types.add(EsbElementTypes.RecipientListEndPointWestOutputConnector_3695);
+			return types;
+		}
 		if (editPart instanceof WSDLEndPointEditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
 			types.add(EsbElementTypes.WSDLEndPointInputConnector_3092);
@@ -511,6 +518,13 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(EsbElementTypes.FailoverEndPointWestOutputConnector_3652);
 			return types;
 		}
+		if (editPart instanceof RecipientListEndPoint2EditPart) {
+			ArrayList<IElementType> types = new ArrayList<IElementType>(3);
+			types.add(EsbElementTypes.RecipientListEndPointInputConnector_3697);
+			types.add(EsbElementTypes.RecipientListEndPointOutputConnector_3698);
+			types.add(EsbElementTypes.RecipientListEndPointWestOutputConnector_3699);
+			return types;
+		}
 		if (editPart instanceof WSDLEndPoint2EditPart) {
 			ArrayList<IElementType> types = new ArrayList<IElementType>(2);
 			types.add(EsbElementTypes.WSDLEndPointInputConnector_3654);
@@ -564,7 +578,7 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			return types;
 		}
 		if (editPart instanceof MediatorFlowMediatorFlowCompartmentEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(51);
+			ArrayList<IElementType> types = new ArrayList<IElementType>(52);
 			types.add(EsbElementTypes.DropMediator_3491);
 			types.add(EsbElementTypes.PropertyMediator_3492);
 			types.add(EsbElementTypes.ThrottleMediator_3493);
@@ -611,6 +625,7 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(EsbElementTypes.DefaultEndPoint_3609);
 			types.add(EsbElementTypes.AddressEndPoint_3610);
 			types.add(EsbElementTypes.FailoverEndPoint_3611);
+			types.add(EsbElementTypes.RecipientListEndPoint_3692);
 			types.add(EsbElementTypes.WSDLEndPoint_3612);
 			types.add(EsbElementTypes.NamedEndpoint_3660);
 			types.add(EsbElementTypes.LoadBalanceEndPoint_3613);
@@ -619,7 +634,7 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			return types;
 		}
 		if (editPart instanceof MediatorFlowMediatorFlowCompartment9EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(51);
+			ArrayList<IElementType> types = new ArrayList<IElementType>(52);
 			types.add(EsbElementTypes.DropMediator_3491);
 			types.add(EsbElementTypes.PropertyMediator_3492);
 			types.add(EsbElementTypes.ThrottleMediator_3493);
@@ -666,6 +681,7 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(EsbElementTypes.DefaultEndPoint_3609);
 			types.add(EsbElementTypes.AddressEndPoint_3610);
 			types.add(EsbElementTypes.FailoverEndPoint_3611);
+			types.add(EsbElementTypes.RecipientListEndPoint_3692);
 			types.add(EsbElementTypes.WSDLEndPoint_3612);
 			types.add(EsbElementTypes.NamedEndpoint_3660);
 			types.add(EsbElementTypes.LoadBalanceEndPoint_3613);
@@ -674,7 +690,7 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			return types;
 		}
 		if (editPart instanceof MediatorFlowMediatorFlowCompartment7EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(51);
+			ArrayList<IElementType> types = new ArrayList<IElementType>(52);
 			types.add(EsbElementTypes.DropMediator_3491);
 			types.add(EsbElementTypes.PropertyMediator_3492);
 			types.add(EsbElementTypes.ThrottleMediator_3493);
@@ -721,6 +737,7 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(EsbElementTypes.DefaultEndPoint_3609);
 			types.add(EsbElementTypes.AddressEndPoint_3610);
 			types.add(EsbElementTypes.FailoverEndPoint_3611);
+			types.add(EsbElementTypes.RecipientListEndPoint_3692);
 			types.add(EsbElementTypes.WSDLEndPoint_3612);
 			types.add(EsbElementTypes.NamedEndpoint_3660);
 			types.add(EsbElementTypes.LoadBalanceEndPoint_3613);
@@ -729,7 +746,7 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			return types;
 		}
 		if (editPart instanceof MediatorFlowMediatorFlowCompartment2EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(51);
+			ArrayList<IElementType> types = new ArrayList<IElementType>(52);
 			types.add(EsbElementTypes.DropMediator_3491);
 			types.add(EsbElementTypes.PropertyMediator_3492);
 			types.add(EsbElementTypes.ThrottleMediator_3493);
@@ -776,6 +793,7 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(EsbElementTypes.DefaultEndPoint_3609);
 			types.add(EsbElementTypes.AddressEndPoint_3610);
 			types.add(EsbElementTypes.FailoverEndPoint_3611);
+			types.add(EsbElementTypes.RecipientListEndPoint_3692);
 			types.add(EsbElementTypes.WSDLEndPoint_3612);
 			types.add(EsbElementTypes.NamedEndpoint_3660);
 			types.add(EsbElementTypes.LoadBalanceEndPoint_3613);
@@ -784,7 +802,7 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			return types;
 		}
 		if (editPart instanceof MediatorFlowMediatorFlowCompartment11EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(51);
+			ArrayList<IElementType> types = new ArrayList<IElementType>(52);
 			types.add(EsbElementTypes.DropMediator_3491);
 			types.add(EsbElementTypes.PropertyMediator_3492);
 			types.add(EsbElementTypes.ThrottleMediator_3493);
@@ -831,6 +849,7 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(EsbElementTypes.DefaultEndPoint_3609);
 			types.add(EsbElementTypes.AddressEndPoint_3610);
 			types.add(EsbElementTypes.FailoverEndPoint_3611);
+			types.add(EsbElementTypes.RecipientListEndPoint_3692);
 			types.add(EsbElementTypes.WSDLEndPoint_3612);
 			types.add(EsbElementTypes.NamedEndpoint_3660);
 			types.add(EsbElementTypes.LoadBalanceEndPoint_3613);
@@ -839,7 +858,7 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			return types;
 		}
 		if (editPart instanceof MediatorFlowMediatorFlowCompartment13EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(51);
+			ArrayList<IElementType> types = new ArrayList<IElementType>(52);
 			types.add(EsbElementTypes.DropMediator_3491);
 			types.add(EsbElementTypes.PropertyMediator_3492);
 			types.add(EsbElementTypes.ThrottleMediator_3493);
@@ -886,6 +905,7 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(EsbElementTypes.DefaultEndPoint_3609);
 			types.add(EsbElementTypes.AddressEndPoint_3610);
 			types.add(EsbElementTypes.FailoverEndPoint_3611);
+			types.add(EsbElementTypes.RecipientListEndPoint_3692);
 			types.add(EsbElementTypes.WSDLEndPoint_3612);
 			types.add(EsbElementTypes.NamedEndpoint_3660);
 			types.add(EsbElementTypes.LoadBalanceEndPoint_3613);
@@ -894,7 +914,7 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			return types;
 		}
 		if (editPart instanceof MediatorFlowMediatorFlowCompartment12EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(51);
+			ArrayList<IElementType> types = new ArrayList<IElementType>(52);
 			types.add(EsbElementTypes.DropMediator_3491);
 			types.add(EsbElementTypes.PropertyMediator_3492);
 			types.add(EsbElementTypes.ThrottleMediator_3493);
@@ -941,6 +961,7 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(EsbElementTypes.DefaultEndPoint_3609);
 			types.add(EsbElementTypes.AddressEndPoint_3610);
 			types.add(EsbElementTypes.FailoverEndPoint_3611);
+			types.add(EsbElementTypes.RecipientListEndPoint_3692);
 			types.add(EsbElementTypes.WSDLEndPoint_3612);
 			types.add(EsbElementTypes.NamedEndpoint_3660);
 			types.add(EsbElementTypes.LoadBalanceEndPoint_3613);
@@ -949,7 +970,7 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			return types;
 		}
 		if (editPart instanceof MediatorFlowMediatorFlowCompartment17EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(51);
+			ArrayList<IElementType> types = new ArrayList<IElementType>(52);
 			types.add(EsbElementTypes.DropMediator_3491);
 			types.add(EsbElementTypes.PropertyMediator_3492);
 			types.add(EsbElementTypes.ThrottleMediator_3493);
@@ -996,6 +1017,7 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(EsbElementTypes.DefaultEndPoint_3609);
 			types.add(EsbElementTypes.AddressEndPoint_3610);
 			types.add(EsbElementTypes.FailoverEndPoint_3611);
+			types.add(EsbElementTypes.RecipientListEndPoint_3692);
 			types.add(EsbElementTypes.WSDLEndPoint_3612);
 			types.add(EsbElementTypes.NamedEndpoint_3660);
 			types.add(EsbElementTypes.LoadBalanceEndPoint_3613);
@@ -1004,7 +1026,7 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			return types;
 		}
 		if (editPart instanceof MediatorFlowMediatorFlowCompartment3EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(51);
+			ArrayList<IElementType> types = new ArrayList<IElementType>(52);
 			types.add(EsbElementTypes.DropMediator_3491);
 			types.add(EsbElementTypes.PropertyMediator_3492);
 			types.add(EsbElementTypes.ThrottleMediator_3493);
@@ -1051,6 +1073,7 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(EsbElementTypes.DefaultEndPoint_3609);
 			types.add(EsbElementTypes.AddressEndPoint_3610);
 			types.add(EsbElementTypes.FailoverEndPoint_3611);
+			types.add(EsbElementTypes.RecipientListEndPoint_3692);
 			types.add(EsbElementTypes.WSDLEndPoint_3612);
 			types.add(EsbElementTypes.NamedEndpoint_3660);
 			types.add(EsbElementTypes.LoadBalanceEndPoint_3613);
@@ -1059,7 +1082,7 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			return types;
 		}
 		if (editPart instanceof MediatorFlowMediatorFlowCompartment14EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(51);
+			ArrayList<IElementType> types = new ArrayList<IElementType>(52);
 			types.add(EsbElementTypes.DropMediator_3491);
 			types.add(EsbElementTypes.PropertyMediator_3492);
 			types.add(EsbElementTypes.ThrottleMediator_3493);
@@ -1106,6 +1129,7 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(EsbElementTypes.DefaultEndPoint_3609);
 			types.add(EsbElementTypes.AddressEndPoint_3610);
 			types.add(EsbElementTypes.FailoverEndPoint_3611);
+			types.add(EsbElementTypes.RecipientListEndPoint_3692);
 			types.add(EsbElementTypes.WSDLEndPoint_3612);
 			types.add(EsbElementTypes.NamedEndpoint_3660);
 			types.add(EsbElementTypes.LoadBalanceEndPoint_3613);
@@ -1114,7 +1138,7 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			return types;
 		}
 		if (editPart instanceof MediatorFlowMediatorFlowCompartment15EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(51);
+			ArrayList<IElementType> types = new ArrayList<IElementType>(52);
 			types.add(EsbElementTypes.DropMediator_3491);
 			types.add(EsbElementTypes.PropertyMediator_3492);
 			types.add(EsbElementTypes.ThrottleMediator_3493);
@@ -1161,6 +1185,7 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(EsbElementTypes.DefaultEndPoint_3609);
 			types.add(EsbElementTypes.AddressEndPoint_3610);
 			types.add(EsbElementTypes.FailoverEndPoint_3611);
+			types.add(EsbElementTypes.RecipientListEndPoint_3692);
 			types.add(EsbElementTypes.WSDLEndPoint_3612);
 			types.add(EsbElementTypes.NamedEndpoint_3660);
 			types.add(EsbElementTypes.LoadBalanceEndPoint_3613);
@@ -1169,7 +1194,7 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			return types;
 		}
 		if (editPart instanceof MediatorFlowMediatorFlowCompartment16EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(51);
+			ArrayList<IElementType> types = new ArrayList<IElementType>(52);
 			types.add(EsbElementTypes.DropMediator_3491);
 			types.add(EsbElementTypes.PropertyMediator_3492);
 			types.add(EsbElementTypes.ThrottleMediator_3493);
@@ -1216,6 +1241,7 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(EsbElementTypes.DefaultEndPoint_3609);
 			types.add(EsbElementTypes.AddressEndPoint_3610);
 			types.add(EsbElementTypes.FailoverEndPoint_3611);
+			types.add(EsbElementTypes.RecipientListEndPoint_3692);
 			types.add(EsbElementTypes.WSDLEndPoint_3612);
 			types.add(EsbElementTypes.NamedEndpoint_3660);
 			types.add(EsbElementTypes.LoadBalanceEndPoint_3613);
@@ -1224,7 +1250,7 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			return types;
 		}
 		if (editPart instanceof MediatorFlowMediatorFlowCompartment4EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(51);
+			ArrayList<IElementType> types = new ArrayList<IElementType>(52);
 			types.add(EsbElementTypes.DropMediator_3491);
 			types.add(EsbElementTypes.PropertyMediator_3492);
 			types.add(EsbElementTypes.ThrottleMediator_3493);
@@ -1271,6 +1297,7 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(EsbElementTypes.DefaultEndPoint_3609);
 			types.add(EsbElementTypes.AddressEndPoint_3610);
 			types.add(EsbElementTypes.FailoverEndPoint_3611);
+			types.add(EsbElementTypes.RecipientListEndPoint_3692);
 			types.add(EsbElementTypes.WSDLEndPoint_3612);
 			types.add(EsbElementTypes.NamedEndpoint_3660);
 			types.add(EsbElementTypes.LoadBalanceEndPoint_3613);
@@ -1279,7 +1306,7 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			return types;
 		}
 		if (editPart instanceof MediatorFlowMediatorFlowCompartment8EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(51);
+			ArrayList<IElementType> types = new ArrayList<IElementType>(52);
 			types.add(EsbElementTypes.DropMediator_3491);
 			types.add(EsbElementTypes.PropertyMediator_3492);
 			types.add(EsbElementTypes.ThrottleMediator_3493);
@@ -1326,6 +1353,7 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(EsbElementTypes.DefaultEndPoint_3609);
 			types.add(EsbElementTypes.AddressEndPoint_3610);
 			types.add(EsbElementTypes.FailoverEndPoint_3611);
+			types.add(EsbElementTypes.RecipientListEndPoint_3692);
 			types.add(EsbElementTypes.WSDLEndPoint_3612);
 			types.add(EsbElementTypes.NamedEndpoint_3660);
 			types.add(EsbElementTypes.LoadBalanceEndPoint_3613);
@@ -1334,7 +1362,7 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			return types;
 		}
 		if (editPart instanceof MediatorFlowMediatorFlowCompartment10EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(51);
+			ArrayList<IElementType> types = new ArrayList<IElementType>(52);
 			types.add(EsbElementTypes.DropMediator_3491);
 			types.add(EsbElementTypes.PropertyMediator_3492);
 			types.add(EsbElementTypes.ThrottleMediator_3493);
@@ -1381,6 +1409,7 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(EsbElementTypes.DefaultEndPoint_3609);
 			types.add(EsbElementTypes.AddressEndPoint_3610);
 			types.add(EsbElementTypes.FailoverEndPoint_3611);
+			types.add(EsbElementTypes.RecipientListEndPoint_3692);
 			types.add(EsbElementTypes.WSDLEndPoint_3612);
 			types.add(EsbElementTypes.NamedEndpoint_3660);
 			types.add(EsbElementTypes.LoadBalanceEndPoint_3613);
@@ -1389,7 +1418,7 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			return types;
 		}
 		if (editPart instanceof MediatorFlowMediatorFlowCompartment6EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(51);
+			ArrayList<IElementType> types = new ArrayList<IElementType>(52);
 			types.add(EsbElementTypes.DropMediator_3491);
 			types.add(EsbElementTypes.PropertyMediator_3492);
 			types.add(EsbElementTypes.ThrottleMediator_3493);
@@ -1436,6 +1465,7 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(EsbElementTypes.DefaultEndPoint_3609);
 			types.add(EsbElementTypes.AddressEndPoint_3610);
 			types.add(EsbElementTypes.FailoverEndPoint_3611);
+			types.add(EsbElementTypes.RecipientListEndPoint_3692);
 			types.add(EsbElementTypes.WSDLEndPoint_3612);
 			types.add(EsbElementTypes.NamedEndpoint_3660);
 			types.add(EsbElementTypes.LoadBalanceEndPoint_3613);
@@ -1444,7 +1474,7 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			return types;
 		}
 		if (editPart instanceof MediatorFlowMediatorFlowCompartment5EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(51);
+			ArrayList<IElementType> types = new ArrayList<IElementType>(52);
 			types.add(EsbElementTypes.DropMediator_3491);
 			types.add(EsbElementTypes.PropertyMediator_3492);
 			types.add(EsbElementTypes.ThrottleMediator_3493);
@@ -1491,6 +1521,7 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(EsbElementTypes.DefaultEndPoint_3609);
 			types.add(EsbElementTypes.AddressEndPoint_3610);
 			types.add(EsbElementTypes.FailoverEndPoint_3611);
+			types.add(EsbElementTypes.RecipientListEndPoint_3692);
 			types.add(EsbElementTypes.WSDLEndPoint_3612);
 			types.add(EsbElementTypes.NamedEndpoint_3660);
 			types.add(EsbElementTypes.LoadBalanceEndPoint_3613);
@@ -1499,10 +1530,11 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			return types;
 		}
 		if (editPart instanceof EndpointDiagramEndpointCompartmentEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(5);
+			ArrayList<IElementType> types = new ArrayList<IElementType>(6);
 			types.add(EsbElementTypes.DefaultEndPoint_3643);
 			types.add(EsbElementTypes.AddressEndPoint_3646);
 			types.add(EsbElementTypes.FailoverEndPoint_3649);
+			types.add(EsbElementTypes.RecipientListEndPoint_3696);
 			types.add(EsbElementTypes.WSDLEndPoint_3653);
 			types.add(EsbElementTypes.LoadBalanceEndPoint_3656);
 			return types;
@@ -1514,10 +1546,11 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			return types;
 		}
 		if (editPart instanceof EndpointDiagramEndpointCompartment2EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(5);
+			ArrayList<IElementType> types = new ArrayList<IElementType>(6);
 			types.add(EsbElementTypes.DefaultEndPoint_3643);
 			types.add(EsbElementTypes.AddressEndPoint_3646);
 			types.add(EsbElementTypes.FailoverEndPoint_3649);
+			types.add(EsbElementTypes.RecipientListEndPoint_3696);
 			types.add(EsbElementTypes.WSDLEndPoint_3653);
 			types.add(EsbElementTypes.LoadBalanceEndPoint_3656);
 			return types;
@@ -1528,7 +1561,7 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			return types;
 		}
 		if (editPart instanceof MediatorFlowMediatorFlowCompartment18EditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(51);
+			ArrayList<IElementType> types = new ArrayList<IElementType>(52);
 			types.add(EsbElementTypes.DropMediator_3491);
 			types.add(EsbElementTypes.PropertyMediator_3492);
 			types.add(EsbElementTypes.ThrottleMediator_3493);
@@ -1575,6 +1608,7 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(EsbElementTypes.DefaultEndPoint_3609);
 			types.add(EsbElementTypes.AddressEndPoint_3610);
 			types.add(EsbElementTypes.FailoverEndPoint_3611);
+			types.add(EsbElementTypes.RecipientListEndPoint_3692);
 			types.add(EsbElementTypes.WSDLEndPoint_3612);
 			types.add(EsbElementTypes.NamedEndpoint_3660);
 			types.add(EsbElementTypes.LoadBalanceEndPoint_3613);
@@ -1813,6 +1847,14 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			return ((FailoverEndPointWestOutputConnectorEditPart) sourceEditPart)
 					.getMARelTypesOnSource();
 		}
+		if (sourceEditPart instanceof RecipientListEndPointOutputConnectorEditPart) {
+			return ((RecipientListEndPointOutputConnectorEditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
+		if (sourceEditPart instanceof RecipientListEndPointWestOutputConnectorEditPart) {
+			return ((RecipientListEndPointWestOutputConnectorEditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
 		if (sourceEditPart instanceof WSDLEndPointOutputConnectorEditPart) {
 			return ((WSDLEndPointOutputConnectorEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
@@ -1858,6 +1900,14 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 		}
 		if (sourceEditPart instanceof FailoverEndPointWestOutputConnector2EditPart) {
 			return ((FailoverEndPointWestOutputConnector2EditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
+		if (sourceEditPart instanceof RecipientListEndPointOutputConnector2EditPart) {
+			return ((RecipientListEndPointOutputConnector2EditPart) sourceEditPart)
+					.getMARelTypesOnSource();
+		}
+		if (sourceEditPart instanceof RecipientListEndPointWestOutputConnector2EditPart) {
+			return ((RecipientListEndPointWestOutputConnector2EditPart) sourceEditPart)
 					.getMARelTypesOnSource();
 		}
 		if (sourceEditPart instanceof WSDLEndPointOutputConnector2EditPart) {
@@ -2045,6 +2095,10 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			return ((FailoverEndPointInputConnectorEditPart) targetEditPart)
 					.getMARelTypesOnTarget();
 		}
+		if (targetEditPart instanceof RecipientListEndPointInputConnectorEditPart) {
+			return ((RecipientListEndPointInputConnectorEditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
 		if (targetEditPart instanceof WSDLEndPointInputConnectorEditPart) {
 			return ((WSDLEndPointInputConnectorEditPart) targetEditPart).getMARelTypesOnTarget();
 		}
@@ -2085,6 +2139,10 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 		}
 		if (targetEditPart instanceof FailoverEndPointInputConnector2EditPart) {
 			return ((FailoverEndPointInputConnector2EditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
+		if (targetEditPart instanceof RecipientListEndPointInputConnector2EditPart) {
+			return ((RecipientListEndPointInputConnector2EditPart) targetEditPart)
 					.getMARelTypesOnTarget();
 		}
 		if (targetEditPart instanceof WSDLEndPointInputConnector2EditPart) {
@@ -2360,6 +2418,14 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			return ((FailoverEndPointWestOutputConnectorEditPart) sourceEditPart)
 					.getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
+		if (sourceEditPart instanceof RecipientListEndPointOutputConnectorEditPart) {
+			return ((RecipientListEndPointOutputConnectorEditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof RecipientListEndPointWestOutputConnectorEditPart) {
+			return ((RecipientListEndPointWestOutputConnectorEditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
 		if (sourceEditPart instanceof WSDLEndPointOutputConnectorEditPart) {
 			return ((WSDLEndPointOutputConnectorEditPart) sourceEditPart)
 					.getMARelTypesOnSourceAndTarget(targetEditPart);
@@ -2410,6 +2476,14 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 		}
 		if (sourceEditPart instanceof FailoverEndPointWestOutputConnector2EditPart) {
 			return ((FailoverEndPointWestOutputConnector2EditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof RecipientListEndPointOutputConnector2EditPart) {
+			return ((RecipientListEndPointOutputConnector2EditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof RecipientListEndPointWestOutputConnector2EditPart) {
+			return ((RecipientListEndPointWestOutputConnector2EditPart) sourceEditPart)
 					.getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
 		if (sourceEditPart instanceof WSDLEndPointOutputConnector2EditPart) {
@@ -2633,6 +2707,10 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			return ((FailoverEndPointInputConnectorEditPart) targetEditPart)
 					.getMATypesForSource(relationshipType);
 		}
+		if (targetEditPart instanceof RecipientListEndPointInputConnectorEditPart) {
+			return ((RecipientListEndPointInputConnectorEditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
 		if (targetEditPart instanceof WSDLEndPointInputConnectorEditPart) {
 			return ((WSDLEndPointInputConnectorEditPart) targetEditPart)
 					.getMATypesForSource(relationshipType);
@@ -2679,6 +2757,10 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 		}
 		if (targetEditPart instanceof FailoverEndPointInputConnector2EditPart) {
 			return ((FailoverEndPointInputConnector2EditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
+		if (targetEditPart instanceof RecipientListEndPointInputConnector2EditPart) {
+			return ((RecipientListEndPointInputConnector2EditPart) targetEditPart)
 					.getMATypesForSource(relationshipType);
 		}
 		if (targetEditPart instanceof WSDLEndPointInputConnector2EditPart) {
@@ -2954,6 +3036,14 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			return ((FailoverEndPointWestOutputConnectorEditPart) sourceEditPart)
 					.getMATypesForTarget(relationshipType);
 		}
+		if (sourceEditPart instanceof RecipientListEndPointOutputConnectorEditPart) {
+			return ((RecipientListEndPointOutputConnectorEditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof RecipientListEndPointWestOutputConnectorEditPart) {
+			return ((RecipientListEndPointWestOutputConnectorEditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
 		if (sourceEditPart instanceof WSDLEndPointOutputConnectorEditPart) {
 			return ((WSDLEndPointOutputConnectorEditPart) sourceEditPart)
 					.getMATypesForTarget(relationshipType);
@@ -3004,6 +3094,14 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 		}
 		if (sourceEditPart instanceof FailoverEndPointWestOutputConnector2EditPart) {
 			return ((FailoverEndPointWestOutputConnector2EditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof RecipientListEndPointOutputConnector2EditPart) {
+			return ((RecipientListEndPointOutputConnector2EditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof RecipientListEndPointWestOutputConnector2EditPart) {
+			return ((RecipientListEndPointWestOutputConnector2EditPart) sourceEditPart)
 					.getMATypesForTarget(relationshipType);
 		}
 		if (sourceEditPart instanceof WSDLEndPointOutputConnector2EditPart) {

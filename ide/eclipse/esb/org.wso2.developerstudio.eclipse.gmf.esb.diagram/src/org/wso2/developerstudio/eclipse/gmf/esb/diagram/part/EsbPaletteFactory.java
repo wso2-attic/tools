@@ -177,6 +177,7 @@ public class EsbPaletteFactory {
 		paletteContainer.add(createLoadBalanceEndPoint5CreationTool());
 		paletteContainer.add(createNamedEndpoint6CreationTool());
 		paletteContainer.add(createAddressingEndpoint7CreationTool());
+		paletteContainer.add(createRecipientListEndPoint8CreationTool());
 		return paletteContainer;
 	}
 
@@ -935,6 +936,22 @@ public class EsbPaletteFactory {
 	/**
 	 * @generated
 	 */
+	private ToolEntry createRecipientListEndPoint8CreationTool() {
+		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+		types.add(EsbElementTypes.RecipientListEndPoint_3692);
+		types.add(EsbElementTypes.RecipientListEndPoint_3696);
+		NodeToolEntry entry = new NodeToolEntry(Messages.RecipientListEndPoint8CreationTool_title,
+				Messages.RecipientListEndPoint8CreationTool_desc, types);
+		entry.setId("createRecipientListEndPoint8CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(EsbElementTypes
+				.getImageDescriptor(EsbElementTypes.RecipientListEndPoint_3692));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
 	private ToolEntry createEsbLink1CreationTool() {
 		LinkToolEntry entry = new LinkToolEntry(Messages.EsbLink1CreationTool_title,
 				Messages.EsbLink1CreationTool_desc,
@@ -992,29 +1009,30 @@ public class EsbPaletteFactory {
 
 		 }*/
 
-		boolean definedSequencesAdded=false;
-		int indexOfDefinedSequences=0;
-		
-		List list = ((DiagramEditDomain) ((EsbDiagramEditor) editor).getDiagramEditDomain()).getPaletteViewer().getPaletteRoot().getChildren();
+		boolean definedSequencesAdded = false;
+		int indexOfDefinedSequences = 0;
+
+		List list = ((DiagramEditDomain) ((EsbDiagramEditor) editor).getDiagramEditDomain())
+				.getPaletteViewer().getPaletteRoot().getChildren();
 		for (int i = 0; i < list.size(); ++i) {
 			if (list.get(i) instanceof PaletteDrawer) {
-				if("Sequences".equals(((PaletteDrawer) list.get(i)).getId())){
-					definedSequencesAdded=true;
-					indexOfDefinedSequences=i;
+				if ("Sequences".equals(((PaletteDrawer) list.get(i)).getId())) {
+					definedSequencesAdded = true;
+					indexOfDefinedSequences = i;
 					break;
 				}
 			}
 		}
-		
+
 		if (!definedSequencesAdded) {
 			((DiagramEditDomain) ((EsbDiagramEditor) editor).getDiagramEditDomain())
 					.getPaletteViewer().getPaletteRoot().add(createSequenceGroup());
 		}
-		if(indexOfDefinedSequences==0){
-			indexOfDefinedSequences=ToolPalleteDetails.SEQUENCE;
+		if (indexOfDefinedSequences == 0) {
+			indexOfDefinedSequences = ToolPalleteDetails.SEQUENCE;
 		}
 
-		PaletteContainer container=((PaletteContainer) ((DiagramEditDomain) ((EsbDiagramEditor) editor)
+		PaletteContainer container = ((PaletteContainer) ((DiagramEditDomain) ((EsbDiagramEditor) editor)
 				.getDiagramEditDomain()).getPaletteViewer().getPaletteRoot().getChildren()
 				.get(indexOfDefinedSequences));
 		container.getChildren().clear();
@@ -1029,28 +1047,29 @@ public class EsbPaletteFactory {
 		ArrayList<String> definedEndpoints = addDefinedArtifacts(editor, ENDPOINT_RESOURCE_DIR,
 				"endpoint_");
 
-		boolean definedEndpointsAdded=false;
-		int indexOfDefinedEndpoints=0;
-		
-		List list = ((DiagramEditDomain) ((EsbDiagramEditor) editor).getDiagramEditDomain()).getPaletteViewer().getPaletteRoot().getChildren();
+		boolean definedEndpointsAdded = false;
+		int indexOfDefinedEndpoints = 0;
+
+		List list = ((DiagramEditDomain) ((EsbDiagramEditor) editor).getDiagramEditDomain())
+				.getPaletteViewer().getPaletteRoot().getChildren();
 		for (int i = 0; i < list.size(); ++i) {
 			if (list.get(i) instanceof PaletteDrawer) {
-				if("DefinedEndpoints".equals(((PaletteDrawer) list.get(i)).getId())){
-					definedEndpointsAdded=true;
-					indexOfDefinedEndpoints=i;
+				if ("DefinedEndpoints".equals(((PaletteDrawer) list.get(i)).getId())) {
+					definedEndpointsAdded = true;
+					indexOfDefinedEndpoints = i;
 					break;
 				}
 			}
 		}
-		
+
 		if (!definedEndpointsAdded) {
 			((DiagramEditDomain) ((EsbDiagramEditor) editor).getDiagramEditDomain())
 					.getPaletteViewer().getPaletteRoot().add(createDefinedEndpointGroup());
 		}
-		if(indexOfDefinedEndpoints==0){
-			indexOfDefinedEndpoints=ToolPalleteDetails.DEFINED_ENDPOINT;
+		if (indexOfDefinedEndpoints == 0) {
+			indexOfDefinedEndpoints = ToolPalleteDetails.DEFINED_ENDPOINT;
 		}
-		PaletteContainer container=((PaletteContainer) ((DiagramEditDomain) ((EsbDiagramEditor) editor)
+		PaletteContainer container = ((PaletteContainer) ((DiagramEditDomain) ((EsbDiagramEditor) editor)
 				.getDiagramEditDomain()).getPaletteViewer().getPaletteRoot().getChildren()
 				.get(indexOfDefinedEndpoints));
 		container.getChildren().clear();
@@ -1082,7 +1101,7 @@ public class EsbPaletteFactory {
 						if (result) {
 							String[] splittedFilename = Members[j].getName().split(".esb_diagram");
 							if (splittedFilename[0] != null) {
-								String[] tempName = splittedFilename[0].split(artifactPrefix,2);
+								String[] tempName = splittedFilename[0].split(artifactPrefix, 2);
 								definedArtifacts.add(tempName[1].trim());
 							}
 						}

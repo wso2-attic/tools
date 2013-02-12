@@ -56,6 +56,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.OAuthMediator
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.PayloadFactoryMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.PropertyMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.RMSequenceMediatorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.RecipientListEndPointEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.RouterMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.RuleMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ScriptMediatorEditPart;
@@ -174,6 +175,7 @@ public class MediatorFlowMediatorFlowCompartment3CanonicalEditPolicy extends Can
 		case DefaultEndPointEditPart.VISUAL_ID:
 		case AddressEndPointEditPart.VISUAL_ID:
 		case FailoverEndPointEditPart.VISUAL_ID:
+		case RecipientListEndPointEditPart.VISUAL_ID:
 		case WSDLEndPointEditPart.VISUAL_ID:
 		case NamedEndpointEditPart.VISUAL_ID:
 		case LoadBalanceEndPointEditPart.VISUAL_ID:

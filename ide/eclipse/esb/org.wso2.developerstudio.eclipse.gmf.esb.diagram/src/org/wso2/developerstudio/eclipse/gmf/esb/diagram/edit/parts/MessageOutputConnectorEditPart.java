@@ -348,6 +348,9 @@ public class MessageOutputConnectorEditPart extends AbstractBorderItemEditPart {
 		if (targetEditPart instanceof FailoverEndPointInputConnectorEditPart) {
 			types.add(EsbElementTypes.EsbLink_4001);
 		}
+		if (targetEditPart instanceof RecipientListEndPointInputConnectorEditPart) {
+			types.add(EsbElementTypes.EsbLink_4001);
+		}
 		if (targetEditPart instanceof WSDLEndPointInputConnectorEditPart) {
 			types.add(EsbElementTypes.EsbLink_4001);
 		}
@@ -382,6 +385,9 @@ public class MessageOutputConnectorEditPart extends AbstractBorderItemEditPart {
 			types.add(EsbElementTypes.EsbLink_4001);
 		}
 		if (targetEditPart instanceof FailoverEndPointInputConnector2EditPart) {
+			types.add(EsbElementTypes.EsbLink_4001);
+		}
+		if (targetEditPart instanceof RecipientListEndPointInputConnector2EditPart) {
 			types.add(EsbElementTypes.EsbLink_4001);
 		}
 		if (targetEditPart instanceof WSDLEndPointInputConnector2EditPart) {
@@ -453,6 +459,7 @@ public class MessageOutputConnectorEditPart extends AbstractBorderItemEditPart {
 			types.add(EsbElementTypes.DefaultEndPointInputConnector_3021);
 			types.add(EsbElementTypes.AddressEndPointInputConnector_3030);
 			types.add(EsbElementTypes.FailoverEndPointInputConnector_3088);
+			types.add(EsbElementTypes.RecipientListEndPointInputConnector_3693);
 			types.add(EsbElementTypes.WSDLEndPointInputConnector_3092);
 			types.add(EsbElementTypes.NamedEndpointInputConnector_3661);
 			types.add(EsbElementTypes.LoadBalanceEndPointInputConnector_3095);
@@ -465,6 +472,7 @@ public class MessageOutputConnectorEditPart extends AbstractBorderItemEditPart {
 			types.add(EsbElementTypes.DefaultEndPointInputConnector_3644);
 			types.add(EsbElementTypes.AddressEndPointInputConnector_3647);
 			types.add(EsbElementTypes.FailoverEndPointInputConnector_3650);
+			types.add(EsbElementTypes.RecipientListEndPointInputConnector_3697);
 			types.add(EsbElementTypes.WSDLEndPointInputConnector_3654);
 			types.add(EsbElementTypes.LoadBalanceEndPointInputConnector_3657);
 			types.add(EsbElementTypes.APIResourceInputConnector_3670);

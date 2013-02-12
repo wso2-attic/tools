@@ -25,13 +25,13 @@ public class EsbSheetLabelProvider extends BaseLabelProvider implements ILabelPr
 		element = unwrap(element);
 		if (element instanceof EsbNavigatorGroup) {
 			return ((EsbNavigatorGroup) element).getGroupName();
-		} else if (element instanceof ProxyServiceEditPart){
+		} else if (element instanceof ProxyServiceEditPart) {
 			ProxyServiceEditPart editPart = (ProxyServiceEditPart) element;
-			if(editPart.getModel() instanceof View){
+			if (editPart.getModel() instanceof View) {
 				View view = (View) editPart.getModel();
-				if(view.getElement() instanceof ProxyService){
+				if (view.getElement() instanceof ProxyService) {
 					ProxyService proxy = (ProxyService) view.getElement();
-					if(proxy.isMainSequence()){
+					if (proxy.isMainSequence()) {
 						return "Main-Sequence";
 					}
 				}

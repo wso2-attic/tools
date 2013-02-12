@@ -16,6 +16,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DefaultEndPoi
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EndpointDiagramEndpointCompartmentEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FailoverEndPoint2EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.LoadBalanceEndPoint2EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.RecipientListEndPoint2EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.WSDLEndPoint2EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
@@ -78,6 +79,12 @@ public class EndpointDiagramItemSemanticEditPolicy extends EsbBaseItemSemanticEd
 						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
 						break;
 					case FailoverEndPoint2EditPart.VISUAL_ID:
+						cmd.add(new DestroyElementCommand(new DestroyElementRequest(
+								getEditingDomain(), cnode.getElement(), false))); // directlyOwned: true
+						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
+						// cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
+						break;
+					case RecipientListEndPoint2EditPart.VISUAL_ID:
 						cmd.add(new DestroyElementCommand(new DestroyElementRequest(
 								getEditingDomain(), cnode.getElement(), false))); // directlyOwned: true
 						// don't need explicit deletion of cnode as parent's view deletion would clean child views as well 

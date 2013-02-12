@@ -218,44 +218,49 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 		};
 		return lep;
 	}
-		
+
 	public void notifyChanged(Notification notification) {
 		super.notifyChanged(notification);
-		Object notifier=((ENotificationImpl)notification).getNotifier();
-		if(notifier instanceof Sequence){
-			if(notification.getFeature() instanceof EReference){
-				if("staticReferenceKey".equals(((EReference)notification.getFeature()).getName())){
-					String keyValue=((RegistryKeyProperty)notification.getNewValue()).getKeyValue();
-					setValue((Sequence)notifier,SEQUENCE__NAME,keyValue);
+		Object notifier = ((ENotificationImpl) notification).getNotifier();
+		if (notifier instanceof Sequence) {
+			if (notification.getFeature() instanceof EReference) {
+				if ("staticReferenceKey".equals(((EReference) notification.getFeature()).getName())) {
+					String keyValue = ((RegistryKeyProperty) notification.getNewValue())
+							.getKeyValue();
+					setValue((Sequence) notifier, SEQUENCE__NAME, keyValue);
 				}
-			}else if(notification.getFeature() instanceof EAttribute){
-				if("name".equals(((EAttribute)notification.getFeature()).getName())){
-					String name=(String) notification.getNewValue();
-					if("{XPath}".equals(name)){
-						setValue((Sequence)notifier, SEQUENCE__REFERRING_SEQUENCE_TYPE, KeyType.DYNAMIC);
-					}else{
-						setValue((Sequence)notifier, SEQUENCE__REFERRING_SEQUENCE_TYPE, KeyType.STATIC);
-						RegistryKeyProperty registryKeyProperty=((Sequence)notifier).getStaticReferenceKey();
+			} else if (notification.getFeature() instanceof EAttribute) {
+				if ("name".equals(((EAttribute) notification.getFeature()).getName())) {
+					String name = (String) notification.getNewValue();
+					if ("{XPath}".equals(name)) {
+						setValue((Sequence) notifier, SEQUENCE__REFERRING_SEQUENCE_TYPE,
+								KeyType.DYNAMIC);
+					} else {
+						setValue((Sequence) notifier, SEQUENCE__REFERRING_SEQUENCE_TYPE,
+								KeyType.STATIC);
+						RegistryKeyProperty registryKeyProperty = ((Sequence) notifier)
+								.getStaticReferenceKey();
 						setValue(registryKeyProperty, REGISTRY_KEY_PROPERTY__KEY_VALUE, name);
 					}
-				}else if("referringSequenceType".equals(((EAttribute)notification.getFeature()).getName())){
-					KeyType type=(KeyType) notification.getNewValue();
-					if(KeyType.DYNAMIC==type){
-						setValue((Sequence)notifier, SEQUENCE__NAME, "{XPath}");
-					}else{
-						if("{XPath}".equals(((Sequence)notifier).getName())){
-							setValue((Sequence)notifier, SEQUENCE__NAME, "");
+				} else if ("referringSequenceType".equals(((EAttribute) notification.getFeature())
+						.getName())) {
+					KeyType type = (KeyType) notification.getNewValue();
+					if (KeyType.DYNAMIC == type) {
+						setValue((Sequence) notifier, SEQUENCE__NAME, "{XPath}");
+					} else {
+						if ("{XPath}".equals(((Sequence) notifier).getName())) {
+							setValue((Sequence) notifier, SEQUENCE__NAME, "");
 						}
 					}
 				}
-				
+
 			}
 		}
 	}
-	
-	private void setValue(EObject owner, EStructuralFeature feature, Object value){
-		SetCommand setCommand =new SetCommand(getEditingDomain(), owner, feature , value);
-		if(setCommand.canExecute()){
+
+	private void setValue(EObject owner, EStructuralFeature feature, Object value) {
+		SetCommand setCommand = new SetCommand(getEditingDomain(), owner, feature, value);
+		if (setCommand.canExecute()) {
 			getEditingDomain().getCommandStack().execute(setCommand);
 		}
 	}
@@ -533,16 +538,16 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 			 * Tool group creations in the Tool pallete.
 			 */
 
-/*			if ((getEditDomain().getPaletteViewer().getPaletteRoot().getChildren().size() - 2) != ToolPalleteDetails.SEQUENCE) {
-				getEditDomain().getPaletteViewer().getPaletteRoot().add(createSequenceGroup());
-			}
+			/*			if ((getEditDomain().getPaletteViewer().getPaletteRoot().getChildren().size() - 2) != ToolPalleteDetails.SEQUENCE) {
+			 getEditDomain().getPaletteViewer().getPaletteRoot().add(createSequenceGroup());
+			 }
 
-			if (!definedSequenceNames.contains(name)) {
-				((PaletteContainer) getEditDomain().getPaletteViewer().getPaletteRoot()
-						.getChildren().get(ToolPalleteDetails.SEQUENCE))
-						.add(createSequence4CreationTool(name));
-				definedSequenceNames.add(name);
-			}*/
+			 if (!definedSequenceNames.contains(name)) {
+			 ((PaletteContainer) getEditDomain().getPaletteViewer().getPaletteRoot()
+			 .getChildren().get(ToolPalleteDetails.SEQUENCE))
+			 .add(createSequence4CreationTool(name));
+			 definedSequenceNames.add(name);
+			 }*/
 
 		}
 

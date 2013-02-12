@@ -661,6 +661,18 @@ public class EsbEditPartFactory implements EditPartFactory {
 			case FailoverEndPointWestOutputConnectorEditPart.VISUAL_ID:
 				return new FailoverEndPointWestOutputConnectorEditPart(view);
 
+			case RecipientListEndPointEditPart.VISUAL_ID:
+				return new RecipientListEndPointEditPart(view);
+
+			case RecipientListEndPointInputConnectorEditPart.VISUAL_ID:
+				return new RecipientListEndPointInputConnectorEditPart(view);
+
+			case RecipientListEndPointOutputConnectorEditPart.VISUAL_ID:
+				return new RecipientListEndPointOutputConnectorEditPart(view);
+
+			case RecipientListEndPointWestOutputConnectorEditPart.VISUAL_ID:
+				return new RecipientListEndPointWestOutputConnectorEditPart(view);
+
 			case WSDLEndPointEditPart.VISUAL_ID:
 				return new WSDLEndPointEditPart(view);
 
@@ -816,6 +828,18 @@ public class EsbEditPartFactory implements EditPartFactory {
 
 			case FailoverEndPointWestOutputConnector2EditPart.VISUAL_ID:
 				return new FailoverEndPointWestOutputConnector2EditPart(view);
+
+			case RecipientListEndPoint2EditPart.VISUAL_ID:
+				return new RecipientListEndPoint2EditPart(view);
+
+			case RecipientListEndPointInputConnector2EditPart.VISUAL_ID:
+				return new RecipientListEndPointInputConnector2EditPart(view);
+
+			case RecipientListEndPointOutputConnector2EditPart.VISUAL_ID:
+				return new RecipientListEndPointOutputConnector2EditPart(view);
+
+			case RecipientListEndPointWestOutputConnector2EditPart.VISUAL_ID:
+				return new RecipientListEndPointWestOutputConnector2EditPart(view);
 
 			case WSDLEndPoint2EditPart.VISUAL_ID:
 				return new WSDLEndPoint2EditPart(view);

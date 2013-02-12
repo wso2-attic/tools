@@ -266,6 +266,8 @@ public class APIResourceEndpointInputConnectorEditPart extends AbstractBorderIte
 			types.add(EsbElementTypes.AddressEndPointOutputConnector_3031);
 			types.add(EsbElementTypes.FailoverEndPointOutputConnector_3090);
 			types.add(EsbElementTypes.FailoverEndPointWestOutputConnector_3097);
+			types.add(EsbElementTypes.RecipientListEndPointOutputConnector_3694);
+			types.add(EsbElementTypes.RecipientListEndPointWestOutputConnector_3695);
 			types.add(EsbElementTypes.WSDLEndPointOutputConnector_3093);
 			types.add(EsbElementTypes.NamedEndpointOutputConnector_3662);
 			types.add(EsbElementTypes.LoadBalanceEndPointOutputConnector_3096);
@@ -279,6 +281,8 @@ public class APIResourceEndpointInputConnectorEditPart extends AbstractBorderIte
 			types.add(EsbElementTypes.AddressEndPointOutputConnector_3648);
 			types.add(EsbElementTypes.FailoverEndPointOutputConnector_3651);
 			types.add(EsbElementTypes.FailoverEndPointWestOutputConnector_3652);
+			types.add(EsbElementTypes.RecipientListEndPointOutputConnector_3698);
+			types.add(EsbElementTypes.RecipientListEndPointWestOutputConnector_3699);
 			types.add(EsbElementTypes.WSDLEndPointOutputConnector_3655);
 			types.add(EsbElementTypes.LoadBalanceEndPointOutputConnector_3658);
 			types.add(EsbElementTypes.LoadBalanceEndPointWestOutputConnector_3659);

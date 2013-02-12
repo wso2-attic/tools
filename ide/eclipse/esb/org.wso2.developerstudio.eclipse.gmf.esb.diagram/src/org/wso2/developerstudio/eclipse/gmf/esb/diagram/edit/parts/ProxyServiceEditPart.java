@@ -67,7 +67,7 @@ public class ProxyServiceEditPart extends AbstractBaseFigureEditPart {
 	 * @generated
 	 */
 	protected IFigure primaryShape;
-	
+
 	/**
 	 * figure update status
 	 */
@@ -138,7 +138,7 @@ public class ProxyServiceEditPart extends AbstractBaseFigureEditPart {
 						((BoundsImpl) notification.getNotifier()).getHeight());
 				FigureCanvas canvas = (FigureCanvas) getViewer().getControl();
 				canvas.getViewport().repaint();
-				
+
 			}
 		}
 	}
@@ -153,24 +153,23 @@ public class ProxyServiceEditPart extends AbstractBaseFigureEditPart {
 				if (this.getBounds().getLocation().x != 0 && this.getBounds().getLocation().y != 0) {
 					alignLeft();
 				}
-				if(!figureUpdated){
+				if (!figureUpdated) {
 					updateFigure();
 				}
-				
+
 			};
 		};
 	}
-	
+
 	private void updateFigure() {
 		ProxyService proxyService = (ProxyService) (((View) getModel()).getElement());
 		if (proxyService.isMainSequence()) {
-			OUTER:
-			for (ListIterator<?> i = getChildren().listIterator(); i.hasNext();) {
+			OUTER: for (ListIterator<?> i = getChildren().listIterator(); i.hasNext();) {
 				Object next = i.next();
 				if (next instanceof ProxyServiceContainerEditPart) {
 					ProxyServiceContainerEditPart proxyContainerEP = (ProxyServiceContainerEditPart) next;
-					for (ListIterator<?> j = proxyContainerEP.getChildren().listIterator(); 
-						j.hasNext();) {
+					for (ListIterator<?> j = proxyContainerEP.getChildren().listIterator(); j
+							.hasNext();) {
 						Object nextChild = j.next();
 						if (nextChild instanceof ProxyServiceFaultContainerEditPart) {
 							ProxyServiceFaultContainerEditPart faultContainerEP = (ProxyServiceFaultContainerEditPart) nextChild;
@@ -187,11 +186,12 @@ public class ProxyServiceEditPart extends AbstractBaseFigureEditPart {
 
 				}
 			}
-			AbstractInputConnectorEditPart faultInputConnector = EditorUtils.getProxyFaultInputConnector(this);
-			if(faultInputConnector!=null){
+			AbstractInputConnectorEditPart faultInputConnector = EditorUtils
+					.getProxyFaultInputConnector(this);
+			if (faultInputConnector != null) {
 				removeChildVisual(faultInputConnector);
 			}
-			figureUpdated=true;
+			figureUpdated = true;
 		}
 	}
 

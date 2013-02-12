@@ -6,6 +6,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.AddressEnd
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.DefaultEndPoint2CreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.FailoverEndPoint2CreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.LoadBalanceEndPoint2CreateCommand;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.RecipientListEndPoint2CreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.WSDLEndPoint2CreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 
@@ -34,6 +35,9 @@ public class EndpointDiagramEndpointCompartmentItemSemanticEditPolicy extends
 		}
 		if (EsbElementTypes.FailoverEndPoint_3649 == req.getElementType()) {
 			return getGEFWrapper(new FailoverEndPoint2CreateCommand(req));
+		}
+		if (EsbElementTypes.RecipientListEndPoint_3696 == req.getElementType()) {
+			return getGEFWrapper(new RecipientListEndPoint2CreateCommand(req));
 		}
 		if (EsbElementTypes.WSDLEndPoint_3653 == req.getElementType()) {
 			return getGEFWrapper(new WSDLEndPoint2CreateCommand(req));

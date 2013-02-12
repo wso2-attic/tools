@@ -37,6 +37,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.OAuthMedia
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.PayloadFactoryMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.PropertyMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.RMSequenceMediatorCreateCommand;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.RecipientListEndPointCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.RouterMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.RuleMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.ScriptMediatorCreateCommand;
@@ -209,6 +210,9 @@ public class MediatorFlowMediatorFlowCompartment6ItemSemanticEditPolicy extends
 		}
 		if (EsbElementTypes.FailoverEndPoint_3611 == req.getElementType()) {
 			return getGEFWrapper(new FailoverEndPointCreateCommand(req));
+		}
+		if (EsbElementTypes.RecipientListEndPoint_3692 == req.getElementType()) {
+			return getGEFWrapper(new RecipientListEndPointCreateCommand(req));
 		}
 		if (EsbElementTypes.WSDLEndPoint_3612 == req.getElementType()) {
 			return getGEFWrapper(new WSDLEndPointCreateCommand(req));

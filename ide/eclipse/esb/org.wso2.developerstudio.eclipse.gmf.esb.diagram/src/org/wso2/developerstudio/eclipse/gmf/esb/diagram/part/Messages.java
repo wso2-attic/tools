@@ -808,6 +808,16 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String RecipientListEndPoint8CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String RecipientListEndPoint8CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
 	public static String MergeNode1CreationTool_title;
 
 	/**
@@ -1008,6 +1018,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_RecipientListEndPointWestOutputConnector_3699_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_SequencesInputConnector_3616_incominglinks;
 
 	/**
@@ -1068,6 +1083,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_RecipientListEndPointWestOutputConnector_3695_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_APIResourceFaultInputConnector_3672_incominglinks;
 
 	/**
@@ -1103,6 +1123,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_RecipientListEndPointOutputConnector_3698_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_AddressingEndpointOutputConnector_3691_outgoinglinks;
 
 	/**
@@ -1114,6 +1139,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_DBLookupMediatorOutputConnector_3077_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_RecipientListEndPointInputConnector_3697_incominglinks;
 
 	/**
 	 * @generated
@@ -1194,6 +1224,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_ValidateMediatorInputConnector_3624_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_RecipientListEndPointInputConnector_3693_incominglinks;
 
 	/**
 	 * @generated
@@ -1619,6 +1654,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_ConditionalRouterMediatorAdditionalOutputConnector_3638_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_RecipientListEndPointOutputConnector_3694_outgoinglinks;
 
 	/**
 	 * @generated

@@ -202,48 +202,52 @@ public class NamedEndpointEditPart extends AbstractEndpoint {
 		};
 		return lep;
 	}
-	
+
 	public void notifyChanged(Notification notification) {
 		super.notifyChanged(notification);
-		Object notifier=((ENotificationImpl)notification).getNotifier();
-		if(notifier instanceof NamedEndpoint){
-			if(notification.getFeature() instanceof EReference){
-				if("staticReferenceKey".equals(((EReference)notification.getFeature()).getName())){
-					String keyValue=((RegistryKeyProperty)notification.getNewValue()).getKeyValue();
-					setValue((NamedEndpoint)notifier,NAMED_ENDPOINT__NAME,keyValue);
+		Object notifier = ((ENotificationImpl) notification).getNotifier();
+		if (notifier instanceof NamedEndpoint) {
+			if (notification.getFeature() instanceof EReference) {
+				if ("staticReferenceKey".equals(((EReference) notification.getFeature()).getName())) {
+					String keyValue = ((RegistryKeyProperty) notification.getNewValue())
+							.getKeyValue();
+					setValue((NamedEndpoint) notifier, NAMED_ENDPOINT__NAME, keyValue);
 				}
-			}else if(notification.getFeature() instanceof EAttribute){
-				if("name".equals(((EAttribute)notification.getFeature()).getName())){
-					String name=(String) notification.getNewValue();
-					if("{XPath}".equals(name)){
-						setValue((NamedEndpoint)notifier, NAMED_ENDPOINT__REFERRING_ENDPOINT_TYPE, KeyType.DYNAMIC);
-					}else{
-						setValue((NamedEndpoint)notifier, NAMED_ENDPOINT__REFERRING_ENDPOINT_TYPE, KeyType.STATIC);
-						RegistryKeyProperty registryKeyProperty=((NamedEndpoint)notifier).getStaticReferenceKey();
+			} else if (notification.getFeature() instanceof EAttribute) {
+				if ("name".equals(((EAttribute) notification.getFeature()).getName())) {
+					String name = (String) notification.getNewValue();
+					if ("{XPath}".equals(name)) {
+						setValue((NamedEndpoint) notifier, NAMED_ENDPOINT__REFERRING_ENDPOINT_TYPE,
+								KeyType.DYNAMIC);
+					} else {
+						setValue((NamedEndpoint) notifier, NAMED_ENDPOINT__REFERRING_ENDPOINT_TYPE,
+								KeyType.STATIC);
+						RegistryKeyProperty registryKeyProperty = ((NamedEndpoint) notifier)
+								.getStaticReferenceKey();
 						setValue(registryKeyProperty, REGISTRY_KEY_PROPERTY__KEY_VALUE, name);
 					}
-				}else if("referringEndpointType".equals(((EAttribute)notification.getFeature()).getName())){
-					KeyType type=(KeyType) notification.getNewValue();
-					if(KeyType.DYNAMIC==type){
-						setValue((NamedEndpoint)notifier, NAMED_ENDPOINT__NAME, "{XPath}");
-					}else{
-						if("{XPath}".equals(((NamedEndpoint)notifier).getName())){
-							setValue((NamedEndpoint)notifier, NAMED_ENDPOINT__NAME, "");
+				} else if ("referringEndpointType".equals(((EAttribute) notification.getFeature())
+						.getName())) {
+					KeyType type = (KeyType) notification.getNewValue();
+					if (KeyType.DYNAMIC == type) {
+						setValue((NamedEndpoint) notifier, NAMED_ENDPOINT__NAME, "{XPath}");
+					} else {
+						if ("{XPath}".equals(((NamedEndpoint) notifier).getName())) {
+							setValue((NamedEndpoint) notifier, NAMED_ENDPOINT__NAME, "");
 						}
 					}
 				}
-				
+
 			}
 		}
 	}
-	
-	private void setValue(EObject owner, EStructuralFeature feature, Object value){
-		SetCommand setCommand =new SetCommand(getEditingDomain(), owner, feature , value);
-		if(setCommand.canExecute()){
+
+	private void setValue(EObject owner, EStructuralFeature feature, Object value) {
+		SetCommand setCommand = new SetCommand(getEditingDomain(), owner, feature, value);
+		if (setCommand.canExecute()) {
 			getEditingDomain().getCommandStack().execute(setCommand);
 		}
 	}
-	
 
 	/**
 	 * @generated NOT
@@ -595,17 +599,17 @@ public class NamedEndpointEditPart extends AbstractEndpoint {
 			 * Tool group creations in the Tool pallete.
 			 */
 
-/*			if ((getEditDomain().getPaletteViewer().getPaletteRoot().getChildren().size() - 1) != ToolPalleteDetails.DEFINED_ENDPOINT) {
-				getEditDomain().getPaletteViewer().getPaletteRoot()
-						.add(createDefinedEndpointsGroup());
-			}
+			/*			if ((getEditDomain().getPaletteViewer().getPaletteRoot().getChildren().size() - 1) != ToolPalleteDetails.DEFINED_ENDPOINT) {
+			 getEditDomain().getPaletteViewer().getPaletteRoot()
+			 .add(createDefinedEndpointsGroup());
+			 }
 
-			if (!definedEndpointsNames.contains(name)) {
-				((PaletteContainer) getEditDomain().getPaletteViewer().getPaletteRoot()
-						.getChildren().get(ToolPalleteDetails.DEFINED_ENDPOINT))
-						.add(createNamedEndpoint6CreationTool(name));
-				definedEndpointsNames.add(name);
-			}*/
+			 if (!definedEndpointsNames.contains(name)) {
+			 ((PaletteContainer) getEditDomain().getPaletteViewer().getPaletteRoot()
+			 .getChildren().get(ToolPalleteDetails.DEFINED_ENDPOINT))
+			 .add(createNamedEndpoint6CreationTool(name));
+			 definedEndpointsNames.add(name);
+			 }*/
 
 		}
 

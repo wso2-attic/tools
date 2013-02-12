@@ -271,7 +271,7 @@ public class EsbDiagramEditorUtil {
 					esbServer.setType(ArtifactType.PROXY);
 				} else if ("endpoint".equals(type)) {
 					EndpointDiagram endpoints = EsbFactory.eINSTANCE.createEndpointDiagram();
-					if(specificType!=null){
+					if (specificType != null) {
 						switch ((Integer) specificType) {
 						case 0:
 							endpoints.setChild(EsbFactory.eINSTANCE.createDefaultEndPoint());
@@ -288,11 +288,14 @@ public class EsbDiagramEditorUtil {
 						case 4:
 							endpoints.setChild(EsbFactory.eINSTANCE.createFailoverEndPoint());
 							break;
-	
+						case 5:
+							endpoints.setChild(EsbFactory.eINSTANCE.createRecipientListEndPoint());
+							break;
+
 						default:
 							break;
 						}
-					}else{
+					} else {
 						endpoints.setChild(EsbFactory.eINSTANCE.createDefaultEndPoint());
 					}
 					endpoints.setName(name);
