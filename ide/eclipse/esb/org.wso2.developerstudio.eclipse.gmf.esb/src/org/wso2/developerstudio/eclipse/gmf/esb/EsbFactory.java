@@ -1194,6 +1194,42 @@ public interface EsbFactory extends EFactory {
 	AddressingEndpointOutputConnector createAddressingEndpointOutputConnector();
 
 	/**
+	 * Returns a new object of class '<em>Recipient List End Point</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Recipient List End Point</em>'.
+	 * @generated
+	 */
+	RecipientListEndPoint createRecipientListEndPoint();
+
+	/**
+	 * Returns a new object of class '<em>Recipient List End Point Input Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Recipient List End Point Input Connector</em>'.
+	 * @generated
+	 */
+	RecipientListEndPointInputConnector createRecipientListEndPointInputConnector();
+
+	/**
+	 * Returns a new object of class '<em>Recipient List End Point Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Recipient List End Point Output Connector</em>'.
+	 * @generated
+	 */
+	RecipientListEndPointOutputConnector createRecipientListEndPointOutputConnector();
+
+	/**
+	 * Returns a new object of class '<em>Recipient List End Point West Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Recipient List End Point West Output Connector</em>'.
+	 * @generated
+	 */
+	RecipientListEndPointWestOutputConnector createRecipientListEndPointWestOutputConnector();
+
+	/**
 	 * Returns a new object of class '<em>Script Mediator</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

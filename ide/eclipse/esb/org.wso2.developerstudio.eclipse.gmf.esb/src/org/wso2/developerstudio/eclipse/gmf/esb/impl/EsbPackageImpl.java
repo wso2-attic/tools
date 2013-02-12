@@ -264,6 +264,10 @@ import org.wso2.developerstudio.eclipse.gmf.esb.RMSequenceMediatorOutputConnecto
 import org.wso2.developerstudio.eclipse.gmf.esb.RMSequenceType;
 import org.wso2.developerstudio.eclipse.gmf.esb.RMSpecVersion;
 import org.wso2.developerstudio.eclipse.gmf.esb.ReceivingSequenceType;
+import org.wso2.developerstudio.eclipse.gmf.esb.RecipientListEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.RecipientListEndPointInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.RecipientListEndPointOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.RecipientListEndPointWestOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.RouteTarget;
 import org.wso2.developerstudio.eclipse.gmf.esb.RouterMediator;
@@ -1396,6 +1400,34 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	private EClass addressingEndpointOutputConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass recipientListEndPointEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass recipientListEndPointInputConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass recipientListEndPointOutputConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass recipientListEndPointWestOutputConnectorEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -7191,6 +7223,69 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 */
 	public EClass getAddressingEndpointOutputConnector() {
 		return addressingEndpointOutputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRecipientListEndPoint() {
+		return recipientListEndPointEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRecipientListEndPoint_InputConnector() {
+		return (EReference)recipientListEndPointEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRecipientListEndPoint_OutputConnector() {
+		return (EReference)recipientListEndPointEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRecipientListEndPoint_WestOutputConnector() {
+		return (EReference)recipientListEndPointEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRecipientListEndPointInputConnector() {
+		return recipientListEndPointInputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRecipientListEndPointOutputConnector() {
+		return recipientListEndPointOutputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRecipientListEndPointWestOutputConnector() {
+		return recipientListEndPointWestOutputConnectorEClass;
 	}
 
 	/**
@@ -14082,6 +14177,17 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 
 		addressingEndpointOutputConnectorEClass = createEClass(ADDRESSING_ENDPOINT_OUTPUT_CONNECTOR);
 
+		recipientListEndPointEClass = createEClass(RECIPIENT_LIST_END_POINT);
+		createEReference(recipientListEndPointEClass, RECIPIENT_LIST_END_POINT__INPUT_CONNECTOR);
+		createEReference(recipientListEndPointEClass, RECIPIENT_LIST_END_POINT__OUTPUT_CONNECTOR);
+		createEReference(recipientListEndPointEClass, RECIPIENT_LIST_END_POINT__WEST_OUTPUT_CONNECTOR);
+
+		recipientListEndPointInputConnectorEClass = createEClass(RECIPIENT_LIST_END_POINT_INPUT_CONNECTOR);
+
+		recipientListEndPointOutputConnectorEClass = createEClass(RECIPIENT_LIST_END_POINT_OUTPUT_CONNECTOR);
+
+		recipientListEndPointWestOutputConnectorEClass = createEClass(RECIPIENT_LIST_END_POINT_WEST_OUTPUT_CONNECTOR);
+
 		// Create enums
 		artifactTypeEEnum = createEEnum(ARTIFACT_TYPE);
 		endPointPropertyScopeEEnum = createEEnum(END_POINT_PROPERTY_SCOPE);
@@ -14461,6 +14567,10 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		addressingEndpointEClass.getESuperTypes().add(this.getAbstractEndPoint());
 		addressingEndpointInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
 		addressingEndpointOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
+		recipientListEndPointEClass.getESuperTypes().add(this.getParentEndPoint());
+		recipientListEndPointInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
+		recipientListEndPointOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
+		recipientListEndPointWestOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(esbDiagramEClass, EsbDiagram.class, "EsbDiagram", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -15762,6 +15872,17 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEClass(addressingEndpointInputConnectorEClass, AddressingEndpointInputConnector.class, "AddressingEndpointInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(addressingEndpointOutputConnectorEClass, AddressingEndpointOutputConnector.class, "AddressingEndpointOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(recipientListEndPointEClass, RecipientListEndPoint.class, "RecipientListEndPoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRecipientListEndPoint_InputConnector(), this.getRecipientListEndPointInputConnector(), null, "inputConnector", null, 0, 1, RecipientListEndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRecipientListEndPoint_OutputConnector(), this.getRecipientListEndPointOutputConnector(), null, "outputConnector", null, 0, -1, RecipientListEndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRecipientListEndPoint_WestOutputConnector(), this.getRecipientListEndPointWestOutputConnector(), null, "westOutputConnector", null, 0, 1, RecipientListEndPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(recipientListEndPointInputConnectorEClass, RecipientListEndPointInputConnector.class, "RecipientListEndPointInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(recipientListEndPointOutputConnectorEClass, RecipientListEndPointOutputConnector.class, "RecipientListEndPointOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(recipientListEndPointWestOutputConnectorEClass, RecipientListEndPointWestOutputConnector.class, "RecipientListEndPointWestOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(artifactTypeEEnum, ArtifactType.class, "ArtifactType");

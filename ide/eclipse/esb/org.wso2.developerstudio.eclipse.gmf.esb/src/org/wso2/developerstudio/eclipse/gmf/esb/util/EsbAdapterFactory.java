@@ -1229,6 +1229,22 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 				return createAddressingEndpointOutputConnectorAdapter();
 			}
 			@Override
+			public Adapter caseRecipientListEndPoint(RecipientListEndPoint object) {
+				return createRecipientListEndPointAdapter();
+			}
+			@Override
+			public Adapter caseRecipientListEndPointInputConnector(RecipientListEndPointInputConnector object) {
+				return createRecipientListEndPointInputConnectorAdapter();
+			}
+			@Override
+			public Adapter caseRecipientListEndPointOutputConnector(RecipientListEndPointOutputConnector object) {
+				return createRecipientListEndPointOutputConnectorAdapter();
+			}
+			@Override
+			public Adapter caseRecipientListEndPointWestOutputConnector(RecipientListEndPointWestOutputConnector object) {
+				return createRecipientListEndPointWestOutputConnectorAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -3206,6 +3222,62 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAddressingEndpointOutputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.RecipientListEndPoint <em>Recipient List End Point</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RecipientListEndPoint
+	 * @generated
+	 */
+	public Adapter createRecipientListEndPointAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.RecipientListEndPointInputConnector <em>Recipient List End Point Input Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RecipientListEndPointInputConnector
+	 * @generated
+	 */
+	public Adapter createRecipientListEndPointInputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.RecipientListEndPointOutputConnector <em>Recipient List End Point Output Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RecipientListEndPointOutputConnector
+	 * @generated
+	 */
+	public Adapter createRecipientListEndPointOutputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.RecipientListEndPointWestOutputConnector <em>Recipient List End Point West Output Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RecipientListEndPointWestOutputConnector
+	 * @generated
+	 */
+	public Adapter createRecipientListEndPointWestOutputConnectorAdapter() {
 		return null;
 	}
 

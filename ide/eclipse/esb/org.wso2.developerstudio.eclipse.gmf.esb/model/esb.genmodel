@@ -1627,5 +1627,13 @@
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//AddressingEndpointInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//AddressingEndpointOutputConnector"/>
+    <genClasses ecoreClass="esb.ecore#//RecipientListEndPoint">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//RecipientListEndPoint/inputConnector"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//RecipientListEndPoint/outputConnector"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//RecipientListEndPoint/westOutputConnector"/>
+    </genClasses>
+    <genClasses ecoreClass="esb.ecore#//RecipientListEndPointInputConnector"/>
+    <genClasses ecoreClass="esb.ecore#//RecipientListEndPointOutputConnector"/>
+    <genClasses ecoreClass="esb.ecore#//RecipientListEndPointWestOutputConnector"/>
   </genPackages>
 </genmodel:GenModel>

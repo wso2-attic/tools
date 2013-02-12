@@ -346,6 +346,10 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 			case EsbPackage.ADDRESSING_ENDPOINT: return createAddressingEndpoint();
 			case EsbPackage.ADDRESSING_ENDPOINT_INPUT_CONNECTOR: return createAddressingEndpointInputConnector();
 			case EsbPackage.ADDRESSING_ENDPOINT_OUTPUT_CONNECTOR: return createAddressingEndpointOutputConnector();
+			case EsbPackage.RECIPIENT_LIST_END_POINT: return createRecipientListEndPoint();
+			case EsbPackage.RECIPIENT_LIST_END_POINT_INPUT_CONNECTOR: return createRecipientListEndPointInputConnector();
+			case EsbPackage.RECIPIENT_LIST_END_POINT_OUTPUT_CONNECTOR: return createRecipientListEndPointOutputConnector();
+			case EsbPackage.RECIPIENT_LIST_END_POINT_WEST_OUTPUT_CONNECTOR: return createRecipientListEndPointWestOutputConnector();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -2088,6 +2092,47 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	public AddressingEndpointOutputConnector createAddressingEndpointOutputConnector() {
 		AddressingEndpointOutputConnectorImpl addressingEndpointOutputConnector = new AddressingEndpointOutputConnectorImpl();
 		return addressingEndpointOutputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public RecipientListEndPoint createRecipientListEndPoint() {
+		RecipientListEndPointImpl recipientListEndPoint = new RecipientListEndPointImpl();
+		recipientListEndPoint.setInputConnector(createRecipientListEndPointInputConnector());
+		return recipientListEndPoint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RecipientListEndPointInputConnector createRecipientListEndPointInputConnector() {
+		RecipientListEndPointInputConnectorImpl recipientListEndPointInputConnector = new RecipientListEndPointInputConnectorImpl();
+		return recipientListEndPointInputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RecipientListEndPointOutputConnector createRecipientListEndPointOutputConnector() {
+		RecipientListEndPointOutputConnectorImpl recipientListEndPointOutputConnector = new RecipientListEndPointOutputConnectorImpl();
+		return recipientListEndPointOutputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RecipientListEndPointWestOutputConnector createRecipientListEndPointWestOutputConnector() {
+		RecipientListEndPointWestOutputConnectorImpl recipientListEndPointWestOutputConnector = new RecipientListEndPointWestOutputConnectorImpl();
+		return recipientListEndPointWestOutputConnector;
 	}
 
 	/**

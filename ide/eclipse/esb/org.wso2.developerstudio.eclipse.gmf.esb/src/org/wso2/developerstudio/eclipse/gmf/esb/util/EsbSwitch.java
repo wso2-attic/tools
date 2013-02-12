@@ -2361,6 +2361,40 @@ public class EsbSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case EsbPackage.RECIPIENT_LIST_END_POINT: {
+				RecipientListEndPoint recipientListEndPoint = (RecipientListEndPoint)theEObject;
+				T result = caseRecipientListEndPoint(recipientListEndPoint);
+				if (result == null) result = caseParentEndPoint(recipientListEndPoint);
+				if (result == null) result = caseEndPoint(recipientListEndPoint);
+				if (result == null) result = caseEsbElement(recipientListEndPoint);
+				if (result == null) result = caseEsbNode(recipientListEndPoint);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.RECIPIENT_LIST_END_POINT_INPUT_CONNECTOR: {
+				RecipientListEndPointInputConnector recipientListEndPointInputConnector = (RecipientListEndPointInputConnector)theEObject;
+				T result = caseRecipientListEndPointInputConnector(recipientListEndPointInputConnector);
+				if (result == null) result = caseInputConnector(recipientListEndPointInputConnector);
+				if (result == null) result = caseEsbConnector(recipientListEndPointInputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.RECIPIENT_LIST_END_POINT_OUTPUT_CONNECTOR: {
+				RecipientListEndPointOutputConnector recipientListEndPointOutputConnector = (RecipientListEndPointOutputConnector)theEObject;
+				T result = caseRecipientListEndPointOutputConnector(recipientListEndPointOutputConnector);
+				if (result == null) result = caseOutputConnector(recipientListEndPointOutputConnector);
+				if (result == null) result = caseEsbConnector(recipientListEndPointOutputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.RECIPIENT_LIST_END_POINT_WEST_OUTPUT_CONNECTOR: {
+				RecipientListEndPointWestOutputConnector recipientListEndPointWestOutputConnector = (RecipientListEndPointWestOutputConnector)theEObject;
+				T result = caseRecipientListEndPointWestOutputConnector(recipientListEndPointWestOutputConnector);
+				if (result == null) result = caseOutputConnector(recipientListEndPointWestOutputConnector);
+				if (result == null) result = caseEsbConnector(recipientListEndPointWestOutputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -4462,6 +4496,66 @@ public class EsbSwitch<T> {
 	 * @generated
 	 */
 	public T caseAddressingEndpointOutputConnector(AddressingEndpointOutputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Recipient List End Point</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Recipient List End Point</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRecipientListEndPoint(RecipientListEndPoint object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Recipient List End Point Input Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Recipient List End Point Input Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRecipientListEndPointInputConnector(RecipientListEndPointInputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Recipient List End Point Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Recipient List End Point Output Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRecipientListEndPointOutputConnector(RecipientListEndPointOutputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Recipient List End Point West Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Recipient List End Point West Output Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRecipientListEndPointWestOutputConnector(RecipientListEndPointWestOutputConnector object) {
 		return null;
 	}
 

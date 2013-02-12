@@ -2173,4 +2173,18 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AddressingEndpointInputConnector" eSuperTypes="#//InputConnector"/>
   <eClassifiers xsi:type="ecore:EClass" name="AddressingEndpointOutputConnector" eSuperTypes="#//OutputConnector"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RecipientListEndPoint" eSuperTypes="#//ParentEndPoint">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inputConnector" eType="#//RecipientListEndPointInputConnector"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outputConnector" upperBound="-1"
+        eType="#//RecipientListEndPointOutputConnector" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="westOutputConnector" eType="#//RecipientListEndPointWestOutputConnector"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RecipientListEndPointInputConnector"
+      eSuperTypes="#//InputConnector"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RecipientListEndPointOutputConnector"
+      eSuperTypes="#//OutputConnector"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RecipientListEndPointWestOutputConnector"
+      eSuperTypes="#//OutputConnector"/>
 </ecore:EPackage>
