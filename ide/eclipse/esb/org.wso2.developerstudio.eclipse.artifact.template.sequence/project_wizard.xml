@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wizard>
+	<projectOptions title="Template Artifact Creation Options"
+					description="Select type of your new Template"
+					error="Please select a method to create the Template">
+		<option id="Sequence.tempate" default="true">Create a new sequence template</option>
+		<option id="Sequence.import.template">import sequence template</option>	
+</projectOptions>
+	<projectOptionSettings>
+		<settings optionId="Sequence.tempate"
+				  title="Create a Sequence Template"
+				  description="Give a name for the new sequence template or browse the location of a configuration file"
+				  error="Browse or create a sequence template">
+			<data modelProperty="temp.name" type="string" 
+			fieldController="org.wso2.developerstudio.eclipse.artifact.template.validators.TemplateProjectFieldController">Sequence Name</data>	
+			<data modelProperty="save.file" type="workspacefolder" fieldController="org.wso2.developerstudio.eclipse.artifact.template.validators.TemplateProjectFieldController" 
+			controlData="filterClass=org.wso2.developerstudio.eclipse.artifact.template.validators.ProjectFilter">Save template in:</data>	
+		</settings>
+		<settings optionId="Sequence.import.template"
+				  title="Import a Sequence Template"
+				  description="browse the location of a configuration file"
+				  error="Browse sequence template">
+			
+			<data modelProperty="import.file" type="file" filter="*.xml" 
+			fieldController="org.wso2.developerstudio.eclipse.artifact.template.validators.TemplateProjectFieldController">sequence template</data>		
+			<data modelProperty="save.file" type="workspacefolder" fieldController="org.wso2.developerstudio.eclipse.artifact.template.validators.TemplateProjectFieldController" 
+			controlData="filterClass=org.wso2.developerstudio.eclipse.artifact.template.validators.ProjectFilter">Save template in:</data>		
+		</settings>
+	</projectOptionSettings>
+</wizard>
