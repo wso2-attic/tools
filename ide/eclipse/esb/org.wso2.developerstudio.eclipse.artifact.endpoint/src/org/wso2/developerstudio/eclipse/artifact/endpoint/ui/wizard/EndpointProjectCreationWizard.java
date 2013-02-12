@@ -470,9 +470,11 @@ public class EndpointProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 				type=type+"-2";
 			} else if ("loadbalance".equals(localName)) {
 				type=type+"-3";
-			}else if ("failover".equals(localName)) {
+			} else if ("failover".equals(localName)) {
 				type=type+"-4";
-			}else {
+			} else if ("recipientlist".equals(localName)) {
+				type=type+"-5";
+			} else {
 				type=type+"-0";
 			}
 	 
