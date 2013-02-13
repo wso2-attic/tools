@@ -9,7 +9,6 @@ import org.apache.synapse.endpoints.EndpointDefinition;
 import org.apache.synapse.endpoints.LoadbalanceEndpoint;
 import org.apache.synapse.endpoints.SALoadbalanceEndpoint;
 import org.apache.synapse.endpoints.algorithms.LoadbalanceAlgorithm;
-import org.apache.synapse.endpoints.algorithms.RoundRobin;
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.apache.synapse.mediators.builtin.SendMediator;
 import org.eclipse.core.resources.IFile;
@@ -37,7 +36,6 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbElement;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.InputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPoint;
-import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceSessionType;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.SequenceInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.EsbNodeTransformer;
@@ -115,6 +113,7 @@ public class LoadBalanceEndPointTransformer extends AbstractEndpointTransformer{
 			if (transformedMediators.contains(nextElement)) {
 				return;
 			}
+			doTransform(information, visualEndPoint.getWestOutputConnector());
 			transformedMediators.add(nextElement);
 		}
 
@@ -216,7 +215,7 @@ public class LoadBalanceEndPointTransformer extends AbstractEndpointTransformer{
 		 * We should give this LoadbalanceAlgorithm class at runtime.User should be requested to give a class.		
 		 */
 		try {
-			Class algorithmClass= Class.forName(visualEndPoint.getAlgorithm().trim());
+			Class<?> algorithmClass= Class.forName(visualEndPoint.getAlgorithm().trim());
 			Object algorithm=algorithmClass.newInstance();
 			if(algorithm instanceof LoadbalanceAlgorithm){
 				synapseLBEP.setAlgorithm((LoadbalanceAlgorithm) algorithm);

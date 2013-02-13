@@ -62,6 +62,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.LocalEntry;
 import org.wso2.developerstudio.eclipse.gmf.esb.MessageMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyService;
+import org.wso2.developerstudio.eclipse.gmf.esb.RecipientListEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequences;
 import org.wso2.developerstudio.eclipse.gmf.esb.SynapseAPI;
 import org.wso2.developerstudio.eclipse.gmf.esb.Task;
@@ -214,6 +215,11 @@ public class DefaultEsbModelExporter implements EsbModelTransformer {
 		}else if(((EndpointDiagram) visualEndpoint).getChild() instanceof LoadBalanceEndPoint){
 			LoadBalanceEndPointTransformer transformer= new LoadBalanceEndPointTransformer();
 			return transformer.create(new TransformationInfo(),(LoadBalanceEndPoint) ((EndpointDiagram) visualEndpoint).getChild(),visualEndpoint.getName(),null);
+		} else if (((EndpointDiagram) visualEndpoint).getChild() instanceof RecipientListEndPoint) {
+			RecipientListEndPointTransformer transformer = new RecipientListEndPointTransformer();
+			return transformer.createRecipientListConf(new TransformationInfo(),
+					(RecipientListEndPoint) ((EndpointDiagram) visualEndpoint).getChild(),
+					visualEndpoint.getName(), null);
 		}else{
 			return null;
 		}		

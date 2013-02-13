@@ -108,6 +108,7 @@ public class RecipientListEndPointTransformer extends AbstractEndpointTransforme
 			if (transformedMediators.contains(nextElement)) {
 				return;
 			}
+			doTransform(info, endPointModel.getWestOutputConnector());
 			transformedMediators.add(nextElement);
 		}
 

@@ -19,6 +19,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.InputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPointWestOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.OutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.RecipientListEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.RecipientListEndPointWestOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
 
 public abstract class AbstractEndpointTransformer extends AbstractEsbNodeTransformer{
@@ -126,8 +128,7 @@ public abstract class AbstractEndpointTransformer extends AbstractEsbNodeTransfo
 				} catch (Exception e) {
 					log.warn("Error while executing outflow  serialization", e);
 				}
-			}
-			if (info.firstEndPoint instanceof LoadBalanceEndPoint) {
+			} else if (info.firstEndPoint instanceof LoadBalanceEndPoint) {
 				try {
 					LoadBalanceEndPointWestOutputConnector westOutputConnector = ((LoadBalanceEndPoint) info.firstEndPoint)
 							.getWestOutputConnector();
@@ -145,7 +146,27 @@ public abstract class AbstractEndpointTransformer extends AbstractEsbNodeTransfo
 				} catch (Exception e) {
 					log.warn("Error while executing outflow  serialization", e);
 				}
-			}
+			} else if (info.firstEndPoint instanceof RecipientListEndPoint) {
+				try {
+					RecipientListEndPointWestOutputConnector westOutputConnector = ((RecipientListEndPoint) info.firstEndPoint)
+							.getWestOutputConnector();
+					
+					List<EsbNode> transformedMediators = info.getTransformedMediators();
+					if(westOutputConnector!=null){
+						EsbNode nextElement = getTargetContainer(westOutputConnector);
+						if (nextElement != null) {
+							if (!transformedMediators.contains(nextElement)) {
+								doTransform(info, westOutputConnector);
+								transformedMediators.add(nextElement);
+							}
+						}
+						
+					}
+					
+				} catch (Exception e) {
+					log.warn("Error while executing outflow  serialization", e);
+				}
+			} 
 			info.isOutputPathSet = true;
 		}
 	}

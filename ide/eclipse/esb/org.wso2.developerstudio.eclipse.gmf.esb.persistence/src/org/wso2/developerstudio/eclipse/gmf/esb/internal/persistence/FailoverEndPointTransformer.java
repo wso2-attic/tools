@@ -20,8 +20,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorReference;
 import org.eclipse.ui.IFileEditorInput;
@@ -91,6 +89,7 @@ public class FailoverEndPointTransformer extends AbstractEndpointTransformer{
 			if (transformedMediators.contains(nextElement)) {
 				return;
 			}
+			doTransform(info, visualEndPoint.getWestOutputConnector());
 			transformedMediators.add(nextElement);
 		}
 
