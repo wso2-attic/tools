@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wizard>
+	<projectOptions title="Template Artifact Creation Options"
+					description="Select type of your new Template"
+					error="Please select a method to create the Template">
+		<option id="ep.tempate" default="true">Create a new sequence template</option>
+		<option id="ep.import.template">import sequence template</option>	
+</projectOptions>
+	<projectOptionSettings>
+		<settings optionId="ep.tempate"
+				  title="Create a endpoint Template"
+				  description="Give a name for the new endpoint template or browse the location of a configuration file"
+				  error="Browse or create a endpoint template">
+			<data modelProperty="temp.name" type="string" 
+			fieldController="org.wso2.developerstudio.eclipse.artifact.template.endpoint.validators.TemplateProjectFieldController">Endpoint Name</data>	
+			<data modelProperty="ep.type" type="list" fieldController="org.wso2.developerstudio.eclipse.artifact.template.endpoint.validators.TemplateProjectFieldController"  
+			controlData="select=single;modify=non-editable;class=org.wso2.developerstudio.eclipse.artifact.endpoint.validators.EndPointTemplateList">Endpoint Type</data>
+			<data modelProperty="save.file" type="workspacefolder" fieldController="org.wso2.developerstudio.eclipse.artifact.template.endpoint.validators.TemplateProjectFieldController" 
+			controlData="filterClass=org.wso2.developerstudio.eclipse.artifact.template.endpoint.validators.ProjectFilter">Save template in:</data>	
+		</settings>
+		<settings optionId="ep.import.template"
+				  title="Import a endpoint Template"
+				  description="browse the location of a configuration file"
+				  error="Browse endpoint template">
+			<data modelProperty="import.file" type="file" filter="*.xml" 
+			fieldController="org.wso2.developerstudio.eclipse.artifact.template.endpoint.validators.TemplateProjectFieldController">Endpoint template</data>		
+			<data modelProperty="save.file" type="workspacefolder" fieldController="org.wso2.developerstudio.eclipse.artifact.template.endpoint.validators.TemplateProjectFieldController" 
+			controlData="filterClass=org.wso2.developerstudio.eclipse.artifact.template.endpoint.validators.ProjectFilter">Save template in:</data>		
+		</settings>
+	</projectOptionSettings>
+</wizard>

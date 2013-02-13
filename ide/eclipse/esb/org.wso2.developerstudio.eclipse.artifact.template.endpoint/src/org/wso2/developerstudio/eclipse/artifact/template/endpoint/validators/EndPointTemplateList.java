@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.wso2.developerstudio.eclipse.artifact.endpoint.validators;
+package org.wso2.developerstudio.eclipse.artifact.template.endpoint.validators;
 
 import java.util.ArrayList;
 import java.util.HashMap;
