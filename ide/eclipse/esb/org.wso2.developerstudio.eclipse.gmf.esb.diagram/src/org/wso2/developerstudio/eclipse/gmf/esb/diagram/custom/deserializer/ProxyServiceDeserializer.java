@@ -203,12 +203,14 @@ public class ProxyServiceDeserializer extends AbstractEsbNodeDeserializer<ProxyS
 					executeSetValueCommand(PROXY_SERVICE__OUT_SEQUENCE_NAME, outSequenceName);
 				}
 			}
+			deserializeSequence(compartment, new SequenceMediator(), proxy.getInputConnector());
 		}
 		
 		SequenceMediator faultSequence = object.getTargetInLineFaultSequence();
+		MediatorFlow faultmediatorFlow = proxy.getContainer().getFaultContainer().getMediatorFlow();
+		GraphicalEditPart faultCompartment = (GraphicalEditPart)((getEditpart(faultmediatorFlow)).getChildren().get(0));
 		if(faultSequence!=null){
-			MediatorFlow faultmediatorFlow = proxy.getContainer().getFaultContainer().getMediatorFlow();
-			GraphicalEditPart faultCompartment = (GraphicalEditPart)((getEditpart(faultmediatorFlow)).getChildren().get(0));
+			
 			setRootCompartment(compartment);
 			deserializeSequence(faultCompartment, faultSequence, proxy.getFaultInputConnector());
 			setRootCompartment(null);
@@ -225,6 +227,7 @@ public class ProxyServiceDeserializer extends AbstractEsbNodeDeserializer<ProxyS
 					executeSetValueCommand(PROXY_SERVICE__FAULT_SEQUENCE_NAME, faultSequenceName);
 				}
 			}
+			deserializeSequence(faultCompartment, new SequenceMediator(), proxy.getFaultInputConnector());
 		}
 		
 		addPairMediatorFlow(proxy.getOutputConnector(),proxy.getInputConnector());
