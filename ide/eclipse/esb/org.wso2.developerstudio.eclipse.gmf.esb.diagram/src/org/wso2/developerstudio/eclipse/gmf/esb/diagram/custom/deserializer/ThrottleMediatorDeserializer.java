@@ -92,7 +92,7 @@ public class ThrottleMediatorDeserializer extends AbstractEsbNodeDeserializer<Ab
 							
 							if(outerPolicy != null){
 								
-							     ThrottlePolicyEntry throttlePolicyEntry = createVishualPolicyEntry(outerPolicy);
+							     ThrottlePolicyEntry throttlePolicyEntry = createVisualPolicyEntry(outerPolicy);
 							    
 							     executeAddValueCommand(visualThrottle.getPolicyEntries(), throttlePolicyEntry);
 							 
@@ -115,7 +115,7 @@ public class ThrottleMediatorDeserializer extends AbstractEsbNodeDeserializer<Ab
 			executeSetValueCommand(THROTTLE_MEDIATOR__ON_ACCEPT_BRANCHSEQUENCE_TYPE, ThrottleSequenceType.ANONYMOUS);
 		} else {
 			String onAcceptSeqKey = throttleMediator.getOnAcceptSeqKey();
-			if(StringUtils.isBlank(onAcceptSeqKey)){
+			if(StringUtils.isNotBlank(onAcceptSeqKey)){
 					executeSetValueCommand(THROTTLE_MEDIATOR__ON_ACCEPT_BRANCHSEQUENCE_TYPE, ThrottleSequenceType.REGISTRY_REFERENCE);
 					RegistryKeyProperty keyProperty = EsbFactory.eINSTANCE.createRegistryKeyProperty();
 					keyProperty.setKeyValue(onAcceptSeqKey);
@@ -134,7 +134,7 @@ public class ThrottleMediatorDeserializer extends AbstractEsbNodeDeserializer<Ab
 			executeSetValueCommand(THROTTLE_MEDIATOR__ON_REJECT_BRANCHSEQUENCE_TYPE, ThrottleSequenceType.ANONYMOUS);
 		} else {
 			String onRejectSeqKey = throttleMediator.getOnRejectSeqKey();
-			if(StringUtils.isBlank(onRejectSeqKey)){
+			if(StringUtils.isNotBlank(onRejectSeqKey)){
 				executeSetValueCommand(THROTTLE_MEDIATOR__ON_REJECT_BRANCHSEQUENCE_TYPE, ThrottleSequenceType.REGISTRY_REFERENCE);
 				RegistryKeyProperty keyProperty = EsbFactory.eINSTANCE.createRegistryKeyProperty();
 				keyProperty.setKeyValue(onRejectSeqKey);
@@ -146,7 +146,7 @@ public class ThrottleMediatorDeserializer extends AbstractEsbNodeDeserializer<Ab
 	}
 	
 	
-	private ThrottlePolicyEntry createVishualPolicyEntry(OMElement outerPolicy){
+	private ThrottlePolicyEntry createVisualPolicyEntry(OMElement outerPolicy){
 		
 		ThrottlePolicyEntry visualPolicyEntry = EsbFactory.eINSTANCE.createThrottlePolicyEntry();
 		
