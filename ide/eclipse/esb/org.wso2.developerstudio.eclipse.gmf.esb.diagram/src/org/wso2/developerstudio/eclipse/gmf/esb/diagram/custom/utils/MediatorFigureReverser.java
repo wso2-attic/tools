@@ -164,6 +164,7 @@ public class MediatorFigureReverser {
 					.getChildren().get(3)).getChildren().get(0)).getChildren();
 		}*/
 
+
 		if (editorPart instanceof FilterMediatorEditPart) {
 			if( ((IFigure) ((DefaultSizeNodeFigure) childFigures.get(0)).getChildren()
 					.get(0)).getChildren().size()!=0){
@@ -173,13 +174,18 @@ public class MediatorFigureReverser {
 			/*
 			 * Reverse the mediators inside the Filter mediator.
 			 */
-			children = ((EditPart) ((EditPart) ((EditPart) ((EditPart) editorPart.getChildren()
-					.get(5)).getChildren().get(0)).getChildren().get(0)).getChildren().get(0))
-					.getChildren();
-			List failChildren = ((EditPart) ((EditPart) ((EditPart) ((EditPart) editorPart
-					.getChildren().get(5)).getChildren().get(1)).getChildren().get(0))
-					.getChildren().get(0)).getChildren();
-			children.addAll(failChildren);
+			List containerList = ((EditPart) editorPart.getChildren()
+					.get(5)).getChildren();
+				if (containerList.size() > 1) {
+					children = ((EditPart) ((EditPart) ((EditPart) containerList.get(0))
+							.getChildren().get(0)).getChildren().get(0)).getChildren();
+					List failChildren = ((EditPart) ((EditPart) ((EditPart) containerList.get(1))
+							.getChildren().get(0)).getChildren().get(0)).getChildren();
+					children.addAll(failChildren);
+				} else {
+					children = new ArrayList();
+				}
+
 			}
 		}
 
@@ -190,13 +196,18 @@ public class MediatorFigureReverser {
 			/*
 			 * Reverse the mediators inside the Throttle mediator.
 			 */
-			children = ((EditPart) ((EditPart) ((EditPart) ((EditPart) editorPart.getChildren()
-					.get(5)).getChildren().get(0)).getChildren().get(0)).getChildren().get(0))
-					.getChildren();
-			List onRejectChildren = ((EditPart) ((EditPart) ((EditPart) ((EditPart) editorPart
-					.getChildren().get(5)).getChildren().get(1)).getChildren().get(0))
-					.getChildren().get(0)).getChildren();
-			children.addAll(onRejectChildren);
+			List containerList = ((EditPart) editorPart.getChildren()
+					.get(5)).getChildren();
+			if (containerList.size() > 1) {
+				children = ((EditPart) ((EditPart) ((EditPart) containerList.get(0)).getChildren()
+						.get(0)).getChildren().get(0)).getChildren();
+				List onRejectChildren = ((EditPart) ((EditPart) ((EditPart) containerList.get(1))
+						.getChildren().get(0)).getChildren().get(0)).getChildren();
+				children.addAll(onRejectChildren);
+			} else {
+				children = new ArrayList();
+			}
+			
 		}
 
 		if (editorPart instanceof SwitchMediatorEditPart) {
@@ -354,19 +365,21 @@ public class MediatorFigureReverser {
 
 	private static void arrangeType2Compartment(EditPart editpart, IFigure outputConnector1,
 			IFigure outputConnector2, List childFigures) {
-		BorderItemLocator locator1 = new FixedBorderItemLocator(
-				(IFigure) ((IFigure) ((DefaultSizeNodeFigure) childFigures.get(0)).getChildren()
-						.get(0)).getChildren().get(0), outputConnector1, PositionConstants.EAST,
-				0.5);
-		((AbstractMediator) editpart).getBorderedFigure().getBorderItemContainer()
-				.add(outputConnector1, locator1);
+		List children = ((IFigure) ((DefaultSizeNodeFigure) childFigures.get(0)).getChildren()
+						.get(0)).getChildren();
+		if(children.size()>1){
+			BorderItemLocator locator1 = new FixedBorderItemLocator(
+					(IFigure) children.get(0), outputConnector1, PositionConstants.EAST,
+					0.5);
+			((AbstractMediator) editpart).getBorderedFigure().getBorderItemContainer()
+					.add(outputConnector1, locator1);
 
-		BorderItemLocator locator2 = new FixedBorderItemLocator(
-				(IFigure) ((IFigure) ((DefaultSizeNodeFigure) childFigures.get(0)).getChildren()
-						.get(0)).getChildren().get(1), outputConnector2, PositionConstants.EAST,
-				0.5);
-		((AbstractMediator) editpart).getBorderedFigure().getBorderItemContainer()
-				.add(outputConnector2, locator2);
+			BorderItemLocator locator2 = new FixedBorderItemLocator(
+					(IFigure) children.get(1), outputConnector2, PositionConstants.EAST,
+					0.5);
+			((AbstractMediator) editpart).getBorderedFigure().getBorderItemContainer()
+					.add(outputConnector2, locator2);
+		}		
 	}
 
 }
