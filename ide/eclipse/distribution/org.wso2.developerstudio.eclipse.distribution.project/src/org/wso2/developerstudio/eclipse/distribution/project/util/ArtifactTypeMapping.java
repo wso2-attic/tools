@@ -44,6 +44,9 @@ public final class ArtifactTypeMapping {
 		type.put("synapse/task","xml");
 		type.put("synapse/api","xml");
 		type.put("synapse/template","xml");
+		type.put("synapse/message-store","xml");
+		type.put("synapse/event-source","xml");
+		type.put("synapse/message-processors","xml");
 		type.put("wso2/gadget","dar");
 		type.put("lib/registry/handlers","jar");
 		type.put("lib/synapse/mediator","jar");
@@ -69,7 +72,7 @@ public final class ArtifactTypeMapping {
 			if (subType.containsKey(packaging)) {
 				value = subType.get(packaging);
 			} else {
-				value = packaging;
+				value = packaging.replaceAll("/", "_");
 			}
 		}
 		return value;
