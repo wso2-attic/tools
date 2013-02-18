@@ -29,6 +29,8 @@ public class SynapseFileUtils {
 			return "task";
 		case API:
 			return "api";	
+		case TEMPLATE:
+			return "template";		
 		case ALL:
 			return "";
 		default:
@@ -92,10 +94,13 @@ public class SynapseFileUtils {
 						if (!editorList.contains(childnode)) {
 							editorList.add(childnode);
 						}
-					} else {
-
+					}else if(childnode.getLocalName().equals("template")){
+						if (!editorList.contains(childnode)) {
+							editorList.add(childnode);
+						}
+					}else{
+						
 					}
-
 				} else {
 					if (childnode.getLocalName().equals(localTagName)) {
 						if (!editorList.contains(childnode)) {
