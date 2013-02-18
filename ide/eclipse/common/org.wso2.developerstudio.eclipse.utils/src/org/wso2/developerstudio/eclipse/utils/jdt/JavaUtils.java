@@ -55,7 +55,7 @@ import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 
 public class JavaUtils {
 	private static final String TOP_LEVEL_SUPER_CLASS = Object.class.getName();
-
+    public static boolean isWebApp;
 	public static void addJavaSupportAndSourceFolder(IProject project, IFolder sourceFolder) throws CoreException,
 	        JavaModelException {
 		IJavaProject javaProject = addJavaNature(project,true);
@@ -137,11 +137,16 @@ public class JavaUtils {
 		
 		ArrayList<IPackageFragmentRoot> jarClassPaths = new ArrayList<IPackageFragmentRoot>();
 		for (IPackageFragmentRoot packageFragmentRoot : packageFragmentRoots) {
-			if(packageFragmentRoot.isArchive()){
-	        if (packageFragmentRoot.getRawClasspathEntry().getEntryKind()==IClasspathEntry.CPE_LIBRARY){
-	        	jarClassPaths.add(packageFragmentRoot);
-	        }
-		  }
+			if (isWebApp && packageFragmentRoot.isArchive()) {
+				if (packageFragmentRoot.getRawClasspathEntry().getEntryKind() == IClasspathEntry.CPE_LIBRARY) {
+					jarClassPaths.add(packageFragmentRoot);
+				}
+
+			} else if(!isWebApp){
+				if (packageFragmentRoot.getRawClasspathEntry().getEntryKind() == IClasspathEntry.CPE_LIBRARY) {
+					jarClassPaths.add(packageFragmentRoot);
+				}
+			}
         } 
 		return jarClassPaths.toArray(new IPackageFragmentRoot[]{});
     }
@@ -163,12 +168,18 @@ public class JavaUtils {
 		IPackageFragmentRoot[] packageFragmentRoots = p.getPackageFragmentRoots();
 		ArrayList<IPackageFragmentRoot> jarClassPaths = new ArrayList<IPackageFragmentRoot>();
 		for (IPackageFragmentRoot packageFragmentRoot : packageFragmentRoots) {
-			if(packageFragmentRoot.isArchive()){
+			if(isWebApp && packageFragmentRoot.isArchive()){
 	        IClasspathEntry rawClasspathEntry = packageFragmentRoot.getRawClasspathEntry();
 	        IClasspathEntry resolvedClasspathEntry = JavaCore.getResolvedClasspathEntry(rawClasspathEntry);
 			if (rawClasspathEntry.getEntryKind()==IClasspathEntry.CPE_VARIABLE && resolvedClasspathEntry.getEntryKind()==IClasspathEntry.CPE_LIBRARY){
 	        	jarClassPaths.add(packageFragmentRoot);
 	        }
+		  }else if(!isWebApp){
+			  IClasspathEntry rawClasspathEntry = packageFragmentRoot.getRawClasspathEntry();
+		        IClasspathEntry resolvedClasspathEntry = JavaCore.getResolvedClasspathEntry(rawClasspathEntry);
+				if (rawClasspathEntry.getEntryKind()==IClasspathEntry.CPE_VARIABLE && resolvedClasspathEntry.getEntryKind()==IClasspathEntry.CPE_LIBRARY){
+		        	jarClassPaths.add(packageFragmentRoot);
+		        }
 		  }
         }
 		return jarClassPaths.toArray(new IPackageFragmentRoot[]{});
@@ -179,10 +190,14 @@ public class JavaUtils {
 		IPackageFragmentRoot[] packageFragmentRoots = p.getPackageFragmentRoots();
 		ArrayList<IPackageFragmentRoot> jarClassPaths = new ArrayList<IPackageFragmentRoot>();
 		for (IPackageFragmentRoot packageFragmentRoot : packageFragmentRoots) {
-			if(packageFragmentRoot.isArchive()){
+			if(isWebApp && packageFragmentRoot.isArchive()){
 	        if (packageFragmentRoot.getRawClasspathEntry().getEntryKind()==IClasspathEntry.CPE_SOURCE){
 	        	jarClassPaths.add(packageFragmentRoot);
 	        }
+		 }else if(!isWebApp){
+			 if (packageFragmentRoot.getRawClasspathEntry().getEntryKind()==IClasspathEntry.CPE_SOURCE){
+		        	jarClassPaths.add(packageFragmentRoot);
+		        }
 		 }
         }
 		return jarClassPaths.toArray(new IPackageFragmentRoot[]{});

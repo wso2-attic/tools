@@ -22,12 +22,16 @@ import org.apache.maven.model.RepositoryPolicy;
 import org.apache.maven.project.MavenProject;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
 import org.wso2.developerstudio.eclipse.artifact.webapp.utils.WebAppTemplateUtils;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.platform.core.nature.AbstractWSO2ProjectNature;
 import org.wso2.developerstudio.eclipse.utils.data.ITemporaryFileTag;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
+import org.wso2.developerstudio.eclipse.utils.jdt.JavaUtils;
 import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 import org.wso2.developerstudio.eclipse.utils.wst.WebUtils;
 
@@ -38,17 +42,22 @@ import java.util.List;
 
 public class WebAppProjectNature extends AbstractWSO2ProjectNature {
 
-	
+	private static IDeveloperStudioLog log = Logger
+			.getLog(org.wso2.developerstudio.eclipse.artifact.webapp.Activator.PLUGIN_ID);
+
 	public void configure() throws CoreException {
+		/*since we reuse the dynamic web project,we need to identify it when adding the project nature
+		to do that we keep this variable as a switch*/
+		JavaUtils.isWebApp = true;
 		addJavaProjectNature();
+		JavaUtils.isWebApp = false;
 		try {
-			//setupAsWebApp();
 			updatePom();
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error(e.getMessage(), e);
 		}
 	}
-
+	
 	private void setupAsWebApp() throws CoreException, IOException {
 		IFile webXmlLocation = WebUtils.getWEBXmlLocation(getProject());
 		if (webXmlLocation == null) {
