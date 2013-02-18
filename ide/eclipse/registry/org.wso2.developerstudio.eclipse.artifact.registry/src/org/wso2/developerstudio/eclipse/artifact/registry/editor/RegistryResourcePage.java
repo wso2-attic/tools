@@ -77,7 +77,7 @@ public class RegistryResourcePage extends FormPage {
         form.getBody().setLayout(layout);
         
         Section listSection = toolkit.createSection(form.getBody(), Section.EXPANDED |  Section.TITLE_BAR);
-        listSection.setText("Artifatc List");
+        listSection.setText("Artifact List");
         listSection.setBounds(40, 20, 220,100);
         GridData gd = new GridData(GridData.FILL_HORIZONTAL);
         listSection.setLayoutData(gd);
