@@ -3450,7 +3450,7 @@
 	</extension-->
 	
 	
-	<extension point="org.eclipse.ui.newWizards" id="creation-wizard">
+	<!--extension point="org.eclipse.ui.newWizards" id="creation-wizard">
   	  <wizard
   	     name="Template (Graphical)"
   	     icon="icons/custom/template.png"
