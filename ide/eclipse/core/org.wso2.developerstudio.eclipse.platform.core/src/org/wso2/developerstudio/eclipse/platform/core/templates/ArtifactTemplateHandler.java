@@ -57,6 +57,7 @@ public class ArtifactTemplateHandler {
 			List<ArtifactTemplate> filteredTemplateList=new ArrayList<ArtifactTemplate>();
 			for (ArtifactTemplate artifactTemplate : templateList) {
 				if (artifactTemplate.getMediaType()!=null && DeveloperStudioProviderUtils.isMediaTypeFilterPassed(filters, artifactTemplate.getMediaType())){
+					
 					filteredTemplateList.add(artifactTemplate);
 				}
 			}
