@@ -16,7 +16,10 @@ package org.wso2.developerstudio.eclipse.artifact.template.validators;
  * limitations under the License.
  */
 
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.axiom.om.OMElement;
 import org.eclipse.core.resources.IContainer;
@@ -34,6 +37,14 @@ public class TemplateProjectFieldController extends AbstractFieldController {
 
 	public void validate(String modelProperty, Object value,
 			ProjectDataModel model) throws FieldValidationException {
+		TemplateModel epModel = (TemplateModel) model; 
+		String templateName="";
+		if(epModel!=null && epModel.getSelectedTemplate()!=null){
+			templateName = epModel.getSelectedTemplate().getName();
+       	}
+		boolean isAddressEP ="Address Endpoint Template".equals(templateName);
+		boolean isWSDlEP ="WSDL Endpoint Template".equals(templateName);
+
 		if (modelProperty.equals("temp.name")) {
 			CommonFieldValidator.validateArtifactName(value);
 			if (value != null) {
@@ -55,10 +66,8 @@ public class TemplateProjectFieldController extends AbstractFieldController {
 									throw new FieldValidationException("");
 								}
 							}
-
 						} catch (Exception e) {
-							throw new FieldValidationException(
-									"Artifact name already exsits");
+							throw new FieldValidationException("Artifact name already exsits");
 						}
 					}
 				}
@@ -80,7 +89,27 @@ public class TemplateProjectFieldController extends AbstractFieldController {
 							"Please select at least one artifact");
 				}
 			}
-		}
+		} else if (modelProperty.equals("templ.address.ep.uri")&& isAddressEP) {	
+			if (value == null || value.toString().trim().isEmpty()) {
+				throw new FieldValidationException("Address url cannot be empty");
+			} else{
+				CommonFieldValidator.isValidUrl(value.toString().trim(), "Address url");
+			}	
+		} else if (modelProperty.equals("templ.wsdl.ep.uri")&& isWSDlEP ) {	
+			if (value == null || value.toString().trim().isEmpty()) {
+				throw new FieldValidationException("WSDL url cannot be empty");
+			} else{
+				CommonFieldValidator.isValidUrl(value.toString().trim(), "WSDL url");
+			}
+		} else if (modelProperty.equals("templ.wsdl.ep.service")&& isWSDlEP) {	
+			if (value == null || value.toString().trim().isEmpty()) {
+				throw new FieldValidationException("WSDL service cannot be empty");
+			} 
+		} else if (modelProperty.equals("templ.wsdl.ep.port")&& isWSDlEP) {	
+			if (value == null || value.toString().trim().isEmpty()) {
+				throw new FieldValidationException("WSDL port cannot be empty");
+			}	
+		}	
 
 	}
 
@@ -99,6 +128,11 @@ public class TemplateProjectFieldController extends AbstractFieldController {
 			updateFields.add("available.sequences");
 		} else if (modelProperty.equals("create.esb.prj")) {
 			updateFields.add("save.file");
+		} else if (modelProperty.equals("temp.type")) {
+			Map<String, List<String>> templateFieldProperties = getTemplateFieldProperties();
+			for (List<String> fields : templateFieldProperties.values()) {
+				updateFields.addAll(fields);
+			}
 		}
 		return updateFields;
 	}
@@ -110,6 +144,22 @@ public class TemplateProjectFieldController extends AbstractFieldController {
 					.getAvailableSeqList();
 			visibleField = (availableSeqList != null && availableSeqList.size() > 0);
 		}
+		if (modelProperty.startsWith("templ.")) {
+			Map<String, List<String>> templateFieldProperties = getTemplateFieldProperties();
+			List<String> list =
+			        templateFieldProperties.get(((TemplateModel) model).getSelectedTemplate()
+			                .getId());
+			for (String control : list) {
+				visibleField = false;
+			}
+
+			if (list.contains(modelProperty)) {
+				visibleField = true;
+			} else {
+				visibleField = false;
+			}
+			
+		}	
 		return visibleField;
 
 	}
@@ -122,4 +172,17 @@ public class TemplateProjectFieldController extends AbstractFieldController {
 		return readOnlyField;
 	}
 
+	private Map<String, List<String>> getTemplateFieldProperties() {
+		Map<String, List<String>> map = new HashMap<String, List<String>>();
+		map.put("org.wso2.developerstudio.eclipse.esb.template.sq_template", Arrays.asList(new String[] {}));
+		map.put("org.wso2.developerstudio.eclipse.esb.template.endpoint_templates.default", Arrays.asList(new String[] {}));
+		map.put("org.wso2.developerstudio.eclipse.esb.template.endpoint_templates.Address", Arrays
+		        .asList(new String[] { "templ.address.ep.uri" }));
+		map.put("org.wso2.developerstudio.eclipse.esb.template.endpoint_templates.wsdl", Arrays
+		        .asList(new String[] { "templ.wsdl.ep.uri", "templ.wsdl.ep.service",
+		                              "templ.wsdl.ep.port" }));
+		return map;
+
+	}
+	
 }

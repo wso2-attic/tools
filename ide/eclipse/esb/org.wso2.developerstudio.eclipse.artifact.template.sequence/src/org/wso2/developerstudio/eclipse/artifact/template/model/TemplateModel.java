@@ -32,22 +32,30 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 import org.wso2.developerstudio.eclipse.artifact.template.Activator;
+import org.wso2.developerstudio.eclipse.artifact.template.validators.TemplateList;
 import org.wso2.developerstudio.eclipse.esb.core.utils.SynapseEntryType;
 import org.wso2.developerstudio.eclipse.esb.core.utils.SynapseFileUtils;
 import org.wso2.developerstudio.eclipse.esb.project.utils.ESBProjectUtils;
+import org.wso2.developerstudio.eclipse.general.project.utils.GeneralProjectUtils;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.platform.core.exception.ObserverFailedException;
 import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectDataModel;
+import org.wso2.developerstudio.eclipse.platform.core.templates.ArtifactTemplate;
 
 public class TemplateModel extends ProjectDataModel {
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
+	private ArtifactTemplate selectedTemplate;
 	private String templateName;
 	private String selectedLocalEntryType;
     private boolean isImportArtifact=false;
 	private IContainer templateSaveLocation;
 	private List<OMElement> selectedTempSequenceList=new ArrayList<OMElement>();
 	private List<OMElement> availableSeqList;
+	private String addressEPURI;
+	private String wsdlEPURI;
+	private String wsdlEPService;
+	private String wsdlEPPort;
 	public String getSelectedLocalEntryType() {
 		return selectedLocalEntryType;
 	}
@@ -62,6 +70,9 @@ public class TemplateModel extends ProjectDataModel {
 			if (key.equals("save.file")) {
 				modelPropertyValue = getTemplateSaveLocation();
 			}  
+			if(key.equals("temp.type")){
+				modelPropertyValue = getSelectedTemplate();
+			}
 		}
 		return modelPropertyValue;
 	}
@@ -92,8 +103,10 @@ public class TemplateModel extends ProjectDataModel {
 					log.error("An unexpected error has occurred", e);
 				}
 			}
-			
-		} else if (key.equals("save.file")) {
+		} else if (key.equals("temp.type")) {
+			ArtifactTemplate template = (ArtifactTemplate) data;
+			setSelectedTemplate(template);
+		}else if (key.equals("save.file")) {
 			setTemplateSaveLocation((IContainer) data);
 		} else if (key.equals("create.esb.prj")) {
 				Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
@@ -103,6 +116,14 @@ public class TemplateModel extends ProjectDataModel {
 				}
 		}else if(key.equals("temp.name")){
 			setTemplateName(data.toString());
+		}else if(key.equals("templ.address.ep.uri")){
+			setAddressEPURI(data.toString());
+		}else if(key.equals("templ.wsdl.ep.uri")){
+			setWsdlEPURI(data.toString());
+		}else if(key.equals("templ.wsdl.ep.service")){
+			setWsdlEPService(data.toString());
+		}else if(key.equals("templ.wsdl.ep.port")){
+			setWsdlEPPort(data.toString());
 		}
 		return returnResult;
 	}
@@ -154,6 +175,18 @@ public class TemplateModel extends ProjectDataModel {
 		return newTemplateSaveLocation;
 	}
 	
+	public ArtifactTemplate getSelectedTemplate() {
+		if(selectedTemplate == null){
+			ArtifactTemplate[] artifactTemplates =TemplateList.getArtifactTemplates();
+			if (artifactTemplates.length > 0) {
+				selectedTemplate = artifactTemplates[0];
+			} else {
+				return null;
+			}
+		}
+		return selectedTemplate;
+	}
+	
 	public void setNewArtifact(boolean isNewArtifact) {
 		this.isImportArtifact = isNewArtifact;
 	}
@@ -193,4 +226,41 @@ public class TemplateModel extends ProjectDataModel {
 	public List<OMElement> getAvailableSeqList() {
 		return availableSeqList;
 	}
+
+	public void setSelectedTemplate(ArtifactTemplate selectedTemplate) {
+		this.selectedTemplate = selectedTemplate;
+	}
+
+	public void setAddressEPURI(String addressEPURI) {
+		this.addressEPURI = addressEPURI;
+	}
+
+	public String getAddressEPURI() {
+		return addressEPURI;
+	}
+
+	public void setWsdlEPURI(String wsdlEPURI) {
+		this.wsdlEPURI = wsdlEPURI;
+	}
+
+	public String getWsdlEPURI() {
+		return wsdlEPURI;
+	}
+
+	public void setWsdlEPService(String wsdlEPService) {
+		this.wsdlEPService = wsdlEPService;
+	}
+
+	public String getWsdlEPService() {
+		return wsdlEPService;
+	}
+
+	public void setWsdlEPPort(String wsdlEPPort) {
+		this.wsdlEPPort = wsdlEPPort;
+	}
+
+	public String getWsdlEPPort() {
+		return wsdlEPPort;
+	}
+
 }

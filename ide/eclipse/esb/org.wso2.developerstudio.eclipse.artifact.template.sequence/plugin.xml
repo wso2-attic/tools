@@ -8,7 +8,7 @@
 			class="org.wso2.developerstudio.eclipse.artifact.template.wizards.TemplateProjectCreationWizard"
 			wizardManifest="project_wizard.xml"
 			id="org.wso2.developerstudio.eclipse.artifact.newtemplate"
-			icon="icons/sequence-normal.png">
+			icon="icons/template.png">
 			<description>template</description>
 		</wizard>
    </extension>
@@ -40,12 +40,9 @@
 				  </triggerPoints>
 		</navigatorContent>
 	  </extension>		
-<!--extension
-         point="org.wso2.developerstudio.eclipse.esb.configurationProvider">
-      <sequence
-            class="org.wso2.developerstudio.eclipse.artifact.sequence.provider.SequenceProvider"
-            id="org.wso2.developerstudio.eclipse.artifact.sequence"
-            name="Carbon Application Sequences">
-      </sequence>
-   </extension-->
+	<extension point="org.wso2.developerstudio.eclipse.platform.core.intro.ui.dashboard">	
+		<wizardLink category="dashboard.category.esb" id="9dashboard.wizardLink.esb.task"
+			wizard="org.wso2.developerstudio.eclipse.artifact.newtemplate" priority="9">
+		</wizardLink>
+	</extension>
 </plugin>

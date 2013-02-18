@@ -17,6 +17,7 @@
 package org.wso2.developerstudio.eclipse.artifact.template.wizards;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.text.MessageFormat;
 import java.util.ArrayList;
@@ -26,6 +27,9 @@ import java.util.regex.Pattern;
 import javax.xml.namespace.QName;
 
 import org.apache.axiom.om.OMElement;
+import org.apache.axiom.om.OMNode;
+import org.apache.axiom.om.impl.builder.StAXOMBuilder;
+import org.apache.commons.lang.StringUtils;
 import org.apache.maven.model.Plugin;
 import org.apache.maven.model.PluginExecution;
 import org.apache.maven.model.Repository;
@@ -41,7 +45,9 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.jface.dialogs.MessageDialog;
+
 import org.wso2.developerstudio.eclipse.artifact.template.Activator;
+import org.wso2.developerstudio.eclipse.artifact.template.Utils.TemplateImageUtils;
 import org.wso2.developerstudio.eclipse.artifact.template.model.TemplateModel;
 import org.wso2.developerstudio.eclipse.capp.maven.utils.MavenConstants;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBArtifact;
@@ -64,12 +70,13 @@ public class TemplateProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 	private ESBProjectArtifact esbProjectArtifact;
 	private List<File> fileLst = new ArrayList<File>();
 	private IProject project;
+
 	
 	public TemplateProjectCreationWizard() {
 		this.templateModel = new TemplateModel();
 		setModel(this.templateModel);
 		setWindowTitle("Template wizards");
-		//setDefaultPageImageDescriptor(LocalEntryImageUtils.getInstance().getImageDescriptor("local-entries-wizard-artifact.png"));
+		setDefaultPageImageDescriptor(TemplateImageUtils.getInstance().getImageDescriptor("template.png"));
 	}
 
 	protected boolean isRequireProjectLocationSection() {
@@ -94,12 +101,8 @@ public class TemplateProjectCreationWizard extends AbstractWSO2ProjectCreationWi
         IContainer location = project.getFolder("src" + File.separator + "main"
 				+ File.separator + "synapse-config" + File.separator
 				+ "templates");
-
-		// Adding the metadata about the sequence to the metadata store.
 		esbProjectArtifact = new ESBProjectArtifact();
-		esbProjectArtifact.fromFile(project.getFile("artifact.xml")
-				.getLocation().toFile());
-		
+		esbProjectArtifact.fromFile(project.getFile("artifact.xml").getLocation().toFile());	
 		File pomfile = project.getFile("pom.xml").getLocation().toFile();
 		getModel().getMavenInfo().setPackageName("synapse/template");
 		if (!pomfile.exists()) {
@@ -112,7 +115,7 @@ public class TemplateProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 		String groupId = getMavenGroupId(pomfile);
 		groupId += ".template";
 
-		if (getModel().getSelectedOption().equals("Sequence.import.template")) {
+		if (getModel().getSelectedOption().equals("import.template")) {
 			IFile sequence = location.getFile(new Path(getModel().getImportFile().getName()));
 			if(sequence.exists()){
 				if(!MessageDialog.openQuestion(getShell(), "WARNING", "Do you like to override exsiting project in the workspace")){
@@ -122,15 +125,26 @@ public class TemplateProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 			} 	
 			copyImportFile(location,isNewArtifact,groupId);
 		} else {
-			ArtifactTemplate selectedTemplate = ArtifactTemplateHandler
-					.getArtifactTemplates("org.wso2.developerstudio.eclipse.esb.template.sq_template");
-			String templateContent = FileUtils
-					.getContentAsString(selectedTemplate
-							.getTemplateDataStream());
-			String content = createSequenceTemplate(templateContent);
+			String templateContent ="";
+			String template = "";
+			ArtifactTemplate selectedTemplate = templateModel.getSelectedTemplate();
+			templateContent = FileUtils.getContentAsString(selectedTemplate.getTemplateDataStream());
+			
+			if (selectedTemplate.getName().equals("Address Endpoint Template")) {
+				template = createEPTemplate(templateContent,"Address Endpoint Template");
+			} else if (selectedTemplate.getName().equals("WSDL Endpoint Template")) {
+				template = createEPTemplate(templateContent,"WSDL Endpoint Template");
+			} else if (selectedTemplate.getName().equals("Default Endpoint Template")) {
+				template = createEPTemplate(templateContent,"Default Endpoint Template");
+			}else if (selectedTemplate.getName().equals("Sequence Template")) {
+				template = createEPTemplate(templateContent,"Sequence Template");
+			}else {
+				template = createEPTemplate(templateContent, "");
+			}
+
 			File destFile = new File(location.getLocation().toFile(),
 					sequenceModel.getTemplateName() + ".xml");
-			FileUtils.createFile(destFile, content);
+			FileUtils.createFile(destFile, template);
 			fileLst.add(destFile);
 			ESBArtifact artifact = new ESBArtifact();
 			artifact.setName(sequenceModel.getTemplateName());
@@ -149,12 +163,25 @@ public class TemplateProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 		return true;
 	}
 	
-	public String createSequenceTemplate(String templateContent) throws IOException{
-		String content = "";
-		content = MessageFormat.format(templateContent,templateModel.getTemplateName());
-        return content;
+	public String createEPTemplate(String templateContent, String type) throws IOException{
+		String newContent="";
+		if(type.equals("Sequence Template")){
+			newContent=MessageFormat.format(templateContent,templateModel.getTemplateName());
+		}else{
+			templateContent = templateContent.replaceAll("\\{", "<");
+			templateContent = templateContent.replaceAll("\\}", ">");
+			newContent = StringUtils.replace(templateContent,"<ep.name>", templateModel.getTemplateName());
+			if(type.equals("Address Endpoint Template")){
+				newContent = StringUtils.replace(newContent,"<address.uri>", templateModel.getAddressEPURI());
+			}else if(type.equals("WSDL Endpoint Template")){
+				newContent = StringUtils.replace(newContent,"<wsdl.uri>", templateModel.getWsdlEPURI());
+				newContent = StringUtils.replace(newContent,"<service.name>", templateModel.getWsdlEPService());
+				newContent = StringUtils.replace(newContent,"<service.port>", templateModel.getWsdlEPPort());
+			} 
+		}
+        return newContent;
 	}
- 
+
 	public void updatePom() throws Exception{
 		File mavenProjectPomLocation = project.getFile("pom.xml").getLocation().toFile();
 		MavenProject mavenProject = MavenUtils.getMavenProject(mavenProjectPomLocation);
@@ -246,6 +273,20 @@ public class TemplateProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 	public void openEditor(File file) {
 		try{
 		refreshDistProjects();
+		OMElement documentElement = new StAXOMBuilder(new FileInputStream(file)).getDocumentElement();
+	    OMElement firstElement = documentElement.getFirstElement();
+		String templateType="template.sequence";
+	    if("endpoint".equals(firstElement.getLocalName())){
+	    	templateType="template.endpoint";
+	    String localName = firstElement.getFirstElement().getLocalName();
+		if ("address".equals(localName)) {
+			templateType=templateType+"-1";
+		} else if ("wsdl".equals(localName)) {
+			templateType=templateType+"-2";
+		} else {
+			templateType=templateType+"-0";
+		}		
+	  }
 		IFile dbsFile  = ResourcesPlugin
 		.getWorkspace()
 		.getRoot()
@@ -254,7 +295,7 @@ public class TemplateProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 		String path = dbsFile.getParent().getFullPath()+"/";
 		String source = FileUtils.getContentAsString(file);
 		Openable openable = ESBGraphicalEditor.getOpenable();
-		openable.editorOpen(file.getName(),"template.sequence",path+"template_", source);
+		openable.editorOpen(file.getName(),templateType,path+"template_", source);
 		}catch(Exception e){
 			log.error("Cannot open the editor", e);
 		}
