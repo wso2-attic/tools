@@ -3482,7 +3482,7 @@
 			</commonWizard>
 	</extension>
 	
-			<!--extension point="org.eclipse.ui.newWizards" id="creation-wizard">
+			<extension point="org.eclipse.ui.newWizards" id="creation-wizard">
   	  <wizard
   	     name="Task (Graphical)"
   	     icon="icons/custom/task.png"
