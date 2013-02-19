@@ -44,7 +44,8 @@ public class DynamicWebAppCreationWizard extends WebProjectWizard {
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	 
 	public DynamicWebAppCreationWizard() {
-		 setWindowTitle("WebApplication project");
+		 setWindowTitle("Web Application project");
+ 
 		 webApp = new WebAppCreationWizard();
 		 endingPages = new IWizardPage[1];
 		 endPage = new MavenDetailsPage(webApp.getModel());
@@ -68,7 +69,8 @@ public class DynamicWebAppCreationWizard extends WebProjectWizard {
 				while (i < base.length) {
 					if(!"java.facet.install.page".equals(base[i].getName())){
 						pages[j] = base[i];
-						pages[j].setTitle("New WebApplication");
+						pages[j].setTitle("Create New Web Application");
+						pages[j].setDescription("Give a project name for the new Web application");
 						j++;
 					}
 					i++;
