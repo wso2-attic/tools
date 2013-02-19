@@ -18,6 +18,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 
 import java.util.Iterator;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.synapse.endpoints.AbstractEndpoint;
 import org.apache.synapse.mediators.MediatorProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint;
@@ -37,6 +38,10 @@ public abstract class AbstractEndpointDeserializer extends AbstractEsbNodeDeseri
 	protected <T extends AbstractEndpoint> void deserializeEndpoint(T endpoint,AbstractEndPoint visualEndpoint){	
 		String suspendErrorCodes=null;
 		String retryErrorCodes=null;
+		
+		 if(StringUtils.isNotBlank(endpoint.getName())){
+             executeSetValueCommand(END_POINT__END_POINT_NAME, endpoint.getName());
+		  }
 		
 		if("soap11".equals(endpoint.getDefinition().getFormat())){
 			executeSetValueCommand(ABSTRACT_END_POINT__FORMAT, EndPointMessageFormat.SOAP_11);
