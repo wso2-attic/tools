@@ -75,41 +75,62 @@ public abstract class AbstractPOMGenMojo extends AbstractMojo {
 	
 	protected void processArtifacts(List<Artifact> artifacts)
 			throws MojoExecutionException {
-		for (Artifact artifact : artifacts) {
-			if (artifact.getType().equalsIgnoreCase(getArtifactType())) {
-				getLog().info("Creating maven project for artifact "+artifact.getName()+":"+artifact.getVersion()+"...");
-				getLog().info("\tgenerating maven project...");
-				
+		if (artifacts.isEmpty()) {
+			File projectLocation = new File(getOutputLocation() + "");
 
-				File projectLocation = new File(getOutputLocation()+File.separator+getArtifactPostFix(), artifact.getName());
-				
-				projectLocation.mkdirs();
-				setProjectLocation(projectLocation);
-				 
-				//This will be null if the artifact is referencing to a workspace project.
-				MavenProject artifactMavenProject = createMavenProjectForCappArtifact(artifact, artifacts, projectLocation);
-				
-				if (artifactMavenProject!=null) {
-	                try {
-		                getLog().info("\tcopying resources...");
-		                getMavenModuleProject().getModules()
-		                                       .add(CAppMavenUtils.getMavenModuleRelativePath(getModuleProject(),
-		                                                                                      projectLocation));
-		                Repository repo = new Repository();
-		                repo.setUrl("http://dist.wso2.org/maven2");
-		                repo.setId("wso2-maven2-repository-1");
-		                artifactMavenProject.getModel().addRepository(repo);
-		                artifactMavenProject.getModel().addPluginRepository(repo);
-		                CAppMavenUtils.saveMavenProject(artifactMavenProject,
-		                                                new File(projectLocation, "pom.xml"));
-		                CAppMavenUtils.saveMavenProject(getMavenModuleProject(), getModuleProject());
-		                copyResources(artifactMavenProject, projectLocation, artifact);
-	                } catch (Exception e) {
-		                throw new MojoExecutionException(
-		                                                 "Error creating maven project for artifact '" +
-		                                                         artifact.getName() + "'", e);
-	                }
-                }
+			projectLocation.mkdirs();
+			setProjectLocation(projectLocation);
+			getMavenModuleProject();
+		} else {
+			for (Artifact artifact : artifacts) {
+				if (artifact.getType().equalsIgnoreCase(getArtifactType())) {
+					getLog().info(
+							"Creating maven project for artifact "
+									+ artifact.getName() + ":"
+									+ artifact.getVersion() + "...");
+					getLog().info("\tgenerating maven project...");
+
+					File projectLocation = new File(getOutputLocation()
+							+ File.separator + getArtifactPostFix(),
+							artifact.getName());
+
+					projectLocation.mkdirs();
+					setProjectLocation(projectLocation);
+
+					// This will be null if the artifact is referencing to a
+					// workspace project.
+					MavenProject artifactMavenProject = createMavenProjectForCappArtifact(
+							artifact, artifacts, projectLocation);
+
+					if (artifactMavenProject != null) {
+						try {
+							getLog().info("\tcopying resources...");
+							getMavenModuleProject().getModules().add(
+									CAppMavenUtils
+											.getMavenModuleRelativePath(
+													getModuleProject(),
+													projectLocation));
+							Repository repo = new Repository();
+							repo.setUrl("http://dist.wso2.org/maven2");
+							repo.setId("wso2-maven2-repository-1");
+							artifactMavenProject.getModel().addRepository(repo);
+							artifactMavenProject.getModel()
+									.addPluginRepository(repo);
+							CAppMavenUtils.saveMavenProject(
+									artifactMavenProject, new File(
+											projectLocation, "pom.xml"));
+							CAppMavenUtils
+									.saveMavenProject(getMavenModuleProject(),
+											getModuleProject());
+							copyResources(artifactMavenProject,
+									projectLocation, artifact);
+						} catch (Exception e) {
+							throw new MojoExecutionException(
+									"Error creating maven project for artifact '"
+											+ artifact.getName() + "'", e);
+						}
+					}
+				}
 			}
 		}
 	}
