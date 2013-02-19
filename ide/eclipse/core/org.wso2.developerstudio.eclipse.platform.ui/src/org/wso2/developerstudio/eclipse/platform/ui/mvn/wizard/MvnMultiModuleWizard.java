@@ -86,7 +86,7 @@ public class MvnMultiModuleWizard extends AbstractWSO2ProjectCreationWizard {
 					log.error("Error occured while trying to create the Maven Project", e);
 				}
 			} else {
-				setMavenProperty("org.wso2.maven", multiModuleProject.getName(), "1.0.0");
+				setMavenProperty("com.example", multiModuleProject.getName(), "1.0.0");
 			}
 		}
 	}

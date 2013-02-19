@@ -28,9 +28,9 @@ public class MvnMultiModuleModel extends ProjectDataModel  {
 
 
 
-	private String groupId;
-	private String artifactId;
-    private String version;
+	private String groupId="com.example";
+	private String artifactId="MavenParentProject";
+    private String version="1.0.0";
     
 	
 	public Object getModelPropertyValue(String key) {
