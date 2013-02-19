@@ -50,12 +50,12 @@ public class WebAppProjectNature extends AbstractWSO2ProjectNature {
 		to do that we keep this variable as a switch*/
 		JavaUtils.isWebApp = true;
 		addJavaProjectNature();
-		JavaUtils.isWebApp = false;
 		try {
 			updatePom();
 		} catch (Exception e) {
 			log.error(e.getMessage(), e);
 		}
+		JavaUtils.isWebApp = false;
 	}
 	
 	private void setupAsWebApp() throws CoreException, IOException {
