@@ -80,5 +80,11 @@ public class GraphicalEditorStartupUtils implements Openable {
 				EditorUtils.setLockmode(graphicalEditor, false);
 			}
 		});
+		
+		if("endpoint".equals(type)){
+			EditorUtils.updateToolpalette();
+		}else if("sequence".equals(type)){
+			EditorUtils.updateToolpalette();
+		}
 	}
 }
