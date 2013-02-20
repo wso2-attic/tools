@@ -17,10 +17,16 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 
 import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.LOAD_BALANCE_END_POINT__ALGORITHM;
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.LOAD_BALANCE_END_POINT__SESSION_TIMEOUT;
+import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.LOAD_BALANCE_END_POINT__SESSION_TYPE;
 
 import java.util.Iterator;
 
 import org.apache.synapse.endpoints.AbstractEndpoint;
+import org.apache.synapse.endpoints.dispatch.Dispatcher;
+import org.apache.synapse.endpoints.dispatch.HttpSessionDispatcher;
+import org.apache.synapse.endpoints.dispatch.SimpleClientSessionDispatcher;
+import org.apache.synapse.endpoints.dispatch.SoapSessionDispatcher;
 import org.apache.synapse.mediators.MediatorProperty;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
@@ -29,6 +35,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EndPointProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPointPropertyScope;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceSessionType;
 import org.wso2.developerstudio.eclipse.gmf.esb.Member;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EndpointDiagramEndpointCompartment2EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EndpointDiagramEndpointCompartmentEditPart;
@@ -46,8 +53,23 @@ public class LoadBalanceEndpointDeserializer extends AbstractComplexEndPointDese
 		IElementType endpointType = (part instanceof EndpointDiagramEndpointCompartment2EditPart ||
 				part instanceof EndpointDiagramEndpointCompartmentEditPart) ? EsbElementTypes.LoadBalanceEndPoint_3656
 				: EsbElementTypes.LoadBalanceEndPoint_3613;
+		
 		LoadBalanceEndPoint visualEndPoint = (LoadBalanceEndPoint) DeserializerUtils.createNode(part,endpointType);
 		setElementToEdit(visualEndPoint);
+		
+		if(object instanceof org.apache.synapse.endpoints.SALoadbalanceEndpoint){
+			org.apache.synapse.endpoints.SALoadbalanceEndpoint saloadbalanceEndpoint = (org.apache.synapse.endpoints.SALoadbalanceEndpoint)object;
+			Long sessionTimeout = saloadbalanceEndpoint.getSessionTimeout();
+			executeSetValueCommand(LOAD_BALANCE_END_POINT__SESSION_TIMEOUT, sessionTimeout);
+			Dispatcher dispatcher = saloadbalanceEndpoint.getDispatcher();
+			if(dispatcher instanceof SoapSessionDispatcher){
+				executeSetValueCommand(LOAD_BALANCE_END_POINT__SESSION_TYPE, LoadBalanceSessionType.SOAP);
+			}else if(dispatcher instanceof HttpSessionDispatcher){
+				executeSetValueCommand(LOAD_BALANCE_END_POINT__SESSION_TYPE, LoadBalanceSessionType.TRANSPORT);
+			}else if(dispatcher instanceof SimpleClientSessionDispatcher){
+				executeSetValueCommand(LOAD_BALANCE_END_POINT__SESSION_TYPE, LoadBalanceSessionType.CLIENT_ID);
+			}
+		}
 		
 		for (Iterator<MediatorProperty> i = loadbalanceEndpoint.getProperties().iterator(); i.hasNext();) {
 			MediatorProperty next = i.next();
@@ -86,6 +108,7 @@ public class LoadBalanceEndpointDeserializer extends AbstractComplexEndPointDese
 			}
 
 		}
+		
 
 		return visualEndPoint;
 	}

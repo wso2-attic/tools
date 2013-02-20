@@ -28,6 +28,7 @@ import org.apache.synapse.endpoints.FailoverEndpoint;
 import org.apache.synapse.endpoints.IndirectEndpoint;
 import org.apache.synapse.endpoints.LoadbalanceEndpoint;
 import org.apache.synapse.endpoints.RecipientListEndpoint;
+import org.apache.synapse.endpoints.SALoadbalanceEndpoint;
 import org.apache.synapse.endpoints.Template;
 import org.apache.synapse.endpoints.WSDLEndpoint;
 
@@ -155,6 +156,7 @@ public class EsbDeserializerRegistry {
 		addDeserializer(WSDLEndpoint.class, new WSDLEndpointDeserializer());
 		addDeserializer(FailoverEndpoint.class, new FailoverEndpointDeserializer());
 		addDeserializer(LoadbalanceEndpoint.class, new LoadBalanceEndpointDeserializer());
+		addDeserializer(SALoadbalanceEndpoint.class, new LoadBalanceEndpointDeserializer());
 		addDeserializer(ConditionalRouterMediator.class, new ConditionalRouterMediatorDeserializer());
 		addDeserializer(ThrottleMediator.class, new ThrottleMediatorDeserializer());
 		addDeserializer(RuleMediatorExt.class, new RuleMediatorDeserializer());

@@ -28,6 +28,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceSessionType;
 
 /**
  * This is the item provider adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPoint} object.
@@ -61,17 +62,20 @@ public class LoadBalanceEndPointItemProvider
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
-			super.getPropertyDescriptors(object);
-
-			addSessionTypePropertyDescriptor(object);
-			addSessionTimeoutPropertyDescriptor(object);
-			addAlgorithmPropertyDescriptor(object);
-			//addFailoverPropertyDescriptor(object);
-			//addPolicyPropertyDescriptor(object);
-			//addMemberPropertyDescriptor(object);
+		LoadBalanceEndPoint balanceEndPoint = (LoadBalanceEndPoint)object;
+		if (itemPropertyDescriptors != null) {
+			itemPropertyDescriptors.clear();
 		}
-		return itemPropertyDescriptors;
+		super.getPropertyDescriptors(object);
+		addInLinePropertyDescriptor(object);
+		addPropertiesPropertyDescriptor(object);
+		addSessionTypePropertyDescriptor(object);
+		LoadBalanceSessionType sessionType = balanceEndPoint.getSessionType();
+		if(!"NONE".equals(sessionType.getLiteral())){
+			addSessionTimeoutPropertyDescriptor(object);
+		}
+		addAlgorithmPropertyDescriptor(object);
+ 		return itemPropertyDescriptors;
 	}
 
 	/**

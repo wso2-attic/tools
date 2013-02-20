@@ -65,8 +65,7 @@ public class EndPointItemProvider
 			itemPropertyDescriptors.clear();
 		}
 		
-		EndPoint endPoint = (EndPoint) object;
-		
+		EndPoint endPoint = (EndPoint) object;		
 		super.getPropertyDescriptors(object);
 		//addEndPointNamePropertyDescriptor(object);
 		//addAnonymousPropertyDescriptor(object);
