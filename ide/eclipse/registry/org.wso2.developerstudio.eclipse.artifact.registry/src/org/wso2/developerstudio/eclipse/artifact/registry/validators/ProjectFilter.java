@@ -31,9 +31,14 @@ public class ProjectFilter extends ViewerFilter {
 	public boolean select(Viewer viewer, Object parentElement, Object element) {
 		if (element instanceof IContainer) {
 			try {
-				IProject project = ((IContainer) element).getProject();
-				if (project.isOpen() && project.hasNature(RegistryArtifactConstants.GENERAL_PROJECT_NATURE)) {
-					return true;
+				IContainer iContainer = (IContainer) element;
+				IProject project = iContainer.getProject();
+				if (!iContainer.getFullPath().toPortableString().endsWith("/target")) {
+					if (project.isOpen() && project.hasNature(RegistryArtifactConstants.GENERAL_PROJECT_NATURE)) {
+						return true;
+					}
+				}else{
+					return false;
 				}
 			} catch (Exception e) {
 				log.warn(e);
