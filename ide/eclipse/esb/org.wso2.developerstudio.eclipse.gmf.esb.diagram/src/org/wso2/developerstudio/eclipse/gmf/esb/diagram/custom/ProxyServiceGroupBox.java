@@ -1,9 +1,9 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom;
 
+import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.GridData;
 import org.eclipse.draw2d.GridLayout;
 import org.eclipse.draw2d.ImageFigure;
-import org.eclipse.draw2d.LineBorder;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.StackLayout;
@@ -32,11 +32,12 @@ public class ProxyServiceGroupBox extends RoundedRectangle {
 	private void createContents() {
 		RoundedRectangle graphicalNodeContainer0 = new RoundedRectangle();
 		graphicalNodeContainer0.setCornerDimensions(new Dimension(1, 1));
-		graphicalNodeContainer0.setOutline(false);
+		graphicalNodeContainer0.setOutline(true);
+		graphicalNodeContainer0.setLineStyle(Graphics.LINE_SOLID);
 		graphicalNodeContainer0.setBackgroundColor(this.getBackgroundColor());
 		// graphicalNodeContainer0.setPreferredSize(new Dimension(100, 40));
-		LineBorder border0 = new LineBorder(new Color(null, 0,0,0), 1, SWT.BORDER_SOLID);
-		graphicalNodeContainer0.setBorder(border0);
+/*		LineBorder border0 = new LineBorder(new Color(null, 0,0,0), 1, SWT.BORDER_SOLID);
+		graphicalNodeContainer0.setBorder(border0);*/
 		graphicalNodeContainer0.setPreferredSize(new Dimension(100, 20));
 
 		GridData constraintGraphicalNodeContainer0 = new GridData();

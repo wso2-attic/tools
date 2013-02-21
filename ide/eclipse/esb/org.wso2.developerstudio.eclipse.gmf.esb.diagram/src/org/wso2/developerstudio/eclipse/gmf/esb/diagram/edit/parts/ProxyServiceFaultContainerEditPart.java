@@ -2,7 +2,6 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
 
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.GridData;
-import org.eclipse.draw2d.GridLayout;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.RoundedRectangle;
@@ -249,7 +248,8 @@ public class ProxyServiceFaultContainerEditPart extends ShapeNodeEditPart {
 			layoutThis.setVertical(true);
 
 			this.setLayoutManager(layoutThis);
-
+			this.setLineStyle(Graphics.LINE_SOLID);
+			this.setLineWidth(2);
 			this.setOutline(true);
 			// TODO: review this:
 			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(5000), getMapMode().DPtoLP(700)));

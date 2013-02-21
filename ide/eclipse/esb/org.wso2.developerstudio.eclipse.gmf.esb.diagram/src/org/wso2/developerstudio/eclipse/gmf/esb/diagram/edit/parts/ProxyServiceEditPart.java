@@ -4,9 +4,9 @@ import java.beans.PropertyChangeListener;
 import java.util.ListIterator;
 
 import org.eclipse.draw2d.FigureCanvas;
+import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.GridData;
 import org.eclipse.draw2d.IFigure;
-import org.eclipse.draw2d.LineBorder;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
@@ -35,7 +35,6 @@ import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.runtime.notation.impl.BoundsImpl;
-import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractBaseFigureEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractInputConnectorEditPart;
@@ -431,10 +430,11 @@ public class ProxyServiceEditPart extends AbstractBaseFigureEditPart {
 
 			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(1000), getMapMode().DPtoLP(400)));
 			this.setBackgroundColor(THIS_BACK);
-			//this.setLineStyle(Graphics.LINE_DASH);
+			this.setLineStyle(Graphics.LINE_SOLID);
 			this.setOutline(true);
-			LineBorder border0 = new LineBorder(new Color(null, 0, 0, 0), 1, SWT.BORDER_SOLID);
-			this.setBorder(border0);
+/*			LineBorder border0 = new LineBorder(new Color(null, 0, 0, 0), 1, SWT.BORDER_SOLID);
+			this.setBorder(border0);*/
+			this.setForegroundColor(new Color(null, 0, 0, 0));
 			//this.setOutlineXOR(true);
 			createContents();
 		}
