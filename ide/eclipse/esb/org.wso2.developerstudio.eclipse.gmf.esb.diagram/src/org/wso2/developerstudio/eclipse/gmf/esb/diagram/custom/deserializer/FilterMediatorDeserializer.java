@@ -63,6 +63,17 @@ public class FilterMediatorDeserializer extends
 				executeSetValueCommand(FILTER_MEDIATOR__XPATH, createNamespacedProperty(filterMediator.getXpath()));
 			}
 		}
+		if (filterMediator.getElseMediator() != null) {
+			/* deserialize <else> flow */
+			SequenceMediator sequence = new SequenceMediator();
+			sequence.addAll(filterMediator.getElseMediator().getList());
+			IGraphicalEditPart compartment = (IGraphicalEditPart) getEditpart(
+					visualFilter.getFilterContainer().getFailContainer().getMediatorFlow())
+					.getChildren().get(0);
+			deserializeSequence(compartment, sequence,
+					visualFilter.getFailOutputConnector());
+		}
+
 
 		if (filterMediator.getList().size() > 0) {
 			/* deserialize <if> flow */
@@ -75,17 +86,7 @@ public class FilterMediatorDeserializer extends
 					visualFilter.getPassOutputConnector());
 		}
 
-		if (filterMediator.getElseMediator() != null) {
-			/* deserialize <else> flow */
-			SequenceMediator sequence = new SequenceMediator();
-			sequence.addAll(filterMediator.getElseMediator().getList());
-			IGraphicalEditPart compartment = (IGraphicalEditPart) getEditpart(
-					visualFilter.getFilterContainer().getFailContainer().getMediatorFlow())
-					.getChildren().get(0);
-			deserializeSequence(compartment, sequence,
-					visualFilter.getFailOutputConnector());
-		}
-
+	
 		return visualFilter;
 
 	}
