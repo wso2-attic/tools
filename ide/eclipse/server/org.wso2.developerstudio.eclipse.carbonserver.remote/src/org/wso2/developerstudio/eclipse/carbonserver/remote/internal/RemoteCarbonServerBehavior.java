@@ -42,7 +42,11 @@ public class RemoteCarbonServerBehavior extends ServerBehaviourDelegate{
 	}
 	
 	public IStatus canStop() {
-		return Status.OK_STATUS;
+		return Status.CANCEL_STATUS;
+	}
+	
+	public IStatus canRestart(String mode) {
+		return Status.CANCEL_STATUS;
 	}
 	
 	public void stop(boolean force) {
