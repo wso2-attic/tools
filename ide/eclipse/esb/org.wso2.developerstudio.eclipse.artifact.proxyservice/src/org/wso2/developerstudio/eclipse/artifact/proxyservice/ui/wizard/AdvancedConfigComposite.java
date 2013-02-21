@@ -592,9 +592,11 @@ public class AdvancedConfigComposite extends AbstractComposite {
 	 */
 	void hideControls(Control... ctrls) {
 		for (Control ctrl : ctrls) {
-			ctrl.setVisible(false);
-			if (ctrl.getLayoutData() instanceof GridData) {
-				((GridData) ctrl.getLayoutData()).exclude = true;
+			if (!ctrl.isDisposed()) {
+				ctrl.setVisible(false);
+				if (ctrl.getLayoutData() instanceof GridData) {
+					((GridData) ctrl.getLayoutData()).exclude = true;
+				}
 			}
 		}
 	}
@@ -605,9 +607,11 @@ public class AdvancedConfigComposite extends AbstractComposite {
 	 */
 	void showControls(Control... ctrls) {
 		for (Control ctrl : ctrls) {
-			ctrl.setVisible(true);
-			if (ctrl.getLayoutData() instanceof GridData) {
-				((GridData) ctrl.getLayoutData()).exclude = false;
+			if (!ctrl.isDisposed()) {
+				ctrl.setVisible(true);
+				if (ctrl.getLayoutData() instanceof GridData) {
+					((GridData) ctrl.getLayoutData()).exclude = false;
+				}
 			}
 		}
 	}
@@ -623,6 +627,11 @@ public class AdvancedConfigComposite extends AbstractComposite {
 	 * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
 	 */
 	public void update(Observable o, Object arg) {
+		
+		if(this.isDisposed()){
+			return;
+		}
+		
 		ArtifactTemplate selectedTemplate = AdvancedConfigComposite.this
 				.getModel().getSelectedTemplate();
 
