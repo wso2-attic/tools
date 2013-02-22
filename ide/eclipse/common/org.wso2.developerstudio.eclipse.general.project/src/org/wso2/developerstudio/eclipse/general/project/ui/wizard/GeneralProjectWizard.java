@@ -46,9 +46,6 @@ public class GeneralProjectWizard extends AbstractWSO2ProjectCreationWizard {
 			project = createNewProject();
 			JavaUtils.addJavaNature(project,false);
 			
-			project.getFolder("Development").getLocation().toFile().mkdirs();
-			project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
-			
 			File pomfile = project.getFile("pom.xml").getLocation().toFile();
 			createPOM(pomfile,"pom");
 			
