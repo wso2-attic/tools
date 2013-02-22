@@ -36,6 +36,7 @@ public class RegistryArtifactConstants extends NLS {
 	public static  String DATA_RESOURCE_NAME;
 	public static  String DATA_RESOURCE_TYPE;
 	public static  String DATA_REG_LOCATION;
+	public static  String DATA_REG_PARTITION;
 	public static  String DATA_CREATE_PRJ;
 	public static  String DATA_SAVE_FILE;
 	public static  String DATA_IMPORT_FILE;

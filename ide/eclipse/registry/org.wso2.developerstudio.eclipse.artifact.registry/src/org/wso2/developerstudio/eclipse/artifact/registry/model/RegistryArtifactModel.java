@@ -44,7 +44,8 @@ public class RegistryArtifactModel extends ProjectDataModel {
 	
 	private IContainer resourceSaveLocation;
 	private RegistryTemplate selectedTemplate;
-	private String registryPath="/_system/config";
+	private String registryPath="endpoints/";
+	private String registryPartition;
 	private String resourceName;
 	private String artifactName="";
 	private boolean copyContent;
@@ -69,6 +70,10 @@ public class RegistryArtifactModel extends ProjectDataModel {
 
 	public String getRegistryPath() {
 		return registryPath;
+	}
+	
+	public String getCompleteRegistryPath(){
+		return getRegistryPartition()+getRegistryPath();
 	}
 	
 	public void setCopyContent(boolean copyContent){
@@ -115,9 +120,10 @@ public class RegistryArtifactModel extends ProjectDataModel {
                 	setResourceName(importFile.getName());
                 }
 			}
-		}
-		else if("artifact.name".equals(key)){
+		} else if("artifact.name".equals(key)){
 			this.setArtifactName(data.toString());
+		} else if("reg.partition".equals(key)){
+			setRegistryPartition(data.toString());
 		}
 		return returnResult;
 	}
@@ -140,6 +146,8 @@ public class RegistryArtifactModel extends ProjectDataModel {
 				modelPropertyValue = getCheckoutPath();
 			} else if ((modelPropertyValue == null)&&("artifact.name".equals(key))){
 				modelPropertyValue = getArtifactName();
+			}else if(key.equals(RegistryArtifactConstants.DATA_REG_PARTITION)){
+				modelPropertyValue = getRegistryPartition();
 			}
 		}
 		return modelPropertyValue;
@@ -228,6 +236,20 @@ public class RegistryArtifactModel extends ProjectDataModel {
 
 	public String getArtifactName() {
 		return artifactName;
+	}
+
+	/**
+	 * @param registryPartition the registryPartition to set
+	 */
+	public void setRegistryPartition(String registryPartition) {
+		this.registryPartition = registryPartition;
+	}
+
+	/**
+	 * @return the registryPartition
+	 */
+	public String getRegistryPartition() {
+		return registryPartition;
 	}
 	
 	
