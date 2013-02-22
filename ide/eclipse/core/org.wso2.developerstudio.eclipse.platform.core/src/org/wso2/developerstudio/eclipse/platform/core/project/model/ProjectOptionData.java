@@ -59,6 +59,7 @@ public class ProjectOptionData {
 	//for textboxes 
 	private boolean textMultiline;
     private boolean addListnner;
+    private String toolTip;
 	
 	//for composite
 	private ICompositeProvider iCompositeProvider;
@@ -245,6 +246,20 @@ public class ProjectOptionData {
 
 	public String getRegistyPathBindingProperty() {
 		return registyPathBindingProperty;
+	}
+
+	/**
+	 * @param toolTip the toolTip to set
+	 */
+	public void setToolTip(String toolTip) {
+		this.toolTip = toolTip;
+	}
+
+	/**
+	 * @return the toolTip
+	 */
+	public String getToolTip() {
+		return toolTip;
 	}
 
 }

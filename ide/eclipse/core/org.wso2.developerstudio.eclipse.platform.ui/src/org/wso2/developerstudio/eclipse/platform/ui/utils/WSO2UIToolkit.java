@@ -381,7 +381,7 @@ public class WSO2UIToolkit {
 	
 	public static IFieldControlData createText(Composite container, String label, int columns,
 	        boolean isTextReadonly, Integer verticalIndent, Integer horizontalIndent,boolean multiline
-	        ,boolean addlistner,final AbstractWSO2ProjectCreationWizard wizard) {
+	        ,boolean addlistner,final AbstractWSO2ProjectCreationWizard wizard, String toolTip) {
 		int flags = (multiline)?(SWT.BORDER|SWT.MULTI|SWT.WRAP):SWT.BORDER;
 		Label lblCaption = new Label(container, SWT.None);
 		lblCaption.setText(label);
@@ -407,7 +407,10 @@ public class WSO2UIToolkit {
 			}
 			txtValue.setLayoutData(gridData);
 		}
-        if(addlistner){
+		if (toolTip!=null) {
+			txtValue.setToolTipText(toolTip);
+		}
+		if(addlistner){
         	wizard.setMap(label.trim(), txtValue);	
         }
 		FieldControlDataImpl feildControl = createFieldControlForString(txtValue);

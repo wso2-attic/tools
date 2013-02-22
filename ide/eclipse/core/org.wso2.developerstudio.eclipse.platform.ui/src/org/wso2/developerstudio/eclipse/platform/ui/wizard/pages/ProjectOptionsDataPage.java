@@ -989,7 +989,8 @@ public class ProjectOptionsDataPage extends WizardPage implements Observer {
 		final IFieldControlData txt =
 		        WSO2UIToolkit.createText(container, optionData.getCaption(), noOfcolumns, readonly,
 		                                 optionData.getVerticalIndent(), optionData
-		                                         .getHorizontalIndent(),optionData.isTextMultiline(),optionData.isAddListnner(),(AbstractWSO2ProjectCreationWizard)getWizard());
+		                                         .getHorizontalIndent(),optionData.isTextMultiline(),optionData.isAddListnner(),
+		                                         (AbstractWSO2ProjectCreationWizard)getWizard(),optionData.getToolTip());
 		FieldExecutor fieldExecutor =
 		        new CommonFieldExecutor(optionData, getModel(), txt.getControl()) {
 			        

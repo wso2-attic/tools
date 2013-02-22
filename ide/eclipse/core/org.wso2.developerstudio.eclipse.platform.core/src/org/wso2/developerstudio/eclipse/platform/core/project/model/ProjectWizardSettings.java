@@ -306,6 +306,7 @@ public class ProjectWizardSettings extends AbstractXMLDoc {
 		Map<String, String> controlData = getControlData(dataElement);
 		boolean multiline = false;
 		boolean listner = false;
+		String textToolTip=null;
 		if (controlData.containsKey("multiline")) {
 			multiline=controlData.get("multiline").toLowerCase().equals("true");
 			
@@ -313,8 +314,14 @@ public class ProjectWizardSettings extends AbstractXMLDoc {
 		if (controlData.containsKey("listner")) {
 			listner=controlData.get("listner").toLowerCase().equals("true");			
 		}
+		if(controlData.containsKey("toolTip")){
+			textToolTip=controlData.get("toolTip");
+		}
 		projectOptionData.setAddListnner(listner);
 		projectOptionData.setTextMultiline(multiline);
+		if (textToolTip != null) {
+			projectOptionData.setToolTip(textToolTip);
+		}
 		setupCommonControlData(dataElement, projectOptionData);
 	}
 

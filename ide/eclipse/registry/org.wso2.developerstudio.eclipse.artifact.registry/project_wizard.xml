@@ -13,7 +13,7 @@
 				  title="Create A New Registry Resource"
 				  description="Give a name for the registry resource"
 				  error="Please give a name for the registry resource">
-			<data modelProperty="resource.name" type="string" fieldController="org.wso2.developerstudio.eclipse.artifact.registry.validators.RegistryArtifactFieldController">Resource Name</data>
+			<data modelProperty="resource.name" type="string" fieldController="org.wso2.developerstudio.eclipse.artifact.registry.validators.RegistryArtifactFieldController" controlData="toolTip=Resource Name withtout File Extension">Resource Name</data>
 			<data modelProperty="artifact.name" type="string" fieldController="org.wso2.developerstudio.eclipse.artifact.registry.validators.RegistryArtifactFieldController">Artifact Name</data>
 			<data modelProperty="resource.type" type="list" fieldController="org.wso2.developerstudio.eclipse.artifact.registry.validators.RegistryArtifactFieldController"  controlData="select=single;modify=non-editable;class=org.wso2.developerstudio.eclipse.artifact.registry.validators.RegistryArtifactTemplateList">Template</data>
 			<data modelProperty="reg.partition" type="list" fieldController="org.wso2.developerstudio.eclipse.artifact.registry.validators.RegistryArtifactFieldController"  controlData="select=single;modify=non-editable;class=org.wso2.developerstudio.eclipse.artifact.registry.validators.RegistryPartitionList">Registry</data>
