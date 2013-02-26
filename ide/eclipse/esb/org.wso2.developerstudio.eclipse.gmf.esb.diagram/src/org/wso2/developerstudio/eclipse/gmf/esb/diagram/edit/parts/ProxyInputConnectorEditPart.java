@@ -311,6 +311,11 @@ public class ProxyInputConnectorEditPart extends AbstractBaseFigureInputConnecto
 		}
 
 	}
+	
+	@Override
+	public boolean isSelectable() {
+		return false;
+	}
 
 	/**
 	 * @generated

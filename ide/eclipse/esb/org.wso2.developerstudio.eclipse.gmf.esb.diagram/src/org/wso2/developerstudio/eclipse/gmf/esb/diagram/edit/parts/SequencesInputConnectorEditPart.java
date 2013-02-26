@@ -380,6 +380,11 @@ public class SequencesInputConnectorEditPart extends AbstractInputConnectorEditP
 			this.add(imageRectangle11, constraintImageRectangle11);
 		}
 	}
+	
+	@Override
+	public boolean isSelectable() {
+		return false;
+	}
 
 	/**
 	 * @generated
