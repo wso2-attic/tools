@@ -18,10 +18,11 @@
 	<projectOptions title="API Artifact Creation Options"
 		description="Select how you would like to create your API artifact"
 		error="Please select a method to create the proxy service">
-		<option id="default" default="true">Create A New API Artifact</option>
+		<option id="create.api" default="true">Create A New API Artifact</option>
+		<option id="import.api">Import API Artifact</option>
 	</projectOptions>
 	<projectOptionSettings>
-		<settings optionId="default" title="Create A New API Artifact"
+		<settings optionId="create.api" title="Create A New API Artifact"
 			description="Give a name and a context for the API" error="Please give a name and a context for the API">
 			<data modelProperty="api.name" type="string"
 				fieldController="org.wso2.developerstudio.eclipse.artifact.synapse.api.validator.ProjectFieldController">Name*</data>
@@ -40,7 +41,18 @@
 				fieldController="org.wso2.developerstudio.eclipse.artifact.synapse.api.validator.ProjectFieldController"
 				group="location"
 				controlData="align=right">&lt;a&gt;Create a new ESB project...&lt;/a&gt;</data>
-
+		</settings>
+		<settings optionId="import.api" 
+				  title="Import API" 
+				  description="Browse the location of a configuration file with API defined" 
+				  error="Browse and select a API configuration file">
+			<data modelProperty="import.file" type="file" filter="*.xml" fieldController="org.wso2.developerstudio.eclipse.artifact.synapse.api.validator.ProjectFieldController">API Configuration File</data>
+			<data modelProperty="save.location" type="workspacefolder" fieldController="org.wso2.developerstudio.eclipse.artifact.synapse.api.validator.ProjectFieldController" 
+			controlData="filterClass=org.wso2.developerstudio.eclipse.artifact.synapse.api.validator.ESBProjectFilter" >Save API in: </data>
+			<data modelProperty="create.esb.prj" type="link" fieldController="org.wso2.developerstudio.eclipse.artifact.synapse.api.validator.ProjectFieldController" 
+			controlData="align=right" >&lt;a&gt;Create new Project...&lt;/a&gt;</data>
+			<data modelProperty="available.apis" type="list" fieldController="org.wso2.developerstudio.eclipse.artifact.synapse.api.validator.ProjectFieldController" 
+			controlData="select=multiple;selectAllbtn=true;modify=non-editable;class=org.wso2.developerstudio.eclipse.artifact.synapse.api.validator.APIsList">Available APIs</data>
 		</settings>
 	</projectOptionSettings>
 </wizard>

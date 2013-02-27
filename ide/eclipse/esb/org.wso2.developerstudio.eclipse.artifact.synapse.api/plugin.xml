@@ -2,7 +2,7 @@
 <?eclipse version="3.4"?>
 <plugin>
  <extension point="org.eclipse.ui.newWizards">
-		<wizard name="Synapse API Artifact" 
+		<wizard name="REST API" 
 			category="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.eclipse.message.mediation/org.wso2.developerstudio.eclipse.message.mediation.features"
 			class="org.wso2.developerstudio.eclipse.artifact.synapse.api.ui.wizard.SynapseAPICreationWizard"
 			wizardManifest="project_wizard.xml"

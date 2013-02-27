@@ -17,7 +17,12 @@
 package org.wso2.developerstudio.eclipse.artifact.synapse.api.ui.wizard;
 
 import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Pattern;
+
+import javax.xml.namespace.QName;
 
 import org.wso2.developerstudio.eclipse.artifact.synapse.api.Activator;
 import org.wso2.developerstudio.eclipse.artifact.synapse.api.model.APIArtifactModel;
@@ -32,6 +37,7 @@ import org.wso2.developerstudio.eclipse.platform.ui.editor.Openable;
 import org.wso2.developerstudio.eclipse.platform.ui.startup.ESBGraphicalEditor;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
+import org.apache.axiom.om.OMElement;
 import org.apache.maven.model.Plugin;
 import org.apache.maven.model.PluginExecution;
 import org.apache.maven.model.Repository;
@@ -46,6 +52,7 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.jface.dialogs.MessageDialog;
 
 
 /**
@@ -59,6 +66,7 @@ public class SynapseAPICreationWizard extends AbstractWSO2ProjectCreationWizard 
 	private IFile artifactFile;
 	private ESBProjectArtifact esbProjectArtifact;
 	private IProject esbProject;
+	private List<File> fileLst = new ArrayList<File>();
 	
 	public SynapseAPICreationWizard() {
 		artifactModel = new APIArtifactModel();
@@ -75,38 +83,43 @@ public class SynapseAPICreationWizard extends AbstractWSO2ProjectCreationWizard 
 	@Override
 	public boolean performFinish() {
 		try {
+			boolean isNewArtifact =true;
 			esbProject = artifactModel.getSaveLocation().getProject();
 			IContainer location = esbProject.getFolder("src/main/synapse-config/api");
-
 			File pomfile = esbProject.getFile("pom.xml").getLocation().toFile();
 			if (!pomfile.exists()) {
 				createPOM(pomfile);
 			}
-			
-			updatePom();
-
-			esbProject.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
-
-			String groupId = getMavenGroupId(pomfile) + ".api";
-
-			// Adding the metadata about the API to the metadata store.
 			esbProjectArtifact = new ESBProjectArtifact();
 			esbProjectArtifact.fromFile(esbProject.getFile("artifact.xml").getLocation().toFile());
-
+			updatePom();
+			esbProject.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
+			String groupId = getMavenGroupId(pomfile) + ".api";
+			if(getModel().getSelectedOption().equals("import.api")){
+				IFile api = location.getFile(new Path(getModel().getImportFile().getName()));
+				if(api.exists()){
+					if(!MessageDialog.openQuestion(getShell(), "WARNING", "Do you like to override exsiting project in the workspace")){
+						return false;	
+					}
+					isNewArtifact = false;
+				} 	
+				copyImportFile(location,isNewArtifact,groupId);
+			}else{			
 			artifactFile = location.getFile(new Path(artifactModel.getName() + ".xml"));
 			File destFile = artifactFile.getLocation().toFile();
 			FileUtils.createFile(destFile, getTemplateContent());
-
+			fileLst.add(destFile);
 			String relativePath = FileUtils.getRelativePath(esbProject.getLocation().toFile(),
 					new File(location.getLocation().toFile(), artifactModel.getName() + ".xml"))
 					.replaceAll(Pattern.quote(File.separator), "/");
 			esbProjectArtifact.addESBArtifact(createArtifact(artifactModel.getName(), groupId,
-					"1.0.0", relativePath));
-
+					"1.0.0", relativePath));	
 			esbProjectArtifact.toFile();
+			}
 			esbProject.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
-
-			openEditor(destFile);
+             if(fileLst.size()>0){
+            	 openEditor(fileLst.get(0));
+             }
 
 		} catch (CoreException e) {
 			log.error("CoreException has occurred", e);
@@ -158,6 +171,46 @@ public class SynapseAPICreationWizard extends AbstractWSO2ProjectCreationWizard 
 	}
 	
 	
+	public void copyImportFile(IContainer importLocation,boolean isNewAritfact, String groupId) throws IOException {
+		File importFile = getModel().getImportFile();
+		File destFile = null;
+		List<OMElement> selectedAPIsList = ((APIArtifactModel)getModel()).getSelectedAPIsList();
+		if(selectedAPIsList != null && selectedAPIsList.size() >0 ){
+			for (OMElement element : selectedAPIsList) {
+				String name = element.getAttributeValue(new QName("name"));
+				destFile = new File(importLocation.getLocation().toFile(), name + ".xml");
+				FileUtils.createFile(destFile, element.toString());
+				fileLst.add(destFile);
+				if(isNewAritfact){
+				ESBArtifact artifact=new ESBArtifact();
+				artifact.setName(name);
+				artifact.setVersion("1.0.0");
+				artifact.setType("synapse/api");
+				artifact.setServerRole("EnterpriseServiceBus");
+				artifact.setGroupId(groupId);
+				artifact.setFile(FileUtils.getRelativePath(importLocation.getProject().getLocation().toFile(), new File(importLocation.getLocation().toFile(),name+".xml")));
+				esbProjectArtifact.addESBArtifact(artifact);
+				}
+			} 
+			
+		}else{
+			destFile = new File(importLocation.getLocation().toFile(), importFile.getName());
+			FileUtils.copy(importFile, destFile);
+			fileLst.add(destFile);
+			String name = importFile.getName().replaceAll(".xml$","");
+			if(isNewAritfact){
+			ESBArtifact artifact=new ESBArtifact();
+			artifact.setName(name);
+			artifact.setVersion("1.0.0");
+			artifact.setType("synapse/api");
+			artifact.setServerRole("EnterpriseServiceBus");
+			artifact.setGroupId(groupId);
+			artifact.setFile(FileUtils.getRelativePath(importLocation.getProject().getLocation().toFile(), new File(importLocation.getLocation().toFile(),name+".xml")));
+			esbProjectArtifact.addESBArtifact(artifact);
+			}
+		}
+	}
+
 	private ESBArtifact createArtifact(String name,String groupId,String version,String path){
 		ESBArtifact artifact=new ESBArtifact();
 		artifact.setName(name);
