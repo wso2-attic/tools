@@ -17,10 +17,12 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 
 import java.util.Iterator;
+import java.util.List;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
 import org.eclipse.core.runtime.IAdaptable;
+import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.diagram.ui.commands.CreateViewAndOptionallyElementCommand;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
@@ -29,8 +31,8 @@ import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
 import org.eclipse.gmf.runtime.diagram.ui.tools.CreationTool;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.notation.Node;
-import org.wso2.developerstudio.eclipse.gmf.esb.MediatorFlow;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractConnectorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorFlowCompartmentEditPart;
 
 public class DeserializerUtils {
 
@@ -88,6 +90,36 @@ public class DeserializerUtils {
 			editPart.getDiagramEditDomain().getDiagramCommandStack()
 				.execute(cc);
 			return ((Node)((IAdaptable)createCmd.getResult()).getAdapter(EObject.class)).getElement();
+		}
+		return null;
+	}
+	
+	public static Dimension getPreferredSize(IGraphicalEditPart editPart){
+		AbstractMediatorFlowCompartmentEditPart compartment = getMediatorFlowCompartment(editPart);
+		if(compartment!=null){
+			return compartment.getContentPane().getBounds().getSize().getCopy();
+		}
+		return editPart.getFigure().getPreferredSize();
+	}
+
+	/**
+	 * @param editPart
+	 */
+	public static AbstractMediatorFlowCompartmentEditPart getMediatorFlowCompartment(
+			IGraphicalEditPart editPart) {
+		List<?> children = editPart.getChildren();
+		for (Iterator<?> i = children.iterator(); i.hasNext();) {
+			Object child = i.next();
+			if (!(child instanceof AbstractConnectorEditPart)) {
+				if (child instanceof AbstractMediatorFlowCompartmentEditPart) {
+					return (AbstractMediatorFlowCompartmentEditPart) child;
+				} else if (child instanceof IGraphicalEditPart) {
+					AbstractMediatorFlowCompartmentEditPart compartment = getMediatorFlowCompartment((IGraphicalEditPart) child);
+					if (compartment != null) {
+						return compartment;
+					}
+				}
+			}
 		}
 		return null;
 	}

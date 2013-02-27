@@ -19,9 +19,11 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
@@ -64,7 +66,6 @@ import org.wso2.developerstudio.eclipse.gmf.esb.ArtifactType;
 import org.apache.synapse.config.xml.ProxyServiceFactory;
 import org.apache.synapse.config.xml.rest.APIFactory;
 import org.apache.synapse.config.xml.SequenceMediatorFactory;
-import org.apache.synapse.config.xml.EntryFactory;
 import org.apache.synapse.config.xml.TemplateMediatorFactory;
 import org.apache.synapse.config.xml.endpoints.EndpointFactory;
 import org.apache.synapse.config.xml.endpoints.TemplateFactory;
@@ -89,6 +90,11 @@ public class Deserializer {
 	private Deserializer(){
 		
 	}
+	
+	/**
+	 * 
+	 */
+	private List<IGraphicalEditPart> mediatorFlowContainerList;
 	
 	/**
 	 * @return singleton instance.
@@ -155,6 +161,7 @@ public class Deserializer {
 								.execute(new ICommandProxy(sbc));
 						locationY += rect.height; 
 						locationY += 25;
+						getMediatorFlowContainerList().add(graphicalNode);
 					}
 				} else{
 					log.warn("Ignoring null output from deserializer for " + artifact.getValue().getClass());
@@ -290,6 +297,14 @@ public class Deserializer {
 		}
 	
 		return artifacts;
+	}
+
+
+	public List<IGraphicalEditPart> getMediatorFlowContainerList() {
+		if (mediatorFlowContainerList == null) {
+			mediatorFlowContainerList = new ArrayList<IGraphicalEditPart>();
+		}
+		return mediatorFlowContainerList;
 	}
 
 }
