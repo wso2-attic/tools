@@ -17,16 +17,31 @@
 package org.wso2.developerstudio.eclipse.artifact.task.model;
 
 import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.xml.stream.XMLStreamException;
+
+import org.apache.axiom.om.OMElement;
+import org.apache.axiom.om.OMException;
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 
 import static org.wso2.developerstudio.eclipse.artifact.task.util.ArtifactConstants.*;
 import static org.wso2.developerstudio.eclipse.platform.core.utils.Constants.ESB_PROJECT_NATURE;
+
+import org.wso2.developerstudio.eclipse.artifact.task.Activator;
 import org.wso2.developerstudio.eclipse.artifact.task.validator.TriggerTypeList.TriggerType;
+import org.wso2.developerstudio.eclipse.esb.core.utils.SynapseEntryType;
+import org.wso2.developerstudio.eclipse.esb.core.utils.SynapseFileUtils;
 import org.wso2.developerstudio.eclipse.esb.project.utils.ESBProjectUtils;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.platform.core.exception.ObserverFailedException;
 import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectDataModel;
 
@@ -34,7 +49,7 @@ import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectDataM
  * The model class for task artifact wizard specific objects.
  */
 public class TaskModel  extends ProjectDataModel {
-	
+	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	private String name;
 	private String group = "synapse.simple.quartz";
 	private String taskImplementation = "org.apache.synapse.startup.tasks.MessageInjector";
@@ -44,6 +59,9 @@ public class TaskModel  extends ProjectDataModel {
 	private String cron;
 	private String pinnedServers;
 	private IContainer saveLocation;
+	private List<OMElement> availableTaskslist;
+	private List<OMElement> selectedTasksList;
+
 	
 	public void setName(String name) {
 		this.name = name;
@@ -121,7 +139,11 @@ public class TaskModel  extends ProjectDataModel {
 			value = getPinnedServers();
 		} else if (key.equals(Task_Save_location)) {
 			value = getSaveLocation();
-		} 
+		} else if(key.equals("available.tasks")){
+			if(selectedTasksList!=null){
+			value = selectedTasksList.toArray();
+				}
+		}
 		return value;
 	}
 	
@@ -130,7 +152,40 @@ public class TaskModel  extends ProjectDataModel {
 		boolean result = super.setModelPropertyValue(key, data);
 		if (key.equals(Task_Trigger_Type)) {
 			setTriggerType((TriggerType) data);
-		} else if(key.equals(Task_Name)){
+		}if (key.equals("import.file")) {
+			if (getImportFile() != null && !getImportFile().toString().equals("")) {
+				try {
+					List<OMElement> availableAPIs = new ArrayList<OMElement>();
+					if (SynapseFileUtils.isSynapseConfGiven(getImportFile(),
+					                                        SynapseEntryType.TASK)) {
+						availableAPIs =
+						        SynapseFileUtils.synapseFileProcessing(getImportFile().getPath(),
+						                                               SynapseEntryType.TASK);
+						setAvailableTaskslist(availableAPIs);
+					} else {
+						setAvailableTaskslist(new ArrayList<OMElement>());
+					}
+					result = false;
+				} catch (OMException e) {
+					log.error("Error reading object model", e);
+				} catch (XMLStreamException e) {
+					log.error("XML stream error", e);
+				} catch (IOException e) {
+					log.error("I/O error has occurred", e);
+				} catch (Exception e) {
+					log.error("An unexpected error has occurred", e);
+				}
+			}
+		}else if(key.equals("available.tasks")){
+			Object[] selectedSequencess = (Object[])data;
+			for (Object object : selectedSequencess) {
+				if(object instanceof OMElement){
+					if(!selectedTasksList.contains((OMElement)object)){
+						selectedTasksList.add((OMElement)object);
+					}
+				}
+			}
+		}else if(key.equals(Task_Name)){
 			setName(data.toString());
 		} else if(key.equals(Task_Group)){
 			setGroup(data.toString());
@@ -173,6 +228,55 @@ public class TaskModel  extends ProjectDataModel {
 			        getContainer(absolutionPath, ESB_PROJECT_NATURE);
 			setSaveLocation(newSaveLocation);
 		}
+	}
+	public static IContainer getContainer(File absolutionPath, String projectNature) {
+		IProject[] projects = ResourcesPlugin.getWorkspace().getRoot().getProjects();
+		int length = 0;
+		IProject currentSelection = null;
+		for (IProject project : projects) {
+			try {
+				if (project.isOpen() && project.hasNature(projectNature)) {
+					File projectLocation = project.getLocation().toFile();
+					int projectLocationLength = projectLocation.toString().length();
+					if (projectLocationLength > length &&
+					    projectLocationLength <= absolutionPath.toString().length()) {
+						if (absolutionPath.toString().startsWith(projectLocation.toString())) {
+							length = projectLocationLength;
+							currentSelection = project;
+						}
+					}
+				}
+			} catch (CoreException e) {
+				log.error("An unexpected error has occurred", e);
+			}
+		}
+		IContainer newTasksSaveLocation = null;
+		if (currentSelection != null) {
+			String path =
+			        absolutionPath.toString().substring(
+			                                            currentSelection.getLocation().toFile()
+			                                                    .toString().length());
+
+			if (path.equals("")) {
+				newTasksSaveLocation = currentSelection;
+			} else {
+				newTasksSaveLocation = currentSelection.getFolder(path);
+			}
+		}
+		return newTasksSaveLocation;
+	}
+
+	public void setAvailableTaskslist(List<OMElement> availableTaskslist) {
+		this.availableTaskslist = availableTaskslist;
+	}
+	public List<OMElement> getAvailableTaskslist() {
+		return availableTaskslist;
+	}
+	public void setSelectedTasksList(List<OMElement> selectedTasksList) {
+		this.selectedTasksList = selectedTasksList;
+	}
+	public List<OMElement> getSelectedTasksList() {
+		return selectedTasksList;
 	}
 
 }

@@ -18,6 +18,7 @@ package org.wso2.developerstudio.eclipse.artifact.task.validator;
 
 import java.util.List;
 
+import org.apache.axiom.om.OMElement;
 import org.eclipse.core.resources.IResource;
 import org.wso2.developerstudio.eclipse.artifact.task.model.TaskModel;
 import org.wso2.developerstudio.eclipse.artifact.task.validator.TriggerTypeList.TriggerType;
@@ -101,7 +102,16 @@ public class ProjectFieldController extends AbstractFieldController {
 			IResource resource = (IResource) value;
 			if (resource == null || !resource.exists())
 				throw new FieldValidationException(Err_Msg_Empty_Path);
-		}
+		}else if (modelProperty.equals("import.file")) {
+			 CommonFieldValidator.validateImportFile(value);
+		}  else if(modelProperty.equals("available.tasks")){
+			TaskModel apiModel = (TaskModel) model; 
+			if(null!=apiModel.getAvailableTaskslist() && apiModel.getAvailableTaskslist().size()>0){
+				if(null==apiModel.getSelectedTasksList() || apiModel.getSelectedTasksList().size() <=0){
+					throw new FieldValidationException("Please select at least one artifact");
+			 }
+		  }
+	  }
 	}
 
 	@Override
@@ -113,6 +123,8 @@ public class ProjectFieldController extends AbstractFieldController {
 			updateFields.add(Task_Cron);
 		} else if (modelProperty.equals(Task_Create_Project)) {
 			updateFields.add(Task_Save_location);
+		}else if (modelProperty.equals("import.file")) {
+			updateFields.add("available.tasks"); 
 		}
 		return updateFields;
 	}
@@ -129,6 +141,10 @@ public class ProjectFieldController extends AbstractFieldController {
 		}
 		if (modelProperty.equals(Task_Cron)) {
 			visibleField = !triggerSimple;
+		}
+		if (modelProperty.equals("available.tasks")) {
+			List<OMElement> availableTasksList = ((TaskModel) model).getAvailableTaskslist();
+			visibleField = (availableTasksList != null && availableTasksList.size() > 0);
 		}
 		return visibleField;
 	}
