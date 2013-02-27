@@ -57,7 +57,7 @@ public class JaxrsCreationWizard  extends AbstractWSO2ProjectCreationWizard{
 		setProjectModel(new JaxrsProjectModel());
 		setModel(getProjectModel());
 		setWindowTitle("Create New JAX RESTful Service");
-		setDefaultPageImageDescriptor(Activator.getImageDescriptor("JAX-RS-wizard.png"));
+		setDefaultPageImageDescriptor(Activator.getImageDescriptor("icons/JAX-RS-wizard.png"));
 	}
 	
 	
