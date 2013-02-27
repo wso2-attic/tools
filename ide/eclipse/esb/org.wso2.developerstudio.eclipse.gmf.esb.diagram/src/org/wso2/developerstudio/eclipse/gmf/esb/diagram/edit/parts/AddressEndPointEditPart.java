@@ -366,7 +366,7 @@ public class AddressEndPointEditPart extends AbstractEndpoint {
 	/**
 	 * @generated NOT
 	 */
-	public class AddressEndPointFigure extends EsbGraphicalShapeWithLabel {
+	public class AddressEndPointFigure extends EsbGraphicalShape {
 
 		/**
 		 * @generated
@@ -394,7 +394,7 @@ public class AddressEndPointEditPart extends AbstractEndpoint {
 			fFigureAddressEndPointNamePropertyLabel.setFont(new Font(null, new FontData("Courier",
 					8, SWT.BOLD)));
 
-			this.getPropertyValueRectangle1().add(fFigureAddressEndPointNamePropertyLabel);
+		//	this.getPropertyValueRectangle1().add(fFigureAddressEndPointNamePropertyLabel);
 
 		}
 
