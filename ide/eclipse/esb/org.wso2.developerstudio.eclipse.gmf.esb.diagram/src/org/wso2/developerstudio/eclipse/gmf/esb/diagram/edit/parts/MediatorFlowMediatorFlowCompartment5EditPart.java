@@ -7,6 +7,9 @@ import org.eclipse.draw2d.Figure;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.PositionConstants;
+import org.eclipse.draw2d.geometry.Dimension;
+import org.eclipse.draw2d.geometry.Rectangle;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.command.DeleteCommand;
@@ -19,8 +22,10 @@ import org.eclipse.gef.internal.ui.palette.editparts.ToolEntryEditPart;
 import org.eclipse.gmf.runtime.common.core.command.ICommand;
 import org.eclipse.gmf.runtime.diagram.ui.commands.DeferredCreateConnectionViewAndElementCommand;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
+import org.eclipse.gmf.runtime.diagram.ui.commands.SetBoundsCommand;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderItemEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeCompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
@@ -507,6 +512,27 @@ public class MediatorFlowMediatorFlowCompartment5EditPart extends
 
 	public void setSourceEditPart(ShapeNodeEditPart sourceEditPart) {
 		this.sourceEditPart = sourceEditPart;
+	}
+	
+	@Override
+	protected void handleNotificationEvent(Notification notification) {
+		if (notification.getEventType() == Notification.ADD
+				|| notification.getEventType() == Notification.ADD_MANY
+				|| notification.getEventType() == Notification.REMOVE
+				|| notification.getEventType() == Notification.REMOVE_MANY) {
+			Rectangle bounds = getContentPane().getBounds().getCopy();
+			IGraphicalEditPart owner = (IGraphicalEditPart) ((IGraphicalEditPart) getParent())
+					.getParent();
+			Dimension preferredSize = owner.getFigure().getPreferredSize();
+			if (preferredSize.width < bounds.width || preferredSize.height < bounds.height) {
+				SetBoundsCommand sbc = new SetBoundsCommand(owner.getEditingDomain(),
+						"change location", new EObjectAdapter((View) owner.getModel()),
+						new Rectangle(-1, -1, bounds.width + 75, bounds.height + 50));
+				owner.getDiagramEditDomain().getDiagramCommandStack()
+						.execute(new ICommandProxy(sbc));
+			}
+		}
+		super.handleNotificationEvent(notification);
 	}
 
 }
