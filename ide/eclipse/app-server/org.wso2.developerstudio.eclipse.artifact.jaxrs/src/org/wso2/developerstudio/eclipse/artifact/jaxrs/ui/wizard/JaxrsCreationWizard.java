@@ -19,13 +19,18 @@ package org.wso2.developerstudio.eclipse.artifact.jaxrs.ui.wizard;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.FileLocator;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.core.runtime.Path;
+import org.osgi.framework.Bundle;
 import org.wso2.developerstudio.eclipse.artifact.jaxrs.model.JaxrsProjectModel;
 import org.wso2.developerstudio.eclipse.artifact.jaxrs.Activator;
 import org.wso2.developerstudio.eclipse.artifact.jaxrs.utils.JaxUtil;
@@ -33,6 +38,7 @@ import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
+import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 import org.wso2.developerstudio.eclipse.utils.jdt.JavaUtils;
 import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 import org.eclipse.jdt.core.IJavaProject;
@@ -43,6 +49,7 @@ import org.eclipse.ui.IWorkbench;
 
 public class JaxrsCreationWizard  extends AbstractWSO2ProjectCreationWizard{
 	private static final String JAXRS_PROJECT_NATURE = "org.wso2.developerstudio.eclipse.jaxrs.project.nature";
+	private static final String CXF_CLASSLOADING_DESCRIPTOR = "webapp-classloading.xml";
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	private JaxrsProjectModel model;
 	IProject project;
@@ -79,6 +86,14 @@ public class JaxrsCreationWizard  extends AbstractWSO2ProjectCreationWizard{
 			ProjectUtils.createFolder(webappFolder);
 			ProjectUtils.createFolder(webINF);
 			ProjectUtils.createFolder(resourceFolder);
+			IFolder metaINF = ProjectUtils.getWorkspaceFolder(project, "src", "main", "webapp","META-INF");
+			Bundle bundle = Activator.getDefault().getBundle();
+			IPath resourcePath=new Path("src"+File.separator+"main"+File.separator+"resources"+File.separator+CXF_CLASSLOADING_DESCRIPTOR);
+			URL[] urls = FileLocator.findEntries(bundle, resourcePath);
+			if(urls!=null && urls.length>0){
+				File classLoadingFile = new File(FileLocator.toFileURL(urls[0]).getFile());
+				FileUtils.copy(classLoadingFile, new File(metaINF.getLocation().toFile(),CXF_CLASSLOADING_DESCRIPTOR));
+			}
 			IFile webXML = webINF.getFile("web.xml");
 			IFile cxfServletXML = webINF.getFile("cxf-servlet.xml");
 			webXML.create(new ByteArrayInputStream(JaxUtil.getCXFWebConfig().getBytes()), true, null);

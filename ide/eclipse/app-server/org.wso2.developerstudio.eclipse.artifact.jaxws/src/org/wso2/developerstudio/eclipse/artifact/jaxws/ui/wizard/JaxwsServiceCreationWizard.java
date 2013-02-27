@@ -22,6 +22,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.reflect.InvocationTargetException;
+import java.net.URL;
 import java.util.Map;
 
 import org.eclipse.core.resources.IFile;
@@ -29,8 +30,12 @@ import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.FileLocator;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.core.runtime.Path;
+import org.osgi.framework.Bundle;
 import org.wso2.developerstudio.eclipse.artifact.jaxws.Activator;
 import org.wso2.developerstudio.eclipse.artifact.jaxws.model.JaxwsModel;
 import org.wso2.developerstudio.eclipse.artifact.jaxws.utils.JaxUtil;
@@ -39,6 +44,7 @@ import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
+import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 import org.wso2.developerstudio.eclipse.utils.jdt.JavaUtils;
 import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 import org.eclipse.jdt.core.IJavaProject;
@@ -53,6 +59,7 @@ import org.eclipse.jdt.launching.JavaRuntime;
 
 public class JaxwsServiceCreationWizard  extends AbstractWSO2ProjectCreationWizard{
 	private static final String JAXWS_PROJECT_NATURE = "org.wso2.developerstudio.eclipse.jaxws.project.nature";
+	private static final String CXF_CLASSLOADING_DESCRIPTOR = "webapp-classloading.xml";
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	private JaxwsModel jaxwsModel;
 	IProject project;
@@ -84,6 +91,14 @@ public class JaxwsServiceCreationWizard  extends AbstractWSO2ProjectCreationWiza
 			resourceFolder = ProjectUtils.getWorkspaceFolder(project, "src", "main", "resources");
 			javaProject = JavaCore.create(project);
 			root = javaProject.getPackageFragmentRoot(sourceFolder);
+			IFolder metaINF = ProjectUtils.getWorkspaceFolder(project, "src", "main", "webapp","META-INF");
+			Bundle bundle = Activator.getDefault().getBundle();
+			IPath resourcePath=new Path("src"+File.separator+"main"+File.separator+"resources"+File.separator+CXF_CLASSLOADING_DESCRIPTOR);
+			URL[] urls = FileLocator.findEntries(bundle, resourcePath);
+			if(urls!=null && urls.length>0){
+				File classLoadingFile = new File(FileLocator.toFileURL(urls[0]).getFile());
+				FileUtils.copy(classLoadingFile, new File(metaINF.getLocation().toFile(),CXF_CLASSLOADING_DESCRIPTOR));
+			}
 			
 			JavaUtils.addJavaSupportAndSourceFolder(project, sourceFolder);
 			ProjectUtils.createFolder(webappFolder);

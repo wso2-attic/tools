@@ -29,5 +29,6 @@ Import-Package: org.apache.axiom.om,
  org.wso2.developerstudio.eclipse.platform.core.project.model,
  org.wso2.developerstudio.eclipse.platform.ui.validator,
  org.wso2.developerstudio.eclipse.platform.ui.wizard,
+ org.wso2.developerstudio.eclipse.utils.file,
  org.wso2.developerstudio.eclipse.utils.jdt,
  org.wso2.developerstudio.eclipse.utils.project
