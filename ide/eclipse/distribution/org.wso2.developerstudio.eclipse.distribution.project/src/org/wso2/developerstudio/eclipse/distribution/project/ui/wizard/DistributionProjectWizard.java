@@ -26,6 +26,7 @@ import org.apache.maven.model.Plugin;
 import org.apache.maven.model.PluginExecution;
 import org.apache.maven.model.Repository;
 import org.apache.maven.project.MavenProject;
+import org.codehaus.plexus.util.xml.Xpp3Dom;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
@@ -93,7 +94,24 @@ public class DistributionProjectWizard extends
 			pluginExecution.setId("car");
 			plugin.addExecution(pluginExecution);
 			
-			MavenUtils.createPluginEntry(mavenProject, "org.wso2.maven", "maven-car-deploy-plugin", MavenConstants.MAVEN_CAR_DEPLOY_VERSION, true);
+			Plugin carDeployPlugin = MavenUtils.createPluginEntry(mavenProject, "org.wso2.maven", "maven-car-deploy-plugin", MavenConstants.MAVEN_CAR_DEPLOY_VERSION, true);
+			Xpp3Dom carDeployConfElement = MavenUtils.createMainConfigurationNode(carDeployPlugin);
+			Xpp3Dom serversElement = MavenUtils.createXpp3Node(carDeployConfElement, "carbonServers");
+			Xpp3Dom carbonServer = MavenUtils.createXpp3Node(serversElement, "CarbonServer");
+			Xpp3Dom trustStore = MavenUtils.createXpp3Node(carbonServer, "trustStorePath");
+			trustStore.setValue("${basedir}/src/main/resources/security/wso2carbon.jks");
+			Xpp3Dom trustStorePW = MavenUtils.createXpp3Node(carbonServer, "trustStorePassword");
+			trustStorePW.setValue("wso2carbon");
+			Xpp3Dom trustStoreType = MavenUtils.createXpp3Node(carbonServer, "trustStoreType");
+			trustStoreType.setValue("JKS");
+			Xpp3Dom serverUrl = MavenUtils.createXpp3Node(carbonServer, "serverUrl");
+			serverUrl.setValue("https://localhost:9443");
+			Xpp3Dom serverUserName = MavenUtils.createXpp3Node(carbonServer, "userName");
+			serverUserName.setValue("admin");
+			Xpp3Dom serverPW = MavenUtils.createXpp3Node(carbonServer, "password");
+			serverPW.setValue("admin");
+			Xpp3Dom serverOperation = MavenUtils.createXpp3Node(carbonServer, "operation");
+			serverOperation.setValue("deploy");
 
 			Repository repo = new Repository();
 			repo.setUrl("http://dist.wso2.org/maven2");
