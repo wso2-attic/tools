@@ -290,10 +290,6 @@
                          dir="target/eclipse/configuration/org.eclipse.equinox.simpleconfigurator">
                                                         <include name="**/bundles.info"/>
                                                 </replace>
-						<replace token="org.eclipse.osgi,3.6.2.R36x_v20110210,plugins/org.eclipse.osgi_3.6.2.R36x_v20110210.jar,-1,false" value="org.eclipse.osgi,3.6.2.R36x_v20110210,plugins/org.eclipse.osgi_3.6.2.R36x_v20110210.jar,-1,true"
-                         dir="target/eclipse/configuration/org.eclipse.equinox.simpleconfigurator">
-                                                        <include name="**/bundles.info"/>
-                                                </replace>
             				</tasks>
         			</configuration>
         			<goals>
