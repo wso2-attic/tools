@@ -135,7 +135,7 @@ public class JaxrsClassWizard extends Wizard implements INewWizard {
 	      this.workbench = workbench;
 	      this.selection = selection;
 	      setSelectedProject(getProject(selection));
-	      setWindowTitle("New JAX-WS class");
+	      setWindowTitle("New JAX-RS class");
 	      setDefaultPageImageDescriptor(Activator.getImageDescriptor("icons/JAX-WS-wizard.png"));
 	}
 	
