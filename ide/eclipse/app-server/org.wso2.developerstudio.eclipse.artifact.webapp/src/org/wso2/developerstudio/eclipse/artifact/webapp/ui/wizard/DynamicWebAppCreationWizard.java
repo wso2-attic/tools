@@ -18,6 +18,7 @@ package org.wso2.developerstudio.eclipse.artifact.webapp.ui.wizard;
 
 import java.io.File;
 
+import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.NullProgressMonitor;
@@ -27,60 +28,106 @@ import org.eclipse.jst.servlet.ui.project.facet.WebProjectWizard;
 import org.eclipse.wst.common.componentcore.datamodel.properties.IFacetProjectCreationDataModelProperties;
 import org.eclipse.wst.common.frameworks.datamodel.IDataModel;
 import org.eclipse.wst.common.project.facet.core.IFacetedProject;
+import org.eclipse.wst.common.project.facet.core.events.IFacetedProjectEvent;
+import org.eclipse.wst.common.project.facet.core.events.IFacetedProjectListener;
 import org.wso2.developerstudio.eclipse.artifact.webapp.Activator;
+import org.wso2.developerstudio.eclipse.artifact.webapp.model.WebAppModel;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.platform.core.exception.ObserverFailedException;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.pages.MavenDetailsPage;
 import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
+import org.wso2.developerstudio.eclipse.utils.wst.WebUtils;
 
 
 public class DynamicWebAppCreationWizard extends WebProjectWizard {
 
 	private IWizardPage[] endingPages;
+	private IWizardPage[] beginPages;
+	private IWizardPage[] importPages;
 	private WebAppCreationWizard webApp;
 	MavenDetailsPage endPage;
+	WebAppFirstPage firstPage;
+	WebAppImportPage importPage;
+	WebAppModel appModel;
+	IWizardPage newWebAppPage;
+	IWizardPage webModulePage;
 	boolean canfinish;
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	 
 	public DynamicWebAppCreationWizard() {
 		 setWindowTitle("Web Application project");
- 
 		 webApp = new WebAppCreationWizard();
 		 endingPages = new IWizardPage[1];
+		 beginPages = new IWizardPage[1];
+		 importPages = new IWizardPage[1];
+		 appModel =(WebAppModel)webApp.getModel();
+		 firstPage = new WebAppFirstPage("First page of webApp", appModel,this);
 		 endPage = new MavenDetailsPage(webApp.getModel());
+		 importPage = new WebAppImportPage(appModel); 
 	}  
  
 	@Override
 	public void addPages() {
+		beginPages[0]=firstPage;
+		addPage(beginPages[0]);
 		super.addPages();
+		if (appModel!=null && !appModel.isNewWebApp()) {
+			importPages[0]=importPage;
+			addPage(importPages[0]);  
+		} 
 		endingPages[0]=endPage;
 		addPage(endingPages[0]);
+		getFacetedProjectWorkingCopy().addListener
+        (
+            new IFacetedProjectListener()
+            {
+                public void handleEvent( final IFacetedProjectEvent event )
+                {
+                    facetSelectionChangedEvent();
+                }
+            },
+            IFacetedProjectEvent.Type.PROJECT_FACETS_CHANGED
+        );
 	}
 	
-	
-	 @Override
+	@Override
 	public IWizardPage[] getPages() {
-			 final IWizardPage[] base = super.getPages();
-			 if(base.length>1){
-				 int lenth = base.length-1;//since removing a page;
-			 final IWizardPage[] pages = new IWizardPage[lenth+endingPages.length];
-                   int i=0,j=0;
-				while (i < base.length) {
-					if(!"java.facet.install.page".equals(base[i].getName())){
-						pages[j] = base[i];
-						pages[j].setTitle("Create New Web Application");
-						pages[j].setDescription("Give a project name for the new Web application");
-						j++;
+		final IWizardPage[] base = super.getPages();
+		if (base.length > 1) {
+			final IWizardPage[] fpages = new IWizardPage[1];
+			fpages[0] = beginPages[0];
+			for (IWizardPage iWizardPage : base) {
+					if ("web.facet.install.page".equals(iWizardPage.getName())) {
+						webModulePage = iWizardPage;
+					} else if ("first.page".equals(iWizardPage.getName())&&newWebAppPage==null) {
+						newWebAppPage = iWizardPage;
+						newWebAppPage.setTitle("Create New Web Application");
+						newWebAppPage.setDescription("Give a project name for the new web app");
 					}
-					i++;
 				}
-				System.arraycopy(endingPages, 0, pages, j, endingPages.length); 		
-			return pages;}	 
-		else{
-				
-				return base;
-			}
+			if (appModel != null) {
+				IWizardPage[] pages=null;
+				if (appModel.isNewWebApp()) {
+					pages = new IWizardPage[4];
+					pages[0] = fpages[0];
+					pages[1] = newWebAppPage;
+					pages[2] = webModulePage;
+					pages[3] = endingPages[0];
+				} else {
+					pages = new IWizardPage[3];
+					pages[0] = fpages[0];
+					pages[1] = importPage;
+					pages[2] = endingPages[0];
+				} 
+				final IWizardPage[] finalPages = new IWizardPage[pages.length];
+				System.arraycopy(pages, 0, finalPages, 0,pages.length);
+				return finalPages;
+			}  	
+			return fpages;		 
+		} else {
+			return base;
+		}
 	}
 		 
 	 @Override
@@ -89,10 +136,15 @@ public class DynamicWebAppCreationWizard extends WebProjectWizard {
 		 if("Maven Information".equals(currentPage.getTitle())){
 			 IDataModel dataModel = getDataModel();
 			try {
+				if(appModel.isNewWebApp()){
 				Object property = dataModel.getProperty(IFacetProjectCreationDataModelProperties.FACET_PROJECT_NAME);
 				webApp.getModel().setProjectName(property.toString());
-			} catch (ObserverFailedException e) {
-				e.printStackTrace();
+				}else{
+					dataModel.setProperty(IFacetProjectCreationDataModelProperties.FACET_PROJECT_NAME, appModel.getWarName());
+					webApp.getModel().setProjectName(appModel.getWarName());
+				}
+			} catch (ObserverFailedException e) { 
+				log.error(e.getMessage(), e);
 			}
 			 return super.canFinish(); 
 		 }
@@ -104,6 +156,12 @@ public class DynamicWebAppCreationWizard extends WebProjectWizard {
 		 IFacetedProject facetedProject = getFacetedProject();	 
 		try {
 			IProject project = facetedProject.getProject();
+			if(!appModel.isNewWebApp()){
+				File importFile = appModel.getImportFile();
+				String[] folderList = new String[] {"WebContent"};
+				IFolder webappFolder = ProjectUtils.getWorkspaceFolder(project, folderList);
+				WebUtils.extractWAR(webappFolder, importFile);
+			} 
 			File pomfile = project.getFile("pom.xml").getLocation().toFile();
 			webApp.getModel().getMavenInfo().setPackageName("war");
 			webApp.createPOM(pomfile);

@@ -23,7 +23,8 @@ import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 public class WebAppModel extends ProjectDataModel {
 
 	private String webContextRoot;
-
+    private boolean isNewWebApp=true;
+    private String warName;
 	
 	public Object getModelPropertyValue(String key) {
 		Object modelPropertyValue = super.getModelPropertyValue(key);
@@ -62,6 +63,26 @@ public class WebAppModel extends ProjectDataModel {
 			setWebContextRoot(projectName);
 		}
 		super.setProjectName(projectName);
+	}
+
+
+	public void setNewWebApp(boolean isNewWebApp) {
+		this.isNewWebApp = isNewWebApp;
+	}
+
+
+	public boolean isNewWebApp() {
+		return isNewWebApp;
+	}
+
+
+	public void setWarName(String warName) {
+		this.warName = warName;
+	}
+
+
+	public String getWarName() {
+		return warName;
 	}
 
 }
