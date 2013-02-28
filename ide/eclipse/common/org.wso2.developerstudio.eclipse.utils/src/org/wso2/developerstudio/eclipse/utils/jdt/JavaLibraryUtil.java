@@ -20,14 +20,25 @@ import org.apache.maven.model.Model;
 import org.apache.maven.model.io.xpp3.MavenXpp3Reader;
 import org.apache.maven.project.MavenProject;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IWorkspaceRoot;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.QualifiedName;
 import org.eclipse.jdt.core.IPackageFragmentRoot;
+import org.wso2.developerstudio.eclipse.utils.archive.ArchiveManipulator;
 import org.wso2.developerstudio.eclipse.utils.constants.ProjectConstants;
+import org.wso2.developerstudio.eclipse.utils.data.ITemporaryFileTag;
+import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
+
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.StringReader;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.jar.JarEntry;
@@ -42,8 +53,8 @@ public class JavaLibraryUtil {
 	/**
      * 
      */
-//	private static final String POM_FILE_NAME = "pom";
-//	private static final String POM_FILE_EXTENSION = "xml";
+	private static final String POM_FILE_NAME = "pom";
+	private static final String POM_FILE_EXTENSION = "xml";
 
 	/**
 	 * This method is extracting the jar libraries from the Eclipse java project
@@ -55,72 +66,113 @@ public class JavaLibraryUtil {
 	 *         contain any maven project information.
 	 * @throws Exception
 	 */
-	public static Map<String, JavaLibraryBean> getDependencyInfoMap(IProject project)
-	                                                                                 throws Exception {
+	public static Map<String, JavaLibraryBean> getDependencyInfoMap(
+			IProject project) throws Exception {
 		HashMap<String, JavaLibraryBean> dependencyInfoMap = new HashMap<String, JavaLibraryBean>();
 
-		if (project.isOpen() && project.hasNature(ProjectConstants.JAVA_NATURE_ID)) {
+		List<IPackageFragmentRoot> fullList = new ArrayList<IPackageFragmentRoot>();
 
-			// TODO: Verify the entries returned by following 2 methods are
-			// distinct
-			// or not.
-			IPackageFragmentRoot[] jarLibs = JavaUtils.getReferencedLibrariesForProject(project);
-			IPackageFragmentRoot[] varJarLibs =
-			                                    JavaUtils.getReferencedVariableLibrariesForProject(project);
-			IPackageFragmentRoot[] newLibList = null;
-			if (jarLibs != null && varJarLibs != null) {
-				newLibList = new IPackageFragmentRoot[jarLibs.length + varJarLibs.length];
-				for (int i = 0; i < jarLibs.length; i++) {
-					newLibList[i] = jarLibs[i];
-				}
+		fullList.addAll(Arrays.asList(JavaUtils
+				.getReferencedLibrariesForProject(project)));
+		fullList.addAll(Arrays.asList(JavaUtils
+				.getReferencedVariableLibrariesForProject(project)));
 
-				for (int i = 0; i < varJarLibs.length; i++) {
-					newLibList[jarLibs.length + i] = varJarLibs[i];
-				}
-			}
+		ArchiveManipulator archiver = new ArchiveManipulator();
 
-			if (newLibList == null) {
-				if (varJarLibs != null) {
-					// So jar list has been null. Hence assign varjar list to
-					// jar.
-					jarLibs = varJarLibs;
-				}
+		IWorkspaceRoot workspaceRoot = ResourcesPlugin.getWorkspace().getRoot();
+		Map<QualifiedName, String> persistentProperties = workspaceRoot
+				.getPersistentProperties();
+		Map<QualifiedName, Object> sessionProperties = workspaceRoot
+				.getSessionProperties();
+
+		for (int i = 0; i < fullList.size(); i++) {
+			ITemporaryFileTag createNewTempTag = FileUtils.createNewTempTag();
+			File tempLocation = FileUtils.createTempDirectory();
+			File tempFile = new File(tempLocation, fullList.get(i)
+					.getElementName());
+
+			String libraryFile = null;
+			if (fullList.get(i).getPath().toFile().exists()) {
+				libraryFile = fullList.get(i).getPath().toOSString();
 			} else {
-				jarLibs = newLibList;
+				libraryFile = fullList.get(i).getResource().getLocation()
+						.toOSString();
 			}
+			String persistentProperty = persistentProperties
+					.get(new QualifiedName("", libraryFile));
 
-			for (int i = 0; i < jarLibs.length; i++) {
+			if (persistentProperty == null) {
+				FileUtils.copy(new File(libraryFile), tempFile);
+				File extractLocation = new File(tempLocation, "temp_"
+						+ tempFile.getName());
+				archiver.extract(tempFile, extractLocation);
+				// If this is maven generated, we cna get the info from pom file
+				boolean isMavenBuild = true;
+				File[] pomFiles = FileUtils
+						.getAllMatchingFiles(extractLocation.getPath()
+								+ File.separator + "META-INF", POM_FILE_NAME,
+								POM_FILE_EXTENSION, new ArrayList<File>());
+				if (pomFiles == null) {
+					// Not used maven to build
+					isMavenBuild = false;
+				} else if (pomFiles.length > 1) {
+					// This is impossible. Hence corrupted. Do something.
+				} else if (pomFiles.length == 1) {
+					File pomFile = pomFiles[0];
+					MavenProject mavenProject = getMavenProject(pomFile);
+					// JavaLibraryBean bean = new
+					// JavaLibraryBean("/media/dev/wso2products/3.2.0/wso2greg-4.0.0-SNAPSHOT/lib",
+					// "org.wso2.sample", "test.sample", "1.0.0");
+					JavaLibraryBean bean = new JavaLibraryBean(libraryFile,
+							mavenProject.getGroupId(),
+							mavenProject.getArtifactId(),
+							mavenProject.getVersion());
 
-				File libraryFile = jarLibs[i].getPath().toFile();
-				JarFile jarFile = new JarFile(libraryFile);
-				String pomFilePath = getPomFilePath(jarFile);
-				if (pomFilePath != null) {
-					try {
-						InputStream is = jarFile.getInputStream(jarFile.getEntry(pomFilePath));
-						MavenProject mavenProject =
-						                            getMavenProject(new Scanner(is).useDelimiter("\\A")
-						                                                           .next());
-						JavaLibraryBean bean =
-						                       new JavaLibraryBean(jarLibs[i].getPath()
-						                                                     .toOSString(),
-						                                           mavenProject.getGroupId(),
-						                                           mavenProject.getArtifactId(),
-						                                           mavenProject.getVersion());
-						if (isProperty(bean.toString())) {
-							resolveBeanProperties(mavenProject, bean);
-						}
-						dependencyInfoMap.put(libraryFile.getPath(), bean);
-					} catch (Exception e) {
-						// TODO: invalid pom or getPomFilePath() is wrong
-						// dependencyInfoMap.put(libraryFile.getPath(), null);
+					if (isProperty(bean.toString())) {
+						resolveBeanProperties(mavenProject, bean);
 					}
+					workspaceRoot.setPersistentProperty(new QualifiedName("",
+							libraryFile),
+							bean.getGroupId() + ":" + bean.getArtifactId()
+									+ ":" + bean.getVersion());
+					workspaceRoot.setSessionProperty(new QualifiedName("",
+							libraryFile), bean);
+					dependencyInfoMap.put(tempFile.getPath(), bean);
+				}
+				if (!isMavenBuild) {
+					// Set null as the bean. Then the client will be prompt to
+					// enter
+					// the maven details for the lib.
+					dependencyInfoMap.put(tempFile.getPath(), null);
+				}
+				FileUtils.deleteDir(tempLocation);
+				createNewTempTag.clearAndEnd();
+			} else {
+				// if we have the persistent property
+				Object sessionProperty = sessionProperties
+						.get(new QualifiedName("", libraryFile));
+				if (sessionProperty != null) {
+					dependencyInfoMap.put(tempFile.getPath(),
+							(JavaLibraryBean) sessionProperty);
 				} else {
-					// TODO: Not used maven to build or invalid
-					// dependencyInfoMap.put(libraryFile.getPath(), null);
+					String[] mavenInfo = persistentProperty.split(":");
+					JavaLibraryBean bean = new JavaLibraryBean(libraryFile,
+							mavenInfo[0], mavenInfo[1], mavenInfo[2]);
+					workspaceRoot.setSessionProperty(new QualifiedName("",
+							libraryFile), bean);
+					dependencyInfoMap.put(tempFile.getPath(), bean);
 				}
 			}
 		}
-		return (Map<String, JavaLibraryBean>) Collections.unmodifiableMap(dependencyInfoMap);
+		return (Map<String, JavaLibraryBean>) Collections
+				.unmodifiableMap(dependencyInfoMap);
+	}
+	
+	private static MavenProject getMavenProject(File file) throws Exception {
+		MavenXpp3Reader mavenXpp3Reader = new MavenXpp3Reader();
+		Model model;
+		model = mavenXpp3Reader.read(new FileInputStream(file));
+		return new MavenProject(model);
 	}
 	
 	 private static String getPomFilePath(JarFile jarFile){
