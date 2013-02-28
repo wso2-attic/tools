@@ -274,7 +274,7 @@
                          dir="target/eclipse/configuration/org.eclipse.equinox.simpleconfigurator">
                                                         <include name="**/bundles.info"/>
                                                 </replace>
-						<replace token="org.eclipse.equinox.ds,1.2.1.R36x_v20100803,plugins/org.eclipse.equinox.ds_1.2.1.R36x_v20100803.jar,2,false" value="org.eclipse.equinox.ds,1.2.1.R36x_v20100803,plugins/org.eclipse.equinox.ds_1.2.1.R36x_v20100803.jar,2,true"
+						<replace token="org.eclipse.equinox.ds,1.2.0.v20100507,plugins/org.eclipse.equinox.ds_1.2.0.v20100507.jar,2,false" value="org.eclipse.equinox.ds,1.2.0.v20100507,plugins/org.eclipse.equinox.ds_1.2.0.v20100507.jar,2,true"
                          dir="target/eclipse/configuration/org.eclipse.equinox.simpleconfigurator">
                                                         <include name="**/bundles.info"/>
                                                 </replace>
@@ -282,11 +282,11 @@
                          dir="target/eclipse/configuration/org.eclipse.equinox.simpleconfigurator">
                                                         <include name="**/bundles.info"/>
                                                 </replace>
-						<replace token="org.eclipse.equinox.p2.reconciler.dropins,1.1.2.R36x_v20110114,plugins/org.eclipse.equinox.p2.reconciler.dropins_1.1.2.R36x_v20110114.jar,4,false" value="org.eclipse.equinox.p2.reconciler.dropins,1.1.2.R36x_v20110114,plugins/org.eclipse.equinox.p2.reconciler.dropins_1.1.2.R36x_v20110114.jar,4,true"
+						<replace token="org.eclipse.equinox.p2.reconciler.dropins,1.1.0.v20100525,plugins/org.eclipse.equinox.p2.reconciler.dropins_1.1.0.v20100525.jar,4,false" value="org.eclipse.equinox.p2.reconciler.dropins,1.1.0.v20100525,plugins/org.eclipse.equinox.p2.reconciler.dropins_1.1.0.v20100525.jar,4,true"
                          dir="target/eclipse/configuration/org.eclipse.equinox.simpleconfigurator">
                                                         <include name="**/bundles.info"/>
                                                 </replace>
-						<replace token="org.eclipse.osgi,3.6.2.R36x_v20110210,plugins/org.eclipse.osgi_3.6.2.R36x_v20110210.jar,-1,false" value="org.eclipse.osgi,3.6.2.R36x_v20110210,plugins/org.eclipse.osgi_3.6.2.R36x_v20110210.jar,-1,true"
+						<replace token="org.eclipse.osgi,3.6.0.v20100517,plugins/org.eclipse.osgi_3.6.0.v20100517.jar,-1,false" value="org.eclipse.osgi,3.6.0.v20100517,plugins/org.eclipse.osgi_3.6.0.v20100517.jar,-1,true"
                          dir="target/eclipse/configuration/org.eclipse.equinox.simpleconfigurator">
                                                         <include name="**/bundles.info"/>
                                                 </replace>
