@@ -19,20 +19,52 @@ package org.wso2.developerstudio.eclipse.platform.ui.provider;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.QualifiedName;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerFilter;
 
 public class FilterNestedProjects extends ViewerFilter {
 
+	private List<String> pathList;
+	private static final String SESSION_PROPERTY_WORKSPACE_FOLDERS = "WORKSPACE_FOLDER";
+	private static Map<QualifiedName, Object> sessionProperties;
+	private static long previousProjectCount=ResourcesPlugin.getWorkspace().getRoot().getProjects().length;
+	private static IWorkspaceRoot workspaceRoot = ResourcesPlugin.getWorkspace().getRoot();
+	
+	static{
+		try {
+			sessionProperties = workspaceRoot.getSessionProperties();
+		} catch (CoreException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private boolean isValidSessionProperty() {
+		int currentProjects = workspaceRoot.getProjects().length;
+		if(currentProjects!=previousProjectCount){
+			previousProjectCount=currentProjects;
+			return false;
+		}
+		return true;
+	}
 	
 	public boolean select(Viewer arg0, Object parent, Object child) {
 		if (parent instanceof IWorkspaceRoot && child instanceof IProject){
-			List<String> pathList = getPathList();
+			Object sessionProperty = sessionProperties.get(new QualifiedName("", SESSION_PROPERTY_WORKSPACE_FOLDERS));
+			
+			if(sessionProperty != null && isValidSessionProperty()){
+				pathList= (List<String>) sessionProperty;
+			}else{
+				pathList = getPathList();
+				sessionProperties.put(new QualifiedName("",SESSION_PROPERTY_WORKSPACE_FOLDERS), pathList);
+			}
 	            if (pathList != null && ((IProject) child).exists()) {
 	                return !pathList.contains(((IProject) child).getLocation().toOSString());
                 }else{
@@ -59,7 +91,7 @@ public class FilterNestedProjects extends ViewerFilter {
 
 	public List<String> getProjectListLocations(){
 		List<String> paths=new ArrayList<String>();
-		IProject[] projects = ResourcesPlugin.getWorkspace().getRoot().getProjects();
+		IProject[] projects = workspaceRoot.getProjects();
 		for (IProject project : projects) {
 			paths.add(project.getLocation().toOSString());
 		}

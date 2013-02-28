@@ -18,10 +18,12 @@ package org.wso2.developerstudio.eclipse.platform.ui.provider;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IResourceChangeEvent;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.jface.viewers.Viewer;
@@ -35,33 +37,24 @@ public class ProjectContentProvider extends EmptyNavigatorContentProvider {
 
     public Object[] getChildren(Object obj) {
     	File location=null;
-    	if (obj instanceof IProject){
-    		location=((IProject)obj).getLocation().toFile();
-    	}else if (obj instanceof IFolder){
-    		location=((IFolder)obj).getLocation().toFile();
-    	}
-    	if (location!=null){
-    		File[] children = location.listFiles();
+    	if (obj instanceof IProject || obj instanceof IFolder){
+    		location=((IResource)obj).getLocation().toFile();
+    	
+    		List<File> locationList = Arrays.asList(location.listFiles());
     		IProject[] projects = ResourcesPlugin.getWorkspace().getRoot().getProjects();
     		List<IProject> projectsToAdd = new ArrayList<IProject>();
-    		for (IProject project : projects) {
-    			if (isProjectLocationContained(project, children)){
-    				projectsToAdd.add(project);
-    			}
+    		if (locationList != null) {
+				for (IProject project : projects) {
+					if (locationList.contains(project.getLocation().toFile())) {
+						projectsToAdd.add(project);
+					}
+				}
 			}
-    		return projectsToAdd.toArray();
+			return projectsToAdd.toArray();
     	}
 	    return new Object[]{};
     }
 
-    private boolean isProjectLocationContained(IProject project, File[] locations){
-    	for (File location : locations) {
-			if (project.getLocation().toOSString().equals(location.toString())){
-				return true;
-			}
-		}
-    	return false;
-    }
     public boolean hasChildren(Object obj) {
     	if (obj instanceof IProject){
             return true;
