@@ -34,8 +34,6 @@ import org.apache.axiom.om.OMDocument;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMNamespace;
-import org.eclipse.core.runtime.IPath;
-import org.eclipse.core.runtime.Platform;
 import org.wso2.developerstudio.eclipse.artifact.jaxrs.Activator;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
@@ -111,37 +109,10 @@ public class JaxUtil {
 		return buffer.toString();
 	}
 	
-	public static File getJsr311LibraryPath(){
-		return getLibraryPath("jsr311-api-1.1.1.jar");
+	public static String getJsr311LibraryName(){
+		return "jsr311-api-1.1.1.jar";
 	} 
 	
-	private static File getLibraryPath(String libraryName){
-		URL resource = Platform.getBundle(Activator.PLUGIN_ID).getResource("lib/"+libraryName);
-		IPath path = Activator.getDefault().getStateLocation();
-		IPath libFolder = path.append("lib");
-		String[] paths = resource.getFile().split("/");
-		IPath library = libFolder.append(paths[paths.length-1]);
-		File libraryFile = new File(library.toOSString());
-		if (libraryFile.exists()) return libraryFile;
-		try {
-	        writeToFile(libraryFile, resource.openStream());
-        } catch (IOException e) {
-	        log.error(e);
-	        return null;
-        }
-		return libraryFile;
-	}
-	
-	private static void writeToFile(File file, InputStream stream) throws IOException{
-		file.getParentFile().mkdirs();
-	    OutputStream out=new FileOutputStream(file);
-	    byte buf[]=new byte[1024];
-	    int len;
-	    while((len=stream.read(buf))>0)
-	    	out.write(buf,0,len);
-	    out.close();
-	    stream.close();
-	}
 	
 	public static class CxfServlet extends AbstractXMLDoc{
 		private static final String XSI_NS = "http://www.w3.org/2001/XMLSchema-instance";

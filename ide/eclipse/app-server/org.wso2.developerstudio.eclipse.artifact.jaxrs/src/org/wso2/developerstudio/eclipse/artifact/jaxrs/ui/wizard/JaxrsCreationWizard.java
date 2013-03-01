@@ -34,6 +34,7 @@ import org.osgi.framework.Bundle;
 import org.wso2.developerstudio.eclipse.artifact.jaxrs.model.JaxrsProjectModel;
 import org.wso2.developerstudio.eclipse.artifact.jaxrs.Activator;
 import org.wso2.developerstudio.eclipse.artifact.jaxrs.utils.JaxUtil;
+import org.wso2.developerstudio.eclipse.libraries.utils.LibraryUtils;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
@@ -106,8 +107,8 @@ public class JaxrsCreationWizard  extends AbstractWSO2ProjectCreationWizard{
 			getModel().getMavenInfo().setPackageName("war");
 			createPOM(pomfile);
 			project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
-			File dependencyPath = JaxUtil.getJsr311LibraryPath();
-			JavaUtils.addJarLibraryToProject(javaProject, dependencyPath);
+			JavaUtils.addJarLibraryToProject(javaProject,
+					LibraryUtils.getDependencyPath(JaxUtil.getJsr311LibraryName()));
 			ProjectUtils.addNatureToProject(project,
 			                                false,
 											JAXRS_PROJECT_NATURE);
