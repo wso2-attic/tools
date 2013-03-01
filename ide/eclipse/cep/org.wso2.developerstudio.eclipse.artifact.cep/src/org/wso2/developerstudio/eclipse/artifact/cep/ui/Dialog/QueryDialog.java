@@ -50,6 +50,7 @@ import org.wso2.carbon.cep.core.internal.util.CEPConstants;
 import org.wso2.carbon.cep.core.mapping.output.Output;
 
 import org.wso2.carbon.cep.core.mapping.output.mapping.MapOutputMapping;
+import org.wso2.carbon.cep.core.mapping.output.mapping.TextOutputMapping;
 import org.wso2.carbon.cep.core.mapping.output.mapping.TupleOutputMapping;
 import org.wso2.carbon.cep.core.mapping.output.mapping.XMLOutputMapping;
 import org.wso2.carbon.cep.core.mapping.output.property.MapOutputProperty;
@@ -64,6 +65,7 @@ public class QueryDialog extends TitleAreaDialog {
 
 	private String oTopic = "";
 	private String sXMLMapping = "";
+	private String sTextMapping = "";
 	private String mapName = "";
 	private String valueOf = "";
 	private String selectedXMLFieldType = CEPConstants.CEP_CONF_XML_FIELD_TYPE_ELEMENT;
@@ -71,7 +73,8 @@ public class QueryDialog extends TitleAreaDialog {
 
 	private String[] methods = { CEPConstants.CEP_CONF_ELE_XML_MAPPING,
 			CEPConstants.CEP_CONF_ELE_MAP_MAPPING,
-			CEPConstants.CEP_CONF_ELE_TUPLE_MAPPING };
+			CEPConstants.CEP_CONF_ELE_TUPLE_MAPPING,
+			CEPConstants.CEP_CONF_ELE_TEXT_MAPPING };
 	private String[] xmlFieldTypes = {
 			CEPConstants.CEP_CONF_XML_FIELD_TYPE_ELEMENT,
 			CEPConstants.CEP_CONF_XML_FIELD_TYPE_ATTRIBUTE };
@@ -100,10 +103,12 @@ public class QueryDialog extends TitleAreaDialog {
 	private Text topic;
 
 	private Text xmlMapping;
+	private Text textMapping;
 	private Text brokerName;
 
 	private CTabFolder tabFolder;
 	private CTabItem tXMLMap;
+	private CTabItem tText;
 	private CTabItem tMap;
 	private CTabItem tTuple;
 	private TableViewer tableQuery;
@@ -226,20 +231,33 @@ public class QueryDialog extends TitleAreaDialog {
 		tXMLMap.setControl(xmlMapping);
 		xmlMapping.setLayoutData(new GridData(GridData.FILL_HORIZONTAL, 200));
 		xmlMapping.setText(sXMLMapping);
+		
+		tText = new CTabItem(tabFolder, SWT.NULL);
+		tText.setText("Text Mapping");
+		textMapping = new Text(tabFolder, SWT.BORDER | SWT.MULTI);
+		tText.setControl(textMapping);
+		textMapping.setLayoutData(new GridData(GridData.FILL_HORIZONTAL, 200));
+		textMapping.setText(sTextMapping);
+		
 		tMap = new CTabItem(tabFolder, SWT.NULL);
 		tMap.setText("Map Mapping");
 		tTuple = new CTabItem(tabFolder, SWT.NULL);
 		tTuple.setText("Tuple Mapping");
 		tabFolder.setSelection(tTuple);
+
 		if (getSelectedMethod().equals(CEPConstants.CEP_CONF_ELE_XML_MAPPING)) {
 			tabFolder.setSelection(tXMLMap);
 		} else if (getSelectedMethod().equals(
 				CEPConstants.CEP_CONF_ELE_MAP_MAPPING)) {
 			tabFolder.setSelection(tMap);
 		} else if (getSelectedMethod().equals(
+				CEPConstants.CEP_CONF_ELE_TEXT_MAPPING)) {
+			tabFolder.setSelection(tText);
+		} else if (getSelectedMethod().equals(
 				CEPConstants.CEP_CONF_ELE_TUPLE_MAPPING)) {
 			tabFolder.setSelection(tTuple);
 		}
+
 		GridLayout tabLayout = new GridLayout();
 		tabLayout.numColumns = 3;
 		Composite tabComposite = new Composite(tabFolder, SWT.BORDER);
@@ -1073,6 +1091,10 @@ public class QueryDialog extends TitleAreaDialog {
 			XMLOutputMapping xmlout = new XMLOutputMapping();
 			xmlout.setMappingXMLText(xmlMapping.getText().trim());
 			out.setOutputMapping(xmlout);
+		} else if (tabFolder.getSelection() == tText) {
+			TextOutputMapping textOut = new TextOutputMapping();
+			textOut.setMappingText(textMapping.getText().trim());
+			out.setOutputMapping(textOut);
 		} else if (tabFolder.getSelection() == tMap) {
 			MapOutputMapping mapMapping = new MapOutputMapping();
 
@@ -1149,87 +1171,92 @@ public class QueryDialog extends TitleAreaDialog {
 	public void initializePage(Query query) {
 
 		setQname(query.getName());
-
 		setQexpression(query.getExpression().getText());
 
-		setOtopic(query.getOutput().getTopic());
-		setQueryBroker(query.getOutput().getBrokerName());
-		if (query.getOutput().getOutputMapping() instanceof XMLOutputMapping) {
-			setSelectedMethod(CEPConstants.CEP_CONF_ELE_XML_MAPPING);
-			setSXMLMapping(((XMLOutputMapping) query.getOutput()
-					.getOutputMapping()).getMappingXMLText());
-		} else if (query.getOutput().getOutputMapping() instanceof MapOutputMapping) {
-			setSelectedMethod(CEPConstants.CEP_CONF_ELE_MAP_MAPPING);
+		// There might be instances where an output mapping is not defined
+		if (query.getOutput() != null) {
+			setOtopic(query.getOutput().getTopic());
+			setQueryBroker(query.getOutput().getBrokerName());
 
-			if (((MapOutputMapping) query.getOutput().getOutputMapping())
-					.getPropertyList() != null) {
-				mapProperty.remove(0);
-				mapProperty.remove(0);
-				List<MapOutputProperty> mapPropertyList = ((MapOutputMapping) query
-						.getOutput().getOutputMapping()).getPropertyList();
+			if (query.getOutput().getOutputMapping() instanceof XMLOutputMapping) {
+				setSelectedMethod(CEPConstants.CEP_CONF_ELE_XML_MAPPING);
+				setSXMLMapping(((XMLOutputMapping) query.getOutput()
+						.getOutputMapping()).getMappingXMLText());
+			} else if (query.getOutput().getOutputMapping() instanceof TextOutputMapping) {
+				setSelectedMethod(CEPConstants.CEP_CONF_ELE_TEXT_MAPPING);
+				setsTextMapping(((TextOutputMapping) query.getOutput()
+						.getOutputMapping()).getMappingText());
+			} else if (query.getOutput().getOutputMapping() instanceof MapOutputMapping) {
+				setSelectedMethod(CEPConstants.CEP_CONF_ELE_MAP_MAPPING);
+				if (((MapOutputMapping) query.getOutput().getOutputMapping())
+						.getPropertyList() != null) {
+					mapProperty.remove(0);
+					mapProperty.remove(0);
+					List<MapOutputProperty> mapPropertyList = ((MapOutputMapping) query
+							.getOutput().getOutputMapping()).getPropertyList();
 
-				for (MapOutputProperty mapproperty : mapPropertyList) {
+					for (MapOutputProperty mapproperty : mapPropertyList) {
 
-					mapProperty.add(mapproperty);
-					mapQuery.put(mapproperty.getName(),
-							mapproperty.getValueOf());
+						mapProperty.add(mapproperty);
+						mapQuery.put(mapproperty.getName(),
+								mapproperty.getValueOf());
+					}
 				}
-			}
+			} else if (query.getOutput().getOutputMapping() instanceof TupleOutputMapping) {
+				setSelectedMethod(CEPConstants.CEP_CONF_ELE_TUPLE_MAPPING);
+				if (((TupleOutputMapping) query.getOutput().getOutputMapping())
+						.getMetaDataProperties() != null) {
+					tupleMetadataProperty.remove(0);
+					tupleMetadataProperty.remove(0);
+					List<TupleOutputProperty> metadataPropertyList = ((TupleOutputMapping) query
+							.getOutput().getOutputMapping())
+							.getMetaDataProperties();
+					for (TupleOutputProperty metaproperty : metadataPropertyList) {
 
-		} else if (query.getOutput().getOutputMapping() instanceof TupleOutputMapping) {
-			setSelectedMethod(CEPConstants.CEP_CONF_ELE_TUPLE_MAPPING);
-			if (((TupleOutputMapping) query.getOutput().getOutputMapping())
-					.getMetaDataProperties() != null) {
-				tupleMetadataProperty.remove(0);
-				tupleMetadataProperty.remove(0);
-				List<TupleOutputProperty> metadataPropertyList = ((TupleOutputMapping) query
-						.getOutput().getOutputMapping())
-						.getMetaDataProperties();
-				for (TupleOutputProperty metaproperty : metadataPropertyList) {
-
-					tupleMetadataProperty.add(metaproperty);
-					mapMetadata.put(
-							metaproperty.getName(),
-							metaproperty.getValueOf() + "|"
-									+ metaproperty.getType());
-				}
-			}
-
-			if (((TupleOutputMapping) query.getOutput().getOutputMapping())
-					.getCorrelationDataProperties() != null) {
-				tupleCorrelationProperty.remove(0);
-				tupleCorrelationProperty.remove(0);
-				List<TupleOutputProperty> corrleationdataPropertyList = ((TupleOutputMapping) query
-						.getOutput().getOutputMapping())
-						.getCorrelationDataProperties();
-				for (TupleOutputProperty metaproperty : corrleationdataPropertyList) {
-
-					tupleCorrelationProperty.add(metaproperty);
-					mapCorrelationdata.put(
-							metaproperty.getName(),
-							metaproperty.getValueOf() + "|"
-									+ metaproperty.getType());
+						tupleMetadataProperty.add(metaproperty);
+						mapMetadata.put(
+								metaproperty.getName(),
+								metaproperty.getValueOf() + "|"
+										+ metaproperty.getType());
+					}
 				}
 
-			}
+				if (((TupleOutputMapping) query.getOutput().getOutputMapping())
+						.getCorrelationDataProperties() != null) {
+					tupleCorrelationProperty.remove(0);
+					tupleCorrelationProperty.remove(0);
+					List<TupleOutputProperty> corrleationdataPropertyList = ((TupleOutputMapping) query
+							.getOutput().getOutputMapping())
+							.getCorrelationDataProperties();
+					for (TupleOutputProperty metaproperty : corrleationdataPropertyList) {
 
-			if (((TupleOutputMapping) query.getOutput().getOutputMapping())
-					.getPayloadDataProperties() != null) {
-				tuplePayloadProperty.remove(0);
-				tuplePayloadProperty.remove(0);
-				List<TupleOutputProperty> payLoaddataPropertyList = ((TupleOutputMapping) query
-						.getOutput().getOutputMapping())
-						.getPayloadDataProperties();
-				for (TupleOutputProperty metaproperty : payLoaddataPropertyList) {
+						tupleCorrelationProperty.add(metaproperty);
+						mapCorrelationdata.put(
+								metaproperty.getName(),
+								metaproperty.getValueOf() + "|"
+										+ metaproperty.getType());
+					}
 
-					tuplePayloadProperty.add(metaproperty);
-					mapPayloaddata.put(
-							metaproperty.getName(),
-							metaproperty.getValueOf() + "|"
-									+ metaproperty.getType());
 				}
-			}
 
+				if (((TupleOutputMapping) query.getOutput().getOutputMapping())
+						.getPayloadDataProperties() != null) {
+					tuplePayloadProperty.remove(0);
+					tuplePayloadProperty.remove(0);
+					List<TupleOutputProperty> payLoaddataPropertyList = ((TupleOutputMapping) query
+							.getOutput().getOutputMapping())
+							.getPayloadDataProperties();
+					for (TupleOutputProperty metaproperty : payLoaddataPropertyList) {
+
+						tuplePayloadProperty.add(metaproperty);
+						mapPayloaddata.put(
+								metaproperty.getName(),
+								metaproperty.getValueOf() + "|"
+										+ metaproperty.getType());
+					}
+				}
+
+			}
 		}
 
 	}
@@ -1276,10 +1303,13 @@ public class QueryDialog extends TitleAreaDialog {
 		this.qname = qname;
 	}
 
+	// TODO Refactor setters and getters to proper convention .. eg.
+	// getQExpression()
 	public String getQexpression() {
 		return qExpression;
 	}
 
+	// TODO Refactor method name...
 	public void setQexpression(String qexpression) {
 		this.qExpression = qexpression;
 	}
@@ -1350,5 +1380,13 @@ public class QueryDialog extends TitleAreaDialog {
 
 	public void setValueOf(String valueOf) {
 		this.valueOf = valueOf;
+	}
+
+	public void setsTextMapping(String sTextMapping) {
+		this.sTextMapping = sTextMapping;
+	}
+
+	public String getsTextMapping() {
+		return sTextMapping;
 	}
 }

@@ -954,7 +954,7 @@ public class CEPProjectEditorPage extends FormPage {
 			@Override
 			public String getText(Object element) {
 				Query q = (Query) element;
-				if (q != null) {
+				if (q != null && q.getOutput() != null) {
 					return q.getOutput().getTopic();
 				} else
 					return "";
