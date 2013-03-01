@@ -120,12 +120,27 @@ public class FileUtils{
 		for (int i = 0; i < children.length; i++){
 			if (children[i].list() != null && children[i].list().length > 0){
 				deleteDirectories(children[i]);
-			}
-			else{
-				children[i].delete();
+			} else if(children[i].isDirectory()){
+				deleteDirectory(children[i]);
+			}else  if(children[i].isFile()){
+				boolean isDeleted = org.apache.commons.io.FileUtils.deleteQuietly(children[i]);
+				if(!isDeleted){
+					children[i].deleteOnExit();
+				}
 			}
 		}
-		dir.delete();
+		deleteDirectory(dir);
+	}
+
+	private static void deleteDirectory(File dir) {
+		try {
+			org.apache.commons.io.FileUtils.deleteDirectory(dir);
+		} catch (IOException e) {
+			boolean isFolderDeleted=org.apache.commons.io.FileUtils.deleteQuietly(dir);
+			if(!isFolderDeleted){
+				dir.deleteOnExit();
+			}
+		}
 	}
 
 	public static void deleteDirectories(String dir) {

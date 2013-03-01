@@ -80,7 +80,10 @@ public class TempFileTag implements ITemporaryFileTag {
 		for(File file:getLocations()){
 			if (file.exists()){
 				if (file.isFile()){
-					file.delete();
+					boolean isFileDeleted = org.apache.commons.io.FileUtils.deleteQuietly(file);
+					if(!isFileDeleted){
+						file.deleteOnExit();
+					}
 				}else{
 					FileUtils.deleteDirectories(file);
 				}

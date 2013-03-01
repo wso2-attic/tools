@@ -85,8 +85,8 @@ public class JavaLibraryUtil {
 		Map<QualifiedName, Object> sessionProperties = workspaceRoot
 				.getSessionProperties();
 
+		ITemporaryFileTag createNewTempTag = FileUtils.createNewTempTag();
 		for (int i = 0; i < fullList.size(); i++) {
-			ITemporaryFileTag createNewTempTag = FileUtils.createNewTempTag();
 			File tempLocation = FileUtils.createTempDirectory();
 			File tempFile = new File(tempLocation, fullList.get(i)
 					.getElementName());
@@ -146,7 +146,6 @@ public class JavaLibraryUtil {
 					dependencyInfoMap.put(tempFile.getPath(), null);
 				}
 				FileUtils.deleteDir(tempLocation);
-				createNewTempTag.clearAndEnd();
 			} else {
 				// if we have the persistent property
 				Object sessionProperty = sessionProperties
@@ -164,6 +163,7 @@ public class JavaLibraryUtil {
 				}
 			}
 		}
+		createNewTempTag.clearAndEnd();
 		return (Map<String, JavaLibraryBean>) Collections
 				.unmodifiableMap(dependencyInfoMap);
 	}
