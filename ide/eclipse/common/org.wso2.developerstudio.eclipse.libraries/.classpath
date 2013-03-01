@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry exported="true" kind="lib" path="lib/org.wso2.carbon.databridge.agent.thrift-4.0.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/org.wso2.carbon.cep.core-4.0.7.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/org.wso2.carbon.databridge.agent.thrift-4.0.7.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/org.wso2.carbon.databridge.commons-4.0.7.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/org.wso2.carbon.mediator.bam.config-4.0.3.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/org.wso2.carbon.mediator.bam-4.0.1.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/jettison_1.1.0.wso2v1.jar"/>
@@ -54,7 +56,6 @@
 	<classpathentry exported="true" kind="lib" path="lib/abdera_1.0.0.wso2v3.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/org.wso2.carbon.registry.api_4.0.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/XmlSchema_1.4.7.wso2v2.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/org.wso2.carbon.cep.core-4.0.1.jar" sourcepath="/home/isuru/carbon/platform/branches/4.0.0/components/cep/org.wso2.carbon.cep.core"/>
 	<classpathentry exported="true" kind="lib" path="lib/xml-apis-1.4.01.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/org.eclipse.osgi_3.6.0.v20100517.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/jakarta-oro-2.0.8.jar"/>
@@ -68,7 +69,6 @@
 	<classpathentry exported="true" kind="lib" path="lib/org.wso2.securevault-1.0.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/xercesImpl-2.8.1.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/xml-resolver-1.2.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/org.wso2.carbon.databridge.commons-4.0.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/wso2-uri-templates_1.6.2.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/wso2caching-core-4.0.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
