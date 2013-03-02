@@ -16,17 +16,29 @@
 
 package org.wso2.developerstudio.eclipse.artifact.webapp.ui.wizard;
 
+import static org.eclipse.wst.common.frameworks.internal.operations.IProjectCreationPropertiesNew.DEFAULT_LOCATION;
+import static org.eclipse.wst.common.frameworks.internal.operations.IProjectCreationPropertiesNew.PROJECT_LOCATION;
+import static org.eclipse.wst.common.frameworks.internal.operations.IProjectCreationPropertiesNew.PROJECT_NAME;
+
 import java.io.File;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.Map;
 
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.jdt.core.JavaModelException;
+import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.IWizardPage;
 import org.eclipse.jst.servlet.ui.project.facet.WebProjectWizard;
+import org.eclipse.ui.IWorkbench;
 import org.eclipse.wst.common.componentcore.datamodel.properties.IFacetProjectCreationDataModelProperties;
-import org.eclipse.wst.common.frameworks.datamodel.IDataModel;
+import org.eclipse.wst.common.frameworks.datamodel.DataModelEvent;
+import org.eclipse.wst.common.frameworks.datamodel.IDataModelListener;
+import org.eclipse.wst.common.frameworks.internal.datamodel.DataModelImpl;
 import org.eclipse.wst.common.project.facet.core.IFacetedProject;
 import org.eclipse.wst.common.project.facet.core.events.IFacetedProjectEvent;
 import org.eclipse.wst.common.project.facet.core.events.IFacetedProjectListener;
@@ -34,12 +46,16 @@ import org.wso2.developerstudio.eclipse.artifact.webapp.Activator;
 import org.wso2.developerstudio.eclipse.artifact.webapp.model.WebAppModel;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
-import org.wso2.developerstudio.eclipse.platform.core.exception.ObserverFailedException;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.pages.MavenDetailsPage;
 import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 import org.wso2.developerstudio.eclipse.utils.wst.WebUtils;
 
+/**
+ *This class Used reflection to invoke private methods of Idata model since Idata model does not provide a API to 
+ * change the project location
+ */
 
+@SuppressWarnings({"restriction","unchecked","rawtypes"})
 public class DynamicWebAppCreationWizard extends WebProjectWizard {
 
 	private IWizardPage[] endingPages;
@@ -52,6 +68,7 @@ public class DynamicWebAppCreationWizard extends WebProjectWizard {
 	WebAppModel appModel;
 	IWizardPage newWebAppPage;
 	IWizardPage webModulePage;
+	IStructuredSelection selection;
 	boolean canfinish;
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	 
@@ -66,7 +83,78 @@ public class DynamicWebAppCreationWizard extends WebProjectWizard {
 		 endPage = new MavenDetailsPage(webApp.getModel());
 		 importPage = new WebAppImportPage(appModel); 
 	}  
- 
+	 
+	/**
+	 * Used reflection to invoke private methods of Idata model since Idata model does not provide a API to 
+	 * change the project location
+	 */
+	@Override
+	public void init(IWorkbench workbench, IStructuredSelection selection) {
+	
+	try {
+		this.selection = selection;
+		if(!selection.isEmpty()){
+			webApp.setProjectLocation(selection);
+			setDataModelListner();
+		}
+	} catch (Exception e) {
+		 log.error(e.getMessage(), e);
+	}
+		super.init(workbench, selection);
+ }
+
+	private void setDataModelListner() throws IllegalAccessException,
+			InvocationTargetException, NoSuchFieldException {
+		final DataModelImpl dataModel = (DataModelImpl) getDataModel();
+		dataModel.addListener(new IDataModelListener() {
+			@Override
+			public void propertyChanged(DataModelEvent event) {
+				if(PROJECT_NAME.equalsIgnoreCase(event.getPropertyName())){
+					try {
+						setProperty(dataModel,DEFAULT_LOCATION,appModel.getSaveLocation().getPath() + File.separator 
+								+ dataModel.getStringProperty(PROJECT_NAME));
+						setProperty(dataModel,PROJECT_LOCATION,appModel.getSaveLocation().getPath() + File.separator 
+								+ dataModel.getStringProperty(PROJECT_NAME));
+					} catch (Exception e) {
+						log.error(e.getMessage(), e);
+					}
+				}
+			}
+		});
+		
+		setProperty(dataModel,DEFAULT_LOCATION,appModel.getSaveLocation().getPath());
+		setProperty(dataModel,PROJECT_LOCATION,appModel.getSaveLocation().getPath());
+	}
+
+	/**
+	 * Used reflection to invoke private methods of Idata model since Idata model does not provide a API to 
+	 * change the project location
+	 */
+	public void setProperty(DataModelImpl dataModel, String property,
+			String propertyValue) throws IllegalAccessException,
+			InvocationTargetException, NoSuchFieldException {
+		Method getOwningDataModel = null;
+		Method[] methods = dataModel.getClass().getDeclaredMethods();
+		for (Method method : methods) {
+			if (method.getName().equals("getOwningDataModel")) {
+				method.setAccessible(true);
+				getOwningDataModel = method;
+			}
+		}
+		DataModelImpl OwningDataModel = (DataModelImpl) getOwningDataModel.invoke(dataModel, property);
+		Field declaredField = dataModel.getClass().getDeclaredField("propertyValues");
+		declaredField.setAccessible(true);
+		Map propertyValues = (Map) declaredField.get(OwningDataModel);
+		Field providerField = dataModel.getClass().getDeclaredField("provider");
+		providerField.setAccessible(true);
+		if (propertyValue != null){
+			propertyValues.put(property, propertyValue);
+		}else if (propertyValues.containsKey(property)){
+			propertyValues.remove(property);
+		}
+		OwningDataModel.notifyPropertyChange(property, DataModelEvent.VALUE_CHG);
+	}
+
 	@Override
 	public void addPages() {
 		beginPages[0]=firstPage;
@@ -100,6 +188,7 @@ public class DynamicWebAppCreationWizard extends WebProjectWizard {
 			for (IWizardPage iWizardPage : base) {
 					if ("web.facet.install.page".equals(iWizardPage.getName())) {
 						webModulePage = iWizardPage;
+						
 					} else if ("first.page".equals(iWizardPage.getName())&&newWebAppPage==null) {
 						newWebAppPage = iWizardPage;
 						newWebAppPage.setTitle("Create New Web Application");
@@ -134,16 +223,21 @@ public class DynamicWebAppCreationWizard extends WebProjectWizard {
 	public boolean canFinish() {
 		 IWizardPage currentPage = getContainer().getCurrentPage();
 		 if("Maven Information".equals(currentPage.getTitle())){
-			 IDataModel dataModel = getDataModel();
+			final DataModelImpl dataModel = (DataModelImpl)getDataModel();
 			try {
 				if(appModel.isNewWebApp()){
 				Object property = dataModel.getProperty(IFacetProjectCreationDataModelProperties.FACET_PROJECT_NAME);
 				webApp.getModel().setProjectName(property.toString());
 				}else{
 					dataModel.setProperty(IFacetProjectCreationDataModelProperties.FACET_PROJECT_NAME, appModel.getWarName());
-					webApp.getModel().setProjectName(appModel.getWarName());
+				    if(!selection.isEmpty()){
+						setProperty(dataModel,DEFAULT_LOCATION,appModel.getSaveLocation().getPath() + File.separator 
+								+ appModel.getWarName());
+						setProperty(dataModel,PROJECT_LOCATION,appModel.getSaveLocation().getPath() + File.separator 
+								+ appModel.getWarName());
+				    }	
 				}
-			} catch (ObserverFailedException e) { 
+			} catch (Exception e) { 
 				log.error(e.getMessage(), e);
 			}
 			 return super.canFinish(); 
@@ -158,9 +252,11 @@ public class DynamicWebAppCreationWizard extends WebProjectWizard {
 			IProject project = facetedProject.getProject();
 			if(!appModel.isNewWebApp()){
 				File importFile = appModel.getImportFile();
-				String[] folderList = new String[] {"WebContent"};
-				IFolder webappFolder = ProjectUtils.getWorkspaceFolder(project, folderList);
+				IFolder webappFolder = project.getFolder("WebContent");
 				WebUtils.extractWAR(webappFolder, importFile);
+				project.close(new NullProgressMonitor());
+				project.open(new NullProgressMonitor());
+				project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 			} 
 			File pomfile = project.getFile("pom.xml").getLocation().toFile();
 			webApp.getModel().getMavenInfo().setPackageName("war");

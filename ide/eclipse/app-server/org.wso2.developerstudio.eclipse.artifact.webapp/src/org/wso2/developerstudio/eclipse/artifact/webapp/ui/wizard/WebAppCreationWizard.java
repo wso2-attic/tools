@@ -30,6 +30,8 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.TreeSelection;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.ide.IDE;
 import org.wso2.developerstudio.eclipse.artifact.webapp.model.WebAppModel;
@@ -55,7 +57,28 @@ public class WebAppCreationWizard extends AbstractWSO2ProjectCreationWizard {
 		setDefaultPageImageDescriptor(WebAppImageUtils.getInstance().getImageDescriptor("war-wizard.png"));
 	}
 	
-   
+	public void setProjectLocation(IStructuredSelection selection){
+		if (selection != null && (selection instanceof TreeSelection)) {
+			TreeSelection tree = (TreeSelection) selection;
+			Object firstElement = tree.getFirstElement();
+			if (firstElement instanceof IResource) {
+				if(firstElement  instanceof IFile) {
+					File file = ((IResource) firstElement).getParent().getLocation().toFile();
+					webAppModel.setSaveLocation(file);	 
+				}
+				else {
+					File file = ((IResource) firstElement).getLocation().toFile();
+					webAppModel.setSaveLocation(file);
+				}
+			} else {
+				webAppModel.setSaveLocation(ResourcesPlugin.getWorkspace().getRoot().getLocation().toFile());
+			}
+		}
+		if (webAppModel.getSaveLocation() == null) {
+			webAppModel.setSaveLocation(ResourcesPlugin.getWorkspace().getRoot().getLocation().toFile());
+		}
+	}
+ 
 
 	public boolean performFinish() {
 		try {

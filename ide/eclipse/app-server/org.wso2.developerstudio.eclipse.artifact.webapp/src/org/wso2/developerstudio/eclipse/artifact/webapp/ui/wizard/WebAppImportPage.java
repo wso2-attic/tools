@@ -113,7 +113,7 @@ public class WebAppImportPage extends WizardPage {
 		        }
 		        workspaceProjects = ResourcesPlugin.getWorkspace().getRoot().getProjects();
 		        for (IProject project : workspaceProjects) {
-		 	       if(appModel.getWarName().equalsIgnoreCase(project.getName())){
+		 	       if(appModel.getWarName().equals(project.getName())){
 		 	    	  setErrorMessage("Specify project already exsits in the workspace");
 		 	    	  setPageComplete(false);
 		 	    	 return;

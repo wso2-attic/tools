@@ -16,6 +16,8 @@
 
 package org.wso2.developerstudio.eclipse.artifact.webapp.model;
 
+import java.io.File;
+
 import org.wso2.developerstudio.eclipse.platform.core.exception.ObserverFailedException;
 import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectDataModel;
 import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
@@ -25,6 +27,7 @@ public class WebAppModel extends ProjectDataModel {
 	private String webContextRoot;
     private boolean isNewWebApp=true;
     private String warName;
+    private File saveLocation;
 	
 	public Object getModelPropertyValue(String key) {
 		Object modelPropertyValue = super.getModelPropertyValue(key);
@@ -83,6 +86,16 @@ public class WebAppModel extends ProjectDataModel {
 
 	public String getWarName() {
 		return warName;
+	}
+
+
+	public void setSaveLocation(File saveLocation) {
+		this.saveLocation = saveLocation;
+	}
+
+
+	public File getSaveLocation() {
+		return saveLocation;
 	}
 
 }

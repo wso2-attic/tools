@@ -16,13 +16,17 @@
 
 package org.wso2.developerstudio.eclipse.artifact.webapp.project.nature;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.maven.model.Dependency;
 import org.apache.maven.model.Repository;
 import org.apache.maven.model.RepositoryPolicy;
 import org.apache.maven.project.MavenProject;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
-import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
 import org.wso2.developerstudio.eclipse.artifact.webapp.utils.WebAppTemplateUtils;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
@@ -34,11 +38,6 @@ import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 import org.wso2.developerstudio.eclipse.utils.jdt.JavaUtils;
 import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 import org.wso2.developerstudio.eclipse.utils.wst.WebUtils;
-
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class WebAppProjectNature extends AbstractWSO2ProjectNature {
 
@@ -69,7 +68,7 @@ public class WebAppProjectNature extends AbstractWSO2ProjectNature {
 			WebUtils.extractWAR(webappFolder, webappTemplateArchive);
 			warTempTag.clearAndEnd();
 		}
-	}
+	} 
 
 	public void deconfigure() throws CoreException {
 
