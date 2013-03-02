@@ -87,10 +87,6 @@ public class JavaLibraryUtil {
 
 		ITemporaryFileTag createNewTempTag = FileUtils.createNewTempTag();
 		for (int i = 0; i < fullList.size(); i++) {
-			File tempLocation = FileUtils.createTempDirectory();
-			File tempFile = new File(tempLocation, fullList.get(i)
-					.getElementName());
-
 			String libraryFile = null;
 			if (fullList.get(i).getPath().toFile().exists()) {
 				libraryFile = fullList.get(i).getPath().toOSString();
@@ -102,6 +98,8 @@ public class JavaLibraryUtil {
 					.get(new QualifiedName("", libraryFile));
 
 			if (persistentProperty == null) {
+				File tempLocation = FileUtils.createTempDirectory();
+				File tempFile = new File(tempLocation, fullList.get(i).getElementName());
 				FileUtils.copy(new File(libraryFile), tempFile);
 				File extractLocation = new File(tempLocation, "temp_"
 						+ tempFile.getName());
@@ -137,21 +135,22 @@ public class JavaLibraryUtil {
 									+ ":" + bean.getVersion());
 					workspaceRoot.setSessionProperty(new QualifiedName("",
 							libraryFile), bean);
-					dependencyInfoMap.put(tempFile.getPath(), bean);
+					dependencyInfoMap.put(fullList.get(i).getElementName(), bean);
 				}
 				if (!isMavenBuild) {
 					// Set null as the bean. Then the client will be prompt to
 					// enter
 					// the maven details for the lib.
-					dependencyInfoMap.put(tempFile.getPath(), null);
+					dependencyInfoMap.put(fullList.get(i).getElementName(), null);
 				}
-				FileUtils.deleteDir(tempLocation);
+//				FileUtils.deleteDir(tempLocation);
+				FileUtils.deleteDirectories(tempLocation);
 			} else {
 				// if we have the persistent property
 				Object sessionProperty = sessionProperties
 						.get(new QualifiedName("", libraryFile));
 				if (sessionProperty != null) {
-					dependencyInfoMap.put(tempFile.getPath(),
+					dependencyInfoMap.put(fullList.get(i).getElementName(),
 							(JavaLibraryBean) sessionProperty);
 				} else {
 					String[] mavenInfo = persistentProperty.split(":");
@@ -159,7 +158,7 @@ public class JavaLibraryUtil {
 							mavenInfo[0], mavenInfo[1], mavenInfo[2]);
 					workspaceRoot.setSessionProperty(new QualifiedName("",
 							libraryFile), bean);
-					dependencyInfoMap.put(tempFile.getPath(), bean);
+					dependencyInfoMap.put(fullList.get(i).getElementName(), bean);
 				}
 			}
 		}

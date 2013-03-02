@@ -34,8 +34,10 @@ public class FilterNestedProjects extends ViewerFilter {
 
 	private List<String> pathList;
 	private static final String SESSION_PROPERTY_WORKSPACE_FOLDERS = "WORKSPACE_FOLDER";
+	private static final String SESSION_PROPERTY_WORKSPACE_PROJECTS = "WORKSPACE_PROJECT";
 	private static Map<QualifiedName, Object> sessionProperties;
-	private static long previousProjectCount=ResourcesPlugin.getWorkspace().getRoot().getProjects().length;
+	private static long previousProjectCountWF=ResourcesPlugin.getWorkspace().getRoot().getProjects().length;
+	private static long previousProjectCountWP=ResourcesPlugin.getWorkspace().getRoot().getProjects().length;
 	private static IWorkspaceRoot workspaceRoot = ResourcesPlugin.getWorkspace().getRoot();
 	
 	static{
@@ -46,20 +48,44 @@ public class FilterNestedProjects extends ViewerFilter {
 		}
 	}
 	
-	private boolean isValidSessionProperty() {
+	/**
+	 * 
+	 * @param type If 0 - WorkspaceFolders 1- WorkspaceProjects
+	 * @return
+	 */
+	private boolean isValidSessionProperty(int type) {
 		int currentProjects = workspaceRoot.getProjects().length;
-		if(currentProjects!=previousProjectCount){
-			previousProjectCount=currentProjects;
-			return false;
+		switch (type) {
+		case 0:
+			if(currentProjects!=previousProjectCountWF){
+				previousProjectCountWF=currentProjects;
+				return false;
+			}
+			return true;
+		case 1:
+			if(currentProjects!=previousProjectCountWP){
+				previousProjectCountWP=currentProjects;
+				return false;
+			}
+			return true;
+		default:
+			break;
 		}
-		return true;
+		return false;
+		
+//		int currentProjects = workspaceRoot.getProjects().length;
+//		if(currentProjects!=previousProjectCountWF){
+//			previousProjectCountWF=currentProjects;
+//			return false;
+//		}
+//		return true;
 	}
 	
 	public boolean select(Viewer arg0, Object parent, Object child) {
 		if (parent instanceof IWorkspaceRoot && child instanceof IProject){
 			Object sessionProperty = sessionProperties.get(new QualifiedName("", SESSION_PROPERTY_WORKSPACE_FOLDERS));
 			
-			if(sessionProperty != null && isValidSessionProperty()){
+			if(sessionProperty != null && isValidSessionProperty(0)){
 				pathList= (List<String>) sessionProperty;
 			}else{
 				pathList = getPathList();
@@ -71,12 +97,21 @@ public class FilterNestedProjects extends ViewerFilter {
                 	return false;
                 }
 		}
+		
 		if (child instanceof IFolder){
-			List<String> pathList = getProjectListLocations();
+			Object sessionProperty = sessionProperties.get(new QualifiedName("", SESSION_PROPERTY_WORKSPACE_PROJECTS));
+			List<String> pathList;
+			if(sessionProperty != null && isValidSessionProperty(1)){
+				pathList = (List<String>) sessionProperty;
+			}else{
+				pathList = getProjectListLocations();
+				sessionProperties.put(new QualifiedName("",SESSION_PROPERTY_WORKSPACE_PROJECTS), pathList);
+			}
+			 
 			return !pathList.contains(((IFolder)child).getLocation().toOSString());
 		}
-		boolean result=true;
-		return result;
+		
+		return true;
 	}
 
 	public List<String> getPathList(){
