@@ -21,11 +21,16 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Pattern;
+
+import javax.xml.stream.FactoryConfigurationError;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.wso2.developerstudio.eclipse.artifact.sequence.Activator;
+import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBArtifact;
+import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.platform.core.model.AbstractListDataProvider;
@@ -34,6 +39,8 @@ import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 
 public class WorkspaceSequenceList extends AbstractListDataProvider{
+
+	private static final String SYNAPSE_SEQUENCE_CAPP_TYPE = "synapse/sequence";
 
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	
@@ -63,29 +70,30 @@ public class WorkspaceSequenceList extends AbstractListDataProvider{
 	
 	public List<File> getAvailableSequences() throws CoreException, IOException{
 		List<File> availableSeqList = new ArrayList<File>();
-		List<File> allMatchingFiles = new ArrayList<File>();
 		IProject[] projects = ResourcesPlugin.getWorkspace().getRoot().getProjects();
 		for (IProject workspaceProject : projects) {
 			if (workspaceProject.isOpen()) {
 				if (workspaceProject
 						.hasNature("org.wso2.developerstudio.eclipse.esb.project.nature")) {
-					File[] allFiles = FileUtils.getAllExactMatchingFiles(
-							workspaceProject.getLocation().toOSString(), null,
-							"xml", allMatchingFiles,skipList);
-
-					allMatchingFiles.addAll(Arrays.asList(allFiles));
+					
+					ESBProjectArtifact esbProjectArtifact = new ESBProjectArtifact();
+					File projectPath = workspaceProject.getLocation().toFile();
+					try {
+						esbProjectArtifact.fromFile(workspaceProject.getFile("artifact.xml")
+								.getLocation().toFile());
+						List<ESBArtifact> allESBArtifacts = esbProjectArtifact.getAllESBArtifacts();
+						for (ESBArtifact esbArtifact : allESBArtifacts) {
+							if(esbArtifact.getType().equals(SYNAPSE_SEQUENCE_CAPP_TYPE)){
+								String relativeFilePath = esbArtifact.getFile().replaceAll(Pattern.quote("/"), File.separator);
+								availableSeqList.add(new File(projectPath, relativeFilePath));
+							}
+						}
+					} catch (Exception e) {
+						log.error("Error occured while scanning the workspace for Sequence artifacts", e);
+					}
 				}
 			}
 		}
-		for (File xmlFile : allMatchingFiles) {
-			String content = FileUtils.getContentAsString(xmlFile);
-			if(content.contains("<sequence xmlns=")){
-				if(!availableSeqList.contains(xmlFile)){
-					availableSeqList.add(xmlFile);
-				}
-			}
-		}
-		
 		return availableSeqList;
 	}
 
