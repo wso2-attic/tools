@@ -37,6 +37,15 @@ permissions and ~ limitations under the License.
 					<a href="#ProxyServiceArtifact">Proxy Service</a>
 				</li>
 				<li>
+					<a href="#RESTAPIAtrifact">API</a>
+				</li>
+				<li>
+					<a href="#TasksArtifact">Tasks</a>
+				</li>
+				<li>
+					<a href="#TemplatesArtifact">Templates</a>
+				</li>
+				<li>
 					<a href="#SynapseConfArtifact">Synapse Configuration</a>
 				</li>
 				<li>
@@ -56,9 +65,9 @@ permissions and ~ limitations under the License.
 			
 		<h2 id="ESBConfigProject">ESB Config Project</h2>	
 		<p>
-		With <strong>WSO2 Developer Studio 2.0.0</strong>, we introduce a new project type called 
+		With <strong>WSO2 Developer Studio 3.0.0</strong>, we introduce a new project type called 
 		<strong>ESB Config Project</strong> to save all the ESB related artifacts such as 
-		<strong>Proxy Services, Endpoints, Sequences, local Entries</strong> and 
+		<strong>Proxy Services, Endpoints, Sequences, local Entries, API, Tasks, Templates</strong> and 
 		<strong>Synapse Configurations</strong>.
 		</p>
 		<p>
@@ -96,8 +105,9 @@ permissions and ~ limitations under the License.
 		
 		<p>
 		All your endpoints will be saved in to the <strong>endpoints</strong> folder, sequences will be saved 
-		in <strong>sequences</strong> folder, local entries in to <strong>local-entries</strong> folder 
-		and proxy services in to <strong>proxy-services</strong> folder.  
+		in <strong>sequences</strong> folder, local entries in to <strong>local-entries</strong> folder, 
+		proxy services in to <strong>proxy-services</strong> folder,APIs in to <strong>api</strong> folder,
+		tasks in to <strong>tasks</strong> folder and templates in to <strong>template</strong> folder. 
 		</p>	
 		
 		<h2 id="SupportDifferentESBVersions">Support for Different WSO2 ESB Versions</h2>
@@ -238,7 +248,7 @@ permissions and ~ limitations under the License.
 		<p>
 		Once you click <strong>Finish</strong>, you will see a <strong>Sequence</strong> being created under
 		<strong>src/main/synapse-configs/sequences</strong> folder and 
-		it is being opened in <strong>ESB Editor</strong> which is inbuilt with <strong>WSO2 Carbon 
+		it is being opened in <strong>ESB Graphical Editor</strong> which is new graphical esb editor inbuilt with <strong>WSO2 Developer 
 		Studio</strong>. 
 		</p>
 		<p>
@@ -251,6 +261,13 @@ permissions and ~ limitations under the License.
 		You can see that the given <strong>Endpoint</strong> and <strong>Error Sequence</strong> information
 		being added to the configuration.
 		</p>
+		
+		<p>
+		If you want to open that sequence using <strong>ESB Tree Editor</strong>which is also inbuilt with <strong>WSO2 Developer 
+		Studio</strong>.Right click on the sequence file go to<strong>Open With</strong> in the right click menu and select the 
+		<strong>ESB Editor</strong>in the Open With sub menu.
+		</p>
+		
 		
 		<p>
 		If you select <strong>Import Sequence from File System</strong> option, you can upload a 
@@ -359,13 +376,18 @@ permissions and ~ limitations under the License.
 		<p>
 		Select the template and fill necessary information and click <strong>Finish</strong>. Now you will 
 		see the endpoint has been created under <strong>src/main/synapse-configs/endpoints</strong> and it 
-		will open with the <strong>ESB Editor</strong>.
+		will open with the <strong>ESB Graphical Editor</strong>.
 		</p>
 		<p>
 			<br></br>
 			<img alt="New Server Runtime" src="images/ep7.png"></img>
 			<br></br>
 		</p>
+				
+		<p>
+		If you want to open that endpoint using <strong>ESB Tree Editor</strong>.Right click on the endpoint file go 
+		to<strong>Open With</strong> in the right click menu and select the <strong>ESB Editor</strong>in the Open With sub menu.
+		</p>		
 				
 		<p>
 		If you select <strong>Import Endpoint</strong> option, you can upload a 
@@ -478,6 +500,12 @@ permissions and ~ limitations under the License.
 			<img alt="New Server Runtime" src="images/localEntry7.PNG"></img>
 			<br></br>
 		</p>
+		
+		<p>
+		If you want to open that local entry using <strong>ESB Tree Editor</strong>.Right click on the local entry file go 
+		to<strong>Open With</strong> in the right click menu and select the <strong>ESB Editor</strong>in the Open With sub menu.
+		</p>
+		
 				
 		<p>
 		If you select <strong>Import Local Entry</strong> option, you can upload any
@@ -585,14 +613,19 @@ permissions and ~ limitations under the License.
 		<p>
 		Select the template and fill necessary information and click <strong>Finish</strong>. Now you will 
 		see the proxy service has been created under <strong>src/main/synapse-configs/proxy-services</strong> and 
-		it will open with the <strong>ESB Editor</strong>.
+		it will open with the <strong>ESB Graphical Editor</strong>.
 		</p>
 		<p>
 			<br></br>
 			<img alt="New Server Runtime" src="images/proxy7.png"></img>
 			<br></br>
 		</p>
-				
+		
+	    <p>
+		If you want to open that proxy service using <strong>ESB Tree Editor</strong>.Right click on the local entry file go 
+		to<strong>Open With</strong> in the right click menu and select the <strong>ESB Editor</strong>in the Open With sub menu.
+		</p>
+
 		<p>
 		If you select <strong>Import Proxy Service</strong> option, you can upload a 
 		<strong>Synapse Configuration</strong> file or any XML file which contains a proxy services, 
@@ -617,6 +650,329 @@ permissions and ~ limitations under the License.
 			<br></br>
 		</p>			
 			
+			
+			
+	
+			<h2 id="RESTAPIArtifact">API</h2>
+       <p>
+        In the similar manner you create a sequence and other artifacts, you can create 
+        <strong>REST API</strong> as well.
+       	To create a <strong>API</strong>, open <strong>WSO2 Developer Studio Dashboard</strong> 
+        and select <strong>API</strong> from <strong>Enterprise Service Bus</strong> 
+        category.
+        </p>
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/api1.png"></img>
+			<br></br>
+		</p>
+		<p>
+		There are two ways to create a API.    
+		</p>
+		<ol>
+			<li>New API</li>
+			<li>Import API from File System</li>
+		</ol>
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/api2.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		If you select the first option and click <strong>Next</strong>, in the wizard page, give a name 
+		for the API and spefify the <strong>context</strong>,<strong>Host name</strong> and <strong>Port</strong>
+		There's a field called <strong>Save API In</strong>. This field is where you specify the 
+		<strong>ESB Config Project</strong> in which you want to save the API. If you have 
+		<strong>ESB Config Projects</strong> already in your workspace, you can click on the 
+		<strong>Browse</strong> button and select the <strong>ESB Config Project</strong> that already in 
+		the workspace. 
+		</p>
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/api3.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		If you do not have <strong>ESB Config Projects</strong>, you can create a new <strong>ESB Config 
+		Project</strong> by clicking on <strong>Create new ESB Project...</strong> button.
+		</p>
+		
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/api4.png"></img>
+			<br></br>
+		</p>
+		
+ 
+		<p>
+		After fill necessary infortmation and click <strong>Finish</strong>. Now you will 
+		see the API has been created under <strong>src/main/synapse-configs/api</strong> and 
+		it will open with the <strong>ESB Graphical Editor</strong>.
+		</p>
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/api5.png"></img>
+			<br></br>
+		</p>
+		
+	    <p>
+		If you want to open that API using <strong>ESB Tree Editor</strong>.Right click on the local entry file go 
+		to<strong>Open With</strong> in the right click menu and select the <strong>ESB Editor</strong>in the Open With sub menu.
+		</p>
+
+		<p>
+		If you select <strong>Import API</strong> option, you can upload a 
+		<strong>Synapse Configuration</strong> file or any XML file which contains a API, 
+		from the file system. Once you set the file, it will display all the <strong>APIs</strong> 
+		that are available in the file. 
+		</p>
+		
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/api6.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		You can select multiple APIs at once, and once you click <strong>Finish</strong>, you will see 
+		that the selected APIs are being added to the project.
+		</p>
+		
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/api7.png"></img>
+			<br></br>
+		</p>			
+	
+			
+	#########################################################################################################################3		
+			
+			<h2 id="TasksArtifact">Scheduled Tasks</h2>
+       <p>
+        In the similar manner you create a sequence and other artifacts, you can create 
+        <strong>Scheduled Tasks</strong> as well.
+       	To create a <strong>Tasks</strong>, open <strong>WSO2 Developer Studio Dashboard</strong> 
+        and select <strong>Scheduled Tasks</strong> from <strong>Enterprise Service Bus</strong> 
+        category.
+        </p>
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/task1.png"></img>
+			<br></br>
+		</p>
+		<p>
+		There are two ways to create a Scheduled Task.    
+		</p>
+		<ol>
+			<li>New Scheduled Task</li>
+			<li>Import Task from File System</li>
+		</ol>
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/task2.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		If you select the first option and click <strong>Next</strong>, in the wizard page, give a name 
+		for the Task and spefify the <strong>Group</strong> and <strong>Implimentation</strong>.
+		There's a field called 	
+		<strong>Save Tasks In</strong>.This field is where you specify the 
+		<strong>ESB Config Project</strong> in which you want to save the Tasks. If you have 
+		<strong>ESB Config Projects</strong> already in your workspace, you can click on the 
+		<strong>Browse</strong> button and select the <strong>ESB Config Project</strong> that already in 
+		the workspace. 
+		</p>
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/task3.png"></img>
+			<br></br>
+		</p>
+		<p>
+		If you do not have <strong>ESB Config Projects</strong>, you can create a new <strong>ESB Config 
+		Project</strong> by clicking on <strong>Create new ESB Project...</strong> button.
+		</p>		
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/task4.png"></img>
+			<br></br>
+		</p>
+		
+ 
+		<p>
+		After fill necessary infortmation and click <strong>Finish</strong>. Now you will 
+		see the Task has been created under <strong>src/main/synapse-configs/tasks</strong> and 
+		it will open with the <strong>ESB Graphical Editor</strong>.
+		</p>
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/task5.png"></img>
+			<br></br>
+		</p>
+		
+	    <p>
+		If you want to open that task using <strong>ESB Tree Editor</strong>.Right click on the local entry file go 
+		to<strong>Open With</strong> in the right click menu and select the <strong>ESB Editor</strong>in the Open With sub menu.
+		</p>
+
+		<p>
+		If you select <strong>Import Tasks</strong> option, you can upload a 
+		<strong>Synapse Configuration</strong> file or any XML file which contains a Task, 
+		from the file system. Once you set the file, it will display all the <strong>Tasks</strong> 
+		that are available in the file. 
+		</p>
+		
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/task7.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		You can select multiple Tasks at once, and once you click <strong>Finish</strong>, you will see 
+		that the selected Tasks are being added to the project.
+		</p>
+		
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/task8.png"></img>
+			<br></br>
+		</p>
+		
+		
+88888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888		
+		
+		
+			<h2 id="TemplatesArtifact">Templates</h2>
+       <p>
+        In the similar manner you create a proxy services and other artifacts, you can create 
+        <strong>Templates</strong> as well.
+       	To create a <strong>Template</strong>, open <strong>WSO2 Developer Studio Dashboard</strong> 
+        and select <strong>Template</strong> from <strong>Enterprise Service Bus</strong> 
+        category.
+        </p>
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/template1.png"></img>
+			<br></br>
+		</p>
+		<p>
+		There are two ways to create a Templates.    
+		</p>
+		<ol>
+			<li>New Template</li>
+			<li>Import Template from File System</li>
+		</ol>
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/template2.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		If you select the first option and click <strong>Next</strong>, in the wizard page, give a name 
+		for the proxy service. There's a field called <strong>Save Proxy Service In</strong>. This field is where you specify the 
+		<strong>ESB Config Project</strong> in which you want to save the endpoint. If you have 
+		<strong>ESB Config Projects</strong> already in your workspace, you can click on the 
+		<strong>Browse</strong> button and select the <strong>ESB Config Project</strong> that already in 
+		the workspace. 
+		</p>
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/template3.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		If you do not have <strong>ESB Config Projects</strong>, you can create a new <strong>ESB Config 
+		Project</strong> by clicking on <strong>Create new ESB Project...</strong> button.
+		</p>
+		
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/template4.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		There are several templates that are provided. 
+		</p>
+		<ul>
+			<li>Sequence Template</li>
+			<li>Address Endpoint Template</li>
+			<li>Default Endpoint Template</li>
+			<li>WSDL Endpoint Template</li>
+		</ul>
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/template5.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		<strong>Advanced Configuration</strong> section will be filled according to the <strong>Template</strong>
+		 that you select. For an example, if you select <strong>WSDL Endpoint Template</strong>, 
+		you need to fill information like <strong>WSDL URI, WSDL Service</strong> and <strong>WSDL Port</strong>. 
+		</p>
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/template6.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		Select the template and fill necessary information and click <strong>Finish</strong>. Now you will 
+		see the template has been created under <strong>src/main/synapse-configs/templates</strong> and 
+		it will open with the <strong>ESB Graphical Editor</strong>.
+		</p>
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/template7.png"></img>
+			<br></br>
+		</p>
+		
+	    <p>
+		If you want to open that proxy service using <strong>ESB Tree Editor</strong>.Right click on the template file go 
+		to<strong>Open With</strong> in the right click menu and select the <strong>ESB Editor</strong>in the Open With sub menu.
+		</p>
+
+		<p>
+		If you select <strong>Import template</strong> option, you can upload a 
+		<strong>Synapse Configuration</strong> file or any XML file which contains a templates, 
+		from the file system. Once you set the file, it will display all the <strong>templates</strong> 
+		that are available in the file. 
+		</p>
+		
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/template8.png"></img>
+			<br></br>
+		</p>
+		
+		<p>
+		You can select multiple templates at once, and once you click <strong>Finish</strong>, you will see 
+		that the selected templates are being added to the project.
+		</p>
+		
+		<p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/template9.png"></img>
+			<br></br>
+		</p>			
+			
+			
+		
+		
+		
+			
+			
+			
+			
+			
+			
+			
 		<h2 id="SynapseConfArtifact">Synapse Configuration</h2>
        <p>
         In the similar manner you create a sequence and other artifacts, you can create 
@@ -631,7 +987,7 @@ permissions and ~ limitations under the License.
 			<br></br>
 		</p>
 		<p>
-		There are three ways to create a Proxy Service.    
+		There are three ways to create a Synapse Configuration.    
 		</p>
 		<ol>
 			<li>New Synapse Configuration</li>
