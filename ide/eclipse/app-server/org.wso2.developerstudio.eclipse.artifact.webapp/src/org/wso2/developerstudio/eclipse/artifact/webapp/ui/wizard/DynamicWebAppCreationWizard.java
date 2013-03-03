@@ -19,6 +19,9 @@ package org.wso2.developerstudio.eclipse.artifact.webapp.ui.wizard;
 import static org.eclipse.wst.common.frameworks.internal.operations.IProjectCreationPropertiesNew.DEFAULT_LOCATION;
 import static org.eclipse.wst.common.frameworks.internal.operations.IProjectCreationPropertiesNew.PROJECT_LOCATION;
 import static org.eclipse.wst.common.frameworks.internal.operations.IProjectCreationPropertiesNew.PROJECT_NAME;
+import static org.eclipse.wst.common.frameworks.internal.operations.IProjectCreationPropertiesNew.USER_DEFINED_LOCATION;
+
+
 
 import java.io.File;
 import java.lang.reflect.Field;
@@ -69,6 +72,7 @@ public class DynamicWebAppCreationWizard extends WebProjectWizard {
 	IWizardPage newWebAppPage;
 	IWizardPage webModulePage;
 	IStructuredSelection selection;
+	Object propertyUser1;
 	boolean canfinish;
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	 
@@ -106,24 +110,53 @@ public class DynamicWebAppCreationWizard extends WebProjectWizard {
 	private void setDataModelListner() throws IllegalAccessException,
 			InvocationTargetException, NoSuchFieldException {
 		final DataModelImpl dataModel = (DataModelImpl) getDataModel();
+		propertyUser1 = dataModel.getProperty(USER_DEFINED_LOCATION);
+
 		dataModel.addListener(new IDataModelListener() {
 			@Override
 			public void propertyChanged(DataModelEvent event) {
-				if(PROJECT_NAME.equalsIgnoreCase(event.getPropertyName())){
-					try {
-						setProperty(dataModel,DEFAULT_LOCATION,appModel.getSaveLocation().getPath() + File.separator 
-								+ dataModel.getStringProperty(PROJECT_NAME));
-						setProperty(dataModel,PROJECT_LOCATION,appModel.getSaveLocation().getPath() + File.separator 
-								+ dataModel.getStringProperty(PROJECT_NAME));
-					} catch (Exception e) {
-						log.error(e.getMessage(), e);
+
+				if (PROJECT_NAME.equalsIgnoreCase(event.getPropertyName())) {
+					if (propertyUser1 == null
+							|| propertyUser1.toString().equals("")) {
+						try {
+							setProperty(
+									dataModel,
+									DEFAULT_LOCATION,
+									appModel.getSaveLocation().getPath()
+											+ File.separator
+											+ dataModel
+													.getStringProperty(PROJECT_NAME));
+							setProperty(
+									dataModel,
+									PROJECT_LOCATION,
+									appModel.getSaveLocation().getPath()
+											+ File.separator
+											+ dataModel
+													.getStringProperty(PROJECT_NAME));
+						} catch (Exception e) {
+							log.error(e.getMessage(), e);
+						}
+					}
+				}
+				if (USER_DEFINED_LOCATION.equalsIgnoreCase(event
+						.getPropertyName())) {
+					propertyUser1 = dataModel
+							.getProperty(USER_DEFINED_LOCATION);
+					if (propertyUser1 != null
+							&& !propertyUser1.toString().equals("")) {
+						try {
+							setProperty(dataModel, PROJECT_LOCATION,
+									propertyUser1.toString());
+						} catch (Exception e) {
+							log.error(e.getMessage(), e);
+						}
 					}
 				}
 			}
 		});
-		
-		setProperty(dataModel,DEFAULT_LOCATION,appModel.getSaveLocation().getPath());
-		setProperty(dataModel,PROJECT_LOCATION,appModel.getSaveLocation().getPath());
+		setProperty(dataModel, DEFAULT_LOCATION, appModel.getSaveLocation()
+				.getPath());
 	}
 
 	/**
