@@ -37,10 +37,10 @@ permissions and ~ limitations under the License.
 					<a href="#ProxyServiceArtifact">Proxy Service</a>
 				</li>
 				<li>
-					<a href="#RESTAPIAtrifact">API</a>
+					<a href="#RESTAPIAtrifact">REST API</a>
 				</li>
 				<li>
-					<a href="#TasksArtifact">Tasks</a>
+					<a href="#TasksArtifact">Scheduled Tasks</a>
 				</li>
 				<li>
 					<a href="#TemplatesArtifact">Templates</a>
@@ -493,7 +493,7 @@ permissions and ~ limitations under the License.
 		<p>
 		Select the template and fill necessary information, then click <strong>Finish</strong>. Now you will 
 		see the local entry has been created under <strong>src/main/synapse-configs/local-entries</strong> and it 
-		will open with the <strong>ESB Editor</strong>.
+		will open with the <strong>ESB Graphical Editor</strong>.
 		</p>
 		<p>
 			<br></br>
@@ -650,10 +650,8 @@ permissions and ~ limitations under the License.
 			<br></br>
 		</p>			
 			
-			
-			
-	
-			<h2 id="RESTAPIArtifact">API</h2>
+
+			<h2 id="RESTAPIAtrifact">REST API</h2>
        <p>
         In the similar manner you create a sequence and other artifacts, you can create 
         <strong>REST API</strong> as well.
@@ -740,14 +738,6 @@ permissions and ~ limitations under the License.
 		that the selected APIs are being added to the project.
 		</p>
 		
-		<p>
-			<br></br>
-			<img alt="New Server Runtime" src="images/api7.png"></img>
-			<br></br>
-		</p>			
-	
-			
-	#########################################################################################################################3		
 			
 			<h2 id="TasksArtifact">Scheduled Tasks</h2>
        <p>
@@ -826,7 +816,7 @@ permissions and ~ limitations under the License.
 		
 		<p>
 			<br></br>
-			<img alt="New Server Runtime" src="images/task7.png"></img>
+			<img alt="New Server Runtime" src="images/task6.png"></img>
 			<br></br>
 		</p>
 		
@@ -835,16 +825,7 @@ permissions and ~ limitations under the License.
 		that the selected Tasks are being added to the project.
 		</p>
 		
-		<p>
-			<br></br>
-			<img alt="New Server Runtime" src="images/task8.png"></img>
-			<br></br>
-		</p>
-		
-		
-88888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888		
-		
-		
+
 			<h2 id="TemplatesArtifact">Templates</h2>
        <p>
         In the similar manner you create a proxy services and other artifacts, you can create 
@@ -888,13 +869,7 @@ permissions and ~ limitations under the License.
 		<p>
 		If you do not have <strong>ESB Config Projects</strong>, you can create a new <strong>ESB Config 
 		Project</strong> by clicking on <strong>Create new ESB Project...</strong> button.
-		</p>
-		
-		<p>
-			<br></br>
-			<img alt="New Server Runtime" src="images/template4.png"></img>
-			<br></br>
-		</p>
+		</p>		
 		
 		<p>
 		There are several templates that are provided. 
@@ -907,7 +882,7 @@ permissions and ~ limitations under the License.
 		</ul>
 		<p>
 			<br></br>
-			<img alt="New Server Runtime" src="images/template5.png"></img>
+			<img alt="New Server Runtime" src="images/template4.png"></img>
 			<br></br>
 		</p>
 		
@@ -956,21 +931,7 @@ permissions and ~ limitations under the License.
 		that the selected templates are being added to the project.
 		</p>
 		
-		<p>
-			<br></br>
-			<img alt="New Server Runtime" src="images/template9.png"></img>
-			<br></br>
-		</p>			
-			
-			
-		
-		
-		
-			
-			
-			
-			
-			
+
 			
 			
 		<h2 id="SynapseConfArtifact">Synapse Configuration</h2>
