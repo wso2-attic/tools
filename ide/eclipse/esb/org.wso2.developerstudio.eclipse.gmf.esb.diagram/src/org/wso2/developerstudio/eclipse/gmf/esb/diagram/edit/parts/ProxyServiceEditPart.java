@@ -132,8 +132,11 @@ public class ProxyServiceEditPart extends AbstractBaseFigureEditPart {
 		super.notifyChanged(notification);
 		if (notification.getFeature() instanceof EAttributeImpl) {
 			if (notification.getNotifier() instanceof BoundsImpl) {
-				alignLeft(((BoundsImpl) notification.getNotifier()).getY(),
-						((BoundsImpl) notification.getNotifier()).getWidth(),
+				int y=((BoundsImpl) notification.getNotifier()).getY();
+				if(y ==-1){
+					y=+2;
+				}
+				alignLeft(y,((BoundsImpl) notification.getNotifier()).getWidth(),
 						((BoundsImpl) notification.getNotifier()).getHeight());
 				FigureCanvas canvas = (FigureCanvas) getViewer().getControl();
 				canvas.getViewport().repaint();
