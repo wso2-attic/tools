@@ -24,12 +24,13 @@
 	    <item name="Business Process Server Tools" href="bpel_category.html"/>
 	    <item name="Web Application Tools" href="web_app_category.html"/>
 	    <item name="Gadget Server Tools" href="gadget_category.html"/>
+	    <item name="Complex Event Processor Tools" href="cep_category.html" />
+	    <item name="Business Rules Server Tools" href="brs_category.html"/>
 	    <item name="Carbon Tools" href="carbon_category.html"/>
 	    <item name="Packaging" href="packaging.html"/>
 	    <item name="Advance Server Extensions" href="server_extensions_category.html"/>
 	    <item name="Apache Maven Support" href="devs_maven_support.html"/>
 	    <item name="Testing and Deploying" href="testing_deploying_category.html"/>
-	    <item name="Business Rules Server Tools" href="brs_category.html"/>
        </menu>
 
 		<menu name="Samples">
