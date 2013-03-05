@@ -17,6 +17,7 @@
 package org.wso2.developerstudio.eclipse.artifact.endpoint.ui.wizard;
 
 import static org.wso2.developerstudio.eclipse.platform.core.registry.util.Constants.REGISTRY_RESOURCE;
+import static org.wso2.developerstudio.eclipse.artifact.endpoint.model.EndpointModel.*;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -226,6 +227,17 @@ public class EndpointProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 				.replaceAll("^conf:", "/_system/config")
 				.replaceAll("^gov:", "/_system/governance")
 				.replaceAll("^local:", "/_system/local");
+		
+		if(model.getRegistryPathID().equals(CONF_REG_ID)){
+			if(!registryPath.startsWith("/_system/config")){
+				registryPath = "/_system/config/".concat(registryPath);
+			}
+		} else if (model.getRegistryPathID().equals(GOV_REG_ID)){
+			if(!registryPath.startsWith("/_system/governance")){
+				registryPath = "/_system/governance/".concat(registryPath);
+			}
+		} 
+		
 		String templateContent = "";
 		String template = "";
 		RegistryResourceInfoDoc regResInfoDoc = new RegistryResourceInfoDoc();
