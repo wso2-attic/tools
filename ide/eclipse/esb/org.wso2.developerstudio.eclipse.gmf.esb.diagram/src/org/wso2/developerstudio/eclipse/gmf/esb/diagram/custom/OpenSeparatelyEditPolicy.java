@@ -14,14 +14,14 @@ public class OpenSeparatelyEditPolicy extends OpenEditPolicy {
 	protected Command getOpenCommand(Request request) {
 		if (getTargetEditPart(request) instanceof SequenceEditPart) {
 			String name=((Sequence)((Node)((SequenceEditPart)getTargetEditPart(request)).getModel()).getElement()).getName();
-			if(!"{XPath}".equals(name) && !name.startsWith("conf:")){
+			if(!"{XPath}".equals(name) && ! (name.startsWith("conf:") || name.startsWith("gov:"))){
 				((SequenceEditPart) getTargetEditPart(request)).createDialogBox();
 			}
 			
 		}else if(getTargetEditPart(request) instanceof NamedEndpointEditPart){
 			String name=((NamedEndpoint)((Node)((NamedEndpointEditPart)getTargetEditPart(request)).getModel()).getElement()).getName();
 			if(name!=null){
-				if(!"{XPath}".equals(name) && !name.startsWith("conf:")){
+				if(!"{XPath}".equals(name) && !(name.startsWith("conf:") || name.startsWith("gov:"))){
 					((NamedEndpointEditPart) getTargetEditPart(request)).createDialogBox();
 				}
 			}else{
