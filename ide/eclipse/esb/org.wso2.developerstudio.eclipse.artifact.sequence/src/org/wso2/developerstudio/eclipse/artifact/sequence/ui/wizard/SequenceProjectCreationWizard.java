@@ -17,6 +17,7 @@
 package org.wso2.developerstudio.eclipse.artifact.sequence.ui.wizard;
 
 import static org.wso2.developerstudio.eclipse.platform.core.registry.util.Constants.REGISTRY_RESOURCE;
+import static org.wso2.developerstudio.eclipse.artifact.sequence.model.SequenceModel.*;
 import java.io.File;
 import java.io.IOException;
 import java.text.MessageFormat;
@@ -245,10 +246,22 @@ public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 		File pomLocation = project.getFile("pom.xml").getLocation().toFile();
 		String groupId = getMavenGroupId(pomLocation) + ".resource";
 		
+		
 		String registryPath = sequenceModel.getDynamicSeqRegistryPath()
 				.replaceAll("^conf:", "/_system/config")
 				.replaceAll("^gov:", "/_system/governance")
 				.replaceAll("^local:", "/_system/local");
+		
+		if(sequenceModel.getRegistryPathID().equals(CONF_REG_ID)){
+			if(!registryPath.startsWith("/_system/config")){
+				registryPath = "/_system/config/".concat(registryPath);
+			}
+		} else if (sequenceModel.getRegistryPathID().equals(GOV_REG_ID)){
+			if(!registryPath.startsWith("/_system/governance")){
+				registryPath = "/_system/governance/".concat(registryPath);
+			}
+		} 
+		
 		RegistryResourceInfoDoc regResInfoDoc = new RegistryResourceInfoDoc();
 
 		ArtifactTemplate selectedTemplate = ArtifactTemplateHandler

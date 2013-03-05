@@ -47,9 +47,12 @@ import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 public class SequenceModel extends ProjectDataModel {
 	
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
+	
+	public static final String CONF_REG_ID = "2";
+	public static final String GOV_REG_ID = "3";
 
 	private boolean saveAsDynamic = false;
-	private String registryPathID = "2";
+	private String registryPathID = GOV_REG_ID;
 	private String dynamicSeqRegistryPath;
 	private List<OMElement> availableSeqList;
 	private IContainer sequenceSaveLocation;
