@@ -24,6 +24,7 @@ import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.IPackageFragment;
 import org.eclipse.jdt.core.IType;
 import org.eclipse.jdt.ui.wizards.NewTypeWizardPage;
+import org.eclipse.jface.viewers.ComboBoxCellEditor;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
@@ -41,7 +42,7 @@ import org.eclipse.jdt.internal.ui.dialogs.StatusInfo;
 
 public class JaxrsClassWizardPage extends NewTypeWizardPage implements Listener {
 	
-	  public JaxrsClassWizardPage(IWorkbench workbench,IStructuredSelection selection) {
+	public JaxrsClassWizardPage(IWorkbench workbench,IStructuredSelection selection) {
 		super(true, "Create new JAX RESTful service class");
 	}
 
@@ -54,8 +55,11 @@ public class JaxrsClassWizardPage extends NewTypeWizardPage implements Listener 
 	private Label lblServiceInterface;
 	private String ifClass;
 	private String ifPkg;
+	private Button isCreateService;
+	private boolean isCreateIfClass;
 
-	    public void init(IStructuredSelection selection) {
+
+		public void init(IStructuredSelection selection) {
 	    	setTitle("Create new JAX RESTful service class");
 	        IJavaElement jelem= getInitialJavaElement(selection);
 	        initContainerPage(jelem);
@@ -183,22 +187,35 @@ public class JaxrsClassWizardPage extends NewTypeWizardPage implements Listener 
 				
 			};
 			
+			if(isCreateIfClass){
+				IStatus[] status= new IStatus[] {
+			            fContainerStatus,
+			            isEnclosingTypeSelected() ? fEnclosingTypeStatus : pkgStatus,
+			            classStatus,
+			            ifResource,
+			            CommonFieldValidator.isJavaClassName(ifClassName) ? okStatus : ifClassStatus,
+			            CommonFieldValidator.isJavaPackageName(ifPkgName) ? okStatus : ifpkgStatus
+			        };
+			    updateStatus(status);
+			}else{
+				IStatus[] status= new IStatus[] {
+			            fContainerStatus,
+			            isEnclosingTypeSelected() ? fEnclosingTypeStatus : pkgStatus,
+			            classStatus,
+			            ifResource,
+			            okStatus,
+			            okStatus
+			        };
+			    updateStatus(status);
+				
+			}
 	    	
-	        IStatus[] status= new IStatus[] {
-	            fContainerStatus,
-	            isEnclosingTypeSelected() ? fEnclosingTypeStatus : pkgStatus,
-	            classStatus,
-	            ifResource,
-	            CommonFieldValidator.isJavaClassName(ifClassName) ? okStatus : ifClassStatus,
-	            CommonFieldValidator.isJavaPackageName(ifPkgName) ? okStatus : ifpkgStatus
-	        };
-	        updateStatus(status);
+	        
 	    }
 
 
 	    protected void handleFieldChanged(String fieldName) {
 	        super.handleFieldChanged(fieldName);
-
 	        doStatusUpdate();
 	    }
 	 
@@ -224,28 +241,41 @@ public class JaxrsClassWizardPage extends NewTypeWizardPage implements Listener 
 	        
 	        createSeparator(composite, nColumns);
 	        
+	        isCreateService=new Button(composite, SWT.CHECK);
+	        isCreateService.setText("Create Service interface");
+	        isCreateService.setSelection(false);
+	        isCreateService.setLayoutData(gd);
+	        isCreateService.addListener(SWT.Selection, this);
+	        
 	        lblServiceInterface = new Label(composite, SWT.NONE);
 	        lblServiceInterface.setLayoutData(gd);
 	        lblServiceInterface.setText("Service Interface");
+	        lblServiceInterface.setEnabled(false);
 	        
 	    	lblServiceInterfacePkg = new Label(composite, SWT.NONE);
 	    	lblServiceInterfacePkg.setText("Packa&ge");
+	    	lblServiceInterfacePkg.setEnabled(false);
 	    	txtServiceInterfacePkg = new Text(composite, SWT.BORDER);
 	    	GridData gridData= new GridData(GridData.FILL_HORIZONTAL);
 	    	gridData.horizontalSpan= 2;
 	    	txtServiceInterfacePkg.setLayoutData(gridData);
 	    	txtServiceInterfacePkg.addListener(SWT.CHANGED, this);
+	    	txtServiceInterfacePkg.setEnabled(false);
 	    	
 	    	btnServiceInterfacePkg = new Button(composite, SWT.NONE);
 	    	btnServiceInterfacePkg.setText("B&rowse...");
 	    	btnServiceInterfacePkg.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 	    	btnServiceInterfacePkg.addListener(SWT.MouseDown, this);
+	    	btnServiceInterfacePkg.setEnabled(false);
 
 	    	lblServiceInterfaceClass = new Label(composite, SWT.NONE);
 	    	lblServiceInterfaceClass.setText("Nam&e");
+	    	lblServiceInterfaceClass.setEnabled(false);
+	    	
 	    	txtServiceInterfaceClass = new Text(composite, SWT.BORDER);
 	    	txtServiceInterfaceClass.setLayoutData(gridData);
 	    	txtServiceInterfaceClass.addListener(SWT.CHANGED, this);
+	    	txtServiceInterfaceClass.setEnabled(false);
 	    	new Label(composite, SWT.NONE);
 	        createSeparator(composite, nColumns);
 	        
@@ -275,7 +305,6 @@ public class JaxrsClassWizardPage extends NewTypeWizardPage implements Listener 
 //	    		buffer.append("return \"Hello \" + txt + \" !\";\n");
 //	    		buffer.append("}");
 //	            newType.createMethod(buffer.toString(), null, false, null);
-
 	        }
 	   }
 	    
@@ -292,6 +321,16 @@ public class JaxrsClassWizardPage extends NewTypeWizardPage implements Listener 
 				setIfClass(txtServiceInterfaceClass.getText());
 				setIfPkg(txtServiceInterfacePkg.getText());
 				doStatusUpdate();
+			}else if(isCreateService==event.widget){
+				boolean selection = isCreateService.getSelection();
+				txtServiceInterfacePkg.setEnabled(selection);
+				btnServiceInterfacePkg.setEnabled(selection);
+				txtServiceInterfaceClass.setEnabled(selection);
+				lblServiceInterface.setEnabled(selection);
+				lblServiceInterfacePkg.setEnabled(selection);	
+				lblServiceInterfaceClass.setEnabled(selection);
+				setIsCreateIfClass(selection);
+		
 			} 
 		}
 
@@ -309,6 +348,13 @@ public class JaxrsClassWizardPage extends NewTypeWizardPage implements Listener 
 
 		public String getIfPkg() {
 			return ifPkg;
+		}
+	    public boolean getIsCreateIfClass() {
+			return isCreateIfClass;
+		}
+
+		public void setIsCreateIfClass(boolean isCreateIfClass) {
+			this.isCreateIfClass = isCreateIfClass;
 		}
 	   
 }

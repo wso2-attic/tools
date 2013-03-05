@@ -61,9 +61,12 @@ public class JaxrsClassWizard extends Wizard implements INewWizard {
 	
 	
 	public boolean performFinish() {
+		String id = "";
+		String address = "";
+		String serviceClass ="";
+		
 		try {
-			String ifPkg = classWizardPage.getIfPkg();
-			String ifClass = classWizardPage.getIfClass();
+					
 			IProject project = getSelectedProject();
 			IFolder sourceFolder =ProjectUtils.getWorkspaceFolder(project, "src", "main", "java");
 			IFolder webINF = ProjectUtils.getWorkspaceFolder(project, "src", "main", "webapp","WEB-INF");
@@ -71,42 +74,56 @@ public class JaxrsClassWizard extends Wizard implements INewWizard {
 			IJavaProject javaProject = JavaCore.create(project);
 			IPackageFragmentRoot root = javaProject.getPackageFragmentRoot(sourceFolder);
 			
-			IPackageFragment ifSourcePackage = root.getPackageFragment(ifPkg);
-			if(!ifSourcePackage.exists()){
-				ifSourcePackage = root.createPackageFragment(ifPkg, false, null);
-			}
-			ICompilationUnit cu = ifSourcePackage.createCompilationUnit(ifClass
+			if(classWizardPage.getIsCreateIfClass()){
+				String ifPkg = classWizardPage.getIfPkg();
+				String ifClass = classWizardPage.getIfClass();
+			
+				IPackageFragment ifSourcePackage = root.getPackageFragment(ifPkg);
+				if(!ifSourcePackage.exists()){
+					ifSourcePackage = root.createPackageFragment(ifPkg, false, null);
+				}
+				ICompilationUnit compilationUnit = ifSourcePackage.createCompilationUnit(ifClass
 					+ ".java", JaxUtil.getServiceClassSource(ifPkg, ifClass,
 					classWizardPage.isCreateStubs()), false, null);
-			project.refreshLocal(IResource.DEPTH_INFINITE,new NullProgressMonitor());
+				project.refreshLocal(IResource.DEPTH_INFINITE,new NullProgressMonitor());
+				
+				List superInterfaces = classWizardPage.getSuperInterfaces();
+				superInterfaces.add(compilationUnit.getTypes()[0].getFullyQualifiedName());
+				classWizardPage.setSuperInterfaces(superInterfaces, false);
+				
+				id = compilationUnit.getTypes()[0].getElementName();
+				id = Character.toLowerCase(id.charAt(0)) + id.substring(1);
+				serviceClass = "";
+				address = "/" + compilationUnit.getTypes()[0].getElementName();
+				
+			}
 			
-			List superInterfaces = classWizardPage.getSuperInterfaces();
-			superInterfaces.add(cu.getTypes()[0].getFullyQualifiedName());
-			classWizardPage.setSuperInterfaces(superInterfaces, false);
 			classWizardPage.createType(new NullProgressMonitor());
 			IType classSource = classWizardPage.getCreatedType();
 			ICompilationUnit unit = classSource.getCompilationUnit();
-//			unit.becomeWorkingCopy(new NullProgressMonitor());
-//			unit.createImport("javax.jws.WebService", null,new NullProgressMonitor());
-//			String source = unit.getSource();
-//			String searchFor = "public class " + classSource.getTypeQualifiedName();
-//			int pos = source.indexOf(searchFor);
-//			source = (source.substring(0,pos)+ "@WebService(serviceName = \"" + classSource.getTypeQualifiedName()+ "\")"+ System.getProperty("line.separator") +source.substring(pos));
-//			IBuffer workingCopyBuffer = unit.getBuffer();
-//			workingCopyBuffer.setContents(source);
-//			unit.commitWorkingCopy(false, new NullProgressMonitor());
 			unit.getJavaProject().getProject().refreshLocal(IResource.DEPTH_INFINITE,new NullProgressMonitor());
 			
-			JaxUtil.CxfServlet cxfServlet = new JaxUtil.CxfServlet();			
+			unit.becomeWorkingCopy(new NullProgressMonitor());
+			unit.createImport("javax.ws.rs.*", null,new NullProgressMonitor());
+			String source = unit.getSource();
+			String searchFor = "public class " + classSource.getTypeQualifiedName();
+			int pos = source.indexOf(searchFor);
+			source = (source.substring(0,pos)+ "@Path(\"/"+"\")"+ System.getProperty("line.separator") +source.substring(pos));
+			IBuffer workingCopyBuffer = unit.getBuffer();
+			workingCopyBuffer.setContents(source);
+			unit.commitWorkingCopy(false, new NullProgressMonitor());
 			
 			try {
 				
-				cxfServlet = new JaxUtil.CxfServlet();
+				if(!classWizardPage.getIsCreateIfClass()){ 
+					id = unit.getTypes()[0].getElementName();
+					id = Character.toLowerCase(id.charAt(0)) + id.substring(1);
+					serviceClass = unit.getTypes()[0].getFullyQualifiedName();
+					address = "/" + unit.getTypes()[0].getElementName();
+				}
+				
+				JaxUtil.CxfServlet cxfServlet = new JaxUtil.CxfServlet();
 				cxfServlet.deserialize(cxfServletXML);
-				String id = cu.getTypes()[0].getElementName();
-				id = Character.toLowerCase(id.charAt(0)) + id.substring(1);
-				String serviceClass = cu.getTypes()[0].getFullyQualifiedName();
-				String address = "/" + cu.getTypes()[0].getElementName();
 				address = address.replaceAll("([A-Z])", "_$1"); // split CamelCase
 				address = address.replaceAll("^/_", "/");
 				address = address.toLowerCase();
