@@ -441,13 +441,7 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 			String xmlFilePath = diagramFile.getFullPath().toString();
 			xmlFilePath = xmlFilePath
 					.replaceFirst("/graphical-synapse-config/", "/synapse-config/")
-					.replaceFirst("/endpoints/endpoint_", "/endpoints/")
-					.replaceFirst("/local-entries/localentry_", "/local-entries/")
-					.replaceFirst("/proxy-services/proxy_", "/proxy-services/")
-					.replaceFirst("/sequences/sequence_", "/sequences/")
-					.replaceFirst("/tasks/task_", "/tasks/")
-					.replaceFirst("/templates/template_", "/templates/")
-					.replaceFirst("/api/api_", "/api/")
+					.replaceFirst("/(endpoint_|localentry_|proxy_|sequence_|task_|template_|api_)", "/") /* Fixing TOOLS-1578 */
 					.replaceAll(".esb_diagram$", ".xml");
 			IFile xmlFile = diagramFile.getWorkspace().getRoot().getFile(new Path(xmlFilePath));
 			try {
