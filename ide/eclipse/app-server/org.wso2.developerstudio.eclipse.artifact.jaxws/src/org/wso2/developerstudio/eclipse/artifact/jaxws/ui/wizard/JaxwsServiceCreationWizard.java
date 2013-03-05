@@ -39,6 +39,7 @@ import org.osgi.framework.Bundle;
 import org.wso2.developerstudio.eclipse.artifact.jaxws.Activator;
 import org.wso2.developerstudio.eclipse.artifact.jaxws.model.JaxwsModel;
 import org.wso2.developerstudio.eclipse.artifact.jaxws.utils.JaxUtil;
+import org.wso2.developerstudio.eclipse.artifact.jaxws.utils.JaxUtil.CxfServlet;
 import org.wso2.developerstudio.eclipse.artifact.jaxws.utils.JaxWSImageUtils;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
@@ -47,15 +48,20 @@ import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCr
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 import org.wso2.developerstudio.eclipse.utils.jdt.JavaUtils;
 import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
+import org.eclipse.jdt.core.ICompilationUnit;
+import org.eclipse.jdt.core.IJavaElement;
 import org.eclipse.jdt.core.IJavaProject;
+import org.eclipse.jdt.core.IPackageFragment;
 import org.eclipse.jdt.core.IPackageFragmentRoot;
 import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.jdt.launching.IVMInstall;
 import org.eclipse.jdt.launching.JavaRuntime;
+import org.eclipse.jdt.ui.JavaUI;
 
 public class JaxwsServiceCreationWizard  extends AbstractWSO2ProjectCreationWizard{
 	private static final String JAXWS_PROJECT_NATURE = "org.wso2.developerstudio.eclipse.jaxws.project.nature";
@@ -85,6 +91,7 @@ public class JaxwsServiceCreationWizard  extends AbstractWSO2ProjectCreationWiza
 	public boolean performFinish() {
 		try {
 			project = createNewProject();
+			ICompilationUnit serviceClass = null;
 			sourceFolder =ProjectUtils.getWorkspaceFolder(project, "src", "main", "java");
 			webappFolder = ProjectUtils.getWorkspaceFolder(project, "src", "main", "webapp");
 			webINF = ProjectUtils.getWorkspaceFolder(project, "src", "main", "webapp","WEB-INF");
@@ -114,9 +121,12 @@ public class JaxwsServiceCreationWizard  extends AbstractWSO2ProjectCreationWiza
 			cxfServlet.deserialize(cxfServletXML);
 			
 			if (getModel().getSelectedOption().equals("new.jaxws")) {
+				serviceClass = createServiceClass(project, cxfServlet, jaxwsModel.getServiceClassPackage(),
+						jaxwsModel.getServiceClass());
+				String content = cxfServlet.toString().replaceAll("xmlns=\"\"",""); 
+				cxfServletXML.setContents(new ByteArrayInputStream(content.getBytes()), IResource.FORCE, null);
 				
-				
-				} else if (getModel().getSelectedOption().equals("import.jaxwswsdl")) {
+			} else if (getModel().getSelectedOption().equals("import.jaxwswsdl")) {
 				ProgressMonitorDialog progressMonitorDialog = new ProgressMonitorDialog(getShell());
 				progressMonitorDialog.create();
 				progressMonitorDialog.open();
@@ -141,6 +151,16 @@ public class JaxwsServiceCreationWizard  extends AbstractWSO2ProjectCreationWiza
 			getModel().addToWorkingSet(project);
 			project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 			refreshDistProjects();
+			if (serviceClass != null) {
+				serviceClass.getJavaProject().getProject()
+						.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
+				try {
+					IEditorPart javaEditor = JavaUI.openInEditor(serviceClass);
+					JavaUI.revealInEditor(javaEditor, (IJavaElement) serviceClass);
+				} catch (Exception e) { /* ignore */
+				}
+			}
+			   
 		}  catch (CoreException e) {
 			log.error("CoreException has occurred", e);
 		} catch (IOException e) {
@@ -150,6 +170,39 @@ public class JaxwsServiceCreationWizard  extends AbstractWSO2ProjectCreationWiza
 		}
 
 		return true;
+	}
+	
+	private ICompilationUnit createServiceClass(IProject project, CxfServlet cxfServlet, String packageName, String className
+			) throws CoreException {
+		IJavaProject javaProject = JavaCore.create(project);
+		IPackageFragmentRoot root = javaProject.getPackageFragmentRoot(sourceFolder);
+		IPackageFragment sourcePackage = root.createPackageFragment(packageName, false, null);
+		StringBuffer buffer = new StringBuffer();
+		if (!packageName.equalsIgnoreCase("")) {
+			buffer.append("package " + packageName + ";\n");
+			buffer.append("\n");
+		}
+		buffer.append("import javax.jws.WebService;\n");
+		buffer.append("import javax.jws.WebMethod;\n");
+		buffer.append("import javax.jws.WebParam;\n");
+		buffer.append("\n");
+		buffer.append("@WebService(serviceName = \"" + className + "\")\n" + "public class "
+				+ className + "{\n\n");
+		buffer.append("\t/** This is a sample web service operation */\n");
+		buffer.append("\t@WebMethod(operationName = \"hello\")\n");
+		buffer.append("\tpublic String hello(@WebParam(name = \"name\") String txt) {\n");
+		buffer.append("\t\treturn \"Hello \" + txt + \" !\";\n");
+		buffer.append("\t}\n\n");
+		buffer.append("\n}");
+		ICompilationUnit cu = sourcePackage.createCompilationUnit(className + ".java",
+				buffer.toString(), false, null);
+		String address = "/" + cu.getTypes()[0].getElementName();
+		address = address.replaceAll("([A-Z])", "_$1"); // split CamelCase
+		address = address.replaceAll("^/_", "/");
+		address = address.toLowerCase();
+		String beanClass = cu.getTypes()[0].getFullyQualifiedName();
+		cxfServlet.addServer(cu.getTypes()[0].getElementName(), null, address, beanClass);
+		return cu;
 	}
 	
 	

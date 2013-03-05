@@ -26,6 +26,8 @@ import org.eclipse.jdt.core.IType;
 import org.eclipse.jdt.ui.wizards.NewTypeWizardPage;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
@@ -50,7 +52,8 @@ public class JaxwsClassWizardPage extends NewTypeWizardPage implements Listener 
 	private Text txtServiceInterfacePkg;
 	private Label lblServiceInterfaceClass;
 	private Text txtServiceInterfaceClass;
-	private Button btnServiceInterfacePkg; 
+	private Button btnServiceInterfacePkg;
+	private Button fCreateServiceInterface;
 	private Label lblServiceInterface;
 	private String ifClass;
 	private String ifPkg;
@@ -189,8 +192,8 @@ public class JaxwsClassWizardPage extends NewTypeWizardPage implements Listener 
 	            isEnclosingTypeSelected() ? fEnclosingTypeStatus : pkgStatus,
 	            classStatus,
 	            ifResource,
-	            CommonFieldValidator.isJavaClassName(ifClassName) ? okStatus : ifClassStatus,
-	            CommonFieldValidator.isJavaPackageName(ifPkgName) ? okStatus : ifpkgStatus
+	            (CommonFieldValidator.isJavaClassName(ifClassName) || !isCreateServiceInterface()) ? okStatus : ifClassStatus,
+	            (CommonFieldValidator.isJavaPackageName(ifPkgName)  || !isCreateServiceInterface()) ? okStatus : ifpkgStatus
 	        };
 	        updateStatus(status);
 	    }
@@ -224,28 +227,65 @@ public class JaxwsClassWizardPage extends NewTypeWizardPage implements Listener 
 	        
 	        createSeparator(composite, nColumns);
 	        
+	        // Create the checkbox controlling whether we want Service interface class
+	        fCreateServiceInterface= new Button(composite, SWT.CHECK);
+	        fCreateServiceInterface.setText("Create separate service interface class");
+	        fCreateServiceInterface.setSelection(false);
+	       
+	        fCreateServiceInterface.setLayoutData(gd);
+	        
 	        lblServiceInterface = new Label(composite, SWT.NONE);
 	        lblServiceInterface.setLayoutData(gd);
 	        lblServiceInterface.setText("Service Interface");
+	        lblServiceInterface.setEnabled(false);
 	        
 	    	lblServiceInterfacePkg = new Label(composite, SWT.NONE);
 	    	lblServiceInterfacePkg.setText("Packa&ge");
+	    	lblServiceInterfacePkg.setEnabled(false);
 	    	txtServiceInterfacePkg = new Text(composite, SWT.BORDER);
+	    	txtServiceInterfacePkg.setEnabled(false);
 	    	GridData gridData= new GridData(GridData.FILL_HORIZONTAL);
 	    	gridData.horizontalSpan= 2;
 	    	txtServiceInterfacePkg.setLayoutData(gridData);
 	    	txtServiceInterfacePkg.addListener(SWT.CHANGED, this);
+	    	txtServiceInterfacePkg.setEnabled(false);
 	    	
 	    	btnServiceInterfacePkg = new Button(composite, SWT.NONE);
 	    	btnServiceInterfacePkg.setText("B&rowse...");
 	    	btnServiceInterfacePkg.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 	    	btnServiceInterfacePkg.addListener(SWT.MouseDown, this);
+	    	btnServiceInterfacePkg.setEnabled(false);
 
 	    	lblServiceInterfaceClass = new Label(composite, SWT.NONE);
 	    	lblServiceInterfaceClass.setText("Nam&e");
+	    	lblServiceInterfaceClass.setEnabled(false);
 	    	txtServiceInterfaceClass = new Text(composite, SWT.BORDER);
 	    	txtServiceInterfaceClass.setLayoutData(gridData);
 	    	txtServiceInterfaceClass.addListener(SWT.CHANGED, this);
+	    	txtServiceInterfaceClass.setEnabled(false);
+	    	
+	    	fCreateServiceInterface.addSelectionListener(new SelectionListener() {
+				
+				@Override
+				public void widgetSelected(SelectionEvent event) {
+					Button widget = (Button) event.widget;
+					boolean selection = widget.getSelection();
+					lblServiceInterface.setEnabled(selection);
+					txtServiceInterfacePkg.setEnabled(selection);
+					lblServiceInterfacePkg.setEnabled(selection);
+					lblServiceInterfaceClass.setEnabled(selection);
+					txtServiceInterfaceClass.setEnabled(selection);
+					btnServiceInterfacePkg.setEnabled(selection);
+					
+				}
+				
+				@Override
+				public void widgetDefaultSelected(SelectionEvent event) {
+					widgetSelected(event);
+					
+				}
+			});
+	    	
 	    	new Label(composite, SWT.NONE);
 	        createSeparator(composite, nColumns);
 	        
@@ -267,20 +307,28 @@ public class JaxwsClassWizardPage extends NewTypeWizardPage implements Listener 
 	    protected void createTypeMembers(IType newType, ImportsManager imports, IProgressMonitor monitor) throws CoreException {
 	    
 	    	createInheritedMethods(newType, true,true, imports, monitor);
-	    	if (fCreateStubs.getSelection()) {
-//	    		StringBuffer buffer = new StringBuffer();
-//	    		buffer.append("/** This is a sample web service operation */\n");
-//	    		buffer.append("@" + imports.addImport("javax.jws.WebMethod") + "(operationName = \"hello\")\n");
-//	    		buffer.append("@override\npublic String hello(@" + imports.addImport("javax.jws.WebParam") + "(name = \"name\") String txt) {\n");
-//	    		buffer.append("return \"Hello \" + txt + \" !\";\n");
-//	    		buffer.append("}");
-//	            newType.createMethod(buffer.toString(), null, false, null);
+	    	if (fCreateStubs.getSelection() && !fCreateServiceInterface.getSelection()) {
+	    		StringBuffer buffer = new StringBuffer();
+	    		buffer.append("/** This is a sample web service operation */\n");
+	    		buffer.append("@" + imports.addImport("javax.jws.WebMethod") + "(operationName = \"hello\")\n");
+	    		buffer.append("\npublic String hello(@" + imports.addImport("javax.jws.WebParam") + "(name = \"name\") String txt) {\n");
+	    		buffer.append("return \"Hello \" + txt + \" !\";\n");
+	    		buffer.append("}");
+	            newType.createMethod(buffer.toString(), null, false, null);
 
 	        }
 	   }
 	    
 	    public boolean isCreateStubs(){
 	    	return fCreateStubs.getSelection();
+	    }
+	    
+	    public boolean isCreateServiceInterface(){
+	    	if(fCreateServiceInterface!=null){
+	    		return fCreateServiceInterface.getSelection();
+	    	} 
+	    	return false;
+	    	
 	    }
 
 		@Override

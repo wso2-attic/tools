@@ -189,7 +189,9 @@ public class JaxUtil {
 			for(JaxwsServer s: getServers().values()){
 				OMElement serverElement = factory.createOMElement("server",jaxws);
 				serverElement.addAttribute("id",s.getId(),null);
-				serverElement.addAttribute("serviceClass",s.getServiceClass(),null);
+				if(s.getServiceClass()!=null){
+					serverElement.addAttribute("serviceClass",s.getServiceClass(),null);
+				}
 				serverElement.addAttribute("address",s.getAddress(),null);
 				if(s.getBeanClass()!=null){
 					OMElement serviceBeanElement = factory.createOMElement("serviceBean",jaxws);

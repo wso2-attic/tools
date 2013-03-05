@@ -24,15 +24,19 @@ import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 public class JaxwsModel extends ProjectDataModel {
 	private String sourcePackage;
 	private String cxfRuntime;
-	
-
+	private String serviceClass;
+	private String serviceClassPackage;
 	
 	public Object getModelPropertyValue(String key) {
 		Object modelPropertyValue = super.getModelPropertyValue(key);
 		if (modelPropertyValue == null) {
 			if (key.equalsIgnoreCase("runtime")) {
 			modelPropertyValue = getCXFRuntime();
-			}
+			} else if (key.equals("service.class.package.name")) {
+				modelPropertyValue = getServiceClassPackage();
+			} else if (key.equals("service.class.name")) {
+				modelPropertyValue = getServiceClass();
+			} 
 		}
 		return modelPropertyValue;
 	}
@@ -48,7 +52,11 @@ public class JaxwsModel extends ProjectDataModel {
 			setSourcePackage(data.toString());
 		} else if (key.equalsIgnoreCase("runtime")) {
 			setCXFRuntime(data.toString());
-		}
+		} else if (key.equals("service.class.package.name")) {
+			setServiceClassPackage(data.toString());
+		} else if (key.equals("service.class.name")) {
+			setServiceClass(data.toString());
+		} 
 		return returnValue;
 	}
 	
@@ -67,6 +75,26 @@ public class JaxwsModel extends ProjectDataModel {
 
 	public String getCXFRuntime() {
 		return cxfRuntime;
+	}
+
+
+	public void setServiceClass(String serviceClass) {
+		this.serviceClass = serviceClass;
+	}
+
+
+	public String getServiceClass() {
+		return serviceClass;
+	}
+
+
+	public void setServiceClassPackage(String serviceClassPackage) {
+		this.serviceClassPackage = serviceClassPackage;
+	}
+
+
+	public String getServiceClassPackage() {
+		return serviceClassPackage;
 	}
 	
 }
