@@ -112,12 +112,17 @@ public class MediaTypeResolverProviderImpl implements
 				}
 			} else if (getMediaTypeResolver() instanceof IMediaTypeFromStreamResolver) {
 				FileInputStream dataStream = new FileInputStream(file);
-				return isMediaType(dataStream);
+				boolean isMediaType = isMediaType(dataStream);
+				dataStream.close();
+				return isMediaType;
 			} else if (getMediaTypeResolver() instanceof IMediaTypeFromFileNameResolver) {
 				return isMediaType(file.toString());
 			}
 		} catch (FileNotFoundException e) {
 			// If the file is not there cannot determine the media type
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+//			e.printStackTrace();
 		}
 		return false;
 	}
@@ -200,6 +205,11 @@ public class MediaTypeResolverProviderImpl implements
 					// inputstream resolver not supported
 				} catch (IOException e) {
 					// datastream already closed
+				} finally{
+					try {
+						dataStream.close();
+					} catch (IOException e) {
+					}
 				}
 			}
 			if (selectedMediaTypeData != null) {
@@ -212,8 +222,15 @@ public class MediaTypeResolverProviderImpl implements
 				return false;
 			}
 		} else if (getMediaTypeResolver() instanceof IMediaTypeFromStreamResolver) {
-			return ((IMediaTypeFromStreamResolver) getMediaTypeResolver())
-					.isMediaType(dataStream);
+			boolean isMediaType = ((IMediaTypeFromStreamResolver) getMediaTypeResolver())
+			.isMediaType(dataStream);
+			try {
+				dataStream.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return isMediaType;
 		}
 		return false;
 	}
