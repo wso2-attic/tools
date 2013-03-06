@@ -142,6 +142,8 @@ public class EndpointArtifactDeleteParticipant extends DeleteParticipant{
 				path="tasks";
 			}else if(type.equalsIgnoreCase("template")){
 				path="templates";
+			}else if(type.equalsIgnoreCase("endpoint")){
+				path="endpoints";
 			}
 			
 			IFolder graphicalArtifactFolder = esbProject.getFolder("src").getFolder("main").getFolder("graphical-synapse-config");
