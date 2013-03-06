@@ -104,7 +104,7 @@ public class JaxrsClassWizard extends Wizard implements INewWizard {
 			unit.getJavaProject().getProject().refreshLocal(IResource.DEPTH_INFINITE,new NullProgressMonitor());
 			
 			unit.becomeWorkingCopy(new NullProgressMonitor());
-			unit.createImport("javax.ws.rs.*", null,new NullProgressMonitor());
+			unit.createImport("javax.ws.rs.Path", null,new NullProgressMonitor());
 			String source = unit.getSource();
 			String searchFor = "public class " + classSource.getTypeQualifiedName();
 			int pos = source.indexOf(searchFor);

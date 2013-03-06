@@ -29,6 +29,10 @@ public class JaxrsFieldController extends AbstractFieldController {
 			ProjectDataModel model) throws FieldValidationException {
 		if (modelProperty.equals("project.name")) {
 			CommonFieldValidator.validateProjectField(value);
+		} else if (modelProperty.equals("service.class.package.name") ) {
+			CommonFieldValidator.validateJavaPackageNameField(value);
+		} else if (modelProperty.equals("service.class.name") ) {
+			CommonFieldValidator.validateJavaClassNameField(value);
 		} 
 	}
 

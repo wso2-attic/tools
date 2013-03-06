@@ -34,6 +34,7 @@ import org.osgi.framework.Bundle;
 import org.wso2.developerstudio.eclipse.artifact.jaxrs.model.JaxrsProjectModel;
 import org.wso2.developerstudio.eclipse.artifact.jaxrs.Activator;
 import org.wso2.developerstudio.eclipse.artifact.jaxrs.utils.JaxUtil;
+import org.wso2.developerstudio.eclipse.artifact.jaxrs.utils.JaxUtil.CxfServlet;
 import org.wso2.developerstudio.eclipse.libraries.utils.LibraryUtils;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
@@ -42,10 +43,15 @@ import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCr
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 import org.wso2.developerstudio.eclipse.utils.jdt.JavaUtils;
 import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
+import org.eclipse.jdt.core.ICompilationUnit;
+import org.eclipse.jdt.core.IJavaElement;
 import org.eclipse.jdt.core.IJavaProject;
+import org.eclipse.jdt.core.IPackageFragment;
 import org.eclipse.jdt.core.IPackageFragmentRoot;
 import org.eclipse.jdt.core.JavaCore;
+import org.eclipse.jdt.ui.JavaUI;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IWorkbench;
 
 public class JaxrsCreationWizard  extends AbstractWSO2ProjectCreationWizard{
@@ -64,7 +70,7 @@ public class JaxrsCreationWizard  extends AbstractWSO2ProjectCreationWizard{
 	public JaxrsCreationWizard(){
 		setProjectModel(new JaxrsProjectModel());
 		setModel(getProjectModel());
-		setWindowTitle("Create New JAX RESTful Service");
+		setWindowTitle("Create New JAX-RS Service");
 		setDefaultPageImageDescriptor(Activator.getImageDescriptor("icons/JAX-RS-wizard.png"));
 	}
 	
@@ -103,6 +109,12 @@ public class JaxrsCreationWizard  extends AbstractWSO2ProjectCreationWizard{
 			project.refreshLocal(IResource.DEPTH_INFINITE,new NullProgressMonitor());
 			cxfServlet = new JaxUtil.CxfServlet();
 			cxfServlet.deserialize(cxfServletXML);
+			
+			ICompilationUnit serviceClass = createServiceClass(project, cxfServlet, model.getServiceClassPackage(),
+					model.getServiceClass());
+			String content = cxfServlet.toString().replaceAll("xmlns=\"\"",""); 
+			cxfServletXML.setContents(new ByteArrayInputStream(content.getBytes()), IResource.FORCE, null);
+			
 			File pomfile = project.getFile("pom.xml").getLocation().toFile();
 			getModel().getMavenInfo().setPackageName("war");
 			createPOM(pomfile);
@@ -122,6 +134,16 @@ public class JaxrsCreationWizard  extends AbstractWSO2ProjectCreationWizard{
 			getModel().addToWorkingSet(project);
 			project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 			refreshDistProjects();
+			
+			if (serviceClass != null) {
+				serviceClass.getJavaProject().getProject()
+						.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
+				try {
+					IEditorPart javaEditor = JavaUI.openInEditor(serviceClass);
+					JavaUI.revealInEditor(javaEditor, (IJavaElement) serviceClass);
+				} catch (Exception e) { /* ignore */
+				}
+			}
 		}  catch (CoreException e) {
 			log.error("CoreException has occurred", e);
 		} catch (IOException e) {
@@ -136,6 +158,33 @@ public class JaxrsCreationWizard  extends AbstractWSO2ProjectCreationWizard{
 	
 	
 	
+	private ICompilationUnit createServiceClass(IProject project, CxfServlet cxfServlet,
+			String packageName, String className) throws CoreException {
+		IJavaProject javaProject = JavaCore.create(project);
+		IPackageFragmentRoot root = javaProject.getPackageFragmentRoot(sourceFolder);
+		IPackageFragment sourcePackage = root.createPackageFragment(packageName, false, null);
+		StringBuffer buffer = new StringBuffer();
+		if (!packageName.equalsIgnoreCase("")) {
+			buffer.append("package " + packageName + ";\n");
+			buffer.append("\n");
+		}
+		buffer.append("import javax.ws.rs.*;\n");
+		buffer.append("\n");
+		buffer.append("@Path(\"/\")\n" + "public class "
+				+ className + " {\n\n");
+		buffer.append("\n}");
+		ICompilationUnit cu = sourcePackage.createCompilationUnit(className + ".java",
+				buffer.toString(), false, null);
+		String address = "/" + cu.getTypes()[0].getElementName();
+		address = address.replaceAll("([A-Z])", "_$1"); // split CamelCase
+		address = address.replaceAll("^/_", "/");
+		address = address.toLowerCase();
+		String beanClass = cu.getTypes()[0].getFullyQualifiedName();
+		cxfServlet.addServer(cu.getTypes()[0].getElementName(), null, address, beanClass);
+		return cu;
+	}
+
+
 	public void setProjectModel(JaxrsProjectModel model) {
 		this.model = model;
 	}

@@ -1,17 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <wizard>
-	<projectOptions title="JAX RESTful Web Service Artifact Creation Options" 
+	<projectOptions title="JAX-RS Service Artifact Creation Options" 
 					description="Select how you would like to create your new project" 
 					error="Please select a method to create the project">
-		<option id="new.jaxws" default="true">Create New JAX RESTful Web Service</option>
+		<option id="new.jaxws" default="true">Create New JAX-RS Service</option>
 	</projectOptions>
 	<projectOptionSettings>
 		<settings optionId="new.jaxws" 
-				  title="Create New JAX RESTful Web Service" 
-				  description="Give a project name for the new JAX RESTful Web Service" 
+				  title="Create New JAX-RS Service" 
+				  description="Give a project name for the new JAX-RS Web Service" 
 				  error="Please give a name to the project">
-			<data modelProperty="project.name" type="string" fieldController="org.wso2.developerstudio.eclipse.artifact.jaxrs.controller.JaxrsFieldController">Project Name</data>	
-			
+			<data modelProperty="project.name" type="string" fieldController="org.wso2.developerstudio.eclipse.artifact.jaxrs.controller.JaxrsFieldController">Project Name</data>
+			<data modelProperty="service.class.package.name" 
+ 					type="string" 
+ 					fieldController="org.wso2.developerstudio.eclipse.artifact.jaxrs.controller.JaxrsFieldController" group="createSampleClass">Package Name</data>
+ 			<data modelProperty="service.class.name" 
+ 					type="string" 
+ 					fieldController="org.wso2.developerstudio.eclipse.artifact.jaxrs.controller.JaxrsFieldController" group="createSampleClass">Class Name</data>	 	
+			<group id="createSampleClass"></group>
 			<projectNatures>
 				<nature>org.eclipse.jdt.core.javanature</nature>
 			</projectNatures>

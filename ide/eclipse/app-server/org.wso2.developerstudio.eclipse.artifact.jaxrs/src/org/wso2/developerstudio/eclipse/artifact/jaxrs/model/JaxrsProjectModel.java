@@ -16,8 +16,48 @@
 
 package org.wso2.developerstudio.eclipse.artifact.jaxrs.model;
 
+import org.wso2.developerstudio.eclipse.platform.core.exception.ObserverFailedException;
 import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectDataModel;
 
 public class JaxrsProjectModel  extends ProjectDataModel {
+	
+	private String serviceClass;
+	private String serviceClassPackage;
+	
+	public void setServiceClassPackage(String serviceClassPackage) {
+		this.serviceClassPackage = serviceClassPackage;
+	}
+	public String getServiceClassPackage() {
+		return serviceClassPackage;
+	}
+	public void setServiceClass(String serviceClass) {
+		this.serviceClass = serviceClass;
+	}
+	public String getServiceClass() {
+		return serviceClass;
+	}
+	
+	public Object getModelPropertyValue(String key) {
+		Object modelPropertyValue = super.getModelPropertyValue(key);
+		if (modelPropertyValue == null) {
+			if (key.equals("service.class.package.name")) {
+				modelPropertyValue = getServiceClassPackage();
+			} else if (key.equals("service.class.name")) {
+				modelPropertyValue = getServiceClass();
+			} 
+		}
+		return modelPropertyValue;
+	}
+
+	
+	public boolean setModelPropertyValue(String key, Object data) throws ObserverFailedException {
+		boolean returnValue = super.setModelPropertyValue(key, data);
+		if (key.equals("service.class.package.name")) {
+			setServiceClassPackage(data.toString());
+		} else if (key.equals("service.class.name")) {
+			setServiceClass(data.toString());
+		} 
+		return returnValue;
+	}
 
 }

@@ -24,7 +24,6 @@ import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.IPackageFragment;
 import org.eclipse.jdt.core.IType;
 import org.eclipse.jdt.ui.wizards.NewTypeWizardPage;
-import org.eclipse.jface.viewers.ComboBoxCellEditor;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
@@ -40,10 +39,11 @@ import org.wso2.developerstudio.eclipse.platform.ui.validator.CommonFieldValidat
 import org.eclipse.jdt.internal.ui.dialogs.StatusInfo;
 
 
+@SuppressWarnings("restriction")
 public class JaxrsClassWizardPage extends NewTypeWizardPage implements Listener {
 	
 	public JaxrsClassWizardPage(IWorkbench workbench,IStructuredSelection selection) {
-		super(true, "Create new JAX RESTful service class");
+		super(true, "Create new JAX-RS service class");
 	}
 
 	private Button fCreateStubs;
@@ -60,14 +60,13 @@ public class JaxrsClassWizardPage extends NewTypeWizardPage implements Listener 
 
 
 		public void init(IStructuredSelection selection) {
-	    	setTitle("Create new JAX RESTful service class");
+	    	setTitle("Create new JAX-RS service class");
 	        IJavaElement jelem= getInitialJavaElement(selection);
 	        initContainerPage(jelem);
 	        initTypePage(jelem);
 	        doStatusUpdate();
 	    } 
 
-	    @SuppressWarnings("restriction")
 		private void doStatusUpdate() {
 	    	final String pkgName = getPackageText();
 	    	final String className = getTypeName();
@@ -285,7 +284,7 @@ public class JaxrsClassWizardPage extends NewTypeWizardPage implements Listener 
 	        // Create the checkbox controlling whether we want stubs
 	        fCreateStubs= new Button(composite, SWT.CHECK);
 	        fCreateStubs.setText("Add sample webservice method to new class");
-	        fCreateStubs.setSelection(true);
+	        fCreateStubs.setSelection(false);
 	       
 	        fCreateStubs.setLayoutData(gd);
 
@@ -296,15 +295,29 @@ public class JaxrsClassWizardPage extends NewTypeWizardPage implements Listener 
 
 	    protected void createTypeMembers(IType newType, ImportsManager imports, IProgressMonitor monitor) throws CoreException {
 	    
-	    	createInheritedMethods(newType, true,true, imports, monitor);
-	    	if (fCreateStubs.getSelection()) {
-//	    		StringBuffer buffer = new StringBuffer();
-//	    		buffer.append("/** This is a sample web service operation */\n");
-//	    		buffer.append("@" + imports.addImport("javax.jws.WebMethod") + "(operationName = \"hello\")\n");
-//	    		buffer.append("@override\npublic String hello(@" + imports.addImport("javax.jws.WebParam") + "(name = \"name\") String txt) {\n");
-//	    		buffer.append("return \"Hello \" + txt + \" !\";\n");
-//	    		buffer.append("}");
-//	            newType.createMethod(buffer.toString(), null, false, null);
+	    	createInheritedMethods(newType, false,true, imports, monitor);
+	    	if (fCreateStubs.getSelection() && !isCreateService.getSelection()) {
+	    		StringBuffer buffer = new StringBuffer();
+	    		buffer.append("\t/** This is sample methods */\n");
+				buffer.append("\t@" + imports.addImport("javax.ws.rs.GET") + "\n");
+				buffer.append("\t@Path(\"/add/{a}/{b}\")\n");
+				buffer.append("\t@" + imports.addImport("javax.ws.rs.Produces") + "("
+						+ imports.addImport("javax.ws.rs.core.MediaType") + ".TEXT_PLAIN)\n");
+				buffer.append("\tpublic Double add(");
+				buffer.append("@"+imports.addImport("javax.ws.rs.PathParam") + "(\"a\") double a,");
+				buffer.append("@PathParam(\"b\") double b) {\n");
+				buffer.append("\treturn a+b;\n");
+				buffer.append("}\n\n");
+
+				buffer.append("\t@GET\n");
+				buffer.append("\t@Path(\"/sub/{a}/{b}\")\n");
+				buffer.append("\t@Produces(MediaType.TEXT_PLAIN)\n");
+				buffer.append("\tpublic Double sub(");
+				buffer.append("@PathParam(\"a\") double a,");
+				buffer.append("@PathParam(\"b\") double b) {\n");
+				buffer.append("\treturn a-b;\n");
+				buffer.append("}\n\n");
+	            newType.createMethod(buffer.toString(), null, false, null);
 	        }
 	   }
 	    

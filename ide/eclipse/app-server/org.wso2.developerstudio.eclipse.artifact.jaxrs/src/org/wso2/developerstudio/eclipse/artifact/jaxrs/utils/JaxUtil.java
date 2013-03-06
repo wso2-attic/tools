@@ -84,7 +84,7 @@ public class JaxUtil {
 		}
 		buffer.append("\n");
 		buffer.append("@Path(\"");
-		buffer.append(className.toLowerCase());
+		buffer.append("/");
 		buffer.append("\")\n");
 		buffer.append("public interface ");
 		buffer.append(className);
@@ -93,15 +93,15 @@ public class JaxUtil {
 			buffer.append("\t/** This is sample methods */\n");
 			buffer.append("\t@GET\n");
 			buffer.append("\t@Path(\"/add/{a}/{b}\")\n");
-			buffer.append("\t@Produces(MediaType.TEXT_XML)\n");
-			buffer.append("\tpublic double add(");
+			buffer.append("\t@Produces(MediaType.TEXT_PLAIN)\n");
+			buffer.append("\tpublic Double add(");
 			buffer.append("@PathParam(\"a\") double a,");
 			buffer.append("@PathParam(\"b\") double b);\n\n");
 			
 			buffer.append("\t@GET\n");
 			buffer.append("\t@Path(\"/sub/{a}/{b}\")\n");
-			buffer.append("\t@Produces(MediaType.TEXT_XML)\n");
-			buffer.append("\tpublic double sub(");
+			buffer.append("\t@Produces(MediaType.TEXT_PLAIN)\n");
+			buffer.append("\tpublic Double sub(");
 			buffer.append("@PathParam(\"a\") double a,");
 			buffer.append("@PathParam(\"b\") double b);\n\n");
 		}

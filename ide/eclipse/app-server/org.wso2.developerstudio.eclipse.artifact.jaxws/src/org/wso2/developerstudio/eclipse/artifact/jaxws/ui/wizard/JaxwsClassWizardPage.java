@@ -41,6 +41,7 @@ import org.wso2.developerstudio.eclipse.platform.ui.validator.CommonFieldValidat
 import org.eclipse.jdt.internal.ui.dialogs.StatusInfo;
 
 
+@SuppressWarnings("restriction")
 public class JaxwsClassWizardPage extends NewTypeWizardPage implements Listener {
 	
 	  public JaxwsClassWizardPage(IWorkbench workbench,IStructuredSelection selection) {
@@ -66,7 +67,6 @@ public class JaxwsClassWizardPage extends NewTypeWizardPage implements Listener 
 	        doStatusUpdate();
 	    } 
 
-	    @SuppressWarnings("restriction")
 		private void doStatusUpdate() {
 	    	final String pkgName = getPackageText();
 	    	final String className = getTypeName();
@@ -295,7 +295,7 @@ public class JaxwsClassWizardPage extends NewTypeWizardPage implements Listener 
 	        // Create the checkbox controlling whether we want stubs
 	        fCreateStubs= new Button(composite, SWT.CHECK);
 	        fCreateStubs.setText("Add sample webservice method to new class");
-	        fCreateStubs.setSelection(true);
+	        fCreateStubs.setSelection(false);
 	       
 	        fCreateStubs.setLayoutData(gd);
 
@@ -306,7 +306,7 @@ public class JaxwsClassWizardPage extends NewTypeWizardPage implements Listener 
 
 	    protected void createTypeMembers(IType newType, ImportsManager imports, IProgressMonitor monitor) throws CoreException {
 	    
-	    	createInheritedMethods(newType, true,true, imports, monitor);
+	    	createInheritedMethods(newType, false, true, imports, monitor);
 	    	if (fCreateStubs.getSelection() && !fCreateServiceInterface.getSelection()) {
 	    		StringBuffer buffer = new StringBuffer();
 	    		buffer.append("/** This is a sample web service operation */\n");

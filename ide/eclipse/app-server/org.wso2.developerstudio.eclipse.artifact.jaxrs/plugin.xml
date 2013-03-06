@@ -2,20 +2,20 @@
 <?eclipse version="3.4"?>
 <plugin>
   <extension point="org.eclipse.ui.newWizards">
-		<wizard name="JAX RESTful Web Service Project" category="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.eclipse.service.hosting/org.wso2.developerstudio.eclipse.service.hosting.project.types"
+		<wizard name="JAX-RS Service Project" category="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.eclipse.service.hosting/org.wso2.developerstudio.eclipse.service.hosting.project.types"
 			class="org.wso2.developerstudio.eclipse.artifact.jaxrs.ui.wizard.JaxrsCreationWizard"
 			wizardManifest="project_wizard.xml"
 			id="org.wso2.developerstudio.eclipse.artifact.newjaxrsartifact"
 			project="true" icon="icons/JAX-RS-16x16.png">
-			<description>JAX RESTful Web Service Project</description>
+			<description>JAX-RS Web Service Project</description>
 		</wizard>
 	 </extension>
 	 <extension point="org.eclipse.ui.newWizards">
-		<wizard name="JAX RESTful Service Class" category="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.eclipse.service.hosting/org.wso2.developerstudio.eclipse.service.hosting.features"
+		<wizard name="JAX-RS Service Class" category="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.eclipse.service.hosting/org.wso2.developerstudio.eclipse.service.hosting.features"
 			class="org.wso2.developerstudio.eclipse.artifact.jaxrs.ui.wizard.JaxrsClassWizard"
 			id="org.wso2.developerstudio.eclipse.artifact.newjaxrsartifactClass"
 			project="false" icon="icons/JAX-RS-16x16.png">
-			<description>JAX RESTful Service Class</description>
+			<description>JAX-RS Service Class</description>
 		</wizard>	
 	</extension>
 	<extension point="org.eclipse.core.resources.natures"
