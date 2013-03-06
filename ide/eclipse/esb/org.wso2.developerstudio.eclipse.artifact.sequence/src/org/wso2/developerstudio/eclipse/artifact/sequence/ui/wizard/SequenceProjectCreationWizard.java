@@ -403,6 +403,7 @@ public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 //			defaultNS = SynapseConstants.NS_1_4;
 //		}
 		String content = "";
+		templateContent = templateContent.replaceFirst("name=","{1} name=");
 		if(!seqModel.getSelectedEP().equals("")){
 			String contentWithoutClosingTag = templateContent.substring(0, templateContent.length()-2);
 			contentWithoutClosingTag = contentWithoutClosingTag.concat(seqModel.getSelectedEP());

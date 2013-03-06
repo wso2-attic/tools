@@ -84,7 +84,7 @@ public class WorkspaceSequenceList extends AbstractListDataProvider{
 						List<ESBArtifact> allESBArtifacts = esbProjectArtifact.getAllESBArtifacts();
 						for (ESBArtifact esbArtifact : allESBArtifacts) {
 							if(esbArtifact.getType().equals(SYNAPSE_SEQUENCE_CAPP_TYPE)){
-								String relativeFilePath = esbArtifact.getFile().replaceAll(Pattern.quote("/"), File.separator);
+								String relativeFilePath = esbArtifact.getFile().replaceAll("/", (File.separatorChar=='/')?"/":"\\\\");
 								availableSeqList.add(new File(projectPath, relativeFilePath));
 							}
 						}

@@ -83,7 +83,7 @@ public class AvailableEPList extends AbstractListDataProvider{
 						List<ESBArtifact> allESBArtifacts = esbProjectArtifact.getAllESBArtifacts();
 						for (ESBArtifact esbArtifact : allESBArtifacts) {
 							if(esbArtifact.getType().equals(SYNAPSE_ENDPOINT_CAPP_TYPE)){
-								String relativeFilePath = esbArtifact.getFile().replaceAll(Pattern.quote("/"), File.separator);
+								String relativeFilePath = esbArtifact.getFile().replaceAll("/", (File.separatorChar=='/')?"/":"\\\\");
 								availableEPList.add(new File(projectPath, relativeFilePath));
 							}
 						}
