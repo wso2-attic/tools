@@ -561,18 +561,19 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 	 */
 	public static void relocateStartNodes(){
 		for (Iterator<EditPart> it = startNodes.iterator(); it.hasNext();) {
-			EditPart next = it.next();
-
-			GraphicalEditPart gEditpart = (GraphicalEditPart) next;
-			Rectangle rect = gEditpart.getFigure().getBounds().getCopy();
-			rect.x++;
-			SetBoundsCommand sbc = new SetBoundsCommand(gEditpart.getEditingDomain(),
-					"change location", new EObjectAdapter((View) next.getModel()), rect);
-
-			gEditpart.getDiagramEditDomain().getDiagramCommandStack()
-					.execute(new ICommandProxy(sbc));
 			
 			try {
+				EditPart next = it.next();
+
+				GraphicalEditPart gEditpart = (GraphicalEditPart) next;
+				Rectangle rect = gEditpart.getFigure().getBounds().getCopy();
+				rect.x++;
+				SetBoundsCommand sbc = new SetBoundsCommand(gEditpart.getEditingDomain(),
+						"change location", new EObjectAdapter((View) next.getModel()), rect);
+
+				gEditpart.getDiagramEditDomain().getDiagramCommandStack()
+						.execute(new ICommandProxy(sbc));
+				
 				Thread.sleep(50);
 			} catch (InterruptedException e) {
 				//ignored

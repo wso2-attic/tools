@@ -20,6 +20,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.synapse.core.axis2.ProxyService;
 import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.endpoints.IndirectEndpoint;
@@ -73,7 +74,10 @@ public class ProxyServiceDeserializer extends AbstractEsbNodeDeserializer<ProxyS
 		Endpoint targetInLineEndpoint = object.getTargetInLineEndpoint();
 		if(targetInLineEndpoint!=null){
 			setHasInlineEndPoint(true);
+		} else if(StringUtils.isNotBlank(object.getTargetEndpoint())){
+			setHasInlineEndPoint(true);
 		}
+		
 		
 		if(hasPublishWsdl && object.getResourceMap()!=null){
 			Map<String, String> resourcesMap = object.getResourceMap().getResources();
@@ -147,9 +151,9 @@ public class ProxyServiceDeserializer extends AbstractEsbNodeDeserializer<ProxyS
 			}
 		}
 		
-		if(object.getTargetInLineEndpoint() == null){
+		/*if(object.getTargetInLineEndpoint() == null){
 			String endpointName = object.getTargetEndpoint();
-			if(endpointName!=null){
+			if(StringUtils.isNotBlank(endpointName)){
 				if(endpointName.startsWith("/") || endpointName.startsWith("conf:") || endpointName.startsWith("gov:")){
 					executeSetValueCommand(PROXY_SERVICE__ENDPOINT_TYPE, SequenceType.REGISTRY_REFERENCE);
 					RegistryKeyProperty keyProperty = EsbFactory.eINSTANCE.createRegistryKeyProperty();
@@ -160,7 +164,7 @@ public class ProxyServiceDeserializer extends AbstractEsbNodeDeserializer<ProxyS
 					executeSetValueCommand(PROXY_SERVICE__ENDPOINT_NAME, endpointName);
 				}
 			}
-		}
+		}*/
 		
 		if (hasInlineEndPoint()) {
 			if (object.getTargetEndpoint() != null) {
