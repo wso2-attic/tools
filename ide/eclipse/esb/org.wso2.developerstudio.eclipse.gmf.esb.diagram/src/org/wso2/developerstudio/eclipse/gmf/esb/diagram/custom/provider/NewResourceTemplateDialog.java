@@ -1,13 +1,37 @@
+/*
+ * Copyright (c) WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.provider;
+
+import static org.wso2.developerstudio.eclipse.platform.core.registry.util.Constants.REGISTRY_RESOURCE;
 
 import java.io.File;
 import java.io.IOException;
-import java.text.MessageFormat;
 import java.util.Map;
 
+import org.apache.maven.model.Plugin;
+import org.apache.maven.model.PluginExecution;
+import org.apache.maven.model.Repository;
+import org.apache.maven.project.MavenProject;
+import org.codehaus.plexus.util.xml.Xpp3Dom;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.dialogs.MessageDialog;
@@ -24,15 +48,30 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Link;
 import org.eclipse.swt.widgets.List;
+import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
-import org.wso2.developerstudio.eclipse.capp.core.artifacts.manager.CAppEnvironment;
+import org.eclipse.ui.PlatformUI;
+import org.wso2.developerstudio.eclipse.capp.maven.utils.MavenConstants;
+import org.wso2.developerstudio.eclipse.esb.core.utils.EsbTemplateFormatter;
+import org.wso2.developerstudio.eclipse.general.project.artifact.GeneralProjectArtifact;
+import org.wso2.developerstudio.eclipse.general.project.artifact.RegistryArtifact;
+import org.wso2.developerstudio.eclipse.general.project.artifact.bean.RegistryElement;
+import org.wso2.developerstudio.eclipse.general.project.artifact.bean.RegistryItem;
+import org.wso2.developerstudio.eclipse.general.project.utils.GeneralProjectUtils;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
+import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
+import org.wso2.developerstudio.eclipse.platform.core.registry.util.RegistryResourceInfo;
+import org.wso2.developerstudio.eclipse.platform.core.registry.util.RegistryResourceInfoDoc;
+import org.wso2.developerstudio.eclipse.platform.core.registry.util.RegistryResourceUtils;
 import org.wso2.developerstudio.eclipse.platform.core.templates.ArtifactTemplate;
 import org.wso2.developerstudio.eclipse.platform.core.templates.ArtifactTemplateHandler;
+import org.wso2.developerstudio.eclipse.platform.core.utils.Constants;
 import org.wso2.developerstudio.eclipse.utils.data.ITemporaryFileTag;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 
@@ -90,14 +129,33 @@ public class NewResourceTemplateDialog extends Dialog {
 		fd_cmbProject.left = new FormAttachment(lblProject, 16);
 		fd_cmbProject.top = new FormAttachment(lblProject, -5, SWT.TOP);
 		cmbProject.setLayoutData(fd_cmbProject);
-
+		
+		Link linkButton = new Link(container, SWT.NULL);
+		linkButton.setText("<a>Create New Project</a>");
+		
+		FormData fd_linkButton = new FormData();
+		fd_linkButton.left = new FormAttachment(lblProject, 16);
+		fd_linkButton.top = new FormAttachment(cmbProject, 40, SWT.TOP);
+		linkButton.setLayoutData(fd_linkButton);
+		linkButton.addListener (SWT.Selection, new Listener () {
+		      public void handleEvent(Event event) {
+		    	  Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
+					IProject generalProject = GeneralProjectUtils.createGeneralProject(shell);
+					if(generalProject!=null){
+						cmbProject.add(generalProject.getName());
+						if(cmbProject.getItems().length>0){
+							cmbProject.select(cmbProject.getItems().length -1);
+						}
+					}
+		        }
+		      }); 
 		Label lblArtifactName = new Label(container, SWT.NONE);
 		FormData fd_lblArtifactName = new FormData();
-		fd_lblArtifactName.top = new FormAttachment(cmbProject, 22);
-		fd_lblArtifactName.bottom = new FormAttachment(100, -137);
+		fd_lblArtifactName.top = new FormAttachment(linkButton, 22);
+		fd_lblArtifactName.right = new FormAttachment(cmbProject, 22, SWT.RIGHT);
 		fd_lblArtifactName.left = new FormAttachment(0, 10);
 		lblArtifactName.setLayoutData(fd_lblArtifactName);
-		lblArtifactName.setText("Resource file name");
+		lblArtifactName.setText("File name");
 
 		txtResourceName = new Text(container, SWT.BORDER);
 		txtResourceName.addModifyListener(new ModifyListener() {
@@ -179,9 +237,13 @@ public class NewResourceTemplateDialog extends Dialog {
 				.getProjects();
 		cmbProject.removeAll();
 		for (IProject project : projects) {
-			if (project.isOpen()
-					&& CAppEnvironment.getcAppManager().isCAppProject(project)) {
-				cmbProject.add(project.getName());
+			try {
+				if (project.isOpen()
+						&& project.hasNature(Constants.GENERAL_PROJECT_NATURE)) {
+					cmbProject.add(project.getName());
+				}
+			} catch (Exception e) {
+				/*ignore*/
 			}
 		}
 		if (cmbProject.getItemCount() > 0) {
@@ -256,8 +318,7 @@ public class NewResourceTemplateDialog extends Dialog {
 				templateString = FileUtils.getContentAsString(esbArtifactTemplate.getTemplateUrl());
 			}
 			String name = txtResourceName.getText();
-			String resourceFileName = FileUtils.getResourceFileName(name);
-			String content=MessageFormat.format(templateString,resourceFileName);
+			String content=EsbTemplateFormatter.stripParameters(templateString, name);
 			ITemporaryFileTag createNewTempTag = FileUtils.createNewTempTag();
 			File tempFile = new File(FileUtils.createTempDirectory(),name);
 			tempFile.getParentFile().mkdirs();
@@ -266,9 +327,12 @@ public class NewResourceTemplateDialog extends Dialog {
 			IProject project = ResourcesPlugin.getWorkspace().getRoot()
 					.getProject(projectName);
 			String path = txtRegistryPath.getText();
-			CAppEnvironment.getRegistryHandler().createArtifact(project,
-					resourceFileName, path, "EnterpriseServiceBus", 
-					btnOpenResourceOnce.getSelection(), tempFile);
+			boolean ret = createRegistryArtifact(project,name,path,content);
+			if (!ret) {
+				MessageDialog.openInformation(getShell(), "Resource creation",
+						"A resource already exists with name \'" + name + " on " + projectName);
+				return;
+			}
 			path=path.endsWith("/")?path+name:path+"/"+name;
 			setSelectedPath(path);
 			createNewTempTag.clearAndEnd();
@@ -310,7 +374,7 @@ public class NewResourceTemplateDialog extends Dialog {
 	 */
 	@Override
 	protected Point getInitialSize() {
-		return new Point(446, 304);
+		return new Point(446, 340);
 	}
 
 	public void setSelectedPath(String selectedPath) {
@@ -327,5 +391,125 @@ public class NewResourceTemplateDialog extends Dialog {
 
 	public Map<String, java.util.List<String>> getFilters() {
 		return filters;
+	}
+	
+	private String getMavenGroupId(File pomLocation){
+		String groupId = "org.wso2.carbon";
+		if(pomLocation!=null && pomLocation.exists()){
+			try {
+				MavenProject mavenProject = MavenUtils.getMavenProject(pomLocation);
+				groupId = mavenProject.getGroupId();
+			} catch (Exception e) {
+				log.error("error reading pom file", e);
+			}
+		}
+		return groupId;
+	}
+	
+	private boolean createRegistryArtifact(IProject project,String fileName, String registryPath,String content) throws Exception{
+		File destFile = project.getFile(fileName).getLocation().toFile();
+		String resourceName = FileUtils.getResourceFileName(fileName);
+		if(destFile.exists()){
+			return false;
+		}
+		
+		String groupId = getMavenGroupId(project.getFile("pom.xml").getLocation().toFile());
+		groupId += ".resource";
+		
+		FileUtils.createFile(destFile, content);
+		
+		RegistryResourceInfoDoc regResInfoDoc = new RegistryResourceInfoDoc();
+		
+		RegistryResourceUtils.createMetaDataForFolder(registryPath, project
+				.getLocation().toFile());
+		RegistryResourceUtils.addRegistryResourceInfo(destFile, regResInfoDoc,
+				new File(project.getLocation().toFile(),"default"), registryPath);
+
+		GeneralProjectArtifact generalProjectArtifact = new GeneralProjectArtifact();
+		generalProjectArtifact.fromFile(project.getFile("artifact.xml")
+				.getLocation().toFile());
+
+		RegistryArtifact artifact = new RegistryArtifact();
+		artifact.setName(resourceName);
+		artifact.setVersion("1.0.0");
+		artifact.setType("registry/resource");
+		artifact.setServerRole("EnterpriseServiceBus");
+		artifact.setGroupId(groupId);
+		java.util.List<RegistryResourceInfo> registryResources = regResInfoDoc
+				.getRegistryResources();
+		for (RegistryResourceInfo registryResourceInfo : registryResources) {
+			RegistryElement item = null;
+			if (registryResourceInfo.getType() == REGISTRY_RESOURCE) {
+				item = new RegistryItem();
+				((RegistryItem) item).setFile(registryResourceInfo
+						.getResourceBaseRelativePath());
+			}
+			item.setPath(registryResourceInfo.getDeployPath().replaceAll("/$",
+					""));
+			artifact.addRegistryElement(item);
+		}
+		generalProjectArtifact.addArtifact(artifact);
+		generalProjectArtifact.toFile();
+		addGeneralProjectPlugin(project);
+		project.refreshLocal(IResource.DEPTH_INFINITE,
+				new NullProgressMonitor());
+		return true;
+	}
+	
+	private void addGeneralProjectPlugin(IProject project) throws Exception{
+		MavenProject mavenProject;
+		
+		File mavenProjectPomLocation = project.getFile("pom.xml").getLocation().toFile();
+		if(!mavenProjectPomLocation.exists()){
+			mavenProject = MavenUtils.createMavenProject("org.wso2.carbon", project.getName(), "1.0.0","pom");
+		} else {
+			mavenProject = MavenUtils.getMavenProject(mavenProjectPomLocation);
+		}
+		
+		boolean pluginExists = MavenUtils.checkOldPluginEntry(mavenProject,
+				"org.wso2.maven", "wso2-general-project-plugin",
+				MavenConstants.WSO2_GENERAL_PROJECT_VERSION);
+		if(pluginExists){
+			return ;
+		}
+		
+		mavenProject = MavenUtils.getMavenProject(mavenProjectPomLocation);
+		Plugin plugin = MavenUtils.createPluginEntry(mavenProject, "org.wso2.maven",
+				"wso2-general-project-plugin", MavenConstants.WSO2_GENERAL_PROJECT_VERSION, true);
+		
+		PluginExecution pluginExecution;
+		
+		pluginExecution = new PluginExecution();
+		pluginExecution.addGoal("pom-gen");
+		pluginExecution.setPhase("process-resources");
+		pluginExecution.setId("registry");
+		plugin.addExecution(pluginExecution);
+		
+		Xpp3Dom configurationNode = MavenUtils.createMainConfigurationNode();
+		Xpp3Dom artifactLocationNode = MavenUtils.createXpp3Node(configurationNode, "artifactLocation");
+		artifactLocationNode.setValue(".");
+		Xpp3Dom typeListNode = MavenUtils.createXpp3Node(configurationNode, "typeList");
+		typeListNode.setValue("${artifact.types}");
+		pluginExecution.setConfiguration(configurationNode);
+		
+		Repository repo = new Repository();
+		repo.setUrl("http://dist.wso2.org/maven2");
+		repo.setId("wso2-maven2-repository-1");
+		
+		Repository repo1 = new Repository();
+		repo1.setUrl("http://maven.wso2.org/nexus/content/groups/wso2-public/");
+		repo1.setId("wso2-nexus-maven2-repository-1");
+		
+		if (!mavenProject.getRepositories().contains(repo)) {
+	        mavenProject.getModel().addRepository(repo);
+	        mavenProject.getModel().addPluginRepository(repo);
+        }
+
+		if (!mavenProject.getRepositories().contains(repo1)) {
+	        mavenProject.getModel().addRepository(repo1);
+	        mavenProject.getModel().addPluginRepository(repo1);
+        }
+		
+		MavenUtils.saveMavenProject(mavenProject, mavenProjectPomLocation);
 	}
 }
