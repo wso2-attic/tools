@@ -20,28 +20,6 @@
         
         <h1>User Guide</h1>
 
-        <!--  p>This user guide provides information on,</p>
-        <ol>
-            <li>Installing the WSO2 Governance Registry Eclipse Plugin</li>
-            <li>Add different remote registry instances</li>
-            <li>Add, edit, delete collections, resources</li>
-            <li>Add, edit, delete properties, associations, dependencies, comments, tags for a resource or collection</li>
-            <li>Link with editor</li>
-            <li>Add multiple files and folder from file system</li>
-            <li>Import/Export resources and collections</li>
-            <li>Drag/Drop resources and collections</li>
-            <li>Modify permission for a resource, collection</li>
-            <li>Refresh registry</li>
-            <li>View information per resource and collection (properties, dependencies, associations, tags, comments etc)</li>
-            <li>Check-out a collection to local project (both ways)</li>
-            <li>Do changes and commit back to registry, update with registry</li>
-            <li>Show in Registry Browser</li>
-            <li>View versions, restore versions</li>
-            <li>Double click on a resource to open the resource in the relevant editor of Eclipse</li>
-            <li>Add, modify, delete users</li>
-            <li>Change role permissions of resource</li>
-        </ol-->
-
         <p>
             This document explains how WSO2 Governance Registry Eclipse Plugin should be installed in to Eclipse and how you can get 
             the functionality provided by the plugin.

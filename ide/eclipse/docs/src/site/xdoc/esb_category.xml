@@ -22,9 +22,6 @@ permissions and ~ limitations under the License.
 					<a href="#ESBConfigProject">ESB Config Project</a>
 				</li>
 				<li>
-					<a href="#SupportDifferentESBVersions">Support for Different WSO2 ESB Versions</a>
-				</li>
-				<li>
 					<a href="#SequenceArtifact">Sequence</a>
 				</li>
 				<li>
@@ -59,7 +56,13 @@ permissions and ~ limitations under the License.
 				</li>
 				<li>
 					<a href="server_extensions_category.html#CustomMediator">Mediator</a>
+				</li>
+				<li>
+					<a href="ESB_Graphical_Editor_How_to_Guide.html">WSO2 ESB Graphical Composition Editor - How To Guide</a>
 				</li>				
+				<li>
+					<a href="#SupportDifferentESBVersions">Support for Different WSO2 ESB Versions</a>
+				</li>
 			</ul>
 		</div>
 			
