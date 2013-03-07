@@ -38,6 +38,9 @@
 		                <li>
 		                    <a href="How_To_Refer_Dynamic_Sequence.html">How To Refer a Dynamic Sequence in ESB Graphical Editor</a>
 		                </li>
+		                <li>
+		                    <a href="How_To_Create_Main_Sequence.html">How to Create a Main Sequence</a>
+		                </li>
             		</ul>
             	</li>
             	<li>Local-Entry
@@ -49,6 +52,14 @@
             	</li>
             	<li>Endpoints
             		<ul>
+            		    <li>
+            		    	 <a href="How_To_Refer_Named_Endpoint.html">How to refer to a Named Endpoint.</a>
+            		    </li>
+            		    
+            		    <li>
+            		    	 <a href="Special_types_of_endpoints.html">Special types of endpoints.</a>
+            		    </li>
+            		    
 		                <li>
 		                    <a href="#addregistry">Add different remote registry instances</a>
 		                </li>
