@@ -55,35 +55,17 @@
             		    <li>
             		    	 <a href="How_To_Refer_Named_Endpoint.html">How to refer to a Named Endpoint.</a>
             		    </li>
+            		    <li>
+            		    	 <a href="How_to_refer_to_a_Dynamic_endpoint.html">How to Refer to a Dynamic endpoint.</a>
+            		    </li>
+            		    <li>
+            		    	 <a href="How_to_define_the_Inline_endpoint.html">How to define the Inline endpoint.</a>
+            		    </li>
             		    
             		    <li>
             		    	 <a href="Special_types_of_endpoints.html">Special types of endpoints.</a>
             		    </li>
             		    
-		                <li>
-		                    <a href="#addregistry">Add different remote registry instances</a>
-		                </li>
-		                <li>
-		                    <a href="#addresource">Add, edit, delete collections, resources</a>
-		                </li>
-		                <li>
-		                    <a href="#addmetadata">Add, edit, delete properties, associations, dependencies, comments, tags for a resource or collection</a>
-		                </li>
-		                <li>
-		                    <a href="#linkwith">Link with editor</a>
-		                </li>
-		                <li>
-		                    <a href="#addlocalfiles">Add multiple files and folder from file system</a>
-		                </li>
-		                <li>
-		                    <a href="#import">Import/Export resources and collections</a>
-		                </li>
-		                <li>
-		                    <a href="#dnd">Drag/Drop resources and collections</a>
-		                </li>
-		                <li>
-		                    <a href="#modifypermission">Modify permission for a resource, collection</a>
-		                </li>
             		</ul>
             	</li>
             </ul>
