@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright 2005-2007 WSO2, Inc. (http://wso2.com)
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+        "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <body>
+        
+        <h1>WSO2 ESB Graphical Composition Editor - How To Guide</h1>
+
+        <p>
+            This document links different How To guide documents around WSO2 ESB Graphical Editor Tool
+        </p>
+
+        <h2>Content</h2>
+
+        <div class="toc">
+            <ul>
+            	<li>
+            		Sequences
+            		<ul>
+		                <li>
+		                    <a href="How_To_Refer_Named_Sequence.html">How To Refer a Named Sequence in ESB Graphical Editor</a>
+		                </li>
+		                <li>
+		                    <a href="How_To_Refer_Dynamic_Sequence.html">How To Refer a Dynamic Sequence in ESB Graphical Editor</a>
+		                </li>
+            		</ul>
+            	</li>
+            	<li>Local-Entry
+            		<ul>
+		                <li>
+		                    <a href="How_To_Refer_Local_Entry.html">How To Refer a Local-Entry in ESB Graphical Editor</a>
+		                </li>
+            		</ul>
+            	</li>
+            	<li>Endpoints
+            		<ul>
+		                <li>
+		                    <a href="#addregistry">Add different remote registry instances</a>
+		                </li>
+		                <li>
+		                    <a href="#addresource">Add, edit, delete collections, resources</a>
+		                </li>
+		                <li>
+		                    <a href="#addmetadata">Add, edit, delete properties, associations, dependencies, comments, tags for a resource or collection</a>
+		                </li>
+		                <li>
+		                    <a href="#linkwith">Link with editor</a>
+		                </li>
+		                <li>
+		                    <a href="#addlocalfiles">Add multiple files and folder from file system</a>
+		                </li>
+		                <li>
+		                    <a href="#import">Import/Export resources and collections</a>
+		                </li>
+		                <li>
+		                    <a href="#dnd">Drag/Drop resources and collections</a>
+		                </li>
+		                <li>
+		                    <a href="#modifypermission">Modify permission for a resource, collection</a>
+		                </li>
+            		</ul>
+            	</li>
+            </ul>
+        </div>
+	</body>
+</html>
