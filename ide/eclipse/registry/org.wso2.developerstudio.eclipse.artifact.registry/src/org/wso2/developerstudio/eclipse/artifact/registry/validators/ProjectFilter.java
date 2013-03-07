@@ -33,7 +33,10 @@ public class ProjectFilter extends ViewerFilter {
 			try {
 				IContainer iContainer = (IContainer) element;
 				IProject project = iContainer.getProject();
-				if (!iContainer.getFullPath().toPortableString().endsWith("/target")) {
+				if (!iContainer.getName().equalsIgnoreCase("target") &&
+						!iContainer.getName().equalsIgnoreCase(".meta") && 
+						!iContainer.getName().equalsIgnoreCase(".settings") &&
+						!iContainer.getName().equalsIgnoreCase("bin")) {
 					if (project.isOpen() && project.hasNature(RegistryArtifactConstants.GENERAL_PROJECT_NATURE)) {
 						return true;
 					}
