@@ -30,16 +30,16 @@
         to manage its source code. Instructions on Subversion use can be found at
         <a href="http://svnbook.red-bean.com/">http://svnbook.red-bean.com/</a>.</p>
 
-    <h2>Source code of the WSO2 Developer Studio 2.0.0 release</h2>
+    <h2>Source code of the WSO2 Developer Studio 3.0.0 release</h2>
     <p>The following is a link to the online source tag of the WSO2 Developer Studio release.</p>
 
-    <p><a href="https://svn.wso2.org/repos/wso2/tags/tools/ide/eclipse/developer-studio/2.0.0/">
-        https://svn.wso2.org/repos/wso2/tags/tools/ide/eclipse/developer-studio/2.0.0/</a></p>
+    <p><a href="https://svn.wso2.org/repos/wso2/tags/tools/ide/eclipse/developer-studio/3.0.0/">
+        https://svn.wso2.org/repos/wso2/tags/tools/ide/eclipse/developer-studio/3.0.0/</a></p>
 
     <p>The complete source of Developer Studio can be checked out anonymously from
         SVN with this command:</p>
     <div class="source">
-        <pre>$ svn checkout https://svn.wso2.org/repos/wso2/tags/tools/ide/eclipse/developer-studio/2.0.0/ developerStudio</pre>
+        <pre>$ svn checkout https://svn.wso2.org/repos/wso2/tags/tools/ide/eclipse/developer-studio/3.0.0/ developerStudio</pre>
     </div>
 
     <p>The list of commands that can be run are as follows.<br/></p>

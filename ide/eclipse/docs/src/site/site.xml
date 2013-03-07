@@ -37,8 +37,14 @@
             <item name="Retail Banking Sample" href="banking_sample.html"/>
        </menu>
        
-       <menu name="Developer Resources">
+       <menu name="Developer Studio - Webinars">
+            <item name="Product Release Webinar: Introducing the WSO2 Developer Studio Graphical Composition Tool for the WSO2 ESB" href="http://wso2.org/library/webinars/2013/02/wso2-product-release-webinar-introducing-wso2-developer-studio-graphical-composition-tool"/>
+            <item name="Product Release Webinar: Composite Enterprise Application Development with the WSO2 Developer Studio" href="http://wso2.org/library/webinars/2013/02/composite-enterprise-application-development-with-the-wso2-developer-studio"/>
+            <item name="Product Release Webinar: Introducing WSO2 Developer Studio - Tools for SOA Developers" href="http://wso2.org/library/webinars/2013/01/wso2-product-release-webinar-introducing-wso2-developer-studio-tools-soa-developers"/>
             <item name="Enterprise Use Case: Application Development Using the WSO2 Developer Studio" href="http://wso2.org/library/webinars/2012/05/enterprise-use-case-application-development-using-wso2-developer-studio"/>
+       </menu>
+       
+       <menu name="Developer Studio - Articles">
             <item name="Apache Axis2 integration with Eclipse" href="http://wso2.org/library/articles/2012/06/apache-axis2-integration-eclipse"/>
             <item name="How to develop and deploy web applications using WSO2 Developer Studio" href="http://wso2.org/library/articles/2012/09/develop-deploy-web-applications-using-wso2-developer-studio"/>
             <item name="How to develop WS-BPEL for Apache ODE with WSO2 Developer studio 2.0" href="http://wso2.org/library/articles/2012/09/develop-wsbpel-apache-ode-wso2-developer-studio"/>

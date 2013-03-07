@@ -24,7 +24,7 @@
 <body>
 <h1>WSO2 Developer Studio 3.0.0 Release Notes</h1>
 
-<h3>6th December 2012</h3>
+<h3>7th March 2013</h3>
 
 <p>
 WSO2 Developer Studio is a fully functioned tooling environment which facilitate you to develop, 
@@ -61,7 +61,7 @@ and give it a try.
 		</ul>
 	</li>
 	<li>Enterprise Service Bus Tools<ul>
-		<li>WSO2 ESB Graphical Composition Tool - Technical Preview Available</li>
+		<li>WSO2 ESB Graphical Composition Tool</li>
 		<li>Sequences</li>
 		<li>Endpoints</li>
 		<li>Proxy Services</li>
@@ -115,7 +115,19 @@ and give it a try.
     	        <li>ESB Local Entries</li>
     	    </ul>
 	    </ul>
-	    </li>
+	 </li>
+	<li>Complex Event Processor Tools
+	   	<ul>
+	   		<li>Create and Edit Complex Event Processing configurations (XML configurations)</li>
+	   		<li>Build and Package CEP Configurations to C-App Archives</li>
+	   	</ul>
+	 </li>
+	<li>Business Rule Server Tools
+	   	<ul>
+	   		<li>Create and Edit Business Rule Server configurations (XML configurations)</li>
+	   		<li>Build and Package BRS Configurations to C-App Archives</li>
+	   	</ul>
+	 </li>
 	<li>Apache Maven Support
 		<ul>
 	        <li>Carbon Archive</li>
@@ -137,6 +149,8 @@ and give it a try.
 	        <li>Synapse Configurations</li>
 	        <li>Gadget</li>
 	        <li>Carbon UI Bundle</li>
+	        <li>Complex Event Processor Configurations</li>
+	        <li>Business Rules</li>
 	        <li>Maven Multi Module Support</li>
 	    </ul>
 	</li>
@@ -154,19 +168,6 @@ WSO2 Developer Studio Features</a> page.
     <li><strong>JIRA-Issue Tracker :</strong> <a href="https://wso2.org/jira/browse/tools">
     			WSO2 Developer Studio - JIRA Issues</a></li>
 </ol>
-<!--p>
-The full feature list is available at
-    <a href="http://wso2.org/projects/tools/bps/bpel-exporter/features">
-        http://wso2.org/projects/tools/bps/bpel-exporter/features
-    </a>
-</p-->
-
-
-<!-- h2>Known Issues</h2>
-<ul>
-    <li><a href="https://wso2.org/jira/secure/IssueNavigator.jspa?mode=hide&amp;requestId=10330">WSO2 Governance Registry Eclipse Plugin</a></li>
-</ul-->
-
 <h2>Reporting Problems</h2>
 Issues can be reported using the public JIRA available at
 <a href="https://wso2.org/jira/browse/TOOLS" target="_blank">
@@ -175,38 +176,14 @@ Issues can be reported using the public JIRA available at
 <h2>Contact us</h2>
 WSO2 Tools developers can be contacted via the mailing lists:
 <br/>
-<!-- strong>For Users:</strong>
-<a href="mailto:tools-user@wso2.org">tools-user@wso2.org</a>
-<br/ -->
 <strong>For Developers:</strong>
 <a href="mailto:dev@wso2.org">dev@wso2.org</a>
 <br/>
-<!--strong>For Developers:</strong>
-<a href="mailto:tools-dev@wso2.org">tools-dev@wso2.org</a-->
 <br/>
 For details on subscriptions see
 <a href="http://wso2.org/mail">
     http://wso2.org/mail</a>
 <br/>
-<!-- 
-<br/>
-<br/>
-Alternatively, questions can also be raised in the WSO2 Tools forum:
-<br/>
-<strong>Forum</strong>
-<a href="http://wso2.org/forum/194" target="_blank">http://www.wso2.org/forum/194</a>
-<br/ -->
-
-<!-- h2>Training</h2>
-
-<p>
-    WSO2 Inc. offers a variety of professional Training Programs, including
-    training on Eclipse IDE Tools.
-
-    For additional support information please refer to
-    <a target="_blank" href="http://wso2.com/training/course-catalog/">
-        http://wso2.com/training/course-catalog/</a>
-</p -->
 
 <h2>Support</h2>
 
@@ -229,11 +206,6 @@ For more information about WSO2 Developer Studio please see,
     <a href="http://wso2.com/products/developer-studio" target="_blank">http://wso2.com/products/developer-studio</a>. 
     visit the <a href="http://wso2.org/library">WSO2 Oxygen Tank developer portal</a>  for additional resources.
 </p>
-
-<!--<p>
-    <strong>How to do various things with WSAS</strong>-
-    <a href="http://wso2.org/library/2707" target="_blank">WSAS HOWTO Series</a>
-</p>-->
 
 <br></br>
 <br></br>
