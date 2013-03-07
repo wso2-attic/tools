@@ -97,7 +97,7 @@ public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 			seqModel = (SequenceModel)getModel();
 			project = seqModel.getSequenceSaveLocation().getProject();
 			if(seqModel.isSaveAsDynamic()){
-				createDynamicSequenceArtifact(project,seqModel);
+				createDynamicSequenceArtifact(seqModel.getSequenceSaveLocation(),seqModel);
 			} else{
 				if(!createSequenceArtifact(project,seqModel)){
 					return false;
@@ -407,6 +407,7 @@ public class SequenceProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 		if(!seqModel.getSelectedEP().equals("")){
 			String contentWithoutClosingTag = templateContent.substring(0, templateContent.length()-2);
 			contentWithoutClosingTag = contentWithoutClosingTag.concat(seqModel.getSelectedEP());
+			
 			content = MessageFormat.format(contentWithoutClosingTag,seqModel.getSequenceName(),seqModel.getOnErrorSequence());
 		}else{
 			content = MessageFormat.format(templateContent,seqModel.getSequenceName(),seqModel.getOnErrorSequence());

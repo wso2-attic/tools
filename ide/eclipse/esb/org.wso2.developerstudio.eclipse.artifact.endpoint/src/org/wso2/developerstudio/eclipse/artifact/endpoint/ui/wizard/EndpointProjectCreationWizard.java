@@ -101,7 +101,7 @@ public class EndpointProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 			project = epModel.getEndpointSaveLocation().getProject();
 	
 			if(epModel.isSaveAsDynamic()){
-				createDynamicEndpointArtifact(project,epModel);
+				createDynamicEndpointArtifact(epModel.getEndpointSaveLocation(),epModel);
 			} else{
 				if(!createEndpointArtifact(project,epModel)){
 					 return false;

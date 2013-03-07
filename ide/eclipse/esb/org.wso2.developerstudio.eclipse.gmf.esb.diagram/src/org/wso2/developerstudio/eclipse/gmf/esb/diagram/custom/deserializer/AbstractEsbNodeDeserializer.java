@@ -575,8 +575,8 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 						.execute(new ICommandProxy(sbc));
 				
 				Thread.sleep(50);
-			} catch (InterruptedException e) {
-				//ignored
+			} catch (Exception e) {
+				break;
 			}
 
 		}

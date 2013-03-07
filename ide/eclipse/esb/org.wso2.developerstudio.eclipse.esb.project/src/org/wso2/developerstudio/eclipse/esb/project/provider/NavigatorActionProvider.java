@@ -16,9 +16,13 @@
 
 package org.wso2.developerstudio.eclipse.esb.project.provider;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.regex.Pattern;
 
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.content.IContentDescription;
@@ -37,6 +41,10 @@ import org.eclipse.ui.navigator.ICommonActionConstants;
 import org.eclipse.ui.navigator.ICommonActionExtensionSite;
 import org.eclipse.ui.part.FileEditorInput;
 import org.wso2.developerstudio.eclipse.esb.project.Activator;
+import org.wso2.developerstudio.eclipse.general.project.artifact.GeneralProjectArtifact;
+import org.wso2.developerstudio.eclipse.general.project.artifact.RegistryArtifact;
+import org.wso2.developerstudio.eclipse.general.project.artifact.bean.RegistryElement;
+import org.wso2.developerstudio.eclipse.general.project.artifact.bean.RegistryItem;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 
@@ -48,7 +56,13 @@ public class NavigatorActionProvider extends CommonActionProvider {
 	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
 
 	private OpenEditorAction openEditorAction;
+	private static Map<String,String> prefixMap = new HashMap<String,String>();
 
+	static{
+		prefixMap.put("application/vnd.wso2.sequence","sequence_");
+		prefixMap.put("application/vnd.wso2.esb.endpoint","endpoint_");
+		
+	}
 	@Override
 	public void fillActionBars(IActionBars actionBars) {
 		IStructuredSelection selection = (IStructuredSelection) getContext().getSelection();
@@ -112,11 +126,18 @@ public class NavigatorActionProvider extends CommonActionProvider {
 					fileTobeOpen = selection.getWorkspace().getRoot()
 							.getFile(new Path(diagramFilePath));
 					IDE.openEditor(page, fileTobeOpen);
-				} else {
-					fileTobeOpen = selection.getWorkspace().getRoot()
-							.getFile(new Path(synFilePath));
-					page.openEditor(new FileEditorInput(fileTobeOpen),
-							"org.wso2.developerstudio.eclipse.esb.presentation.EsbEditor");
+				} else{
+					Path path = new Path(getGraphicalResource(selection));
+					if (selection.getWorkspace().getRoot().getFile(path).exists()) {
+						fileTobeOpen = selection.getWorkspace().getRoot()
+						.getFile(path);
+							IDE.openEditor(page, fileTobeOpen);
+					} else {
+						fileTobeOpen = selection.getWorkspace().getRoot()
+								.getFile(new Path(synFilePath));
+						page.openEditor(new FileEditorInput(fileTobeOpen),
+								"org.wso2.developerstudio.eclipse.esb.presentation.EsbEditor");
+					}
 				}
 
 			} catch (PartInitException e) {
@@ -126,6 +147,42 @@ public class NavigatorActionProvider extends CommonActionProvider {
 
 		public void setSelection(IFile selection) {
 			this.selection = selection;
+		}
+		
+		private String getGraphicalResource(IFile selection){
+			String synFilePath = selection.getFullPath().toOSString();
+			synFilePath=synFilePath.replaceAll(Pattern.quote("\\"), "/");
+			String graphicalResource = synFilePath.replaceAll(".xml$",".esb_diagram");
+			try {
+				GeneralProjectArtifact artifact=new GeneralProjectArtifact();
+				IProject project = selection.getProject();
+				IFile file = project.getFile("artifact.xml");
+				artifact.deserialize(file);
+				List<RegistryArtifact> allArtifacts = artifact.getAllArtifacts();
+				ALL:
+				for (RegistryArtifact registryArtifact : allArtifacts) {
+					if(registryArtifact.getName().equals(selection.getName().replaceAll(".xml$",""))){
+						List<RegistryElement> allRegistryItems = registryArtifact.getAllRegistryItems();
+						for (RegistryElement registryElement : allRegistryItems) {
+							if(registryElement instanceof RegistryItem){
+								RegistryItem item = (RegistryItem) registryElement;
+								if(synFilePath.endsWith(item.getFile())){
+									if(prefixMap.containsKey(item.getMediaType())){
+										String prefix = prefixMap.get(item.getMediaType());
+										String name = selection.getName().replaceAll(".xml$",".esb_diagram");;
+										graphicalResource = graphicalResource.replaceAll(name+"$",prefix +name);
+									} 
+									break ALL;
+								}
+							}
+						}
+					}
+				}
+			} catch (Exception e) {
+				
+			}
+			
+			return graphicalResource;
 		}
 
 	}

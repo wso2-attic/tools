@@ -16,6 +16,7 @@
 
 package org.wso2.developerstudio.eclipse.artifact.endpoint.validators;
 
+import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerFilter;
@@ -29,15 +30,31 @@ public class ProjectFilter extends ViewerFilter {
 	}
 	
 	public boolean select(Viewer viewer, Object parentElement, Object element) {
-		if (element instanceof IProject) {
-			try {
-				if (((IProject) element)
-						.hasNature(showGeneralProjects ? GENERAL_PROJECT_NATURE
-								: ESB_PROJECT_NATURE)) {
-					return true;
-				}
-			} catch (Exception e) {/*ignore*/}
+		if(showGeneralProjects){
+			if (element instanceof IContainer) {
+				try {
+					IContainer iContainer = (IContainer) element;
+					IProject project = iContainer.getProject();
+					if (!(iContainer.getName().matches("^target$|^bin$|^[.].*"))) {
+						if (project.hasNature(GENERAL_PROJECT_NATURE)) {
+							return true;
+						}
+					}else{
+						return false;
+					}
+				} catch (Exception e) {/*ignore*/}
+			}
+		} else{
+			if (element instanceof IProject) {
+				try {
+					if (((IProject) element)
+							.hasNature(ESB_PROJECT_NATURE)) {
+						return true;
+					}
+				} catch (Exception e) {/*ignore*/}
+			}
 		}
+		
 		return false;
 	}
 	
