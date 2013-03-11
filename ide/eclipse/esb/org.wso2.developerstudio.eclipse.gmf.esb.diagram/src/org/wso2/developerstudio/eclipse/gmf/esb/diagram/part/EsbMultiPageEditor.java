@@ -364,6 +364,7 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 				@Override
 				public void run() {
 					EditorUtils.setLockmode(graphicalEditor, true);
+					final boolean dirty = isDirty(); //save previous status
 					IFile file = ((IFileEditorInput)getEditorInput()).getFile();
 			        ElementDuplicator endPointDuplicator = new ElementDuplicator(file.getProject(),getGraphicalEditor());        
 			        endPointDuplicator.updateAssociatedDiagrams(currentEditor);
@@ -374,8 +375,15 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 					 * should be replaced with the better approach
 					 */
 			        AbstractEsbNodeDeserializer.relocateStartNodes();
+			        
+			        if(!dirty && isDirty()){
+			        	//remove any dirty status introduced by ElementDuplicator or relocateStartNodes();
+			        	 getEditor(0).doSave(new NullProgressMonitor());
+			        	 firePropertyChange(PROP_DIRTY);
+			        }
 
 			        EditorUtils.setLockmode(graphicalEditor, false);
+			        
 				}
 			});
 		
