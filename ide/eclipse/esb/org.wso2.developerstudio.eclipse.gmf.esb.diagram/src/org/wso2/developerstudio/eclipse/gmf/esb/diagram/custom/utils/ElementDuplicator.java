@@ -58,7 +58,6 @@ import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
-import org.eclipse.gef.EditDomain;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
@@ -70,6 +69,7 @@ import org.eclipse.gmf.runtime.diagram.ui.parts.IDiagramEditDomain;
 import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.gmf.runtime.notation.impl.NodeImpl;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IEditorPart;
@@ -78,7 +78,6 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint;
-import org.wso2.developerstudio.eclipse.gmf.esb.AddressingEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
@@ -91,7 +90,6 @@ import org.wso2.developerstudio.eclipse.gmf.esb.OutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.SequenceOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractBaseFigureEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpointOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorInputConnectorEditPart;
@@ -197,6 +195,10 @@ public class ElementDuplicator {
 					EObject node = outputConnector.getOutgoingLink().getTarget().eContainer();
 					if (node instanceof EndPoint) {
 						parent = node.eContainer();
+						
+						if(((EndPoint)node).isReversed()){
+							continue;
+						}
 
 						EList<EObject> child = node.eContents();
 						for (int i = 0; i < child.size(); ++i) {
@@ -449,8 +451,16 @@ public class ElementDuplicator {
 					InputConnector inputConnector =outSequenceFirstConnectorMap.get(root);
 					EditPart connector=getEditpart(inputConnector);
 					if(connector instanceof AbstractConnectorEditPart){
-						ConnectionUtils.createConnection(
-								(AbstractConnectorEditPart) connector, getEndpointOutputConnector(element));
+						AbstractEndpointOutputConnectorEditPart endpointOutputConnector = getEndpointOutputConnector(element);
+						if(endpointOutputConnector instanceof AbstractEndpointOutputConnectorEditPart){
+							EObject obj = ((NodeImpl)endpointOutputConnector.getParent().getModel()).getElement(); 
+							if(obj instanceof EndPoint){
+								if(!((EndPoint)obj).isReversed()){
+									ConnectionUtils.createConnection(
+											(AbstractConnectorEditPart) connector, endpointOutputConnector);
+								}
+							}
+						}
 					}
 				}
 			}
@@ -547,6 +557,11 @@ public class ElementDuplicator {
 				.getMediatorOutputConnector(sendMediatorEditPart);
 		ShapeNodeEditPart endpoint = (ShapeNodeEditPart) ((EsbLinkEditPart) sendMediatorOutputConnector
 				.getSourceConnections().get(0)).getTarget().getParent();
+		
+		
+		if(((EndPoint)((NodeImpl)endpoint.getModel()).getElement()).isReversed()){
+			return;
+		}
 		AbstractEndpointOutputConnectorEditPart endpointOutputConnector = EditorUtils
 				.getEndpointOutputConnector(endpoint);
 		refreshEditPartMap(editor);
@@ -571,6 +586,10 @@ public class ElementDuplicator {
 			if(mediatornode instanceof EndPoint){				
 				AbstractConnectorEditPart nextSourceConnector = null;
 				targetConnector = null;
+				
+				if(((EndPoint)mediatornode).isReversed()){
+					continue;
+				}
 
 				EditPart editpart = getEditpart(mediatornode);
 				if (editpart instanceof ShapeNodeEditPart) {

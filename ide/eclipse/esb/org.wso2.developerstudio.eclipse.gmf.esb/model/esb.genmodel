@@ -503,6 +503,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EndPoint/duplicate"/>
       <genFeatures notify="false" createChild="false" propertyCategory="" propertySortChoices="true"
           ecoreFeature="ecore:EReference esb.ecore#//EndPoint/properties"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EndPoint/reversed"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//EndPointProperty">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//EndPointProperty/name"/>

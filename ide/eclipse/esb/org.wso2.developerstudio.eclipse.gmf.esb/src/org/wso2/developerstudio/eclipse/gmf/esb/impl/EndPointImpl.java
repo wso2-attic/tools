@@ -18,7 +18,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPointProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
@@ -35,6 +34,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.EndPointImpl#isInLine <em>In Line</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.EndPointImpl#isDuplicate <em>Duplicate</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.EndPointImpl#getProperties <em>Properties</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.EndPointImpl#isReversed <em>Reversed</em>}</li>
  * </ul>
  * </p>
  *
@@ -130,6 +130,26 @@ public abstract class EndPointImpl extends EsbElementImpl implements EndPoint {
 	 * @ordered
 	 */
 	protected EList<EndPointProperty> properties;
+
+	/**
+	 * The default value of the '{@link #isReversed() <em>Reversed</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isReversed()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean REVERSED_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isReversed() <em>Reversed</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isReversed()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean reversed = REVERSED_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -252,6 +272,27 @@ public abstract class EndPointImpl extends EsbElementImpl implements EndPoint {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isReversed() {
+		return reversed;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setReversed(boolean newReversed) {
+		boolean oldReversed = reversed;
+		reversed = newReversed;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.END_POINT__REVERSED, oldReversed, reversed));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -280,6 +321,8 @@ public abstract class EndPointImpl extends EsbElementImpl implements EndPoint {
 				return isDuplicate();
 			case EsbPackage.END_POINT__PROPERTIES:
 				return getProperties();
+			case EsbPackage.END_POINT__REVERSED:
+				return isReversed();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -310,6 +353,9 @@ public abstract class EndPointImpl extends EsbElementImpl implements EndPoint {
 				getProperties().clear();
 				getProperties().addAll((Collection<? extends EndPointProperty>)newValue);
 				return;
+			case EsbPackage.END_POINT__REVERSED:
+				setReversed((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -338,6 +384,9 @@ public abstract class EndPointImpl extends EsbElementImpl implements EndPoint {
 			case EsbPackage.END_POINT__PROPERTIES:
 				getProperties().clear();
 				return;
+			case EsbPackage.END_POINT__REVERSED:
+				setReversed(REVERSED_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -361,6 +410,8 @@ public abstract class EndPointImpl extends EsbElementImpl implements EndPoint {
 				return duplicate != DUPLICATE_EDEFAULT;
 			case EsbPackage.END_POINT__PROPERTIES:
 				return properties != null && !properties.isEmpty();
+			case EsbPackage.END_POINT__REVERSED:
+				return reversed != REVERSED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -384,6 +435,8 @@ public abstract class EndPointImpl extends EsbElementImpl implements EndPoint {
 		result.append(inLine);
 		result.append(", duplicate: ");
 		result.append(duplicate);
+		result.append(", reversed: ");
+		result.append(reversed);
 		result.append(')');
 		return result.toString();
 	}

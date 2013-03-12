@@ -71,6 +71,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="duplicate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
         eType="#//EndPointProperty" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="reversed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="EndPointPropertyScope">
     <eLiterals name="SYNAPSE" literal="default"/>

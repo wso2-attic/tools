@@ -22,7 +22,6 @@ import org.apache.synapse.mediators.Value;
 import org.apache.synapse.util.xpath.SynapseXPath;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.AddressingEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
@@ -79,10 +78,17 @@ public class SendMediatorDeserializer extends AbstractEsbNodeDeserializer<Abstra
 			IEsbNodeDeserializer deserializer = EsbDeserializerRegistry.getInstance().getDeserializer(endpoint);
 			@SuppressWarnings("unchecked")
 			EndPoint visualEndPoint = (EndPoint) deserializer.createNode(getRootCompartment(), endpoint);
+			if(isReversed()){
+				executeSetValueCommand(visualEndPoint,END_POINT__REVERSED,true);
+			}
 			visualSendMediator.setNextNode(visualEndPoint);
+			
 		} else if (!(isReversed() || hasInlineEndPoint() || isAddedAddressingEndPoint())){
 			AddressingEndpoint visualEndPoint = (AddressingEndpoint) DeserializerUtils.createNode(
 					getRootCompartment(), EsbElementTypes.AddressingEndpoint_3689);
+			if(isReversed()){
+				executeSetValueCommand(visualEndPoint,END_POINT__REVERSED,true);
+			}
 			visualSendMediator.setNextNode(visualEndPoint);
 			setAddedAddressingEndPoint(true);
 			refreshEditPartMap();

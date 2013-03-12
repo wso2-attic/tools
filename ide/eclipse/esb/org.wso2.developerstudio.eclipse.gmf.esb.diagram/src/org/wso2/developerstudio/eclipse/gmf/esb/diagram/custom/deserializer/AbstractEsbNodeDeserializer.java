@@ -199,13 +199,18 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 			if (node!=null) {
 				nodeList.add(node);
 
-				if (node instanceof SendMediator && !reversed) {
+				if (node instanceof SendMediator/* && !reversed*/) {
 					if (getRootCompartment() != null) {
 						SendMediator sendMediator = (SendMediator) node;
 						EndPoint endPoint = sendMediator.getNextNode();
 						// Extract the endPoint info from the sendMediator
 						if (endPoint != null) {
-							nodeList.add(endPoint);
+							if(reversed){
+								nodeList.add(nodeList.size()-1, endPoint);
+							} else{
+								nodeList.add(endPoint);
+							}
+							
 						}
 					}
 				}

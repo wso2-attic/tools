@@ -22,6 +22,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.EndPoint#isInLine <em>In Line</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.EndPoint#isDuplicate <em>Duplicate</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.EndPoint#getProperties <em>Properties</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.EndPoint#isReversed <em>Reversed</em>}</li>
  * </ul>
  * </p>
  *
@@ -151,5 +152,32 @@ public interface EndPoint extends EsbElement {
 	 * @generated
 	 */
 	EList<EndPointProperty> getProperties();
+
+	/**
+	 * Returns the value of the '<em><b>Reversed</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Reversed</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Reversed</em>' attribute.
+	 * @see #setReversed(boolean)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getEndPoint_Reversed()
+	 * @model default="false"
+	 * @generated
+	 */
+	boolean isReversed();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.EndPoint#isReversed <em>Reversed</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Reversed</em>' attribute.
+	 * @see #isReversed()
+	 * @generated
+	 */
+	void setReversed(boolean value);
 
 } // EndPoint
