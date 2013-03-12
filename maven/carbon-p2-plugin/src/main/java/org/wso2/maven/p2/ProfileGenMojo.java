@@ -21,6 +21,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
@@ -31,6 +32,7 @@ import org.codehaus.plexus.util.FileUtils;
 import org.eclipse.tycho.p2.facade.internal.P2ApplicationLauncher;
 import org.wso2.maven.p2.generate.utils.FileManagementUtil;
 import org.wso2.maven.p2.generate.utils.MavenUtils;
+import org.wso2.maven.p2.generate.utils.P2Constants;
 import org.wso2.maven.p2.generate.utils.P2Utils;
 
 /**
@@ -154,14 +156,20 @@ public class ProfileGenMojo extends AbstractMojo {
     private File p2AgentDir;
 
     private final String STREAM_TYPE_IN = "inputStream";
-    private final String STREAM_TYPE_ERROR = "errorStream"; 
+    private final String STREAM_TYPE_ERROR = "errorStream";
 
     public void execute() throws MojoExecutionException, MojoFailureException {
         try {
+            if (profile == null){
+                profile = P2Constants.DEFAULT_PROFILE_ID;
+            }
             createAndSetupPaths();
-//            verifySetupP2RepositoryURL();
+//          	verifySetupP2RepositoryURL();
             this.getLog().info("Running Equinox P2 Director Application");
             installFeatures(getIUsToInstall());
+            //updating profile's config.ini p2.data.area property using relative path
+            File profileConfigIni = FileManagementUtil.getProfileConfigIniFile(destination, profile);
+            FileManagementUtil.changeConfigIniProperty(profileConfigIni, "eclipse.p2.data.area", "@config.dir/../../p2/");
 
             //deleting old profile files, if specified
             if (deleteOldProfileFiles) {
@@ -194,7 +202,7 @@ public class ProfileGenMojo extends AbstractMojo {
         return installUIs;
     }
 
-     private String getPublisherApplication() {
+    private String getPublisherApplication() {
         return "org.eclipse.equinox.p2.director";
     }
 
@@ -214,17 +222,20 @@ public class ProfileGenMojo extends AbstractMojo {
         }
     }
 
-
     private void addArguments(P2ApplicationLauncher launcher, String installUIs) throws IOException, MalformedURLException {
         launcher.addArguments(
                 "-metadataRepository", metadataRepository.toExternalForm(), //
                 "-artifactRepository", artifactRepository.toExternalForm(), //
                 "-profileProperties", "org.eclipse.update.install.features=true",
                 "-installIU", installUIs,
-                "-destination", destination,
                 "-bundlepool", destination,
-                "-profile", profile
-                );
+                //to support shared installation in carbon
+                "-shared" , destination + File.separator + "p2",
+                //target is set to a separate directory per Profile
+                "-destination", destination + File.separator + profile,
+                "-profile", profile.toString(),
+                "-roaming"
+        );
     }
 
     public class InputStreamHandler implements Runnable {
