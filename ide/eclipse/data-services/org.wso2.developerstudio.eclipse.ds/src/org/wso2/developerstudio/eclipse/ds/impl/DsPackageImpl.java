@@ -984,6 +984,15 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getElementMapping_ArrayName() {
+		return (EAttribute)elementMappingEClass.getEStructuralFeatures().get(14);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getEventSubscriptionList() {
 		return eventSubscriptionListEClass;
 	}
@@ -2018,6 +2027,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		createEAttribute(elementMappingEClass, ELEMENT_MAPPING__QUERY_PARAM);
 		createEAttribute(elementMappingEClass, ELEMENT_MAPPING__VALUE);
 		createEAttribute(elementMappingEClass, ELEMENT_MAPPING__OPTIONAL);
+		createEAttribute(elementMappingEClass, ELEMENT_MAPPING__ARRAY_NAME);
 
 		eventSubscriptionListEClass = createEClass(EVENT_SUBSCRIPTION_LIST);
 		createEReference(eventSubscriptionListEClass, EVENT_SUBSCRIPTION_LIST__SUBSCRIPTION);
@@ -2261,6 +2271,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		initEAttribute(getElementMapping_QueryParam(), theXMLTypePackage.getString(), "queryParam", null, 0, 1, ElementMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElementMapping_Value(), theXMLTypePackage.getString(), "value", null, 0, 1, ElementMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElementMapping_Optional(), ecorePackage.getEBoolean(), "optional", "false", 0, 1, ElementMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getElementMapping_ArrayName(), theXMLTypePackage.getString(), "arrayName", null, 0, 1, ElementMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(eventSubscriptionListEClass, EventSubscriptionList.class, "EventSubscriptionList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEventSubscriptionList_Subscription(), this.getSubscription(), null, "subscription", null, 1, -1, EventSubscriptionList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2921,6 +2932,14 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		   new String[] {
 			 "kind", "attribute",
 			 "name", "optional",
+			 "namespace", "##targetNamespace"
+		   });		
+		addAnnotation
+		  (getElementMapping_ArrayName(), 
+		   source, 
+		   new String[] {
+			 "kind", "attribute",
+			 "name", "arrayName",
 			 "namespace", "##targetNamespace"
 		   });		
 		addAnnotation

@@ -749,13 +749,22 @@ public interface DsPackage extends EPackage {
 	int ELEMENT_MAPPING__OPTIONAL = 13;
 
 	/**
+	 * The feature id for the '<em><b>Array Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT_MAPPING__ARRAY_NAME = 14;
+
+	/**
 	 * The number of structural features of the '<em>Element Mapping</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING_FEATURE_COUNT = 14;
+	int ELEMENT_MAPPING_FEATURE_COUNT = 15;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.ds.impl.EventSubscriptionListImpl <em>Event Subscription List</em>}' class.
@@ -2651,6 +2660,17 @@ public interface DsPackage extends EPackage {
 	EAttribute getElementMapping_Optional();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.ds.ElementMapping#getArrayName <em>Array Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Array Name</em>'.
+	 * @see org.wso2.developerstudio.eclipse.ds.ElementMapping#getArrayName()
+	 * @see #getElementMapping()
+	 * @generated
+	 */
+	EAttribute getElementMapping_ArrayName();
+
+	/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.ds.EventSubscriptionList <em>Event Subscription List</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4332,6 +4352,14 @@ public interface DsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ELEMENT_MAPPING__OPTIONAL = eINSTANCE.getElementMapping_Optional();
+
+		/**
+		 * The meta object literal for the '<em><b>Array Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ELEMENT_MAPPING__ARRAY_NAME = eINSTANCE.getElementMapping_ArrayName();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.ds.impl.EventSubscriptionListImpl <em>Event Subscription List</em>}' class.

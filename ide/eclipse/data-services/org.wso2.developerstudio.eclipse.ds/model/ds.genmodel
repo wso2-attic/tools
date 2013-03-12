@@ -87,6 +87,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//ElementMapping/queryParam"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//ElementMapping/value"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//ElementMapping/optional"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ds.ecore#//ElementMapping/arrayName"/>
     </genClasses>
     <genClasses ecoreClass="ds.ecore#//EventSubscriptionList">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ds.ecore#//EventSubscriptionList/subscription"/>

@@ -70,6 +70,7 @@ public interface DetailSectionCustomUiConstants {
 	public String ELEMENT_MAPPING_DATA_SOURCE_TYPE = "Data Source Type";
 	public String ELEMENT_MAPPING_DAFAULT_VALUE = "Default Value";
 	public String ELEMENT_MAPPING_OPTIONAL_PARAM = "Optional";
+	public String ELEMENT_MAPPING_ARRAY_NAME = "Array Name";
 	
 	public String EXCEL_WORKBOOK_NAME = "Workbook Name";
 	public String EXCEL_HAS_HEADER = "Headers available";

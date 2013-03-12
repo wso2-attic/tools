@@ -78,6 +78,7 @@ public class ElementMappingItemProvider
 			addExportPropertyDescriptor(object);
 			//addRequiredRolesPropertyDescriptor(object);
 			addIsComplexTypePropertyDescriptor(object);
+			addArrayNamePropertyDescriptor(object);
 			addOptionalPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -326,6 +327,28 @@ public class ElementMappingItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Array Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addArrayNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ElementMapping_arrayName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ElementMapping_arrayName_feature", "_UI_ElementMapping_type"),
+				 DsPackage.Literals.ELEMENT_MAPPING__ARRAY_NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -409,6 +432,7 @@ public class ElementMappingItemProvider
 			case DsPackage.ELEMENT_MAPPING__QUERY_PARAM:
 			case DsPackage.ELEMENT_MAPPING__VALUE:
 			case DsPackage.ELEMENT_MAPPING__OPTIONAL:
+			case DsPackage.ELEMENT_MAPPING__ARRAY_NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case DsPackage.ELEMENT_MAPPING__ELEMENT:

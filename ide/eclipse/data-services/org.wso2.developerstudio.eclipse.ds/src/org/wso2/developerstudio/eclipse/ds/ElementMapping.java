@@ -31,6 +31,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.ElementMapping#getQueryParam <em>Query Param</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.ElementMapping#getValue <em>Value</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.ElementMapping#isOptional <em>Optional</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.ds.ElementMapping#getArrayName <em>Array Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -396,6 +397,33 @@ public interface ElementMapping extends EObject {
 	 * @generated
 	 */
 	void setOptional(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Array Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Array Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Array Name</em>' attribute.
+	 * @see #setArrayName(String)
+	 * @see org.wso2.developerstudio.eclipse.ds.DsPackage#getElementMapping_ArrayName()
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
+	 *        extendedMetaData="kind='attribute' name='arrayName' namespace='##targetNamespace'"
+	 * @generated
+	 */
+	String getArrayName();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.ds.ElementMapping#getArrayName <em>Array Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Array Name</em>' attribute.
+	 * @see #getArrayName()
+	 * @generated
+	 */
+	void setArrayName(String value);
 
 	/*boolean isComplex();
 	

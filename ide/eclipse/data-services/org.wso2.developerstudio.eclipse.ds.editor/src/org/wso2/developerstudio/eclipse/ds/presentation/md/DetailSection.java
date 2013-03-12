@@ -1188,6 +1188,17 @@ public class DetailSection {
 				}
 			}
 			
+			if(displayName.equals(DetailSectionCustomUiConstants.ELEMENT_MAPPING_ARRAY_NAME)){
+				if(!makeItComplex){
+				labelMaker(DetailSectionCustomUiConstants.ELEMENT_MAPPING_ARRAY_NAME);
+				sectionUtil.getAttributeField(detailsclient, toolkit, element, element.getArrayName(),
+						DsPackage.eINSTANCE.getElementMapping_ArrayName(), DetailSectionCustomUiConstants.STRING);
+				}
+				voidMaker();
+				voidMaker();
+			}
+				
+			
 		}
 		
 		if(makeItComplex){
