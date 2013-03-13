@@ -20,7 +20,9 @@ public class TemplateList extends AbstractListDataProvider{
 	static {
 		Map<String,List<String>> filters=new HashMap<String,List<String>> ();
 		DeveloperStudioProviderUtils.addFilter(filters,CSProviderConstants.FILTER_MEDIA_TYPE,
-				ESBMediaTypeConstants.MEDIA_TYPE_TEMPLATE);
+				ESBMediaTypeConstants.MEDIA_TYPE_SEQ_TEMPLATE);
+		DeveloperStudioProviderUtils.addFilter(filters,CSProviderConstants.FILTER_MEDIA_TYPE,
+				ESBMediaTypeConstants.MEDIA_TYPE_ENDPOINT_TEMPLATE);
 		setArtifactTemplates(ArtifactTemplateHandler.getArtifactTemplates(filters));
 	}
 	
