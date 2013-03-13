@@ -7,8 +7,6 @@ import java.util.Map;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.Platform;
 import org.osgi.framework.Bundle;
-import org.wso2.developerstudio.eclipse.platform.core.MediaManager;
-import org.wso2.developerstudio.eclipse.platform.core.interfaces.IMediaTypeResolverProvider;
 import org.wso2.developerstudio.eclipse.platform.core.utils.CSProviderConstants;
 import org.wso2.developerstudio.eclipse.platform.core.utils.DeveloperStudioProviderUtils;
 
@@ -32,13 +30,8 @@ public class ArtifactTemplateHandler {
 				if(null!=isCustom){
 					proxyTemplate.setCustom(Boolean.valueOf(isCustom));
 				}
-				IMediaTypeResolverProvider mediaTypeResolver = MediaManager.getMediaTypeResolver(proxyTemplate.getTemplateUrl());
-				if (mediaTypeResolver!=null) {
-					proxyTemplate
-							.setMediaType(mediaTypeResolver.getMediaType());
-					proxyTemplate.setDefaultExtension(mediaTypeResolver
-							.getDefaultExtension());
-				}
+				proxyTemplate.setMediaType(e.getAttribute("mediaType"));
+				proxyTemplate.setDefaultExtension(e.getAttribute("extension"));
 				templateList.add(proxyTemplate);
 			} catch (Exception ex) {
 				ex.printStackTrace();

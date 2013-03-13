@@ -63,6 +63,20 @@
                </documentation>
             </annotation>
          </attribute>
+         <attribute name="mediaType" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The media type for this template
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="extension" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The extensions for this template
+               </documentation>
+            </annotation>
+         </attribute>
          <attribute name="file" type="string" use="required">
             <annotation>
                <documentation>
