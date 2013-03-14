@@ -1050,6 +1050,15 @@ public interface EsbFactory extends EFactory {
 	Template createTemplate();
 
 	/**
+	 * Returns a new object of class '<em>Template Parameter</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Template Parameter</em>'.
+	 * @generated
+	 */
+	TemplateParameter createTemplateParameter();
+
+	/**
 	 * Returns a new object of class '<em>Task</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

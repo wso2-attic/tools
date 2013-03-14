@@ -6,17 +6,22 @@
  */
 package org.wso2.developerstudio.eclipse.gmf.esb.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbElement;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.Template;
+import org.wso2.developerstudio.eclipse.gmf.esb.TemplateParameter;
 import org.wso2.developerstudio.eclipse.gmf.esb.TemplateType;
 
 /**
@@ -29,6 +34,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.TemplateType;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.TemplateImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.TemplateImpl#getTemplateType <em>Template Type</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.TemplateImpl#getChild <em>Child</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.TemplateImpl#getParameters <em>Parameters</em>}</li>
  * </ul>
  * </p>
  *
@@ -84,6 +90,16 @@ public class TemplateImpl extends EsbElementImpl implements Template {
 	 * @ordered
 	 */
 	protected EsbElement child;
+
+	/**
+	 * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getParameters()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<TemplateParameter> parameters;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -194,11 +210,25 @@ public class TemplateImpl extends EsbElementImpl implements Template {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<TemplateParameter> getParameters() {
+		if (parameters == null) {
+			parameters = new EObjectContainmentEList<TemplateParameter>(TemplateParameter.class, this, EsbPackage.TEMPLATE__PARAMETERS);
+		}
+		return parameters;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case EsbPackage.TEMPLATE__CHILD:
 				return basicSetChild(null, msgs);
+			case EsbPackage.TEMPLATE__PARAMETERS:
+				return ((InternalEList<?>)getParameters()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -217,6 +247,8 @@ public class TemplateImpl extends EsbElementImpl implements Template {
 				return getTemplateType();
 			case EsbPackage.TEMPLATE__CHILD:
 				return getChild();
+			case EsbPackage.TEMPLATE__PARAMETERS:
+				return getParameters();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -226,6 +258,7 @@ public class TemplateImpl extends EsbElementImpl implements Template {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -237,6 +270,10 @@ public class TemplateImpl extends EsbElementImpl implements Template {
 				return;
 			case EsbPackage.TEMPLATE__CHILD:
 				setChild((EsbElement)newValue);
+				return;
+			case EsbPackage.TEMPLATE__PARAMETERS:
+				getParameters().clear();
+				getParameters().addAll((Collection<? extends TemplateParameter>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -259,6 +296,9 @@ public class TemplateImpl extends EsbElementImpl implements Template {
 			case EsbPackage.TEMPLATE__CHILD:
 				setChild((EsbElement)null);
 				return;
+			case EsbPackage.TEMPLATE__PARAMETERS:
+				getParameters().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -277,6 +317,8 @@ public class TemplateImpl extends EsbElementImpl implements Template {
 				return templateType != TEMPLATE_TYPE_EDEFAULT;
 			case EsbPackage.TEMPLATE__CHILD:
 				return child != null;
+			case EsbPackage.TEMPLATE__PARAMETERS:
+				return parameters != null && !parameters.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

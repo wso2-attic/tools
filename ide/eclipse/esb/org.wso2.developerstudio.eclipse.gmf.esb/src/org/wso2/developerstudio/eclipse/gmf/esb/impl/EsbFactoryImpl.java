@@ -330,6 +330,7 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 			case EsbPackage.NAMED_ENDPOINT_INPUT_CONNECTOR: return createNamedEndpointInputConnector();
 			case EsbPackage.NAMED_ENDPOINT_OUTPUT_CONNECTOR: return createNamedEndpointOutputConnector();
 			case EsbPackage.TEMPLATE: return createTemplate();
+			case EsbPackage.TEMPLATE_PARAMETER: return createTemplateParameter();
 			case EsbPackage.TASK: return createTask();
 			case EsbPackage.NAME_VALUE_TYPE_PROPERTY: return createNameValueTypeProperty();
 			case EsbPackage.TASK_PROPERTY: return createTaskProperty();
@@ -1926,6 +1927,16 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	public Template createTemplate() {
 		TemplateImpl template = new TemplateImpl();
 		return template;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TemplateParameter createTemplateParameter() {
+		TemplateParameterImpl templateParameter = new TemplateParameterImpl();
+		return templateParameter;
 	}
 
 	/**

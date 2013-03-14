@@ -2231,6 +2231,12 @@ public class EsbSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case EsbPackage.TEMPLATE_PARAMETER: {
+				TemplateParameter templateParameter = (TemplateParameter)theEObject;
+				T result = caseTemplateParameter(templateParameter);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case EsbPackage.TASK: {
 				Task task = (Task)theEObject;
 				T result = caseTask(task);
@@ -4256,6 +4262,21 @@ public class EsbSwitch<T> {
 	 * @generated
 	 */
 	public T caseTemplate(Template object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Template Parameter</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Template Parameter</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTemplateParameter(TemplateParameter object) {
 		return null;
 	}
 

@@ -6,6 +6,8 @@
  */
 package org.wso2.developerstudio.eclipse.gmf.esb;
 
+import org.eclipse.emf.common.util.EList;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -18,6 +20,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.Template#getName <em>Name</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.Template#getTemplateType <em>Template Type</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.Template#getChild <em>Child</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.Template#getParameters <em>Parameters</em>}</li>
  * </ul>
  * </p>
  *
@@ -106,5 +109,21 @@ public interface Template extends EsbElement {
 	 * @generated
 	 */
 	void setChild(EsbElement value);
+
+	/**
+	 * Returns the value of the '<em><b>Parameters</b></em>' containment reference list.
+	 * The list contents are of type {@link org.wso2.developerstudio.eclipse.gmf.esb.TemplateParameter}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Parameters</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Parameters</em>' containment reference list.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getTemplate_Parameters()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<TemplateParameter> getParameters();
 
 } // Template

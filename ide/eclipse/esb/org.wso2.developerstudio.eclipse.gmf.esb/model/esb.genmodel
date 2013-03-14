@@ -1557,6 +1557,10 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//Template/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//Template/templateType"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//Template/child"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//Template/parameters"/>
+    </genClasses>
+    <genClasses ecoreClass="esb.ecore#//TemplateParameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//TemplateParameter/name"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//Task">
       <genFeatures createChild="false" propertyCategory="Basic" ecoreFeature="ecore:EAttribute esb.ecore#//Task/taskName"/>

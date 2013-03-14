@@ -352,6 +352,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.SynapseAPI;
 import org.wso2.developerstudio.eclipse.gmf.esb.TargetEndpointType;
 import org.wso2.developerstudio.eclipse.gmf.esb.TargetSequenceType;
 import org.wso2.developerstudio.eclipse.gmf.esb.Template;
+import org.wso2.developerstudio.eclipse.gmf.esb.TemplateParameter;
 import org.wso2.developerstudio.eclipse.gmf.esb.TemplateType;
 import org.wso2.developerstudio.eclipse.gmf.esb.Task;
 import org.wso2.developerstudio.eclipse.gmf.esb.TaskImplementation;
@@ -1288,6 +1289,13 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	private EClass templateEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass templateParameterEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -6683,6 +6691,33 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 */
 	public EReference getTemplate_Child() {
 		return (EReference)templateEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTemplate_Parameters() {
+		return (EReference)templateEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTemplateParameter() {
+		return templateParameterEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTemplateParameter_Name() {
+		return (EAttribute)templateParameterEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -14109,6 +14144,10 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEAttribute(templateEClass, TEMPLATE__NAME);
 		createEAttribute(templateEClass, TEMPLATE__TEMPLATE_TYPE);
 		createEReference(templateEClass, TEMPLATE__CHILD);
+		createEReference(templateEClass, TEMPLATE__PARAMETERS);
+
+		templateParameterEClass = createEClass(TEMPLATE_PARAMETER);
+		createEAttribute(templateParameterEClass, TEMPLATE_PARAMETER__NAME);
 
 		taskEClass = createEClass(TASK);
 		createEAttribute(taskEClass, TASK__TASK_NAME);
@@ -15806,6 +15845,10 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEAttribute(getTemplate_Name(), ecorePackage.getEString(), "name", null, 0, 1, Template.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTemplate_TemplateType(), this.getTemplateType(), "templateType", null, 0, 1, Template.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTemplate_Child(), this.getEsbElement(), null, "child", null, 0, 1, Template.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTemplate_Parameters(), this.getTemplateParameter(), null, "parameters", null, 0, -1, Template.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(templateParameterEClass, TemplateParameter.class, "TemplateParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTemplateParameter_Name(), ecorePackage.getEString(), "name", null, 1, 1, TemplateParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(taskEClass, Task.class, "Task", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTask_TaskName(), ecorePackage.getEString(), "taskName", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
