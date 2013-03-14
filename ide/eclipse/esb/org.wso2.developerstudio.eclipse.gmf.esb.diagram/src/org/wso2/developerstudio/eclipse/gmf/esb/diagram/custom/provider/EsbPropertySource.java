@@ -244,6 +244,8 @@ public class EsbPropertySource extends PropertySource {
 			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
 		} else if(pkg.getEndPoint_Properties().equals(feature)){
 			return new EndPointPropertiesPropertyDescriptor(object, itemPropertyDescriptor);
+		} else if(pkg.getTemplate_Parameters().equals(feature)){
+			return new TemplateParametersPropertyDescriptor(object, itemPropertyDescriptor);
 		}
 			
 		// Else, default EMF behavior

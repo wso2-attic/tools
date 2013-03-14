@@ -16,6 +16,7 @@
 
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 
+import java.util.List;
 import java.util.Properties;
 
 import org.apache.synapse.config.xml.endpoints.TemplateEndpointFactory;
@@ -28,8 +29,10 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.View;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndpointDiagram;
+import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.Template;
+import org.wso2.developerstudio.eclipse.gmf.esb.TemplateParameter;
 import org.wso2.developerstudio.eclipse.gmf.esb.TemplateType;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.*;
@@ -46,7 +49,12 @@ public class EndPointTemplateDeserializer extends AbstractEsbNodeDeserializer<or
 		setElementToEdit(templateModel);
 		executeSetValueCommand(TEMPLATE__NAME, template.getName());
 		executeSetValueCommand(TEMPLATE__TEMPLATE_TYPE, TemplateType.ENDPOINT);
-		//TODO: deserialize parameters
+
+		for (String parameter : template.getParameters()) {
+			TemplateParameter templateParameter = EsbFactory.eINSTANCE.createTemplateParameter();
+			templateParameter.setName(parameter);
+			executeAddValueCommand(templateModel.getParameters(), templateParameter);
+		}
 		
 		refreshEditPartMap();
 		IGraphicalEditPart compartment = (IGraphicalEditPart) getEditpart(templateModel).getChildren().get(0);

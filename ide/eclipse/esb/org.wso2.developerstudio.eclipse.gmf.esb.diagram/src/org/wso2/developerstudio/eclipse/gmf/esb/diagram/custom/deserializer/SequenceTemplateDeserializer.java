@@ -25,8 +25,10 @@ import org.eclipse.gmf.runtime.diagram.ui.commands.SetBoundsCommand;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.View;
+import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.Template;
+import org.wso2.developerstudio.eclipse.gmf.esb.TemplateParameter;
 import org.wso2.developerstudio.eclipse.gmf.esb.TemplateType;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.*;
@@ -43,7 +45,13 @@ public class SequenceTemplateDeserializer extends AbstractEsbNodeDeserializer<Te
 		setElementToEdit(templateModel);
 		executeSetValueCommand(TEMPLATE__NAME, template.getName());
 		executeSetValueCommand(TEMPLATE__TEMPLATE_TYPE, TemplateType.SEQUENCE);
-		//TODO: deserialize parameters
+		
+		for (String parameter : template.getParameters()) {
+			TemplateParameter templateParameter = EsbFactory.eINSTANCE.createTemplateParameter();
+			templateParameter.setName(parameter);
+			executeAddValueCommand(templateModel.getParameters(), templateParameter);
+		}
+		
 		SequenceMediator sequenceMediator = new SequenceMediator();
 		sequenceMediator.addAll(template.getList());
 		sequenceMediator.setName(template.getName());

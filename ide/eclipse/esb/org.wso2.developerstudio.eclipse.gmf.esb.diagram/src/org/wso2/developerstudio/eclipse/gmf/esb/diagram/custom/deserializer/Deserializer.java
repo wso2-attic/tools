@@ -21,7 +21,6 @@ import java.io.File;
 import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -39,6 +38,7 @@ import org.apache.synapse.rest.API;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.emf.common.command.CompoundCommand;
+import org.eclipse.emf.ecore.xml.type.internal.QName;
 import org.eclipse.emf.edit.command.RemoveCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
@@ -86,6 +86,8 @@ public class Deserializer {
 	 * DeveloperStudio logger
 	 * */
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
+	
+	private static final String synapseNS = "http://ws.apache.org/ns/synapse";
 	
 	private Deserializer(){
 		
@@ -273,23 +275,19 @@ public class Deserializer {
 			break;
 		case TASK:
 			TaskDescription task = TaskDescriptionFactory.createTaskDescription(element, OMAbstractFactory.getOMFactory()
-					.createOMNamespace("http://ws.apache.org/ns/synapse", ""));
+					.createOMNamespace(synapseNS, ""));
 			artifacts.put(task.getName(), task);
 			break;
 		case TEMPLATE:
-			@SuppressWarnings("rawtypes")
-			Iterator childElements = element.getChildElements();
-			if(childElements.hasNext()){
-				OMElement child = (OMElement) childElements.next();
-				if(child.getLocalName().equals("sequence")){
-					TemplateMediatorFactory templateMediatorFactory = new TemplateMediatorFactory();
-					TemplateMediator templateMediator = (TemplateMediator) templateMediatorFactory.createMediator(element, properties);
-					artifacts.put(templateMediator.getName(), templateMediator);
-				} else if (child.getLocalName().equals("endpoint")){
-					TemplateFactory templateFactory = new TemplateFactory();
-					Template template = templateFactory.createEndpointTemplate(element, properties);
-					artifacts.put(template.getName(), template);
-				}
+			if (element.getFirstChildWithName(new QName(synapseNS, "sequence", null)) != null) {
+				TemplateMediatorFactory templateMediatorFactory = new TemplateMediatorFactory();
+				TemplateMediator templateMediator = (TemplateMediator) templateMediatorFactory
+						.createMediator(element, properties);
+				artifacts.put(templateMediator.getName(), templateMediator);
+			} else if (element.getFirstChildWithName(new QName(synapseNS, "endpoint", null)) != null) {
+				TemplateFactory templateFactory = new TemplateFactory();
+				Template template = templateFactory.createEndpointTemplate(element, properties);
+				artifacts.put(template.getName(), template);
 			}
 			break;
 		default:
