@@ -17,6 +17,7 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import org.apache.synapse.config.xml.endpoints.EndpointSerializer;
@@ -32,6 +33,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EndpointDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequences;
 import org.wso2.developerstudio.eclipse.gmf.esb.Template;
+import org.wso2.developerstudio.eclipse.gmf.esb.TemplateParameter;
 import org.wso2.developerstudio.eclipse.gmf.esb.WSDLEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
 
@@ -49,6 +51,7 @@ public class TemplateTransformer extends AbstractEsbNodeTransformer {
 			TemplateMediator templateMediator = new TemplateMediator();
 			templateMediator.setName(template.getName());
 			templateMediator.setParameters(new ArrayList<String>());
+			saveParameters(template,templateMediator.getParameters());
 			SequenceMediator sequence = new SequenceMediator();
 			Sequences visualSequence = (Sequences) template.getChild();
 			SequenceTransformer transformer = new SequenceTransformer();
@@ -59,6 +62,8 @@ public class TemplateTransformer extends AbstractEsbNodeTransformer {
 		} else if (template.getChild() instanceof EndpointDiagram) {
 			org.apache.synapse.endpoints.Template endpointTemplate = new org.apache.synapse.endpoints.Template();
 			endpointTemplate.setName(template.getName());
+			//endpointTemplate.setParameters(new ArrayList<String>());
+			saveParameters(template,endpointTemplate.getParameters());
 			org.apache.synapse.endpoints.Endpoint endpoint = null;
 			EndpointDiagram endpointDiagram = (EndpointDiagram) template.getChild();
 			EndPoint child = endpointDiagram.getChild();
@@ -79,6 +84,13 @@ public class TemplateTransformer extends AbstractEsbNodeTransformer {
 					.addEndpointTemplate(template.getName(), endpointTemplate);
 		}
 
+	}
+
+	private void saveParameters(Template template, Collection<String> parameters) {
+		for (TemplateParameter templateParameter :  template.getParameters()) {
+			parameters.add(templateParameter.getName());
+		}
+		
 	}
 
 	public void createSynapseObject(TransformationInfo info, EObject subject,
