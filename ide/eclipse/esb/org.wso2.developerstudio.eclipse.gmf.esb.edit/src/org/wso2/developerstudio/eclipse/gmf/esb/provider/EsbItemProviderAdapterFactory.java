@@ -2700,6 +2700,29 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.TemplateParameter} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TemplateParameterItemProvider templateParameterItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.TemplateParameter}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTemplateParameterAdapter() {
+		if (templateParameterItemProvider == null) {
+			templateParameterItemProvider = new TemplateParameterItemProvider(this);
+		}
+
+		return templateParameterItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.Task} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6984,6 +7007,7 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 		if (namedEndpointInputConnectorItemProvider != null) namedEndpointInputConnectorItemProvider.dispose();
 		if (namedEndpointOutputConnectorItemProvider != null) namedEndpointOutputConnectorItemProvider.dispose();
 		if (templateItemProvider != null) templateItemProvider.dispose();
+		if (templateParameterItemProvider != null) templateParameterItemProvider.dispose();
 		if (taskItemProvider != null) taskItemProvider.dispose();
 		if (nameValueTypePropertyItemProvider != null) nameValueTypePropertyItemProvider.dispose();
 		if (taskPropertyItemProvider != null) taskPropertyItemProvider.dispose();

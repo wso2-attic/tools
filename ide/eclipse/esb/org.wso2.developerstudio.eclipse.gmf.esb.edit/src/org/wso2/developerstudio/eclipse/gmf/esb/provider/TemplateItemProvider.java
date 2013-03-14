@@ -57,7 +57,7 @@ public class TemplateItemProvider
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
@@ -65,7 +65,8 @@ public class TemplateItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
-			addTemplateTypePropertyDescriptor(object);
+			//addTemplateTypePropertyDescriptor(object);
+			addParametersPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -115,6 +116,28 @@ public class TemplateItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Parameters feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addParametersPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Template_parameters_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Template_parameters_feature", "_UI_Template_type"),
+				 EsbPackage.Literals.TEMPLATE__PARAMETERS,
+				 true,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -127,6 +150,7 @@ public class TemplateItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(EsbPackage.Literals.TEMPLATE__CHILD);
+			childrenFeatures.add(EsbPackage.Literals.TEMPLATE__PARAMETERS);
 		}
 		return childrenFeatures;
 	}
@@ -186,6 +210,7 @@ public class TemplateItemProvider
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case EsbPackage.TEMPLATE__CHILD:
+			case EsbPackage.TEMPLATE__PARAMETERS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -527,6 +552,11 @@ public class TemplateItemProvider
 			(createChildParameter
 				(EsbPackage.Literals.TEMPLATE__CHILD,
 				 EsbFactory.eINSTANCE.createRecipientListEndPoint()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.TEMPLATE__PARAMETERS,
+				 EsbFactory.eINSTANCE.createTemplateParameter()));
 	}
 
 }
