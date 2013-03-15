@@ -164,6 +164,11 @@ public class ProjectExportWizard extends Wizard implements IExportWizard {
 		File sequencesDir = new File(synapseConfigDir, "sequences");
 		File tasksDir = new File(synapseConfigDir, "tasks");
 		File apiDir = new File(synapseConfigDir, "api");
+		File templatesDir = new File(synapseConfigDir, "templates");
+		File messageStoresDir = new File(synapseConfigDir, "message-stores");
+		File messageProcessorsDir = new File(synapseConfigDir, "message-processors");
+		File eventSourcesDir = new File(synapseConfigDir, "event-sources");
+		File priorityExecutorsDir = new File(synapseConfigDir, "priority-executors");
 		if (!synapseConfigDir.exists())
 			synapseConfigDir.mkdirs();
 		if (!endpointsDir.exists())
@@ -178,6 +183,16 @@ public class ProjectExportWizard extends Wizard implements IExportWizard {
 			tasksDir.mkdirs();
 		if (!apiDir.exists())
 			apiDir.mkdirs();
+		if (!templatesDir.exists())
+			templatesDir.mkdirs();
+		if (!messageStoresDir.exists())
+			messageStoresDir.mkdirs();
+		if (!messageProcessorsDir.exists())
+			messageProcessorsDir.mkdirs();
+		if (!eventSourcesDir.exists())
+			eventSourcesDir.mkdirs();
+		if (!priorityExecutorsDir.exists())
+			priorityExecutorsDir.mkdirs();
 		for (ESBArtifact artifact : artifacts) {
 			String type = artifact.getType();
 			File file = project.getFile(artifact.getFile()).getLocation().toFile();
@@ -198,7 +213,18 @@ public class ProjectExportWizard extends Wizard implements IExportWizard {
 					dstFile = new File(tasksDir,artifactFile);
 				} else if("synapse/api".equals(type)){
 					dstFile = new File(apiDir,artifactFile);
+				} else if("synapse/template".equals(type)){
+					dstFile = new File(templatesDir,artifactFile);
+				} else if("synapse/message-store".equals(type)){
+					dstFile = new File(messageStoresDir,artifactFile);
+				} else if("synapse/message-processors".equals(type)){
+					dstFile = new File(messageProcessorsDir,artifactFile);
+				} else if("synapse/event-source".equals(type)){
+					dstFile = new File(eventSourcesDir,artifactFile);
+				} else if("synapse/priority-executor".equals(type)){
+					dstFile = new File(priorityExecutorsDir,artifactFile);
 				} else{
+					log.warn("ignoring unrecognized type " + type);	
 					continue;
 				}
                 if(dstFile.exists()){

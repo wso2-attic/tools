@@ -50,7 +50,7 @@ public class ServerRoleMapping {
 		serverRole.put("synapse/api", "EnterpriseServiceBus");
 		serverRole.put("synapse/template", "EnterpriseServiceBus");
 		serverRole.put("synapse/message-store", "EnterpriseServiceBus");
-		serverRole.put("synapse/event-source", "EnterpriseServiceBus");
+		serverRole.put("synapse/priority-executor", "EnterpriseServiceBus");
 		serverRole.put("synapse/message-processors", "EnterpriseServiceBus");
 		serverRole.put("service/rule", "BusinessRulesServer");
 	}

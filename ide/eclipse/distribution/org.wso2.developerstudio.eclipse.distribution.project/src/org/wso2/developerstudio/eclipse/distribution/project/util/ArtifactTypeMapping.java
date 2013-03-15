@@ -47,6 +47,7 @@ public final class ArtifactTypeMapping {
 		type.put("synapse/message-store","xml");
 		type.put("synapse/event-source","xml");
 		type.put("synapse/message-processors","xml");
+		type.put("synapse/priority-executor","xml");
 		type.put("wso2/gadget","dar");
 		type.put("lib/registry/handlers","jar");
 		type.put("lib/synapse/mediator","jar");

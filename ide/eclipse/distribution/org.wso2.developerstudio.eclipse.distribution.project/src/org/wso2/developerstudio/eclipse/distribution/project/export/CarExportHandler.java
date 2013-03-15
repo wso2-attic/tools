@@ -336,6 +336,26 @@ public class CarExportHandler extends ProjectArtifactHandler {
 				dummyDependency.setType("synapse/api");
 				dummyDependencyData.setDependency(dummyDependency);
 				dummyDependencyData.setCApptype("synapse/api");
+			} else if (localName.equalsIgnoreCase("template")) {
+				dummyDependency.setType("synapse/template");
+				dummyDependencyData.setDependency(dummyDependency);
+				dummyDependencyData.setCApptype("synapse/template");
+			} else if (localName.equalsIgnoreCase("priorityExecutor")) {
+				dummyDependency.setType("synapse/priority-executor");
+				dummyDependencyData.setDependency(dummyDependency);
+				dummyDependencyData.setCApptype("synapse/priority-executor");
+			} else if (localName.equalsIgnoreCase("messageStore")) {
+				dummyDependency.setType("synapse/message-store");
+				dummyDependencyData.setDependency(dummyDependency);
+				dummyDependencyData.setCApptype("synapse/message-store");
+			} else if (localName.equalsIgnoreCase("messageProcessor")) {
+				dummyDependency.setType("synapse/message-processors");
+				dummyDependencyData.setDependency(dummyDependency);
+				dummyDependencyData.setCApptype("synapse/message-processors");
+			} else if (localName.equalsIgnoreCase("eventSource")) {
+				dummyDependency.setType("synapse/event-source");
+				dummyDependencyData.setDependency(dummyDependency);
+				dummyDependencyData.setCApptype("synapse/event-source");
 			} else {
 				log.warn("ignoring unrecognized configuration element"
 						+ element.toString());
