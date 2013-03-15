@@ -20,32 +20,23 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerFilter;
 
-import static org.wso2.developerstudio.eclipse.platform.core.utils.Constants.*;
-
 /**
  * ViewerFilter class for ESB project nature.
  */
 public class ESBProjectFilter extends ViewerFilter {
-	private static final String GENERAL_PROJECT_NATURE = "org.wso2.developerstudio.eclipse.general.project.nature";
 	private static final String ESB_PROJECT_NATURE = "org.wso2.developerstudio.eclipse.esb.project.nature";
-	private static boolean showGeneralProjects;
 
 	
 	public boolean select(Viewer viewer, Object parentElement, Object element) {
 		if (element instanceof IProject) {
 			try {
 				if (((IProject) element)
-						.hasNature(showGeneralProjects ? GENERAL_PROJECT_NATURE
-								: ESB_PROJECT_NATURE)) {
+						.hasNature(ESB_PROJECT_NATURE)) {
 					return true;
 				}
 			} catch (Exception e) {/*ignore*/}
 		}
 		return false;
-	}
-	
-	public static void setShowGeneralProjects(boolean showGeneralProjects) {
-		ESBProjectFilter.showGeneralProjects = showGeneralProjects;
 	}
 	
 }

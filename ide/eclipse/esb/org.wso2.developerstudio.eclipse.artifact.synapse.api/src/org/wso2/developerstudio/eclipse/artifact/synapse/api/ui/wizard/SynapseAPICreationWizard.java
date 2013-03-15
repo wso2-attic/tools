@@ -117,9 +117,12 @@ public class SynapseAPICreationWizard extends AbstractWSO2ProjectCreationWizard 
 			esbProjectArtifact.toFile();
 			}
 			esbProject.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
-             if(fileLst.size()>0){
-            	 openEditor(fileLst.get(0));
-             }
+
+			for (File file : fileLst) {
+				if (file.exists()) {
+					openEditor(file);
+				}
+			}
 
 		} catch (CoreException e) {
 			log.error("CoreException has occurred", e);
@@ -182,14 +185,11 @@ public class SynapseAPICreationWizard extends AbstractWSO2ProjectCreationWizard 
 				FileUtils.createFile(destFile, element.toString());
 				fileLst.add(destFile);
 				if(isNewAritfact){
-				ESBArtifact artifact=new ESBArtifact();
-				artifact.setName(name);
-				artifact.setVersion("1.0.0");
-				artifact.setType("synapse/api");
-				artifact.setServerRole("EnterpriseServiceBus");
-				artifact.setGroupId(groupId);
-				artifact.setFile(FileUtils.getRelativePath(importLocation.getProject().getLocation().toFile(), new File(importLocation.getLocation().toFile(),name+".xml")));
-				esbProjectArtifact.addESBArtifact(artifact);
+					String relativePath = FileUtils.getRelativePath(importLocation.getProject()
+							.getLocation().toFile(), new File(
+							importLocation.getLocation().toFile(), name + ".xml"));
+					esbProjectArtifact.addESBArtifact(createArtifact(name, groupId, "1.0.0",
+							relativePath));
 				}
 			} 
 			
@@ -199,15 +199,17 @@ public class SynapseAPICreationWizard extends AbstractWSO2ProjectCreationWizard 
 			fileLst.add(destFile);
 			String name = importFile.getName().replaceAll(".xml$","");
 			if(isNewAritfact){
-			ESBArtifact artifact=new ESBArtifact();
-			artifact.setName(name);
-			artifact.setVersion("1.0.0");
-			artifact.setType("synapse/api");
-			artifact.setServerRole("EnterpriseServiceBus");
-			artifact.setGroupId(groupId);
-			artifact.setFile(FileUtils.getRelativePath(importLocation.getProject().getLocation().toFile(), new File(importLocation.getLocation().toFile(),name+".xml")));
-			esbProjectArtifact.addESBArtifact(artifact);
+				String relativePath = FileUtils.getRelativePath(importLocation.getProject()
+						.getLocation().toFile(), new File(importLocation.getLocation().toFile(),
+						name + ".xml"));
+				esbProjectArtifact.addESBArtifact(createArtifact(name, groupId, "1.0.0",
+						relativePath));
 			}
+		}
+		try {
+			esbProjectArtifact.toFile();
+		} catch (Exception e) {
+			throw new IOException(e);
 		}
 	}
 

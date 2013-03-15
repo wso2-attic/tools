@@ -56,6 +56,11 @@ public class APIArtifactModel extends ProjectDataModel {
 	private List<OMElement> availableAPIslist;
 	private List<OMElement> selectedAPIsList;
 	
+	public APIArtifactModel() {
+		availableAPIslist = new ArrayList<OMElement>();
+		selectedAPIsList = new ArrayList<OMElement>();
+	}
+	
 	public String getName() {
 		return name;
 	}
@@ -141,8 +146,9 @@ public class APIArtifactModel extends ProjectDataModel {
 				}
 			}
 		}else if(key.equals("available.apis")){
-			Object[] selectedSequencess = (Object[])data;
-			for (Object object : selectedSequencess) {
+			selectedAPIsList.clear();
+			Object[] selectedAPIs = (Object[])data;
+			for (Object object : selectedAPIs) {
 				if(object instanceof OMElement){
 					if(!selectedAPIsList.contains((OMElement)object)){
 						selectedAPIsList.add((OMElement)object);
