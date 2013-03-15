@@ -152,7 +152,7 @@ public class ConfigureTemplateParametersDialog extends Dialog {
 				public void handleEvent(Event event) {
 					int selectedIndex = parametersTable.getSelectionIndex();
 					if (-1 != selectedIndex) {
-						unbindLogProperty(selectedIndex);
+						unbindParameter(selectedIndex);
 
 						// Select the next available candidate for deletion.
 						if (selectedIndex < parametersTable.getItemCount()) {
@@ -224,7 +224,7 @@ public class ConfigureTemplateParametersDialog extends Dialog {
 		return item;
 	}
 	
-	private void unbindLogProperty(int itemIndex) {
+	private void unbindParameter(int itemIndex) {
 		TableItem item = parametersTable.getItem(itemIndex);
 		TemplateParameter Parameter = (TemplateParameter) item.getData();
 		if (null != Parameter.eContainer()) {
