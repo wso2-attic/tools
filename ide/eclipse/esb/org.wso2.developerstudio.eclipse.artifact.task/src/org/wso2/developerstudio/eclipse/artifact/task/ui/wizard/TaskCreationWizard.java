@@ -116,9 +116,12 @@ private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 			esbProjectArtifact.toFile();
             }
 			esbProject.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
-            if(fileLst.size()>0){
-            	openEditor(fileLst.get(0));	
-            }
+            
+			for (File file : fileLst) {
+				if (file.exists()) {
+					openEditor(file);
+				}
+			}
 		} catch (CoreException e) {
 			log.error("CoreException has occurred", e);
 		} catch (Exception e) {
@@ -130,22 +133,19 @@ private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	public void copyImportFile(IContainer importLocation,boolean isNewAritfact, String groupId) throws IOException {
 		File importFile = getModel().getImportFile();
 		File destFile = null;
-		List<OMElement> selectedAPIsList = ((TaskModel)getModel()).getSelectedTasksList();
-		if(selectedAPIsList != null && selectedAPIsList.size() >0 ){
-			for (OMElement element : selectedAPIsList) {
+		List<OMElement> selectedList = ((TaskModel)getModel()).getSelectedTasksList();
+		if(selectedList != null && selectedList.size() >0 ){
+			for (OMElement element : selectedList) {
 				String name = element.getAttributeValue(new QName("name"));
 				destFile = new File(importLocation.getLocation().toFile(), name + ".xml");
 				FileUtils.createFile(destFile, element.toString());
 				fileLst.add(destFile);
 				if(isNewAritfact){
-				ESBArtifact artifact=new ESBArtifact();
-				artifact.setName(name);
-				artifact.setVersion("1.0.0");
-				artifact.setType("synapse/task");
-				artifact.setServerRole("EnterpriseServiceBus");
-				artifact.setGroupId(groupId);
-				artifact.setFile(FileUtils.getRelativePath(importLocation.getProject().getLocation().toFile(), new File(importLocation.getLocation().toFile(),name+".xml")));
-				esbProjectArtifact.addESBArtifact(artifact);
+					String relativePath = FileUtils.getRelativePath(importLocation.getProject()
+							.getLocation().toFile(), new File(importLocation.getLocation().toFile(),
+							name + ".xml"));
+					esbProjectArtifact.addESBArtifact(createArtifact(artifactModel.getName(), groupId,
+							"1.0.0", relativePath));
 				}
 			} 
 			
@@ -155,15 +155,17 @@ private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 			fileLst.add(destFile);
 			String name = importFile.getName().replaceAll(".xml$","");
 			if(isNewAritfact){
-			ESBArtifact artifact=new ESBArtifact();
-			artifact.setName(name);
-			artifact.setVersion("1.0.0");
-			artifact.setType("synapse/task");
-			artifact.setServerRole("EnterpriseServiceBus");
-			artifact.setGroupId(groupId);
-			artifact.setFile(FileUtils.getRelativePath(importLocation.getProject().getLocation().toFile(), new File(importLocation.getLocation().toFile(),name+".xml")));
-			esbProjectArtifact.addESBArtifact(artifact);
+				String relativePath = FileUtils.getRelativePath(importLocation.getProject()
+						.getLocation().toFile(), new File(importLocation.getLocation().toFile(),
+						name + ".xml"));
+				esbProjectArtifact.addESBArtifact(createArtifact(artifactModel.getName(), groupId,
+						"1.0.0", relativePath));
 			}
+		}
+		try {
+			esbProjectArtifact.toFile();
+		} catch (Exception e) {
+			throw new IOException(e);
 		}
 	}
 
@@ -271,13 +273,13 @@ private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 		public void openEditor(File file) {
 		try{
 		refreshDistProjects();
-		IFile dbsFile  = ResourcesPlugin
+		IFile resource  = ResourcesPlugin
 		.getWorkspace()
 		.getRoot()
 		.getFileForLocation(
 				Path.fromOSString(file.getAbsolutePath()));
-		/*IDE.openEditor(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage(),dbsFile);*/
-		String path = dbsFile.getParent().getFullPath()+"/";
+		/*IDE.openEditor(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage(),resource);*/
+		String path = resource.getParent().getFullPath()+"/";
 		String source = FileUtils.getContentAsString(file);
 		Openable openable = ESBGraphicalEditor.getOpenable();
 		openable.editorOpen(file.getName(),"task",path+"task_", source);

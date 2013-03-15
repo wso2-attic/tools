@@ -61,6 +61,11 @@ public class TaskModel  extends ProjectDataModel {
 	private IContainer saveLocation;
 	private List<OMElement> availableTaskslist;
 	private List<OMElement> selectedTasksList;
+	
+	public TaskModel() {
+		availableTaskslist = new ArrayList<OMElement>();
+		selectedTasksList = new ArrayList<OMElement>();
+	}
 
 	
 	public void setName(String name) {
@@ -177,8 +182,9 @@ public class TaskModel  extends ProjectDataModel {
 				}
 			}
 		}else if(key.equals("available.tasks")){
-			Object[] selectedSequencess = (Object[])data;
-			for (Object object : selectedSequencess) {
+			Object[] selectedTasks = (Object[])data;
+			selectedTasksList.clear();
+			for (Object object : selectedTasks) {
 				if(object instanceof OMElement){
 					if(!selectedTasksList.contains((OMElement)object)){
 						selectedTasksList.add((OMElement)object);
