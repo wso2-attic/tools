@@ -91,7 +91,7 @@ public class ProxyServiceDeserializer extends AbstractEsbNodeDeserializer<ProxyS
 			executeSetValueCommand(PROXY_SERVICE__WSDL_RESOURCES, wsdlResourceList);
 		}
 		
-		if(object.getTransports().size()>0){
+		if(object.getTransports()!=null && object.getTransports().size()>0){
 			executeSetValueCommand(PROXY_SERVICE__TRANSPORTS,DeserializerUtils.join(object.getTransports(), ","));
 		}
 		
