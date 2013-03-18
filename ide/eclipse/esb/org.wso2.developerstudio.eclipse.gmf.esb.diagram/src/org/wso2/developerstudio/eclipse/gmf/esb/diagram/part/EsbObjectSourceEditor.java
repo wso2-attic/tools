@@ -18,7 +18,10 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.part;
 import org.eclipse.core.internal.resources.ModelObject;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
+import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
@@ -30,7 +33,10 @@ import org.eclipse.wst.sse.core.internal.provisional.text.IStructuredDocument;
 import org.eclipse.wst.sse.core.internal.text.rules.StructuredTextPartitioner;
 import org.eclipse.wst.sse.ui.StructuredTextEditor;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbServer;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.EsbModelTransformer;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 
 /**
  * Wraps a {@link StructuredTextEditor} which handles actual source editing.   
@@ -67,6 +73,8 @@ public class EsbObjectSourceEditor {
 	 * Currently edited object.
 	 */
 	//private ModelObject modelObject;	
+	
+	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	
 	/**
 	 * Creates a new {@link EsbObjectSourceEditor} using the specified {@link IFile} as a dummy input.
@@ -128,8 +136,9 @@ public class EsbObjectSourceEditor {
 			try {
 				newSource=EsbModelTransformer.instance.designToSource(server);
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				log.error("Cannot update source view", e);
+				IStatus editorStatus = new Status(IStatus.ERROR, Activator.PLUGIN_ID, e.getMessage());
+				ErrorDialog.openError(getEditor().getSite().getShell(), "Error", "The following error(s) have been detected", editorStatus);
 			}
 			
 			

@@ -17,7 +17,6 @@ package org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence;
 
 import java.net.URI;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import org.apache.axiom.om.OMElement;
@@ -250,6 +249,12 @@ public class ProxyServiceTransformer extends AbstractEsbNodeTransformer {
 
 		// Check start.
 		if (info.getTraversalDirection() == TransformationInfo.TRAVERSAL_DIRECTION_IN) {
+			
+			Assert.isTrue(StringUtils.isNotBlank(visualService.getName()), "Proxy name cannot be empty!");
+			
+			Assert.isTrue(
+					info.getSynapseConfiguration().getProxyService(visualService.getName()) == null,
+					"Circular reference detected while serializing proxy service!");
 
 			ProxyService proxyService = new org.apache.synapse.core.axis2.ProxyService(
 					visualService.getName());
