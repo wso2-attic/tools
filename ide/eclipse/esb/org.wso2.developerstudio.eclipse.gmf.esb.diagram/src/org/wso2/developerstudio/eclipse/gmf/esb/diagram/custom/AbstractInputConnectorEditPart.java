@@ -1,3 +1,19 @@
+/*
+ * Copyright WSO2, Inc. (http://wso2.com)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom;
 
 import java.util.ArrayList;
@@ -7,6 +23,10 @@ import org.eclipse.draw2d.Figure;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.gef.EditPart;
+import org.eclipse.gef.Request;
+import org.eclipse.gef.commands.Command;
+import org.eclipse.gef.commands.UnexecutableCommand;
+import org.eclipse.gmf.runtime.diagram.ui.requests.CreateConnectionViewAndElementRequest;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
@@ -64,4 +84,31 @@ public abstract class AbstractInputConnectorEditPart extends AbstractConnectorEd
 			figureInput.add(createNodeShape());
 		}		
 	}
+	
+	@Override
+	public Command getCommand(Request request) {
+		if (request instanceof CreateConnectionViewAndElementRequest) {
+			CreateConnectionViewAndElementRequest req = (CreateConnectionViewAndElementRequest) request;
+			EditPart target = req.getTargetEditPart();
+			EditPart sourceConnection = req.getSourceEditPart();
+			if (sourceConnection instanceof AbstractOutputConnectorEditPart) {
+				EditPart source = sourceConnection.getParent();
+				if (target instanceof AbstractInputConnectorEditPart) {
+					EditPart parent = target.getParent();
+					if(parent!=null){
+						if (EditorUtils.hasCycle(source, parent)) {
+							return UnexecutableCommand.INSTANCE;
+						}
+					}
+				} else if (target instanceof EditPart){
+					if (EditorUtils.hasCycle(source, target)) {
+						return UnexecutableCommand.INSTANCE;
+					}
+				}
+			}
+		}
+		return super.getCommand(request);
+	}
+	
+	
 }

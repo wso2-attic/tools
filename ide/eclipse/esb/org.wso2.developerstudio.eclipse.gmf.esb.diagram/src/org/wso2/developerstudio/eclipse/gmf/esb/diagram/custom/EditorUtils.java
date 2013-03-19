@@ -18,6 +18,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 import org.apache.synapse.Mediator;
 import org.apache.synapse.mediators.base.SequenceMediator;
@@ -43,6 +44,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.APIResourceFa
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ComplexEndpointsEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ComplexEndpointsOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbDiagramEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbLinkEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartmentEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyFaultInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceEditPart;
@@ -448,5 +450,52 @@ public class EditorUtils {
 
 		}
 		return newSequence;
+	}
+	
+	/**
+	 * Returns true if the flow has a cycle. but returning false does not
+	 * guarantee that it hasn't cycles
+	 * @param source
+	 * @param target
+	 * @return
+	 */
+	public static boolean hasCycle(EditPart source, EditPart target) {
+		for (EditPart next = target; next != null; next = getNextNode(next)) {
+			if (next instanceof AbstractEndpoint) {
+				break;
+			}
+			if (next == source) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	/**
+	 * Returns the next element in the node flow.
+	 */
+	private static EditPart getNextNode(EditPart node) {
+		EditPart next = null;
+		if (node instanceof ShapeNodeEditPart) {
+			AbstractOutputConnectorEditPart nextOutputConnector = EditorUtils
+					.getOutputConnector((ShapeNodeEditPart) node);
+			if (nextOutputConnector != null) {
+				/*
+				 * List<EsbLinkEditPart> connections = nextOutputConnector
+				 * .getTargetConnections(); for (EsbLinkEditPart object :
+				 * connections) { if(object.getTarget() instanceof EditPart){
+				 * return object.getTarget().getParent(); } }
+				 */
+				@SuppressWarnings("unchecked")
+				List<EsbLinkEditPart> connections = nextOutputConnector.getSourceConnections();
+				for (EsbLinkEditPart object : connections) {
+					/* At the moment, we are not going to handle multipe links */
+					if (object.getTarget() instanceof EditPart) {
+						return object.getTarget().getParent();
+					}
+				}
+			}
+		}
+		return next;
 	}
 }
