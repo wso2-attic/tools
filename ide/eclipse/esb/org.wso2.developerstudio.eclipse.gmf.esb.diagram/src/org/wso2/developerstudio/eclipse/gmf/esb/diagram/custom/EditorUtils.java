@@ -48,6 +48,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbLinkEditPa
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartmentEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyFaultInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.Sequences2EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequencesEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramEditor;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbMultiPageEditor;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbPaletteFactory;
@@ -461,7 +463,8 @@ public class EditorUtils {
 	 */
 	public static boolean hasCycle(EditPart source, EditPart target) {
 		for (EditPart next = target; next != null; next = getNextNode(next)) {
-			if (next instanceof AbstractEndpoint) {
+			if (next instanceof AbstractEndpoint || next instanceof SequencesEditPart
+					|| next instanceof Sequences2EditPart) {
 				break;
 			}
 			if (next == source) {
