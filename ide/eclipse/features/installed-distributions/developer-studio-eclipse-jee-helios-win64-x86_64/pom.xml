@@ -290,6 +290,19 @@
                          dir="target/eclipse/configuration/org.eclipse.equinox.simpleconfigurator">
                                                         <include name="**/bundles.info"/>
                                                 </replace>
+	<!-- Task 3: Updating the eclipse.ini memory settings-->
+						<replace token="512m" value="1024m"
+                         dir="target/eclipse">
+                                                        <include name="**/eclipse.ini"/>
+                                                </replace>
+						<replace token="40m" value="512m"
+                         dir="target/eclipse">
+                                                        <include name="**/eclipse.ini"/>
+                                                </replace>
+						<replace token="256m" value="512m"
+                         dir="target/eclipse">
+                                                        <include name="**/eclipse.ini"/>
+                                                </replace>
                                         </tasks>
         			</configuration>
         			<goals>
