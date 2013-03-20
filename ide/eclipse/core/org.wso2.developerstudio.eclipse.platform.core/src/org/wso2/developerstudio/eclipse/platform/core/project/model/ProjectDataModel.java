@@ -38,7 +38,7 @@ public abstract class ProjectDataModel extends Observable {
 	private String projectName;
 	private File location;
 	private MavenInfo mavenInfo;
-	private File importFile;
+	protected File importFile;
 	private IWorkingSet[] selectedWorkingSets;
 	private String selectedOption;
     private String groupId="com.example";
