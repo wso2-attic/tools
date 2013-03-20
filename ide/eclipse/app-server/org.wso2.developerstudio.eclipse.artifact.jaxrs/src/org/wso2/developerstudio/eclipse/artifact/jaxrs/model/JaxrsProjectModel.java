@@ -16,14 +16,38 @@
 
 package org.wso2.developerstudio.eclipse.artifact.jaxrs.model;
 
+import java.io.File;
+
+import org.eclipse.core.resources.IWorkspace;
+import org.eclipse.core.resources.IWorkspaceRoot;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.QualifiedName;
+import org.wso2.developerstudio.eclipse.artifact.jaxrs.Activator;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.platform.core.exception.ObserverFailedException;
 import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectDataModel;
 
 public class JaxrsProjectModel  extends ProjectDataModel {
-	
+
+	private String sourcePackage;
 	private String serviceClass;
 	private String serviceClassPackage;
+	private IWorkspace workSpace;
+	private IWorkspaceRoot root;
+	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	
+	
+	public JaxrsProjectModel() {
+		workSpace=ResourcesPlugin.getWorkspace();
+		root=workSpace.getRoot();
+		String cxfruntime=getCXFRuntime();
+		if(!cxfruntime.equals("")){
+			setCXFRuntime(cxfruntime);
+		}
+	}
+
 	public void setServiceClassPackage(String serviceClassPackage) {
 		this.serviceClassPackage = serviceClassPackage;
 	}
@@ -36,15 +60,44 @@ public class JaxrsProjectModel  extends ProjectDataModel {
 	public String getServiceClass() {
 		return serviceClass;
 	}
+	public void setSourcePackage(String sourcePackage){
+		this.sourcePackage = sourcePackage;
+	}
+	
+	public String getSourcePackage(){
+		return this.sourcePackage;
+	}
+
+	public void setCXFRuntime(String cXFRuntime) {
+		try {
+			root.setSessionProperty(new QualifiedName("","CXF path"),cXFRuntime);
+		} catch (CoreException e) {
+			log.error("CoreException has occurred", e);
+		}	
+	}
+	
+	public String getCXFRuntime() {
+		String cxfRuntime="";
+		try {
+			if(root.getSessionProperties().size()>0){
+				cxfRuntime = root.getSessionProperty(new QualifiedName("","CXF path")).toString();
+			}
+		} catch (CoreException e) {
+			log.error("CoreException has occurred", e);
+		}
+		return cxfRuntime;
+	}
 	
 	public Object getModelPropertyValue(String key) {
 		Object modelPropertyValue = super.getModelPropertyValue(key);
 		if (modelPropertyValue == null) {
-			if (key.equals("service.class.package.name")) {
+			if (key.equalsIgnoreCase("runtime")) {
+				modelPropertyValue = getCXFRuntime();
+			}else if (key.equals("service.class.package.name")) {
 				modelPropertyValue = getServiceClassPackage();
 			} else if (key.equals("service.class.name")) {
 				modelPropertyValue = getServiceClass();
-			} 
+			}
 		}
 		return modelPropertyValue;
 	}
@@ -52,12 +105,21 @@ public class JaxrsProjectModel  extends ProjectDataModel {
 	
 	public boolean setModelPropertyValue(String key, Object data) throws ObserverFailedException {
 		boolean returnValue = super.setModelPropertyValue(key, data);
-		if (key.equals("service.class.package.name")) {
+		if (key.equals("source.package")) {
+			setSourcePackage(data.toString());
+		} else if (key.equalsIgnoreCase("runtime")) {
+			setCXFRuntime(data.toString());
+		}	else if (key.equals("service.class.package.name")) {
 			setServiceClassPackage(data.toString());
 		} else if (key.equals("service.class.name")) {
 			setServiceClass(data.toString());
 		} 
 		return returnValue;
+	}
+	
+	@Override
+	public void setImportFile(File importFile) {
+		super.importFile=importFile;
 	}
 
 }

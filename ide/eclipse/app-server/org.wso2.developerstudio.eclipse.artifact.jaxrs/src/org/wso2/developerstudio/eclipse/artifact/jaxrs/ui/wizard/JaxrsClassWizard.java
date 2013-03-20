@@ -133,8 +133,13 @@ public class JaxrsClassWizard extends Wizard implements INewWizard {
 				cxfServletXML.setContents(new ByteArrayInputStream(content.getBytes()), IResource.FORCE, null);
 				project.refreshLocal(IResource.DEPTH_INFINITE,new NullProgressMonitor());
 				
-				IEditorPart javaEditor = JavaUI.openInEditor(unit);
-				JavaUI.revealInEditor(javaEditor, (IJavaElement) unit);
+				try {
+					IEditorPart javaEditor = JavaUI.openInEditor(unit);
+					JavaUI.revealInEditor(javaEditor, (IJavaElement) unit);
+				} catch (Exception e) {/* ignore */
+					log.error("Exception has occurred", e);
+				}
+				
 			} catch (Exception e) {
 				log.error("cannot update cxf-servlet.xml", e);
 			}

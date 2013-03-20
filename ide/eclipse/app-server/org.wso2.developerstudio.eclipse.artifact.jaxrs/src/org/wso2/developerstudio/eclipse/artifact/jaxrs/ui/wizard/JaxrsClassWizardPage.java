@@ -35,6 +35,9 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.IWorkbench;
+import org.wso2.developerstudio.eclipse.artifact.jaxrs.Activator;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.platform.ui.validator.CommonFieldValidator;
 import org.eclipse.jdt.internal.ui.dialogs.StatusInfo;
 
@@ -57,6 +60,7 @@ public class JaxrsClassWizardPage extends NewTypeWizardPage implements Listener 
 	private String ifPkg;
 	private Button isCreateService;
 	private boolean isCreateIfClass;
+	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 
 
 		public void init(IStructuredSelection selection) {
@@ -85,8 +89,8 @@ public class JaxrsClassWizardPage extends NewTypeWizardPage implements Listener 
 				if(findType!=null && findType.exists()){
 					ifResource = new StatusInfo(IStatus.ERROR, "Service interface type already exists");
 				}
-			} catch (Exception e) {
-				/*safe to ignore*/
+			} catch (Exception e) {/*safe to ignore*/
+				log.error("CoreException has occurred", e);
 			}
 	    	
 	    	IStatus pkgStatus = new IStatus() {
@@ -281,7 +285,7 @@ public class JaxrsClassWizardPage extends NewTypeWizardPage implements Listener 
 	        createSuperInterfacesControls(composite, nColumns);
 	        createSeparator(composite, nColumns);
 
-	        // Create the checkbox controlling whether we want stubs
+	     // Create the checkbox controlling whether we want stubs
 	        fCreateStubs= new Button(composite, SWT.CHECK);
 	        fCreateStubs.setText("Add sample webservice method to new class");
 	        fCreateStubs.setSelection(false);

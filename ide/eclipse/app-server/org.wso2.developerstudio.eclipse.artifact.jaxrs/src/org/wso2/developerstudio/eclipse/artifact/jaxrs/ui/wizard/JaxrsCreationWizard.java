@@ -16,10 +16,14 @@
 
 package org.wso2.developerstudio.eclipse.artifact.jaxrs.ui.wizard;
 
+import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
+import java.util.Map;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
@@ -28,6 +32,7 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.osgi.framework.Bundle;
@@ -49,7 +54,11 @@ import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.IPackageFragment;
 import org.eclipse.jdt.core.IPackageFragmentRoot;
 import org.eclipse.jdt.core.JavaCore;
+import org.eclipse.jdt.launching.IVMInstall;
+import org.eclipse.jdt.launching.JavaRuntime;
 import org.eclipse.jdt.ui.JavaUI;
+import org.eclipse.jface.dialogs.ProgressMonitorDialog;
+import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IWorkbench;
@@ -74,13 +83,13 @@ public class JaxrsCreationWizard  extends AbstractWSO2ProjectCreationWizard{
 		setDefaultPageImageDescriptor(Activator.getImageDescriptor("icons/JAX-RS-wizard.png"));
 	}
 	
-	
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		super.init(workbench, selection);
 	}
 	
 	public boolean performFinish() {
 		try {
+			ICompilationUnit serviceClass=null;
 			project = createNewProject();
 			sourceFolder =ProjectUtils.getWorkspaceFolder(project, "src", "main", "java");
 			webappFolder = ProjectUtils.getWorkspaceFolder(project, "src", "main", "webapp");
@@ -110,10 +119,22 @@ public class JaxrsCreationWizard  extends AbstractWSO2ProjectCreationWizard{
 			cxfServlet = new JaxUtil.CxfServlet();
 			cxfServlet.deserialize(cxfServletXML);
 			
-			ICompilationUnit serviceClass = createServiceClass(project, cxfServlet, model.getServiceClassPackage(),
-					model.getServiceClass());
-			String content = cxfServlet.toString().replaceAll("xmlns=\"\"",""); 
-			cxfServletXML.setContents(new ByteArrayInputStream(content.getBytes()), IResource.FORCE, null);
+			if(getModel().getSelectedOption().equals("new.jaxrs")){
+				serviceClass = createServiceClass(project, cxfServlet, model.getServiceClassPackage(),
+						model.getServiceClass());
+				String content = cxfServlet.toString().replaceAll("xmlns=\"\"",""); 
+				cxfServletXML.setContents(new ByteArrayInputStream(content.getBytes()), IResource.FORCE, null);
+				
+			}else if (getModel().getSelectedOption().equals("import.jaxrswadl")) {
+				ProgressMonitorDialog progressMonitorDialog = new ProgressMonitorDialog(getShell());
+				progressMonitorDialog.create();
+				progressMonitorDialog.open();
+				progressMonitorDialog.run(false, false, new CXFCodegenJob());
+				
+				project.refreshLocal(IResource.DEPTH_INFINITE,new NullProgressMonitor());
+				
+				
+			}
 			
 			File pomfile = project.getFile("pom.xml").getLocation().toFile();
 			getModel().getMavenInfo().setPackageName("war");
@@ -154,10 +175,7 @@ public class JaxrsCreationWizard  extends AbstractWSO2ProjectCreationWizard{
 
 		return true;
 	}
-	
-	
-	
-	
+
 	private ICompilationUnit createServiceClass(IProject project, CxfServlet cxfServlet,
 			String packageName, String className) throws CoreException {
 		IJavaProject javaProject = JavaCore.create(project);
@@ -173,6 +191,8 @@ public class JaxrsCreationWizard  extends AbstractWSO2ProjectCreationWizard{
 		buffer.append("@Path(\"/\")\n" + "public class "
 				+ className + " {\n\n");
 		buffer.append("\n}");
+		
+		
 		ICompilationUnit cu = sourcePackage.createCompilationUnit(className + ".java",
 				buffer.toString(), false, null);
 		String address = "/" + cu.getTypes()[0].getElementName();
@@ -183,7 +203,77 @@ public class JaxrsCreationWizard  extends AbstractWSO2ProjectCreationWizard{
 		cxfServlet.addServer(cu.getTypes()[0].getElementName(), null, address, beanClass);
 		return cu;
 	}
+	
+	private class CXFCodegenJob implements IRunnableWithProgress {
 
+		public void run(IProgressMonitor monitor)
+				throws InvocationTargetException, InterruptedException {
+			String operationText="Generating server side code";
+			monitor.beginTask(operationText, 100);
+			monitor.subTask("Processing configuration...");
+			monitor.worked(10);
+			try {
+				monitor.subTask("Generating code...");
+				IVMInstall vmInstall= JavaRuntime.getDefaultVMInstall();
+	            String s = null;
+	            String shell =null;
+	            String wadl2java = null;
+		        String sourcePkg = model.getSourcePackage();
+		        String sourceDir = sourceFolder.getLocation().toFile().toString();
+				String wadlFile = model.getImportFile().getAbsolutePath();
+				String os = System.getProperty("os.name").toLowerCase();
+				ProcessBuilder pb=null;
+								
+				if(os.indexOf("win") >= 0){
+					shell = "cmd.exe";
+					wadl2java = "wadl2java.bat";
+					if(sourcePkg!=null && sourcePkg.trim().length()>0){
+						pb = new ProcessBuilder(shell, "/c", wadl2java, "-impl", "-server", "-p",sourcePkg, "-d",sourceDir,wadlFile);
+					} else {
+						pb = new ProcessBuilder(shell, "/c", wadl2java, "-impl", "-server", "-d",sourceDir,wadlFile);
+					}
+				} else {
+					shell = "sh";
+					wadl2java = "wadl2java";
+					if(sourcePkg!=null && sourcePkg.trim().length()>0){
+						pb = new ProcessBuilder(shell, wadl2java, "-d",sourceDir , "-p",sourcePkg, "-impl", "-interface" ,wadlFile);
+					} else {
+						pb = new ProcessBuilder(shell, wadl2java, "-d",sourceDir ,"-impl", "-interface" ,wadlFile);
+					}
+				}
+
+				
+				 Map<String, String> env = pb.environment();
+				 env.put("CXF_HOME", model.getCXFRuntime());
+				 env.put("JAVA_HOME", vmInstall.getInstallLocation().toString());
+				 pb.directory(new File(model.getCXFRuntime()+ File.separator + "bin" ));
+				 Process p = pb.start();
+	            
+	            BufferedReader stdInput = new BufferedReader(new InputStreamReader(p.getInputStream()));
+	            BufferedReader stdError = new BufferedReader(new InputStreamReader(p.getErrorStream()));
+	            
+
+	            while ((s = stdInput.readLine()) != null) {
+	            	monitor.subTask(s);
+	            }
+	            while ((s = stdError.readLine()) != null) {
+	            	log.error(s);
+	            }
+	            
+	            project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
+	            
+				monitor.worked(75);	
+
+				monitor.worked(10);
+				monitor.subTask("Refreshing project...");
+				monitor.worked(5);
+				monitor.done();
+			} catch (Exception e) {
+				throw new InvocationTargetException(e);
+			}
+		}
+		
+	}
 
 	public void setProjectModel(JaxrsProjectModel model) {
 		this.model = model;
