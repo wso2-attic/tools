@@ -78,6 +78,7 @@ public class ProxyServiceItemProvider
 			addTransportsPropertyDescriptor(object);
 			addReliableMessagingEnabledPropertyDescriptor(object);
 			addSecurityEnabledPropertyDescriptor(object);
+			addServiceParametersPropertyDescriptor(object);
 			// addWsdlTypePropertyDescriptor(object);
 			// WSDL Type.
 			addWsdlTypePropertyDescriptor(object);
@@ -325,6 +326,28 @@ public class ProxyServiceItemProvider
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 "QoS",
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Service Parameters feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addServiceParametersPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ProxyService_serviceParameters_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ProxyService_serviceParameters_feature", "_UI_ProxyService_type"),
+				 EsbPackage.Literals.PROXY_SERVICE__SERVICE_PARAMETERS,
+				 true,
+				 false,
+				 false,
+				 null,
+				 getString("_UI_ParametersPropertyCategory"),
 				 null));
 	}
 
