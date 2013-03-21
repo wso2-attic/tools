@@ -99,9 +99,17 @@ public abstract class AbstractInputConnectorEditPart extends AbstractConnectorEd
 						if (EditorUtils.hasCycle(source, parent)) {
 							return UnexecutableCommand.INSTANCE;
 						}
+						/* please improve EditorUtils.isConnectableTarget */
+						if(!EditorUtils.isConnectableTarget(source, parent)){
+							return UnexecutableCommand.INSTANCE;
+						}
 					}
 				} else if (target instanceof EditPart){
 					if (EditorUtils.hasCycle(source, target)) {
+						return UnexecutableCommand.INSTANCE;
+					}
+					/* please improve EditorUtils.isConnectableTarget */
+					if(!EditorUtils.isConnectableTarget(source, target)){
 						return UnexecutableCommand.INSTANCE;
 					}
 				}
@@ -109,6 +117,5 @@ public abstract class AbstractInputConnectorEditPart extends AbstractConnectorEd
 		}
 		return super.getCommand(request);
 	}
-	
-	
+
 }

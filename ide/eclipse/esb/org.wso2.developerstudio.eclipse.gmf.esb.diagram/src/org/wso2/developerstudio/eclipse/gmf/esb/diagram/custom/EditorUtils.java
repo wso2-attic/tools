@@ -28,6 +28,7 @@ import org.eclipse.gef.EditPart;
 import org.eclipse.gef.RootEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeCompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
@@ -500,5 +501,43 @@ public class EditorUtils {
 			}
 		}
 		return next;
+	}
+	
+	/**
+	 * Returns true if source and target are connectable
+	 * @param source
+	 * @param target
+	 * @return
+	 * FIXME: please improve
+	 */
+	public static boolean isConnectableTarget(EditPart source, EditPart target) {
+		if (source.getParent() instanceof ShapeCompartmentEditPart
+				&& target.getParent() instanceof ShapeCompartmentEditPart) {
+			ShapeCompartmentEditPart sourceCompartment = (ShapeCompartmentEditPart) source
+					.getParent();
+			ShapeCompartmentEditPart targetCompartment = (ShapeCompartmentEditPart) target
+					.getParent();
+			if (sourceCompartment == targetCompartment) {
+				return true;
+			} else if (isChildOfTarget(sourceCompartment, targetCompartment)
+					|| isChildOfTarget(targetCompartment, sourceCompartment)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	/**
+	 * Returns true if the source is a child of target. 
+	 * FIXME: please improve
+	 */
+	private static boolean isChildOfTarget(EditPart source, EditPart target) {
+		EditPart parent = target;
+		while ((parent = parent.getParent()) != null) {
+			if (parent == source) {
+				return true;
+			}
+		}
+		return false;
 	}
 }
