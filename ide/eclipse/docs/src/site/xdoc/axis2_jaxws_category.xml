@@ -440,9 +440,21 @@ permissions and ~ limitations under the License.
 			<img alt="New Server Runtime" src="images/jaxrs1.png"></img>
 		</p>
 
-		<p>you can create a basic JAX RESTful Web Service Project. You can develop a 
-		JAX-RS-enabled Web service as a Java class inside this project. 
+		<p>There are two options to create  <strong>JAX RESTful service</strong> Project. 
 		</p>
+		    <ol>
+				<li>Create a JAX-RS Project</li>
+				<li>Create a JAX-RS Project using WADL</li>
+			</ol>
+			<p>
+				<br></br>
+				<img alt="New Server Runtime" src="images/jaxrs7.png"></img>
+				<br></br>
+			</p>
+			<p>
+			With the first option, you can create a <strong>JAX RESTful service</strong> Project.
+			</p>
+			
 			<p>
 				<br></br>
 				<img alt="New Server Runtime" src="images/jaxrs2.png"></img>
@@ -480,6 +492,18 @@ permissions and ~ limitations under the License.
 			<p>
 				<br></br>
 				<img alt="New Server Runtime" src="images/jaxrs5.png"></img>
+				<br></br>
+			</p>
+			
+			<p>
+			You can also create a <strong>JAX RESTful service</strong> project by pointing a <strong>WADL</strong> file. 
+			This is the second option avilable in <strong>JAX RESTful service</strong> Project wizard.Browse for the correct <strong>WADL</strong> file and you have to specify the <strong>CXF</strong> Home. 
+			You can download the <a href="http://cxf.apache.org/download.html">CXF Binary Distribution</a> and extract it. This will be your CXF Home.
+			</p>
+			
+			<p>
+				<br></br>
+				<img alt="New Server Runtime" src="images/jaxrs8.png"></img>
 				<br></br>
 			</p>
 			
