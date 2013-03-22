@@ -152,6 +152,42 @@ public interface MediatorsFactory extends EFactory {
 	EntitlementMediator createEntitlementMediator();
 
 	/**
+	 * Returns a new object of class '<em>Entitlement Advice Branch</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Entitlement Advice Branch</em>'.
+	 * @generated
+	 */
+	EntitlementAdviceBranch createEntitlementAdviceBranch();
+
+	/**
+	 * Returns a new object of class '<em>Entitlement Obligations Branch</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Entitlement Obligations Branch</em>'.
+	 * @generated
+	 */
+	EntitlementObligationsBranch createEntitlementObligationsBranch();
+
+	/**
+	 * Returns a new object of class '<em>Entitlement Mediator On Reject Branch</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Entitlement Mediator On Reject Branch</em>'.
+	 * @generated
+	 */
+	EntitlementMediatorOnRejectBranch createEntitlementMediatorOnRejectBranch();
+
+	/**
+	 * Returns a new object of class '<em>Entitlement Mediator On Accept Branch</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Entitlement Mediator On Accept Branch</em>'.
+	 * @generated
+	 */
+	EntitlementMediatorOnAcceptBranch createEntitlementMediatorOnAcceptBranch();
+
+	/**
 	 * Returns a new object of class '<em>Enqueue Mediator</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

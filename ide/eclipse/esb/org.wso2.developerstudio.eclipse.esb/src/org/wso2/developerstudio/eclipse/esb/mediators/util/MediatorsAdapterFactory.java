@@ -141,6 +141,22 @@ public class MediatorsAdapterFactory extends AdapterFactoryImpl {
 				return createEntitlementMediatorAdapter();
 			}
 			@Override
+			public Adapter caseEntitlementAdviceBranch(EntitlementAdviceBranch object) {
+				return createEntitlementAdviceBranchAdapter();
+			}
+			@Override
+			public Adapter caseEntitlementObligationsBranch(EntitlementObligationsBranch object) {
+				return createEntitlementObligationsBranchAdapter();
+			}
+			@Override
+			public Adapter caseEntitlementMediatorOnRejectBranch(EntitlementMediatorOnRejectBranch object) {
+				return createEntitlementMediatorOnRejectBranchAdapter();
+			}
+			@Override
+			public Adapter caseEntitlementMediatorOnAcceptBranch(EntitlementMediatorOnAcceptBranch object) {
+				return createEntitlementMediatorOnAcceptBranchAdapter();
+			}
+			@Override
 			public Adapter caseEnqueueMediator(EnqueueMediator object) {
 				return createEnqueueMediatorAdapter();
 			}
@@ -688,6 +704,62 @@ public class MediatorsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createEntitlementMediatorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.esb.mediators.EntitlementAdviceBranch <em>Entitlement Advice Branch</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.EntitlementAdviceBranch
+	 * @generated
+	 */
+	public Adapter createEntitlementAdviceBranchAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.esb.mediators.EntitlementObligationsBranch <em>Entitlement Obligations Branch</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.EntitlementObligationsBranch
+	 * @generated
+	 */
+	public Adapter createEntitlementObligationsBranchAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.esb.mediators.EntitlementMediatorOnRejectBranch <em>Entitlement Mediator On Reject Branch</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.EntitlementMediatorOnRejectBranch
+	 * @generated
+	 */
+	public Adapter createEntitlementMediatorOnRejectBranchAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.esb.mediators.EntitlementMediatorOnAcceptBranch <em>Entitlement Mediator On Accept Branch</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.esb.mediators.EntitlementMediatorOnAcceptBranch
+	 * @generated
+	 */
+	public Adapter createEntitlementMediatorOnAcceptBranchAdapter() {
 		return null;
 	}
 

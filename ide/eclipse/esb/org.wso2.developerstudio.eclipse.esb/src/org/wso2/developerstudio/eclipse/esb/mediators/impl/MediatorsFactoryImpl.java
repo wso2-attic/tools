@@ -81,6 +81,10 @@ public class MediatorsFactoryImpl extends EFactoryImpl implements MediatorsFacto
 			case MediatorsPackage.SWITCH_CASE_BRANCH: return createSwitchCaseBranch();
 			case MediatorsPackage.SWITCH_DEFAULT_BRANCH: return createSwitchDefaultBranch();
 			case MediatorsPackage.ENTITLEMENT_MEDIATOR: return createEntitlementMediator();
+			case MediatorsPackage.ENTITLEMENT_ADVICE_BRANCH: return createEntitlementAdviceBranch();
+			case MediatorsPackage.ENTITLEMENT_OBLIGATIONS_BRANCH: return createEntitlementObligationsBranch();
+			case MediatorsPackage.ENTITLEMENT_MEDIATOR_ON_REJECT_BRANCH: return createEntitlementMediatorOnRejectBranch();
+			case MediatorsPackage.ENTITLEMENT_MEDIATOR_ON_ACCEPT_BRANCH: return createEntitlementMediatorOnAcceptBranch();
 			case MediatorsPackage.ENQUEUE_MEDIATOR: return createEnqueueMediator();
 			case MediatorsPackage.CLASS_MEDIATOR: return createClassMediator();
 			case MediatorsPackage.CLASS_PROPERTY: return createClassProperty();
@@ -177,6 +181,8 @@ public class MediatorsFactoryImpl extends EFactoryImpl implements MediatorsFacto
 				return createLogLevelFromString(eDataType, initialValue);
 			case MediatorsPackage.FILTER_CONDITION_TYPE:
 				return createFilterConditionTypeFromString(eDataType, initialValue);
+			case MediatorsPackage.ENTITLEMENT_SEQUENCE:
+				return createEntitlementSequenceFromString(eDataType, initialValue);
 			case MediatorsPackage.SCRIPT_TYPE:
 				return createScriptTypeFromString(eDataType, initialValue);
 			case MediatorsPackage.SCRIPT_LANGUAGE:
@@ -313,6 +319,8 @@ public class MediatorsFactoryImpl extends EFactoryImpl implements MediatorsFacto
 				return convertLogLevelToString(eDataType, instanceValue);
 			case MediatorsPackage.FILTER_CONDITION_TYPE:
 				return convertFilterConditionTypeToString(eDataType, instanceValue);
+			case MediatorsPackage.ENTITLEMENT_SEQUENCE:
+				return convertEntitlementSequenceToString(eDataType, instanceValue);
 			case MediatorsPackage.SCRIPT_TYPE:
 				return convertScriptTypeToString(eDataType, instanceValue);
 			case MediatorsPackage.SCRIPT_LANGUAGE:
@@ -562,6 +570,46 @@ public class MediatorsFactoryImpl extends EFactoryImpl implements MediatorsFacto
 	public EntitlementMediator createEntitlementMediator() {
 		EntitlementMediatorImpl entitlementMediator = new EntitlementMediatorImpl();
 		return entitlementMediator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EntitlementAdviceBranch createEntitlementAdviceBranch() {
+		EntitlementAdviceBranchImpl entitlementAdviceBranch = new EntitlementAdviceBranchImpl();
+		return entitlementAdviceBranch;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EntitlementObligationsBranch createEntitlementObligationsBranch() {
+		EntitlementObligationsBranchImpl entitlementObligationsBranch = new EntitlementObligationsBranchImpl();
+		return entitlementObligationsBranch;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EntitlementMediatorOnRejectBranch createEntitlementMediatorOnRejectBranch() {
+		EntitlementMediatorOnRejectBranchImpl entitlementMediatorOnRejectBranch = new EntitlementMediatorOnRejectBranchImpl();
+		return entitlementMediatorOnRejectBranch;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EntitlementMediatorOnAcceptBranch createEntitlementMediatorOnAcceptBranch() {
+		EntitlementMediatorOnAcceptBranchImpl entitlementMediatorOnAcceptBranch = new EntitlementMediatorOnAcceptBranchImpl();
+		return entitlementMediatorOnAcceptBranch;
 	}
 
 	/**
@@ -1381,6 +1429,26 @@ public class MediatorsFactoryImpl extends EFactoryImpl implements MediatorsFacto
 	 * @generated
 	 */
 	public String convertFilterConditionTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EntitlementSequence createEntitlementSequenceFromString(EDataType eDataType, String initialValue) {
+		EntitlementSequence result = EntitlementSequence.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertEntitlementSequenceToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

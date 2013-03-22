@@ -219,6 +219,38 @@ public class MediatorsSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case MediatorsPackage.ENTITLEMENT_ADVICE_BRANCH: {
+				EntitlementAdviceBranch entitlementAdviceBranch = (EntitlementAdviceBranch)theEObject;
+				T result = caseEntitlementAdviceBranch(entitlementAdviceBranch);
+				if (result == null) result = caseMediatorBranch(entitlementAdviceBranch);
+				if (result == null) result = caseModelObject(entitlementAdviceBranch);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MediatorsPackage.ENTITLEMENT_OBLIGATIONS_BRANCH: {
+				EntitlementObligationsBranch entitlementObligationsBranch = (EntitlementObligationsBranch)theEObject;
+				T result = caseEntitlementObligationsBranch(entitlementObligationsBranch);
+				if (result == null) result = caseMediatorBranch(entitlementObligationsBranch);
+				if (result == null) result = caseModelObject(entitlementObligationsBranch);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MediatorsPackage.ENTITLEMENT_MEDIATOR_ON_REJECT_BRANCH: {
+				EntitlementMediatorOnRejectBranch entitlementMediatorOnRejectBranch = (EntitlementMediatorOnRejectBranch)theEObject;
+				T result = caseEntitlementMediatorOnRejectBranch(entitlementMediatorOnRejectBranch);
+				if (result == null) result = caseMediatorBranch(entitlementMediatorOnRejectBranch);
+				if (result == null) result = caseModelObject(entitlementMediatorOnRejectBranch);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MediatorsPackage.ENTITLEMENT_MEDIATOR_ON_ACCEPT_BRANCH: {
+				EntitlementMediatorOnAcceptBranch entitlementMediatorOnAcceptBranch = (EntitlementMediatorOnAcceptBranch)theEObject;
+				T result = caseEntitlementMediatorOnAcceptBranch(entitlementMediatorOnAcceptBranch);
+				if (result == null) result = caseMediatorBranch(entitlementMediatorOnAcceptBranch);
+				if (result == null) result = caseModelObject(entitlementMediatorOnAcceptBranch);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case MediatorsPackage.ENQUEUE_MEDIATOR: {
 				EnqueueMediator enqueueMediator = (EnqueueMediator)theEObject;
 				T result = caseEnqueueMediator(enqueueMediator);
@@ -1048,6 +1080,66 @@ public class MediatorsSwitch<T> {
 	 * @generated
 	 */
 	public T caseEntitlementMediator(EntitlementMediator object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Entitlement Advice Branch</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Entitlement Advice Branch</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEntitlementAdviceBranch(EntitlementAdviceBranch object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Entitlement Obligations Branch</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Entitlement Obligations Branch</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEntitlementObligationsBranch(EntitlementObligationsBranch object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Entitlement Mediator On Reject Branch</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Entitlement Mediator On Reject Branch</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEntitlementMediatorOnRejectBranch(EntitlementMediatorOnRejectBranch object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Entitlement Mediator On Accept Branch</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Entitlement Mediator On Accept Branch</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEntitlementMediatorOnAcceptBranch(EntitlementMediatorOnAcceptBranch object) {
 		return null;
 	}
 
