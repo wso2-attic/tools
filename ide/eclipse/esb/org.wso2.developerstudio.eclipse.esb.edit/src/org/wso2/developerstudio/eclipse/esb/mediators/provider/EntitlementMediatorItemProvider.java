@@ -22,6 +22,7 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -32,6 +33,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.wso2.developerstudio.eclipse.esb.mediators.EntitlementMediator;
+import org.wso2.developerstudio.eclipse.esb.mediators.MediatorsFactory;
 import org.wso2.developerstudio.eclipse.esb.mediators.MediatorsPackage;
 import org.wso2.developerstudio.eclipse.esb.provider.EsbEditPlugin;
 import org.wso2.developerstudio.eclipse.esb.provider.MediatorItemProvider;
@@ -75,6 +77,7 @@ public class EntitlementMediatorItemProvider
 			addServerURLPropertyDescriptor(object);
 			addUsernamePropertyDescriptor(object);
 			addPasswordPropertyDescriptor(object);
+			addCallbackClassPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -146,6 +149,61 @@ public class EntitlementMediatorItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Callback Class feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCallbackClassPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EntitlementMediator_callbackClass_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EntitlementMediator_callbackClass_feature", "_UI_EntitlementMediator_type"),
+				 MediatorsPackage.Literals.ENTITLEMENT_MEDIATOR__CALLBACK_CLASS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(MediatorsPackage.Literals.ENTITLEMENT_MEDIATOR__ON_ACCEPT);
+			childrenFeatures.add(MediatorsPackage.Literals.ENTITLEMENT_MEDIATOR__ON_REJECT);
+			childrenFeatures.add(MediatorsPackage.Literals.ENTITLEMENT_MEDIATOR__OBLIGATIONS);
+			childrenFeatures.add(MediatorsPackage.Literals.ENTITLEMENT_MEDIATOR__ADVICE);
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
+	}
+
+	/**
 	 * This returns EntitlementMediator.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -186,7 +244,14 @@ public class EntitlementMediatorItemProvider
 			case MediatorsPackage.ENTITLEMENT_MEDIATOR__SERVER_URL:
 			case MediatorsPackage.ENTITLEMENT_MEDIATOR__USERNAME:
 			case MediatorsPackage.ENTITLEMENT_MEDIATOR__PASSWORD:
+			case MediatorsPackage.ENTITLEMENT_MEDIATOR__CALLBACK_CLASS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case MediatorsPackage.ENTITLEMENT_MEDIATOR__ON_ACCEPT:
+			case MediatorsPackage.ENTITLEMENT_MEDIATOR__ON_REJECT:
+			case MediatorsPackage.ENTITLEMENT_MEDIATOR__OBLIGATIONS:
+			case MediatorsPackage.ENTITLEMENT_MEDIATOR__ADVICE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -203,6 +268,26 @@ public class EntitlementMediatorItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MediatorsPackage.Literals.ENTITLEMENT_MEDIATOR__ON_ACCEPT,
+				 MediatorsFactory.eINSTANCE.createEntitlementMediatorOnAcceptBranch()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MediatorsPackage.Literals.ENTITLEMENT_MEDIATOR__ON_REJECT,
+				 MediatorsFactory.eINSTANCE.createEntitlementMediatorOnRejectBranch()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MediatorsPackage.Literals.ENTITLEMENT_MEDIATOR__OBLIGATIONS,
+				 MediatorsFactory.eINSTANCE.createEntitlementObligationsBranch()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MediatorsPackage.Literals.ENTITLEMENT_MEDIATOR__ADVICE,
+				 MediatorsFactory.eINSTANCE.createEntitlementAdviceBranch()));
 	}
 
 	/**

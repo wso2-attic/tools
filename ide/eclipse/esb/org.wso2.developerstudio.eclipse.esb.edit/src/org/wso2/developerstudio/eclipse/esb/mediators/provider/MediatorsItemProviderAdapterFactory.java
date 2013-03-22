@@ -408,6 +408,98 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.EntitlementAdviceBranch} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EntitlementAdviceBranchItemProvider entitlementAdviceBranchItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.EntitlementAdviceBranch}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEntitlementAdviceBranchAdapter() {
+		if (entitlementAdviceBranchItemProvider == null) {
+			entitlementAdviceBranchItemProvider = new EntitlementAdviceBranchItemProvider(this);
+		}
+
+		return entitlementAdviceBranchItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.EntitlementObligationsBranch} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EntitlementObligationsBranchItemProvider entitlementObligationsBranchItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.EntitlementObligationsBranch}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEntitlementObligationsBranchAdapter() {
+		if (entitlementObligationsBranchItemProvider == null) {
+			entitlementObligationsBranchItemProvider = new EntitlementObligationsBranchItemProvider(this);
+		}
+
+		return entitlementObligationsBranchItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.EntitlementMediatorOnRejectBranch} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EntitlementMediatorOnRejectBranchItemProvider entitlementMediatorOnRejectBranchItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.EntitlementMediatorOnRejectBranch}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEntitlementMediatorOnRejectBranchAdapter() {
+		if (entitlementMediatorOnRejectBranchItemProvider == null) {
+			entitlementMediatorOnRejectBranchItemProvider = new EntitlementMediatorOnRejectBranchItemProvider(this);
+		}
+
+		return entitlementMediatorOnRejectBranchItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.EntitlementMediatorOnAcceptBranch} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EntitlementMediatorOnAcceptBranchItemProvider entitlementMediatorOnAcceptBranchItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.esb.mediators.EntitlementMediatorOnAcceptBranch}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEntitlementMediatorOnAcceptBranchAdapter() {
+		if (entitlementMediatorOnAcceptBranchItemProvider == null) {
+			entitlementMediatorOnAcceptBranchItemProvider = new EntitlementMediatorOnAcceptBranchItemProvider(this);
+		}
+
+		return entitlementMediatorOnAcceptBranchItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.esb.mediators.EnqueueMediator} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2345,6 +2437,10 @@ public class MediatorsItemProviderAdapterFactory extends MediatorsAdapterFactory
 		if (switchCaseBranchItemProvider != null) switchCaseBranchItemProvider.dispose();
 		if (switchDefaultBranchItemProvider != null) switchDefaultBranchItemProvider.dispose();
 		if (entitlementMediatorItemProvider != null) entitlementMediatorItemProvider.dispose();
+		if (entitlementAdviceBranchItemProvider != null) entitlementAdviceBranchItemProvider.dispose();
+		if (entitlementObligationsBranchItemProvider != null) entitlementObligationsBranchItemProvider.dispose();
+		if (entitlementMediatorOnRejectBranchItemProvider != null) entitlementMediatorOnRejectBranchItemProvider.dispose();
+		if (entitlementMediatorOnAcceptBranchItemProvider != null) entitlementMediatorOnAcceptBranchItemProvider.dispose();
 		if (enqueueMediatorItemProvider != null) enqueueMediatorItemProvider.dispose();
 		if (classMediatorItemProvider != null) classMediatorItemProvider.dispose();
 		if (classPropertyItemProvider != null) classPropertyItemProvider.dispose();
