@@ -83,6 +83,36 @@
         defaultValueLiteral="username"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="password" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="password"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="onAccept" eType="#//EntitlementMediatorOnAcceptBranch"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="onReject" eType="#//EntitlementMediatorOnRejectBranch"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Obligations" eType="#//EntitlementObligationsBranch"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Advice" eType="#//EntitlementAdviceBranch"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="callbackClass" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="callbackClass"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="EntitlementSequence">
+    <eLiterals name="ANONYMOUS" literal="ANONYMOUS"/>
+    <eLiterals name="REGISTRY_REFERENCE" value="1" literal="REGISTRY_REFERENCE"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EntitlementAdviceBranch" eSuperTypes="esb.ecore#//MediatorBranch">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sequenceType" eType="#//EntitlementSequence"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sequenceKey" eType="ecore:EClass esb.ecore#//RegistryKeyProperty"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EntitlementObligationsBranch" eSuperTypes="esb.ecore#//MediatorBranch">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sequenceType" eType="#//EntitlementSequence"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sequenceKey" eType="ecore:EClass esb.ecore#//RegistryKeyProperty"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EntitlementMediatorOnRejectBranch" eSuperTypes="esb.ecore#//MediatorBranch">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sequenceType" eType="#//EntitlementSequence"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sequenceKey" eType="ecore:EClass esb.ecore#//RegistryKeyProperty"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EntitlementMediatorOnAcceptBranch" eSuperTypes="esb.ecore#//MediatorBranch">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sequenceType" eType="#//EntitlementSequence"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sequenceKey" eType="ecore:EClass esb.ecore#//RegistryKeyProperty"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EnqueueMediator" eSuperTypes="esb.ecore#//Mediator">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="executor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"

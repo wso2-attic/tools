@@ -390,6 +390,10 @@
       <genEnumLiterals ecoreEnumLiteral="mediator.ecore#//FilterConditionType/XPATH"/>
       <genEnumLiterals ecoreEnumLiteral="mediator.ecore#//FilterConditionType/SOURCE_AND_REGULAR_EXPRESSION"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="mediator.ecore#//EntitlementSequence">
+      <genEnumLiterals ecoreEnumLiteral="mediator.ecore#//EntitlementSequence/ANONYMOUS"/>
+      <genEnumLiterals ecoreEnumLiteral="mediator.ecore#//EntitlementSequence/REGISTRY_REFERENCE"/>
+    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="mediator.ecore#//ScriptType">
       <genEnumLiterals ecoreEnumLiteral="mediator.ecore#//ScriptType/INLINE"/>
       <genEnumLiterals ecoreEnumLiteral="mediator.ecore#//ScriptType/REGISTRY_REFERENCE"/>
@@ -742,6 +746,27 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mediator.ecore#//EntitlementMediator/serverURL"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mediator.ecore#//EntitlementMediator/username"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mediator.ecore#//EntitlementMediator/password"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mediator.ecore#//EntitlementMediator/onAccept"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mediator.ecore#//EntitlementMediator/onReject"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mediator.ecore#//EntitlementMediator/Obligations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference mediator.ecore#//EntitlementMediator/Advice"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mediator.ecore#//EntitlementMediator/callbackClass"/>
+    </genClasses>
+    <genClasses ecoreClass="mediator.ecore#//EntitlementAdviceBranch">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mediator.ecore#//EntitlementAdviceBranch/sequenceType"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference mediator.ecore#//EntitlementAdviceBranch/sequenceKey"/>
+    </genClasses>
+    <genClasses ecoreClass="mediator.ecore#//EntitlementObligationsBranch">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mediator.ecore#//EntitlementObligationsBranch/sequenceType"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference mediator.ecore#//EntitlementObligationsBranch/sequenceKey"/>
+    </genClasses>
+    <genClasses ecoreClass="mediator.ecore#//EntitlementMediatorOnRejectBranch">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mediator.ecore#//EntitlementMediatorOnRejectBranch/sequenceType"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference mediator.ecore#//EntitlementMediatorOnRejectBranch/sequenceKey"/>
+    </genClasses>
+    <genClasses ecoreClass="mediator.ecore#//EntitlementMediatorOnAcceptBranch">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mediator.ecore#//EntitlementMediatorOnAcceptBranch/sequenceType"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference mediator.ecore#//EntitlementMediatorOnAcceptBranch/sequenceKey"/>
     </genClasses>
     <genClasses ecoreClass="mediator.ecore#//EnqueueMediator">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute mediator.ecore#//EnqueueMediator/executor"/>
