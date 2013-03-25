@@ -1,15 +1,29 @@
+/*
+ * Copyright (c) WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.part;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gef.EditPartViewer;
@@ -17,35 +31,24 @@ import org.eclipse.gef.Tool;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.palette.PaletteContainer;
 import org.eclipse.gef.palette.PaletteDrawer;
-import org.eclipse.gef.palette.PaletteEntry;
 import org.eclipse.gef.palette.PaletteRoot;
 import org.eclipse.gef.palette.PaletteSeparator;
-import org.eclipse.gef.palette.PaletteStack;
-import org.eclipse.gef.palette.PaletteToolbar;
 import org.eclipse.gef.palette.ToolEntry;
-import org.eclipse.gef.tools.ConnectionBendpointTracker;
-import org.eclipse.gef.tools.ConnectionDragCreationTool;
-import org.eclipse.gef.tools.ConnectionEndpointTracker;
-import org.eclipse.gef.tools.MarqueeDragTracker;
-import org.eclipse.gef.tools.MarqueeSelectionTool;
-import org.eclipse.gef.tools.SimpleDragTracker;
-import org.eclipse.gef.tools.TargetingTool;
-import org.eclipse.gef.ui.palette.PaletteContextMenuProvider;
 import org.eclipse.gef.ui.palette.PaletteViewer;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.internal.services.palette.PaletteToolEntry;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramEditDomain;
-import org.eclipse.gmf.runtime.diagram.ui.tools.ConnectionCreationTool;
 import org.eclipse.gmf.runtime.diagram.ui.tools.UnspecifiedTypeConnectionTool;
 import org.eclipse.gmf.runtime.diagram.ui.tools.UnspecifiedTypeCreationTool;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
-import org.eclipse.jface.action.Separator;
 import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IFileEditorInput;
-import org.wso2.developerstudio.eclipse.gmf.esb.AddressEndPoint;
+import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBArtifact;
+import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbServer;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractBaseFigureEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractBaseFigureFaultInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractBaseFigureInputConnectorEditPart;
@@ -56,22 +59,21 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractProxyServiceContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ToolPalleteDetails;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AddressEndPointEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AddressEndPointInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.NamedEndpointEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyFaultInputConnectorEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyInputConnectorEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceContainerEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceFaultContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
+
 import static org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils.*;
 
 /**
  * @generated
  */
 public class EsbPaletteFactory {
+	
+	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 
 	/**
 	 * @generated NOT
@@ -977,7 +979,7 @@ public class EsbPaletteFactory {
 
 	public void addDefinedSequences(IEditorPart editor) {
 		ArrayList<String> definedSequences = addDefinedArtifacts(editor, SEQUENCE_RESOURCE_DIR,
-				"sequence_");
+				"synapse/sequence");
 		/*		if (editor != null) {
 		 IFileEditorInput input = (IFileEditorInput) editor.getEditorInput();
 		 IFile file = input.getFile();
@@ -1012,7 +1014,7 @@ public class EsbPaletteFactory {
 		boolean definedSequencesAdded = false;
 		int indexOfDefinedSequences = 0;
 
-		List list = ((DiagramEditDomain) ((EsbDiagramEditor) editor).getDiagramEditDomain())
+		List<?> list = ((DiagramEditDomain) ((EsbDiagramEditor) editor).getDiagramEditDomain())
 				.getPaletteViewer().getPaletteRoot().getChildren();
 		for (int i = 0; i < list.size(); ++i) {
 			if (list.get(i) instanceof PaletteDrawer) {
@@ -1045,12 +1047,12 @@ public class EsbPaletteFactory {
 
 	public void addDefinedEndpoints(IEditorPart editor) {
 		ArrayList<String> definedEndpoints = addDefinedArtifacts(editor, ENDPOINT_RESOURCE_DIR,
-				"endpoint_");
+				"synapse/endpoint");
 
 		boolean definedEndpointsAdded = false;
 		int indexOfDefinedEndpoints = 0;
 
-		List list = ((DiagramEditDomain) ((EsbDiagramEditor) editor).getDiagramEditDomain())
+		List<?> list = ((DiagramEditDomain) ((EsbDiagramEditor) editor).getDiagramEditDomain())
 				.getPaletteViewer().getPaletteRoot().getChildren();
 		for (int i = 0; i < list.size(); ++i) {
 			if (list.get(i) instanceof PaletteDrawer) {
@@ -1081,38 +1083,39 @@ public class EsbPaletteFactory {
 	}
 
 	private ArrayList<String> addDefinedArtifacts(IEditorPart editor, String dir,
-			String artifactPrefix) {
+			String type) {
 		ArrayList<String> definedArtifacts = new ArrayList<String>();
 		if (editor != null) {
 			IFileEditorInput input = (IFileEditorInput) editor.getEditorInput();
 			IFile file = input.getFile();
 			IProject activeProject = file.getProject();
+			//FIXME: scan whole workspace
 			try {
-				IFolder artifactDir = activeProject.getFolder(dir);
-				if (artifactDir.exists()) {
-					IResource[] Members = artifactDir.members();
-					for (int j = 0; j < Members.length; ++j) {
-
-						Pattern p = Pattern.compile(".esb_diagram");
-						Matcher m = p.matcher(Members[j].getName());
-						StringBuffer sb = new StringBuffer();
-						boolean result = m.find();
-
-						if (result) {
-							String[] splittedFilename = Members[j].getName().split(".esb_diagram");
-							if (splittedFilename[0] != null) {
-								String[] tempName = splittedFilename[0].split(artifactPrefix, 2);
-								definedArtifacts.add(tempName[1].trim());
+					if (activeProject
+							.hasNature("org.wso2.developerstudio.eclipse.esb.project.nature")) {
+						
+						ESBProjectArtifact esbProjectArtifact = new ESBProjectArtifact();
+						File projectPath = activeProject.getLocation().toFile();
+						try {
+							esbProjectArtifact.fromFile(activeProject.getFile("artifact.xml")
+									.getLocation().toFile());
+							List<ESBArtifact> allESBArtifacts = esbProjectArtifact.getAllESBArtifacts();
+							for (ESBArtifact esbArtifact : allESBArtifacts) {
+								if(esbArtifact.getType().equals(type)){
+									File artifact =new File(projectPath, esbArtifact.getFile());
+									definedArtifacts.add(artifact.getName().replaceAll("[.]xml$",""));
+								}
 							}
+						} catch (Exception e) {
+							log.error("Error occured while scanning the project for " + type + " artifacts", e);
 						}
 					}
-				}
 			} catch (CoreException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				log.error("Error occured while scanning the project", e);
 			}
 
 		}
+		
 		return definedArtifacts;
 	}
 
@@ -1263,6 +1266,7 @@ public class EsbPaletteFactory {
 	/**
 	 * @generated NOT
 	 */
+	@SuppressWarnings("restriction")
 	public static class NodeToolEntry extends PaletteToolEntry {
 
 		/**
