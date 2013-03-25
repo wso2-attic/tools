@@ -118,6 +118,7 @@ public interface Task extends EsbElement {
 
 	/**
 	 * Returns the value of the '<em><b>Count</b></em>' attribute.
+	 * The default value is <code>"-1"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Count</em>' attribute isn't clear,
@@ -127,7 +128,7 @@ public interface Task extends EsbElement {
 	 * @return the value of the '<em>Count</em>' attribute.
 	 * @see #setCount(long)
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getTask_Count()
-	 * @model
+	 * @model default="-1"
 	 * @generated
 	 */
 	long getCount();

@@ -39,6 +39,7 @@ public class ArtifactConstants extends NLS {
 	public static String Err_Msg_Empty_Path;
 	public static String Err_Msg_Interval;
 	public static String Err_Msg_Simple_Trigger;
+	public static String Err_Msg_Simple_zero_Trigger;
 	
 	static {
 		// initialize resource bundle

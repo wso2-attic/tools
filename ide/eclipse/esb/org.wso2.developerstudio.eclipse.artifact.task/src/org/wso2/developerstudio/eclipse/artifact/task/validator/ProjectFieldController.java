@@ -53,14 +53,20 @@ public class ProjectFieldController extends AbstractFieldController {
 				if (value != null && value.toString().length() > 0) {
 					try {
 						int count = Integer.parseInt(value.toString());
-						if (count < 0) {
+						if (count < -1) {
 							throw new Exception();
 						} else {
 							if (count > 1 && taskModel.getInterval() <= 0) {
 								throw new Exception(Err_Msg_Simple_Trigger);
 							}
+							if (count ==-1 && taskModel.getInterval() <= 0) {
+								throw new Exception(Err_Msg_Simple_Trigger);
+							}
+							if (count ==0 && taskModel.getInterval() == 0) {
+								throw new Exception(Err_Msg_Simple_zero_Trigger);
+							}
 						}
-					} catch (NumberFormatException e) {
+						} catch (NumberFormatException e) {
 						throw new FieldValidationException(Err_Msg_Count);
 					} catch (Exception e) {
 						throw new FieldValidationException(

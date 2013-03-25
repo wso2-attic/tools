@@ -79,7 +79,7 @@ public class TaskDeserializer extends AbstractEsbNodeDeserializer<TaskDescriptio
 			executeSetValueCommand(TASK__TRIGGER_TYPE, TaskTriggerType.CRON);
 		} else {
 			executeSetValueCommand(TASK__TRIGGER_TYPE, TaskTriggerType.SIMPLE);
-			executeSetValueCommand(TASK__COUNT, task.getCount());
+			executeSetValueCommand(TASK__COUNT, (long)task.getCount());
 			executeSetValueCommand(TASK__INTERVAL, task.getInterval() / 1000);
 		}
 

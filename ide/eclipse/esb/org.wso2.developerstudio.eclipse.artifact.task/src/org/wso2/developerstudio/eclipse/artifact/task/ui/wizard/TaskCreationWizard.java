@@ -144,7 +144,7 @@ private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 					String relativePath = FileUtils.getRelativePath(importLocation.getProject()
 							.getLocation().toFile(), new File(importLocation.getLocation().toFile(),
 							name + ".xml"));
-					esbProjectArtifact.addESBArtifact(createArtifact(artifactModel.getName(), groupId,
+					esbProjectArtifact.addESBArtifact(createArtifact(name, groupId,
 							"1.0.0", relativePath));
 				}
 			} 
@@ -158,7 +158,7 @@ private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 				String relativePath = FileUtils.getRelativePath(importLocation.getProject()
 						.getLocation().toFile(), new File(importLocation.getLocation().toFile(),
 						name + ".xml"));
-				esbProjectArtifact.addESBArtifact(createArtifact(artifactModel.getName(), groupId,
+				esbProjectArtifact.addESBArtifact(createArtifact(name, groupId,
 						"1.0.0", relativePath));
 			}
 		}
@@ -202,7 +202,7 @@ private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 		if(artifactModel.getTriggerType() ==TriggerType.CRON){
 			content += "<trigger cron=\"" + artifactModel.getCron() + "\"/>";
 		} else{
-			if (artifactModel.getCount() <= 1 && artifactModel.getInterval() == 0) {
+			if (artifactModel.getCount() == 1 && artifactModel.getInterval() == 0) {
 				content += "<trigger once=\"true\"/>";
 			} else{
 				content += "<trigger count=\"" + artifactModel.getCount() + "\" interval=\""

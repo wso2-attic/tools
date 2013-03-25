@@ -106,7 +106,7 @@ public class TaskImpl extends EsbElementImpl implements Task {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final long COUNT_EDEFAULT = 0L;
+	protected static final long COUNT_EDEFAULT = -1L;
 
 	/**
 	 * The cached value of the '{@link #getCount() <em>Count</em>}' attribute.

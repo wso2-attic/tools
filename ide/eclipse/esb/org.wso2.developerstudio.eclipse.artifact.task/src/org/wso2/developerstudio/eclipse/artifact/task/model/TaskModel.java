@@ -54,7 +54,7 @@ public class TaskModel  extends ProjectDataModel {
 	private String group = "synapse.simple.quartz";
 	private String taskImplementation = "org.apache.synapse.startup.tasks.MessageInjector";
 	private TriggerType triggerType = TriggerType.SIMPLE;
-	private int count;
+	private int count=1;
 	private long interval;
 	private String cron;
 	private String pinnedServers;
