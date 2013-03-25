@@ -20,6 +20,8 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.apache.axiom.om.OMElement;
 import org.eclipse.core.resources.IContainer;
@@ -34,6 +36,14 @@ import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectDataM
 import org.wso2.developerstudio.eclipse.platform.ui.validator.CommonFieldValidator;
 
 public class TemplateProjectFieldController extends AbstractFieldController {
+
+	Pattern urlPat;
+	Matcher matcher;
+
+	public TemplateProjectFieldController() {
+		urlPat=Pattern.compile("\\$.*");
+		matcher=urlPat.matcher("");
+	}
 
 	public void validate(String modelProperty, Object value,
 			ProjectDataModel model) throws FieldValidationException {
@@ -89,11 +99,13 @@ public class TemplateProjectFieldController extends AbstractFieldController {
 							"Please select at least one artifact");
 				}
 			}
-		} else if (modelProperty.equals("templ.address.ep.uri")&& isAddressEP) {	
+		} else if (modelProperty.equals("templ.address.ep.uri")&& isAddressEP) {
 			if (value == null || value.toString().trim().isEmpty()) {
 				throw new FieldValidationException("Address url cannot be empty");
 			} else{
-				CommonFieldValidator.isValidUrl(value.toString().trim(), "Address url");
+				if(!isParamiterized(value.toString().trim())){
+					CommonFieldValidator.isValidUrl(value.toString().trim(), "Address url");
+				}				
 			}	
 		} else if (modelProperty.equals("templ.wsdl.ep.uri")&& isWSDlEP ) {	
 			if (value == null || value.toString().trim().isEmpty()) {
@@ -183,6 +195,15 @@ public class TemplateProjectFieldController extends AbstractFieldController {
 		                              "templ.wsdl.ep.port" }));
 		return map;
 
+	}
+	
+	public boolean isParamiterized(String url){
+		boolean isValid=false;
+		matcher.reset(url);
+		while(matcher.find()){
+			isValid=true;
+		}
+		return isValid;
 	}
 	
 }
