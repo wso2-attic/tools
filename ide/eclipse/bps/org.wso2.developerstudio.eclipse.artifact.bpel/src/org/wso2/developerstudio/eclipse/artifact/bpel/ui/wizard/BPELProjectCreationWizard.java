@@ -196,11 +196,20 @@ public class BPELProjectCreationWizard extends AbstractWSO2ProjectCreationWizard
 		if(!BPELArtifactConstants.EMPTY_BPEL_PROCESS.equals(bpelModel.getSelectedTemplate())){
 			FileUtils.createFile(newWSDLFile, replacedWSDLContent);			
 		}else{
-			org.apache.commons.io.FileUtils.deleteQuietly(deployfile);
+			boolean deleteQuietly = org.apache.commons.io.FileUtils.deleteQuietly(deployfile);
+			if(!deleteQuietly){
+				deployfile.delete();
+			}
 		}		
 		
-		processFile.delete();
-		wsdlfile.delete();
+		boolean deleteQuietly = org.apache.commons.io.FileUtils.deleteQuietly(processFile);
+		if(!deleteQuietly){
+			processFile.delete();
+		}
+		boolean deleteQuietly1 = org.apache.commons.io.FileUtils.deleteQuietly(wsdlfile);
+		if (!deleteQuietly1) {
+			wsdlfile.delete();
+		}
 		
 //		org.apache.commons.io.FileUtils.deleteQuietly(processFile);
 //		org.apache.commons.io.FileUtils.deleteQuietly(wsdlfile);
