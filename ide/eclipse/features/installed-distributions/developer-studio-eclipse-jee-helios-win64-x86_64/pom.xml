@@ -265,7 +265,7 @@
 						<java classname="org.eclipse.equinox.launcher.Main" fork="true"
 							spawn="false" failonerror="true" maxmemory="1024m">
 						<classpath>
-							<fileset dir="${project.basedir}/target/eclipse" includes="org.eclipse.equinox.launcher*.jar" />
+							<fileset dir="${project.basedir}/target/eclipse/plugins" includes="org.eclipse.equinox.launcher*.jar" />
 						</classpath>
 						<arg value="-nosplash" />
 						<arg value="-application" />
