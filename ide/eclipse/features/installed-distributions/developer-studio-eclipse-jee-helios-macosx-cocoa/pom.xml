@@ -91,7 +91,7 @@
                 </executions>
             </plugin>
 
-            <plugin>
+            <!--plugin>
                 <groupId>org.wso2.maven</groupId>
                 <artifactId>carbon-p2-plugin</artifactId>
                 <version>1.2</version>
@@ -250,7 +250,104 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin-->
+            	<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<executions>
+					<execution>
+					<id>install-eclipse</id>
+					<phase>package</phase>
+					<goals>
+						<goal>run</goal>
+					</goals>
+					<configuration>
+					<tasks>
+						<java classname="org.eclipse.equinox.launcher.Main" fork="true"
+							spawn="false" failonerror="true" maxmemory="1024m">
+						<classpath>
+							<fileset dir="${project.basedir}/target/eclipse" includes="org.eclipse.equinox.launcher*.jar" />
+						</classpath>
+						<arg value="-nosplash" />
+						<arg value="-application" />
+						<arg value="org.eclipse.equinox.p2.director" />
+						<arg value="-repository" />
+						<arg value="file:${project.basedir}/target/p2-repo" />
+						<arg value="-destination" />
+						<arg value="${project.basedir}/target/eclipse" />
+						<arg value="-installIU" />
+						<arg value="org.wso2.developerstudio.eclipse.appserver.feature.feature.group" />
+						<arg value="-installIU" />
+						<arg value="org.wso2.developerstudio.eclipse.appserver.artifact.feature.feature.group" />
+						<arg value="-installIU" />
+						<arg value="org.wso2.developerstudio.eclipse.bps.feature.feature.group" />
+						<arg value="-installIU" />
+						<arg value="org.wso2.developerstudio.eclipse.bpel.artifact.feature.feature.group" />
+						<arg value="-installIU" />
+						<arg value="org.wso2.developerstudio.eclipse.registry.feature.feature.group" />
+						<arg value="-installIU" />
+						<arg value="org.wso2.developerstudio.eclipse.registry.artifact.feature.feature.group" />
+						<arg value="-installIU" />
+						<arg value="org.wso2.developerstudio.eclipse.esb.feature.feature.group" />
+						<arg value="-installIU" />
+						<arg value="org.wso2.developerstudio.eclipse.esb.artifact.feature.feature.group" />
+						<arg value="-installIU" />
+						<arg value="org.wso2.developerstudio.eclipse.esb.graphical.editor.feature.feature.group" />
+						<arg value="-installIU" />
+						<arg value="org.wso2.developerstudio.eclipse.ds.feature.feature.group" />
+						<arg value="-installIU" />
+						<arg value="org.wso2.developerstudio.eclipse.ds.artifact.feature.feature.group" />
+						<arg value="-installIU" />
+						<arg value="org.wso2.developerstudio.eclipse.usermgt.core.feature.feature.group" />
+						<arg value="-installIU" />
+						<arg value="org.wso2.developerstudio.eclipse.carbon.uibundle.artifact.feature.feature.group" />
+						<arg value="-installIU" />
+						<arg value="org.wso2.developerstudio.eclipse.capp.framework.feature.feature.group" />
+						<arg value="-installIU" />
+						<arg value="org.wso2.developerstudio.eclipse.bpel.connector.feature.feature.group" />
+						<arg value="-installIU" />
+						<arg value="org.wso2.developerstudio.eclipse.registry.connector.feature.feature.group" />
+						<arg value="-installIU" />
+						<arg value="org.wso2.developerstudio.eclipse.server.framework.feature.feature.group" />
+						<arg value="-installIU" />
+						<arg value="org.wso2.developerstudio.eclipse.framework.core.feature.feature.group" />
+						<arg value="-installIU" />
+						<arg value="org.wso2.developerstudio.eclipse.framework.samples.feature.feature.group" />
+						<arg value="-installIU" />
+						<arg value="org.wso2.developerstudio.eclipse.carbonserver.30.feature.feature.group" />
+						<arg value="-installIU" />
+						<arg value="org.wso2.developerstudio.eclipse.carbonserver.31.feature.feature.group" />
+						<arg value="-installIU" />
+						<arg value="org.wso2.developerstudio.eclipse.carbonserver.32.feature.feature.group" />
+						<arg value="-installIU" />
+						<arg value="org.wso2.developerstudio.eclipse.carbonserver.40.feature.feature.group" />
+						<arg value="-installIU" />
+						<arg value="org.wso2.developerstudio.eclipse.carbonserver.remote.feature.feature.group" />
+						<arg value="-installIU" />
+						<arg value="org.jboss.tools.smooks.feature.feature.group" />
+						<arg value="-installIU" />
+						<arg value="org.wso2.developerstudio.eclipse.distribution.project.feature.feature.group" />
+						<arg value="-installIU" />
+						<arg value="org.wso2.developerstudio.eclipse.artifact.library.feature.feature.group" />
+						<arg value="-installIU" />
+						<arg value="org.wso2.developerstudio.eclipse.gadget.artifact.feature.feature.group" />
+						<arg value="-installIU" />
+						<arg value="org.wso2.developerstudio.eclipse.gs.jaggery.feature.feature.group" />
+						<arg value="-installIU" />
+						<arg value="org.smooks.edi.editor-feature.feature.group" />
+						<arg value="-installIU" />
+						<arg value="org.wso2.developerstudio.eclipse.cep.artifact.feature.feature.group" />
+						<arg value="-installIU" />
+						<arg value="org.wso2.developerstudio.eclipse.brs.artifact.feature.feature.group" />
+						<arg value="-installIU" />
+						<arg value="org.wso2.soapui.feature.feature.group" />
+						<arg value="-installIU" />
+						<arg value="org.wso2.tcpmon.feature.feature.group" />
+					</java>
+					</tasks>
+				</configuration>
+				</execution>
+			</executions>
+		</plugin>
 	    <plugin>
 		<groupId>org.apache.maven.plugins</groupId>
 		<artifactId>maven-antrun-plugin</artifactId>
