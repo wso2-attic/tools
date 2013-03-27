@@ -268,7 +268,7 @@ public class EntitlementAdviceBranchImpl extends MediatorBranchImpl implements E
 	 */
 	public Element doSave(Element parent) throws Exception {
 		if (getSequenceType().equals(EntitlementSequence.ANONYMOUS)) {
-			Element self = createChildElement(parent, "onAdvice");
+			Element self = createChildElement(parent, "advice");
 			for (Mediator child : getChildren()) {
 				child.save(self);
 			}
@@ -284,12 +284,12 @@ public class EntitlementAdviceBranchImpl extends MediatorBranchImpl implements E
 	 * {@inheritDoc}
 	 */
 	public void doLoad(Element self) throws Exception {		
-		if (self.hasAttribute("onAdvice")) {
+		if (self.hasAttribute("advice")) {
 			setSequenceType(EntitlementSequence.REGISTRY_REFERENCE);
 			getSequenceKey().load(self);			
 		} else {
 			setSequenceType(EntitlementSequence.ANONYMOUS);
-			Element onAcceptElem = getChildElement(self, "onAdvice");
+			Element onAcceptElem = getChildElement(self, "advice");
 			if (null != onAcceptElem) {
 				super.doLoad(onAcceptElem);
 			}

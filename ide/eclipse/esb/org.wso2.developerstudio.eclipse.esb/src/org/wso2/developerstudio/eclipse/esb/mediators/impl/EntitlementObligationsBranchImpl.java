@@ -266,12 +266,12 @@ public class EntitlementObligationsBranchImpl extends MediatorBranchImpl impleme
 	 * {@inheritDoc}
 	 */
 	public void doLoad(Element self) throws Exception {		
-		if (self.hasAttribute("onObligation")) {
+		if (self.hasAttribute("obligations")) {
 			setSequenceType(EntitlementSequence.REGISTRY_REFERENCE);
 			getSequenceKey().load(self);			
 		} else {
 			setSequenceType(EntitlementSequence.ANONYMOUS);
-			Element onAcceptElem = getChildElement(self, "onObligation");
+			Element onAcceptElem = getChildElement(self, "obligations");
 			if (null != onAcceptElem) {
 				super.doLoad(onAcceptElem);
 			}
@@ -283,7 +283,7 @@ public class EntitlementObligationsBranchImpl extends MediatorBranchImpl impleme
 	 */
 	public Element doSave(Element parent) throws Exception {
 		if (getSequenceType().equals(EntitlementSequence.ANONYMOUS)) {
-			Element self = createChildElement(parent, "onObligation");
+			Element self = createChildElement(parent, "obligations");
 			for (Mediator child : getChildren()) {
 				child.save(self);
 			}
