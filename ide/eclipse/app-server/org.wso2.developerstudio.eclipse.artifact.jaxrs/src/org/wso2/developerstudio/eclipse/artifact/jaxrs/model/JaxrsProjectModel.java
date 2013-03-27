@@ -34,18 +34,19 @@ public class JaxrsProjectModel  extends ProjectDataModel {
 	private String sourcePackage;
 	private String serviceClass;
 	private String serviceClassPackage;
-	private IWorkspace workSpace;
-	private IWorkspaceRoot root;
+	//private IWorkspace workSpace;
+	private String cxfRuntime;
+	//private IWorkspaceRoot root;
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	
 	
 	public JaxrsProjectModel() {
-		workSpace=ResourcesPlugin.getWorkspace();
-		root=workSpace.getRoot();
-		String cxfruntime=getCXFRuntime();
+		//workSpace=ResourcesPlugin.getWorkspace();
+		//root=workSpace.getRoot();
+		/*String cxfruntime=getCXFRuntime();
 		if(!cxfruntime.equals("")){
 			setCXFRuntime(cxfruntime);
-		}
+		}*/
 	}
 
 	public void setServiceClassPackage(String serviceClassPackage) {
@@ -68,23 +69,24 @@ public class JaxrsProjectModel  extends ProjectDataModel {
 		return this.sourcePackage;
 	}
 
-	public void setCXFRuntime(String cXFRuntime) {
-		try {
+	public void setCXFRuntime(String cxfRuntime) {
+		this.cxfRuntime = cxfRuntime;
+	/*	try {
 			root.setSessionProperty(new QualifiedName("","CXF path"),cXFRuntime);
 		} catch (CoreException e) {
 			log.error("CoreException has occurred", e);
-		}	
+		}	*/
 	}
 	
 	public String getCXFRuntime() {
-		String cxfRuntime="";
+		/*String cxfRuntime="";
 		try {
 			if(root.getSessionProperties().size()>0){
 				cxfRuntime = root.getSessionProperty(new QualifiedName("","CXF path")).toString();
 			}
 		} catch (CoreException e) {
 			log.error("CoreException has occurred", e);
-		}
+		}*/
 		return cxfRuntime;
 	}
 	
