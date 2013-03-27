@@ -576,7 +576,6 @@ public class FileUtils{
 	
 	
 	public static File extractJar(File jarfile) throws IOException{
-		List<File> classFiles = new ArrayList<File>();
 		ArchiveManipulator archiveManipulator = new ArchiveManipulator();
 		File tempDir = FileUtils.createTempDirectory();
 		archiveManipulator.extract(jarfile.getPath(), tempDir.getPath());
@@ -585,7 +584,9 @@ public class FileUtils{
 	
 	public static String getContentAsString(URL url) throws IOException {
 		InputStream openStream = url.openStream();
-	    return getContentAsString(openStream);
+	    String contentAsString = getContentAsString(openStream);
+	    openStream.close();
+	    return contentAsString;
     }
 
 	public static String getContentAsString(InputStream dataStream)
@@ -773,6 +774,7 @@ public class FileUtils{
                     while ((len = zin.read(buf)) > 0) {
                         out.write(buf, 0, len);
                     }
+                    out.close();
                 }
             }
         } catch (IOException e) {

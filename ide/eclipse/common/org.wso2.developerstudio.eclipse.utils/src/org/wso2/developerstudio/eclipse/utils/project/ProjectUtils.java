@@ -54,7 +54,6 @@ public class ProjectUtils {
 	public static void addBuildSpecificationsToProject(IProject project, String...buildCommandList) throws CoreException{
 		IProjectDescription description = project.getDescription();
 		ICommand[] buildSpecifications = new BuildCommand[buildCommandList.length];
-		ICommand[] existingBuildSpec = description.getBuildSpec();
 		
 		int i = 0;
 		for (ICommand buildCommand : buildSpecifications) {
