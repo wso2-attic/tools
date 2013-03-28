@@ -21,6 +21,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.maven.project.MavenProject;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
@@ -122,6 +123,9 @@ public class BPELProjectCreationWizard extends AbstractWSO2ProjectCreationWizard
 		File pomfile = project.getFile("pom.xml").getLocation().toFile();
 		getModel().getMavenInfo().setPackageName("bpel/workflow");
 		createPOM(pomfile);
+		MavenProject mavenProject = MavenUtils.getMavenProject(pomfile);
+		MavenUtils.addMavenBpelPlugin(mavenProject);
+		MavenUtils.saveMavenProject(mavenProject, pomfile);
 		ProjectUtils.addNatureToProject(project,
 										false,
 										"org.eclipse.jem.workbench.JavaEMFNature",

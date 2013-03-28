@@ -105,11 +105,15 @@ public abstract class AbstractPOMGenMojo extends AbstractMojo {
 					if (artifactMavenProject != null) {
 						try {
 							getLog().info("\tcopying resources...");
-							getMavenModuleProject().getModules().add(
-									CAppMavenUtils
-											.getMavenModuleRelativePath(
-													getModuleProject(),
-													projectLocation));
+							String artifactAsMavenModule = CAppMavenUtils
+									.getMavenModuleRelativePath(
+											getModuleProject(),
+											projectLocation);
+							List existingModules = getMavenModuleProject().getModules();
+							if (!existingModules.contains(artifactAsMavenModule)) {
+								existingModules.add(
+										artifactAsMavenModule);
+							}
 							Repository repo = new Repository();
 							repo.setUrl("http://dist.wso2.org/maven2");
 							repo.setId("wso2-maven2-repository-1");
