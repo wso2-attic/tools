@@ -228,9 +228,9 @@ public class JaxrsCreationWizard  extends AbstractWSO2ProjectCreationWizard{
 					shell = "cmd.exe";
 					wadl2java = "wadl2java.bat";
 					if(sourcePkg!=null && sourcePkg.trim().length()>0){
-						pb = new ProcessBuilder(shell, "/c", wadl2java, "-impl", "-server", "-p",sourcePkg, "-d",sourceDir,wadlFile);
+						pb = new ProcessBuilder(shell, "/c", wadl2java, "-d",sourceDir , "-p",sourcePkg, "-impl", "-interface" ,wadlFile);
 					} else {
-						pb = new ProcessBuilder(shell, "/c", wadl2java, "-impl", "-server", "-d",sourceDir,wadlFile);
+						pb = new ProcessBuilder(shell, "/c", wadl2java, "-d",sourceDir ,"-impl", "-interface" ,wadlFile);
 					}
 				} else {
 					shell = "sh";

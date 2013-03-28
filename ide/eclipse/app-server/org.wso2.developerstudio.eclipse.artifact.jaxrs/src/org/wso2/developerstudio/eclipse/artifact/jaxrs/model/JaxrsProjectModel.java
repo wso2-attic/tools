@@ -28,6 +28,7 @@ import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.platform.core.exception.ObserverFailedException;
 import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectDataModel;
+import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 
 public class JaxrsProjectModel  extends ProjectDataModel {
 
@@ -115,13 +116,20 @@ public class JaxrsProjectModel  extends ProjectDataModel {
 			setServiceClassPackage(data.toString());
 		} else if (key.equals("service.class.name")) {
 			setServiceClass(data.toString());
+		} if (key.equals("import.file")) {
+			if(getProjectName()==null || getProjectName().trim().equals("")){
+				if (getImportFile() != null && !getImportFile().toString().equals("")) {
+					setProjectName(ProjectUtils.fileNameWithoutExtension(getImportFile().getName()));
+				}
+			}
 		} 
 		return returnValue;
 	}
 	
 	@Override
 	public void setImportFile(File importFile) {
-		super.importFile=importFile;
+			super.importFile=importFile;
+
 	}
 
 }
