@@ -110,11 +110,11 @@
                             <destination>${basedir}/target/eclipse</destination>
                             <deleteOldProfileFiles>false</deleteOldProfileFiles>
                             <features>
-                            	<!--feature>
+                            	<feature>
                             		<id>org.wso2.developerstudio.eclipse.carbonstudio.feature.feature.group</id>
                             		<version>${carbonstudio.tools.feature.version}</version>
-                            	</feature-->
-                            	<!-- feature>
+                            	</feature>
+                            	<feature>
                             		<id>org.wso2.developerstudio.eclipse.appserver.feature.feature.group</id>
                             		<version>${appserver.tools.feature.version}</version>
                             	</feature>
