@@ -308,7 +308,9 @@ public class CacheMediatorImpl extends MediatorImpl implements CacheMediator {
 		Element self = createChildElement(parent, "cache");
 
 		// Id.
+		if(getCacheId() != null && !getCacheId().equals("")){
 		self.setAttribute("id", getCacheId());
+		}
 
 		// Scope.		
 		self.setAttribute("scope", getCacheScope().getLiteral());		
