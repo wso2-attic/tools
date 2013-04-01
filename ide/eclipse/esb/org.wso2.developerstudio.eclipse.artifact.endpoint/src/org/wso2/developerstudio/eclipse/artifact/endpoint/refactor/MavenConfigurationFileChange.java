@@ -82,7 +82,8 @@ public class MavenConfigurationFileChange extends TextFileChange {
 
 	private void dependencyReplacement() throws IOException {
 		int fullIndex = 0;
-		BufferedReader reader = new BufferedReader(new FileReader(pomFile.getLocation().toFile()));
+		FileReader fileReader = new FileReader(pomFile.getLocation().toFile());
+		BufferedReader reader = new BufferedReader(fileReader);
 		String dependenciesStart = "<dependencies>";
 		String dependenciesEnd = "</dependencies>";
 		boolean isDependencies = false;
@@ -112,6 +113,7 @@ public class MavenConfigurationFileChange extends TextFileChange {
 			previousLine = line;
 			line = reader.readLine();
 		}
+		fileReader.close();
 		reader.close();
 	}
 }

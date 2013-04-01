@@ -64,9 +64,10 @@ public class RegistryMeataDataFileChange extends TextFileChange  {
 	// Here we implement the logic to identify the places to be replaced
 	private void identifyReplaces() throws IOException {
 		int fullIndex = 0;
+		FileReader fileReader = new FileReader(metaDataFile.getLocation()
+		                                              .toFile());
 		BufferedReader reader =
-		                        new BufferedReader(new FileReader(metaDataFile.getLocation()
-		                                                                      .toFile()));
+		                        new BufferedReader(fileReader);
 		String case1String = null;
 		String originalResourceName = originalName.getName();
 		if (originalName instanceof IFile) {
@@ -129,6 +130,7 @@ public class RegistryMeataDataFileChange extends TextFileChange  {
 			fullIndex+=charsOnTheLine(line);
 			line = reader.readLine();
 		}
+		fileReader.close();
 		reader.close();
 	}
 	

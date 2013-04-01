@@ -179,9 +179,10 @@ public class RegistryMetadataFileDeleteChange extends  TextFileChange {
 
 		int fullIndex = 0;
 		int startIndex = 0;
+		FileReader fileReader = new FileReader(metaDataFile.getLocation()
+		                                              .toFile());
 		BufferedReader reader =
-		                        new BufferedReader(new FileReader(metaDataFile.getLocation()
-		                                                                      .toFile()));
+		                        new BufferedReader(fileReader);
 		String line = reader.readLine();
 		while (line != null) {
 			if (!isArtifacts && line.contains(artifactsStart)) {
@@ -321,6 +322,7 @@ public class RegistryMetadataFileDeleteChange extends  TextFileChange {
 			fullIndex += charsOnTheLine(line);
 			line = reader.readLine();
 		}
+		fileReader.close();
 		reader.close();
 	}
 

@@ -59,9 +59,10 @@ public class EndpointArtifactFileChange extends TextFileChange {
 
 	private void identifyReplaces() throws IOException {
 		int fullIndex = 0;
+		FileReader fileReader = new FileReader(endpointFile.getLocation()
+		                                              .toFile());
 		BufferedReader reader =
-		                        new BufferedReader(new FileReader(endpointFile.getLocation()
-		                                                                      .toFile()));
+		                        new BufferedReader(fileReader);
 		String case1String = "\"" + originalName + "\"";
 		String nameElement = "name=";
 		String line = reader.readLine();
@@ -101,6 +102,7 @@ public class EndpointArtifactFileChange extends TextFileChange {
 			fullIndex += charsOnTheLine(line);
 			line = reader.readLine();
 		}
+		fileReader.close();
 		reader.close();
 	}
 
