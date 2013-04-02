@@ -96,9 +96,9 @@
     </distributionManagement>
   <repositories>
    <repository>
-     <id>helios</id>
+     <id>juno</id>
      <layout>p2</layout>
-     <url>http://download.eclipse.org/releases/helios</url>
+     <url>http://download.eclipse.org/releases/juno</url>
      <releases>
         <enabled>true</enabled>
         <updatePolicy>daily</updatePolicy>
@@ -210,7 +210,7 @@
         </plugins>
     </build>    
     <properties>
- 	<tycho-version>0.16.0</tycho-version>
+ 	<tycho-version>0.17.0</tycho-version>
 
  <!--********** bundle plugin versions **********-->
         <capp.tools.version>3.2.0-SNAPSHOT</capp.tools.version>
