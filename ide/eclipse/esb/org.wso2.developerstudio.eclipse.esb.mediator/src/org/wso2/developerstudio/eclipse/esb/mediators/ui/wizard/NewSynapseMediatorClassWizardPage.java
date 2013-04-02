@@ -96,7 +96,7 @@ public class NewSynapseMediatorClassWizardPage extends NewClassWizardPage{
 
 	private void addSynapseLibrary() throws JavaModelException {
 	    IJavaProject javaProject = getJavaProject();
-	    File synapseLibraryPath = LibraryUtils.getDependencyPath("synapse-core-2.1.0-wso2v1.jar");
+	    File synapseLibraryPath = LibraryUtils.getDependencyPath("synapse-core_2.1.0.wso2v7.jar");
 	    JavaUtils.addJarLibraryToProject(javaProject, synapseLibraryPath);
     }
 	
