@@ -222,7 +222,7 @@
         <common.utils.version>3.2.0-SNAPSHOT</common.utils.version>
         <server.plugins.version>3.2.0-SNAPSHOT</server.plugins.version>   
         <core.plugins.version>3.2.0-SNAPSHOT</core.plugins.version>                
-        <appserver.tools.version>3.2.1-SNAPSHOT</appserver.tools.version> 
+        <appserver.tools.version>3.3.1-SNAPSHOT</appserver.tools.version> 
 	<appserver.artifacts.version>3.2.0-SNAPSHOT</appserver.artifacts.version> 
 	<appserver.jaxrs.artifacts.version>1.2.0-SNAPSHOT</appserver.jaxrs.artifacts.version>
 	<cep.artifact.version>1.2.0-SNAPSHOT</cep.artifact.version>
