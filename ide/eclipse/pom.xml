@@ -238,7 +238,7 @@
         <common.ui.version>3.2.0-SNAPSHOT</common.ui.version>                   
         <common.maven.version>3.2.0-SNAPSHOT</common.maven.version>    
         <common.tools.version>3.2.0-SNAPSHOT</common.tools.version>                         
-        <bps.export.tool.version>1.2.4-SNAPSHOT</bps.export.tool.version>
+        <bps.export.tool.version>1.3.4-SNAPSHOT</bps.export.tool.version>
         <bps.tools.version>0.5.0.wso2v2</bps.tools.version>
         <axis2.mr.tools.version>3.2.0-SNAPSHOT</axis2.mr.tools.version>
         <usermgt.tools.version>3.2.0-SNAPSHOT</usermgt.tools.version>
