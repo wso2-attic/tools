@@ -49,6 +49,7 @@ import org.wso2.developerstudio.eclipse.artifact.synapse.utils.SynapseImageUtils
 import org.wso2.developerstudio.eclipse.capp.maven.utils.MavenConstants;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBArtifact;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
+import org.wso2.developerstudio.eclipse.esb.project.utils.ESBProjectUtils;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
@@ -105,20 +106,20 @@ public class SynapseCreationWizard extends AbstractWSO2ProjectCreationWizard {
 			} else if (synapseModel.getSelectedOption().equals("import.synapse.config")) {
 				if (synapseModel.isESBartifactsCreate()) {
 					List<OMElement> esbArtiList = synapseModel.getSelectedArtifacts();
-					createESBArtifacts(esbArtiList,groupId);
+					ESBProjectUtils.createESBArtifacts(esbArtiList,esbProject,pomfile,fileList,groupId);
 				} else {
 					File synConfig = new File(saveLocation.getLocation().toFile(),
 							synapseModel.getImportFile().getName());
 					FileUtils.copy(synapseModel.getImportFile(), synConfig);
 					MavenProject mavenProject = MavenUtils.getMavenProject(pomfile);
-					addPluginEntry(mavenProject,"org.wso2.maven","wso2-esb-synapse-plugin", MavenConstants.WSO2_ESB_SYNAPSE_VERSION,"synapse");
+					ESBProjectUtils.addPluginEntry(mavenProject,"org.wso2.maven","wso2-esb-synapse-plugin", MavenConstants.WSO2_ESB_SYNAPSE_VERSION,"synapse");
 					MavenUtils.saveMavenProject(mavenProject, pomfile);
-					createArtifactMetaDataEntry(synConfig.getName().substring(0,synConfig.getName().lastIndexOf(".")), "synapse/configuration",
-					                            saveLocation.getLocation().toFile(),groupId + ".synapse");
+					ESBProjectUtils.createArtifactMetaDataEntry(synConfig.getName().substring(0,synConfig.getName().lastIndexOf(".")), "synapse/configuration",
+					                            saveLocation.getLocation().toFile(),groupId + ".synapse",esbProject);
 					fileList.put(synConfig,"synConfig");
 				}
 			}
-			updatePom();
+			ESBProjectUtils.updatePom(esbProject);
 			esbProject.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
 			refreshDistProjects();
 			if (!fileList.isEmpty()) {
@@ -135,17 +136,17 @@ public class SynapseCreationWizard extends AbstractWSO2ProjectCreationWizard {
 		return true;
 	}
 	
-	public void updatePom() throws Exception {
+/*	public void updatePom() throws Exception {
 
 		File mavenProjectPomLocation = esbProject.getFile("pom.xml").getLocation().toFile();
 		MavenProject mavenProject = MavenUtils.getMavenProject(mavenProjectPomLocation);
 
-		addPluginEntry(mavenProject, "org.wso2.maven","wso2-esb-synapse-plugin", MavenConstants.WSO2_ESB_SYNAPSE_VERSION,"synapse");
+		ESBProjectUtils.addPluginEntry(mavenProject, "org.wso2.maven","wso2-esb-synapse-plugin", MavenConstants.WSO2_ESB_SYNAPSE_VERSION,"synapse");
 		
 		MavenUtils.saveMavenProject(mavenProject, mavenProjectPomLocation);
-	}
+	}*/
 
-	private void addPluginEntry(MavenProject mavenProject, String groupId, String artifactId, String version, String Id) {
+/*	private void addPluginEntry(MavenProject mavenProject, String groupId, String artifactId, String version, String Id) {
 	    List<Plugin> plugins = mavenProject.getBuild().getPlugins();
 		for (Plugin plg : plugins) {
 			if (plg.getGroupId().equalsIgnoreCase(groupId) && plg.getArtifactId().equalsIgnoreCase(artifactId) && plg.getVersion().equalsIgnoreCase(version) ) {
@@ -183,7 +184,7 @@ public class SynapseCreationWizard extends AbstractWSO2ProjectCreationWizard {
 	        mavenProject.getModel().addRepository(repo);
 	        mavenProject.getModel().addPluginRepository(repo);
         }
-    }
+    }*/
 
 	
 
@@ -195,10 +196,10 @@ public class SynapseCreationWizard extends AbstractWSO2ProjectCreationWizard {
 		                                  synapseModel.getName().replaceAll(".xml$", "") + ".xml");
 		FileUtils.writeContent(synapseConfigFile, template);
 		MavenProject mavenProject = MavenUtils.getMavenProject(pomfile);
-		addPluginEntry(mavenProject,"org.wso2.maven","wso2-esb-synapse-plugin", MavenConstants.WSO2_ESB_SYNAPSE_VERSION,"synapse");
+		ESBProjectUtils.addPluginEntry(mavenProject,"org.wso2.maven","wso2-esb-synapse-plugin", MavenConstants.WSO2_ESB_SYNAPSE_VERSION,"synapse");
 		MavenUtils.saveMavenProject(mavenProject, pomfile);
-		createArtifactMetaDataEntry(synapseModel.getName(), "synapse/configuration",
-		                            saveLocation.getLocation().toFile(),groupId + ".synapse");
+		ESBProjectUtils.createArtifactMetaDataEntry(synapseModel.getName(), "synapse/configuration",
+		                            saveLocation.getLocation().toFile(),groupId + ".synapse",esbProject);
 		fileList.put(synapseConfigFile,"synConfig");
 	}
 
@@ -215,7 +216,7 @@ public class SynapseCreationWizard extends AbstractWSO2ProjectCreationWizard {
 //		return false;
 //	}
 
-	public void createArtifactMetaDataEntry(String name, String type,File baseDir,String groupId)
+/*	public void createArtifactMetaDataEntry(String name, String type,File baseDir,String groupId)
 	                                                                 throws FactoryConfigurationError,
 	                                                                 Exception {
 		ESBProjectArtifact esbProjectArtifact = new ESBProjectArtifact();
@@ -231,7 +232,7 @@ public class SynapseCreationWizard extends AbstractWSO2ProjectCreationWizard {
 			                                                    name + ".xml")).replaceAll(Pattern.quote(File.separator), "/"));	
 		esbProjectArtifact.addESBArtifact(artifact);
 		esbProjectArtifact.toFile();
-	}
+	}*/
 
 	public void setSynapseModel(SynapseModel customMediatorModel) {
 		this.synapseModel = customMediatorModel;
@@ -253,7 +254,7 @@ public class SynapseCreationWizard extends AbstractWSO2ProjectCreationWizard {
 		fileList.put("destFile",destFile);
 	}*/
 
-	public void createESBArtifacts(List<OMElement> selectedElementsList,String groupId)
+/*	public void createESBArtifacts(List<OMElement> selectedElementsList,String groupId)
 	                                                                    throws FactoryConfigurationError,
 	                                                                    Exception {
 		if (selectedElementsList != null) {
@@ -331,7 +332,7 @@ public class SynapseCreationWizard extends AbstractWSO2ProjectCreationWizard {
 				}	
 			}
 		}
-	}
+	}*/
 	
 	public void openEditor(File file){
 		try {

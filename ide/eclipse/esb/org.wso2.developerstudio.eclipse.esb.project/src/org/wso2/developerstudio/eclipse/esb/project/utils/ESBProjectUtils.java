@@ -16,10 +16,21 @@
 
 package org.wso2.developerstudio.eclipse.esb.project.utils;
 
+import java.io.File;
 import java.util.List;
+import java.util.Map;
+import java.util.regex.Pattern;
 
+import javax.xml.namespace.QName;
 import javax.xml.stream.FactoryConfigurationError;
 
+import org.apache.axiom.om.OMElement;
+import org.apache.maven.model.Plugin;
+import org.apache.maven.model.PluginExecution;
+import org.apache.maven.model.Repository;
+import org.apache.maven.model.RepositoryPolicy;
+import org.apache.maven.project.MavenProject;
+import org.codehaus.plexus.util.xml.Xpp3Dom;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
@@ -29,13 +40,15 @@ import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.wizards.IWizardDescriptor;
+import org.wso2.developerstudio.eclipse.capp.maven.utils.MavenConstants;
 import org.wso2.developerstudio.eclipse.esb.project.Activator;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBArtifact;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
 import org.wso2.developerstudio.eclipse.esb.project.ui.wizard.ESBProjectWizard;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
-import org.wso2.developerstudio.eclipse.platform.core.exception.FieldValidationException;
+import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
+import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 
 public class ESBProjectUtils {
 	
@@ -78,4 +91,188 @@ public class ESBProjectUtils {
 		return false;
 	}
 	
+	public static void createESBArtifacts(List<OMElement> selectedElementsList,IProject project,File pomfile,Map<File,String> fileList,
+			String groupId) throws FactoryConfigurationError, Exception {
+		if (selectedElementsList != null) {
+
+			for (OMElement element : selectedElementsList) {
+
+				String localName = element.getLocalName();
+				String qName = element.getAttributeValue(new QName("name"));
+				if (("".equals(qName)) || (qName == null)) {
+					qName = element.getAttributeValue(new QName("key"));
+					if (("".equals(qName)) || (qName == null)) {
+						continue;
+					}
+				}
+				//esbProjectModel.setName(qName);
+
+				String commonESBPath = "src" + File.separator + "main"
+						+ File.separator + "synapse-config" + File.separator;
+				if (localName.equalsIgnoreCase("sequence")) {
+					File baseDir = project
+							.getFolder(commonESBPath + "sequences")
+							.getLocation().toFile();
+					File destFile = new File(baseDir, qName + ".xml");
+					FileUtils.createFile(destFile, element.toString());
+					MavenProject mavenProject = MavenUtils
+							.getMavenProject(pomfile);
+					addPluginEntry(mavenProject, "org.wso2.maven",
+							"wso2-esb-sequence-plugin",
+							MavenConstants.WSO2_ESB_SEQUENCE_VERSION,
+							"sequence");
+					MavenUtils.saveMavenProject(mavenProject, pomfile);
+					fileList.put(destFile, "sequence");
+					createArtifactMetaDataEntry(qName, "synapse/sequence",
+							baseDir, groupId + ".sequence",project);
+				} else if (localName.equalsIgnoreCase("endpoint")) {
+					File baseDir = project
+							.getFolder(commonESBPath + "endpoints")
+							.getLocation().toFile();
+					File destFile = new File(baseDir, qName + ".xml");
+					FileUtils.createFile(destFile, element.toString());
+					MavenProject mavenProject = MavenUtils
+							.getMavenProject(pomfile);
+					addPluginEntry(mavenProject, "org.wso2.maven",
+							"wso2-esb-endpoint-plugin",
+							MavenConstants.WSO2_ESB_ENDPOINT_VERSION,
+							"endpoint");
+					MavenUtils.saveMavenProject(mavenProject, pomfile);
+					fileList.put(destFile, "endpoint");
+					createArtifactMetaDataEntry(qName, "synapse/endpoint",
+							baseDir, groupId + ".endpoint",project);
+				} else if (localName.equalsIgnoreCase("proxy")) {
+					File baseDir = project
+							.getFolder(commonESBPath + "proxy-services")
+							.getLocation().toFile();
+					File destFile = new File(baseDir, qName + ".xml");
+					FileUtils.createFile(destFile, element.toString());
+					MavenProject mavenProject = MavenUtils
+							.getMavenProject(pomfile);
+					addPluginEntry(mavenProject, "org.wso2.maven",
+							"wso2-esb-proxy-plugin",
+							MavenConstants.WSO2_ESB_PROXY_VERSION, "proxy");
+					MavenUtils.saveMavenProject(mavenProject, pomfile);
+					fileList.put(destFile, "proxy");
+					createArtifactMetaDataEntry(qName, "synapse/proxy-service",
+							baseDir, groupId + ".proxy-service",project);
+				} else if (localName.equalsIgnoreCase("localEntry")) {
+					File baseDir = project
+							.getFolder(commonESBPath + "local-entries")
+							.getLocation().toFile();
+					File destFile = new File(baseDir, qName + ".xml");
+					FileUtils.createFile(destFile, element.toString());
+					MavenProject mavenProject = MavenUtils
+							.getMavenProject(pomfile);
+					addPluginEntry(mavenProject, "org.wso2.maven",
+							"wso2-esb-localentry-plugin",
+							MavenConstants.WSO2_ESB_LOCAL_ENTRY_VERSION,
+							"localentry");
+					MavenUtils.saveMavenProject(mavenProject, pomfile);
+					fileList.put(destFile, "localEntry");
+					createArtifactMetaDataEntry(qName, "synapse/local-entry",
+							baseDir, groupId + ".local-entry",project);
+				} else if (localName.equalsIgnoreCase("task")) {
+					File baseDir = project.getFolder(commonESBPath + "task")
+							.getLocation().toFile();
+					File destFile = new File(baseDir, qName + ".xml");
+					FileUtils.createFile(destFile, element.toString());
+					MavenProject mavenProject = MavenUtils
+							.getMavenProject(pomfile);
+					addPluginEntry(mavenProject, "org.wso2.maven",
+							"wso2-esb-task-plugin",
+							MavenConstants.WSO2_ESB_TASK_VERSION, "task");
+					MavenUtils.saveMavenProject(mavenProject, pomfile);
+					fileList.put(destFile, "task");
+					createArtifactMetaDataEntry(qName, "synapse/task", baseDir,
+							groupId + ".task",project);
+				} else if (localName.equalsIgnoreCase("api")) {
+					File baseDir = project.getFolder(commonESBPath + "api")
+							.getLocation().toFile();
+					File destFile = new File(baseDir, qName + ".xml");
+					FileUtils.createFile(destFile, element.toString());
+					MavenProject mavenProject = MavenUtils
+							.getMavenProject(pomfile);
+					addPluginEntry(mavenProject, "org.wso2.maven",
+							"wso2-esb-api-plugin",
+							MavenConstants.WSO2_ESB_API_VERSION, "api");
+					MavenUtils.saveMavenProject(mavenProject, pomfile);
+					fileList.put(destFile, "api");
+					createArtifactMetaDataEntry(qName, "synapse/api", baseDir,
+							groupId + ".api",project);
+				}
+			}
+		}
+	}
+	
+	public static void addPluginEntry(MavenProject mavenProject, String groupId, String artifactId, String version, String Id) {
+	    List<Plugin> plugins = mavenProject.getBuild().getPlugins();
+		for (Plugin plg : plugins) {
+			if (plg.getGroupId().equalsIgnoreCase(groupId) && plg.getArtifactId().equalsIgnoreCase(artifactId) && plg.getVersion().equalsIgnoreCase(version) ) {
+				return;
+			}
+		}
+		
+		Plugin plugin = MavenUtils.createPluginEntry(mavenProject, groupId, artifactId, version, true);
+		
+		PluginExecution pluginExecution = new PluginExecution();
+		pluginExecution.addGoal("pom-gen");
+		pluginExecution.setPhase("process-resources");
+		pluginExecution.setId(Id);
+		
+		Xpp3Dom configurationNode = MavenUtils.createMainConfigurationNode();
+		Xpp3Dom artifactLocationNode = MavenUtils.createXpp3Node(configurationNode, "artifactLocation");
+		artifactLocationNode.setValue(".");
+		Xpp3Dom typeListNode = MavenUtils.createXpp3Node(configurationNode, "typeList");
+		typeListNode.setValue("${artifact.types}");
+		pluginExecution.setConfiguration(configurationNode);
+		
+		plugin.addExecution(pluginExecution);
+		Repository repo = new Repository();
+		repo.setUrl("http://maven.wso2.org/nexus/content/groups/wso2-public/");
+		repo.setId("wso2-nexus");
+		
+		RepositoryPolicy releasePolicy=new RepositoryPolicy();
+		releasePolicy.setEnabled(true);
+		releasePolicy.setUpdatePolicy("daily");
+		releasePolicy.setChecksumPolicy("ignore");
+		
+		repo.setReleases(releasePolicy);
+		
+		if (!mavenProject.getRepositories().contains(repo)) {
+	        mavenProject.getModel().addRepository(repo);
+	        mavenProject.getModel().addPluginRepository(repo);
+        }
+    }
+	
+	public static void createArtifactMetaDataEntry(String name, String type,
+			File baseDir, String groupId,IProject project) throws FactoryConfigurationError,
+			Exception {
+		ESBProjectArtifact esbProjectArtifact = new ESBProjectArtifact();
+		esbProjectArtifact.fromFile(project.getFile("artifact.xml")
+				.getLocation().toFile());
+		ESBArtifact artifact = new ESBArtifact();
+		artifact.setName(name);
+		artifact.setVersion("1.0.0");
+		artifact.setType(type);
+		artifact.setServerRole("EnterpriseServiceBus");
+		artifact.setGroupId(groupId);
+		artifact.setFile(FileUtils.getRelativePath(
+				project.getLocation().toFile(),
+				new File(baseDir, name + ".xml")).replaceAll(
+				Pattern.quote(File.separator), "/"));
+		esbProjectArtifact.addESBArtifact(artifact);
+		esbProjectArtifact.toFile();
+	}
+	
+	public static void updatePom(IProject project) throws Exception {
+
+		File mavenProjectPomLocation = project.getFile("pom.xml").getLocation().toFile();
+		MavenProject mavenProject = MavenUtils.getMavenProject(mavenProjectPomLocation);
+
+		addPluginEntry(mavenProject, "org.wso2.maven","wso2-esb-synapse-plugin", MavenConstants.WSO2_ESB_SYNAPSE_VERSION,"synapse");
+		
+		MavenUtils.saveMavenProject(mavenProject, mavenProjectPomLocation);
+	
+	}	
 }

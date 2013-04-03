@@ -16,6 +16,8 @@
 
 package org.wso2.developerstudio.eclipse.esb.project.controller;
 
+import java.io.File;
+
 import org.wso2.developerstudio.eclipse.platform.core.exception.FieldValidationException;
 import org.wso2.developerstudio.eclipse.platform.core.model.AbstractFieldController;
 import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectDataModel;
@@ -28,6 +30,19 @@ public class ESBProjectFieldController extends AbstractFieldController {
 	        throws FieldValidationException {
 		if (modelProperty.equals("project.name")) {
 			CommonFieldValidator.validateProjectField(value);
+		}else if (modelProperty.equals("synapseConfig.location")){
+			if (value == null) {
+				throw new FieldValidationException("Specified folder location is invalid");
+			}
+			String name = value.toString();
+			if (name.trim().equals("")) {
+				throw new FieldValidationException("Specified folder location is invalid");
+			} else{
+				File folderLocation = (File) value;
+				if (!folderLocation.exists()) {
+					throw new FieldValidationException("Specified folder doesn't exist");
+				}	
+			}
 		}
 	}
 
