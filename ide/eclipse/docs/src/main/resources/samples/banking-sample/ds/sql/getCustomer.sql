@@ -1,3 +1,4 @@
+DELIMITER // 
 CREATE procedure getCustomer(NID varchar(200),Name varchar(200), OUT Flag INTEGER, OUT CID VARCHAR(200))  
 BEGIN 
 DECLARE id varchar(200); 
@@ -10,4 +11,4 @@ ELSE
 INSERT INTO Customer(NID, Name, customerID) VALUES(NID, Name, id); 
 SET CID = id; 
 END IF; 
-END;
+END//
