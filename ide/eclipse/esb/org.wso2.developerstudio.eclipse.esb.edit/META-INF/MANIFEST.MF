@@ -10,7 +10,7 @@ Bundle-Localization: plugin
 Export-Package: org.wso2.developerstudio.eclipse.esb.mediators.provider,
  org.wso2.developerstudio.eclipse.esb.provider
 Require-Bundle: org.eclipse.core.runtime,
- org.wso2.developerstudio.eclipse.esb;visibility:=reexport,
- org.eclipse.emf.edit;visibility:=reexport,
+ org.wso2.developerstudio.eclipse.esb,
+ org.eclipse.emf.edit,
  org.apache.commons.lang
 Bundle-ActivationPolicy: lazy

@@ -17,10 +17,10 @@ Export-Package: org.apache.commons.lang,
  org.wso2.developerstudio.eclipse.esb.mediators.util,
  org.wso2.developerstudio.eclipse.esb.util
 Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.emf.ecore;visibility:=reexport,
- org.eclipse.emf.validation;visibility:=reexport,
- org.eclipse.emf.validation.ui;visibility:=reexport,
- org.eclipse.emf.query;visibility:=reexport
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.validation,
+ org.eclipse.emf.validation.ui,
+ org.eclipse.emf.query
 Bundle-ActivationPolicy: lazy
 Import-Package: org.wso2.developerstudio.eclipse.esb.core.preferences.ui,
  org.wso2.developerstudio.eclipse.esb.core.utils,
