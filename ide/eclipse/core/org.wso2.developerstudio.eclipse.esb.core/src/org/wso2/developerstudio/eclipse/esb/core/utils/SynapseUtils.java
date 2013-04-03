@@ -16,8 +16,118 @@
 
 package org.wso2.developerstudio.eclipse.esb.core.utils;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.xml.stream.XMLStreamException;
+
+import org.apache.axiom.om.OMElement;
+import org.apache.axiom.om.OMException;
+import org.apache.axiom.om.impl.builder.StAXOMBuilder;
+
 public class SynapseUtils {
-	public static String[] getSynapseNamespaces(){
-		return new String[]{SynapseConstants.NS_1_4,SynapseConstants.NS_2_0};
+
+	private static String ADDITIONAL_FOLDERS = "default";
+
+	public static String[] getSynapseNamespaces() {
+		return new String[] { SynapseConstants.NS_1_4, SynapseConstants.NS_2_0 };
+	}
+
+	private static String getLocalTagName(SynapseEntryType type) {
+		switch (type) {
+		case END_POINT:
+			return "endpoint";
+		case SEQUENCE:
+			return "sequence";
+		case PROXY_SERVICE:
+			return "proxy";
+		case LOCAL_ENTRY:
+			return "localEntry";
+		case TASK:
+			return "task";
+		case API:
+			return "api";
+		case TEMPLATE:
+			return "template";
+		case ALL:
+			return "";
+		default:
+			return "";
+		}
+	}
+
+	public static List<OMElement> synapseConfigFolderContentProcessing(
+			String synapseConfigFolderPath) throws XMLStreamException,
+			IOException, OMException, Exception {
+
+		List<OMElement> editorList = new ArrayList<OMElement>();
+		File rootDir = new File(synapseConfigFolderPath + "/"
+				+ ADDITIONAL_FOLDERS);
+		File[] dirs = rootDir.listFiles();
+		int dirCount = dirs.length;
+		for (int i = 0; i < dirCount; ++i) {
+			switch (dirs[i].getName()) {
+			case "api":
+				processFiles(editorList, synapseConfigFolderPath + "/"
+						+ ADDITIONAL_FOLDERS + "/api", SynapseEntryType.API);
+				break;
+			case "endpoints":
+				processFiles(editorList, synapseConfigFolderPath + "/"
+						+ ADDITIONAL_FOLDERS + "/endpoints",
+						SynapseEntryType.END_POINT);
+				break;
+			case "local-entries":
+				processFiles(editorList, synapseConfigFolderPath + "/"
+						+ ADDITIONAL_FOLDERS + "/local-entries",
+						SynapseEntryType.LOCAL_ENTRY);
+				break;
+			case "proxy-services":
+				processFiles(editorList, synapseConfigFolderPath + "/"
+						+ ADDITIONAL_FOLDERS + "/proxy-services",
+						SynapseEntryType.PROXY_SERVICE);
+				break;
+			case "sequences":
+				processFiles(editorList, synapseConfigFolderPath + "/"
+						+ ADDITIONAL_FOLDERS + "/sequences",
+						SynapseEntryType.SEQUENCE);
+				break;
+			case "tasks":
+				processFiles(editorList, synapseConfigFolderPath + "/"
+						+ ADDITIONAL_FOLDERS + "/tasks", SynapseEntryType.TASK);
+				break;
+			case "templates":
+				processFiles(editorList, synapseConfigFolderPath + "/"
+						+ ADDITIONAL_FOLDERS + "/templates",
+						SynapseEntryType.TEMPLATE);
+				break;
+			default:
+				break;
+			}
+		}
+		return editorList;
+	}
+
+	private static void processFiles(List<OMElement> editorList,
+			String dirPath, SynapseEntryType type) throws XMLStreamException,
+			IOException, OMException, Exception {
+		File dir = new File(dirPath);
+		File[] files = dir.listFiles();
+		int fileCount = files.length;
+		for (int j = 0; j < fileCount; ++j) {
+			OMElement documentElement = new StAXOMBuilder(new FileInputStream(
+					files[j])).getDocumentElement();
+
+			String localTagName = getLocalTagName(type);
+
+			String localName = documentElement.getLocalName();
+			if (localName.equals(localTagName)) {
+				if (!editorList.contains(documentElement)) {
+					editorList.add(documentElement);
+				}
+			}
+		}
 	}
 }
