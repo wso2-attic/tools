@@ -368,39 +368,6 @@ public class RuleServiceDialog extends Dialog {
 
 
 
-	private void selectRegistryResource(Text textBox, int defaultPathId) {
-		RegistryResourceNode selectedRegistryResourceNode = null;
-		RegistryTreeBrowserDialog registryTreeBrowserDialog = new RegistryTreeBrowserDialog(getShell(),
-				RegistryTreeBrowserDialog.SELECT_REGISTRY_RESOURCE,
-				defaultPathId);
-		registryTreeBrowserDialog.create();
-		List<RegistryURLInfo> allRegistryUrls = RegistryUrlStore.getInstance()
-		.getAllRegistryUrls();
-		for (RegistryURLInfo registryURLInfo : allRegistryUrls) {
-			registryTreeBrowserDialog.addRegistryNode(registryURLInfo, null);
-		}
-		if (registryTreeBrowserDialog.open() == Window.OK) {
-			selectedRegistryResourceNode = registryTreeBrowserDialog
-			.getSelectedRegistryResourceNodeResource();
-			String resourcePath = selectedRegistryResourceNode
-			.getRegistryResourcePath();
-			if (resourcePath.startsWith("/_system/config")) {
-				textBox.setText(resourcePath.replaceFirst("/_system/config",
-				"conf:"));
-
-			} else if (resourcePath.startsWith("/_system/governance")) {
-				textBox.setText(resourcePath.replaceFirst(
-						"/_system/governance", "gov:"));
-
-			} else {
-				MessageBox msgBox = new MessageBox(getShell(),
-						SWT.ICON_INFORMATION);
-				msgBox.setMessage("invalid selection.");
-				msgBox.open();
-			}
-		}
-	}
-
 	public void editEditorInputTable(int tableindex) {
 		this.tableIndex = tableindex;
 		this.tableEdited = true;

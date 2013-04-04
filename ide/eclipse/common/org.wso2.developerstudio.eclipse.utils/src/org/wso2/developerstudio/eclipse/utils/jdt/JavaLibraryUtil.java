@@ -25,24 +25,17 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.QualifiedName;
 import org.eclipse.jdt.core.IPackageFragmentRoot;
 import org.wso2.developerstudio.eclipse.utils.archive.ArchiveManipulator;
-import org.wso2.developerstudio.eclipse.utils.constants.ProjectConstants;
 import org.wso2.developerstudio.eclipse.utils.data.ITemporaryFileTag;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.InputStream;
-import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Scanner;
-import java.util.jar.JarEntry;
-import java.util.jar.JarFile;
 
 /**
  * This util class contains logic to extract java library dependencies from a
@@ -171,31 +164,6 @@ public class JavaLibraryUtil {
 		MavenXpp3Reader mavenXpp3Reader = new MavenXpp3Reader();
 		Model model;
 		model = mavenXpp3Reader.read(new FileInputStream(file));
-		return new MavenProject(model);
-	}
-	
-	 private static String getPomFilePath(JarFile jarFile){
-    	 for (Enumeration<JarEntry> e = jarFile.entries(); e.hasMoreElements();) {
-             JarEntry je = (JarEntry) e.nextElement();
-             if(je.getName().endsWith("pom.xml")){
-            	 return je.getName();
-             }
-         }
-    	return null;
-    }
-
-//	private static MavenProject getMavenProject(File file) throws Exception {
-//		MavenXpp3Reader mavenXpp3Reader = new MavenXpp3Reader();
-//		Model model;
-//		model = mavenXpp3Reader.read(new FileInputStream(file));
-//		return new MavenProject(model);
-//	}
-	
-	private static MavenProject getMavenProject(String serializedModel) throws Exception {
-		StringReader sReader = new StringReader( serializedModel );
-		MavenXpp3Reader mavenXpp3Reader = new MavenXpp3Reader();
-		Model model;
-		model = mavenXpp3Reader.read(sReader);
 		return new MavenProject(model);
 	}
 	

@@ -253,22 +253,7 @@ class DsCompletionProcessor implements IContentAssistProcessor,DsSyntax {
 		    return result;
 		  }
 
-		  /**
-		   * Method getContentInfoString.
-		   * 
-		   * @param keyWord
-		   */
-		  private String getContentInfoString(String keyWord) {
-		    String resourceString;
-		    String resourceKey = "ContextString." + keyWord;
-		    resourceString = DsEditorMessages.getBundle().getString(resourceKey);
-		    if (resourceString.equals(keyWord)) {
-		      resourceString = "No Context Info String";
-		    }
-		    return resourceString;
-		  }
-
-	DsCompletionProcessor(DsSourceEditor editor) {
+		  DsCompletionProcessor(DsSourceEditor editor) {
 	}
 	
 	public IContextInformation[] computeContextInformation(ITextViewer viewer, int offset) {
@@ -668,75 +653,6 @@ class DsCompletionProcessor implements IContentAssistProcessor,DsSyntax {
 	}
 		return sugession;
 		
-	}
-	
-	private String getNextClosingTag(ITextViewer viewer,int documentOffset){
-		
-		String tag = null;
-		int docOffset = documentOffset;
-		boolean gtDetected = false;
-		boolean closetagDetected = false;
-		int gtindex = 0;
-
-		StringBuilder keywordbucket = new StringBuilder();
-
-		try {
-			while (((docOffset) <= viewer.getBottomIndexEndOffset())) {
-
-				char currChar = viewer.getDocument().getChar(docOffset);
-
-				if (currChar == '<') {
-
-					gtDetected = true;
-					gtindex = docOffset;
-				}
-
-				if (gtDetected) {
-
-					if (currChar == '/') {
-
-						if (docOffset == (gtindex + 1)) {
-
-							closetagDetected = true;
-
-						} else {
-
-							gtDetected = false;
-						
-						}
-					}
-					if (currChar == '>') {
-						gtDetected = false;
-						gtindex = 0;
-					}
-
-					if (currChar == '>' && closetagDetected) { // if char = > and close tag detected
-
-						break;
-					}
-
-					if (closetagDetected && currChar != '/') {
-
-						keywordbucket.append(currChar);
-					}
-
-				}
-
-				docOffset++;
-
-			}
-			if (keywordbucket.toString().equals("")) {
-
-				tag = NO_CLOSING_TAG_FOUND;
-			} else {
-				tag = keywordbucket.toString();
-			}
-		} catch (BadLocationException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		return tag;
 	}
 	
 	private TagInfo getNextOpenedTagInfo(ITextViewer viewer,int documentOffset){
