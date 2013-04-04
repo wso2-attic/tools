@@ -30,15 +30,13 @@ public class RefactorUtils {
 	public static Dependency getDependencyForTheProject(IProject project) {
 		MavenProject mavenProject = getMavenProject(project);
 
-		String groupId = mavenProject.getGroupId();
-		String artifactId = mavenProject.getArtifactId();
-		String version = mavenProject.getVersion();
-
 		Dependency dependency = new Dependency();
-		dependency.setGroupId(groupId+".resource");
-		dependency.setArtifactId(artifactId);
-		dependency.setVersion(version);
-
+		
+		if (mavenProject != null) {
+			dependency.setGroupId(mavenProject.getGroupId() + ".resource");
+			dependency.setArtifactId(mavenProject.getGroupId());
+			dependency.setVersion(mavenProject.getVersion());
+		}
 		return dependency;
 	}
 
