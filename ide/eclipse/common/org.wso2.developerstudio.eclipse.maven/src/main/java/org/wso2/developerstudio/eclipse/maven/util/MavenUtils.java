@@ -456,32 +456,35 @@ public class MavenUtils {
 		
 		Properties properties=new Properties();
 		try {
-	        properties.load(new FileInputStream(manifestFile.getLocation().toFile()));
-        } catch (FileNotFoundException e) {
-	        e.printStackTrace();
-        } catch (IOException e) {
-	        e.printStackTrace();
-        }
+			FileInputStream fileInputStream = new FileInputStream(manifestFile.getLocation().toFile());
+			properties.load(fileInputStream);
 		
 		
-		Plugin plugin = MavenUtils.createPluginEntry(mavenProject, "org.apache.felix", "maven-bundle-plugin", "2.3.4", true);
-		Xpp3Dom config=(Xpp3Dom)plugin.getConfiguration();
-		Xpp3Dom instructionNode = MavenUtils.createXpp3Node(config, "instructions");
-		Xpp3Dom symbolicNameNode = MavenUtils.createXpp3Node(instructionNode, "Bundle-SymbolicName");
-		symbolicNameNode.setValue(properties.getProperty("Bundle-SymbolicName"));
-		Xpp3Dom bundleNameNode = MavenUtils.createXpp3Node(instructionNode, "Bundle-Name");
-		bundleNameNode.setValue(properties.getProperty("Bundle-Name"));
-		Xpp3Dom activatorClassNode = MavenUtils.createXpp3Node(instructionNode, "Bundle-Activator");
-		activatorClassNode.setValue(properties.getProperty("Bundle-Activator"));
+			Plugin plugin = MavenUtils.createPluginEntry(mavenProject, "org.apache.felix", "maven-bundle-plugin", "2.3.4", true);
+			Xpp3Dom config=(Xpp3Dom)plugin.getConfiguration();
+			Xpp3Dom instructionNode = MavenUtils.createXpp3Node(config, "instructions");
+			Xpp3Dom symbolicNameNode = MavenUtils.createXpp3Node(instructionNode, "Bundle-SymbolicName");
+			symbolicNameNode.setValue(properties.getProperty("Bundle-SymbolicName"));
+			Xpp3Dom bundleNameNode = MavenUtils.createXpp3Node(instructionNode, "Bundle-Name");
+			bundleNameNode.setValue(properties.getProperty("Bundle-Name"));
+			Xpp3Dom activatorClassNode = MavenUtils.createXpp3Node(instructionNode, "Bundle-Activator");
+			activatorClassNode.setValue(properties.getProperty("Bundle-Activator"));
 		
-		Xpp3Dom includeNode = MavenUtils.createXpp3Node(instructionNode, "_include");
-		includeNode.setValue("META-INF/MANIFEST.MF");
-		Xpp3Dom exportPackageNode = MavenUtils.createXpp3Node(instructionNode, "Export-Package");
-		exportPackageNode.setValue(properties.getProperty("Export-Package",""));
-		Xpp3Dom dynamicImportNode = MavenUtils.createXpp3Node(instructionNode, "DynamicImport-Package");
-		dynamicImportNode.setValue("*");
-		Xpp3Dom includeResourceNode = MavenUtils.createXpp3Node(instructionNode, "Include-Resource");
-		includeResourceNode.setValue("META-INF/component.xml = META-INF/component.xml,web = web");
+			Xpp3Dom includeNode = MavenUtils.createXpp3Node(instructionNode, "_include");
+			includeNode.setValue("META-INF/MANIFEST.MF");
+			Xpp3Dom exportPackageNode = MavenUtils.createXpp3Node(instructionNode, "Export-Package");
+			exportPackageNode.setValue(properties.getProperty("Export-Package",""));
+			Xpp3Dom dynamicImportNode = MavenUtils.createXpp3Node(instructionNode, "DynamicImport-Package");
+			dynamicImportNode.setValue("*");
+			Xpp3Dom includeResourceNode = MavenUtils.createXpp3Node(instructionNode, "Include-Resource");
+			includeResourceNode.setValue("META-INF/component.xml = META-INF/component.xml,web = web");
+		
+			fileInputStream.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public static void addMavenWarPlugin(MavenProject mavenProject){

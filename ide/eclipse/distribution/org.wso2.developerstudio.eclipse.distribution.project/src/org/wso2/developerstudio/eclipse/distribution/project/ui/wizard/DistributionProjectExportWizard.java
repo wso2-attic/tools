@@ -178,7 +178,7 @@ public class DistributionProjectExportWizard extends Wizard implements IExportWi
 				org.apache.commons.io.FileUtils.deleteQuietly(destFileName);
 			}
 			savePOM();
-			IResource carbonArchive = ExportUtil.BuildCAppProject(selectedProject);
+			IResource carbonArchive = ExportUtil.buildCAppProject(selectedProject);
 			FileUtils.copy(carbonArchive.getLocation().toFile(), destFileName);
 				 
 		} catch (Exception e) {

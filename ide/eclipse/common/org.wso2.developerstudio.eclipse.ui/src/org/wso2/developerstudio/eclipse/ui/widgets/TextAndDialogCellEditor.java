@@ -205,7 +205,7 @@ public abstract class TextAndDialogCellEditor extends ExtendedDialogCellEditor {
 		Object typedValue = value;
 		boolean oldValidState = isValueValid();
 		boolean newValidState = isCorrect(typedValue);
-		if (typedValue == null && newValidState) {
+		if (newValidState) {
 			Assert.isTrue(false, "Validator isn't limiting the cell editor's type range");//$NON-NLS-1$
 		}
 		if (!newValidState) {

@@ -47,15 +47,18 @@ public class EndpointRenameRefactorParticipant extends RenameParticipant {
 	private String changedFileName;
 	private IProject esbProject;
 	private static List<String> skipList;
+	
+	static{
+		skipList = new ArrayList<String>();
+		skipList.add("target");
+		skipList.add("bin");
+		skipList.add(".svn");
+	}
 
 	public RefactoringStatus checkConditions(IProgressMonitor arg0, CheckConditionsContext arg1)
 	                                                                                            throws OperationCanceledException {
 		if (originalFile != null) {
 			List<String> matchinFilesList = new ArrayList<String>();
-			skipList = new ArrayList<String>();
-			skipList.add("target");
-			skipList.add("bin");
-			skipList.add(".svn");
 
 			FileUtils.getAllExactMatchingFiles(esbProject.getLocation().toOSString(),
 			                                   changedFileName.substring(0,

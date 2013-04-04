@@ -443,10 +443,10 @@ public class NewResourceTemplateDialog extends Dialog {
 				item = new RegistryItem();
 				((RegistryItem) item).setFile(registryResourceInfo
 						.getResourceBaseRelativePath());
+				item.setPath(registryResourceInfo.getDeployPath().replaceAll("/$",
+						""));
+				artifact.addRegistryElement(item);
 			}
-			item.setPath(registryResourceInfo.getDeployPath().replaceAll("/$",
-					""));
-			artifact.addRegistryElement(item);
 		}
 		generalProjectArtifact.addArtifact(artifact);
 		generalProjectArtifact.toFile();

@@ -96,7 +96,7 @@ public class ExportUtil {
 	 * @return
 	 * @throws Exception
 	 */
-	public static IResource BuildCAppProject(IProject project) throws Exception {
+	public static IResource buildCAppProject(IProject project) throws Exception {
 		List<IResource> buildProject = new ArrayList<IResource>();
 		if (!project.isOpen()) {
 			throw new Exception("\"" + project.getName() + "\" project is not open!");

@@ -756,7 +756,7 @@ public class DistProjectEditorPage extends FormPage {
 		}
 		try {	
 			savePOM();
-			IResource CarbonArchive = ExportUtil.BuildCAppProject(pomFileRes.getProject());
+			IResource CarbonArchive = ExportUtil.buildCAppProject(pomFileRes.getProject());
 			DirectoryDialog dirDlg = new DirectoryDialog(PlatformUI.getWorkbench()
 					.getActiveWorkbenchWindow().getShell());
 			String recentExportLocation = getRecentExportLocation(pomFileRes.getProject());

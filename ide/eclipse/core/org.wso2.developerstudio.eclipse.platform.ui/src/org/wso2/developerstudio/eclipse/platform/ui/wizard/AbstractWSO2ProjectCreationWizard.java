@@ -248,15 +248,20 @@ public abstract class AbstractWSO2ProjectCreationWizard extends Wizard implement
 	
 	public void openEditor(File file) {
 		IFile artifact = null;
-		try {
-			refreshDistProjects();
-			artifact = ResourcesPlugin.getWorkspace().getRoot()
-					.getFileForLocation(Path.fromOSString(file.getAbsolutePath()));
-			IDE.openEditor(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage(),
-					artifact);
-		} catch (Exception e) {
-			log.warn("Cannot open resource '" + artifact.getLocation()
-					+ "' in it's associated editor", e);
+		if (file != null) {
+			try {
+				refreshDistProjects();
+				artifact = ResourcesPlugin
+						.getWorkspace()
+						.getRoot()
+						.getFileForLocation(
+								Path.fromOSString(file.getAbsolutePath()));
+				IDE.openEditor(PlatformUI.getWorkbench()
+						.getActiveWorkbenchWindow().getActivePage(), artifact);
+			} catch (Exception e) {
+				log.warn("Cannot open resource '" + file.getName()
+						+ "' in it's associated editor", e);
+			}
 		}
 	}
 

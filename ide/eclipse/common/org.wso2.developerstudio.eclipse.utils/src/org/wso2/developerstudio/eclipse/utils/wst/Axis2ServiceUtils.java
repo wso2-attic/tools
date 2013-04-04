@@ -105,6 +105,8 @@ public class Axis2ServiceUtils {
 			DocumentBuilder parser = DocumentBuilderFactory.newInstance().newDocumentBuilder();
 			Document document = parser.parse(in);
 		    serviceName = getServiceNameFromDoc(document);
+		    in.close();
+		    zf.close();
 		} catch (Exception e) {
 			throw e;
 		}
@@ -129,6 +131,8 @@ public class Axis2ServiceUtils {
     		ZipFile zf = new ZipFile(filePath);
     		InputStream in = zf.getInputStream(new ZipEntry("META-INF/services.xml"));
 			serviceName = getServiceClassNameFromServicesXMLStream(in);
+			in.close();
+			zf.close();
 		} catch (Exception e) {
 			throw e;
 		}

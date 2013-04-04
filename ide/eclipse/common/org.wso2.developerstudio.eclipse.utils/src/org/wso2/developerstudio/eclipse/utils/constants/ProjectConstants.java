@@ -17,5 +17,5 @@
 package org.wso2.developerstudio.eclipse.utils.constants;
 
 public class ProjectConstants {
-	public static String JAVA_NATURE_ID="org.eclipse.jdt.core.javanature";
+	public static final String JAVA_NATURE_ID="org.eclipse.jdt.core.javanature";
 }

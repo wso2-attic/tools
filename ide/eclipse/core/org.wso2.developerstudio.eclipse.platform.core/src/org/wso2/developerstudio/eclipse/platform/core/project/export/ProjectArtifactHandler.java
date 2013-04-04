@@ -93,8 +93,7 @@ public abstract class ProjectArtifactHandler {
 		try {
 			project.build(IncrementalProjectBuilder.CLEAN_BUILD,
 							getProgressMonitor());
-			File target = null;
-			target = project.getFolder("target").getLocation().toFile();
+			File target = project.getFolder("target").getLocation().toFile();
 			FileUtils.cleanDirectory(target);
 		} catch (Exception e) {
 			// TODO: log error

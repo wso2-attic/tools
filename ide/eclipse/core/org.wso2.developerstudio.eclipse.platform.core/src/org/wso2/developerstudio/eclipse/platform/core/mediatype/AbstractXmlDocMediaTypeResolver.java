@@ -30,8 +30,8 @@ public abstract class AbstractXmlDocMediaTypeResolver implements IMediaTypeFromS
 								return true;
 							}
 						}
+						dataStream=new ByteArrayInputStream(content.getBytes());
 					}
-					dataStream=new ByteArrayInputStream(content.getBytes());
 					OMElement documentElement = getXmlDoc(dataStream);
 					String localName = documentElement.getLocalName();
 					return localName.equalsIgnoreCase(tagName);
