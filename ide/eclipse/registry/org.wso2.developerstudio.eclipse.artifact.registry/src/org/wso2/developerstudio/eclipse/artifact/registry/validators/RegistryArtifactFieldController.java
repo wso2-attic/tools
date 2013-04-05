@@ -171,8 +171,10 @@ public List<String> getUpdateFields(String modelProperty,
 					updateFields.add("artifact.name");
 				}
 			} else {
-				tempmodel.setArtifactName(tempmodel.getResourceName());
-				updateFields.add("artifact.name");
+				if (tempmodel.getResourceName()!=null) {
+					tempmodel.setArtifactName(tempmodel.getResourceName());
+					updateFields.add("artifact.name");
+				}
 			}
 		}
 
