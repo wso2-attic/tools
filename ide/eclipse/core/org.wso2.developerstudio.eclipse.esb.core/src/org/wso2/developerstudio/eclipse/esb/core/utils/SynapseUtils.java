@@ -69,42 +69,28 @@ public class SynapseUtils {
 		File[] dirs = rootDir.listFiles();
 		int dirCount = dirs.length;
 		for (int i = 0; i < dirCount; ++i) {
-			switch (dirs[i].getName()) {
-			case "api":
+			String name=dirs[i].getName();
+			if(name.equals("api")){
 				processFiles(editorList, synapseConfigFolderPath + "/"
 						+ ADDITIONAL_FOLDERS + "/api", SynapseEntryType.API);
-				break;
-			case "endpoints":
+			}else if(name.equals("endpoints")){
 				processFiles(editorList, synapseConfigFolderPath + "/"
-						+ ADDITIONAL_FOLDERS + "/endpoints",
-						SynapseEntryType.END_POINT);
-				break;
-			case "local-entries":
+						+ ADDITIONAL_FOLDERS + "/endpoints",SynapseEntryType.END_POINT);
+			}else if(name.equals("local-entries")){
 				processFiles(editorList, synapseConfigFolderPath + "/"
-						+ ADDITIONAL_FOLDERS + "/local-entries",
-						SynapseEntryType.LOCAL_ENTRY);
-				break;
-			case "proxy-services":
+						+ ADDITIONAL_FOLDERS + "/local-entries",SynapseEntryType.LOCAL_ENTRY);
+			}else if(name.equals("proxy-services")){
 				processFiles(editorList, synapseConfigFolderPath + "/"
-						+ ADDITIONAL_FOLDERS + "/proxy-services",
-						SynapseEntryType.PROXY_SERVICE);
-				break;
-			case "sequences":
+						+ ADDITIONAL_FOLDERS + "/proxy-services",SynapseEntryType.PROXY_SERVICE);
+			}else if(name.equals("sequences")){
 				processFiles(editorList, synapseConfigFolderPath + "/"
-						+ ADDITIONAL_FOLDERS + "/sequences",
-						SynapseEntryType.SEQUENCE);
-				break;
-			case "tasks":
+						+ ADDITIONAL_FOLDERS + "/sequences",SynapseEntryType.SEQUENCE);
+			}else if(name.equals("tasks")){
 				processFiles(editorList, synapseConfigFolderPath + "/"
 						+ ADDITIONAL_FOLDERS + "/tasks", SynapseEntryType.TASK);
-				break;
-			case "templates":
+			}else if(name.equals("templates")){
 				processFiles(editorList, synapseConfigFolderPath + "/"
-						+ ADDITIONAL_FOLDERS + "/templates",
-						SynapseEntryType.TEMPLATE);
-				break;
-			default:
-				break;
+						+ ADDITIONAL_FOLDERS + "/templates",SynapseEntryType.TEMPLATE);
 			}
 		}
 		return editorList;
