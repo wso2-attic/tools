@@ -60,6 +60,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.OutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyService;
 import org.wso2.developerstudio.eclipse.gmf.esb.SendMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequences;
+import org.wso2.developerstudio.eclipse.gmf.esb.SequencesInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorCompartmentEditPart;
@@ -69,6 +70,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ConnectionUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.complexFiguredAbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbLinkEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequencesInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramEditor;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
@@ -274,8 +276,14 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 								targetConnector = (AbstractConnectorEditPart) getEditpart(rootConnector);
 							}
 
-							if (sourceConnector != null && targetConnector != null) {
-								ConnectionUtils.createConnection(targetConnector, sourceConnector);
+							if (sourceConnector != null && targetConnector != null) {								
+								if(targetConnector instanceof SequencesInputConnectorEditPart){
+									if(sourceConnector.getParent().getParent().getParent().getParent().equals(targetConnector.getParent())){
+										ConnectionUtils.createConnection(targetConnector, sourceConnector);
+									}
+								}else{
+									ConnectionUtils.createConnection(targetConnector, sourceConnector);
+								}
 							}
 						}
 					}
