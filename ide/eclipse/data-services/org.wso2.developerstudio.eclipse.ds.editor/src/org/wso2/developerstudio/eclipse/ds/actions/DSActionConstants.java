@@ -273,7 +273,7 @@ public interface DSActionConstants {
 
 	public String INFORMIX_DATASOURCE_TYPE = "Informix";
 
-	public String INFORMIX_DRIVER_VALUE = "COM.ibm.db2.jdbc.app.DB2Driver";
+	public String INFORMIX_DRIVER_VALUE = "com.informix.jdbc.IfxDriver";
 
 	public String INFORMIX_PROTOCOL_VALUE = "jdbc:informix-sqli://[HOST]:[PORT]/[database]:INFORMIXSERVER=[server-name]";
 
