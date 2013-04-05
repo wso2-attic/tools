@@ -79,7 +79,6 @@ import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 /* creates the dialog which accepts rule information */
 public class RuleServiceDialog extends Dialog {
 	private final RuleService ruleService;
-	private IFile rslFileRes;
 	private int tableIndex;
 	private boolean tableEdited = false;
 	private String resourceType;

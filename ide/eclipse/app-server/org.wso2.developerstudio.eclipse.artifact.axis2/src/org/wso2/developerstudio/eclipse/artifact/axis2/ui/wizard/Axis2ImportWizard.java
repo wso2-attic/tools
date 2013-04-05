@@ -38,15 +38,13 @@ import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 public class Axis2ImportWizard extends Wizard implements INewWizard{
 
 
-	IWorkbench workbench;
-	IStructuredSelection selection;
-	Axis2ImportWizardPage axisImportWizardPage;
-	Axis2ConfigurationPage configurationPage;
-	IProject activeProject;
+	private IStructuredSelection selection;
+	private Axis2ImportWizardPage axisImportWizardPage;
+	private Axis2ConfigurationPage configurationPage;
+	private IProject activeProject;
 	private DataModel dataModel;
 	
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
-	      this.workbench = workbench;
 	      this.selection = selection;
 	      this.dataModel = new DataModel();
 	      setWindowTitle("New axis2 class");

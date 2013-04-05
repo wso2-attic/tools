@@ -52,7 +52,6 @@ public class CEPProjectCreationWizard extends AbstractWSO2ProjectCreationWizard 
 	private static final String CEP_WIZARD_WINDOW_TITLE = "Create New CEP Project";
 	private IProject project;
 	private File openFile = null;
-	public static String pathfile;
 
 	public CEPProjectCreationWizard() {
 		this.cepModel = new CEPModel();

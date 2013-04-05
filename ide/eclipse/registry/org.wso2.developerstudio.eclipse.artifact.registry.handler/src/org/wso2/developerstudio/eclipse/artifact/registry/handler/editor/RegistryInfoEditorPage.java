@@ -102,7 +102,6 @@ public class RegistryInfoEditorPage extends FormPage {
 	private boolean pageDirty;
 	
 	private Map<String, PropertyData> filterProperties;
-	private Map<String, PropertyData> filterPropertiesToBeRemoved;
 	private Map<String, PropertyData> handlerProperties;
 	private Map<String, PropertyData> handlerpropertiesToBeRemoved;
 	List<String> selectedMethods;
@@ -654,7 +653,6 @@ public class RegistryInfoEditorPage extends FormPage {
 		});
 		
 		try {
-			filterPropertiesToBeRemoved = new HashMap<String, PropertyData>();
 			handlerpropertiesToBeRemoved = new HashMap<String, PropertyData>();
 			methodsToBeRemoved = new ArrayList<String>();
 	        typeHandler = getType(getHandlerClass());
@@ -897,7 +895,6 @@ public class RegistryInfoEditorPage extends FormPage {
 		for(String key:methodsToBeRemoved){
 			manipulator.removeHandlerMethod(key);
 		}
-		filterPropertiesToBeRemoved = new HashMap<String, PropertyData>();
 		handlerpropertiesToBeRemoved = new HashMap<String, PropertyData>();
 		methodsToBeRemoved = new ArrayList<String>();
 		manipulator.commit();

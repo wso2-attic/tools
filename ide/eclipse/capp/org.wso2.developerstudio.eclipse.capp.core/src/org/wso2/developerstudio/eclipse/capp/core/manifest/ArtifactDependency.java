@@ -121,9 +121,9 @@ public class ArtifactDependency extends Observable implements Observer{
 	}
 	
 	private boolean hasEssentialOriginalsChanged(){
-		return originalName!=getConnectingArtifact().getName()||
-			originalVersion!=getConnectingArtifact().getVersion() ||
-			originalServerRole!=getConnectingArtifact().getServerRole();
+		return originalName.equals(getConnectingArtifact().getName())||
+			originalVersion.equals(getConnectingArtifact().getVersion()) ||
+			originalServerRole.equals(getConnectingArtifact().getServerRole());
 	}
 
 	private boolean hasOriginalsChanged(){

@@ -97,7 +97,6 @@ public class JaxUtil {
 		OMElement documentElement=null;
 		OMNamespace xsi = null;
 		OMNamespace jaxws = null;
-		OMNamespace soap = null;
 		
 		private Map<String,JaxwsServer> servers= new HashMap<String,JaxwsServer>(); 
 		
@@ -128,7 +127,6 @@ public class JaxUtil {
 			this.documentElement = documentElement;
 			xsi = documentElement.findNamespace(XSI_NS, "xsi");
 			jaxws = documentElement.findNamespace(JAXWS_NS, "jaxws");
-			soap = documentElement.findNamespace(SOAP_NS, "soap");
 			/*
 			List<OMElement> servers = getChildElements(documentElement,"server");
 			if (servers.size() > 1) {
@@ -182,7 +180,6 @@ public class JaxUtil {
 				documentElement.declareDefaultNamespace(DEFAULT_NS);
 				xsi = documentElement.declareNamespace(XSI_NS, "xsi");
 				jaxws = documentElement.declareNamespace(JAXWS_NS, "jaxws");
-				soap = documentElement.declareNamespace(SOAP_NS, "soap");
 				documentElement.addAttribute("schemaLocation",SCHEMA_LOCATION, xsi);
 			}
 			

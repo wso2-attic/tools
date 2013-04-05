@@ -41,7 +41,6 @@ import org.wso2.developerstudio.eclipse.logging.core.Logger;
 public class ConfigurationOtherEditorSection extends ServerEditorSection{
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 
-	protected boolean updating;
 	private Button startWSASCheck;
 	private Button hotupdateCheck;
 	protected TableViewer viewer;
@@ -49,7 +48,6 @@ public class ConfigurationOtherEditorSection extends ServerEditorSection{
 //	private boolean axis2FileChanged=false;
 //	private int axis2FileChangeCheckDelay=5000;
 	
-	protected PropertyChangeListener listener;
 	private Button osgiConsoleCheck;
 
 	/**

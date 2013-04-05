@@ -112,15 +112,17 @@ public class MediatorExportHandler extends ProjectArtifactHandler {
 	JavaModelException, Exception {
 	ArrayList<String> exportedPackagesList = new ArrayList<String>();
 	IPackageFragment[] packages = javaProject.getPackageFragments();
-    for (IPackageFragment iPackageFragment : packages) {
-		    iPackageFragment.getElementName();
-		    if (iPackageFragment.getKind() == IPackageFragmentRoot.K_SOURCE) { 
-		    	 if(iPackageFragment.hasChildren()){
-				    	exportedPackagesList.add(iPackageFragment.getElementName());
-		    	 }
+    if (packages != null) {
+		for (IPackageFragment iPackageFragment : packages) {
+			iPackageFragment.getElementName();
+			if (iPackageFragment.getKind() == IPackageFragmentRoot.K_SOURCE) {
+				if (iPackageFragment.hasChildren()) {
+					exportedPackagesList.add(iPackageFragment.getElementName());
+				}
 			}
+		}
 	}
-    MavenProject mavenProject =  MavenUtils.getMavenProject(javaProject.getProject().getFile("pom.xml")
+	MavenProject mavenProject =  MavenUtils.getMavenProject(javaProject.getProject().getFile("pom.xml")
             .getLocation().toFile());
 	List<Plugin> plugins = mavenProject.getBuild().getPlugins();
 	for (Plugin plugin : plugins) {

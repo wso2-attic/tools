@@ -108,7 +108,6 @@ public class RegistryHandlerCreationWizard extends
 	private String filterPackageName;
 	private String handlerSelectedMethod;
 	private String filterClassSelectedMethod;
-	private String filterSelectedMethod;
 	private List<String> selectedHandlerMethods;
 	private Map<String, PropertyData> filterProperties;
 	private Map<String, PropertyData> handlerProperties;

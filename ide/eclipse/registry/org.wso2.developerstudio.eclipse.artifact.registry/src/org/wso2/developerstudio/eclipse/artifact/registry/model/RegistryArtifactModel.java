@@ -144,7 +144,7 @@ public class RegistryArtifactModel extends ProjectDataModel {
 				modelPropertyValue = getCopyContent();
 			} else if (key.equals(RegistryArtifactConstants.DATA_CHECKOUT_PATH)) {
 				modelPropertyValue = getCheckoutPath();
-			} else if ((modelPropertyValue == null)&&("artifact.name".equals(key))){
+			} else if ("artifact.name".equals(key)){
 				modelPropertyValue = getArtifactName();
 			}else if(key.equals(RegistryArtifactConstants.DATA_REG_PARTITION)){
 				modelPropertyValue = getRegistryPartition();

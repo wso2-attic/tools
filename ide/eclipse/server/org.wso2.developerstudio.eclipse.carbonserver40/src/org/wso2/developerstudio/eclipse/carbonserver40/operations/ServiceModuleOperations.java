@@ -58,7 +58,6 @@ public class ServiceModuleOperations {
 
 	IProject project;
 	IServer server;
-	String webTempFolder;
 	
 	public ServiceModuleOperations(IProject project, IServer server){
 		this.project=project;

@@ -20,6 +20,7 @@ import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
@@ -97,7 +98,6 @@ public class JaxwsServiceCreationWizard  extends AbstractWSO2ProjectCreationWiza
 			webINF = ProjectUtils.getWorkspaceFolder(project, "src", "main", "webapp","WEB-INF");
 			resourceFolder = ProjectUtils.getWorkspaceFolder(project, "src", "main", "resources");
 			javaProject = JavaCore.create(project);
-			root = javaProject.getPackageFragmentRoot(sourceFolder);
 			IFolder metaINF = ProjectUtils.getWorkspaceFolder(project, "src", "main", "webapp","META-INF");
 			Bundle bundle = Activator.getDefault().getBundle();
 			IPath resourcePath=new Path("src"+File.separator+"main"+File.separator+"resources"+File.separator+CXF_CLASSLOADING_DESCRIPTOR);
@@ -252,8 +252,12 @@ public class JaxwsServiceCreationWizard  extends AbstractWSO2ProjectCreationWiza
 				 pb.directory(new File(jaxwsModel.getCXFRuntime() + File.separator + "bin" ));
 				 Process p = pb.start();
 	            
-	            BufferedReader stdInput = new BufferedReader(new InputStreamReader(p.getInputStream()));
-	            BufferedReader stdError = new BufferedReader(new InputStreamReader(p.getErrorStream()));
+	            InputStream inputStream = p.getInputStream();
+				InputStreamReader in = new InputStreamReader(inputStream);
+				BufferedReader stdInput = new BufferedReader(in);
+	            InputStream errorStream = p.getErrorStream();
+				InputStreamReader inError = new InputStreamReader(errorStream);
+				BufferedReader stdError = new BufferedReader(inError);
 
 	            while ((s = stdInput.readLine()) != null) {
 	            	monitor.subTask(s);
@@ -271,6 +275,12 @@ public class JaxwsServiceCreationWizard  extends AbstractWSO2ProjectCreationWiza
 				monitor.subTask("Refreshing project...");
 				monitor.worked(5);
 				monitor.done();
+				
+				inputStream.close();
+				errorStream.close();
+				
+				in.close();
+				inError.close();
 			} catch (Exception e) {
 				throw new InvocationTargetException(e);
 			}

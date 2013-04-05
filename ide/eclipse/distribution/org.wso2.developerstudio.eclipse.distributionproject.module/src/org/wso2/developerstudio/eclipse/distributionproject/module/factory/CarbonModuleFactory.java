@@ -37,17 +37,12 @@ import org.wso2.developerstudio.eclipse.logging.core.Logger;
 public class CarbonModuleFactory extends ModuleFactoryDelegate{
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 
-	@SuppressWarnings("unused")
-	private HashMap moduleDelegates;
 	protected IWorkspaceRoot root;
-	@SuppressWarnings("unused")
-	private CarbonModuleFactory instance;
 	private Map<IProject, IModule> modules = new HashMap<IProject, IModule>();
 
 	public CarbonModuleFactory() {
 		super();
 		root = ResourcesPlugin.getWorkspace().getRoot();
-		instance = this;
 	}
 	
 	public ModuleDelegate getModuleDelegate(IModule module) {
@@ -119,7 +114,6 @@ public class CarbonModuleFactory extends ModuleFactoryDelegate{
 	
 	protected void clearCache() {
 		modules = new HashMap<IProject, IModule>();
-		moduleDelegates = new HashMap();
 	}
 	
 	

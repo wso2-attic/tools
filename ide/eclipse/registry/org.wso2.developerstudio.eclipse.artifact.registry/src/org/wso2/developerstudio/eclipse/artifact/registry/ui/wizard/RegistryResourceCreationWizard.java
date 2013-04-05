@@ -195,8 +195,11 @@ public class RegistryResourceCreationWizard extends AbstractWSO2ProjectCreationW
 					item = new RegistryDump();
 					((RegistryDump) item).setFile(registryResourceInfo.getResourceBaseRelativePath().replaceAll(Pattern.quote(File.separator), "/"));
 				} 
-				item.setPath(registryResourceInfo.getDeployPath().replaceAll("/$",""));
-				artifact.addRegistryElement(item);
+				if (item != null) {
+					item.setPath(registryResourceInfo.getDeployPath()
+							.replaceAll("/$", ""));
+					artifact.addRegistryElement(item);
+				}
             }
 			
 			generalProjectArtifact.addArtifact(artifact);

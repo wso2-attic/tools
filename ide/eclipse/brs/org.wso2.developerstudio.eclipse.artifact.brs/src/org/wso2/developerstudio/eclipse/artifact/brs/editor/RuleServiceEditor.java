@@ -191,8 +191,6 @@ public class RuleServiceEditor extends FormEditor {
 		final IEditorInput input = getEditorInput();
 
 		if (input instanceof FileEditorInput) {
-			IProject activeProject = ((FileEditorInput) input).getFile().getProject();
-		    String activeProjectName = activeProject.getName();
 			return ((FileEditorInput) input).getFile();
 		}
 		 

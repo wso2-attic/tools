@@ -43,7 +43,6 @@ public class ConfigurationCredentialsEditorSection extends ServerEditorSection{
 	Text passwordText;
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 
-	protected boolean updating;
 	private boolean updatePassword=true;
 	/**
 	 * ConfigurationPortEditorSection constructor comment.

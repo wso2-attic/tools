@@ -295,10 +295,10 @@ public class EndpointProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 				((RegistryItem) item).setFile(registryResourceInfo
 						.getResourceBaseRelativePath());
 				((RegistryItem) item).setMediaType(registryResourceInfo.getMediaType());
+				item.setPath(registryResourceInfo.getDeployPath().replaceAll("/$",
+						""));
+				artifact.addRegistryElement(item);
 			}
-			item.setPath(registryResourceInfo.getDeployPath().replaceAll("/$",
-					""));
-			artifact.addRegistryElement(item);
 		}
 		generalProjectArtifact.addArtifact(artifact);
 		generalProjectArtifact.toFile();

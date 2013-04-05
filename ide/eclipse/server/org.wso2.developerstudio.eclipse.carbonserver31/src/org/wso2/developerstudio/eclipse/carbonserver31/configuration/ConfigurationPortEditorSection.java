@@ -49,12 +49,8 @@ import org.wso2.developerstudio.eclipse.server.base.core.ServerController;
 
 public class ConfigurationPortEditorSection extends ServerEditorSection {
 
-	protected boolean updating;
-
 	protected Table ports;
 	protected TableViewer viewer;
-
-	protected PropertyChangeListener listener;
 
 	/**
 	 * ConfigurationPortEditorSection constructor comment.

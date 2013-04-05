@@ -56,9 +56,8 @@ import org.wso2.developerstudio.eclipse.utils.wst.Axis2ServiceUtils;
 public class ServiceModuleOperations {
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 
-	IProject project;
-	IServer server;
-	String webTempFolder;
+	private IProject project;
+	private IServer server;
 	
 	public ServiceModuleOperations(IProject project, IServer server){
 		this.project=project;

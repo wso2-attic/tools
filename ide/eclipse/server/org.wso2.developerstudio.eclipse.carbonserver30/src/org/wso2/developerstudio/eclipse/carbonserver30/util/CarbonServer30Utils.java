@@ -525,13 +525,16 @@ public class CarbonServer30Utils {
 	@SuppressWarnings("unchecked")
     private static void loadServerInstanceProperties(IServer server){
 		GenericServer gserver = (GenericServer) server.getAdapter(GenericServer.class);
-		if (gserver==null) return;
+		if (gserver==null) {
+			return;
+		}
+		ObjectInputStream obj_in=null;
 		try {
 			String serverLocalWorkspacePath = CarbonServerManager.getServerLocalWorkspacePath(server);
 			String objConfigPath = FileUtils.addNodesToPath(serverLocalWorkspacePath, new String[]{"repository","conf","config"});
 			if (new File(objConfigPath).exists()){
 				FileInputStream f_in = new FileInputStream(objConfigPath);
-				ObjectInputStream obj_in = new ObjectInputStream (f_in);
+				obj_in = new ObjectInputStream (f_in);
 				Map<String, String> obj = (Map<String, String>)obj_in.readObject();
 				gserver.getServerInstanceProperties().putAll(obj);
 			}
@@ -539,21 +542,49 @@ public class CarbonServer30Utils {
 			log.error(e);
 		} catch (ClassNotFoundException e) {
 			log.error(e);
+		}finally{
+			if(obj_in!=null){
+				try {
+					obj_in.close();
+				} catch (IOException e) {
+					log.error("Error while closing stream", e);
+				}
+			}
 		}
 //		gserver.getServerInstanceProperties().put("loaded", "true");
 	}
 	
 	private static void saveServerInstanceProperties(IServer server){
 		GenericServer gserver = (GenericServer) server.getAdapter(GenericServer.class);
-		if (gserver==null) return;
+		if (gserver==null) {
+			return;
+		}
+		FileOutputStream f_out=null;
+		ObjectOutputStream obj_out=null;
 		try {
 			String serverLocalWorkspacePath = CarbonServerManager.getServerLocalWorkspacePath(server);
 			String objConfigPath = FileUtils.addNodesToPath(serverLocalWorkspacePath, new String[]{"repository","conf","config"});
-			FileOutputStream f_out = new FileOutputStream(objConfigPath);
-			ObjectOutputStream obj_out = new ObjectOutputStream (f_out);
+			f_out = new FileOutputStream(objConfigPath);
+			obj_out = new ObjectOutputStream (f_out);
 			obj_out.writeObject ( gserver.getServerInstanceProperties());
 		} catch (IOException e) {
 			log.error(e);
+		}finally{
+			if(f_out!=null){
+				try {
+					f_out.close();
+				} catch (IOException e) {
+					log.error("Error while closing stream", e);
+				}
+			}
+			
+			if(obj_out!=null){
+				try {
+					obj_out.close();
+				} catch (IOException e) {
+					log.error("Error while closing stream", e);
+				}
+			}
 		}
 	}
 

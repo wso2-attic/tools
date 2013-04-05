@@ -66,7 +66,6 @@ public class FactsDialog extends Dialog{
 	private Output output=new Output();
 	private int outputTableIndex;
 	private boolean outputtableEdited=false;
-	private Text txtType;
 	private Text txtFactName;
 	private Text txtFactNameSpace;
 	private IProject project;
