@@ -86,7 +86,7 @@ public abstract class ProjectDataModel extends Observable {
 	}
 
 	public void setSelectedOption(String selectedOption) throws ObserverFailedException {
-		if (this.selectedOption.equals(selectedOption)) {
+		if (!selectedOption.equals(this.selectedOption)) {
 			this.selectedOption = selectedOption;
 			trigger();
 		}
