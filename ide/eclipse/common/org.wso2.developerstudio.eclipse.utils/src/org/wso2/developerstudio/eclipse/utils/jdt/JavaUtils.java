@@ -133,21 +133,28 @@ public class JavaUtils {
 
 	public static IPackageFragmentRoot[] getReferencedLibrariesForProject(IProject project) throws JavaModelException{
 		IJavaProject p = JavaCore.create(project);
-		IPackageFragmentRoot[] packageFragmentRoots = p.getPackageFragmentRoots();
+		IPackageFragmentRoot[] packageFragmentRoots = null;
+		if (p!=null) {
+			packageFragmentRoots = p.getPackageFragmentRoots();
+		}
 		
 		ArrayList<IPackageFragmentRoot> jarClassPaths = new ArrayList<IPackageFragmentRoot>();
-		for (IPackageFragmentRoot packageFragmentRoot : packageFragmentRoots) {
-			if (isWebApp && packageFragmentRoot.isArchive()) {
-				if (packageFragmentRoot.getRawClasspathEntry().getEntryKind() == IClasspathEntry.CPE_LIBRARY) {
-					jarClassPaths.add(packageFragmentRoot);
-				}
+		if (packageFragmentRoots != null) {
+			for (IPackageFragmentRoot packageFragmentRoot : packageFragmentRoots) {
+				if (isWebApp && packageFragmentRoot.isArchive()) {
+					if (packageFragmentRoot.getRawClasspathEntry()
+							.getEntryKind() == IClasspathEntry.CPE_LIBRARY) {
+						jarClassPaths.add(packageFragmentRoot);
+					}
 
-			} else if(!isWebApp){
-				if (packageFragmentRoot.getRawClasspathEntry().getEntryKind() == IClasspathEntry.CPE_LIBRARY) {
-					jarClassPaths.add(packageFragmentRoot);
+				} else if (!isWebApp) {
+					if (packageFragmentRoot.getRawClasspathEntry()
+							.getEntryKind() == IClasspathEntry.CPE_LIBRARY) {
+						jarClassPaths.add(packageFragmentRoot);
+					}
 				}
 			}
-        } 
+		}
 		return jarClassPaths.toArray(new IPackageFragmentRoot[]{});
     }
 
