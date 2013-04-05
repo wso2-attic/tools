@@ -65,7 +65,7 @@ public class RegistryArtifactHandler extends ProjectArtifactHandler {
 
 				IFolder registryResources = binaries.getFolder("registry_resources");
 				if (registryResources.exists()) {
-					registryResources.delete(true, nullProgressMonitor);
+					FileUtils.deleteDirectories(registryResources.getLocation().toFile());
 				}
 				registryResources.create(false, true, nullProgressMonitor);
 
@@ -140,6 +140,8 @@ public class RegistryArtifactHandler extends ProjectArtifactHandler {
 						}
 						project.refreshLocal(IResource.DEPTH_INFINITE, nullProgressMonitor);
 					}
+					builder.close();
+					parser.close();
 				}
 			}
 
