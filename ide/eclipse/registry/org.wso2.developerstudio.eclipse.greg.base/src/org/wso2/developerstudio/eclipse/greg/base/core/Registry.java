@@ -30,7 +30,10 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.QualifiedName;
+import org.eclipse.core.runtime.preferences.IPreferencesService;
+import org.eclipse.jface.preference.IPreferenceStore;
 import org.wso2.carbon.authenticator.stub.AuthenticationAdminStub;
 import org.wso2.carbon.feature.mgt.stub.ProvisioningAdminServiceStub;
 import org.wso2.carbon.feature.mgt.stub.prov.data.Feature;
@@ -55,6 +58,7 @@ import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.platform.core.MediaManager;
 import org.wso2.developerstudio.eclipse.platform.core.mediatype.PlatformMediaTypeConstants;
+import org.wso2.developerstudio.eclipse.platform.ui.preferences.ClientTrustStorePreferencePage;
 
 import java.io.BufferedInputStream;
 import java.io.File;
@@ -88,6 +92,11 @@ public class Registry {
 	private String userName;
 	private String passwd;
 	private IFile propertyFile;
+	private static IPreferencesService preferenceStore;
+
+	static{
+		preferenceStore = Platform.getPreferencesService();
+	}
 
 	/**
 	 * constructor 
@@ -329,10 +338,31 @@ public class Registry {
 	 * setting system properties to initialize the remote registry instance
 	 */
 	public static void registryInit() {
-		System.setProperty("javax.net.ssl.trustStore", getJKSPath());
-		System.setProperty("javax.net.ssl.trustStorePassword", "wso2carbon");
-		System.setProperty("javax.net.ssl.trustStoreType", "JKS");
+		String clientTrustStoreLocation = preferenceStore
+				.getString("org.wso2.developerstudio.eclipse.platform.ui",
+						ClientTrustStorePreferencePage.TRUST_STORE_LOCATION,
+						null, null);
+		String clientTrustStoreType = preferenceStore.getString(
+				"org.wso2.developerstudio.eclipse.platform.ui",
+				ClientTrustStorePreferencePage.TRUST_STORE_TYPE, null, null);
+		String clientTrustStorePassword = preferenceStore
+				.getString("org.wso2.developerstudio.eclipse.platform.ui",
+						ClientTrustStorePreferencePage.TRUST_STORE_PASSWORD,
+						null, null);
 
+		System.setProperty("javax.net.ssl.trustStoreType", "JKS");
+		if (clientTrustStoreLocation != null
+				&& clientTrustStorePassword != null
+				&& clientTrustStoreLocation.endsWith(".jks")
+				&& !clientTrustStorePassword.equals("")) {
+			System.setProperty("javax.net.ssl.trustStore",
+					clientTrustStoreLocation);
+			System.setProperty("javax.net.ssl.trustStorePassword",
+					clientTrustStorePassword);
+		} else {
+			System.setProperty("javax.net.ssl.trustStore", getJKSPath());
+			System.setProperty("javax.net.ssl.trustStorePassword", "wso2carbon");
+		}
 	}
 
 	/**
