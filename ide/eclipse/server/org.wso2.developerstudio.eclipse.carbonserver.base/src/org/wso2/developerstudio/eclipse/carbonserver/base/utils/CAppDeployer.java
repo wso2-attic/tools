@@ -18,17 +18,21 @@ import org.eclipse.core.resources.IWorkspace;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.Platform;
+import org.eclipse.core.runtime.preferences.IPreferencesService;
 import org.wso2.developerstudio.eclipse.carbonserver.base.Activator;
 import org.wso2.developerstudio.eclipse.carbonserver.base.capp.uploader.CarbonAppUploaderStub;
 import org.wso2.developerstudio.eclipse.carbonserver.base.capp.uploader.CarbonAppUploaderStub.UploadedFileItem;
 import org.wso2.developerstudio.eclipse.carbonserver.base.carbon.application.ApplicationAdminStub;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
+import org.wso2.developerstudio.eclipse.platform.ui.preferences.ClientTrustStorePreferencePage;
 import org.wso2.developerstudio.eclipse.platform.ui.utils.SSLUtils;
 
 public class CAppDeployer {
 	
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
+	private static IPreferencesService preferenceStore;
 	
 	/**
 	 * This method is used to upload car files in to your carbon server instances and to a tanent in the cloud platform.
@@ -61,9 +65,33 @@ public class CAppDeployer {
 	}
 	
 	static {
-		System.setProperty("javax.net.ssl.trustStore", getJKSPath());
-		System.setProperty("javax.net.ssl.trustStorePassword", "wso2carbon");
+		preferenceStore = Platform.getPreferencesService();
+		
+		String clientTrustStoreLocation = preferenceStore
+				.getString("org.wso2.developerstudio.eclipse.platform.ui",
+						ClientTrustStorePreferencePage.TRUST_STORE_LOCATION,
+						null, null);
+		String clientTrustStoreType = preferenceStore.getString(
+				"org.wso2.developerstudio.eclipse.platform.ui",
+				ClientTrustStorePreferencePage.TRUST_STORE_TYPE, null, null);
+		String clientTrustStorePassword = preferenceStore
+				.getString("org.wso2.developerstudio.eclipse.platform.ui",
+						ClientTrustStorePreferencePage.TRUST_STORE_PASSWORD,
+						null, null);
+
 		System.setProperty("javax.net.ssl.trustStoreType", "JKS");
+		if (clientTrustStoreLocation != null
+				&& clientTrustStorePassword != null
+				&& clientTrustStoreLocation.endsWith(".jks")
+				&& !clientTrustStorePassword.equals("")) {
+			System.setProperty("javax.net.ssl.trustStore",
+					clientTrustStoreLocation);
+			System.setProperty("javax.net.ssl.trustStorePassword",
+					clientTrustStorePassword);
+		} else {
+			System.setProperty("javax.net.ssl.trustStore", getJKSPath());
+			System.setProperty("javax.net.ssl.trustStorePassword", "wso2carbon");
+		}
 	}
 
 	private static String getJKSPath() {
