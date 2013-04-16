@@ -22,11 +22,13 @@ import org.apache.axis2.transport.http.HTTPConstants;
 import org.apache.maven.artifact.factory.ArtifactFactory;
 import org.apache.maven.artifact.repository.ArtifactRepository;
 import org.apache.maven.artifact.resolver.ArtifactResolver;
+import org.apache.maven.model.Plugin;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.project.MavenProject;
 import org.apache.maven.project.MavenProjectHelper;
+import org.codehaus.plexus.util.xml.Xpp3Dom;
 import org.wso2.carbon.application.mgt.stub.upload.types.carbon.UploadedFileItem;
 import org.wso2.carbon.stub.ApplicationAdminStub;
 import org.wso2.carbon.stub.AuthenticationAdminStub;
@@ -204,7 +206,30 @@ public class DeployCarMojo extends AbstractMojo {
 
 	private void deployCAR() throws MojoExecutionException {
 		setSystemProperties();
-	    File carFile = new File(target+"/"+project.getArtifactId()+"_"+project.getVersion()+".car");
+		
+		List<Plugin> buildPlugins = project.getBuildPlugins();
+		
+		for (Plugin plugin : buildPlugins) {
+			String artifactId = plugin.getArtifactId();
+			if(artifactId.equals("maven-car-plugin")){
+				Xpp3Dom configurationNode = (Xpp3Dom)plugin.getConfiguration();
+				Xpp3Dom finalNameNode = configurationNode.getChild("finalName");
+				if (finalNameNode != null) {
+					finalName = finalNameNode.getValue();
+					getLog().info("Final Name of C-App: "+finalName);
+				}
+				break;
+			}
+		}
+		
+	    File carFile = null;
+		if (finalName == null) {
+			carFile = new File(target + "/" + project.getArtifactId() + "_"
+					+ project.getVersion() + ".car");
+		}else{
+			carFile = new File(target + "/" + finalName + ".car");
+		}
+		
 	    if(operation.equalsIgnoreCase("deploy")){
 		    try {
 				deployCApp(userName, password, serverUrl, carFile);
