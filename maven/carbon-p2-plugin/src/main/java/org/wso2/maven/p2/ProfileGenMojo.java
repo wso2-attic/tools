@@ -164,6 +164,7 @@ public class ProfileGenMojo extends AbstractMojo {
                 profile = P2Constants.DEFAULT_PROFILE_ID;
             }
             createAndSetupPaths();
+            rewriteEclipseIni();
 //          	verifySetupP2RepositoryURL();
             this.getLog().info("Running Equinox P2 Director Application");
             installFeatures(getIUsToInstall());
@@ -310,7 +311,38 @@ public class ProfileGenMojo extends AbstractMojo {
         }
     }
 
+    private void rewriteEclipseIni(){
+        File eclipseIni = null;
+        String profileLocation = destination + File.separator + profile;
+        // getting the file null.ini
+        eclipseIni = new File(profileLocation + File.separator +"null.ini");
+        if (eclipseIni.exists()) {
+            rewriteFile(eclipseIni, profileLocation);
+            return;
+        }
+        // null.ini does not exist. trying with eclipse.ini
+        eclipseIni = new File(profileLocation + File.separator +"eclipse.ini");
+        if (eclipseIni.exists()) {
+            rewriteFile(eclipseIni, profileLocation);
+            return;
+        }
+    }
 
+    private  void rewriteFile(File file, String profileLocation) {
+        file.delete();
+        PrintWriter pw = null;
+        try {
+            pw = new PrintWriter(new FileWriter(file));
+            pw.write("-install\n");
+            pw.write(profileLocation);
+            pw.flush();
+        } catch (IOException e) {
+            this.getLog().debug("Error while writing to file " + file.getName());
+            e.printStackTrace();
+        } finally {
+            pw.close();
+        }
+    }
 
     private void deployArtifact() {
         if (FILE_FEATURE_PROFILE != null && FILE_FEATURE_PROFILE.exists()) {
