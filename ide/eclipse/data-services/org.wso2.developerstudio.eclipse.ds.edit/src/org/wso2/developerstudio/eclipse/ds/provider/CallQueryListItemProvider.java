@@ -17,6 +17,10 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import org.eclipse.emf.ecore.util.FeatureMap;
+import org.eclipse.emf.ecore.util.FeatureMapUtil;
+import org.eclipse.emf.ecore.xml.type.XMLTypeFactory;
+import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -77,7 +81,7 @@ public class CallQueryListItemProvider
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	
 	
@@ -85,6 +89,7 @@ public class CallQueryListItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			//childrenFeatures.add(DsPackage.Literals.CALL_QUERY_LIST__MIXED);
 			childrenFeatures.add(DsPackage.Literals.CALL_QUERY_LIST__CALL_QUERY);
 		}
 		return childrenFeatures;
@@ -143,6 +148,7 @@ public class CallQueryListItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(CallQueryList.class)) {
+			case DsPackage.CALL_QUERY_LIST__MIXED:
 			case DsPackage.CALL_QUERY_LIST__CALL_QUERY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -165,8 +171,71 @@ public class CallQueryListItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(DsPackage.Literals.CALL_QUERY_LIST__MIXED,
+				 FeatureMapUtil.createEntry
+					(XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__COMMENT,
+					 "")));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DsPackage.Literals.CALL_QUERY_LIST__MIXED,
+				 FeatureMapUtil.createEntry
+					(XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__TEXT,
+					 "")));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DsPackage.Literals.CALL_QUERY_LIST__MIXED,
+				 FeatureMapUtil.createEntry
+					(XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__PROCESSING_INSTRUCTION,
+					 XMLTypeFactory.eINSTANCE.createProcessingInstruction())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DsPackage.Literals.CALL_QUERY_LIST__MIXED,
+				 FeatureMapUtil.createEntry
+					(XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__CDATA,
+					 "")));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DsPackage.Literals.CALL_QUERY_LIST__MIXED,
+				 FeatureMapUtil.createEntry
+					(DsPackage.Literals.CALL_QUERY_LIST__CALL_QUERY,
+					 DsFactory.eINSTANCE.createCallQuery())));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(DsPackage.Literals.CALL_QUERY_LIST__CALL_QUERY,
 				 DsFactory.eINSTANCE.createCallQuery()));
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		if (childFeature instanceof EStructuralFeature && FeatureMapUtil.isFeatureMap((EStructuralFeature)childFeature)) {
+			FeatureMap.Entry entry = (FeatureMap.Entry)childObject;
+			childFeature = entry.getEStructuralFeature();
+			childObject = entry.getValue();
+		}
+
+		boolean qualify =
+			childFeature == DsPackage.Literals.CALL_QUERY_LIST__CALL_QUERY;
+
+		if (qualify) {
+			return getString
+				("_UI_CreateChild_text2",
+				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 	/**

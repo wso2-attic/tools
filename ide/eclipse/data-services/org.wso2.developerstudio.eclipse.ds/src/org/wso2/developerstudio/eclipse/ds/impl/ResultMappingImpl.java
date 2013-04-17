@@ -19,7 +19,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.eclipse.emf.ecore.util.BasicFeatureMap;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.wso2.developerstudio.eclipse.ds.AttributeMapping;
@@ -35,6 +37,7 @@ import org.wso2.developerstudio.eclipse.ds.ResultMapping;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.ResultMappingImpl#getMixed <em>Mixed</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.ResultMappingImpl#getElement <em>Element</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.ResultMappingImpl#getAttribute <em>Attribute</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.ResultMappingImpl#getCallQuery <em>Call Query</em>}</li>
@@ -50,34 +53,14 @@ import org.wso2.developerstudio.eclipse.ds.ResultMapping;
  */
 public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 	/**
-	 * The cached value of the '{@link #getElement() <em>Element</em>}' containment reference list.
+	 * The cached value of the '{@link #getMixed() <em>Mixed</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getElement()
+	 * @see #getMixed()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ElementMapping> element;
-
-	/**
-	 * The cached value of the '{@link #getAttribute() <em>Attribute</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAttribute()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<AttributeMapping> attribute;
-
-	/**
-	 * The cached value of the '{@link #getCallQuery() <em>Call Query</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCallQuery()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<CallQuery> callQuery;
+	protected FeatureMap mixed;
 
 	/**
 	 * The default value of the '{@link #getDefaultNamespace() <em>Default Namespace</em>}' attribute.
@@ -205,11 +188,20 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ElementMapping> getElement() {
-		if (element == null) {
-			element = new EObjectContainmentEList<ElementMapping>(ElementMapping.class, this, DsPackage.RESULT_MAPPING__ELEMENT);
+	public FeatureMap getMixed() {
+		if (mixed == null) {
+			mixed = new BasicFeatureMap(this, DsPackage.RESULT_MAPPING__MIXED);
 		}
-		return element;
+		return mixed;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ElementMapping> getElement() {
+		return getMixed().list(DsPackage.Literals.RESULT_MAPPING__ELEMENT);
 	}
 
 	/**
@@ -218,10 +210,7 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 	 * @generated
 	 */
 	public EList<AttributeMapping> getAttribute() {
-		if (attribute == null) {
-			attribute = new EObjectContainmentEList<AttributeMapping>(AttributeMapping.class, this, DsPackage.RESULT_MAPPING__ATTRIBUTE);
-		}
-		return attribute;
+		return getMixed().list(DsPackage.Literals.RESULT_MAPPING__ATTRIBUTE);
 	}
 
 	/**
@@ -230,10 +219,7 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 	 * @generated
 	 */
 	public EList<CallQuery> getCallQuery() {
-		if (callQuery == null) {
-			callQuery = new EObjectContainmentEList<CallQuery>(CallQuery.class, this, DsPackage.RESULT_MAPPING__CALL_QUERY);
-		}
-		return callQuery;
+		return getMixed().list(DsPackage.Literals.RESULT_MAPPING__CALL_QUERY);
 	}
 
 	/**
@@ -351,6 +337,8 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case DsPackage.RESULT_MAPPING__MIXED:
+				return ((InternalEList<?>)getMixed()).basicRemove(otherEnd, msgs);
 			case DsPackage.RESULT_MAPPING__ELEMENT:
 				return ((InternalEList<?>)getElement()).basicRemove(otherEnd, msgs);
 			case DsPackage.RESULT_MAPPING__ATTRIBUTE:
@@ -371,6 +359,9 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case DsPackage.RESULT_MAPPING__MIXED:
+				if (coreType) return getMixed();
+				return ((FeatureMap.Internal)getMixed()).getWrapper();
 			case DsPackage.RESULT_MAPPING__ELEMENT:
 				return getElement();
 			case DsPackage.RESULT_MAPPING__ATTRIBUTE:
@@ -402,6 +393,9 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 	
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case DsPackage.RESULT_MAPPING__MIXED:
+				((FeatureMap.Internal)getMixed()).set(newValue);
+				return;
 			case DsPackage.RESULT_MAPPING__ELEMENT:
 				getElement().clear();
 				getElement().addAll((Collection<? extends ElementMapping>)newValue);
@@ -443,6 +437,9 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case DsPackage.RESULT_MAPPING__MIXED:
+				getMixed().clear();
+				return;
 			case DsPackage.RESULT_MAPPING__ELEMENT:
 				getElement().clear();
 				return;
@@ -481,12 +478,14 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case DsPackage.RESULT_MAPPING__MIXED:
+				return mixed != null && !mixed.isEmpty();
 			case DsPackage.RESULT_MAPPING__ELEMENT:
-				return element != null && !element.isEmpty();
+				return !getElement().isEmpty();
 			case DsPackage.RESULT_MAPPING__ATTRIBUTE:
-				return attribute != null && !attribute.isEmpty();
+				return !getAttribute().isEmpty();
 			case DsPackage.RESULT_MAPPING__CALL_QUERY:
-				return callQuery != null && !callQuery.isEmpty();
+				return !getCallQuery().isEmpty();
 			case DsPackage.RESULT_MAPPING__DEFAULT_NAMESPACE:
 				return DEFAULT_NAMESPACE_EDEFAULT == null ? defaultNamespace != null : !DEFAULT_NAMESPACE_EDEFAULT.equals(defaultNamespace);
 			case DsPackage.RESULT_MAPPING__ELEMENT_NAME:
@@ -513,7 +512,9 @@ public class ResultMappingImpl extends EObjectImpl implements ResultMapping {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (defaultNamespace: ");
+		result.append(" (mixed: ");
+		result.append(mixed);
+		result.append(", defaultNamespace: ");
 		result.append(defaultNamespace);
 		result.append(", elementName: ");
 		result.append(elementName);

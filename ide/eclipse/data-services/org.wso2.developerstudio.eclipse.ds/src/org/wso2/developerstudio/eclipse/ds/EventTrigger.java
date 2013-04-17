@@ -7,6 +7,7 @@
 package org.wso2.developerstudio.eclipse.ds;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.FeatureMap;
 
 /**
  * <!-- begin-user-doc -->
@@ -16,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link org.wso2.developerstudio.eclipse.ds.EventTrigger#getMixed <em>Mixed</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.EventTrigger#getExpression <em>Expression</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.EventTrigger#getTargetTopic <em>Target Topic</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.EventTrigger#getSubscriptions <em>Subscriptions</em>}</li>
@@ -25,10 +27,27 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  *
  * @see org.wso2.developerstudio.eclipse.ds.DsPackage#getEventTrigger()
- * @model extendedMetaData="name='event-trigger_._type' kind='elementOnly'"
+ * @model extendedMetaData="name='event-trigger_._type' kind='mixed'"
  * @generated
  */
 public interface EventTrigger extends EObject {
+	/**
+	 * Returns the value of the '<em><b>Mixed</b></em>' attribute list.
+	 * The list contents are of type {@link org.eclipse.emf.ecore.util.FeatureMap.Entry}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Mixed</em>' attribute list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Mixed</em>' attribute list.
+	 * @see org.wso2.developerstudio.eclipse.ds.DsPackage#getEventTrigger_Mixed()
+	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true"
+	 *        extendedMetaData="kind='elementWildcard' name=':mixed'"
+	 * @generated
+	 */
+	FeatureMap getMixed();
+
 	/**
 	 * Returns the value of the '<em><b>Expression</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
@@ -40,7 +59,7 @@ public interface EventTrigger extends EObject {
 	 * @return the value of the '<em>Expression</em>' containment reference.
 	 * @see #setExpression(Expression)
 	 * @see org.wso2.developerstudio.eclipse.ds.DsPackage#getEventTrigger_Expression()
-	 * @model containment="true" required="true"
+	 * @model containment="true" required="true" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='expression' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -67,7 +86,7 @@ public interface EventTrigger extends EObject {
 	 * @return the value of the '<em>Target Topic</em>' containment reference.
 	 * @see #setTargetTopic(TargetTopic)
 	 * @see org.wso2.developerstudio.eclipse.ds.DsPackage#getEventTrigger_TargetTopic()
-	 * @model containment="true" required="true"
+	 * @model containment="true" required="true" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='target-topic' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -94,7 +113,7 @@ public interface EventTrigger extends EObject {
 	 * @return the value of the '<em>Subscriptions</em>' containment reference.
 	 * @see #setSubscriptions(EventSubscriptionList)
 	 * @see org.wso2.developerstudio.eclipse.ds.DsPackage#getEventTrigger_Subscriptions()
-	 * @model containment="true" required="true"
+	 * @model containment="true" required="true" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='subscriptions' namespace='##targetNamespace'"
 	 * @generated
 	 */

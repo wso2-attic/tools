@@ -17,6 +17,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.eclipse.emf.ecore.util.BasicFeatureMap;
+import org.eclipse.emf.ecore.util.FeatureMap;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.wso2.developerstudio.eclipse.ds.DsPackage;
 import org.wso2.developerstudio.eclipse.ds.ExcelQuery;
 import org.wso2.developerstudio.eclipse.ds.HasHeader;
@@ -31,6 +34,7 @@ import org.wso2.developerstudio.eclipse.ds.WorkBookName;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.ExcelQueryImpl#getMixed <em>Mixed</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.ExcelQueryImpl#getWorkbookname <em>Workbookname</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.ExcelQueryImpl#getHasheader <em>Hasheader</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.ExcelQueryImpl#getStartingrow <em>Startingrow</em>}</li>
@@ -42,44 +46,14 @@ import org.wso2.developerstudio.eclipse.ds.WorkBookName;
  */
 public class ExcelQueryImpl extends EObjectImpl implements ExcelQuery {
 	/**
-	 * The cached value of the '{@link #getWorkbookname() <em>Workbookname</em>}' containment reference.
+	 * The cached value of the '{@link #getMixed() <em>Mixed</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getWorkbookname()
+	 * @see #getMixed()
 	 * @generated
 	 * @ordered
 	 */
-	protected WorkBookName workbookname;
-
-	/**
-	 * The cached value of the '{@link #getHasheader() <em>Hasheader</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getHasheader()
-	 * @generated
-	 * @ordered
-	 */
-	protected HasHeader hasheader;
-
-	/**
-	 * The cached value of the '{@link #getStartingrow() <em>Startingrow</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getStartingrow()
-	 * @generated
-	 * @ordered
-	 */
-	protected StartingRow startingrow;
-
-	/**
-	 * The cached value of the '{@link #getMaxrowcount() <em>Maxrowcount</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMaxrowcount()
-	 * @generated
-	 * @ordered
-	 */
-	protected MaxRowCount maxrowcount;
+	protected FeatureMap mixed;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -107,8 +81,20 @@ public class ExcelQueryImpl extends EObjectImpl implements ExcelQuery {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public FeatureMap getMixed() {
+		if (mixed == null) {
+			mixed = new BasicFeatureMap(this, DsPackage.EXCEL_QUERY__MIXED);
+		}
+		return mixed;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public WorkBookName getWorkbookname() {
-		return workbookname;
+		return (WorkBookName)getMixed().get(DsPackage.Literals.EXCEL_QUERY__WORKBOOKNAME, true);
 	}
 
 	/**
@@ -117,13 +103,7 @@ public class ExcelQueryImpl extends EObjectImpl implements ExcelQuery {
 	 * @generated
 	 */
 	public NotificationChain basicSetWorkbookname(WorkBookName newWorkbookname, NotificationChain msgs) {
-		WorkBookName oldWorkbookname = workbookname;
-		workbookname = newWorkbookname;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DsPackage.EXCEL_QUERY__WORKBOOKNAME, oldWorkbookname, newWorkbookname);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
+		return ((FeatureMap.Internal)getMixed()).basicAdd(DsPackage.Literals.EXCEL_QUERY__WORKBOOKNAME, newWorkbookname, msgs);
 	}
 
 	/**
@@ -132,17 +112,7 @@ public class ExcelQueryImpl extends EObjectImpl implements ExcelQuery {
 	 * @generated
 	 */
 	public void setWorkbookname(WorkBookName newWorkbookname) {
-		if (newWorkbookname != workbookname) {
-			NotificationChain msgs = null;
-			if (workbookname != null)
-				msgs = ((InternalEObject)workbookname).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DsPackage.EXCEL_QUERY__WORKBOOKNAME, null, msgs);
-			if (newWorkbookname != null)
-				msgs = ((InternalEObject)newWorkbookname).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DsPackage.EXCEL_QUERY__WORKBOOKNAME, null, msgs);
-			msgs = basicSetWorkbookname(newWorkbookname, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.EXCEL_QUERY__WORKBOOKNAME, newWorkbookname, newWorkbookname));
+		((FeatureMap.Internal)getMixed()).set(DsPackage.Literals.EXCEL_QUERY__WORKBOOKNAME, newWorkbookname);
 	}
 
 	/**
@@ -151,7 +121,7 @@ public class ExcelQueryImpl extends EObjectImpl implements ExcelQuery {
 	 * @generated
 	 */
 	public HasHeader getHasheader() {
-		return hasheader;
+		return (HasHeader)getMixed().get(DsPackage.Literals.EXCEL_QUERY__HASHEADER, true);
 	}
 
 	/**
@@ -160,13 +130,7 @@ public class ExcelQueryImpl extends EObjectImpl implements ExcelQuery {
 	 * @generated
 	 */
 	public NotificationChain basicSetHasheader(HasHeader newHasheader, NotificationChain msgs) {
-		HasHeader oldHasheader = hasheader;
-		hasheader = newHasheader;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DsPackage.EXCEL_QUERY__HASHEADER, oldHasheader, newHasheader);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
+		return ((FeatureMap.Internal)getMixed()).basicAdd(DsPackage.Literals.EXCEL_QUERY__HASHEADER, newHasheader, msgs);
 	}
 
 	/**
@@ -175,17 +139,7 @@ public class ExcelQueryImpl extends EObjectImpl implements ExcelQuery {
 	 * @generated
 	 */
 	public void setHasheader(HasHeader newHasheader) {
-		if (newHasheader != hasheader) {
-			NotificationChain msgs = null;
-			if (hasheader != null)
-				msgs = ((InternalEObject)hasheader).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DsPackage.EXCEL_QUERY__HASHEADER, null, msgs);
-			if (newHasheader != null)
-				msgs = ((InternalEObject)newHasheader).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DsPackage.EXCEL_QUERY__HASHEADER, null, msgs);
-			msgs = basicSetHasheader(newHasheader, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.EXCEL_QUERY__HASHEADER, newHasheader, newHasheader));
+		((FeatureMap.Internal)getMixed()).set(DsPackage.Literals.EXCEL_QUERY__HASHEADER, newHasheader);
 	}
 
 	/**
@@ -194,7 +148,7 @@ public class ExcelQueryImpl extends EObjectImpl implements ExcelQuery {
 	 * @generated
 	 */
 	public StartingRow getStartingrow() {
-		return startingrow;
+		return (StartingRow)getMixed().get(DsPackage.Literals.EXCEL_QUERY__STARTINGROW, true);
 	}
 
 	/**
@@ -203,13 +157,7 @@ public class ExcelQueryImpl extends EObjectImpl implements ExcelQuery {
 	 * @generated
 	 */
 	public NotificationChain basicSetStartingrow(StartingRow newStartingrow, NotificationChain msgs) {
-		StartingRow oldStartingrow = startingrow;
-		startingrow = newStartingrow;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DsPackage.EXCEL_QUERY__STARTINGROW, oldStartingrow, newStartingrow);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
+		return ((FeatureMap.Internal)getMixed()).basicAdd(DsPackage.Literals.EXCEL_QUERY__STARTINGROW, newStartingrow, msgs);
 	}
 
 	/**
@@ -218,17 +166,7 @@ public class ExcelQueryImpl extends EObjectImpl implements ExcelQuery {
 	 * @generated
 	 */
 	public void setStartingrow(StartingRow newStartingrow) {
-		if (newStartingrow != startingrow) {
-			NotificationChain msgs = null;
-			if (startingrow != null)
-				msgs = ((InternalEObject)startingrow).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DsPackage.EXCEL_QUERY__STARTINGROW, null, msgs);
-			if (newStartingrow != null)
-				msgs = ((InternalEObject)newStartingrow).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DsPackage.EXCEL_QUERY__STARTINGROW, null, msgs);
-			msgs = basicSetStartingrow(newStartingrow, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.EXCEL_QUERY__STARTINGROW, newStartingrow, newStartingrow));
+		((FeatureMap.Internal)getMixed()).set(DsPackage.Literals.EXCEL_QUERY__STARTINGROW, newStartingrow);
 	}
 
 	/**
@@ -237,7 +175,7 @@ public class ExcelQueryImpl extends EObjectImpl implements ExcelQuery {
 	 * @generated
 	 */
 	public MaxRowCount getMaxrowcount() {
-		return maxrowcount;
+		return (MaxRowCount)getMixed().get(DsPackage.Literals.EXCEL_QUERY__MAXROWCOUNT, true);
 	}
 
 	/**
@@ -246,13 +184,7 @@ public class ExcelQueryImpl extends EObjectImpl implements ExcelQuery {
 	 * @generated
 	 */
 	public NotificationChain basicSetMaxrowcount(MaxRowCount newMaxrowcount, NotificationChain msgs) {
-		MaxRowCount oldMaxrowcount = maxrowcount;
-		maxrowcount = newMaxrowcount;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DsPackage.EXCEL_QUERY__MAXROWCOUNT, oldMaxrowcount, newMaxrowcount);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
+		return ((FeatureMap.Internal)getMixed()).basicAdd(DsPackage.Literals.EXCEL_QUERY__MAXROWCOUNT, newMaxrowcount, msgs);
 	}
 
 	/**
@@ -261,17 +193,7 @@ public class ExcelQueryImpl extends EObjectImpl implements ExcelQuery {
 	 * @generated
 	 */
 	public void setMaxrowcount(MaxRowCount newMaxrowcount) {
-		if (newMaxrowcount != maxrowcount) {
-			NotificationChain msgs = null;
-			if (maxrowcount != null)
-				msgs = ((InternalEObject)maxrowcount).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DsPackage.EXCEL_QUERY__MAXROWCOUNT, null, msgs);
-			if (newMaxrowcount != null)
-				msgs = ((InternalEObject)newMaxrowcount).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DsPackage.EXCEL_QUERY__MAXROWCOUNT, null, msgs);
-			msgs = basicSetMaxrowcount(newMaxrowcount, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.EXCEL_QUERY__MAXROWCOUNT, newMaxrowcount, newMaxrowcount));
+		((FeatureMap.Internal)getMixed()).set(DsPackage.Literals.EXCEL_QUERY__MAXROWCOUNT, newMaxrowcount);
 	}
 
 	/**
@@ -284,6 +206,8 @@ public class ExcelQueryImpl extends EObjectImpl implements ExcelQuery {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case DsPackage.EXCEL_QUERY__MIXED:
+				return ((InternalEList<?>)getMixed()).basicRemove(otherEnd, msgs);
 			case DsPackage.EXCEL_QUERY__WORKBOOKNAME:
 				return basicSetWorkbookname(null, msgs);
 			case DsPackage.EXCEL_QUERY__HASHEADER:
@@ -306,6 +230,9 @@ public class ExcelQueryImpl extends EObjectImpl implements ExcelQuery {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case DsPackage.EXCEL_QUERY__MIXED:
+				if (coreType) return getMixed();
+				return ((FeatureMap.Internal)getMixed()).getWrapper();
 			case DsPackage.EXCEL_QUERY__WORKBOOKNAME:
 				return getWorkbookname();
 			case DsPackage.EXCEL_QUERY__HASHEADER:
@@ -328,6 +255,9 @@ public class ExcelQueryImpl extends EObjectImpl implements ExcelQuery {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case DsPackage.EXCEL_QUERY__MIXED:
+				((FeatureMap.Internal)getMixed()).set(newValue);
+				return;
 			case DsPackage.EXCEL_QUERY__WORKBOOKNAME:
 				setWorkbookname((WorkBookName)newValue);
 				return;
@@ -354,6 +284,9 @@ public class ExcelQueryImpl extends EObjectImpl implements ExcelQuery {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case DsPackage.EXCEL_QUERY__MIXED:
+				getMixed().clear();
+				return;
 			case DsPackage.EXCEL_QUERY__WORKBOOKNAME:
 				setWorkbookname((WorkBookName)null);
 				return;
@@ -380,16 +313,34 @@ public class ExcelQueryImpl extends EObjectImpl implements ExcelQuery {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case DsPackage.EXCEL_QUERY__MIXED:
+				return mixed != null && !mixed.isEmpty();
 			case DsPackage.EXCEL_QUERY__WORKBOOKNAME:
-				return workbookname != null;
+				return getWorkbookname() != null;
 			case DsPackage.EXCEL_QUERY__HASHEADER:
-				return hasheader != null;
+				return getHasheader() != null;
 			case DsPackage.EXCEL_QUERY__STARTINGROW:
-				return startingrow != null;
+				return getStartingrow() != null;
 			case DsPackage.EXCEL_QUERY__MAXROWCOUNT:
-				return maxrowcount != null;
+				return getMaxrowcount() != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (mixed: ");
+		result.append(mixed);
+		result.append(')');
+		return result.toString();
 	}
 
 } //ExcelQueryImpl

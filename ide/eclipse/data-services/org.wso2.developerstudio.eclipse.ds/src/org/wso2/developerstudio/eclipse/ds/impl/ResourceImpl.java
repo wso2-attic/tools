@@ -15,6 +15,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.eclipse.emf.ecore.util.BasicFeatureMap;
+import org.eclipse.emf.ecore.util.FeatureMap;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.wso2.developerstudio.eclipse.ds.CallQuery;
 import org.wso2.developerstudio.eclipse.ds.DsPackage;
 import org.wso2.developerstudio.eclipse.ds.Resource;
@@ -26,6 +29,7 @@ import org.wso2.developerstudio.eclipse.ds.Resource;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.ResourceImpl#getMixed <em>Mixed</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.ResourceImpl#getCallQuery <em>Call Query</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.ResourceImpl#getMethod <em>Method</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.ResourceImpl#getPath <em>Path</em>}</li>
@@ -36,14 +40,14 @@ import org.wso2.developerstudio.eclipse.ds.Resource;
  */
 public class ResourceImpl extends EObjectImpl implements Resource {
 	/**
-	 * The cached value of the '{@link #getCallQuery() <em>Call Query</em>}' containment reference.
+	 * The cached value of the '{@link #getMixed() <em>Mixed</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCallQuery()
+	 * @see #getMixed()
 	 * @generated
 	 * @ordered
 	 */
-	protected CallQuery callQuery;
+	protected FeatureMap mixed;
 
 	/**
 	 * The default value of the '{@link #getMethod() <em>Method</em>}' attribute.
@@ -111,8 +115,20 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public FeatureMap getMixed() {
+		if (mixed == null) {
+			mixed = new BasicFeatureMap(this, DsPackage.RESOURCE__MIXED);
+		}
+		return mixed;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public CallQuery getCallQuery() {
-		return callQuery;
+		return (CallQuery)getMixed().get(DsPackage.Literals.RESOURCE__CALL_QUERY, true);
 	}
 
 	/**
@@ -121,13 +137,7 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	 * @generated
 	 */
 	public NotificationChain basicSetCallQuery(CallQuery newCallQuery, NotificationChain msgs) {
-		CallQuery oldCallQuery = callQuery;
-		callQuery = newCallQuery;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DsPackage.RESOURCE__CALL_QUERY, oldCallQuery, newCallQuery);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
+		return ((FeatureMap.Internal)getMixed()).basicAdd(DsPackage.Literals.RESOURCE__CALL_QUERY, newCallQuery, msgs);
 	}
 
 	/**
@@ -136,17 +146,7 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	 * @generated
 	 */
 	public void setCallQuery(CallQuery newCallQuery) {
-		if (newCallQuery != callQuery) {
-			NotificationChain msgs = null;
-			if (callQuery != null)
-				msgs = ((InternalEObject)callQuery).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DsPackage.RESOURCE__CALL_QUERY, null, msgs);
-			if (newCallQuery != null)
-				msgs = ((InternalEObject)newCallQuery).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DsPackage.RESOURCE__CALL_QUERY, null, msgs);
-			msgs = basicSetCallQuery(newCallQuery, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.RESOURCE__CALL_QUERY, newCallQuery, newCallQuery));
+		((FeatureMap.Internal)getMixed()).set(DsPackage.Literals.RESOURCE__CALL_QUERY, newCallQuery);
 	}
 
 	/**
@@ -201,6 +201,8 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case DsPackage.RESOURCE__MIXED:
+				return ((InternalEList<?>)getMixed()).basicRemove(otherEnd, msgs);
 			case DsPackage.RESOURCE__CALL_QUERY:
 				return basicSetCallQuery(null, msgs);
 		}
@@ -217,6 +219,9 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case DsPackage.RESOURCE__MIXED:
+				if (coreType) return getMixed();
+				return ((FeatureMap.Internal)getMixed()).getWrapper();
 			case DsPackage.RESOURCE__CALL_QUERY:
 				return getCallQuery();
 			case DsPackage.RESOURCE__METHOD:
@@ -237,6 +242,9 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case DsPackage.RESOURCE__MIXED:
+				((FeatureMap.Internal)getMixed()).set(newValue);
+				return;
 			case DsPackage.RESOURCE__CALL_QUERY:
 				setCallQuery((CallQuery)newValue);
 				return;
@@ -260,6 +268,9 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case DsPackage.RESOURCE__MIXED:
+				getMixed().clear();
+				return;
 			case DsPackage.RESOURCE__CALL_QUERY:
 				setCallQuery((CallQuery)null);
 				return;
@@ -283,8 +294,10 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case DsPackage.RESOURCE__MIXED:
+				return mixed != null && !mixed.isEmpty();
 			case DsPackage.RESOURCE__CALL_QUERY:
-				return callQuery != null;
+				return getCallQuery() != null;
 			case DsPackage.RESOURCE__METHOD:
 				return METHOD_EDEFAULT == null ? method != null : !METHOD_EDEFAULT.equals(method);
 			case DsPackage.RESOURCE__PATH:
@@ -305,7 +318,9 @@ public class ResourceImpl extends EObjectImpl implements Resource {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (method: ");
+		result.append(" (mixed: ");
+		result.append(mixed);
+		result.append(", method: ");
 		result.append(method);
 		result.append(", path: ");
 		result.append(path);

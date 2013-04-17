@@ -17,6 +17,10 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import org.eclipse.emf.ecore.util.FeatureMap;
+import org.eclipse.emf.ecore.util.FeatureMapUtil;
+import org.eclipse.emf.ecore.xml.type.XMLTypeFactory;
+import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -240,7 +244,7 @@ public class QueryParameterItemProvider
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	
 	
@@ -248,6 +252,7 @@ public class QueryParameterItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			//childrenFeatures.add(DsPackage.Literals.QUERY_PARAMETER__MIXED);
 			childrenFeatures.add(DsPackage.Literals.QUERY_PARAMETER__VALIDATE_LONG_RANGE);
 			childrenFeatures.add(DsPackage.Literals.QUERY_PARAMETER__VALIDATE_DOUBLE_RANGE);
 			childrenFeatures.add(DsPackage.Literals.QUERY_PARAMETER__VALIDATE_LENGTH);
@@ -322,6 +327,7 @@ public class QueryParameterItemProvider
 			case DsPackage.QUERY_PARAMETER__TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case DsPackage.QUERY_PARAMETER__MIXED:
 			case DsPackage.QUERY_PARAMETER__VALIDATE_LONG_RANGE:
 			case DsPackage.QUERY_PARAMETER__VALIDATE_DOUBLE_RANGE:
 			case DsPackage.QUERY_PARAMETER__VALIDATE_LENGTH:
@@ -348,6 +354,69 @@ public class QueryParameterItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(DsPackage.Literals.QUERY_PARAMETER__MIXED,
+				 FeatureMapUtil.createEntry
+					(XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__COMMENT,
+					 "")));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DsPackage.Literals.QUERY_PARAMETER__MIXED,
+				 FeatureMapUtil.createEntry
+					(XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__TEXT,
+					 "")));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DsPackage.Literals.QUERY_PARAMETER__MIXED,
+				 FeatureMapUtil.createEntry
+					(XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__PROCESSING_INSTRUCTION,
+					 XMLTypeFactory.eINSTANCE.createProcessingInstruction())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DsPackage.Literals.QUERY_PARAMETER__MIXED,
+				 FeatureMapUtil.createEntry
+					(XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__CDATA,
+					 "")));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DsPackage.Literals.QUERY_PARAMETER__MIXED,
+				 FeatureMapUtil.createEntry
+					(DsPackage.Literals.QUERY_PARAMETER__VALIDATE_LONG_RANGE,
+					 DsFactory.eINSTANCE.createLongRangeValidator())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DsPackage.Literals.QUERY_PARAMETER__MIXED,
+				 FeatureMapUtil.createEntry
+					(DsPackage.Literals.QUERY_PARAMETER__VALIDATE_DOUBLE_RANGE,
+					 DsFactory.eINSTANCE.createDoubleRangeValidator())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DsPackage.Literals.QUERY_PARAMETER__MIXED,
+				 FeatureMapUtil.createEntry
+					(DsPackage.Literals.QUERY_PARAMETER__VALIDATE_LENGTH,
+					 DsFactory.eINSTANCE.createLengthValidator())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DsPackage.Literals.QUERY_PARAMETER__MIXED,
+				 FeatureMapUtil.createEntry
+					(DsPackage.Literals.QUERY_PARAMETER__VALIDATE_PATTERN,
+					 DsFactory.eINSTANCE.createPatternValidator())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DsPackage.Literals.QUERY_PARAMETER__MIXED,
+				 FeatureMapUtil.createEntry
+					(DsPackage.Literals.QUERY_PARAMETER__VALIDATE_CUSTOM,
+					 DsFactory.eINSTANCE.createCustomValidator())));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(DsPackage.Literals.QUERY_PARAMETER__VALIDATE_LONG_RANGE,
 				 DsFactory.eINSTANCE.createLongRangeValidator()));
 
@@ -370,6 +439,38 @@ public class QueryParameterItemProvider
 			(createChildParameter
 				(DsPackage.Literals.QUERY_PARAMETER__VALIDATE_CUSTOM,
 				 DsFactory.eINSTANCE.createCustomValidator()));
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		if (childFeature instanceof EStructuralFeature && FeatureMapUtil.isFeatureMap((EStructuralFeature)childFeature)) {
+			FeatureMap.Entry entry = (FeatureMap.Entry)childObject;
+			childFeature = entry.getEStructuralFeature();
+			childObject = entry.getValue();
+		}
+
+		boolean qualify =
+			childFeature == DsPackage.Literals.QUERY_PARAMETER__VALIDATE_LONG_RANGE ||
+			childFeature == DsPackage.Literals.QUERY_PARAMETER__VALIDATE_DOUBLE_RANGE ||
+			childFeature == DsPackage.Literals.QUERY_PARAMETER__VALIDATE_LENGTH ||
+			childFeature == DsPackage.Literals.QUERY_PARAMETER__VALIDATE_PATTERN ||
+			childFeature == DsPackage.Literals.QUERY_PARAMETER__VALIDATE_CUSTOM;
+
+		if (qualify) {
+			return getString
+				("_UI_CreateChild_text2",
+				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 	/**

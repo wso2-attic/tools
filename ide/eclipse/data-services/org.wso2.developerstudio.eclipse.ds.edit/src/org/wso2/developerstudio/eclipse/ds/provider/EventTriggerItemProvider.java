@@ -17,6 +17,10 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import org.eclipse.emf.ecore.util.FeatureMap;
+import org.eclipse.emf.ecore.util.FeatureMapUtil;
+import org.eclipse.emf.ecore.xml.type.XMLTypeFactory;
+import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -125,7 +129,7 @@ public class EventTriggerItemProvider
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	
 	
@@ -133,6 +137,7 @@ public class EventTriggerItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			//childrenFeatures.add(DsPackage.Literals.EVENT_TRIGGER__MIXED);
 			childrenFeatures.add(DsPackage.Literals.EVENT_TRIGGER__EXPRESSION);
 			childrenFeatures.add(DsPackage.Literals.EVENT_TRIGGER__TARGET_TOPIC);
 			childrenFeatures.add(DsPackage.Literals.EVENT_TRIGGER__SUBSCRIPTIONS);
@@ -200,6 +205,7 @@ public class EventTriggerItemProvider
 			case DsPackage.EVENT_TRIGGER__LANGUAGE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case DsPackage.EVENT_TRIGGER__MIXED:
 			case DsPackage.EVENT_TRIGGER__EXPRESSION:
 			case DsPackage.EVENT_TRIGGER__TARGET_TOPIC:
 			case DsPackage.EVENT_TRIGGER__SUBSCRIPTIONS:
@@ -224,6 +230,55 @@ public class EventTriggerItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(DsPackage.Literals.EVENT_TRIGGER__MIXED,
+				 FeatureMapUtil.createEntry
+					(XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__COMMENT,
+					 "")));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DsPackage.Literals.EVENT_TRIGGER__MIXED,
+				 FeatureMapUtil.createEntry
+					(XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__TEXT,
+					 "")));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DsPackage.Literals.EVENT_TRIGGER__MIXED,
+				 FeatureMapUtil.createEntry
+					(XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__PROCESSING_INSTRUCTION,
+					 XMLTypeFactory.eINSTANCE.createProcessingInstruction())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DsPackage.Literals.EVENT_TRIGGER__MIXED,
+				 FeatureMapUtil.createEntry
+					(XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__CDATA,
+					 "")));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DsPackage.Literals.EVENT_TRIGGER__MIXED,
+				 FeatureMapUtil.createEntry
+					(DsPackage.Literals.EVENT_TRIGGER__EXPRESSION,
+					 DsFactory.eINSTANCE.createExpression())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DsPackage.Literals.EVENT_TRIGGER__MIXED,
+				 FeatureMapUtil.createEntry
+					(DsPackage.Literals.EVENT_TRIGGER__TARGET_TOPIC,
+					 DsFactory.eINSTANCE.createTargetTopic())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DsPackage.Literals.EVENT_TRIGGER__MIXED,
+				 FeatureMapUtil.createEntry
+					(DsPackage.Literals.EVENT_TRIGGER__SUBSCRIPTIONS,
+					 DsFactory.eINSTANCE.createEventSubscriptionList())));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(DsPackage.Literals.EVENT_TRIGGER__EXPRESSION,
 				 DsFactory.eINSTANCE.createExpression()));
 
@@ -236,6 +291,36 @@ public class EventTriggerItemProvider
 			(createChildParameter
 				(DsPackage.Literals.EVENT_TRIGGER__SUBSCRIPTIONS,
 				 DsFactory.eINSTANCE.createEventSubscriptionList()));
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		if (childFeature instanceof EStructuralFeature && FeatureMapUtil.isFeatureMap((EStructuralFeature)childFeature)) {
+			FeatureMap.Entry entry = (FeatureMap.Entry)childObject;
+			childFeature = entry.getEStructuralFeature();
+			childObject = entry.getValue();
+		}
+
+		boolean qualify =
+			childFeature == DsPackage.Literals.EVENT_TRIGGER__EXPRESSION ||
+			childFeature == DsPackage.Literals.EVENT_TRIGGER__TARGET_TOPIC ||
+			childFeature == DsPackage.Literals.EVENT_TRIGGER__SUBSCRIPTIONS;
+
+		if (qualify) {
+			return getString
+				("_UI_CreateChild_text2",
+				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 	/**

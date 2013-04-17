@@ -9,6 +9,7 @@ package org.wso2.developerstudio.eclipse.ds;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.FeatureMap;
 
 /**
  * <!-- begin-user-doc -->
@@ -18,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link org.wso2.developerstudio.eclipse.ds.Query#getMixed <em>Mixed</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.Query#getSql <em>Sql</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.Query#getSparql <em>Sparql</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.Query#getProperties <em>Properties</em>}</li>
@@ -35,10 +37,27 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  *
  * @see org.wso2.developerstudio.eclipse.ds.DsPackage#getQuery()
- * @model extendedMetaData="name='query_._type' kind='elementOnly'"
+ * @model extendedMetaData="name='query_._type' kind='mixed'"
  * @generated
  */
 public interface Query extends EObject {
+	/**
+	 * Returns the value of the '<em><b>Mixed</b></em>' attribute list.
+	 * The list contents are of type {@link org.eclipse.emf.ecore.util.FeatureMap.Entry}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Mixed</em>' attribute list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Mixed</em>' attribute list.
+	 * @see org.wso2.developerstudio.eclipse.ds.DsPackage#getQuery_Mixed()
+	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true"
+	 *        extendedMetaData="kind='elementWildcard' name=':mixed'"
+	 * @generated
+	 */
+	FeatureMap getMixed();
+
 	/**
 	 * Returns the value of the '<em><b>Sql</b></em>' containment reference list.
 	 * The list contents are of type {@link org.wso2.developerstudio.eclipse.ds.Sql}.
@@ -50,7 +69,7 @@ public interface Query extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Sql</em>' containment reference list.
 	 * @see org.wso2.developerstudio.eclipse.ds.DsPackage#getQuery_Sql()
-	 * @model containment="true"
+	 * @model containment="true" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='sql' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -67,7 +86,7 @@ public interface Query extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Sparql</em>' containment reference list.
 	 * @see org.wso2.developerstudio.eclipse.ds.DsPackage#getQuery_Sparql()
-	 * @model containment="true"
+	 * @model containment="true" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='sparql' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -84,7 +103,7 @@ public interface Query extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Properties</em>' containment reference list.
 	 * @see org.wso2.developerstudio.eclipse.ds.DsPackage#getQuery_Properties()
-	 * @model containment="true"
+	 * @model containment="true" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='properties' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -101,7 +120,7 @@ public interface Query extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Result</em>' containment reference list.
 	 * @see org.wso2.developerstudio.eclipse.ds.DsPackage#getQuery_Result()
-	 * @model containment="true"
+	 * @model containment="true" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='result' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -118,7 +137,7 @@ public interface Query extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Excel</em>' containment reference list.
 	 * @see org.wso2.developerstudio.eclipse.ds.DsPackage#getQuery_Excel()
-	 * @model containment="true"
+	 * @model containment="true" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='excel' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -135,7 +154,7 @@ public interface Query extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Gspread</em>' containment reference list.
 	 * @see org.wso2.developerstudio.eclipse.ds.DsPackage#getQuery_Gspread()
-	 * @model containment="true"
+	 * @model containment="true" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='gspread' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -152,7 +171,7 @@ public interface Query extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Param</em>' containment reference list.
 	 * @see org.wso2.developerstudio.eclipse.ds.DsPackage#getQuery_Param()
-	 * @model containment="true"
+	 * @model containment="true" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='param' namespace='##targetNamespace'"
 	 * @generated
 	 */

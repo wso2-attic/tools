@@ -17,7 +17,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.eclipse.emf.ecore.util.BasicFeatureMap;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.wso2.developerstudio.eclipse.ds.DsPackage;
@@ -31,6 +33,7 @@ import org.wso2.developerstudio.eclipse.ds.QueryPropertyList;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.QueryPropertyListImpl#getMixed <em>Mixed</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.QueryPropertyListImpl#getProperty <em>Property</em>}</li>
  * </ul>
  * </p>
@@ -39,15 +42,14 @@ import org.wso2.developerstudio.eclipse.ds.QueryPropertyList;
  */
 public class QueryPropertyListImpl extends EObjectImpl implements QueryPropertyList {
 	/**
-	 * The cached value of the '{@link #getProperty() <em>Property</em>}' containment reference list.
+	 * The cached value of the '{@link #getMixed() <em>Mixed</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getProperty()
+	 * @see #getMixed()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<QueryProperty> property;
-
+	protected FeatureMap mixed;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -74,11 +76,20 @@ public class QueryPropertyListImpl extends EObjectImpl implements QueryPropertyL
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<QueryProperty> getProperty() {
-		if (property == null) {
-			property = new EObjectContainmentEList<QueryProperty>(QueryProperty.class, this, DsPackage.QUERY_PROPERTY_LIST__PROPERTY);
+	public FeatureMap getMixed() {
+		if (mixed == null) {
+			mixed = new BasicFeatureMap(this, DsPackage.QUERY_PROPERTY_LIST__MIXED);
 		}
-		return property;
+		return mixed;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<QueryProperty> getProperty() {
+		return getMixed().list(DsPackage.Literals.QUERY_PROPERTY_LIST__PROPERTY);
 	}
 
 	/**
@@ -91,6 +102,8 @@ public class QueryPropertyListImpl extends EObjectImpl implements QueryPropertyL
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case DsPackage.QUERY_PROPERTY_LIST__MIXED:
+				return ((InternalEList<?>)getMixed()).basicRemove(otherEnd, msgs);
 			case DsPackage.QUERY_PROPERTY_LIST__PROPERTY:
 				return ((InternalEList<?>)getProperty()).basicRemove(otherEnd, msgs);
 		}
@@ -107,6 +120,9 @@ public class QueryPropertyListImpl extends EObjectImpl implements QueryPropertyL
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case DsPackage.QUERY_PROPERTY_LIST__MIXED:
+				if (coreType) return getMixed();
+				return ((FeatureMap.Internal)getMixed()).getWrapper();
 			case DsPackage.QUERY_PROPERTY_LIST__PROPERTY:
 				return getProperty();
 		}
@@ -124,6 +140,9 @@ public class QueryPropertyListImpl extends EObjectImpl implements QueryPropertyL
 	
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case DsPackage.QUERY_PROPERTY_LIST__MIXED:
+				((FeatureMap.Internal)getMixed()).set(newValue);
+				return;
 			case DsPackage.QUERY_PROPERTY_LIST__PROPERTY:
 				getProperty().clear();
 				getProperty().addAll((Collection<? extends QueryProperty>)newValue);
@@ -142,6 +161,9 @@ public class QueryPropertyListImpl extends EObjectImpl implements QueryPropertyL
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case DsPackage.QUERY_PROPERTY_LIST__MIXED:
+				getMixed().clear();
+				return;
 			case DsPackage.QUERY_PROPERTY_LIST__PROPERTY:
 				getProperty().clear();
 				return;
@@ -159,10 +181,28 @@ public class QueryPropertyListImpl extends EObjectImpl implements QueryPropertyL
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case DsPackage.QUERY_PROPERTY_LIST__MIXED:
+				return mixed != null && !mixed.isEmpty();
 			case DsPackage.QUERY_PROPERTY_LIST__PROPERTY:
-				return property != null && !property.isEmpty();
+				return !getProperty().isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (mixed: ");
+		result.append(mixed);
+		result.append(')');
+		return result.toString();
 	}
 
 } //QueryPropertyListImpl

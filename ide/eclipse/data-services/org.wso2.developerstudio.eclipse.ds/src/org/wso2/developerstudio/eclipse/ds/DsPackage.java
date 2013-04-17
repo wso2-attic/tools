@@ -137,13 +137,22 @@ public interface DsPackage extends EPackage {
 	int CALL_QUERY = 1;
 
 	/**
+	 * The feature id for the '<em><b>Mixed</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CALL_QUERY__MIXED = 0;
+
+	/**
 	 * The feature id for the '<em><b>With Param</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CALL_QUERY__WITH_PARAM = 0;
+	int CALL_QUERY__WITH_PARAM = 1;
 
 	/**
 	 * The feature id for the '<em><b>Href</b></em>' attribute.
@@ -152,7 +161,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CALL_QUERY__HREF = 1;
+	int CALL_QUERY__HREF = 2;
 
 	/**
 	 * The number of structural features of the '<em>Call Query</em>' class.
@@ -161,7 +170,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CALL_QUERY_FEATURE_COUNT = 2;
+	int CALL_QUERY_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.ds.impl.CallQueryListImpl <em>Call Query List</em>}' class.
@@ -174,13 +183,22 @@ public interface DsPackage extends EPackage {
 	int CALL_QUERY_LIST = 2;
 
 	/**
+	 * The feature id for the '<em><b>Mixed</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CALL_QUERY_LIST__MIXED = 0;
+
+	/**
 	 * The feature id for the '<em><b>Call Query</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CALL_QUERY_LIST__CALL_QUERY = 0;
+	int CALL_QUERY_LIST__CALL_QUERY = 1;
 
 	/**
 	 * The number of structural features of the '<em>Call Query List</em>' class.
@@ -189,7 +207,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CALL_QUERY_LIST_FEATURE_COUNT = 1;
+	int CALL_QUERY_LIST_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.ds.impl.ConfigurationPropertyImpl <em>Configuration Property</em>}' class.
@@ -267,13 +285,22 @@ public interface DsPackage extends EPackage {
 	int DATA_SERVICE = 5;
 
 	/**
+	 * The feature id for the '<em><b>Mixed</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SERVICE__MIXED = 0;
+
+	/**
 	 * The feature id for the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_SERVICE__DESCRIPTION = 0;
+	int DATA_SERVICE__DESCRIPTION = 1;
 
 	/**
 	 * The feature id for the '<em><b>Config</b></em>' containment reference list.
@@ -282,7 +309,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_SERVICE__CONFIG = 1;
+	int DATA_SERVICE__CONFIG = 2;
 
 	/**
 	 * The feature id for the '<em><b>Query</b></em>' containment reference list.
@@ -291,7 +318,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_SERVICE__QUERY = 2;
+	int DATA_SERVICE__QUERY = 3;
 
 	/**
 	 * The feature id for the '<em><b>Event Trigger</b></em>' containment reference list.
@@ -300,7 +327,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_SERVICE__EVENT_TRIGGER = 3;
+	int DATA_SERVICE__EVENT_TRIGGER = 4;
 
 	/**
 	 * The feature id for the '<em><b>Operation</b></em>' containment reference list.
@@ -309,7 +336,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_SERVICE__OPERATION = 4;
+	int DATA_SERVICE__OPERATION = 5;
 
 	/**
 	 * The feature id for the '<em><b>Resource</b></em>' containment reference list.
@@ -318,7 +345,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_SERVICE__RESOURCE = 5;
+	int DATA_SERVICE__RESOURCE = 6;
 
 	/**
 	 * The feature id for the '<em><b>Base URI</b></em>' attribute.
@@ -327,7 +354,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_SERVICE__BASE_URI = 6;
+	int DATA_SERVICE__BASE_URI = 7;
 
 	/**
 	 * The feature id for the '<em><b>Enable Batch Requests</b></em>' attribute.
@@ -336,7 +363,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_SERVICE__ENABLE_BATCH_REQUESTS = 7;
+	int DATA_SERVICE__ENABLE_BATCH_REQUESTS = 8;
 
 	/**
 	 * The feature id for the '<em><b>Enable Boxcarring</b></em>' attribute.
@@ -345,7 +372,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_SERVICE__ENABLE_BOXCARRING = 8;
+	int DATA_SERVICE__ENABLE_BOXCARRING = 9;
 
 	/**
 	 * The feature id for the '<em><b>Enable DTP</b></em>' attribute.
@@ -354,7 +381,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_SERVICE__ENABLE_DTP = 9;
+	int DATA_SERVICE__ENABLE_DTP = 10;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -363,7 +390,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_SERVICE__NAME = 10;
+	int DATA_SERVICE__NAME = 11;
 
 	/**
 	 * The feature id for the '<em><b>Service Group</b></em>' attribute.
@@ -372,7 +399,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_SERVICE__SERVICE_GROUP = 11;
+	int DATA_SERVICE__SERVICE_GROUP = 12;
 
 	/**
 	 * The feature id for the '<em><b>Service Namespace</b></em>' attribute.
@@ -381,7 +408,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_SERVICE__SERVICE_NAMESPACE = 12;
+	int DATA_SERVICE__SERVICE_NAMESPACE = 13;
 
 	/**
 	 * The feature id for the '<em><b>Service Status</b></em>' attribute.
@@ -390,7 +417,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_SERVICE__SERVICE_STATUS = 13;
+	int DATA_SERVICE__SERVICE_STATUS = 14;
 
 	/**
 	 * The number of structural features of the '<em>Data Service</em>' class.
@@ -399,7 +426,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_SERVICE_FEATURE_COUNT = 14;
+	int DATA_SERVICE_FEATURE_COUNT = 15;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.ds.impl.DataSourceConfigurationImpl <em>Data Source Configuration</em>}' class.
@@ -412,13 +439,22 @@ public interface DsPackage extends EPackage {
 	int DATA_SOURCE_CONFIGURATION = 6;
 
 	/**
+	 * The feature id for the '<em><b>Mixed</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SOURCE_CONFIGURATION__MIXED = 0;
+
+	/**
 	 * The feature id for the '<em><b>Property</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_SOURCE_CONFIGURATION__PROPERTY = 0;
+	int DATA_SOURCE_CONFIGURATION__PROPERTY = 1;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -427,7 +463,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_SOURCE_CONFIGURATION__ID = 1;
+	int DATA_SOURCE_CONFIGURATION__ID = 2;
 
 	/**
 	 * The number of structural features of the '<em>Data Source Configuration</em>' class.
@@ -436,7 +472,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_SOURCE_CONFIGURATION_FEATURE_COUNT = 2;
+	int DATA_SOURCE_CONFIGURATION_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.ds.impl.DescriptionImpl <em>Description</em>}' class.
@@ -623,13 +659,22 @@ public interface DsPackage extends EPackage {
 	int ELEMENT_MAPPING = 10;
 
 	/**
+	 * The feature id for the '<em><b>Mixed</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT_MAPPING__MIXED = 0;
+
+	/**
 	 * The feature id for the '<em><b>Column</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING__COLUMN = 0;
+	int ELEMENT_MAPPING__COLUMN = 1;
 
 	/**
 	 * The feature id for the '<em><b>Export</b></em>' attribute.
@@ -638,7 +683,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING__EXPORT = 1;
+	int ELEMENT_MAPPING__EXPORT = 2;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -647,7 +692,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING__NAME = 2;
+	int ELEMENT_MAPPING__NAME = 3;
 
 	/**
 	 * The feature id for the '<em><b>Required Roles</b></em>' attribute.
@@ -656,7 +701,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING__REQUIRED_ROLES = 3;
+	int ELEMENT_MAPPING__REQUIRED_ROLES = 4;
 
 	/**
 	 * The feature id for the '<em><b>Export Type</b></em>' attribute.
@@ -665,7 +710,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING__EXPORT_TYPE = 4;
+	int ELEMENT_MAPPING__EXPORT_TYPE = 5;
 
 	/**
 	 * The feature id for the '<em><b>Namespace</b></em>' attribute.
@@ -674,7 +719,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING__NAMESPACE = 5;
+	int ELEMENT_MAPPING__NAMESPACE = 6;
 
 	/**
 	 * The feature id for the '<em><b>Xsd Type</b></em>' attribute.
@@ -683,7 +728,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING__XSD_TYPE = 6;
+	int ELEMENT_MAPPING__XSD_TYPE = 7;
 
 	/**
 	 * The feature id for the '<em><b>Element</b></em>' containment reference list.
@@ -692,7 +737,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING__ELEMENT = 7;
+	int ELEMENT_MAPPING__ELEMENT = 8;
 
 	/**
 	 * The feature id for the '<em><b>Attribute</b></em>' containment reference list.
@@ -701,7 +746,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING__ATTRIBUTE = 8;
+	int ELEMENT_MAPPING__ATTRIBUTE = 9;
 
 	/**
 	 * The feature id for the '<em><b>Call Query</b></em>' containment reference.
@@ -710,7 +755,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING__CALL_QUERY = 9;
+	int ELEMENT_MAPPING__CALL_QUERY = 10;
 
 	/**
 	 * The feature id for the '<em><b>Is Complex Type</b></em>' attribute.
@@ -719,7 +764,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING__IS_COMPLEX_TYPE = 10;
+	int ELEMENT_MAPPING__IS_COMPLEX_TYPE = 11;
 
 	/**
 	 * The feature id for the '<em><b>Query Param</b></em>' attribute.
@@ -728,7 +773,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING__QUERY_PARAM = 11;
+	int ELEMENT_MAPPING__QUERY_PARAM = 12;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -737,7 +782,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING__VALUE = 12;
+	int ELEMENT_MAPPING__VALUE = 13;
 
 	/**
 	 * The feature id for the '<em><b>Optional</b></em>' attribute.
@@ -746,7 +791,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING__OPTIONAL = 13;
+	int ELEMENT_MAPPING__OPTIONAL = 14;
 
 	/**
 	 * The feature id for the '<em><b>Array Name</b></em>' attribute.
@@ -755,7 +800,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING__ARRAY_NAME = 14;
+	int ELEMENT_MAPPING__ARRAY_NAME = 15;
 
 	/**
 	 * The number of structural features of the '<em>Element Mapping</em>' class.
@@ -764,7 +809,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ELEMENT_MAPPING_FEATURE_COUNT = 15;
+	int ELEMENT_MAPPING_FEATURE_COUNT = 16;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.ds.impl.EventSubscriptionListImpl <em>Event Subscription List</em>}' class.
@@ -777,13 +822,22 @@ public interface DsPackage extends EPackage {
 	int EVENT_SUBSCRIPTION_LIST = 11;
 
 	/**
+	 * The feature id for the '<em><b>Mixed</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_SUBSCRIPTION_LIST__MIXED = 0;
+
+	/**
 	 * The feature id for the '<em><b>Subscription</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_SUBSCRIPTION_LIST__SUBSCRIPTION = 0;
+	int EVENT_SUBSCRIPTION_LIST__SUBSCRIPTION = 1;
 
 	/**
 	 * The number of structural features of the '<em>Event Subscription List</em>' class.
@@ -792,7 +846,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_SUBSCRIPTION_LIST_FEATURE_COUNT = 1;
+	int EVENT_SUBSCRIPTION_LIST_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.ds.impl.EventTriggerImpl <em>Event Trigger</em>}' class.
@@ -805,13 +859,22 @@ public interface DsPackage extends EPackage {
 	int EVENT_TRIGGER = 12;
 
 	/**
+	 * The feature id for the '<em><b>Mixed</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_TRIGGER__MIXED = 0;
+
+	/**
 	 * The feature id for the '<em><b>Expression</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_TRIGGER__EXPRESSION = 0;
+	int EVENT_TRIGGER__EXPRESSION = 1;
 
 	/**
 	 * The feature id for the '<em><b>Target Topic</b></em>' containment reference.
@@ -820,7 +883,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_TRIGGER__TARGET_TOPIC = 1;
+	int EVENT_TRIGGER__TARGET_TOPIC = 2;
 
 	/**
 	 * The feature id for the '<em><b>Subscriptions</b></em>' containment reference.
@@ -829,7 +892,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_TRIGGER__SUBSCRIPTIONS = 2;
+	int EVENT_TRIGGER__SUBSCRIPTIONS = 3;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -838,7 +901,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_TRIGGER__ID = 3;
+	int EVENT_TRIGGER__ID = 4;
 
 	/**
 	 * The feature id for the '<em><b>Language</b></em>' attribute.
@@ -847,7 +910,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_TRIGGER__LANGUAGE = 4;
+	int EVENT_TRIGGER__LANGUAGE = 5;
 
 	/**
 	 * The number of structural features of the '<em>Event Trigger</em>' class.
@@ -856,7 +919,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EVENT_TRIGGER_FEATURE_COUNT = 5;
+	int EVENT_TRIGGER_FEATURE_COUNT = 6;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.ds.impl.ExcelQueryImpl <em>Excel Query</em>}' class.
@@ -869,13 +932,22 @@ public interface DsPackage extends EPackage {
 	int EXCEL_QUERY = 13;
 
 	/**
+	 * The feature id for the '<em><b>Mixed</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXCEL_QUERY__MIXED = 0;
+
+	/**
 	 * The feature id for the '<em><b>Workbookname</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXCEL_QUERY__WORKBOOKNAME = 0;
+	int EXCEL_QUERY__WORKBOOKNAME = 1;
 
 	/**
 	 * The feature id for the '<em><b>Hasheader</b></em>' containment reference.
@@ -884,7 +956,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXCEL_QUERY__HASHEADER = 1;
+	int EXCEL_QUERY__HASHEADER = 2;
 
 	/**
 	 * The feature id for the '<em><b>Startingrow</b></em>' containment reference.
@@ -893,7 +965,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXCEL_QUERY__STARTINGROW = 2;
+	int EXCEL_QUERY__STARTINGROW = 3;
 
 	/**
 	 * The feature id for the '<em><b>Maxrowcount</b></em>' containment reference.
@@ -902,7 +974,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXCEL_QUERY__MAXROWCOUNT = 3;
+	int EXCEL_QUERY__MAXROWCOUNT = 4;
 
 	/**
 	 * The number of structural features of the '<em>Excel Query</em>' class.
@@ -911,7 +983,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int EXCEL_QUERY_FEATURE_COUNT = 4;
+	int EXCEL_QUERY_FEATURE_COUNT = 5;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.ds.impl.ExpressionImpl <em>Expression</em>}' class.
@@ -952,13 +1024,22 @@ public interface DsPackage extends EPackage {
 	int GSPREAD_QUERY = 15;
 
 	/**
+	 * The feature id for the '<em><b>Mixed</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GSPREAD_QUERY__MIXED = 0;
+
+	/**
 	 * The feature id for the '<em><b>Worksheetnumber</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GSPREAD_QUERY__WORKSHEETNUMBER = 0;
+	int GSPREAD_QUERY__WORKSHEETNUMBER = 1;
 
 	/**
 	 * The feature id for the '<em><b>Startingrow</b></em>' containment reference.
@@ -967,7 +1048,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GSPREAD_QUERY__STARTINGROW = 1;
+	int GSPREAD_QUERY__STARTINGROW = 2;
 
 	/**
 	 * The feature id for the '<em><b>Maxrowcount</b></em>' containment reference.
@@ -976,7 +1057,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GSPREAD_QUERY__MAXROWCOUNT = 2;
+	int GSPREAD_QUERY__MAXROWCOUNT = 3;
 
 	/**
 	 * The feature id for the '<em><b>Hasheader</b></em>' containment reference.
@@ -985,7 +1066,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GSPREAD_QUERY__HASHEADER = 3;
+	int GSPREAD_QUERY__HASHEADER = 4;
 
 	/**
 	 * The number of structural features of the '<em>GSpread Query</em>' class.
@@ -994,7 +1075,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GSPREAD_QUERY_FEATURE_COUNT = 4;
+	int GSPREAD_QUERY_FEATURE_COUNT = 5;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.ds.impl.HasHeaderImpl <em>Has Header</em>}' class.
@@ -1137,13 +1218,22 @@ public interface DsPackage extends EPackage {
 	int OPERATION = 20;
 
 	/**
+	 * The feature id for the '<em><b>Mixed</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION__MIXED = 0;
+
+	/**
 	 * The feature id for the '<em><b>Call Query</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION__CALL_QUERY = 0;
+	int OPERATION__CALL_QUERY = 1;
 
 	/**
 	 * The feature id for the '<em><b>Call Query Group</b></em>' containment reference.
@@ -1152,7 +1242,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION__CALL_QUERY_GROUP = 1;
+	int OPERATION__CALL_QUERY_GROUP = 2;
 
 	/**
 	 * The feature id for the '<em><b>Disable Streaming</b></em>' attribute.
@@ -1161,7 +1251,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION__DISABLE_STREAMING = 2;
+	int OPERATION__DISABLE_STREAMING = 3;
 
 	/**
 	 * The feature id for the '<em><b>Return Request Status</b></em>' attribute.
@@ -1170,7 +1260,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION__RETURN_REQUEST_STATUS = 3;
+	int OPERATION__RETURN_REQUEST_STATUS = 4;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1179,7 +1269,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION__NAME = 4;
+	int OPERATION__NAME = 5;
 
 	/**
 	 * The number of structural features of the '<em>Operation</em>' class.
@@ -1188,7 +1278,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION_FEATURE_COUNT = 5;
+	int OPERATION_FEATURE_COUNT = 6;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.ds.impl.ParameterMappingImpl <em>Parameter Mapping</em>}' class.
@@ -1275,13 +1365,22 @@ public interface DsPackage extends EPackage {
 	int QUERY = 23;
 
 	/**
+	 * The feature id for the '<em><b>Mixed</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUERY__MIXED = 0;
+
+	/**
 	 * The feature id for the '<em><b>Sql</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUERY__SQL = 0;
+	int QUERY__SQL = 1;
 
 	/**
 	 * The feature id for the '<em><b>Sparql</b></em>' containment reference list.
@@ -1290,7 +1389,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUERY__SPARQL = 1;
+	int QUERY__SPARQL = 2;
 
 	/**
 	 * The feature id for the '<em><b>Properties</b></em>' containment reference list.
@@ -1299,7 +1398,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUERY__PROPERTIES = 2;
+	int QUERY__PROPERTIES = 3;
 
 	/**
 	 * The feature id for the '<em><b>Result</b></em>' containment reference list.
@@ -1308,7 +1407,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUERY__RESULT = 3;
+	int QUERY__RESULT = 4;
 
 	/**
 	 * The feature id for the '<em><b>Excel</b></em>' containment reference list.
@@ -1317,7 +1416,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUERY__EXCEL = 4;
+	int QUERY__EXCEL = 5;
 
 	/**
 	 * The feature id for the '<em><b>Gspread</b></em>' containment reference list.
@@ -1326,7 +1425,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUERY__GSPREAD = 5;
+	int QUERY__GSPREAD = 6;
 
 	/**
 	 * The feature id for the '<em><b>Param</b></em>' containment reference list.
@@ -1335,7 +1434,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUERY__PARAM = 6;
+	int QUERY__PARAM = 7;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1344,7 +1443,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUERY__ID = 7;
+	int QUERY__ID = 8;
 
 	/**
 	 * The feature id for the '<em><b>Input Event Trigger</b></em>' attribute.
@@ -1353,7 +1452,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUERY__INPUT_EVENT_TRIGGER = 8;
+	int QUERY__INPUT_EVENT_TRIGGER = 9;
 
 	/**
 	 * The feature id for the '<em><b>Output Event Trigger</b></em>' attribute.
@@ -1362,7 +1461,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUERY__OUTPUT_EVENT_TRIGGER = 9;
+	int QUERY__OUTPUT_EVENT_TRIGGER = 10;
 
 	/**
 	 * The feature id for the '<em><b>Return Generated Keys</b></em>' attribute.
@@ -1371,7 +1470,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUERY__RETURN_GENERATED_KEYS = 10;
+	int QUERY__RETURN_GENERATED_KEYS = 11;
 
 	/**
 	 * The feature id for the '<em><b>Use Config</b></em>' attribute.
@@ -1380,7 +1479,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUERY__USE_CONFIG = 11;
+	int QUERY__USE_CONFIG = 12;
 
 	/**
 	 * The feature id for the '<em><b>Key Columns</b></em>' attribute.
@@ -1389,7 +1488,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUERY__KEY_COLUMNS = 12;
+	int QUERY__KEY_COLUMNS = 13;
 
 	/**
 	 * The number of structural features of the '<em>Query</em>' class.
@@ -1398,7 +1497,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUERY_FEATURE_COUNT = 13;
+	int QUERY_FEATURE_COUNT = 14;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.ds.impl.QueryParameterImpl <em>Query Parameter</em>}' class.
@@ -1411,13 +1510,22 @@ public interface DsPackage extends EPackage {
 	int QUERY_PARAMETER = 24;
 
 	/**
+	 * The feature id for the '<em><b>Mixed</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUERY_PARAMETER__MIXED = 0;
+
+	/**
 	 * The feature id for the '<em><b>Validate Long Range</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUERY_PARAMETER__VALIDATE_LONG_RANGE = 0;
+	int QUERY_PARAMETER__VALIDATE_LONG_RANGE = 1;
 
 	/**
 	 * The feature id for the '<em><b>Validate Double Range</b></em>' containment reference.
@@ -1426,7 +1534,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUERY_PARAMETER__VALIDATE_DOUBLE_RANGE = 1;
+	int QUERY_PARAMETER__VALIDATE_DOUBLE_RANGE = 2;
 
 	/**
 	 * The feature id for the '<em><b>Validate Length</b></em>' containment reference.
@@ -1435,7 +1543,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUERY_PARAMETER__VALIDATE_LENGTH = 2;
+	int QUERY_PARAMETER__VALIDATE_LENGTH = 3;
 
 	/**
 	 * The feature id for the '<em><b>Validate Pattern</b></em>' containment reference list.
@@ -1444,7 +1552,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUERY_PARAMETER__VALIDATE_PATTERN = 3;
+	int QUERY_PARAMETER__VALIDATE_PATTERN = 4;
 
 	/**
 	 * The feature id for the '<em><b>Validate Custom</b></em>' containment reference list.
@@ -1453,7 +1561,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUERY_PARAMETER__VALIDATE_CUSTOM = 4;
+	int QUERY_PARAMETER__VALIDATE_CUSTOM = 5;
 
 	/**
 	 * The feature id for the '<em><b>Default Value</b></em>' attribute.
@@ -1462,7 +1570,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUERY_PARAMETER__DEFAULT_VALUE = 5;
+	int QUERY_PARAMETER__DEFAULT_VALUE = 6;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1471,7 +1579,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUERY_PARAMETER__NAME = 6;
+	int QUERY_PARAMETER__NAME = 7;
 
 	/**
 	 * The feature id for the '<em><b>Ordinal</b></em>' attribute.
@@ -1480,7 +1588,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUERY_PARAMETER__ORDINAL = 7;
+	int QUERY_PARAMETER__ORDINAL = 8;
 
 	/**
 	 * The feature id for the '<em><b>Param Type</b></em>' attribute.
@@ -1489,7 +1597,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUERY_PARAMETER__PARAM_TYPE = 8;
+	int QUERY_PARAMETER__PARAM_TYPE = 9;
 
 	/**
 	 * The feature id for the '<em><b>Sql Type</b></em>' attribute.
@@ -1498,7 +1606,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUERY_PARAMETER__SQL_TYPE = 9;
+	int QUERY_PARAMETER__SQL_TYPE = 10;
 
 	/**
 	 * The feature id for the '<em><b>Struct Type</b></em>' attribute.
@@ -1507,7 +1615,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUERY_PARAMETER__STRUCT_TYPE = 10;
+	int QUERY_PARAMETER__STRUCT_TYPE = 11;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -1516,7 +1624,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUERY_PARAMETER__TYPE = 11;
+	int QUERY_PARAMETER__TYPE = 12;
 
 	/**
 	 * The number of structural features of the '<em>Query Parameter</em>' class.
@@ -1525,7 +1633,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUERY_PARAMETER_FEATURE_COUNT = 12;
+	int QUERY_PARAMETER_FEATURE_COUNT = 13;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.ds.impl.QueryPropertyImpl <em>Query Property</em>}' class.
@@ -1575,13 +1683,22 @@ public interface DsPackage extends EPackage {
 	int QUERY_PROPERTY_LIST = 26;
 
 	/**
+	 * The feature id for the '<em><b>Mixed</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUERY_PROPERTY_LIST__MIXED = 0;
+
+	/**
 	 * The feature id for the '<em><b>Property</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUERY_PROPERTY_LIST__PROPERTY = 0;
+	int QUERY_PROPERTY_LIST__PROPERTY = 1;
 
 	/**
 	 * The number of structural features of the '<em>Query Property List</em>' class.
@@ -1590,7 +1707,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUERY_PROPERTY_LIST_FEATURE_COUNT = 1;
+	int QUERY_PROPERTY_LIST_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.ds.impl.ResourceImpl <em>Resource</em>}' class.
@@ -1603,13 +1720,22 @@ public interface DsPackage extends EPackage {
 	int RESOURCE = 27;
 
 	/**
+	 * The feature id for the '<em><b>Mixed</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE__MIXED = 0;
+
+	/**
 	 * The feature id for the '<em><b>Call Query</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE__CALL_QUERY = 0;
+	int RESOURCE__CALL_QUERY = 1;
 
 	/**
 	 * The feature id for the '<em><b>Method</b></em>' attribute.
@@ -1618,7 +1744,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE__METHOD = 1;
+	int RESOURCE__METHOD = 2;
 
 	/**
 	 * The feature id for the '<em><b>Path</b></em>' attribute.
@@ -1627,7 +1753,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE__PATH = 2;
+	int RESOURCE__PATH = 3;
 
 	/**
 	 * The number of structural features of the '<em>Resource</em>' class.
@@ -1636,7 +1762,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_FEATURE_COUNT = 3;
+	int RESOURCE_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.ds.impl.ResultMappingImpl <em>Result Mapping</em>}' class.
@@ -1649,13 +1775,22 @@ public interface DsPackage extends EPackage {
 	int RESULT_MAPPING = 28;
 
 	/**
+	 * The feature id for the '<em><b>Mixed</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESULT_MAPPING__MIXED = 0;
+
+	/**
 	 * The feature id for the '<em><b>Element</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT_MAPPING__ELEMENT = 0;
+	int RESULT_MAPPING__ELEMENT = 1;
 
 	/**
 	 * The feature id for the '<em><b>Attribute</b></em>' containment reference list.
@@ -1664,7 +1799,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT_MAPPING__ATTRIBUTE = 1;
+	int RESULT_MAPPING__ATTRIBUTE = 2;
 
 	/**
 	 * The feature id for the '<em><b>Call Query</b></em>' containment reference list.
@@ -1673,7 +1808,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT_MAPPING__CALL_QUERY = 2;
+	int RESULT_MAPPING__CALL_QUERY = 3;
 
 	/**
 	 * The feature id for the '<em><b>Default Namespace</b></em>' attribute.
@@ -1682,7 +1817,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT_MAPPING__DEFAULT_NAMESPACE = 3;
+	int RESULT_MAPPING__DEFAULT_NAMESPACE = 4;
 
 	/**
 	 * The feature id for the '<em><b>Element Name</b></em>' attribute.
@@ -1691,7 +1826,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT_MAPPING__ELEMENT_NAME = 4;
+	int RESULT_MAPPING__ELEMENT_NAME = 5;
 
 	/**
 	 * The feature id for the '<em><b>Row Name</b></em>' attribute.
@@ -1700,7 +1835,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT_MAPPING__ROW_NAME = 5;
+	int RESULT_MAPPING__ROW_NAME = 6;
 
 	/**
 	 * The feature id for the '<em><b>Use Column Numbers</b></em>' attribute.
@@ -1709,7 +1844,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT_MAPPING__USE_COLUMN_NUMBERS = 6;
+	int RESULT_MAPPING__USE_COLUMN_NUMBERS = 7;
 
 	/**
 	 * The feature id for the '<em><b>Xslt Path</b></em>' attribute.
@@ -1718,7 +1853,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT_MAPPING__XSLT_PATH = 7;
+	int RESULT_MAPPING__XSLT_PATH = 8;
 
 	/**
 	 * The number of structural features of the '<em>Result Mapping</em>' class.
@@ -1727,7 +1862,7 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESULT_MAPPING_FEATURE_COUNT = 8;
+	int RESULT_MAPPING_FEATURE_COUNT = 9;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.ds.impl.SparqlImpl <em>Sparql</em>}' class.
@@ -2031,6 +2166,17 @@ public interface DsPackage extends EPackage {
 	EClass getCallQuery();
 
 	/**
+	 * Returns the meta object for the attribute list '{@link org.wso2.developerstudio.eclipse.ds.CallQuery#getMixed <em>Mixed</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Mixed</em>'.
+	 * @see org.wso2.developerstudio.eclipse.ds.CallQuery#getMixed()
+	 * @see #getCallQuery()
+	 * @generated
+	 */
+	EAttribute getCallQuery_Mixed();
+
+	/**
 	 * Returns the meta object for the containment reference list '{@link org.wso2.developerstudio.eclipse.ds.CallQuery#getWithParam <em>With Param</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2061,6 +2207,17 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getCallQueryList();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.wso2.developerstudio.eclipse.ds.CallQueryList#getMixed <em>Mixed</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Mixed</em>'.
+	 * @see org.wso2.developerstudio.eclipse.ds.CallQueryList#getMixed()
+	 * @see #getCallQueryList()
+	 * @generated
+	 */
+	EAttribute getCallQueryList_Mixed();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link org.wso2.developerstudio.eclipse.ds.CallQueryList#getCallQuery <em>Call Query</em>}'.
@@ -2135,6 +2292,17 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getDataService();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.wso2.developerstudio.eclipse.ds.DataService#getMixed <em>Mixed</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Mixed</em>'.
+	 * @see org.wso2.developerstudio.eclipse.ds.DataService#getMixed()
+	 * @see #getDataService()
+	 * @generated
+	 */
+	EAttribute getDataService_Mixed();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.ds.DataService#getDescription <em>Description</em>}'.
@@ -2299,6 +2467,17 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getDataSourceConfiguration();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.wso2.developerstudio.eclipse.ds.DataSourceConfiguration#getMixed <em>Mixed</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Mixed</em>'.
+	 * @see org.wso2.developerstudio.eclipse.ds.DataSourceConfiguration#getMixed()
+	 * @see #getDataSourceConfiguration()
+	 * @generated
+	 */
+	EAttribute getDataSourceConfiguration_Mixed();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link org.wso2.developerstudio.eclipse.ds.DataSourceConfiguration#getProperty <em>Property</em>}'.
@@ -2506,6 +2685,17 @@ public interface DsPackage extends EPackage {
 	EClass getElementMapping();
 
 	/**
+	 * Returns the meta object for the attribute list '{@link org.wso2.developerstudio.eclipse.ds.ElementMapping#getMixed <em>Mixed</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Mixed</em>'.
+	 * @see org.wso2.developerstudio.eclipse.ds.ElementMapping#getMixed()
+	 * @see #getElementMapping()
+	 * @generated
+	 */
+	EAttribute getElementMapping_Mixed();
+
+	/**
 	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.ds.ElementMapping#getColumn <em>Column</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2681,6 +2871,17 @@ public interface DsPackage extends EPackage {
 	EClass getEventSubscriptionList();
 
 	/**
+	 * Returns the meta object for the attribute list '{@link org.wso2.developerstudio.eclipse.ds.EventSubscriptionList#getMixed <em>Mixed</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Mixed</em>'.
+	 * @see org.wso2.developerstudio.eclipse.ds.EventSubscriptionList#getMixed()
+	 * @see #getEventSubscriptionList()
+	 * @generated
+	 */
+	EAttribute getEventSubscriptionList_Mixed();
+
+	/**
 	 * Returns the meta object for the containment reference list '{@link org.wso2.developerstudio.eclipse.ds.EventSubscriptionList#getSubscription <em>Subscription</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2700,6 +2901,17 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getEventTrigger();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.wso2.developerstudio.eclipse.ds.EventTrigger#getMixed <em>Mixed</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Mixed</em>'.
+	 * @see org.wso2.developerstudio.eclipse.ds.EventTrigger#getMixed()
+	 * @see #getEventTrigger()
+	 * @generated
+	 */
+	EAttribute getEventTrigger_Mixed();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.ds.EventTrigger#getExpression <em>Expression</em>}'.
@@ -2765,6 +2977,17 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getExcelQuery();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.wso2.developerstudio.eclipse.ds.ExcelQuery#getMixed <em>Mixed</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Mixed</em>'.
+	 * @see org.wso2.developerstudio.eclipse.ds.ExcelQuery#getMixed()
+	 * @see #getExcelQuery()
+	 * @generated
+	 */
+	EAttribute getExcelQuery_Mixed();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.ds.ExcelQuery#getWorkbookname <em>Workbookname</em>}'.
@@ -2840,6 +3063,17 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getGSpreadQuery();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.wso2.developerstudio.eclipse.ds.GSpreadQuery#getMixed <em>Mixed</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Mixed</em>'.
+	 * @see org.wso2.developerstudio.eclipse.ds.GSpreadQuery#getMixed()
+	 * @see #getGSpreadQuery()
+	 * @generated
+	 */
+	EAttribute getGSpreadQuery_Mixed();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.ds.GSpreadQuery#getWorksheetnumber <em>Worksheetnumber</em>}'.
@@ -3002,6 +3236,17 @@ public interface DsPackage extends EPackage {
 	EClass getOperation();
 
 	/**
+	 * Returns the meta object for the attribute list '{@link org.wso2.developerstudio.eclipse.ds.Operation#getMixed <em>Mixed</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Mixed</em>'.
+	 * @see org.wso2.developerstudio.eclipse.ds.Operation#getMixed()
+	 * @see #getOperation()
+	 * @generated
+	 */
+	EAttribute getOperation_Mixed();
+
+	/**
 	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.ds.Operation#getCallQuery <em>Call Query</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3129,6 +3374,17 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getQuery();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.wso2.developerstudio.eclipse.ds.Query#getMixed <em>Mixed</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Mixed</em>'.
+	 * @see org.wso2.developerstudio.eclipse.ds.Query#getMixed()
+	 * @see #getQuery()
+	 * @generated
+	 */
+	EAttribute getQuery_Mixed();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link org.wso2.developerstudio.eclipse.ds.Query#getSql <em>Sql</em>}'.
@@ -3282,6 +3538,17 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getQueryParameter();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.wso2.developerstudio.eclipse.ds.QueryParameter#getMixed <em>Mixed</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Mixed</em>'.
+	 * @see org.wso2.developerstudio.eclipse.ds.QueryParameter#getMixed()
+	 * @see #getQueryParameter()
+	 * @generated
+	 */
+	EAttribute getQueryParameter_Mixed();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.ds.QueryParameter#getValidateLongRange <em>Validate Long Range</em>}'.
@@ -3458,6 +3725,17 @@ public interface DsPackage extends EPackage {
 	EClass getQueryPropertyList();
 
 	/**
+	 * Returns the meta object for the attribute list '{@link org.wso2.developerstudio.eclipse.ds.QueryPropertyList#getMixed <em>Mixed</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Mixed</em>'.
+	 * @see org.wso2.developerstudio.eclipse.ds.QueryPropertyList#getMixed()
+	 * @see #getQueryPropertyList()
+	 * @generated
+	 */
+	EAttribute getQueryPropertyList_Mixed();
+
+	/**
 	 * Returns the meta object for the containment reference list '{@link org.wso2.developerstudio.eclipse.ds.QueryPropertyList#getProperty <em>Property</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3477,6 +3755,17 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getResource();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.wso2.developerstudio.eclipse.ds.Resource#getMixed <em>Mixed</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Mixed</em>'.
+	 * @see org.wso2.developerstudio.eclipse.ds.Resource#getMixed()
+	 * @see #getResource()
+	 * @generated
+	 */
+	EAttribute getResource_Mixed();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.ds.Resource#getCallQuery <em>Call Query</em>}'.
@@ -3520,6 +3809,17 @@ public interface DsPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getResultMapping();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.wso2.developerstudio.eclipse.ds.ResultMapping#getMixed <em>Mixed</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Mixed</em>'.
+	 * @see org.wso2.developerstudio.eclipse.ds.ResultMapping#getMixed()
+	 * @see #getResultMapping()
+	 * @generated
+	 */
+	EAttribute getResultMapping_Mixed();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link org.wso2.developerstudio.eclipse.ds.ResultMapping#getElement <em>Element</em>}'.
@@ -3872,6 +4172,14 @@ public interface DsPackage extends EPackage {
 		EClass CALL_QUERY = eINSTANCE.getCallQuery();
 
 		/**
+		 * The meta object literal for the '<em><b>Mixed</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CALL_QUERY__MIXED = eINSTANCE.getCallQuery_Mixed();
+
+		/**
 		 * The meta object literal for the '<em><b>With Param</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3896,6 +4204,14 @@ public interface DsPackage extends EPackage {
 		 * @generated
 		 */
 		EClass CALL_QUERY_LIST = eINSTANCE.getCallQueryList();
+
+		/**
+		 * The meta object literal for the '<em><b>Mixed</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CALL_QUERY_LIST__MIXED = eINSTANCE.getCallQueryList_Mixed();
 
 		/**
 		 * The meta object literal for the '<em><b>Call Query</b></em>' containment reference list feature.
@@ -3958,6 +4274,14 @@ public interface DsPackage extends EPackage {
 		 * @generated
 		 */
 		EClass DATA_SERVICE = eINSTANCE.getDataService();
+
+		/**
+		 * The meta object literal for the '<em><b>Mixed</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DATA_SERVICE__MIXED = eINSTANCE.getDataService_Mixed();
 
 		/**
 		 * The meta object literal for the '<em><b>Description</b></em>' containment reference feature.
@@ -4080,6 +4404,14 @@ public interface DsPackage extends EPackage {
 		 * @generated
 		 */
 		EClass DATA_SOURCE_CONFIGURATION = eINSTANCE.getDataSourceConfiguration();
+
+		/**
+		 * The meta object literal for the '<em><b>Mixed</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DATA_SOURCE_CONFIGURATION__MIXED = eINSTANCE.getDataSourceConfiguration_Mixed();
 
 		/**
 		 * The meta object literal for the '<em><b>Property</b></em>' containment reference list feature.
@@ -4242,6 +4574,14 @@ public interface DsPackage extends EPackage {
 		EClass ELEMENT_MAPPING = eINSTANCE.getElementMapping();
 
 		/**
+		 * The meta object literal for the '<em><b>Mixed</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ELEMENT_MAPPING__MIXED = eINSTANCE.getElementMapping_Mixed();
+
+		/**
 		 * The meta object literal for the '<em><b>Column</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4372,6 +4712,14 @@ public interface DsPackage extends EPackage {
 		EClass EVENT_SUBSCRIPTION_LIST = eINSTANCE.getEventSubscriptionList();
 
 		/**
+		 * The meta object literal for the '<em><b>Mixed</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EVENT_SUBSCRIPTION_LIST__MIXED = eINSTANCE.getEventSubscriptionList_Mixed();
+
+		/**
 		 * The meta object literal for the '<em><b>Subscription</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4388,6 +4736,14 @@ public interface DsPackage extends EPackage {
 		 * @generated
 		 */
 		EClass EVENT_TRIGGER = eINSTANCE.getEventTrigger();
+
+		/**
+		 * The meta object literal for the '<em><b>Mixed</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EVENT_TRIGGER__MIXED = eINSTANCE.getEventTrigger_Mixed();
 
 		/**
 		 * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
@@ -4438,6 +4794,14 @@ public interface DsPackage extends EPackage {
 		 * @generated
 		 */
 		EClass EXCEL_QUERY = eINSTANCE.getExcelQuery();
+
+		/**
+		 * The meta object literal for the '<em><b>Mixed</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EXCEL_QUERY__MIXED = eINSTANCE.getExcelQuery_Mixed();
 
 		/**
 		 * The meta object literal for the '<em><b>Workbookname</b></em>' containment reference feature.
@@ -4498,6 +4862,14 @@ public interface DsPackage extends EPackage {
 		 * @generated
 		 */
 		EClass GSPREAD_QUERY = eINSTANCE.getGSpreadQuery();
+
+		/**
+		 * The meta object literal for the '<em><b>Mixed</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GSPREAD_QUERY__MIXED = eINSTANCE.getGSpreadQuery_Mixed();
 
 		/**
 		 * The meta object literal for the '<em><b>Worksheetnumber</b></em>' containment reference feature.
@@ -4630,6 +5002,14 @@ public interface DsPackage extends EPackage {
 		EClass OPERATION = eINSTANCE.getOperation();
 
 		/**
+		 * The meta object literal for the '<em><b>Mixed</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OPERATION__MIXED = eINSTANCE.getOperation_Mixed();
+
+		/**
 		 * The meta object literal for the '<em><b>Call Query</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4730,6 +5110,14 @@ public interface DsPackage extends EPackage {
 		 * @generated
 		 */
 		EClass QUERY = eINSTANCE.getQuery();
+
+		/**
+		 * The meta object literal for the '<em><b>Mixed</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute QUERY__MIXED = eINSTANCE.getQuery_Mixed();
 
 		/**
 		 * The meta object literal for the '<em><b>Sql</b></em>' containment reference list feature.
@@ -4844,6 +5232,14 @@ public interface DsPackage extends EPackage {
 		 * @generated
 		 */
 		EClass QUERY_PARAMETER = eINSTANCE.getQueryParameter();
+
+		/**
+		 * The meta object literal for the '<em><b>Mixed</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute QUERY_PARAMETER__MIXED = eINSTANCE.getQueryParameter_Mixed();
 
 		/**
 		 * The meta object literal for the '<em><b>Validate Long Range</b></em>' containment reference feature.
@@ -4978,6 +5374,14 @@ public interface DsPackage extends EPackage {
 		EClass QUERY_PROPERTY_LIST = eINSTANCE.getQueryPropertyList();
 
 		/**
+		 * The meta object literal for the '<em><b>Mixed</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute QUERY_PROPERTY_LIST__MIXED = eINSTANCE.getQueryPropertyList_Mixed();
+
+		/**
 		 * The meta object literal for the '<em><b>Property</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4994,6 +5398,14 @@ public interface DsPackage extends EPackage {
 		 * @generated
 		 */
 		EClass RESOURCE = eINSTANCE.getResource();
+
+		/**
+		 * The meta object literal for the '<em><b>Mixed</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RESOURCE__MIXED = eINSTANCE.getResource_Mixed();
 
 		/**
 		 * The meta object literal for the '<em><b>Call Query</b></em>' containment reference feature.
@@ -5028,6 +5440,14 @@ public interface DsPackage extends EPackage {
 		 * @generated
 		 */
 		EClass RESULT_MAPPING = eINSTANCE.getResultMapping();
+
+		/**
+		 * The meta object literal for the '<em><b>Mixed</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RESULT_MAPPING__MIXED = eINSTANCE.getResultMapping_Mixed();
 
 		/**
 		 * The meta object literal for the '<em><b>Element</b></em>' containment reference list feature.

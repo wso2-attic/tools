@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ecore:EPackage xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="ds"
-    nsURI="http://org/wso2/developerstudio/eclipse/ds" nsPrefix="ds">
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="ds" nsURI="http://org/wso2/developerstudio/eclipse/ds" nsPrefix="ds">
   <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
     <details key="qualified" value="false"/>
   </eAnnotations>
@@ -52,10 +50,18 @@
   <eClassifiers xsi:type="ecore:EClass" name="CallQuery">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="call-query_._type"/>
-      <details key="kind" value="elementOnly"/>
+      <details key="kind" value="mixed"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="elementWildcard"/>
+        <details key="name" value=":mixed"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="withParam" upperBound="-1"
-        eType="#//ParameterMapping" containment="true" resolveProxies="false">
+        eType="#//ParameterMapping" volatile="true" transient="true" derived="true"
+        containment="true" resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="with-param"/>
@@ -73,10 +79,18 @@
   <eClassifiers xsi:type="ecore:EClass" name="CallQueryList">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="call-query-group_._type"/>
-      <details key="kind" value="elementOnly"/>
+      <details key="kind" value="mixed"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="elementWildcard"/>
+        <details key="name" value=":mixed"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="callQuery" lowerBound="1"
-        upperBound="-1" eType="#//CallQuery" containment="true" resolveProxies="false">
+        upperBound="-1" eType="#//CallQuery" volatile="true" transient="true" derived="true"
+        containment="true" resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="call-query"/>
@@ -119,10 +133,18 @@
   <eClassifiers xsi:type="ecore:EClass" name="DataService">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="data_._type"/>
-      <details key="kind" value="elementOnly"/>
+      <details key="kind" value="mixed"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="elementWildcard"/>
+        <details key="name" value=":mixed"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="description" lowerBound="1"
-        eType="#//Description" containment="true" resolveProxies="false">
+        eType="#//Description" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="description"/>
@@ -130,7 +152,8 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="config" upperBound="-1"
-        eType="#//DataSourceConfiguration" containment="true" resolveProxies="false">
+        eType="#//DataSourceConfiguration" volatile="true" transient="true" derived="true"
+        containment="true" resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="config"/>
@@ -138,7 +161,8 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="query" upperBound="-1"
-        eType="#//Query" containment="true" resolveProxies="false">
+        eType="#//Query" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="query"/>
@@ -146,7 +170,8 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="eventTrigger" upperBound="-1"
-        eType="#//EventTrigger" containment="true" resolveProxies="false">
+        eType="#//EventTrigger" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="event-trigger"/>
@@ -154,7 +179,8 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="operation" upperBound="-1"
-        eType="#//Operation" containment="true" resolveProxies="false">
+        eType="#//Operation" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="operation"/>
@@ -162,7 +188,8 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="resource" upperBound="-1"
-        eType="#//Resource" containment="true" resolveProxies="false">
+        eType="#//Resource" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="resource"/>
@@ -230,10 +257,18 @@
   <eClassifiers xsi:type="ecore:EClass" name="DataSourceConfiguration">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="config_._type"/>
-      <details key="kind" value="elementOnly"/>
+      <details key="kind" value="mixed"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="elementWildcard"/>
+        <details key="name" value=":mixed"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="property" lowerBound="1"
-        upperBound="-1" eType="#//ConfigurationProperty" containment="true" resolveProxies="false">
+        upperBound="-1" eType="#//ConfigurationProperty" volatile="true" transient="true"
+        derived="true" containment="true" resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="property"/>
@@ -373,8 +408,15 @@
   <eClassifiers xsi:type="ecore:EClass" name="ElementMapping">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="element_._type"/>
-      <details key="kind" value="empty"/>
+      <details key="kind" value="mixed"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="elementWildcard"/>
+        <details key="name" value=":mixed"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="column" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -426,7 +468,8 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="element" upperBound="-1"
-        eType="#//ElementMapping" containment="true" resolveProxies="false">
+        eType="#//ElementMapping" volatile="true" transient="true" derived="true"
+        containment="true" resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="element"/>
@@ -434,7 +477,8 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="attribute" upperBound="-1"
-        eType="#//AttributeMapping" containment="true" resolveProxies="false">
+        eType="#//AttributeMapping" volatile="true" transient="true" derived="true"
+        containment="true" resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="attribute"/>
@@ -442,7 +486,7 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="callQuery" eType="#//CallQuery"
-        containment="true" resolveProxies="false">
+        volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="call-query"/>
@@ -489,10 +533,18 @@
   <eClassifiers xsi:type="ecore:EClass" name="EventSubscriptionList">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="subscriptions_._type"/>
-      <details key="kind" value="elementOnly"/>
+      <details key="kind" value="mixed"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="elementWildcard"/>
+        <details key="name" value=":mixed"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="subscription" lowerBound="1"
-        upperBound="-1" eType="#//Subscription" containment="true" resolveProxies="false">
+        upperBound="-1" eType="#//Subscription" volatile="true" transient="true" derived="true"
+        containment="true" resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="subscription"/>
@@ -503,10 +555,18 @@
   <eClassifiers xsi:type="ecore:EClass" name="EventTrigger">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="event-trigger_._type"/>
-      <details key="kind" value="elementOnly"/>
+      <details key="kind" value="mixed"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="elementWildcard"/>
+        <details key="name" value=":mixed"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="expression" lowerBound="1"
-        eType="#//Expression" containment="true" resolveProxies="false">
+        eType="#//Expression" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="expression"/>
@@ -514,7 +574,8 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="targetTopic" lowerBound="1"
-        eType="#//TargetTopic" containment="true" resolveProxies="false">
+        eType="#//TargetTopic" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="target-topic"/>
@@ -522,7 +583,8 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="subscriptions" lowerBound="1"
-        eType="#//EventSubscriptionList" containment="true" resolveProxies="false">
+        eType="#//EventSubscriptionList" volatile="true" transient="true" derived="true"
+        containment="true" resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="subscriptions"/>
@@ -547,10 +609,18 @@
   <eClassifiers xsi:type="ecore:EClass" name="ExcelQuery">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="excel_._type"/>
-      <details key="kind" value="elementOnly"/>
+      <details key="kind" value="mixed"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="elementWildcard"/>
+        <details key="name" value=":mixed"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="workbookname" lowerBound="1"
-        eType="#//WorkBookName" containment="true" resolveProxies="false">
+        eType="#//WorkBookName" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="workbookname"/>
@@ -558,7 +628,8 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="hasheader" lowerBound="1"
-        eType="#//HasHeader" containment="true" resolveProxies="false">
+        eType="#//HasHeader" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="hasheader"/>
@@ -566,7 +637,8 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="startingrow" lowerBound="1"
-        eType="#//StartingRow" containment="true" resolveProxies="false">
+        eType="#//StartingRow" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="startingrow"/>
@@ -574,7 +646,8 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="maxrowcount" lowerBound="1"
-        eType="#//MaxRowCount" containment="true" resolveProxies="false">
+        eType="#//MaxRowCount" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="maxrowcount"/>
@@ -597,10 +670,18 @@
   <eClassifiers xsi:type="ecore:EClass" name="GSpreadQuery">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="gspread_._type"/>
-      <details key="kind" value="elementOnly"/>
+      <details key="kind" value="mixed"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="elementWildcard"/>
+        <details key="name" value=":mixed"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="worksheetnumber" lowerBound="1"
-        eType="#//WorkSheetNumber" containment="true" resolveProxies="false">
+        eType="#//WorkSheetNumber" volatile="true" transient="true" derived="true"
+        containment="true" resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="worksheetnumber"/>
@@ -608,7 +689,8 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="startingrow" lowerBound="1"
-        eType="#//StartingRow" containment="true" resolveProxies="false">
+        eType="#//StartingRow" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="startingrow"/>
@@ -616,7 +698,8 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="maxrowcount" lowerBound="1"
-        eType="#//MaxRowCount" containment="true" resolveProxies="false">
+        eType="#//MaxRowCount" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="maxrowcount"/>
@@ -624,7 +707,8 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="hasheader" lowerBound="1"
-        eType="#//HasHeader" containment="true" resolveProxies="false">
+        eType="#//HasHeader" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="hasheader"/>
@@ -699,10 +783,17 @@
   <eClassifiers xsi:type="ecore:EClass" name="Operation">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="operation_._type"/>
-      <details key="kind" value="elementOnly"/>
+      <details key="kind" value="mixed"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="elementWildcard"/>
+        <details key="name" value=":mixed"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="callQuery" eType="#//CallQuery"
-        containment="true" resolveProxies="false">
+        volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="call-query"/>
@@ -710,7 +801,7 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="callQueryGroup" eType="#//CallQueryList"
-        containment="true" resolveProxies="false">
+        volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="call-query-group"/>
@@ -784,10 +875,17 @@
   <eClassifiers xsi:type="ecore:EClass" name="Query">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="query_._type"/>
-      <details key="kind" value="elementOnly"/>
+      <details key="kind" value="mixed"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="elementWildcard"/>
+        <details key="name" value=":mixed"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sql" upperBound="-1" eType="#//Sql"
-        containment="true" resolveProxies="false">
+        volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="sql"/>
@@ -795,7 +893,8 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sparql" upperBound="-1"
-        eType="#//Sparql" containment="true" resolveProxies="false">
+        eType="#//Sparql" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="sparql"/>
@@ -803,7 +902,8 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
-        eType="#//QueryPropertyList" containment="true" resolveProxies="false">
+        eType="#//QueryPropertyList" volatile="true" transient="true" derived="true"
+        containment="true" resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="properties"/>
@@ -811,7 +911,8 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="result" upperBound="-1"
-        eType="#//ResultMapping" containment="true" resolveProxies="false">
+        eType="#//ResultMapping" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="result"/>
@@ -819,7 +920,8 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="excel" upperBound="-1"
-        eType="#//ExcelQuery" containment="true" resolveProxies="false">
+        eType="#//ExcelQuery" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="excel"/>
@@ -827,7 +929,8 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="gspread" upperBound="-1"
-        eType="#//GSpreadQuery" containment="true" resolveProxies="false">
+        eType="#//GSpreadQuery" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="gspread"/>
@@ -835,7 +938,8 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="param" upperBound="-1"
-        eType="#//QueryParameter" containment="true" resolveProxies="false">
+        eType="#//QueryParameter" volatile="true" transient="true" derived="true"
+        containment="true" resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="param"/>
@@ -888,10 +992,17 @@
   <eClassifiers xsi:type="ecore:EClass" name="QueryParameter">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="param_._type"/>
-      <details key="kind" value="elementOnly"/>
+      <details key="kind" value="mixed"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="elementWildcard"/>
+        <details key="name" value=":mixed"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="validateLongRange" eType="#//LongRangeValidator"
-        containment="true" resolveProxies="false">
+        volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="validateLongRange"/>
@@ -899,7 +1010,7 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="validateDoubleRange" eType="#//DoubleRangeValidator"
-        containment="true" resolveProxies="false">
+        volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="validateDoubleRange"/>
@@ -907,7 +1018,7 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="validateLength" eType="#//LengthValidator"
-        containment="true" resolveProxies="false">
+        volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="validateLength"/>
@@ -915,7 +1026,8 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="validatePattern" upperBound="-1"
-        eType="#//PatternValidator" containment="true" resolveProxies="false">
+        eType="#//PatternValidator" volatile="true" transient="true" derived="true"
+        containment="true" resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="validatePattern"/>
@@ -923,7 +1035,8 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="validateCustom" upperBound="-1"
-        eType="#//CustomValidator" containment="true" resolveProxies="false">
+        eType="#//CustomValidator" volatile="true" transient="true" derived="true"
+        containment="true" resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="validateCustom"/>
@@ -1003,10 +1116,18 @@
   <eClassifiers xsi:type="ecore:EClass" name="QueryPropertyList">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="properties_._type"/>
-      <details key="kind" value="elementOnly"/>
+      <details key="kind" value="mixed"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="elementWildcard"/>
+        <details key="name" value=":mixed"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="property" upperBound="5"
-        eType="#//QueryProperty" containment="true" resolveProxies="false">
+        eType="#//QueryProperty" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="property"/>
@@ -1017,10 +1138,18 @@
   <eClassifiers xsi:type="ecore:EClass" name="Resource">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="resource_._type"/>
-      <details key="kind" value="elementOnly"/>
+      <details key="kind" value="mixed"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="elementWildcard"/>
+        <details key="name" value=":mixed"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="callQuery" lowerBound="1"
-        eType="#//CallQuery" containment="true" resolveProxies="false">
+        eType="#//CallQuery" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="call-query"/>
@@ -1046,10 +1175,18 @@
   <eClassifiers xsi:type="ecore:EClass" name="ResultMapping">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="result_._type"/>
-      <details key="kind" value="elementOnly"/>
+      <details key="kind" value="mixed"/>
     </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="elementWildcard"/>
+        <details key="name" value=":mixed"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="element" upperBound="-1"
-        eType="#//ElementMapping" containment="true" resolveProxies="false">
+        eType="#//ElementMapping" volatile="true" transient="true" derived="true"
+        containment="true" resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="element"/>
@@ -1057,7 +1194,8 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="attribute" upperBound="-1"
-        eType="#//AttributeMapping" containment="true" resolveProxies="false">
+        eType="#//AttributeMapping" volatile="true" transient="true" derived="true"
+        containment="true" resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="attribute"/>
@@ -1065,7 +1203,8 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="callQuery" upperBound="-1"
-        eType="#//CallQuery" containment="true" resolveProxies="false">
+        eType="#//CallQuery" volatile="true" transient="true" derived="true" containment="true"
+        resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
         <details key="name" value="call-query"/>

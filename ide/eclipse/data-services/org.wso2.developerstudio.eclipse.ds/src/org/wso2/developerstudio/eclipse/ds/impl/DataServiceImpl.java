@@ -20,8 +20,10 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.eclipse.emf.ecore.util.BasicFeatureMap;
 import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.wso2.developerstudio.eclipse.ds.DataService;
@@ -41,6 +43,7 @@ import org.wso2.developerstudio.eclipse.ds.ServiceStatus;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.DataServiceImpl#getMixed <em>Mixed</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.DataServiceImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.DataServiceImpl#getConfig <em>Config</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.DataServiceImpl#getQuery <em>Query</em>}</li>
@@ -62,64 +65,14 @@ import org.wso2.developerstudio.eclipse.ds.ServiceStatus;
  */
 public class DataServiceImpl extends EObjectImpl implements DataService {
 	/**
-	 * The cached value of the '{@link #getDescription() <em>Description</em>}' containment reference.
+	 * The cached value of the '{@link #getMixed() <em>Mixed</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDescription()
+	 * @see #getMixed()
 	 * @generated
 	 * @ordered
 	 */
-	protected Description description;
-
-	/**
-	 * The cached value of the '{@link #getConfig() <em>Config</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getConfig()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<DataSourceConfiguration> config;
-
-	/**
-	 * The cached value of the '{@link #getQuery() <em>Query</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getQuery()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Query> query;
-
-	/**
-	 * The cached value of the '{@link #getEventTrigger() <em>Event Trigger</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getEventTrigger()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<EventTrigger> eventTrigger;
-
-	/**
-	 * The cached value of the '{@link #getOperation() <em>Operation</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOperation()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Operation> operation;
-
-	/**
-	 * The cached value of the '{@link #getResource() <em>Resource</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getResource()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Resource> resource;
+	protected FeatureMap mixed;
 
 	/**
 	 * The default value of the '{@link #getBaseURI() <em>Base URI</em>}' attribute.
@@ -316,8 +269,20 @@ public class DataServiceImpl extends EObjectImpl implements DataService {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public FeatureMap getMixed() {
+		if (mixed == null) {
+			mixed = new BasicFeatureMap(this, DsPackage.DATA_SERVICE__MIXED);
+		}
+		return mixed;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Description getDescription() {
-		return description;
+		return (Description)getMixed().get(DsPackage.Literals.DATA_SERVICE__DESCRIPTION, true);
 	}
 
 	/**
@@ -326,13 +291,7 @@ public class DataServiceImpl extends EObjectImpl implements DataService {
 	 * @generated
 	 */
 	public NotificationChain basicSetDescription(Description newDescription, NotificationChain msgs) {
-		Description oldDescription = description;
-		description = newDescription;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DsPackage.DATA_SERVICE__DESCRIPTION, oldDescription, newDescription);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
+		return ((FeatureMap.Internal)getMixed()).basicAdd(DsPackage.Literals.DATA_SERVICE__DESCRIPTION, newDescription, msgs);
 	}
 
 	/**
@@ -341,17 +300,7 @@ public class DataServiceImpl extends EObjectImpl implements DataService {
 	 * @generated
 	 */
 	public void setDescription(Description newDescription) {
-		if (newDescription != description) {
-			NotificationChain msgs = null;
-			if (description != null)
-				msgs = ((InternalEObject)description).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DsPackage.DATA_SERVICE__DESCRIPTION, null, msgs);
-			if (newDescription != null)
-				msgs = ((InternalEObject)newDescription).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DsPackage.DATA_SERVICE__DESCRIPTION, null, msgs);
-			msgs = basicSetDescription(newDescription, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.DATA_SERVICE__DESCRIPTION, newDescription, newDescription));
+		((FeatureMap.Internal)getMixed()).set(DsPackage.Literals.DATA_SERVICE__DESCRIPTION, newDescription);
 	}
 
 	/**
@@ -360,10 +309,7 @@ public class DataServiceImpl extends EObjectImpl implements DataService {
 	 * @generated
 	 */
 	public EList<DataSourceConfiguration> getConfig() {
-		if (config == null) {
-			config = new EObjectContainmentEList<DataSourceConfiguration>(DataSourceConfiguration.class, this, DsPackage.DATA_SERVICE__CONFIG);
-		}
-		return config;
+		return getMixed().list(DsPackage.Literals.DATA_SERVICE__CONFIG);
 	}
 
 	/**
@@ -372,10 +318,7 @@ public class DataServiceImpl extends EObjectImpl implements DataService {
 	 * @generated
 	 */
 	public EList<Query> getQuery() {
-		if (query == null) {
-			query = new EObjectContainmentEList<Query>(Query.class, this, DsPackage.DATA_SERVICE__QUERY);
-		}
-		return query;
+		return getMixed().list(DsPackage.Literals.DATA_SERVICE__QUERY);
 	}
 
 	/**
@@ -384,10 +327,7 @@ public class DataServiceImpl extends EObjectImpl implements DataService {
 	 * @generated
 	 */
 	public EList<EventTrigger> getEventTrigger() {
-		if (eventTrigger == null) {
-			eventTrigger = new EObjectContainmentEList<EventTrigger>(EventTrigger.class, this, DsPackage.DATA_SERVICE__EVENT_TRIGGER);
-		}
-		return eventTrigger;
+		return getMixed().list(DsPackage.Literals.DATA_SERVICE__EVENT_TRIGGER);
 	}
 
 	/**
@@ -396,10 +336,7 @@ public class DataServiceImpl extends EObjectImpl implements DataService {
 	 * @generated
 	 */
 	public EList<Operation> getOperation() {
-		if (operation == null) {
-			operation = new EObjectContainmentEList<Operation>(Operation.class, this, DsPackage.DATA_SERVICE__OPERATION);
-		}
-		return operation;
+		return getMixed().list(DsPackage.Literals.DATA_SERVICE__OPERATION);
 	}
 
 	/**
@@ -408,10 +345,7 @@ public class DataServiceImpl extends EObjectImpl implements DataService {
 	 * @generated
 	 */
 	public EList<Resource> getResource() {
-		if (resource == null) {
-			resource = new EObjectContainmentEList<Resource>(Resource.class, this, DsPackage.DATA_SERVICE__RESOURCE);
-		}
-		return resource;
+		return getMixed().list(DsPackage.Literals.DATA_SERVICE__RESOURCE);
 	}
 
 	/**
@@ -617,6 +551,8 @@ public class DataServiceImpl extends EObjectImpl implements DataService {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case DsPackage.DATA_SERVICE__MIXED:
+				return ((InternalEList<?>)getMixed()).basicRemove(otherEnd, msgs);
 			case DsPackage.DATA_SERVICE__DESCRIPTION:
 				return basicSetDescription(null, msgs);
 			case DsPackage.DATA_SERVICE__CONFIG:
@@ -643,6 +579,9 @@ public class DataServiceImpl extends EObjectImpl implements DataService {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case DsPackage.DATA_SERVICE__MIXED:
+				if (coreType) return getMixed();
+				return ((FeatureMap.Internal)getMixed()).getWrapper();
 			case DsPackage.DATA_SERVICE__DESCRIPTION:
 				return getDescription();
 			case DsPackage.DATA_SERVICE__CONFIG:
@@ -686,6 +625,9 @@ public class DataServiceImpl extends EObjectImpl implements DataService {
 	
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case DsPackage.DATA_SERVICE__MIXED:
+				((FeatureMap.Internal)getMixed()).set(newValue);
+				return;
 			case DsPackage.DATA_SERVICE__DESCRIPTION:
 				setDescription((Description)newValue);
 				return;
@@ -747,6 +689,9 @@ public class DataServiceImpl extends EObjectImpl implements DataService {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case DsPackage.DATA_SERVICE__MIXED:
+				getMixed().clear();
+				return;
 			case DsPackage.DATA_SERVICE__DESCRIPTION:
 				setDescription((Description)null);
 				return;
@@ -803,18 +748,20 @@ public class DataServiceImpl extends EObjectImpl implements DataService {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case DsPackage.DATA_SERVICE__MIXED:
+				return mixed != null && !mixed.isEmpty();
 			case DsPackage.DATA_SERVICE__DESCRIPTION:
-				return description != null;
+				return getDescription() != null;
 			case DsPackage.DATA_SERVICE__CONFIG:
-				return config != null && !config.isEmpty();
+				return !getConfig().isEmpty();
 			case DsPackage.DATA_SERVICE__QUERY:
-				return query != null && !query.isEmpty();
+				return !getQuery().isEmpty();
 			case DsPackage.DATA_SERVICE__EVENT_TRIGGER:
-				return eventTrigger != null && !eventTrigger.isEmpty();
+				return !getEventTrigger().isEmpty();
 			case DsPackage.DATA_SERVICE__OPERATION:
-				return operation != null && !operation.isEmpty();
+				return !getOperation().isEmpty();
 			case DsPackage.DATA_SERVICE__RESOURCE:
-				return resource != null && !resource.isEmpty();
+				return !getResource().isEmpty();
 			case DsPackage.DATA_SERVICE__BASE_URI:
 				return BASE_URI_EDEFAULT == null ? baseURI != null : !BASE_URI_EDEFAULT.equals(baseURI);
 			case DsPackage.DATA_SERVICE__ENABLE_BATCH_REQUESTS:
@@ -847,7 +794,9 @@ public class DataServiceImpl extends EObjectImpl implements DataService {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (baseURI: ");
+		result.append(" (mixed: ");
+		result.append(mixed);
+		result.append(", baseURI: ");
 		result.append(baseURI);
 		result.append(", enableBatchRequests: ");
 		result.append(enableBatchRequests);

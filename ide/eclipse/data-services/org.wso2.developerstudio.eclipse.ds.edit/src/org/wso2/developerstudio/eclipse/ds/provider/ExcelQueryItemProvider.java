@@ -14,6 +14,8 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.util.FeatureMap;
+import org.eclipse.emf.ecore.util.FeatureMapUtil;
 import org.eclipse.emf.ecore.xml.type.XMLTypeFactory;
 import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
@@ -74,7 +76,7 @@ public class ExcelQueryItemProvider extends ItemProviderAdapter implements
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	
 	
@@ -82,6 +84,7 @@ public class ExcelQueryItemProvider extends ItemProviderAdapter implements
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			//childrenFeatures.add(DsPackage.Literals.EXCEL_QUERY__MIXED);
 			childrenFeatures.add(DsPackage.Literals.EXCEL_QUERY__WORKBOOKNAME);
 			childrenFeatures.add(DsPackage.Literals.EXCEL_QUERY__HASHEADER);
 			childrenFeatures.add(DsPackage.Literals.EXCEL_QUERY__STARTINGROW);
@@ -209,6 +212,7 @@ public class ExcelQueryItemProvider extends ItemProviderAdapter implements
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ExcelQuery.class)) {
+			case DsPackage.EXCEL_QUERY__MIXED:
 			case DsPackage.EXCEL_QUERY__WORKBOOKNAME:
 			case DsPackage.EXCEL_QUERY__HASHEADER:
 			case DsPackage.EXCEL_QUERY__STARTINGROW:
@@ -235,6 +239,62 @@ public class ExcelQueryItemProvider extends ItemProviderAdapter implements
 
 		newChildDescriptors.add
 			(createChildParameter
+				(DsPackage.Literals.EXCEL_QUERY__MIXED,
+				 FeatureMapUtil.createEntry
+					(XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__COMMENT,
+					 "")));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DsPackage.Literals.EXCEL_QUERY__MIXED,
+				 FeatureMapUtil.createEntry
+					(XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__TEXT,
+					 "")));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DsPackage.Literals.EXCEL_QUERY__MIXED,
+				 FeatureMapUtil.createEntry
+					(XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__PROCESSING_INSTRUCTION,
+					 XMLTypeFactory.eINSTANCE.createProcessingInstruction())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DsPackage.Literals.EXCEL_QUERY__MIXED,
+				 FeatureMapUtil.createEntry
+					(XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__CDATA,
+					 "")));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DsPackage.Literals.EXCEL_QUERY__MIXED,
+				 FeatureMapUtil.createEntry
+					(DsPackage.Literals.EXCEL_QUERY__WORKBOOKNAME,
+					 DsFactory.eINSTANCE.createWorkBookName())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DsPackage.Literals.EXCEL_QUERY__MIXED,
+				 FeatureMapUtil.createEntry
+					(DsPackage.Literals.EXCEL_QUERY__HASHEADER,
+					 DsFactory.eINSTANCE.createHasHeader())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DsPackage.Literals.EXCEL_QUERY__MIXED,
+				 FeatureMapUtil.createEntry
+					(DsPackage.Literals.EXCEL_QUERY__STARTINGROW,
+					 DsFactory.eINSTANCE.createStartingRow())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DsPackage.Literals.EXCEL_QUERY__MIXED,
+				 FeatureMapUtil.createEntry
+					(DsPackage.Literals.EXCEL_QUERY__MAXROWCOUNT,
+					 DsFactory.eINSTANCE.createMaxRowCount())));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(DsPackage.Literals.EXCEL_QUERY__WORKBOOKNAME,
 				 DsFactory.eINSTANCE.createWorkBookName()));
 
@@ -252,6 +312,37 @@ public class ExcelQueryItemProvider extends ItemProviderAdapter implements
 			(createChildParameter
 				(DsPackage.Literals.EXCEL_QUERY__MAXROWCOUNT,
 				 DsFactory.eINSTANCE.createMaxRowCount()));
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		if (childFeature instanceof EStructuralFeature && FeatureMapUtil.isFeatureMap((EStructuralFeature)childFeature)) {
+			FeatureMap.Entry entry = (FeatureMap.Entry)childObject;
+			childFeature = entry.getEStructuralFeature();
+			childObject = entry.getValue();
+		}
+
+		boolean qualify =
+			childFeature == DsPackage.Literals.EXCEL_QUERY__WORKBOOKNAME ||
+			childFeature == DsPackage.Literals.EXCEL_QUERY__HASHEADER ||
+			childFeature == DsPackage.Literals.EXCEL_QUERY__STARTINGROW ||
+			childFeature == DsPackage.Literals.EXCEL_QUERY__MAXROWCOUNT;
+
+		if (qualify) {
+			return getString
+				("_UI_CreateChild_text2",
+				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 	/**

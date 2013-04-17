@@ -16,6 +16,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.eclipse.emf.ecore.util.BasicFeatureMap;
+import org.eclipse.emf.ecore.util.FeatureMap;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.wso2.developerstudio.eclipse.ds.DsPackage;
 import org.wso2.developerstudio.eclipse.ds.EventSubscriptionList;
 import org.wso2.developerstudio.eclipse.ds.EventTrigger;
@@ -29,6 +32,7 @@ import org.wso2.developerstudio.eclipse.ds.TargetTopic;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.EventTriggerImpl#getMixed <em>Mixed</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.EventTriggerImpl#getExpression <em>Expression</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.EventTriggerImpl#getTargetTopic <em>Target Topic</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.EventTriggerImpl#getSubscriptions <em>Subscriptions</em>}</li>
@@ -41,34 +45,14 @@ import org.wso2.developerstudio.eclipse.ds.TargetTopic;
  */
 public class EventTriggerImpl extends EObjectImpl implements EventTrigger {
 	/**
-	 * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference.
+	 * The cached value of the '{@link #getMixed() <em>Mixed</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getExpression()
+	 * @see #getMixed()
 	 * @generated
 	 * @ordered
 	 */
-	protected Expression expression;
-
-	/**
-	 * The cached value of the '{@link #getTargetTopic() <em>Target Topic</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTargetTopic()
-	 * @generated
-	 * @ordered
-	 */
-	protected TargetTopic targetTopic;
-
-	/**
-	 * The cached value of the '{@link #getSubscriptions() <em>Subscriptions</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSubscriptions()
-	 * @generated
-	 * @ordered
-	 */
-	protected EventSubscriptionList subscriptions;
+	protected FeatureMap mixed;
 
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
@@ -136,8 +120,20 @@ public class EventTriggerImpl extends EObjectImpl implements EventTrigger {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public FeatureMap getMixed() {
+		if (mixed == null) {
+			mixed = new BasicFeatureMap(this, DsPackage.EVENT_TRIGGER__MIXED);
+		}
+		return mixed;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Expression getExpression() {
-		return expression;
+		return (Expression)getMixed().get(DsPackage.Literals.EVENT_TRIGGER__EXPRESSION, true);
 	}
 
 	/**
@@ -146,13 +142,7 @@ public class EventTriggerImpl extends EObjectImpl implements EventTrigger {
 	 * @generated
 	 */
 	public NotificationChain basicSetExpression(Expression newExpression, NotificationChain msgs) {
-		Expression oldExpression = expression;
-		expression = newExpression;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DsPackage.EVENT_TRIGGER__EXPRESSION, oldExpression, newExpression);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
+		return ((FeatureMap.Internal)getMixed()).basicAdd(DsPackage.Literals.EVENT_TRIGGER__EXPRESSION, newExpression, msgs);
 	}
 
 	/**
@@ -161,17 +151,7 @@ public class EventTriggerImpl extends EObjectImpl implements EventTrigger {
 	 * @generated
 	 */
 	public void setExpression(Expression newExpression) {
-		if (newExpression != expression) {
-			NotificationChain msgs = null;
-			if (expression != null)
-				msgs = ((InternalEObject)expression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DsPackage.EVENT_TRIGGER__EXPRESSION, null, msgs);
-			if (newExpression != null)
-				msgs = ((InternalEObject)newExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DsPackage.EVENT_TRIGGER__EXPRESSION, null, msgs);
-			msgs = basicSetExpression(newExpression, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.EVENT_TRIGGER__EXPRESSION, newExpression, newExpression));
+		((FeatureMap.Internal)getMixed()).set(DsPackage.Literals.EVENT_TRIGGER__EXPRESSION, newExpression);
 	}
 
 	/**
@@ -180,7 +160,7 @@ public class EventTriggerImpl extends EObjectImpl implements EventTrigger {
 	 * @generated
 	 */
 	public TargetTopic getTargetTopic() {
-		return targetTopic;
+		return (TargetTopic)getMixed().get(DsPackage.Literals.EVENT_TRIGGER__TARGET_TOPIC, true);
 	}
 
 	/**
@@ -189,13 +169,7 @@ public class EventTriggerImpl extends EObjectImpl implements EventTrigger {
 	 * @generated
 	 */
 	public NotificationChain basicSetTargetTopic(TargetTopic newTargetTopic, NotificationChain msgs) {
-		TargetTopic oldTargetTopic = targetTopic;
-		targetTopic = newTargetTopic;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DsPackage.EVENT_TRIGGER__TARGET_TOPIC, oldTargetTopic, newTargetTopic);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
+		return ((FeatureMap.Internal)getMixed()).basicAdd(DsPackage.Literals.EVENT_TRIGGER__TARGET_TOPIC, newTargetTopic, msgs);
 	}
 
 	/**
@@ -204,17 +178,7 @@ public class EventTriggerImpl extends EObjectImpl implements EventTrigger {
 	 * @generated
 	 */
 	public void setTargetTopic(TargetTopic newTargetTopic) {
-		if (newTargetTopic != targetTopic) {
-			NotificationChain msgs = null;
-			if (targetTopic != null)
-				msgs = ((InternalEObject)targetTopic).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DsPackage.EVENT_TRIGGER__TARGET_TOPIC, null, msgs);
-			if (newTargetTopic != null)
-				msgs = ((InternalEObject)newTargetTopic).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DsPackage.EVENT_TRIGGER__TARGET_TOPIC, null, msgs);
-			msgs = basicSetTargetTopic(newTargetTopic, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.EVENT_TRIGGER__TARGET_TOPIC, newTargetTopic, newTargetTopic));
+		((FeatureMap.Internal)getMixed()).set(DsPackage.Literals.EVENT_TRIGGER__TARGET_TOPIC, newTargetTopic);
 	}
 
 	/**
@@ -223,7 +187,7 @@ public class EventTriggerImpl extends EObjectImpl implements EventTrigger {
 	 * @generated
 	 */
 	public EventSubscriptionList getSubscriptions() {
-		return subscriptions;
+		return (EventSubscriptionList)getMixed().get(DsPackage.Literals.EVENT_TRIGGER__SUBSCRIPTIONS, true);
 	}
 
 	/**
@@ -232,13 +196,7 @@ public class EventTriggerImpl extends EObjectImpl implements EventTrigger {
 	 * @generated
 	 */
 	public NotificationChain basicSetSubscriptions(EventSubscriptionList newSubscriptions, NotificationChain msgs) {
-		EventSubscriptionList oldSubscriptions = subscriptions;
-		subscriptions = newSubscriptions;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DsPackage.EVENT_TRIGGER__SUBSCRIPTIONS, oldSubscriptions, newSubscriptions);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
+		return ((FeatureMap.Internal)getMixed()).basicAdd(DsPackage.Literals.EVENT_TRIGGER__SUBSCRIPTIONS, newSubscriptions, msgs);
 	}
 
 	/**
@@ -247,17 +205,7 @@ public class EventTriggerImpl extends EObjectImpl implements EventTrigger {
 	 * @generated
 	 */
 	public void setSubscriptions(EventSubscriptionList newSubscriptions) {
-		if (newSubscriptions != subscriptions) {
-			NotificationChain msgs = null;
-			if (subscriptions != null)
-				msgs = ((InternalEObject)subscriptions).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DsPackage.EVENT_TRIGGER__SUBSCRIPTIONS, null, msgs);
-			if (newSubscriptions != null)
-				msgs = ((InternalEObject)newSubscriptions).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DsPackage.EVENT_TRIGGER__SUBSCRIPTIONS, null, msgs);
-			msgs = basicSetSubscriptions(newSubscriptions, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.EVENT_TRIGGER__SUBSCRIPTIONS, newSubscriptions, newSubscriptions));
+		((FeatureMap.Internal)getMixed()).set(DsPackage.Literals.EVENT_TRIGGER__SUBSCRIPTIONS, newSubscriptions);
 	}
 
 	/**
@@ -312,6 +260,8 @@ public class EventTriggerImpl extends EObjectImpl implements EventTrigger {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case DsPackage.EVENT_TRIGGER__MIXED:
+				return ((InternalEList<?>)getMixed()).basicRemove(otherEnd, msgs);
 			case DsPackage.EVENT_TRIGGER__EXPRESSION:
 				return basicSetExpression(null, msgs);
 			case DsPackage.EVENT_TRIGGER__TARGET_TOPIC:
@@ -332,6 +282,9 @@ public class EventTriggerImpl extends EObjectImpl implements EventTrigger {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case DsPackage.EVENT_TRIGGER__MIXED:
+				if (coreType) return getMixed();
+				return ((FeatureMap.Internal)getMixed()).getWrapper();
 			case DsPackage.EVENT_TRIGGER__EXPRESSION:
 				return getExpression();
 			case DsPackage.EVENT_TRIGGER__TARGET_TOPIC:
@@ -356,6 +309,9 @@ public class EventTriggerImpl extends EObjectImpl implements EventTrigger {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case DsPackage.EVENT_TRIGGER__MIXED:
+				((FeatureMap.Internal)getMixed()).set(newValue);
+				return;
 			case DsPackage.EVENT_TRIGGER__EXPRESSION:
 				setExpression((Expression)newValue);
 				return;
@@ -385,6 +341,9 @@ public class EventTriggerImpl extends EObjectImpl implements EventTrigger {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case DsPackage.EVENT_TRIGGER__MIXED:
+				getMixed().clear();
+				return;
 			case DsPackage.EVENT_TRIGGER__EXPRESSION:
 				setExpression((Expression)null);
 				return;
@@ -414,12 +373,14 @@ public class EventTriggerImpl extends EObjectImpl implements EventTrigger {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case DsPackage.EVENT_TRIGGER__MIXED:
+				return mixed != null && !mixed.isEmpty();
 			case DsPackage.EVENT_TRIGGER__EXPRESSION:
-				return expression != null;
+				return getExpression() != null;
 			case DsPackage.EVENT_TRIGGER__TARGET_TOPIC:
-				return targetTopic != null;
+				return getTargetTopic() != null;
 			case DsPackage.EVENT_TRIGGER__SUBSCRIPTIONS:
-				return subscriptions != null;
+				return getSubscriptions() != null;
 			case DsPackage.EVENT_TRIGGER__ID:
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 			case DsPackage.EVENT_TRIGGER__LANGUAGE:
@@ -440,7 +401,9 @@ public class EventTriggerImpl extends EObjectImpl implements EventTrigger {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (id: ");
+		result.append(" (mixed: ");
+		result.append(mixed);
+		result.append(", id: ");
 		result.append(id);
 		result.append(", language: ");
 		result.append(language);

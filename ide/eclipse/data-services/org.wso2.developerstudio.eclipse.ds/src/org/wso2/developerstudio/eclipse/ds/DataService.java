@@ -9,6 +9,7 @@ package org.wso2.developerstudio.eclipse.ds;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.FeatureMap;
 
 /**
  * <!-- begin-user-doc -->
@@ -18,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link org.wso2.developerstudio.eclipse.ds.DataService#getMixed <em>Mixed</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.DataService#getDescription <em>Description</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.DataService#getConfig <em>Config</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.DataService#getQuery <em>Query</em>}</li>
@@ -36,10 +38,27 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  *
  * @see org.wso2.developerstudio.eclipse.ds.DsPackage#getDataService()
- * @model extendedMetaData="name='data_._type' kind='elementOnly'"
+ * @model extendedMetaData="name='data_._type' kind='mixed'"
  * @generated
  */
 public interface DataService extends EObject {
+	/**
+	 * Returns the value of the '<em><b>Mixed</b></em>' attribute list.
+	 * The list contents are of type {@link org.eclipse.emf.ecore.util.FeatureMap.Entry}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Mixed</em>' attribute list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Mixed</em>' attribute list.
+	 * @see org.wso2.developerstudio.eclipse.ds.DsPackage#getDataService_Mixed()
+	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true"
+	 *        extendedMetaData="kind='elementWildcard' name=':mixed'"
+	 * @generated
+	 */
+	FeatureMap getMixed();
+
 	/**
 	 * Returns the value of the '<em><b>Description</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
@@ -51,7 +70,7 @@ public interface DataService extends EObject {
 	 * @return the value of the '<em>Description</em>' containment reference.
 	 * @see #setDescription(Description)
 	 * @see org.wso2.developerstudio.eclipse.ds.DsPackage#getDataService_Description()
-	 * @model containment="true" required="true"
+	 * @model containment="true" required="true" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='description' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -78,7 +97,7 @@ public interface DataService extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Config</em>' containment reference list.
 	 * @see org.wso2.developerstudio.eclipse.ds.DsPackage#getDataService_Config()
-	 * @model containment="true"
+	 * @model containment="true" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='config' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -95,7 +114,7 @@ public interface DataService extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Query</em>' containment reference list.
 	 * @see org.wso2.developerstudio.eclipse.ds.DsPackage#getDataService_Query()
-	 * @model containment="true"
+	 * @model containment="true" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='query' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -112,7 +131,7 @@ public interface DataService extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Event Trigger</em>' containment reference list.
 	 * @see org.wso2.developerstudio.eclipse.ds.DsPackage#getDataService_EventTrigger()
-	 * @model containment="true"
+	 * @model containment="true" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='event-trigger' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -129,7 +148,7 @@ public interface DataService extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Operation</em>' containment reference list.
 	 * @see org.wso2.developerstudio.eclipse.ds.DsPackage#getDataService_Operation()
-	 * @model containment="true"
+	 * @model containment="true" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='operation' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -146,7 +165,7 @@ public interface DataService extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Resource</em>' containment reference list.
 	 * @see org.wso2.developerstudio.eclipse.ds.DsPackage#getDataService_Resource()
-	 * @model containment="true"
+	 * @model containment="true" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='resource' namespace='##targetNamespace'"
 	 * @generated
 	 */

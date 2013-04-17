@@ -20,8 +20,10 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.eclipse.emf.ecore.util.BasicFeatureMap;
 import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.wso2.developerstudio.eclipse.ds.DsPackage;
@@ -35,6 +37,7 @@ import org.wso2.developerstudio.eclipse.ds.Subscription;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.EventSubscriptionListImpl#getMixed <em>Mixed</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.EventSubscriptionListImpl#getSubscription <em>Subscription</em>}</li>
  * </ul>
  * </p>
@@ -43,15 +46,14 @@ import org.wso2.developerstudio.eclipse.ds.Subscription;
  */
 public class EventSubscriptionListImpl extends EObjectImpl implements EventSubscriptionList {
 	/**
-	 * The cached value of the '{@link #getSubscription() <em>Subscription</em>}' containment reference list.
+	 * The cached value of the '{@link #getMixed() <em>Mixed</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSubscription()
+	 * @see #getMixed()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Subscription> subscription;
-
+	protected FeatureMap mixed;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -78,11 +80,20 @@ public class EventSubscriptionListImpl extends EObjectImpl implements EventSubsc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Subscription> getSubscription() {
-		if (subscription == null) {
-			subscription = new EObjectContainmentEList<Subscription>(Subscription.class, this, DsPackage.EVENT_SUBSCRIPTION_LIST__SUBSCRIPTION);
+	public FeatureMap getMixed() {
+		if (mixed == null) {
+			mixed = new BasicFeatureMap(this, DsPackage.EVENT_SUBSCRIPTION_LIST__MIXED);
 		}
-		return subscription;
+		return mixed;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Subscription> getSubscription() {
+		return getMixed().list(DsPackage.Literals.EVENT_SUBSCRIPTION_LIST__SUBSCRIPTION);
 	}
 
 	/**
@@ -95,6 +106,8 @@ public class EventSubscriptionListImpl extends EObjectImpl implements EventSubsc
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case DsPackage.EVENT_SUBSCRIPTION_LIST__MIXED:
+				return ((InternalEList<?>)getMixed()).basicRemove(otherEnd, msgs);
 			case DsPackage.EVENT_SUBSCRIPTION_LIST__SUBSCRIPTION:
 				return ((InternalEList<?>)getSubscription()).basicRemove(otherEnd, msgs);
 		}
@@ -111,6 +124,9 @@ public class EventSubscriptionListImpl extends EObjectImpl implements EventSubsc
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case DsPackage.EVENT_SUBSCRIPTION_LIST__MIXED:
+				if (coreType) return getMixed();
+				return ((FeatureMap.Internal)getMixed()).getWrapper();
 			case DsPackage.EVENT_SUBSCRIPTION_LIST__SUBSCRIPTION:
 				return getSubscription();
 		}
@@ -128,6 +144,9 @@ public class EventSubscriptionListImpl extends EObjectImpl implements EventSubsc
 	
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case DsPackage.EVENT_SUBSCRIPTION_LIST__MIXED:
+				((FeatureMap.Internal)getMixed()).set(newValue);
+				return;
 			case DsPackage.EVENT_SUBSCRIPTION_LIST__SUBSCRIPTION:
 				getSubscription().clear();
 				getSubscription().addAll((Collection<? extends Subscription>)newValue);
@@ -146,6 +165,9 @@ public class EventSubscriptionListImpl extends EObjectImpl implements EventSubsc
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case DsPackage.EVENT_SUBSCRIPTION_LIST__MIXED:
+				getMixed().clear();
+				return;
 			case DsPackage.EVENT_SUBSCRIPTION_LIST__SUBSCRIPTION:
 				getSubscription().clear();
 				return;
@@ -163,10 +185,28 @@ public class EventSubscriptionListImpl extends EObjectImpl implements EventSubsc
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case DsPackage.EVENT_SUBSCRIPTION_LIST__MIXED:
+				return mixed != null && !mixed.isEmpty();
 			case DsPackage.EVENT_SUBSCRIPTION_LIST__SUBSCRIPTION:
-				return subscription != null && !subscription.isEmpty();
+				return !getSubscription().isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (mixed: ");
+		result.append(mixed);
+		result.append(')');
+		return result.toString();
 	}
 
 } //EventSubscriptionListImpl

@@ -19,7 +19,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.eclipse.emf.ecore.util.BasicFeatureMap;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.wso2.developerstudio.eclipse.ds.CustomValidator;
@@ -37,6 +39,7 @@ import org.wso2.developerstudio.eclipse.ds.QueryParameter;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.QueryParameterImpl#getMixed <em>Mixed</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.QueryParameterImpl#getValidateLongRange <em>Validate Long Range</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.QueryParameterImpl#getValidateDoubleRange <em>Validate Double Range</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.QueryParameterImpl#getValidateLength <em>Validate Length</em>}</li>
@@ -56,54 +59,14 @@ import org.wso2.developerstudio.eclipse.ds.QueryParameter;
  */
 public class QueryParameterImpl extends EObjectImpl implements QueryParameter {
 	/**
-	 * The cached value of the '{@link #getValidateLongRange() <em>Validate Long Range</em>}' containment reference.
+	 * The cached value of the '{@link #getMixed() <em>Mixed</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getValidateLongRange()
+	 * @see #getMixed()
 	 * @generated
 	 * @ordered
 	 */
-	protected LongRangeValidator validateLongRange;
-
-	/**
-	 * The cached value of the '{@link #getValidateDoubleRange() <em>Validate Double Range</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getValidateDoubleRange()
-	 * @generated
-	 * @ordered
-	 */
-	protected DoubleRangeValidator validateDoubleRange;
-
-	/**
-	 * The cached value of the '{@link #getValidateLength() <em>Validate Length</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getValidateLength()
-	 * @generated
-	 * @ordered
-	 */
-	protected LengthValidator validateLength;
-
-	/**
-	 * The cached value of the '{@link #getValidatePattern() <em>Validate Pattern</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getValidatePattern()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<PatternValidator> validatePattern;
-
-	/**
-	 * The cached value of the '{@link #getValidateCustom() <em>Validate Custom</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getValidateCustom()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<CustomValidator> validateCustom;
+	protected FeatureMap mixed;
 
 	/**
 	 * The default value of the '{@link #getDefaultValue() <em>Default Value</em>}' attribute.
@@ -271,8 +234,20 @@ public class QueryParameterImpl extends EObjectImpl implements QueryParameter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public FeatureMap getMixed() {
+		if (mixed == null) {
+			mixed = new BasicFeatureMap(this, DsPackage.QUERY_PARAMETER__MIXED);
+		}
+		return mixed;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public LongRangeValidator getValidateLongRange() {
-		return validateLongRange;
+		return (LongRangeValidator)getMixed().get(DsPackage.Literals.QUERY_PARAMETER__VALIDATE_LONG_RANGE, true);
 	}
 
 	/**
@@ -281,13 +256,7 @@ public class QueryParameterImpl extends EObjectImpl implements QueryParameter {
 	 * @generated
 	 */
 	public NotificationChain basicSetValidateLongRange(LongRangeValidator newValidateLongRange, NotificationChain msgs) {
-		LongRangeValidator oldValidateLongRange = validateLongRange;
-		validateLongRange = newValidateLongRange;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DsPackage.QUERY_PARAMETER__VALIDATE_LONG_RANGE, oldValidateLongRange, newValidateLongRange);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
+		return ((FeatureMap.Internal)getMixed()).basicAdd(DsPackage.Literals.QUERY_PARAMETER__VALIDATE_LONG_RANGE, newValidateLongRange, msgs);
 	}
 
 	/**
@@ -296,17 +265,7 @@ public class QueryParameterImpl extends EObjectImpl implements QueryParameter {
 	 * @generated
 	 */
 	public void setValidateLongRange(LongRangeValidator newValidateLongRange) {
-		if (newValidateLongRange != validateLongRange) {
-			NotificationChain msgs = null;
-			if (validateLongRange != null)
-				msgs = ((InternalEObject)validateLongRange).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DsPackage.QUERY_PARAMETER__VALIDATE_LONG_RANGE, null, msgs);
-			if (newValidateLongRange != null)
-				msgs = ((InternalEObject)newValidateLongRange).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DsPackage.QUERY_PARAMETER__VALIDATE_LONG_RANGE, null, msgs);
-			msgs = basicSetValidateLongRange(newValidateLongRange, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.QUERY_PARAMETER__VALIDATE_LONG_RANGE, newValidateLongRange, newValidateLongRange));
+		((FeatureMap.Internal)getMixed()).set(DsPackage.Literals.QUERY_PARAMETER__VALIDATE_LONG_RANGE, newValidateLongRange);
 	}
 
 	/**
@@ -315,7 +274,7 @@ public class QueryParameterImpl extends EObjectImpl implements QueryParameter {
 	 * @generated
 	 */
 	public DoubleRangeValidator getValidateDoubleRange() {
-		return validateDoubleRange;
+		return (DoubleRangeValidator)getMixed().get(DsPackage.Literals.QUERY_PARAMETER__VALIDATE_DOUBLE_RANGE, true);
 	}
 
 	/**
@@ -324,13 +283,7 @@ public class QueryParameterImpl extends EObjectImpl implements QueryParameter {
 	 * @generated
 	 */
 	public NotificationChain basicSetValidateDoubleRange(DoubleRangeValidator newValidateDoubleRange, NotificationChain msgs) {
-		DoubleRangeValidator oldValidateDoubleRange = validateDoubleRange;
-		validateDoubleRange = newValidateDoubleRange;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DsPackage.QUERY_PARAMETER__VALIDATE_DOUBLE_RANGE, oldValidateDoubleRange, newValidateDoubleRange);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
+		return ((FeatureMap.Internal)getMixed()).basicAdd(DsPackage.Literals.QUERY_PARAMETER__VALIDATE_DOUBLE_RANGE, newValidateDoubleRange, msgs);
 	}
 
 	/**
@@ -339,17 +292,7 @@ public class QueryParameterImpl extends EObjectImpl implements QueryParameter {
 	 * @generated
 	 */
 	public void setValidateDoubleRange(DoubleRangeValidator newValidateDoubleRange) {
-		if (newValidateDoubleRange != validateDoubleRange) {
-			NotificationChain msgs = null;
-			if (validateDoubleRange != null)
-				msgs = ((InternalEObject)validateDoubleRange).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DsPackage.QUERY_PARAMETER__VALIDATE_DOUBLE_RANGE, null, msgs);
-			if (newValidateDoubleRange != null)
-				msgs = ((InternalEObject)newValidateDoubleRange).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DsPackage.QUERY_PARAMETER__VALIDATE_DOUBLE_RANGE, null, msgs);
-			msgs = basicSetValidateDoubleRange(newValidateDoubleRange, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.QUERY_PARAMETER__VALIDATE_DOUBLE_RANGE, newValidateDoubleRange, newValidateDoubleRange));
+		((FeatureMap.Internal)getMixed()).set(DsPackage.Literals.QUERY_PARAMETER__VALIDATE_DOUBLE_RANGE, newValidateDoubleRange);
 	}
 
 	/**
@@ -358,7 +301,7 @@ public class QueryParameterImpl extends EObjectImpl implements QueryParameter {
 	 * @generated
 	 */
 	public LengthValidator getValidateLength() {
-		return validateLength;
+		return (LengthValidator)getMixed().get(DsPackage.Literals.QUERY_PARAMETER__VALIDATE_LENGTH, true);
 	}
 
 	/**
@@ -367,13 +310,7 @@ public class QueryParameterImpl extends EObjectImpl implements QueryParameter {
 	 * @generated
 	 */
 	public NotificationChain basicSetValidateLength(LengthValidator newValidateLength, NotificationChain msgs) {
-		LengthValidator oldValidateLength = validateLength;
-		validateLength = newValidateLength;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DsPackage.QUERY_PARAMETER__VALIDATE_LENGTH, oldValidateLength, newValidateLength);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
+		return ((FeatureMap.Internal)getMixed()).basicAdd(DsPackage.Literals.QUERY_PARAMETER__VALIDATE_LENGTH, newValidateLength, msgs);
 	}
 
 	/**
@@ -382,17 +319,7 @@ public class QueryParameterImpl extends EObjectImpl implements QueryParameter {
 	 * @generated
 	 */
 	public void setValidateLength(LengthValidator newValidateLength) {
-		if (newValidateLength != validateLength) {
-			NotificationChain msgs = null;
-			if (validateLength != null)
-				msgs = ((InternalEObject)validateLength).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DsPackage.QUERY_PARAMETER__VALIDATE_LENGTH, null, msgs);
-			if (newValidateLength != null)
-				msgs = ((InternalEObject)newValidateLength).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DsPackage.QUERY_PARAMETER__VALIDATE_LENGTH, null, msgs);
-			msgs = basicSetValidateLength(newValidateLength, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DsPackage.QUERY_PARAMETER__VALIDATE_LENGTH, newValidateLength, newValidateLength));
+		((FeatureMap.Internal)getMixed()).set(DsPackage.Literals.QUERY_PARAMETER__VALIDATE_LENGTH, newValidateLength);
 	}
 
 	/**
@@ -401,10 +328,7 @@ public class QueryParameterImpl extends EObjectImpl implements QueryParameter {
 	 * @generated
 	 */
 	public EList<PatternValidator> getValidatePattern() {
-		if (validatePattern == null) {
-			validatePattern = new EObjectContainmentEList<PatternValidator>(PatternValidator.class, this, DsPackage.QUERY_PARAMETER__VALIDATE_PATTERN);
-		}
-		return validatePattern;
+		return getMixed().list(DsPackage.Literals.QUERY_PARAMETER__VALIDATE_PATTERN);
 	}
 
 	/**
@@ -413,10 +337,7 @@ public class QueryParameterImpl extends EObjectImpl implements QueryParameter {
 	 * @generated
 	 */
 	public EList<CustomValidator> getValidateCustom() {
-		if (validateCustom == null) {
-			validateCustom = new EObjectContainmentEList<CustomValidator>(CustomValidator.class, this, DsPackage.QUERY_PARAMETER__VALIDATE_CUSTOM);
-		}
-		return validateCustom;
+		return getMixed().list(DsPackage.Literals.QUERY_PARAMETER__VALIDATE_CUSTOM);
 	}
 
 	/**
@@ -576,6 +497,8 @@ public class QueryParameterImpl extends EObjectImpl implements QueryParameter {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case DsPackage.QUERY_PARAMETER__MIXED:
+				return ((InternalEList<?>)getMixed()).basicRemove(otherEnd, msgs);
 			case DsPackage.QUERY_PARAMETER__VALIDATE_LONG_RANGE:
 				return basicSetValidateLongRange(null, msgs);
 			case DsPackage.QUERY_PARAMETER__VALIDATE_DOUBLE_RANGE:
@@ -600,6 +523,9 @@ public class QueryParameterImpl extends EObjectImpl implements QueryParameter {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case DsPackage.QUERY_PARAMETER__MIXED:
+				if (coreType) return getMixed();
+				return ((FeatureMap.Internal)getMixed()).getWrapper();
 			case DsPackage.QUERY_PARAMETER__VALIDATE_LONG_RANGE:
 				return getValidateLongRange();
 			case DsPackage.QUERY_PARAMETER__VALIDATE_DOUBLE_RANGE:
@@ -639,6 +565,9 @@ public class QueryParameterImpl extends EObjectImpl implements QueryParameter {
 	
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case DsPackage.QUERY_PARAMETER__MIXED:
+				((FeatureMap.Internal)getMixed()).set(newValue);
+				return;
 			case DsPackage.QUERY_PARAMETER__VALIDATE_LONG_RANGE:
 				setValidateLongRange((LongRangeValidator)newValue);
 				return;
@@ -691,6 +620,9 @@ public class QueryParameterImpl extends EObjectImpl implements QueryParameter {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case DsPackage.QUERY_PARAMETER__MIXED:
+				getMixed().clear();
+				return;
 			case DsPackage.QUERY_PARAMETER__VALIDATE_LONG_RANGE:
 				setValidateLongRange((LongRangeValidator)null);
 				return;
@@ -741,16 +673,18 @@ public class QueryParameterImpl extends EObjectImpl implements QueryParameter {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case DsPackage.QUERY_PARAMETER__MIXED:
+				return mixed != null && !mixed.isEmpty();
 			case DsPackage.QUERY_PARAMETER__VALIDATE_LONG_RANGE:
-				return validateLongRange != null;
+				return getValidateLongRange() != null;
 			case DsPackage.QUERY_PARAMETER__VALIDATE_DOUBLE_RANGE:
-				return validateDoubleRange != null;
+				return getValidateDoubleRange() != null;
 			case DsPackage.QUERY_PARAMETER__VALIDATE_LENGTH:
-				return validateLength != null;
+				return getValidateLength() != null;
 			case DsPackage.QUERY_PARAMETER__VALIDATE_PATTERN:
-				return validatePattern != null && !validatePattern.isEmpty();
+				return !getValidatePattern().isEmpty();
 			case DsPackage.QUERY_PARAMETER__VALIDATE_CUSTOM:
-				return validateCustom != null && !validateCustom.isEmpty();
+				return !getValidateCustom().isEmpty();
 			case DsPackage.QUERY_PARAMETER__DEFAULT_VALUE:
 				return DEFAULT_VALUE_EDEFAULT == null ? defaultValue != null : !DEFAULT_VALUE_EDEFAULT.equals(defaultValue);
 			case DsPackage.QUERY_PARAMETER__NAME:
@@ -781,7 +715,9 @@ public class QueryParameterImpl extends EObjectImpl implements QueryParameter {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (defaultValue: ");
+		result.append(" (mixed: ");
+		result.append(mixed);
+		result.append(", defaultValue: ");
 		result.append(defaultValue);
 		result.append(", name: ");
 		result.append(name);

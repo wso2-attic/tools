@@ -8,6 +8,7 @@ package org.wso2.developerstudio.eclipse.ds;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.FeatureMap;
 
 /**
  * <!-- begin-user-doc -->
@@ -17,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link org.wso2.developerstudio.eclipse.ds.ElementMapping#getMixed <em>Mixed</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.ElementMapping#getColumn <em>Column</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.ElementMapping#getExport <em>Export</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.ElementMapping#getName <em>Name</em>}</li>
@@ -36,10 +38,27 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  *
  * @see org.wso2.developerstudio.eclipse.ds.DsPackage#getElementMapping()
- * @model extendedMetaData="name='element_._type' kind='empty'"
+ * @model extendedMetaData="name='element_._type' kind='mixed'"
  * @generated
  */
 public interface ElementMapping extends EObject {
+	/**
+	 * Returns the value of the '<em><b>Mixed</b></em>' attribute list.
+	 * The list contents are of type {@link org.eclipse.emf.ecore.util.FeatureMap.Entry}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Mixed</em>' attribute list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Mixed</em>' attribute list.
+	 * @see org.wso2.developerstudio.eclipse.ds.DsPackage#getElementMapping_Mixed()
+	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true"
+	 *        extendedMetaData="kind='elementWildcard' name=':mixed'"
+	 * @generated
+	 */
+	FeatureMap getMixed();
+
 	/**
 	 * Returns the value of the '<em><b>Column</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -240,7 +259,7 @@ public interface ElementMapping extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Element</em>' containment reference list.
 	 * @see org.wso2.developerstudio.eclipse.ds.DsPackage#getElementMapping_Element()
-	 * @model containment="true"
+	 * @model containment="true" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='element' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -257,7 +276,7 @@ public interface ElementMapping extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Attribute</em>' containment reference list.
 	 * @see org.wso2.developerstudio.eclipse.ds.DsPackage#getElementMapping_Attribute()
-	 * @model containment="true"
+	 * @model containment="true" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='attribute' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -274,7 +293,7 @@ public interface ElementMapping extends EObject {
 	 * @return the value of the '<em>Call Query</em>' containment reference.
 	 * @see #setCallQuery(CallQuery)
 	 * @see org.wso2.developerstudio.eclipse.ds.DsPackage#getElementMapping_CallQuery()
-	 * @model containment="true"
+	 * @model containment="true" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='call-query' namespace='##targetNamespace'"
 	 * @generated
 	 */

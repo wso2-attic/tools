@@ -20,8 +20,10 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.eclipse.emf.ecore.util.BasicFeatureMap;
 import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.wso2.developerstudio.eclipse.ds.DsPackage;
@@ -41,6 +43,7 @@ import org.wso2.developerstudio.eclipse.ds.Sql;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.QueryImpl#getMixed <em>Mixed</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.QueryImpl#getSql <em>Sql</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.QueryImpl#getSparql <em>Sparql</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.impl.QueryImpl#getProperties <em>Properties</em>}</li>
@@ -61,74 +64,14 @@ import org.wso2.developerstudio.eclipse.ds.Sql;
  */
 public class QueryImpl extends EObjectImpl implements Query {
 	/**
-	 * The cached value of the '{@link #getSql() <em>Sql</em>}' containment reference list.
+	 * The cached value of the '{@link #getMixed() <em>Mixed</em>}' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSql()
+	 * @see #getMixed()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Sql> sql;
-
-	/**
-	 * The cached value of the '{@link #getSparql() <em>Sparql</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSparql()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Sparql> sparql;
-
-	/**
-	 * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getProperties()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<QueryPropertyList> properties;
-
-	/**
-	 * The cached value of the '{@link #getResult() <em>Result</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getResult()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<ResultMapping> result;
-
-	/**
-	 * The cached value of the '{@link #getExcel() <em>Excel</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getExcel()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<ExcelQuery> excel;
-
-	/**
-	 * The cached value of the '{@link #getGspread() <em>Gspread</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getGspread()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<GSpreadQuery> gspread;
-
-	/**
-	 * The cached value of the '{@link #getParam() <em>Param</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getParam()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<QueryParameter> param;
+	protected FeatureMap mixed;
 
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
@@ -276,11 +219,20 @@ public class QueryImpl extends EObjectImpl implements Query {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Sql> getSql() {
-		if (sql == null) {
-			sql = new EObjectContainmentEList<Sql>(Sql.class, this, DsPackage.QUERY__SQL);
+	public FeatureMap getMixed() {
+		if (mixed == null) {
+			mixed = new BasicFeatureMap(this, DsPackage.QUERY__MIXED);
 		}
-		return sql;
+		return mixed;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Sql> getSql() {
+		return getMixed().list(DsPackage.Literals.QUERY__SQL);
 	}
 
 	/**
@@ -289,10 +241,7 @@ public class QueryImpl extends EObjectImpl implements Query {
 	 * @generated
 	 */
 	public EList<Sparql> getSparql() {
-		if (sparql == null) {
-			sparql = new EObjectContainmentEList<Sparql>(Sparql.class, this, DsPackage.QUERY__SPARQL);
-		}
-		return sparql;
+		return getMixed().list(DsPackage.Literals.QUERY__SPARQL);
 	}
 
 	/**
@@ -301,10 +250,7 @@ public class QueryImpl extends EObjectImpl implements Query {
 	 * @generated
 	 */
 	public EList<QueryPropertyList> getProperties() {
-		if (properties == null) {
-			properties = new EObjectContainmentEList<QueryPropertyList>(QueryPropertyList.class, this, DsPackage.QUERY__PROPERTIES);
-		}
-		return properties;
+		return getMixed().list(DsPackage.Literals.QUERY__PROPERTIES);
 	}
 
 	/**
@@ -313,10 +259,7 @@ public class QueryImpl extends EObjectImpl implements Query {
 	 * @generated
 	 */
 	public EList<ResultMapping> getResult() {
-		if (result == null) {
-			result = new EObjectContainmentEList<ResultMapping>(ResultMapping.class, this, DsPackage.QUERY__RESULT);
-		}
-		return result;
+		return getMixed().list(DsPackage.Literals.QUERY__RESULT);
 	}
 
 	/**
@@ -325,10 +268,7 @@ public class QueryImpl extends EObjectImpl implements Query {
 	 * @generated
 	 */
 	public EList<ExcelQuery> getExcel() {
-		if (excel == null) {
-			excel = new EObjectContainmentEList<ExcelQuery>(ExcelQuery.class, this, DsPackage.QUERY__EXCEL);
-		}
-		return excel;
+		return getMixed().list(DsPackage.Literals.QUERY__EXCEL);
 	}
 
 	/**
@@ -337,10 +277,7 @@ public class QueryImpl extends EObjectImpl implements Query {
 	 * @generated
 	 */
 	public EList<GSpreadQuery> getGspread() {
-		if (gspread == null) {
-			gspread = new EObjectContainmentEList<GSpreadQuery>(GSpreadQuery.class, this, DsPackage.QUERY__GSPREAD);
-		}
-		return gspread;
+		return getMixed().list(DsPackage.Literals.QUERY__GSPREAD);
 	}
 
 	/**
@@ -349,10 +286,7 @@ public class QueryImpl extends EObjectImpl implements Query {
 	 * @generated
 	 */
 	public EList<QueryParameter> getParam() {
-		if (param == null) {
-			param = new EObjectContainmentEList<QueryParameter>(QueryParameter.class, this, DsPackage.QUERY__PARAM);
-		}
-		return param;
+		return getMixed().list(DsPackage.Literals.QUERY__PARAM);
 	}
 
 	/**
@@ -491,6 +425,8 @@ public class QueryImpl extends EObjectImpl implements Query {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case DsPackage.QUERY__MIXED:
+				return ((InternalEList<?>)getMixed()).basicRemove(otherEnd, msgs);
 			case DsPackage.QUERY__SQL:
 				return ((InternalEList<?>)getSql()).basicRemove(otherEnd, msgs);
 			case DsPackage.QUERY__SPARQL:
@@ -519,6 +455,9 @@ public class QueryImpl extends EObjectImpl implements Query {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case DsPackage.QUERY__MIXED:
+				if (coreType) return getMixed();
+				return ((FeatureMap.Internal)getMixed()).getWrapper();
 			case DsPackage.QUERY__SQL:
 				return getSql();
 			case DsPackage.QUERY__SPARQL:
@@ -560,6 +499,9 @@ public class QueryImpl extends EObjectImpl implements Query {
 	
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case DsPackage.QUERY__MIXED:
+				((FeatureMap.Internal)getMixed()).set(newValue);
+				return;
 			case DsPackage.QUERY__SQL:
 				getSql().clear();
 				getSql().addAll((Collection<? extends Sql>)newValue);
@@ -620,6 +562,9 @@ public class QueryImpl extends EObjectImpl implements Query {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case DsPackage.QUERY__MIXED:
+				getMixed().clear();
+				return;
 			case DsPackage.QUERY__SQL:
 				getSql().clear();
 				return;
@@ -673,20 +618,22 @@ public class QueryImpl extends EObjectImpl implements Query {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case DsPackage.QUERY__MIXED:
+				return mixed != null && !mixed.isEmpty();
 			case DsPackage.QUERY__SQL:
-				return sql != null && !sql.isEmpty();
+				return !getSql().isEmpty();
 			case DsPackage.QUERY__SPARQL:
-				return sparql != null && !sparql.isEmpty();
+				return !getSparql().isEmpty();
 			case DsPackage.QUERY__PROPERTIES:
-				return properties != null && !properties.isEmpty();
+				return !getProperties().isEmpty();
 			case DsPackage.QUERY__RESULT:
-				return result != null && !result.isEmpty();
+				return !getResult().isEmpty();
 			case DsPackage.QUERY__EXCEL:
-				return excel != null && !excel.isEmpty();
+				return !getExcel().isEmpty();
 			case DsPackage.QUERY__GSPREAD:
-				return gspread != null && !gspread.isEmpty();
+				return !getGspread().isEmpty();
 			case DsPackage.QUERY__PARAM:
-				return param != null && !param.isEmpty();
+				return !getParam().isEmpty();
 			case DsPackage.QUERY__ID:
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 			case DsPackage.QUERY__INPUT_EVENT_TRIGGER:
@@ -715,7 +662,9 @@ public class QueryImpl extends EObjectImpl implements Query {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (id: ");
+		result.append(" (mixed: ");
+		result.append(mixed);
+		result.append(", id: ");
 		result.append(id);
 		result.append(", inputEventTrigger: ");
 		result.append(inputEventTrigger);

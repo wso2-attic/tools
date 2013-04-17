@@ -462,8 +462,17 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getCallQuery_Mixed() {
+		return (EAttribute)callQueryEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getCallQuery_WithParam() {
-		return (EReference)callQueryEClass.getEStructuralFeatures().get(0);
+		return (EReference)callQueryEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -472,7 +481,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * @generated
 	 */
 	public EAttribute getCallQuery_Href() {
-		return (EAttribute)callQueryEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)callQueryEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -489,8 +498,17 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getCallQueryList_Mixed() {
+		return (EAttribute)callQueryListEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getCallQueryList_CallQuery() {
-		return (EReference)callQueryListEClass.getEStructuralFeatures().get(0);
+		return (EReference)callQueryListEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -552,8 +570,8 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDataService_Description() {
-		return (EReference)dataServiceEClass.getEStructuralFeatures().get(0);
+	public EAttribute getDataService_Mixed() {
+		return (EAttribute)dataServiceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -561,7 +579,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDataService_Config() {
+	public EReference getDataService_Description() {
 		return (EReference)dataServiceEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -570,7 +588,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDataService_Query() {
+	public EReference getDataService_Config() {
 		return (EReference)dataServiceEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -579,7 +597,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDataService_EventTrigger() {
+	public EReference getDataService_Query() {
 		return (EReference)dataServiceEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -588,7 +606,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDataService_Operation() {
+	public EReference getDataService_EventTrigger() {
 		return (EReference)dataServiceEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -597,7 +615,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDataService_Resource() {
+	public EReference getDataService_Operation() {
 		return (EReference)dataServiceEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -606,8 +624,8 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDataService_BaseURI() {
-		return (EAttribute)dataServiceEClass.getEStructuralFeatures().get(6);
+	public EReference getDataService_Resource() {
+		return (EReference)dataServiceEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -615,7 +633,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDataService_EnableBatchRequests() {
+	public EAttribute getDataService_BaseURI() {
 		return (EAttribute)dataServiceEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -624,7 +642,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDataService_EnableBoxcarring() {
+	public EAttribute getDataService_EnableBatchRequests() {
 		return (EAttribute)dataServiceEClass.getEStructuralFeatures().get(8);
 	}
 
@@ -633,7 +651,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDataService_EnableDTP() {
+	public EAttribute getDataService_EnableBoxcarring() {
 		return (EAttribute)dataServiceEClass.getEStructuralFeatures().get(9);
 	}
 
@@ -642,7 +660,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDataService_Name() {
+	public EAttribute getDataService_EnableDTP() {
 		return (EAttribute)dataServiceEClass.getEStructuralFeatures().get(10);
 	}
 
@@ -651,7 +669,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDataService_ServiceGroup() {
+	public EAttribute getDataService_Name() {
 		return (EAttribute)dataServiceEClass.getEStructuralFeatures().get(11);
 	}
 
@@ -660,7 +678,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDataService_ServiceNamespace() {
+	public EAttribute getDataService_ServiceGroup() {
 		return (EAttribute)dataServiceEClass.getEStructuralFeatures().get(12);
 	}
 
@@ -669,8 +687,17 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDataService_ServiceStatus() {
+	public EAttribute getDataService_ServiceNamespace() {
 		return (EAttribute)dataServiceEClass.getEStructuralFeatures().get(13);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDataService_ServiceStatus() {
+		return (EAttribute)dataServiceEClass.getEStructuralFeatures().get(14);
 	}
 
 	/**
@@ -687,8 +714,17 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getDataSourceConfiguration_Mixed() {
+		return (EAttribute)dataSourceConfigurationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getDataSourceConfiguration_Property() {
-		return (EReference)dataSourceConfigurationEClass.getEStructuralFeatures().get(0);
+		return (EReference)dataSourceConfigurationEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -697,7 +733,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * @generated
 	 */
 	public EAttribute getDataSourceConfiguration_Id() {
-		return (EAttribute)dataSourceConfigurationEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)dataSourceConfigurationEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -858,7 +894,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getElementMapping_Column() {
+	public EAttribute getElementMapping_Mixed() {
 		return (EAttribute)elementMappingEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -867,7 +903,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getElementMapping_Export() {
+	public EAttribute getElementMapping_Column() {
 		return (EAttribute)elementMappingEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -876,7 +912,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getElementMapping_Name() {
+	public EAttribute getElementMapping_Export() {
 		return (EAttribute)elementMappingEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -885,7 +921,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getElementMapping_RequiredRoles() {
+	public EAttribute getElementMapping_Name() {
 		return (EAttribute)elementMappingEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -894,7 +930,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getElementMapping_ExportType() {
+	public EAttribute getElementMapping_RequiredRoles() {
 		return (EAttribute)elementMappingEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -903,7 +939,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getElementMapping_Namespace() {
+	public EAttribute getElementMapping_ExportType() {
 		return (EAttribute)elementMappingEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -912,7 +948,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getElementMapping_XsdType() {
+	public EAttribute getElementMapping_Namespace() {
 		return (EAttribute)elementMappingEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -921,8 +957,8 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getElementMapping_Element() {
-		return (EReference)elementMappingEClass.getEStructuralFeatures().get(7);
+	public EAttribute getElementMapping_XsdType() {
+		return (EAttribute)elementMappingEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -930,7 +966,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getElementMapping_Attribute() {
+	public EReference getElementMapping_Element() {
 		return (EReference)elementMappingEClass.getEStructuralFeatures().get(8);
 	}
 
@@ -939,7 +975,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getElementMapping_CallQuery() {
+	public EReference getElementMapping_Attribute() {
 		return (EReference)elementMappingEClass.getEStructuralFeatures().get(9);
 	}
 
@@ -948,8 +984,8 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getElementMapping_IsComplexType() {
-		return (EAttribute)elementMappingEClass.getEStructuralFeatures().get(10);
+	public EReference getElementMapping_CallQuery() {
+		return (EReference)elementMappingEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -957,7 +993,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getElementMapping_QueryParam() {
+	public EAttribute getElementMapping_IsComplexType() {
 		return (EAttribute)elementMappingEClass.getEStructuralFeatures().get(11);
 	}
 
@@ -966,7 +1002,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getElementMapping_Value() {
+	public EAttribute getElementMapping_QueryParam() {
 		return (EAttribute)elementMappingEClass.getEStructuralFeatures().get(12);
 	}
 
@@ -975,7 +1011,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getElementMapping_Optional() {
+	public EAttribute getElementMapping_Value() {
 		return (EAttribute)elementMappingEClass.getEStructuralFeatures().get(13);
 	}
 
@@ -984,8 +1020,17 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getElementMapping_ArrayName() {
+	public EAttribute getElementMapping_Optional() {
 		return (EAttribute)elementMappingEClass.getEStructuralFeatures().get(14);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getElementMapping_ArrayName() {
+		return (EAttribute)elementMappingEClass.getEStructuralFeatures().get(15);
 	}
 
 	/**
@@ -1002,8 +1047,17 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getEventSubscriptionList_Mixed() {
+		return (EAttribute)eventSubscriptionListEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getEventSubscriptionList_Subscription() {
-		return (EReference)eventSubscriptionListEClass.getEStructuralFeatures().get(0);
+		return (EReference)eventSubscriptionListEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1020,8 +1074,8 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEventTrigger_Expression() {
-		return (EReference)eventTriggerEClass.getEStructuralFeatures().get(0);
+	public EAttribute getEventTrigger_Mixed() {
+		return (EAttribute)eventTriggerEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1029,7 +1083,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEventTrigger_TargetTopic() {
+	public EReference getEventTrigger_Expression() {
 		return (EReference)eventTriggerEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1038,7 +1092,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEventTrigger_Subscriptions() {
+	public EReference getEventTrigger_TargetTopic() {
 		return (EReference)eventTriggerEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -1047,8 +1101,17 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getEventTrigger_Subscriptions() {
+		return (EReference)eventTriggerEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EAttribute getEventTrigger_Id() {
-		return (EAttribute)eventTriggerEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)eventTriggerEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1057,7 +1120,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * @generated
 	 */
 	public EAttribute getEventTrigger_Language() {
-		return (EAttribute)eventTriggerEClass.getEStructuralFeatures().get(4);
+		return (EAttribute)eventTriggerEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -1074,8 +1137,8 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExcelQuery_Workbookname() {
-		return (EReference)excelQueryEClass.getEStructuralFeatures().get(0);
+	public EAttribute getExcelQuery_Mixed() {
+		return (EAttribute)excelQueryEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1083,7 +1146,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExcelQuery_Hasheader() {
+	public EReference getExcelQuery_Workbookname() {
 		return (EReference)excelQueryEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1092,7 +1155,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExcelQuery_Startingrow() {
+	public EReference getExcelQuery_Hasheader() {
 		return (EReference)excelQueryEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -1101,8 +1164,17 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getExcelQuery_Maxrowcount() {
+	public EReference getExcelQuery_Startingrow() {
 		return (EReference)excelQueryEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getExcelQuery_Maxrowcount() {
+		return (EReference)excelQueryEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1137,8 +1209,8 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getGSpreadQuery_Worksheetnumber() {
-		return (EReference)gSpreadQueryEClass.getEStructuralFeatures().get(0);
+	public EAttribute getGSpreadQuery_Mixed() {
+		return (EAttribute)gSpreadQueryEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1146,7 +1218,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getGSpreadQuery_Startingrow() {
+	public EReference getGSpreadQuery_Worksheetnumber() {
 		return (EReference)gSpreadQueryEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1155,7 +1227,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getGSpreadQuery_Maxrowcount() {
+	public EReference getGSpreadQuery_Startingrow() {
 		return (EReference)gSpreadQueryEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -1164,8 +1236,17 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getGSpreadQuery_Hasheader() {
+	public EReference getGSpreadQuery_Maxrowcount() {
 		return (EReference)gSpreadQueryEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getGSpreadQuery_Hasheader() {
+		return (EReference)gSpreadQueryEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1272,8 +1353,8 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getOperation_CallQuery() {
-		return (EReference)operationEClass.getEStructuralFeatures().get(0);
+	public EAttribute getOperation_Mixed() {
+		return (EAttribute)operationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1281,7 +1362,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getOperation_CallQueryGroup() {
+	public EReference getOperation_CallQuery() {
 		return (EReference)operationEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1290,8 +1371,8 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getOperation_DisableStreaming() {
-		return (EAttribute)operationEClass.getEStructuralFeatures().get(2);
+	public EReference getOperation_CallQueryGroup() {
+		return (EReference)operationEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1299,7 +1380,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getOperation_ReturnRequestStatus() {
+	public EAttribute getOperation_DisableStreaming() {
 		return (EAttribute)operationEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -1308,8 +1389,17 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getOperation_Name() {
+	public EAttribute getOperation_ReturnRequestStatus() {
 		return (EAttribute)operationEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOperation_Name() {
+		return (EAttribute)operationEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -1380,8 +1470,8 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getQuery_Sql() {
-		return (EReference)queryEClass.getEStructuralFeatures().get(0);
+	public EAttribute getQuery_Mixed() {
+		return (EAttribute)queryEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1389,7 +1479,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getQuery_Sparql() {
+	public EReference getQuery_Sql() {
 		return (EReference)queryEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1398,7 +1488,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getQuery_Properties() {
+	public EReference getQuery_Sparql() {
 		return (EReference)queryEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -1407,7 +1497,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getQuery_Result() {
+	public EReference getQuery_Properties() {
 		return (EReference)queryEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -1416,7 +1506,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getQuery_Excel() {
+	public EReference getQuery_Result() {
 		return (EReference)queryEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -1425,7 +1515,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getQuery_Gspread() {
+	public EReference getQuery_Excel() {
 		return (EReference)queryEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -1434,7 +1524,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getQuery_Param() {
+	public EReference getQuery_Gspread() {
 		return (EReference)queryEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -1443,8 +1533,8 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getQuery_Id() {
-		return (EAttribute)queryEClass.getEStructuralFeatures().get(7);
+	public EReference getQuery_Param() {
+		return (EReference)queryEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -1452,7 +1542,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getQuery_InputEventTrigger() {
+	public EAttribute getQuery_Id() {
 		return (EAttribute)queryEClass.getEStructuralFeatures().get(8);
 	}
 
@@ -1461,7 +1551,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getQuery_OutputEventTrigger() {
+	public EAttribute getQuery_InputEventTrigger() {
 		return (EAttribute)queryEClass.getEStructuralFeatures().get(9);
 	}
 
@@ -1470,7 +1560,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getQuery_ReturnGeneratedKeys() {
+	public EAttribute getQuery_OutputEventTrigger() {
 		return (EAttribute)queryEClass.getEStructuralFeatures().get(10);
 	}
 
@@ -1479,7 +1569,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getQuery_UseConfig() {
+	public EAttribute getQuery_ReturnGeneratedKeys() {
 		return (EAttribute)queryEClass.getEStructuralFeatures().get(11);
 	}
 
@@ -1488,8 +1578,17 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getQuery_KeyColumns() {
+	public EAttribute getQuery_UseConfig() {
 		return (EAttribute)queryEClass.getEStructuralFeatures().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getQuery_KeyColumns() {
+		return (EAttribute)queryEClass.getEStructuralFeatures().get(13);
 	}
 
 	/**
@@ -1506,8 +1605,8 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getQueryParameter_ValidateLongRange() {
-		return (EReference)queryParameterEClass.getEStructuralFeatures().get(0);
+	public EAttribute getQueryParameter_Mixed() {
+		return (EAttribute)queryParameterEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1515,7 +1614,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getQueryParameter_ValidateDoubleRange() {
+	public EReference getQueryParameter_ValidateLongRange() {
 		return (EReference)queryParameterEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1524,7 +1623,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getQueryParameter_ValidateLength() {
+	public EReference getQueryParameter_ValidateDoubleRange() {
 		return (EReference)queryParameterEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -1533,7 +1632,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getQueryParameter_ValidatePattern() {
+	public EReference getQueryParameter_ValidateLength() {
 		return (EReference)queryParameterEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -1542,7 +1641,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getQueryParameter_ValidateCustom() {
+	public EReference getQueryParameter_ValidatePattern() {
 		return (EReference)queryParameterEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -1551,8 +1650,8 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getQueryParameter_DefaultValue() {
-		return (EAttribute)queryParameterEClass.getEStructuralFeatures().get(5);
+	public EReference getQueryParameter_ValidateCustom() {
+		return (EReference)queryParameterEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -1560,7 +1659,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getQueryParameter_Name() {
+	public EAttribute getQueryParameter_DefaultValue() {
 		return (EAttribute)queryParameterEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -1569,7 +1668,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getQueryParameter_Ordinal() {
+	public EAttribute getQueryParameter_Name() {
 		return (EAttribute)queryParameterEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -1578,7 +1677,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getQueryParameter_ParamType() {
+	public EAttribute getQueryParameter_Ordinal() {
 		return (EAttribute)queryParameterEClass.getEStructuralFeatures().get(8);
 	}
 
@@ -1587,7 +1686,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getQueryParameter_SqlType() {
+	public EAttribute getQueryParameter_ParamType() {
 		return (EAttribute)queryParameterEClass.getEStructuralFeatures().get(9);
 	}
 
@@ -1596,7 +1695,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getQueryParameter_StructType() {
+	public EAttribute getQueryParameter_SqlType() {
 		return (EAttribute)queryParameterEClass.getEStructuralFeatures().get(10);
 	}
 
@@ -1605,8 +1704,17 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getQueryParameter_Type() {
+	public EAttribute getQueryParameter_StructType() {
 		return (EAttribute)queryParameterEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getQueryParameter_Type() {
+		return (EAttribute)queryParameterEClass.getEStructuralFeatures().get(12);
 	}
 
 	/**
@@ -1650,8 +1758,17 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getQueryPropertyList_Mixed() {
+		return (EAttribute)queryPropertyListEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getQueryPropertyList_Property() {
-		return (EReference)queryPropertyListEClass.getEStructuralFeatures().get(0);
+		return (EReference)queryPropertyListEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1668,8 +1785,17 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getResource_Mixed() {
+		return (EAttribute)resourceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getResource_CallQuery() {
-		return (EReference)resourceEClass.getEStructuralFeatures().get(0);
+		return (EReference)resourceEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1678,7 +1804,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * @generated
 	 */
 	public EAttribute getResource_Method() {
-		return (EAttribute)resourceEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)resourceEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1687,7 +1813,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * @generated
 	 */
 	public EAttribute getResource_Path() {
-		return (EAttribute)resourceEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)resourceEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1704,8 +1830,8 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResultMapping_Element() {
-		return (EReference)resultMappingEClass.getEStructuralFeatures().get(0);
+	public EAttribute getResultMapping_Mixed() {
+		return (EAttribute)resultMappingEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1713,7 +1839,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResultMapping_Attribute() {
+	public EReference getResultMapping_Element() {
 		return (EReference)resultMappingEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1722,7 +1848,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResultMapping_CallQuery() {
+	public EReference getResultMapping_Attribute() {
 		return (EReference)resultMappingEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -1731,8 +1857,8 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getResultMapping_DefaultNamespace() {
-		return (EAttribute)resultMappingEClass.getEStructuralFeatures().get(3);
+	public EReference getResultMapping_CallQuery() {
+		return (EReference)resultMappingEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1740,7 +1866,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getResultMapping_ElementName() {
+	public EAttribute getResultMapping_DefaultNamespace() {
 		return (EAttribute)resultMappingEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -1749,7 +1875,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getResultMapping_RowName() {
+	public EAttribute getResultMapping_ElementName() {
 		return (EAttribute)resultMappingEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -1758,7 +1884,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getResultMapping_UseColumnNumbers() {
+	public EAttribute getResultMapping_RowName() {
 		return (EAttribute)resultMappingEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -1767,8 +1893,17 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getResultMapping_XsltPath() {
+	public EAttribute getResultMapping_UseColumnNumbers() {
 		return (EAttribute)resultMappingEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getResultMapping_XsltPath() {
+		return (EAttribute)resultMappingEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -1960,10 +2095,12 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		createEAttribute(attributeMappingEClass, ATTRIBUTE_MAPPING__OPTIONAL);
 
 		callQueryEClass = createEClass(CALL_QUERY);
+		createEAttribute(callQueryEClass, CALL_QUERY__MIXED);
 		createEReference(callQueryEClass, CALL_QUERY__WITH_PARAM);
 		createEAttribute(callQueryEClass, CALL_QUERY__HREF);
 
 		callQueryListEClass = createEClass(CALL_QUERY_LIST);
+		createEAttribute(callQueryListEClass, CALL_QUERY_LIST__MIXED);
 		createEReference(callQueryListEClass, CALL_QUERY_LIST__CALL_QUERY);
 
 		configurationPropertyEClass = createEClass(CONFIGURATION_PROPERTY);
@@ -1974,6 +2111,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		createEAttribute(customValidatorEClass, CUSTOM_VALIDATOR__CLASS);
 
 		dataServiceEClass = createEClass(DATA_SERVICE);
+		createEAttribute(dataServiceEClass, DATA_SERVICE__MIXED);
 		createEReference(dataServiceEClass, DATA_SERVICE__DESCRIPTION);
 		createEReference(dataServiceEClass, DATA_SERVICE__CONFIG);
 		createEReference(dataServiceEClass, DATA_SERVICE__QUERY);
@@ -1990,6 +2128,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		createEAttribute(dataServiceEClass, DATA_SERVICE__SERVICE_STATUS);
 
 		dataSourceConfigurationEClass = createEClass(DATA_SOURCE_CONFIGURATION);
+		createEAttribute(dataSourceConfigurationEClass, DATA_SOURCE_CONFIGURATION__MIXED);
 		createEReference(dataSourceConfigurationEClass, DATA_SOURCE_CONFIGURATION__PROPERTY);
 		createEAttribute(dataSourceConfigurationEClass, DATA_SOURCE_CONFIGURATION__ID);
 
@@ -2013,6 +2152,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		createEAttribute(doubleRangeValidatorEClass, DOUBLE_RANGE_VALIDATOR__MINIMUM);
 
 		elementMappingEClass = createEClass(ELEMENT_MAPPING);
+		createEAttribute(elementMappingEClass, ELEMENT_MAPPING__MIXED);
 		createEAttribute(elementMappingEClass, ELEMENT_MAPPING__COLUMN);
 		createEAttribute(elementMappingEClass, ELEMENT_MAPPING__EXPORT);
 		createEAttribute(elementMappingEClass, ELEMENT_MAPPING__NAME);
@@ -2030,9 +2170,11 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		createEAttribute(elementMappingEClass, ELEMENT_MAPPING__ARRAY_NAME);
 
 		eventSubscriptionListEClass = createEClass(EVENT_SUBSCRIPTION_LIST);
+		createEAttribute(eventSubscriptionListEClass, EVENT_SUBSCRIPTION_LIST__MIXED);
 		createEReference(eventSubscriptionListEClass, EVENT_SUBSCRIPTION_LIST__SUBSCRIPTION);
 
 		eventTriggerEClass = createEClass(EVENT_TRIGGER);
+		createEAttribute(eventTriggerEClass, EVENT_TRIGGER__MIXED);
 		createEReference(eventTriggerEClass, EVENT_TRIGGER__EXPRESSION);
 		createEReference(eventTriggerEClass, EVENT_TRIGGER__TARGET_TOPIC);
 		createEReference(eventTriggerEClass, EVENT_TRIGGER__SUBSCRIPTIONS);
@@ -2040,6 +2182,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		createEAttribute(eventTriggerEClass, EVENT_TRIGGER__LANGUAGE);
 
 		excelQueryEClass = createEClass(EXCEL_QUERY);
+		createEAttribute(excelQueryEClass, EXCEL_QUERY__MIXED);
 		createEReference(excelQueryEClass, EXCEL_QUERY__WORKBOOKNAME);
 		createEReference(excelQueryEClass, EXCEL_QUERY__HASHEADER);
 		createEReference(excelQueryEClass, EXCEL_QUERY__STARTINGROW);
@@ -2049,6 +2192,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		createEAttribute(expressionEClass, EXPRESSION__VALUE);
 
 		gSpreadQueryEClass = createEClass(GSPREAD_QUERY);
+		createEAttribute(gSpreadQueryEClass, GSPREAD_QUERY__MIXED);
 		createEReference(gSpreadQueryEClass, GSPREAD_QUERY__WORKSHEETNUMBER);
 		createEReference(gSpreadQueryEClass, GSPREAD_QUERY__STARTINGROW);
 		createEReference(gSpreadQueryEClass, GSPREAD_QUERY__MAXROWCOUNT);
@@ -2069,6 +2213,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		createEAttribute(maxRowCountEClass, MAX_ROW_COUNT__VALUE);
 
 		operationEClass = createEClass(OPERATION);
+		createEAttribute(operationEClass, OPERATION__MIXED);
 		createEReference(operationEClass, OPERATION__CALL_QUERY);
 		createEReference(operationEClass, OPERATION__CALL_QUERY_GROUP);
 		createEAttribute(operationEClass, OPERATION__DISABLE_STREAMING);
@@ -2084,6 +2229,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		createEAttribute(patternValidatorEClass, PATTERN_VALIDATOR__PATTERN);
 
 		queryEClass = createEClass(QUERY);
+		createEAttribute(queryEClass, QUERY__MIXED);
 		createEReference(queryEClass, QUERY__SQL);
 		createEReference(queryEClass, QUERY__SPARQL);
 		createEReference(queryEClass, QUERY__PROPERTIES);
@@ -2099,6 +2245,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		createEAttribute(queryEClass, QUERY__KEY_COLUMNS);
 
 		queryParameterEClass = createEClass(QUERY_PARAMETER);
+		createEAttribute(queryParameterEClass, QUERY_PARAMETER__MIXED);
 		createEReference(queryParameterEClass, QUERY_PARAMETER__VALIDATE_LONG_RANGE);
 		createEReference(queryParameterEClass, QUERY_PARAMETER__VALIDATE_DOUBLE_RANGE);
 		createEReference(queryParameterEClass, QUERY_PARAMETER__VALIDATE_LENGTH);
@@ -2117,14 +2264,17 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		createEAttribute(queryPropertyEClass, QUERY_PROPERTY__NAME);
 
 		queryPropertyListEClass = createEClass(QUERY_PROPERTY_LIST);
+		createEAttribute(queryPropertyListEClass, QUERY_PROPERTY_LIST__MIXED);
 		createEReference(queryPropertyListEClass, QUERY_PROPERTY_LIST__PROPERTY);
 
 		resourceEClass = createEClass(RESOURCE);
+		createEAttribute(resourceEClass, RESOURCE__MIXED);
 		createEReference(resourceEClass, RESOURCE__CALL_QUERY);
 		createEAttribute(resourceEClass, RESOURCE__METHOD);
 		createEAttribute(resourceEClass, RESOURCE__PATH);
 
 		resultMappingEClass = createEClass(RESULT_MAPPING);
+		createEAttribute(resultMappingEClass, RESULT_MAPPING__MIXED);
 		createEReference(resultMappingEClass, RESULT_MAPPING__ELEMENT);
 		createEReference(resultMappingEClass, RESULT_MAPPING__ATTRIBUTE);
 		createEReference(resultMappingEClass, RESULT_MAPPING__CALL_QUERY);
@@ -2204,11 +2354,13 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		initEAttribute(getAttributeMapping_Optional(), ecorePackage.getEBoolean(), "optional", "false", 0, 1, AttributeMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(callQueryEClass, CallQuery.class, "CallQuery", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getCallQuery_WithParam(), this.getParameterMapping(), null, "withParam", null, 0, -1, CallQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCallQuery_Mixed(), ecorePackage.getEFeatureMapEntry(), "mixed", null, 0, -1, CallQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCallQuery_WithParam(), this.getParameterMapping(), null, "withParam", null, 0, -1, CallQuery.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCallQuery_Href(), theXMLTypePackage.getString(), "href", null, 1, 1, CallQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(callQueryListEClass, CallQueryList.class, "CallQueryList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getCallQueryList_CallQuery(), this.getCallQuery(), null, "callQuery", null, 1, -1, CallQueryList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCallQueryList_Mixed(), ecorePackage.getEFeatureMapEntry(), "mixed", null, 0, -1, CallQueryList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCallQueryList_CallQuery(), this.getCallQuery(), null, "callQuery", null, 1, -1, CallQueryList.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(configurationPropertyEClass, ConfigurationProperty.class, "ConfigurationProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getConfigurationProperty_Value(), theXMLTypePackage.getString(), "value", null, 0, 1, ConfigurationProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2218,12 +2370,13 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		initEAttribute(getCustomValidator_Class(), theXMLTypePackage.getString(), "class", null, 1, 1, CustomValidator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dataServiceEClass, DataService.class, "DataService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDataService_Description(), this.getDescription(), null, "description", null, 1, 1, DataService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDataService_Config(), this.getDataSourceConfiguration(), null, "config", null, 0, -1, DataService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDataService_Query(), this.getQuery(), null, "query", null, 0, -1, DataService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDataService_EventTrigger(), this.getEventTrigger(), null, "eventTrigger", null, 0, -1, DataService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDataService_Operation(), this.getOperation(), null, "operation", null, 0, -1, DataService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDataService_Resource(), this.getResource(), null, "resource", null, 0, -1, DataService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDataService_Mixed(), ecorePackage.getEFeatureMapEntry(), "mixed", null, 0, -1, DataService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDataService_Description(), this.getDescription(), null, "description", null, 1, 1, DataService.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getDataService_Config(), this.getDataSourceConfiguration(), null, "config", null, 0, -1, DataService.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getDataService_Query(), this.getQuery(), null, "query", null, 0, -1, DataService.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getDataService_EventTrigger(), this.getEventTrigger(), null, "eventTrigger", null, 0, -1, DataService.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getDataService_Operation(), this.getOperation(), null, "operation", null, 0, -1, DataService.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getDataService_Resource(), this.getResource(), null, "resource", null, 0, -1, DataService.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDataService_BaseURI(), theXMLTypePackage.getString(), "baseURI", null, 0, 1, DataService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDataService_EnableBatchRequests(), theXMLTypePackage.getBoolean(), "enableBatchRequests", null, 0, 1, DataService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDataService_EnableBoxcarring(), theXMLTypePackage.getBoolean(), "enableBoxcarring", null, 0, 1, DataService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2234,7 +2387,8 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		initEAttribute(getDataService_ServiceStatus(), this.getServiceStatus(), "serviceStatus", null, 0, 1, DataService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dataSourceConfigurationEClass, DataSourceConfiguration.class, "DataSourceConfiguration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDataSourceConfiguration_Property(), this.getConfigurationProperty(), null, "property", null, 1, -1, DataSourceConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDataSourceConfiguration_Mixed(), ecorePackage.getEFeatureMapEntry(), "mixed", null, 0, -1, DataSourceConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDataSourceConfiguration_Property(), this.getConfigurationProperty(), null, "property", null, 1, -1, DataSourceConfiguration.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDataSourceConfiguration_Id(), theXMLTypePackage.getString(), "id", null, 0, 1, DataSourceConfiguration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(descriptionEClass, Description.class, "Description", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2257,6 +2411,7 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		initEAttribute(getDoubleRangeValidator_Minimum(), theXMLTypePackage.getDouble(), "minimum", null, 0, 1, DoubleRangeValidator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(elementMappingEClass, ElementMapping.class, "ElementMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getElementMapping_Mixed(), ecorePackage.getEFeatureMapEntry(), "mixed", null, 0, -1, ElementMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElementMapping_Column(), theXMLTypePackage.getString(), "column", null, 1, 1, ElementMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElementMapping_Export(), theXMLTypePackage.getString(), "export", null, 0, 1, ElementMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElementMapping_Name(), theXMLTypePackage.getString(), "name", null, 1, 1, ElementMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2264,9 +2419,9 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		initEAttribute(getElementMapping_ExportType(), theXMLTypePackage.getString(), "exportType", null, 0, 1, ElementMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElementMapping_Namespace(), theXMLTypePackage.getString(), "namespace", null, 0, 1, ElementMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElementMapping_XsdType(), theXMLTypePackage.getString(), "xsdType", null, 0, 1, ElementMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getElementMapping_Element(), this.getElementMapping(), null, "element", null, 0, -1, ElementMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getElementMapping_Attribute(), this.getAttributeMapping(), null, "attribute", null, 0, -1, ElementMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getElementMapping_CallQuery(), this.getCallQuery(), null, "callQuery", null, 0, 1, ElementMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getElementMapping_Element(), this.getElementMapping(), null, "element", null, 0, -1, ElementMapping.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getElementMapping_Attribute(), this.getAttributeMapping(), null, "attribute", null, 0, -1, ElementMapping.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getElementMapping_CallQuery(), this.getCallQuery(), null, "callQuery", null, 0, 1, ElementMapping.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElementMapping_IsComplexType(), ecorePackage.getEBoolean(), "isComplexType", null, 0, 1, ElementMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElementMapping_QueryParam(), theXMLTypePackage.getString(), "queryParam", null, 0, 1, ElementMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getElementMapping_Value(), theXMLTypePackage.getString(), "value", null, 0, 1, ElementMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2274,29 +2429,33 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		initEAttribute(getElementMapping_ArrayName(), theXMLTypePackage.getString(), "arrayName", null, 0, 1, ElementMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(eventSubscriptionListEClass, EventSubscriptionList.class, "EventSubscriptionList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEventSubscriptionList_Subscription(), this.getSubscription(), null, "subscription", null, 1, -1, EventSubscriptionList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEventSubscriptionList_Mixed(), ecorePackage.getEFeatureMapEntry(), "mixed", null, 0, -1, EventSubscriptionList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEventSubscriptionList_Subscription(), this.getSubscription(), null, "subscription", null, 1, -1, EventSubscriptionList.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(eventTriggerEClass, EventTrigger.class, "EventTrigger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEventTrigger_Expression(), this.getExpression(), null, "expression", null, 1, 1, EventTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEventTrigger_TargetTopic(), this.getTargetTopic(), null, "targetTopic", null, 1, 1, EventTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEventTrigger_Subscriptions(), this.getEventSubscriptionList(), null, "subscriptions", null, 1, 1, EventTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEventTrigger_Mixed(), ecorePackage.getEFeatureMapEntry(), "mixed", null, 0, -1, EventTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEventTrigger_Expression(), this.getExpression(), null, "expression", null, 1, 1, EventTrigger.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getEventTrigger_TargetTopic(), this.getTargetTopic(), null, "targetTopic", null, 1, 1, EventTrigger.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getEventTrigger_Subscriptions(), this.getEventSubscriptionList(), null, "subscriptions", null, 1, 1, EventTrigger.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEventTrigger_Id(), theXMLTypePackage.getString(), "id", null, 1, 1, EventTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEventTrigger_Language(), theXMLTypePackage.getString(), "language", null, 0, 1, EventTrigger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(excelQueryEClass, ExcelQuery.class, "ExcelQuery", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getExcelQuery_Workbookname(), this.getWorkBookName(), null, "workbookname", null, 1, 1, ExcelQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getExcelQuery_Hasheader(), this.getHasHeader(), null, "hasheader", null, 1, 1, ExcelQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getExcelQuery_Startingrow(), this.getStartingRow(), null, "startingrow", null, 1, 1, ExcelQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getExcelQuery_Maxrowcount(), this.getMaxRowCount(), null, "maxrowcount", null, 1, 1, ExcelQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getExcelQuery_Mixed(), ecorePackage.getEFeatureMapEntry(), "mixed", null, 0, -1, ExcelQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getExcelQuery_Workbookname(), this.getWorkBookName(), null, "workbookname", null, 1, 1, ExcelQuery.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getExcelQuery_Hasheader(), this.getHasHeader(), null, "hasheader", null, 1, 1, ExcelQuery.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getExcelQuery_Startingrow(), this.getStartingRow(), null, "startingrow", null, 1, 1, ExcelQuery.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getExcelQuery_Maxrowcount(), this.getMaxRowCount(), null, "maxrowcount", null, 1, 1, ExcelQuery.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getExpression_Value(), theXMLTypePackage.getString(), "value", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(gSpreadQueryEClass, GSpreadQuery.class, "GSpreadQuery", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getGSpreadQuery_Worksheetnumber(), this.getWorkSheetNumber(), null, "worksheetnumber", null, 1, 1, GSpreadQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGSpreadQuery_Startingrow(), this.getStartingRow(), null, "startingrow", null, 1, 1, GSpreadQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGSpreadQuery_Maxrowcount(), this.getMaxRowCount(), null, "maxrowcount", null, 1, 1, GSpreadQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGSpreadQuery_Hasheader(), this.getHasHeader(), null, "hasheader", null, 1, 1, GSpreadQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGSpreadQuery_Mixed(), ecorePackage.getEFeatureMapEntry(), "mixed", null, 0, -1, GSpreadQuery.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGSpreadQuery_Worksheetnumber(), this.getWorkSheetNumber(), null, "worksheetnumber", null, 1, 1, GSpreadQuery.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getGSpreadQuery_Startingrow(), this.getStartingRow(), null, "startingrow", null, 1, 1, GSpreadQuery.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getGSpreadQuery_Maxrowcount(), this.getMaxRowCount(), null, "maxrowcount", null, 1, 1, GSpreadQuery.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getGSpreadQuery_Hasheader(), this.getHasHeader(), null, "hasheader", null, 1, 1, GSpreadQuery.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(hasHeaderEClass, HasHeader.class, "HasHeader", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getHasHeader_Value(), theXMLTypePackage.getBoolean(), "value", null, 0, 1, HasHeader.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2313,8 +2472,9 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		initEAttribute(getMaxRowCount_Value(), theXMLTypePackage.getLong(), "value", null, 0, 1, MaxRowCount.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(operationEClass, Operation.class, "Operation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getOperation_CallQuery(), this.getCallQuery(), null, "callQuery", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOperation_CallQueryGroup(), this.getCallQueryList(), null, "callQueryGroup", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOperation_Mixed(), ecorePackage.getEFeatureMapEntry(), "mixed", null, 0, -1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOperation_CallQuery(), this.getCallQuery(), null, "callQuery", null, 0, 1, Operation.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getOperation_CallQueryGroup(), this.getCallQueryList(), null, "callQueryGroup", null, 0, 1, Operation.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOperation_DisableStreaming(), theXMLTypePackage.getBoolean(), "disableStreaming", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOperation_ReturnRequestStatus(), theXMLTypePackage.getBoolean(), "returnRequestStatus", null, 1, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOperation_Name(), theXMLTypePackage.getString(), "name", null, 1, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2328,13 +2488,14 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		initEAttribute(getPatternValidator_Pattern(), theXMLTypePackage.getString(), "pattern", null, 1, 1, PatternValidator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(queryEClass, Query.class, "Query", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getQuery_Sql(), this.getSql(), null, "sql", null, 0, -1, Query.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getQuery_Sparql(), this.getSparql(), null, "sparql", null, 0, -1, Query.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getQuery_Properties(), this.getQueryPropertyList(), null, "properties", null, 0, -1, Query.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getQuery_Result(), this.getResultMapping(), null, "result", null, 0, -1, Query.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getQuery_Excel(), this.getExcelQuery(), null, "excel", null, 0, -1, Query.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getQuery_Gspread(), this.getGSpreadQuery(), null, "gspread", null, 0, -1, Query.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getQuery_Param(), this.getQueryParameter(), null, "param", null, 0, -1, Query.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getQuery_Mixed(), ecorePackage.getEFeatureMapEntry(), "mixed", null, 0, -1, Query.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getQuery_Sql(), this.getSql(), null, "sql", null, 0, -1, Query.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getQuery_Sparql(), this.getSparql(), null, "sparql", null, 0, -1, Query.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getQuery_Properties(), this.getQueryPropertyList(), null, "properties", null, 0, -1, Query.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getQuery_Result(), this.getResultMapping(), null, "result", null, 0, -1, Query.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getQuery_Excel(), this.getExcelQuery(), null, "excel", null, 0, -1, Query.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getQuery_Gspread(), this.getGSpreadQuery(), null, "gspread", null, 0, -1, Query.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getQuery_Param(), this.getQueryParameter(), null, "param", null, 0, -1, Query.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getQuery_Id(), theXMLTypePackage.getString(), "id", null, 1, 1, Query.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getQuery_InputEventTrigger(), theXMLTypePackage.getString(), "inputEventTrigger", null, 0, 1, Query.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getQuery_OutputEventTrigger(), theXMLTypePackage.getString(), "outputEventTrigger", null, 0, 1, Query.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2343,11 +2504,12 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		initEAttribute(getQuery_KeyColumns(), theXMLTypePackage.getString(), "keyColumns", null, 0, 1, Query.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(queryParameterEClass, QueryParameter.class, "QueryParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getQueryParameter_ValidateLongRange(), this.getLongRangeValidator(), null, "validateLongRange", null, 0, 1, QueryParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getQueryParameter_ValidateDoubleRange(), this.getDoubleRangeValidator(), null, "validateDoubleRange", null, 0, 1, QueryParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getQueryParameter_ValidateLength(), this.getLengthValidator(), null, "validateLength", null, 0, 1, QueryParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getQueryParameter_ValidatePattern(), this.getPatternValidator(), null, "validatePattern", null, 0, -1, QueryParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getQueryParameter_ValidateCustom(), this.getCustomValidator(), null, "validateCustom", null, 0, -1, QueryParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getQueryParameter_Mixed(), ecorePackage.getEFeatureMapEntry(), "mixed", null, 0, -1, QueryParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getQueryParameter_ValidateLongRange(), this.getLongRangeValidator(), null, "validateLongRange", null, 0, 1, QueryParameter.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getQueryParameter_ValidateDoubleRange(), this.getDoubleRangeValidator(), null, "validateDoubleRange", null, 0, 1, QueryParameter.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getQueryParameter_ValidateLength(), this.getLengthValidator(), null, "validateLength", null, 0, 1, QueryParameter.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getQueryParameter_ValidatePattern(), this.getPatternValidator(), null, "validatePattern", null, 0, -1, QueryParameter.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getQueryParameter_ValidateCustom(), this.getCustomValidator(), null, "validateCustom", null, 0, -1, QueryParameter.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getQueryParameter_DefaultValue(), theXMLTypePackage.getString(), "defaultValue", null, 0, 1, QueryParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getQueryParameter_Name(), theXMLTypePackage.getString(), "name", null, 1, 1, QueryParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getQueryParameter_Ordinal(), theXMLTypePackage.getInt(), "ordinal", null, 0, 1, QueryParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2361,17 +2523,20 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		initEAttribute(getQueryProperty_Name(), theXMLTypePackage.getString(), "name", null, 1, 1, QueryProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(queryPropertyListEClass, QueryPropertyList.class, "QueryPropertyList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getQueryPropertyList_Property(), this.getQueryProperty(), null, "property", null, 0, 5, QueryPropertyList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getQueryPropertyList_Mixed(), ecorePackage.getEFeatureMapEntry(), "mixed", null, 0, -1, QueryPropertyList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getQueryPropertyList_Property(), this.getQueryProperty(), null, "property", null, 0, 5, QueryPropertyList.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(resourceEClass, Resource.class, "Resource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getResource_CallQuery(), this.getCallQuery(), null, "callQuery", null, 1, 1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getResource_Mixed(), ecorePackage.getEFeatureMapEntry(), "mixed", null, 0, -1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getResource_CallQuery(), this.getCallQuery(), null, "callQuery", null, 1, 1, Resource.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getResource_Method(), theXMLTypePackage.getString(), "method", null, 1, 1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getResource_Path(), theXMLTypePackage.getString(), "path", null, 1, 1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(resultMappingEClass, ResultMapping.class, "ResultMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getResultMapping_Element(), this.getElementMapping(), null, "element", null, 0, -1, ResultMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getResultMapping_Attribute(), this.getAttributeMapping(), null, "attribute", null, 0, -1, ResultMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getResultMapping_CallQuery(), this.getCallQuery(), null, "callQuery", null, 0, -1, ResultMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getResultMapping_Mixed(), ecorePackage.getEFeatureMapEntry(), "mixed", null, 0, -1, ResultMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getResultMapping_Element(), this.getElementMapping(), null, "element", null, 0, -1, ResultMapping.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getResultMapping_Attribute(), this.getAttributeMapping(), null, "attribute", null, 0, -1, ResultMapping.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEReference(getResultMapping_CallQuery(), this.getCallQuery(), null, "callQuery", null, 0, -1, ResultMapping.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 		initEAttribute(getResultMapping_DefaultNamespace(), theXMLTypePackage.getString(), "defaultNamespace", null, 0, 1, ResultMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getResultMapping_ElementName(), theXMLTypePackage.getString(), "elementName", null, 1, 1, ResultMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getResultMapping_RowName(), theXMLTypePackage.getString(), "rowName", null, 1, 1, ResultMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2482,7 +2647,14 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		   source, 
 		   new String[] {
 			 "name", "call-query_._type",
-			 "kind", "elementOnly"
+			 "kind", "mixed"
+		   });		
+		addAnnotation
+		  (getCallQuery_Mixed(), 
+		   source, 
+		   new String[] {
+			 "kind", "elementWildcard",
+			 "name", ":mixed"
 		   });		
 		addAnnotation
 		  (getCallQuery_WithParam(), 
@@ -2505,7 +2677,14 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		   source, 
 		   new String[] {
 			 "name", "call-query-group_._type",
-			 "kind", "elementOnly"
+			 "kind", "mixed"
+		   });		
+		addAnnotation
+		  (getCallQueryList_Mixed(), 
+		   source, 
+		   new String[] {
+			 "kind", "elementWildcard",
+			 "name", ":mixed"
 		   });		
 		addAnnotation
 		  (getCallQueryList_CallQuery(), 
@@ -2557,7 +2736,14 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		   source, 
 		   new String[] {
 			 "name", "data_._type",
-			 "kind", "elementOnly"
+			 "kind", "mixed"
+		   });		
+		addAnnotation
+		  (getDataService_Mixed(), 
+		   source, 
+		   new String[] {
+			 "kind", "elementWildcard",
+			 "name", ":mixed"
 		   });		
 		addAnnotation
 		  (getDataService_Description(), 
@@ -2676,7 +2862,14 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		   source, 
 		   new String[] {
 			 "name", "config_._type",
-			 "kind", "elementOnly"
+			 "kind", "mixed"
+		   });		
+		addAnnotation
+		  (getDataSourceConfiguration_Mixed(), 
+		   source, 
+		   new String[] {
+			 "kind", "elementWildcard",
+			 "name", ":mixed"
 		   });		
 		addAnnotation
 		  (getDataSourceConfiguration_Property(), 
@@ -2820,7 +3013,14 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		   source, 
 		   new String[] {
 			 "name", "element_._type",
-			 "kind", "empty"
+			 "kind", "mixed"
+		   });		
+		addAnnotation
+		  (getElementMapping_Mixed(), 
+		   source, 
+		   new String[] {
+			 "kind", "elementWildcard",
+			 "name", ":mixed"
 		   });		
 		addAnnotation
 		  (getElementMapping_Column(), 
@@ -2947,7 +3147,14 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		   source, 
 		   new String[] {
 			 "name", "subscriptions_._type",
-			 "kind", "elementOnly"
+			 "kind", "mixed"
+		   });		
+		addAnnotation
+		  (getEventSubscriptionList_Mixed(), 
+		   source, 
+		   new String[] {
+			 "kind", "elementWildcard",
+			 "name", ":mixed"
 		   });		
 		addAnnotation
 		  (getEventSubscriptionList_Subscription(), 
@@ -2962,7 +3169,14 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		   source, 
 		   new String[] {
 			 "name", "event-trigger_._type",
-			 "kind", "elementOnly"
+			 "kind", "mixed"
+		   });		
+		addAnnotation
+		  (getEventTrigger_Mixed(), 
+		   source, 
+		   new String[] {
+			 "kind", "elementWildcard",
+			 "name", ":mixed"
 		   });		
 		addAnnotation
 		  (getEventTrigger_Expression(), 
@@ -3009,7 +3223,14 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		   source, 
 		   new String[] {
 			 "name", "excel_._type",
-			 "kind", "elementOnly"
+			 "kind", "mixed"
+		   });		
+		addAnnotation
+		  (getExcelQuery_Mixed(), 
+		   source, 
+		   new String[] {
+			 "kind", "elementWildcard",
+			 "name", ":mixed"
 		   });		
 		addAnnotation
 		  (getExcelQuery_Workbookname(), 
@@ -3062,7 +3283,14 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		   source, 
 		   new String[] {
 			 "name", "gspread_._type",
-			 "kind", "elementOnly"
+			 "kind", "mixed"
+		   });		
+		addAnnotation
+		  (getGSpreadQuery_Mixed(), 
+		   source, 
+		   new String[] {
+			 "kind", "elementWildcard",
+			 "name", ":mixed"
 		   });		
 		addAnnotation
 		  (getGSpreadQuery_Worksheetnumber(), 
@@ -3175,7 +3403,14 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		   source, 
 		   new String[] {
 			 "name", "operation_._type",
-			 "kind", "elementOnly"
+			 "kind", "mixed"
+		   });		
+		addAnnotation
+		  (getOperation_Mixed(), 
+		   source, 
+		   new String[] {
+			 "kind", "elementWildcard",
+			 "name", ":mixed"
 		   });		
 		addAnnotation
 		  (getOperation_CallQuery(), 
@@ -3268,7 +3503,14 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		   source, 
 		   new String[] {
 			 "name", "query_._type",
-			 "kind", "elementOnly"
+			 "kind", "mixed"
+		   });		
+		addAnnotation
+		  (getQuery_Mixed(), 
+		   source, 
+		   new String[] {
+			 "kind", "elementWildcard",
+			 "name", ":mixed"
 		   });		
 		addAnnotation
 		  (getQuery_Sql(), 
@@ -3379,7 +3621,14 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		   source, 
 		   new String[] {
 			 "name", "param_._type",
-			 "kind", "elementOnly"
+			 "kind", "mixed"
+		   });		
+		addAnnotation
+		  (getQueryParameter_Mixed(), 
+		   source, 
+		   new String[] {
+			 "kind", "elementWildcard",
+			 "name", ":mixed"
 		   });		
 		addAnnotation
 		  (getQueryParameter_ValidateLongRange(), 
@@ -3504,7 +3753,14 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		   source, 
 		   new String[] {
 			 "name", "properties_._type",
-			 "kind", "elementOnly"
+			 "kind", "mixed"
+		   });		
+		addAnnotation
+		  (getQueryPropertyList_Mixed(), 
+		   source, 
+		   new String[] {
+			 "kind", "elementWildcard",
+			 "name", ":mixed"
 		   });		
 		addAnnotation
 		  (getQueryPropertyList_Property(), 
@@ -3519,7 +3775,14 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		   source, 
 		   new String[] {
 			 "name", "resource_._type",
-			 "kind", "elementOnly"
+			 "kind", "mixed"
+		   });		
+		addAnnotation
+		  (getResource_Mixed(), 
+		   source, 
+		   new String[] {
+			 "kind", "elementWildcard",
+			 "name", ":mixed"
 		   });		
 		addAnnotation
 		  (getResource_CallQuery(), 
@@ -3550,7 +3813,14 @@ public class DsPackageImpl extends EPackageImpl implements DsPackage {
 		   source, 
 		   new String[] {
 			 "name", "result_._type",
-			 "kind", "elementOnly"
+			 "kind", "mixed"
+		   });		
+		addAnnotation
+		  (getResultMapping_Mixed(), 
+		   source, 
+		   new String[] {
+			 "kind", "elementWildcard",
+			 "name", ":mixed"
 		   });		
 		addAnnotation
 		  (getResultMapping_Element(), 

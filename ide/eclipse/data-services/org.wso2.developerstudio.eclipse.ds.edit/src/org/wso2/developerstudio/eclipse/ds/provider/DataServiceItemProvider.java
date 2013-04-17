@@ -17,6 +17,10 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import org.eclipse.emf.ecore.util.FeatureMap;
+import org.eclipse.emf.ecore.util.FeatureMapUtil;
+import org.eclipse.emf.ecore.xml.type.XMLTypeFactory;
+import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -344,6 +348,7 @@ public class DataServiceItemProvider
 			case DsPackage.DATA_SERVICE__SERVICE_STATUS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case DsPackage.DATA_SERVICE__MIXED:
 			case DsPackage.DATA_SERVICE__DESCRIPTION:
 			case DsPackage.DATA_SERVICE__CONFIG:
 			case DsPackage.DATA_SERVICE__QUERY:
@@ -368,6 +373,76 @@ public class DataServiceItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DsPackage.Literals.DATA_SERVICE__MIXED,
+				 FeatureMapUtil.createEntry
+					(XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__COMMENT,
+					 "")));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DsPackage.Literals.DATA_SERVICE__MIXED,
+				 FeatureMapUtil.createEntry
+					(XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__TEXT,
+					 "")));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DsPackage.Literals.DATA_SERVICE__MIXED,
+				 FeatureMapUtil.createEntry
+					(XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__PROCESSING_INSTRUCTION,
+					 XMLTypeFactory.eINSTANCE.createProcessingInstruction())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DsPackage.Literals.DATA_SERVICE__MIXED,
+				 FeatureMapUtil.createEntry
+					(XMLTypePackage.Literals.XML_TYPE_DOCUMENT_ROOT__CDATA,
+					 "")));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DsPackage.Literals.DATA_SERVICE__MIXED,
+				 FeatureMapUtil.createEntry
+					(DsPackage.Literals.DATA_SERVICE__DESCRIPTION,
+					 DsFactory.eINSTANCE.createDescription())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DsPackage.Literals.DATA_SERVICE__MIXED,
+				 FeatureMapUtil.createEntry
+					(DsPackage.Literals.DATA_SERVICE__CONFIG,
+					 DsFactory.eINSTANCE.createDataSourceConfiguration())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DsPackage.Literals.DATA_SERVICE__MIXED,
+				 FeatureMapUtil.createEntry
+					(DsPackage.Literals.DATA_SERVICE__QUERY,
+					 DsFactory.eINSTANCE.createQuery())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DsPackage.Literals.DATA_SERVICE__MIXED,
+				 FeatureMapUtil.createEntry
+					(DsPackage.Literals.DATA_SERVICE__EVENT_TRIGGER,
+					 DsFactory.eINSTANCE.createEventTrigger())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DsPackage.Literals.DATA_SERVICE__MIXED,
+				 FeatureMapUtil.createEntry
+					(DsPackage.Literals.DATA_SERVICE__OPERATION,
+					 DsFactory.eINSTANCE.createOperation())));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DsPackage.Literals.DATA_SERVICE__MIXED,
+				 FeatureMapUtil.createEntry
+					(DsPackage.Literals.DATA_SERVICE__RESOURCE,
+					 DsFactory.eINSTANCE.createResource())));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -398,6 +473,39 @@ public class DataServiceItemProvider
 			(createChildParameter
 				(DsPackage.Literals.DATA_SERVICE__RESOURCE,
 				 DsFactory.eINSTANCE.createResource()));
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		if (childFeature instanceof EStructuralFeature && FeatureMapUtil.isFeatureMap((EStructuralFeature)childFeature)) {
+			FeatureMap.Entry entry = (FeatureMap.Entry)childObject;
+			childFeature = entry.getEStructuralFeature();
+			childObject = entry.getValue();
+		}
+
+		boolean qualify =
+			childFeature == DsPackage.Literals.DATA_SERVICE__DESCRIPTION ||
+			childFeature == DsPackage.Literals.DATA_SERVICE__CONFIG ||
+			childFeature == DsPackage.Literals.DATA_SERVICE__QUERY ||
+			childFeature == DsPackage.Literals.DATA_SERVICE__EVENT_TRIGGER ||
+			childFeature == DsPackage.Literals.DATA_SERVICE__OPERATION ||
+			childFeature == DsPackage.Literals.DATA_SERVICE__RESOURCE;
+
+		if (qualify) {
+			return getString
+				("_UI_CreateChild_text2",
+				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 	/**

@@ -7,6 +7,7 @@
 package org.wso2.developerstudio.eclipse.ds;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.FeatureMap;
 
 /**
  * <!-- begin-user-doc -->
@@ -16,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link org.wso2.developerstudio.eclipse.ds.Operation#getMixed <em>Mixed</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.Operation#getCallQuery <em>Call Query</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.Operation#getCallQueryGroup <em>Call Query Group</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.ds.Operation#isDisableStreaming <em>Disable Streaming</em>}</li>
@@ -25,10 +27,27 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  *
  * @see org.wso2.developerstudio.eclipse.ds.DsPackage#getOperation()
- * @model extendedMetaData="name='operation_._type' kind='elementOnly'"
+ * @model extendedMetaData="name='operation_._type' kind='mixed'"
  * @generated
  */
 public interface Operation extends EObject {
+	/**
+	 * Returns the value of the '<em><b>Mixed</b></em>' attribute list.
+	 * The list contents are of type {@link org.eclipse.emf.ecore.util.FeatureMap.Entry}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Mixed</em>' attribute list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Mixed</em>' attribute list.
+	 * @see org.wso2.developerstudio.eclipse.ds.DsPackage#getOperation_Mixed()
+	 * @model unique="false" dataType="org.eclipse.emf.ecore.EFeatureMapEntry" many="true"
+	 *        extendedMetaData="kind='elementWildcard' name=':mixed'"
+	 * @generated
+	 */
+	FeatureMap getMixed();
+
 	/**
 	 * Returns the value of the '<em><b>Call Query</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
@@ -40,7 +59,7 @@ public interface Operation extends EObject {
 	 * @return the value of the '<em>Call Query</em>' containment reference.
 	 * @see #setCallQuery(CallQuery)
 	 * @see org.wso2.developerstudio.eclipse.ds.DsPackage#getOperation_CallQuery()
-	 * @model containment="true"
+	 * @model containment="true" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='call-query' namespace='##targetNamespace'"
 	 * @generated
 	 */
@@ -67,7 +86,7 @@ public interface Operation extends EObject {
 	 * @return the value of the '<em>Call Query Group</em>' containment reference.
 	 * @see #setCallQueryGroup(CallQueryList)
 	 * @see org.wso2.developerstudio.eclipse.ds.DsPackage#getOperation_CallQueryGroup()
-	 * @model containment="true"
+	 * @model containment="true" transient="true" volatile="true" derived="true"
 	 *        extendedMetaData="kind='element' name='call-query-group' namespace='##targetNamespace'"
 	 * @generated
 	 */
