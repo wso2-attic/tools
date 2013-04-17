@@ -96,9 +96,9 @@
     </distributionManagement>
   <repositories>
    <repository>
-     <id>Helios</id>
+     <id>Eclipse-p2-repo</id>
      <layout>p2</layout>
-     <url>http://download.eclipse.org/releases/helios</url>
+     <url>http://download.eclipse.org/releases/juno</url>
      <releases>
         <enabled>true</enabled>
         <updatePolicy>daily</updatePolicy>
