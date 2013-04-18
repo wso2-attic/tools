@@ -51,12 +51,12 @@ import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.ui.forms.widgets.Section;
 import org.eclipse.ui.part.*;
-import org.tigris.subversion.subclipse.core.ISVNRemoteFolder;
+/*import org.tigris.subversion.subclipse.core.ISVNRemoteFolder;
 import org.tigris.subversion.subclipse.core.ISVNRepositoryLocation;
 import org.tigris.subversion.subclipse.core.SVNProviderPlugin;
 import org.tigris.subversion.subclipse.ui.wizards.CheckoutWizard;
 import org.tigris.subversion.svnclientadapter.SVNRevision;
-import org.tigris.subversion.svnclientadapter.SVNRevision.Number;
+import org.tigris.subversion.svnclientadapter.SVNRevision.Number;*/
 import org.wso2.developerstudio.appfactory.ui.Activator;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
@@ -145,8 +145,8 @@ public class AppfactoryView extends ViewPart {
 				if (tblApplication.getSelectionCount() ==1){
 					MessageBox msg = new MessageBox(form.getShell());
 					ApplicationInfo appInfo = (ApplicationInfo)tblApplication.getSelection()[0].getData();
-					try {
-						deployApp(appInfo, "Development");
+					/*try {
+					//	deployApp(appInfo, "Development");
 					} catch (InterruptedException e) {
 						msg.setMessage("Task interrupted by user");
 						msg.open();
@@ -154,7 +154,7 @@ public class AppfactoryView extends ViewPart {
 						log.error("An unknown error occurred.", e.getTargetException());
 						msg.setMessage("An unknown error occurred. See the log for more details.");
 						msg.open();
-					}
+					}*/
 				}
 			};
 		};
@@ -167,7 +167,7 @@ public class AppfactoryView extends ViewPart {
 					if (tblApplication.getSelectionCount() ==1){
 						MessageBox msg = new MessageBox(form.getShell());
 						ApplicationInfo appInfo = (ApplicationInfo)tblApplication.getSelection()[0].getData();
-						try {
+						/*try {
 							deployApp(appInfo, "Live");
 						} catch (InterruptedException e) {
 							msg.setMessage("Task interrupted by user");
@@ -176,7 +176,7 @@ public class AppfactoryView extends ViewPart {
 							log.error("An unknown error occurred.", e.getTargetException());
 							msg.setMessage("An unknown error occurred. See the log for more details.");
 							msg.open();
-						}
+						}*/
 					}
 				};
 		};
@@ -359,12 +359,12 @@ public class AppfactoryView extends ViewPart {
 						if (roles.contains("developer")) {
 							
 							try {
-								ISVNRepositoryLocation repositoryLocation = getRepository(monitor,
+								/*ISVNRepositoryLocation repositoryLocation = getRepository(monitor,
 										appInfo.getApplicationRepoLink(), auth.getUserName(),
 										auth.getPassword());
 								Number revision = repositoryLocation.getSVNClient()
 										.getInfo(repositoryLocation.getUrl()).getRevision();
-								appInfo.setRevision(revision.getNumber());
+								appInfo.setRevision(revision.getNumber());*/
 							} catch (Exception e) {
 								appInfo.setRevision(1);
 							}
@@ -399,7 +399,7 @@ public class AppfactoryView extends ViewPart {
 		new ProgressMonitorDialog(activeShell).run(true, true, new IRunnableWithProgress() {
 			public void run(IProgressMonitor monitor) throws InvocationTargetException {
 				try {
-					ISVNRepositoryLocation location = getRepository(monitor, url,
+				/*	ISVNRepositoryLocation location = getRepository(monitor, url,
 							auth.getUserName(), auth.getPassword());
 
 					final ISVNRemoteFolder[] folders = new ISVNRemoteFolder[] { location
@@ -412,15 +412,15 @@ public class AppfactoryView extends ViewPart {
 							WizardDialog dialog = new WizardDialog(activeShell, wizard);
 							dialog.open();
 						}
-					});
-				} catch (TeamException e) {
+					});*/
+				} catch (Exception e) {
 					throw new InvocationTargetException(e);
 				}
 			}
 		});
 	}
 	
-	private ISVNRepositoryLocation getRepository(IProgressMonitor monitor, String url,
+	/*private ISVNRepositoryLocation getRepository(IProgressMonitor monitor, String url,
 			String userName, String password) throws TeamException {
 
 		Properties properties = new Properties();
@@ -428,10 +428,10 @@ public class AppfactoryView extends ViewPart {
 		properties.setProperty("password", password); 
 		properties.setProperty("url", url);
 
-		SVNProviderPlugin provider = SVNProviderPlugin.getPlugin();
+	//	SVNProviderPlugin provider = SVNProviderPlugin.getPlugin();
 		ISVNRepositoryLocation root = provider.getRepositories().getRepository(properties.getProperty("url"));
 
-		/* create a local repository if not already exists */
+		 create a local repository if not already exists 
 		if (root == null) {
 			root = provider.getRepositories().createRepository(properties);
 			root.validateConnection(monitor);
@@ -466,7 +466,7 @@ public class AppfactoryView extends ViewPart {
 		});
 		return result[0];
 	}
-
+*/
 	@Override
 	public void setFocus() {
 		tblApplication.forceFocus();

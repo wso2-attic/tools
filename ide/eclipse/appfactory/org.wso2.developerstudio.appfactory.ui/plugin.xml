@@ -34,5 +34,44 @@
             file="contexts.xml">
       </contexts>
    </extension>
-
+    <extension point="org.eclipse.ui.popupMenus">
+        <objectContribution
+              objectClass="org.eclipse.core.resources.IProject"
+               id="org.wso2.developerstudio.eclipse.appfactory.project.popup.deploy">
+               <action
+                    label="Deploy"
+                    icon="icons/deploy.png"
+                    class="org.wso2.developerstudio.appfactory.ui.actions.DeployAction"
+                    id="org.wso2.developerstudio.eclipse.appfactory.project.ui.action.deploy">
+               </action>
+               <enablement>
+					<adapt type="org.eclipse.core.resources.IProject">
+						<or>
+							<test property="org.eclipse.core.resources.projectNature"
+								value="org.wso2.appfactory.webapp.project.nature" />
+		 				</or>
+					</adapt>
+				</enablement>
+              </objectContribution>
+        </extension>
+        <extension point="org.eclipse.ui.popupMenus">
+        <objectContribution
+              objectClass="org.eclipse.core.resources.IProject"
+               id="org.wso2.developerstudio.eclipse.appfactory.project.popup.promote">
+               <action
+                    label="Promote to QA"
+                    icon="icons/appfac.png"
+                    class="org.wso2.developerstudio.appfactory.ui.actions.PromoteAction"
+                    id="org.wso2.developerstudio.eclipse.appfactory.project.ui.action.promote">
+               </action>
+               <enablement>
+					<adapt type="org.eclipse.core.resources.IProject">
+						<or>
+							<test property="org.eclipse.core.resources.projectNature"
+								value="org.wso2.appfactory.webapp.project.nature" />
+		 				</or>
+					</adapt>
+				</enablement>
+              </objectContribution>
+        </extension>
 </plugin>
