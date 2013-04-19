@@ -18,6 +18,12 @@ package org.wso2.developerstudio.appfactory.core.model;
 
 public class ApplicationInfo{
 	
+	private String applicationDescription;
+	private String applicationKey;
+	private String applicationName;
+	private String applicationRepoLink;
+	private long revision;
+	
 	public ApplicationInfo(String applicationKey) {
 		this.applicationKey = applicationKey;
 	}
@@ -53,9 +59,4 @@ public class ApplicationInfo{
 	public long getRevision() {
 		return revision;
 	}
-	private String applicationDescription;
-	private String applicationKey;
-	private String applicationName;
-	private String applicationRepoLink;
-	private long revision;
 }

@@ -18,17 +18,12 @@ package org.wso2.developerstudio.appfactory.ui.views;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
-import java.util.Properties;
-
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.IStatus;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.MenuManager;
-import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.resource.ImageDescriptor;
-import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -44,7 +39,6 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Text;
-import org.eclipse.team.core.TeamException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.forms.widgets.FormText;
 import org.eclipse.ui.forms.widgets.FormToolkit;
@@ -61,9 +55,8 @@ import org.wso2.developerstudio.appfactory.ui.Activator;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.platform.core.utils.SWTResourceManager;
-import org.wso2.developerstudio.appfactory.core.AppMgtClient;
-import org.wso2.developerstudio.appfactory.core.Authenticator;
-import org.wso2.developerstudio.appfactory.core.DeployUtil;
+import org.wso2.developerstudio.appfactory.core.authentication.Authenticator;
+import org.wso2.developerstudio.appfactory.core.client.AppMgtClient;
 import org.wso2.developerstudio.appfactory.core.model.ApplicationInfo;
 
 public class AppfactoryView extends ViewPart {

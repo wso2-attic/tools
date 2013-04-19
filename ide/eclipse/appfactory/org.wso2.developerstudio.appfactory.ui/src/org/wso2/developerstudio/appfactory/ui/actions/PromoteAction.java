@@ -9,11 +9,13 @@ import org.eclipse.ui.IActionDelegate;
 import org.wso2.developerstudio.appfactory.ui.connections.RestHttpsClient;
 
 public class PromoteAction implements IActionDelegate{
+	public static final String LOGIN_URL = "https://appfactorypreview.wso2.com/appmgt/site/blocks/user/login/ajax/login.jag";
+	public static final String DEPLOY_URL = "https://appfactorypreview.wso2.com/appmgt/site/blocks/build/add/ajax/add.jag";
+	public static final String LOGOUT_URL = "https://appfactorypreview.wso2.com/appmgt/site/blocks/user/logout/ajax/logout.jag";
+	public static final String BUILDINFO_URL = "https://appfactorypreview.wso2.com/appmgt/site/blocks/build/list/ajax/list.jag";
+	
 	IStructuredSelection selection;
-	String LOGIN_URL = "https://appfactorypreview.wso2.com/appmgt/site/blocks/user/login/ajax/login.jag";
-	String DEPLOY_URL = "https://appfactorypreview.wso2.com/appmgt/site/blocks/build/add/ajax/add.jag";
-	String LOGOUT_URL = "https://appfactorypreview.wso2.com/appmgt/site/blocks/user/logout/ajax/logout.jag";
-	String BUILDINFO_URL = "https://appfactorypreview.wso2.com/appmgt/site/blocks/build/list/ajax/list.jag";
+	
     public void run(IAction action) {
 		if (selection != null) {
 			 try {
