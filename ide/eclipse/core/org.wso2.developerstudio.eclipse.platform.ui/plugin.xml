@@ -7,7 +7,7 @@
 	<extension point="org.eclipse.ui.preferencePages">
 		<page id="org.wso2.developerstudio.eclipse.ui.developerstudio.preferences" name="Developer Studio" class="org.wso2.developerstudio.eclipse.platform.ui.preferences.DeveloperStudioPreferencePage">
 		</page>
-		<page id="org.wso2.developerstudio.eclipse.ui.developerstudio.preferences.client.trrust.store" name="Developer Studio Client Trust Store" 
+		<page id="org.wso2.developerstudio.eclipse.ui.developerstudio.preferences.client.trrust.store" name="SSL Client Trust Store" 
 		class="org.wso2.developerstudio.eclipse.platform.ui.preferences.ClientTrustStorePreferencePage" category="org.wso2.developerstudio.eclipse.ui.developerstudio.preferences"></page>
 	</extension>
 	<extension
