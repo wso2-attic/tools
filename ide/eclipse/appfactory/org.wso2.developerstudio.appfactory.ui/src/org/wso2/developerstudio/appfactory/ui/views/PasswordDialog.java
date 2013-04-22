@@ -50,7 +50,7 @@ public class PasswordDialog extends Dialog {
     lblNewLabel.setLayoutData(gd_lblNewLabel);
     lblNewLabel.setText("Password:");
 
-    passwordText = new Text(container, SWT.BORDER);
+    passwordText = new Text(container, SWT.PASSWORD);
     passwordText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true,
         false, 1, 1));
     passwordText.setText(password);
@@ -73,7 +73,7 @@ public class PasswordDialog extends Dialog {
 
   @Override
   protected Point getInitialSize() {
-    return new Point(450, 300);
+    return new Point(450, 250);
   }
 
   @Override
