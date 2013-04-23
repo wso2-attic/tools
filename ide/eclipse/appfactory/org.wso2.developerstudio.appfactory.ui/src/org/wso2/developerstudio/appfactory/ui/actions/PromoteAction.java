@@ -6,7 +6,7 @@ import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.IActionDelegate;
-import org.wso2.developerstudio.appfactory.ui.connections.RestHttpsClient;
+import org.wso2.developerstudio.appfactory.core.client.HttpsJaggeryClient;
 
 public class PromoteAction implements IActionDelegate{
 	public static final String LOGIN_URL = "https://appfactorypreview.wso2.com/appmgt/site/blocks/user/login/ajax/login.jag";
@@ -25,15 +25,15 @@ public class PromoteAction implements IActionDelegate{
 				String[] paramNames = new String[]{"action","userName","password"};
 				String[] paramValues = new String[]{"login","admin@admin.com","admin"};
 				
-			    String val = RestHttpsClient.httpPost(LOGIN_URL, paramNames, paramValues);
+			    String val = HttpsJaggeryClient.httpPost(LOGIN_URL, paramNames, paramValues);
 			    System.out.println(val);
 				//invoke deploy API
 				paramNames = new String[]{"action","applicationId","stage","version"};
 				paramValues = new String[]{"Promote",project.getName(),"Development","1.0-SNAPSHOT"};
-				RestHttpsClient.httpPost(LOGOUT_URL, paramNames, paramValues);
+				HttpsJaggeryClient.httpPost(LOGOUT_URL, paramNames, paramValues);
 				
 				//logout
-				RestHttpsClient.httpPost(LOGOUT_URL,new String[0], new String[0]);
+				HttpsJaggeryClient.httpPost(LOGOUT_URL,new String[0], new String[0]);
 				
 			} catch (Exception e) {
 				// TODO Auto-generated catch block

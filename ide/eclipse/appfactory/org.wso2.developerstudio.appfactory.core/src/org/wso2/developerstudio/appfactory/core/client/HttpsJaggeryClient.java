@@ -1,4 +1,4 @@
-package org.wso2.developerstudio.appfactory.ui.connections;
+package org.wso2.developerstudio.appfactory.core.client;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -11,7 +11,7 @@ import java.net.URLEncoder;
 
 import javax.net.ssl.HttpsURLConnection;
 
-public class RestHttpsClient {
+public class HttpsJaggeryClient {
 	
 	public static String httpPost(String urlStr, String[] paramName,
 			String[] paramVal) throws Exception {

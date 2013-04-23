@@ -6,7 +6,7 @@ import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.IActionDelegate;
-import org.wso2.developerstudio.appfactory.ui.connections.RestHttpsClient;
+import org.wso2.developerstudio.appfactory.core.client.HttpsJaggeryClient;
  
 
 
@@ -27,21 +27,21 @@ public class DeployAction implements IActionDelegate{
 				String[] paramNames = new String[]{"action","userName","password"};
 				String[] paramValues = new String[]{"login","admin@admin.com","admin"};
 				
-			     String val =  RestHttpsClient.httpPost(LOGIN_URL, paramNames, paramValues);
+			     String val =  HttpsJaggeryClient.httpPost(LOGIN_URL, paramNames, paramValues);
 			     System.out.println(val);
 			     //Invoke build service 
 			     paramNames = new String[]{"action","applicationId"};
 			     paramValues = new String[]{"buildinfobyappid",project.getName()};
-				 String buildInfo =RestHttpsClient.httpPost(LOGOUT_URL, paramNames, paramValues);
+				 String buildInfo =HttpsJaggeryClient.httpPost(LOGOUT_URL, paramNames, paramValues);
 				 System.out.println(buildInfo);
 				//invoke deploy API
 				
 				paramNames = new String[]{"action","applicationId","stage","version","build"};
 				paramValues = new String[]{"directdeploy",project.getName(),"Development","1.0-SNAPSHOT",buildInfo};
-				String respond = RestHttpsClient.httpPost(LOGOUT_URL, paramNames, paramValues);
+				String respond = HttpsJaggeryClient.httpPost(LOGOUT_URL, paramNames, paramValues);
 				System.out.println(respond);
 				//logout
-				RestHttpsClient.httpPost(LOGOUT_URL,new String[0], new String[0]);
+				HttpsJaggeryClient.httpPost(LOGOUT_URL,new String[0], new String[0]);
 				
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
