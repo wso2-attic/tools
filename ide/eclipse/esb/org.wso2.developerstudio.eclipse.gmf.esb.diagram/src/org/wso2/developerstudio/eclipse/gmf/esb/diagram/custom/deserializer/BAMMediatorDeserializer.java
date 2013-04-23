@@ -43,8 +43,8 @@ public class BAMMediatorDeserializer extends
 
 		Stream stream = mediator.getStream();
 		if (stream != null) {
-			executeSetValueCommand(BAM_MEDIATOR__STREAM_NAME, stream.getStreamName());
-			executeSetValueCommand(BAM_MEDIATOR__STREAM_VERSION, stream.getStreamVersion());
+			executeSetValueCommand(BAM_MEDIATOR__STREAM_NAME, stream.getStreamConfiguration().getName());
+			executeSetValueCommand(BAM_MEDIATOR__STREAM_VERSION, stream.getStreamConfiguration().getVersion());
 		}
 
 		return mediatorModel;

@@ -26,6 +26,7 @@ import org.apache.synapse.Mediator;
 import org.apache.synapse.SynapseConstants;
 import org.apache.synapse.config.xml.AbstractMediatorFactory;
 import org.wso2.carbon.mediator.bam.BamMediator;
+import org.wso2.carbon.mediator.bam.config.stream.StreamConfiguration;
 
 public class BamMediatorExtFactory extends AbstractMediatorFactory {
 
@@ -43,8 +44,9 @@ public class BamMediatorExtFactory extends AbstractMediatorFactory {
 		if (isNotNullOrEmpty(serverProfilePath) && isNotNullOrEmpty(streamName)
 				&& isNotNullOrEmpty(streamVersion)) {
 			bam.setServerProfile(serverProfilePath);
-			bam.getStream().setStreamName(streamName);
-			bam.getStream().setStreamVersion(streamVersion);
+			bam.getStream().setStreamConfiguration(new StreamConfiguration());
+			bam.getStream().getStreamConfiguration().setName(streamName);
+			bam.getStream().getStreamConfiguration().setVersion(streamVersion);
 		}
 		return bam;
 	}

@@ -26,6 +26,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.wso2.developerstudio.eclipse.gmf.esb.BAMMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
+import org.wso2.carbon.mediator.bam.config.stream.StreamConfiguration;
 
 public class BAMMediatorTransformer extends AbstractEsbNodeTransformer{
 
@@ -61,9 +62,12 @@ public class BAMMediatorTransformer extends AbstractEsbNodeTransformer{
 		org.wso2.carbon.mediator.bam.BamMediator bamMediator = new org.wso2.carbon.mediator.bam.BamMediator();
 		
 		bamMediator.setServerProfile(visualBAMMediator.getServerProfile());
-		bamMediator.getStream().setStreamName(visualBAMMediator.getStreamName());
-		bamMediator.getStream().setStreamVersion(visualBAMMediator.getStreamVersion());
-
+		
+		StreamConfiguration streamConfiguration = new StreamConfiguration();
+		streamConfiguration.setName(visualBAMMediator.getStreamName());
+		streamConfiguration.setVersion(visualBAMMediator.getStreamVersion());
+		bamMediator.getStream().setStreamConfiguration(streamConfiguration);
+		
 		return bamMediator;
 	}
 }
