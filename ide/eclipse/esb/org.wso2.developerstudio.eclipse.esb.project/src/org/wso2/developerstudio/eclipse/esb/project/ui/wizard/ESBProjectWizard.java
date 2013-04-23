@@ -29,6 +29,7 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.ui.PlatformUI;
@@ -64,6 +65,10 @@ public class ESBProjectWizard extends AbstractWSO2ProjectCreationWizard {
 	
 	public boolean performFinish() {
 		try {
+			List<OMElement> esbArtiList = null; 
+			if (esbProjectModel.getSelectedOption().equals("new.esb.synapseConfig")) {
+				esbArtiList =SynapseUtils.synapseConfigFolderContentProcessing(esbProjectModel.getSynapseConfigLocation().getPath());
+			}
 			project = createNewProject();
 			pomfile = project.getFile("pom.xml").getLocation().toFile();
 			createPOM(pomfile,"pom");
@@ -90,8 +95,7 @@ public class ESBProjectWizard extends AbstractWSO2ProjectCreationWizard {
 				file.setHidden(true);
 			}
 			String groupId = getMavenGroupId(pomfile);
-			if (esbProjectModel.getSelectedOption().equals("new.esb.synapseConfig")) {
-				List<OMElement> esbArtiList =SynapseUtils.synapseConfigFolderContentProcessing(esbProjectModel.getSynapseConfigLocation().getPath());
+			if (esbProjectModel.getSelectedOption().equals("new.esb.synapseConfig")) {				
 				ESBProjectUtils.createESBArtifacts(esbArtiList,project,pomfile,fileList,groupId);
 				
 				ESBProjectUtils.updatePom(project);
@@ -106,11 +110,9 @@ public class ESBProjectWizard extends AbstractWSO2ProjectCreationWizard {
 		            }
 	            }
 			}
-		} catch (CoreException e) {
-			e.printStackTrace();
-			return false;
-		} catch (Exception e) {
-			e.printStackTrace();
+		}catch (Exception e) {
+			MessageDialog.openError(getShell(), "Error while creating the project",
+                    e.getMessage());
 			return false;
 
 		}
