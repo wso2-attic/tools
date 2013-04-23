@@ -1,6 +1,9 @@
 package org.wso2.developerstudio.eclipse.ds.presentation.data;
 
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.jface.dialogs.IMessageProvider;
@@ -151,8 +154,9 @@ public class DataSourcePage extends FormPage {
 
 		
 		public Object[] getElements(Object inputElement) {
-			
-			DataSourceConfiguration [] configs = (DataSourceConfiguration [] )inputElement;
+			DataSourceConfiguration[] configs = Arrays.copyOf(
+					(Object[]) inputElement, Array.getLength(inputElement),
+					DataSourceConfiguration[].class);
 			return  configs;
 		}
 		
