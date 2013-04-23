@@ -66,6 +66,9 @@ public class SynapseUtils {
 		List<OMElement> editorList = new ArrayList<OMElement>();
 		File rootDir = new File(synapseConfigFolderPath + "/"
 				+ ADDITIONAL_FOLDERS);
+		if(!rootDir.exists()){
+			throw new Exception("Please provide a valid synapse-configs directory");
+		}
 		File[] dirs = rootDir.listFiles();
 		int dirCount = dirs.length;
 		for (int i = 0; i < dirCount; ++i) {
