@@ -63,15 +63,15 @@ public class AppFactoryPerspectiveFactory implements IPerspectiveFactory {
 				   	      IFolderLayout buildInfo = myLayout.createFolder("Bottomt",IPageLayout.BOTTOM,0.60f,myLayout.getEditorArea());
 				   	      buildInfo.addView(APPBUILD_ID); 
 				   	      
-					// Opening the Web browser
-					IWorkbenchBrowserSupport browserSupport = Activator.getDefault().getWorkbench().getBrowserSupport();
-					browser = browserSupport.createBrowser(IWorkbenchBrowserSupport.LOCATION_BAR, null, null, null);
-					URL url = new URL("http://www.google.com/ncr");
-					if(appFactoryPreferenceURL!= null && !appFactoryPreferenceURL.equals("")){
-						browser.openURL(new URL(appFactoryPreferenceURL));
-					}else{
-						browser.openURL(url);
-					}
+							// Opening the Web browser
+							IWorkbenchBrowserSupport browserSupport = Activator.getDefault().getWorkbench().getBrowserSupport();
+							browser = browserSupport.createBrowser(IWorkbenchBrowserSupport.LOCATION_BAR, null, null, null);
+							URL url = new URL("http://www.google.com/ncr");
+							if(appFactoryPreferenceURL!= null && !appFactoryPreferenceURL.equals("")){
+								browser.openURL(new URL(appFactoryPreferenceURL));
+							}else{
+								browser.openURL(url);
+							}
 				   	      
 					}else {
 						MessageBox messageBox = new MessageBox(activeShell,
