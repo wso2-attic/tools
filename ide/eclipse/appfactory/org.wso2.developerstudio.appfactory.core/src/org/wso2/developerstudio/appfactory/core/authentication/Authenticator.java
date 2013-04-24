@@ -15,18 +15,12 @@
 
 package org.wso2.developerstudio.appfactory.core.authentication;
 
-import java.net.URL;
-import org.apache.axis2.context.ServiceContext;
-import org.apache.axis2.transport.http.HTTPConstants;
-import org.wso2.carbon.authenticator.stub.AuthenticationAdminStub;
-import org.wso2.developerstudio.appfactory.core.Activator;
-import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
-import org.wso2.developerstudio.eclipse.logging.core.Logger;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.wso2.developerstudio.appfactory.core.client.HttpsJaggeryClient;
 
 public class Authenticator {
-	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
-	
-	private static final String AUTHENTICATION_ADMIN_SERVICE_URL= "services/AuthenticationAdmin";
 
 	private String sessionCookie;
 	private String userName;
@@ -43,26 +37,21 @@ public class Authenticator {
 
 	public boolean Authenticate(String serverUrl, String userName, String passwd)
 			throws Exception {
-		AuthenticationAdminStub authenticationStub = new AuthenticationAdminStub(
-				serverUrl + AUTHENTICATION_ADMIN_SERVICE_URL);
-
-		authenticationStub._getServiceClient().getOptions()
-				.setManageSession(true);
-//		boolean loginStatus = authenticationStub.login(userName, passwd,
-//				(new URL(serverUrl)).getHost()); 
-		//TODO : fix this
-		boolean loginStatus = authenticationStub.login("admin", "admin",
-		(new URL(serverUrl)).getHost());
-		if (!loginStatus) {
-			log.error("Access denied for user '" + userName + "'");
-			throw new Exception("Authentication failed on connection to the server");
-		}
-		ServiceContext serviceContext = authenticationStub._getServiceClient()
-				.getLastOperationContext().getServiceContext();
-		String sessionCookie = (String) serviceContext
-				.getProperty(HTTPConstants.COOKIE_STRING);
-		setSessionCookie(sessionCookie);
-		return loginStatus;
+		 Map<String,String> params = new HashMap<String,String>();
+		 params.put("action", "login");
+		 params.put("userName", userName);
+		 params.put("password", passwd);
+		 String[] paramNames = new String[]{"action","userName","password"};
+	     String[] paramValues = new String[]{"login",userName,passwd};
+		// String value = HttpsJaggeryClient.httpPostLogin(serverUrl,params);
+	     String value = HttpsJaggeryClient.httpUrlPost(serverUrl, paramNames, paramValues);
+		 if("true".equals(value)){
+			 setPassword(passwd);
+			 setUserName(userName);
+			 setSessionCookie("cookie");
+			 return true;
+		 }
+		 return false;
 	}
 	
 	public boolean Authenticate() throws Exception{

@@ -27,21 +27,20 @@ public class DeployAction implements IActionDelegate{
 				String[] paramNames = new String[]{"action","userName","password"};
 				String[] paramValues = new String[]{"login","admin@admin.com","admin"};
 				
-			     String val =  HttpsJaggeryClient.httpPost(LOGIN_URL, paramNames, paramValues);
-			     System.out.println(val);
+			    // String val =  HttpsJaggeryClient.httpPost(LOGIN_URL, paramNames, paramValues);
+			   //  System.out.println(val);
 			     //Invoke build service 
 			     paramNames = new String[]{"action","applicationId"};
 			     paramValues = new String[]{"buildinfobyappid",project.getName()};
-				 String buildInfo =HttpsJaggeryClient.httpPost(LOGOUT_URL, paramNames, paramValues);
-				 System.out.println(buildInfo);
+				 //String buildInfo =HttpsJaggeryClient.httpPost(LOGOUT_URL, paramNames, paramValues);
+				// System.out.println(buildInfo);
 				//invoke deploy API
 				
 				paramNames = new String[]{"action","applicationId","stage","version","build"};
-				paramValues = new String[]{"directdeploy",project.getName(),"Development","1.0-SNAPSHOT",buildInfo};
-				String respond = HttpsJaggeryClient.httpPost(LOGOUT_URL, paramNames, paramValues);
-				System.out.println(respond);
+				//paramValues = new String[]{"directdeploy",project.getName(),"Development","1.0-SNAPSHOT",buildInfo};
+				//
 				//logout
-				HttpsJaggeryClient.httpPost(LOGOUT_URL,new String[0], new String[0]);
+				//HttpsJaggeryClient.httpPost(LOGOUT_URL,new String[0], new String[0]);
 				
 			} catch (Exception e) {
 				// TODO Auto-generated catch block

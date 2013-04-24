@@ -70,6 +70,4 @@ implements IWorkbenchPreferencePage{
 					}
 				});
 	}
-
-
 }

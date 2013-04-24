@@ -11,17 +11,23 @@ import org.eclipse.ui.IFolderLayout;
 import org.eclipse.ui.IPageLayout;
 import org.eclipse.ui.IPerspectiveDescriptor;
 import org.eclipse.ui.IPerspectiveFactory;
+import org.eclipse.ui.IPerspectiveRegistry;
+import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPage;
+import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.browser.IWebBrowser;
 import org.eclipse.ui.browser.IWorkbenchBrowserSupport;
 import org.wso2.developerstudio.appfactory.core.client.HttpsJaggeryClient;
 import org.wso2.developerstudio.appfactory.ui.Activator;
+import org.wso2.developerstudio.appfactory.ui.actions.LoginAction;
 import org.wso2.developerstudio.appfactory.ui.preference.AppFactoryPreferencePage;
 import org.wso2.developerstudio.appfactory.ui.views.PasswordDialog;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 
 public class AppFactoryPerspectiveFactory implements IPerspectiveFactory {
-
+	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	private static final String APPLIST_ID = "org.wso2.developerstudio.appfactory.ui.views.AppfactoryApplicationListView";
 	private static final String APPDETILS_ID = "org.wso2.developerstudio.appfactory.ui.views.AppfactoryApplicationDetailsView";
 	private static final String APPBUILD_ID = "org.wso2.developerstudio.appfactory.ui.views.AppfactoryBuildInfoView";
@@ -31,41 +37,17 @@ public class AppFactoryPerspectiveFactory implements IPerspectiveFactory {
     public static final String DEFAULT_LOGIN_URL = "https://appfactorypreview.wso2.com/appmgt/site/blocks/user/login/ajax/login.jag";
 
 	private static IWebBrowser browser = null;
-	private IPreferenceStore preferenceStore;
+ 
 	
-	     public void createInitialLayout(IPageLayout myLayout) {
-	    	 preferenceStore = Activator.getDefault().getPreferenceStore();
-	    	 
-	    	 String appFactoryPreferenceURL = preferenceStore.getString(AppFactoryPreferencePage.APP_FACTORY_LOCATION);
-	    	 String appFactoryPreferenceUserName = preferenceStore.getString(AppFactoryPreferencePage.APP_FACTORY_USERNAME);
-	    	 String appFactoryPreferencePassword = preferenceStore.getString(AppFactoryPreferencePage.APP_FACTORY_PASSWORD);
-	    	 
-	    	 String editorArea = myLayout.getEditorArea();
-	    	 Shell activeShell = PlatformUI.getWorkbench().getDisplay().getActiveShell();
+	     public void createInitialLayout(IPageLayout appfacLayout) {
 	    	 IWorkbenchPage activePage = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
 	    	 IPerspectiveDescriptor perspective = activePage.getPerspective();
-	    	 
-	    	 PasswordDialog dialog = new PasswordDialog(activeShell);
-	    	 if (dialog.open() == Window.OK) {
-	    		 String password = dialog.getPassword();
-	    		 String username = dialog.getUser();
-	    		 String[] paramNames = new String[]{"action","userName","password"};
-				 String[] paramValues = new String[]{"login",username,password};
+	    	 LoginAction loginAction = new LoginAction();
 			     try {
-					String val =  HttpsJaggeryClient.httpPost(DEFAULT_LOGIN_URL, paramNames, paramValues);
-					if("true".equals("true")){
-							IFolderLayout lef = myLayout.createFolder("topLeft",IPageLayout.LEFT,0.25f,editorArea);
-					   		lef.addView(PROJECT_EXPOR_VIEW);
-					   	      
-					   		IFolderLayout applist = myLayout.createFolder("topRight",IPageLayout.RIGHT,0.75f,editorArea);
-					   	    applist.addView(APPLIST_ID);
-					   	      
-					   	    IFolderLayout appDetails = myLayout.createFolder("BottomRight",IPageLayout.BOTTOM,0.60f,"topRight");
-					   	    appDetails.addView(APPDETILS_ID);
-					   	      
-					   	    IFolderLayout buildInfo = myLayout.createFolder("Bottomt",IPageLayout.BOTTOM,0.60f,myLayout.getEditorArea());
-					   	    buildInfo.addView(APPBUILD_ID); 
-				   	      
+			    	
+					 if(loginAction.login()){
+							addViews(appfacLayout); 
+				   	        String appFactoryPreferenceURL = loginAction.getPreferenceStore().getString(AppFactoryPreferencePage.APP_FACTORY_LOCATION);
 							// Opening the Web browser
 							IWorkbenchBrowserSupport browserSupport = Activator.getDefault().getWorkbench().getBrowserSupport();
 							browser = browserSupport.createBrowser(IWorkbenchBrowserSupport.LOCATION_BAR, null, null, null);
@@ -77,21 +59,33 @@ public class AppFactoryPerspectiveFactory implements IPerspectiveFactory {
 							}
 				   	      
 					}else {
-						MessageBox messageBox = new MessageBox(activeShell,
-								SWT.OK);
+						MessageBox messageBox = new MessageBox(loginAction.getActiveShell(),SWT.OK);
 				        messageBox.setText("Error");
 				        messageBox.setMessage("Error username or password");
 					}
 				} catch (Exception e) {
-					MessageBox messageBox = new MessageBox(activeShell,
-							SWT.OK);
+					MessageBox messageBox = new MessageBox(loginAction.getActiveShell(),SWT.OK);
 			        messageBox.setText("Error");
 			        messageBox.setMessage(e.getMessage());
-					e.printStackTrace();
+					log.error("perspective loading issue", e);
 				} 	    		 
-	    	 }else{
-	    		 //Reload the active perspective
-	    		 activePage.setPerspective(perspective); 
-	    	 }
-	     } 
+	     }
+
+
+		private void addViews(IPageLayout appfacLayout) {
+			String editorArea = appfacLayout.getEditorArea();
+			IFolderLayout lef = appfacLayout.createFolder("topLeft",IPageLayout.LEFT,0.25f,editorArea);
+			lef.addView(PROJECT_EXPOR_VIEW);
+			  
+			IFolderLayout applist = appfacLayout.createFolder("topRight",IPageLayout.RIGHT,0.75f,editorArea);
+			applist.addView(APPLIST_ID);
+			  
+			IFolderLayout appDetails = appfacLayout.createFolder("BottomRight",IPageLayout.BOTTOM,0.60f,"topRight");
+			appDetails.addView(APPDETILS_ID);
+			  
+			IFolderLayout buildInfo = appfacLayout.createFolder("Bottomt",IPageLayout.BOTTOM,0.60f,appfacLayout.getEditorArea());
+			buildInfo.addView(APPBUILD_ID);
+		} 
+	     
+	  
 }

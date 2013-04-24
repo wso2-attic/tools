@@ -25,15 +25,15 @@ public class PromoteAction implements IActionDelegate{
 				String[] paramNames = new String[]{"action","userName","password"};
 				String[] paramValues = new String[]{"login","admin@admin.com","admin"};
 				
-			    String val = HttpsJaggeryClient.httpPost(LOGIN_URL, paramNames, paramValues);
-			    System.out.println(val);
+			 //   String val = HttpsJaggeryClient.httpPost(LOGIN_URL, paramNames, paramValues);
+			  //  System.out.println(val);
 				//invoke deploy API
 				paramNames = new String[]{"action","applicationId","stage","version"};
 				paramValues = new String[]{"Promote",project.getName(),"Development","1.0-SNAPSHOT"};
-				HttpsJaggeryClient.httpPost(LOGOUT_URL, paramNames, paramValues);
+				//HttpsJaggeryClient.httpPost(LOGOUT_URL, paramNames, paramValues);
 				
 				//logout
-				HttpsJaggeryClient.httpPost(LOGOUT_URL,new String[0], new String[0]);
+			//	HttpsJaggeryClient.httpPost(LOGOUT_URL,new String[0], new String[0]);
 				
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
