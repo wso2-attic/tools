@@ -61,10 +61,15 @@ public class SwitchMediatorTransformer extends AbstractEsbNodeTransformer {
 		 }*/
 		
 		if(visualSwitch.getSourceXpath()!=null&&!visualSwitch.getSourceXpath().getPropertyValue().equals("")){
-			SynapseXPath XPath=new SynapseXPath(visualSwitch.getSourceXpath().getPropertyValue());
-			if(visualSwitch.getNamespace()!=null){
-				XPath.addNamespace(visualSwitch.getNamespacePrefix(), visualSwitch.getNamespace());
-			}
+			SynapseXPath XPath=new SynapseXPath(visualSwitch.getSourceXpath().getPropertyValue());		
+			for (int i = 0; i < visualSwitch.getSourceXpath().getNamespaces()
+					.keySet().size(); ++i) {
+				String prefix = (String) visualSwitch.getSourceXpath()
+						.getNamespaces().keySet().toArray()[i];
+				String namespaceUri = visualSwitch.getSourceXpath()
+						.getNamespaces().get(prefix);
+				XPath.addNamespace(prefix, namespaceUri);
+			}			
 			switchMediator.setSource(XPath);
 		}
 		else{

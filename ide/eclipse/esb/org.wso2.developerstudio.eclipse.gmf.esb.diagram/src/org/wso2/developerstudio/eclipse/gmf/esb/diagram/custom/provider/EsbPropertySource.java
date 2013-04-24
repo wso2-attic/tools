@@ -50,8 +50,7 @@ public class EsbPropertySource extends PropertySource {
 			return new CustomPropertyDescriptor(object,
 					itemPropertyDescriptor);
 		} else if (pkg.getSwitchMediator_SourceXpath().equals(feature)) {
-			return new SwitchSourceXPathPropertyDescriptor(object,
-					itemPropertyDescriptor);
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
 		} else if (pkg.getSwitchMediator_CaseBranches().equals(feature)) {
 			return new SwitchConfigurationPropertyDescriptor(object,
 					itemPropertyDescriptor);
