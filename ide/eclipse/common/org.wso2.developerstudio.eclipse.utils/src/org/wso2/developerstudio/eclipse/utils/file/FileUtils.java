@@ -598,7 +598,9 @@ public class FileUtils{
 			stream.write(b,0,read);
 			read = dataStream.read(b);
 		}
-		return stream.toString();
+		String streamContent = stream.toString();
+		stream.close();
+		return streamContent;
 	}
 	
 	public static String getContentAsString(File file) throws IOException {

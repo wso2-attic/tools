@@ -17,10 +17,6 @@ import javax.net.ssl.HttpsURLConnection;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.preferences.IPreferencesService;
@@ -32,40 +28,41 @@ import org.wso2.developerstudio.eclipse.platform.ui.preferences.ClientTrustStore
 
 public class HttpsJaggeryClient {
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
-	static HttpClient  client;
+//	static HttpClient  client;
 	private static IPreferencesService preferenceStore;
 
 	static{
 		preferenceStore = Platform.getPreferencesService();
 	}
-	public static String httpPostLogin(String urlStr, Map<String,String> params){
-	    init();
-		client = new DefaultHttpClient();
-		return httpPost(urlStr,params);
-	}
+//	public static String httpPostLogin(String urlStr, Map<String,String> params){
+//	    init();
+////		client = new DefaultHttpClient();
+////		return httpPost(urlStr,params);
+//	    
+//	}
 	
-	public static String httpPost(String urlStr, Map<String,String> params) {
-		   
-		    HttpPost post = new HttpPost(urlStr);
-		    String respond = "";
-		    try {
-		      List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(1);
-			  Set<String> keySet = params.keySet();
-			  for (String key : keySet) {
-				  nameValuePairs.add(new BasicNameValuePair(key, params.get(key)));
-			   }
-		      post.setEntity(new UrlEncodedFormEntity(nameValuePairs));
-		      HttpResponse response = client.execute(post);
-		     // System.out.println(resp);
-		      
-		      BufferedReader rd = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
-		      while ((respond = rd.readLine()) != null) {
-		      }
-		    } catch (IOException e) {
-		     log.error("Server Error", e);
-		  }
-	  return respond;	       
-  }
+//	public static String httpPost(String urlStr, Map<String,String> params) {
+//		   
+////		    HttpPost post = new HttpPost(urlStr);
+//		    String respond = "";
+//		    try {
+//		      List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(1);
+//			  Set<String> keySet = params.keySet();
+//			  for (String key : keySet) {
+//				  nameValuePairs.add(new BasicNameValuePair(key, params.get(key)));
+//			   }
+////		      post.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+////		      HttpResponse response = client.execute(post);
+//		     // System.out.println(resp);
+//		      
+////		      BufferedReader rd = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
+////		      while ((respond = rd.readLine()) != null) {
+////		      }
+////		    } catch (IOException e) {
+////		     log.error("Server Error", e);
+////		  }
+////	  return respond;	       
+//  }
 	
 	public static void init() {
 		String clientTrustStoreLocation = preferenceStore

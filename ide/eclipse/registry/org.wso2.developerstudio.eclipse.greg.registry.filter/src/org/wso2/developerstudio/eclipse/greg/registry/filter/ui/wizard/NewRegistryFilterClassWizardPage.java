@@ -38,7 +38,7 @@ public class NewRegistryFilterClassWizardPage extends NewClassWizardPage{
 	private String selectedProject;
 	private String[] depedencyList = {"abdera_1.0.0.wso2v3.jar",
 										"axiom_1.2.11.wso2v3.jar",
-										"axis2_1.6.1.wso2v6.jar",
+										"axis2_1.6.1.wso2v7.jar",
 										"commons-codec_1.4.0.wso2v1.jar",
 										"commons-httpclient_3.1.0.wso2v2.jar",
 										"commons-io_2.0.0.wso2v2.jar",

@@ -198,7 +198,9 @@ public class RegistryHandlerCreationWizard extends
 				
         } catch (Exception e) {
         	MessageDialog.openError(getShell(), "Registry Handler Artifact",
-        	    					"Unable to create registry handler project: " + ((e.getMessage()!=null)?e.getMessage():""));
+        	    					"Unable to create registry handler project: " + project.getName());
+        	log.error("Error occured while creating the Registry Handler Project "+ project.getName(), e);
+        	
         }
 
 		return true;
