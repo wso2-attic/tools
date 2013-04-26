@@ -17,6 +17,7 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 
 import java.util.Iterator;
+import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.synapse.endpoints.AbstractEndpoint;
@@ -29,6 +30,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EndPointProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPointPropertyScope;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPointTimeOutAction;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
+import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
+import org.wso2.developerstudio.eclipse.gmf.esb.PropertyValueType;
 import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
 
 import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.*;
@@ -123,7 +126,19 @@ public abstract class AbstractEndpointDeserializer extends AbstractEsbNodeDeseri
 			MediatorProperty next = i.next();
 			EndPointProperty property = EsbFactory.eINSTANCE.createEndPointProperty();
 			property.setName(next.getName());
-			property.setValue(next.getValue());
+			
+			if(next.getExpression()!=null){
+				property.setValueType(PropertyValueType.EXPRESSION);
+				NamespacedProperty valueXPath = EsbFactory.eINSTANCE.createNamespacedProperty();
+				valueXPath.setPropertyValue(next.getExpression().toString());
+				Map<String,String> namespaces = (Map<String,String>)next.getExpression().getNamespaces();
+				valueXPath.setNamespaces(namespaces);
+				property.setValueExpression(valueXPath);
+			}else if(next.getValue()!=null){
+				property.setValueType(PropertyValueType.LITERAL);
+				property.setValue(next.getValue());
+			}			
+			
 			if(next.getScope()!=null){
 				property.setScope(EndPointPropertyScope.get(next.getScope().toLowerCase()));
 			} else{

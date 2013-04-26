@@ -51,6 +51,9 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EndPointProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPointPropertyScope;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
+import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
+import org.wso2.developerstudio.eclipse.gmf.esb.PropertyValueType;
+import org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbFactoryImpl;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 
@@ -88,8 +91,9 @@ public class ConfigureEndPointPropertiesDialog extends TitleAreaDialog {
 	private Button cmdRemoveProperty;
 
 	private Text txtPropertyName;
-	private Text txtPropertyValue;
+	private PropertyText txtPropertyValue;
 	private Combo cmbPropertyScope;
+	private Combo cmbPropertyType;
 	
 	/**
 	 * Table editors
@@ -97,6 +101,7 @@ public class ConfigureEndPointPropertiesDialog extends TitleAreaDialog {
 	private TableEditor propertyNameEditor;
 	private TableEditor propertyValueEditor;
 	private TableEditor propertyScopeEditor;
+	private TableEditor propertyTypeEditor;
 
 	public ConfigureEndPointPropertiesDialog(Shell parentShell,
 			EndPoint endPoint, TransactionalEditingDomain editingDomain) {
@@ -118,7 +123,7 @@ public class ConfigureEndPointPropertiesDialog extends TitleAreaDialog {
 		container.setLayoutData(new GridData(GridData.FILL_BOTH));
 		
 		tblProperties = new Table(container, SWT.BORDER | SWT.FULL_SELECTION);
-		tblProperties.setBounds(10, 10, 510, 222);
+		tblProperties.setBounds(10, 10, 610, 222);
 		tblProperties.setHeaderVisible(true);
 		tblProperties.setLinesVisible(true);
 		tblProperties.addSelectionListener(new SelectionAdapter() {
@@ -137,20 +142,24 @@ public class ConfigureEndPointPropertiesDialog extends TitleAreaDialog {
 		});
 		
 		TableColumn tblclmnName = new TableColumn(tblProperties, SWT.NONE);
-		tblclmnName.setWidth(125);
+		tblclmnName.setWidth(150);
 		tblclmnName.setText("Name");
 		
 		TableColumn tblclmnValue = new TableColumn(tblProperties, SWT.NONE);
-		tblclmnValue.setWidth(250);
+		tblclmnValue.setWidth(200);
 		tblclmnValue.setText("Value");
 		
+		TableColumn tblclmnValueType = new TableColumn(tblProperties, SWT.NONE);
+		tblclmnValueType.setWidth(125);
+		tblclmnValueType.setText("Type");		
+		
 		TableColumn tblclmnScope = new TableColumn(tblProperties, SWT.NONE);
-		tblclmnScope.setWidth(60);
+		tblclmnScope.setWidth(30);
 		tblclmnScope.setText("Scope");
 		
 		
 		cmdAddProperty = new Button(container, SWT.NONE);
-		cmdAddProperty.setBounds(527, 10, 86, 29);
+		cmdAddProperty.setBounds(627, 10, 86, 29);
 		cmdAddProperty.setText("Add");
 		cmdAddProperty.addSelectionListener(new SelectionListener() {
 			
@@ -159,6 +168,7 @@ public class ConfigureEndPointPropertiesDialog extends TitleAreaDialog {
 				EndPointProperty property = EsbFactory.eINSTANCE.createEndPointProperty();
 				property.setName("property_name");
 				property.setValue("property_value");
+				property.setValueType(PropertyValueType.LITERAL);
 				property.setScope(EndPointPropertyScope.SYNAPSE);
 				TableItem item = bindProperty(property);
 				tblProperties.select(tblProperties.indexOf(item));
@@ -169,7 +179,7 @@ public class ConfigureEndPointPropertiesDialog extends TitleAreaDialog {
 		});
 		
 		cmdRemoveProperty = new Button(container, SWT.NONE);
-		cmdRemoveProperty.setBounds(526, 45, 86, 29);
+		cmdRemoveProperty.setBounds(626, 45, 86, 29);
 		cmdRemoveProperty.setText("Remove");
 		cmdRemoveProperty.setEnabled(false);
 		cmdRemoveProperty.addSelectionListener(new SelectionListener() {
@@ -179,6 +189,7 @@ public class ConfigureEndPointPropertiesDialog extends TitleAreaDialog {
 					unbindProperty(tblProperties.getSelectionIndex());
 				initTableEditor(propertyNameEditor, tblProperties);
 				initTableEditor(propertyScopeEditor, tblProperties);
+				initTableEditor(propertyTypeEditor, tblProperties);
 				initTableEditor(propertyValueEditor, tblProperties);
 				cmdRemoveProperty.setEnabled(false);
 			}
@@ -199,10 +210,16 @@ public class ConfigureEndPointPropertiesDialog extends TitleAreaDialog {
 	 */
 	public TableItem bindProperty(EndPointProperty property) {
 		TableItem item = new TableItem(tblProperties, SWT.NONE);
-		item.setText(0, property.getName());
-		item.setText(1, property.getValue());
-		item.setText(2, property.getScope().toString());
+		item.setText(0, property.getName());		
+		if(property.getValueType().getLiteral().equals("LITERAL")){
+			item.setText(1, property.getValue());
+		}else if(property.getValueType().getLiteral().equals("EXPRESSION")){
+			item.setText(1, property.getValueExpression().getPropertyValue());
+		}		
+		item.setText(2, property.getValueType().toString());
+		item.setText(3, property.getScope().toString());
 		item.setData(property);
+		item.setData("exp",EsbFactory.eINSTANCE.copyNamespacedProperty(property.getValueExpression()));
 		return item;
 	}
 	
@@ -241,7 +258,7 @@ public class ConfigureEndPointPropertiesDialog extends TitleAreaDialog {
 	 */
 	@Override
 	protected Point getInitialSize() {
-		return new Point(631, 400);
+		return new Point(731, 400);
 	}
 	
 	/**
@@ -267,6 +284,8 @@ public class ConfigureEndPointPropertiesDialog extends TitleAreaDialog {
 	}
 	
 	private void editProperty(final TableItem item) {
+		
+		NamespacedProperty expression = (NamespacedProperty)item.getData("exp");
 
 		propertyNameEditor = initTableEditor(propertyNameEditor, item.getParent());
 		txtPropertyName = new Text(item.getParent(), SWT.NONE);
@@ -281,10 +300,22 @@ public class ConfigureEndPointPropertiesDialog extends TitleAreaDialog {
 			}
 		});
 		
+		propertyTypeEditor = initTableEditor(propertyTypeEditor, item.getParent());
+		cmbPropertyType = new Combo(item.getParent(), SWT.READ_ONLY);
+		cmbPropertyType.setItems(new String[] { PropertyValueType.LITERAL.toString(), PropertyValueType.EXPRESSION.toString() });
+		cmbPropertyType.setText(item.getText(2));
+		propertyTypeEditor.setEditor(cmbPropertyType, item, 2);
+		item.getParent().redraw();
+		item.getParent().layout();
+		cmbPropertyType.addListener(SWT.Selection, new Listener() {
+			public void handleEvent(Event evt) {
+				item.setText(2, cmbPropertyType.getText());
+			}
+		});	
+		
 		propertyValueEditor = initTableEditor(propertyValueEditor, item.getParent());
-
-		txtPropertyValue = new Text(item.getParent(), SWT.NONE);
-		txtPropertyValue.setText(item.getText(1));
+		txtPropertyValue = new PropertyText(item.getParent(), SWT.NONE, cmbPropertyType);
+		txtPropertyValue.addProperties(item.getText(1),expression);		
 		propertyValueEditor.setEditor(txtPropertyValue, item, 1);
 		item.getParent().redraw();
 		item.getParent().layout();
@@ -292,25 +323,27 @@ public class ConfigureEndPointPropertiesDialog extends TitleAreaDialog {
 
 			public void modifyText(ModifyEvent e) {
 				item.setText(1, txtPropertyValue.getText());
+				Object property = txtPropertyValue.getProperty();
+				if(property instanceof NamespacedProperty){
+					item.setData("exp",(NamespacedProperty)property);
+				} 
 			}
-		});
-
+		});		
+		
 		propertyScopeEditor = initTableEditor(propertyScopeEditor, item.getParent());
 		cmbPropertyScope = new Combo(item.getParent(), SWT.READ_ONLY);
 		cmbPropertyScope.setItems(new String[] { EndPointPropertyScope.SYNAPSE.toString(),
 				EndPointPropertyScope.TRANSPORT.toString(), EndPointPropertyScope.AXIS2.toString(),
 				EndPointPropertyScope.AXIS2_CLIENT.toString() });
-		cmbPropertyScope.setText(item.getText(2));
-		propertyScopeEditor.setEditor(cmbPropertyScope, item, 2);
+		cmbPropertyScope.setText(item.getText(3));
+		propertyScopeEditor.setEditor(cmbPropertyScope, item, 3);
 		item.getParent().redraw();
 		item.getParent().layout();
 		cmbPropertyScope.addListener(SWT.Selection, new Listener() {
 			public void handleEvent(Event evt) {
-				item.setText(2, cmbPropertyScope.getText());
+				item.setText(3, cmbPropertyScope.getText());
 			}
-		});
-
-		
+		});		
 	}
 
 	private TableEditor initTableEditor(TableEditor editor, Table table) {
@@ -331,6 +364,7 @@ public class ConfigureEndPointPropertiesDialog extends TitleAreaDialog {
 		
 		for(TableItem item : tblProperties.getItems()){
 			EndPointProperty property = (EndPointProperty)item.getData();
+			NamespacedProperty expression = (NamespacedProperty)item.getData("exp");
 			
 			AddCommand addCmd = null;
 
@@ -348,15 +382,41 @@ public class ConfigureEndPointPropertiesDialog extends TitleAreaDialog {
 				getResultCommand().append(setCommand);
 			}
 			
-			if(!property.getValue().equals(item.getText(1))){
+			if(item.getText(2).equals("LITERAL")){				
+				if(!property.getValue().equals(item.getText(1))){
+					setCommand = new SetCommand(editingDomain, property,
+							EsbPackage.Literals.END_POINT_PROPERTY__VALUE, item.getText(1));
+					getResultCommand().append(setCommand);
+				}				
+			}
+			
+			if(item.getText(2).equals("EXPRESSION")){
+				if (property.getValueExpression() == null) {
+					NamespacedProperty namespaceProperty = EsbFactoryImpl.eINSTANCE.createNamespacedProperty();
+					namespaceProperty.setPropertyValue(expression.getPropertyValue());
+					namespaceProperty.setNamespaces(expression.getNamespaces());
+					AddCommand addExpressionCmd = new AddCommand(editingDomain,property,
+							EsbPackage.Literals.END_POINT_PROPERTY__VALUE_EXPRESSION,namespaceProperty);
+					getResultCommand().append(addExpressionCmd);
+				} else {
+					SetCommand setCmd = new SetCommand(editingDomain,property.getValueExpression(),
+							EsbPackage.Literals.NAMESPACED_PROPERTY__PROPERTY_VALUE,expression.getPropertyValue());
+					getResultCommand().append(setCmd);					
+					setCmd = new SetCommand(editingDomain,property.getValueExpression(),
+							EsbPackage.Literals.NAMESPACED_PROPERTY__NAMESPACES,expression.getNamespaces());
+					getResultCommand().append(setCmd);
+				}				
+			}
+			
+			if(!property.getValueType().toString().equals(item.getText(2))){
 				setCommand = new SetCommand(editingDomain, property,
-						EsbPackage.Literals.END_POINT_PROPERTY__VALUE, item.getText(1));
+						EsbPackage.Literals.END_POINT_PROPERTY__VALUE_TYPE, PropertyValueType.get(item.getText(2)));
 				getResultCommand().append(setCommand);
 			}
 			
-			if(!property.getScope().toString().equals(item.getText(2))){
+			if(!property.getScope().toString().equals(item.getText(3))){
 				setCommand = new SetCommand(editingDomain, property,
-						EsbPackage.Literals.END_POINT_PROPERTY__SCOPE, EndPointPropertyScope.get(item.getText(2)));
+						EsbPackage.Literals.END_POINT_PROPERTY__SCOPE, EndPointPropertyScope.get(item.getText(3)));
 				getResultCommand().append(setCommand);
 			}
 		}
