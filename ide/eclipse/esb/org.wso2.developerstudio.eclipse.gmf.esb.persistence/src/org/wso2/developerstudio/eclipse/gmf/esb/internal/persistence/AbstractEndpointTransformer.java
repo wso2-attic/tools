@@ -7,6 +7,8 @@ import java.util.List;
 import org.apache.synapse.endpoints.AbstractEndpoint;
 import org.apache.synapse.endpoints.EndpointDefinition;
 import org.apache.synapse.mediators.MediatorProperty;
+import org.apache.synapse.util.xpath.SynapseXPath;
+import org.jaxen.JaxenException;
 import org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPointAddressingVersion;
@@ -95,8 +97,26 @@ public abstract class AbstractEndpointTransformer extends AbstractEsbNodeTransfo
 				.hasNext();) {
 			EndPointProperty property = iterator.next();
 			MediatorProperty mediatorProperty = new MediatorProperty();
-			mediatorProperty.setName(property.getName());
-			mediatorProperty.setValue(property.getValue());
+			mediatorProperty.setName(property.getName());	
+			
+			if(property.getValueType().toString().equals("EXPRESSION")){
+			SynapseXPath XPath = null;
+			try {
+				XPath = new SynapseXPath(property.getValueExpression().getPropertyValue());
+				for (int i = 0; i < property.getValueExpression().getNamespaces().keySet().size(); ++i) {
+					String prefix = (String) property.getValueExpression().getNamespaces().keySet()
+							.toArray()[i];
+					String namespaceUri = property.getValueExpression().getNamespaces().get(prefix);
+					XPath.addNamespace(prefix, namespaceUri);
+					mediatorProperty.setExpression(XPath);
+				}			
+			} catch (JaxenException e) {
+				log.error("Error while persisting Endpoint properties", e);
+			}
+			}else if(property.getValueType().toString().equals("LITERAL")){
+				mediatorProperty.setValue(property.getValue());
+			}		
+			
 			mediatorProperty.setScope(property.getScope().toString().toLowerCase());
 			endpoint.addProperty(mediatorProperty);
 		}
