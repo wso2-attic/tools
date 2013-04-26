@@ -10,6 +10,7 @@ import java.util.Map;
 import org.apache.maven.artifact.factory.ArtifactFactory;
 import org.apache.maven.artifact.repository.ArtifactRepository;
 import org.apache.maven.artifact.resolver.ArtifactResolver;
+import org.apache.maven.model.Dependency;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
@@ -84,6 +85,13 @@ public class CARMojo extends AbstractMojo {
      * @parameter default-value="${project.remoteArtifactRepositories}"
      */
     private List<?> remoteRepositories;
+    
+    /**
+	 * Maven ProjectHelper.
+	 * 
+	 * @parameter
+	 */
+    private List<artifact> artifacts;
 
     private void setupMavenRepoObjects(){
     	CAppMavenUtils.setArtifactFactory(artifactFactory);
@@ -114,16 +122,39 @@ public class CARMojo extends AbstractMojo {
 	}
 
 	private void createArtifactData(File baseCARLocation, CAppArtifactDependency cAppArtifactDependency) throws IOException, MojoExecutionException{
+		getLog().info("Generating artifact descriptor for artifact: "+cAppArtifactDependency.getName());
+		
 		File artifactLocation = new File(baseCARLocation,cAppArtifactDependency.getName()+"_"+cAppArtifactDependency.getVersion());
+		
+		CAppArtifact cAppArtifact = cAppArtifactDependency.getcAppArtifact();
+		Dependency mavenArtifact = cAppArtifactDependency.getMavenDependency();
+		
+		String artifactFinalName = null;
+		
+		if(artifacts != null){
+			for (artifact cappArtifact : artifacts) {
+				if(mavenArtifact.getGroupId().equals(cappArtifact.getGroupId()) && 
+						mavenArtifact.getArtifactId().equals(cappArtifact.getArtifactId())){
+					artifactFinalName = cappArtifact.getFinalName();
+					break;
+				}
+			}
+		}
+		
+		getLog().info("Copying artifact content to target location.");
 		File[] cappArtifactFile = cAppArtifactDependency.getCappArtifactFile();
 		for (File file : cappArtifactFile) {
 			if (file.isDirectory()){
 				FileUtils.copyDirectory(file, new File(artifactLocation,file.getName()));
-			}else{
+			}else if(artifactFinalName == null){
 				FileUtils.copy(file, new File(artifactLocation,file.getName()));
+			}else{
+				FileUtils.copy(file, new File(artifactLocation,artifactFinalName));
+				cAppArtifact.setFile(artifactFinalName);
 			}
 		}
-		cAppArtifactDependency.getcAppArtifact().toFile(new File(artifactLocation,"artifact.xml"));
+		
+		cAppArtifact.toFile(new File(artifactLocation,"artifact.xml"));
 	}
 	
 	private void collectArtifacts(CAppArtifact cAppArtifact, Map<String,CAppArtifactDependency> cAppArtifacts) throws MojoExecutionException{
