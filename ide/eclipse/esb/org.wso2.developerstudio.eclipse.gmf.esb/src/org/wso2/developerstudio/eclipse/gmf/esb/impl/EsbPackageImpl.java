@@ -3422,6 +3422,24 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getEndPointProperty_ValueType() {
+		return (EAttribute)endPointPropertyEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEndPointProperty_ValueExpression() {
+		return (EReference)endPointPropertyEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getProxyService() {
 		return proxyServiceEClass;
 	}
@@ -12983,6 +13001,8 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEAttribute(endPointPropertyEClass, END_POINT_PROPERTY__NAME);
 		createEAttribute(endPointPropertyEClass, END_POINT_PROPERTY__VALUE);
 		createEAttribute(endPointPropertyEClass, END_POINT_PROPERTY__SCOPE);
+		createEAttribute(endPointPropertyEClass, END_POINT_PROPERTY__VALUE_TYPE);
+		createEReference(endPointPropertyEClass, END_POINT_PROPERTY__VALUE_EXPRESSION);
 
 		proxyServiceEClass = createEClass(PROXY_SERVICE);
 		createEReference(proxyServiceEClass, PROXY_SERVICE__OUTPUT_CONNECTOR);
@@ -14674,6 +14694,8 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEAttribute(getEndPointProperty_Name(), ecorePackage.getEString(), "name", null, 1, 1, EndPointProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEndPointProperty_Value(), ecorePackage.getEString(), "value", null, 1, 1, EndPointProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEndPointProperty_Scope(), this.getEndPointPropertyScope(), "scope", "", 1, 1, EndPointProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEndPointProperty_ValueType(), this.getPropertyValueType(), "valueType", "VALUE", 0, 1, EndPointProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEndPointProperty_ValueExpression(), this.getNamespacedProperty(), null, "valueExpression", null, 0, 1, EndPointProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(proxyServiceEClass, ProxyService.class, "ProxyService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getProxyService_OutputConnector(), this.getProxyOutputConnector(), null, "outputConnector", null, 0, 1, ProxyService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

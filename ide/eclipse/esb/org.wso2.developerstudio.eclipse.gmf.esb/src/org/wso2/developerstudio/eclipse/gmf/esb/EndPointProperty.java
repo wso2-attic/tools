@@ -28,6 +28,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.EndPointProperty#getName <em>Name</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.EndPointProperty#getValue <em>Value</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.EndPointProperty#getScope <em>Scope</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.EndPointProperty#getValueType <em>Value Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.EndPointProperty#getValueExpression <em>Value Expression</em>}</li>
  * </ul>
  * </p>
  *
@@ -117,5 +119,61 @@ public interface EndPointProperty extends EObject {
 	 * @generated
 	 */
 	void setScope(EndPointPropertyScope value);
+
+	/**
+	 * Returns the value of the '<em><b>Value Type</b></em>' attribute.
+	 * The default value is <code>"VALUE"</code>.
+	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.gmf.esb.PropertyValueType}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value Type</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Value Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.PropertyValueType
+	 * @see #setValueType(PropertyValueType)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getEndPointProperty_ValueType()
+	 * @model default="VALUE"
+	 * @generated
+	 */
+	PropertyValueType getValueType();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.EndPointProperty#getValueType <em>Value Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.PropertyValueType
+	 * @see #getValueType()
+	 * @generated
+	 */
+	void setValueType(PropertyValueType value);
+
+	/**
+	 * Returns the value of the '<em><b>Value Expression</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Value Expression</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Value Expression</em>' containment reference.
+	 * @see #setValueExpression(NamespacedProperty)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getEndPointProperty_ValueExpression()
+	 * @model containment="true"
+	 * @generated
+	 */
+	NamespacedProperty getValueExpression();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.EndPointProperty#getValueExpression <em>Value Expression</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Value Expression</em>' containment reference.
+	 * @see #getValueExpression()
+	 * @generated
+	 */
+	void setValueExpression(NamespacedProperty value);
 
 } // EndPointProperty

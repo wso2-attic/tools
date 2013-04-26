@@ -461,13 +461,31 @@ public interface EsbPackage extends EPackage {
 	int END_POINT_PROPERTY__SCOPE = 2;
 
 	/**
+	 * The feature id for the '<em><b>Value Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int END_POINT_PROPERTY__VALUE_TYPE = 3;
+
+	/**
+	 * The feature id for the '<em><b>Value Expression</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int END_POINT_PROPERTY__VALUE_EXPRESSION = 4;
+
+	/**
 	 * The number of structural features of the '<em>End Point Property</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int END_POINT_PROPERTY_FEATURE_COUNT = 3;
+	int END_POINT_PROPERTY_FEATURE_COUNT = 5;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl <em>Proxy Service</em>}' class.
@@ -17270,6 +17288,28 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	EAttribute getEndPointProperty_Scope();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.EndPointProperty#getValueType <em>Value Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value Type</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EndPointProperty#getValueType()
+	 * @see #getEndPointProperty()
+	 * @generated
+	 */
+	EAttribute getEndPointProperty_ValueType();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.EndPointProperty#getValueExpression <em>Value Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Value Expression</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EndPointProperty#getValueExpression()
+	 * @see #getEndPointProperty()
+	 * @generated
+	 */
+	EReference getEndPointProperty_ValueExpression();
+
+	/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService <em>Proxy Service</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -28810,6 +28850,22 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		 * @generated
 		 */
 		EAttribute END_POINT_PROPERTY__SCOPE = eINSTANCE.getEndPointProperty_Scope();
+
+		/**
+		 * The meta object literal for the '<em><b>Value Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute END_POINT_PROPERTY__VALUE_TYPE = eINSTANCE.getEndPointProperty_ValueType();
+
+		/**
+		 * The meta object literal for the '<em><b>Value Expression</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference END_POINT_PROPERTY__VALUE_EXPRESSION = eINSTANCE.getEndPointProperty_ValueExpression();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl <em>Proxy Service</em>}' class.
