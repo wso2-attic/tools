@@ -159,9 +159,20 @@ public class DeployCarMojo extends AbstractMojo {
 	 * @parameter
 	 */
     private List<CarbonServer> carbonServers;
+    
+	/**
+	 * Set this to 'false' to enable C-App artifact deploy
+	 * 
+	 * @parameter expression="${maven.car.deploy.skip}" default-value="true"
+	 */
+    private boolean skip;     
+    
 
 	public void execute() throws MojoExecutionException, MojoFailureException {
-//		printParams();
+		if (skip) {
+			getLog().info("Skipping CAR artifact deployment to Carbon Server(s).");
+			return;
+		}
 		
 		if(carbonServers==null){
 			deployCAR();
@@ -216,7 +227,7 @@ public class DeployCarMojo extends AbstractMojo {
 				Xpp3Dom finalNameNode = configurationNode.getChild("finalName");
 				if (finalNameNode != null) {
 					finalName = finalNameNode.getValue();
-					getLog().info("Final Name of C-App: "+finalName);
+					getLog().info("Final Name of C-App: "+finalName+".car");
 				}
 				break;
 			}
