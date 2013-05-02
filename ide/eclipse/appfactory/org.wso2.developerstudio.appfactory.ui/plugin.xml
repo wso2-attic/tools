@@ -153,9 +153,9 @@
 		<page id="org.wso2.developerstudio.eclipse.ui.developerstudio.preferences.appfactory" name="App Factory" 
 		class="org.wso2.developerstudio.appfactory.ui.preference.AppFactoryPreferencePage" category="org.wso2.developerstudio.eclipse.ui.developerstudio.preferences"></page>
 	</extension>
-	 <extension
+	 <!--extension
          point="org.eclipse.ui.startup">
       <startup
             class="org.wso2.developerstudio.appfactory.ui.perspective.AppFactoryPerspectiveManager"></startup>
-   </extension>
+   </extension-->
 </plugin>

@@ -19,6 +19,7 @@ package org.wso2.developerstudio.appfactory.ui.views;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
+import org.eclipse.swt.internal.cde.DtActionArg;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
@@ -34,11 +35,20 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 	public static final String ID = "org.wso2.developerstudio.appfactory.ui.views.AppfactoryView";
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	
-	private Label lblValue1;
-	private Label lblValue2;
-	private Label lblValue3;
-	private Label lblValue4;
-	private Label lblValue5;
+	private Label lblApplicationType;
+	private Label lblRepositoryType;
+	private Label lblApplicationOwner;
+	private Label lblDescription;
+	private Label lblVersion;
+	private Label lblRepoType;
+	private Label lblRepoURL;
+	private Composite ownerComposite;
+	private Composite developercomposite;
+	private Composite datasourcescomposite;
+	private Composite databasescomposite;
+	private Composite apicomposite;
+	private Composite propertiescomposite;
+	
 	
 	public AppfactoryApplicationDetailsView() {
 	}
@@ -77,7 +87,8 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 		gridLayout.marginWidth = 20;
 		composite.setLayout(gridLayout);
 		
-		String[] names = new String[] { "Application Type: ", "Repository Type: ","Application Owner: ","Description: ","Version: "};
+		String[] names = new String[] { "Application Type: ", "Repository Type: ","Application Owner: ","Description: ","Version: ",
+		                                "Repository URL: "};
 		
 		generateControls(composite, names);
 		
@@ -87,27 +98,28 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 	    createLabel(composite, SWT.NONE, names[0],
 		        					new GridData(), composite.getBackground(), new Font(null,
 		        							"", 8, SWT.BOLD));
-		lblValue1=createLabel(composite, SWT.NONE, "",
+		lblApplicationType=createLabel(composite, SWT.NONE, "",
 		                  					getGridData(), composite.getBackground(), null);
 		
 	    createLabel(composite, SWT.NONE, names[1],
 		        					new GridData(), composite.getBackground(), new Font(null,
 		        							"", 8, SWT.BOLD));
-		lblValue2=createLabel(composite, SWT.NONE, "",
+		lblRepositoryType=createLabel(composite, SWT.NONE, "",
 		                                      getGridData(), composite.getBackground(), null);
 		
 	    createLabel(composite, SWT.NONE, names[2],
 		        					new GridData(), composite.getBackground(), new Font(null,
 		        							"", 8, SWT.BOLD));
-		lblValue3=createLabel(composite, SWT.NONE, "",
+		lblApplicationOwner=createLabel(composite, SWT.NONE, "",
 		                                      getGridData(), composite.getBackground(), null);
 		
 	    createLabel(composite, SWT.NONE, names[3],
 		        					new GridData(), composite.getBackground(), new Font(null,
 		        							"", 8, SWT.BOLD));
-		lblValue4=createLabel(composite, SWT.NONE, "",
+		lblDescription=createLabel(composite, SWT.NONE, "",
 		                                      getGridData(), composite.getBackground(), null);
 		
+		//Current Status Header
 		createLabel(composite,SWT.NONE, "Current Status",
 		        					new GridData(), composite.getBackground(), new Font(null,
 		        							"", 14, SWT.BOLD));
@@ -117,8 +129,155 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 		createLabel(composite, SWT.NONE, names[4],
 					new GridData(), composite.getBackground(), new Font(null,
 							"", 8, SWT.BOLD));
-		lblValue5=createLabel(composite, SWT.NONE, "",
+		lblVersion=createLabel(composite, SWT.NONE, "",
                               getGridData(), composite.getBackground(), null);
+		
+		// Repository Header
+		createLabel(composite, SWT.NONE, "Repository", new GridData(),
+		            composite.getBackground(), new Font(null, "", 14, SWT.BOLD));
+		createLabel(composite, SWT.NONE, "", new GridData(), composite.getBackground(),
+		            new Font(null, "", 8, SWT.BOLD));
+		
+		
+		createLabel(composite, SWT.NONE, names[5],
+					new GridData(), composite.getBackground(), new Font(null,
+							"", 8, SWT.BOLD));
+		lblRepoURL=createLabel(composite, SWT.NONE, "",
+                              getGridData(), composite.getBackground(), null);
+		
+		// Team Header
+		createLabel(composite, SWT.NONE, "Team", new GridData(), composite.getBackground(),
+		            new Font(null, "", 14, SWT.BOLD));
+		createLabel(composite, SWT.NONE, "", new GridData(), composite.getBackground(),
+		            new Font(null, "", 8, SWT.BOLD));
+		
+		// App owner Header
+		createLabel(composite, SWT.NONE, "App Owner", new GridData(), composite.getBackground(),
+		            new Font(null, "", 11, SWT.BOLD));
+		createLabel(composite, SWT.NONE, "", new GridData(), composite.getBackground(),
+		            new Font(null, "", 8, SWT.BOLD));
+		
+		//Get app owner list here and iteratively show them
+		ownerComposite = new Composite(composite, SWT.NONE);
+		GridLayout gridLayout1 = new GridLayout(1, false);
+		gridLayout1.marginWidth = 20;
+		ownerComposite.setLayout(gridLayout1);
+		
+		//test owners
+		createLabel(ownerComposite, SWT.NONE, "harshana@wso2.com",
+                    getGridData(), composite.getBackground(), null);
+		createLabel(ownerComposite, SWT.NONE, "harshana05@gmail.com",
+                    getGridData(), composite.getBackground(), null);
+		
+		createLabel(composite, SWT.NONE, "", new GridData(), composite.getBackground(),
+		            new Font(null, "", 8, SWT.BOLD));
+		 
+		// App Developer Header
+		createLabel(composite, SWT.NONE, "App Developer", new GridData(),
+		            composite.getBackground(), new Font(null, "", 11, SWT.BOLD));
+		createLabel(composite, SWT.NONE, "", new GridData(), composite.getBackground(),
+		            new Font(null, "", 8, SWT.BOLD));
+		
+		// Get app developer list here and iteratively show them
+		developercomposite = new Composite(composite, SWT.NONE);
+		GridLayout gridLayout2 = new GridLayout(1, false);
+		gridLayout2.marginWidth = 20;
+		developercomposite.setLayout(gridLayout2);
+		
+		// test developers
+		createLabel(developercomposite, SWT.NONE, "harshana@wso2.com",
+                    getGridData(), composite.getBackground(), null);
+		createLabel(developercomposite, SWT.NONE, "harshana05@gmail.com",
+                    getGridData(), composite.getBackground(), null);
+
+		createLabel(composite, SWT.NONE, "", new GridData(), composite.getBackground(),
+		            new Font(null, "", 8, SWT.BOLD));
+		
+		// Resources Header
+		createLabel(composite, SWT.NONE, "Resources", new GridData(), composite.getBackground(),
+		            new Font(null, "", 14, SWT.BOLD));
+		createLabel(composite, SWT.NONE, "", new GridData(), composite.getBackground(),
+		            new Font(null, "", 8, SWT.BOLD));
+		
+		// Data Sources Header
+		createLabel(composite, SWT.NONE, "Data Sources", new GridData(), composite.getBackground(),
+		            new Font(null, "", 11, SWT.BOLD));
+		createLabel(composite, SWT.NONE, "", new GridData(), composite.getBackground(),
+		            new Font(null, "", 8, SWT.BOLD));
+
+		// Get Data Sources list here and iteratively show them
+		datasourcescomposite = new Composite(composite, SWT.NONE);
+		GridLayout gridLayout3 = new GridLayout(1, false);
+		gridLayout3.marginWidth = 20;
+		datasourcescomposite.setLayout(gridLayout3);
+		
+		// test datasources
+		createLabel(datasourcescomposite, SWT.NONE, "SimpleDatasource 1", getGridData(),
+		            composite.getBackground(), null);
+		createLabel(datasourcescomposite, SWT.NONE, "SimpleDatasource 2", getGridData(),
+		            composite.getBackground(), null);
+		
+		createLabel(composite, SWT.NONE, "", new GridData(), composite.getBackground(),
+		            new Font(null, "", 8, SWT.BOLD));
+		
+		// Data bases Header
+		createLabel(composite, SWT.NONE, "Databases", new GridData(), composite.getBackground(),
+		            new Font(null, "", 11, SWT.BOLD));
+		createLabel(composite, SWT.NONE, "", new GridData(), composite.getBackground(),
+		            new Font(null, "", 8, SWT.BOLD));
+
+		// Get Data Sources list here and iteratively show them
+		databasescomposite = new Composite(composite, SWT.NONE);
+		GridLayout gridLayout4 = new GridLayout(1, false);
+		gridLayout4.marginWidth = 20;
+		databasescomposite.setLayout(gridLayout4);
+
+		// test datasources
+		createLabel(databasescomposite, SWT.NONE, "Simplebase 1", getGridData(),
+		            composite.getBackground(), null);
+		createLabel(databasescomposite, SWT.NONE, "Simplebase 2", getGridData(),
+		            composite.getBackground(), null);
+		
+		createLabel(composite, SWT.NONE, "", new GridData(), composite.getBackground(),
+		            new Font(null, "", 8, SWT.BOLD));
+		
+		// APIs Header
+		createLabel(composite, SWT.NONE, "APIs", new GridData(), composite.getBackground(),
+		            new Font(null, "", 11, SWT.BOLD));
+		createLabel(composite, SWT.NONE, "", new GridData(), composite.getBackground(),
+		            new Font(null, "", 8, SWT.BOLD));
+
+		// Get Data Sources list here and iteratively show them
+		apicomposite = new Composite(composite, SWT.NONE);
+		GridLayout gridLayout5 = new GridLayout(1, false);
+		gridLayout5.marginWidth = 20;
+		apicomposite.setLayout(gridLayout5);
+
+		// test datasources
+		createLabel(apicomposite, SWT.NONE, "API 1", getGridData(), composite.getBackground(), null);
+		createLabel(apicomposite, SWT.NONE, "API 2", getGridData(), composite.getBackground(), null);
+		
+		createLabel(composite, SWT.NONE, "", new GridData(), composite.getBackground(),
+		            new Font(null, "", 8, SWT.BOLD));
+		
+		// Properties Header
+		createLabel(composite, SWT.NONE, "Properties", new GridData(), composite.getBackground(),
+		            new Font(null, "", 11, SWT.BOLD));
+		createLabel(composite, SWT.NONE, "", new GridData(), composite.getBackground(),
+		            new Font(null, "", 8, SWT.BOLD));
+
+		// Get Data Sources list here and iteratively show them
+		propertiescomposite = new Composite(composite, SWT.NONE);
+		GridLayout gridLayout6 = new GridLayout(1, false);
+		gridLayout6.marginWidth = 20;
+		propertiescomposite.setLayout(gridLayout6);
+
+		// test datasources
+		createLabel(propertiescomposite, SWT.NONE, "Property 1", getGridData(), composite.getBackground(), null);
+		createLabel(propertiescomposite, SWT.NONE, "Property 2", getGridData(), composite.getBackground(), null);
+		
+		createLabel(composite, SWT.NONE, "", new GridData(), composite.getBackground(),
+		            new Font(null, "", 8, SWT.BOLD));
 	}
  
 	@Override

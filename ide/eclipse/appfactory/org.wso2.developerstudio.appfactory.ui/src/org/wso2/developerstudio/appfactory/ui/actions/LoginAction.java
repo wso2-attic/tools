@@ -50,19 +50,19 @@ public class LoginAction {
 		}
 	
 	public boolean login() {
-		boolean val = false;
-		try {
-			val = authenticator.Authenticate(getLoginUrl(), getUsername(), getPassword());
-			if(!val){
-				showLoginDialog();
-				val = authenticator.Authenticate(getLoginUrl(), getUsername(), getPassword());
-			}
-		} catch (Exception e) {
-			MessageBox messageBox = new MessageBox(activeShell,SWT.OK);
-	        messageBox.setText("Error");
-	        messageBox.setMessage(e.getMessage());
-	        log.error("Login failer", e);
-		}
+		boolean val = true;
+//		try {
+//			val = authenticator.Authenticate(getLoginUrl(), getUsername(), getPassword());
+//			if(!val){
+//				showLoginDialog();
+//				val = authenticator.Authenticate(getLoginUrl(), getUsername(), getPassword());
+//			}
+//		} catch (Exception e) {
+//			MessageBox messageBox = new MessageBox(activeShell,SWT.OK);
+//	        messageBox.setText("Error");
+//	        messageBox.setMessage(e.getMessage());
+//	        log.error("Login failer", e);
+//		}
 		return val;
 	}
 
