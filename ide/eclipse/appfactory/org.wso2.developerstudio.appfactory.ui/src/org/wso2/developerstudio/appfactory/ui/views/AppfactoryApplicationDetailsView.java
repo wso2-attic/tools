@@ -17,9 +17,12 @@
 package org.wso2.developerstudio.appfactory.ui.views;
 
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.custom.ScrolledComposite;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
+import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.internal.cde.DtActionArg;
+import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
@@ -82,10 +85,26 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 	}
 
 	public void createPartControl(Composite parent) {
-		Composite composite = new Composite(parent, SWT.NONE);
-		GridLayout gridLayout = new GridLayout(2, false);
-		gridLayout.marginWidth = 20;
+		ScrolledComposite sc=new ScrolledComposite(parent, SWT.H_SCROLL | SWT.V_SCROLL | SWT.BORDER);
+		sc.setExpandVertical(true);
+//		sc.setExpandHorizontal(true);
+//		sc.setLayoutData(new GridData(GridData.FILL_BOTH));
+		Composite composite = new Composite(sc, SWT.NONE);
+		
+		 GridLayout gridLayout = new GridLayout(2, false);
+		 gridLayout.marginWidth=20;
 		composite.setLayout(gridLayout);
+		         composite.setSize(1200,1200);
+		         sc.setContent(composite);
+//		     sc.setExpandHorizontal(true);
+//		     sc.setExpandVertical(true);
+		      sc.setMinSize(composite.computeSize(200, 200));
+		
+//		sc.setContent(composite);
+//		sc.setMinHeight(5);
+//		GridLayout gridLayout = new GridLayout(2, false);
+//		gridLayout.marginWidth = 20;
+//		composite.setLayout(gridLayout);
 		
 		String[] names = new String[] { "Application Type: ", "Repository Type: ","Application Owner: ","Description: ","Version: ",
 		                                "Repository URL: "};
@@ -95,16 +114,17 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 	}
 	
 	protected void generateControls(Composite composite, String[] names) {
-	    createLabel(composite, SWT.NONE, names[0],
-		        					new GridData(), composite.getBackground(), new Font(null,
-		        							"", 8, SWT.BOLD));
-		lblApplicationType=createLabel(composite, SWT.NONE, "",
-		                  					getGridData(), composite.getBackground(), null);
+		createLabel(composite, SWT.NONE, names[0],
+		            new GridData(), composite.getBackground(), new Font(null,
+		                                                                "", 8, SWT.BOLD));
+		lblApplicationType=createLabel(composite, SWT.NONE, "bbbbbbbbbbbbbbbbbbbbbb",
+		                               new GridData(), composite.getBackground(),new Font(null,
+		                                                                                  "", 8, SWT.BOLD));
 		
 	    createLabel(composite, SWT.NONE, names[1],
 		        					new GridData(), composite.getBackground(), new Font(null,
 		        							"", 8, SWT.BOLD));
-		lblRepositoryType=createLabel(composite, SWT.NONE, "",
+		lblRepositoryType=createLabel(composite, SWT.NONE, "admin@admin.com",
 		                                      getGridData(), composite.getBackground(), null);
 		
 	    createLabel(composite, SWT.NONE, names[2],
@@ -142,8 +162,8 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 		createLabel(composite, SWT.NONE, names[5],
 					new GridData(), composite.getBackground(), new Font(null,
 							"", 8, SWT.BOLD));
-		lblRepoURL=createLabel(composite, SWT.NONE, "",
-                              getGridData(), composite.getBackground(), null);
+		lblRepoURL=createLabel(composite, SWT.NONE, "https://appfactorypreview.wso2.com:8443/git/testApplication.git",
+		                       new GridData(), composite.getBackground(), null);
 		
 		// Team Header
 		createLabel(composite, SWT.NONE, "Team", new GridData(), composite.getBackground(),
