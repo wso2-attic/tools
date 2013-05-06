@@ -71,7 +71,7 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 		}
 		lbl.setText(text);
 		if (layoutData != null){
-			lbl.setLayoutData(layoutData);
+//			lbl.setLayoutData(layoutData);
 		}
 		return lbl;
 	}
@@ -92,13 +92,12 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 		Composite composite = new Composite(sc, SWT.NONE);
 		
 		 GridLayout gridLayout = new GridLayout(2, false);
-		 gridLayout.marginWidth=20;
 		composite.setLayout(gridLayout);
-		         composite.setSize(1200,1200);
+		         composite.setSize(750,1500);
 		         sc.setContent(composite);
 //		     sc.setExpandHorizontal(true);
 //		     sc.setExpandVertical(true);
-		      sc.setMinSize(composite.computeSize(200, 200));
+		      sc.setMinSize(composite.computeSize(750, 1500));
 		
 //		sc.setContent(composite);
 //		sc.setMinHeight(5);
