@@ -43,7 +43,6 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 	private Label lblApplicationOwner;
 	private Label lblDescription;
 	private Label lblVersion;
-	private Label lblRepoType;
 	private Label lblRepoURL;
 	private Composite ownerComposite;
 	private Composite developercomposite;
@@ -85,29 +84,23 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 	}
 
 	public void createPartControl(Composite parent) {
-		ScrolledComposite sc=new ScrolledComposite(parent, SWT.H_SCROLL | SWT.V_SCROLL | SWT.BORDER);
+		ScrolledComposite sc =
+		                       new ScrolledComposite(parent, SWT.H_SCROLL | SWT.V_SCROLL |
+		                                                     SWT.BORDER);
 		sc.setExpandVertical(true);
-//		sc.setExpandHorizontal(true);
-//		sc.setLayoutData(new GridData(GridData.FILL_BOTH));
 		Composite composite = new Composite(sc, SWT.NONE);
-		
-		 GridLayout gridLayout = new GridLayout(2, false);
+
+		GridLayout gridLayout = new GridLayout(2, false);
 		composite.setLayout(gridLayout);
-		         composite.setSize(750,1500);
-		         sc.setContent(composite);
-//		     sc.setExpandHorizontal(true);
-//		     sc.setExpandVertical(true);
-		      sc.setMinSize(composite.computeSize(750, 1500));
-		
-//		sc.setContent(composite);
-//		sc.setMinHeight(5);
-//		GridLayout gridLayout = new GridLayout(2, false);
-//		gridLayout.marginWidth = 20;
-//		composite.setLayout(gridLayout);
-		
-		String[] names = new String[] { "Application Type: ", "Repository Type: ","Application Owner: ","Description: ","Version: ",
-		                                "Repository URL: "};
-		
+		composite.setSize(750, 1500);
+		sc.setContent(composite);
+		sc.setMinSize(composite.computeSize(750, 1500));
+
+		String[] names =
+		                 new String[] { "Application Type: ", "Repository Type: ",
+		                               "Application Owner: ", "Description: ", "Version: ",
+		                               "Repository URL: " };
+
 		generateControls(composite, names);
 		
 	}
@@ -116,14 +109,14 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 		createLabel(composite, SWT.NONE, names[0],
 		            new GridData(), composite.getBackground(), new Font(null,
 		                                                                "", 8, SWT.BOLD));
-		lblApplicationType=createLabel(composite, SWT.NONE, "bbbbbbbbbbbbbbbbbbbbbb",
+		lblApplicationType=createLabel(composite, SWT.NONE, "",
 		                               new GridData(), composite.getBackground(),new Font(null,
 		                                                                                  "", 8, SWT.BOLD));
 		
 	    createLabel(composite, SWT.NONE, names[1],
 		        					new GridData(), composite.getBackground(), new Font(null,
 		        							"", 8, SWT.BOLD));
-		lblRepositoryType=createLabel(composite, SWT.NONE, "admin@admin.com",
+		lblRepositoryType=createLabel(composite, SWT.NONE, "",
 		                                      getGridData(), composite.getBackground(), null);
 		
 	    createLabel(composite, SWT.NONE, names[2],
@@ -161,7 +154,7 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 		createLabel(composite, SWT.NONE, names[5],
 					new GridData(), composite.getBackground(), new Font(null,
 							"", 8, SWT.BOLD));
-		lblRepoURL=createLabel(composite, SWT.NONE, "https://appfactorypreview.wso2.com:8443/git/testApplication.git",
+		lblRepoURL=createLabel(composite, SWT.NONE, "jjjjjjjjjjjjjjjjjjjjjjjj",
 		                       new GridData(), composite.getBackground(), null);
 		
 		// Team Header
@@ -182,11 +175,11 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 		gridLayout1.marginWidth = 20;
 		ownerComposite.setLayout(gridLayout1);
 		
-		//test owners
-		createLabel(ownerComposite, SWT.NONE, "harshana@wso2.com",
-                    getGridData(), composite.getBackground(), null);
-		createLabel(ownerComposite, SWT.NONE, "harshana05@gmail.com",
-                    getGridData(), composite.getBackground(), null);
+//		//test owners
+//		createLabel(ownerComposite, SWT.NONE, "harshana@wso2.com",
+//                    getGridData(), composite.getBackground(), null);
+//		createLabel(ownerComposite, SWT.NONE, "harshana05@gmail.com",
+//                    getGridData(), composite.getBackground(), null);
 		
 		createLabel(composite, SWT.NONE, "", new GridData(), composite.getBackground(),
 		            new Font(null, "", 8, SWT.BOLD));
@@ -298,11 +291,30 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 		createLabel(composite, SWT.NONE, "", new GridData(), composite.getBackground(),
 		            new Font(null, "", 8, SWT.BOLD));
 	}
+	
+	public void updateView(){
+		lblApplicationType.setText("War");
+		lblRepositoryType.setText("Git");
+		lblApplicationOwner.setText("admin@admin.com");
+		lblDescription.setText("No Description");
+		lblVersion.setText("1.0.0-SNAPSHOT");
+//		lblRepoType.setText("Git");
+		lblRepoURL.setText("https://appfactorypreview.wso2.com:8443/git/testApplication.git");
+//		lblRepoURL.setText("KKKKKKKKKKKKKKKKKKKK");
+		
+//		//test owners
+//				createLabel(ownerComposite, SWT.NONE, "harshana@wso2.com",
+//		                    getGridData(), composite.getBackground(), null);
+//				createLabel(ownerComposite, SWT.NONE, "harshana05@gmail.com",
+//		                    getGridData(), composite.getBackground(), null);
+//		
+		
+	}
  
 	@Override
 	public void setFocus() {
-		//tblApplication.forceFocus();
-		
+		//Testing only
+		updateView();
 	}
 	
 }
