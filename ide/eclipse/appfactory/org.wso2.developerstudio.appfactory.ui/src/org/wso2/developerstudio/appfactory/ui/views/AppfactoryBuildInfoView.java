@@ -26,20 +26,17 @@ import org.wso2.developerstudio.eclipse.logging.core.Logger;
 public class AppfactoryBuildInfoView extends ViewPart {
 	
 	public static final String ID = "org.wso2.developerstudio.appfactory.ui.views.AppfactoryView";
-	
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	
 
 	public AppfactoryBuildInfoView() {
 	}
 
-	
 	public void createPartControl(Composite parent) {
 	
 	}
 	@Override
 	public void setFocus() {
-		//tblApplication.forceFocus();
 		
 	}
 	

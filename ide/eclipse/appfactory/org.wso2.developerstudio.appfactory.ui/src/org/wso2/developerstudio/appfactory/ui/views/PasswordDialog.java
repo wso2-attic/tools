@@ -1,3 +1,19 @@
+/*
+ * Copyright (c) 2012, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package org.wso2.developerstudio.appfactory.ui.views;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.IDialogConstants;
@@ -14,8 +30,10 @@ import org.eclipse.swt.layout.GridData;
 public class PasswordDialog extends Dialog {
   private Text userText;
   private Text passwordText;
-  private String user="";
-  private String password="";
+  private Text hostText;
+  private String user="admin@admin.com";
+  private String password="admin";
+  private String host="https://appfactorypreview.wso2.com";
 
   
 /** * Create the dialog. * * @param parentShell */
@@ -35,6 +53,14 @@ public class PasswordDialog extends Dialog {
     gl_container.marginLeft = 10;
     container.setLayout(gl_container);
 
+    Label lblHost = new Label(container, SWT.NONE);
+    lblHost.setText("Host:");
+
+    hostText = new Text(container, SWT.BORDER);
+    hostText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false,
+        1, 1));
+    hostText.setText(host);
+    
     Label lblUser = new Label(container, SWT.NONE);
     lblUser.setText("User:");
 
@@ -80,7 +106,7 @@ public class PasswordDialog extends Dialog {
   protected void okPressed() {
     user = userText.getText();
     password = passwordText.getText();
-
+    host = hostText.getText().trim();
     super.okPressed();
   }
 
@@ -99,4 +125,14 @@ public class PasswordDialog extends Dialog {
   public void setPassword(String password) {
     this.password = password;
   }
+
+
+public String getHost() {
+	return host;
+}
+
+
+public void setHost(String host) {
+	this.host = host;
+}
 }

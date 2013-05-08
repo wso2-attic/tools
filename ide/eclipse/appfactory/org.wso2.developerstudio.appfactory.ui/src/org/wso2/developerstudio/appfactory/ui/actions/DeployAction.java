@@ -1,12 +1,25 @@
+/*
+ * Copyright (c) 2012, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package org.wso2.developerstudio.appfactory.ui.actions;
 
-import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.IResource;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.IActionDelegate;
-import org.wso2.developerstudio.appfactory.core.client.HttpsJaggeryClient;
  
 
 
@@ -21,30 +34,8 @@ public class DeployAction implements IActionDelegate{
     public void run(IAction action) {
 		if (selection != null) {
 			 try {
-				IResource resource = (IResource)selection.getFirstElement();
-				IProject project = resource.getProject();
-				//invoke Login API  
-				String[] paramNames = new String[]{"action","userName","password"};
-				String[] paramValues = new String[]{"login","admin@admin.com","admin"};
-				
-			    // String val =  HttpsJaggeryClient.httpPost(LOGIN_URL, paramNames, paramValues);
-			   //  System.out.println(val);
-			     //Invoke build service 
-			     paramNames = new String[]{"action","applicationId"};
-			     paramValues = new String[]{"buildinfobyappid",project.getName()};
-				 //String buildInfo =HttpsJaggeryClient.httpPost(LOGOUT_URL, paramNames, paramValues);
-				// System.out.println(buildInfo);
-				//invoke deploy API
-				
-				paramNames = new String[]{"action","applicationId","stage","version","build"};
-				//paramValues = new String[]{"directdeploy",project.getName(),"Development","1.0-SNAPSHOT",buildInfo};
-				//
-				//logout
-				//HttpsJaggeryClient.httpPost(LOGOUT_URL,new String[0], new String[0]);
-				
+				//TODO Deploy Action imple
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
 			}
     	}
     }
