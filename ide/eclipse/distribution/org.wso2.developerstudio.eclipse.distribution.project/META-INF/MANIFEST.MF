@@ -54,5 +54,6 @@ Import-Package: org.apache.axiom.om,
  org.wso2.developerstudio.eclipse.utils.project,
  org.wso2.developerstudio.eclipse.utils.ui
 Export-Package: org.wso2.developerstudio.eclipse.distribution.project.export,
- org.wso2.developerstudio.eclipse.distribution.project.util
+ org.wso2.developerstudio.eclipse.distribution.project.util,
+ org.wso2.developerstudio.eclipse.distribution.project.ui.wizard
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

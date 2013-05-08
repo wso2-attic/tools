@@ -126,7 +126,7 @@ public class ProjectsImportPage  extends WizardPage implements IOverwriteQuery  
 			return null;
 		}
 	}
-
+	
 	/**
 	 * Class declared public only for test suite.
 	 * 
@@ -1093,6 +1093,16 @@ public class ProjectsImportPage  extends WizardPage implements IOverwriteQuery  
 		}
 
 	}
+	/**
+	 * Object[] selected = Project ProjectRecords[]
+	 * 
+	 * 
+	 * 
+	 */
+	public boolean createProjects(final Object[] selected){
+		
+		return true;
+	}
 
 	/**
 	 * Create the selected projects
@@ -1106,6 +1116,11 @@ public class ProjectsImportPage  extends WizardPage implements IOverwriteQuery  
 		final Object[] selected = projectsList.getCheckedElements();
 		createdProjects = new ArrayList();
 		final ArrayList records=new ArrayList();
+		return createProjectList(selected, records);
+	}
+
+	private boolean createProjectList(final Object[] selected,
+			final ArrayList records) {
 		WorkspaceModifyOperation op = new WorkspaceModifyOperation() {
 			protected void execute(IProgressMonitor monitor)
 					throws InvocationTargetException, InterruptedException {
@@ -1158,7 +1173,6 @@ public class ProjectsImportPage  extends WizardPage implements IOverwriteQuery  
 
 		// Adds the projects to the working sets
 		addToWorkingSets();
-		
 		return true;
 	}
 	
