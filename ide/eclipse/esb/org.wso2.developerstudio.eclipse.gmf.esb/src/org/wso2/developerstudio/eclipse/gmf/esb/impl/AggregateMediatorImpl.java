@@ -300,7 +300,7 @@ public class AggregateMediatorImpl extends MediatorImpl implements AggregateMedi
 		NamespacedProperty correlateOnExpression = EsbFactoryImpl.eINSTANCE.createNamespacedProperty();
 		correlateOnExpression.setPrettyName("Correlation Expression");
 		correlateOnExpression.setPropertyName("expression");
-		correlateOnExpression.setPropertyValue("/default/expression");
+		correlateOnExpression.setPropertyValue("");
 		setCorrelationExpression(correlateOnExpression);	
 		
 		// Aggregation Expression
