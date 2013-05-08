@@ -21,65 +21,38 @@ import java.util.Map;
 import org.wso2.developerstudio.appfactory.core.client.HttpsJaggeryClient;
 
 public class Authenticator {
-
-	private String sessionCookie;
-	private String userName;
-	private String password;
-	private String serverURL;
 	
-	public String getUserName() {
-		return userName;
-	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-
-	public boolean Authenticate(String serverUrl, String userName, String passwd)
+  public String serverURL;	
+  private static Authenticator authanticator = null;
+  private UserPasswordCredentials credentials;
+  
+ protected Authenticator() {
+	 
+ }
+  public static Authenticator getInstance() {
+	      if(authanticator == null) {
+	         authanticator = new Authenticator();
+	      }
+	      return authanticator;
+	   }
+  public boolean Authenticate(String serverUrl, UserPasswordCredentials credentials)
 			throws Exception {
 		 Map<String,String> params = new HashMap<String,String>();
 		 params.put("action", "login");
-		 params.put("userName", userName);
-		 params.put("password", passwd);
-		 String[] paramNames = new String[]{"action","userName","password"};
-	     String[] paramValues = new String[]{"login",userName,passwd};
-		// String value = HttpsJaggeryClient.httpPostLogin(serverUrl,params);
-	     String value = HttpsJaggeryClient.httpUrlPost(serverUrl, paramNames, paramValues);
-		 if("true".equals(value)){
-			 setPassword(passwd);
-			 setUserName(userName);
-			 setSessionCookie("cookie");
+		 params.put("userName", credentials.getUser());
+		 params.put("password", credentials.getPassword());
+		 String value = HttpsJaggeryClient.httpPostLogin(serverUrl,params);
+	     if("true".equals(value)){
+			 this.serverURL = serverUrl;
+			 this.credentials = credentials;
 			 return true;
 		 }
 		 return false;
 	}
-	
-	public boolean Authenticate() throws Exception{
-		return Authenticate(getServerURL(),getUserName(),getPassword());
-	}
-
-	public void setSessionCookie(String sessionCookie) {
-		this.sessionCookie = sessionCookie;
-	}
-
-	public String getSessionCookie() {
-		return sessionCookie;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setServerURL(String serverURL) {
-		this.serverURL = serverURL;
-	}
-
-	public String getServerURL() {
-		return serverURL;
-	}
-
+public UserPasswordCredentials getCredentials() {
+	return credentials;
+}
+public void setCredentials(UserPasswordCredentials credentials) {
+	this.credentials = credentials;
+}
 }

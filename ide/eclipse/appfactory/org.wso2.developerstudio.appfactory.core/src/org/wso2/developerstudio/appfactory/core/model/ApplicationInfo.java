@@ -16,42 +16,23 @@
 
 package org.wso2.developerstudio.appfactory.core.model;
 
+import java.util.List;
+ 
+
 public class ApplicationInfo{
 	
-	private String applicationDescription;
-	private String applicationKey;
-	private String applicationName;
-	private String applicationRepoLink;
+	private String description;
+	private String key;
+	private String name;
+	private String repositoryType;
+	private String type;
 	private long revision;
+	private List<AppVersionInfo> version;
 	
 	public ApplicationInfo(String applicationKey) {
-		this.applicationKey = applicationKey;
+		this.setKey(applicationKey);
 	}
-	
-	public String getApplicationDescription() {
-		return applicationDescription;
-	}
-	public void setApplicationDescription(String applicationDescription) {
-		this.applicationDescription = applicationDescription;
-	}
-	public String getApplicationKey() {
-		return applicationKey;
-	}
-	public void setApplicationKey(String applicationKey) {
-		this.applicationKey = applicationKey;
-	}
-	public String getApplicationName() {
-		return applicationName;
-	}
-	public void setApplicationName(String applicationName) {
-		this.applicationName = applicationName;
-	}
-	public String getApplicationRepoLink() {
-		return applicationRepoLink;
-	}
-	public void setApplicationRepoLink(String applicationRepoLink) {
-		this.applicationRepoLink = applicationRepoLink;
-	}
+
 	public void setRevision(long revision) {
 		this.revision = revision;
 	}
@@ -59,4 +40,53 @@ public class ApplicationInfo{
 	public long getRevision() {
 		return revision;
 	}
+	
+	public String getDescription() {
+		return description;
+	}
+	
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getKey() {
+		return key;
+	}
+
+	public void setKey(String key) {
+		this.key = key;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getRepositoryType() {
+		return repositoryType;
+	}
+
+	public void setRepositoryType(String repositoryType) {
+		this.repositoryType = repositoryType;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public List<AppVersionInfo> getVersion() {
+		return version;
+	}
+
+	public void setVersion(List<AppVersionInfo> version) {
+		this.version = version;
+	}
+
 }
