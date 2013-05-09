@@ -117,6 +117,9 @@ public class ApplicationInfo{
 	 * @return the applicationDevelopers
 	 */
     public List<String> getApplicationDevelopers() {
+    	if(applicationDevelopers==null){
+    		return Collections.EMPTY_LIST;
+    	}
 	    return applicationDevelopers;
     }
 
@@ -131,6 +134,9 @@ public class ApplicationInfo{
 	 * @return the datasources
 	 */
     public List<String> getDatasources() {
+    	if(datasources==null){
+    		return Collections.EMPTY_LIST;
+    	}
 	    return datasources;
     }
 
@@ -145,6 +151,9 @@ public class ApplicationInfo{
 	 * @return the databases
 	 */
     public List<String> getDatabases() {
+    	if(databases==null){
+    		return Collections.EMPTY_LIST;
+    	}
 	    return databases;
     }
 
@@ -159,6 +168,9 @@ public class ApplicationInfo{
 	 * @return the apis
 	 */
     public List<String> getApis() {
+    	if(apis==null){
+    		return Collections.EMPTY_LIST;
+    	}
 	    return apis;
     }
 
@@ -173,6 +185,9 @@ public class ApplicationInfo{
 	 * @return the properties
 	 */
     public List<String> getProperties() {
+    	if(properties==null){
+    		return Collections.EMPTY_LIST;
+    	}
 	    return properties;
     }
 
