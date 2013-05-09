@@ -343,6 +343,8 @@
 						<arg value="-installIU" />
 						<arg value="org.wso2.developerstudio.eclipse.brs.artifact.feature.feature.group" />
 						<arg value="-installIU" />
+						<arg value="org.wso2.developerstudio.eclipse.appfactory.feature.feature.group" />
+						<arg value="-installIU" />
 						<arg value="org.wso2.soapui.feature.feature.group" />
 						<arg value="-installIU" />
 						<arg value="org.wso2.tcpmon.feature.feature.group" />

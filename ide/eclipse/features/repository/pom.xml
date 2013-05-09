@@ -84,7 +84,8 @@
 						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.registry.artifact.feature:${registry.tools.feature.version}</featureArtifactDef>
 						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.esb.feature:${esb.tools.feature.version}</featureArtifactDef>
 						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.esb.artifact.feature:${esb.tools.feature.version}</featureArtifactDef>
-						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.esb.graphical.editor.feature:${esb.graphical.editor.feature.version}</featureArtifactDef>                                 
+						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.esb.graphical.editor.feature:${esb.graphical.editor.feature.version}</featureArtifactDef>
+						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.appfactory.feature:${appfactory.tools.feature.version}</featureArtifactDef>                                 
 						<!--featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.carbon.uibundle.feature:${carbon.tools.feature.version}</featureArtifactDef-->
 						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.ds.feature:${ds.tools.feature.version}</featureArtifactDef>
 						<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.ds.artifact.feature:${ds.tools.artifact.feature.version}</featureArtifactDef>
@@ -274,7 +275,8 @@
 							<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.registry.artifact.feature:${registry.tools.feature.version}</featureArtifactDef>
 							<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.esb.feature:${esb.tools.feature.version}</featureArtifactDef>
 							<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.esb.artifact.feature:${esb.tools.feature.version}</featureArtifactDef>
-							<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.esb.graphical.editor.feature:${esb.graphical.editor.feature.version}</featureArtifactDef>     
+							<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.esb.graphical.editor.feature:${esb.graphical.editor.feature.version}</featureArtifactDef> 
+							<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.appfactory.feature:${appfactory.tools.feature.version}</featureArtifactDef>    
 						        <!--featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.carbon.uibundle.feature:${carbon.tools.feature.version}</featureArtifactDef-->
 							<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.ds.feature:${ds.tools.feature.version}</featureArtifactDef>
 							<featureArtifactDef>org.wso2.developerstudio:org.wso2.developerstudio.eclipse.ds.artifact.feature:${ds.tools.artifact.feature.version}</featureArtifactDef>

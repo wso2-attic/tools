@@ -49,6 +49,7 @@
 		<module>gs</module>
 		<module>cep</module>
 		<module>brs</module>
+		<module>appfactory</module>
 		<module>capp</module>
 		<module>connectors</module>
 		<module>distribution</module>
@@ -70,6 +71,7 @@
 		<module>carbon</module>  
 		<module>data-services</module>
 		<module>esb</module>
+		<module>appfactory</module>
 		<!--module>gs</module-->
 		<module>capp</module>
 		<module>connectors</module>
@@ -259,6 +261,7 @@
 	<esb.graphical.editor.tools.version>1.2.0-SNAPSHOT</esb.graphical.editor.tools.version>
 	<jaggery.tools.version>1.2.0-SNAPSHOT</jaggery.tools.version>
 	<smooks.edi.editor.version>1.0.1.201105031731</smooks.edi.editor.version>
+	<appfactory.tools.version>1.2.0-SNAPSHOT</appfactory.tools.version>
 
  	<!--********** p2 features versions **********-->
         <server.framework.feature.version>3.2.0-SNAPSHOT</server.framework.feature.version>
@@ -273,6 +276,7 @@
         <ds.tools.feature.version>3.2.0-SNAPSHOT</ds.tools.feature.version>
 	<ds.tools.artifact.feature.version>3.2.0-SNAPSHOT</ds.tools.artifact.feature.version>
         <esb.tools.feature.version>3.2.0-SNAPSHOT</esb.tools.feature.version>
+	<appfactory.tools.feature.version>1.2.0-SNAPSHOT</appfactory.tools.feature.version>
         <capp.tools.feature.version>3.2.0-SNAPSHOT</capp.tools.feature.version>
         
         <carbonstudio.tools.feature.version>3.2.0-SNAPSHOT</carbonstudio.tools.feature.version>
