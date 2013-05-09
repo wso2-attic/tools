@@ -74,6 +74,8 @@ public class AppfactoryApplicationListView extends ViewPart {
 	
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	
+	private static AppfactoryApplicationDetailsView appDetailView;
+	
 	private TreeViewer viewer;
 	private Composite parent; 
 	private AppListModel model;
@@ -118,7 +120,8 @@ public class AppfactoryApplicationListView extends ViewPart {
 				 if (selectedNode instanceof AppVersionInfo) {
 		        	  AppVersionInfo version = (AppVersionInfo) selection.getFirstElement();
 		        }else if (selectedNode instanceof ApplicationInfo){
-		        	ApplicationInfo oppInfo = (ApplicationInfo) selection.getFirstElement();
+		        	ApplicationInfo appInfo = (ApplicationInfo) selection.getFirstElement();
+		        	appDetailView.updateView(appInfo);
 		        }
 			}
 		});
@@ -291,5 +294,13 @@ public class AppfactoryApplicationListView extends ViewPart {
 	public void setFocus() {
 
 	}
+
+	public static AppfactoryApplicationDetailsView getAppDetailView() {
+	    return appDetailView;
+    }
+
+	public static void setAppDetailView(AppfactoryApplicationDetailsView appDetailView) {
+	    AppfactoryApplicationListView.appDetailView = appDetailView;
+    }
 	
 }

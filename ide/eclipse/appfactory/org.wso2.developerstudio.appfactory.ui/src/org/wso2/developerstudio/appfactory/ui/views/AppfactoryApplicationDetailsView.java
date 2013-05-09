@@ -16,6 +16,9 @@
 
 package org.wso2.developerstudio.appfactory.ui.views;
 
+import java.util.Iterator;
+import java.util.List;
+
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.ScrolledComposite;
 import org.eclipse.swt.graphics.Color;
@@ -26,8 +29,14 @@ import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Table;
+import org.eclipse.swt.widgets.TableColumn;
+import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.ui.part.ViewPart;
+import org.wso2.developerstudio.appfactory.core.model.AppVersionInfo;
+import org.wso2.developerstudio.appfactory.core.model.ApplicationInfo;
 import org.wso2.developerstudio.appfactory.ui.Activator;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
@@ -38,12 +47,15 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 	public static final String ID = "org.wso2.developerstudio.appfactory.ui.views.AppfactoryView";
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	
+	private Composite composite;
+	
 	private Label lblApplicationType;
 	private Label lblRepositoryType;
 	private Label lblApplicationOwner;
 	private Label lblDescription;
 	private Label lblVersion;
 	private Label lblRepoURL;
+	private Table table;
 	private Composite ownerComposite;
 	private Composite developercomposite;
 	private Composite datasourcescomposite;
@@ -53,6 +65,7 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 	
 	
 	public AppfactoryApplicationDetailsView() {
+		AppfactoryApplicationListView.setAppDetailView(this);
 	}
 	
 	public static Label createLabel(Composite parent, 
@@ -88,7 +101,7 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 		                       new ScrolledComposite(parent, SWT.H_SCROLL | SWT.V_SCROLL |
 		                                                     SWT.BORDER);
 		sc.setExpandVertical(true);
-		Composite composite = new Composite(sc, SWT.NONE);
+		composite = new Composite(sc, SWT.NONE);
 
 		GridLayout gridLayout = new GridLayout(2, false);
 		composite.setLayout(gridLayout);
@@ -110,8 +123,7 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 		            new GridData(), composite.getBackground(), new Font(null,
 		                                                                "", 8, SWT.BOLD));
 		lblApplicationType=createLabel(composite, SWT.NONE, "",
-		                               new GridData(), composite.getBackground(),new Font(null,
-		                                                                                  "", 8, SWT.BOLD));
+		                               new GridData(), composite.getBackground(),null);
 		
 	    createLabel(composite, SWT.NONE, names[1],
 		        					new GridData(), composite.getBackground(), new Font(null,
@@ -138,24 +150,46 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 		createLabel(composite,SWT.NONE, "",
 					new GridData(), composite.getBackground(), new Font(null,
 							"", 8, SWT.BOLD));
-		createLabel(composite, SWT.NONE, names[4],
-					new GridData(), composite.getBackground(), new Font(null,
+		
+		//Adding a table for versions and reposiroty urls
+		createLabel(composite, SWT.NONE, "",
+					new GridData(SWT.None), composite.getBackground(), new Font(null,
 							"", 8, SWT.BOLD));
-		lblVersion=createLabel(composite, SWT.NONE, "",
-                              getGridData(), composite.getBackground(), null);
 		
-		// Repository Header
-		createLabel(composite, SWT.NONE, "Repository", new GridData(),
-		            composite.getBackground(), new Font(null, "", 14, SWT.BOLD));
-		createLabel(composite, SWT.NONE, "", new GridData(), composite.getBackground(),
-		            new Font(null, "", 8, SWT.BOLD));
+		table = new Table (composite, SWT.MULTI | SWT.BORDER | SWT.FULL_SELECTION);
+		table.setLinesVisible (true);
+		table.setHeaderVisible (true);
+		GridData data = new GridData(SWT.FILL, SWT.FILL, true, false);
+		table.setLayoutData(data);
+		
+		String[] titles = {"Version","Last Build Status", "Repository"};
+		for (int i=0; i<titles.length; i++) {
+			TableColumn column = new TableColumn (table, SWT.BOLD);
+			column.setText (titles [i]);
+			column.pack();
+		}	
 		
 		
-		createLabel(composite, SWT.NONE, names[5],
-					new GridData(), composite.getBackground(), new Font(null,
-							"", 8, SWT.BOLD));
-		lblRepoURL=createLabel(composite, SWT.NONE, "jjjjjjjjjjjjjjjjjjjjjjjj",
-		                       new GridData(), composite.getBackground(), null);
+		//End of table
+		
+//		createLabel(composite, SWT.NONE, names[4],
+//					new GridData(), composite.getBackground(), new Font(null,
+//							"", 8, SWT.BOLD));
+//		lblVersion=createLabel(composite, SWT.NONE, "",
+//                              getGridData(), composite.getBackground(), null);
+//		
+//		// Repository Header
+//		createLabel(composite, SWT.NONE, "Repository", new GridData(),
+//		            composite.getBackground(), new Font(null, "", 14, SWT.BOLD));
+//		createLabel(composite, SWT.NONE, "", new GridData(), composite.getBackground(),
+//		            new Font(null, "", 8, SWT.BOLD));
+//		
+//		
+//		createLabel(composite, SWT.NONE, names[5],
+//					new GridData(), composite.getBackground(), new Font(null,
+//							"", 8, SWT.BOLD));
+//		lblRepoURL=createLabel(composite, SWT.NONE, "jjjjjjjjjjjjjjjjjjjjjjjj",
+//		                       new GridData(), composite.getBackground(), null);
 		
 		// Team Header
 		createLabel(composite, SWT.NONE, "Team", new GridData(), composite.getBackground(),
@@ -196,12 +230,12 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 		gridLayout2.marginWidth = 20;
 		developercomposite.setLayout(gridLayout2);
 		
-		// test developers
-		createLabel(developercomposite, SWT.NONE, "harshana@wso2.com",
-                    getGridData(), composite.getBackground(), null);
-		createLabel(developercomposite, SWT.NONE, "harshana05@gmail.com",
-                    getGridData(), composite.getBackground(), null);
-
+//		// test developers
+//		createLabel(developercomposite, SWT.NONE, "harshana@wso2.com",
+//                    getGridData(), composite.getBackground(), null);
+//		createLabel(developercomposite, SWT.NONE, "harshana05@gmail.com",
+//                    getGridData(), composite.getBackground(), null);
+//
 		createLabel(composite, SWT.NONE, "", new GridData(), composite.getBackground(),
 		            new Font(null, "", 8, SWT.BOLD));
 		
@@ -223,11 +257,11 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 		gridLayout3.marginWidth = 20;
 		datasourcescomposite.setLayout(gridLayout3);
 		
-		// test datasources
-		createLabel(datasourcescomposite, SWT.NONE, "SimpleDatasource 1", getGridData(),
-		            composite.getBackground(), null);
-		createLabel(datasourcescomposite, SWT.NONE, "SimpleDatasource 2", getGridData(),
-		            composite.getBackground(), null);
+//		// test datasources
+//		createLabel(datasourcescomposite, SWT.NONE, "SimpleDatasource 1", getGridData(),
+//		            composite.getBackground(), null);
+//		createLabel(datasourcescomposite, SWT.NONE, "SimpleDatasource 2", getGridData(),
+//		            composite.getBackground(), null);
 		
 		createLabel(composite, SWT.NONE, "", new GridData(), composite.getBackground(),
 		            new Font(null, "", 8, SWT.BOLD));
@@ -244,11 +278,11 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 		gridLayout4.marginWidth = 20;
 		databasescomposite.setLayout(gridLayout4);
 
-		// test datasources
-		createLabel(databasescomposite, SWT.NONE, "Simplebase 1", getGridData(),
-		            composite.getBackground(), null);
-		createLabel(databasescomposite, SWT.NONE, "Simplebase 2", getGridData(),
-		            composite.getBackground(), null);
+//		// test data bases
+//		createLabel(databasescomposite, SWT.NONE, "Simplebase 1", getGridData(),
+//		            composite.getBackground(), null);
+//		createLabel(databasescomposite, SWT.NONE, "Simplebase 2", getGridData(),
+//		            composite.getBackground(), null);
 		
 		createLabel(composite, SWT.NONE, "", new GridData(), composite.getBackground(),
 		            new Font(null, "", 8, SWT.BOLD));
@@ -265,9 +299,9 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 		gridLayout5.marginWidth = 20;
 		apicomposite.setLayout(gridLayout5);
 
-		// test datasources
-		createLabel(apicomposite, SWT.NONE, "API 1", getGridData(), composite.getBackground(), null);
-		createLabel(apicomposite, SWT.NONE, "API 2", getGridData(), composite.getBackground(), null);
+//		// test apis
+//		createLabel(apicomposite, SWT.NONE, "API 1", getGridData(), composite.getBackground(), null);
+//		createLabel(apicomposite, SWT.NONE, "API 2", getGridData(), composite.getBackground(), null);
 		
 		createLabel(composite, SWT.NONE, "", new GridData(), composite.getBackground(),
 		            new Font(null, "", 8, SWT.BOLD));
@@ -284,37 +318,106 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 		gridLayout6.marginWidth = 20;
 		propertiescomposite.setLayout(gridLayout6);
 
-		// test datasources
-		createLabel(propertiescomposite, SWT.NONE, "Property 1", getGridData(), composite.getBackground(), null);
-		createLabel(propertiescomposite, SWT.NONE, "Property 2", getGridData(), composite.getBackground(), null);
+//		// test properties
+//		createLabel(propertiescomposite, SWT.NONE, "Property 1", getGridData(), composite.getBackground(), null);
+//		createLabel(propertiescomposite, SWT.NONE, "Property 2", getGridData(), composite.getBackground(), null);
 		
 		createLabel(composite, SWT.NONE, "", new GridData(), composite.getBackground(),
 		            new Font(null, "", 8, SWT.BOLD));
 	}
 	
-	public void updateView(){
-		lblApplicationType.setText("War");
-		lblRepositoryType.setText("Git");
-		lblApplicationOwner.setText("admin@admin.com");
-		lblDescription.setText("No Description");
-		lblVersion.setText("1.0.0-SNAPSHOT");
-//		lblRepoType.setText("Git");
-		lblRepoURL.setText("https://appfactorypreview.wso2.com:8443/git/testApplication.git");
-//		lblRepoURL.setText("KKKKKKKKKKKKKKKKKKKK");
+	public void updateView(ApplicationInfo applicationInfo){
+		lblApplicationType.setText(applicationInfo.getType());
+		lblRepositoryType.setText(applicationInfo.getRepositoryType());
+//		lblApplicationOwner.setText(applicationInfo.getApplicationOwner());
+		lblDescription.setText(applicationInfo.getDescription());
 		
-//		//test owners
-//				createLabel(ownerComposite, SWT.NONE, "harshana@wso2.com",
-//		                    getGridData(), composite.getBackground(), null);
-//				createLabel(ownerComposite, SWT.NONE, "harshana05@gmail.com",
-//		                    getGridData(), composite.getBackground(), null);
-//		
+		//Updating the version info table
 		
+		//Remove existing
+		table.removeAll();
+		
+		//Add new
+		List<AppVersionInfo> version = applicationInfo.getVersion();
+		for (AppVersionInfo appVersionInfo : version) {
+			TableItem item = new TableItem (table, SWT.NONE);
+			item.setText(0, appVersionInfo.getVersion());
+			item.setText(1, appVersionInfo.getLastBuildResult());
+			item.setText(2, appVersionInfo.getRepoURL());
+        }
+		
+		//Pack the new one to table
+		for (int i=0; i<table.getItemCount(); i++) {
+			table.getColumn(i).pack ();
+		}	
+
+		// test owners
+		removeChildControls(ownerComposite);
+
+		createLabel(ownerComposite, SWT.NONE, applicationInfo.getApplicationOwner(), getGridData(),
+		            composite.getBackground(), null);
+
+		ownerComposite.layout(true);
+
+		// test developers
+		removeChildControls(developercomposite);
+
+		for (String string : applicationInfo.getApplicationDevelopers()) {
+			createLabel(developercomposite, SWT.NONE, string, getGridData(),
+			            composite.getBackground(), null);
+		}
+		developercomposite.layout(true);
+
+		// test data sources
+		removeChildControls(datasourcescomposite);
+
+		for (String string : applicationInfo.getDatasources()) {
+			createLabel(datasourcescomposite, SWT.NONE, string, getGridData(),
+			            composite.getBackground(), null);
+		}
+		datasourcescomposite.layout(true);
+
+		// test data bases
+		removeChildControls(databasescomposite);
+
+		for (String string : applicationInfo.getDatabases()) {
+			createLabel(databasescomposite, SWT.NONE, string, getGridData(),
+			            composite.getBackground(), null);
+		}
+		databasescomposite.layout(true);
+
+		// test apis
+		removeChildControls(apicomposite);
+		for (String string : applicationInfo.getApis()) {
+			createLabel(apicomposite, SWT.NONE, string, getGridData(), composite.getBackground(),
+			            null);
+		}
+		apicomposite.layout(true);
+
+		// test properties
+		removeChildControls(propertiescomposite);
+
+		for (String string : applicationInfo.getProperties()) {
+			createLabel(propertiescomposite, SWT.NONE, string, getGridData(),
+			            composite.getBackground(), null);
+		}
+		propertiescomposite.layout(true);
+
+		composite.layout(true);
 	}
+
+	private void removeChildControls(Composite composite) {
+	    Control[] children = composite.getChildren();
+		
+		for (Control control : children) {
+	        control.dispose();
+        }
+    }
  
 	@Override
 	public void setFocus() {
 		//Testing only
-		updateView();
+//		updateView();
 	}
 	
 }
