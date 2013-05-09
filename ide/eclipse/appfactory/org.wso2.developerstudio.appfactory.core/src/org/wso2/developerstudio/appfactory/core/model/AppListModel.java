@@ -17,32 +17,47 @@
 package org.wso2.developerstudio.appfactory.core.model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import org.wso2.developerstudio.appfactory.core.authentication.Authenticator;
+import org.wso2.developerstudio.appfactory.core.client.HttpsJaggeryClient;
 import org.wso2.developerstudio.appfactory.core.model.AppVersionInfo;
 import org.wso2.developerstudio.appfactory.core.model.ApplicationInfo;
+
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+ 
 
 public class AppListModel {
 	public static final String APP_NIFO_URL =
 			"https://appfactorypreview.wso2.com/appmgt/site/blocks/application/get/ajax/list.jag";
 	public List<ApplicationInfo> getCategories(List<ApplicationInfo> apps) {
-			//ToDo any changes to default model
+			// TODO  can do changes to default model
 	    return apps;
 	  }
 
 	public void setversionInfo(ApplicationInfo applicationInfo){
-		/* Map<String,String> params = new HashMap<String,String>();
+		 Map<String,String> params = new HashMap<String,String>();
 		 params.put("action", "getAppVersionsInStage");
 		 params.put("stageName","Development");
-		 params.put("userName",Authenticator.userName);
+		 params.put("userName",Authenticator.getInstance().getCredentials().getUser());
 		 params.put("applicationKey",applicationInfo.getKey());
 		 String respond = HttpsJaggeryClient.httpPost(APP_NIFO_URL, params);
 		 JsonElement jelement = new JsonParser().parse(respond);
 		 JsonElement jsonElement = jelement.getAsJsonArray().get(0).getAsJsonObject().get("versions");
+		 JsonArray infoArray = jsonElement.getAsJsonArray();
+		 JsonObject asJsonObject = infoArray.get(0).getAsJsonObject();
 		 Gson gson = new Gson();
-		 AppVersionInfo version = gson.fromJson(jsonElement, AppVersionInfo.class);*/
-		applicationInfo.setVersion(new ArrayList<AppVersionInfo>());
-		AppVersionInfo version = new AppVersionInfo();
-		version.setVersion("trunk");
-		applicationInfo.getVersion().add(version);
+		 AppVersionInfo version = gson.fromJson(asJsonObject, AppVersionInfo.class);
+		 applicationInfo.setVersion(new ArrayList<AppVersionInfo>());
+		 version.setAppName(applicationInfo.getName());
+		 applicationInfo.getVersion().add(version);
 	}
 }

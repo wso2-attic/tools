@@ -24,6 +24,7 @@ public class AppVersionInfo {
 	  private String stage;
 	  private String isAutoBuild;
 	  private String lastBuildResult;
+	  private String appName;
 	  
 	public String getIsAutoDeploy() {
 		return isAutoDeploy;
@@ -61,5 +62,13 @@ public class AppVersionInfo {
 	}
 	public void setLastBuildResult(String lastBuildResult) {
 		this.lastBuildResult = lastBuildResult;
+	}
+
+	public String getAppName() {
+		return appName;
+	}
+
+	public void setAppName(String appName) {
+		this.appName = appName;
 	} 
 }

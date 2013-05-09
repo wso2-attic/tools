@@ -18,8 +18,17 @@ package org.wso2.developerstudio.appfactory.ui.views;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IProjectDescription;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.IWorkspace;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
@@ -34,6 +43,7 @@ import org.eclipse.jface.wizard.IWizard;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.ui.IViewSite;
 import org.eclipse.ui.PartInitException;
@@ -61,17 +71,17 @@ public class AppfactoryApplicationListView extends ViewPart {
 	public static final String ID = "org.wso2.developerstudio.appfactory.ui.views.AppfactoryView";
 	public static final String APP_NIFO_URL = "https://appfactorypreview.wso2.com/appmgt/site/blocks/application/get/ajax/list.jag";
 	public static final String REPO_WIZARD_ID = "org.eclipse.egit.ui.internal.clone.GitCloneWizard";
+	
+	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
+	
 	private TreeViewer viewer;
 	private Composite parent; 
 	private AppListModel model;
 	private AppListLabelProvider labelProvider;
 	private AppListContentProvider contentProvider;
-	private String localRepo="";
-	private String uri ="";
 	private UserPasswordCredentials credentials;
-	
-	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
-	java.util.List<ApplicationInfo> appLists;
+	private List<ApplicationInfo> appLists;
+
  
 	
 	@Override
@@ -141,6 +151,7 @@ public class AppfactoryApplicationListView extends ViewPart {
 	                    IStructuredSelection selection = (IStructuredSelection) viewer.getSelection();
 	                    if(selection.getFirstElement() instanceof AppVersionInfo){
 	                    	AppVersionInfo appVersionInfo = (AppVersionInfo) selection.getFirstElement();
+	                    	//manager.add(checkOutAction(appVersionInfo));
 	                    	
 	                    }else if (selection.getFirstElement() instanceof ApplicationInfo){
 	                    	ApplicationInfo appInfo = (ApplicationInfo) selection.getFirstElement();
@@ -210,12 +221,36 @@ public class AppfactoryApplicationListView extends ViewPart {
 		return reposettings;
 	}
 	
-	private Action checkOutAction() {
+	private Action checkOutAction(final AppVersionInfo info) {
 		Action reposettings = new Action() {
 			public void run() {
 				try {
-                 JgitRepoManager manager = new JgitRepoManager(localRepo, uri);
-                 
+					String localRepo = ResourcesPlugin.getWorkspace().getRoot().getLocation().toOSString()+"/"+info.getVersion();
+					JgitRepoManager manager = new JgitRepoManager(localRepo,info.getRepoURL());
+					manager.createGitRepo();
+					manager.gitClone();
+					IProjectDescription description = ResourcesPlugin
+							.getWorkspace()
+							.loadProjectDescription(new Path(localRepo+info.getAppName()+"/.project"));
+					final IProject project = ResourcesPlugin.getWorkspace()
+							.getRoot().getProject(description.getName());
+					project.create(description, new NullProgressMonitor());
+					ResourcesPlugin
+							.getWorkspace()
+							.getRoot()
+							.refreshLocal(IResource.DEPTH_INFINITE,
+									new NullProgressMonitor());
+					// TODO Need to introduce a progressMoniter
+					Display.getCurrent().asyncExec(new Runnable() {
+						@Override
+						public void run() {
+							try {
+								project.open(new NullProgressMonitor());
+							} catch (CoreException e) {
+								e.printStackTrace();
+							}
+						}
+					});
 				} catch (Exception e) {
 					log.error("", e);
 				}
