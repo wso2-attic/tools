@@ -329,7 +329,7 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 	public void updateView(ApplicationInfo applicationInfo){
 		lblApplicationType.setText(applicationInfo.getType());
 		lblRepositoryType.setText(applicationInfo.getRepositoryType());
-//		lblApplicationOwner.setText(applicationInfo.getApplicationOwner());
+		lblApplicationOwner.setText(applicationInfo.getApplicationOwner());
 		lblDescription.setText(applicationInfo.getDescription());
 		
 		//Updating the version info table
