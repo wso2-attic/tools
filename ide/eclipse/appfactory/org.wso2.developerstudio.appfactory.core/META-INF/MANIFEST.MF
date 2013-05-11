@@ -8,10 +8,10 @@ Bundle-Vendor: WSO2 Inc
 Require-Bundle: org.eclipse.core.runtime
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
-Import-Package: com.jcraft.jsch;version="0.1.46",
- org.apache.axiom.om,
- com.google.gson;version="2.1.0",
+Import-Package: com.google.gson;version="2.1.0",
  com.google.gson.reflect;version="2.1.0",
+ com.jcraft.jsch;version="0.1.46",
+ org.apache.axiom.om,
  org.apache.axiom.om.util,
  org.apache.axiom.soap,
  org.apache.axis2,
@@ -53,6 +53,9 @@ Import-Package: com.jcraft.jsch;version="0.1.46",
  org.eclipse.jgit.transport,
  org.eclipse.swt.widgets,
  org.eclipse.ui,
+ org.tmatesoft.svn.core,
+ org.tmatesoft.svn.core.auth,
+ org.tmatesoft.svn.core.wc,
  org.wso2.carbon.core.services.authentication,
  org.wso2.carbon.registry.api,
  org.wso2.carbon.registry.app,

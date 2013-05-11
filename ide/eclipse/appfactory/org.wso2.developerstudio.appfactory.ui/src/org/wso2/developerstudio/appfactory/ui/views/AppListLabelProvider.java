@@ -37,7 +37,7 @@ public class AppListLabelProvider extends StyledCellLabelProvider {
 	      cell.setImage(PlatformUI.getWorkbench().getSharedImages()
 	          .getImage(ISharedImages.IMG_OBJ_FOLDER));
 	      
-	      if(app.getVersion()==null){
+	      if(app.getVersion().isEmpty()){
 	    	  text.append(" (Closed)", StyledString.DECORATIONS_STYLER);
 	      }else{
 	    	  text.append(" (Opened)", StyledString.COUNTER_STYLER);

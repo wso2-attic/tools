@@ -16,6 +16,7 @@
 
 package org.wso2.developerstudio.appfactory.ui.views;
 
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.List;
@@ -27,12 +28,15 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspace;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.MenuManager;
+import org.eclipse.jface.dialogs.ProgressMonitorDialog;
+import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.viewers.DoubleClickEvent;
 import org.eclipse.jface.viewers.IDoubleClickListener;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
@@ -48,6 +52,7 @@ import org.eclipse.swt.widgets.Menu;
 import org.eclipse.ui.IViewSite;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.internal.handlers.WizardHandler.New;
 import org.eclipse.ui.part.ViewPart;
 import org.eclipse.ui.wizards.IWizardDescriptor;
 import org.wso2.developerstudio.appfactory.core.authentication.Authenticator;
@@ -60,7 +65,6 @@ import org.wso2.developerstudio.appfactory.core.repository.JgitRepoManager;
 import org.wso2.developerstudio.appfactory.ui.Activator;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
-
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
  
@@ -69,7 +73,7 @@ import com.google.gson.reflect.TypeToken;
 public class AppfactoryApplicationListView extends ViewPart {
 	
 	public static final String ID = "org.wso2.developerstudio.appfactory.ui.views.AppfactoryView";
-	public static final String APP_NIFO_URL = "https://appfactorypreview.wso2.com/appmgt/site/blocks/application/get/ajax/list.jag";
+	public static final String APP_NIFO_URL = "https://staging.appfactorypreview.wso2.com/appmgt/site/blocks/application/get/ajax/list.jag";
 	public static final String REPO_WIZARD_ID = "org.eclipse.egit.ui.internal.clone.GitCloneWizard";
 	
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
@@ -117,10 +121,12 @@ public class AppfactoryApplicationListView extends ViewPart {
 				 final IStructuredSelection selection = (IStructuredSelection) viewer
 			              .getSelection();
 				 Object selectedNode = selection.getFirstElement();
-				 if (selectedNode instanceof AppVersionInfo) {
-		        	  AppVersionInfo version = (AppVersionInfo) selection.getFirstElement();
-		        }else if (selectedNode instanceof ApplicationInfo){
+			   if (selectedNode instanceof ApplicationInfo){
 		        	ApplicationInfo appInfo = (ApplicationInfo) selection.getFirstElement();
+		        	if(!appInfo.isLoaded()){
+		        		getVersionInformation(appInfo);
+		        		appInfo.setLoaded(true);
+		        	}
 		        	appDetailView.updateView(appInfo);
 		        }
 			}
@@ -154,7 +160,8 @@ public class AppfactoryApplicationListView extends ViewPart {
 	                    IStructuredSelection selection = (IStructuredSelection) viewer.getSelection();
 	                    if(selection.getFirstElement() instanceof AppVersionInfo){
 	                    	AppVersionInfo appVersionInfo = (AppVersionInfo) selection.getFirstElement();
-	                    	//manager.add(checkOutAction(appVersionInfo));
+	                    	manager.add(checkOutAction(appVersionInfo));
+	                    	manager.add(repoUpdateAction(appVersionInfo));
 	                    	
 	                    }else if (selection.getFirstElement() instanceof ApplicationInfo){
 	                    	ApplicationInfo appInfo = (ApplicationInfo) selection.getFirstElement();
@@ -173,23 +180,26 @@ public class AppfactoryApplicationListView extends ViewPart {
 		Action reposettings = new Action() {
 			public void run() {
 				try {
-					AppListModel oldModel = model;
-					model.setversionInfo(appInfo);
-				    contentProvider.inputChanged(viewer, oldModel, model);
-					viewer.refresh();
-					viewer.expandToLevel(appInfo, 1);
+					getVersionInformation(appInfo);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-			};
-
+			}
 			public String getText() {
-				return "Open Application";
+				return "Update Application";
 			}
 		};
 		return reposettings;
 	}
-
+	
+	private void getVersionInformation(final ApplicationInfo appInfo) {
+		AppListModel oldModel = model;
+		model.setversionInfo(appInfo);
+		contentProvider.inputChanged(viewer, oldModel, model);
+		viewer.refresh();
+		viewer.expandToLevel(appInfo, 1);
+	} 
+	
 	private Action prefernceAction() {
 		Action reposettings = new Action() {
 			public void run() {
@@ -224,26 +234,47 @@ public class AppfactoryApplicationListView extends ViewPart {
 		return reposettings;
 	}
 	
+	private Action repoUpdateAction(final AppVersionInfo info) {
+		Action reposettings = new Action() {
+			public void run() {
+				try {
+					ProgressMonitorDialog progressMonitorDialog = new ProgressMonitorDialog(Display.getDefault().getActiveShell());
+					progressMonitorDialog.create();
+					progressMonitorDialog.open();
+					progressMonitorDialog.run(false, false, new RepoUpadetJob(info));
+				} catch (Exception e) {
+					log.error("Updatating Error", e);
+				}
+			};
+			public String getText() {
+				return "Update Repository";
+			}
+		};
+		return reposettings;
+	}
+	
 	private Action checkOutAction(final AppVersionInfo info) {
 		Action reposettings = new Action() {
 			public void run() {
 				try {
-					String localRepo = ResourcesPlugin.getWorkspace().getRoot().getLocation().toOSString()+"/"+info.getVersion();
-					JgitRepoManager manager = new JgitRepoManager(localRepo,info.getRepoURL());
-					manager.createGitRepo();
-					manager.gitClone();
+					ProgressMonitorDialog progressMonitorDialog = new ProgressMonitorDialog(Display.getDefault().getActiveShell());
+					progressMonitorDialog.create();
+					progressMonitorDialog.open();
+					progressMonitorDialog.run(false, false, new CloneJob(info));
+					String localRepo = ResourcesPlugin.getWorkspace().getRoot().getLocation().toOSString()+"/"+info.getAppName();
+					 
 					IProjectDescription description = ResourcesPlugin
 							.getWorkspace()
-							.loadProjectDescription(new Path(localRepo+info.getAppName()+"/.project"));
+							.loadProjectDescription(new Path(localRepo+"/.project"));
 					final IProject project = ResourcesPlugin.getWorkspace()
 							.getRoot().getProject(description.getName());
-					project.create(description, new NullProgressMonitor());
+					   
+									project.create(description,new NullProgressMonitor());
 					ResourcesPlugin
 							.getWorkspace()
 							.getRoot()
 							.refreshLocal(IResource.DEPTH_INFINITE,
 									new NullProgressMonitor());
-					// TODO Need to introduce a progressMoniter
 					Display.getCurrent().asyncExec(new Runnable() {
 						@Override
 						public void run() {
@@ -253,7 +284,7 @@ public class AppfactoryApplicationListView extends ViewPart {
 								e.printStackTrace();
 							}
 						}
-					});
+					}); 
 				} catch (Exception e) {
 					log.error("", e);
 				}
@@ -286,7 +317,7 @@ public class AppfactoryApplicationListView extends ViewPart {
 				wd.open();
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			 log.error("Wizard invoke error", e);
 		}
 	}
 
@@ -303,4 +334,66 @@ public class AppfactoryApplicationListView extends ViewPart {
 	    AppfactoryApplicationListView.appDetailView = appDetailView;
     }
 	
+	private class CloneJob implements IRunnableWithProgress {
+
+		private AppVersionInfo info;
+		public CloneJob(AppVersionInfo info) {
+			 this.info = info;
+		}
+		@Override
+		public void run(IProgressMonitor monitor) throws InvocationTargetException,
+				InterruptedException {
+			String operationText="Cloning with remote repository";
+			monitor.beginTask(operationText, 100);
+			monitor.worked(10);
+			try{
+				String localRepo = ResourcesPlugin.getWorkspace().getRoot().getLocation().toOSString()+"/"+info.getAppName();
+				JgitRepoManager manager = new JgitRepoManager(localRepo,info.getRepoURL());
+				monitor.worked(20);
+				manager.gitClone();
+				monitor.worked(80);
+				if(!"trunk".equals(info.getVersion())){
+					manager.checkoutBranch(info.getVersion());
+				}
+				monitor.worked(90);
+			}catch(Exception e){
+				monitor.setCanceled(true);
+			}
+			monitor.worked(100);
+			monitor.done();
+		}
+	}	
+	
+	private class RepoUpadetJob implements IRunnableWithProgress {
+
+		private AppVersionInfo info;
+		public RepoUpadetJob(AppVersionInfo info) {
+			 this.info = info;
+		}
+		@Override
+		public void run(IProgressMonitor monitor) throws InvocationTargetException,
+				InterruptedException {
+			String operationText="Upadating local repository";
+			monitor.beginTask(operationText, 100);
+			monitor.worked(10);
+			try{
+				String localRepo = ResourcesPlugin.getWorkspace().getRoot().getLocation().toOSString()+"/"+info.getAppName();
+				JgitRepoManager manager = new JgitRepoManager(localRepo,info.getRepoURL());
+				if("trunk".equals(info.getVersion())){
+					manager.trackBranch("master");
+				}else{
+					manager.trackBranch(info.getVersion());	
+				}
+				monitor.worked(60);
+				manager.update();
+				
+			}catch(Exception e){
+				monitor.setCanceled(true);
+				log.error("cloning process error", e);
+			}
+			monitor.worked(100);
+			monitor.done();
+		}
+	}
+
 }

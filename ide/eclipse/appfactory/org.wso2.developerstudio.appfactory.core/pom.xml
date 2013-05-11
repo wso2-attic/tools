@@ -27,7 +27,12 @@
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
 			<version>1.7.1</version>
-  </dependency>
+ 		 </dependency>
+ 		 <dependency>
+			<groupId>org.tmatesoft.svnkit</groupId>
+			<artifactId>svnkit</artifactId>
+			<version>1.7.9</version>
+  		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
@@ -59,6 +64,11 @@
 			<id>maven-central</id>
 			<name>Maven central repository</name>
 			<url>http://repo1.maven.org/maven2/</url>
+		</repository>
+		<repository>
+			<id>tmatesoft-central</id>
+			<name>tmatesoft repository</name>
+			<url>http://maven.tmatesoft.com/content/repositories/releases/</url>
 		</repository>
 		<repository>
 			<id>wso2-nexus</id>

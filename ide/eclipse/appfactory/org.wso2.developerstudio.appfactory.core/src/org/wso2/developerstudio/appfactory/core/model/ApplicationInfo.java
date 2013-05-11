@@ -35,6 +35,7 @@ public class ApplicationInfo{
 	private List<String> apis;
 	private List<String> properties;
 	private List<AppVersionInfo> version;
+	private boolean loaded;
 	
 	public ApplicationInfo(String applicationKey) {
 		this.setKey(applicationKey);
@@ -197,5 +198,13 @@ public class ApplicationInfo{
     public void setProperties(List<String> properties) {
 	    this.properties = properties;
     }
+
+	public boolean isLoaded() {
+		return loaded;
+	}
+
+	public void setLoaded(boolean loaded) {
+		this.loaded = loaded;
+	}
 
 }

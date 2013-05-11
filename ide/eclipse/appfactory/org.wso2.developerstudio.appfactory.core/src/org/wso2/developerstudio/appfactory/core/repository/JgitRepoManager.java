@@ -20,6 +20,7 @@ import java.io.IOException;
 import org.eclipse.jgit.api.*;
 import org.eclipse.jgit.api.errors.*;
 import org.eclipse.jgit.api.CreateBranchCommand.SetupUpstreamMode;
+import org.eclipse.jgit.lib.Ref;
 import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.storage.file.FileRepository;
 import org.eclipse.jgit.transport.CredentialItem;
@@ -46,38 +47,78 @@ public class JgitRepoManager {
     public JgitRepoManager(String localPath,String uri) throws IOException {
     	 this.localPath =localPath;
          this.remotePath = uri;
-         localRepo = new FileRepository(localPath + "/.git");
-         git = new Git(localRepo);   
+           
+         File gitDir = new File(localPath + "/.git");
+         localRepo = new FileRepository(gitDir);
+         git = new Git(localRepo); 
          UserPasswordCredentials credentials = Authenticator.getInstance().getCredentials();
          provider = new UsernamePasswordCredentialsProvider(credentials.getUser(), credentials.getPassword());
 	}
  
     public void createGitRepo(){
-        Repository newRepo;
 		try {
-			newRepo = new FileRepository(localPath + ".git");
-			newRepo.create();
+			localRepo = new FileRepository(localPath + "/.git");
+			localRepo.create();
 		} catch (Exception e) {
 			log.error("Git Repository creatation Error : ", e);
 		}
     }
 
     public void gitClone() throws InvalidRemoteException, TransportException, GitAPIException   {     
-        Git.cloneRepository() 
+         Git.cloneRepository() 
            .setCredentialsProvider(provider)
            .setURI(remotePath)
-           .setBranch("1.0.0")
            .setDirectory(new File(localPath))
            .call();  
     }
-    
-    
-    public void getCheck(){
-    	
-    }
+
+	public void branchCreate(String branch) throws IOException,
+			JGitInternalException, GitAPIException {
+			git.branchCreate()
+				.setForce(true)
+				.setName(branch)
+				.setStartPoint("origin/" + branch)
+				.call();
+	}
+	
+	public void update() throws WrongRepositoryStateException,
+			InvalidConfigurationException, DetachedHeadException,
+			InvalidRemoteException, CanceledException, RefNotFoundException,
+			NoHeadException, TransportException, GitAPIException {
+
+		git.pull()
+		   .setCredentialsProvider(provider)
+		   .call();
+	}
+
+	public void checkoutBranch(String branch) throws RefAlreadyExistsException,
+			RefNotFoundException, InvalidRefNameException,
+			CheckoutConflictException, GitAPIException {
+		     git.checkout()
+				.setCreateBranch(true)
+				.setName(branch)
+				.setUpstreamMode(CreateBranchCommand.SetupUpstreamMode.TRACK)
+				.setStartPoint("origin/" + branch)
+				.call();
+
+	}
+
+	public void trackBranch(String branch)
+			throws RefAlreadyExistsException, RefNotFoundException,
+			InvalidRefNameException, GitAPIException {
+		    git.branchCreate()
+		       .setName(branch)
+			   .setUpstreamMode(SetupUpstreamMode.SET_UPSTREAM)
+			   .setStartPoint("origin/"+ branch)
+			   .setForce(true)
+			   .call();
+	}
     public void importProject(ProjectRecord[] projects){
     	ProjectsImportPage importMainPage = new ProjectsImportPage();
     	importMainPage.createProjects(projects);
     }
-
+   
+    public void CloseRepo(){
+    	localRepo.close();
+    }
 }

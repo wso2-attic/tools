@@ -37,9 +37,12 @@ import com.google.gson.JsonParser;
 
 public class AppListModel {
 	public static final String APP_NIFO_URL =
-			"https://appfactorypreview.wso2.com/appmgt/site/blocks/application/get/ajax/list.jag";
+			"https://staging.appfactorypreview.wso2.com/appmgt/site/blocks/application/get/ajax/list.jag";
 	public List<ApplicationInfo> getCategories(List<ApplicationInfo> apps) {
 			// TODO  can do changes to default model
+		 for (ApplicationInfo applicationInfo : apps) {
+			applicationInfo.setApplicationOwner("Admin");
+		}
 	    return apps;
 	  }
 
