@@ -294,7 +294,8 @@ public class ResourceEditorPage extends FormPage implements
 					} else {
 
 					}
-					updateDirtyState();
+					//Below line commented in order to fix TOOLS-1382
+					//updateDirtyState();
 				}
 			});
 
