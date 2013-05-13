@@ -53,7 +53,7 @@ implements IWorkbenchPreferencePage{
 		addField(new StringFieldEditor(APP_FACTORY_USERNAME, "App &Factory Username",
 				getFieldEditorParent()));
 		stringField1 = new StringFieldEditor(APP_FACTORY_PASSWORD,
-				"Trust Store &Password", getFieldEditorParent());
+				"App Factor &Password", getFieldEditorParent());
 		addField(stringField1);
 		BooleanFieldEditor booleanFieldEditor = new BooleanFieldEditor(
 				SHOW_PLAIN_PASSWORD, "S&how Password in Plain Text",
