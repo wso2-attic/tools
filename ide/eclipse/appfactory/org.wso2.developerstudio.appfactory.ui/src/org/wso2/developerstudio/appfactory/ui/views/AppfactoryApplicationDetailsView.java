@@ -306,7 +306,7 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
         }
 		
 		//Pack the new one to table
-		for (int i=0; i<table.getItemCount(); i++) {
+		for (int i=0; i<table.getColumnCount(); i++) {
 			table.getColumn(i).pack ();
 		}	
 

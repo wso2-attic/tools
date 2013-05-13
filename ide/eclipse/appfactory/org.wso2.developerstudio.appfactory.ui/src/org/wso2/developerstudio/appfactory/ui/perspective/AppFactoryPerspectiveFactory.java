@@ -24,6 +24,7 @@ import org.eclipse.ui.IPageLayout;
 import org.eclipse.ui.IPerspectiveFactory;
 import org.eclipse.ui.browser.IWebBrowser;
 import org.eclipse.ui.browser.IWorkbenchBrowserSupport;
+import org.eclipse.ui.console.IConsoleConstants;
 import org.wso2.developerstudio.appfactory.ui.Activator;
 import org.wso2.developerstudio.appfactory.ui.actions.LoginAction;
 import org.wso2.developerstudio.appfactory.ui.preference.AppFactoryPreferencePage;
@@ -63,11 +64,14 @@ public class AppFactoryPerspectiveFactory implements IPerspectiveFactory {
 						MessageBox messageBox = new MessageBox(loginAction.getActiveShell(),SWT.OK);
 				        messageBox.setText("Error");
 				        messageBox.setMessage("Error username or password");
+				        messageBox.open();
+				        
 					}
 				} catch (Exception e) {
 					MessageBox messageBox = new MessageBox(loginAction.getActiveShell(),SWT.OK);
 			        messageBox.setText("Error");
 			        messageBox.setMessage(e.getMessage());
+			        messageBox.open();
 					log.error("perspective loading issue", e);
 				} 	    		 
 	     }
@@ -85,7 +89,7 @@ public class AppFactoryPerspectiveFactory implements IPerspectiveFactory {
 			appDetails.addView(APPDETILS_ID);
 			  
 			IFolderLayout buildInfo = appfacLayout.createFolder("Bottomt",IPageLayout.BOTTOM,0.60f,appfacLayout.getEditorArea());
-			buildInfo.addView(APPBUILD_ID);
+			buildInfo.addView(IConsoleConstants.ID_CONSOLE_VIEW);
 		} 
 	     
 	  

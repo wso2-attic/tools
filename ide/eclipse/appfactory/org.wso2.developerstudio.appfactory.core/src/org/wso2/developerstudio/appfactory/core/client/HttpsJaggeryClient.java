@@ -25,6 +25,7 @@ import org.apache.http.conn.scheme.SchemeRegistry;
 import org.apache.http.conn.ssl.SSLSocketFactory;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.util.EntityUtils;
 import org.wso2.developerstudio.appfactory.core.Activator;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
@@ -61,13 +62,18 @@ public class HttpsJaggeryClient {
 		                  sb.append(line);
 		            }
 		      respond = sb.toString();
+		      EntityUtils.consume(entityGetAppsOfUser);
 		      }else{
 		    	  log.error("Error RespondCode");
 		    	  return "false";
 		      }
+		     
 	         }catch(Exception e){
 	        	 log.error("", e);
-	         }	   
+	         } 
+	      // client.getConnectionManager().closeExpiredConnections();
+	      // client.getConnectionManager().releaseConnection(arg0, arg1, arg2)
+	       
      return respond;	       
   }
 	@SuppressWarnings("deprecation")

@@ -22,12 +22,34 @@ import org.tmatesoft.svn.core.SVNURL;
 import org.tmatesoft.svn.core.wc.SVNClientManager;
 import org.tmatesoft.svn.core.wc.SVNRevision;
 import org.tmatesoft.svn.core.wc.SVNUpdateClient;
+import org.tmatesoft.svn.core.wc.SVNWCUtil;
+import org.tmatesoft.svn.core.auth.ISVNAuthenticationManager;
+import org.tmatesoft.svn.core.io.SVNRepository;
+import org.tmatesoft.svn.core.io.SVNRepositoryFactory;
 
 public class SvnRepoManager {
 
  private static SVNClientManager ourClientManager;
  
-	public static long checkout(SVNURL url, SVNRevision revision,
+ 
+ 
+ public SvnRepoManager() {
+	 String url = "http://svn.svnkit.com/repos/svnkit/trunk/doc";
+     String name = "anonymous";
+     String password = "anonymous";
+     
+     SVNRepository repository = null;
+     try {
+         repository = SVNRepositoryFactory.create( SVNURL.parseURIDecoded( url ) );
+         ISVNAuthenticationManager authManager = SVNWCUtil.createDefaultAuthenticationManager( name , password );
+         repository.setAuthenticationManager( authManager );
+         repository.getLatestRevision();
+      }catch(Exception e){
+    	 
+    }        
+  }
+ 
+	public long checkout(SVNURL url, SVNRevision revision,
 			File destPath, boolean isRecursive) throws SVNException {
 		SVNUpdateClient updateClient = ourClientManager.getUpdateClient();
 		updateClient.setIgnoreExternals(false);
@@ -35,7 +57,7 @@ public class SvnRepoManager {
 				isRecursive);
 	}
 	
-	public static long update( File wcPath , SVNRevision updateToRevision , boolean isRecursive ) throws SVNException {
+	public long update( File wcPath , SVNRevision updateToRevision , boolean isRecursive ) throws SVNException {
 
         SVNUpdateClient updateClient = ourClientManager.getUpdateClient( );
         updateClient.setIgnoreExternals( false );

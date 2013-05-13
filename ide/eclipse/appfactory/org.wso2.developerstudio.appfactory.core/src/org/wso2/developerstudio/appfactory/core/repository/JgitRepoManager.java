@@ -42,22 +42,26 @@ public class JgitRepoManager {
     private String remotePath;
     private Repository localRepo;
     private Git git;
+    private boolean cloned;
     UsernamePasswordCredentialsProvider provider;
     private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
     public JgitRepoManager(String localPath,String uri) throws IOException {
     	 this.localPath =localPath;
          this.remotePath = uri;
-           
-         File gitDir = new File(localPath + "/.git");
+         File gitDir = new File(localPath +File.separator+ ".git");
+         if(gitDir.exists()){
+        	 setCloned(true);
+         }
          localRepo = new FileRepository(gitDir);
          git = new Git(localRepo); 
          UserPasswordCredentials credentials = Authenticator.getInstance().getCredentials();
          provider = new UsernamePasswordCredentialsProvider(credentials.getUser(), credentials.getPassword());
+         
+         
 	}
- 
-    public void createGitRepo(){
+   public void createGitRepo(){
 		try {
-			localRepo = new FileRepository(localPath + "/.git");
+			localRepo = new FileRepository(localPath +File.separator +".git");
 			localRepo.create();
 		} catch (Exception e) {
 			log.error("Git Repository creatation Error : ", e);
@@ -85,13 +89,26 @@ public class JgitRepoManager {
 			InvalidConfigurationException, DetachedHeadException,
 			InvalidRemoteException, CanceledException, RefNotFoundException,
 			NoHeadException, TransportException, GitAPIException {
-
-		git.pull()
+		git.fetch()
 		   .setCredentialsProvider(provider)
 		   .call();
 	}
+	
+	public void checkout(String branch) throws RefAlreadyExistsException,
+	RefNotFoundException, InvalidRefNameException,
+	CheckoutConflictException, GitAPIException, IOException {
+		 if ("trunk".equals(branch)){
+			 branch ="master";
+		 }
+          Ref ref = git.getRepository().getRef(branch);
+          if(ref==null){
+        	  checkoutRemoteBranch(branch);
+          }else {
+        	  checkoutLocalBranch(branch);
+          }
+        }
 
-	public void checkoutBranch(String branch) throws RefAlreadyExistsException,
+	public void checkoutRemoteBranch(String branch) throws RefAlreadyExistsException,
 			RefNotFoundException, InvalidRefNameException,
 			CheckoutConflictException, GitAPIException {
 		     git.checkout()
@@ -99,9 +116,23 @@ public class JgitRepoManager {
 				.setName(branch)
 				.setUpstreamMode(CreateBranchCommand.SetupUpstreamMode.TRACK)
 				.setStartPoint("origin/" + branch)
+				.setForce(true)
 				.call();
 
 	}
+	
+	public void checkoutLocalBranch(String branch) throws RefAlreadyExistsException,
+	RefNotFoundException, InvalidRefNameException,
+	CheckoutConflictException, GitAPIException {
+     git.checkout()
+		.setCreateBranch(false)
+		.setName(branch)
+		.setUpstreamMode(CreateBranchCommand.SetupUpstreamMode.TRACK)
+		.setStartPoint("origin/" + branch)
+		.setForce(true)
+		.call();
+
+    }
 
 	public void trackBranch(String branch)
 			throws RefAlreadyExistsException, RefNotFoundException,
@@ -121,4 +152,16 @@ public class JgitRepoManager {
     public void CloseRepo(){
     	localRepo.close();
     }
+
+
+
+	public boolean isCloned() {
+		return cloned;
+	}
+
+
+
+	public void setCloned(boolean cloned) {
+		this.cloned = cloned;
+	}
 }

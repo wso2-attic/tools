@@ -24,6 +24,7 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 import org.wso2.developerstudio.appfactory.core.authentication.Authenticator;
 import org.wso2.developerstudio.appfactory.core.authentication.UserPasswordCredentials;
+import org.wso2.developerstudio.appfactory.core.jag.api.JagApiProperties;
 import org.wso2.developerstudio.appfactory.ui.Activator;
 import org.wso2.developerstudio.appfactory.ui.preference.AppFactoryPreferencePage;
 import org.wso2.developerstudio.appfactory.ui.views.PasswordDialog;
@@ -41,10 +42,8 @@ public class LoginAction {
 		this.preferenceStore = preferenceStore;
 	}
 
-	public static final String DEFAULT_LOGIN_PATH = "/appmgt/site/blocks/user/login/ajax/login.jag";
 	 private String username="";
 	 private String password="";
-	 private String loginUrl;
 	 private Authenticator authenticator;
 	 private UserPasswordCredentials credentials;
 	 private Shell activeShell;
@@ -75,8 +74,7 @@ public class LoginAction {
 		try { 
 			showLoginDialog();
 			credentials = new UserPasswordCredentials(getUsername(),getPassword());
-			String loginpath = getLoginUrl() + DEFAULT_LOGIN_PATH;
-		    val = authenticator.Authenticate(loginpath, credentials); 
+		    val = authenticator.Authenticate(JagApiProperties.LOGIN_URL, credentials); 
 		} catch (Exception e) {
 			MessageBox messageBox = new MessageBox(activeShell,SWT.OK);
 	        messageBox.setText("Error");
@@ -102,17 +100,15 @@ public class LoginAction {
 		this.password = password;
 	}
 
-	public String getLoginUrl() {
-		return loginUrl;
-	}
+	 
 
 	public void setLoginUrl(String loginUrl) {
-		this.loginUrl = loginUrl;
+		JagApiProperties.domain = loginUrl;
 	}
 	
 	private void showLoginDialog(){
 		  PasswordDialog dialog = new PasswordDialog(activeShell);
-		  dialog.setHost(getLoginUrl());
+		  dialog.setHost(JagApiProperties.domain);
 		  dialog.setUser(getUsername());
 		  dialog.setPassword(getPassword());
 		 if (dialog.open() == Window.OK) {

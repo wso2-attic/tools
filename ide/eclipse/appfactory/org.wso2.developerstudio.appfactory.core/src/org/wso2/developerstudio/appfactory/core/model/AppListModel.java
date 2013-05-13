@@ -25,6 +25,7 @@ import java.util.Set;
 
 import org.wso2.developerstudio.appfactory.core.authentication.Authenticator;
 import org.wso2.developerstudio.appfactory.core.client.HttpsJaggeryClient;
+import org.wso2.developerstudio.appfactory.core.jag.api.JagApiProperties;
 import org.wso2.developerstudio.appfactory.core.model.AppVersionInfo;
 import org.wso2.developerstudio.appfactory.core.model.ApplicationInfo;
 
@@ -36,9 +37,7 @@ import com.google.gson.JsonParser;
  
 
 public class AppListModel {
-	public static final String APP_NIFO_URL =
-			"https://staging.appfactorypreview.wso2.com/appmgt/site/blocks/application/get/ajax/list.jag";
-	public List<ApplicationInfo> getCategories(List<ApplicationInfo> apps) {
+		public List<ApplicationInfo> getCategories(List<ApplicationInfo> apps) {
 			// TODO  can do changes to default model
 		 for (ApplicationInfo applicationInfo : apps) {
 			applicationInfo.setApplicationOwner("Admin");
@@ -48,19 +47,22 @@ public class AppListModel {
 
 	public void setversionInfo(ApplicationInfo applicationInfo){
 		 Map<String,String> params = new HashMap<String,String>();
-		 params.put("action", "getAppVersionsInStage");
+		 params.put("action", JagApiProperties.App_NIFO_ACTION);
 		 params.put("stageName","Development");
 		 params.put("userName",Authenticator.getInstance().getCredentials().getUser());
 		 params.put("applicationKey",applicationInfo.getKey());
-		 String respond = HttpsJaggeryClient.httpPost(APP_NIFO_URL, params);
+		 String respond = HttpsJaggeryClient.httpPost(JagApiProperties.APP_INFO_URL, params);
 		 JsonElement jelement = new JsonParser().parse(respond);
 		 JsonElement jsonElement = jelement.getAsJsonArray().get(0).getAsJsonObject().get("versions");
 		 JsonArray infoArray = jsonElement.getAsJsonArray();
-		 JsonObject asJsonObject = infoArray.get(0).getAsJsonObject();
-		 Gson gson = new Gson();
-		 AppVersionInfo version = gson.fromJson(asJsonObject, AppVersionInfo.class);
-		 applicationInfo.setVersion(new ArrayList<AppVersionInfo>());
-		 version.setAppName(applicationInfo.getName());
-		 applicationInfo.getVersion().add(version);
+		 ArrayList<AppVersionInfo> versionList = new ArrayList<AppVersionInfo>();
+		 for (JsonElement jsonElement2 : infoArray) {
+			 JsonObject asJsonObject = jsonElement2.getAsJsonObject();
+			 Gson gson = new Gson();
+			 AppVersionInfo version = gson.fromJson(asJsonObject, AppVersionInfo.class);
+			 version.setAppName(applicationInfo.getKey());
+			 versionList.add(version);
+		}
+		applicationInfo.setVersion(versionList);
 	}
 }
