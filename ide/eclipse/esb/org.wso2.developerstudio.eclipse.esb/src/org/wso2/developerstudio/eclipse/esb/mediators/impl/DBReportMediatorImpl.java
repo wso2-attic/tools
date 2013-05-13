@@ -105,8 +105,10 @@ public class DBReportMediatorImpl extends AbstractSqlExecutorMediatorImpl implem
 		Element self = createChildElement(parent, "dbreport");
 		
 		// Use transaction flag.
-		self.setAttribute("useTransaction", Boolean.toString(isConnectionUseTransaction()));
-		
+		if(isConnectionUseTransaction()){
+			self.setAttribute("useTransaction", Boolean.toString(isConnectionUseTransaction()));
+		}
+			
 		// Connection.
 		Element connectionElem = createChildElement(self, "connection");
 		saveConnection(connectionElem);
