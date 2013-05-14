@@ -512,6 +512,7 @@ public class ElementDuplicator {
 			
 			containerRect.height += (initialYPos - parentRect.height);
 			containerRect.height += 40;
+			containerRect.width += 100;
 				SetBoundsCommand sbc = new SetBoundsCommand(container.getEditingDomain(),
 						"change location", new EObjectAdapter((View) container.getModel()), containerRect);
 
