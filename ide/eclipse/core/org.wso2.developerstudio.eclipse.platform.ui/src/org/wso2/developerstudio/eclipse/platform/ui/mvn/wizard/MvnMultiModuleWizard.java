@@ -16,6 +16,7 @@
 
 package org.wso2.developerstudio.eclipse.platform.ui.mvn.wizard;
 
+import org.apache.maven.model.Parent;
 import org.apache.maven.project.MavenProject;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
@@ -53,6 +54,7 @@ public class MvnMultiModuleWizard extends AbstractWSO2ProjectCreationWizard {
 		setModel(moduleModel);
 		setWindowTitle("Maven Modules Creation Wizard");
 		setDefaultPageImageDescriptor(MavenMultiModuleProjectImageUtils.getInstance().getImageDescriptor("maven-24x24.png"));
+		getCurrentSelection();
 	}
 
 	public void init() {
@@ -62,9 +64,19 @@ public class MvnMultiModuleWizard extends AbstractWSO2ProjectCreationWizard {
 			if (pomFile.exists()) {
 				// Parse the pom and see the packaging type
 				try {
+					moduleModel.setUpdateMode(true);
 					MavenProject mavenProject2 =
 					                             MavenUtils.getMavenProject(pomFile.getLocation()
 					                                                               .toFile());
+					
+					Parent parent = mavenProject2.getModel().getParent();
+					if(parent!=null){
+						moduleModel.setRequiredParent(true);
+						moduleModel.setParentArtifact(parent.getArtifactId());
+						moduleModel.setParentGroup(parent.getGroupId());
+						moduleModel.setParentVersion(parent.getVersion());
+						moduleModel.setRelativePath(parent.getRelativePath());
+					} 
 
 					setMavenProperty(mavenProject2.getGroupId(), mavenProject2.getArtifactId(),
 					                 mavenProject2.getVersion());
@@ -97,7 +109,7 @@ public class MvnMultiModuleWizard extends AbstractWSO2ProjectCreationWizard {
 	private void setMavenProperty(String groupId, String artifactId, String version) {
 		try {
 			moduleModel.setModelPropertyValue("group.id", groupId);
-			moduleModel.setModelPropertyValue("artifact.id", artifactId);
+			moduleModel.setModelPropertyValue("project.name", artifactId);
 			moduleModel.setModelPropertyValue("version.id", version);
 		} catch (ObserverFailedException e) {
 			log.error("Error occured while trying to inject values to the Project Model", e);
@@ -110,6 +122,20 @@ public class MvnMultiModuleWizard extends AbstractWSO2ProjectCreationWizard {
 		                            MavenUtils.createMavenProject(moduleModel.getGroupId(),
 		                                                          moduleModel.getArtifactId(),
 		                                                          moduleModel.getVersion(), "pom");
+		
+		if(moduleModel.isRequiredParent()){
+			Parent parent = new Parent();
+			parent.setArtifactId(moduleModel.getParentArtifact());
+			parent.setGroupId(moduleModel.getParentGroup());
+			parent.setVersion(moduleModel.getParentVersion());
+			String relativePath = moduleModel.getRelativePath();
+			if(relativePath!=null && !relativePath.trim().isEmpty()){
+				parent.setRelativePath(relativePath);
+			}
+			mavenProject.getModel().setParent(parent);
+		} else{
+			mavenProject.getModel().setParent(null);
+		}
 
 		List modules = mavenProject.getModules();
 
@@ -134,6 +160,7 @@ public class MvnMultiModuleWizard extends AbstractWSO2ProjectCreationWizard {
 						mavenProject2.setGroupId(moduleModel.getGroupId());
 						mavenProject2.setArtifactId(moduleModel.getArtifactId());
 						mavenProject2.setVersion(moduleModel.getVersion());
+						mavenProject2.getModel().setParent(mavenProject.getModel().getParent());
 						addMavenModules(multiModuleProject, mavenProject2, modules,
 						                selectedProjects, pomFile);
 					}

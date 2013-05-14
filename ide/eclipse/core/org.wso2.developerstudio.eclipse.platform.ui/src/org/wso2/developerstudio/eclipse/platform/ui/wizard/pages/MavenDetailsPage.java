@@ -16,14 +16,27 @@
 
 package org.wso2.developerstudio.eclipse.platform.ui.wizard.pages;
 
+import java.io.File;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
 
+import org.apache.maven.model.Parent;
+import org.apache.maven.project.MavenProject;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IWorkspace;
+import org.eclipse.core.resources.IWorkspaceRoot;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.jface.dialogs.TrayDialog;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
@@ -31,40 +44,50 @@ import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.Link;
 import org.eclipse.swt.widgets.Text;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
+import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.platform.core.model.MavenInfo;
 import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectDataModel;
+import org.wso2.developerstudio.eclipse.platform.ui.Activator;
+import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 
 public class MavenDetailsPage extends WizardPage implements Observer {
+	
+	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
+	
 	private Text txtGroupId;
 	private Text txtVersion;
 	private Text txtParentGroupId;
 	private Text txtParentArtifactId;
 	private Text txtParentVersion;
+	private Text txtRelativePath;
 	private Label lblParentGroupId;
 	private Label lblParentArtifactId;
 	private Label lblParentVersion;
-	private Link lnkLoadParentFrom;
+	private Label lblRelativePath;
+	//private Link lnkLoadParentFrom;
 	// private StringExtended artifactId;
 	private Text lblArtifactIdValue;
-	private Button btnNoMavenParent;
+	private Button btnhasMavenParent;
 	private Combo parentProjectInfoCombo;
 
-	// private MavenProjectType mavenProject;
-	// private MavenProjectType mavenParentProject;
+	private boolean hasParentProject;
+	private boolean hasLoadedProjectList;
 
-	// private boolean mavenParentProjectPresent;
-
-	// private Group group;
-	// private NewWSO2ProjectPage mainPage;
+	//private Group group;
+	//private NewWSO2ProjectPage mainPage;
 
 	private String parentGroupID;
 	private String parentArtifactID;
 	private String parentVersion;
 	private String parentProjectName;
+	private String parentRelativePath;
 	private final ProjectDataModel dataModel;
 	private final MavenInfo mavenProjectInfo;
+	
+	private Map<String,Parent> parentProjectlist;
 
 
 	/**
@@ -77,7 +100,9 @@ public class MavenDetailsPage extends WizardPage implements Observer {
 		this.dataModel = projectDataModel;
 		this.mavenProjectInfo = projectDataModel.getMavenInfo();
 		dataModel.addObserver(this);
-		// this.artifactId = artifactId;
+		hasParentProject = false;
+		parentProjectlist = new HashMap<String, Parent>();
+	    // this.artifactId = artifactId;
 		// this.mavenParentProject = mavenParentProject;
 		// artifactId.addObserver(this);
 		// mavenParentProject.addObserver(this);
@@ -101,7 +126,7 @@ public class MavenDetailsPage extends WizardPage implements Observer {
 		gl_grpMaven.horizontalSpacing = 40;
 		grpMaven.setLayout(gl_grpMaven);
 		GridData gd_grpMaven = new GridData(GridData.FILL_HORIZONTAL);
-		gd_grpMaven.heightHint = 200;
+		gd_grpMaven.heightHint = 325;
 
 		grpMaven.setLayoutData(gd_grpMaven);
 
@@ -159,114 +184,249 @@ public class MavenDetailsPage extends WizardPage implements Observer {
 			}
 		});
 
-//		Button checkBox = new Button(grpMaven, SWT.CHECK);
-//		checkBox.setText("Specify Parent");
+		btnhasMavenParent = new Button(grpMaven, SWT.CHECK);
+		btnhasMavenParent.setText("Specify Parent");
+		btnhasMavenParent.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				hasParentProject = btnhasMavenParent.getSelection();
+				if(!hasLoadedProjectList){
+					try {
+							loadParentProjectInfo();
+					} catch (Exception ignored) {
+						//ignored
+					}
+				}
+				updateMavenParentControlState();
+				
+				if (!btnhasMavenParent.getSelection()){
+					mavenProjectInfo.setParentProject(null);
+					dataModel.setMavenInfo(mavenProjectInfo);
+				}
+			}
+		});
 
-//		parentProjectInfoCombo = new Combo(grpMaven, SWT.READ_ONLY);
-//		GridData gd_parentProjectInfoCombo = new GridData(SWT.LEFT, SWT.CENTER, true, false, 1, 1);
-//		gd_parentProjectInfoCombo.widthHint = 414;
-//		parentProjectInfoCombo.setLayoutData(gd_parentProjectInfoCombo);
-//		new Label(grpMaven, SWT.NONE);
-//
-//		try {
-//			loadParentProjectInfo();
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//
-//		parentProjectInfoCombo.addModifyListener(new ModifyListener() {
-//
-//			public void modifyText(ModifyEvent arg0) {
-//				setParentMavenInfo(parentProjectInfoCombo.getText());
-//				MavenProject parentMavenProject =
-//				        MavenUtils.createMavenProject(getParentGroupID(), getParentArtifactID(),
-//				                                      getParentVersion(), "pom");
-//				mavenProjectInfo.setParentProject(parentMavenProject);
-//				dataModel.setMavenInfo(mavenProjectInfo);
-//			}
-//
-//		});
+		parentProjectInfoCombo = new Combo(grpMaven, SWT.READ_ONLY);
+		GridData gd_parentProjectInfoCombo = new GridData(SWT.LEFT, SWT.CENTER, true, false, 1, 1);
+		gd_parentProjectInfoCombo.widthHint = 350;
+		parentProjectInfoCombo.setLayoutData(gd_parentProjectInfoCombo);
+		
+		lblParentGroupId = new Label(grpMaven, SWT.NONE);
+		lblParentGroupId.setText("Parent Group Id");
 
-//		Link lnkNewCMProject = new Link(grpMaven, SWT.NONE);
-//		lnkNewCMProject.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
-//		lnkNewCMProject.setText("<a>Create New Parent Project</a>");
-//
-//		lnkNewCMProject.addSelectionListener(new SelectionListener() {
-//
-//			
-//			public void widgetSelected(SelectionEvent event) {
-////				try {
-////					Shell shell = grpMaven.getShell();
-////					GeneralProjectWizard wizard = new GeneralProjectWizard()
-////					ParentProjectInfoDialog dialog = new ParentProjectInfoDialog(shell, mavenProjectFile, getProject());
-////					dialog.setBlockOnOpen(true);
-////					dialog.create();
-////					dialog.getShell().setSize(500, 200);
-////					dialog.open();
-////				} catch (CoreException e) {
-////					e.printStackTrace();
-////				} catch (IOException e) {
-////					e.printStackTrace();
-////				} catch (Exception e) {
-////					e.printStackTrace();
-////				}
-//			}
-//
-//			
-//			public void widgetDefaultSelected(SelectionEvent arg0) {
-//
-//			}
-//		});
+		txtParentGroupId = new Text(grpMaven, SWT.BORDER);
+		txtParentGroupId.addModifyListener(new ModifyListener() {
+			public void modifyText(ModifyEvent arg0) {
+				setParentGroupID(txtParentGroupId.getText());
+				updatePageStatus();
+				updateParent();
+			}
+		});
+	
+		GridData gd_txtParentGroupId = new GridData(SWT.LEFT, SWT.CENTER, true, false, 1, 1);
+		gd_txtParentGroupId.widthHint = 257;
+		txtParentGroupId.setLayoutData(gd_txtParentGroupId);
+
+		lblParentArtifactId = new Label(grpMaven, SWT.NONE);
+		lblParentArtifactId.setText("Parent Artifact Id");
+
+		txtParentArtifactId = new Text(grpMaven, SWT.BORDER);
+		txtParentArtifactId.addModifyListener(new ModifyListener() {
+			public void modifyText(ModifyEvent arg0) {
+				setParentArtifactID(txtParentArtifactId.getText());
+				updatePageStatus();
+				updateParent();
+			}
+		});
+
+		GridData gd_txtParentArtifact = new GridData(SWT.LEFT, SWT.CENTER, true, false, 1, 1);
+		gd_txtParentArtifact.widthHint = 257;
+		txtParentArtifactId.setLayoutData(gd_txtParentArtifact);
+
+		lblParentVersion = new Label(grpMaven, SWT.NONE);
+		lblParentVersion.setText("Parent Version");
+
+		txtParentVersion = new Text(grpMaven, SWT.BORDER);
+		GridData gd_txtParentVersion = new GridData(SWT.LEFT, SWT.CENTER, true, false, 1, 1);
+		gd_txtParentVersion.widthHint = 257;
+		txtParentVersion.setLayoutData(gd_txtParentVersion);
+		txtParentVersion.addModifyListener(new ModifyListener() {
+			public void modifyText(ModifyEvent evt) {
+				setParentVersion(txtParentVersion.getText());
+				updatePageStatus();
+				updateParent();
+			}
+		});
+		
+		lblRelativePath = new Label(grpMaven, SWT.NONE);
+		lblRelativePath.setText("Relative-path");
+		
+		txtRelativePath = new Text(grpMaven, SWT.BORDER);
+		GridData gd_txtRelativePath = new GridData(SWT.LEFT, SWT.CENTER, true, false, 1, 1);
+		gd_txtRelativePath.widthHint = 350;
+		txtRelativePath.setLayoutData(gd_txtRelativePath);
+		txtRelativePath.addModifyListener(new ModifyListener() {
+			public void modifyText(ModifyEvent evt) {
+				setParentRelativePath(txtRelativePath.getText());
+				updatePageStatus();
+				updateParent();
+			}
+		});
+
+		parentProjectInfoCombo.addModifyListener(new ModifyListener() {
+
+			public void modifyText(ModifyEvent evt) {
+				Parent info = parentProjectlist.get(parentProjectInfoCombo.getText());
+				if(info!=null){
+					setParentMavenInfo(info);
+					updateParent();
+				} else{
+					mavenProjectInfo.setParentProject(null);
+					dataModel.setMavenInfo(mavenProjectInfo);
+				}				
+			}
+
+		});
+		
+		
+		/*
+		Link lnkNewCMProject = new Link(grpMaven, SWT.NONE);
+		lnkNewCMProject.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
+		lnkNewCMProject.setText("<a>Create New Parent Project</a>");
+
+		lnkNewCMProject.addSelectionListener(new SelectionListener() {
+
+			
+			public void widgetSelected(SelectionEvent event) {
+				try {
+					Shell shell = grpMaven.getShell();
+					GeneralProjectWizard wizard = new GeneralProjectWizard()
+					ParentProjectInfoDialog dialog = new ParentProjectInfoDialog(shell, mavenProjectFile, getProject());
+					dialog.setBlockOnOpen(true);
+					dialog.create();
+					dialog.getShell().setSize(500, 200);
+					dialog.open();
+				} catch (CoreException e) {
+					e.printStackTrace();
+				} catch (IOException e) {
+					e.printStackTrace();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+
+			
+			public void widgetDefaultSelected(SelectionEvent arg0) {
+
+			}
+		});
+		*/
 
 		setControl(container);
 		updateMavenDetailsControls();
 		updatePageStatus();
 		TrayDialog.setDialogHelpAvailable(false);
 	}
+	
+	private void updateParent(){
+		Parent parent = new Parent();
+		parent.setArtifactId(getParentArtifactID());
+		parent.setGroupId(getParentGroupID());
+		parent.setVersion(getParentVersion());
+		parent.setRelativePath(getParentRelativePath());
+		mavenProjectInfo.setParentProject(parent);
+		dataModel.setMavenInfo(mavenProjectInfo);
+	}
 
-//	private void setParentMavenInfo(String parentProjectInfo) {
-//		String[] projectInfo = parentProjectInfo.split("(");
-//		if (projectInfo.length != 0) {
-//			setParentProjectName(projectInfo[0]);
-//			String[] mavenInfo = projectInfo[projectInfo.length - 1].split(">:<");
-//			setParentGroupID(mavenInfo[0].substring(1));
-//			setParentArtifactID(mavenInfo[1]);
-//			setParentVersion(mavenInfo[2].substring(0, mavenInfo[2].length() - 2));
-//		}
-//
-//	}
+	private void setParentMavenInfo(Parent info) {
+		if (info != null) {
+			setParentProjectName(info.getArtifactId());
+			setParentGroupID(info.getGroupId());
+			setParentArtifactID(info.getArtifactId());
+			setParentVersion(info.getVersion());
+			setParentRelativePath(info.getRelativePath());
+			txtParentArtifactId.setText(getParentArtifactID());
+			txtParentGroupId.setText(getParentGroupID());
+			txtParentVersion.setText(getParentVersion());
+			txtRelativePath.setText(getParentRelativePath());
+		}
 
-//	private void loadParentProjectInfo() throws Exception {
-//		String mavenInfo;
-//		List<MavenProject> parentMavenProjects =
-//		        getParentMavenProjects(new ArrayList<MavenProject>());
-//		for (MavenProject mavenProject : parentMavenProjects) {
-//			mavenInfo =
-//			        dataModel.getProjectName() + "(<" + mavenProject.getGroupId() + ">:<" +
-//			                mavenProject.getArtifactId() + ">:<" + mavenProject.getVersion() + ">)";
-//			parentProjectInfoCombo.add(mavenInfo);
-//		}
-//
-//		if (parentProjectInfoCombo.getSelectionIndex() == -1) {
-//			parentProjectInfoCombo.select(0);
-//		}
-//	}
+	}
 
-//	private List<MavenProject> getParentMavenProjects(List<MavenProject> mavenParentProjects)
-//	        throws Exception {
-//		File parentLocation = dataModel.getLocation();
-//		while (parentLocation != null) {
-//			File pomFile = new File(parentLocation, "pom.xml");
-//			if (pomFile.exists()) {
-//				MavenProject mavenProject = MavenUtils.getMavenProject(pomFile);
-//				if (mavenProject.getPackaging().equals("pom")) {
-//					mavenParentProjects.add(mavenProject);
-//				}
-//			}
-//			parentLocation = parentLocation.getParentFile();
-//		}
-//		return mavenParentProjects;
-//	}
+	private void loadParentProjectInfo() throws Exception {
+		List<Parent> parentMavenProjects =
+		        getParentMavenProjects(new ArrayList<Parent>());
+		parentProjectInfoCombo.removeAll();
+		parentProjectInfoCombo.update();
+		for (Parent parent : parentMavenProjects) {
+			parentProjectlist.put(parent.getArtifactId(), parent);
+			parentProjectInfoCombo.add(parent.getArtifactId());
+		}
+
+		if (parentProjectInfoCombo.getSelectionIndex() == -1) {
+			parentProjectInfoCombo.select(0);
+		}
+		hasLoadedProjectList=true;
+	}
+
+	private List<Parent> getParentMavenProjects(List<Parent> mavenParentProjects)
+	        throws Exception {
+		IWorkspace workspace = ResourcesPlugin.getWorkspace();
+		IWorkspaceRoot root = workspace.getRoot();
+		IProject[] projects = root.getProjects();
+		for (IProject project : projects) {
+			try{
+				if(project.isOpen()){
+					File pomFile =  project.getFile("pom.xml").getLocation().toFile();
+					if (pomFile.exists()) {
+						MavenProject mavenProject = MavenUtils.getMavenProject(pomFile);
+						if (mavenProject.getPackaging().equals("pom")) {
+							Parent parent = new Parent();
+							parent.setArtifactId(mavenProject.getArtifactId());
+							parent.setGroupId(mavenProject.getGroupId());
+							parent.setVersion(mavenProject.getVersion());
+							try {
+								String relativePath = FileUtils.getRelativePath(
+										dataModel.getLocation(), pomFile);
+								parent.setRelativePath(relativePath);
+								mavenParentProjects.add(parent);
+							} catch (Exception ignored) {
+								// ignored
+							}
+						}
+					}
+				}
+			 } catch (Exception e) {
+				log.error("Error reading project list", e);
+			}
+		}
+		
+		
+		File parentLocation = dataModel.getLocation();
+		/*while (parentLocation != null) {
+			File pomFile = new File(parentLocation, "pom.xml");
+			if (pomFile.exists()) {
+				MavenProject mavenProject = MavenUtils.getMavenProject(pomFile);
+				if (mavenProject.getPackaging().equals("pom")) {
+					Parent parent = new Parent();
+					parent.setArtifactId(mavenProject.getArtifactId());
+					parent.setGroupId(mavenProject.getGroupId());
+					parent.setVersion(mavenProject.getVersion());
+					try {
+						String relativePath = FileUtils.getRelativePath(
+								dataModel.getLocation(), pomFile);
+						parent.setRelativePath(relativePath);
+						mavenParentProjects.add(parent);
+					} catch (Exception ignored) {
+						// ignored
+					}
+					
+				}
+			}
+			parentLocation = parentLocation.getParentFile();
+		}*/
+		return mavenParentProjects;
+	}
 
 	private void updateMavenDetailsControls() {
 		if (mavenProjectInfo != null) {
@@ -284,20 +444,29 @@ public class MavenDetailsPage extends WizardPage implements Observer {
 			if (version != null && !version.equals("") && txtVersion != null) {
 				txtVersion.setText(version);
 			}
+			
+			if(hasParentProject){
+				
+			} else{
+				
+			}
 		}
 		updateMavenParentControlState();
 	}
 
 	private void updateMavenParentControlState() {
-		if (btnNoMavenParent != null) {
-			boolean isNoParent = btnNoMavenParent.getSelection();
-			lblParentGroupId.setEnabled(!isNoParent);
-			txtParentGroupId.setEnabled(!isNoParent);
-			lnkLoadParentFrom.setEnabled(!isNoParent);
-			lblParentArtifactId.setEnabled(!isNoParent);
-			txtParentArtifactId.setEnabled(!isNoParent);
-			lblParentVersion.setEnabled(!isNoParent);
-			txtParentVersion.setEnabled(!isNoParent);
+		if (btnhasMavenParent != null) {
+			boolean hasParent = btnhasMavenParent.getSelection();
+			parentProjectInfoCombo.setEnabled(hasParent);
+			lblParentGroupId.setEnabled(hasParent);
+			txtParentGroupId.setEnabled(hasParent);
+		//	lnkLoadParentFrom.setEnabled(!isParent);
+			lblParentArtifactId.setEnabled(hasParent);
+			txtParentArtifactId.setEnabled(hasParent);
+			lblParentVersion.setEnabled(hasParent);
+			txtParentVersion.setEnabled(hasParent);
+			lblRelativePath.setEnabled(hasParent);
+			txtRelativePath.setEnabled(hasParent);
 		}
 	}
 
@@ -308,10 +477,33 @@ public class MavenDetailsPage extends WizardPage implements Observer {
 				updatePageStatus("Specify a group id for the maven project");
 				return;
 			}
+			String artifactId = mavenProjectInfo.getArtifactId();
+			if (artifactId == null || artifactId.equals("")) {
+				updatePageStatus("Specify an artifact id for the maven project");
+				return;
+			}
 			String version = mavenProjectInfo.getVersion();
 			if (version == null || version.equals("")) {
 				updatePageStatus("Specify a version for the maven project");
 				return;
+			}
+			
+			if(hasParentProject){
+				String parentGroupId = getParentGroupID();
+				if (parentGroupId == null || parentGroupId.trim().equals("")) {
+					updatePageStatus("Specify a group id for the parent project");
+					return;
+				}
+				String parentArtifactId = getParentArtifactID();
+				if (parentArtifactId == null || parentArtifactId.trim().equals("")) {
+					updatePageStatus("Specify an artifact id for the parent project");
+					return;
+				}
+				String parentVersion = getParentVersion();
+				if (parentVersion == null || parentVersion.trim().equals("")) {
+					updatePageStatus("Specify a version for the parent project");
+					return;
+				}
 			}
 
 			updatePageStatus(null);
@@ -356,6 +548,16 @@ public class MavenDetailsPage extends WizardPage implements Observer {
 		this.parentProjectName = parentProjectName;
 	}
 
+	public void setParentRelativePath(String parentRelativePath) {
+		this.parentRelativePath = parentRelativePath;
+	}
+
+
+	public String getParentRelativePath() {
+		return parentRelativePath;
+	}
+
+
 	public String getParentVersion() {
 		return parentVersion;
 	}
@@ -385,4 +587,5 @@ public class MavenDetailsPage extends WizardPage implements Observer {
 			txtVersion.setText(newmavenProjectInfo.getVersion());
 		} 
 	}
+	
 }

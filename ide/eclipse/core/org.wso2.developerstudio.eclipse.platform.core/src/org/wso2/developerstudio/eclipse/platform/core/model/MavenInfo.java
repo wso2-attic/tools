@@ -16,20 +16,20 @@
 
 package org.wso2.developerstudio.eclipse.platform.core.model;
 
-import org.apache.maven.project.MavenProject;
+import org.apache.maven.model.Parent;
 
 public class MavenInfo {
 	private String groupId;
 	private String artifactId;
 	private String version;
 	private String packageName;
-	private MavenProject parentProject;
+	private Parent parentProject;
 	
-	public MavenProject getParentProject() {
+	public Parent getParentProject() {
 		return parentProject;
 	}
 
-	public void setParentProject(MavenProject parentProject) {
+	public void setParentProject(Parent parentProject) {
 		this.parentProject = parentProject;
 	}
 

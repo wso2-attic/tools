@@ -18,11 +18,10 @@ package org.wso2.developerstudio.eclipse.platform.ui.wizard;
 
 import java.io.File;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
+import org.apache.maven.model.Parent;
 import org.apache.maven.project.MavenProject;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
@@ -40,18 +39,13 @@ import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
-import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.widgets.Text;
-import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorReference;
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
-import org.eclipse.ui.IWorkbenchPage;
-import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.ide.IDE;
-import org.eclipse.ui.part.FileEditorInput;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
@@ -204,6 +198,10 @@ public abstract class AbstractWSO2ProjectCreationWizard extends Wizard implement
 		MavenProject mavenProject =
 		        MavenUtils.createMavenProject(mavenInfo.getGroupId(), mavenInfo.getArtifactId(),
 		                                      mavenInfo.getVersion(), mavenInfo.getPackageName());
+		Parent parentProject = getModel().getMavenInfo().getParentProject();
+		if (parentProject != null) {
+			mavenProject.getModel().setParent(parentProject);
+		}
 		MavenUtils.saveMavenProject(mavenProject, pomLocation);
 	}
 	
@@ -212,6 +210,10 @@ public abstract class AbstractWSO2ProjectCreationWizard extends Wizard implement
 		MavenProject mavenProject =
 		        MavenUtils.createMavenProject(mavenInfo.getGroupId(), mavenInfo.getArtifactId(),
 		                                      mavenInfo.getVersion(), packagingType);
+		Parent parentProject = getModel().getMavenInfo().getParentProject();
+		if (parentProject != null) {
+			mavenProject.getModel().setParent(parentProject);
+		}
 		MavenUtils.saveMavenProject(mavenProject, pomLocation);
 	}
 	

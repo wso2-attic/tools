@@ -16,22 +16,31 @@
 
 package org.wso2.developerstudio.eclipse.platform.ui.mvn.wizard;
 
+import java.util.List;
+
 import org.wso2.developerstudio.eclipse.platform.core.exception.FieldValidationException;
 import org.wso2.developerstudio.eclipse.platform.core.model.AbstractFieldController;
 import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectDataModel;
+import org.wso2.developerstudio.eclipse.platform.ui.validator.CommonFieldValidator;
 
 public class MvnMutiModuleFieldsController extends AbstractFieldController {
 
 	
 	public void validate(String modelProperty, Object value,
 			ProjectDataModel model) throws FieldValidationException {
+		boolean updateMode = ((MvnMultiModuleModel)model).isUpdateMode();
+		boolean requiredParent = ((MvnMultiModuleModel)model).isRequiredParent();
 		if (modelProperty.equals("group.id")) {
 			if ((value == null)||(value.equals(""))) {
 				throw new FieldValidationException("The groupId cannot be empty");
 			}
-		} else if(modelProperty.equals("artifact.id")){
-			if ((value == null)||(value.equals(""))) {
-				throw new FieldValidationException("The artifactId cannot be empty");
+		} else if(modelProperty.equals("project.name")){
+			if(updateMode){
+				if ((value == null)||(value.equals(""))) {
+					throw new FieldValidationException("The artifactId cannot be empty");
+				}
+			} else{
+				CommonFieldValidator.validateProjectField(value);
 			}
 		} else if (modelProperty.equals("version.id")) {
 			if ((value == null)||(value.equals(""))) {
@@ -41,7 +50,59 @@ public class MvnMutiModuleFieldsController extends AbstractFieldController {
 			if ((value == null)||(value.equals(""))) {
 				throw new FieldValidationException("No vaild projects available in workspace");
 			}
+		} else if(modelProperty.equals("parent.group")){
+			if (requiredParent) {
+				if ((value == null) || (value.equals(""))) {
+					throw new FieldValidationException("Parent group id cannot be empty");
+				}
+			}
+		} else if(modelProperty.equals("parent.artifact")){
+			if (requiredParent) {
+				if ((value == null) || (value.equals(""))) {
+					throw new FieldValidationException("Parent artifact id cannot be empty");
+				}
+			}
+		} else if(modelProperty.equals("parent.version")){
+			if (requiredParent) {
+				if ((value == null) || (value.equals(""))) {
+					throw new FieldValidationException("Parent version cannot be empty");
+				}
+			}
 		}
+	}
+	
+	@Override
+	public List<String> getUpdateFields(String modelProperty,
+			ProjectDataModel model) {
+		List<String> updateFields = super.getUpdateFields(modelProperty, model);
+		if(modelProperty.equals("required.parent")){
+			updateFields.add("parent.group");
+			updateFields.add("parent.artifact");
+			updateFields.add("parent.version");
+			updateFields.add("parent.list");
+			updateFields.add("relative.path");
+		} else if (modelProperty.equals("parent.list")){
+			updateFields.add("parent.group");
+			updateFields.add("parent.artifact");
+			updateFields.add("parent.version");
+			updateFields.add("relative.path");
+		}
+		return updateFields;
+	}
+	
+	@Override
+	public boolean isVisibleField(String modelProperty, ProjectDataModel model) {
+		boolean visibleField = super.isVisibleField(modelProperty, model);
+		boolean requiredParent = ((MvnMultiModuleModel)model).isRequiredParent();
+
+		if (modelProperty.equals("parent.group")
+				|| modelProperty.equals("parent.artifact")
+				|| modelProperty.equals("parent.version")
+				|| modelProperty.equals("relative.path")
+				|| modelProperty.equals("parent.list")) {
+			visibleField = requiredParent;
+		}
+		return visibleField;
 	}
 }
 

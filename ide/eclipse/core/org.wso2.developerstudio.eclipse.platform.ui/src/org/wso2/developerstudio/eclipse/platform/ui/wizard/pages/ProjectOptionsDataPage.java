@@ -29,11 +29,16 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.TreeSelection;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.custom.ScrolledComposite;
+import org.eclipse.swt.events.ControlAdapter;
+import org.eclipse.swt.events.ControlEvent;
+import org.eclipse.swt.events.ControlListener;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
+import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -146,9 +151,12 @@ public class ProjectOptionsDataPage extends WizardPage implements Observer {
 	 * @param parent
 	 */
 	public void createControl(Composite parent) {
-		Composite container = new Composite(parent, SWT.NULL);
+		
+		final ScrolledComposite scrolledComposite = new ScrolledComposite(parent, SWT.H_SCROLL | SWT.V_SCROLL);
+		
+		final Composite container = new Composite(scrolledComposite, SWT.NULL);
 
-		setControl(container);
+		setControl(scrolledComposite);
 		container.setLayout(new FillLayout(SWT.HORIZONTAL));
 
 		mainSection = new Composite(container, SWT.NONE);
@@ -196,6 +204,22 @@ public class ProjectOptionsDataPage extends WizardPage implements Observer {
 			new WorkingSetComposite(workigSetSection, SWT.NONE, model);
 		}
 		TrayDialog.setDialogHelpAvailable(false);
+		
+		scrolledComposite.setContent(container);
+		scrolledComposite.setExpandHorizontal(true);
+		scrolledComposite.setExpandVertical(true);
+		//TODO: Dynamically resize a scrolledComposite when child resized.
+		Point compositeSize = container.computeSize(SWT.DEFAULT, SWT.DEFAULT);
+		compositeSize.y +=100;
+		scrolledComposite.setMinSize(compositeSize);
+		/*container.addControlListener(new ControlAdapter() {
+			
+			public void controlResized(ControlEvent e) {
+				Point compositeSize = container.computeSize(SWT.DEFAULT, SWT.DEFAULT);
+				scrolledComposite.setMinSize(compositeSize);
+			}
+		});*/
+		
 	}
 
 	private void setupProjectOptionControls(Composite projectOptionsSection, int columns) {
