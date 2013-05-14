@@ -141,7 +141,7 @@ public class ResourceEditorPage extends FormPage implements
 	private Label lbl;
 	private Button openButton;
 
-	private String resourceUrl;
+	private String resourceUrl = "";
 	private Section section;
 
 	private Text urlText;
@@ -294,8 +294,8 @@ public class ResourceEditorPage extends FormPage implements
 					} else {
 
 					}
-					//Below line commented in order to fix TOOLS-1382
-					//updateDirtyState();
+					resetFormDataValues();
+					updateDirtyState();
 				}
 			});
 
@@ -497,8 +497,16 @@ public class ResourceEditorPage extends FormPage implements
 	private void createMediaTypeCombo(Composite container) {
 		GridData gd;
 		toolkit.createLabel(container, "Media Type: ");
-
-		toolkit.createLabel(container, "");
+		
+		if (selectedMethod != null
+				&& selectedMethod.equals("Create custom content")) {
+			Label reqMediaTypeLabel = toolkit.createLabel(container, "*",
+					SWT.COLOR_DARK_RED);
+			reqMediaTypeLabel.setForeground(Display.getDefault()
+					.getSystemColor(SWT.COLOR_RED));
+		} else {
+			toolkit.createLabel(container, "");
+		}
 
 		ArrayList<String> mediaTypeskeySet = registry.getAllMediaTypes();
 		mediaTypeText = new Combo(container, SWT.BORDER);
@@ -598,6 +606,7 @@ public class ResourceEditorPage extends FormPage implements
 				setResourceUrl(url);
 				urlText.setBackground(Display.getDefault().getSystemColor(
 						SWT.COLOR_WHITE));
+				updateDirtyState();
 				try {
 					if (validateUrl(url)) {
 						fillOtherInfo(mediaTypeText, nameText);
@@ -680,7 +689,7 @@ public class ResourceEditorPage extends FormPage implements
 				setResourceName(resName);
 				nameText.setBackground(Display.getDefault().getSystemColor(
 						SWT.COLOR_WHITE));
-
+				updateDirtyState();
 			}
 		});
 		gd = new GridData(GridData.FILL_HORIZONTAL);
@@ -931,12 +940,26 @@ public class ResourceEditorPage extends FormPage implements
 	}
 
 	private void updateDirtyState() {
-		if(getResourceName().trim().isEmpty()){
+		if (selectedMethod != null
+				&& selectedMethod.equals("Create custom content")
+				&& (getResourceName().trim().isEmpty() || getMediaType().trim()
+						.isEmpty())) {
+			setPageDirty(false);
+			btnOk.setEnabled(false);
+			return;
+		} else if (selectedMethod != null
+				&& selectedMethod.equals("Import Content from URL")
+				&& (getResourceName().trim().isEmpty() || getResourceUrl().trim()
+						.isEmpty())) {
+			setPageDirty(false);
+			btnOk.setEnabled(false);
+			return;
+		} else if (getResourceName().trim().isEmpty()) {
 			setPageDirty(false);
 			btnOk.setEnabled(false);
 			return;
 		}
-		
+
 		boolean dirtyState = ((getCurrentResourceName() != null) && !getCurrentResourceName()
 				.equals(getResourceName()))
 
@@ -1604,5 +1627,15 @@ public class ResourceEditorPage extends FormPage implements
      */
     public int getCurrentMyRating() {
 	    return currentMyRating;
+    }
+    
+    /**
+     * Resetting variable values.
+     */
+    private void resetFormDataValues(){
+    	resourceName = "";
+    	mediaType = "";
+    	description = "";
+    	myRating = 0;
     }
 }
