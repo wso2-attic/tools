@@ -239,6 +239,10 @@
                             		<version>${brs.feature.version}</version>
                             	</feature>
 				<feature>
+                            		<id>org.wso2.developerstudio.eclipse.appfactory.feature.feature.group</id>
+                            		<version>${appfactory.tools.feature.version}</version>
+                            	</feature>
+				<feature>
                             		<id>org.wso2.soapui.feature.feature.group</id>
                             		<version>${soapui.feature.version}</version>
                             	</feature>
