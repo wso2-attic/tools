@@ -43,12 +43,12 @@ import org.eclipse.ui.model.WorkbenchLabelProvider;
 import java.io.File;
 
 public class Axis2SelectWSDLPage extends WizardPage {
-
-	private Text text;
-	private Text text_1;
+	
+	private Text txtBrowseWorkspace;
+	private Text txtBrowseFileSystem;
 	private Text txtOnlineWSDLUri;
-	private Button button;
-	private Button button_2;
+	private Button btnBrowseWorkspace;
+	private Button btnBrowseFileSystem;
 	private ElementTreeSelectionDialog dialog;
 	// This might not be needed
 	private File wsdlFile;
@@ -96,23 +96,23 @@ public class Axis2SelectWSDLPage extends WizardPage {
 		lblNewLabel.setBounds(10, 10, 108, 17);
 		lblNewLabel.setText("Select WSDL ");
 
-		text = new Text(container, SWT.BORDER);
-		text.setBounds(164, 49, 366, 27);
+		txtBrowseWorkspace = new Text(container, SWT.BORDER);
+		txtBrowseWorkspace.setBounds(164, 49, 366, 27);
 
-		button = new Button(container, SWT.NONE);
-		button.setText("Browse...");
-		button.setBounds(536, 45, 101, 35);
+		btnBrowseWorkspace = new Button(container, SWT.NONE);
+		btnBrowseWorkspace.setText("Browse...");
+		btnBrowseWorkspace.setBounds(536, 45, 101, 35);
 
-		if (text.getText() != null && !text.getText().equals("")) {
-			button.setEnabled(false);
+		if (txtBrowseWorkspace.getText() != null && !txtBrowseWorkspace.getText().equals("")) {
+			btnBrowseWorkspace.setEnabled(false);
 
 		} else {
-			button.setEnabled(true);
+			btnBrowseWorkspace.setEnabled(true);
 		}
-
-		button.addSelectionListener(new SelectionAdapter() {
+		
+		btnBrowseWorkspace.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
-				dialog = new ElementTreeSelectionDialog(button.getShell(),
+				dialog = new ElementTreeSelectionDialog(btnBrowseWorkspace.getShell(),
 						new WorkbenchLabelProvider(),
 						new BaseWorkbenchContentProvider());
 				dialog.setTitle("Tree Selection");
@@ -140,33 +140,43 @@ public class Axis2SelectWSDLPage extends WizardPage {
 				});
 
 				if (dialog.open() == Window.OK) {
-					IFile file = (IFile) dialog.getFirstResult();
-					if (file.exists()) {
-						wsdlFile = new File(file.getRawLocation().toString());
-					}
+					if (dialog.getFirstResult() instanceof IFile) {
+						IFile file = (IFile) dialog.getFirstResult();
 
-					if (wsdlFile != null && wsdlFile.exists()) {
-						text.setText(wsdlFile.getName());
-						model.setWsdlURI(file.getRawLocation().toString());
-						setPageComplete(true);
-					}
+						if (file.exists()) {
+							wsdlFile = new File(file.getRawLocation()
+									.toString());
+						}
 
+						if (wsdlFile != null && wsdlFile.exists()) {
+							txtBrowseWorkspace.setText(wsdlFile.getName());
+							model.setWsdlURI(file.getRawLocation().toString());
+							setPageComplete(true);
+						}
+					} else {
+						txtBrowseWorkspace.setText("");
+						wsdlFile = null;
+						model.setWsdlURI(null);
+						
+						setPageComplete(false);
+					}
 				}
 			}
 		});
-
-		Button btnBrowseWorkspace = new Button(container, SWT.RADIO);
-		btnBrowseWorkspace.setText("Browse workspace");
-		btnBrowseWorkspace.setBounds(10, 53, 148, 20);
-		btnBrowseWorkspace.setSelection(true);
+		
+		Button btnWorkspace = new Button(container, SWT.RADIO);
+		btnWorkspace.setText("Browse workspace");
+		btnWorkspace.setBounds(10, 53, 152, 20);
+		btnWorkspace.setSelection(true);
 		setOptionType(OPTION_IMPORT_WS);
-		btnBrowseWorkspace.addSelectionListener(new SelectionAdapter() {
+		btnWorkspace.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
 				setOptionType(OPTION_IMPORT_WS);
-				button.setEnabled(true);
-				text.setEnabled(true);
-				button_2.setEnabled(false);
-				if (model.getWsdlURI() != null
+				btnBrowseWorkspace.setEnabled(true);
+				txtBrowseWorkspace.setText("");
+				txtBrowseWorkspace.setEnabled(true);
+				btnBrowseFileSystem.setEnabled(false);
+				/*if (model.getWsdlURI() != null
 						&& !model.getWsdlURI().equals("")) {
 					text.setText(model.getWsdlURI());
 					wsdlFile = new File(model.getWsdlURI());
@@ -175,43 +185,51 @@ public class Axis2SelectWSDLPage extends WizardPage {
 					text.setText("");
 					wsdlFile = null;
 					setPageComplete(false);
-				}
+				}*/
 				// text_1.setText("");
-				text_1.setEnabled(false);
-				//
-				// wsdlFile = null;
-				// model.setWsdlURI(null);
+				txtBrowseFileSystem.setEnabled(false);
+				txtOnlineWSDLUri.setText("");
+				txtOnlineWSDLUri.setEnabled(false);
+
+				wsdlFile = null;
+				model.setWsdlURI(null);
+				
+				setPageComplete(false);
 			}
 		});
 
-		Button btnBrowse = new Button(container, SWT.RADIO);
-		btnBrowse.setText("Browse file system");
-		btnBrowse.setBounds(10, 96, 148, 20);
-		btnBrowse.setSelection(false);
+		Button btnFilySystem = new Button(container, SWT.RADIO);
+		btnFilySystem.setText("Browse file system");
+		btnFilySystem.setBounds(10, 96, 152, 20);
+		btnFilySystem.setSelection(false);
 
-		text_1 = new Text(container, SWT.BORDER);
-		text_1.setBounds(164, 92, 366, 27);
-		text_1.setEnabled(false);
+		txtBrowseFileSystem = new Text(container, SWT.BORDER);
+		txtBrowseFileSystem.setBounds(164, 92, 366, 27);
+		txtBrowseFileSystem.setEnabled(false);
 
-		btnBrowse.addSelectionListener(new SelectionAdapter() {
+		btnFilySystem.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
 				setOptionType(OPTION_IMPORT_FS);
-				button.setEnabled(false);
-				text.setEnabled(false);
-				button_2.setEnabled(true);
-				text_1.setText("");
-				text_1.setEnabled(true);
+				btnBrowseWorkspace.setEnabled(false);
+				txtBrowseWorkspace.setText("");
+				txtBrowseWorkspace.setEnabled(false);
+				btnBrowseFileSystem.setEnabled(true);
+				txtBrowseFileSystem.setText("");
+				txtBrowseFileSystem.setEnabled(true);
 				setPageComplete(false);
-				// wsdlFile = null;
-				// model.setWsdlURI(null);
+				wsdlFile = null;
+				model.setWsdlURI(null);
+				
+				txtOnlineWSDLUri.setText("");
+				txtOnlineWSDLUri.setEnabled(false);
 			}
 		});
 
-		button_2 = new Button(container, SWT.NONE);
-		button_2.setText("Browse...");
-		button_2.setBounds(536, 86, 101, 35);
-		button_2.setEnabled(false);
-		button_2.addSelectionListener(new SelectionAdapter() {
+		btnBrowseFileSystem = new Button(container, SWT.NONE);
+		btnBrowseFileSystem.setText("Browse...");
+		btnBrowseFileSystem.setBounds(536, 86, 101, 35);
+		btnBrowseFileSystem.setEnabled(false);
+		btnBrowseFileSystem.addSelectionListener(new SelectionAdapter() {
 			// TODO put this code in a utililty class
 			public void widgetSelected(SelectionEvent e) {
 				String fileName = null;
@@ -232,7 +250,7 @@ public class Axis2SelectWSDLPage extends WizardPage {
 							// If they click Yes, we're done and we drop out. If
 							// they click No, we redisplay the File Dialog
 							done = true;
-							text_1.setText(fileName);
+							txtBrowseFileSystem.setText(fileName);
 							model.setWsdlURI(fileName);
 							setPageComplete(true);
 						} else {
@@ -256,38 +274,85 @@ public class Axis2SelectWSDLPage extends WizardPage {
 		btnOnlineWSDL.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
 				setOptionType(OPTION_SOURCE_URL);
-				button.setEnabled(false);
-				text.setEnabled(false);
-				text.setText("");
-				button_2.setEnabled(false);
-				text_1.setText("");
-				text_1.setEnabled(false);
+				btnBrowseWorkspace.setEnabled(false);
+				txtBrowseWorkspace.setEnabled(false);
+				txtBrowseWorkspace.setText("");
+				btnBrowseFileSystem.setEnabled(false);
+				txtBrowseFileSystem.setText("");
+				txtBrowseFileSystem.setEnabled(false);
 
 				txtOnlineWSDLUri.setEnabled(true);
 				txtOnlineWSDLUri.setText("");
 
+				wsdlFile = null;
+				model.setWsdlURI(null);
+				
 				setPageComplete(false);
-				// wsdlFile = null;
-				// model.setWsdlURI(null);
 			}
 		});
 
+		txtBrowseWorkspace.addListener(SWT.Modify, new Listener() {
+			public void handleEvent(Event event) {
+				if (txtBrowseWorkspace.getText() != null && !txtBrowseWorkspace.getText().equals("")) {
+					String fileName = txtBrowseWorkspace.getText();
+					wsdlFile = new File(fileName);
+					if (wsdlFile.exists()) {
+						model.setWsdlURI(fileName);
+						setPageComplete(true);
+					} else {
+						wsdlFile = null;
+						model.setWsdlURI(null);
+						setPageComplete(false);
+					}
+				} else {
+					wsdlFile = null;
+					model.setWsdlURI(null);
+					setPageComplete(false);
+				}
+			}
+		});
+		
+		txtBrowseFileSystem.addListener(SWT.Modify, new Listener() {
+			public void handleEvent(Event event) {
+				if (txtBrowseFileSystem.getText() != null && !txtBrowseFileSystem.getText().equals("")) {
+					String fileName = txtBrowseFileSystem.getText();
+					wsdlFile = new File(fileName);
+					if (wsdlFile.exists()) {
+						model.setWsdlURI(fileName);
+						setPageComplete(true);
+					} else {
+						wsdlFile = null;
+						model.setWsdlURI(null);
+						setPageComplete(false);
+					}
+				} else {
+					wsdlFile = null;
+					model.setWsdlURI(null);
+					setPageComplete(false);
+				}				
+			}
+		});
+		
 		txtOnlineWSDLUri.addListener(SWT.Modify, new Listener() {
-
-			UrlValidator urlValidator = new UrlValidator(UrlValidator.ALLOW_LOCAL_URLS);
+			UrlValidator urlValidator = new UrlValidator(
+					UrlValidator.ALLOW_LOCAL_URLS);
 
 			public void handleEvent(Event arg0) {
 				if (urlValidator.isValid(txtOnlineWSDLUri.getText())) {
 					model.setWsdlURI(txtOnlineWSDLUri.getText());
 					setPageComplete(true);
+				} else {
+					wsdlFile = null;
+					model.setWsdlURI(null);
+					setPageComplete(false);
 				}
 			}
 		});
-
-		if (((getOptionType() == OPTION_IMPORT_WS) && text.getText() != null && !text
+		
+		if (((getOptionType() == OPTION_IMPORT_WS) && txtBrowseWorkspace.getText() != null && !txtBrowseWorkspace
 				.getText().equals(""))
 				|| ((getOptionType() == OPTION_IMPORT_FS)
-						&& text_1.getText() != null && !text_1.getText()
+						&& txtBrowseFileSystem.getText() != null && !txtBrowseFileSystem.getText()
 						.equals(""))
 				|| ((getOptionType() == OPTION_SOURCE_URL)
 						&& txtOnlineWSDLUri.getText() != null && !txtOnlineWSDLUri
