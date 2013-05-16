@@ -178,10 +178,8 @@ public class ConditionalRouteBranchImpl extends MediatorBranchImpl implements
 		// Break After Route
 		if (isBreakAfterRoute()) {
 			self.setAttribute("breakRoute", "true");
-		} else {
-			self.setAttribute("breakRoute", "false");
-		}
-
+		} 
+		
 		if (!(getEvaluatorExpression().getEvaluatorValue().equals("<condition/>")
 				|| getEvaluatorExpression().getEvaluatorValue().equals("<condition></condition>")
 				|| null == getEvaluatorExpression().getEvaluatorValue() || getEvaluatorExpression().getEvaluatorValue()

@@ -124,10 +124,8 @@ public class ConditionalRouterMediatorImpl extends MediatorImpl implements
 		// Continue After Routing
 		if (isContinueAfterRoute()) {
 			self.setAttribute("continueAfter", "true");
-		} else {
-			self.setAttribute("continueAfter", "false");
-		}
-
+		} 
+		
 		for (ConditionalRouteBranch conditionalRouteBranch : getConditionalRouteBraches()) {
 			conditionalRouteBranch.save(self);
 		}
