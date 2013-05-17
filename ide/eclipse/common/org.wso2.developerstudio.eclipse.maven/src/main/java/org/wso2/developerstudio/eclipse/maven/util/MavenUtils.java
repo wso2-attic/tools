@@ -209,8 +209,8 @@ public class MavenUtils {
 		initializeBuildModel(mavenProject);
 		//TODO check if the configurations are already present 
 		//before trying to add again
-		updateDependecyList(project, mavenProject);
-		updateSourceFolder(project, mavenProject,mavenProjectSaveLocation);
+		//updateDependecyList(project, mavenProject);
+		//updateSourceFolder(project, mavenProject,mavenProjectSaveLocation);
 		updateMavenRepo(mavenProject);
 		addMavenJarPlugin(mavenProject);
 		addMavenCompilerPlugin(mavenProject);
