@@ -209,8 +209,8 @@ public class MavenUtils {
 		initializeBuildModel(mavenProject);
 		//TODO check if the configurations are already present 
 		//before trying to add again
-		//updateDependecyList(project, mavenProject);
-		//updateSourceFolder(project, mavenProject,mavenProjectSaveLocation);
+		updateDependecyList(project, mavenProject);
+		updateSourceFolder(project, mavenProject,mavenProjectSaveLocation);
 		updateMavenRepo(mavenProject);
 		addMavenJarPlugin(mavenProject);
 		addMavenCompilerPlugin(mavenProject);
@@ -263,8 +263,8 @@ public class MavenUtils {
 		initializeBuildModel(mavenProject);
 		// TODO check if the configurations are already present
 		// before trying to add again
-		updateDependecyList(project, mavenProject);
-    	updateSourceFolder(project, mavenProject, mavenProjectSaveLocation);
+	//	updateDependecyList(project, mavenProject);
+    //	updateSourceFolder(project, mavenProject, mavenProjectSaveLocation);
 		updateMavenRepo(mavenProject);
 		addMavenBpelPlugin(mavenProject);
 //		addMavenCompilerPlugin(mavenProject);
@@ -510,7 +510,10 @@ public class MavenUtils {
 		Plugin plugin;
 		
 		PluginExecution pluginExecution;
-		plugin = MavenUtils.createPluginEntry(mavenProject, "org.wso2.maven", "maven-bpel-plugin", "2.0.3", true);
+		plugin = MavenUtils.createPluginEntry(mavenProject, "org.wso2.maven", "maven-bpel-plugin", "2.0.4", true);
+		// FIXME : remove hard-coded version value (cannot use
+		// org.wso2.developerstudio.eclipse.capp.maven.utils.MavenConstants
+		// due to cyclic reference)
 //		pluginExecution=new PluginExecution();
 //		pluginExecution.addGoal("bpel");
 //		pluginExecution.setPhase("package");
