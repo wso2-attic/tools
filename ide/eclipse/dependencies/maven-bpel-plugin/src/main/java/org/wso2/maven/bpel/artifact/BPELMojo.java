@@ -60,7 +60,7 @@ public class BPELMojo extends AbstractMojo {
 			String bpelArtifactFullPath = getBPELProjectName(project);
 			File bpelArtifactFile = new File(bpelArtifactFullPath);
 			String artifactType = getType();
-			String artifactName=mavenProject.getArtifactId()+"."+artifactType;
+			String artifactName=mavenProject.getArtifactId() + "-" + mavenProject.getVersion() + "." + artifactType; 
 			File archive = FileUtils.createArchive(project, bpelArtifactFile, artifactName);
 			if (archive != null && archive.exists()) {
 				mavenProject.getArtifact().setFile(archive);
