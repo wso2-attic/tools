@@ -45,6 +45,7 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.common.command.BasicCommandStack;
 import org.eclipse.emf.common.command.Command;
@@ -89,6 +90,10 @@ import org.eclipse.emf.edit.ui.provider.UnwrappingSelectionProvider;
 import org.eclipse.emf.edit.ui.util.EditUIMarkerHelper;
 import org.eclipse.emf.edit.ui.util.EditUIUtil;
 import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
+import org.eclipse.emf.validation.marker.MarkerUtil;
+import org.eclipse.emf.validation.model.EvaluationMode;
+import org.eclipse.emf.validation.service.IBatchValidator;
+import org.eclipse.emf.validation.service.ModelValidationService;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.IStatusLineManager;
@@ -103,7 +108,9 @@ import org.eclipse.jface.viewers.IDoubleClickListener;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.ISelectionProvider;
+import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.viewers.ListViewer;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
@@ -113,12 +120,14 @@ import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TreeSelection;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
+import org.eclipse.jface.window.Window;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CTabFolder;
 import org.eclipse.swt.dnd.DND;
 import org.eclipse.swt.dnd.Transfer;
 import org.eclipse.swt.events.ControlAdapter;
 import org.eclipse.swt.events.ControlEvent;
+import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Composite;
@@ -127,6 +136,7 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Menu;
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.Tree;
@@ -143,6 +153,7 @@ import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
+import org.eclipse.ui.dialogs.ListDialog;
 import org.eclipse.ui.dialogs.SaveAsDialog;
 import org.eclipse.ui.ide.FileStoreEditorInput;
 import org.eclipse.ui.ide.IGotoMarker;
@@ -166,8 +177,10 @@ import org.wso2.developerstudio.eclipse.esb.mediators.provider.MediatorsItemProv
 import org.wso2.developerstudio.eclipse.esb.presentation.custom.CustomAdapterFactoryContentProvider;
 import org.wso2.developerstudio.eclipse.esb.provider.EsbItemProviderAdapterFactory;
 import org.wso2.developerstudio.eclipse.esb.util.EsbUtils;
+import org.wso2.developerstudio.eclipse.esb.util.ObjectValidator;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
+import org.wso2.developerstudio.eclipse.platform.core.utils.SWTResourceManager;
 
 
 /**
@@ -1749,6 +1762,7 @@ public class EsbEditor extends MultiPageEditorPart implements
 	/**
 	 * Utility method for updating the source editor with current
 	 * content-outline selection.
+	 * @return 
 	 */
 	private void updateSourceEditor() {
 		// Determine the current outline selection. If an outline viewer is not
@@ -1802,12 +1816,18 @@ public class EsbEditor extends MultiPageEditorPart implements
 		for (Resource resource : editingDomain.getResourceSet().getResources()) {
 			if ((!resource.getContents().isEmpty() || isPersisted(resource))
 					&& !editingDomain.isReadOnly(resource)) {
+				
 				if (!rebuildResource(resource)) {
 					MessageDialog.openError(
 							getSite().getShell(),
 							getString("_UI_IncompleteModelError_title"),
 							getString("_UI_IncompleteModelError_message",
 									resource.getURI().lastSegment()));
+					return;
+				}
+				
+				// Validate for mandatory properties				
+				if(validateOnSave(resource.getContents())) {
 					return;
 				}
 			}
@@ -2194,6 +2214,90 @@ public class EsbEditor extends MultiPageEditorPart implements
 	 */
 	protected boolean showOutlineView() {
 		return true;
+	}
+	
+	/**
+	 * Check whether all mandatory properties are filled.
+	 * @param selectedEObjects
+	 * @return
+	 */
+	private boolean validateOnSave(Collection<EObject> selectedEObjects) {
+		boolean hasErrors = false;
+		IBatchValidator validator = ModelValidationService.getInstance()
+				.newValidator(EvaluationMode.BATCH);
+		validator.setIncludeLiveConstraints(true);
+		validator.setReportSuccesses(false);
+		final IStatus status = validator.validate(selectedEObjects);
+		if (status.isOK()) {
+			hasErrors = false; 
+		} else {
+			ListDialog dialog = new ListDialog(getSite().getShell());
+			dialog.setInput(status);
+			dialog.setTitle("Validate");
+			dialog.setContentProvider(new IStructuredContentProvider() {
+				public void dispose() {
+					// nothing to dispose
+				}
+
+				public Object[] getElements(Object inputElement) {
+					if (status != null && status.isMultiStatus()
+							&& status == inputElement) {
+						return status.getChildren();
+					} else if (status != null && status == inputElement) {
+						return new Object[] { status };
+					}
+					return new Object[0];
+				}
+
+				public void inputChanged(Viewer viewer, Object oldInput,
+						Object newInput) {
+					// Do nothing.
+				}
+			});
+			dialog.setLabelProvider(new LabelProvider() {
+				@Override
+				public String getText(Object element) {
+					if (element instanceof IStatus) {
+						if (((IStatus) element).isMultiStatus()) {
+							IStatus[] children = ((IStatus) element)
+									.getChildren();
+							String text = new String();
+							for (IStatus iStatus : children) {
+								text += iStatus.getMessage() + "\n";
+							}
+							return text.replaceAll("\n$", "");
+						} else {
+							return ((IStatus) element).getMessage();
+						}
+
+					}
+					return null;
+				}
+
+				@Override
+				public Image getImage(Object element) {
+					return SWTResourceManager.getImage(this.getClass(),
+							"/icons/exclamation.png");
+				}
+			});
+			dialog.setBlockOnOpen(true);
+			dialog.setMessage("Save Failed");
+			dialog.setAddCancelButton(false);
+			dialog.setHelpAvailable(false);
+			dialog.open();
+			
+			hasErrors = true;
+		}
+
+		// Create problem markers on the resources with validation
+		// failures/warnings.
+		try {
+			MarkerUtil.updateMarkers(status);
+		} catch (CoreException e) {
+			// ignored
+		}
+		
+		return hasErrors;
 	}
 	
 }

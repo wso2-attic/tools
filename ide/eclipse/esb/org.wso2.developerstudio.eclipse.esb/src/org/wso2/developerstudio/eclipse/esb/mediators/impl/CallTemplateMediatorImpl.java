@@ -16,6 +16,7 @@
 package org.wso2.developerstudio.eclipse.esb.mediators.impl;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -122,9 +123,9 @@ public class CallTemplateMediatorImpl extends MediatorImpl implements CallTempla
 	/**
 	 * {@inheritDoc}
 	 */
-	protected Element doSave(Element parent) throws Exception {
+	protected Element doSave(Element parent) throws Exception {		
 		Element self = createChildElement(parent, "call-template");
-		if (null != getTargetTemplate()) {
+		if (null != getTargetTemplate() && !getTargetTemplate().equals("")) {
 			self.setAttribute("target", getTargetTemplate());
 		}
 
@@ -291,9 +292,18 @@ public class CallTemplateMediatorImpl extends MediatorImpl implements CallTempla
 
 	
     public Map<String, ObjectValidator> validate() {
-	    // TODO Auto-generated method stub
-	    return null;
+    	ObjectValidator objectValidator = new ObjectValidator();
+ 		Map<String, String> validateMap = new HashMap<String, String>();
+ 		Map<String, ObjectValidator> mediatorValidateMap = new HashMap<String, ObjectValidator>();
+ 		
+ 		if (null == getTargetTemplate() || getTargetTemplate().trim().isEmpty()) {
+			validateMap.put("Target Template","Target Template is empty");
+		}
+		
+ 	    objectValidator.setMediatorErrorMap(validateMap);
+ 	    mediatorValidateMap.put("Call Template Mediator", objectValidator);
+ 		
+ 		return mediatorValidateMap;
     }
-
 
 } //CallTemplateMediatorImpl

@@ -368,6 +368,11 @@
 							<feature name="uriTemplate" />
 							<feature name="urlMapping" />
 						</event>											
+					</target>
+					<target class="CallTemplateMediator">
+						<event name="Set">
+							<feature name="targetTemplate" />
+						</event>											
 					</target>	
 				</constraint>
 				<constraint lang="Java"
