@@ -205,7 +205,9 @@ public class EventMediatorImpl extends MediatorImpl implements EventMediator {
 			self = createChildElement(parent, "event");
 			switch (getTopicType()) {
 			case STATIC:
-				self.setAttribute("topic", getStaticTopic());
+				if (getStaticTopic() != null && !getStaticTopic().equals("")) {
+					self.setAttribute("topic", getStaticTopic());
+				}
 				break;
 			case DYNAMIC:
 				self.setAttribute(getDynamicTopic().getPropertyName(), "{"
