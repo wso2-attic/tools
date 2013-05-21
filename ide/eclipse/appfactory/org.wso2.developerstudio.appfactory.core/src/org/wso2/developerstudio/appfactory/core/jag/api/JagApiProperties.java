@@ -2,7 +2,7 @@ package org.wso2.developerstudio.appfactory.core.jag.api;
 
 public class JagApiProperties {
 	/*URLS*/  
-	public static  String domain= "https://staging.appfactorypreview.wso2.com";
+	public static  String domain= "https://appfactorypreview.wso2.com";
 	public static final String APP_INFO_URL =domain+ "/appmgt/site/blocks/application/get/ajax/list.jag";
 	public static final String LOGIN_URL =domain + "/appmgt/site/blocks/user/login/ajax/login.jag";
 	public static final String BUILD_NUMBER_URL = domain + "/appmgt/site/blocks/build/list/ajax/list.jag";
