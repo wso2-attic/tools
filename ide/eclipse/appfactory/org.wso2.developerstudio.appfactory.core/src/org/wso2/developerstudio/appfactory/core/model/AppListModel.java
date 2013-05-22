@@ -51,7 +51,7 @@ public class AppListModel {
 		 params.put("stageName","Development");
 		 params.put("userName",Authenticator.getInstance().getCredentials().getUser());
 		 params.put("applicationKey",applicationInfo.getKey());
-		 String respond = HttpsJaggeryClient.httpPost(JagApiProperties.APP_INFO_URL, params);
+		 String respond = HttpsJaggeryClient.httpPost(JagApiProperties.getAppInfoUrl(), params);
 		 JsonElement jelement = new JsonParser().parse(respond);
 		 JsonElement jsonElement = jelement.getAsJsonArray().get(0).getAsJsonObject().get("versions");
 		 JsonArray infoArray = jsonElement.getAsJsonArray();

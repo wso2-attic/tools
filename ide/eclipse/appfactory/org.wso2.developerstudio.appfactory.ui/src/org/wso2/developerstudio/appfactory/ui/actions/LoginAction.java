@@ -61,6 +61,7 @@ public class LoginAction {
 		 authenticator = Authenticator.getInstance();
 		 activeShell = PlatformUI.getWorkbench().getDisplay().getActiveShell();
 		 try{
+		 preferenceStore.setDefault(AppFactoryPreferencePage.APP_FACTORY_LOCATION, JagApiProperties.getDomain());
 		 setLoginUrl(preferenceStore.getString(AppFactoryPreferencePage.APP_FACTORY_LOCATION));
 		 setUsername(preferenceStore.getString(AppFactoryPreferencePage.APP_FACTORY_USERNAME));
 		 setPassword(preferenceStore.getString(AppFactoryPreferencePage.APP_FACTORY_PASSWORD));
@@ -74,7 +75,7 @@ public class LoginAction {
 		try { 
 			showLoginDialog();
 			credentials = new UserPasswordCredentials(getUsername(),getPassword());
-		    val = authenticator.Authenticate(JagApiProperties.LOGIN_URL, credentials); 
+		    val = authenticator.Authenticate(JagApiProperties.getLoginUrl(), credentials); 
 		} catch (Exception e) {
 			MessageBox messageBox = new MessageBox(activeShell,SWT.OK);
 	        messageBox.setText("Error");
@@ -103,12 +104,12 @@ public class LoginAction {
 	 
 
 	public void setLoginUrl(String loginUrl) {
-		JagApiProperties.domain = loginUrl;
+		JagApiProperties.setDomain(loginUrl);
 	}
 	
 	private void showLoginDialog(){
 		  PasswordDialog dialog = new PasswordDialog(activeShell);
-		  dialog.setHost(JagApiProperties.domain);
+		  dialog.setHost(JagApiProperties.getDomain());
 		  dialog.setUser(getUsername());
 		  dialog.setPassword(getPassword());
 		 if (dialog.open() == Window.OK) {

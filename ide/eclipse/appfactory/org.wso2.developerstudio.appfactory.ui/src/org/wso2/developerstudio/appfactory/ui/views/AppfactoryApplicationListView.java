@@ -116,7 +116,7 @@ public class AppfactoryApplicationListView extends ViewPart {
 		 Map<String,String> params = new HashMap<String,String>();
 		 params.put("action",JagApiProperties.USER_APP_LIST__ACTION);
 		 params.put("userName",credentials.getUser()); 
-		 String respond = HttpsJaggeryClient.httpPost(JagApiProperties.APP_INFO_URL, params);
+		 String respond = HttpsJaggeryClient.httpPost(JagApiProperties.getAppInfoUrl(), params);
 		 Gson gson = new Gson();
 		 Type collectionType = new TypeToken<java.util.List<ApplicationInfo>>(){}.getType();
 		 appLists = gson.fromJson(respond, collectionType);
@@ -234,7 +234,7 @@ public class AppfactoryApplicationListView extends ViewPart {
 								 params.put("stage", "Development");
 								 params.put("applicationKey",appInfo.getAppName());
 								 params.put("version",appInfo.getVersion());
-								 String respond = HttpsJaggeryClient.httpPost(JagApiProperties.BUILD_LAST_SUCESSFULL_BUILD_URL, params);
+								 String respond = HttpsJaggeryClient.httpPost(JagApiProperties.getBuildLastSucessfullBuildUrl(), params);
 								 JsonElement jelement = new JsonParser().parse(respond);
 								JsonArray buildInfoArray;
 							    String asString = jelement.getAsJsonObject().get("buildinfo").getAsString();
@@ -268,7 +268,7 @@ public class AppfactoryApplicationListView extends ViewPart {
 									 params.put("applicationKey",appInfo.getAppName());
 									 String builderBaseUrl="false";
 									 while("false".equals(builderBaseUrl)){
-									 builderBaseUrl = HttpsJaggeryClient.httpPost(JagApiProperties.BUILD_INFOURL_URL, params);
+									 builderBaseUrl = HttpsJaggeryClient.httpPost(JagApiProperties.getBuildInfoUrl(), params);
 									 Thread.sleep(1000);
 									 }
 								    HttpResponse response = HttpsGenkinsClient.getBulildinfo(appInfo.getAppName(),"trunk",builderBaseUrl,maxValueInMap);
