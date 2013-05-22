@@ -316,6 +316,10 @@ public class ResourceEditorPage extends FormPage implements
 			
 			public void handleEvent(Event arg0) {
 				try {
+					if (selectedMethod != null
+							&& selectedMethod.equals("Create custom content")) {
+						createContent(getResourceName(), getMediaType());
+					}
 	                doFinish();
 //	                refreshPage();
                 } catch (Exception e) {
@@ -774,7 +778,7 @@ public class ResourceEditorPage extends FormPage implements
 				out.close();
 				tempFile.deleteOnExit();
 				// IEditorPart editor = RemoteContentManager.openFile(tempFile);
-				editorInput.getParentResource().setFileEditor(editor);
+				//editorInput.getParentResource().setFileEditor(editor);
 				setFilePath(tempFile.getAbsolutePath());
 
 			}
@@ -1093,7 +1097,7 @@ public class ResourceEditorPage extends FormPage implements
 
 		if (editorInput.getResource() == null) {
 			if (getFilePath() != null) {
-				if (getFilePath() == null || getFilePath().equals("")) {
+				if (getFilePath().trim().equals("")) {
 					try {
 						createContent(getResourceName(), getMediaType());
 					} catch (IOException e1) {
