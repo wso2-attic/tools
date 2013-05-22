@@ -98,25 +98,31 @@ permissions and ~ limitations under the License.
 		
 		<h3 id="ExistingTemplate">From Existing Template</h3>
 		<p>
-		<strong>From Existing Template</strong> option, you can select a template from which you can create a registry 
-		resource.
-		</p>		
+		Here we going to create <strong>WSDL</strong> file as a <strong>Registry Resource.</strong> Give a name to <strong>Resource Name</strong> field, without file extension.Give a <strong>Artifact Name</strong> or use <strong>Resource Name</strong> for it. 
+		</p>		 
+		 <p>
+			<br></br>
+			<img alt="New Server Runtime" src="images/regres5.png"></img>
+			<br></br>
+		</p>
+		 
+		<p> <strong> From Existing Template</strong> option, you can select a template from which you can create a registry resource. Here, we will select <strong>WSDL File</strong> template. <strong> Registry</strong> field is to select registry, either config or governance. Here we create <strong>WSDL</strong> file as a <strong>Registry Resource</strong>, then we select <strong>gov</strong> as <strong>Registry.</strong></p>		
 		<p>
-		Here, we will select <strong>WSDL File</strong> template. Give a name to the WSDL file. There's a 
+			<br></br>
+			<img alt="New Server Runtime" src="images/regres6.png"></img>
+			<br></br>
+		</p>
+		
+		<p> There's a 
 		field called <strong>Registry Path to Deploy</strong> which is to define where you want to save the 
-		resource in the <strong>registry</strong>. <strong>Save Resource In</strong> field is to select the 
-		<strong>Registry Resources Projects</strong> in the workspace in where you can save your resource 
+		resource in the <strong>registry</strong>. For example is it  Areaservice, <strong>Registry Path to Deploy</strong> should <strong>wsdl/services/Area</strong>. But final registry path is <strong>gov:wsdl/services/Area/AreaService.wsdl</strong>.<strong>Save Resource In</strong> field is to select the 
+		<strong> Registry Resources Projects</strong> in the workspace in where you can save your resource 
 		file.  
 		</p>
 		
 		<p>
 			<br></br>
-			<img alt="New Server Runtime" src="images/regres5.png"></img>
-			<br></br>
-		</p>
-		<p>
-			<br></br>
-			<img alt="New Server Runtime" src="images/regres6.png"></img>
+			<img alt="New Server Runtime" src="images/regres12.png"></img>
 			<br></br>
 		</p>
 		
