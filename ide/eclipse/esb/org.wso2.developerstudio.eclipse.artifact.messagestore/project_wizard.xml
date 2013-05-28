@@ -30,7 +30,7 @@
 			<data modelProperty="store.type" 
 				type="list" 
 				fieldController="org.wso2.developerstudio.eclipse.artifact.messagestore.validator.MessageStoreFieldController"  
-				controlData="select=single;modify=non-editable;class=org.wso2.developerstudio.eclipse.artifact.messagestore.validator.MessageStoreTypeList">Message Store type*</data>
+				controlData="select=single;modify=non-editable;class=org.wso2.developerstudio.eclipse.artifact.messagestore.provider.MessageStoreTypeList">Message Store type*</data>
 					
 			<!-- JMS : begin-->
 			<data modelProperty="jms.context-factory" type="string"
@@ -47,7 +47,7 @@
 				fieldController="org.wso2.developerstudio.eclipse.artifact.messagestore.validator.MessageStoreFieldController">Password</data>
 			<data modelProperty="jms.api-version" type="list"
 				fieldController="org.wso2.developerstudio.eclipse.artifact.messagestore.validator.MessageStoreFieldController"
-				controlData="select=single;modify=non-editable;class=org.wso2.developerstudio.eclipse.artifact.messagestore.validator.SpecVersionList">JMS API specification Version</data>
+				controlData="select=single;modify=non-editable;class=org.wso2.developerstudio.eclipse.artifact.messagestore.provider.SpecVersionList">JMS API specification Version</data>
 			<data modelProperty="jms.enable-caching" type="choice"
 				fieldController="org.wso2.developerstudio.eclipse.artifact.messagestore.validator.MessageStoreFieldController">Enable Connection caching</data>
 			<data modelProperty="jms.timeout" type="string"
@@ -56,34 +56,14 @@
 			
 			<data modelProperty="custom.provider-class" type="string"
 				fieldController="org.wso2.developerstudio.eclipse.artifact.messagestore.validator.MessageStoreFieldController">Provider class*</data>
-					
-			<!--  <data modelProperty="task.group" type="string"
-				fieldController="org.wso2.developerstudio.eclipse.artifact.task.validator.ProjectFieldController">Task Group*</data>
-			<data modelProperty="task.impl" type="string"
-				fieldController="org.wso2.developerstudio.eclipse.artifact.task.validator.ProjectFieldController">Task Implementation*</data>
-			<group id ="trigger.info" title="Trigger Information of the Task"/>		
-			<data modelProperty="trigger.type" 
-				type="list" 
-				fieldController="org.wso2.developerstudio.eclipse.artifact.task.validator.ProjectFieldController"  
-				controlData="select=single;modify=non-editable;class=org.wso2.developerstudio.eclipse.artifact.task.validator.TriggerTypeList"
-				group="trigger.info">Trigger Type                 </data>
-			<data modelProperty="task.count" type="string"
-				fieldController="org.wso2.developerstudio.eclipse.artifact.task.validator.ProjectFieldController"
-				group="trigger.info">Count</data>
-			<data modelProperty="task.interval" type="string"
-				fieldController="org.wso2.developerstudio.eclipse.artifact.task.validator.ProjectFieldController"
-				group="trigger.info">Interval (in seconds)*</data>
-			<data modelProperty="task.cron" type="string"
-				fieldController="org.wso2.developerstudio.eclipse.artifact.task.validator.ProjectFieldController"
-				group="trigger.info">Cron*</data>
-			<data modelProperty="task.pinned.svr" type="string"
-				fieldController="org.wso2.developerstudio.eclipse.artifact.task.validator.ProjectFieldController">Pinned Servers</data>	
-		-->
+			<data modelProperty="custom.parameters" type="composite"  
+			fieldController="org.wso2.developerstudio.eclipse.artifact.messagestore.validator.MessageStoreFieldController" 
+			controlData="class=org.wso2.developerstudio.eclipse.artifact.messagestore.provider.ParametersCompositeProvider">Parameters</data>
 			<group id ="location"/>	
 			<data modelProperty="save.location" type="workspacefolder"
 				fieldController="org.wso2.developerstudio.eclipse.artifact.messagestore.validator.MessageStoreFieldController"
 				group="location"
-				controlData="filterClass=org.wso2.developerstudio.eclipse.artifact.messagestore.validator.ESBProjectFilter">Save location:</data>
+				controlData="filterClass=org.wso2.developerstudio.eclipse.artifact.messagestore.filter.ESBProjectFilter">Save location:</data>
 			<data modelProperty="create.esb.prj" type="link"
 				fieldController="org.wso2.developerstudio.eclipse.artifact.messagestore.validator.MessageStoreFieldController"
 				group="location"
@@ -97,7 +77,7 @@
 				 
 			<data modelProperty="import.file" type="file" filter="*.xml" fieldController="org.wso2.developerstudio.eclipse.artifact.messagestore.validator.MessageStoreFieldController">Message-store configuration file</data>
 			<data modelProperty="save.location" type="workspacefolder" fieldController="org.wso2.developerstudio.eclipse.artifact.messagestore.validator.MessageStoreFieldController" 
-			controlData="filterClass=org.wso2.developerstudio.eclipse.artifact.messagestore.validator.ESBProjectFilter" >Save Task in: </data>
+			controlData="filterClass=org.wso2.developerstudio.eclipse.artifact.messagestore.filter.ESBProjectFilter" >Save Task in: </data>
 			<data modelProperty="create.esb.prj" type="link" fieldController="org.wso2.developerstudio.eclipse.artifact.messagestore.validator.MessageStoreFieldController" 
 			controlData="align=right" >&lt;a&gt;Create new Project...&lt;/a&gt;</data>
 		 <!--	<data modelProperty="available.stores" type="list" fieldController="org.wso2.developerstudio.eclipse.artifact.task.validator.ProjectFieldController" 

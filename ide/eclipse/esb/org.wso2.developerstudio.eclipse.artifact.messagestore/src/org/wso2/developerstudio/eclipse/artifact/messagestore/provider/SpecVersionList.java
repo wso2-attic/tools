@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.wso2.developerstudio.eclipse.artifact.messagestore.validator;
+package org.wso2.developerstudio.eclipse.artifact.messagestore.provider;
 
 import java.util.ArrayList;
 import java.util.List;

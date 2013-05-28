@@ -18,11 +18,14 @@ package org.wso2.developerstudio.eclipse.artifact.messagestore.validator;
 
 import java.util.List;
 
+import org.wso2.developerstudio.eclipse.artifact.messagestore.Constants;
 import org.wso2.developerstudio.eclipse.artifact.messagestore.model.MessageStoreModel;
-import org.wso2.developerstudio.eclipse.artifact.messagestore.validator.MessageStoreTypeList.MessageStoreType;
+import org.wso2.developerstudio.eclipse.artifact.messagestore.provider.MessageStoreTypeList.MessageStoreType;
 import org.wso2.developerstudio.eclipse.platform.core.exception.FieldValidationException;
 import org.wso2.developerstudio.eclipse.platform.core.model.AbstractFieldController;
 import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectDataModel;
+import org.wso2.developerstudio.eclipse.platform.ui.validator.CommonFieldValidator;
+
 import static org.wso2.developerstudio.eclipse.artifact.messagestore.Constants.*;
 
 /**
@@ -31,9 +34,30 @@ import static org.wso2.developerstudio.eclipse.artifact.messagestore.Constants.*
 public class MessageStoreFieldController  extends AbstractFieldController  {
 
 	@Override
-	public void validate(String modelProperty, Object value,
+	public void validate(String key, Object value,
 			ProjectDataModel model) throws FieldValidationException {
-		
+		boolean jms = ((MessageStoreModel) model).getMessageStoreType() == MessageStoreType.JMS;
+		boolean custom = ((MessageStoreModel) model).getMessageStoreType() == MessageStoreType.CUSTOM;
+
+		if (key.equals(Constants.FIELD_STORE_NAME)) {
+			CommonFieldValidator.validateArtifactName(value);
+		} else if (key.equals(Constants.FIELD_CUSTOM_PROVIDER_CLASS)) {
+			if(custom){
+				//TODO:
+			}
+		} else if (key.equals(Constants.FIELD_JMS_CONTEXT_FACTORY)) {
+			if(jms){
+				//TODO:
+			}
+		} else if (key.equals(Constants.FIELD_JMS_PROVIDER_URL)) {
+			if(jms){
+				//TODO:
+			}
+		} else if (key.equals(Constants.FIELD_JMS_TIMEOUT)) {
+			if(jms){
+				//TODO:
+			}
+		} 
 	}
 	
 	@Override
@@ -52,6 +76,7 @@ public class MessageStoreFieldController  extends AbstractFieldController  {
 			updateFields.add(FIELD_JMS_ENABLE_CACHING);
 			updateFields.add(FIELD_JMS_TIMEOUT);
 			updateFields.add(FIELD_CUSTOM_PROVIDER_CLASS);
+			updateFields.add(FIELD_CUSTOM_PARAMETERS);
 		}
 		return updateFields;
 	}
@@ -61,9 +86,10 @@ public class MessageStoreFieldController  extends AbstractFieldController  {
 		boolean visibleField = super.isVisibleField(modelProperty, model);
 		if(modelProperty.startsWith("jms.")){
 			visibleField = ((MessageStoreModel)model).getMessageStoreType()==MessageStoreType.JMS;
-		} else if(modelProperty.equals(FIELD_CUSTOM_PROVIDER_CLASS)){
-			visibleField = ((MessageStoreModel)model).getMessageStoreType()==MessageStoreType.CUSTOM;
-		} 
+		} else if (modelProperty.equals(FIELD_CUSTOM_PROVIDER_CLASS)
+				|| modelProperty.equals(FIELD_CUSTOM_PARAMETERS)) {
+			visibleField = ((MessageStoreModel) model).getMessageStoreType() == MessageStoreType.CUSTOM;
+		}
 		
 		return visibleField;
 	}

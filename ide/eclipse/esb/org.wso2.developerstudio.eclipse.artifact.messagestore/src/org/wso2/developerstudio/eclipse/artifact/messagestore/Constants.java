@@ -40,6 +40,7 @@ public class Constants extends NLS {
 	public static String FIELD_SAVE_LOCATION;
 	public static String FIELD_STORE_NAME;
 	public static String FIELD_STORE_TYPE;
+	public static String FIELD_CUSTOM_PARAMETERS;
 	public static String TXT_CUSTOM;
 	public static String TXT_IN_MEMORY;
 	public static String TXT_JMS;

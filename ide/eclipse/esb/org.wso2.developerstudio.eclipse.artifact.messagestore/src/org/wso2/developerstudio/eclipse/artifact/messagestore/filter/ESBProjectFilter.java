@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.wso2.developerstudio.eclipse.artifact.messagestore.validator;
+package org.wso2.developerstudio.eclipse.artifact.messagestore.filter;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.jface.viewers.Viewer;
