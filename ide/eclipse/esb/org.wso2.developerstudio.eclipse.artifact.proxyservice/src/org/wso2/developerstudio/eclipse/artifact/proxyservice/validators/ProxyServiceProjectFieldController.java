@@ -129,6 +129,12 @@ public class ProxyServiceProjectFieldController extends AbstractFieldController 
 			IResource resource = (IResource)value;
 			if(resource==null || !resource.exists())	
 				throw new FieldValidationException("Specified project or path doesn't exist");
+		} else if (modelProperty.equals("templ.transformer.ps.transformresponses")) {
+			if(selectedTemplate.getId().equalsIgnoreCase(PsArtifactConstants.TRANSFORMER_PROXY_TEMPL_ID)){
+				if((Boolean)value && ((ProxyServiceModel)model).getResponseXSLT().equals("")){
+					throw new FieldValidationException("Specified Response XSLT key");
+				}
+			}
 		}
 	}
 	

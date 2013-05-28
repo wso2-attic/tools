@@ -61,6 +61,7 @@ public class ProxyServiceModel extends ProjectDataModel {
 	private String requestLogLevel="none";
 	private String responseLogLevel="none";
 	private String requestXSLT="";
+	private String responseXSLT="";
 	private boolean transformResponses;
 	private boolean predefinedEP;
 	private String predefinedEndPoint;
@@ -102,6 +103,8 @@ public class ProxyServiceModel extends ProjectDataModel {
 				modelPropertyValue = getRequestXSLT();			
 			} else if (key.equals(PsArtifactConstants.WIZARD_OPTION_TEMPL_TRANSFORMER_PS_TRANSFORMRESPONSES)) {
 				modelPropertyValue = isTransformResponses();			
+			} else if (key.equals(PsArtifactConstants.WIZARD_OPTION_TEMPL_TRANSFORMER_PS_RESXSLT)){
+				modelPropertyValue = getResponseXSLT();
 			} else if (key.equals(PsArtifactConstants.WIZARD_OPTION_TEMPL_COMMON_PS_PREDEFINED)) {
 				modelPropertyValue = predefinedEP;			
 			} else if (key.equals(PsArtifactConstants.WIZARD_OPTION_TEMPL_COMMON_PS_EPLIST)) {
@@ -180,6 +183,8 @@ public class ProxyServiceModel extends ProjectDataModel {
 			setRequestXSLT(data.toString())	;
 		} else if(key.equals(PsArtifactConstants.WIZARD_OPTION_TEMPL_TRANSFORMER_PS_TRANSFORMRESPONSES)){
 			setTransformResponses((Boolean)data);		
+		} else if(key.equals(PsArtifactConstants.WIZARD_OPTION_TEMPL_TRANSFORMER_PS_RESXSLT)) {
+			setResponseXSLT(data.toString());
 		} else if(key.equals(PsArtifactConstants.WIZARD_OPTION_TEMPL_COMMON_PS_EPLIST)){
 			setPredefinedEndPoint(data.toString());		
 		} else if(key.equals(PsArtifactConstants.WIZARD_OPTION_AVAILABLE_PS)){
@@ -392,6 +397,14 @@ public class ProxyServiceModel extends ProjectDataModel {
 
 	public TargetEPType getTargetEPType() {
 		return targetEPType;
+	}
+
+	public String getResponseXSLT() {
+		return responseXSLT;
+	}
+
+	public void setResponseXSLT(String responseXSLT) {
+		this.responseXSLT = responseXSLT;
 	}
 
 	public enum TargetEPType {

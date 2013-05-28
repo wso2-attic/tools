@@ -284,6 +284,14 @@ public class ProxyServiceProjectCreationWizard extends AbstractWSO2ProjectCreati
 			newContent = StringUtils.replace(newContent,"<sec.policy>", psModel.getSecPolicy());
 		}else if(type.equals(PsArtifactConstants.TRANSFORMER_PROXY)){
 			newContent = StringUtils.replace(newContent,"<xslt.key>", psModel.getRequestXSLT());
+			if(psModel.isTransformResponses() && !psModel.getResponseXSLT().equals("")) {
+				String responseXSLT = "<xslt key=\"";
+				responseXSLT += psModel.getResponseXSLT();
+				responseXSLT += "\" />";
+				newContent = StringUtils.replace(newContent, "<xsltres.key.def>", responseXSLT);
+			} else {
+				newContent = StringUtils.replace(newContent, "<xsltres.key.def>", "");
+			}
 		}else if(type.equals(PsArtifactConstants.WSDL_BASED_PROXY)){
 			newContent = StringUtils.replace(newContent,"<wsdl.service>", psModel.getWsdlService());
 			newContent = StringUtils.replace(newContent,"<wsdl.port>", psModel.getWsdlPort());

@@ -326,10 +326,14 @@ public class AdvancedConfigComposite extends AbstractComposite {
 						PsArtifactConstants.WIZARD_OPTION_TEMPL_TRANSFORMER_PS_TRANSFORMRESPONSES,
 						((Button) e.widget).getSelection());
 				if (((Button) e.widget).getSelection()) {
-					showControls(lblResponseXSLT, txtResponseXSLT,
+					//showControls(lblResponseXSLT, txtResponseXSLT,
+					//		cmdResXSLTRegBrowse);
+					enableControls(lblResponseXSLT, txtResponseXSLT,
 							cmdResXSLTRegBrowse);
 				} else {
-					hideControls(lblResponseXSLT, txtResponseXSLT,
+					//hideControls(lblResponseXSLT, txtResponseXSLT,
+					//		cmdResXSLTRegBrowse);
+					disableControls(lblResponseXSLT, txtResponseXSLT,
 							cmdResXSLTRegBrowse);
 				}
 				AdvancedConfigComposite.this.layout();
@@ -340,7 +344,8 @@ public class AdvancedConfigComposite extends AbstractComposite {
 		lblResponseXSLT.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false,
 				false, 1, 1));
 		lblResponseXSLT.setText("Response XSLT");
-		hideControls(lblResponseXSLT);
+		//hideControls(lblResponseXSLT);
+		disableControls(lblResponseXSLT);
 
 		txtResponseXSLT = new Text(this, SWT.BORDER);
 		GridData gd_txtResponseXSLT = new GridData(SWT.FILL, SWT.CENTER, false,
@@ -349,11 +354,14 @@ public class AdvancedConfigComposite extends AbstractComposite {
 		txtResponseXSLT.addModifyListener(new ModifyListener() {
 
 			public void modifyText(ModifyEvent evt) {
-				// TODO
+				setModelPropertyValue(
+						PsArtifactConstants.WIZARD_OPTION_TEMPL_TRANSFORMER_PS_RESXSLT,
+						txtResponseXSLT.getText());
 
 			}
 		});
-		hideControls(txtResponseXSLT);
+		//hideControls(txtResponseXSLT);
+		disableControls(txtResponseXSLT);
 		
 		cmdResXSLTRegBrowse = new Button(this, SWT.NONE);
 		cmdResXSLTRegBrowse.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER,
@@ -371,7 +379,8 @@ public class AdvancedConfigComposite extends AbstractComposite {
 				widgetSelected(evt);
 			}
 		});
-		hideControls(cmdResXSLTRegBrowse);
+		//hideControls(cmdResXSLTRegBrowse);
+		disableControls(cmdResXSLTRegBrowse);
 
 		/* logging proxy */
 		lblReqLogLevel = new Label(this, SWT.NONE);
@@ -596,6 +605,7 @@ public class AdvancedConfigComposite extends AbstractComposite {
 				ctrl.setVisible(false);
 				if (ctrl.getLayoutData() instanceof GridData) {
 					((GridData) ctrl.getLayoutData()).exclude = true;
+					
 				}
 			}
 		}
@@ -650,7 +660,8 @@ public class AdvancedConfigComposite extends AbstractComposite {
 				hideControls(lblSecPolicy, txtSecPolicy, cmdSecPolicyRegBrowse);
 			optListener.widgetSelected(null);
 			showControls(cmdReqXSLTRegBrowse,
-					lblReqXSLT, txtReqXSLT, chkTransformResponses);
+					lblReqXSLT, txtReqXSLT, chkTransformResponses,
+					lblResponseXSLT, txtResponseXSLT, cmdResXSLTRegBrowse);
 		} else if (templateId
 				.equals(PsArtifactConstants.LOGGING_PROXY_TEMPL_ID)) {
 			hideControls(lblSecPolicy, txtSecPolicy,cmdSecPolicyRegBrowse );
@@ -769,8 +780,26 @@ public class AdvancedConfigComposite extends AbstractComposite {
 		customFields.add("templ.logging.ps.reqloglevel");
 		customFields.add("templ.logging.ps.resloglevel");
 		customFields.add("templ.transformer.ps.xslt");
+		customFields.add("templ.transformer.ps.transformresponses");
+		customFields.add("templ.transformer.ps.resxslt");
 		customFields.add("templ.common.ps.eplist");
 		return customFields;
+	}
+	
+	void enableControls(Control... ctrls){
+		for (Control ctrl : ctrls) {
+			if (!ctrl.isDisposed()) {
+				ctrl.setEnabled(true);
+			}
+		}
+	}
+	
+	void disableControls(Control... ctrls){
+		for (Control ctrl : ctrls) {
+			if (!ctrl.isDisposed()) {
+				ctrl.setEnabled(false);
+			}
+		}
 	}
 
 }

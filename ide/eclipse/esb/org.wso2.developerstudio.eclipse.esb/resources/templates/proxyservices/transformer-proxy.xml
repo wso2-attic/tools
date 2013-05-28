@@ -6,6 +6,7 @@
 			<xslt key="{xslt.key}" />
 		</inSequence>
 		<outSequence>
+			{xsltres.key.def}
 			<send />
 		</outSequence>
 		{endpoint.def}
