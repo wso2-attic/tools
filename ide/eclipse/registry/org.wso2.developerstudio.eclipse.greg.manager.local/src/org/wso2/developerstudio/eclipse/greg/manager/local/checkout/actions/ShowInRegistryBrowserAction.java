@@ -16,6 +16,8 @@
 
 package org.wso2.developerstudio.eclipse.greg.manager.local.checkout.actions;
 
+import java.net.URL;
+
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IResource;
@@ -63,6 +65,13 @@ public class ShowInRegistryBrowserAction extends BaseRegistryAction {
 			}
 			RemoteRegistryInfo info = RegistryCheckInClientUtils.getResourceRemoteRegistryUrlInfo(
 																resource.getLocation().toOSString());
+			String registryUrl = info.getUrl().toString();
+			String shlashRegistry = "/registry";
+			if (registryUrl.endsWith(shlashRegistry)) {
+				registryUrl = registryUrl.substring(0, registryUrl.length() - shlashRegistry.length());
+			}
+			info.setUrl(new URL(registryUrl));
+			
 			RegistryBrowserView view = RegistryBrowserView.lastInstance;
 			if (view != null) {
 				view.traverseRegistryBrowser(info.getUrl().toString(),info.getPath());
