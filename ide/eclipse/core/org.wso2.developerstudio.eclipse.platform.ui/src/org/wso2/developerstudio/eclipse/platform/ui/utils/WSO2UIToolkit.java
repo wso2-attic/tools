@@ -375,7 +375,7 @@ public class WSO2UIToolkit {
 				}
 				
 		};
-			
+		propagateControlStatus(composite);	
 		return fieldControl;
 	}
 	

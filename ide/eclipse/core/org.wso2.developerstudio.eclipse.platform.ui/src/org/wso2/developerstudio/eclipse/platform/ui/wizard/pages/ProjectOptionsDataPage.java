@@ -377,6 +377,11 @@ public class ProjectOptionsDataPage extends WizardPage implements Observer {
 		});
 		
 		fieldControllers.put(finalOptionData.getModelProperty(), fieldExecutor);
+		try {
+			updateField(finalOptionData.getModelProperty());
+		} catch (Exception e) {
+			log.error("An unexpected error has occurred", e);
+		}
 	}
 
 	private void createRegistryBrowseField(Composite container, 
