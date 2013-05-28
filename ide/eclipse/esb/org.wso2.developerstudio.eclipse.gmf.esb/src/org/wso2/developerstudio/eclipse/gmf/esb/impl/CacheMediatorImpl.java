@@ -65,10 +65,10 @@ public class CacheMediatorImpl extends MediatorImpl implements CacheMediator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getCacheId()
-	 * @generated
+	 * @generated NOT
 	 * @ordered
 	 */
-	protected static final String CACHE_ID_EDEFAULT = null;
+	protected static final String CACHE_ID_EDEFAULT = "";
 
 	/**
 	 * The cached value of the '{@link #getCacheId() <em>Cache Id</em>}' attribute.
