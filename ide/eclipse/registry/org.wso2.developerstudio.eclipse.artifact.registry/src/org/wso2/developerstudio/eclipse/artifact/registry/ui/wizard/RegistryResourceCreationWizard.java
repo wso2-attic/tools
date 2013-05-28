@@ -311,6 +311,8 @@ public class RegistryResourceCreationWizard extends AbstractWSO2ProjectCreationW
 			newContent = newContent.replaceAll("<endpoint.key.def>","");
 			newContent = newContent.replaceAll("<endpoint.def>",endPointDef);
 			newContent = newContent.replaceAll("<xslt.key>", "conf:/repository/esb/configuration");
+			// Removing XSLT Response option
+			newContent = newContent.replace("<xsltres.key.def>", "");
 		} else if(type.equals(RegistryArtifactConstants.LOGGING_PROXY_TEMPL_ID)){
 			newContent= newContent.replaceAll("<proxy.name>", regModel.getResourceName());
 			newContent = newContent.replaceAll("<endpoint.key.def>","");
