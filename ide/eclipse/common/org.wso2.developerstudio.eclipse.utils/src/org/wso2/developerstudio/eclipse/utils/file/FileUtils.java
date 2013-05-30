@@ -117,15 +117,18 @@ public class FileUtils{
 
 	public static void deleteDirectories(File dir) {
 		File[] children = dir.listFiles();
-		for (int i = 0; i < children.length; i++){
-			if (children[i].list() != null && children[i].list().length > 0){
-				deleteDirectories(children[i]);
-			} else if(children[i].isDirectory()){
-				deleteDirectory(children[i]);
-			}else  if(children[i].isFile()){
-				boolean isDeleted = org.apache.commons.io.FileUtils.deleteQuietly(children[i]);
-				if(!isDeleted){
-					children[i].deleteOnExit();
+		if (children != null) {
+			for (int i = 0; i < children.length; i++) {
+				if (children[i].list() != null && children[i].list().length > 0) {
+					deleteDirectories(children[i]);
+				} else if (children[i].isDirectory()) {
+					deleteDirectory(children[i]);
+				} else if (children[i].isFile()) {
+					boolean isDeleted = org.apache.commons.io.FileUtils
+							.deleteQuietly(children[i]);
+					if (!isDeleted) {
+						children[i].deleteOnExit();
+					}
 				}
 			}
 		}
