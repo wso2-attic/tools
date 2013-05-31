@@ -87,6 +87,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbServer;
 import org.wso2.developerstudio.eclipse.gmf.esb.InputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.OutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.ProxyService;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.SequenceOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
@@ -422,6 +423,9 @@ public class ElementDuplicator {
 					esbNodes.add((Sequence)((org.eclipse.gmf.runtime.notation.Node)element.getModel()).getElement());
 					esbNodes.addAll(duplicateElements(rootCompartment, ((Sequence)((org.eclipse.gmf.runtime.notation.Node)element.getModel()).getElement()).getName()));
 					relocateNodes(esbNodes,editor,(GraphicalEditPart) element);
+					if(isOutSequenceFirstConnectorMapEmplty()){
+						setOutSequenceFirstConnector(EditorUtils.getRootContainerModel(sequence));
+					}
 					createLinks(esbNodes, editor);	
 				}				
 			} else if (element instanceof SendMediatorEditPart) {
@@ -741,6 +745,34 @@ public class ElementDuplicator {
 		}
 		outSequenceFirstConnectorMap.put(rootContainer, inputConnector);		
 		return true;
+	}
+	
+	private boolean isOutSequenceFirstConnectorMapEmplty(){
+		return outSequenceFirstConnectorMap.isEmpty();
+	}
+
+	private void setOutSequenceFirstConnector(EObject rootContainer){
+		if(rootContainer instanceof ProxyService){
+			InputConnector inputConnector=((ProxyService)rootContainer).getInputConnector();
+			while(!inputConnector.getIncomingLinks().isEmpty()){
+				
+					inputConnector= getInputConnector(inputConnector.getIncomingLinks().get(0).getSource().eContainer().eContents());
+				
+			}
+			
+			outSequenceFirstConnectorMap.put(rootContainer, inputConnector);
+			
+		}
+		
+	}
+	
+	private InputConnector getInputConnector(EList<EObject> eList){
+		for(int i=0;i<eList.size();++i){
+			if(eList.get(i) instanceof InputConnector){
+				return (InputConnector)eList.get(i);
+			}
+		}
+		return null;
 	}
 
 	private String getFileLocation(String key) {
