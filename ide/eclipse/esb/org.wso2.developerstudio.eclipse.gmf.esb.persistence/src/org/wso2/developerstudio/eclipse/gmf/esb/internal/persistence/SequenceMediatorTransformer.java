@@ -2,6 +2,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence;
 
 import java.util.List;
 
+import org.apache.bcel.generic.GETSTATIC;
 import org.apache.synapse.endpoints.AbstractEndpoint;
 import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.mediators.Value;
@@ -61,10 +62,12 @@ public class SequenceMediatorTransformer extends AbstractEsbNodeTransformer {
 		
 		try{
 			if(information.getSynapseConfiguration()!=null){
-				information.getSynapseConfiguration().addSequence(visualSequence.getName(),sequence );
+				if (information.getSynapseConfiguration().getSequence(visualSequence.getName()) == null) {
+					information.getSynapseConfiguration().addSequence(
+							visualSequence.getName(), sequence);
+				}
 			}
-		}
-		catch(org.apache.synapse.SynapseException e){
+		}catch(org.apache.synapse.SynapseException e){
 			e.printStackTrace();
 			//Should handle properly
 			//Duplicate sequence definition for key
