@@ -9,6 +9,8 @@
 		</page>
 		<page id="org.wso2.developerstudio.eclipse.ui.developerstudio.preferences.client.trust.store" name="SSL Client Trust Store" 
 		class="org.wso2.developerstudio.eclipse.platform.ui.preferences.ClientTrustStorePreferencePage" category="org.wso2.developerstudio.eclipse.ui.developerstudio.preferences"></page>
+		<page id="org.wso2.developerstudio.eclipse.ui.developerstudio.preferences.parent.maven" name="Global Maven Information" 
+		class="org.wso2.developerstudio.eclipse.platform.ui.preferences.MavenInfoPreferencePage" category="org.wso2.developerstudio.eclipse.ui.developerstudio.preferences"></page>
 	</extension>
 	<extension
 	       point="org.eclipse.core.runtime.preferences">
