@@ -41,8 +41,7 @@ implements IWorkbenchPreferencePage {
 
 	@Override
 	protected void createFieldEditors() {
-		LabelFieldEditor labelFieldEditor = new LabelFieldEditor("", getFieldEditorParent());
-		addField(labelFieldEditor);
+		addEmptyField();
 		
 		addField(new LabelFieldEditor("Global Maven Parent Information", getFieldEditorParent()));
 		
@@ -55,12 +54,13 @@ implements IWorkbenchPreferencePage {
 		addField(new StringFieldEditor(GLOBAL_MAVEN_VERSION,
 				"Global Version", getFieldEditorParent()));
 		
-		addField(labelFieldEditor);
+		addEmptyField();
 		
 		//Parent Project is done
 		
 		//Add Customized Repositories
 		addField(new LabelFieldEditor("Global Maven Repository Information", getFieldEditorParent()));
+		addEmptyField();
 		
 		addField(new StringFieldEditor(GLOBAL_REPOSITORY_URL,
 				"Global Repository URL", getFieldEditorParent()));
@@ -68,9 +68,9 @@ implements IWorkbenchPreferencePage {
 		addField(new StringFieldEditor(GLOBAL_REPOSITORY_ID,
 				"Global Repository ID", getFieldEditorParent()));
 		
-		//releases
-		addField(labelFieldEditor);
+		addEmptyField();
 		addField(new LabelFieldEditor("Releases", getFieldEditorParent()));
+		addEmptyField();
 		
 		addField(new BooleanFieldEditor(
 				RELEASES_ENABLED, "Enabled",
@@ -86,9 +86,9 @@ implements IWorkbenchPreferencePage {
 		addField(new ComboFieldEditor(RELEASES_UPDATE_POLICY, UPDATE_POLICY_LABEL, b,
 				getFieldEditorParent()));
 		
-		//snapshots
-				addField(labelFieldEditor);
+		addEmptyField();
 				addField(new LabelFieldEditor("Snapshots", getFieldEditorParent()));
+				addEmptyField();
 				
 				addField(new BooleanFieldEditor(
 						SNAPSHOTS_ENABLED, "Enabled",
@@ -104,6 +104,10 @@ implements IWorkbenchPreferencePage {
 				
 		
 		
+	}
+
+	private void addEmptyField() {
+		addField(new LabelFieldEditor("", getFieldEditorParent()));
 	}
 
 }

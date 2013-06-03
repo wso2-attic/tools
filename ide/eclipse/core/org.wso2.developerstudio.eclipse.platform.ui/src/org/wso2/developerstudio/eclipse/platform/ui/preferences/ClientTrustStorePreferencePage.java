@@ -7,7 +7,6 @@ import org.eclipse.jface.preference.FileFieldEditor;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.preference.StringFieldEditor;
 import org.eclipse.jface.util.IPropertyChangeListener;
-import org.eclipse.jface.util.PropertyChangeEvent;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPreferencePage;
 import org.wso2.developerstudio.eclipse.platform.ui.Activator;
@@ -50,36 +49,6 @@ public class ClientTrustStorePreferencePage extends FieldEditorPreferencePage
 			stringField1.getTextControl(getFieldEditorParent())
 					.setEchoChar('*');
 		}
-		booleanFieldEditor.setPropertyChangeListener(new IPropertyChangeListener() {
-			
-			@Override
-			public void propertyChange(
-					org.eclipse.jface.util.PropertyChangeEvent arg0) {
-				// Setting/unsetting echo char
-				if (arg0.getProperty() == SHOW_PLAIN_PASSWORD) {
-					boolean boolean1 = preferenceStore
-							.getBoolean(SHOW_PLAIN_PASSWORD);
-					if (boolean1) {
-						stringField1.getTextControl(
-								getFieldEditorParent()).setEchoChar(
-								'\0');
-					} else {
-						stringField1.getTextControl(
-								getFieldEditorParent())
-								.setEchoChar('*');
-					}
-				}
-
-				if (arg0.getProperty() == TRUST_STORE_LOCATION) {
-					String string = preferenceStore
-							.getString(TRUST_STORE_LOCATION);
-					if (!string.equals("") && !string.endsWith(".jks")) {
-						setErrorMessage("You cannot set non JKS trust stores from Developer Studio");
-					}
-				}
-			}
-		});
-		
 		preferenceStore
 				.addPropertyChangeListener(new IPropertyChangeListener() {
 
