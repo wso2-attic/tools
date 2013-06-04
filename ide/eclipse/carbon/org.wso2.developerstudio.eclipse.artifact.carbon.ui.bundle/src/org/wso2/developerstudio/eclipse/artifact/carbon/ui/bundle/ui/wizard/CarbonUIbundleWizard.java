@@ -196,7 +196,7 @@ public class CarbonUIbundleWizard extends AbstractWSO2ProjectCreationWizard {
 			Dependency dependencies = new Dependency();
 			dependencies.setGroupId("org.eclipse.osgi");
 			dependencies.setArtifactId("org.eclipse.osgi");
-			dependencies.setVersion("3.6.0.v20100517");
+			dependencies.setVersion("3.7.0.v20110613");
 			MavenUtils.addMavenDependency(mavenProject, dependencies);	
 			mavenProject.getBuild().setSourceDirectory("src");
 			MavenUtils.saveMavenProject(mavenProject, pomfile);

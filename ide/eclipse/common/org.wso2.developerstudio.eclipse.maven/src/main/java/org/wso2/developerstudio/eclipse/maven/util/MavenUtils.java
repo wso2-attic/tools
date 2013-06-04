@@ -211,7 +211,7 @@ public class MavenUtils {
 		//before trying to add again
 		updateDependecyList(project, mavenProject);
 		updateSourceFolder(project, mavenProject,mavenProjectSaveLocation);
-		updateMavenRepo(mavenProject);
+//		updateMavenRepo(mavenProject);
 		addMavenJarPlugin(mavenProject);
 		addMavenCompilerPlugin(mavenProject);
 		return mavenProject;
@@ -226,7 +226,7 @@ public class MavenUtils {
 		// before trying to add again
 		updateDependecyList(project, mavenProject);
 		updateSourceFolder(project, mavenProject, mavenProjectSaveLocation);
-		updateMavenRepo(mavenProject);
+//		updateMavenRepo(mavenProject);
 		addMavenBundlePluginForCarbonUI(mavenProject,project);
 		addMavenCompilerPlugin(mavenProject);
 		addMavenDependency(mavenProject, createDependency("org.eclipse.osgi", "org.eclipse.osgi", "3.5.2.R35x_v20100126"));
@@ -250,7 +250,7 @@ public class MavenUtils {
 		// before trying to add again
 		updateDependecyList(project, mavenProject);
 		updateSourceFolder(project, mavenProject, mavenProjectSaveLocation);
-		updateMavenRepo(mavenProject);
+//		updateMavenRepo(mavenProject);
 		addMavenWarPlugin(mavenProject);
 		addMavenCompilerPlugin(mavenProject);
 		return mavenProject;
@@ -265,13 +265,13 @@ public class MavenUtils {
 		// before trying to add again
 	//	updateDependecyList(project, mavenProject);
     //	updateSourceFolder(project, mavenProject, mavenProjectSaveLocation);
-		updateMavenRepo(mavenProject);
+//		updateMavenRepo(mavenProject);
 		addMavenBpelPlugin(mavenProject);
 //		addMavenCompilerPlugin(mavenProject);
 		return mavenProject;
 	}
 	
-	private static void updateMavenRepo(MavenProject mavenProject){
+	public static void updateMavenRepo(MavenProject mavenProject){
 		
 		List<Repository> newList=mavenProject.getModel().getRepositories();
 		List<Repository> existingRepositories = new ArrayList<Repository>();

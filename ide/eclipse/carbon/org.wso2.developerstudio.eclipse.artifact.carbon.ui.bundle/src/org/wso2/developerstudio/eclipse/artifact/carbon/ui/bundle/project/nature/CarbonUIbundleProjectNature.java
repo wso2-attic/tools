@@ -81,19 +81,6 @@ public class CarbonUIbundleProjectNature extends AbstractWSO2ProjectNature {
 		 
 		 plugin.setConfiguration(configNode);
 		
-			Repository repo = new Repository();
-			repo.setUrl("http://maven.wso2.org/nexus/content/groups/wso2-public/");
-			repo.setId("wso2-nexus");
-			
-			RepositoryPolicy releasePolicy=new RepositoryPolicy();
-			releasePolicy.setEnabled(true);
-			releasePolicy.setUpdatePolicy("daily");
-			releasePolicy.setChecksumPolicy("ignore");
-			
-			repo.setReleases(releasePolicy);
-			
-		mavenProject.getModel().addRepository(repo);
-		mavenProject.getModel().addPluginRepository(repo);
 		List<Dependency> dependencyList = new ArrayList<Dependency>();
 		Map<String, JavaLibraryBean> dependencyInfoMap = JavaLibraryUtil.getDependencyInfoMap(getProject());
 		Map<String, String> map = ProjectDependencyConstants.DEPENDENCY_MAP;

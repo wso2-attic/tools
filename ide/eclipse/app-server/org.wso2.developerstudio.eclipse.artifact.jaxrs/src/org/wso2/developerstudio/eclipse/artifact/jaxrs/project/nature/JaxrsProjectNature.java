@@ -63,24 +63,6 @@ private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 		
 		mavenProject.getModel().setProperties(properties);
 		
-		Repository repo = new Repository();
-		repo.setUrl("http://maven.wso2.org/nexus/content/groups/wso2-public/");
-		repo.setId("wso2-nexus");
-		
-		RepositoryPolicy releasePolicy=new RepositoryPolicy();
-		releasePolicy.setEnabled(true);
-		releasePolicy.setUpdatePolicy("daily");
-		releasePolicy.setChecksumPolicy("ignore");
-		
-		repo.setReleases(releasePolicy);
-		
-		if (!mavenProject.getRepositories().contains(repo)) {
-	        mavenProject.getModel().addRepository(repo);
-        }
-		if (mavenProject.getPluginArtifactRepositories() == null
-				|| !mavenProject.getPluginArtifactRepositories().contains(repo)) {
-			mavenProject.getModel().addPluginRepository(repo);
-		}
 		List<Dependency> dependencyList = new ArrayList<Dependency>();
 		
 		Map<String, JavaLibraryBean> dependencyInfoMap = JavaLibraryUtil.getDependencyInfoMap(getProject());

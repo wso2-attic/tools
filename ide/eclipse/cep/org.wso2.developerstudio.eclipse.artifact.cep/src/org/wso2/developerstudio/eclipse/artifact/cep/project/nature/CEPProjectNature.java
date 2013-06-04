@@ -69,16 +69,6 @@ public class CEPProjectNature extends AbstractWSO2ProjectNature {
 					.toFile());
 			artifactNode.setValue(fileName);
 		}
-		Repository repo = new Repository();
-		repo.setUrl("http://maven.wso2.org/nexus/content/groups/wso2-public/");
-		repo.setId("wso2-nexus");
-		RepositoryPolicy releasePolicy = new RepositoryPolicy();
-		releasePolicy.setEnabled(true);
-		releasePolicy.setUpdatePolicy("daily");
-		releasePolicy.setChecksumPolicy("ignore");
-		repo.setReleases(releasePolicy);
-		mavenProject.getModel().addRepository(repo);
-		mavenProject.getModel().addPluginRepository(repo);
 		MavenUtils.saveMavenProject(mavenProject, mavenProjectPomLocation);
 	}
 

@@ -202,6 +202,7 @@ public abstract class AbstractWSO2ProjectCreationWizard extends Wizard implement
 		if (parentProject != null) {
 			mavenProject.getModel().setParent(parentProject);
 		}
+		MavenUtils.updateMavenRepo(mavenProject);
 		MavenUtils.saveMavenProject(mavenProject, pomLocation);
 	}
 	
@@ -214,6 +215,7 @@ public abstract class AbstractWSO2ProjectCreationWizard extends Wizard implement
 		if (parentProject != null) {
 			mavenProject.getModel().setParent(parentProject);
 		}
+		MavenUtils.updateMavenRepo(mavenProject);
 		MavenUtils.saveMavenProject(mavenProject, pomLocation);
 	}
 	
