@@ -15,17 +15,19 @@ implements IWorkbenchPreferencePage {
 	
 	private static final String UPDATE_POLICY_LABEL = "Update Policy";
 	private static final String CHECKSUM_POLICY_LABEL = "Checksum Policy";
+	private static final String EXCLUDE_WSO2_REPOSITORY_LABEL = "Disable WSO2 Maven Repository";
+	private static final String DISABLE_WSO2_REPOSITORY = "DISABLE_WSO2_REPOSITORY";
 	private static final String SNAPSHOTS_UPDATE_POLICY = "SNAPSHOTS_UPDATE_POLICY";
 	private static final String SNAPSHOTS_CHECKSUM_POLICY = "SNAPSHOTS_CHECKSUM_POLICY";
 	private static final String SNAPSHOTS_ENABLED = "SNAPSHOTS_ENABLED";
 	private static final String RELEASES_UPDATE_POLICY = "RELEASES_UPDATE_POLICY";
 	private static final String RELEASES_CHECKSUM_POLICY = "RELEASES_CHECKSUM_POLICY";
 	private static final String RELEASES_ENABLED = "RELEASES_ENABLED";
-	private static final String GLOBAL_REPOSITORY_ID = "GLOBAL REPOSITORY ID";
-	private static final String GLOBAL_REPOSITORY_URL = "GLOBAL REPOSITORY URL";
-	private static final String GLOBAL_MAVEN_VERSION = "GLOBAL MAVEN VERSION";
-	private static final String GLOBAL_MAVEN_ARTIFACTID = "GLOBAL MAVEN ARTIFACTID";
-	private static final String GLOBAL_MAVEN_GROUP_ID = "GLOBAL MAVEN GROUPID";
+	private static final String GLOBAL_REPOSITORY_ID = "GLOBAL_REPOSITORY_ID";
+	private static final String GLOBAL_REPOSITORY_URL = "GLOBAL_REPOSITORY_URL";
+	private static final String GLOBAL_MAVEN_VERSION = "GLOBAL_MAVEN_VERSION";
+	private static final String GLOBAL_MAVEN_ARTIFACTID = "GLOBAL_MAVEN_ARTIFACTID";
+	private static final String GLOBAL_MAVEN_GROUP_ID = "GLOBAL_MAVEN_GROUPID";
 	private IPreferenceStore preferenceStore;
 	
 	public MavenInfoPreferencePage(){
@@ -43,34 +45,38 @@ implements IWorkbenchPreferencePage {
 	protected void createFieldEditors() {
 		addEmptyField();
 		
-		addField(new LabelFieldEditor("Global Maven Parent Information", getFieldEditorParent()));
+		addField(new LabelFieldEditor("Custom Maven Parent Information", getFieldEditorParent()));
 		
 		addField(new StringFieldEditor(GLOBAL_MAVEN_GROUP_ID,
-				"Global GroupId", getFieldEditorParent()));
+				"Custom GroupId", getFieldEditorParent()));
 		
 		addField(new StringFieldEditor(GLOBAL_MAVEN_ARTIFACTID,
-				"Global ArtifactId", getFieldEditorParent()));
+				"Custom ArtifactId", getFieldEditorParent()));
 		
 		addField(new StringFieldEditor(GLOBAL_MAVEN_VERSION,
-				"Global Version", getFieldEditorParent()));
+				"Custom Version", getFieldEditorParent()));
 		
 		addEmptyField();
 		
 		//Parent Project is done
 		
 		//Add Customized Repositories
-		addField(new LabelFieldEditor("Global Maven Repository Information", getFieldEditorParent()));
+		addField(new LabelFieldEditor("Enable/Disable WSO2 Maven Repository", getFieldEditorParent()));
+		addField(new BooleanFieldEditor(
+				DISABLE_WSO2_REPOSITORY, EXCLUDE_WSO2_REPOSITORY_LABEL,
+				getFieldEditorParent()));
 		addEmptyField();
 		
+		addField(new LabelFieldEditor("Custom Maven Repository Information", getFieldEditorParent()));
+		
 		addField(new StringFieldEditor(GLOBAL_REPOSITORY_URL,
-				"Global Repository URL", getFieldEditorParent()));
+				"Custom Repository URL", getFieldEditorParent()));
 		
 		addField(new StringFieldEditor(GLOBAL_REPOSITORY_ID,
-				"Global Repository ID", getFieldEditorParent()));
+				"Custom Repository ID", getFieldEditorParent()));
 		
 		addEmptyField();
 		addField(new LabelFieldEditor("Releases", getFieldEditorParent()));
-		addEmptyField();
 		
 		addField(new BooleanFieldEditor(
 				RELEASES_ENABLED, "Enabled",
@@ -88,7 +94,6 @@ implements IWorkbenchPreferencePage {
 		
 		addEmptyField();
 				addField(new LabelFieldEditor("Snapshots", getFieldEditorParent()));
-				addEmptyField();
 				
 				addField(new BooleanFieldEditor(
 						SNAPSHOTS_ENABLED, "Enabled",

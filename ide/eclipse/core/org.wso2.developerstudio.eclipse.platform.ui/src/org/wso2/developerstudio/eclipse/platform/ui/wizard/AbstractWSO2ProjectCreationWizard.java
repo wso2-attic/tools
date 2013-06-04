@@ -22,6 +22,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.maven.model.Parent;
+import org.apache.maven.model.Repository;
+import org.apache.maven.model.RepositoryPolicy;
 import org.apache.maven.project.MavenProject;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
@@ -36,6 +38,7 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.core.runtime.preferences.IPreferencesService;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
@@ -61,6 +64,16 @@ import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 
 public abstract class AbstractWSO2ProjectCreationWizard extends Wizard implements INewWizard,
                                                                       IExecutableExtension {
+	private static final String SNAPSHOTS_UPDATE_POLICY = "SNAPSHOTS_UPDATE_POLICY";
+	private static final String SNAPSHOTS_CHECKSUM_POLICY = "SNAPSHOTS_CHECKSUM_POLICY";
+	private static final String SNAPSHOTS_ENABLED = "SNAPSHOTS_ENABLED";
+	private static final String RELEASES_UPDATE_POLICY = "RELEASES_UPDATE_POLICY";
+	private static final String RELEASES_CHECKSUM_POLICY = "RELEASES_CHECKSUM_POLICY";
+	private static final String RELEASES_ENABLED = "RELEASES_ENABLED";
+	private static final String GLOBAL_REPOSITORY_ID = "GLOBAL_REPOSITORY_ID";
+	private static final String GLOBAL_REPOSITORY_URL = "GLOBAL_REPOSITORY_URL";
+	private static final String DISABLE_WSO2_REPOSITORY = "DISABLE_WSO2_REPOSITORY";
+	
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	private ProjectDataModel model;
 	private IConfigurationElement configElement;
@@ -69,6 +82,7 @@ public abstract class AbstractWSO2ProjectCreationWizard extends Wizard implement
 	protected final static String JDT_BUILD_COMMAND="org.eclipse.jdt.core.javabuilder";
 	protected final static String JDT_PROJECT_NATURE="org.eclipse.jdt.core.javanature";
     private Map<String,Text> map = new HashMap<String,Text>();
+    private IPreferencesService preferencesService = Platform.getPreferencesService();
 	
 	public void setMap(String label, Text txt) {
 		 map.put(label, txt);
@@ -97,6 +111,40 @@ public abstract class AbstractWSO2ProjectCreationWizard extends Wizard implement
 		} catch (Exception e) {
 			log.error("error adding pages", e);
 		}
+	}
+	
+	private Repository getGlobalRepositoryFromPreference(){
+		
+		String repoURL = preferencesService.
+		  getString("org.wso2.developerstudio.eclipse.platform.ui", GLOBAL_REPOSITORY_URL, null, null);
+		if (repoURL != null) {
+			Repository repo = new Repository();
+			repo.setUrl(repoURL);
+			repo.setId(preferencesService.
+					  getString("org.wso2.developerstudio.eclipse.platform.ui", GLOBAL_REPOSITORY_ID, null, null));
+			RepositoryPolicy releasePolicy = new RepositoryPolicy();
+			String releaseEnabled = preferencesService.
+			  getString("org.wso2.developerstudio.eclipse.platform.ui", RELEASES_ENABLED , null, null);
+			releasePolicy.setEnabled(releaseEnabled!=null);
+			releasePolicy.setUpdatePolicy(preferencesService.
+					  getString("org.wso2.developerstudio.eclipse.platform.ui", RELEASES_UPDATE_POLICY , null, null));
+			releasePolicy.setChecksumPolicy(preferencesService.
+					  getString("org.wso2.developerstudio.eclipse.platform.ui", RELEASES_CHECKSUM_POLICY , null, null));
+			repo.setReleases(releasePolicy);
+			
+			RepositoryPolicy snapshotPolicy = new RepositoryPolicy();
+			String snapshotsEnabled = preferencesService.
+			  getString("org.wso2.developerstudio.eclipse.platform.ui", SNAPSHOTS_ENABLED , null, null);
+			snapshotPolicy.setEnabled(snapshotsEnabled!=null);
+			snapshotPolicy.setUpdatePolicy(preferencesService.
+					  getString("org.wso2.developerstudio.eclipse.platform.ui", SNAPSHOTS_UPDATE_POLICY , null, null));
+			snapshotPolicy.setChecksumPolicy(preferencesService.
+					  getString("org.wso2.developerstudio.eclipse.platform.ui", SNAPSHOTS_CHECKSUM_POLICY , null, null));
+			repo.setSnapshots(snapshotPolicy);
+			
+			return repo;
+		}
+		return null;
 	}
 
 	protected boolean isProjectWizard() {
@@ -202,7 +250,18 @@ public abstract class AbstractWSO2ProjectCreationWizard extends Wizard implement
 		if (parentProject != null) {
 			mavenProject.getModel().setParent(parentProject);
 		}
-		MavenUtils.updateMavenRepo(mavenProject);
+		String disableWSO2Repo = preferencesService.
+		  getString("org.wso2.developerstudio.eclipse.platform.ui", DISABLE_WSO2_REPOSITORY, null, null);
+		if (disableWSO2Repo == null) {
+			MavenUtils.updateMavenRepo(mavenProject);
+		}
+		Repository globalRepositoryFromPreference = getGlobalRepositoryFromPreference();
+		
+		if (globalRepositoryFromPreference != null) {
+			mavenProject.getModel().addRepository(globalRepositoryFromPreference);
+			mavenProject.getModel().addPluginRepository(globalRepositoryFromPreference);
+		}
+		
 		MavenUtils.saveMavenProject(mavenProject, pomLocation);
 	}
 	
@@ -215,7 +274,17 @@ public abstract class AbstractWSO2ProjectCreationWizard extends Wizard implement
 		if (parentProject != null) {
 			mavenProject.getModel().setParent(parentProject);
 		}
-		MavenUtils.updateMavenRepo(mavenProject);
+		String disableWSO2Repo = preferencesService.
+				  getString("org.wso2.developerstudio.eclipse.platform.ui", DISABLE_WSO2_REPOSITORY, null, null);
+				if (disableWSO2Repo == null) {
+					MavenUtils.updateMavenRepo(mavenProject);
+				}
+				Repository globalRepositoryFromPreference = getGlobalRepositoryFromPreference();
+				
+				if (globalRepositoryFromPreference != null) {
+					mavenProject.getModel().addRepository(globalRepositoryFromPreference);
+					mavenProject.getModel().addPluginRepository(globalRepositoryFromPreference);
+				}
 		MavenUtils.saveMavenProject(mavenProject, pomLocation);
 	}
 	

@@ -58,9 +58,9 @@ import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 public class MavenDetailsPage extends WizardPage implements Observer {
 	
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
-	private static final String GLOBAL_MAVEN_VERSION = "GLOBAL MAVEN VERSION";
-	private static final String GLOBAL_MAVEN_ARTIFACTID = "GLOBAL MAVEN ARTIFACTID";
-	private static final String GLOBAL_MAVEN_GROUP_ID = "GLOBAL MAVEN GROUPID";
+	private static final String GLOBAL_MAVEN_VERSION = "GLOBAL_MAVEN_VERSION";
+	private static final String GLOBAL_MAVEN_ARTIFACTID = "GLOBAL_MAVEN_ARTIFACTID";
+	private static final String GLOBAL_MAVEN_GROUP_ID = "GLOBAL_MAVEN_GROUPID";
 	
 	private Text txtGroupId;
 	private Text txtVersion;
