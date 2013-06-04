@@ -30,7 +30,6 @@ public class AppListLabelProvider extends StyledCellLabelProvider {
 	  public void update(ViewerCell cell) {
 	    Object element = cell.getElement();
 	    StyledString text = new StyledString();
-
 	    if (element instanceof ApplicationInfo) {
 	      ApplicationInfo app = (ApplicationInfo) element;
 	      text.append(app.getKey());

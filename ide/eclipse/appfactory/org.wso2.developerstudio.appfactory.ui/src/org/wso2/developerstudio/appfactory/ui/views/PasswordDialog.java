@@ -31,9 +31,9 @@ public class PasswordDialog extends Dialog {
   private Text userText;
   private Text passwordText;
   private Text hostText;
-  private String user="admin@admin.com";
-  private String password="admin";
-  private String host="https://appfactorypreview.wso2.com";
+  private String user;
+  private String password;
+  private String host;
 
   
 /** * Create the dialog. * * @param parentShell */
@@ -54,7 +54,7 @@ public class PasswordDialog extends Dialog {
     container.setLayout(gl_container);
 
     Label lblHost = new Label(container, SWT.NONE);
-    lblHost.setText("Host:");
+    lblHost.setText("AppFactory Url:");
 
     hostText = new Text(container, SWT.BORDER);
     hostText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false,

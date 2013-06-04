@@ -83,6 +83,7 @@ public class LoginAction {
 	        log.error("Login failer", e);
 		} 
 		return val;
+ 
 	}
 
 	public String getUsername() {

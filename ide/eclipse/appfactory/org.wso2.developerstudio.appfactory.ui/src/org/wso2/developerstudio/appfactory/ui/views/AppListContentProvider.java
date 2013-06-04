@@ -37,7 +37,11 @@ public class AppListContentProvider implements ITreeContentProvider {
 
   @Override
   public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
-    this.model = (AppListModel) newInput;
+	  if(newInput instanceof AppListModel){
+        this.model = (AppListModel) newInput;
+	  }else if (newInput instanceof List){
+		  this.apps = (List<ApplicationInfo>) newInput;
+	  }
   }
 
   @Override

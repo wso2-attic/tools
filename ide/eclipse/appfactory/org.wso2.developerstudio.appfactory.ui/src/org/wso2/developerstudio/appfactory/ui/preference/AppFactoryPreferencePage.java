@@ -49,11 +49,11 @@ implements IWorkbenchPreferencePage{
 	@Override
 	protected void createFieldEditors() {
 		addField(new StringFieldEditor(APP_FACTORY_LOCATION,
-				"&App Factory Location:", getFieldEditorParent()));
-		addField(new StringFieldEditor(APP_FACTORY_USERNAME, "App &Factory Username",
+				"&AppFactory Url:", getFieldEditorParent()));
+		addField(new StringFieldEditor(APP_FACTORY_USERNAME, "App&Factory Username",
 				getFieldEditorParent()));
 		stringField1 = new StringFieldEditor(APP_FACTORY_PASSWORD,
-				"App Factor &Password", getFieldEditorParent());
+				"AppFactor &Password", getFieldEditorParent());
 		addField(stringField1);
 		BooleanFieldEditor booleanFieldEditor = new BooleanFieldEditor(
 				SHOW_PLAIN_PASSWORD, "S&how Password in Plain Text",

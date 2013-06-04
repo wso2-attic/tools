@@ -39,8 +39,9 @@ import com.google.gson.JsonParser;
 public class AppListModel {
 		public List<ApplicationInfo> getCategories(List<ApplicationInfo> apps) {
 			// TODO  can do changes to default model
-		 for (ApplicationInfo applicationInfo : apps) {
-			applicationInfo.setApplicationOwner("Admin");
+		for (ApplicationInfo applicationInfo : apps) {
+			/*Currently API doesn't provide the app owner information*/
+			applicationInfo.setApplicationOwner(Authenticator.getInstance().getCredentials().getUser());
 		}
 	    return apps;
 	  }

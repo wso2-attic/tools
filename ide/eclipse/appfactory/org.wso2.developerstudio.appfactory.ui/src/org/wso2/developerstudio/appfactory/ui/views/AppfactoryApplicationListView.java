@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2012, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ * Copyright (c) 2013, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -41,6 +41,7 @@ import org.eclipse.core.runtime.Path;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
+import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.jface.operation.IRunnableWithProgress;
@@ -112,6 +113,10 @@ public class AppfactoryApplicationListView extends ViewPart {
 	public void init(IViewSite site) throws PartInitException {
   
 		 super.init(site);
+		 createUserAppList();
+	}
+
+	private void createUserAppList() {
 		 credentials = Authenticator.getInstance().getCredentials();
 		 Map<String,String> params = new HashMap<String,String>();
 		 params.put("action",JagApiProperties.USER_APP_LIST__ACTION);
@@ -126,12 +131,13 @@ public class AppfactoryApplicationListView extends ViewPart {
           this.parent = parent;
           contentProvider = new AppListContentProvider(appLists);
           labelProvider = new AppListLabelProvider();
+          createToolbar();
           model =new AppListModel();
-          
 		  viewer = new TreeViewer(parent, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);
 		  viewer.setContentProvider(contentProvider);
 		  viewer.setLabelProvider(labelProvider);
 		  viewer.setInput(model);
+		  
 		  viewer.addSelectionChangedListener(new ISelectionChangedListener() {
 			
 			@Override
@@ -320,6 +326,34 @@ public class AppfactoryApplicationListView extends ViewPart {
 		return reposettings;
 	}
 	
+
+     
+     /**
+      * Create toolbar.
+      */
+     private void createToolbar() {
+             IToolBarManager mgr = getViewSite().getActionBars().getToolBarManager();
+             mgr.add(new Action() {
+            	 @Override
+            	public void run() {
+            		    Display.getCurrent().getActiveShell().setCursor((new Cursor(Display.getCurrent(), SWT.CURSOR_WAIT)));
+            			AppListModel oldModel = model;
+            			List<ApplicationInfo> oldappLists = appLists;
+            			createUserAppList();
+            			contentProvider.inputChanged(viewer, oldappLists, appLists);
+            			viewer.refresh();
+            			Display.getCurrent().getActiveShell().setCursor((new Cursor(Display.getCurrent(), SWT.CURSOR_ARROW)));
+            	}
+            	 
+            	 public String getText() {
+     				return "Refresh";
+     			}
+			});
+           //  mgr.add(deleteItemAction);
+     }
+	
+     
+     
 	private Action repoUpdateAction(final AppVersionInfo info) {
 		Action reposettings = new Action() {
 			public void run() {
