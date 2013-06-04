@@ -114,12 +114,18 @@ public abstract class AbstractPOMGenMojo extends AbstractMojo {
 								existingModules.add(
 										artifactAsMavenModule);
 							}
-							Repository repo = new Repository();
-							repo.setUrl("http://dist.wso2.org/maven2");
-							repo.setId("wso2-maven2-repository-1");
-							artifactMavenProject.getModel().addRepository(repo);
-							artifactMavenProject.getModel()
-									.addPluginRepository(repo);
+//							Repository repo = new Repository();
+//							repo.setUrl("http://dist.wso2.org/maven2");
+//							repo.setId("wso2-maven2-repository-1");
+//							artifactMavenProject.getModel().addRepository(repo);
+//							artifactMavenProject.getModel()
+//									.addPluginRepository(repo);
+							
+							//Add repositories defined in the parent project to the generated poms.
+							List repositories = project.getRepositories();
+							artifactMavenProject.getModel().getRepositories().addAll(repositories);
+							artifactMavenProject.getModel().getPluginRepositories().addAll(repositories);
+							
 							CAppMavenUtils.saveMavenProject(
 									artifactMavenProject, new File(
 											projectLocation, "pom.xml"));
