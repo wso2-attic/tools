@@ -16,11 +16,22 @@
 
 package org.wso2.developerstudio.eclipse.artifact.messagestore.model;
 
+import static org.wso2.developerstudio.eclipse.platform.core.utils.Constants.ESB_PROJECT_NATURE;
+
+import java.io.File;
+import java.util.HashMap;
 import java.util.Map;
 
+import org.eclipse.core.resources.IContainer;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.PlatformUI;
 import org.wso2.developerstudio.eclipse.artifact.messagestore.Activator;
 import org.wso2.developerstudio.eclipse.artifact.messagestore.Constants;
 import org.wso2.developerstudio.eclipse.artifact.messagestore.provider.MessageStoreTypeList.MessageStoreType;
+import org.wso2.developerstudio.eclipse.esb.project.utils.ESBProjectUtils;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.platform.core.exception.ObserverFailedException;
@@ -47,7 +58,8 @@ public class MessageStoreModel extends ProjectDataModel  {
 	private int jmsTimeout;
 	private String jmsUsername;
 	private String storeName;
-	private Map<String,String> customParameters;
+	private IContainer saveLocation;
+	private Map<String,String> customParameters = new HashMap<String,String>();
 
 	public MessageStoreType getMessageStoreType() {
 		return messageStoreType;
@@ -145,10 +157,6 @@ public class MessageStoreModel extends ProjectDataModel  {
 		return customParameters;
 	}
 
-	public void setCustomParameters(Map<String, String> customParameters) {
-		this.customParameters = customParameters;
-	}
-
 	public void setMessageStoreType(MessageStoreType messageStoreType) {
 		this.messageStoreType = messageStoreType;
 	}
@@ -180,7 +188,9 @@ public class MessageStoreModel extends ProjectDataModel  {
 			value = getJmsUsername();
 		} else if (key.equals(Constants.FIELD_STORE_NAME)) {
 			value = getStoreName();
-		} 
+		}  else if(key.equals(Constants.FIELD_SAVE_LOCATION)){
+			value = getSaveLocation();
+		}
 		return value;
 	}
 	
@@ -220,8 +230,71 @@ public class MessageStoreModel extends ProjectDataModel  {
 			setStoreName(data.toString());
 		} else if (key.equals(Constants.FIELD_CUSTOM_PROVIDER_CLASS)) {
 			setCustomProviderClass(data.toString());
-		} 
+		} else if (key.equals(Constants.FIELD_CREATE_ESB_PRJ)) {
+			Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
+			IProject esbProject = ESBProjectUtils.createESBProject(shell);
+			if(esbProject!=null){
+				setSaveLocation(esbProject);
+			}
+		} else if(key.equals(Constants.FIELD_SAVE_LOCATION)){
+			setSaveLocation((IContainer) data);
+		}
 		return result;
+	}
+	
+	@Override
+	public void setLocation(File location) {
+		super.setLocation(location);
+		File absolutionPath = getLocation();
+		if (getSaveLocation() == null && absolutionPath != null) {
+			IContainer newSaveLocation =
+			        getContainer(absolutionPath, ESB_PROJECT_NATURE);
+			setSaveLocation(newSaveLocation);
+		}
+	}
+	public static IContainer getContainer(File absolutionPath, String projectNature) {
+		IProject[] projects = ResourcesPlugin.getWorkspace().getRoot().getProjects();
+		int length = 0;
+		IProject currentSelection = null;
+		for (IProject project : projects) {
+			try {
+				if (project.isOpen() && project.hasNature(projectNature)) {
+					File projectLocation = project.getLocation().toFile();
+					int projectLocationLength = projectLocation.toString().length();
+					if (projectLocationLength > length &&
+					    projectLocationLength <= absolutionPath.toString().length()) {
+						if (absolutionPath.toString().startsWith(projectLocation.toString())) {
+							length = projectLocationLength;
+							currentSelection = project;
+						}
+					}
+				}
+			} catch (CoreException e) {
+				log.error("An unexpected error has occurred", e);
+			}
+		}
+		IContainer newSaveLocation = null;
+		if (currentSelection != null) {
+			String path =
+			        absolutionPath.toString().substring(
+			                                            currentSelection.getLocation().toFile()
+			                                                    .toString().length());
+
+			if (path.equals("")) {
+				newSaveLocation = currentSelection;
+			} else {
+				newSaveLocation = currentSelection.getFolder(path);
+			}
+		}
+		return newSaveLocation;
+	}
+
+	public IContainer getSaveLocation() {
+		return saveLocation;
+	}
+
+	public void setSaveLocation(IContainer saveLocation) {
+		this.saveLocation = saveLocation;
 	}
 
 }

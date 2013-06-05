@@ -43,19 +43,19 @@ public class MessageStoreFieldController  extends AbstractFieldController  {
 			CommonFieldValidator.validateArtifactName(value);
 		} else if (key.equals(Constants.FIELD_CUSTOM_PROVIDER_CLASS)) {
 			if(custom){
-				//TODO:
+				CommonFieldValidator.validateJavaClassNameField(value);
 			}
 		} else if (key.equals(Constants.FIELD_JMS_CONTEXT_FACTORY)) {
 			if(jms){
-				//TODO:
+				CommonFieldValidator.validateRequiredField(value,"JMS context factory cannot be empty");
 			}
 		} else if (key.equals(Constants.FIELD_JMS_PROVIDER_URL)) {
 			if(jms){
-				//TODO:
+				CommonFieldValidator.validateRequiredField(value,"JMS Provide url cannot be empty");
 			}
 		} else if (key.equals(Constants.FIELD_JMS_TIMEOUT)) {
 			if(jms){
-				//TODO:
+				
 			}
 		} 
 	}
@@ -77,6 +77,8 @@ public class MessageStoreFieldController  extends AbstractFieldController  {
 			updateFields.add(FIELD_JMS_TIMEOUT);
 			updateFields.add(FIELD_CUSTOM_PROVIDER_CLASS);
 			updateFields.add(FIELD_CUSTOM_PARAMETERS);
+		} else if (modelProperty.equals(FIELD_CREATE_ESB_PRJ)) {
+			updateFields.add(FIELD_SAVE_LOCATION);
 		}
 		return updateFields;
 	}

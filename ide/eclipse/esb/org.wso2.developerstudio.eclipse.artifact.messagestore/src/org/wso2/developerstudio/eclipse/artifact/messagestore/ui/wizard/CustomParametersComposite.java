@@ -23,6 +23,8 @@ import java.util.Observable;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.TableEditor;
+import org.eclipse.swt.events.FocusAdapter;
+import org.eclipse.swt.events.FocusEvent;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.MouseAdapter;
@@ -89,6 +91,7 @@ public class CustomParametersComposite extends AbstractComposite {
 				item.setText(0,"parameter" + tblParameters.getItemCount());
 				item.setText(1,"value");
 				tblParameters.select(tblParameters.indexOf(item));
+				updateParameters();
 			}
 		});
 		
@@ -111,6 +114,7 @@ public class CustomParametersComposite extends AbstractComposite {
 					}
 				}
 				btnRemove.setEnabled(tblParameters.getItemCount()>0);
+				updateParameters();
 			}
 		});
 		
@@ -118,6 +122,12 @@ public class CustomParametersComposite extends AbstractComposite {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				btnRemove.setEnabled(tblParameters.getItemCount()>0);
+			}
+		});
+		tblParameters.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusLost(FocusEvent e) {
+				updateParameters();
 			}
 		});
 		
@@ -202,8 +212,16 @@ public class CustomParametersComposite extends AbstractComposite {
 				Control oldEditorControl = cellEditor.getEditor();
 				if (null != oldEditorControl)
 					oldEditorControl.dispose();
+				updateParameters();
 			}
 		});
+	}
+	
+	private void updateParameters(){
+		model.getCustomParameters().clear();
+		for (TableItem item : tblParameters.getItems()) {
+			model.getCustomParameters().put(item.getText(0), item.getText(1));
+		}
 	}
 
 }

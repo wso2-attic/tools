@@ -9,7 +9,13 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
-Import-Package: org.eclipse.core.resources,
+Import-Package: org.apache.axiom.om,
+ org.apache.synapse,
+ org.apache.synapse.config.xml,
+ org.apache.synapse.message.store,
+ org.eclipse.core.resources,
+ org.wso2.developerstudio.eclipse.esb.project.artifact,
+ org.wso2.developerstudio.eclipse.esb.project.utils,
  org.wso2.developerstudio.eclipse.logging.core,
  org.wso2.developerstudio.eclipse.platform.core.exception,
  org.wso2.developerstudio.eclipse.platform.core.model,
@@ -17,4 +23,5 @@ Import-Package: org.eclipse.core.resources,
  org.wso2.developerstudio.eclipse.platform.core.utils,
  org.wso2.developerstudio.eclipse.platform.ui.validator,
  org.wso2.developerstudio.eclipse.platform.ui.wizard,
+ org.wso2.developerstudio.eclipse.utils.file,
  org.wso2.developerstudio.eclipse.utils.ui
