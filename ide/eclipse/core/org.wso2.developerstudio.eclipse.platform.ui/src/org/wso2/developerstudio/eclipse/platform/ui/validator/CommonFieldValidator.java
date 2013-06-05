@@ -162,6 +162,16 @@ private static boolean isParameter(String field,boolean partial){
 		}
 	}
 	
+	public static void validateRequiredField(Object value,String msg) throws FieldValidationException{
+		if (value == null) {
+			throw new FieldValidationException(msg);
+		}
+		String name = value.toString();
+		if (name.trim().equals("")) {
+			throw new FieldValidationException(msg);
+		} 
+	}
+	
 	public static void validateImportFile(Object value) throws FieldValidationException{
 		if (value == null) {
 			throw new FieldValidationException("Specified configuration file location is invalid");
