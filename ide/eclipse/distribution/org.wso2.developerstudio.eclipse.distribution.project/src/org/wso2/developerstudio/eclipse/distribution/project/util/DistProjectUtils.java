@@ -51,8 +51,7 @@ public class DistProjectUtils {
 		if(parent!=null){
 			suffix =  parent + ":=";
 		} 
-		return  suffix.concat(dep.getGroupId().concat(":").concat(dep.getArtifactId())
-				.concat(":").concat(dep.getVersion()));
+		return  suffix.concat(dep.getGroupId().concat("_._").concat(dep.getArtifactId()));
 	}
 	
 	public static String getMavenInfoAsString(String info) {

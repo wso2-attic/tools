@@ -87,7 +87,7 @@ public class CAppArtifact extends AbstractXMLDoc{
 		Properties properties = getProject().getProperties();
 		for (Object object: getProject().getDependencies()) {
 			Dependency dependency=(Dependency)object;
-			String property = properties.getProperty(dependency.getGroupId()+":"+dependency.getArtifactId()+":"+dependency.getVersion());
+			String property = properties.getProperty(dependency.getGroupId()+"_._"+dependency.getArtifactId());
 			if (property !=null && property.toLowerCase().startsWith(CAppMavenUtils.CAPP_SCOPE_PREFIX)){
 				String[] scopeElements = property.split("/");
 				String dependencyServerRole;
