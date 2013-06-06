@@ -109,7 +109,7 @@ public class SequencePOMGenMojo extends AbstractPOMGenMojo {
 		for (ESBArtifact esbArtifact : artifacts) {
 	        Artifact artifact=new Artifact();
 	        artifact.setName(esbArtifact.getName());
-	        artifact.setVersion(esbArtifact.getVersion());
+	        artifact.setVersion(this.getProject().getVersion());
 	        artifact.setType(esbArtifact.getType());
 	        artifact.setServerRole(esbArtifact.getServerRole());
 	        artifact.setFile(esbArtifact.getFile());

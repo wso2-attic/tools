@@ -106,7 +106,7 @@ public class RegistryResourcePOMGenMojo extends AbstractPOMGenMojo {
 		for (RegistryArtifact registryArtifact : artifacts) {
 	        Artifact artifact=new Artifact();
 	        artifact.setName(registryArtifact.getName());
-	        artifact.setVersion(registryArtifact.getVersion());
+	        artifact.setVersion(this.getProject().getVersion());
 	        artifact.setType(registryArtifact.getType());
 	        artifact.setServerRole(registryArtifact.getServerRole());
 	        artifact.setFile("registry-info.xml");
@@ -132,7 +132,7 @@ public class RegistryResourcePOMGenMojo extends AbstractPOMGenMojo {
 		for (Iterator iterator = artifacts.iterator(); iterator.hasNext();) {
 	        RegistryArtifact registryArtifact = (RegistryArtifact) iterator.next();
 	        if(registryArtifact.getName().equalsIgnoreCase(artifact.getName()) && 
-	        		registryArtifact.getVersion().equalsIgnoreCase(artifact.getVersion()) && 
+	        		this.getProject().getVersion().equalsIgnoreCase(artifact.getVersion()) && 
 	        		registryArtifact.getType().equalsIgnoreCase(artifact.getType()) && 
 	        		registryArtifact.getServerRole().equalsIgnoreCase(artifact.getServerRole())){
 	        	//This is the correct registry artifact for this artifact:Yes this is reverse artifact to registry artifact mapping
