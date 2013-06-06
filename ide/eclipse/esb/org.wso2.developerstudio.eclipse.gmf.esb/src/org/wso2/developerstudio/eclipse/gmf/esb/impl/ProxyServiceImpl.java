@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.wso2.developerstudio.eclipse.esb.core.utils.ESBMediaTypeConstants;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyFaultInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyInputConnector;
@@ -69,12 +70,15 @@ import org.wso2.developerstudio.eclipse.platform.core.utils.DeveloperStudioProvi
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#getInSequenceType <em>In Sequence Type</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#getInSequenceKey <em>In Sequence Key</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#getInSequenceName <em>In Sequence Name</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#getInSequenceOnError <em>In Sequence On Error</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#getOutSequenceType <em>Out Sequence Type</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#getOutSequenceKey <em>Out Sequence Key</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#getOutSequenceName <em>Out Sequence Name</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#getOutSequenceOnError <em>Out Sequence On Error</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#getFaultSequenceType <em>Fault Sequence Type</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#getFaultSequenceKey <em>Fault Sequence Key</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#getFaultSequenceName <em>Fault Sequence Name</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#getFaultSequenceOnError <em>Fault Sequence On Error</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#getEndpointType <em>Endpoint Type</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#getEndpointKey <em>Endpoint Key</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.ProxyServiceImpl#getEndpointName <em>Endpoint Name</em>}</li>
@@ -362,6 +366,16 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 	protected String inSequenceName = IN_SEQUENCE_NAME_EDEFAULT;
 
 	/**
+	 * The cached value of the '{@link #getInSequenceOnError() <em>In Sequence On Error</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInSequenceOnError()
+	 * @generated
+	 * @ordered
+	 */
+	protected RegistryKeyProperty inSequenceOnError;
+
+	/**
 	 * The default value of the '{@link #getOutSequenceType() <em>Out Sequence Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -412,6 +426,16 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 	protected String outSequenceName = OUT_SEQUENCE_NAME_EDEFAULT;
 
 	/**
+	 * The cached value of the '{@link #getOutSequenceOnError() <em>Out Sequence On Error</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOutSequenceOnError()
+	 * @generated
+	 * @ordered
+	 */
+	protected RegistryKeyProperty outSequenceOnError;
+
+	/**
 	 * The default value of the '{@link #getFaultSequenceType() <em>Fault Sequence Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -460,6 +484,16 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 	 * @ordered
 	 */
 	protected String faultSequenceName = FAULT_SEQUENCE_NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getFaultSequenceOnError() <em>Fault Sequence On Error</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFaultSequenceOnError()
+	 * @generated
+	 * @ordered
+	 */
+	protected RegistryKeyProperty faultSequenceOnError;
 
 	/**
 	 * The default value of the '{@link #getEndpointType() <em>Endpoint Type</em>}' attribute.
@@ -644,17 +678,38 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 		inSequenceKey.setKeyValue(DEFAULT_REGISTRY_KEY);
 		setInSequenceKey(inSequenceKey);
 		
+		RegistryKeyProperty inSequenceOnErroKey = EsbFactoryImpl.eINSTANCE.createRegistryKeyProperty();
+		DeveloperStudioProviderUtils.addFilter((Map<String, List<String>>)inSequenceOnErroKey.getFilters(), CSProviderConstants.FILTER_MEDIA_TYPE, ESBMediaTypeConstants.MEDIA_TYPE_SEQUENCE);
+		inSequenceOnErroKey.setPrettyName("In Sequence On Error Reference");
+		inSequenceOnErroKey.setKeyName("key");
+		inSequenceOnErroKey.setKeyValue(DEFAULT_ON_ERROR_REGISTRY_KEY);
+		setInSequenceOnError(inSequenceOnErroKey);
+		
 		RegistryKeyProperty outSequenceKey = EsbFactoryImpl.eINSTANCE.createRegistryKeyProperty();
 		outSequenceKey.setPrettyName("Out Sequence Reference");
 		outSequenceKey.setKeyName("key");
 		outSequenceKey.setKeyValue(DEFAULT_REGISTRY_KEY);
 		setOutSequenceKey(outSequenceKey);
 		
+		RegistryKeyProperty outSequenceOnErroKey = EsbFactoryImpl.eINSTANCE.createRegistryKeyProperty();
+		DeveloperStudioProviderUtils.addFilter((Map<String, List<String>>)outSequenceOnErroKey.getFilters(), CSProviderConstants.FILTER_MEDIA_TYPE, ESBMediaTypeConstants.MEDIA_TYPE_SEQUENCE);
+		outSequenceOnErroKey.setPrettyName("Out Sequence On Error Reference");
+		outSequenceOnErroKey.setKeyName("key");
+		outSequenceOnErroKey.setKeyValue(DEFAULT_ON_ERROR_REGISTRY_KEY);
+		setOutSequenceOnError(outSequenceOnErroKey);
+		
 		RegistryKeyProperty faultSequenceKey = EsbFactoryImpl.eINSTANCE.createRegistryKeyProperty();
 		faultSequenceKey.setPrettyName("Fault Sequence Reference");
 		faultSequenceKey.setKeyName("key");
 		faultSequenceKey.setKeyValue(DEFAULT_REGISTRY_KEY);
 		setFaultSequenceKey(faultSequenceKey);
+		
+		RegistryKeyProperty faultSequenceOnErroKey = EsbFactoryImpl.eINSTANCE.createRegistryKeyProperty();
+		DeveloperStudioProviderUtils.addFilter((Map<String, List<String>>)faultSequenceOnErroKey.getFilters(), CSProviderConstants.FILTER_MEDIA_TYPE, ESBMediaTypeConstants.MEDIA_TYPE_SEQUENCE);
+		faultSequenceOnErroKey.setPrettyName("Fault Sequence On Error Reference");
+		faultSequenceOnErroKey.setKeyName("key");
+		faultSequenceOnErroKey.setKeyValue(DEFAULT_ON_ERROR_REGISTRY_KEY);
+		setFaultSequenceOnError(faultSequenceOnErroKey);
 		
 		RegistryKeyProperty endpointKey = EsbFactoryImpl.eINSTANCE.createRegistryKeyProperty();
 		endpointKey.setPrettyName("Endpoint Reference");
@@ -1135,6 +1190,49 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public RegistryKeyProperty getInSequenceOnError() {
+		return inSequenceOnError;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetInSequenceOnError(RegistryKeyProperty newInSequenceOnError, NotificationChain msgs) {
+		RegistryKeyProperty oldInSequenceOnError = inSequenceOnError;
+		inSequenceOnError = newInSequenceOnError;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.PROXY_SERVICE__IN_SEQUENCE_ON_ERROR, oldInSequenceOnError, newInSequenceOnError);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInSequenceOnError(RegistryKeyProperty newInSequenceOnError) {
+		if (newInSequenceOnError != inSequenceOnError) {
+			NotificationChain msgs = null;
+			if (inSequenceOnError != null)
+				msgs = ((InternalEObject)inSequenceOnError).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.PROXY_SERVICE__IN_SEQUENCE_ON_ERROR, null, msgs);
+			if (newInSequenceOnError != null)
+				msgs = ((InternalEObject)newInSequenceOnError).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.PROXY_SERVICE__IN_SEQUENCE_ON_ERROR, null, msgs);
+			msgs = basicSetInSequenceOnError(newInSequenceOnError, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.PROXY_SERVICE__IN_SEQUENCE_ON_ERROR, newInSequenceOnError, newInSequenceOnError));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public SequenceType getOutSequenceType() {
 		return outSequenceType;
 	}
@@ -1220,6 +1318,49 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public RegistryKeyProperty getOutSequenceOnError() {
+		return outSequenceOnError;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetOutSequenceOnError(RegistryKeyProperty newOutSequenceOnError, NotificationChain msgs) {
+		RegistryKeyProperty oldOutSequenceOnError = outSequenceOnError;
+		outSequenceOnError = newOutSequenceOnError;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.PROXY_SERVICE__OUT_SEQUENCE_ON_ERROR, oldOutSequenceOnError, newOutSequenceOnError);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOutSequenceOnError(RegistryKeyProperty newOutSequenceOnError) {
+		if (newOutSequenceOnError != outSequenceOnError) {
+			NotificationChain msgs = null;
+			if (outSequenceOnError != null)
+				msgs = ((InternalEObject)outSequenceOnError).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.PROXY_SERVICE__OUT_SEQUENCE_ON_ERROR, null, msgs);
+			if (newOutSequenceOnError != null)
+				msgs = ((InternalEObject)newOutSequenceOnError).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.PROXY_SERVICE__OUT_SEQUENCE_ON_ERROR, null, msgs);
+			msgs = basicSetOutSequenceOnError(newOutSequenceOnError, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.PROXY_SERVICE__OUT_SEQUENCE_ON_ERROR, newOutSequenceOnError, newOutSequenceOnError));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public SequenceType getFaultSequenceType() {
 		return faultSequenceType;
 	}
@@ -1298,6 +1439,49 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 		faultSequenceName = newFaultSequenceName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.PROXY_SERVICE__FAULT_SEQUENCE_NAME, oldFaultSequenceName, faultSequenceName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RegistryKeyProperty getFaultSequenceOnError() {
+		return faultSequenceOnError;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetFaultSequenceOnError(RegistryKeyProperty newFaultSequenceOnError, NotificationChain msgs) {
+		RegistryKeyProperty oldFaultSequenceOnError = faultSequenceOnError;
+		faultSequenceOnError = newFaultSequenceOnError;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.PROXY_SERVICE__FAULT_SEQUENCE_ON_ERROR, oldFaultSequenceOnError, newFaultSequenceOnError);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFaultSequenceOnError(RegistryKeyProperty newFaultSequenceOnError) {
+		if (newFaultSequenceOnError != faultSequenceOnError) {
+			NotificationChain msgs = null;
+			if (faultSequenceOnError != null)
+				msgs = ((InternalEObject)faultSequenceOnError).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.PROXY_SERVICE__FAULT_SEQUENCE_ON_ERROR, null, msgs);
+			if (newFaultSequenceOnError != null)
+				msgs = ((InternalEObject)newFaultSequenceOnError).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.PROXY_SERVICE__FAULT_SEQUENCE_ON_ERROR, null, msgs);
+			msgs = basicSetFaultSequenceOnError(newFaultSequenceOnError, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.PROXY_SERVICE__FAULT_SEQUENCE_ON_ERROR, newFaultSequenceOnError, newFaultSequenceOnError));
 	}
 
 	/**
@@ -1590,10 +1774,16 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 				return basicSetContainer(null, msgs);
 			case EsbPackage.PROXY_SERVICE__IN_SEQUENCE_KEY:
 				return basicSetInSequenceKey(null, msgs);
+			case EsbPackage.PROXY_SERVICE__IN_SEQUENCE_ON_ERROR:
+				return basicSetInSequenceOnError(null, msgs);
 			case EsbPackage.PROXY_SERVICE__OUT_SEQUENCE_KEY:
 				return basicSetOutSequenceKey(null, msgs);
+			case EsbPackage.PROXY_SERVICE__OUT_SEQUENCE_ON_ERROR:
+				return basicSetOutSequenceOnError(null, msgs);
 			case EsbPackage.PROXY_SERVICE__FAULT_SEQUENCE_KEY:
 				return basicSetFaultSequenceKey(null, msgs);
+			case EsbPackage.PROXY_SERVICE__FAULT_SEQUENCE_ON_ERROR:
+				return basicSetFaultSequenceOnError(null, msgs);
 			case EsbPackage.PROXY_SERVICE__ENDPOINT_KEY:
 				return basicSetEndpointKey(null, msgs);
 			case EsbPackage.PROXY_SERVICE__WSDL_KEY:
@@ -1649,18 +1839,24 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 				return getInSequenceKey();
 			case EsbPackage.PROXY_SERVICE__IN_SEQUENCE_NAME:
 				return getInSequenceName();
+			case EsbPackage.PROXY_SERVICE__IN_SEQUENCE_ON_ERROR:
+				return getInSequenceOnError();
 			case EsbPackage.PROXY_SERVICE__OUT_SEQUENCE_TYPE:
 				return getOutSequenceType();
 			case EsbPackage.PROXY_SERVICE__OUT_SEQUENCE_KEY:
 				return getOutSequenceKey();
 			case EsbPackage.PROXY_SERVICE__OUT_SEQUENCE_NAME:
 				return getOutSequenceName();
+			case EsbPackage.PROXY_SERVICE__OUT_SEQUENCE_ON_ERROR:
+				return getOutSequenceOnError();
 			case EsbPackage.PROXY_SERVICE__FAULT_SEQUENCE_TYPE:
 				return getFaultSequenceType();
 			case EsbPackage.PROXY_SERVICE__FAULT_SEQUENCE_KEY:
 				return getFaultSequenceKey();
 			case EsbPackage.PROXY_SERVICE__FAULT_SEQUENCE_NAME:
 				return getFaultSequenceName();
+			case EsbPackage.PROXY_SERVICE__FAULT_SEQUENCE_ON_ERROR:
+				return getFaultSequenceOnError();
 			case EsbPackage.PROXY_SERVICE__ENDPOINT_TYPE:
 				return getEndpointType();
 			case EsbPackage.PROXY_SERVICE__ENDPOINT_KEY:
@@ -1748,6 +1944,9 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 			case EsbPackage.PROXY_SERVICE__IN_SEQUENCE_NAME:
 				setInSequenceName((String)newValue);
 				return;
+			case EsbPackage.PROXY_SERVICE__IN_SEQUENCE_ON_ERROR:
+				setInSequenceOnError((RegistryKeyProperty)newValue);
+				return;
 			case EsbPackage.PROXY_SERVICE__OUT_SEQUENCE_TYPE:
 				setOutSequenceType((SequenceType)newValue);
 				return;
@@ -1757,6 +1956,9 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 			case EsbPackage.PROXY_SERVICE__OUT_SEQUENCE_NAME:
 				setOutSequenceName((String)newValue);
 				return;
+			case EsbPackage.PROXY_SERVICE__OUT_SEQUENCE_ON_ERROR:
+				setOutSequenceOnError((RegistryKeyProperty)newValue);
+				return;
 			case EsbPackage.PROXY_SERVICE__FAULT_SEQUENCE_TYPE:
 				setFaultSequenceType((SequenceType)newValue);
 				return;
@@ -1765,6 +1967,9 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 				return;
 			case EsbPackage.PROXY_SERVICE__FAULT_SEQUENCE_NAME:
 				setFaultSequenceName((String)newValue);
+				return;
+			case EsbPackage.PROXY_SERVICE__FAULT_SEQUENCE_ON_ERROR:
+				setFaultSequenceOnError((RegistryKeyProperty)newValue);
 				return;
 			case EsbPackage.PROXY_SERVICE__ENDPOINT_TYPE:
 				setEndpointType((SequenceType)newValue);
@@ -1861,6 +2066,9 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 			case EsbPackage.PROXY_SERVICE__IN_SEQUENCE_NAME:
 				setInSequenceName(IN_SEQUENCE_NAME_EDEFAULT);
 				return;
+			case EsbPackage.PROXY_SERVICE__IN_SEQUENCE_ON_ERROR:
+				setInSequenceOnError((RegistryKeyProperty)null);
+				return;
 			case EsbPackage.PROXY_SERVICE__OUT_SEQUENCE_TYPE:
 				setOutSequenceType(OUT_SEQUENCE_TYPE_EDEFAULT);
 				return;
@@ -1870,6 +2078,9 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 			case EsbPackage.PROXY_SERVICE__OUT_SEQUENCE_NAME:
 				setOutSequenceName(OUT_SEQUENCE_NAME_EDEFAULT);
 				return;
+			case EsbPackage.PROXY_SERVICE__OUT_SEQUENCE_ON_ERROR:
+				setOutSequenceOnError((RegistryKeyProperty)null);
+				return;
 			case EsbPackage.PROXY_SERVICE__FAULT_SEQUENCE_TYPE:
 				setFaultSequenceType(FAULT_SEQUENCE_TYPE_EDEFAULT);
 				return;
@@ -1878,6 +2089,9 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 				return;
 			case EsbPackage.PROXY_SERVICE__FAULT_SEQUENCE_NAME:
 				setFaultSequenceName(FAULT_SEQUENCE_NAME_EDEFAULT);
+				return;
+			case EsbPackage.PROXY_SERVICE__FAULT_SEQUENCE_ON_ERROR:
+				setFaultSequenceOnError((RegistryKeyProperty)null);
 				return;
 			case EsbPackage.PROXY_SERVICE__ENDPOINT_TYPE:
 				setEndpointType(ENDPOINT_TYPE_EDEFAULT);
@@ -1956,18 +2170,24 @@ public class ProxyServiceImpl extends EsbElementImpl implements ProxyService {
 				return inSequenceKey != null;
 			case EsbPackage.PROXY_SERVICE__IN_SEQUENCE_NAME:
 				return IN_SEQUENCE_NAME_EDEFAULT == null ? inSequenceName != null : !IN_SEQUENCE_NAME_EDEFAULT.equals(inSequenceName);
+			case EsbPackage.PROXY_SERVICE__IN_SEQUENCE_ON_ERROR:
+				return inSequenceOnError != null;
 			case EsbPackage.PROXY_SERVICE__OUT_SEQUENCE_TYPE:
 				return outSequenceType != OUT_SEQUENCE_TYPE_EDEFAULT;
 			case EsbPackage.PROXY_SERVICE__OUT_SEQUENCE_KEY:
 				return outSequenceKey != null;
 			case EsbPackage.PROXY_SERVICE__OUT_SEQUENCE_NAME:
 				return OUT_SEQUENCE_NAME_EDEFAULT == null ? outSequenceName != null : !OUT_SEQUENCE_NAME_EDEFAULT.equals(outSequenceName);
+			case EsbPackage.PROXY_SERVICE__OUT_SEQUENCE_ON_ERROR:
+				return outSequenceOnError != null;
 			case EsbPackage.PROXY_SERVICE__FAULT_SEQUENCE_TYPE:
 				return faultSequenceType != FAULT_SEQUENCE_TYPE_EDEFAULT;
 			case EsbPackage.PROXY_SERVICE__FAULT_SEQUENCE_KEY:
 				return faultSequenceKey != null;
 			case EsbPackage.PROXY_SERVICE__FAULT_SEQUENCE_NAME:
 				return FAULT_SEQUENCE_NAME_EDEFAULT == null ? faultSequenceName != null : !FAULT_SEQUENCE_NAME_EDEFAULT.equals(faultSequenceName);
+			case EsbPackage.PROXY_SERVICE__FAULT_SEQUENCE_ON_ERROR:
+				return faultSequenceOnError != null;
 			case EsbPackage.PROXY_SERVICE__ENDPOINT_TYPE:
 				return endpointType != ENDPOINT_TYPE_EDEFAULT;
 			case EsbPackage.PROXY_SERVICE__ENDPOINT_KEY:

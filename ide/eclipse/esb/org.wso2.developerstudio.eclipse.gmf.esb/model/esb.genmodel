@@ -530,12 +530,18 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ProxyService/inSequenceType"/>
       <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyService/inSequenceKey"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ProxyService/inSequenceName"/>
+      <genFeatures children="true" createChild="true" propertyCategory="In Sequence"
+          ecoreFeature="ecore:EReference esb.ecore#//ProxyService/inSequenceOnError"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ProxyService/outSequenceType"/>
       <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyService/outSequenceKey"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ProxyService/outSequenceName"/>
+      <genFeatures children="true" createChild="true" propertyCategory="Out Sequence"
+          ecoreFeature="ecore:EReference esb.ecore#//ProxyService/outSequenceOnError"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ProxyService/faultSequenceType"/>
       <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyService/faultSequenceKey"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ProxyService/faultSequenceName"/>
+      <genFeatures children="true" createChild="true" propertyCategory="Fault Sequence"
+          ecoreFeature="ecore:EReference esb.ecore#//ProxyService/faultSequenceOnError"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ProxyService/endpointType"/>
       <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//ProxyService/endpointKey"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//ProxyService/endpointName"/>

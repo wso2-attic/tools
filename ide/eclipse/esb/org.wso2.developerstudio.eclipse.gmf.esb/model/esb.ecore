@@ -118,14 +118,20 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="inSequenceKey" eType="#//RegistryKeyProperty"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="inSequenceName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inSequenceOnError" eType="#//RegistryKeyProperty"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="outSequenceType" eType="#//SequenceType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outSequenceKey" eType="#//RegistryKeyProperty"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="outSequenceName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outSequenceOnError" eType="#//RegistryKeyProperty"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="faultSequenceType" eType="#//SequenceType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="faultSequenceKey" eType="#//RegistryKeyProperty"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="faultSequenceName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="faultSequenceOnError" eType="#//RegistryKeyProperty"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="endpointType" eType="#//SequenceType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="endpointKey" eType="#//RegistryKeyProperty"
         containment="true"/>

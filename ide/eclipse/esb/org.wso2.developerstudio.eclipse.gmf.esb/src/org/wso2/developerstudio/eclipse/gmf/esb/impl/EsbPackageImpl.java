@@ -3602,8 +3602,17 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getProxyService_InSequenceOnError() {
+		return (EReference)proxyServiceEClass.getEStructuralFeatures().get(17);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EAttribute getProxyService_OutSequenceType() {
-		return (EAttribute)proxyServiceEClass.getEStructuralFeatures().get(17);
+		return (EAttribute)proxyServiceEClass.getEStructuralFeatures().get(18);
 	}
 
 	/**
@@ -3612,7 +3621,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	public EReference getProxyService_OutSequenceKey() {
-		return (EReference)proxyServiceEClass.getEStructuralFeatures().get(18);
+		return (EReference)proxyServiceEClass.getEStructuralFeatures().get(19);
 	}
 
 	/**
@@ -3621,15 +3630,6 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	public EAttribute getProxyService_OutSequenceName() {
-		return (EAttribute)proxyServiceEClass.getEStructuralFeatures().get(19);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getProxyService_FaultSequenceType() {
 		return (EAttribute)proxyServiceEClass.getEStructuralFeatures().get(20);
 	}
 
@@ -3638,7 +3638,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getProxyService_FaultSequenceKey() {
+	public EReference getProxyService_OutSequenceOnError() {
 		return (EReference)proxyServiceEClass.getEStructuralFeatures().get(21);
 	}
 
@@ -3647,7 +3647,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getProxyService_FaultSequenceName() {
+	public EAttribute getProxyService_FaultSequenceType() {
 		return (EAttribute)proxyServiceEClass.getEStructuralFeatures().get(22);
 	}
 
@@ -3656,34 +3656,34 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getProxyService_FaultSequenceKey() {
+		return (EReference)proxyServiceEClass.getEStructuralFeatures().get(23);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getProxyService_FaultSequenceName() {
+		return (EAttribute)proxyServiceEClass.getEStructuralFeatures().get(24);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getProxyService_FaultSequenceOnError() {
+		return (EReference)proxyServiceEClass.getEStructuralFeatures().get(25);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EAttribute getProxyService_EndpointType() {
-		return (EAttribute)proxyServiceEClass.getEStructuralFeatures().get(23);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getProxyService_EndpointKey() {
-		return (EReference)proxyServiceEClass.getEStructuralFeatures().get(24);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getProxyService_EndpointName() {
-		return (EAttribute)proxyServiceEClass.getEStructuralFeatures().get(25);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getProxyService_MainSequence() {
 		return (EAttribute)proxyServiceEClass.getEStructuralFeatures().get(26);
 	}
 
@@ -3692,8 +3692,8 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getProxyService_WsdlType() {
-		return (EAttribute)proxyServiceEClass.getEStructuralFeatures().get(27);
+	public EReference getProxyService_EndpointKey() {
+		return (EReference)proxyServiceEClass.getEStructuralFeatures().get(27);
 	}
 
 	/**
@@ -3701,7 +3701,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getProxyService_WsdlXML() {
+	public EAttribute getProxyService_EndpointName() {
 		return (EAttribute)proxyServiceEClass.getEStructuralFeatures().get(28);
 	}
 
@@ -3710,7 +3710,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getProxyService_WsdlURL() {
+	public EAttribute getProxyService_MainSequence() {
 		return (EAttribute)proxyServiceEClass.getEStructuralFeatures().get(29);
 	}
 
@@ -3719,8 +3719,35 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getProxyService_WsdlType() {
+		return (EAttribute)proxyServiceEClass.getEStructuralFeatures().get(30);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getProxyService_WsdlXML() {
+		return (EAttribute)proxyServiceEClass.getEStructuralFeatures().get(31);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getProxyService_WsdlURL() {
+		return (EAttribute)proxyServiceEClass.getEStructuralFeatures().get(32);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getProxyService_WsdlKey() {
-		return (EReference)proxyServiceEClass.getEStructuralFeatures().get(30);
+		return (EReference)proxyServiceEClass.getEStructuralFeatures().get(33);
 	}
 
 	/**
@@ -3729,7 +3756,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	public EReference getProxyService_WsdlResources() {
-		return (EReference)proxyServiceEClass.getEStructuralFeatures().get(31);
+		return (EReference)proxyServiceEClass.getEStructuralFeatures().get(34);
 	}
 
 	/**
@@ -3738,7 +3765,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	public EReference getProxyService_OnError() {
-		return (EReference)proxyServiceEClass.getEStructuralFeatures().get(32);
+		return (EReference)proxyServiceEClass.getEStructuralFeatures().get(35);
 	}
 
 	/**
@@ -13022,12 +13049,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEAttribute(proxyServiceEClass, PROXY_SERVICE__IN_SEQUENCE_TYPE);
 		createEReference(proxyServiceEClass, PROXY_SERVICE__IN_SEQUENCE_KEY);
 		createEAttribute(proxyServiceEClass, PROXY_SERVICE__IN_SEQUENCE_NAME);
+		createEReference(proxyServiceEClass, PROXY_SERVICE__IN_SEQUENCE_ON_ERROR);
 		createEAttribute(proxyServiceEClass, PROXY_SERVICE__OUT_SEQUENCE_TYPE);
 		createEReference(proxyServiceEClass, PROXY_SERVICE__OUT_SEQUENCE_KEY);
 		createEAttribute(proxyServiceEClass, PROXY_SERVICE__OUT_SEQUENCE_NAME);
+		createEReference(proxyServiceEClass, PROXY_SERVICE__OUT_SEQUENCE_ON_ERROR);
 		createEAttribute(proxyServiceEClass, PROXY_SERVICE__FAULT_SEQUENCE_TYPE);
 		createEReference(proxyServiceEClass, PROXY_SERVICE__FAULT_SEQUENCE_KEY);
 		createEAttribute(proxyServiceEClass, PROXY_SERVICE__FAULT_SEQUENCE_NAME);
+		createEReference(proxyServiceEClass, PROXY_SERVICE__FAULT_SEQUENCE_ON_ERROR);
 		createEAttribute(proxyServiceEClass, PROXY_SERVICE__ENDPOINT_TYPE);
 		createEReference(proxyServiceEClass, PROXY_SERVICE__ENDPOINT_KEY);
 		createEAttribute(proxyServiceEClass, PROXY_SERVICE__ENDPOINT_NAME);
@@ -14715,12 +14745,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEAttribute(getProxyService_InSequenceType(), this.getSequenceType(), "inSequenceType", null, 0, 1, ProxyService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProxyService_InSequenceKey(), this.getRegistryKeyProperty(), null, "inSequenceKey", null, 0, 1, ProxyService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProxyService_InSequenceName(), ecorePackage.getEString(), "inSequenceName", null, 0, 1, ProxyService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProxyService_InSequenceOnError(), this.getRegistryKeyProperty(), null, "inSequenceOnError", null, 0, 1, ProxyService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProxyService_OutSequenceType(), this.getSequenceType(), "outSequenceType", null, 0, 1, ProxyService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProxyService_OutSequenceKey(), this.getRegistryKeyProperty(), null, "outSequenceKey", null, 0, 1, ProxyService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProxyService_OutSequenceName(), ecorePackage.getEString(), "outSequenceName", null, 0, 1, ProxyService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProxyService_OutSequenceOnError(), this.getRegistryKeyProperty(), null, "outSequenceOnError", null, 0, 1, ProxyService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProxyService_FaultSequenceType(), this.getSequenceType(), "faultSequenceType", null, 0, 1, ProxyService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProxyService_FaultSequenceKey(), this.getRegistryKeyProperty(), null, "faultSequenceKey", null, 0, 1, ProxyService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProxyService_FaultSequenceName(), ecorePackage.getEString(), "faultSequenceName", null, 0, 1, ProxyService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProxyService_FaultSequenceOnError(), this.getRegistryKeyProperty(), null, "faultSequenceOnError", null, 0, 1, ProxyService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProxyService_EndpointType(), this.getSequenceType(), "endpointType", null, 0, 1, ProxyService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProxyService_EndpointKey(), this.getRegistryKeyProperty(), null, "endpointKey", null, 0, 1, ProxyService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProxyService_EndpointName(), ecorePackage.getEString(), "endpointName", null, 0, 1, ProxyService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

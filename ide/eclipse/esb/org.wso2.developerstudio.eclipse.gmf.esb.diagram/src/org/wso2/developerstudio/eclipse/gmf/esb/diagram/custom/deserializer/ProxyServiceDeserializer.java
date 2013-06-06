@@ -134,6 +134,11 @@ public class ProxyServiceDeserializer extends AbstractEsbNodeDeserializer<ProxyS
 		setRootCompartment(compartment);
 		
 		if(inSequence!=null){	
+			if(StringUtils.isNotBlank(inSequence.getErrorHandler())) {
+				RegistryKeyProperty inSeqOnErrorKeyProperty = EsbFactory.eINSTANCE.createRegistryKeyProperty();
+				inSeqOnErrorKeyProperty.setKeyValue(inSequence.getErrorHandler());
+				executeSetValueCommand(PROXY_SERVICE__IN_SEQUENCE_ON_ERROR, inSeqOnErrorKeyProperty);
+			}
 			deserializeSequence(compartment, inSequence, proxy.getOutputConnector());
 			
 		} else{
@@ -192,6 +197,11 @@ public class ProxyServiceDeserializer extends AbstractEsbNodeDeserializer<ProxyS
 		SequenceMediator outSequence = object.getTargetInLineOutSequence();
 		if(outSequence!=null){
 			setRootCompartment(compartment);
+			if(StringUtils.isNotBlank(outSequence.getErrorHandler())) {
+				RegistryKeyProperty outSeqOnErrorKeyProperty = EsbFactory.eINSTANCE.createRegistryKeyProperty();
+				outSeqOnErrorKeyProperty.setKeyValue(outSequence.getErrorHandler());
+				executeSetValueCommand(PROXY_SERVICE__OUT_SEQUENCE_ON_ERROR, outSeqOnErrorKeyProperty);
+			}
 			deserializeSequence(compartment, outSequence, proxy.getInputConnector());
 			setRootCompartment(null);
 		} else{
@@ -216,6 +226,11 @@ public class ProxyServiceDeserializer extends AbstractEsbNodeDeserializer<ProxyS
 		if(faultSequence!=null){
 			
 			setRootCompartment(compartment);
+			if(StringUtils.isNotBlank(faultSequence.getErrorHandler())) {
+				RegistryKeyProperty faultSeqOnErrorKeyProperty = EsbFactory.eINSTANCE.createRegistryKeyProperty();
+				faultSeqOnErrorKeyProperty.setKeyValue(faultSequence.getErrorHandler());
+				executeSetValueCommand(PROXY_SERVICE__FAULT_SEQUENCE_ON_ERROR, faultSeqOnErrorKeyProperty);
+			}
 			deserializeSequence(faultCompartment, faultSequence, proxy.getFaultInputConnector());
 			setRootCompartment(null);
 		} else{

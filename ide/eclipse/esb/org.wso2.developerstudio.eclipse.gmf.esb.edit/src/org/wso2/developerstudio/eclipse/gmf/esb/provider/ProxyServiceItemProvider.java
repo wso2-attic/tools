@@ -111,6 +111,10 @@ public class ProxyServiceItemProvider
 				addInSequenceNamePropertyDescriptor(object);
 				break;
 			}
+			case ANONYMOUS: {
+				addInSequenceOnErrorPropertyDescriptor(object);
+				break;
+			}
 			}
 			addOutSequenceTypePropertyDescriptor(object);
 			switch (proxy.getOutSequenceType()) {
@@ -122,6 +126,10 @@ public class ProxyServiceItemProvider
 				addOutSequenceNamePropertyDescriptor(object);
 				break;
 			}
+			case ANONYMOUS: {
+				addOutSequenceOnErrorPropertyDescriptor(object);
+				break;
+			}
 			}
 			addFaultSequenceTypePropertyDescriptor(object);
 			switch (proxy.getFaultSequenceType()) {
@@ -131,6 +139,10 @@ public class ProxyServiceItemProvider
 			}
 			case NAMED_REFERENCE: {
 				addFaultSequenceNamePropertyDescriptor(object);
+				break;
+			}
+			case ANONYMOUS: {
+				addFaultSequenceOnErrorPropertyDescriptor(object);
 				break;
 			}
 			}
@@ -550,6 +562,28 @@ public class ProxyServiceItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the In Sequence On Error feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addInSequenceOnErrorPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ProxyService_inSequenceOnError_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ProxyService_inSequenceOnError_feature", "_UI_ProxyService_type"),
+				 EsbPackage.Literals.PROXY_SERVICE__IN_SEQUENCE_ON_ERROR,
+				 true,
+				 false,
+				 false,
+				 null,
+				 getString("_UI_InSequencePropertyCategory"),
+				 null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Out Sequence Type feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -616,6 +650,28 @@ public class ProxyServiceItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Out Sequence On Error feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOutSequenceOnErrorPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ProxyService_outSequenceOnError_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ProxyService_outSequenceOnError_feature", "_UI_ProxyService_type"),
+				 EsbPackage.Literals.PROXY_SERVICE__OUT_SEQUENCE_ON_ERROR,
+				 true,
+				 false,
+				 false,
+				 null,
+				 getString("_UI_OutSequencePropertyCategory"),
+				 null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Fault Sequence Type feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -678,6 +734,28 @@ public class ProxyServiceItemProvider
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 "Fault Sequence",
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Fault Sequence On Error feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addFaultSequenceOnErrorPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ProxyService_faultSequenceOnError_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ProxyService_faultSequenceOnError_feature", "_UI_ProxyService_type"),
+				 EsbPackage.Literals.PROXY_SERVICE__FAULT_SEQUENCE_ON_ERROR,
+				 true,
+				 false,
+				 false,
+				 null,
+				 getString("_UI_FaultSequencePropertyCategory"),
 				 null));
 	}
 
@@ -805,8 +883,11 @@ public class ProxyServiceItemProvider
 			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE__SERVICE_POLICIES);
 			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE__CONTAINER);
 			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE__IN_SEQUENCE_KEY);
+			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE__IN_SEQUENCE_ON_ERROR);
 			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE__OUT_SEQUENCE_KEY);
+			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE__OUT_SEQUENCE_ON_ERROR);
 			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE__FAULT_SEQUENCE_KEY);
+			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE__FAULT_SEQUENCE_ON_ERROR);
 			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE__ENDPOINT_KEY);
 			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE__WSDL_KEY);
 			childrenFeatures.add(EsbPackage.Literals.PROXY_SERVICE__ON_ERROR);
@@ -897,8 +978,11 @@ public class ProxyServiceItemProvider
 			case EsbPackage.PROXY_SERVICE__SERVICE_POLICIES:
 			case EsbPackage.PROXY_SERVICE__CONTAINER:
 			case EsbPackage.PROXY_SERVICE__IN_SEQUENCE_KEY:
+			case EsbPackage.PROXY_SERVICE__IN_SEQUENCE_ON_ERROR:
 			case EsbPackage.PROXY_SERVICE__OUT_SEQUENCE_KEY:
+			case EsbPackage.PROXY_SERVICE__OUT_SEQUENCE_ON_ERROR:
 			case EsbPackage.PROXY_SERVICE__FAULT_SEQUENCE_KEY:
+			case EsbPackage.PROXY_SERVICE__FAULT_SEQUENCE_ON_ERROR:
 			case EsbPackage.PROXY_SERVICE__ENDPOINT_KEY:
 			case EsbPackage.PROXY_SERVICE__WSDL_KEY:
 			case EsbPackage.PROXY_SERVICE__ON_ERROR:
@@ -957,12 +1041,27 @@ public class ProxyServiceItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(EsbPackage.Literals.PROXY_SERVICE__IN_SEQUENCE_ON_ERROR,
+				 EsbFactory.eINSTANCE.createRegistryKeyProperty()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(EsbPackage.Literals.PROXY_SERVICE__OUT_SEQUENCE_KEY,
 				 EsbFactory.eINSTANCE.createRegistryKeyProperty()));
 
 		newChildDescriptors.add
 			(createChildParameter
+				(EsbPackage.Literals.PROXY_SERVICE__OUT_SEQUENCE_ON_ERROR,
+				 EsbFactory.eINSTANCE.createRegistryKeyProperty()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(EsbPackage.Literals.PROXY_SERVICE__FAULT_SEQUENCE_KEY,
+				 EsbFactory.eINSTANCE.createRegistryKeyProperty()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.PROXY_SERVICE__FAULT_SEQUENCE_ON_ERROR,
 				 EsbFactory.eINSTANCE.createRegistryKeyProperty()));
 
 		newChildDescriptors.add
@@ -994,8 +1093,11 @@ public class ProxyServiceItemProvider
 
 		boolean qualify =
 			childFeature == EsbPackage.Literals.PROXY_SERVICE__IN_SEQUENCE_KEY ||
+			childFeature == EsbPackage.Literals.PROXY_SERVICE__IN_SEQUENCE_ON_ERROR ||
 			childFeature == EsbPackage.Literals.PROXY_SERVICE__OUT_SEQUENCE_KEY ||
+			childFeature == EsbPackage.Literals.PROXY_SERVICE__OUT_SEQUENCE_ON_ERROR ||
 			childFeature == EsbPackage.Literals.PROXY_SERVICE__FAULT_SEQUENCE_KEY ||
+			childFeature == EsbPackage.Literals.PROXY_SERVICE__FAULT_SEQUENCE_ON_ERROR ||
 			childFeature == EsbPackage.Literals.PROXY_SERVICE__ENDPOINT_KEY ||
 			childFeature == EsbPackage.Literals.PROXY_SERVICE__WSDL_KEY ||
 			childFeature == EsbPackage.Literals.PROXY_SERVICE__ON_ERROR;

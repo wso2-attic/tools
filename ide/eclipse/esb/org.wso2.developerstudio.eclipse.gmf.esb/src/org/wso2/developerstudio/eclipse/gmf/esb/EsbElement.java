@@ -118,4 +118,9 @@ public interface EsbElement extends EsbNode {
 	 */
 	String DEFAULT_RESOURCE_REFERENCE_REGISTRY_KEY = "/default/resource";
 	
+	/**
+	 * Default property value used for on error registry keys. 
+	 */
+	String DEFAULT_ON_ERROR_REGISTRY_KEY = "";
+	
 } // EsbElement

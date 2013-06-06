@@ -331,6 +331,12 @@ public class ProxyServiceTransformer extends AbstractEsbNodeTransformer {
 			switch (visualService.getInSequenceType()) {
 			case ANONYMOUS:
 				proxyService.setTargetInLineInSequence(inSequence);
+				if (visualService.getInSequenceOnError() != null
+						&& StringUtils.isNotBlank(visualService
+								.getInSequenceOnError().getKeyValue())) {
+					inSequence.setErrorHandler(visualService
+							.getInSequenceOnError().getKeyValue());
+				}
 				break;
 				
 			case NAMED_REFERENCE:
@@ -347,6 +353,12 @@ public class ProxyServiceTransformer extends AbstractEsbNodeTransformer {
 			switch (visualService.getOutSequenceType()) {
 			case ANONYMOUS:
 				proxyService.setTargetInLineOutSequence(outSequence);
+				if (visualService.getOutSequenceOnError() != null
+						&& StringUtils.isNotBlank(visualService
+								.getOutSequenceOnError().getKeyValue())) {
+					outSequence.setErrorHandler(visualService
+							.getOutSequenceOnError().getKeyValue());
+				}
 				break;
 			
 			case NAMED_REFERENCE:
@@ -384,6 +396,12 @@ public class ProxyServiceTransformer extends AbstractEsbNodeTransformer {
 			switch (visualService.getFaultSequenceType()) {
 			case ANONYMOUS:
 				proxyService.setTargetInLineFaultSequence(faultSequence);
+				if (visualService.getFaultSequenceOnError() != null
+						&& StringUtils.isNotBlank(visualService
+								.getFaultSequenceOnError().getKeyValue())) {
+					faultSequence.setErrorHandler(visualService
+							.getFaultSequenceOnError().getKeyValue());
+				}
 				break;
 			
 			case NAMED_REFERENCE:

@@ -34,12 +34,15 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getInSequenceType <em>In Sequence Type</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getInSequenceKey <em>In Sequence Key</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getInSequenceName <em>In Sequence Name</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getInSequenceOnError <em>In Sequence On Error</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getOutSequenceType <em>Out Sequence Type</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getOutSequenceKey <em>Out Sequence Key</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getOutSequenceName <em>Out Sequence Name</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getOutSequenceOnError <em>Out Sequence On Error</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getFaultSequenceType <em>Fault Sequence Type</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getFaultSequenceKey <em>Fault Sequence Key</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getFaultSequenceName <em>Fault Sequence Name</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getFaultSequenceOnError <em>Fault Sequence On Error</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getEndpointType <em>Endpoint Type</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getEndpointKey <em>Endpoint Key</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getEndpointName <em>Endpoint Name</em>}</li>
@@ -488,6 +491,32 @@ public interface ProxyService extends EsbElement {
 	void setInSequenceName(String value);
 
 	/**
+	 * Returns the value of the '<em><b>In Sequence On Error</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>In Sequence On Error</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>In Sequence On Error</em>' containment reference.
+	 * @see #setInSequenceOnError(RegistryKeyProperty)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getProxyService_InSequenceOnError()
+	 * @model containment="true"
+	 * @generated
+	 */
+	RegistryKeyProperty getInSequenceOnError();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getInSequenceOnError <em>In Sequence On Error</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>In Sequence On Error</em>' containment reference.
+	 * @see #getInSequenceOnError()
+	 * @generated
+	 */
+	void setInSequenceOnError(RegistryKeyProperty value);
+
+	/**
 	 * Returns the value of the '<em><b>Out Sequence Type</b></em>' attribute.
 	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.gmf.esb.SequenceType}.
 	 * <!-- begin-user-doc -->
@@ -569,6 +598,32 @@ public interface ProxyService extends EsbElement {
 	void setOutSequenceName(String value);
 
 	/**
+	 * Returns the value of the '<em><b>Out Sequence On Error</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Out Sequence On Error</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Out Sequence On Error</em>' containment reference.
+	 * @see #setOutSequenceOnError(RegistryKeyProperty)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getProxyService_OutSequenceOnError()
+	 * @model containment="true"
+	 * @generated
+	 */
+	RegistryKeyProperty getOutSequenceOnError();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getOutSequenceOnError <em>Out Sequence On Error</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Out Sequence On Error</em>' containment reference.
+	 * @see #getOutSequenceOnError()
+	 * @generated
+	 */
+	void setOutSequenceOnError(RegistryKeyProperty value);
+
+	/**
 	 * Returns the value of the '<em><b>Fault Sequence Type</b></em>' attribute.
 	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.gmf.esb.SequenceType}.
 	 * <!-- begin-user-doc -->
@@ -648,6 +703,32 @@ public interface ProxyService extends EsbElement {
 	 * @generated
 	 */
 	void setFaultSequenceName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Fault Sequence On Error</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Fault Sequence On Error</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Fault Sequence On Error</em>' containment reference.
+	 * @see #setFaultSequenceOnError(RegistryKeyProperty)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getProxyService_FaultSequenceOnError()
+	 * @model containment="true"
+	 * @generated
+	 */
+	RegistryKeyProperty getFaultSequenceOnError();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.ProxyService#getFaultSequenceOnError <em>Fault Sequence On Error</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Fault Sequence On Error</em>' containment reference.
+	 * @see #getFaultSequenceOnError()
+	 * @generated
+	 */
+	void setFaultSequenceOnError(RegistryKeyProperty value);
 
 	/**
 	 * Returns the value of the '<em><b>Endpoint Type</b></em>' attribute.
