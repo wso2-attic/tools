@@ -62,6 +62,7 @@ public class RegistryArtifactHandler extends ProjectArtifactHandler {
 				} else{ 
 					clearTarget(project);
 				}
+				project.refreshLocal(IResource.DEPTH_INFINITE, nullProgressMonitor);
 
 				IFolder registryResources = binaries.getFolder("registry_resources");
 				if (registryResources.exists()) {
@@ -132,8 +133,10 @@ public class RegistryArtifactHandler extends ProjectArtifactHandler {
 									}
 									IFile registryInfo = resourceArtifact
 											.getFile("registry-info.xml");
-									XMLUtil.prettify(resourcesEl, new FileOutputStream(registryInfo
-											.getLocation().toFile()));
+									FileOutputStream out = new FileOutputStream(registryInfo
+											.getLocation().toFile());
+									XMLUtil.prettify(resourcesEl, out);
+									out.close();
 									exportResources.add((IResource) resourceArtifact);
 								}
 							}
