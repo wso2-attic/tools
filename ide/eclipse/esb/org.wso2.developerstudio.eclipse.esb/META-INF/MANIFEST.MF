@@ -3,15 +3,10 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.wso2.developerstudio.eclipse.esb;singleton:=true
 Bundle-Version: 3.2.0.qualifier
-Bundle-ClassPath: .,
- lib/commons-lang-2.5.jar,
- lib/xercesImpl.jar,
- lib/xml-apis.jar
+Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Export-Package: org.apache.commons.lang,
- org.apache.xml.serialize,
- org.wso2.developerstudio.eclipse.esb,
+Export-Package: org.wso2.developerstudio.eclipse.esb,
  org.wso2.developerstudio.eclipse.esb.impl,
  org.wso2.developerstudio.eclipse.esb.mediators,
  org.wso2.developerstudio.eclipse.esb.mediators.util,
@@ -22,7 +17,8 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.validation.ui,
  org.eclipse.emf.query
 Bundle-ActivationPolicy: lazy
-Import-Package: org.wso2.developerstudio.eclipse.esb.core.preferences.ui,
+Import-Package: org.apache.commons.lang;version="2.6.0.wso2v1",
+ org.wso2.developerstudio.eclipse.esb.core.preferences.ui,
  org.wso2.developerstudio.eclipse.esb.core.utils,
  org.wso2.developerstudio.eclipse.platform.core.mediatype,
  org.wso2.developerstudio.eclipse.platform.core.utils,
