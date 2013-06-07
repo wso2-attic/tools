@@ -59,6 +59,7 @@ public class EsbTemplateFormatter {
 		parameterValues.put("reqloglevel", "info");
 		parameterValues.put("resloglevel", "info");
 		parameterValues.put("sec.policy", "/key/default");
+		parameterValues.put("xsltres.key.def", "");
 	}
 
 	/**
