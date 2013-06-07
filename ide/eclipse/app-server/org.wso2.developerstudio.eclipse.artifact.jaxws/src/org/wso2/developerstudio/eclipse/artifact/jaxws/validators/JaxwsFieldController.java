@@ -17,14 +17,16 @@
 package org.wso2.developerstudio.eclipse.artifact.jaxws.validators;
 
 import java.io.File;
+import java.io.FilenameFilter;
+import java.util.List;
 
 import org.wso2.developerstudio.eclipse.platform.core.exception.FieldValidationException;
 import org.wso2.developerstudio.eclipse.platform.core.model.AbstractFieldController;
 import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectDataModel;
 import org.wso2.developerstudio.eclipse.platform.ui.validator.CommonFieldValidator;
+import org.wso2.developerstudio.eclipse.artifact.jaxws.model.JaxwsModel;;
 
 public class JaxwsFieldController extends AbstractFieldController {
-
 	
 	public void validate(String modelProperty, Object value,
 			ProjectDataModel model) throws FieldValidationException {
@@ -47,23 +49,61 @@ public class JaxwsFieldController extends AbstractFieldController {
 			if (value != null && !value.toString().isEmpty()) {
 				CommonFieldValidator.validateJavaPackageNameField(value);
 			}
-			
-		}  else if (modelProperty.equals("runtime") ) {
+		} else if (modelProperty.equals("runtime") ) {
 			if (value == null) {
 				throw new FieldValidationException("Specified CXF-Runtime location is invalid");
 			}
-			File importFile = (File) value;
-			if (importFile.exists()) {
-				String os = System.getProperty("os.name").toLowerCase();
-				File cxfBin = new File(importFile,"bin");
-				File wsdl2java  = (os.indexOf("win") >= 0)? new File(cxfBin,"wsdl2java.bat"): new File(cxfBin,"wsdl2java");
-				if(!wsdl2java.exists()){
+			
+			if(((JaxwsModel)model).getCxfRuntimeMode().equals("AppSever CXF Runtime")){		
+				String cxfHome=value+"/lib/runtimes/cxf";			
+				File cxfHomeDir = new File(cxfHome);
+				File[] matchingFiles = cxfHomeDir.listFiles(new FilenameFilter() {
+				    public boolean accept(File dir, String name) {
+				        return name.startsWith("cxf-bundle") && name.endsWith(".jar");
+				    }
+				});
+			
+				if(matchingFiles !=null && matchingFiles.length == 0){
 					throw new FieldValidationException("Cannot find CXF wsdl2java executable");
 				}
+				
 			} else{
-				throw new FieldValidationException("Specified CXF-Runtime location doesn't exist");
+				File importFile = (File) value;
+				if (importFile.exists()) {
+					String os = System.getProperty("os.name").toLowerCase();
+					File cxfBin = new File(importFile,"bin");
+					File wsdl2java  = (os.indexOf("win") >= 0)? new File(cxfBin,"wsdl2java.bat"): new File(cxfBin,"wsdl2java");
+					if(!wsdl2java.exists()){
+						throw new FieldValidationException("Cannot find CXF wsdl2java executable");
+					}
+				} else{
+					throw new FieldValidationException("Specified CXF-Runtime location doesn't exist");
+				}
+				
 			}
 		} 
 	}
 
+	@Override
+	public boolean isEnableField(String modelProperty, ProjectDataModel model) {
+		boolean enableField = super.isEnableField(modelProperty, model);				
+		if (modelProperty.equals("runtime")) {
+			if(((JaxwsModel)model).getCxfRuntimeMode().equals("Custom CXF Runtime")){
+				enableField=true;
+			}else{
+				enableField=false;
+			}
+		}
+		return enableField;
+	}
+
+	@Override
+	public List<String> getUpdateFields(String modelProperty,
+			ProjectDataModel model) {
+		List<String> updatedList = super.getUpdateFields(modelProperty, model);
+		if(modelProperty.equals("cxf.mode")){
+			updatedList.add("runtime");
+		}
+		return updatedList;
+	}
 }

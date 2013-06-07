@@ -47,9 +47,9 @@ import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
 
 public class JaxwsClassWizard extends Wizard implements INewWizard {
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
-	IWorkbench workbench;
-	IStructuredSelection selection;
-	JaxwsClassWizardPage jaxwsClassWizardPage;
+	private IWorkbench workbench;
+	private IStructuredSelection selection;
+	private JaxwsClassWizardPage jaxwsClassWizardPage;
 	private IProject selectedProject;
 	
 	public void addPages() {

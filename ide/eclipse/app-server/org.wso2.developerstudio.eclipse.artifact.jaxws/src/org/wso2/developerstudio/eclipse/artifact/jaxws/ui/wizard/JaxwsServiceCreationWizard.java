@@ -19,13 +19,21 @@ package org.wso2.developerstudio.eclipse.artifact.jaxws.ui.wizard;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
+import java.util.Iterator;
 import java.util.Map;
 
+import javax.xml.stream.XMLStreamException;
+
+import org.apache.axiom.om.OMElement;
+import org.apache.axiom.om.OMXMLBuilderFactory;
+import org.apache.axiom.om.impl.builder.StAXOMBuilder;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
@@ -69,22 +77,22 @@ public class JaxwsServiceCreationWizard  extends AbstractWSO2ProjectCreationWiza
 	private static final String CXF_CLASSLOADING_DESCRIPTOR = "webapp-classloading.xml";
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	private JaxwsModel jaxwsModel;
-	IProject project;
-	IFolder sourceFolder;
-	IFolder webappFolder; 
-	IFolder webINF;
-	IFolder resourceFolder;
-	IJavaProject javaProject;
-	IPackageFragmentRoot root;
+	private IProject project;
+	private IFolder sourceFolder;
+	private IFolder webappFolder; 
+	private IFolder webINF;
+	private IFolder resourceFolder;
+	private IJavaProject javaProject;
+	private IPackageFragmentRoot root;
 	
-	public JaxwsServiceCreationWizard(){
+	public JaxwsServiceCreationWizard(){	
 		setjaxwsModel(new JaxwsModel());
 		setModel(getJaxwsModel());
 		setWindowTitle("Create New JAX-WS Service");
 		setDefaultPageImageDescriptor(JaxWSImageUtils.getInstance().getImageDescriptor("JAX-WS-wizard.png"));
+
 	}
-	
-	
+
 	public void init(IWorkbench arg0, IStructuredSelection selection) {
 		super.init(arg0, selection);
 	}
@@ -214,43 +222,51 @@ public class JaxwsServiceCreationWizard  extends AbstractWSO2ProjectCreationWiza
 			monitor.beginTask(operationText, 100);
 			monitor.subTask("Processing configuration...");
 			monitor.worked(10);
+
 			try {
-				monitor.subTask("Generating code...");
-				IVMInstall vmInstall= JavaRuntime.getDefaultVMInstall();
-	            String s = null;
-	            String shell =null;
-	            String wsdl2java = null;
-		        String sourcePkg = jaxwsModel.getSourcePackage();
+				monitor.subTask("Generating code...");			
+				String cxfRuntime = jaxwsModel.getCXFRuntime();
+				String sourcePkg = jaxwsModel.getSourcePackage();
 		        String sourceDir = sourceFolder.getLocation().toFile().toString();
-				String wsdlFile = jaxwsModel.getImportFile().getAbsolutePath();
+				String wadlFile = jaxwsModel.getImportFile().getAbsolutePath();
 				String os = System.getProperty("os.name").toLowerCase();
-				ProcessBuilder pb=null;
-				
-				if(os.indexOf("win") >= 0){
-					shell = "cmd.exe";
-					wsdl2java = "wsdl2java.bat";
-					if(sourcePkg!=null && sourcePkg.trim().length()>0){
-						pb = new ProcessBuilder(shell, "/c", wsdl2java, "-impl", "-server", "-p",sourcePkg, "-d",sourceDir,wsdlFile);
+				String wsdlFile = jaxwsModel.getImportFile().getAbsolutePath();
+				IVMInstall vmInstall= JavaRuntime.getDefaultVMInstall();
+				String s = null;
+		        String shell =null;
+		        String wsdl2java = null;
+				ProcessBuilder pb;
+				Process p=null;
+
+				if(jaxwsModel.getCxfRuntimeMode().equals("AppSever CXF Runtime")){					
+					pb = new ProcessBuilder("java", "-cp", cxfRuntime+"/lib/runtimes/cxf/*","org.apache.cxf.tools.wsdlto.WSDLToJava","-p",sourcePkg, "-d", sourceDir, wsdlFile);
+					p = pb.start();
+			
+				}else{
+					if(os.indexOf("win") >= 0){
+						shell = "cmd.exe";
+						wsdl2java = "wsdl2java.bat";
+						if(sourcePkg!=null && sourcePkg.trim().length()>0){
+							pb = new ProcessBuilder(shell, "/c", wsdl2java, "-impl", "-server", "-p",sourcePkg, "-d",sourceDir,wadlFile);
+						} else {
+							pb = new ProcessBuilder(shell, "/c", wsdl2java, "-impl", "-server", "-d",sourceDir,wadlFile);
+						}
 					} else {
-						pb = new ProcessBuilder(shell, "/c", wsdl2java, "-impl", "-server", "-d",sourceDir,wsdlFile);
+						shell = "sh";
+						wsdl2java = "wsdl2java";
+						if(sourcePkg!=null && sourcePkg.trim().length()>0){
+							pb = new ProcessBuilder(shell, wsdl2java, "-impl", "-server", "-p",sourcePkg, "-d",sourceDir,wadlFile);
+						} else {
+							pb = new ProcessBuilder(shell, wsdl2java, "-impl", "-server", "-d",sourceDir,wadlFile);
+						}
 					}
-				} else {
-					shell = "sh";
-					wsdl2java = "wsdl2java";
-					if(sourcePkg!=null && sourcePkg.trim().length()>0){
-						pb = new ProcessBuilder(shell, wsdl2java, "-impl", "-server", "-p",sourcePkg, "-d",sourceDir,wsdlFile);
-					} else {
-						pb = new ProcessBuilder(shell, wsdl2java, "-impl", "-server", "-d",sourceDir,wsdlFile);
-					}
+					
+					 Map<String, String> env = pb.environment();
+					 env.put("CXF_HOME", jaxwsModel.getCXFRuntime());
+					 env.put("JAVA_HOME", vmInstall.getInstallLocation().toString());
+					 pb.directory(new File(jaxwsModel.getCXFRuntime() + File.separator + "bin" ));
+					 p = pb.start();
 				}
-				
-				
-				
-				 Map<String, String> env = pb.environment();
-				 env.put("CXF_HOME", jaxwsModel.getCXFRuntime());
-				 env.put("JAVA_HOME", vmInstall.getInstallLocation().toString());
-				 pb.directory(new File(jaxwsModel.getCXFRuntime() + File.separator + "bin" ));
-				 Process p = pb.start();
 	            
 	            InputStream inputStream = p.getInputStream();
 				InputStreamReader in = new InputStreamReader(inputStream);
@@ -258,6 +274,7 @@ public class JaxwsServiceCreationWizard  extends AbstractWSO2ProjectCreationWiza
 	            InputStream errorStream = p.getErrorStream();
 				InputStreamReader inError = new InputStreamReader(errorStream);
 				BufferedReader stdError = new BufferedReader(inError);
+	            
 
 	            while ((s = stdInput.readLine()) != null) {
 	            	monitor.subTask(s);
@@ -281,6 +298,7 @@ public class JaxwsServiceCreationWizard  extends AbstractWSO2ProjectCreationWiza
 				
 				in.close();
 				inError.close();
+
 			} catch (Exception e) {
 				throw new InvocationTargetException(e);
 			}

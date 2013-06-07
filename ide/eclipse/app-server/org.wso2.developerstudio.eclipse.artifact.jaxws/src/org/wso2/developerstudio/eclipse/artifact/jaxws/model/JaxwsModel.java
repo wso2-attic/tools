@@ -26,15 +26,18 @@ public class JaxwsModel extends ProjectDataModel {
 	private String cxfRuntime;
 	private String serviceClass;
 	private String serviceClassPackage;
-	
+	private String cxfRuntimeMode;
+
 	public Object getModelPropertyValue(String key) {
 		Object modelPropertyValue = super.getModelPropertyValue(key);
 		if (modelPropertyValue == null) {
 			if (key.equalsIgnoreCase("runtime")) {
-			modelPropertyValue = getCXFRuntime();
+				modelPropertyValue = getCXFRuntime();
 			} else if (key.equals("service.class.package.name")) {
 				modelPropertyValue = getServiceClassPackage();
 			} else if (key.equals("service.class.name")) {
+				modelPropertyValue = getServiceClass();
+			} else if (key.equals("cxf.mode")) {
 				modelPropertyValue = getServiceClass();
 			} 
 		}
@@ -56,6 +59,13 @@ public class JaxwsModel extends ProjectDataModel {
 			setServiceClassPackage(data.toString());
 		} else if (key.equals("service.class.name")) {
 			setServiceClass(data.toString());
+		}else if (key.equals("cxf.mode")) {	
+			setCXFRuntime(data.toString());	
+			if(!data.toString().equals("Custom CXF Runtime")){
+				setCxfRuntimeMode("AppSever CXF Runtime");	
+			}else{
+				setCxfRuntimeMode("Custom CXF Runtime");	
+			}
 		} 
 		return returnValue;
 	}
@@ -95,6 +105,15 @@ public class JaxwsModel extends ProjectDataModel {
 
 	public String getServiceClassPackage() {
 		return serviceClassPackage;
+	}
+	
+	public String getCxfRuntimeMode() {
+		return cxfRuntimeMode;
+	}
+
+
+	public void setCxfRuntimeMode(String cxfRuntimeMode) {
+		this.cxfRuntimeMode = cxfRuntimeMode;
 	}
 	
 }

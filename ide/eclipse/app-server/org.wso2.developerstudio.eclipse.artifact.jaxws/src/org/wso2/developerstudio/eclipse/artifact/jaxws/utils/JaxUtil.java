@@ -94,9 +94,9 @@ public class JaxUtil {
 		private static final String SOAP_NS = "http://cxf.apache.org/bindings/soap";
 		private static final String DEFAULT_NS = "http://www.springframework.org/schema/beans";
 		
-		OMElement documentElement=null;
-		OMNamespace xsi = null;
-		OMNamespace jaxws = null;
+		private OMElement documentElement=null;
+		private OMNamespace xsi = null;
+		private OMNamespace jaxws = null;
 		
 		private Map<String,JaxwsServer> servers= new HashMap<String,JaxwsServer>(); 
 		
