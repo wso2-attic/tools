@@ -20,6 +20,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.codehaus.plexus.util.xml.Xpp3Dom;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
@@ -54,6 +55,7 @@ import org.eclipse.ui.model.WorkbenchContentProvider;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.wso2.developerstudio.eclipse.artifact.library.Activator;
 import org.wso2.developerstudio.eclipse.artifact.library.model.LibraryArtifactModel;
+import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 
 
 public class NewJavaLibraryWizardPage extends WizardPage {
@@ -61,18 +63,32 @@ public class NewJavaLibraryWizardPage extends WizardPage {
 	private TableViewer tblLibraryInfoViewer;
 	private LibraryArtifactModel model;
 	private Button chkFragmentBundle;
+	private boolean existingProject;
 
 	public NewJavaLibraryWizardPage() {
 		super("wizardPage");
 		setTitle("New Java Library");
 		setDescription("Select Java Library");
+		this.existingProject = false;
+	}
+	
+	public NewJavaLibraryWizardPage(boolean existingProject) {
+		super("wizardPage");
+		setTitle("Add/Remove Java Library");
+		setDescription("Select Java Library");
+		this.existingProject = existingProject;
 	}
 
 	public void createControl(Composite parent) {
 		Composite container = new Composite(parent, SWT.NULL);
 
 		setControl(container);
-		model = ((LibraryArtifactCreationWizard)getWizard()).getLibraryModel();
+		if (!existingProject){
+			model = ((LibraryArtifactCreationWizard)getWizard()).getLibraryModel();
+		} else {
+			model = ((AddRemoveJavaLibsWizard)getWizard()).getLibraryModel();
+		}
+		
 		
 		container.setLayout(new GridLayout(5, false));
 		
@@ -147,7 +163,14 @@ public class NewJavaLibraryWizardPage extends WizardPage {
 		btnFileSystem.addSelectionListener(new SelectionAdapter() {
 
 			public void widgetSelected(SelectionEvent e) {
-				showFileBrowser();
+				List<File> files = showFileBrowser();
+				if (files != null) {
+					for (File file : files) {
+						model.getLibraries().add(file);
+					}
+				}
+				
+				tblLibraryInfoViewer.refresh();
 				validate();
 			}
 		});
@@ -207,6 +230,7 @@ public class NewJavaLibraryWizardPage extends WizardPage {
 		});
 		chkFragmentBundle.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false, 3, 1));
 		chkFragmentBundle.setText("Make this a fragment bundle");
+			
 		new Label(container, SWT.NONE);
 		
 		txtBundle = new Text(container, SWT.BORDER);
@@ -217,6 +241,15 @@ public class NewJavaLibraryWizardPage extends WizardPage {
 				validate();
 			}
 		});
+		
+		if (existingProject) {
+			if (model.isFragmentHostBundle() && !model.getFragmentHostBundleName().isEmpty()){
+				chkFragmentBundle.setSelection(true);
+				txtBundle.setText(model.getFragmentHostBundleName());
+				txtBundle.setEnabled(true);
+			}
+		}
+		
 		GridData gd_txtBundle = new GridData(SWT.LEFT, SWT.CENTER, true, false, 1, 1);
 		gd_txtBundle.widthHint = 156;
 		txtBundle.setLayoutData(gd_txtBundle);
@@ -232,8 +265,7 @@ public class NewJavaLibraryWizardPage extends WizardPage {
 				.getRoot());
 		if (elementTreeSelectionDialog.open() == Window.OK) {
 			elementTreeSelectionDialog.getFirstResult();
-			IResource resource = (IResource) elementTreeSelectionDialog
-					.getFirstResult();
+			IResource resource = (IResource) elementTreeSelectionDialog.getFirstResult();
 			if (model.getLibraries().contains(resource)) {
 				return;
 			}
@@ -246,16 +278,14 @@ public class NewJavaLibraryWizardPage extends WizardPage {
 				} catch (CoreException ex) {
 
 				}
-			} else if (!resource.getFileExtension().equals("jar")) {
-
-			} else {
+			} else if (resource.getFileExtension().equals("jar")) {
 				model.getLibraries().add(resource);
 			}
 			tblLibraryInfoViewer.refresh();
 		}
 	}
 	
-	void showFileBrowser() {
+	private List<File> showFileBrowser() {
 		List<File> files = new ArrayList<File>();
 		FileDialog fld = new FileDialog(this.getShell(), SWT.MULTI);
 		fld.setFilterExtensions(new String[] { "*.jar" });
@@ -282,27 +312,27 @@ public class NewJavaLibraryWizardPage extends WizardPage {
 				}
 			}
 		}
-		if (files != null) {
-			for (File file : files) {
-				model.getLibraries().add(file);
-			}
-		}
-		tblLibraryInfoViewer.refresh();
+		
+		return files;
 	}
 	
 	private void validate(){
+			setPageComplete(isValid());
+	}
+	
+	public boolean isValid(){
 		if(tblLibraryInfoViewer.getTable().getItemCount()>0){
 			if(chkFragmentBundle.getSelection()){
 				if(null==txtBundle.getText() || txtBundle.getText().trim().isEmpty()){
-					setPageComplete(false);
+					return false;
 				} else{
-					setPageComplete(true);
+					return true;
 				}
 			} else{
-				setPageComplete(true);
+				return true;
 			}
 		} else {
-			setPageComplete(false);
+			return false;
 		}
 	}
 }

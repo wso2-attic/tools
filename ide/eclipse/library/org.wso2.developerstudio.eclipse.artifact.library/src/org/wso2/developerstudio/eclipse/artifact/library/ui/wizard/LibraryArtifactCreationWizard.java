@@ -18,6 +18,7 @@ package org.wso2.developerstudio.eclipse.artifact.library.ui.wizard;
 
 import java.io.File;
 import java.io.FilenameFilter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -30,6 +31,7 @@ import org.codehaus.plexus.util.xml.Xpp3Dom;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.jdt.core.IClasspathEntry;
@@ -37,6 +39,7 @@ import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.IPackageFragment;
 import org.eclipse.jdt.core.IPackageFragmentRoot;
 import org.eclipse.jdt.core.JavaCore;
+import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jface.wizard.IWizardPage;
 import org.wso2.developerstudio.eclipse.artifact.library.Activator;
 import org.wso2.developerstudio.eclipse.artifact.library.model.LibraryArtifactModel;
@@ -74,175 +77,16 @@ public class LibraryArtifactCreationWizard extends
 
 	public boolean performFinish() {
 		try {
-			BundlesDataInfo bundleData = new BundlesDataInfo();
+			
 			IProject project = createNewProject();
-			//IFolder libFolder = ProjectUtils.getWorkspaceFolder(project, "lib"); 
-			//libFolder.create(true, true, new NullProgressMonitor());
-			IFile bundlesDataFile = project.getFile("bundles-data.xml");
-				
 			List<Dependency> dependencyList = new ArrayList<Dependency>();
-			List<String> exportedPackages = new ArrayList<String>();
-			StringBuffer sb=new StringBuffer();
 			
-			if (libraryModel.isFragmentHostBundle()) {
-				bundleData.setFragmentHost(libraryModel.getFragmentHostBundleName());
-			}
-			
-			List<IProject> projects = new ArrayList<IProject>();
-			for (Object resource : libraryModel.getLibraries()) {
-				File libraryResource = null;
-				if (resource instanceof File) {
-					libraryResource = (File) resource;
-				} else if (resource instanceof IFile) {
-					libraryResource = new File(((IFile) resource).getLocation()
-							.toOSString());
-				} else if (resource instanceof IProject) {
-					IProject workSpacePrj = (IProject) resource;
-					projects.add(workSpacePrj);
-					File pomfile = workSpacePrj.getFile("pom.xml").getLocation().toFile();
-					if (!pomfile.exists()) {
-						String srcDir = "src";
-						MavenProject mavenProject = MavenUtils.createMavenProject(
-								"org.wso2.carbon." + workSpacePrj.getName(),
-								workSpacePrj.getName(), "1.0.0", "jar");
-						IJavaProject javaProject = JavaCore.create(workSpacePrj);
-						IClasspathEntry[] classpath = javaProject.getRawClasspath();
-						int entryCount = 0;
-						for (IClasspathEntry classpathEntry : classpath) {
-							if (classpathEntry.getEntryKind() == IClasspathEntry.CPE_SOURCE) {
-								if (entryCount == 0) {
-									String entryPath = "";
-									String[] pathSegments = classpathEntry.getPath().segments();
-									if(pathSegments.length >1){
-										for (int i = 1; i < pathSegments.length; i++) {
-											if(i==1){
-												entryPath = pathSegments[i];
-											} else{
-												entryPath += "/" + pathSegments[i];
-											}
-										}
-										if(entryPath.length()>0){
-											srcDir = entryPath;
-											++entryCount;
-										}
-									}
-								} else {
-									log.warn("multiple source directories found, Considering '" + srcDir + "' as source directory");
-									break;
-								}
-							}
-						}
-						if(entryCount==0){
-							log.warn("No source directory specified, using default source directory.");
-						}
-						
-						/* adding wso2 nexus repository */
-						Repository nexusRepo = new Repository();
-						nexusRepo.setUrl("http://maven.wso2.org/nexus/content/groups/wso2-public/");
-						nexusRepo.setId("wso2-maven2-repository-1");
-						mavenProject.getModel().addRepository(nexusRepo);
-						mavenProject.getModel().addPluginRepository(nexusRepo);
-						
-						/* adding maven dependencies */
-						List<Dependency> libList = new ArrayList<Dependency>();
-						Map<String, JavaLibraryBean> dependencyMap = JavaLibraryUtil
-								.getDependencyInfoMap(workSpacePrj);
-
-						for (JavaLibraryBean bean : dependencyMap.values()) {
-							Dependency dependency = new Dependency();
-							dependency.setArtifactId(bean.getArtifactId());
-							dependency.setGroupId(bean.getGroupId());
-							dependency.setVersion(bean.getVersion());
-							libList.add(dependency);
-						}
-						mavenProject.setDependencies(libList);
-						
-						mavenProject.getBuild().setSourceDirectory(srcDir);
-						MavenUtils.saveMavenProject(mavenProject, pomfile);
-					}
-					workSpacePrj.refreshLocal(IResource.DEPTH_INFINITE,
-							new NullProgressMonitor());
-				}
-				if (libraryResource != null) {
-					FileUtils.copyFile(libraryResource.toString(),
-							new File(project.getLocation().toFile(),
-									libraryResource.getName()).toString());
-				}
-			}
-			project.refreshLocal(IResource.DEPTH_INFINITE,
-					new NullProgressMonitor());
-
-			Map<File, ArrayList<String>> exportedPackagesInfoMap = FileUtils
-					.processJarList(project.getLocation().toFile()
-							.listFiles(new FilenameFilter() {
-
-								public boolean accept(File file, String name) {
-									return name.endsWith(".jar");
-								}
-							}));
-			for (File jarFile : exportedPackagesInfoMap.keySet()) {
-				Path base = new Path(project.getLocation().toFile()
-						.toString());
-				Path jar = new Path(jarFile.toString());
-				String jarName = null;
-				for (int i = base.segmentCount(); i < jar.segmentCount(); i++) {
-					if (jarName == null) {
-						jarName = jar.segment(i);
-					} else {
-						jarName += "/" + jar.segment(i);
-					}
-				}
-				if (jarName == null) {
-					jarName = "libraries/" + jarFile.getName();
-				}
-				
-				exportedPackages.addAll(exportedPackagesInfoMap.get(jarFile));
-				bundleData.createJarElement(jarFile.getName(), exportedPackagesInfoMap.get(jarFile));
-				
-				Dependency dependency = new Dependency();
-				dependency.setArtifactId(jarFile.getName());
-				dependency.setGroupId("dummy.groupid");
-				dependency.setVersion("1.0.0");
-				dependency.setScope("system");
-				dependency.setSystemPath("${basedir}/" + jarFile.toString().substring(base.toFile().getPath().length() + 1) );
-				dependencyList.add(dependency);
-				
-			}
-			for (IProject prj : projects) {
-				IFile pomFile = prj.getFile("pom.xml");
-				if(pomFile.exists()) {
-					try {
-						MavenProject mavenProject = MavenUtils.getMavenProject(pomFile.getLocation().toFile());
-						Dependency dependency = new Dependency();
-						dependency.setArtifactId(mavenProject.getArtifactId());
-						dependency.setGroupId(mavenProject.getGroupId());
-						dependency.setVersion(mavenProject.getVersion());
-						dependencyList.add(dependency);
-					} catch (Exception e) {
-						log.warn("Error reading "+ pomFile, e);
-					}
-				}
-				bundleData.createProjectElement(prj, new ArrayList<String>());
-				IJavaProject javaProject = JavaCore.create(prj);
-				for (IPackageFragment pkg : javaProject.getPackageFragments()) {
-					if (pkg.getKind() == IPackageFragmentRoot.K_SOURCE) {
-						if (pkg.hasChildren()) {
-							exportedPackages.add(pkg.getElementName());
-						}
-					}
-				}
-			}
-			
+			List<String> exportedPackages = fillDependencyList(project, libraryModel, dependencyList);
+			StringBuffer sb = new StringBuffer();
 			for(String exportedpackage : exportedPackages) {
 				sb.append(exportedpackage.trim()).append(",");
 			}
 			String exportPackageNodeValue = sb.toString().trim().replaceAll(",$","");
-			bundleData.toFile(bundlesDataFile);
-			project.refreshLocal(IResource.DEPTH_INFINITE,
-					new NullProgressMonitor());
-			bundlesDataFile.setHidden(true);
-			
-			
 
 			File pomfile = project.getFile("pom.xml").getLocation().toFile();
 			getModel().getMavenInfo().setPackageName("bundle");
@@ -303,6 +147,7 @@ public class LibraryArtifactCreationWizard extends
 		return true;
 	}
 
+	
 	public void addPages() {
 		javaLibraryWizardPage = new NewJavaLibraryWizardPage();
 		super.addPages();
@@ -350,5 +195,193 @@ public class LibraryArtifactCreationWizard extends
 	public LibraryArtifactModel getLibraryModel() {
 		return libraryModel;
 	}
+	
+	public static List<String> fillDependencyList(IProject project, LibraryArtifactModel libraryModel, 
+			List<Dependency> dependencyList) throws JavaModelException,
+			Exception, CoreException, IOException {
+		
+		IFile bundlesDataFile = project.getFile("bundles-data.xml");
+		List<String> exportedPackages = new ArrayList<String>();
+		
+		BundlesDataInfo bundleData = new BundlesDataInfo();
+		if (libraryModel.isFragmentHostBundle()) {
+			bundleData.setFragmentHost(libraryModel.getFragmentHostBundleName());
+		}
+		
+		List<IProject> projects = new ArrayList<IProject>();
+		for (Object resource : libraryModel.getLibraries()) {
+			File libraryResource = null;
+			if (resource instanceof File) {
+				libraryResource = (File) resource;
+			} else if (resource instanceof IFile) {
+				libraryResource = new File(((IFile) resource).getLocation()
+						.toOSString());
+			} else if (resource instanceof IProject) {
+				IProject workSpacePrj = (IProject) resource;
+				projects.add(workSpacePrj);
+				handleWorkspaceProjectResource(workSpacePrj);
+			}
+			if (libraryResource != null) {
+				String dest = new File(project.getLocation().toFile(), libraryResource.getName()).toString();
+				if (!libraryResource.toString().equals(dest)){
+					FileUtils.copyFile(libraryResource.toString(), dest);
+				}
+			}
+		}
+		project.refreshLocal(IResource.DEPTH_INFINITE,
+				new NullProgressMonitor());
 
+		File[] jarsList = project.getLocation().toFile()
+				.listFiles(new FilenameFilter() {
+
+					public boolean accept(File file, String name) {
+						return name.endsWith(".jar");
+					}
+				});
+		
+		Map<File, ArrayList<String>> exportedPackagesInfoMap = FileUtils.processJarList(jarsList);
+		
+		for (File jarFile : exportedPackagesInfoMap.keySet()) {
+			if (isExistsInLibraryModel(jarFile, libraryModel)) {
+			
+				Path base = new Path(project.getLocation().toFile().toString());
+				
+				ArrayList<String> packages = exportedPackagesInfoMap.get(jarFile);
+				exportedPackages.addAll(packages);
+				bundleData.createJarElement(jarFile.getName(), exportedPackagesInfoMap.get(jarFile));
+				
+				Dependency dependency = new Dependency();
+				dependency.setArtifactId(jarFile.getName());
+				dependency.setGroupId("dummy.groupid");
+				dependency.setVersion("1.0.0");
+				dependency.setScope("system");
+				dependency.setSystemPath("${basedir}/" + jarFile.toString().substring(base.toFile().getPath().length() + 1) );
+				dependencyList.add(dependency);
+			}
+			else {
+				try {
+					jarFile.delete();
+				} catch (Exception e) {
+					log.warn("Failed to remove unused jar file(s)", e);
+				}
+			}
+		}
+		
+		for (IProject prj : projects) {
+			IFile pomFile = prj.getFile("pom.xml");
+			if(pomFile.exists()) {
+				try {
+					MavenProject mavenProject = MavenUtils.getMavenProject(pomFile.getLocation().toFile());
+					Dependency dependency = new Dependency();
+					dependency.setArtifactId(mavenProject.getArtifactId());
+					dependency.setGroupId(mavenProject.getGroupId());
+					dependency.setVersion(mavenProject.getVersion());
+					dependencyList.add(dependency);
+				} catch (Exception e) {
+					log.warn("Error reading "+ pomFile, e);
+				}
+			}
+			bundleData.createProjectElement(prj, new ArrayList<String>());
+			IJavaProject javaProject = JavaCore.create(prj);
+			for (IPackageFragment pkg : javaProject.getPackageFragments()) {
+				if (pkg.getKind() == IPackageFragmentRoot.K_SOURCE) {
+					if (pkg.hasChildren()) {
+						exportedPackages.add(pkg.getElementName());
+					}
+				}
+			}
+		}
+		
+
+		bundleData.toFile(bundlesDataFile);
+		project.refreshLocal(IResource.DEPTH_INFINITE,
+				new NullProgressMonitor());
+		bundlesDataFile.setHidden(true);
+		
+		return exportedPackages;
+	}
+
+	private static void handleWorkspaceProjectResource(IProject workSpacePrj)
+			throws JavaModelException, Exception, CoreException {
+		File pomfile = workSpacePrj.getFile("pom.xml").getLocation().toFile();
+		if (!pomfile.exists()) {
+			String srcDir = "src";
+			MavenProject mavenProject = MavenUtils.createMavenProject(
+					"org.wso2.carbon." + workSpacePrj.getName(),
+					workSpacePrj.getName(), "1.0.0", "jar");
+			IJavaProject javaProject = JavaCore.create(workSpacePrj);
+			IClasspathEntry[] classpath = javaProject.getRawClasspath();
+			int entryCount = 0;
+			for (IClasspathEntry classpathEntry : classpath) {
+				if (classpathEntry.getEntryKind() == IClasspathEntry.CPE_SOURCE) {
+					if (entryCount == 0) {
+						String entryPath = "";
+						String[] pathSegments = classpathEntry.getPath().segments();
+						if(pathSegments.length >1){
+							for (int i = 1; i < pathSegments.length; i++) {
+								if(i==1){
+									entryPath = pathSegments[i];
+								} else{
+									entryPath += "/" + pathSegments[i];
+								}
+							}
+							if(entryPath.length()>0){
+								srcDir = entryPath;
+								++entryCount;
+							}
+						}
+					} else {
+						log.warn("multiple source directories found, Considering '" + srcDir + "' as source directory");
+						break;
+					}
+				}
+			}
+			if(entryCount==0){
+				log.warn("No source directory specified, using default source directory.");
+			}
+			
+			/* adding wso2 nexus repository */
+			Repository nexusRepo = new Repository();
+			nexusRepo.setUrl("http://maven.wso2.org/nexus/content/groups/wso2-public/");
+			nexusRepo.setId("wso2-maven2-repository-1");
+			mavenProject.getModel().addRepository(nexusRepo);
+			mavenProject.getModel().addPluginRepository(nexusRepo);
+			
+			/* adding maven dependencies */
+			List<Dependency> libList = new ArrayList<Dependency>();
+			Map<String, JavaLibraryBean> dependencyMap = JavaLibraryUtil
+					.getDependencyInfoMap(workSpacePrj);
+
+			for (JavaLibraryBean bean : dependencyMap.values()) {
+				Dependency dependency = new Dependency();
+				dependency.setArtifactId(bean.getArtifactId());
+				dependency.setGroupId(bean.getGroupId());
+				dependency.setVersion(bean.getVersion());
+				libList.add(dependency);
+			}
+			mavenProject.setDependencies(libList);
+			
+			mavenProject.getBuild().setSourceDirectory(srcDir);
+			MavenUtils.saveMavenProject(mavenProject, pomfile);
+		}
+		workSpacePrj.refreshLocal(IResource.DEPTH_INFINITE,
+				new NullProgressMonitor());
+	}
+
+	private static boolean isExistsInLibraryModel(File jarFile, LibraryArtifactModel libraryModel) {
+		for (Object resource : libraryModel.getLibraries()) {
+			File libraryResource = null;
+			if (resource instanceof File) {
+				libraryResource = (File) resource;
+			} else if (resource instanceof IFile) {
+				libraryResource = new File(((IFile) resource).getLocation().toOSString());
+			}
+			if (libraryResource != null){
+				if (libraryResource.getName().equals(jarFile.getName())){
+						return true;
+				}
+			}
+		}
+		return false;
+	}
 }
