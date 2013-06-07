@@ -26,6 +26,7 @@ import org.apache.synapse.util.xpath.SynapseXPath;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EObject;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
+import org.wso2.developerstudio.eclipse.gmf.esb.FaultCodeType;
 import org.wso2.developerstudio.eclipse.gmf.esb.FaultMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.EsbNodeTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
@@ -86,23 +87,34 @@ public class FaultMediatorTransformer extends AbstractEsbNodeTransformer {
 							.getFaultActor()));
 				}
 				
-				switch (visualFault.getFaultCodeSoap11()) {
-				case VERSION_MISSMATCH:
-					faultMediator.setFaultCodeValue(new QName(soap11EnvNS,
-							"VersionMismatch", "soap11Env"));
-					break;
-				case MUST_UNDERSTAND:
-					faultMediator.setFaultCodeValue(new QName(soap11EnvNS,
-							"MustUnderstand", "soap11Env"));
-					break;
-				case SERVER:
-					faultMediator.setFaultCodeValue(new QName(soap11EnvNS,
-							"Server", "soap11Env"));
-					break;
-				case CLIENT:
-					faultMediator.setFaultCodeValue(new QName(soap11EnvNS,
-							"Client", "soap11Env"));
-					break;
+				if(visualFault.getFaultCodeType().equals(FaultCodeType.EXPRESSION)){
+					SynapseXPath codeTypeExpression = new SynapseXPath(visualFault.getFaultCodeExpression().getPropertyValue());
+					for(int i=0;i<visualFault.getFaultCodeExpression().getNamespaces().keySet().size();++i){				
+						String prefix=(String)visualFault.getFaultCodeExpression().getNamespaces().keySet().toArray()[i];
+						String namespaceUri=visualFault.getFaultCodeExpression().getNamespaces().get(prefix);
+						codeTypeExpression.addNamespace(prefix, namespaceUri);
+					}
+					faultMediator.setFaultCodeExpr(codeTypeExpression);
+				}else{
+					switch (visualFault.getFaultCodeSoap11()) {
+					case VERSION_MISSMATCH:
+						faultMediator.setFaultCodeValue(new QName(soap11EnvNS,
+								"VersionMismatch", "soap11Env"));
+						break;
+					case MUST_UNDERSTAND:
+						faultMediator.setFaultCodeValue(new QName(soap11EnvNS,
+								"MustUnderstand", "soap11Env"));
+						break;
+					case SERVER:
+						faultMediator.setFaultCodeValue(new QName(soap11EnvNS,
+								"Server", "soap11Env"));
+						break;
+					case CLIENT:
+						faultMediator.setFaultCodeValue(new QName(soap11EnvNS,
+								"Client", "soap11Env"));
+						break;
+					}
+					
 				}
 				
 				switch (visualFault.getFaultStringType()){
@@ -120,6 +132,25 @@ public class FaultMediatorTransformer extends AbstractEsbNodeTransformer {
 					break;
 				}
 				
+				switch (visualFault.getFaultDetailType()) {
+				case VALUE:
+					faultMediator.setFaultDetail(visualFault.getFaultDetailValue());
+					break;
+				case EXPRESSION:
+					SynapseXPath detailExpression = new SynapseXPath(visualFault
+							.getFaultDetailExpression().getPropertyValue());
+					for (int i = 0; i < visualFault.getFaultDetailExpression().getNamespaces()
+							.keySet().size(); ++i) {
+						String prefix = (String) visualFault.getFaultDetailExpression()
+								.getNamespaces().keySet().toArray()[i];
+						String namespaceUri = visualFault.getFaultDetailExpression()
+								.getNamespaces().get(prefix);
+						detailExpression.addNamespace(prefix, namespaceUri);
+					}
+					faultMediator.setFaultDetailExpr(detailExpression);
+					break;
+				}
+				
 				break;
 			case SOAP_12:
 				faultMediator
@@ -129,27 +160,37 @@ public class FaultMediatorTransformer extends AbstractEsbNodeTransformer {
 					faultMediator.setFaultRole(new URI(visualFault.getRoleName()));
 				}
 				
-				switch (visualFault.getFaultCodeSoap12()) {
-				case VERSION_MISSMATCH:
-					faultMediator.setFaultCodeValue(new QName(soap12EnvNS,
-							"VersionMismatch", "soap12Env"));
-					break;
-				case MUST_UNDERSTAND:
-					faultMediator.setFaultCodeValue(new QName(soap12EnvNS,
-							"MustUnderstand", "soap12Env"));
-					break;
-				case SENDER:
-					faultMediator.setFaultCodeValue(new QName(soap12EnvNS,
-							"Sender", "soap12Env"));
-					break;
-				case RECEIVER:
-					faultMediator.setFaultCodeValue(new QName(soap12EnvNS,
-							"Receiver", "soap12Env"));
-					break;
-				case DATA_ENCODING_UNKNOWN:
-					faultMediator.setFaultCodeValue(new QName(soap12EnvNS,
-							"DataEncodingUnknown", "soap12Env"));
-					break;
+				if(visualFault.getFaultCodeType().equals(FaultCodeType.EXPRESSION)){
+					SynapseXPath codeTypeExpression = new SynapseXPath(visualFault.getFaultCodeExpression().getPropertyValue());
+					for(int i=0;i<visualFault.getFaultCodeExpression().getNamespaces().keySet().size();++i){				
+						String prefix=(String)visualFault.getFaultCodeExpression().getNamespaces().keySet().toArray()[i];
+						String namespaceUri=visualFault.getFaultCodeExpression().getNamespaces().get(prefix);
+						codeTypeExpression.addNamespace(prefix, namespaceUri);
+					}
+					faultMediator.setFaultCodeExpr(codeTypeExpression);
+				}else{
+					switch (visualFault.getFaultCodeSoap12()) {
+					case VERSION_MISSMATCH:
+						faultMediator.setFaultCodeValue(new QName(soap12EnvNS,
+								"VersionMismatch", "soap12Env"));
+						break;
+					case MUST_UNDERSTAND:
+						faultMediator.setFaultCodeValue(new QName(soap12EnvNS,
+								"MustUnderstand", "soap12Env"));
+						break;
+					case SENDER:
+						faultMediator.setFaultCodeValue(new QName(soap12EnvNS,
+								"Sender", "soap12Env"));
+						break;
+					case RECEIVER:
+						faultMediator.setFaultCodeValue(new QName(soap12EnvNS,
+								"Receiver", "soap12Env"));
+						break;
+					case DATA_ENCODING_UNKNOWN:
+						faultMediator.setFaultCodeValue(new QName(soap12EnvNS,
+								"DataEncodingUnknown", "soap12Env"));
+						break;
+					}	
 				}
 				
 				switch (visualFault.getFaultReasonType()){
@@ -164,6 +205,25 @@ public class FaultMediatorTransformer extends AbstractEsbNodeTransformer {
 						reasonExpression.addNamespace(prefix, namespaceUri);
 					}
 					faultMediator.setFaultReasonExpr(reasonExpression);
+					break;
+				}
+				
+				switch (visualFault.getFaultDetailType()) {
+				case VALUE:
+					faultMediator.setFaultDetail(visualFault.getFaultDetailValue());
+					break;
+				case EXPRESSION:
+					SynapseXPath detailExpression = new SynapseXPath(visualFault
+							.getFaultDetailExpression().getPropertyValue());
+					for (int i = 0; i < visualFault.getFaultDetailExpression().getNamespaces()
+							.keySet().size(); ++i) {
+						String prefix = (String) visualFault.getFaultDetailExpression()
+								.getNamespaces().keySet().toArray()[i];
+						String namespaceUri = visualFault.getFaultDetailExpression()
+								.getNamespaces().get(prefix);
+						detailExpression.addNamespace(prefix, namespaceUri);
+					}
+					faultMediator.setFaultDetailExpr(detailExpression);
 					break;
 				}
 				

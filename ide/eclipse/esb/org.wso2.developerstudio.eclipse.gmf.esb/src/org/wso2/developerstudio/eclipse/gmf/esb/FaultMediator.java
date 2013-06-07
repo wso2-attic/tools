@@ -18,6 +18,8 @@ package org.wso2.developerstudio.eclipse.gmf.esb;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.FaultMediator#getSoapVersion <em>Soap Version</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.FaultMediator#isMarkAsResponse <em>Mark As Response</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.FaultMediator#getFaultCodeSoap11 <em>Fault Code Soap11</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.FaultMediator#getFaultCodeType <em>Fault Code Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.FaultMediator#getFaultCodeExpression <em>Fault Code Expression</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.FaultMediator#getFaultStringType <em>Fault String Type</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.FaultMediator#getFaultStringValue <em>Fault String Value</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.FaultMediator#getFaultStringExpression <em>Fault String Expression</em>}</li>
@@ -126,6 +128,62 @@ public interface FaultMediator extends Mediator {
 	 * @generated
 	 */
 	void setFaultCodeSoap11(FaultCodeSoap11 value);
+
+	/**
+	 * Returns the value of the '<em><b>Fault Code Type</b></em>' attribute.
+	 * The default value is <code>"VALUE"</code>.
+	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.gmf.esb.FaultCodeType}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Fault Code Type</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Fault Code Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.FaultCodeType
+	 * @see #setFaultCodeType(FaultCodeType)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getFaultMediator_FaultCodeType()
+	 * @model default="VALUE"
+	 * @generated
+	 */
+	FaultCodeType getFaultCodeType();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.FaultMediator#getFaultCodeType <em>Fault Code Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Fault Code Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.FaultCodeType
+	 * @see #getFaultCodeType()
+	 * @generated
+	 */
+	void setFaultCodeType(FaultCodeType value);
+
+	/**
+	 * Returns the value of the '<em><b>Fault Code Expression</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Fault Code Expression</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Fault Code Expression</em>' containment reference.
+	 * @see #setFaultCodeExpression(NamespacedProperty)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getFaultMediator_FaultCodeExpression()
+	 * @model containment="true"
+	 * @generated
+	 */
+	NamespacedProperty getFaultCodeExpression();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.FaultMediator#getFaultCodeExpression <em>Fault Code Expression</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Fault Code Expression</em>' containment reference.
+	 * @see #getFaultCodeExpression()
+	 * @generated
+	 */
+	void setFaultCodeExpression(NamespacedProperty value);
 
 	/**
 	 * Returns the value of the '<em><b>Fault String Type</b></em>' attribute.
@@ -404,6 +462,7 @@ public interface FaultMediator extends Mediator {
 
 	/**
 	 * Returns the value of the '<em><b>Fault Detail Type</b></em>' attribute.
+	 * The default value is <code>"VALUE"</code>.
 	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.gmf.esb.FaultDetailType}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -415,7 +474,7 @@ public interface FaultMediator extends Mediator {
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.FaultDetailType
 	 * @see #setFaultDetailType(FaultDetailType)
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getFaultMediator_FaultDetailType()
-	 * @model
+	 * @model default="VALUE"
 	 * @generated
 	 */
 	FaultDetailType getFaultDetailType();

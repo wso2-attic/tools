@@ -163,6 +163,10 @@
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//FaultCodeSoap12/SENDER"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//FaultCodeSoap12/RECEIVER"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//FaultCodeType">
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//FaultCodeType/VALUE"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//FaultCodeType/EXPRESSION"/>
+    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//FaultStringType">
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//FaultStringType/VALUE"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//FaultStringType/EXPRESSION"/>
@@ -912,6 +916,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//FaultMediator/soapVersion"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//FaultMediator/markAsResponse"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//FaultMediator/faultCodeSoap11"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//FaultMediator/faultCodeType"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//FaultMediator/faultCodeExpression"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//FaultMediator/faultStringType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//FaultMediator/faultStringValue"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//FaultMediator/faultStringExpression"/>

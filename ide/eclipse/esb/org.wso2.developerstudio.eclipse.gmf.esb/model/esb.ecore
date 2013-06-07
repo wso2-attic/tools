@@ -817,6 +817,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="markAsResponse" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="faultCodeSoap11" eType="#//FaultCodeSoap11"
         defaultValueLiteral="VERSION_MISSMATCH"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="faultCodeType" eType="#//FaultCodeType"
+        defaultValueLiteral="VALUE"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="faultCodeExpression" eType="#//NamespacedProperty"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="faultStringType" eType="#//FaultStringType"
         defaultValueLiteral="VALUE"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="faultStringValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -835,7 +839,8 @@
         eType="#//NamespacedProperty" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="roleName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nodeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="faultDetailType" eType="#//FaultDetailType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="faultDetailType" eType="#//FaultDetailType"
+        defaultValueLiteral="VALUE"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="faultDetailValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral=""/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="faultDetailExpression"
@@ -864,6 +869,10 @@
     <eLiterals name="DATA_ENCODING_UNKNOWN" value="2" literal="DataEncodingUnknown"/>
     <eLiterals name="SENDER" value="3" literal="Sender"/>
     <eLiterals name="RECEIVER" value="4" literal="Receiver"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="FaultCodeType">
+    <eLiterals name="VALUE"/>
+    <eLiterals name="EXPRESSION" value="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="FaultStringType">
     <eLiterals name="VALUE"/>

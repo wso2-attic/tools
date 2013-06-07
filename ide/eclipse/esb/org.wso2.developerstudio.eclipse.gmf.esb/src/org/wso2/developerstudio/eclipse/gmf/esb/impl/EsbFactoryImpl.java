@@ -419,6 +419,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 				return createFaultCodeSoap11FromString(eDataType, initialValue);
 			case EsbPackage.FAULT_CODE_SOAP12:
 				return createFaultCodeSoap12FromString(eDataType, initialValue);
+			case EsbPackage.FAULT_CODE_TYPE:
+				return createFaultCodeTypeFromString(eDataType, initialValue);
 			case EsbPackage.FAULT_STRING_TYPE:
 				return createFaultStringTypeFromString(eDataType, initialValue);
 			case EsbPackage.FAULT_REASON_TYPE:
@@ -601,6 +603,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 				return convertFaultCodeSoap11ToString(eDataType, instanceValue);
 			case EsbPackage.FAULT_CODE_SOAP12:
 				return convertFaultCodeSoap12ToString(eDataType, instanceValue);
+			case EsbPackage.FAULT_CODE_TYPE:
+				return convertFaultCodeTypeToString(eDataType, instanceValue);
 			case EsbPackage.FAULT_STRING_TYPE:
 				return convertFaultStringTypeToString(eDataType, instanceValue);
 			case EsbPackage.FAULT_REASON_TYPE:
@@ -4272,6 +4276,26 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	 * @generated
 	 */
 	public String convertFaultCodeSoap12ToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FaultCodeType createFaultCodeTypeFromString(EDataType eDataType, String initialValue) {
+		FaultCodeType result = FaultCodeType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertFaultCodeTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

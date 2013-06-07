@@ -25,6 +25,7 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
+import org.wso2.developerstudio.eclipse.gmf.esb.FaultCodeType;
 import org.wso2.developerstudio.eclipse.gmf.esb.FaultDetailType;
 import org.wso2.developerstudio.eclipse.gmf.esb.FaultMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.FaultReasonType;
@@ -68,7 +69,7 @@ public class FaultMediatorItemProvider extends MediatorItemProvider implements
 
 		addSoapVersionPropertyDescriptor(object);
 		if (faultMediator.getSoapVersion().equals(FaultSoapVersion.SOAP_11)) {
-			addFaultCodeSoap11PropertyDescriptor(object);
+			addFaultCodeTypePropertyDescriptor(object);
 			addFaultStringTypePropertyDescriptor(object);
 
 			if (faultMediator.getFaultStringType().equals(FaultStringType.VALUE)) {
@@ -76,16 +77,28 @@ public class FaultMediatorItemProvider extends MediatorItemProvider implements
 			} else {
 				addFaultStringExpressionPropertyDescriptor(object);
 			}
+			
+			if(faultMediator.getFaultCodeType().equals(FaultCodeType.EXPRESSION)){
+				addFaultCodeExpressionPropertyDescriptor(object);	
+			}else{
+				addFaultCodeSoap11PropertyDescriptor(object);
+			}
 
 			addFaultActorPropertyDescriptor(object);
-		} if (faultMediator.getSoapVersion().equals(FaultSoapVersion.SOAP_12)) {
-			addFaultCodeSoap12PropertyDescriptor(object);
-
+		}else if (faultMediator.getSoapVersion().equals(FaultSoapVersion.SOAP_12)) {
+			addFaultCodeTypePropertyDescriptor(object);
 			addFaultReasonTypePropertyDescriptor(object);
+
 			if (faultMediator.getFaultReasonType().equals(FaultReasonType.VALUE)) {
 				addFaultReasonValuePropertyDescriptor(object);
 			} else {
 				addFaultReasonExpressionPropertyDescriptor(object);
+			}
+			
+			if(faultMediator.getFaultCodeType().equals(FaultCodeType.EXPRESSION)){
+				addFaultCodeExpressionPropertyDescriptor(object);	
+			}else{
+				addFaultCodeSoap12PropertyDescriptor(object);
 			}
 
 			addRoleNamePropertyDescriptor(object);
@@ -214,6 +227,50 @@ public class FaultMediatorItemProvider extends MediatorItemProvider implements
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Fault Code Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addFaultCodeTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_FaultMediator_faultCodeType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_FaultMediator_faultCodeType_feature", "_UI_FaultMediator_type"),
+				 EsbPackage.Literals.FAULT_MEDIATOR__FAULT_CODE_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Fault Code Expression feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addFaultCodeExpressionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_FaultMediator_faultCodeExpression_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_FaultMediator_faultCodeExpression_feature", "_UI_FaultMediator_type"),
+				 EsbPackage.Literals.FAULT_MEDIATOR__FAULT_CODE_EXPRESSION,
+				 true,
+				 false,
+				 false,
+				 null,
 				 null,
 				 null));
 	}
@@ -451,6 +508,7 @@ public class FaultMediatorItemProvider extends MediatorItemProvider implements
 			Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(EsbPackage.Literals.FAULT_MEDIATOR__FAULT_CODE_EXPRESSION);
 			childrenFeatures.add(EsbPackage.Literals.FAULT_MEDIATOR__FAULT_STRING_EXPRESSION);
 			childrenFeatures.add(EsbPackage.Literals.FAULT_MEDIATOR__FAULT_REASON_EXPRESSION);
 			childrenFeatures.add(EsbPackage.Literals.FAULT_MEDIATOR__FAULT_DETAIL_EXPRESSION);
@@ -516,6 +574,7 @@ public class FaultMediatorItemProvider extends MediatorItemProvider implements
 			case EsbPackage.FAULT_MEDIATOR__SOAP_VERSION:
 			case EsbPackage.FAULT_MEDIATOR__MARK_AS_RESPONSE:
 			case EsbPackage.FAULT_MEDIATOR__FAULT_CODE_SOAP11:
+			case EsbPackage.FAULT_MEDIATOR__FAULT_CODE_TYPE:
 			case EsbPackage.FAULT_MEDIATOR__FAULT_STRING_TYPE:
 			case EsbPackage.FAULT_MEDIATOR__FAULT_STRING_VALUE:
 			case EsbPackage.FAULT_MEDIATOR__FAULT_ACTOR:
@@ -528,6 +587,7 @@ public class FaultMediatorItemProvider extends MediatorItemProvider implements
 			case EsbPackage.FAULT_MEDIATOR__FAULT_DETAIL_VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case EsbPackage.FAULT_MEDIATOR__FAULT_CODE_EXPRESSION:
 			case EsbPackage.FAULT_MEDIATOR__FAULT_STRING_EXPRESSION:
 			case EsbPackage.FAULT_MEDIATOR__FAULT_REASON_EXPRESSION:
 			case EsbPackage.FAULT_MEDIATOR__FAULT_DETAIL_EXPRESSION:
@@ -551,6 +611,11 @@ public class FaultMediatorItemProvider extends MediatorItemProvider implements
 	protected void collectNewChildDescriptors(
 			Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.FAULT_MEDIATOR__FAULT_CODE_EXPRESSION,
+				 EsbFactory.eINSTANCE.createNamespacedProperty()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -593,6 +658,7 @@ public class FaultMediatorItemProvider extends MediatorItemProvider implements
 		Object childObject = child;
 
 		boolean qualify =
+			childFeature == EsbPackage.Literals.FAULT_MEDIATOR__FAULT_CODE_EXPRESSION ||
 			childFeature == EsbPackage.Literals.FAULT_MEDIATOR__FAULT_STRING_EXPRESSION ||
 			childFeature == EsbPackage.Literals.FAULT_MEDIATOR__FAULT_REASON_EXPRESSION ||
 			childFeature == EsbPackage.Literals.FAULT_MEDIATOR__FAULT_DETAIL_EXPRESSION;

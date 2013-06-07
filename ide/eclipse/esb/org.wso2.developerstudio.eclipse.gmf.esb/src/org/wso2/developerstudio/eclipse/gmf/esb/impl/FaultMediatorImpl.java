@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.FaultCodeSoap11;
 import org.wso2.developerstudio.eclipse.gmf.esb.FaultCodeSoap12;
+import org.wso2.developerstudio.eclipse.gmf.esb.FaultCodeType;
 import org.wso2.developerstudio.eclipse.gmf.esb.FaultDetailType;
 import org.wso2.developerstudio.eclipse.gmf.esb.FaultMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.FaultMediatorInputConnector;
@@ -36,6 +37,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.FaultMediatorImpl#getSoapVersion <em>Soap Version</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.FaultMediatorImpl#isMarkAsResponse <em>Mark As Response</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.FaultMediatorImpl#getFaultCodeSoap11 <em>Fault Code Soap11</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.FaultMediatorImpl#getFaultCodeType <em>Fault Code Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.FaultMediatorImpl#getFaultCodeExpression <em>Fault Code Expression</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.FaultMediatorImpl#getFaultStringType <em>Fault String Type</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.FaultMediatorImpl#getFaultStringValue <em>Fault String Value</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.FaultMediatorImpl#getFaultStringExpression <em>Fault String Expression</em>}</li>
@@ -116,6 +119,36 @@ public class FaultMediatorImpl extends MediatorImpl implements FaultMediator {
 	 * @ordered
 	 */
 	protected FaultCodeSoap11 faultCodeSoap11 = FAULT_CODE_SOAP11_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getFaultCodeType() <em>Fault Code Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFaultCodeType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final FaultCodeType FAULT_CODE_TYPE_EDEFAULT = FaultCodeType.VALUE;
+
+	/**
+	 * The cached value of the '{@link #getFaultCodeType() <em>Fault Code Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFaultCodeType()
+	 * @generated
+	 * @ordered
+	 */
+	protected FaultCodeType faultCodeType = FAULT_CODE_TYPE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getFaultCodeExpression() <em>Fault Code Expression</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFaultCodeExpression()
+	 * @generated
+	 * @ordered
+	 */
+	protected NamespacedProperty faultCodeExpression;
 
 	/**
 	 * The default value of the '{@link #getFaultStringType() <em>Fault String Type</em>}' attribute.
@@ -394,6 +427,13 @@ public class FaultMediatorImpl extends MediatorImpl implements FaultMediator {
 		faultDetailExpression.setPropertyName("expression");
 		faultDetailExpression.setPropertyValue(DEFAULT_EXPRESSION_PROPERTY_VALUE);
 		setFaultDetailExpression(faultDetailExpression);
+		
+		// Fault Code expression.
+		NamespacedProperty faultCodeExpression = EsbFactoryImpl.eINSTANCE.createNamespacedProperty();
+		faultCodeExpression.setPrettyName("Fault Code");
+		faultCodeExpression.setPropertyName("expression");
+		faultCodeExpression.setPropertyValue(DEFAULT_EXPRESSION_PROPERTY_VALUE);
+		setFaultCodeExpression(faultCodeExpression);
 	}
 
 	/**
@@ -468,6 +508,70 @@ public class FaultMediatorImpl extends MediatorImpl implements FaultMediator {
 		faultCodeSoap11 = newFaultCodeSoap11 == null ? FAULT_CODE_SOAP11_EDEFAULT : newFaultCodeSoap11;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.FAULT_MEDIATOR__FAULT_CODE_SOAP11, oldFaultCodeSoap11, faultCodeSoap11));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FaultCodeType getFaultCodeType() {
+		return faultCodeType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFaultCodeType(FaultCodeType newFaultCodeType) {
+		FaultCodeType oldFaultCodeType = faultCodeType;
+		faultCodeType = newFaultCodeType == null ? FAULT_CODE_TYPE_EDEFAULT : newFaultCodeType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.FAULT_MEDIATOR__FAULT_CODE_TYPE, oldFaultCodeType, faultCodeType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NamespacedProperty getFaultCodeExpression() {
+		return faultCodeExpression;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetFaultCodeExpression(NamespacedProperty newFaultCodeExpression, NotificationChain msgs) {
+		NamespacedProperty oldFaultCodeExpression = faultCodeExpression;
+		faultCodeExpression = newFaultCodeExpression;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.FAULT_MEDIATOR__FAULT_CODE_EXPRESSION, oldFaultCodeExpression, newFaultCodeExpression);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setFaultCodeExpression(NamespacedProperty newFaultCodeExpression) {
+		if (newFaultCodeExpression != faultCodeExpression) {
+			NotificationChain msgs = null;
+			if (faultCodeExpression != null)
+				msgs = ((InternalEObject)faultCodeExpression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.FAULT_MEDIATOR__FAULT_CODE_EXPRESSION, null, msgs);
+			if (newFaultCodeExpression != null)
+				msgs = ((InternalEObject)newFaultCodeExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.FAULT_MEDIATOR__FAULT_CODE_EXPRESSION, null, msgs);
+			msgs = basicSetFaultCodeExpression(newFaultCodeExpression, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.FAULT_MEDIATOR__FAULT_CODE_EXPRESSION, newFaultCodeExpression, newFaultCodeExpression));
 	}
 
 	/**
@@ -904,6 +1008,8 @@ public class FaultMediatorImpl extends MediatorImpl implements FaultMediator {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case EsbPackage.FAULT_MEDIATOR__FAULT_CODE_EXPRESSION:
+				return basicSetFaultCodeExpression(null, msgs);
 			case EsbPackage.FAULT_MEDIATOR__FAULT_STRING_EXPRESSION:
 				return basicSetFaultStringExpression(null, msgs);
 			case EsbPackage.FAULT_MEDIATOR__FAULT_REASON_EXPRESSION:
@@ -933,6 +1039,10 @@ public class FaultMediatorImpl extends MediatorImpl implements FaultMediator {
 				return isMarkAsResponse();
 			case EsbPackage.FAULT_MEDIATOR__FAULT_CODE_SOAP11:
 				return getFaultCodeSoap11();
+			case EsbPackage.FAULT_MEDIATOR__FAULT_CODE_TYPE:
+				return getFaultCodeType();
+			case EsbPackage.FAULT_MEDIATOR__FAULT_CODE_EXPRESSION:
+				return getFaultCodeExpression();
 			case EsbPackage.FAULT_MEDIATOR__FAULT_STRING_TYPE:
 				return getFaultStringType();
 			case EsbPackage.FAULT_MEDIATOR__FAULT_STRING_VALUE:
@@ -984,6 +1094,12 @@ public class FaultMediatorImpl extends MediatorImpl implements FaultMediator {
 				return;
 			case EsbPackage.FAULT_MEDIATOR__FAULT_CODE_SOAP11:
 				setFaultCodeSoap11((FaultCodeSoap11)newValue);
+				return;
+			case EsbPackage.FAULT_MEDIATOR__FAULT_CODE_TYPE:
+				setFaultCodeType((FaultCodeType)newValue);
+				return;
+			case EsbPackage.FAULT_MEDIATOR__FAULT_CODE_EXPRESSION:
+				setFaultCodeExpression((NamespacedProperty)newValue);
 				return;
 			case EsbPackage.FAULT_MEDIATOR__FAULT_STRING_TYPE:
 				setFaultStringType((FaultStringType)newValue);
@@ -1052,6 +1168,12 @@ public class FaultMediatorImpl extends MediatorImpl implements FaultMediator {
 			case EsbPackage.FAULT_MEDIATOR__FAULT_CODE_SOAP11:
 				setFaultCodeSoap11(FAULT_CODE_SOAP11_EDEFAULT);
 				return;
+			case EsbPackage.FAULT_MEDIATOR__FAULT_CODE_TYPE:
+				setFaultCodeType(FAULT_CODE_TYPE_EDEFAULT);
+				return;
+			case EsbPackage.FAULT_MEDIATOR__FAULT_CODE_EXPRESSION:
+				setFaultCodeExpression((NamespacedProperty)null);
+				return;
 			case EsbPackage.FAULT_MEDIATOR__FAULT_STRING_TYPE:
 				setFaultStringType(FAULT_STRING_TYPE_EDEFAULT);
 				return;
@@ -1116,6 +1238,10 @@ public class FaultMediatorImpl extends MediatorImpl implements FaultMediator {
 				return markAsResponse != MARK_AS_RESPONSE_EDEFAULT;
 			case EsbPackage.FAULT_MEDIATOR__FAULT_CODE_SOAP11:
 				return faultCodeSoap11 != FAULT_CODE_SOAP11_EDEFAULT;
+			case EsbPackage.FAULT_MEDIATOR__FAULT_CODE_TYPE:
+				return faultCodeType != FAULT_CODE_TYPE_EDEFAULT;
+			case EsbPackage.FAULT_MEDIATOR__FAULT_CODE_EXPRESSION:
+				return faultCodeExpression != null;
 			case EsbPackage.FAULT_MEDIATOR__FAULT_STRING_TYPE:
 				return faultStringType != FAULT_STRING_TYPE_EDEFAULT;
 			case EsbPackage.FAULT_MEDIATOR__FAULT_STRING_VALUE:
@@ -1167,6 +1293,8 @@ public class FaultMediatorImpl extends MediatorImpl implements FaultMediator {
 		result.append(markAsResponse);
 		result.append(", faultCodeSoap11: ");
 		result.append(faultCodeSoap11);
+		result.append(", faultCodeType: ");
+		result.append(faultCodeType);
 		result.append(", faultStringType: ");
 		result.append(faultStringType);
 		result.append(", faultStringValue: ");

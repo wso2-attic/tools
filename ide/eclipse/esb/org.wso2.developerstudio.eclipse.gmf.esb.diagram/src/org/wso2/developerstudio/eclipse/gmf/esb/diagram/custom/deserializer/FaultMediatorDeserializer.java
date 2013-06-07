@@ -5,6 +5,7 @@ import org.eclipse.core.runtime.Assert;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.FaultCodeSoap11;
 import org.wso2.developerstudio.eclipse.gmf.esb.FaultCodeSoap12;
+import org.wso2.developerstudio.eclipse.gmf.esb.FaultCodeType;
 import org.wso2.developerstudio.eclipse.gmf.esb.FaultDetailType;
 import org.wso2.developerstudio.eclipse.gmf.esb.FaultMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.FaultReasonType;
@@ -36,22 +37,27 @@ public class FaultMediatorDeserializer extends AbstractEsbNodeDeserializer<Abstr
 				executeSetValueCommand(FAULT_MEDIATOR__FAULT_ACTOR, faultMediator.getFaultRole().getPath());
 			}
 			
-			if("VersionMismatch".equals(faultMediator.getFaultCodeValue().getLocalPart())){
-				executeSetValueCommand(FAULT_MEDIATOR__FAULT_CODE_SOAP11, FaultCodeSoap11.VERSION_MISSMATCH);
-			}else if("MustUnderstand".equals(faultMediator.getFaultCodeValue().getLocalPart())){
-				executeSetValueCommand(FAULT_MEDIATOR__FAULT_CODE_SOAP11, FaultCodeSoap11.MUST_UNDERSTAND);
-			}else if("Server".equals(faultMediator.getFaultCodeValue().getLocalPart())){
-				executeSetValueCommand(FAULT_MEDIATOR__FAULT_CODE_SOAP11, FaultCodeSoap11.SERVER);
-			}else if("Client".equals(faultMediator.getFaultCodeValue().getLocalPart())){
-				executeSetValueCommand(FAULT_MEDIATOR__FAULT_CODE_SOAP11, FaultCodeSoap11.CLIENT);
-			}
-			
 			if(faultMediator.getFaultReasonValue()!=null){
 				executeSetValueCommand(FAULT_MEDIATOR__FAULT_STRING_VALUE, faultMediator.getFaultReasonValue());
 				executeSetValueCommand(FAULT_MEDIATOR__FAULT_STRING_TYPE, FaultStringType.VALUE);
 			}else if(faultMediator.getFaultReasonExpr()!=null){	
 				executeSetValueCommand(FAULT_MEDIATOR__FAULT_STRING_EXPRESSION, createNamespacedProperty(faultMediator.getFaultReasonExpr()));
 				executeSetValueCommand(FAULT_MEDIATOR__FAULT_STRING_TYPE, FaultStringType.EXPRESSION);
+			}
+			
+			if(faultMediator.getFaultCodeValue()!=null){
+				if("VersionMismatch".equals(faultMediator.getFaultCodeValue().getLocalPart())){
+					executeSetValueCommand(FAULT_MEDIATOR__FAULT_CODE_SOAP11, FaultCodeSoap11.VERSION_MISSMATCH);
+				}else if("MustUnderstand".equals(faultMediator.getFaultCodeValue().getLocalPart())){
+					executeSetValueCommand(FAULT_MEDIATOR__FAULT_CODE_SOAP11, FaultCodeSoap11.MUST_UNDERSTAND);
+				}else if("Server".equals(faultMediator.getFaultCodeValue().getLocalPart())){
+					executeSetValueCommand(FAULT_MEDIATOR__FAULT_CODE_SOAP11, FaultCodeSoap11.SERVER);
+				}else if("Client".equals(faultMediator.getFaultCodeValue().getLocalPart())){
+					executeSetValueCommand(FAULT_MEDIATOR__FAULT_CODE_SOAP11, FaultCodeSoap11.CLIENT);
+				}
+			}else if(faultMediator.getFaultCodeExpr()!=null){	
+				executeSetValueCommand(FAULT_MEDIATOR__FAULT_CODE_EXPRESSION, createNamespacedProperty(faultMediator.getFaultCodeExpr()));
+				executeSetValueCommand(FAULT_MEDIATOR__FAULT_CODE_TYPE, FaultCodeType.EXPRESSION);
 			}
 			
 			break;
@@ -63,17 +69,6 @@ public class FaultMediatorDeserializer extends AbstractEsbNodeDeserializer<Abstr
 			if(faultMediator.getFaultRole()!=null){
 				executeSetValueCommand(FAULT_MEDIATOR__ROLE_NAME, faultMediator.getFaultRole().getPath());
 			}
-			if("VersionMismatch".equals(faultMediator.getFaultCodeValue().getLocalPart())){
-				executeSetValueCommand(FAULT_MEDIATOR__FAULT_CODE_SOAP12, FaultCodeSoap12.VERSION_MISSMATCH);
-			}else if("MustUnderstand".equals(faultMediator.getFaultCodeValue().getLocalPart())){
-				executeSetValueCommand(FAULT_MEDIATOR__FAULT_CODE_SOAP12, FaultCodeSoap12.MUST_UNDERSTAND);
-			}else if("Sender".equals(faultMediator.getFaultCodeValue().getLocalPart())){
-				executeSetValueCommand(FAULT_MEDIATOR__FAULT_CODE_SOAP12, FaultCodeSoap12.SENDER);
-			}else if("Receiver".equals(faultMediator.getFaultCodeValue().getLocalPart())){
-				executeSetValueCommand(FAULT_MEDIATOR__FAULT_CODE_SOAP12, FaultCodeSoap12.RECEIVER);
-			}else if("DataEncodingUnknown".equals(faultMediator.getFaultCodeValue().getLocalPart())){
-				executeSetValueCommand(FAULT_MEDIATOR__FAULT_CODE_SOAP12, FaultCodeSoap12.DATA_ENCODING_UNKNOWN);
-			}
 			
 			if(faultMediator.getFaultReasonValue()!=null){
 				executeSetValueCommand(FAULT_MEDIATOR__FAULT_REASON_VALUE, faultMediator.getFaultReasonValue());
@@ -84,9 +79,22 @@ public class FaultMediatorDeserializer extends AbstractEsbNodeDeserializer<Abstr
 			}
 			if(faultMediator.getFaultNode()!=null){
 				executeSetValueCommand(FAULT_MEDIATOR__NODE_NAME, faultMediator.getFaultNode().getPath());
-			}			
-			break;	
-			
+			}	
+			if(faultMediator.getFaultCodeValue()!=null){
+				if("VersionMismatch".equals(faultMediator.getFaultCodeValue().getLocalPart())){
+					executeSetValueCommand(FAULT_MEDIATOR__FAULT_CODE_SOAP11, FaultCodeSoap11.VERSION_MISSMATCH);
+				}else if("MustUnderstand".equals(faultMediator.getFaultCodeValue().getLocalPart())){
+					executeSetValueCommand(FAULT_MEDIATOR__FAULT_CODE_SOAP11, FaultCodeSoap11.MUST_UNDERSTAND);
+				}else if("Server".equals(faultMediator.getFaultCodeValue().getLocalPart())){
+					executeSetValueCommand(FAULT_MEDIATOR__FAULT_CODE_SOAP11, FaultCodeSoap11.SERVER);
+				}else if("Client".equals(faultMediator.getFaultCodeValue().getLocalPart())){
+					executeSetValueCommand(FAULT_MEDIATOR__FAULT_CODE_SOAP11, FaultCodeSoap11.CLIENT);
+				}
+			}else if(faultMediator.getFaultCodeExpr()!=null){	
+				executeSetValueCommand(FAULT_MEDIATOR__FAULT_CODE_EXPRESSION, createNamespacedProperty(faultMediator.getFaultCodeExpr()));
+				executeSetValueCommand(FAULT_MEDIATOR__FAULT_CODE_TYPE, FaultCodeType.EXPRESSION);
+			}	
+			break;		
 			
 		case POX:
 			executeSetValueCommand(FAULT_MEDIATOR__SOAP_VERSION, FaultSoapVersion.POX);
