@@ -83,16 +83,6 @@ public class JaxwsFieldController extends AbstractFieldController {
 			}
 		} 
 	}
-	
-	@Override
-	public List<String> getUpdateFields(String modelProperty,
-				ProjectDataModel model) {
-			List<String> fields=super.getUpdateFields(modelProperty, model);
-			if (modelProperty.equals("import.file")) {
-				fields.add("project.name");
-			}
-			return fields;
-		}
 
 	@Override
 	public boolean isEnableField(String modelProperty, ProjectDataModel model) {
