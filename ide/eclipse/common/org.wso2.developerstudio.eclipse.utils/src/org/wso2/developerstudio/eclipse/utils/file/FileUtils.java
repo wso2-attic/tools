@@ -44,14 +44,16 @@ import java.io.OutputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.regex.Pattern;
+import java.util.jar.JarEntry;
+import java.util.jar.JarFile;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
-import org.wso2.developerstudio.eclipse.utils.archive.ArchiveManipulator;
+import org.eclipse.core.runtime.Path;
 import org.wso2.developerstudio.eclipse.utils.data.ITemporaryFileTag;
 import org.wso2.developerstudio.eclipse.utils.internal.model.TempFileTag;
 
@@ -511,80 +513,51 @@ public class FileUtils{
 		return false;
 	}
 	
-	public static Map<File, ArrayList<String>> processJarList(File[] jarsList) throws IOException{
+	public static Map<File, ArrayList<String>> processJarList(File[] jarsList){
 		Map<File, ArrayList<String>> jarInfoMap = new HashMap<File, ArrayList<String>>();
-		for (File jarfile : jarsList) {
-			File tempDir=extractJar(jarfile);
-			List<File> classFiles=searchDir(tempDir);
-			if(!jarInfoMap.containsKey(jarfile)){
-				jarInfoMap.put(jarfile, exportedPackagesList(classFiles,tempDir));
+		for (File jarFile : jarsList) {
+			ArrayList<String> packages = getPackages(jarFile);
+			if(!jarInfoMap.containsKey(jarFile)){
+				jarInfoMap.put(jarFile, packages);
 			}
 		}
-		
 		return jarInfoMap;
 	}
 	
 
-	public static ArrayList<String> exportedPackagesList(List<File> classFiles, File tempDir){
-		List<String> packagesTObeExported = new ArrayList<String>();
-		String exportedpackage;
-		if(classFiles != null && classFiles.size() != 0){
-			for (File classFile : classFiles) {
-				exportedpackage = classFile.getParent().substring(tempDir.getPath().length());
-				String[] packagesInfo = exportedpackage.split(Pattern.quote(File.separator));
-				if (packagesInfo.length>1){
-    				StringBuffer sb=new StringBuffer();
-    				sb.append(packagesInfo[1]);
-    				for (int i =0 ; i< packagesInfo.length - 2;  i++) {
-    					sb.append(".").append(packagesInfo[i+2]);
-    				}
-    				if(!packagesTObeExported.contains(sb.toString())){
-    					packagesTObeExported.add(sb.toString());
-    				}
-				}
-			}
-		}
-		return (ArrayList<String>) packagesTObeExported;
-	}
-	
+	@SuppressWarnings("resource")
+	private static ArrayList<String> getPackages(File jarFile) {
 
-	
-	public static List<File> searchDir(File file){
-		List<File> classFiles=new ArrayList<File>();
-		if(file.isDirectory()){
-			File[] listFiles = file.listFiles();
-			if(listFiles != null){
-				for (File file2 : listFiles) {
-					if(file2.isDirectory()){
-						classFiles.addAll(searchDir(file2));
-					}else{
-						if(file2.getName().endsWith(".class")){
-							if(!classFiles.contains(file2)){
-								classFiles.add(file2);
-							}
-						}
-					}
-				}
-			}else{
-				if(file.getName().endsWith(".class")){
-					if(!classFiles.contains(file)){
-						classFiles.add(file);
-					}
-					
-				}
-			}
+		ArrayList<String> packages = new ArrayList<String>();
+
+		JarFile jar = null;
+		try {
+			jar = new JarFile(jarFile);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		return classFiles;
+		
+		if (jar != null) {
+		    Enumeration<? extends JarEntry> enumeration = jar.entries();
+		    // Iterates into the files in the jar file
+		    while (enumeration.hasMoreElements()) {
+		    	
+		        ZipEntry zipEntry = enumeration.nextElement();
+		        if (zipEntry.getName().endsWith(".class")) {
+		            // Relative path of file into the jar.
+		            String className = zipEntry.getName();
+		            String packageName = new File(className).getParent();
+		            packageName = packageName.replace(Path.SEPARATOR, '.');
+		            if (!packages.contains(packageName)){
+		            	packages.add(packageName);
+		            }
+		        }
+		    }
+		}
+	    return packages;
 	}
-	
-	
-	public static File extractJar(File jarfile) throws IOException{
-		ArchiveManipulator archiveManipulator = new ArchiveManipulator();
-		File tempDir = FileUtils.createTempDirectory();
-		archiveManipulator.extract(jarfile.getPath(), tempDir.getPath());
-		return tempDir;
-	}
-	
+
 	public static String getContentAsString(URL url) throws IOException {
 		InputStream openStream = url.openStream();
 	    String contentAsString = getContentAsString(openStream);
