@@ -201,7 +201,7 @@ public class MessageStoreModel extends ProjectDataModel  {
 		if (key.equals(Constants.FIELD_STORE_TYPE)) {
 			setMessageStoreType((MessageStoreType) data);
 		} else if (key.equals(Constants.FIELD_CUSTOM_PROVIDER_CLASS)) {
-			setJmsApiVersion(data.toString());
+			setCustomProviderClass(data.toString());
 		} else if (key.equals(Constants.FIELD_JMS_CONNECTION_FACTORY)) {
 			setJmsConnectionFactory(data.toString());
 		} else if (key.equals(Constants.FIELD_JMS_CONTEXT_FACTORY)) {

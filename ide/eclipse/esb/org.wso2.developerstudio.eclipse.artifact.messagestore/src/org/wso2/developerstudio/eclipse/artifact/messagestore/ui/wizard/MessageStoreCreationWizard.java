@@ -17,7 +17,12 @@
 package org.wso2.developerstudio.eclipse.artifact.messagestore.ui.wizard;
 
 import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.regex.Pattern;
+
+import javax.xml.namespace.QName;
 
 import org.wso2.developerstudio.eclipse.artifact.messagestore.Activator;
 import org.wso2.developerstudio.eclipse.artifact.messagestore.model.MessageStoreModel;
@@ -40,7 +45,9 @@ import static org.wso2.developerstudio.eclipse.artifact.messagestore.Constants.*
 import org.apache.synapse.config.xml.MessageStoreSerializer;
 import org.apache.synapse.message.store.InMemoryMessageStore;
 import org.apache.axiom.om.OMAbstractFactory;
+import org.apache.axiom.om.OMAttribute;
 import org.apache.axiom.om.OMElement;
+import org.apache.commons.lang.StringUtils;
 
 /**
  * WSO2 message-store creation wizard class
@@ -63,7 +70,6 @@ public class MessageStoreCreationWizard extends AbstractWSO2ProjectCreationWizar
 
 	@Override
 	public IResource getCreatedResource() {
-		// TODO:
 		return null;
 	}
 
@@ -130,21 +136,58 @@ public class MessageStoreCreationWizard extends AbstractWSO2ProjectCreationWizar
 	}
 	
 	private String getTemplateContent(){
-		MessageStoreSerializer serializer = new MessageStoreSerializer();
+		Map<String,Object> parameters = new HashMap<String,Object>();
 		OMElement wrap = OMAbstractFactory.getOMFactory().createOMElement("wrap",null);
+		String className = "org.apache.synapse.message.store.InMemoryMessageStore";
+		InMemoryMessageStore store = new InMemoryMessageStore();
+		store.setName(messageStoreModel.getStoreName());
+		String lineSeparator = System.getProperty("line.separator","\n");
+		
 		if(messageStoreModel.getMessageStoreType()==MessageStoreType.CUSTOM){
-			//TODO:
+			className = messageStoreModel.getCustomProviderClass();
+			for (Entry<String, String> param : messageStoreModel
+					.getCustomParameters().entrySet()) {
+				if(!StringUtils.isBlank(param.getKey()) && !StringUtils.isBlank(param.getValue())){
+					parameters.put(param.getKey(), param.getValue().toString());
+				}
+			}
 		} else if(messageStoreModel.getMessageStoreType()==MessageStoreType.JMS){
-			//TODO:
-		} else{
-			InMemoryMessageStore inMemory = new InMemoryMessageStore();
-			inMemory.setName(messageStoreModel.getStoreName());
-			serializer.serializeMessageStore(wrap, inMemory);
-		}
-		
+			className = "org.wso2.carbon.message.store.persistence.jms.JMSMessageStore";
+			if(!StringUtils.isBlank(messageStoreModel.getJmsContextFactory())){
+				parameters.put("java.naming.factory.initial", messageStoreModel.getJmsContextFactory());
+			}
+			if(!StringUtils.isBlank(messageStoreModel.getJmsProviderUrl())){
+				parameters.put("java.naming.provider.url", messageStoreModel.getJmsProviderUrl());
+			}
+			if(!StringUtils.isBlank(messageStoreModel.getJmsQueueName())){
+				parameters.put("store.jms.destination", messageStoreModel.getJmsQueueName());
+			}
+			if(!StringUtils.isBlank(messageStoreModel.getJmsConnectionFactory())){
+				parameters.put("store.jms.connection.factory", messageStoreModel.getJmsConnectionFactory());
+			}
+			if(!StringUtils.isBlank(messageStoreModel.getJmsUsername())){
+				parameters.put("store.jms.username", messageStoreModel.getJmsUsername());
+			}
+			if(!StringUtils.isBlank(messageStoreModel.getJmsPassword())){
+				parameters.put("store.jms.password", messageStoreModel.getJmsPassword());
+			}
+			if(!StringUtils.isBlank(messageStoreModel.getJmsApiVersion())){
+				parameters.put("store.jms.JMSSpecVersion", messageStoreModel.getJmsApiVersion());
+			}
+			parameters.put("store.jms.cache.connection", ((Boolean)messageStoreModel.getJmsEnableCaching()).toString());
+			parameters.put("store.jms.ConsumerReceiveTimeOut", ((Integer)messageStoreModel.getJmsTimeout()).toString());
+
+		} 
+		store.setParameters(parameters);
+		MessageStoreSerializer.serializeMessageStore(wrap, store);
 		OMElement messageStoreElement = wrap.getFirstElement();
-		
-		return messageStoreElement.toString();
+		OMAttribute classAttr = messageStoreElement.getAttribute(new QName("class"));
+		if(classAttr!=null){
+			classAttr.setAttributeValue(className);
+		} else{
+			messageStoreElement.addAttribute("class", className, null);
+		}
+		return messageStoreElement.toString().replace("><", ">" + lineSeparator + "<");
 	}
 
 }
