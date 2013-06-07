@@ -18,6 +18,8 @@ package org.wso2.developerstudio.eclipse.artifact.messagestore.validator;
 
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
+import org.eclipse.core.resources.IResource;
 import org.wso2.developerstudio.eclipse.artifact.messagestore.Constants;
 import org.wso2.developerstudio.eclipse.artifact.messagestore.model.MessageStoreModel;
 import org.wso2.developerstudio.eclipse.artifact.messagestore.provider.MessageStoreTypeList.MessageStoreType;
@@ -43,7 +45,7 @@ public class MessageStoreFieldController  extends AbstractFieldController  {
 			CommonFieldValidator.validateArtifactName(value);
 		} else if (key.equals(Constants.FIELD_CUSTOM_PROVIDER_CLASS)) {
 			if(custom){
-				CommonFieldValidator.validateJavaClassNameField(value);
+				CommonFieldValidator.validateJavaFQN(value);
 			}
 		} else if (key.equals(Constants.FIELD_JMS_CONTEXT_FACTORY)) {
 			if(jms){
@@ -55,9 +57,15 @@ public class MessageStoreFieldController  extends AbstractFieldController  {
 			}
 		} else if (key.equals(Constants.FIELD_JMS_TIMEOUT)) {
 			if(jms){
-				
+				if(!StringUtils.isNumeric(value.toString())){
+					throw new FieldValidationException("Class name is invalid");
+				}
 			}
-		} 
+		} else if (key.equals(Constants.FIELD_SAVE_LOCATION)) {
+			IResource resource = (IResource) value;
+			if (resource == null || !resource.exists())
+				throw new FieldValidationException("Specified project or path doesn't exist.");
+		}
 	}
 	
 	@Override
