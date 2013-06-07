@@ -17,7 +17,6 @@
 package org.wso2.developerstudio.eclipse.esb.project.provider;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -38,7 +37,6 @@ import org.eclipse.jface.viewers.TreeSelection;
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchWindow;
-import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.ide.IDE;
 import org.eclipse.ui.navigator.CommonActionProvider;
@@ -73,6 +71,8 @@ public class NavigatorActionProvider extends CommonActionProvider {
 	private static final String TEMPLATE="template";
 	private static final String TASK="task";
 	private static final String API="api";
+	private static final String MESSAGE_STORE="message-store";
+	private static final String MESSAGE_PROCESSOR="message-processor";
 	
 	private OpenEditorAction openEditorAction;
 	private static Map<String,String> prefixMap = new HashMap<String,String>();
@@ -135,6 +135,8 @@ public class NavigatorActionProvider extends CommonActionProvider {
 					.replaceFirst("/tasks/", "/tasks/task_")
 					.replaceFirst("/templates/","/templates/template_")
 					.replaceFirst("/api/","/api/api_")
+					.replaceFirst("/message-stores/","/message-stores/message-store_")
+					.replaceFirst("/message-processors/","/message-processors/message-processor_")
 					.replaceAll(".xml$", ".esb_diagram");
 
 			IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
@@ -153,7 +155,7 @@ public class NavigatorActionProvider extends CommonActionProvider {
 							IDE.openEditor(page, fileTobeOpen);
 					} else {							
 						String[] type=getType(selection.getLocation().toOSString());
-						if("full-synapse".equals(type[0])){							
+						if(type.length==0 || "full-synapse".equals(type[0])){							
 							fileTobeOpen = selection.getWorkspace().getRoot().getFile(new Path(synFilePath));
 							page.openEditor(new FileEditorInput(fileTobeOpen),"org.wso2.developerstudio.eclipse.esb.presentation.EsbEditor");
 						}else{
@@ -307,11 +309,15 @@ public class NavigatorActionProvider extends CommonActionProvider {
 					return new String[] { "task", TASK };
 				} else if (currentLine.contains("<api")) {
 					return new String[] { "api", API };
+				} else if (currentLine.contains("<messageStore")) {
+					return new String[] { MESSAGE_STORE, MESSAGE_STORE };
+				} else if (currentLine.contains("<messageProcessor")) {
+					return new String[] { MESSAGE_PROCESSOR, MESSAGE_PROCESSOR };
 				} else if (currentLine.contains("<definitions")) {
 					return new String[] { "full-synapse", "full-synapse" };
 				}
 			}
-			return null;
+			return new String[] {};
 		}
 	}
 }
