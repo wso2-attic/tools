@@ -38,8 +38,23 @@ public static void validateJavaClassNameField(Object value) throws FieldValidati
 	}	
 }
 
+public static void validateJavaFQN(Object value) throws FieldValidationException{
+	String className = value.toString();
+	if ("".equals(className)) {
+		throw new FieldValidationException("Class name cannot be empty");
+	} else {
+		if (!isJavaFQN(className)){
+			throw new FieldValidationException("Class name is invalid");
+		}
+	}	
+}
+
 public static boolean isJavaClassName(String name){
 	return name.matches("^[a-zA-Z_$][a-zA-Z\\d_$]*");
+}
+
+public static boolean isJavaFQN(String name){
+	return name.matches("^([a-zA-Z_$][a-zA-Z\\d_$]*\\.)*[a-zA-Z_$][a-zA-Z\\d_$]*");
 }
 
 public static boolean isJavaPackageName(String name){
