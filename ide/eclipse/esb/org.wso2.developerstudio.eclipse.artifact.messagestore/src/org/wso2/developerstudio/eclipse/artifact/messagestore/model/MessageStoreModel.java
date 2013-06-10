@@ -258,7 +258,7 @@ public class MessageStoreModel extends ProjectDataModel  {
 			}
 		} else if(key.equals(Constants.FIELD_SAVE_LOCATION)){
 			setSaveLocation((IContainer) data);
-		} if (key.equals(Constants.FIELD_IMPORT_FILE)) {
+		} else if (key.equals(Constants.FIELD_IMPORT_FILE)) {
 			if (getImportFile() != null && !getImportFile().toString().equals("")) {
 				try {
 					List<OMElement> availableStores = new ArrayList<OMElement>();
