@@ -30,7 +30,11 @@ public class SynapseFileUtils {
 		case API:
 			return "api";	
 		case TEMPLATE:
-			return "template";		
+			return "template";	
+		case MESSAGE_STORE:
+			return "messageStore";
+		case MESSAGE_PROCESSOR:
+			return "messageProcessor";	
 		case ALL:
 			return "";
 		default:
@@ -94,7 +98,15 @@ public class SynapseFileUtils {
 						if (!editorList.contains(childnode)) {
 							editorList.add(childnode);
 						}
-					}else if(childnode.getLocalName().equals("template")){
+					} else if(childnode.getLocalName().equals("template")){
+						if (!editorList.contains(childnode)) {
+							editorList.add(childnode);
+						}
+					} else if(childnode.getLocalName().equals("messageStore")){
+						if (!editorList.contains(childnode)) {
+							editorList.add(childnode);
+						}
+					} else if(childnode.getLocalName().equals("messageProcessor")){
 						if (!editorList.contains(childnode)) {
 							editorList.add(childnode);
 						}

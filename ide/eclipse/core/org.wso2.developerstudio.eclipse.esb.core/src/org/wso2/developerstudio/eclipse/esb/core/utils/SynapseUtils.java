@@ -52,6 +52,10 @@ public class SynapseUtils {
 			return "api";
 		case TEMPLATE:
 			return "template";
+		case MESSAGE_STORE:
+			return "messageStore";
+		case MESSAGE_PROCESSOR:
+			return "messageProcessor";	
 		case ALL:
 			return "";
 		default:
@@ -94,6 +98,12 @@ public class SynapseUtils {
 			}else if(name.equals("templates")){
 				processFiles(editorList, synapseConfigFolderPath + "/"
 						+ ADDITIONAL_FOLDERS + "/templates",SynapseEntryType.TEMPLATE);
+			} else if(name.equals("templates")){
+				processFiles(editorList, synapseConfigFolderPath + "/"
+						+ ADDITIONAL_FOLDERS + "/message-stores",SynapseEntryType.MESSAGE_STORE);
+			} else if(name.equals("templates")){
+				processFiles(editorList, synapseConfigFolderPath + "/"
+						+ ADDITIONAL_FOLDERS + "/message-processors",SynapseEntryType.MESSAGE_PROCESSOR);
 			}
 		}
 		return editorList;
