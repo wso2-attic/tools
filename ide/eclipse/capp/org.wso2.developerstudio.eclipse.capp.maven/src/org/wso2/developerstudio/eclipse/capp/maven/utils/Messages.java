@@ -35,6 +35,8 @@ public final class Messages extends NLS {
 	public static String WSO2_GENERAL_PROJECT_VERSION;
 	public static String MAVEN_CAR_DEPLOY_VERSION;
 	public static String MAVEN_BRS_VERSION;
+	public static String WSO2_ESB_MESSAGE_STORE_PLUGIN_VERSION;
+	public static String WSO2_ESB_MESSAGE_PROCESSOR_PLUGIN_VERSION;
 	static {
 		// initialize resource bundle
 		NLS.initializeMessages(BUNDLE_NAME, Messages.class);
