@@ -19,9 +19,16 @@ package org.wso2.developerstudio.eclipse.artifact.messagestore.model;
 import static org.wso2.developerstudio.eclipse.platform.core.utils.Constants.ESB_PROJECT_NATURE;
 
 import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import javax.xml.stream.XMLStreamException;
+
+import org.apache.axiom.om.OMElement;
+import org.apache.axiom.om.OMException;
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -36,6 +43,8 @@ import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.platform.core.exception.ObserverFailedException;
 import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectDataModel;
+import org.wso2.developerstudio.eclipse.esb.core.utils.SynapseEntryType;
+import org.wso2.developerstudio.eclipse.esb.core.utils.SynapseFileUtils;
 
 /**
  * The model class for message-store artifact wizard specific objects.
@@ -60,6 +69,13 @@ public class MessageStoreModel extends ProjectDataModel  {
 	private String storeName;
 	private IContainer saveLocation;
 	private Map<String,String> customParameters = new HashMap<String,String>();
+	private List<OMElement> availableStoreslist;
+	private List<OMElement> selectedStoresList;
+	
+	public MessageStoreModel() {
+		availableStoreslist = new ArrayList<OMElement>();
+		selectedStoresList = new ArrayList<OMElement>();
+	}
 
 	public MessageStoreType getMessageStoreType() {
 		return messageStoreType;
@@ -188,8 +204,12 @@ public class MessageStoreModel extends ProjectDataModel  {
 			value = getJmsUsername();
 		} else if (key.equals(Constants.FIELD_STORE_NAME)) {
 			value = getStoreName();
-		}  else if(key.equals(Constants.FIELD_SAVE_LOCATION)){
+		} else if(key.equals(Constants.FIELD_SAVE_LOCATION)){
 			value = getSaveLocation();
+		} else if(key.equals(Constants.FIELD_AVAILABLE_STORES)){
+			if(selectedStoresList!=null){
+			value = selectedStoresList.toArray();
+				}
 		}
 		return value;
 	}
@@ -238,6 +258,40 @@ public class MessageStoreModel extends ProjectDataModel  {
 			}
 		} else if(key.equals(Constants.FIELD_SAVE_LOCATION)){
 			setSaveLocation((IContainer) data);
+		} if (key.equals(Constants.FIELD_IMPORT_FILE)) {
+			if (getImportFile() != null && !getImportFile().toString().equals("")) {
+				try {
+					List<OMElement> availableStores = new ArrayList<OMElement>();
+					if (SynapseFileUtils.isSynapseConfGiven(getImportFile(),
+					                                        SynapseEntryType.MESSAGE_STORE)) {
+						availableStores =
+						        SynapseFileUtils.synapseFileProcessing(getImportFile().getPath(),
+						        		SynapseEntryType.MESSAGE_STORE);
+						setAvailableStoreslist(availableStores);
+					} else {
+						setAvailableStoreslist(new ArrayList<OMElement>());
+					}
+					result = false;
+				} catch (OMException e) {
+					log.error("Error reading object model", e);
+				} catch (XMLStreamException e) {
+					log.error("XML stream error", e);
+				} catch (IOException e) {
+					log.error("I/O error has occurred", e);
+				} catch (Exception e) {
+					log.error("An unexpected error has occurred", e);
+				}
+			}
+		} else if(key.equals(Constants.FIELD_AVAILABLE_STORES)){
+			Object[] selectedStores = (Object[])data;
+			selectedStoresList.clear();
+			for (Object object : selectedStores) {
+				if(object instanceof OMElement){
+					if(!selectedStoresList.contains((OMElement)object)){
+						selectedStoresList.add((OMElement)object);
+					}
+				}
+			}
 		}
 		return result;
 	}
@@ -295,6 +349,22 @@ public class MessageStoreModel extends ProjectDataModel  {
 
 	public void setSaveLocation(IContainer saveLocation) {
 		this.saveLocation = saveLocation;
+	}
+
+	public List<OMElement> getAvailableStoreslist() {
+		return availableStoreslist;
+	}
+
+	public void setAvailableStoreslist(List<OMElement> availableStoreslist) {
+		this.availableStoreslist = availableStoreslist;
+	}
+
+	public List<OMElement> getSelectedStoresList() {
+		return selectedStoresList;
+	}
+
+	public void setSelectedStoresList(List<OMElement> selectedStoresList) {
+		this.selectedStoresList = selectedStoresList;
 	}
 
 }

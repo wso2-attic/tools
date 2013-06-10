@@ -18,9 +18,9 @@ package org.wso2.developerstudio.eclipse.artifact.messagestore.validator;
 
 import java.util.List;
 
+import org.apache.axiom.om.OMElement;
 import org.apache.commons.lang.StringUtils;
 import org.eclipse.core.resources.IResource;
-import org.wso2.developerstudio.eclipse.artifact.messagestore.Constants;
 import org.wso2.developerstudio.eclipse.artifact.messagestore.model.MessageStoreModel;
 import org.wso2.developerstudio.eclipse.artifact.messagestore.provider.MessageStoreTypeList.MessageStoreType;
 import org.wso2.developerstudio.eclipse.platform.core.exception.FieldValidationException;
@@ -41,30 +41,39 @@ public class MessageStoreFieldController  extends AbstractFieldController  {
 		boolean jms = ((MessageStoreModel) model).getMessageStoreType() == MessageStoreType.JMS;
 		boolean custom = ((MessageStoreModel) model).getMessageStoreType() == MessageStoreType.CUSTOM;
 
-		if (key.equals(Constants.FIELD_STORE_NAME)) {
+		if (key.equals(FIELD_STORE_NAME)) {
 			CommonFieldValidator.validateArtifactName(value);
-		} else if (key.equals(Constants.FIELD_CUSTOM_PROVIDER_CLASS)) {
+		} else if (key.equals(FIELD_CUSTOM_PROVIDER_CLASS)) {
 			if(custom){
 				CommonFieldValidator.validateJavaFQN(value);
 			}
-		} else if (key.equals(Constants.FIELD_JMS_CONTEXT_FACTORY)) {
+		} else if (key.equals(FIELD_JMS_CONTEXT_FACTORY)) {
 			if(jms){
 				CommonFieldValidator.validateRequiredField(value,"JMS context factory cannot be empty");
 			}
-		} else if (key.equals(Constants.FIELD_JMS_PROVIDER_URL)) {
+		} else if (key.equals(FIELD_JMS_PROVIDER_URL)) {
 			if(jms){
 				CommonFieldValidator.validateRequiredField(value,"JMS Provide url cannot be empty");
 			}
-		} else if (key.equals(Constants.FIELD_JMS_TIMEOUT)) {
+		} else if (key.equals(FIELD_JMS_TIMEOUT)) {
 			if(jms){
 				if(!StringUtils.isNumeric(value.toString())){
-					throw new FieldValidationException("Class name is invalid");
+					throw new FieldValidationException("Time-out value is invalid");
 				}
 			}
-		} else if (key.equals(Constants.FIELD_SAVE_LOCATION)) {
+		} else if (key.equals(FIELD_SAVE_LOCATION)) {
 			IResource resource = (IResource) value;
 			if (resource == null || !resource.exists())
 				throw new FieldValidationException("Specified project or path doesn't exist.");
+		} else if (key.equals(FIELD_IMPORT_FILE)) {
+			 CommonFieldValidator.validateImportFile(value);
+		}  else if(key.equals(FIELD_AVAILABLE_STORES)){
+			MessageStoreModel storeModel = (MessageStoreModel) model; 
+			if(null!=storeModel.getAvailableStoreslist() && storeModel.getAvailableStoreslist().size()>0){
+				if(null==storeModel.getSelectedStoresList() || storeModel.getSelectedStoresList().size() <=0){
+					throw new FieldValidationException("Please select at least one artifact");
+			 }
+		  }
 		}
 	}
 	
@@ -87,7 +96,9 @@ public class MessageStoreFieldController  extends AbstractFieldController  {
 			updateFields.add(FIELD_CUSTOM_PARAMETERS);
 		} else if (modelProperty.equals(FIELD_CREATE_ESB_PRJ)) {
 			updateFields.add(FIELD_SAVE_LOCATION);
-		}
+		} else if (modelProperty.equals(FIELD_IMPORT_FILE)){
+			updateFields.add(FIELD_AVAILABLE_STORES);
+		} 
 		return updateFields;
 	}
 	
@@ -99,9 +110,21 @@ public class MessageStoreFieldController  extends AbstractFieldController  {
 		} else if (modelProperty.equals(FIELD_CUSTOM_PROVIDER_CLASS)
 				|| modelProperty.equals(FIELD_CUSTOM_PARAMETERS)) {
 			visibleField = ((MessageStoreModel) model).getMessageStoreType() == MessageStoreType.CUSTOM;
+		} else if (modelProperty.equals(FIELD_AVAILABLE_STORES)) {
+			List<OMElement> availableStores = ((MessageStoreModel) model).getAvailableStoreslist();
+			visibleField = (availableStores != null && availableStores.size() > 0);
 		}
 		
 		return visibleField;
+	}
+	
+	@Override
+	public boolean isReadOnlyField(String modelProperty, ProjectDataModel model) {
+		boolean readOnlyField = super.isReadOnlyField(modelProperty, model);
+		if (modelProperty.equals(FIELD_SAVE_LOCATION)) {
+			readOnlyField = true;
+		}
+		return readOnlyField;
 	}
 
 }
