@@ -64,15 +64,15 @@ import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 
 public abstract class AbstractWSO2ProjectCreationWizard extends Wizard implements INewWizard,
                                                                       IExecutableExtension {
-	private static final String SNAPSHOTS_UPDATE_POLICY = "SNAPSHOTS_UPDATE_POLICY";
-	private static final String SNAPSHOTS_CHECKSUM_POLICY = "SNAPSHOTS_CHECKSUM_POLICY";
-	private static final String SNAPSHOTS_ENABLED = "SNAPSHOTS_ENABLED";
-	private static final String RELEASES_UPDATE_POLICY = "RELEASES_UPDATE_POLICY";
-	private static final String RELEASES_CHECKSUM_POLICY = "RELEASES_CHECKSUM_POLICY";
-	private static final String RELEASES_ENABLED = "RELEASES_ENABLED";
-	private static final String GLOBAL_REPOSITORY_ID = "GLOBAL_REPOSITORY_ID";
-	private static final String GLOBAL_REPOSITORY_URL = "GLOBAL_REPOSITORY_URL";
-	private static final String DISABLE_WSO2_REPOSITORY = "DISABLE_WSO2_REPOSITORY";
+	protected static final String SNAPSHOTS_UPDATE_POLICY = "SNAPSHOTS_UPDATE_POLICY";
+	protected static final String SNAPSHOTS_CHECKSUM_POLICY = "SNAPSHOTS_CHECKSUM_POLICY";
+	protected static final String SNAPSHOTS_ENABLED = "SNAPSHOTS_ENABLED";
+	protected static final String RELEASES_UPDATE_POLICY = "RELEASES_UPDATE_POLICY";
+	protected static final String RELEASES_CHECKSUM_POLICY = "RELEASES_CHECKSUM_POLICY";
+	protected static final String RELEASES_ENABLED = "RELEASES_ENABLED";
+	protected static final String GLOBAL_REPOSITORY_ID = "GLOBAL_REPOSITORY_ID";
+	protected static final String GLOBAL_REPOSITORY_URL = "GLOBAL_REPOSITORY_URL";
+	protected static final String DISABLE_WSO2_REPOSITORY = "DISABLE_WSO2_REPOSITORY";
 	
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	private ProjectDataModel model;
@@ -113,7 +113,7 @@ public abstract class AbstractWSO2ProjectCreationWizard extends Wizard implement
 		}
 	}
 	
-	private Repository getGlobalRepositoryFromPreference(){
+	protected Repository getGlobalRepositoryFromPreference(){
 		
 		String repoURL = preferencesService.
 		  getString("org.wso2.developerstudio.eclipse.platform.ui", GLOBAL_REPOSITORY_URL, null, null);
