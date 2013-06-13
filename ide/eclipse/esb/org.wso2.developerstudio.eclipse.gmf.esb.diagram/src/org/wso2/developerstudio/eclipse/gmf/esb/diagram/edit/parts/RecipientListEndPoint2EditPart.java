@@ -110,7 +110,7 @@ public class RecipientListEndPoint2EditPart extends ComplexFiguredAbstractEndpoi
 		};
 		return lep;
 	}
-	
+
 	/**
 	 * @generated NOT
 	 */
@@ -120,7 +120,8 @@ public class RecipientListEndPoint2EditPart extends ComplexFiguredAbstractEndpoi
 			double position;
 			EObject parentEndpoint = ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (childEditPart
 					.getParent()).getModel()).getElement();
-			if (((RecipientListEndPoint) parentEndpoint).getInputConnector().getIncomingLinks().size() != 0) {
+			if (((RecipientListEndPoint) parentEndpoint).getInputConnector().getIncomingLinks()
+					.size() != 0) {
 				EObject source = ((RecipientListEndPoint) parentEndpoint).getInputConnector()
 						.getIncomingLinks().get(0).getSource().eContainer();
 				position = ((source instanceof ComplexEndpoints) || (source.eContainer()
@@ -191,8 +192,7 @@ public class RecipientListEndPoint2EditPart extends ComplexFiguredAbstractEndpoi
 	protected IFigure createNodeShape() {
 		return primaryShape = new RecipientListEndPointFigure();
 	}
-	
-	
+
 	/**
 	 * @generated NOT
 	 */
@@ -202,7 +202,6 @@ public class RecipientListEndPoint2EditPart extends ComplexFiguredAbstractEndpoi
 		}
 		return getContentPane();
 	}
-
 
 	/**
 	 * @generated
@@ -309,7 +308,7 @@ public class RecipientListEndPoint2EditPart extends ComplexFiguredAbstractEndpoi
 
 			this.setBackgroundColor(THIS_BACK);
 		}
-		
+
 		@Override
 		public String getIconPath() {
 			return "icons/ico20/recipientlist-endpoint.gif";

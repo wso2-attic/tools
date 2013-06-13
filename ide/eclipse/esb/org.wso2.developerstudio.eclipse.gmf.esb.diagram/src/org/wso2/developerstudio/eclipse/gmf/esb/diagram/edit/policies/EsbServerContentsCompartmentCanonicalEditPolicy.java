@@ -24,6 +24,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ComplexEndpointsEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.LocalEntryEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MergeNodeEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MessageStoreEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequencesEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SynapseAPIEditPart;
@@ -93,6 +94,7 @@ public class EsbServerContentsCompartmentCanonicalEditPolicy extends CanonicalEd
 		case TaskEditPart.VISUAL_ID:
 		case SynapseAPIEditPart.VISUAL_ID:
 		case ComplexEndpointsEditPart.VISUAL_ID:
+		case MessageStoreEditPart.VISUAL_ID:
 			return true;
 		}
 		return false;

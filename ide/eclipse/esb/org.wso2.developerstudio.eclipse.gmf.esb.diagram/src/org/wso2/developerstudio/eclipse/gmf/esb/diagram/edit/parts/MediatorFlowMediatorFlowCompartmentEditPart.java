@@ -393,8 +393,9 @@ public class MediatorFlowMediatorFlowCompartmentEditPart extends
 			RecipientListEndPointEditPart endpointEditPart = (RecipientListEndPointEditPart) child;
 			EObject parentEndpoint = ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (endpointEditPart)
 					.getModel()).getElement();
-			
-			if (((RecipientListEndPoint) parentEndpoint).getInputConnector().getIncomingLinks().size() == 0) {
+
+			if (((RecipientListEndPoint) parentEndpoint).getInputConnector().getIncomingLinks()
+					.size() == 0) {
 				if (((RecipientListEndPoint) parentEndpoint).getWestOutputConnector() == null) {
 					SetCommand addCmd = new SetCommand(getEditingDomain(), parentEndpoint,
 							EsbPackage.Literals.RECIPIENT_LIST_END_POINT__WEST_OUTPUT_CONNECTOR,
@@ -404,7 +405,7 @@ public class MediatorFlowMediatorFlowCompartmentEditPart extends
 					}
 				}
 			}
-		} 
+		}
 	}
 
 	protected void removeChild(EditPart child) {

@@ -490,7 +490,6 @@ public class LoadBalanceEndPointWestOutputConnector2EditPart extends AbstractBor
 		 * @generated
 		 */
 		public WestPointerFigure() {
-
 			this.setBackgroundColor(THIS_BACK);
 			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(12), getMapMode().DPtoLP(10)));
 		}

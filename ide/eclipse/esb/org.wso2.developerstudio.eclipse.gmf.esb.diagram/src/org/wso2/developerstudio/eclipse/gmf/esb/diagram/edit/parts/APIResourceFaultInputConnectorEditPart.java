@@ -364,7 +364,7 @@ public class APIResourceFaultInputConnectorEditPart extends
 
 		}
 	}
-	
+
 	@Override
 	public Command getCommand(Request request) {
 		if (request instanceof CreateConnectionViewAndElementRequest) {
@@ -381,7 +381,7 @@ public class APIResourceFaultInputConnectorEditPart extends
 		}
 		return super.getCommand(request);
 	}
-	
+
 	@Override
 	public boolean isSelectable() {
 		return false;

@@ -513,7 +513,7 @@ public class MediatorFlowMediatorFlowCompartment5EditPart extends
 	public void setSourceEditPart(ShapeNodeEditPart sourceEditPart) {
 		this.sourceEditPart = sourceEditPart;
 	}
-	
+
 	@Override
 	protected void handleNotificationEvent(Notification notification) {
 		if (notification.getEventType() == Notification.ADD
@@ -527,7 +527,7 @@ public class MediatorFlowMediatorFlowCompartment5EditPart extends
 			if (preferredSize.width < bounds.width || preferredSize.height < bounds.height) {
 				SetBoundsCommand sbc = new SetBoundsCommand(owner.getEditingDomain(),
 						"change location", new EObjectAdapter((View) owner.getModel()),
-						new Rectangle(-1, -1, bounds.width + 75,-1));
+						new Rectangle(-1, -1, bounds.width + 75, -1));
 				owner.getDiagramEditDomain().getDiagramCommandStack()
 						.execute(new ICommandProxy(sbc));
 			}

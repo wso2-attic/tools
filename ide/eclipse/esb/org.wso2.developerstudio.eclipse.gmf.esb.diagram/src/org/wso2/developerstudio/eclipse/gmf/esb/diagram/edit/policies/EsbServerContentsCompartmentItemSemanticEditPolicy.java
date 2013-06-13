@@ -5,6 +5,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.ComplexEndpointsCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.LocalEntryCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.MergeNodeCreateCommand;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.MessageStoreCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.ProxyServiceCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.SequencesCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.SynapseAPICreateCommand;
@@ -52,6 +53,9 @@ public class EsbServerContentsCompartmentItemSemanticEditPolicy extends
 		}
 		if (EsbElementTypes.ComplexEndpoints_3677 == req.getElementType()) {
 			return getGEFWrapper(new ComplexEndpointsCreateCommand(req));
+		}
+		if (EsbElementTypes.MessageStore_3700 == req.getElementType()) {
+			return getGEFWrapper(new MessageStoreCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

@@ -72,8 +72,8 @@ import static org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtil
  * @generated
  */
 public class EsbPaletteFactory {
-	
-	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
+
+	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
 
 	/**
 	 * @generated NOT
@@ -1082,8 +1082,7 @@ public class EsbPaletteFactory {
 
 	}
 
-	private ArrayList<String> addDefinedArtifacts(IEditorPart editor, String dir,
-			String type) {
+	private ArrayList<String> addDefinedArtifacts(IEditorPart editor, String dir, String type) {
 		ArrayList<String> definedArtifacts = new ArrayList<String>();
 		if (editor != null) {
 			IFileEditorInput input = (IFileEditorInput) editor.getEditorInput();
@@ -1091,31 +1090,31 @@ public class EsbPaletteFactory {
 			IProject activeProject = file.getProject();
 			//FIXME: scan whole workspace
 			try {
-					if (activeProject
-							.hasNature("org.wso2.developerstudio.eclipse.esb.project.nature")) {
-						
-						ESBProjectArtifact esbProjectArtifact = new ESBProjectArtifact();
-						File projectPath = activeProject.getLocation().toFile();
-						try {
-							esbProjectArtifact.fromFile(activeProject.getFile("artifact.xml")
-									.getLocation().toFile());
-							List<ESBArtifact> allESBArtifacts = esbProjectArtifact.getAllESBArtifacts();
-							for (ESBArtifact esbArtifact : allESBArtifacts) {
-								if(esbArtifact.getType().equals(type)){
-									File artifact =new File(projectPath, esbArtifact.getFile());
-									definedArtifacts.add(artifact.getName().replaceAll("[.]xml$",""));
-								}
+				if (activeProject.hasNature("org.wso2.developerstudio.eclipse.esb.project.nature")) {
+
+					ESBProjectArtifact esbProjectArtifact = new ESBProjectArtifact();
+					File projectPath = activeProject.getLocation().toFile();
+					try {
+						esbProjectArtifact.fromFile(activeProject.getFile("artifact.xml")
+								.getLocation().toFile());
+						List<ESBArtifact> allESBArtifacts = esbProjectArtifact.getAllESBArtifacts();
+						for (ESBArtifact esbArtifact : allESBArtifacts) {
+							if (esbArtifact.getType().equals(type)) {
+								File artifact = new File(projectPath, esbArtifact.getFile());
+								definedArtifacts.add(artifact.getName().replaceAll("[.]xml$", ""));
 							}
-						} catch (Exception e) {
-							log.error("Error occured while scanning the project for " + type + " artifacts", e);
 						}
+					} catch (Exception e) {
+						log.error("Error occured while scanning the project for " + type
+								+ " artifacts", e);
 					}
+				}
 			} catch (CoreException e) {
 				log.error("Error occured while scanning the project", e);
 			}
 
 		}
-		
+
 		return definedArtifacts;
 	}
 

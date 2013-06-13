@@ -132,11 +132,11 @@ public class ProxyServiceEditPart extends AbstractBaseFigureEditPart {
 		super.notifyChanged(notification);
 		if (notification.getFeature() instanceof EAttributeImpl) {
 			if (notification.getNotifier() instanceof BoundsImpl) {
-				int y=((BoundsImpl) notification.getNotifier()).getY();
-				if(y ==-1){
-					y=+2;
+				int y = ((BoundsImpl) notification.getNotifier()).getY();
+				if (y == -1) {
+					y = +2;
 				}
-				alignLeft(y,((BoundsImpl) notification.getNotifier()).getWidth(),
+				alignLeft(y, ((BoundsImpl) notification.getNotifier()).getWidth(),
 						((BoundsImpl) notification.getNotifier()).getHeight());
 				FigureCanvas canvas = (FigureCanvas) getViewer().getControl();
 				canvas.getViewport().repaint();
@@ -435,8 +435,8 @@ public class ProxyServiceEditPart extends AbstractBaseFigureEditPart {
 			this.setBackgroundColor(THIS_BACK);
 			this.setLineStyle(Graphics.LINE_SOLID);
 			this.setOutline(true);
-/*			LineBorder border0 = new LineBorder(new Color(null, 0, 0, 0), 1, SWT.BORDER_SOLID);
-			this.setBorder(border0);*/
+			/*			LineBorder border0 = new LineBorder(new Color(null, 0, 0, 0), 1, SWT.BORDER_SOLID);
+			 this.setBorder(border0);*/
 			this.setForegroundColor(new Color(null, 0, 0, 0));
 			//this.setOutlineXOR(true);
 			createContents();

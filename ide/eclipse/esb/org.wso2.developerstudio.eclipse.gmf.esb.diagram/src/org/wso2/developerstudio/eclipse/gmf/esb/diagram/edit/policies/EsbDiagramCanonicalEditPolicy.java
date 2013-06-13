@@ -29,6 +29,7 @@ import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.gmf.tooling.runtime.update.UpdaterLinkDescriptor;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.*;
@@ -184,7 +185,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 	 * @generated
 	 */
 	private Collection<IAdaptable> refreshConnections() {
-		Map<EObject, View> domain2NotationMap = new HashMap<EObject, View>();
+		Domain2Notation domain2NotationMap = new Domain2Notation();
 		Collection<EsbLinkDescriptor> linkDescriptors = collectAllLinks(getDiagram(),
 				domain2NotationMap);
 		Collection existingLinks = new LinkedList(getDiagram().getEdges());
@@ -221,7 +222,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 	 * @generated
 	 */
 	private Collection<EsbLinkDescriptor> collectAllLinks(View view,
-			Map<EObject, View> domain2NotationMap) {
+			Domain2Notation domain2NotationMap) {
 		if (!EsbDiagramEditPart.MODEL_ID.equals(EsbVisualIDRegistry.getModelID(view))) {
 			return Collections.emptyList();
 		}
@@ -231,50 +232,35 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getEsbDiagram_1000ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case EsbServerEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getEsbServer_2001ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case ProxyServiceEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getProxyService_3001ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case ProxyOutputConnectorEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getProxyOutputConnector_3002ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case ProxyInputConnectorEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getProxyInputConnector_3003ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case ProxyFaultInputConnectorEditPart.VISUAL_ID: {
@@ -282,20 +268,14 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getProxyFaultInputConnector_3489ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case ProxyServiceContainerEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getProxyServiceContainer_3486ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case ProxyServiceSequenceAndEndpointContainerEditPart.VISUAL_ID: {
@@ -303,30 +283,21 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getProxyServiceSequenceAndEndpointContainer_3487ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case MediatorFlowEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getMediatorFlow_3608ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case DropMediatorEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getDropMediator_3491ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case DropMediatorInputConnectorEditPart.VISUAL_ID: {
@@ -334,20 +305,14 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getDropMediatorInputConnector_3008ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case PropertyMediatorEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getPropertyMediator_3492ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case PropertyMediatorInputConnectorEditPart.VISUAL_ID: {
@@ -355,10 +320,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getPropertyMediatorInputConnector_3033ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case PropertyMediatorOutputConnectorEditPart.VISUAL_ID: {
@@ -366,20 +328,14 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getPropertyMediatorOutputConnector_3034ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case ThrottleMediatorEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getThrottleMediator_3493ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case ThrottleMediatorInputConnectorEditPart.VISUAL_ID: {
@@ -387,10 +343,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getThrottleMediatorInputConnector_3121ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case ThrottleMediatorOutputConnectorEditPart.VISUAL_ID: {
@@ -398,10 +351,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getThrottleMediatorOutputConnector_3122ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case ThrottleMediatorOnAcceptOutputConnectorEditPart.VISUAL_ID: {
@@ -409,10 +359,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getThrottleMediatorOnAcceptOutputConnector_3581ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case ThrottleMediatorOnRejectOutputConnectorEditPart.VISUAL_ID: {
@@ -420,20 +367,14 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getThrottleMediatorOnRejectOutputConnector_3582ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case ThrottleContainerEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getThrottleContainer_3583ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case ThrottleOnAcceptContainerEditPart.VISUAL_ID: {
@@ -441,30 +382,21 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getThrottleOnAcceptContainer_3584ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case MediatorFlow9EditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getMediatorFlow_3585ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case FilterMediatorEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getFilterMediator_3494ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case FilterMediatorInputConnectorEditPart.VISUAL_ID: {
@@ -472,10 +404,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getFilterMediatorInputConnector_3010ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case FilterMediatorOutputConnectorEditPart.VISUAL_ID: {
@@ -483,10 +412,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getFilterMediatorOutputConnector_3534ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case FilterMediatorPassOutputConnectorEditPart.VISUAL_ID: {
@@ -494,10 +420,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getFilterMediatorPassOutputConnector_3011ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case FilterMediatorFailOutputConnectorEditPart.VISUAL_ID: {
@@ -505,50 +428,35 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getFilterMediatorFailOutputConnector_3012ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case FilterContainerEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getFilterContainer_3531ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case FilterPassContainerEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getFilterPassContainer_3535ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case MediatorFlow7EditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getMediatorFlow_3536ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case LogMediatorEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getLogMediator_3495ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case LogMediatorInputConnectorEditPart.VISUAL_ID: {
@@ -556,10 +464,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getLogMediatorInputConnector_3018ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case LogMediatorOutputConnectorEditPart.VISUAL_ID: {
@@ -567,20 +472,14 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getLogMediatorOutputConnector_3019ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case EnrichMediatorEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getEnrichMediator_3496ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case EnrichMediatorInputConnectorEditPart.VISUAL_ID: {
@@ -588,10 +487,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getEnrichMediatorInputConnector_3036ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case EnrichMediatorOutputConnectorEditPart.VISUAL_ID: {
@@ -599,20 +495,14 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getEnrichMediatorOutputConnector_3037ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case XSLTMediatorEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getXSLTMediator_3497ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case XSLTMediatorInputConnectorEditPart.VISUAL_ID: {
@@ -620,10 +510,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getXSLTMediatorInputConnector_3039ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case XSLTMediatorOutputConnectorEditPart.VISUAL_ID: {
@@ -631,20 +518,14 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getXSLTMediatorOutputConnector_3040ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case SwitchMediatorEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getSwitchMediator_3498ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case SwitchMediatorInputConnectorEditPart.VISUAL_ID: {
@@ -652,10 +533,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getSwitchMediatorInputConnector_3042ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case SwitchCaseBranchOutputConnectorEditPart.VISUAL_ID: {
@@ -663,10 +541,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getSwitchCaseBranchOutputConnector_3043ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case SwitchDefaultBranchOutputConnectorEditPart.VISUAL_ID: {
@@ -674,10 +549,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getSwitchDefaultBranchOutputConnector_3044ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case SwitchMediatorOutputConnectorEditPart.VISUAL_ID: {
@@ -685,80 +557,56 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getSwitchMediatorOutputConnector_3499ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case SwitchMediatorContainerEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getSwitchMediatorContainer_3500ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case SwitchCaseContainerEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getSwitchCaseContainer_3501ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case MediatorFlow2EditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getMediatorFlow_3502ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case SequenceEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getSequence_3503ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case SequenceInputConnectorEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getSequenceInputConnector_3049ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case SequenceOutputConnectorEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getSequenceOutputConnector_3050ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case EventMediatorEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getEventMediator_3504ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case EventMediatorInputConnectorEditPart.VISUAL_ID: {
@@ -766,10 +614,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getEventMediatorInputConnector_3052ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case EventMediatorOutputConnectorEditPart.VISUAL_ID: {
@@ -777,20 +622,14 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getEventMediatorOutputConnector_3053ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case EntitlementMediatorEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getEntitlementMediator_3505ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case EntitlementMediatorInputConnectorEditPart.VISUAL_ID: {
@@ -798,10 +637,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getEntitlementMediatorInputConnector_3055ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case EntitlementMediatorOutputConnectorEditPart.VISUAL_ID: {
@@ -809,20 +645,14 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getEntitlementMediatorOutputConnector_3056ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case ClassMediatorEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getClassMediator_3506ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case ClassMediatorInputConnectorEditPart.VISUAL_ID: {
@@ -830,10 +660,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getClassMediatorInputConnector_3058ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case ClassMediatorOutputConnectorEditPart.VISUAL_ID: {
@@ -841,20 +668,14 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getClassMediatorOutputConnector_3059ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case SpringMediatorEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getSpringMediator_3507ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case SpringMediatorInputConnectorEditPart.VISUAL_ID: {
@@ -862,10 +683,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getSpringMediatorInputConnector_3061ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case SpringMediatorOutputConnectorEditPart.VISUAL_ID: {
@@ -873,20 +691,14 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getSpringMediatorOutputConnector_3062ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case ScriptMediatorEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getScriptMediator_3508ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case ScriptMediatorInputConnectorEditPart.VISUAL_ID: {
@@ -894,10 +706,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getScriptMediatorInputConnector_3064ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case ScriptMediatorOutputConnectorEditPart.VISUAL_ID: {
@@ -905,20 +714,14 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getScriptMediatorOutputConnector_3065ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case FaultMediatorEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getFaultMediator_3509ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case FaultMediatorInputConnectorEditPart.VISUAL_ID: {
@@ -926,10 +729,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getFaultMediatorInputConnector_3067ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case FaultMediatorOutputConnectorEditPart.VISUAL_ID: {
@@ -937,20 +737,14 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getFaultMediatorOutputConnector_3068ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case XQueryMediatorEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getXQueryMediator_3510ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case XQueryMediatorInputConnectorEditPart.VISUAL_ID: {
@@ -958,10 +752,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getXQueryMediatorInputConnector_3070ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case XQueryMediatorOutputConnectorEditPart.VISUAL_ID: {
@@ -969,20 +760,14 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getXQueryMediatorOutputConnector_3071ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case CommandMediatorEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getCommandMediator_3511ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case CommandMediatorInputConnectorEditPart.VISUAL_ID: {
@@ -990,10 +775,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getCommandMediatorInputConnector_3073ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case CommandMediatorOutputConnectorEditPart.VISUAL_ID: {
@@ -1001,20 +783,14 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getCommandMediatorOutputConnector_3074ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case DBLookupMediatorEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getDBLookupMediator_3512ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case DBLookupMediatorInputConnectorEditPart.VISUAL_ID: {
@@ -1022,10 +798,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getDBLookupMediatorInputConnector_3076ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case DBLookupMediatorOutputConnectorEditPart.VISUAL_ID: {
@@ -1033,20 +806,14 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getDBLookupMediatorOutputConnector_3077ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case DBReportMediatorEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getDBReportMediator_3513ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case DBReportMediatorInputConnectorEditPart.VISUAL_ID: {
@@ -1054,10 +821,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getDBReportMediatorInputConnector_3079ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case DBReportMediatorOutputConnectorEditPart.VISUAL_ID: {
@@ -1065,20 +829,14 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getDBReportMediatorOutputConnector_3080ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case SmooksMediatorEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getSmooksMediator_3514ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case SmooksMediatorInputConnectorEditPart.VISUAL_ID: {
@@ -1086,10 +844,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getSmooksMediatorInputConnector_3082ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case SmooksMediatorOutputConnectorEditPart.VISUAL_ID: {
@@ -1097,20 +852,14 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getSmooksMediatorOutputConnector_3083ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case SendMediatorEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getSendMediator_3515ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case SendMediatorInputConnectorEditPart.VISUAL_ID: {
@@ -1118,10 +867,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getSendMediatorInputConnector_3085ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case SendMediatorOutputConnectorEditPart.VISUAL_ID: {
@@ -1129,10 +875,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getSendMediatorOutputConnector_3086ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case SendMediatorEndpointOutputConnectorEditPart.VISUAL_ID: {
@@ -1140,30 +883,21 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getSendMediatorEndpointOutputConnector_3539ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case EndpointFlowEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getEndpointFlow_3562ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case HeaderMediatorEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getHeaderMediator_3516ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case HeaderMediatorInputConnectorEditPart.VISUAL_ID: {
@@ -1171,10 +905,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getHeaderMediatorInputConnector_3100ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case HeaderMediatorOutputConnectorEditPart.VISUAL_ID: {
@@ -1182,20 +913,14 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getHeaderMediatorOutputConnector_3101ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case CloneMediatorEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getCloneMediator_3517ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case CloneMediatorInputConnectorEditPart.VISUAL_ID: {
@@ -1203,10 +928,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getCloneMediatorInputConnector_3103ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case CloneMediatorOutputConnectorEditPart.VISUAL_ID: {
@@ -1214,10 +936,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getCloneMediatorOutputConnector_3104ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case CloneMediatorTargetOutputConnectorEditPart.VISUAL_ID: {
@@ -1225,50 +944,35 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getCloneMediatorTargetOutputConnector_3133ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case CloneMediatorContainerEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getCloneMediatorContainer_3603ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case CloneTargetContainerEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getCloneTargetContainer_3604ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case MediatorFlow11EditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getMediatorFlow_3605ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case CacheMediatorEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getCacheMediator_3518ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case CacheMediatorInputConnectorEditPart.VISUAL_ID: {
@@ -1276,10 +980,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getCacheMediatorInputConnector_3106ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case CacheMediatorOutputConnectorEditPart.VISUAL_ID: {
@@ -1287,10 +988,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getCacheMediatorOutputConnector_3107ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case CacheMediatorOnHitOutputConnectorEditPart.VISUAL_ID: {
@@ -1298,30 +996,21 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getCacheMediatorOnHitOutputConnector_3618ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case MediatorFlow13EditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getMediatorFlow_3619ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case IterateMediatorEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getIterateMediator_3519ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case IterateMediatorInputConnectorEditPart.VISUAL_ID: {
@@ -1329,10 +1018,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getIterateMediatorInputConnector_3109ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case IterateMediatorOutputConnectorEditPart.VISUAL_ID: {
@@ -1340,10 +1026,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getIterateMediatorOutputConnector_3110ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case IterateMediatorTargetOutputConnectorEditPart.VISUAL_ID: {
@@ -1351,30 +1034,21 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getIterateMediatorTargetOutputConnector_3606ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case MediatorFlow12EditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getMediatorFlow_3607ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case CalloutMediatorEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getCalloutMediator_3520ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case CalloutMediatorInputConnectorEditPart.VISUAL_ID: {
@@ -1382,10 +1056,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getCalloutMediatorInputConnector_3115ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case CalloutMediatorOutputConnectorEditPart.VISUAL_ID: {
@@ -1393,20 +1064,14 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getCalloutMediatorOutputConnector_3116ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case TransactionMediatorEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getTransactionMediator_3521ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case TransactionMediatorInputConnectorEditPart.VISUAL_ID: {
@@ -1414,10 +1079,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getTransactionMediatorInputConnector_3118ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case TransactionMediatorOutputConnectorEditPart.VISUAL_ID: {
@@ -1425,20 +1087,14 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getTransactionMediatorOutputConnector_3119ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case RMSequenceMediatorEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getRMSequenceMediator_3522ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case RMSequenceMediatorInputConnectorEditPart.VISUAL_ID: {
@@ -1446,10 +1102,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getRMSequenceMediatorInputConnector_3124ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case RMSequenceMediatorOutputConnectorEditPart.VISUAL_ID: {
@@ -1457,20 +1110,14 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getRMSequenceMediatorOutputConnector_3125ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case RuleMediatorEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getRuleMediator_3523ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case RuleMediatorInputConnectorEditPart.VISUAL_ID: {
@@ -1478,10 +1125,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getRuleMediatorInputConnector_3127ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case RuleMediatorOutputConnectorEditPart.VISUAL_ID: {
@@ -1489,10 +1133,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getRuleMediatorOutputConnector_3128ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case RuleMediatorChildMediatorsOutputConnectorEditPart.VISUAL_ID: {
@@ -1500,30 +1141,21 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getRuleMediatorChildMediatorsOutputConnector_3640ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case MediatorFlow17EditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getMediatorFlow_3641ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case OAuthMediatorEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getOAuthMediator_3524ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case OAuthMediatorInputConnectorEditPart.VISUAL_ID: {
@@ -1531,10 +1163,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getOAuthMediatorInputConnector_3130ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case OAuthMediatorOutputConnectorEditPart.VISUAL_ID: {
@@ -1542,20 +1171,14 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getOAuthMediatorOutputConnector_3131ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case AggregateMediatorEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getAggregateMediator_3525ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case AggregateMediatorInputConnectorEditPart.VISUAL_ID: {
@@ -1563,10 +1186,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getAggregateMediatorInputConnector_3112ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case AggregateMediatorOutputConnectorEditPart.VISUAL_ID: {
@@ -1574,10 +1194,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getAggregateMediatorOutputConnector_3113ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case AggregateMediatorOnCompleteOutputConnectorEditPart.VISUAL_ID: {
@@ -1585,30 +1202,21 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getAggregateMediatorOnCompleteOutputConnector_3132ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case MediatorFlow3EditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getMediatorFlow_3526ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case StoreMediatorEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getStoreMediator_3588ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case StoreMediatorInputConnectorEditPart.VISUAL_ID: {
@@ -1616,10 +1224,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getStoreMediatorInputConnector_3589ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case StoreMediatorOutputConnectorEditPart.VISUAL_ID: {
@@ -1627,20 +1232,14 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getStoreMediatorOutputConnector_3590ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case BuilderMediatorEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getBuilderMediator_3591ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case BuilderMediatorInputConnectorEditPart.VISUAL_ID: {
@@ -1648,10 +1247,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getBuilderMediatorInputConnector_3592ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case BuilderMediatorOutputConectorEditPart.VISUAL_ID: {
@@ -1659,20 +1255,14 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getBuilderMediatorOutputConector_3593ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case CallTemplateMediatorEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getCallTemplateMediator_3594ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case CallTemplateMediatorInputConnectorEditPart.VISUAL_ID: {
@@ -1680,10 +1270,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getCallTemplateMediatorInputConnector_3595ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case CallTemplateMediatorOutputConnectorEditPart.VISUAL_ID: {
@@ -1691,20 +1278,14 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getCallTemplateMediatorOutputConnector_3596ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case PayloadFactoryMediatorEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getPayloadFactoryMediator_3597ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case PayloadFactoryMediatorInputConnectorEditPart.VISUAL_ID: {
@@ -1712,10 +1293,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getPayloadFactoryMediatorInputConnector_3598ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case PayloadFactoryMediatorOutputConnectorEditPart.VISUAL_ID: {
@@ -1723,20 +1301,14 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getPayloadFactoryMediatorOutputConnector_3599ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case EnqueueMediatorEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getEnqueueMediator_3600ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case EnqueueMediatorInputConnectorEditPart.VISUAL_ID: {
@@ -1744,10 +1316,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getEnqueueMediatorInputConnector_3601ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case EnqueueMediatorOutputConnectorEditPart.VISUAL_ID: {
@@ -1755,20 +1324,14 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getEnqueueMediatorOutputConnector_3602ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case URLRewriteMediatorEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getURLRewriteMediator_3620ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case URLRewriteMediatorInputConnectorEditPart.VISUAL_ID: {
@@ -1776,10 +1339,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getURLRewriteMediatorInputConnector_3621ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case URLRewriteMediatorOutputConnectorEditPart.VISUAL_ID: {
@@ -1787,20 +1347,14 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getURLRewriteMediatorOutputConnector_3622ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case ValidateMediatorEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getValidateMediator_3623ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case ValidateMediatorInputConnectorEditPart.VISUAL_ID: {
@@ -1808,10 +1362,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getValidateMediatorInputConnector_3624ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case ValidateMediatorOutputConnectorEditPart.VISUAL_ID: {
@@ -1819,10 +1370,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getValidateMediatorOutputConnector_3625ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case ValidateMediatorOnFailOutputConnectorEditPart.VISUAL_ID: {
@@ -1830,30 +1378,21 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getValidateMediatorOnFailOutputConnector_3626ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case MediatorFlow14EditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getMediatorFlow_3627ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case RouterMediatorEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getRouterMediator_3628ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case RouterMediatorInputConnectorEditPart.VISUAL_ID: {
@@ -1861,10 +1400,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getRouterMediatorInputConnector_3629ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case RouterMediatorOutputConnectorEditPart.VISUAL_ID: {
@@ -1872,10 +1408,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getRouterMediatorOutputConnector_3630ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case RouterMediatorTargetOutputConnectorEditPart.VISUAL_ID: {
@@ -1883,40 +1416,28 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getRouterMediatorTargetOutputConnector_3631ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case RouterMediatorContainerEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getRouterMediatorContainer_3632ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case RouterTargetContainerEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getRouterTargetContainer_3633ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case MediatorFlow15EditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getMediatorFlow_3634ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case ConditionalRouterMediatorEditPart.VISUAL_ID: {
@@ -1924,10 +1445,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getConditionalRouterMediator_3635ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case ConditionalRouterMediatorInputConnectorEditPart.VISUAL_ID: {
@@ -1935,10 +1453,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getConditionalRouterMediatorInputConnector_3636ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case ConditionalRouterMediatorOutputConnectorEditPart.VISUAL_ID: {
@@ -1946,10 +1461,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getConditionalRouterMediatorOutputConnector_3637ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case ConditionalRouterMediatorAdditionalOutputConnectorEditPart.VISUAL_ID: {
@@ -1957,30 +1469,21 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getConditionalRouterMediatorAdditionalOutputConnector_3638ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case MediatorFlow16EditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getMediatorFlow_3639ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case BAMMediatorEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getBAMMediator_3680ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case BAMMediatorInputConnectorEditPart.VISUAL_ID: {
@@ -1988,10 +1491,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getBAMMediatorInputConnector_3681ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case BAMMediatorOutputConnectorEditPart.VISUAL_ID: {
@@ -1999,20 +1499,14 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getBAMMediatorOutputConnector_3682ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case BeanMediatorEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getBeanMediator_3683ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case BeanMediatorInputConnectorEditPart.VISUAL_ID: {
@@ -2020,10 +1514,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getBeanMediatorInputConnector_3684ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case BeanMediatorOutputConnectorEditPart.VISUAL_ID: {
@@ -2031,20 +1522,14 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getBeanMediatorOutputConnector_3685ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case EJBMediatorEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getEJBMediator_3686ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case EJBMediatorInputConnectorEditPart.VISUAL_ID: {
@@ -2052,10 +1537,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getEJBMediatorInputConnector_3687ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case EJBMediatorOutputConnectorEditPart.VISUAL_ID: {
@@ -2063,20 +1545,14 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getEJBMediatorOutputConnector_3688ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case DefaultEndPointEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getDefaultEndPoint_3609ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case DefaultEndPointInputConnectorEditPart.VISUAL_ID: {
@@ -2084,10 +1560,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getDefaultEndPointInputConnector_3021ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case DefaultEndPointOutputConnectorEditPart.VISUAL_ID: {
@@ -2095,20 +1568,14 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getDefaultEndPointOutputConnector_3022ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case AddressEndPointEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getAddressEndPoint_3610ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case AddressEndPointInputConnectorEditPart.VISUAL_ID: {
@@ -2116,10 +1583,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getAddressEndPointInputConnector_3030ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case AddressEndPointOutputConnectorEditPart.VISUAL_ID: {
@@ -2127,20 +1591,14 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getAddressEndPointOutputConnector_3031ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case FailoverEndPointEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getFailoverEndPoint_3611ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case FailoverEndPointInputConnectorEditPart.VISUAL_ID: {
@@ -2148,10 +1606,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getFailoverEndPointInputConnector_3088ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case FailoverEndPointOutputConnectorEditPart.VISUAL_ID: {
@@ -2159,10 +1614,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getFailoverEndPointOutputConnector_3090ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case FailoverEndPointWestOutputConnectorEditPart.VISUAL_ID: {
@@ -2170,20 +1622,14 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getFailoverEndPointWestOutputConnector_3097ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case RecipientListEndPointEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getRecipientListEndPoint_3692ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case RecipientListEndPointInputConnectorEditPart.VISUAL_ID: {
@@ -2191,10 +1637,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getRecipientListEndPointInputConnector_3693ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case RecipientListEndPointOutputConnectorEditPart.VISUAL_ID: {
@@ -2202,10 +1645,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getRecipientListEndPointOutputConnector_3694ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case RecipientListEndPointWestOutputConnectorEditPart.VISUAL_ID: {
@@ -2213,20 +1653,14 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getRecipientListEndPointWestOutputConnector_3695ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case WSDLEndPointEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getWSDLEndPoint_3612ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case WSDLEndPointInputConnectorEditPart.VISUAL_ID: {
@@ -2234,10 +1668,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getWSDLEndPointInputConnector_3092ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case WSDLEndPointOutputConnectorEditPart.VISUAL_ID: {
@@ -2245,20 +1676,14 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getWSDLEndPointOutputConnector_3093ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case NamedEndpointEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getNamedEndpoint_3660ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case NamedEndpointInputConnectorEditPart.VISUAL_ID: {
@@ -2266,10 +1691,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getNamedEndpointInputConnector_3661ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case NamedEndpointOutputConnectorEditPart.VISUAL_ID: {
@@ -2277,20 +1699,14 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getNamedEndpointOutputConnector_3662ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case LoadBalanceEndPointEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getLoadBalanceEndPoint_3613ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case LoadBalanceEndPointInputConnectorEditPart.VISUAL_ID: {
@@ -2298,10 +1714,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getLoadBalanceEndPointInputConnector_3095ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case LoadBalanceEndPointOutputConnectorEditPart.VISUAL_ID: {
@@ -2309,10 +1722,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getLoadBalanceEndPointOutputConnector_3096ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case LoadBalanceEndPointWestOutputConnectorEditPart.VISUAL_ID: {
@@ -2320,20 +1730,14 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getLoadBalanceEndPointWestOutputConnector_3098ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case APIResourceEndpointEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getAPIResourceEndpoint_3674ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case APIResourceEndpointInputConnectorEditPart.VISUAL_ID: {
@@ -2341,10 +1745,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getAPIResourceEndpointInputConnector_3675ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case APIResourceEndpointOutputConnectorEditPart.VISUAL_ID: {
@@ -2352,20 +1753,14 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getAPIResourceEndpointOutputConnector_3676ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case AddressingEndpointEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getAddressingEndpoint_3689ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case AddressingEndpointInputConnectorEditPart.VISUAL_ID: {
@@ -2373,10 +1768,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getAddressingEndpointInputConnector_3690ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case AddressingEndpointOutputConnectorEditPart.VISUAL_ID: {
@@ -2384,50 +1776,35 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getAddressingEndpointOutputConnector_3691ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case SwitchDefaultContainerEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getSwitchDefaultContainer_3527ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case MediatorFlow4EditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getMediatorFlow_3528ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case FilterFailContainerEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getFilterFailContainer_3537ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case MediatorFlow8EditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getMediatorFlow_3538ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case ThrottleOnRejectContainerEditPart.VISUAL_ID: {
@@ -2435,20 +1812,14 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getThrottleOnRejectContainer_3586ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case MediatorFlow10EditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getMediatorFlow_3587ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case ProxyServiceFaultContainerEditPart.VISUAL_ID: {
@@ -2456,60 +1827,42 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getProxyServiceFaultContainer_3488ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case MediatorFlow6EditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getMediatorFlow_3530ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case MessageMediatorEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getMessageMediator_3045ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case MessageInputConnectorEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getMessageInputConnector_3046ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case MessageOutputConnectorEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getMessageOutputConnector_3047ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case MergeNodeEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getMergeNode_3013ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case MergeNodeFirstInputConnectorEditPart.VISUAL_ID: {
@@ -2517,10 +1870,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getMergeNodeFirstInputConnector_3014ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case MergeNodeSecondInputConnectorEditPart.VISUAL_ID: {
@@ -2528,10 +1878,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getMergeNodeSecondInputConnector_3015ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case MergeNodeOutputConnectorEditPart.VISUAL_ID: {
@@ -2539,40 +1886,28 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getMergeNodeOutputConnector_3016ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case SequencesEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getSequences_3614ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case MediatorFlow5EditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getMediatorFlow_3615ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case SequencesInputConnectorEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getSequencesInputConnector_3616ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case SequencesOutputConnectorEditPart.VISUAL_ID: {
@@ -2580,30 +1915,21 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getSequencesOutputConnector_3617ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case EndpointDiagramEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getEndpointDiagram_3642ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case DefaultEndPoint2EditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getDefaultEndPoint_3643ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case DefaultEndPointInputConnector2EditPart.VISUAL_ID: {
@@ -2611,10 +1937,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getDefaultEndPointInputConnector_3644ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case DefaultEndPointOutputConnector2EditPart.VISUAL_ID: {
@@ -2622,20 +1945,14 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getDefaultEndPointOutputConnector_3645ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case AddressEndPoint2EditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getAddressEndPoint_3646ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case AddressEndPointInputConnector2EditPart.VISUAL_ID: {
@@ -2643,10 +1960,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getAddressEndPointInputConnector_3647ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case AddressEndPointOutputConnector2EditPart.VISUAL_ID: {
@@ -2654,20 +1968,14 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getAddressEndPointOutputConnector_3648ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case FailoverEndPoint2EditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getFailoverEndPoint_3649ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case FailoverEndPointInputConnector2EditPart.VISUAL_ID: {
@@ -2675,10 +1983,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getFailoverEndPointInputConnector_3650ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case FailoverEndPointOutputConnector2EditPart.VISUAL_ID: {
@@ -2686,10 +1991,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getFailoverEndPointOutputConnector_3651ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case FailoverEndPointWestOutputConnector2EditPart.VISUAL_ID: {
@@ -2697,20 +1999,14 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getFailoverEndPointWestOutputConnector_3652ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case RecipientListEndPoint2EditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getRecipientListEndPoint_3696ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case RecipientListEndPointInputConnector2EditPart.VISUAL_ID: {
@@ -2718,10 +2014,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getRecipientListEndPointInputConnector_3697ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case RecipientListEndPointOutputConnector2EditPart.VISUAL_ID: {
@@ -2729,10 +2022,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getRecipientListEndPointOutputConnector_3698ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case RecipientListEndPointWestOutputConnector2EditPart.VISUAL_ID: {
@@ -2740,20 +2030,14 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getRecipientListEndPointWestOutputConnector_3699ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case WSDLEndPoint2EditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getWSDLEndPoint_3653ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case WSDLEndPointInputConnector2EditPart.VISUAL_ID: {
@@ -2761,10 +2045,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getWSDLEndPointInputConnector_3654ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case WSDLEndPointOutputConnector2EditPart.VISUAL_ID: {
@@ -2772,20 +2053,14 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getWSDLEndPointOutputConnector_3655ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case LoadBalanceEndPoint2EditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getLoadBalanceEndPoint_3656ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case LoadBalanceEndPointInputConnector2EditPart.VISUAL_ID: {
@@ -2793,10 +2068,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getLoadBalanceEndPointInputConnector_3657ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case LoadBalanceEndPointOutputConnector2EditPart.VISUAL_ID: {
@@ -2804,10 +2076,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getLoadBalanceEndPointOutputConnector_3658ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case LoadBalanceEndPointWestOutputConnector2EditPart.VISUAL_ID: {
@@ -2815,80 +2084,56 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getLoadBalanceEndPointWestOutputConnector_3659ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case LocalEntryEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getLocalEntry_3663ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case TemplateEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getTemplate_3664ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case Sequences2EditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getSequences_3665ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case EndpointDiagram2EditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getEndpointDiagram_3666ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case TaskEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getTask_3667ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case SynapseAPIEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getSynapseAPI_3668ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case APIResourceEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getAPIResource_3669ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case APIResourceInputConnectorEditPart.VISUAL_ID: {
@@ -2896,10 +2141,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getAPIResourceInputConnector_3670ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case APIResourceOutputConnectorEditPart.VISUAL_ID: {
@@ -2907,10 +2149,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getAPIResourceOutputConnector_3671ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case APIResourceFaultInputConnectorEditPart.VISUAL_ID: {
@@ -2918,40 +2157,28 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getAPIResourceFaultInputConnector_3672ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case ProxyServiceContainer2EditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getProxyServiceContainer_3673ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case ComplexEndpointsEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getComplexEndpoints_3677ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case MediatorFlow18EditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getMediatorFlow_3678ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case ComplexEndpointsOutputConnectorEditPart.VISUAL_ID: {
@@ -2959,20 +2186,21 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 				result.addAll(EsbDiagramUpdater
 						.getComplexEndpointsOutputConnector_3679ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
+			domain2NotationMap.putView(view.getElement(), view);
+			break;
+		}
+		case MessageStoreEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(EsbDiagramUpdater.getMessageStore_3700ContainedLinks(view));
 			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		case EsbLinkEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(EsbDiagramUpdater.getEsbLink_4001ContainedLinks(view));
 			}
-			if (!domain2NotationMap.containsKey(view.getElement())
-					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-				domain2NotationMap.put(view.getElement(), view);
-			}
+			domain2NotationMap.putView(view.getElement(), view);
 			break;
 		}
 		}
@@ -2989,13 +2217,11 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 	 * @generated
 	 */
 	private Collection<IAdaptable> createConnections(Collection<EsbLinkDescriptor> linkDescriptors,
-			Map<EObject, View> domain2NotationMap) {
+			Domain2Notation domain2NotationMap) {
 		LinkedList<IAdaptable> adapters = new LinkedList<IAdaptable>();
 		for (EsbLinkDescriptor nextLinkDescriptor : linkDescriptors) {
-			EditPart sourceEditPart = getEditPart(nextLinkDescriptor.getSource(),
-					domain2NotationMap);
-			EditPart targetEditPart = getEditPart(nextLinkDescriptor.getDestination(),
-					domain2NotationMap);
+			EditPart sourceEditPart = getSourceEditPart(nextLinkDescriptor, domain2NotationMap);
+			EditPart targetEditPart = getTargetEditPart(nextLinkDescriptor, domain2NotationMap);
 			if (sourceEditPart == null || targetEditPart == null) {
 				continue;
 			}
@@ -3024,7 +2250,7 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 	/**
 	 * @generated
 	 */
-	private EditPart getEditPart(EObject domainModelElement, Map<EObject, View> domain2NotationMap) {
+	private EditPart getEditPart(EObject domainModelElement, Domain2Notation domain2NotationMap) {
 		View view = (View) domain2NotationMap.get(domainModelElement);
 		if (view != null) {
 			return (EditPart) getHost().getViewer().getEditPartRegistry().get(view);
@@ -3037,5 +2263,64 @@ public class EsbDiagramCanonicalEditPolicy extends CanonicalEditPolicy {
 	 */
 	private Diagram getDiagram() {
 		return ((View) getHost().getModel()).getDiagram();
+	}
+
+	/**
+	 * @generated
+	 */
+	private EditPart getSourceEditPart(UpdaterLinkDescriptor descriptor,
+			Domain2Notation domain2NotationMap) {
+		return getEditPart(descriptor.getSource(), domain2NotationMap);
+	}
+
+	/**
+	 * @generated
+	 */
+	private EditPart getTargetEditPart(UpdaterLinkDescriptor descriptor,
+			Domain2Notation domain2NotationMap) {
+		return getEditPart(descriptor.getDestination(), domain2NotationMap);
+	}
+
+	/**
+	 * @generated
+	 */
+	protected final EditPart getHintedEditPart(EObject domainModelElement,
+			Domain2Notation domain2NotationMap, int hintVisualId) {
+		View view = (View) domain2NotationMap.getHinted(domainModelElement,
+				EsbVisualIDRegistry.getType(hintVisualId));
+		if (view != null) {
+			return (EditPart) getHost().getViewer().getEditPartRegistry().get(view);
+		}
+		return null;
+	}
+
+	/**
+	 * @generated
+	 */
+	@SuppressWarnings("serial")
+	protected static class Domain2Notation extends HashMap<EObject, View> {
+		/**
+		 * @generated
+		 */
+		public boolean containsDomainElement(EObject domainElement) {
+			return this.containsKey(domainElement);
+		}
+
+		/**
+		 * @generated
+		 */
+		public View getHinted(EObject domainEObject, String hint) {
+			return this.get(domainEObject);
+		}
+
+		/**
+		 * @generated
+		 */
+		public void putView(EObject domainElement, View view) {
+			if (!containsKey(view.getElement())) {
+				this.put(domainElement, view);
+			}
+		}
+
 	}
 }

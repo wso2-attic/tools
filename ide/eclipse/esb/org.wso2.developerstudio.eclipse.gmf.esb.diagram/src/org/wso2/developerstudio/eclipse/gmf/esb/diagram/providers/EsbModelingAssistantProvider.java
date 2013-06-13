@@ -566,7 +566,7 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			return types;
 		}
 		if (editPart instanceof EsbServerContentsCompartmentEditPart) {
-			ArrayList<IElementType> types = new ArrayList<IElementType>(8);
+			ArrayList<IElementType> types = new ArrayList<IElementType>(9);
 			types.add(EsbElementTypes.ProxyService_3001);
 			types.add(EsbElementTypes.MergeNode_3013);
 			types.add(EsbElementTypes.Sequences_3614);
@@ -575,6 +575,7 @@ public class EsbModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(EsbElementTypes.Task_3667);
 			types.add(EsbElementTypes.SynapseAPI_3668);
 			types.add(EsbElementTypes.ComplexEndpoints_3677);
+			types.add(EsbElementTypes.MessageStore_3700);
 			return types;
 		}
 		if (editPart instanceof MediatorFlowMediatorFlowCompartmentEditPart) {

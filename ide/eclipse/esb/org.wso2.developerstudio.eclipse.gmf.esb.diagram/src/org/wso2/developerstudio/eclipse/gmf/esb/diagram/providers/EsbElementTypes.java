@@ -381,6 +381,11 @@ public class EsbElementTypes {
 	/**
 	 * @generated
 	 */
+	public static final IElementType MessageStore_3700 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.MessageStore_3700"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
 	public static final IElementType LogMediatorInputConnector_3018 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.LogMediatorInputConnector_3018"); //$NON-NLS-1$
 
 	/**
@@ -2131,6 +2136,8 @@ public class EsbElementTypes {
 			elements.put(ComplexEndpointsOutputConnector_3679,
 					EsbPackage.eINSTANCE.getComplexEndpointsOutputConnector());
 
+			elements.put(MessageStore_3700, EsbPackage.eINSTANCE.getMessageStore());
+
 			elements.put(EsbLink_4001, EsbPackage.eINSTANCE.getEsbLink());
 		}
 		return (ENamedElement) elements.get(type);
@@ -2408,6 +2415,7 @@ public class EsbElementTypes {
 			KNOWN_ELEMENT_TYPES.add(ComplexEndpoints_3677);
 			KNOWN_ELEMENT_TYPES.add(MediatorFlow_3678);
 			KNOWN_ELEMENT_TYPES.add(ComplexEndpointsOutputConnector_3679);
+			KNOWN_ELEMENT_TYPES.add(MessageStore_3700);
 			KNOWN_ELEMENT_TYPES.add(EsbLink_4001);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
@@ -2936,6 +2944,8 @@ public class EsbElementTypes {
 			return MediatorFlow_3678;
 		case ComplexEndpointsOutputConnectorEditPart.VISUAL_ID:
 			return ComplexEndpointsOutputConnector_3679;
+		case MessageStoreEditPart.VISUAL_ID:
+			return MessageStore_3700;
 		case EsbLinkEditPart.VISUAL_ID:
 			return EsbLink_4001;
 		}

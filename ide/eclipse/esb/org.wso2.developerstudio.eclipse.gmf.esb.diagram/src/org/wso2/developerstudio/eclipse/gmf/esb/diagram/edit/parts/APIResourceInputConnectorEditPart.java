@@ -360,7 +360,7 @@ public class APIResourceInputConnectorEditPart extends AbstractBaseFigureInputCo
 		}
 
 	}
-	
+
 	@Override
 	public Command getCommand(Request request) {
 		if (request instanceof CreateConnectionViewAndElementRequest) {
@@ -377,7 +377,7 @@ public class APIResourceInputConnectorEditPart extends AbstractBaseFigureInputCo
 		}
 		return super.getCommand(request);
 	}
-	
+
 	@Override
 	public boolean isSelectable() {
 		return false;

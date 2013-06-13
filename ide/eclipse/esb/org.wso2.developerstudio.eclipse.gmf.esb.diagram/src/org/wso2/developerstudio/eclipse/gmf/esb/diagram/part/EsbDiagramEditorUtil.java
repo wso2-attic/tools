@@ -68,6 +68,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbElement;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbServer;
 import org.wso2.developerstudio.eclipse.gmf.esb.LocalEntry;
+import org.wso2.developerstudio.eclipse.gmf.esb.MessageStore;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyService;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequences;
 import org.wso2.developerstudio.eclipse.gmf.esb.SynapseAPI;
@@ -374,6 +375,13 @@ public class EsbDiagramEditorUtil {
 							.getEStructuralFeature("children");
 					esbServer.eSet(target, Arrays.asList(complexEndpoints));
 					esbServer.setType(ArtifactType.COMPLEX_ENDPOINT);
+				} else if ("message_store".equals(type)) {
+					MessageStore messageStore = EsbFactory.eINSTANCE.createMessageStore();
+					messageStore.setStoreName(name);
+					EStructuralFeature target = esbServer.eClass()
+							.getEStructuralFeature("children");
+					esbServer.eSet(target, Arrays.asList(messageStore));
+					esbServer.setType(ArtifactType.MESSAGE_STORE);
 				}
 
 				attachModelToResource(model, modelResource);

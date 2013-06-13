@@ -5,6 +5,7 @@ import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.gmf.tooling.runtime.structure.DiagramStructure;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbDiagram;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.*;
@@ -1052,6 +1053,9 @@ public class EsbVisualIDRegistry {
 			}
 			if (EsbPackage.eINSTANCE.getComplexEndpoints().isSuperTypeOf(domainElement.eClass())) {
 				return ComplexEndpointsEditPart.VISUAL_ID;
+			}
+			if (EsbPackage.eINSTANCE.getMessageStore().isSuperTypeOf(domainElement.eClass())) {
+				return MessageStoreEditPart.VISUAL_ID;
 			}
 			break;
 		case MediatorFlowMediatorFlowCompartmentEditPart.VISUAL_ID:
@@ -5048,6 +5052,9 @@ public class EsbVisualIDRegistry {
 			if (ComplexEndpointsEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (MessageStoreEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case MediatorFlowMediatorFlowCompartmentEditPart.VISUAL_ID:
 			if (DropMediatorEditPart.VISUAL_ID == nodeVisualID) {
@@ -7972,5 +7979,280 @@ public class EsbVisualIDRegistry {
 	private static boolean isDiagram(EsbDiagram element) {
 		return true;
 	}
+
+	/**
+	 * @generated
+	 */
+	public static boolean checkNodeVisualID(View containerView, EObject domainElement, int candidate) {
+		if (candidate == -1) {
+			//unrecognized id is always bad
+			return false;
+		}
+		int basic = getNodeVisualID(containerView, domainElement);
+		return basic == candidate;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static boolean isCompartmentVisualID(int visualID) {
+		switch (visualID) {
+		case EsbServerContentsCompartmentEditPart.VISUAL_ID:
+		case MediatorFlowMediatorFlowCompartmentEditPart.VISUAL_ID:
+		case MediatorFlowMediatorFlowCompartment9EditPart.VISUAL_ID:
+		case MediatorFlowMediatorFlowCompartment7EditPart.VISUAL_ID:
+		case MediatorFlowMediatorFlowCompartment2EditPart.VISUAL_ID:
+		case EndpointFlowEndpointCompartmentEditPart.VISUAL_ID:
+		case MediatorFlowMediatorFlowCompartment11EditPart.VISUAL_ID:
+		case MediatorFlowMediatorFlowCompartment13EditPart.VISUAL_ID:
+		case MediatorFlowMediatorFlowCompartment12EditPart.VISUAL_ID:
+		case MediatorFlowMediatorFlowCompartment17EditPart.VISUAL_ID:
+		case MediatorFlowMediatorFlowCompartment3EditPart.VISUAL_ID:
+		case MediatorFlowMediatorFlowCompartment14EditPart.VISUAL_ID:
+		case MediatorFlowMediatorFlowCompartment15EditPart.VISUAL_ID:
+		case MediatorFlowMediatorFlowCompartment16EditPart.VISUAL_ID:
+		case MediatorFlowMediatorFlowCompartment4EditPart.VISUAL_ID:
+		case MediatorFlowMediatorFlowCompartment8EditPart.VISUAL_ID:
+		case MediatorFlowMediatorFlowCompartment10EditPart.VISUAL_ID:
+		case MediatorFlowMediatorFlowCompartment6EditPart.VISUAL_ID:
+		case MediatorFlowMediatorFlowCompartment5EditPart.VISUAL_ID:
+		case EndpointDiagramEndpointCompartmentEditPart.VISUAL_ID:
+		case TemplateTemplateCompartmentEditPart.VISUAL_ID:
+		case EndpointDiagramEndpointCompartment2EditPart.VISUAL_ID:
+		case SynapseAPIAPICompartmentEditPart.VISUAL_ID:
+		case MediatorFlowMediatorFlowCompartment18EditPart.VISUAL_ID:
+			return true;
+		default:
+			break;
+		}
+		return false;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static boolean isSemanticLeafVisualID(int visualID) {
+		switch (visualID) {
+		case EsbDiagramEditPart.VISUAL_ID:
+			return false;
+		case ProxyOutputConnectorEditPart.VISUAL_ID:
+		case ProxyInputConnectorEditPart.VISUAL_ID:
+		case DropMediatorInputConnectorEditPart.VISUAL_ID:
+		case FilterMediatorInputConnectorEditPart.VISUAL_ID:
+		case FilterMediatorPassOutputConnectorEditPart.VISUAL_ID:
+		case FilterMediatorFailOutputConnectorEditPart.VISUAL_ID:
+		case MergeNodeFirstInputConnectorEditPart.VISUAL_ID:
+		case MergeNodeSecondInputConnectorEditPart.VISUAL_ID:
+		case MergeNodeOutputConnectorEditPart.VISUAL_ID:
+		case LogMediatorInputConnectorEditPart.VISUAL_ID:
+		case LogMediatorOutputConnectorEditPart.VISUAL_ID:
+		case DefaultEndPointInputConnectorEditPart.VISUAL_ID:
+		case DefaultEndPointOutputConnectorEditPart.VISUAL_ID:
+		case AddressEndPointInputConnectorEditPart.VISUAL_ID:
+		case AddressEndPointOutputConnectorEditPart.VISUAL_ID:
+		case PropertyMediatorInputConnectorEditPart.VISUAL_ID:
+		case PropertyMediatorOutputConnectorEditPart.VISUAL_ID:
+		case EnrichMediatorInputConnectorEditPart.VISUAL_ID:
+		case EnrichMediatorOutputConnectorEditPart.VISUAL_ID:
+		case XSLTMediatorInputConnectorEditPart.VISUAL_ID:
+		case XSLTMediatorOutputConnectorEditPart.VISUAL_ID:
+		case SwitchMediatorInputConnectorEditPart.VISUAL_ID:
+		case SwitchCaseBranchOutputConnectorEditPart.VISUAL_ID:
+		case SwitchDefaultBranchOutputConnectorEditPart.VISUAL_ID:
+		case MessageInputConnectorEditPart.VISUAL_ID:
+		case MessageOutputConnectorEditPart.VISUAL_ID:
+		case SequenceInputConnectorEditPart.VISUAL_ID:
+		case SequenceOutputConnectorEditPart.VISUAL_ID:
+		case EventMediatorInputConnectorEditPart.VISUAL_ID:
+		case EventMediatorOutputConnectorEditPart.VISUAL_ID:
+		case EntitlementMediatorInputConnectorEditPart.VISUAL_ID:
+		case EntitlementMediatorOutputConnectorEditPart.VISUAL_ID:
+		case ClassMediatorInputConnectorEditPart.VISUAL_ID:
+		case ClassMediatorOutputConnectorEditPart.VISUAL_ID:
+		case SpringMediatorInputConnectorEditPart.VISUAL_ID:
+		case SpringMediatorOutputConnectorEditPart.VISUAL_ID:
+		case ScriptMediatorInputConnectorEditPart.VISUAL_ID:
+		case ScriptMediatorOutputConnectorEditPart.VISUAL_ID:
+		case FaultMediatorInputConnectorEditPart.VISUAL_ID:
+		case FaultMediatorOutputConnectorEditPart.VISUAL_ID:
+		case XQueryMediatorInputConnectorEditPart.VISUAL_ID:
+		case XQueryMediatorOutputConnectorEditPart.VISUAL_ID:
+		case CommandMediatorInputConnectorEditPart.VISUAL_ID:
+		case CommandMediatorOutputConnectorEditPart.VISUAL_ID:
+		case DBLookupMediatorInputConnectorEditPart.VISUAL_ID:
+		case DBLookupMediatorOutputConnectorEditPart.VISUAL_ID:
+		case DBReportMediatorInputConnectorEditPart.VISUAL_ID:
+		case DBReportMediatorOutputConnectorEditPart.VISUAL_ID:
+		case SmooksMediatorInputConnectorEditPart.VISUAL_ID:
+		case SmooksMediatorOutputConnectorEditPart.VISUAL_ID:
+		case SendMediatorInputConnectorEditPart.VISUAL_ID:
+		case SendMediatorOutputConnectorEditPart.VISUAL_ID:
+		case FailoverEndPointInputConnectorEditPart.VISUAL_ID:
+		case FailoverEndPointOutputConnectorEditPart.VISUAL_ID:
+		case WSDLEndPointInputConnectorEditPart.VISUAL_ID:
+		case WSDLEndPointOutputConnectorEditPart.VISUAL_ID:
+		case LoadBalanceEndPointInputConnectorEditPart.VISUAL_ID:
+		case LoadBalanceEndPointOutputConnectorEditPart.VISUAL_ID:
+		case FailoverEndPointWestOutputConnectorEditPart.VISUAL_ID:
+		case LoadBalanceEndPointWestOutputConnectorEditPart.VISUAL_ID:
+		case HeaderMediatorInputConnectorEditPart.VISUAL_ID:
+		case HeaderMediatorOutputConnectorEditPart.VISUAL_ID:
+		case CloneMediatorInputConnectorEditPart.VISUAL_ID:
+		case CloneMediatorOutputConnectorEditPart.VISUAL_ID:
+		case CacheMediatorInputConnectorEditPart.VISUAL_ID:
+		case CacheMediatorOutputConnectorEditPart.VISUAL_ID:
+		case IterateMediatorInputConnectorEditPart.VISUAL_ID:
+		case IterateMediatorOutputConnectorEditPart.VISUAL_ID:
+		case AggregateMediatorInputConnectorEditPart.VISUAL_ID:
+		case AggregateMediatorOutputConnectorEditPart.VISUAL_ID:
+		case CalloutMediatorInputConnectorEditPart.VISUAL_ID:
+		case CalloutMediatorOutputConnectorEditPart.VISUAL_ID:
+		case TransactionMediatorInputConnectorEditPart.VISUAL_ID:
+		case TransactionMediatorOutputConnectorEditPart.VISUAL_ID:
+		case ThrottleMediatorInputConnectorEditPart.VISUAL_ID:
+		case ThrottleMediatorOutputConnectorEditPart.VISUAL_ID:
+		case RMSequenceMediatorInputConnectorEditPart.VISUAL_ID:
+		case RMSequenceMediatorOutputConnectorEditPart.VISUAL_ID:
+		case RuleMediatorInputConnectorEditPart.VISUAL_ID:
+		case RuleMediatorOutputConnectorEditPart.VISUAL_ID:
+		case OAuthMediatorInputConnectorEditPart.VISUAL_ID:
+		case OAuthMediatorOutputConnectorEditPart.VISUAL_ID:
+		case AggregateMediatorOnCompleteOutputConnectorEditPart.VISUAL_ID:
+		case CloneMediatorTargetOutputConnectorEditPart.VISUAL_ID:
+		case ProxyFaultInputConnectorEditPart.VISUAL_ID:
+		case SwitchMediatorOutputConnectorEditPart.VISUAL_ID:
+		case FilterMediatorOutputConnectorEditPart.VISUAL_ID:
+		case SendMediatorEndpointOutputConnectorEditPart.VISUAL_ID:
+		case EndpointFlowEditPart.VISUAL_ID:
+		case ThrottleMediatorOnAcceptOutputConnectorEditPart.VISUAL_ID:
+		case ThrottleMediatorOnRejectOutputConnectorEditPart.VISUAL_ID:
+		case StoreMediatorInputConnectorEditPart.VISUAL_ID:
+		case StoreMediatorOutputConnectorEditPart.VISUAL_ID:
+		case BuilderMediatorInputConnectorEditPart.VISUAL_ID:
+		case BuilderMediatorOutputConectorEditPart.VISUAL_ID:
+		case CallTemplateMediatorInputConnectorEditPart.VISUAL_ID:
+		case CallTemplateMediatorOutputConnectorEditPart.VISUAL_ID:
+		case PayloadFactoryMediatorInputConnectorEditPart.VISUAL_ID:
+		case PayloadFactoryMediatorOutputConnectorEditPart.VISUAL_ID:
+		case EnqueueMediatorInputConnectorEditPart.VISUAL_ID:
+		case EnqueueMediatorOutputConnectorEditPart.VISUAL_ID:
+		case IterateMediatorTargetOutputConnectorEditPart.VISUAL_ID:
+		case SequencesInputConnectorEditPart.VISUAL_ID:
+		case SequencesOutputConnectorEditPart.VISUAL_ID:
+		case CacheMediatorOnHitOutputConnectorEditPart.VISUAL_ID:
+		case URLRewriteMediatorInputConnectorEditPart.VISUAL_ID:
+		case URLRewriteMediatorOutputConnectorEditPart.VISUAL_ID:
+		case ValidateMediatorInputConnectorEditPart.VISUAL_ID:
+		case ValidateMediatorOutputConnectorEditPart.VISUAL_ID:
+		case ValidateMediatorOnFailOutputConnectorEditPart.VISUAL_ID:
+		case RouterMediatorInputConnectorEditPart.VISUAL_ID:
+		case RouterMediatorOutputConnectorEditPart.VISUAL_ID:
+		case RouterMediatorTargetOutputConnectorEditPart.VISUAL_ID:
+		case ConditionalRouterMediatorInputConnectorEditPart.VISUAL_ID:
+		case ConditionalRouterMediatorOutputConnectorEditPart.VISUAL_ID:
+		case ConditionalRouterMediatorAdditionalOutputConnectorEditPart.VISUAL_ID:
+		case RuleMediatorChildMediatorsOutputConnectorEditPart.VISUAL_ID:
+		case DefaultEndPointInputConnector2EditPart.VISUAL_ID:
+		case DefaultEndPointOutputConnector2EditPart.VISUAL_ID:
+		case AddressEndPointInputConnector2EditPart.VISUAL_ID:
+		case AddressEndPointOutputConnector2EditPart.VISUAL_ID:
+		case FailoverEndPointInputConnector2EditPart.VISUAL_ID:
+		case FailoverEndPointOutputConnector2EditPart.VISUAL_ID:
+		case FailoverEndPointWestOutputConnector2EditPart.VISUAL_ID:
+		case WSDLEndPointInputConnector2EditPart.VISUAL_ID:
+		case WSDLEndPointOutputConnector2EditPart.VISUAL_ID:
+		case LoadBalanceEndPointInputConnector2EditPart.VISUAL_ID:
+		case LoadBalanceEndPointOutputConnector2EditPart.VISUAL_ID:
+		case LoadBalanceEndPointWestOutputConnector2EditPart.VISUAL_ID:
+		case NamedEndpointInputConnectorEditPart.VISUAL_ID:
+		case NamedEndpointOutputConnectorEditPart.VISUAL_ID:
+		case LocalEntryEditPart.VISUAL_ID:
+		case TaskEditPart.VISUAL_ID:
+		case APIResourceInputConnectorEditPart.VISUAL_ID:
+		case APIResourceOutputConnectorEditPart.VISUAL_ID:
+		case APIResourceFaultInputConnectorEditPart.VISUAL_ID:
+		case APIResourceEndpointInputConnectorEditPart.VISUAL_ID:
+		case APIResourceEndpointOutputConnectorEditPart.VISUAL_ID:
+		case ComplexEndpointsOutputConnectorEditPart.VISUAL_ID:
+		case BAMMediatorInputConnectorEditPart.VISUAL_ID:
+		case BAMMediatorOutputConnectorEditPart.VISUAL_ID:
+		case BeanMediatorInputConnectorEditPart.VISUAL_ID:
+		case BeanMediatorOutputConnectorEditPart.VISUAL_ID:
+		case EJBMediatorInputConnectorEditPart.VISUAL_ID:
+		case EJBMediatorOutputConnectorEditPart.VISUAL_ID:
+		case AddressingEndpointInputConnectorEditPart.VISUAL_ID:
+		case AddressingEndpointOutputConnectorEditPart.VISUAL_ID:
+		case RecipientListEndPointInputConnectorEditPart.VISUAL_ID:
+		case RecipientListEndPointOutputConnectorEditPart.VISUAL_ID:
+		case RecipientListEndPointWestOutputConnectorEditPart.VISUAL_ID:
+		case RecipientListEndPointInputConnector2EditPart.VISUAL_ID:
+		case RecipientListEndPointOutputConnector2EditPart.VISUAL_ID:
+		case RecipientListEndPointWestOutputConnector2EditPart.VISUAL_ID:
+		case MessageStoreEditPart.VISUAL_ID:
+			return true;
+		default:
+			break;
+		}
+		return false;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static final DiagramStructure TYPED_INSTANCE = new DiagramStructure() {
+		/**
+		 * @generated
+		 */
+
+		public int getVisualID(View view) {
+			return org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry
+					.getVisualID(view);
+		}
+
+		/**
+		 * @generated
+		 */
+
+		public String getModelID(View view) {
+			return org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry
+					.getModelID(view);
+		}
+
+		/**
+		 * @generated
+		 */
+
+		public int getNodeVisualID(View containerView, EObject domainElement) {
+			return org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry
+					.getNodeVisualID(containerView, domainElement);
+		}
+
+		/**
+		 * @generated
+		 */
+
+		public boolean checkNodeVisualID(View containerView, EObject domainElement, int candidate) {
+			return org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry
+					.checkNodeVisualID(containerView, domainElement, candidate);
+		}
+
+		/**
+		 * @generated
+		 */
+
+		public boolean isCompartmentVisualID(int visualID) {
+			return org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry
+					.isCompartmentVisualID(visualID);
+		}
+
+		/**
+		 * @generated
+		 */
+
+		public boolean isSemanticLeafVisualID(int visualID) {
+			return org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry
+					.isSemanticLeafVisualID(visualID);
+		}
+	};
 
 }

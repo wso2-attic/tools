@@ -580,7 +580,7 @@ public class APIResourceOutputConnectorEditPart extends AbstractOutputConnectorE
 		}
 
 	}
-	
+
 	@Override
 	public boolean isSelectable() {
 		return false;

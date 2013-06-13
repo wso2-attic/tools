@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.gmf.tooling.runtime.update.DiagramUpdater;
 import org.wso2.developerstudio.eclipse.gmf.esb.*;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.*;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
@@ -2684,6 +2685,10 @@ public class EsbDiagramUpdater {
 				continue;
 			}
 			if (visualID == ComplexEndpointsEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
+			if (visualID == MessageStoreEditPart.VISUAL_ID) {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 				continue;
 			}
@@ -7484,6 +7489,8 @@ public class EsbDiagramUpdater {
 			return getMediatorFlow_3678ContainedLinks(view);
 		case ComplexEndpointsOutputConnectorEditPart.VISUAL_ID:
 			return getComplexEndpointsOutputConnector_3679ContainedLinks(view);
+		case MessageStoreEditPart.VISUAL_ID:
+			return getMessageStore_3700ContainedLinks(view);
 		case EsbLinkEditPart.VISUAL_ID:
 			return getEsbLink_4001ContainedLinks(view);
 		}
@@ -8011,6 +8018,8 @@ public class EsbDiagramUpdater {
 			return getMediatorFlow_3678IncomingLinks(view);
 		case ComplexEndpointsOutputConnectorEditPart.VISUAL_ID:
 			return getComplexEndpointsOutputConnector_3679IncomingLinks(view);
+		case MessageStoreEditPart.VISUAL_ID:
+			return getMessageStore_3700IncomingLinks(view);
 		case EsbLinkEditPart.VISUAL_ID:
 			return getEsbLink_4001IncomingLinks(view);
 		}
@@ -8538,6 +8547,8 @@ public class EsbDiagramUpdater {
 			return getMediatorFlow_3678OutgoingLinks(view);
 		case ComplexEndpointsOutputConnectorEditPart.VISUAL_ID:
 			return getComplexEndpointsOutputConnector_3679OutgoingLinks(view);
+		case MessageStoreEditPart.VISUAL_ID:
+			return getMessageStore_3700OutgoingLinks(view);
 		case EsbLinkEditPart.VISUAL_ID:
 			return getEsbLink_4001OutgoingLinks(view);
 		}
@@ -9100,6 +9111,13 @@ public class EsbDiagramUpdater {
 		LinkedList<EsbLinkDescriptor> result = new LinkedList<EsbLinkDescriptor>();
 		result.addAll(getContainedTypeModelFacetLinks_EsbLink_4001(modelElement));
 		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getMessageStore_3700ContainedLinks(View view) {
+		return Collections.emptyList();
 	}
 
 	/**
@@ -11387,6 +11405,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<EsbLinkDescriptor> getMessageStore_3700IncomingLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<EsbLinkDescriptor> getLogMediatorInputConnector_3018IncomingLinks(View view) {
 		LogMediatorInputConnector modelElement = (LogMediatorInputConnector) view.getElement();
 		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
@@ -13661,6 +13686,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<EsbLinkDescriptor> getMessageStore_3700OutgoingLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<EsbLinkDescriptor> getLogMediatorInputConnector_3018OutgoingLinks(View view) {
 		return Collections.emptyList();
 	}
@@ -15427,5 +15459,42 @@ public class EsbDiagramUpdater {
 				EsbLinkEditPart.VISUAL_ID));
 		return result;
 	}
+
+	/**
+	 * @generated
+	 */
+	public static final DiagramUpdater TYPED_INSTANCE = new DiagramUpdater() {
+		/**
+		 * @generated
+		 */
+
+		public List<EsbNodeDescriptor> getSemanticChildren(View view) {
+			return EsbDiagramUpdater.getSemanticChildren(view);
+		}
+
+		/**
+		 * @generated
+		 */
+
+		public List<EsbLinkDescriptor> getContainedLinks(View view) {
+			return EsbDiagramUpdater.getContainedLinks(view);
+		}
+
+		/**
+		 * @generated
+		 */
+
+		public List<EsbLinkDescriptor> getIncomingLinks(View view) {
+			return EsbDiagramUpdater.getIncomingLinks(view);
+		}
+
+		/**
+		 * @generated
+		 */
+
+		public List<EsbLinkDescriptor> getOutgoingLinks(View view) {
+			return EsbDiagramUpdater.getOutgoingLinks(view);
+		}
+	};
 
 }

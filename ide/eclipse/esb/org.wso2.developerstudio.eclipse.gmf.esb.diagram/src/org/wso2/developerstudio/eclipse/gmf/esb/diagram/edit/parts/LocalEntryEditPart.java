@@ -197,7 +197,6 @@ public class LocalEntryEditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		public LocalEntryFigure() {
-
 			this.setBackgroundColor(THIS_BACK);
 			createContents();
 		}

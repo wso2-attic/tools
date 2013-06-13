@@ -196,7 +196,6 @@ public class TaskEditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		public TaskFigure() {
-
 			this.setBackgroundColor(THIS_BACK);
 			createContents();
 		}

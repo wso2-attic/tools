@@ -453,7 +453,7 @@ public class ProxyOutputConnectorEditPart extends AbstractOutputConnectorEditPar
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
 	@Override
 	public boolean isSelectable() {
 		return false;

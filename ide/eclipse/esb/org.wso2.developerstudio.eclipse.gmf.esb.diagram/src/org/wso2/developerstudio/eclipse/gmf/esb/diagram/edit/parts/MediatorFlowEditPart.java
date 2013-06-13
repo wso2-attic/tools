@@ -250,15 +250,13 @@ public class MediatorFlowEditPart extends ShapeNodeEditPart {
 			this.setForegroundColor(new Color(null, 0, 0, 0));
 			this.setLineWidth(1);
 			this.setOutline(true);
-/*			LineBorder border0 = new LineBorder(new Color(null, 0, 0, 0), 1, SWT.BORDER_SOLID);
-			this.setBorder(border0);*/
+			/*			LineBorder border0 = new LineBorder(new Color(null, 0, 0, 0), 1, SWT.BORDER_SOLID);
+			 this.setBorder(border0);*/
 			this.setBackgroundColor(THIS_BACK);
-			
 
 			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(5000), getMapMode()
 					.DPtoLP(4000)));
 		}
-		
 
 		public void add(IFigure figure, Object constraint, int index) {
 			if (figure instanceof BorderedNodeFigure) {

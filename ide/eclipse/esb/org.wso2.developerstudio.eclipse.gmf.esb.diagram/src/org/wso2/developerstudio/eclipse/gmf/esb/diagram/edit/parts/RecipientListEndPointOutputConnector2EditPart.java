@@ -30,7 +30,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementType
 /**
  * @generated NOT
  */
-public class RecipientListEndPointOutputConnector2EditPart extends AbstractEndpointOutputConnectorEditPart {
+public class RecipientListEndPointOutputConnector2EditPart extends
+		AbstractEndpointOutputConnectorEditPart {
 
 	/**
 	 * @generated

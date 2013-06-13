@@ -81,7 +81,7 @@ public class EsbLinkEditPart extends ConnectionNodeEditPart implements ITreeBran
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new EsbLinkItemSemanticEditPolicy());
-		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new OpenDiagramEditPolicy(){
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new OpenDiagramEditPolicy() {
 			@Override
 			public Command getCommand(Request request) {
 				return null;

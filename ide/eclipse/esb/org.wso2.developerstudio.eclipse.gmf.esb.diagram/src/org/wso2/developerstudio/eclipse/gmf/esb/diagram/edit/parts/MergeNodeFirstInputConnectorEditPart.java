@@ -301,7 +301,6 @@ public class MergeNodeFirstInputConnectorEditPart extends AbstractBorderItemEdit
 		 * @generated
 		 */
 		public EastPointerFigure() {
-
 			this.setBackgroundColor(THIS_BACK);
 			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(12), getMapMode().DPtoLP(10)));
 		}

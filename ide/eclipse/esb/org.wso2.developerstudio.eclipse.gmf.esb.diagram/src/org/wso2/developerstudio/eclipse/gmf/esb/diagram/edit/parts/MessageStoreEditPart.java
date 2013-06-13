@@ -1,13 +1,8 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
 
-import org.eclipse.draw2d.Graphics;
-import org.eclipse.draw2d.GridLayout;
 import org.eclipse.draw2d.IFigure;
-import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
-import org.eclipse.draw2d.ToolbarLayout;
-import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -16,28 +11,23 @@ import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
 import org.eclipse.swt.graphics.Color;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.FilterPassContainerCanonicalEditPolicy;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.FilterPassContainerItemSemanticEditPolicy;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.MessageStoreItemSemanticEditPolicy;
 
 /**
  * @generated
  */
-public class FilterPassContainerEditPart extends ShapeNodeEditPart {
+public class MessageStoreEditPart extends ShapeNodeEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3535;
+	public static final int VISUAL_ID = 3700;
 
 	/**
 	 * @generated
@@ -52,7 +42,7 @@ public class FilterPassContainerEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public FilterPassContainerEditPart(View view) {
+	public MessageStoreEditPart(View view) {
 		super(view);
 	}
 
@@ -60,14 +50,8 @@ public class FilterPassContainerEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicyWithCustomReparent(
-				EsbVisualIDRegistry.TYPED_INSTANCE));
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new FilterPassContainerItemSemanticEditPolicy());
-		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
-		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
-				new FilterPassContainerCanonicalEditPolicy());
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new MessageStoreItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
 		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
@@ -102,14 +86,14 @@ public class FilterPassContainerEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure createNodeShape() {
-		return primaryShape = new FilterPassContainerFigure();
+		return primaryShape = new MessageStoreFigure();
 	}
 
 	/**
 	 * @generated
 	 */
-	public FilterPassContainerFigure getPrimaryShape() {
-		return (FilterPassContainerFigure) primaryShape;
+	public MessageStoreFigure getPrimaryShape() {
+		return (MessageStoreFigure) primaryShape;
 	}
 
 	/**
@@ -144,11 +128,6 @@ public class FilterPassContainerEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure setupContentPane(IFigure nodeShape) {
-		if (nodeShape.getLayoutManager() == null) {
-			ConstrainedToolbarLayout layout = new ConstrainedToolbarLayout();
-			layout.setSpacing(5);
-			nodeShape.setLayoutManager(layout);
-		}
 		return nodeShape; // use nodeShape itself as contentPane
 	}
 
@@ -201,40 +180,25 @@ public class FilterPassContainerEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public class FilterPassContainerFigure extends RoundedRectangle {
+	public class MessageStoreFigure extends EsbGraphicalShape {
 
 		/**
-		 * @generated NOT
+		 * @generated
 		 */
-		public FilterPassContainerFigure() {
-
-			/*GridLayout layoutThis = new GridLayout();
-			layoutThis.numColumns = 1;
-			layoutThis.makeColumnsEqualWidth = true;*/
-			ToolbarLayout layoutThis = new ToolbarLayout();
-			layoutThis.setStretchMinorAxis(true);
-			layoutThis.setMinorAlignment(ToolbarLayout.ALIGN_CENTER);
-			layoutThis.setSpacing(0);
-			layoutThis.setVertical(true);
-			this.setLayoutManager(layoutThis);
-
-			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8), getMapMode().DPtoLP(8)));
-			/*			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(700),
-			 getMapMode().DPtoLP(300)));*/
-			this.setLineStyle(Graphics.LINE_DASH);
+		public MessageStoreFigure() {
 			this.setBackgroundColor(THIS_BACK);
 		}
 
-	}
+		@Override
+		public String getIconPath() {
+			return "icons/ico20/message-store.png"; //FIXME:replace with correct icon
+		}
 
-	public boolean isSelectable() {
-		// TODO This or using ResizableEditpolicy?
-		return false;
 	}
 
 	/**
 	 * @generated
 	 */
-	static final Color THIS_BACK = new Color(null, 255, 255, 255);
+	static final Color THIS_BACK = new Color(null, 40, 151, 248);
 
 }

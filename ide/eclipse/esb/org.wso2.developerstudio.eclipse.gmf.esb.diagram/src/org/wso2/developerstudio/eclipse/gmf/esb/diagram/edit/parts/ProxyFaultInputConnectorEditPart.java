@@ -340,8 +340,7 @@ public class ProxyFaultInputConnectorEditPart extends AbstractBaseFigureFaultInp
 		}
 
 	}
-	
-	
+
 	@Override
 	public Command getCommand(Request request) {
 		if (request instanceof CreateConnectionViewAndElementRequest) {
@@ -363,7 +362,7 @@ public class ProxyFaultInputConnectorEditPart extends AbstractBaseFigureFaultInp
 	 * @generated
 	 */
 	static final Color THIS_BACK = new Color(null, 50, 50, 50);
-	
+
 	@Override
 	public boolean isSelectable() {
 		return false;

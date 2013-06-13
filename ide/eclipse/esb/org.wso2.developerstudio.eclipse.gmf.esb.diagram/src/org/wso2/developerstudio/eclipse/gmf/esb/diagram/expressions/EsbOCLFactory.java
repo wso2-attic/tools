@@ -31,8 +31,34 @@ public class EsbOCLFactory {
 	/**
 	 * @generated
 	 */
+	private final String[] expressionBodies;
+
+	/**
+	 * @generated
+	 */
 	protected EsbOCLFactory() {
 		this.expressions = new EsbAbstractExpression[2];
+		this.expressionBodies = new String[] { "self.shouldConnect(oppositeEnd)", //$NON-NLS-1$
+				"self.shouldConnect(oppositeEnd)", //$NON-NLS-1$
+		};
+	}
+
+	/**
+	 * @generated
+	 */
+	private static EsbOCLFactory getInstance() {
+		EsbOCLFactory instance = EsbDiagramEditorPlugin.getInstance().getEsbOCLFactory();
+		if (instance == null) {
+			EsbDiagramEditorPlugin.getInstance().setEsbOCLFactory(instance = new EsbOCLFactory());
+		}
+		return instance;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static String getExpressionBody(int index) {
+		return getInstance().expressionBodies[index];
 	}
 
 	/**
@@ -40,18 +66,12 @@ public class EsbOCLFactory {
 	 */
 	public static EsbAbstractExpression getExpression(int index, EClassifier context,
 			Map<String, EClassifier> environment) {
-		EsbOCLFactory cached = EsbDiagramEditorPlugin.getInstance().getEsbOCLFactory();
-		if (cached == null) {
-			EsbDiagramEditorPlugin.getInstance().setEsbOCLFactory(cached = new EsbOCLFactory());
-		}
+		EsbOCLFactory cached = getInstance();
 		if (index < 0 || index >= cached.expressions.length) {
 			throw new IllegalArgumentException();
 		}
 		if (cached.expressions[index] == null) {
-			final String[] exprBodies = new String[] { "self.shouldConnect(oppositeEnd)", //$NON-NLS-1$
-					"self.shouldConnect(oppositeEnd)", //$NON-NLS-1$
-			};
-			cached.expressions[index] = getExpression(exprBodies[index], context,
+			cached.expressions[index] = getExpression(cached.expressionBodies[index], context,
 					environment == null ? Collections.<String, EClassifier> emptyMap()
 							: environment);
 		}

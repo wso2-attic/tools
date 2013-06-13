@@ -47,7 +47,8 @@ Require-Bundle: org.eclipse.core.runtime,
  org.wso2.developerstudio.eclipse.gmf.esb.persistence,
  org.eclipse.wst.sse.core,
  org.eclipse.wst.sse.ui,
- org.eclipse.wst.xml.xpath.core
+ org.eclipse.wst.xml.xpath.core,
+ org.eclipse.gmf.tooling.runtime;visibility:=reexport
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Eclipse-LazyStart: true
@@ -92,6 +93,7 @@ Import-Package: net.sf.saxon.javax.xml.xquery,
  org.apache.synapse.mediators.transform,
  org.apache.synapse.mediators.transform.url,
  org.apache.synapse.mediators.xquery,
+ org.apache.synapse.message.store,
  org.apache.synapse.rest,
  org.apache.synapse.rest.dispatch,
  org.apache.synapse.task,

@@ -64,6 +64,8 @@ import org.apache.synapse.mediators.transform.PayloadFactoryMediator;
 import org.apache.synapse.mediators.transform.XSLTMediator;
 import org.apache.synapse.mediators.transform.url.URLRewriteMediator;
 import org.apache.synapse.mediators.xquery.XQueryMediator;
+import org.apache.synapse.message.store.InMemoryMessageStore;
+//import org.apache.synapse.message.store.MessageStore;
 import org.apache.synapse.rest.API;
 import org.apache.synapse.task.TaskDescription;
 import org.wso2.carbon.identity.entitlement.mediator.EntitlementMediator;
@@ -170,6 +172,7 @@ public class EsbDeserializerRegistry {
 		addDeserializer(BamMediator.class, new BAMMediatorDeserializer());
 		addDeserializer(IndirectEndpoint.class, new IndirectEndpointDeserializer());
 		addDeserializer(RecipientListEndpoint.class, new RecipientListEndpointDeserializer());
+		addDeserializer(InMemoryMessageStore.class , new MessageStoreDeserializer());
 	}
 	
 	/**

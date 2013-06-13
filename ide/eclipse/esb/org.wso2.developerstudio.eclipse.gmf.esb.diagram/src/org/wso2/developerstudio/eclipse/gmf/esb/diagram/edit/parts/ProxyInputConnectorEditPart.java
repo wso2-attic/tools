@@ -324,7 +324,7 @@ public class ProxyInputConnectorEditPart extends AbstractBaseFigureInputConnecto
 		}
 
 	}
-	
+
 	@Override
 	public Command getCommand(Request request) {
 		if (request instanceof CreateConnectionViewAndElementRequest) {
@@ -341,7 +341,7 @@ public class ProxyInputConnectorEditPart extends AbstractBaseFigureInputConnecto
 		}
 		return super.getCommand(request);
 	}
-	
+
 	@Override
 	public boolean isSelectable() {
 		return false;

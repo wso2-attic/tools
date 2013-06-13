@@ -72,6 +72,8 @@ import org.apache.synapse.config.xml.endpoints.TemplateFactory;
 import org.apache.synapse.config.xml.endpoints.WSDLEndpointFactory;
 import org.apache.synapse.task.TaskDescription;
 import org.apache.synapse.task.TaskDescriptionFactory;
+import org.apache.synapse.config.xml.MessageStoreFactory;
+import org.apache.synapse.message.store.MessageStore;
 
 /**
  * Synapse model de-serialize base class
@@ -168,6 +170,8 @@ public class Deserializer {
 				} else{
 					log.warn("Ignoring null output from deserializer for " + artifact.getValue().getClass());
 				}
+			} else{
+				
 			}
 		}
 		if(artifacts.size()>0){
@@ -204,6 +208,10 @@ public class Deserializer {
 			artifactType=ArtifactType.TEMPLATE;
 		} else if("endpoint".equals(localName)){
 			artifactType=ArtifactType.ENDPOINT;
+		} else if("messageStore".equals(localName)){
+			artifactType=ArtifactType.MESSAGE_STORE;
+		} else if("messageProcessor".equals(localName)){
+			artifactType=ArtifactType.MESSAGE_PROCESSOR;
 		} else{
 			throw new Exception("Unrecognized source configuration section " + localName);
 		}
@@ -289,6 +297,12 @@ public class Deserializer {
 				Template template = templateFactory.createEndpointTemplate(element, properties);
 				artifacts.put(template.getName(), template);
 			}
+			break;
+		case MESSAGE_STORE:
+			MessageStore store = MessageStoreFactory.createMessageStore(element, properties);
+			artifacts.put(store.getName(), store);
+			break;
+		case MESSAGE_PROCESSOR:
 			break;
 		default:
 			break;

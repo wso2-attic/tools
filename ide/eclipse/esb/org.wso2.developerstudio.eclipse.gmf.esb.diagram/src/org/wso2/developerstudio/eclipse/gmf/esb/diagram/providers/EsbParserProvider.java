@@ -12,6 +12,7 @@ import org.eclipse.gmf.runtime.common.ui.services.parser.ParserService;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.ui.services.parser.ParserHintAdapter;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.gmf.tooling.runtime.parsers.EnumParser;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AddressEndPointEndPointName2EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AddressEndPointEndPointNameEditPart;
@@ -119,9 +120,8 @@ public class EsbParserProvider extends AbstractProvider implements IParserProvid
 	 */
 	private IParser getFilterMediatorConditionType_5129Parser() {
 		if (filterMediatorConditionType_5129Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getFilterMediator_ConditionType() };
-			MessageFormatParser parser = new MessageFormatParser(features);
+			EAttribute editableFeature = EsbPackage.eINSTANCE.getFilterMediator_ConditionType();
+			EnumParser parser = new EnumParser(editableFeature);
 			filterMediatorConditionType_5129Parser = parser;
 		}
 		return filterMediatorConditionType_5129Parser;
@@ -137,9 +137,8 @@ public class EsbParserProvider extends AbstractProvider implements IParserProvid
 	 */
 	private IParser getLogMediatorLogCategory_5130Parser() {
 		if (logMediatorLogCategory_5130Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getLogMediator_LogCategory() };
-			MessageFormatParser parser = new MessageFormatParser(features);
+			EAttribute editableFeature = EsbPackage.eINSTANCE.getLogMediator_LogCategory();
+			EnumParser parser = new EnumParser(editableFeature);
 			logMediatorLogCategory_5130Parser = parser;
 		}
 		return logMediatorLogCategory_5130Parser;
@@ -155,9 +154,8 @@ public class EsbParserProvider extends AbstractProvider implements IParserProvid
 	 */
 	private IParser getEnrichMediatorSourceType_5131Parser() {
 		if (enrichMediatorSourceType_5131Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getEnrichMediator_SourceType() };
-			MessageFormatParser parser = new MessageFormatParser(features);
+			EAttribute editableFeature = EsbPackage.eINSTANCE.getEnrichMediator_SourceType();
+			EnumParser parser = new EnumParser(editableFeature);
 			enrichMediatorSourceType_5131Parser = parser;
 		}
 		return enrichMediatorSourceType_5131Parser;
@@ -190,9 +188,8 @@ public class EsbParserProvider extends AbstractProvider implements IParserProvid
 	 */
 	private IParser getEventMediatorTopicType_5133Parser() {
 		if (eventMediatorTopicType_5133Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getEventMediator_TopicType() };
-			MessageFormatParser parser = new MessageFormatParser(features);
+			EAttribute editableFeature = EsbPackage.eINSTANCE.getEventMediator_TopicType();
+			EnumParser parser = new EnumParser(editableFeature);
 			eventMediatorTopicType_5133Parser = parser;
 		}
 		return eventMediatorTopicType_5133Parser;
@@ -262,9 +259,8 @@ public class EsbParserProvider extends AbstractProvider implements IParserProvid
 	 */
 	private IParser getScriptMediatorScriptLanguage_5137Parser() {
 		if (scriptMediatorScriptLanguage_5137Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getScriptMediator_ScriptLanguage() };
-			MessageFormatParser parser = new MessageFormatParser(features);
+			EAttribute editableFeature = EsbPackage.eINSTANCE.getScriptMediator_ScriptLanguage();
+			EnumParser parser = new EnumParser(editableFeature);
 			scriptMediatorScriptLanguage_5137Parser = parser;
 		}
 		return scriptMediatorScriptLanguage_5137Parser;
@@ -280,9 +276,8 @@ public class EsbParserProvider extends AbstractProvider implements IParserProvid
 	 */
 	private IParser getFaultMediatorFaultStringType_5138Parser() {
 		if (faultMediatorFaultStringType_5138Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getFaultMediator_FaultStringType() };
-			MessageFormatParser parser = new MessageFormatParser(features);
+			EAttribute editableFeature = EsbPackage.eINSTANCE.getFaultMediator_FaultStringType();
+			EnumParser parser = new EnumParser(editableFeature);
 			faultMediatorFaultStringType_5138Parser = parser;
 		}
 		return faultMediatorFaultStringType_5138Parser;
@@ -298,9 +293,8 @@ public class EsbParserProvider extends AbstractProvider implements IParserProvid
 	 */
 	private IParser getXQueryMediatorScriptKeyType_5139Parser() {
 		if (xQueryMediatorScriptKeyType_5139Parser == null) {
-			EAttribute[] features = new EAttribute[] { EsbPackage.eINSTANCE
-					.getXQueryMediator_ScriptKeyType() };
-			MessageFormatParser parser = new MessageFormatParser(features);
+			EAttribute editableFeature = EsbPackage.eINSTANCE.getXQueryMediator_ScriptKeyType();
+			EnumParser parser = new EnumParser(editableFeature);
 			xQueryMediatorScriptKeyType_5139Parser = parser;
 		}
 		return xQueryMediatorScriptKeyType_5139Parser;
@@ -696,14 +690,18 @@ public class EsbParserProvider extends AbstractProvider implements IParserProvid
 			return getPropertyMediatorPropertyName_5127Parser();
 		case ThrottleMediatorGroupIdEditPart.VISUAL_ID:
 			return getThrottleMediatorGroupId_5128Parser();
+
 		case FilterMediatorConditionTypeEditPart.VISUAL_ID:
 			return getFilterMediatorConditionType_5129Parser();
+
 		case LogMediatorLogCategoryEditPart.VISUAL_ID:
 			return getLogMediatorLogCategory_5130Parser();
+
 		case EnrichMediatorSourceTypeEditPart.VISUAL_ID:
 			return getEnrichMediatorSourceType_5131Parser();
 		case SequenceNameEditPart.VISUAL_ID:
 			return getSequenceName_5132Parser();
+
 		case EventMediatorTopicTypeEditPart.VISUAL_ID:
 			return getEventMediatorTopicType_5133Parser();
 		case EntitlementMediatorServerURLEditPart.VISUAL_ID:
@@ -712,10 +710,13 @@ public class EsbParserProvider extends AbstractProvider implements IParserProvid
 			return getClassMediatorClassName_5135Parser();
 		case SpringMediatorBeanNameEditPart.VISUAL_ID:
 			return getSpringMediatorBeanName_5136Parser();
+
 		case ScriptMediatorScriptLanguageEditPart.VISUAL_ID:
 			return getScriptMediatorScriptLanguage_5137Parser();
+
 		case FaultMediatorFaultStringTypeEditPart.VISUAL_ID:
 			return getFaultMediatorFaultStringType_5138Parser();
+
 		case XQueryMediatorScriptKeyTypeEditPart.VISUAL_ID:
 			return getXQueryMediatorScriptKeyType_5139Parser();
 		case CommandMediatorClassNameEditPart.VISUAL_ID:
