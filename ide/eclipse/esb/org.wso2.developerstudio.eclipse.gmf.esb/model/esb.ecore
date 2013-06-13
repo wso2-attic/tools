@@ -2218,7 +2218,7 @@
   <eClassifiers xsi:type="ecore:EEnum" name="MessageStoreType">
     <eLiterals name="IN_MEMORY"/>
     <eLiterals name="JMS" value="1"/>
-    <eLiterals name="CUSTOM" value="1"/>
+    <eLiterals name="CUSTOM" value="2"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="JMSSpecVersion">
     <eLiterals name="JMS_1_1" literal="1.1"/>

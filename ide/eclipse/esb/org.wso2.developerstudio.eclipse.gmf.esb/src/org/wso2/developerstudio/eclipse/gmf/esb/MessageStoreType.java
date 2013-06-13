@@ -59,7 +59,7 @@ public enum MessageStoreType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CUSTOM(1, "CUSTOM", "CUSTOM");
+	CUSTOM(2, "CUSTOM", "CUSTOM");
 
 	/**
 	 * The '<em><b>IN MEMORY</b></em>' literal value.
@@ -104,7 +104,7 @@ public enum MessageStoreType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int CUSTOM_VALUE = 1;
+	public static final int CUSTOM_VALUE = 2;
 
 	/**
 	 * An array of all the '<em><b>Message Store Type</b></em>' enumerators.
@@ -169,6 +169,7 @@ public enum MessageStoreType implements Enumerator {
 		switch (value) {
 			case IN_MEMORY_VALUE: return IN_MEMORY;
 			case JMS_VALUE: return JMS;
+			case CUSTOM_VALUE: return CUSTOM;
 		}
 		return null;
 	}
