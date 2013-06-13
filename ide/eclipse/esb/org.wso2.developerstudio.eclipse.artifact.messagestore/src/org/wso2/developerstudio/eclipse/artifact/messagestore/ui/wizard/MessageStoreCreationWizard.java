@@ -37,6 +37,8 @@ import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
+import org.wso2.developerstudio.eclipse.platform.ui.editor.Openable;
+import org.wso2.developerstudio.eclipse.platform.ui.startup.ESBGraphicalEditor;
 import org.wso2.developerstudio.eclipse.platform.ui.wizard.AbstractWSO2ProjectCreationWizard;
 import org.wso2.developerstudio.eclipse.utils.file.FileUtils;
 import org.codehaus.plexus.util.xml.Xpp3Dom;
@@ -50,7 +52,6 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.ui.PlatformUI;
 
 import static org.wso2.developerstudio.eclipse.artifact.messagestore.Constants.*;
 
@@ -60,11 +61,10 @@ import org.apache.maven.model.Repository;
 import org.apache.maven.project.MavenProject;
 import org.apache.synapse.config.xml.MessageStoreSerializer;
 import org.apache.synapse.message.store.InMemoryMessageStore;
-import org.apache.axiom.om.OMAbstractFactory;
+import org.apache.synapse.message.store.MessageStore;
 import org.apache.axiom.om.OMAttribute;
 import org.apache.axiom.om.OMElement;
 import org.apache.commons.lang.StringUtils;
-import org.eclipse.ui.ide.IDE;
 
 /**
  * WSO2 message-store creation wizard class
@@ -163,9 +163,8 @@ public class MessageStoreCreationWizard extends AbstractWSO2ProjectCreationWizar
 	
 	private String getTemplateContent(){
 		Map<String,Object> parameters = new HashMap<String,Object>();
-		OMElement wrap = OMAbstractFactory.getOMFactory().createOMElement("wrap",null);
 		String className = "org.apache.synapse.message.store.InMemoryMessageStore";
-		InMemoryMessageStore store = new InMemoryMessageStore();
+		MessageStore store = new InMemoryMessageStore();
 		store.setName(messageStoreModel.getStoreName());
 		String lineSeparator = System.getProperty("line.separator","\n");
 		
@@ -205,8 +204,8 @@ public class MessageStoreCreationWizard extends AbstractWSO2ProjectCreationWizar
 
 		} 
 		store.setParameters(parameters);
-		MessageStoreSerializer.serializeMessageStore(wrap, store);
-		OMElement messageStoreElement = wrap.getFirstElement();
+		
+		OMElement messageStoreElement = MessageStoreSerializer.serializeMessageStore(null, store);
 		OMAttribute classAttr = messageStoreElement.getAttribute(new QName("class"));
 		if(classAttr!=null){
 			classAttr.setAttributeValue(className);
@@ -276,7 +275,10 @@ public class MessageStoreCreationWizard extends AbstractWSO2ProjectCreationWizar
 		.getRoot()
 		.getFileForLocation(
 				Path.fromOSString(file.getAbsolutePath()));
-		IDE.openEditor(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage(),resource);
+			String path = resource.getParent().getFullPath() + "/";
+			String source = FileUtils.getContentAsString(file);
+			Openable openable = ESBGraphicalEditor.getOpenable();
+			openable.editorOpen(file.getName(), "message_store", path + "messageStore_", source);
 		}catch(Exception e){
 			log.error("Cannot open the editor", e);
 		}
