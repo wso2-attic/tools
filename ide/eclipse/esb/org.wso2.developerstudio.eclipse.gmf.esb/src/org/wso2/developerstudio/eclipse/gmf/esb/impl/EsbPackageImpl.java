@@ -194,6 +194,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.IterateMediatorInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.IterateMediatorOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.IterateMediatorTargetOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.IterateTarget;
+import org.wso2.developerstudio.eclipse.gmf.esb.JMSSpecVersion;
 import org.wso2.developerstudio.eclipse.gmf.esb.KeyType;
 import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceAlgorithm;
 import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPoint;
@@ -221,6 +222,9 @@ import org.wso2.developerstudio.eclipse.gmf.esb.MessageBuilder;
 import org.wso2.developerstudio.eclipse.gmf.esb.MessageInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.MessageMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.MessageOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.MessageStore;
+import org.wso2.developerstudio.eclipse.gmf.esb.MessageStoreParameter;
+import org.wso2.developerstudio.eclipse.gmf.esb.MessageStoreType;
 import org.wso2.developerstudio.eclipse.gmf.esb.NameValueTypeProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamedEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamedEndpointInputConnector;
@@ -1437,6 +1441,20 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	private EClass recipientListEndPointWestOutputConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass messageStoreParameterEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass messageStoreEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -3068,6 +3086,20 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	private EEnum apiResourceUrlStyleEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum messageStoreTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum jmsSpecVersionEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -7383,6 +7415,159 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 */
 	public EClass getRecipientListEndPointWestOutputConnector() {
 		return recipientListEndPointWestOutputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getMessageStoreParameter() {
+		return messageStoreParameterEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMessageStoreParameter_ParameterName() {
+		return (EAttribute)messageStoreParameterEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMessageStoreParameter_ParameterValue() {
+		return (EAttribute)messageStoreParameterEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getMessageStore() {
+		return messageStoreEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMessageStore_StoreName() {
+		return (EAttribute)messageStoreEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMessageStore_StoreType() {
+		return (EAttribute)messageStoreEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMessageStore_InitialContextFactory() {
+		return (EAttribute)messageStoreEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMessageStore_ProviderURL() {
+		return (EAttribute)messageStoreEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMessageStore_JndiQueueName() {
+		return (EAttribute)messageStoreEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMessageStore_ConnectionFactory() {
+		return (EAttribute)messageStoreEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMessageStore_UserName() {
+		return (EAttribute)messageStoreEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMessageStore_Password() {
+		return (EAttribute)messageStoreEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMessageStore_JmsSpecVersion() {
+		return (EAttribute)messageStoreEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMessageStore_EnableCaching() {
+		return (EAttribute)messageStoreEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMessageStore_Timeout() {
+		return (EAttribute)messageStoreEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMessageStore_ProviderClass() {
+		return (EAttribute)messageStoreEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMessageStore_Parameters() {
+		return (EReference)messageStoreEClass.getEStructuralFeatures().get(12);
 	}
 
 	/**
@@ -12988,6 +13173,24 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getMessageStoreType() {
+		return messageStoreTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getJMSSpecVersion() {
+		return jmsSpecVersionEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EDataType getMap() {
 		return mapEDataType;
 	}
@@ -14324,6 +14527,25 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 
 		recipientListEndPointWestOutputConnectorEClass = createEClass(RECIPIENT_LIST_END_POINT_WEST_OUTPUT_CONNECTOR);
 
+		messageStoreParameterEClass = createEClass(MESSAGE_STORE_PARAMETER);
+		createEAttribute(messageStoreParameterEClass, MESSAGE_STORE_PARAMETER__PARAMETER_NAME);
+		createEAttribute(messageStoreParameterEClass, MESSAGE_STORE_PARAMETER__PARAMETER_VALUE);
+
+		messageStoreEClass = createEClass(MESSAGE_STORE);
+		createEAttribute(messageStoreEClass, MESSAGE_STORE__STORE_NAME);
+		createEAttribute(messageStoreEClass, MESSAGE_STORE__STORE_TYPE);
+		createEAttribute(messageStoreEClass, MESSAGE_STORE__INITIAL_CONTEXT_FACTORY);
+		createEAttribute(messageStoreEClass, MESSAGE_STORE__PROVIDER_URL);
+		createEAttribute(messageStoreEClass, MESSAGE_STORE__JNDI_QUEUE_NAME);
+		createEAttribute(messageStoreEClass, MESSAGE_STORE__CONNECTION_FACTORY);
+		createEAttribute(messageStoreEClass, MESSAGE_STORE__USER_NAME);
+		createEAttribute(messageStoreEClass, MESSAGE_STORE__PASSWORD);
+		createEAttribute(messageStoreEClass, MESSAGE_STORE__JMS_SPEC_VERSION);
+		createEAttribute(messageStoreEClass, MESSAGE_STORE__ENABLE_CACHING);
+		createEAttribute(messageStoreEClass, MESSAGE_STORE__TIMEOUT);
+		createEAttribute(messageStoreEClass, MESSAGE_STORE__PROVIDER_CLASS);
+		createEReference(messageStoreEClass, MESSAGE_STORE__PARAMETERS);
+
 		// Create enums
 		artifactTypeEEnum = createEEnum(ARTIFACT_TYPE);
 		endPointPropertyScopeEEnum = createEEnum(END_POINT_PROPERTY_SCOPE);
@@ -14409,6 +14631,8 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		taskPropertyTypeEEnum = createEEnum(TASK_PROPERTY_TYPE);
 		taskTriggerTypeEEnum = createEEnum(TASK_TRIGGER_TYPE);
 		apiResourceUrlStyleEEnum = createEEnum(API_RESOURCE_URL_STYLE);
+		messageStoreTypeEEnum = createEEnum(MESSAGE_STORE_TYPE);
+		jmsSpecVersionEEnum = createEEnum(JMS_SPEC_VERSION);
 
 		// Create data types
 		mapEDataType = createEDataType(MAP);
@@ -14708,6 +14932,8 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		recipientListEndPointInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
 		recipientListEndPointOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
 		recipientListEndPointWestOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
+		messageStoreParameterEClass.getESuperTypes().add(this.getEsbNode());
+		messageStoreEClass.getESuperTypes().add(this.getEsbElement());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(esbDiagramEClass, EsbDiagram.class, "EsbDiagram", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -16033,6 +16259,25 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 
 		initEClass(recipientListEndPointWestOutputConnectorEClass, RecipientListEndPointWestOutputConnector.class, "RecipientListEndPointWestOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		initEClass(messageStoreParameterEClass, MessageStoreParameter.class, "MessageStoreParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getMessageStoreParameter_ParameterName(), ecorePackage.getEString(), "parameterName", null, 0, 1, MessageStoreParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMessageStoreParameter_ParameterValue(), ecorePackage.getEString(), "parameterValue", null, 0, 1, MessageStoreParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(messageStoreEClass, MessageStore.class, "MessageStore", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getMessageStore_StoreName(), ecorePackage.getEString(), "storeName", null, 0, 1, MessageStore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMessageStore_StoreType(), this.getMessageStoreType(), "storeType", null, 0, 1, MessageStore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMessageStore_InitialContextFactory(), ecorePackage.getEString(), "initialContextFactory", null, 0, 1, MessageStore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMessageStore_ProviderURL(), ecorePackage.getEString(), "providerURL", null, 0, 1, MessageStore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMessageStore_JndiQueueName(), ecorePackage.getEString(), "jndiQueueName", null, 0, 1, MessageStore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMessageStore_ConnectionFactory(), ecorePackage.getEString(), "connectionFactory", null, 0, 1, MessageStore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMessageStore_UserName(), ecorePackage.getEString(), "userName", null, 0, 1, MessageStore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMessageStore_Password(), ecorePackage.getEString(), "password", null, 0, 1, MessageStore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMessageStore_JmsSpecVersion(), this.getJMSSpecVersion(), "jmsSpecVersion", null, 0, 1, MessageStore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMessageStore_EnableCaching(), ecorePackage.getEBoolean(), "enableCaching", null, 0, 1, MessageStore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMessageStore_Timeout(), ecorePackage.getELong(), "timeout", null, 0, 1, MessageStore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMessageStore_ProviderClass(), ecorePackage.getEString(), "providerClass", null, 0, 1, MessageStore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMessageStore_Parameters(), this.getMessageStoreParameter(), null, "parameters", null, 0, -1, MessageStore.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		// Initialize enums and add enum literals
 		initEEnum(artifactTypeEEnum, ArtifactType.class, "ArtifactType");
 		addEEnumLiteral(artifactTypeEEnum, ArtifactType.SYNAPSE_CONFIG);
@@ -16045,6 +16290,8 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		addEEnumLiteral(artifactTypeEEnum, ArtifactType.API);
 		addEEnumLiteral(artifactTypeEEnum, ArtifactType.MAIN_SEQUENCE);
 		addEEnumLiteral(artifactTypeEEnum, ArtifactType.COMPLEX_ENDPOINT);
+		addEEnumLiteral(artifactTypeEEnum, ArtifactType.MESSAGE_STORE);
+		addEEnumLiteral(artifactTypeEEnum, ArtifactType.MESSAGE_PROCESSOR);
 
 		initEEnum(endPointPropertyScopeEEnum, EndPointPropertyScope.class, "EndPointPropertyScope");
 		addEEnumLiteral(endPointPropertyScopeEEnum, EndPointPropertyScope.SYNAPSE);
@@ -16484,6 +16731,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		addEEnumLiteral(apiResourceUrlStyleEEnum, ApiResourceUrlStyle.NONE);
 		addEEnumLiteral(apiResourceUrlStyleEEnum, ApiResourceUrlStyle.URI_TEMPLATE);
 		addEEnumLiteral(apiResourceUrlStyleEEnum, ApiResourceUrlStyle.URL_MAPPING);
+
+		initEEnum(messageStoreTypeEEnum, MessageStoreType.class, "MessageStoreType");
+		addEEnumLiteral(messageStoreTypeEEnum, MessageStoreType.IN_MEMORY);
+		addEEnumLiteral(messageStoreTypeEEnum, MessageStoreType.JMS);
+		addEEnumLiteral(messageStoreTypeEEnum, MessageStoreType.CUSTOM);
+
+		initEEnum(jmsSpecVersionEEnum, JMSSpecVersion.class, "JMSSpecVersion");
+		addEEnumLiteral(jmsSpecVersionEEnum, JMSSpecVersion.JMS_11);
+		addEEnumLiteral(jmsSpecVersionEEnum, JMSSpecVersion.JMS_10);
 
 		// Initialize data types
 		initEDataType(mapEDataType, Map.class, "Map", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

@@ -27,6 +27,8 @@
     <eLiterals name="API" value="7"/>
     <eLiterals name="MAIN_SEQUENCE" value="8"/>
     <eLiterals name="COMPLEX_ENDPOINT" value="9"/>
+    <eLiterals name="MESSAGE_STORE" value="10" literal="MESSAGE_STORE"/>
+    <eLiterals name="MESSAGE_PROCESSOR" value="11" literal="MESSAGE_PROCESSOR"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Mediator" abstract="true" eSuperTypes="#//EsbElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Reverse" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
@@ -2213,4 +2215,34 @@
       eSuperTypes="#//OutputConnector"/>
   <eClassifiers xsi:type="ecore:EClass" name="RecipientListEndPointWestOutputConnector"
       eSuperTypes="#//OutputConnector"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="MessageStoreType">
+    <eLiterals name="IN_MEMORY"/>
+    <eLiterals name="JMS" value="1"/>
+    <eLiterals name="CUSTOM" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="JMSSpecVersion">
+    <eLiterals name="JMS_1_1" literal="1.1"/>
+    <eLiterals name="JMS_1_0" value="1" literal="1.0"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MessageStoreParameter" eSuperTypes="#//EsbNode">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="parameterName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="parameterValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MessageStore" eSuperTypes="#//EsbElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="storeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="storeType" eType="#//MessageStoreType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="initialContextFactory"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="providerURL" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="jndiQueueName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="connectionFactory" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="userName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="password" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="jmsSpecVersion" eType="#//JMSSpecVersion"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="enableCaching" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeout" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="providerClass" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+        eType="#//MessageStoreParameter" containment="true"/>
+  </eClassifiers>
 </ecore:EPackage>

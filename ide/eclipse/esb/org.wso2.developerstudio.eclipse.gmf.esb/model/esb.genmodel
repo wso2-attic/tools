@@ -18,6 +18,8 @@
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ArtifactType/API"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ArtifactType/MAIN_SEQUENCE"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ArtifactType/COMPLEX_ENDPOINT"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ArtifactType/MESSAGE_STORE"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ArtifactType/MESSAGE_PROCESSOR"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//EndPointPropertyScope">
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//EndPointPropertyScope/SYNAPSE"/>
@@ -457,6 +459,15 @@
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ApiResourceUrlStyle/NONE"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ApiResourceUrlStyle/URI_TEMPLATE"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ApiResourceUrlStyle/URL_MAPPING"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//MessageStoreType">
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//MessageStoreType/IN_MEMORY"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//MessageStoreType/JMS"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//MessageStoreType/CUSTOM"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//JMSSpecVersion">
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//JMSSpecVersion/JMS_1_1"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//JMSSpecVersion/JMS_1_0"/>
     </genEnums>
     <genDataTypes ecoreDataType="esb.ecore#//Map">
       <genTypeParameters ecoreTypeParameter="esb.ecore#//Map/K"/>
@@ -1654,5 +1665,38 @@
     <genClasses ecoreClass="esb.ecore#//RecipientListEndPointInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//RecipientListEndPointOutputConnector"/>
     <genClasses ecoreClass="esb.ecore#//RecipientListEndPointWestOutputConnector"/>
+    <genClasses ecoreClass="esb.ecore#//MessageStoreParameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//MessageStoreParameter/parameterName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//MessageStoreParameter/parameterValue"/>
+    </genClasses>
+    <genClasses ecoreClass="esb.ecore#//MessageStore">
+      <genFeatures createChild="false" propertyCategory="basic" propertyDescription="Name"
+          ecoreFeature="ecore:EAttribute esb.ecore#//MessageStore/storeName"/>
+      <genFeatures createChild="false" propertyCategory="basic" propertyDescription="Message-Store Type"
+          ecoreFeature="ecore:EAttribute esb.ecore#//MessageStore/storeType"/>
+      <genFeatures createChild="false" propertyCategory="basic" propertyDescription="Initial Context Factory"
+          ecoreFeature="ecore:EAttribute esb.ecore#//MessageStore/initialContextFactory"/>
+      <genFeatures createChild="false" propertyCategory="basic" propertyDescription="Provider URL"
+          ecoreFeature="ecore:EAttribute esb.ecore#//MessageStore/providerURL"/>
+      <genFeatures createChild="false" propertyCategory="Additional Parameters" propertyDescription="JNDI Queue Name"
+          ecoreFeature="ecore:EAttribute esb.ecore#//MessageStore/jndiQueueName"/>
+      <genFeatures createChild="false" propertyCategory="Additional Parameters" propertyDescription="Connection factory"
+          ecoreFeature="ecore:EAttribute esb.ecore#//MessageStore/connectionFactory"/>
+      <genFeatures createChild="false" propertyCategory="Additional Parameters" propertyDescription="UserName"
+          ecoreFeature="ecore:EAttribute esb.ecore#//MessageStore/userName"/>
+      <genFeatures createChild="false" propertyCategory="Additional Parameters" propertyDescription="Password"
+          ecoreFeature="ecore:EAttribute esb.ecore#//MessageStore/password"/>
+      <genFeatures createChild="false" propertyCategory="Additional Parameters" propertyDescription="JMS API specification Version"
+          ecoreFeature="ecore:EAttribute esb.ecore#//MessageStore/jmsSpecVersion"/>
+      <genFeatures createChild="false" propertyCategory="Additional Parameters" propertyDescription="Enable Connection caching"
+          ecoreFeature="ecore:EAttribute esb.ecore#//MessageStore/enableCaching"/>
+      <genFeatures createChild="false" propertyCategory="Additional Parameters" propertyDescription="Consumer Receive Timeout"
+          ecoreFeature="ecore:EAttribute esb.ecore#//MessageStore/timeout"/>
+      <genFeatures createChild="false" propertyCategory="basic" propertyDescription="Provider Class"
+          ecoreFeature="ecore:EAttribute esb.ecore#//MessageStore/providerClass"/>
+      <genFeatures children="true" createChild="true" propertyCategory="Additional Parameters"
+          propertyDescription="Message Store Parameters" propertySortChoices="true"
+          ecoreFeature="ecore:EReference esb.ecore#//MessageStore/parameters"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

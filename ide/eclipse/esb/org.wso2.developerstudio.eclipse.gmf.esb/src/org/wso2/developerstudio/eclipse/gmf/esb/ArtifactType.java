@@ -114,7 +114,23 @@ public enum ArtifactType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	COMPLEX_ENDPOINT(9, "COMPLEX_ENDPOINT", "COMPLEX_ENDPOINT");
+	COMPLEX_ENDPOINT(9, "COMPLEX_ENDPOINT", "COMPLEX_ENDPOINT"), /**
+	 * The '<em><b>MESSAGE STORE</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #MESSAGE_STORE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	MESSAGE_STORE(10, "MESSAGE_STORE", "MESSAGE_STORE"), /**
+	 * The '<em><b>MESSAGE PROCESSOR</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #MESSAGE_PROCESSOR_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	MESSAGE_PROCESSOR(11, "MESSAGE_PROCESSOR", "MESSAGE_PROCESSOR");
 
 	/**
 	 * The '<em><b>SYNAPSE CONFIG</b></em>' literal value.
@@ -267,6 +283,36 @@ public enum ArtifactType implements Enumerator {
 	public static final int COMPLEX_ENDPOINT_VALUE = 9;
 
 	/**
+	 * The '<em><b>MESSAGE STORE</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>MESSAGE STORE</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #MESSAGE_STORE
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int MESSAGE_STORE_VALUE = 10;
+
+	/**
+	 * The '<em><b>MESSAGE PROCESSOR</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>MESSAGE PROCESSOR</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #MESSAGE_PROCESSOR
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int MESSAGE_PROCESSOR_VALUE = 11;
+
+	/**
 	 * An array of all the '<em><b>Artifact Type</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -284,6 +330,8 @@ public enum ArtifactType implements Enumerator {
 			API,
 			MAIN_SEQUENCE,
 			COMPLEX_ENDPOINT,
+			MESSAGE_STORE,
+			MESSAGE_PROCESSOR,
 		};
 
 	/**
@@ -344,6 +392,8 @@ public enum ArtifactType implements Enumerator {
 			case API_VALUE: return API;
 			case MAIN_SEQUENCE_VALUE: return MAIN_SEQUENCE;
 			case COMPLEX_ENDPOINT_VALUE: return COMPLEX_ENDPOINT;
+			case MESSAGE_STORE_VALUE: return MESSAGE_STORE;
+			case MESSAGE_PROCESSOR_VALUE: return MESSAGE_PROCESSOR;
 		}
 		return null;
 	}

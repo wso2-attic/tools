@@ -1249,6 +1249,14 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 				return createRecipientListEndPointWestOutputConnectorAdapter();
 			}
 			@Override
+			public Adapter caseMessageStoreParameter(MessageStoreParameter object) {
+				return createMessageStoreParameterAdapter();
+			}
+			@Override
+			public Adapter caseMessageStore(MessageStore object) {
+				return createMessageStoreAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -3296,6 +3304,34 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createRecipientListEndPointWestOutputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.MessageStoreParameter <em>Message Store Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.MessageStoreParameter
+	 * @generated
+	 */
+	public Adapter createMessageStoreParameterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.MessageStore <em>Message Store</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.MessageStore
+	 * @generated
+	 */
+	public Adapter createMessageStoreAdapter() {
 		return null;
 	}
 

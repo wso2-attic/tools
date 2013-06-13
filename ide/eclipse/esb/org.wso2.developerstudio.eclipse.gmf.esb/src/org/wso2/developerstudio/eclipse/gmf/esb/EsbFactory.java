@@ -1239,6 +1239,24 @@ public interface EsbFactory extends EFactory {
 	RecipientListEndPointWestOutputConnector createRecipientListEndPointWestOutputConnector();
 
 	/**
+	 * Returns a new object of class '<em>Message Store Parameter</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Message Store Parameter</em>'.
+	 * @generated
+	 */
+	MessageStoreParameter createMessageStoreParameter();
+
+	/**
+	 * Returns a new object of class '<em>Message Store</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Message Store</em>'.
+	 * @generated
+	 */
+	MessageStore createMessageStore();
+
+	/**
 	 * Returns a new object of class '<em>Script Mediator</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
