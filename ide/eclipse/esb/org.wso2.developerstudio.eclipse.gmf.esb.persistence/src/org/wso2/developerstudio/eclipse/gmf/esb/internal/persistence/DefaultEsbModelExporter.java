@@ -37,6 +37,7 @@ import org.apache.axis2.util.XMLPrettyPrinter;
 import org.apache.synapse.config.SynapseConfiguration;
 import org.apache.synapse.config.xml.EntrySerializer;
 import org.apache.synapse.config.xml.MediatorSerializerFinder;
+import org.apache.synapse.config.xml.MessageStoreSerializer;
 import org.apache.synapse.config.xml.ProxyServiceSerializer;
 import org.apache.synapse.config.xml.SequenceMediatorSerializer;
 import org.apache.synapse.config.xml.SynapseXMLConfigurationSerializer;
@@ -61,6 +62,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.FailoverEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.LocalEntry;
 import org.wso2.developerstudio.eclipse.gmf.esb.MessageMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.MessageStore;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyService;
 import org.wso2.developerstudio.eclipse.gmf.esb.RecipientListEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequences;
@@ -364,6 +366,13 @@ public class DefaultEsbModelExporter implements EsbModelTransformer {
 					configOM = sequenceSerializer.serializeMediator(null,
 							transformMainSequence((ProxyService)child));
 				}
+				break;
+			case MESSAGE_STORE:
+				if(child instanceof MessageStore){
+					configOM = MessageStoreTransformer.createMessageStore((MessageStore) child);
+				}
+				break;
+			case MESSAGE_PROCESSOR:
 				break;
 			case SYNAPSE_CONFIG:
 			default:

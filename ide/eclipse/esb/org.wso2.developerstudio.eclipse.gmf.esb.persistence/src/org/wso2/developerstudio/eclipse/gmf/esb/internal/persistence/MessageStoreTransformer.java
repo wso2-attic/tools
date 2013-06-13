@@ -1,5 +1,5 @@
 /*
- * Copyright 2009-2010 WSO2, Inc. (http://wso2.com)
+ * Copyright (c) WSO2, Inc. (http://wso2.com)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,30 +16,79 @@
 
 package org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence;
 
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
-import org.apache.synapse.endpoints.Endpoint;
-import org.apache.synapse.mediators.base.SequenceMediator;
-import org.eclipse.emf.ecore.EObject;
-import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
-import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
+import javax.xml.namespace.QName;
 
-public class MessageStoreTransformer extends AbstractEsbNodeTransformer {
+import org.apache.axiom.om.OMAttribute;
+import org.apache.axiom.om.OMElement;
+import org.apache.commons.lang.StringUtils;
+import org.apache.synapse.config.xml.MessageStoreSerializer;
+import org.apache.synapse.message.store.InMemoryMessageStore;
+import org.eclipse.emf.common.util.EList;
+import org.wso2.developerstudio.eclipse.gmf.esb.MessageStore;
+import org.wso2.developerstudio.eclipse.gmf.esb.MessageStoreParameter;
+import org.wso2.developerstudio.eclipse.gmf.esb.MessageStoreType;
 
-	public void transform(TransformationInfo information, EsbNode subject) throws Exception {
-		// TODO Auto-generated method stub
+public class MessageStoreTransformer {
 
-	}
+	public static OMElement createMessageStore(MessageStore model) throws Exception {
+		Map<String, Object> parameters = new HashMap<String, Object>();
+		String className = "org.apache.synapse.message.store.InMemoryMessageStore";
+		org.apache.synapse.message.store.MessageStore messageStore = new InMemoryMessageStore();
+		messageStore.setName(model.getStoreName());
 
-	public void createSynapseObject(TransformationInfo info, EObject subject,
-			List<Endpoint> endPoints) {
-		// TODO Auto-generated method stub
+		if (model.getStoreType() == MessageStoreType.CUSTOM) {
+			className = model.getProviderClass();
+			EList<MessageStoreParameter> parameters2 = model.getParameters();
+			for (MessageStoreParameter param : parameters2) {
+				if (!StringUtils.isBlank(param.getParameterName())
+						&& !StringUtils.isBlank(param.getParameterValue())) {
+					parameters.put(param.getParameterName(), param.getParameterValue());
+				}
+			}
+		} else if (model.getStoreType() == MessageStoreType.JMS) {
+			className = "org.wso2.carbon.message.store.persistence.jms.JMSMessageStore";
+			if (!StringUtils.isBlank(model.getInitialContextFactory())) {
+				parameters.put("java.naming.factory.initial",
+						model.getInitialContextFactory());
+			}
+			if (!StringUtils.isBlank(model.getProviderURL())) {
+				parameters.put("java.naming.provider.url", model.getProviderURL());
+			}
+			if (!StringUtils.isBlank(model.getJndiQueueName())) {
+				parameters.put("store.jms.destination", model.getJndiQueueName());
+			}
+			if (!StringUtils.isBlank(model.getInitialContextFactory())) {
+				parameters.put("store.jms.connection.factory",
+						model.getInitialContextFactory());
+			}
+			if (!StringUtils.isBlank(model.getUserName())) {
+				parameters.put("store.jms.username", model.getUserName());
+			}
+			if (!StringUtils.isBlank(model.getPassword())) {
+				parameters.put("store.jms.password", model.getPassword());
+			}
+			parameters.put("store.jms.JMSSpecVersion", model.getJmsSpecVersion().getLiteral());
+			parameters.put("store.jms.cache.connection",
+					((Boolean) model.isEnableCaching()).toString());
+			parameters.put("store.jms.ConsumerReceiveTimeOut",
+					((Long) model.getTimeout()).toString());
 
-	}
+		}
+		messageStore.setParameters(parameters);
 
-	public void transformWithinSequence(TransformationInfo information, EsbNode subject,
-			SequenceMediator sequence) throws Exception {
-		// TODO Auto-generated method stub
+		OMElement messageStoreElement = MessageStoreSerializer.serializeMessageStore(null,
+				messageStore);
+		OMAttribute classAttr = messageStoreElement.getAttribute(new QName("class"));
+		if (classAttr != null) {
+			classAttr.setAttributeValue(className);
+		} else {
+			messageStoreElement.addAttribute("class", className, null);
+		}
+
+		return messageStoreElement;
 
 	}
 
