@@ -3183,6 +3183,52 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.MessageStoreParameter} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MessageStoreParameterItemProvider messageStoreParameterItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.MessageStoreParameter}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMessageStoreParameterAdapter() {
+		if (messageStoreParameterItemProvider == null) {
+			messageStoreParameterItemProvider = new MessageStoreParameterItemProvider(this);
+		}
+
+		return messageStoreParameterItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.MessageStore} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MessageStoreItemProvider messageStoreItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.MessageStore}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMessageStoreAdapter() {
+		if (messageStoreItemProvider == null) {
+			messageStoreItemProvider = new MessageStoreItemProvider(this);
+		}
+
+		return messageStoreItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.ScriptMediator} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7028,6 +7074,8 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 		if (recipientListEndPointInputConnectorItemProvider != null) recipientListEndPointInputConnectorItemProvider.dispose();
 		if (recipientListEndPointOutputConnectorItemProvider != null) recipientListEndPointOutputConnectorItemProvider.dispose();
 		if (recipientListEndPointWestOutputConnectorItemProvider != null) recipientListEndPointWestOutputConnectorItemProvider.dispose();
+		if (messageStoreParameterItemProvider != null) messageStoreParameterItemProvider.dispose();
+		if (messageStoreItemProvider != null) messageStoreItemProvider.dispose();
 	}
 
 }
