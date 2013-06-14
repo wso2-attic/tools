@@ -299,7 +299,7 @@ public class Deserializer {
 			}
 			break;
 		case MESSAGE_STORE:
-			MessageStore store = MessageStoreFactory.createMessageStore(element, properties);
+			MessageStore store = DummyMessageStoreFactory.createMessageStore(element, properties);
 			artifacts.put(store.getName(), store);
 			break;
 		case MESSAGE_PROCESSOR:

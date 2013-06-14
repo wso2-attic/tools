@@ -18,9 +18,18 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 
 import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.*;
 
+import java.util.Map;
+import java.util.Map.Entry;
+
+import org.apache.commons.lang.StringUtils;
 import org.apache.synapse.message.store.MessageStore;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
+import org.wso2.developerstudio.eclipse.gmf.esb.JMSSpecVersion;
+import org.wso2.developerstudio.eclipse.gmf.esb.MessageStoreParameter;
+import org.wso2.developerstudio.eclipse.gmf.esb.MessageStoreType;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
+import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.DummyMessageStore;
 
 /**
  * Deserializes a message-store configuration to a graphical message-Store object
@@ -28,6 +37,9 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementType
 public class MessageStoreDeserializer
 		extends
 		AbstractEsbNodeDeserializer<MessageStore, org.wso2.developerstudio.eclipse.gmf.esb.MessageStore> {
+	
+	private static final String jmsMessageStoreFQN = "org.wso2.carbon.message.store.persistence.jms.JMSMessageStore";
+	private static final String inMemoryMessageStoreFQN = "org.apache.synapse.message.store.InMemoryMessageStore";
 
 	@Override
 	public org.wso2.developerstudio.eclipse.gmf.esb.MessageStore createNode(
@@ -36,9 +48,91 @@ public class MessageStoreDeserializer
 				.createNode(part, EsbElementTypes.MessageStore_3700);
 		setElementToEdit(messageStore);
 		
-		executeSetValueCommand(MESSAGE_STORE__STORE_NAME,messageStore.getStoreName());
-		
-		//TODO: implement parameter deserializetion 
+		if (store instanceof DummyMessageStore) {
+			DummyMessageStore dummyStore = (DummyMessageStore) store;
+			if (StringUtils.isNotBlank(dummyStore.getClassName())) {
+				if (dummyStore.getClassName().equals(jmsMessageStoreFQN)) {
+					executeSetValueCommand(MESSAGE_STORE__STORE_TYPE,MessageStoreType.JMS);
+					Map<String, Object> params = dummyStore.getParameters();
+					if (params.containsKey("java.naming.factory.initial")) {
+						Object value = params.get("java.naming.factory.initial");
+						if(StringUtils.isNotBlank(value.toString())){
+							executeSetValueCommand(MESSAGE_STORE__INITIAL_CONTEXT_FACTORY,value.toString());
+						}
+					}
+					if (params.containsKey("java.naming.provider.url")) {
+						Object value = params.get("java.naming.provider.url");
+						if(StringUtils.isNotBlank(value.toString())){
+							executeSetValueCommand(MESSAGE_STORE__PROVIDER_URL,value.toString());
+						}
+					}
+					if (params.containsKey("store.jms.destination")) {
+						Object value = params.get("store.jms.destination");
+						if(StringUtils.isNotBlank(value.toString())){
+							executeSetValueCommand(MESSAGE_STORE__JNDI_QUEUE_NAME,value.toString());
+						}
+					}
+					if (params.containsKey("store.jms.connection.factory")) {
+						Object value = params.get("store.jms.connection.factory");
+						if(StringUtils.isNotBlank(value.toString())){
+							executeSetValueCommand(MESSAGE_STORE__CONNECTION_FACTORY,value.toString());
+						}
+					}
+					if (params.containsKey("store.jms.username")) {
+						Object value = params.get("store.jms.username");
+						if(StringUtils.isNotBlank(value.toString())){
+							executeSetValueCommand(MESSAGE_STORE__USER_NAME,value.toString());
+						}
+					}
+					if (params.containsKey("store.jms.password")) {
+						Object value = params.get("store.jms.password");
+						if(StringUtils.isNotBlank(value.toString())){
+							executeSetValueCommand(MESSAGE_STORE__PASSWORD,value.toString());
+						}
+					}
+					if (params.containsKey("store.jms.JMSSpecVersion")) {
+						Object value = params.get("store.jms.JMSSpecVersion");
+						if (value != null) {
+							executeSetValueCommand(MESSAGE_STORE__JMS_SPEC_VERSION,
+									("1.1".equals(value)) ? JMSSpecVersion.JMS_11
+											: JMSSpecVersion.JMS_10);
+						}
+					}
+					if (params.containsKey("store.jms.cache.connection")) {
+						Object value = params.get("store.jms.cache.connection");
+						if (value != null) {
+							if ("true".equals(value)) {
+								executeSetValueCommand(MESSAGE_STORE__ENABLE_CACHING, true);
+							} else if ("false".equals(value)) {
+								executeSetValueCommand(MESSAGE_STORE__ENABLE_CACHING, false);
+							}
+						}
+					}
+					if (params.containsKey("store.jms.ConsumerReceiveTimeOut")) {
+						Object value = params.get("store.jms.ConsumerReceiveTimeOut");
+						if(value!=null){
+							if(StringUtils.isNumeric(value.toString())){
+								executeSetValueCommand(MESSAGE_STORE__TIMEOUT,new Long(value.toString()));
+							}
+						}
+					}
+				} else if (dummyStore.getClassName().equals(inMemoryMessageStoreFQN)) {
+					//nothing to do
+				} else {
+					executeSetValueCommand(MESSAGE_STORE__STORE_TYPE,MessageStoreType.CUSTOM);
+					executeSetValueCommand(MESSAGE_STORE__PROVIDER_CLASS,dummyStore.getClassName());
+					for (Entry<String, Object> param : dummyStore.getParameters().entrySet()) {
+						MessageStoreParameter parameter = EsbFactory.eINSTANCE.createMessageStoreParameter();
+						parameter.setParameterName(param.getKey());
+						parameter.setParameterValue(param.getValue().toString());
+						executeAddValueCommand(messageStore.getParameters(), parameter);
+					}
+					
+				}
+			}
+
+		}
+		executeSetValueCommand(MESSAGE_STORE__STORE_NAME,store.getName());
 		
 		return messageStore;
 	}
