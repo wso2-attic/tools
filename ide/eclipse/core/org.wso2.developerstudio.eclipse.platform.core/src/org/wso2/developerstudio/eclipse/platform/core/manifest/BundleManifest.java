@@ -11,6 +11,7 @@ public class BundleManifest extends SimpleJarManifest {
 	private String bundleActivatorName;
 	private List<String> exportPackagesList;
 	private List<String> importPackagesList;
+
 	private List<String> bundleClassPath;
 	private boolean dynamicImports=true;
 	private String fragmentHost = null;
@@ -57,6 +58,10 @@ public class BundleManifest extends SimpleJarManifest {
     public String getBundleDescription() {
     	return bundleDescription;
     }
+    
+	public void setImportPackagesList(List<String> importPackagesList) {
+		this.importPackagesList = importPackagesList;
+	}
 	/**
      * @param bundleDescription the bundleDescription to set
      */
@@ -80,7 +85,7 @@ public class BundleManifest extends SimpleJarManifest {
 			if (packages==null){
 				packages=packageName;
 			}else{
-				packages+= ","+packageName;
+				packages+= ",\n "+packageName;
 			}
 		}
 		return packages;
@@ -92,7 +97,7 @@ public class BundleManifest extends SimpleJarManifest {
 			if (imports==null){
 				imports=packageName;
 			}else{
-				imports+= ","+packageName;
+				imports+= ",\n "+packageName;
 			}
 		}
 		return imports;
