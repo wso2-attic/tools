@@ -278,7 +278,7 @@ public class MessageStoreCreationWizard extends AbstractWSO2ProjectCreationWizar
 			String path = resource.getParent().getFullPath() + "/";
 			String source = FileUtils.getContentAsString(file);
 			Openable openable = ESBGraphicalEditor.getOpenable();
-			openable.editorOpen(file.getName(), "message_store", path + "messageStore_", source);
+			openable.editorOpen(file.getName(), "messageStore", path + "messageStore_", source);
 		}catch(Exception e){
 			log.error("Cannot open the editor", e);
 		}
