@@ -71,8 +71,8 @@ public class NavigatorActionProvider extends CommonActionProvider {
 	private static final String TEMPLATE="template";
 	private static final String TASK="task";
 	private static final String API="api";
-	private static final String MESSAGE_STORE="message-store";
-	private static final String MESSAGE_PROCESSOR="message-processor";
+	private static final String MESSAGE_STORE="messageStore";
+	private static final String MESSAGE_PROCESSOR="messageProcessor";
 	
 	private OpenEditorAction openEditorAction;
 	private static Map<String,String> prefixMap = new HashMap<String,String>();
@@ -135,8 +135,8 @@ public class NavigatorActionProvider extends CommonActionProvider {
 					.replaceFirst("/tasks/", "/tasks/task_")
 					.replaceFirst("/templates/","/templates/template_")
 					.replaceFirst("/api/","/api/api_")
-					.replaceFirst("/message-stores/","/message-stores/message-store_")
-					.replaceFirst("/message-processors/","/message-processors/message-processor_")
+					.replaceFirst("/message-stores/","/message-stores/messageStore_")
+					.replaceFirst("/message-processors/","/message-processors/messageProcessor_")
 					.replaceAll(".xml$", ".esb_diagram");
 
 			IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
