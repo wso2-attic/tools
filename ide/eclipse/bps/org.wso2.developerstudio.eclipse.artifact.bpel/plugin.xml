@@ -8,6 +8,7 @@
 			wizardManifest="project_wizard.xml"
 			id="org.wso2.developerstudio.eclipse.artifact.newbpelartifact"
 			icon="icons/bpel-16x16.png"
+			finalPerspective="org.eclipse.bpel.ui.perspective"
 			project="true">
 			<description>BPEL Workflow</description>
 		</wizard>

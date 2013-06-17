@@ -26,9 +26,11 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.ide.IDE;
+import org.eclipse.ui.wizards.newresource.BasicNewProjectResourceWizard;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
@@ -50,6 +52,7 @@ public class BPELProjectCreationWizard extends AbstractWSO2ProjectCreationWizard
 	private IProject project;
 	private String processName;
 	private String namespace;
+	private IConfigurationElement configElement;
 //	private WSDLInfoWizardPage wsdlInfoPage;
 //	private MavenDetailsPage mavenDetailsPage;
 
@@ -92,13 +95,20 @@ public class BPELProjectCreationWizard extends AbstractWSO2ProjectCreationWizard
 			} catch (Exception e) {
 				log.error("Cannot open file in editor", e);
 			}
+			BasicNewProjectResourceWizard.updatePerspective(configElement);	
 		} catch (CoreException e) {
 			log.error("CoreException has occurred", e);
 		} catch (Exception e) {
 			log.error("An unexpected error has occurred", e);
 		}
-
 		return true;
+	}
+	
+	@Override
+	public void setInitializationData(IConfigurationElement configElement, String arg1, Object arg2)
+	        throws CoreException {
+		super.setInitializationData(configElement, arg1, arg2);
+		this.configElement = configElement;
 	}
 
 //	public void addPages() {
