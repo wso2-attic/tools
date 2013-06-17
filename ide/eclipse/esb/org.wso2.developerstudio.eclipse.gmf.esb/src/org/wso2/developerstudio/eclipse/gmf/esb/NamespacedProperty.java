@@ -20,6 +20,8 @@ import java.util.Map;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty#getPropertyName <em>Property Name</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty#getPropertyValue <em>Property Value</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty#getNamespaces <em>Namespaces</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty#isSupportsDynamicXPaths <em>Supports Dynamic XPaths</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty#isDynamic <em>Dynamic</em>}</li>
  * </ul>
  * </p>
  *
@@ -133,5 +135,57 @@ public interface NamespacedProperty extends EsbNode {
 	 * @generated
 	 */
 	void setNamespaces(Map<String, String> value);
+
+	/**
+	 * Returns the value of the '<em><b>Supports Dynamic XPaths</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Supports Dynamic XPaths</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Supports Dynamic XPaths</em>' attribute.
+	 * @see #setSupportsDynamicXPaths(boolean)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getNamespacedProperty_SupportsDynamicXPaths()
+	 * @model
+	 * @generated
+	 */
+	boolean isSupportsDynamicXPaths();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty#isSupportsDynamicXPaths <em>Supports Dynamic XPaths</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Supports Dynamic XPaths</em>' attribute.
+	 * @see #isSupportsDynamicXPaths()
+	 * @generated
+	 */
+	void setSupportsDynamicXPaths(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Dynamic</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Dynamic</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Dynamic</em>' attribute.
+	 * @see #setDynamic(boolean)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getNamespacedProperty_Dynamic()
+	 * @model
+	 * @generated
+	 */
+	boolean isDynamic();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty#isDynamic <em>Dynamic</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Dynamic</em>' attribute.
+	 * @see #isDynamic()
+	 * @generated
+	 */
+	void setDynamic(boolean value);
 
 } // NamespacedProperty

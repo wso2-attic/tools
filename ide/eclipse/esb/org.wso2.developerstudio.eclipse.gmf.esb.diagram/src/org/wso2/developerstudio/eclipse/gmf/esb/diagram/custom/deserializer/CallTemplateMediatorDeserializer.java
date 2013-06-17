@@ -27,6 +27,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.CallTemplateMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.CallTemplateParameter;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
+import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleOptionType;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.*;
@@ -49,8 +50,12 @@ public class CallTemplateMediatorDeserializer extends AbstractEsbNodeDeserialize
 			CallTemplateParameter parameter = EsbFactory.eINSTANCE.createCallTemplateParameter();
 			parameter.setParameterName(entry.getKey());
 			Value value = entry.getValue();
-			if(value.getExpression()!=null){
-				parameter.setParameterExpression(createNamespacedProperty(value.getExpression()));
+			if(value.getExpression() != null){
+				boolean dynamic = value.hasExprTypeKey();
+				NamespacedProperty namespacedProperty = createNamespacedProperty(value.getExpression());
+				namespacedProperty.setDynamic(dynamic);
+				namespacedProperty.setSupportsDynamicXPaths(true);
+				parameter.setParameterExpression(namespacedProperty);
 				parameter.setTemplateParameterType(RuleOptionType.EXPRESSION);
 			} else{
 				parameter.setParameterValue(value.getKeyValue());

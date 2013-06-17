@@ -63,6 +63,15 @@ public class NamespacedPropertyEditorDialog extends Dialog {
 	 * Button used to fire up the xpath editor.
 	 */
 	private Button selectXpathButton;
+	
+	private boolean showDynamicXPathOption;
+	
+	private Button chkDynamicXPath;
+
+	private Label lblDynamicDescription;
+	
+	private String dynamicXpathDescriptionText = " : This enables the value of XPath to be evaluvated at run time.";
+
 
 	/**
 	 * Group box for separating namespaces edit area.
@@ -144,6 +153,12 @@ public class NamespacedPropertyEditorDialog extends Dialog {
 	 * Status indicating whether this dialog was saved or cancelled.
 	 */
 	private boolean saved;
+	
+	/**
+	 * Status indicating whether the XPath is dynamic.
+	 */
+	private boolean isDynamicXPath;
+
 
 	/**
 	 * Constructs a new dialog.
@@ -160,6 +175,7 @@ public class NamespacedPropertyEditorDialog extends Dialog {
 		super(parent);
 		this.nsProperty = property;
 		this.collectedNamespaces = new HashMap<String, String>();
+		this.showDynamicXPathOption = property.isSupportsDynamicXPaths();
 	}
 
 	// /**
@@ -217,12 +233,34 @@ public class NamespacedPropertyEditorDialog extends Dialog {
 			// Property editor text field.
 			propertyTextField = new Text(propertyGroupBox, SWT.BORDER);
 			FormData textFieldLayoutData = new FormData();
-			textFieldLayoutData.right = new FormAttachment(selectXpathButton,
-					-5);
-			textFieldLayoutData.top = new FormAttachment(selectXpathButton, 0,
-					SWT.CENTER);
+			textFieldLayoutData.right = new FormAttachment(selectXpathButton, -5);
+			textFieldLayoutData.top = new FormAttachment(selectXpathButton, 0, SWT.CENTER);
 			textFieldLayoutData.left = new FormAttachment(0);
 			propertyTextField.setLayoutData(textFieldLayoutData);
+				
+			if (showDynamicXPathOption) {
+				// XPath dynamic option 
+				chkDynamicXPath = new Button(propertyGroupBox, SWT.CHECK);
+				chkDynamicXPath.setText("Dynamic");
+				FormData chekboxLayoutData = new FormData();
+				chekboxLayoutData.top = new FormAttachment(propertyTextField, 4, SWT.BOTTOM);
+				chekboxLayoutData.left = new FormAttachment(propertyTextField, 0, SWT.LEFT);
+				chkDynamicXPath.setLayoutData(chekboxLayoutData);
+				
+				chkDynamicXPath.addListener(SWT.Selection, new Listener() {
+					public void handleEvent(Event event) {
+						isDynamicXPath = chkDynamicXPath.getSelection();
+					}
+				});
+			
+				// XPath dynamic option description
+				lblDynamicDescription = new Label(propertyGroupBox, SWT.CENTER);
+				lblDynamicDescription.setText(dynamicXpathDescriptionText);
+				FormData lableLayoutData = new FormData();
+				lableLayoutData.top = new FormAttachment(propertyTextField, 8, SWT.BOTTOM);
+				lableLayoutData.left = new FormAttachment(chkDynamicXPath, 6, SWT.RIGHT);
+				lblDynamicDescription.setLayoutData(lableLayoutData);
+			}
 		}
 
 		// OK button.
@@ -382,15 +420,16 @@ public class NamespacedPropertyEditorDialog extends Dialog {
 		dialogShell.setText(String.format("Namespaced Property Editor",
 				nsProperty.getPrettyName()));
 		propertyGroupBox.setText(nsProperty.getPrettyName());
-		if (nsProperty.getPropertyValue() != null) {
-			propertyTextField.setText(nsProperty.getPropertyValue());
+		String xpath = nsProperty.getPropertyValue();
+		if (xpath != null) {
+			if (showDynamicXPathOption){
+				isDynamicXPath = nsProperty.isDynamic();
+				chkDynamicXPath.setSelection(isDynamicXPath);
+			}
+			propertyTextField.setText(xpath);
 		}
 
-		// Load namespaces.
-		// Map k = nsProperty.getNamespaces();
-
-		for (Entry<String, String> nsEntry : nsProperty.getNamespaces()
-				.entrySet()) {
+		for (Entry<String, String> nsEntry : nsProperty.getNamespaces().entrySet()) {
 			addNamespace(nsEntry.getKey(), nsEntry.getValue());
 		}
 	}
@@ -531,6 +570,7 @@ public class NamespacedPropertyEditorDialog extends Dialog {
 		nsProperty.setPropertyValue(propertyTextField.getText());
 		nsProperty.getNamespaces().clear();
 		nsProperty.getNamespaces().putAll(collectedNamespaces);
+		nsProperty.setDynamic(isDynamicXPath);
 	}
 
 	private void setSaved(boolean saved) {

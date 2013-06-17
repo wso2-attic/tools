@@ -3788,13 +3788,31 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	int NAMESPACED_PROPERTY__NAMESPACES = ESB_NODE_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Supports Dynamic XPaths</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMESPACED_PROPERTY__SUPPORTS_DYNAMIC_XPATHS = ESB_NODE_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Dynamic</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMESPACED_PROPERTY__DYNAMIC = ESB_NODE_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Namespaced Property</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NAMESPACED_PROPERTY_FEATURE_COUNT = ESB_NODE_FEATURE_COUNT + 4;
+	int NAMESPACED_PROPERTY_FEATURE_COUNT = ESB_NODE_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Reverse</b></em>' attribute.
@@ -19682,6 +19700,28 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	EAttribute getNamespacedProperty_Namespaces();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty#isSupportsDynamicXPaths <em>Supports Dynamic XPaths</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Supports Dynamic XPaths</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty#isSupportsDynamicXPaths()
+	 * @see #getNamespacedProperty()
+	 * @generated
+	 */
+	EAttribute getNamespacedProperty_SupportsDynamicXPaths();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty#isDynamic <em>Dynamic</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Dynamic</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty#isDynamic()
+	 * @see #getNamespacedProperty()
+	 * @generated
+	 */
+	EAttribute getNamespacedProperty_Dynamic();
+
+	/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.gmf.esb.EnrichMediator <em>Enrich Mediator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -31076,6 +31116,22 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		 * @generated
 		 */
 		EAttribute NAMESPACED_PROPERTY__NAMESPACES = eINSTANCE.getNamespacedProperty_Namespaces();
+
+		/**
+		 * The meta object literal for the '<em><b>Supports Dynamic XPaths</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NAMESPACED_PROPERTY__SUPPORTS_DYNAMIC_XPATHS = eINSTANCE.getNamespacedProperty_SupportsDynamicXPaths();
+
+		/**
+		 * The meta object literal for the '<em><b>Dynamic</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NAMESPACED_PROPERTY__DYNAMIC = eINSTANCE.getNamespacedProperty_Dynamic();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.EnrichMediatorImpl <em>Enrich Mediator</em>}' class.

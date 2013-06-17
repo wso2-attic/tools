@@ -66,6 +66,8 @@ public class NamespacedPropertyItemProvider
 			addPropertyNamePropertyDescriptor(object);
 			addPropertyValuePropertyDescriptor(object);
 			addNamespacesPropertyDescriptor(object);
+			addSupportsDynamicXPathsPropertyDescriptor(object);
+			addDynamicPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -159,6 +161,50 @@ public class NamespacedPropertyItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Supports Dynamic XPaths feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSupportsDynamicXPathsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_NamespacedProperty_supportsDynamicXPaths_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NamespacedProperty_supportsDynamicXPaths_feature", "_UI_NamespacedProperty_type"),
+				 EsbPackage.Literals.NAMESPACED_PROPERTY__SUPPORTS_DYNAMIC_XPATHS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Dynamic feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDynamicPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_NamespacedProperty_dynamic_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NamespacedProperty_dynamic_feature", "_UI_NamespacedProperty_type"),
+				 EsbPackage.Literals.NAMESPACED_PROPERTY__DYNAMIC,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns NamespacedProperty.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -204,6 +250,8 @@ public class NamespacedPropertyItemProvider
 			case EsbPackage.NAMESPACED_PROPERTY__PROPERTY_NAME:
 			case EsbPackage.NAMESPACED_PROPERTY__PROPERTY_VALUE:
 			case EsbPackage.NAMESPACED_PROPERTY__NAMESPACES:
+			case EsbPackage.NAMESPACED_PROPERTY__SUPPORTS_DYNAMIC_XPATHS:
+			case EsbPackage.NAMESPACED_PROPERTY__DYNAMIC:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

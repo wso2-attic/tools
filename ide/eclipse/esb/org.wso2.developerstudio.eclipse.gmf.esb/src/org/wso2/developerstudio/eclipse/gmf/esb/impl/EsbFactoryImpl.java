@@ -1370,6 +1370,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 		copy.setPropertyName(namespacedProperty.getPropertyName());
 		copy.setPropertyValue(namespacedProperty.getPropertyValue());
 		copy.getNamespaces().putAll(namespacedProperty.getNamespaces());
+		copy.setSupportsDynamicXPaths(namespacedProperty.isSupportsDynamicXPaths());
+		copy.setDynamic(namespacedProperty.isDynamic());
 		return copy;
 	}
 
@@ -3258,6 +3260,7 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 		namespacedProperty.setPrettyName("parameter expression");
 		namespacedProperty.setPropertyName("expression");
 		namespacedProperty.setPropertyValue("/default/expression");
+		namespacedProperty.setSupportsDynamicXPaths(true);
 		callTemplateParameter.setParameterName("param_name");
 		callTemplateParameter.setParameterValue("param_value");
 		callTemplateParameter.setParameterExpression(namespacedProperty);

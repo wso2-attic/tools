@@ -347,8 +347,7 @@ public class CallTemplateParamDialog extends Dialog {
 		}
 
 		item.setData(param);
-		item.setData("exp",
-				EsbFactory.eINSTANCE.copyNamespacedProperty(param.getParameterExpression()));
+		item.setData("exp", EsbFactory.eINSTANCE.copyNamespacedProperty(param.getParameterExpression()));
 		return item;
 	}
 
@@ -371,8 +370,7 @@ public class CallTemplateParamDialog extends Dialog {
 
 		for (TableItem item : paramTable.getItems()) {
 
-			CallTemplateParameter param = (CallTemplateParameter) item
-					.getData();
+			CallTemplateParameter param = (CallTemplateParameter) item.getData();
 			NamespacedProperty expression = (NamespacedProperty)item.getData("exp");
 
 			if (param.eContainer() == null) {
@@ -388,10 +386,11 @@ public class CallTemplateParamDialog extends Dialog {
 				if (item.getText(2).equals(EXPRESSION_TYPE)) {
 
 					param.setTemplateParameterType(RuleOptionType.EXPRESSION);
-					NamespacedProperty namespaceProperty = EsbFactoryImpl.eINSTANCE
-							.createNamespacedProperty();
+					NamespacedProperty namespaceProperty = EsbFactoryImpl.eINSTANCE.createNamespacedProperty();
+					namespaceProperty.setSupportsDynamicXPaths(true);
 					namespaceProperty.setPropertyValue(item.getText(1));
 					namespaceProperty.setNamespaces(expression.getNamespaces());
+					namespaceProperty.setDynamic(expression.isDynamic());
 					param.setParameterExpression(namespaceProperty);
 				}
 
@@ -446,10 +445,11 @@ public class CallTemplateParamDialog extends Dialog {
 
 					if (param.getParameterExpression() == null) {
 
-						NamespacedProperty namespaceProperty = EsbFactoryImpl.eINSTANCE
-								.createNamespacedProperty();
+						NamespacedProperty namespaceProperty = EsbFactoryImpl.eINSTANCE.createNamespacedProperty();
+						namespaceProperty.setSupportsDynamicXPaths(true);
 						namespaceProperty.setPropertyValue(item.getText(1));
 						namespaceProperty.setNamespaces(expression.getNamespaces());
+						namespaceProperty.setDynamic(expression.isDynamic());
 						AddCommand addCmd = new AddCommand(
 								editingDomain,
 								param,
@@ -459,10 +459,11 @@ public class CallTemplateParamDialog extends Dialog {
 
 					} else {
 
-						NamespacedProperty namespaceProperty = EsbFactoryImpl.eINSTANCE
-								.createNamespacedProperty();
+						NamespacedProperty namespaceProperty = EsbFactoryImpl.eINSTANCE.createNamespacedProperty();
+						namespaceProperty.setSupportsDynamicXPaths(true);
 						namespaceProperty.setPropertyValue(item.getText(1));
 						namespaceProperty.setNamespaces(expression.getNamespaces());
+						namespaceProperty.setDynamic(expression.isDynamic());
 
 						SetCommand setCmd = new SetCommand(
 								editingDomain,

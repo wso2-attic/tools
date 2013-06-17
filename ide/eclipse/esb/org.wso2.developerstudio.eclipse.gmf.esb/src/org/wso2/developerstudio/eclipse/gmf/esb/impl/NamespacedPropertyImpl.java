@@ -29,6 +29,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.NamespacedPropertyImpl#getPropertyName <em>Property Name</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.NamespacedPropertyImpl#getPropertyValue <em>Property Value</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.NamespacedPropertyImpl#getNamespaces <em>Namespaces</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.NamespacedPropertyImpl#isSupportsDynamicXPaths <em>Supports Dynamic XPaths</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.NamespacedPropertyImpl#isDynamic <em>Dynamic</em>}</li>
  * </ul>
  * </p>
  *
@@ -104,6 +106,46 @@ public class NamespacedPropertyImpl extends EsbNodeImpl implements NamespacedPro
 	 * @ordered
 	 */
 	protected Map<String, String> namespaces;
+
+	/**
+	 * The default value of the '{@link #isSupportsDynamicXPaths() <em>Supports Dynamic XPaths</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSupportsDynamicXPaths()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean SUPPORTS_DYNAMIC_XPATHS_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isSupportsDynamicXPaths() <em>Supports Dynamic XPaths</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSupportsDynamicXPaths()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean supportsDynamicXPaths = SUPPORTS_DYNAMIC_XPATHS_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isDynamic() <em>Dynamic</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isDynamic()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean DYNAMIC_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isDynamic() <em>Dynamic</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isDynamic()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean dynamic = DYNAMIC_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -215,6 +257,48 @@ public class NamespacedPropertyImpl extends EsbNodeImpl implements NamespacedPro
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isSupportsDynamicXPaths() {
+		return supportsDynamicXPaths;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSupportsDynamicXPaths(boolean newSupportsDynamicXPaths) {
+		boolean oldSupportsDynamicXPaths = supportsDynamicXPaths;
+		supportsDynamicXPaths = newSupportsDynamicXPaths;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.NAMESPACED_PROPERTY__SUPPORTS_DYNAMIC_XPATHS, oldSupportsDynamicXPaths, supportsDynamicXPaths));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isDynamic() {
+		return dynamic;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDynamic(boolean newDynamic) {
+		boolean oldDynamic = dynamic;
+		dynamic = newDynamic;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.NAMESPACED_PROPERTY__DYNAMIC, oldDynamic, dynamic));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
@@ -227,6 +311,10 @@ public class NamespacedPropertyImpl extends EsbNodeImpl implements NamespacedPro
 				return getPropertyValue();
 			case EsbPackage.NAMESPACED_PROPERTY__NAMESPACES:
 				return getNamespaces();
+			case EsbPackage.NAMESPACED_PROPERTY__SUPPORTS_DYNAMIC_XPATHS:
+				return isSupportsDynamicXPaths();
+			case EsbPackage.NAMESPACED_PROPERTY__DYNAMIC:
+				return isDynamic();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -253,6 +341,12 @@ public class NamespacedPropertyImpl extends EsbNodeImpl implements NamespacedPro
 			case EsbPackage.NAMESPACED_PROPERTY__NAMESPACES:
 				setNamespaces((Map<String, String>)newValue);
 				return;
+			case EsbPackage.NAMESPACED_PROPERTY__SUPPORTS_DYNAMIC_XPATHS:
+				setSupportsDynamicXPaths((Boolean)newValue);
+				return;
+			case EsbPackage.NAMESPACED_PROPERTY__DYNAMIC:
+				setDynamic((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -278,6 +372,12 @@ public class NamespacedPropertyImpl extends EsbNodeImpl implements NamespacedPro
 			case EsbPackage.NAMESPACED_PROPERTY__NAMESPACES:
 				setNamespaces((Map<String, String>)null);
 				return;
+			case EsbPackage.NAMESPACED_PROPERTY__SUPPORTS_DYNAMIC_XPATHS:
+				setSupportsDynamicXPaths(SUPPORTS_DYNAMIC_XPATHS_EDEFAULT);
+				return;
+			case EsbPackage.NAMESPACED_PROPERTY__DYNAMIC:
+				setDynamic(DYNAMIC_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -299,6 +399,10 @@ public class NamespacedPropertyImpl extends EsbNodeImpl implements NamespacedPro
 				return PROPERTY_VALUE_EDEFAULT == null ? propertyValue != null : !PROPERTY_VALUE_EDEFAULT.equals(propertyValue);
 			case EsbPackage.NAMESPACED_PROPERTY__NAMESPACES:
 				return namespaces != null;
+			case EsbPackage.NAMESPACED_PROPERTY__SUPPORTS_DYNAMIC_XPATHS:
+				return supportsDynamicXPaths != SUPPORTS_DYNAMIC_XPATHS_EDEFAULT;
+			case EsbPackage.NAMESPACED_PROPERTY__DYNAMIC:
+				return dynamic != DYNAMIC_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

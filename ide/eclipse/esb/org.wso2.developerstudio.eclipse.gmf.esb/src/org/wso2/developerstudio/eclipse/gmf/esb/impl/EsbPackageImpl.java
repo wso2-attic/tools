@@ -5262,6 +5262,24 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getNamespacedProperty_SupportsDynamicXPaths() {
+		return (EAttribute)namespacedPropertyEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getNamespacedProperty_Dynamic() {
+		return (EAttribute)namespacedPropertyEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getEnrichMediator() {
 		return enrichMediatorEClass;
 	}
@@ -13520,6 +13538,8 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEAttribute(namespacedPropertyEClass, NAMESPACED_PROPERTY__PROPERTY_NAME);
 		createEAttribute(namespacedPropertyEClass, NAMESPACED_PROPERTY__PROPERTY_VALUE);
 		createEAttribute(namespacedPropertyEClass, NAMESPACED_PROPERTY__NAMESPACES);
+		createEAttribute(namespacedPropertyEClass, NAMESPACED_PROPERTY__SUPPORTS_DYNAMIC_XPATHS);
+		createEAttribute(namespacedPropertyEClass, NAMESPACED_PROPERTY__DYNAMIC);
 
 		enrichMediatorEClass = createEClass(ENRICH_MEDIATOR);
 		createEAttribute(enrichMediatorEClass, ENRICH_MEDIATOR__CLONE_SOURCE);
@@ -15252,6 +15272,8 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		g2 = createEGenericType(ecorePackage.getEString());
 		g1.getETypeArguments().add(g2);
 		initEAttribute(getNamespacedProperty_Namespaces(), g1, "namespaces", null, 0, 1, NamespacedProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNamespacedProperty_SupportsDynamicXPaths(), ecorePackage.getEBoolean(), "supportsDynamicXPaths", null, 0, 1, NamespacedProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNamespacedProperty_Dynamic(), ecorePackage.getEBoolean(), "dynamic", null, 0, 1, NamespacedProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(enrichMediatorEClass, EnrichMediator.class, "EnrichMediator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getEnrichMediator_CloneSource(), ecorePackage.getEBoolean(), "cloneSource", "false", 0, 1, EnrichMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
