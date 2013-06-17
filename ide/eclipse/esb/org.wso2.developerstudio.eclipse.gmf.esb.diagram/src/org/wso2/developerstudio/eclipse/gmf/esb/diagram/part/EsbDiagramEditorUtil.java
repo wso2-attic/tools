@@ -375,7 +375,7 @@ public class EsbDiagramEditorUtil {
 							.getEStructuralFeature("children");
 					esbServer.eSet(target, Arrays.asList(complexEndpoints));
 					esbServer.setType(ArtifactType.COMPLEX_ENDPOINT);
-				} else if ("message_store".equals(type)) {
+				} else if ("messageStore".equals(type)) {
 					MessageStore messageStore = EsbFactory.eINSTANCE.createMessageStore();
 					messageStore.setStoreName(name);
 					EStructuralFeature target = esbServer.eClass()
