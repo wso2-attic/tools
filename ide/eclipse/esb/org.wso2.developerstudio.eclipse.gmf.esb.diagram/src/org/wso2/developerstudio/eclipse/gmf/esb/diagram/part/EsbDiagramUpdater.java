@@ -2692,6 +2692,10 @@ public class EsbDiagramUpdater {
 				result.add(new EsbNodeDescriptor(childElement, visualID));
 				continue;
 			}
+			if (visualID == MessageProcessorEditPart.VISUAL_ID) {
+				result.add(new EsbNodeDescriptor(childElement, visualID));
+				continue;
+			}
 		}
 		return result;
 	}
@@ -7491,6 +7495,8 @@ public class EsbDiagramUpdater {
 			return getComplexEndpointsOutputConnector_3679ContainedLinks(view);
 		case MessageStoreEditPart.VISUAL_ID:
 			return getMessageStore_3700ContainedLinks(view);
+		case MessageProcessorEditPart.VISUAL_ID:
+			return getMessageProcessor_3701ContainedLinks(view);
 		case EsbLinkEditPart.VISUAL_ID:
 			return getEsbLink_4001ContainedLinks(view);
 		}
@@ -8020,6 +8026,8 @@ public class EsbDiagramUpdater {
 			return getComplexEndpointsOutputConnector_3679IncomingLinks(view);
 		case MessageStoreEditPart.VISUAL_ID:
 			return getMessageStore_3700IncomingLinks(view);
+		case MessageProcessorEditPart.VISUAL_ID:
+			return getMessageProcessor_3701IncomingLinks(view);
 		case EsbLinkEditPart.VISUAL_ID:
 			return getEsbLink_4001IncomingLinks(view);
 		}
@@ -8549,6 +8557,8 @@ public class EsbDiagramUpdater {
 			return getComplexEndpointsOutputConnector_3679OutgoingLinks(view);
 		case MessageStoreEditPart.VISUAL_ID:
 			return getMessageStore_3700OutgoingLinks(view);
+		case MessageProcessorEditPart.VISUAL_ID:
+			return getMessageProcessor_3701OutgoingLinks(view);
 		case EsbLinkEditPart.VISUAL_ID:
 			return getEsbLink_4001OutgoingLinks(view);
 		}
@@ -9117,6 +9127,13 @@ public class EsbDiagramUpdater {
 	 * @generated
 	 */
 	public static List<EsbLinkDescriptor> getMessageStore_3700ContainedLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getMessageProcessor_3701ContainedLinks(View view) {
 		return Collections.emptyList();
 	}
 
@@ -11412,6 +11429,13 @@ public class EsbDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static List<EsbLinkDescriptor> getMessageProcessor_3701IncomingLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List<EsbLinkDescriptor> getLogMediatorInputConnector_3018IncomingLinks(View view) {
 		LogMediatorInputConnector modelElement = (LogMediatorInputConnector) view.getElement();
 		Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
@@ -13687,6 +13711,13 @@ public class EsbDiagramUpdater {
 	 * @generated
 	 */
 	public static List<EsbLinkDescriptor> getMessageStore_3700OutgoingLinks(View view) {
+		return Collections.emptyList();
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List<EsbLinkDescriptor> getMessageProcessor_3701OutgoingLinks(View view) {
 		return Collections.emptyList();
 	}
 

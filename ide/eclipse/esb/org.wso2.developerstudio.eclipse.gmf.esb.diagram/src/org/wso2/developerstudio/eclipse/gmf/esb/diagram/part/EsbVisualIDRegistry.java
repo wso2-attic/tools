@@ -1057,6 +1057,9 @@ public class EsbVisualIDRegistry {
 			if (EsbPackage.eINSTANCE.getMessageStore().isSuperTypeOf(domainElement.eClass())) {
 				return MessageStoreEditPart.VISUAL_ID;
 			}
+			if (EsbPackage.eINSTANCE.getMessageProcessor().isSuperTypeOf(domainElement.eClass())) {
+				return MessageProcessorEditPart.VISUAL_ID;
+			}
 			break;
 		case MediatorFlowMediatorFlowCompartmentEditPart.VISUAL_ID:
 			if (EsbPackage.eINSTANCE.getDropMediator().isSuperTypeOf(domainElement.eClass())) {
@@ -5055,6 +5058,9 @@ public class EsbVisualIDRegistry {
 			if (MessageStoreEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (MessageProcessorEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case MediatorFlowMediatorFlowCompartmentEditPart.VISUAL_ID:
 			if (DropMediatorEditPart.VISUAL_ID == nodeVisualID) {
@@ -8189,6 +8195,7 @@ public class EsbVisualIDRegistry {
 		case RecipientListEndPointOutputConnector2EditPart.VISUAL_ID:
 		case RecipientListEndPointWestOutputConnector2EditPart.VISUAL_ID:
 		case MessageStoreEditPart.VISUAL_ID:
+		case MessageProcessorEditPart.VISUAL_ID:
 			return true;
 		default:
 			break;

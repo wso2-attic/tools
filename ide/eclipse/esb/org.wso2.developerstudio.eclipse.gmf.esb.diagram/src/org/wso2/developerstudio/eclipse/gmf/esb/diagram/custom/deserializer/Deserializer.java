@@ -65,6 +65,7 @@ import org.apache.axiom.om.util.AXIOMUtil;
 import org.wso2.developerstudio.eclipse.gmf.esb.ArtifactType;
 import org.apache.synapse.config.xml.ProxyServiceFactory;
 import org.apache.synapse.config.xml.rest.APIFactory;
+import org.apache.synapse.config.xml.MessageProcessorFactory;
 import org.apache.synapse.config.xml.SequenceMediatorFactory;
 import org.apache.synapse.config.xml.TemplateMediatorFactory;
 import org.apache.synapse.config.xml.endpoints.EndpointFactory;
@@ -73,6 +74,7 @@ import org.apache.synapse.config.xml.endpoints.WSDLEndpointFactory;
 import org.apache.synapse.task.TaskDescription;
 import org.apache.synapse.task.TaskDescriptionFactory;
 import org.apache.synapse.config.xml.MessageStoreFactory;
+import org.apache.synapse.message.processors.MessageProcessor;
 import org.apache.synapse.message.store.MessageStore;
 
 /**
@@ -303,6 +305,8 @@ public class Deserializer {
 			artifacts.put(store.getName(), store);
 			break;
 		case MESSAGE_PROCESSOR:
+			MessageProcessor messageProcessor = DummyMessageProcessorFactory.createMessageProcessor(element, properties);
+			artifacts.put(messageProcessor.getName(), messageProcessor);
 			break;
 		default:
 			break;

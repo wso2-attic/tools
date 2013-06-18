@@ -914,6 +914,9 @@ public class EsbEditPartFactory implements EditPartFactory {
 			case MessageStoreEditPart.VISUAL_ID:
 				return new MessageStoreEditPart(view);
 
+			case MessageProcessorEditPart.VISUAL_ID:
+				return new MessageProcessorEditPart(view);
+
 			case EsbServerContentsCompartmentEditPart.VISUAL_ID:
 				return new EsbServerContentsCompartmentEditPart(view);
 

@@ -477,6 +477,11 @@ public class EndpointFlowItemProvider
 			(createChildParameter
 				(EsbPackage.Literals.ENDPOINT_FLOW__CHILDREN,
 				 EsbFactory.eINSTANCE.createMessageStore()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.ENDPOINT_FLOW__CHILDREN,
+				 EsbFactory.eINSTANCE.createMessageProcessor()));
 	}
 
 }

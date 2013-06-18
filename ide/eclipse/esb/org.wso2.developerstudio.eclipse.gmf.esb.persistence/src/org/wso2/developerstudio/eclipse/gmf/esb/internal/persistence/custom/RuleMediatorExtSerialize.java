@@ -20,12 +20,15 @@ import org.wso2.carbon.rule.mediator.config.Source;
 import org.wso2.carbon.rule.mediator.config.Target;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleFact;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleFactType;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleFactsConfiguration;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleResult;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleResultType;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleResultsConfiguration;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleSetCreationProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleSourceType;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleType;
 
 public class RuleMediatorExtSerialize extends AbstractMediatorSerializer{
 
@@ -48,9 +51,16 @@ public String getMediatorClassName() {
 			Fact fact = new Fact();
 			fact.setElementName(ruleFact.getFactName());
 			fact.setPrefixToNamespaceMap(ruleFact.getValueExpression().getNamespaces());
-			fact.setType(ruleFact.getFactType().getLiteral());
+			
+			if (ruleFact.getFactType().equals(RuleFactType.CUSTOM)) {
+				fact.setType(ruleFact.getFactCustomType());
+			} else {
+				fact.setType(ruleFact.getFactType().getLiteral());
+			}		
+			
 			fact.setTypeClass(ruleFact.getFactType().getClass());
 			fact.setXpath(ruleFact.getValueExpression().getPropertyValue());
+			fact.setNamespace(visualRule.getInputNameSpace());
 			factsList.add(fact);
 		}
 		Input input = new Input();
@@ -65,9 +75,16 @@ public String getMediatorClassName() {
         	Fact fact = new Fact();
 			fact.setElementName(ruleResult.getResultName());
 			fact.setPrefixToNamespaceMap(ruleResult.getValueExpression().getNamespaces());
-			fact.setType(ruleResult.getResultType().toString());
+			
+			if (ruleResult.getResultType().equals(RuleResultType.CUSTOM)) {
+				fact.setType(ruleResult.getResultCustomType());
+			} else {
+				fact.setType(ruleResult.getResultType().toString());
+			}
+			
 			fact.setTypeClass(ruleResult.getResultType().getClass());
 			fact.setXpath(ruleResult.getValueExpression().getPropertyValue());
+			fact.setNamespace(visualRule.getOutputNameSpace());
 			resultfactsList.add(fact);
         }
         
@@ -96,18 +113,20 @@ public String getMediatorClassName() {
         	 rulesetMap.put(ruleSetCreationProperty.getPropertyName(),ruleSetCreationProperty.getPropertyValue());
 		}
         ruleSet.setProperties(rulesetMap);
+        
         List<Rule> list = new ArrayList<Rule>();
         Rule rule = new Rule();
         RuleSourceType ruleSetSourceType = visualRule.getRuleSetSourceType();
         rule.setSourceType(ruleSetSourceType.getName());
-        if (visualRule.getRuleSetSourceType() == RuleSourceType.REGISTRY_REFERENCE) {
-        	
+        if (visualRule.getRuleSetSourceType() == RuleSourceType.REGISTRY_REFERENCE) {       	
 			 rule.setValue(visualRule.getRuleSetSourceKey().getKeyValue());
 		} else {
 			rule.setValue(visualRule.getRuleSetSourceCode());
 		}	
         rule.setResourceType(visualRule.getRuleSetType().getName());
         list.add(rule);
+        ruleSet.setRules(list);
+        
 		RuleMediatorConfig config = new RuleMediatorConfig();
 		config.setInput(input);
 		config.setOutput(output);

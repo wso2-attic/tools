@@ -353,6 +353,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 			case EsbPackage.RECIPIENT_LIST_END_POINT_WEST_OUTPUT_CONNECTOR: return createRecipientListEndPointWestOutputConnector();
 			case EsbPackage.MESSAGE_STORE_PARAMETER: return createMessageStoreParameter();
 			case EsbPackage.MESSAGE_STORE: return createMessageStore();
+			case EsbPackage.MESSAGE_PROCESSOR_PARAMETER: return createMessageProcessorParameter();
+			case EsbPackage.MESSAGE_PROCESSOR: return createMessageProcessor();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -539,6 +541,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 				return createMessageStoreTypeFromString(eDataType, initialValue);
 			case EsbPackage.JMS_SPEC_VERSION:
 				return createJMSSpecVersionFromString(eDataType, initialValue);
+			case EsbPackage.MESSAGE_PROCESSOR_TYPE:
+				return createMessageProcessorTypeFromString(eDataType, initialValue);
 			case EsbPackage.MAP:
 				return createMapFromString(eDataType, initialValue);
 			default:
@@ -727,6 +731,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 				return convertMessageStoreTypeToString(eDataType, instanceValue);
 			case EsbPackage.JMS_SPEC_VERSION:
 				return convertJMSSpecVersionToString(eDataType, instanceValue);
+			case EsbPackage.MESSAGE_PROCESSOR_TYPE:
+				return convertMessageProcessorTypeToString(eDataType, instanceValue);
 			case EsbPackage.MAP:
 				return convertMapToString(eDataType, instanceValue);
 			default:
@@ -2180,6 +2186,26 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	public MessageStore createMessageStore() {
 		MessageStoreImpl messageStore = new MessageStoreImpl();
 		return messageStore;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MessageProcessorParameter createMessageProcessorParameter() {
+		MessageProcessorParameterImpl messageProcessorParameter = new MessageProcessorParameterImpl();
+		return messageProcessorParameter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MessageProcessor createMessageProcessor() {
+		MessageProcessorImpl messageProcessor = new MessageProcessorImpl();
+		return messageProcessor;
 	}
 
 	/**
@@ -5489,6 +5515,26 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	 * @generated
 	 */
 	public String convertJMSSpecVersionToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MessageProcessorType createMessageProcessorTypeFromString(EDataType eDataType, String initialValue) {
+		MessageProcessorType result = MessageProcessorType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertMessageProcessorTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

@@ -25,6 +25,8 @@ import org.wso2.developerstudio.eclipse.esb.core.Activator;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.provider.MessageStoreParamCustomPropertyDescriptor;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.provider.MessageProcessorParamCustomPropertyDescriptor;
 
 public class EsbPropertySource extends PropertySource {
 	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
@@ -271,7 +273,15 @@ public class EsbPropertySource extends PropertySource {
 		} else if(pkg.getProxyService_ServiceParameters().equals(feature)){
 			return new ProxyParametersPropertyDescriptor(object, itemPropertyDescriptor);
 		} else if(pkg.getMessageStore_Parameters().equals(feature)){
-			return new MessageStoreParamCustomPropertyDescriptor(object, itemPropertyDescriptor);
+            return new MessageStoreParamCustomPropertyDescriptor(object, itemPropertyDescriptor);
+		} else if(pkg.getMessageProcessor_Sequence().equals(feature)) {
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
+		} else if(pkg.getMessageProcessor_ReplySequenceName().equals(feature)) {
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
+		} else if(pkg.getMessageProcessor_FaultSequenceName().equals(feature)) {
+			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
+		} else if(pkg.getMessageProcessor_Parameters().equals(feature)){
+            return new MessageProcessorParamCustomPropertyDescriptor(object, itemPropertyDescriptor);
 		}
 			
 		// Else, default EMF behavior

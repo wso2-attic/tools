@@ -62,6 +62,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.FailoverEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.LocalEntry;
 import org.wso2.developerstudio.eclipse.gmf.esb.MessageMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.MessageProcessor;
 import org.wso2.developerstudio.eclipse.gmf.esb.MessageStore;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyService;
 import org.wso2.developerstudio.eclipse.gmf.esb.RecipientListEndPoint;
@@ -373,6 +374,9 @@ public class DefaultEsbModelExporter implements EsbModelTransformer {
 				}
 				break;
 			case MESSAGE_PROCESSOR:
+				if(child instanceof MessageProcessor) {
+					configOM = MessageProcessorTransformer.createMessageProcessor((MessageProcessor) child);
+				}
 				break;
 			case SYNAPSE_CONFIG:
 			default:

@@ -1257,6 +1257,24 @@ public interface EsbFactory extends EFactory {
 	MessageStore createMessageStore();
 
 	/**
+	 * Returns a new object of class '<em>Message Processor Parameter</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Message Processor Parameter</em>'.
+	 * @generated
+	 */
+	MessageProcessorParameter createMessageProcessorParameter();
+
+	/**
+	 * Returns a new object of class '<em>Message Processor</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Message Processor</em>'.
+	 * @generated
+	 */
+	MessageProcessor createMessageProcessor();
+
+	/**
 	 * Returns a new object of class '<em>Script Mediator</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

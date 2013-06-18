@@ -347,6 +347,7 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 				case ComplexEndpointsEditPart.VISUAL_ID:
 				case ComplexEndpointsOutputConnectorEditPart.VISUAL_ID:
 				case MessageStoreEditPart.VISUAL_ID:
+				case MessageProcessorEditPart.VISUAL_ID:
 				case MediatorFlow9EditPart.VISUAL_ID:
 				case MediatorFlow7EditPart.VISUAL_ID:
 				case MediatorFlow2EditPart.VISUAL_ID:
@@ -656,7 +657,8 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 				|| ComplexEndpointsEditPart.VISUAL_ID == visualID
 				|| MediatorFlow18EditPart.VISUAL_ID == visualID
 				|| ComplexEndpointsOutputConnectorEditPart.VISUAL_ID == visualID
-				|| MessageStoreEditPart.VISUAL_ID == visualID;
+				|| MessageStoreEditPart.VISUAL_ID == visualID
+				|| MessageProcessorEditPart.VISUAL_ID == visualID;
 	}
 
 	/**
@@ -1483,6 +1485,9 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 					persisted, preferencesHint);
 		case MessageStoreEditPart.VISUAL_ID:
 			return createMessageStore_3700(domainElement, containerView, index, persisted,
+					preferencesHint);
+		case MessageProcessorEditPart.VISUAL_ID:
+			return createMessageProcessor_3701(domainElement, containerView, index, persisted,
 					preferencesHint);
 		}
 		// can't happen, provided #provides(CreateNodeViewOperation) is correct
@@ -3960,6 +3965,42 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 		node.getStyles().add(NotationFactory.eINSTANCE.createLineStyle());
 		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
 		node.setType(EsbVisualIDRegistry.getType(MessageStoreEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
+				IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node,
+				NotationPackage.eINSTANCE.getLineStyle_LineColor(),
+				FigureUtilities.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter.getColor(prefStore,
+					IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
+		}
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Node createMessageProcessor_3701(EObject domainElement, View containerView, int index,
+			boolean persisted, PreferencesHint preferencesHint) {
+		Node node = NotationFactory.eINSTANCE.createNode();
+		node.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		node.getStyles().add(NotationFactory.eINSTANCE.createLineStyle());
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(EsbVisualIDRegistry.getType(MessageProcessorEditPart.VISUAL_ID));
 		ViewUtil.insertChildView(containerView, node, index, persisted);
 		node.setElement(domainElement);
 		// initializeFromPreferences 

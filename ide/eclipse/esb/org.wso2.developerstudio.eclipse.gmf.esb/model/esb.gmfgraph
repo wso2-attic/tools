@@ -1666,6 +1666,19 @@
             blue="248"/>
       </actualFigure>
     </descriptors>
+    <descriptors
+        name="MessageProcessorFigure">
+      <actualFigure
+          xsi:type="gmfgraph:CustomFigure"
+          name="MessageProcessorFigure"
+          qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="40"
+            green="151"
+            blue="248"/>
+      </actualFigure>
+    </descriptors>
   </figures>
   <nodes
       name="EsbServer"
@@ -2500,6 +2513,9 @@
   <nodes
       name="MessageStore"
       figure="MessageStoreFigure"/>
+  <nodes
+      name="MessageProcessor"
+      figure="MessageProcessorFigure"/>
   <connections
       name="EsbLink"
       figure="PlainConnectionFigure"/>

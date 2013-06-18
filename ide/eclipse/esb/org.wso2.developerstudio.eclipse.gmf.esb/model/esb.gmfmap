@@ -3058,8 +3058,19 @@
               href="esb.gmfgraph#MessageStore"/>
         </ownedChild>
       </children>
+      <children
+          compartment="//@nodes.0/@ownedChild/@compartments.0">
+        <containmentFeature
+            href="esb.ecore#//EsbServer/children"/>
+        <ownedChild>
+          <domainMetaElement
+              href="esb.ecore#//MessageProcessor"/>
+          <diagramNode
+              href="esb.gmfgraph#MessageProcessor"/>
+        </ownedChild>
+      </children>
       <compartments
-          children="//@nodes.0/@ownedChild/@children.2 //@nodes.0/@ownedChild/@children.0 //@nodes.0/@ownedChild/@children.3 //@nodes.0/@ownedChild/@children.5 //@nodes.0/@ownedChild/@children.6 //@nodes.0/@ownedChild/@children.7 //@nodes.0/@ownedChild/@children.8 //@nodes.0/@ownedChild/@children.9 //@nodes.0/@ownedChild/@children.10">
+          children="//@nodes.0/@ownedChild/@children.2 //@nodes.0/@ownedChild/@children.0 //@nodes.0/@ownedChild/@children.3 //@nodes.0/@ownedChild/@children.5 //@nodes.0/@ownedChild/@children.6 //@nodes.0/@ownedChild/@children.7 //@nodes.0/@ownedChild/@children.8 //@nodes.0/@ownedChild/@children.9 //@nodes.0/@ownedChild/@children.10 //@nodes.0/@ownedChild/@children.11">
         <compartment
             href="esb.gmfgraph#ContentsCompartment"/>
       </compartments>

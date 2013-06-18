@@ -3229,6 +3229,52 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.MessageProcessorParameter} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MessageProcessorParameterItemProvider messageProcessorParameterItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.MessageProcessorParameter}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMessageProcessorParameterAdapter() {
+		if (messageProcessorParameterItemProvider == null) {
+			messageProcessorParameterItemProvider = new MessageProcessorParameterItemProvider(this);
+		}
+
+		return messageProcessorParameterItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.MessageProcessor} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MessageProcessorItemProvider messageProcessorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.MessageProcessor}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMessageProcessorAdapter() {
+		if (messageProcessorItemProvider == null) {
+			messageProcessorItemProvider = new MessageProcessorItemProvider(this);
+		}
+
+		return messageProcessorItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.ScriptMediator} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7076,6 +7122,8 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 		if (recipientListEndPointWestOutputConnectorItemProvider != null) recipientListEndPointWestOutputConnectorItemProvider.dispose();
 		if (messageStoreParameterItemProvider != null) messageStoreParameterItemProvider.dispose();
 		if (messageStoreItemProvider != null) messageStoreItemProvider.dispose();
+		if (messageProcessorParameterItemProvider != null) messageProcessorParameterItemProvider.dispose();
+		if (messageProcessorItemProvider != null) messageProcessorItemProvider.dispose();
 	}
 
 }
