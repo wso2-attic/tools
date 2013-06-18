@@ -58,9 +58,6 @@ public class AddRemoveJavaLibsWizard extends AbstractWSO2ProjectCreationWizard {
 		super();
 		setNeedsProgressMonitor(false);
 		
-		IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
-		String projectLocation = root.getLocation().toString();
-		
 		IPath path = null;
 		IProject project = null;
 		IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
@@ -76,15 +73,13 @@ public class AddRemoveJavaLibsWizard extends AbstractWSO2ProjectCreationWizard {
 	    }
 	    
 	    if (path != null & project != null) {
-			libraryModel = new LibraryArtifactModel();
-			path.setDevice(projectLocation + File.pathSeparator);
-			projectLocation += path.toString();
-			libraryModel.setProjectName(path.lastSegment());
-			File projectFile = new File(projectLocation);
-			libraryModel.setLocation(projectFile);
+	    	File pomfile = project.getFile("pom.xml").getLocation().toFile();
+	    	mavenProject = MavenUtils.getMavenProject(pomfile);
 			
-			File pomfile = project.getFile("pom.xml").getLocation().toFile();
-			mavenProject = MavenUtils.getMavenProject(pomfile);
+	    	libraryModel = new LibraryArtifactModel();
+			libraryModel.setProjectName(path.lastSegment());
+			File projectFile = pomfile.getParentFile();
+			libraryModel.setLocation(projectFile);
 			
 			for (Object obj : mavenProject.getDependencies()) {
 				
@@ -92,7 +87,7 @@ public class AddRemoveJavaLibsWizard extends AbstractWSO2ProjectCreationWizard {
 				String artifact = dependency.getArtifactId();
 				String groupID = dependency.getGroupId();
 				if (groupID.equals("dummy.groupid")){
-					libraryModel.getLibraries().add(new File(projectLocation + Path.SEPARATOR + artifact));
+					libraryModel.getLibraries().add(new File(projectFile.getPath() + File.separator + artifact));
 				}else if (groupID.startsWith("org.wso2.carbon.")){
 					IResource resource = ResourcesPlugin.getWorkspace().getRoot().getProject(artifact);
 					libraryModel.getLibraries().add(resource);

@@ -548,7 +548,7 @@ public class FileUtils{
 		            // Relative path of file into the jar.
 		            String className = zipEntry.getName();
 		            String packageName = new File(className).getParent();
-		            packageName = packageName.replace(Path.SEPARATOR, '.');
+		            packageName = packageName.replace(File.separatorChar, '.');
 		            if (!packages.contains(packageName)){
 		            	packages.add(packageName);
 		            }

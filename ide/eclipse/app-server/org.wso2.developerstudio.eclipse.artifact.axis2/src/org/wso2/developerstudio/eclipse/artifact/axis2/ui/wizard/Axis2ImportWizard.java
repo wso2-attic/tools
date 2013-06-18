@@ -117,7 +117,7 @@ public class Axis2ImportWizard extends Wizard implements INewWizard{
 				WSDL2Java.main(parameterArray);
 				monitor.worked(75);	
 				monitor.subTask("Adding dependent libraries to the project...");
-				JavaUtils.addJarLibraryToProject(dataModel.getSelectedProject(), LibraryUtils.getDependencyPath("axis2_1.6.1.wso2v6.jar"));
+				JavaUtils.addJarLibraryToProject(dataModel.getSelectedProject(), LibraryUtils.getDependencyPath("axis2_1.6.1.wso2v7.jar"));
 				JavaUtils.addJarLibraryToProject(dataModel.getSelectedProject(), LibraryUtils.getDependencyPath("axiom_1.2.11.wso2v3.jar"));
 				monitor.worked(10);
 				monitor.subTask("Refreshing project...");
