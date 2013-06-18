@@ -18,6 +18,8 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.ui;
 
 import java.io.File;
 import java.lang.reflect.InvocationTargetException;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -57,6 +59,7 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramEditorPlugin;
+import org.apache.commons.lang.StringUtils;
 
 /**
  * A dialog used to select an xpath from a given xml document.
@@ -126,6 +129,11 @@ public class XPathSelectorDialog extends Dialog {
 	 * Selected xpath.
 	 */
 	private String selectedXpath;
+	
+	/**
+	 * XML namespaces.
+	 */
+	private Map<String,String> nameSpaces;
 
 	/**
 	 * A utility class used to track {@link TreeItem} state as well as store
@@ -420,7 +428,7 @@ public class XPathSelectorDialog extends Dialog {
 				final String filePath = fileBrowserDialog.open();
 
 				// If the user selected a file.
-				if (filePath != null && !filePath.isEmpty()) {
+				if (!StringUtils.isBlank(filePath)) {
 					// Clear tree view.
 					treeViewWidget.removeAll();
 
@@ -454,6 +462,7 @@ public class XPathSelectorDialog extends Dialog {
 										public IStatus runInUIThread(
 												IProgressMonitor monitor) {
 											addTreeItem(null, rootNode);
+											addNameSpaces(rootNode);
 											return Status.OK_STATUS;
 										}
 									}.schedule();
@@ -554,6 +563,23 @@ public class XPathSelectorDialog extends Dialog {
 	private void setSelectedXpath(String selectedXpath) {
 		this.selectedXpath = selectedXpath;
 	}
+	
+	/**
+	 * Adding NameSpaces
+	 * @param node
+	 */
+	private void addNameSpaces(Node node){
+		nameSpaces = new HashMap<String, String>();
+		NamedNodeMap nsList = node.getAttributes();
+		if (nsList.getLength() > 0) {
+			for (int i = 0; i < nsList.getLength(); i++) {
+				Node item = nsList.item(i);
+				if (null != item.getNodeName() && item.getNodeName().startsWith("xmlns:")) {
+					nameSpaces.put(item.getNodeName().replaceAll("^xmlns:", ""), item.getNodeValue());
+				}
+			}
+		}
+	}
 
 	/**
 	 * @return selected xpath.
@@ -576,5 +602,9 @@ public class XPathSelectorDialog extends Dialog {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder builder = factory.newDocumentBuilder();
 		return builder.parse(file);
+	}
+	
+	public Map<String,String> getNameSpaces(){
+		return nameSpaces;
 	}
 }

@@ -443,6 +443,11 @@ public class NamespacedPropertyEditorDialog extends Dialog {
 				if (xpathEditorDialog.getSelectedXpath() != null) {
 					propertyTextField.setText(xpathEditorDialog
 							.getSelectedXpath());
+					collectedNamespaces.clear();
+					nsListBox.removeAll();
+					for (Entry<String, String> nsEntry: xpathEditorDialog.getNameSpaces().entrySet()) {
+						addNamespace(nsEntry.getKey(), nsEntry.getValue());
+					}
 				}
 			}
 		});
