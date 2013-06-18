@@ -18,6 +18,11 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.provider;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.Path;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -31,6 +36,8 @@ import org.eclipse.emf.query.statements.WHERE;
 import org.eclipse.jface.window.Window;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBArtifact;
+import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.LocalEntry;
@@ -39,6 +46,9 @@ import org.wso2.developerstudio.eclipse.gmf.esb.ProxyService;
 import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbFactoryImpl;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.provider.NamedEntityDescriptor.NamedEntityType;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 
 /**
  * {@link CustomDialogCellEditor} responsible for handling registry key properties.
@@ -58,7 +68,12 @@ public class RegistryKeyPropertyEditor extends CustomDialogCellEditor {
 	 * Property descriptor.
 	 */
 	private IItemPropertyDescriptor propertyDescriptor;
-
+	
+	/**
+	 * Error log.
+	 */
+	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
+	
 	/**
 	 * Creates a new {@link RegistryKeyPropertyEditor} instance.
 	 * 
@@ -79,8 +94,10 @@ public class RegistryKeyPropertyEditor extends CustomDialogCellEditor {
 	 * {@inheritDoc}
 	 */
 	protected Object openDialogBox(Control cellEditorWindow) {
+		//RegistryKeyPropertyEditorDialog dialog = new RegistryKeyPropertyEditorDialog(cellEditorWindow.getShell(),
+		//		getStyle(), registryKeyProperty, findLocalNamedEntities(propertyContainer));
 		RegistryKeyPropertyEditorDialog dialog = new RegistryKeyPropertyEditorDialog(cellEditorWindow.getShell(),
-				getStyle(), registryKeyProperty, findLocalNamedEntities(propertyContainer));
+				getStyle(), registryKeyProperty, getLocalNamedEntities(propertyContainer));
 		dialog.create();
 		dialog.getShell().setSize(520,250);
 		dialog.getShell().setText("Resource Key Editor");
@@ -157,6 +174,48 @@ public class RegistryKeyPropertyEditor extends CustomDialogCellEditor {
 						break;
 					default:
 						// TODO: Log the unexpected result.
+				}
+			}
+		}
+		
+		return result;
+	}
+	
+	/**
+	 * Utility method for getting current local entries that can be the
+	 * target of registry key attributes.
+	 * 
+	 * @param obj {@link EObject} which is part of the current resource being edited.
+	 * @return a list of local named entities.
+	 */
+	private List<NamedEntityDescriptor> getLocalNamedEntities(Object obj) {
+		List<NamedEntityDescriptor> result = new ArrayList<NamedEntityDescriptor>();
+		
+		if (obj instanceof EObject) {
+			EObject eObject = (EObject) obj;
+			if (eObject.eResource() != null) {
+				URI uri = eObject.eResource().getURI();
+
+				if (uri.isPlatform()) {
+					uri = URI.createURI(uri.toPlatformString(true));
+				}
+
+				String fileString = URI.decode(uri.path());
+				IFile file = ResourcesPlugin.getWorkspace().getRoot()
+						.getFile(new Path(fileString));
+				IProject project = file.getProject();
+				ESBProjectArtifact esbProjectArtifact = new ESBProjectArtifact();
+
+				try {
+					esbProjectArtifact.fromFile(project.getFile("artifact.xml").getLocation().toFile());
+					List<ESBArtifact> allArtifacts = esbProjectArtifact.getAllESBArtifacts();
+					for (ESBArtifact artifact : allArtifacts) {
+						if (artifact.getType().equals("synapse/local-entry")) {
+							result.add(new NamedEntityDescriptor(artifact.getName(), NamedEntityType.LOCAL_ENTRY));
+						}
+					}
+				} catch (Exception e) {
+					log.error(e);
 				}
 			}
 		}

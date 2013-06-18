@@ -234,7 +234,7 @@ public class RegistryKeyPropertyEditorDialog extends Dialog {
 			embeddedEntriesDialog.getShell().setText("Embedded Resources");
 			embeddedEntriesDialog.open();
 			if (embeddedEntriesDialog.getReturnCode()==Window.OK){
-				setSelectedPath(embeddedEntriesDialog.getSelectedItem());
+				setSelectedPath(embeddedEntriesDialog.getSelectedItem().trim());
 			}			
 		}finally{
 			show();
