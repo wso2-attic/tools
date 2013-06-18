@@ -244,10 +244,6 @@ public class MessageProcessorCreationWizard extends AbstractWSO2ProjectCreationW
 				messageProcessorPrameeters.put("message.processor.fault.sequence",
 						messageProcessorModel.getFaultSequenceName());
 			}
-			if (StringUtils.isNotBlank(messageProcessorModel.getFaultSequenceName())) {
-				messageProcessorPrameeters.put("message.processor.fault.sequence",
-						messageProcessorModel.getFaultSequenceName());
-			}
 			if (StringUtils.isNotBlank(messageProcessorModel.getConfigurationFilePath())) {
 				messageProcessorPrameeters.put("quartz.conf",
 						messageProcessorModel.getConfigurationFilePath());
@@ -288,7 +284,7 @@ public class MessageProcessorCreationWizard extends AbstractWSO2ProjectCreationW
 				messageProcessorPrameeters.put("pinnedServers",
 						messageProcessorModel.getPinnedServers());
 			}
-			if (StringUtils.isNotBlank(messageProcessorModel.getPinnedServers())) {
+			if (StringUtils.isNotBlank(messageProcessorModel.getSequence())) {
 				messageProcessorPrameeters.put("sequence",
 						messageProcessorModel.getSequence());
 			}

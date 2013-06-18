@@ -16,6 +16,7 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.impl;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -338,24 +339,30 @@ public class MessageProcessorImpl extends EsbElementImpl implements MessageProce
 		super();
 		
 		RegistryKeyProperty sequence = EsbFactoryImpl.eINSTANCE.createRegistryKeyProperty();
+		DeveloperStudioProviderUtils.addFilter((Map<String, List<String>>) sequence.getFilters(),
+				CSProviderConstants.FILTER_MEDIA_TYPE, ESBMediaTypeConstants.MEDIA_TYPE_SEQUENCE);
 		sequence.setPrettyName("Sequence");
 		sequence.setKeyName("key");
 		sequence.setKeyValue("");
 		setSequence(sequence);
 		
 		RegistryKeyProperty replaySequence = EsbFactoryImpl.eINSTANCE.createRegistryKeyProperty();
-		sequence.setPrettyName("Replay Sequence");
-		sequence.setKeyName("key");
-		sequence.setKeyValue("");
+		DeveloperStudioProviderUtils.addFilter(
+				(Map<String, List<String>>) replaySequence.getFilters(),
+				CSProviderConstants.FILTER_MEDIA_TYPE, ESBMediaTypeConstants.MEDIA_TYPE_SEQUENCE);
+		replaySequence.setPrettyName("Replay Sequence");
+		replaySequence.setKeyName("key");
+		replaySequence.setKeyValue("");
 		setReplySequenceName(replaySequence);
 		
 		RegistryKeyProperty faultSequence = EsbFactoryImpl.eINSTANCE.createRegistryKeyProperty();
-		sequence.setPrettyName("Fault Sequence");
-		sequence.setKeyName("key");
-		sequence.setKeyValue("");
+		DeveloperStudioProviderUtils.addFilter(
+				(Map<String, List<String>>) faultSequence.getFilters(),
+				CSProviderConstants.FILTER_MEDIA_TYPE, ESBMediaTypeConstants.MEDIA_TYPE_SEQUENCE);
+		faultSequence.setPrettyName("Fault Sequence");
+		faultSequence.setKeyName("key");
+		faultSequence.setKeyValue("");
 		setFaultSequenceName(faultSequence);
-		
-		//setMessageStore("Store1");
 	}
 
 	/**
