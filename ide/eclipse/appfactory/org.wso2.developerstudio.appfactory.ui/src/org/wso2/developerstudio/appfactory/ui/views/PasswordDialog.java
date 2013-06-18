@@ -106,7 +106,10 @@ public class PasswordDialog extends Dialog {
   protected void okPressed() {
     user = userText.getText();
     password = passwordText.getText();
-    host = hostText.getText().trim();
+    host =hostText.getText().trim();
+    if(!host.contains("https://")){
+    	host = "https://"+host;
+    }
     super.okPressed();
   }
 

@@ -21,6 +21,7 @@ import org.eclipse.jface.preference.FieldEditorPreferencePage;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.preference.StringFieldEditor;
 import org.eclipse.jface.util.IPropertyChangeListener;
+import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPreferencePage;
 import org.wso2.developerstudio.appfactory.ui.Activator;
@@ -48,8 +49,12 @@ implements IWorkbenchPreferencePage{
 
 	@Override
 	protected void createFieldEditors() {
-		addField(new StringFieldEditor(APP_FACTORY_LOCATION,
-				"&AppFactory Url:", getFieldEditorParent()));
+		StringFieldEditor editor = new StringFieldEditor(APP_FACTORY_LOCATION,
+				"&AppFactory Url:", getFieldEditorParent());
+		
+		Text textControl = editor.getTextControl(getFieldEditorParent());
+		textControl.setText("https://");
+		addField(editor);
 		addField(new StringFieldEditor(APP_FACTORY_USERNAME, "App&Factory Username",
 				getFieldEditorParent()));
 		stringField1 = new StringFieldEditor(APP_FACTORY_PASSWORD,

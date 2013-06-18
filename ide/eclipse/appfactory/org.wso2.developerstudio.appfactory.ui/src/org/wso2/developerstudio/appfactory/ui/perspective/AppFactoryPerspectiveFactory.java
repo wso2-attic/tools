@@ -16,15 +16,33 @@
 
 package org.wso2.developerstudio.appfactory.ui.perspective;
 
+import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
+
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.jface.dialogs.ProgressMonitorDialog;
+import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Cursor;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.ui.IFolderLayout;
 import org.eclipse.ui.IPageLayout;
+import org.eclipse.ui.IPerspectiveDescriptor;
 import org.eclipse.ui.IPerspectiveFactory;
+import org.eclipse.ui.IWorkbenchPage;
+import org.eclipse.ui.IWorkbenchWindow;
+import org.eclipse.ui.PerspectiveAdapter;
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.WorkbenchException;
 import org.eclipse.ui.browser.IWebBrowser;
 import org.eclipse.ui.browser.IWorkbenchBrowserSupport;
 import org.eclipse.ui.console.IConsoleConstants;
+import org.wso2.developerstudio.appfactory.core.model.AppVersionInfo;
+import org.wso2.developerstudio.appfactory.core.repository.JgitRepoManager;
 import org.wso2.developerstudio.appfactory.ui.Activator;
 import org.wso2.developerstudio.appfactory.ui.actions.LoginAction;
 import org.wso2.developerstudio.appfactory.ui.preference.AppFactoryPreferencePage;
@@ -41,36 +59,35 @@ public class AppFactoryPerspectiveFactory implements IPerspectiveFactory {
 
 	private static IWebBrowser browser = null;
  
-	
 	     public void createInitialLayout(IPageLayout appfacLayout) {
 	    	 LoginAction loginAction = new LoginAction();
 			     try {
 			    	
 					 if(loginAction.login()){
-						  AppFactoryPerspectiveManager.val = false;
-							addViews(appfacLayout); 
-							
-				   	        String appFactoryPreferenceURL = loginAction.getPreferenceStore().getString(AppFactoryPreferencePage.APP_FACTORY_LOCATION);
-							// Opening the Web browser
-							IWorkbenchBrowserSupport browserSupport = Activator.getDefault().getWorkbench().getBrowserSupport();
-							browser = browserSupport.createBrowser(IWorkbenchBrowserSupport.LOCATION_BAR, null, null, null);
-							URL url = new URL("http://www.google.com/ncr");
-							if(appFactoryPreferenceURL!= null && !appFactoryPreferenceURL.equals("")){
-								browser.openURL(new URL(appFactoryPreferenceURL));
-							}else{
-								browser.openURL(url);
-							}
+						    Display.getCurrent().getActiveShell().setCursor((new Cursor(Display.getCurrent(), SWT.CURSOR_WAIT)));
+						    ProgressMonitorDialog progressMonitorDialog = new ProgressMonitorDialog(Display.getDefault().getActiveShell());
+							progressMonitorDialog.create();
+							progressMonitorDialog.open();
+							progressMonitorDialog.run(true, false, new LoadAppFacPerfectiveJob(loginAction,appfacLayout));
+						    AppFactoryPerspectiveManager.val = false;
+						   // Display.getCurrent().getActiveShell().setCursor((new Cursor(Display.getCurrent(), SWT.CURSOR_ARROW)));
 					}else {
 						MessageBox messageBox = new MessageBox(loginAction.getActiveShell(),SWT.OK);
 				        messageBox.setText("Error");
 				        messageBox.setMessage("Error username or password");
 				        messageBox.open();
-				        
+				       // Display.getCurrent().getActiveShell().setCursor((new Cursor(Display.getCurrent(), SWT.CURSOR_WAIT)));
+					    ProgressMonitorDialog progressMonitorDialog = new ProgressMonitorDialog(Display.getDefault().getActiveShell());
+						progressMonitorDialog.create();
+						//progressMonitorDialog.open();
+ 
+						progressMonitorDialog.run(true, false, new LoadPrevioiusAppFacPerfectiveJob());
+					   
 					}
 				} catch (Exception e) {
 					MessageBox messageBox = new MessageBox(loginAction.getActiveShell(),SWT.OK);
 			        messageBox.setText("Error");
-			        messageBox.setMessage(e.getMessage());
+			        messageBox.setMessage("perspective loading issue");
 			        messageBox.open();
 					log.error("perspective loading issue", e);
 				} 	    		 
@@ -91,6 +108,102 @@ public class AppFactoryPerspectiveFactory implements IPerspectiveFactory {
 			IFolderLayout buildInfo = appfacLayout.createFolder("Bottomt",IPageLayout.BOTTOM,0.60f,appfacLayout.getEditorArea());
 			buildInfo.addView(IConsoleConstants.ID_CONSOLE_VIEW);
 		} 
+		
 	     
-	  
+		private class LoadAppFacPerfectiveJob implements IRunnableWithProgress {
+			
+			private  LoginAction loginAction;
+			private IPageLayout appfacLayout;
+			public LoadAppFacPerfectiveJob(LoginAction loginAction,IPageLayout appfacLayout) {
+				 this.loginAction = loginAction;
+				 this.appfacLayout = appfacLayout;
+			}
+			@Override
+			public void run(IProgressMonitor monitor) throws InvocationTargetException,
+					InterruptedException {
+				String operationText="Loading the persfective";
+				monitor.beginTask(operationText, 100);
+				monitor.worked(10);
+				try{
+					    AppFactoryPerspectiveManager.val = false;
+					    operationText="Connecting to the AppFactory Url";
+						monitor.beginTask(operationText, 100);
+						monitor.worked(50);
+						addViews(appfacLayout); 
+						
+			   	        String appFactoryPreferenceURL = loginAction.getPreferenceStore().getString(AppFactoryPreferencePage.APP_FACTORY_LOCATION);
+						// Opening the Web browser
+						IWorkbenchBrowserSupport browserSupport = Activator.getDefault().getWorkbench().getBrowserSupport();
+						browser = browserSupport.createBrowser(IWorkbenchBrowserSupport.LOCATION_BAR, null, null, null);
+						URL url = new URL("http://www.google.com/ncr");
+						if(appFactoryPreferenceURL!= null && !appFactoryPreferenceURL.equals("")){
+							browser.openURL(new URL(appFactoryPreferenceURL));
+						}else{
+							browser.openURL(url);
+						}
+						
+						operationText="Completed";
+						monitor.beginTask(operationText, 100);
+						monitor.worked(100);
+				}catch(Exception e){
+					operationText=e.getMessage();
+					monitor.beginTask(operationText, 100);
+					monitor.worked(0);
+					monitor.setCanceled(true);
+					log.error("updateprocess error", e);
+				}
+				
+				monitor.worked(100);
+				monitor.done();
+			}
+		}  
+		
+		
+	private class LoadPrevioiusAppFacPerfectiveJob implements IRunnableWithProgress {
+			
+		 
+			@Override
+			public void run(IProgressMonitor monitor) throws InvocationTargetException,
+					InterruptedException {
+				// AppFactoryPerspectiveManager.val = true;
+								 
+				 try{
+					 IPerspectiveDescriptor perspective = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getPerspective();
+					 PlatformUI.getWorkbench().showPerspective("org.eclipse.jst.j2ee.J2EEPerspective", PlatformUI.getWorkbench().getActiveWorkbenchWindow());
+					 PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().closePerspective(perspective, false, true);
+					/* PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().closePerspective(perspectiveDescriptor, true, true);
+					  PlatformUI.getWorkbench().showPerspective("org.eclipse.jst.j2ee.J2EEPerspective", PlatformUI.getWorkbench().getActiveWorkbenchWindow());
+					   
+					/*final IWorkbenchWindow workbenchWindow = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
+	                if (workbenchWindow != null) {
+	                    workbenchWindow.addPerspectiveListener(new PerspectiveAdapter() {
+	                        @Override
+	                        public void perspectiveActivated(IWorkbenchPage page,
+	                                IPerspectiveDescriptor perspectiveDescriptor) {
+	                          //  super.perspectiveActivated(page, perspectiveDescriptor);
+	                            if("org.wso2.developerstudio.appfactory.ui.perspective".equals(perspectiveDescriptor.getId())){
+	                            	
+	                            	try {
+	                         
+	                            		//PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().closePerspective(perspectiveDescriptor, true, true);
+	                            		PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().setPerspective(perspectiveDescriptor);
+	                            	    PlatformUI.getWorkbench().showPerspective("org.eclipse.jst.j2ee.J2EEPerspective", PlatformUI.getWorkbench().getActiveWorkbenchWindow());
+	                            	    PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().closePerspective(perspectiveDescriptor, false, true);
+	                 
+	                            	} catch (WorkbenchException e) {
+	                            		e.printStackTrace();
+									}
+	                            }
+	                        }
+	                    });
+	                }*/
+				}catch(Exception e){
+					 
+					log.error("updateprocess error", e);
+				}
+				
+				monitor.worked(100);
+				monitor.done();
+			}
+		}  
 }

@@ -20,6 +20,11 @@ import java.util.Map;
 
 import org.wso2.developerstudio.appfactory.core.client.HttpsJaggeryClient;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
+
 public class Authenticator {
 	
   public String serverURL;	
@@ -42,11 +47,11 @@ public class Authenticator {
 		 params.put("userName", credentials.getUser());
 		 params.put("password", credentials.getPassword());
 		 String value = HttpsJaggeryClient.httpPostLogin(serverUrl,params);
-	     if("true".equals(value)){
+	     if(!"false".equals(value)){
 			 this.serverURL = serverUrl;
 			 this.credentials = credentials;
 			 return true;
-		 }
+		 } 
 		 return false;
 	}
 public UserPasswordCredentials getCredentials() {

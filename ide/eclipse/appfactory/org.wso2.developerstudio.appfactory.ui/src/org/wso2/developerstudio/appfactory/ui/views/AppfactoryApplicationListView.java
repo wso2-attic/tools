@@ -32,7 +32,6 @@ import org.apache.http.util.EntityUtils;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectDescription;
 import org.eclipse.core.resources.IResource;
-import org.eclipse.core.resources.IWorkspace;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -53,9 +52,6 @@ import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.wizard.IWizard;
 import org.eclipse.jface.wizard.WizardDialog;
-import org.eclipse.jgit.api.errors.GitAPIException;
-import org.eclipse.jgit.api.errors.InvalidRemoteException;
-import org.eclipse.jgit.api.errors.TransportException;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Cursor;
 import org.eclipse.swt.widgets.Composite;
@@ -65,28 +61,30 @@ import org.eclipse.ui.IViewSite;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.console.MessageConsoleStream;
-import org.eclipse.ui.internal.handlers.WizardHandler.New;
 import org.eclipse.ui.part.ViewPart;
 import org.eclipse.ui.wizards.IWizardDescriptor;
 import org.wso2.developerstudio.appfactory.core.authentication.Authenticator;
 import org.wso2.developerstudio.appfactory.core.authentication.UserPasswordCredentials;
 import org.wso2.developerstudio.appfactory.core.client.HttpsGenkinsClient;
 import org.wso2.developerstudio.appfactory.core.client.HttpsJaggeryClient;
+import org.wso2.developerstudio.appfactory.core.jag.api.JagApiProperties;
 import org.wso2.developerstudio.appfactory.core.model.AppListModel;
 import org.wso2.developerstudio.appfactory.core.model.AppVersionInfo;
 import org.wso2.developerstudio.appfactory.core.model.ApplicationInfo;
-import org.wso2.developerstudio.appfactory.core.jag.api.JagApiProperties;
 import org.wso2.developerstudio.appfactory.core.repository.JgitRepoManager;
 import org.wso2.developerstudio.appfactory.ui.Activator;
+import org.wso2.developerstudio.appfactory.ui.actions.LoginAction;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
+
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
- 
 
+ 
+ 
  
 public class AppfactoryApplicationListView extends ViewPart {
 	
@@ -106,18 +104,30 @@ public class AppfactoryApplicationListView extends ViewPart {
 	private UserPasswordCredentials credentials;
 	private List<ApplicationInfo> appLists;
 	private MenuManager menuMgr;
+	TestOutputConsole console;
+	MessageConsoleStream out;
 
- 
-	
+  
 	@Override
 	public void init(IViewSite site) throws PartInitException {
   
 		 super.init(site);
+		 console = new TestOutputConsole();
+		 out = console.getOut();
 		 createUserAppList();
 	}
-
+ 
 	private void createUserAppList() {
 		 credentials = Authenticator.getInstance().getCredentials();
+		 if(credentials==null){
+			 LoginAction loginAction = new LoginAction();
+			 if(loginAction.login()){
+				 createUserAppList();
+			 }else{
+				 out.println("Restart the Appfactory ");
+			 }
+			 
+		 }
 		 Map<String,String> params = new HashMap<String,String>();
 		 params.put("action",JagApiProperties.USER_APP_LIST__ACTION);
 		 params.put("userName",credentials.getUser()); 
@@ -216,7 +226,7 @@ public class AppfactoryApplicationListView extends ViewPart {
 		};
 		return reposettings;
 	}
-	
+ 
 	private void getVersionInformation(final ApplicationInfo appInfo) {
 		Display.getCurrent().getActiveShell().setCursor((new Cursor(Display.getCurrent(), SWT.CURSOR_WAIT)));
 		AppListModel oldModel = model;
@@ -228,85 +238,88 @@ public class AppfactoryApplicationListView extends ViewPart {
 	} 
 	
 	private Action buildInfoAction(final AppVersionInfo appInfo) {
-		 
-		Action reposettings = new Action() {
+
+		Action reposetetings = new Action() {
+
+			@SuppressWarnings("restriction")
+			@Override
 			public void run() {
 				try {
-					Display.getCurrent().asyncExec(new Runnable() {
-						public void run() {
-							try {
-								 Map<String,String> params = new HashMap<String,String>();
-								 params.put("action", JagApiProperties.App_BUILD_SUCESS_ACTION);
-								 params.put("stage", "Development");
-								 params.put("applicationKey",appInfo.getAppName());
-								 params.put("version",appInfo.getVersion());
-								 String respond = HttpsJaggeryClient.httpPost(JagApiProperties.getBuildLastSucessfullBuildUrl(), params);
-								 JsonElement jelement = new JsonParser().parse(respond);
-								JsonArray buildInfoArray;
-							    String asString = jelement.getAsJsonObject().get("buildinfo").getAsString();
-								//buildInfoArray = jelement.getAsJsonArray();
-								//String asString = buildInfoArray.get(1).getAsString();
-								String[] split = asString.split(" ");
-								String val = split[1];
-								int maxValueInMap=-1;
-								/*HashMap<String, Integer> buildInfoMap = new HashMap<String, Integer>();
-								try {
-									buildInfoArray = jelement.getAsJsonArray();
-									for (JsonElement jsonElement : buildInfoArray) {
-										jsonElement.getAsJsonObject();
-										buildInfoMap.put(
-												jsonElement.getAsJsonObject().get("name")
-														.getAsString(),
-												Integer.parseInt(jsonElement
-														.getAsJsonObject().get("value")
-														.getAsString()));
-									}
-									maxValueInMap=(Collections.max(buildInfoMap.values()));
-							        } catch (Exception e) {
-							            e.printStackTrace();
-							        }*/
-								  maxValueInMap++;
-								  
-								     params = new HashMap<String,String>();
-									 params.put("action", JagApiProperties.App_BUILD_URL_ACTIONL);
-									 params.put("lastBuildNo",val);
-									 params.put("applicationVersion",appInfo.getVersion());
-									 params.put("applicationKey",appInfo.getAppName());
-									 String builderBaseUrl="false";
-									 while("false".equals(builderBaseUrl)){
-									 builderBaseUrl = HttpsJaggeryClient.httpPost(JagApiProperties.getBuildInfoUrl(), params);
-									 Thread.sleep(1000);
-									 }
-								    HttpResponse response = HttpsGenkinsClient.getBulildinfo(appInfo.getAppName(),"trunk",builderBaseUrl,maxValueInMap);
-						            HttpEntity entity = response.getEntity();
-						            BufferedReader rd = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
-						            StringBuilder sb = new StringBuilder();
-						            String line;
-						            TestOutputConsole console = new TestOutputConsole();
-									MessageConsoleStream out = console.getOut();
-									out.getConsole().clearConsole();
-					               
-						            while ((line = rd.readLine()) != null) {
-						            	out.println(line.toString());
-						                Thread.sleep(100);
-						            }
-						            EntityUtils.consume(entity);
-							} catch (Exception e) {
-								e.printStackTrace();
-							}
+					Map<String, String> params = new HashMap<String, String>();
+					params.put("action",
+							JagApiProperties.App_BUILD_SUCESS_ACTION);
+					params.put("stage", "Development");
+					params.put("applicationKey", appInfo.getAppName());
+					params.put("version", appInfo.getVersion());
+					String respond = HttpsJaggeryClient.httpPost(
+							JagApiProperties.getBuildLastSucessfullBuildUrl(),
+							params);
+					JsonElement jelement = new JsonParser().parse(respond);
+					JsonArray buildInfoArray;
+					String asString = jelement.getAsJsonObject()
+							.get("buildinfo").getAsString();
+					// buildInfoArray = jelement.getAsJsonArray();
+					// String asString = buildInfoArray.get(1).getAsString();
+					String[] split = asString.split(" ");
+					String val = split[1];
+					int maxValueInMap = -1;
+					HashMap<String, Integer> buildInfoMap = new HashMap<String, Integer>();
+					try {
+						buildInfoArray = jelement.getAsJsonArray();
+						for (JsonElement jsonElement : buildInfoArray) {
+							jsonElement.getAsJsonObject();
+							buildInfoMap.put(
+									jsonElement.getAsJsonObject().get("name")
+											.getAsString(),
+									Integer.parseInt(jsonElement
+											.getAsJsonObject().get("value")
+											.getAsString()));
 						}
-					});
+						maxValueInMap = (Collections.max(buildInfoMap.values()));
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+					maxValueInMap++;
 
+					params = new HashMap<String, String>();
+					params.put("action", JagApiProperties.App_BUILD_URL_ACTIONL);
+					params.put("lastBuildNo", val);
+					params.put("applicationVersion", appInfo.getVersion());
+					params.put("applicationKey", appInfo.getAppName());
+					String builderBaseUrl = "false";
+					while ("false".equals(builderBaseUrl)) {
+						builderBaseUrl = HttpsJaggeryClient.httpPost(
+								JagApiProperties.getBuildInfoUrl(), params);
+						Thread.sleep(1000);
+					}
+					HttpResponse response = HttpsGenkinsClient.getBulildinfo(
+							appInfo.getAppName(), appInfo.getVersion(), builderBaseUrl,
+							maxValueInMap);
+					HttpEntity entity = response.getEntity();
+					BufferedReader rd = new BufferedReader(
+							new InputStreamReader(response.getEntity()
+									.getContent()));
+					StringBuilder sb = new StringBuilder();
+					String line;
+					TestOutputConsole console = new TestOutputConsole();
+					MessageConsoleStream out = console.getOut();
+					out.getConsole().clearConsole();
+					while ((line = rd.readLine()) != null) {
+						out.println(line.toString());
+						Thread.sleep(100);
+					}
+					EntityUtils.consume(entity);
 				} catch (Exception e) {
+					
 					log.error("", e);
 				}
-			};
+			}
 
 			public String getText() {
 				return "Build Logs";
 			}
 		};
-		return reposettings;
+		return reposetetings;
 	}
 
 	private Action repoSettingsAction() {

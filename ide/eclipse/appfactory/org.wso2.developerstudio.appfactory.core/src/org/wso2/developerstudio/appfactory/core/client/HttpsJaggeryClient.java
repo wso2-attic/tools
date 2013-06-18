@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
@@ -20,6 +21,7 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.conn.ClientConnectionManager;
+import org.apache.http.conn.ManagedClientConnection;
 import org.apache.http.conn.scheme.Scheme;
 import org.apache.http.conn.scheme.SchemeRegistry;
 import org.apache.http.conn.ssl.SSLSocketFactory;
@@ -32,7 +34,7 @@ import org.wso2.developerstudio.eclipse.logging.core.Logger;
 
 public class HttpsJaggeryClient {
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
-    public static HttpClient  client;
+    private static HttpClient  client;
 
 	public static String httpPostLogin(String urlStr, Map<String,String> params){
 		
@@ -43,6 +45,7 @@ public class HttpsJaggeryClient {
 	
 	public static String httpPost(String urlStr, Map<String,String> params) {
 		   
+		   
 		    HttpPost post = new HttpPost(urlStr);
 		    String respond = "";
 	         try{
@@ -52,6 +55,7 @@ public class HttpsJaggeryClient {
 				  nameValuePairs.add(new BasicNameValuePair(key, params.get(key)));
 			   }
 		      post.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+		      
 		      HttpResponse response = client.execute(post);
 		      if(200==response.getStatusLine().getStatusCode()){
 		      HttpEntity entityGetAppsOfUser = response.getEntity();
@@ -63,6 +67,9 @@ public class HttpsJaggeryClient {
 		            }
 		      respond = sb.toString();
 		      EntityUtils.consume(entityGetAppsOfUser);
+		      if (entityGetAppsOfUser != null) {
+		    	  entityGetAppsOfUser.getContent().close();
+		    	}
 		      }else{
 		    	  log.error("Error RespondCode");
 		    	  return "false";
@@ -70,10 +77,10 @@ public class HttpsJaggeryClient {
 		     
 	         }catch(Exception e){
 	        	 log.error("", e);
-	         } 
-	      // client.getConnectionManager().closeExpiredConnections();
-	      // client.getConnectionManager().releaseConnection(arg0, arg1, arg2)
-	       
+	         } finally{
+	           client.getConnectionManager().closeExpiredConnections();
+	         }
+ 
      return respond;	       
   }
 	@SuppressWarnings("deprecation")
