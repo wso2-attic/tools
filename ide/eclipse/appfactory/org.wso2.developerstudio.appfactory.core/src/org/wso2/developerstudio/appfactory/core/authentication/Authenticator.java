@@ -15,10 +15,20 @@
 
 package org.wso2.developerstudio.appfactory.core.authentication;
 
+import java.lang.reflect.InvocationTargetException;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.jface.dialogs.ProgressMonitorDialog;
+import org.eclipse.jface.operation.IRunnableWithProgress;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Cursor;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.ui.IPageLayout;
 import org.wso2.developerstudio.appfactory.core.client.HttpsJaggeryClient;
+ 
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -26,38 +36,118 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 
 public class Authenticator {
-	
-  public String serverURL;	
-  private static Authenticator authanticator = null;
-  private UserPasswordCredentials credentials;
-  
- protected Authenticator() {
-	 
- }
-  public static Authenticator getInstance() {
-	      if(authanticator == null) {
-	         authanticator = new Authenticator();
-	      }
-	      return authanticator;
-	   }
-  public boolean Authenticate(String serverUrl, UserPasswordCredentials credentials)
-			throws Exception {
-		 Map<String,String> params = new HashMap<String,String>();
-		 params.put("action", "login");
-		 params.put("userName", credentials.getUser());
-		 params.put("password", credentials.getPassword());
-		 String value = HttpsJaggeryClient.httpPostLogin(serverUrl,params);
-	     if(!"false".equals(value)){
-			 this.serverURL = serverUrl;
-			 this.credentials = credentials;
-			 return true;
-		 } 
-		 return false;
+
+	public String serverURL;
+	private static Authenticator authanticator = null;
+	private UserPasswordCredentials credentials;
+	private String result;
+
+	public String getResult() {
+		return result;
 	}
-public UserPasswordCredentials getCredentials() {
-	return credentials;
+
+	public void setResult(String result) {
+		this.result = result;
+	}
+
+	protected Authenticator() {
+
+	}
+
+	public static Authenticator getInstance() {
+		if (authanticator == null) {
+			authanticator = new Authenticator();
+		}
+		return authanticator;
+	}
+
+	public boolean Authenticate(String serverUrl,
+			UserPasswordCredentials credentials) throws Exception {
+		
+		Display.getCurrent().getActiveShell().setCursor((new Cursor(Display.getCurrent(), SWT.CURSOR_WAIT)));
+	    ProgressMonitorDialog progressMonitorDialog = new ProgressMonitorDialog(Display.getDefault().getActiveShell());
+		progressMonitorDialog.create();
+		progressMonitorDialog.open();
+		progressMonitorDialog.run(true, false, new LoginToAppFacPerfectiveJob(credentials,serverUrl,this));
+		
+		while(true){
+			if("true".equals(this.result)){
+				this.serverURL = serverUrl;
+				this.credentials = credentials;
+				return true;
+			}else if("false".equals(this.result)){
+				return false;
+			}
+		}
+		/*Map<String, String> params = new HashMap<String, String>();
+		params.put("action", "login");
+		params.put("userName", credentials.getUser());
+		params.put("password", credentials.getPassword());
+		String value = HttpsJaggeryClient.httpPostLogin(serverUrl, params);
+		if (!"false".equals(value)) {
+			this.serverURL = serverUrl;
+			this.credentials = credentials;
+			return true;
+		}*/
+		//return false;
+	}
+
+	public UserPasswordCredentials getCredentials() {
+		return credentials;
+	}
+
+	public void setCredentials(UserPasswordCredentials credentials) {
+		this.credentials = credentials;
+	}
+
+	private class LoginToAppFacPerfectiveJob implements IRunnableWithProgress {
+		
+		UserPasswordCredentials credentials;
+		String serverUrl;
+		Authenticator authenticator;
+	 public LoginToAppFacPerfectiveJob(UserPasswordCredentials credentials,String serverUrl,Authenticator authenticator) {
+		 this.credentials = credentials;
+		 this.serverUrl = serverUrl;
+		 this.authenticator = authenticator;
+	}
+	  
+		@Override
+		public void run(IProgressMonitor monitor) throws InvocationTargetException,
+				InterruptedException {
+			String operationText="fetching data from AppFactory ("+serverUrl+")";
+			monitor.beginTask(operationText, 100);
+			monitor.worked(10);
+			try{
+				if("".equals(credentials.getUser())||"".equals(credentials.getPassword())){
+					authenticator.setResult("false");
+					return;
+				}
+				Map<String, String> params = new HashMap<String, String>();
+				params.put("action", "login");
+				params.put("userName", credentials.getUser());
+				params.put("password", credentials.getPassword());
+				String value = HttpsJaggeryClient.httpPostLogin(serverUrl, params);
+				if (!"false".equals(value)) {
+					authenticator.setResult("true");
+				}else{
+					authenticator.setResult("false");	
+				}
+				    operationText="Completed";
+					monitor.beginTask(operationText, 100);
+					monitor.worked(100);
+			}catch(Exception e){
+				authenticator.setResult("false");
+				operationText=e.getMessage();
+				monitor.beginTask(operationText, 100);
+				monitor.worked(0);
+				monitor.setCanceled(true);
+			}
+			
+			monitor.worked(100);
+			monitor.done();
+		}
+	}  
 }
-public void setCredentials(UserPasswordCredentials credentials) {
-	this.credentials = credentials;
-}
-}
+
+
+

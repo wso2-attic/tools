@@ -16,26 +16,62 @@
 
 package org.wso2.developerstudio.appfactory.ui.actions;
 
+import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.apache.maven.project.MavenProject;
+import org.eclipse.core.resources.IProject;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IActionDelegate;
+import org.wso2.developerstudio.appfactory.core.client.HttpsJaggeryClient;
+import org.wso2.developerstudio.appfactory.core.jag.api.JagApiProperties;
+import org.wso2.developerstudio.appfactory.ui.Activator;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
+import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
  
 
 
 public class DeployAction implements IActionDelegate{
-	public static final String LOGIN_URL = "https://appfactorypreview.wso2.com/appmgt/site/blocks/user/login/ajax/login.jag";
-	public static final String DEPLOY_URL = "https://appfactorypreview.wso2.com/appmgt/site/blocks/build/add/ajax/add.jag";
-	public static final String LOGOUT_URL = "https://appfactorypreview.wso2.com/appmgt/site/blocks/user/logout/ajax/logout.jag";
-	public static final String BUILDINFO_URL = "https://appfactorypreview.wso2.com/appmgt/site/blocks/build/list/ajax/list.jag";
-	
-	IStructuredSelection selection;
-	
+		
+	private IStructuredSelection selection;
+	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
     public void run(IAction action) {
 		if (selection != null) {
-			 try {
-				//TODO Deploy Action imple
-			} catch (Exception e) {
+			try {
+				IProject project = (IProject)selection.getFirstElement();
+				File pomfile = project.getFile("pom.xml").getLocation().toFile();
+				MavenProject mavenProject = MavenUtils.getMavenProject(pomfile);
+			final Map<String, String> params = new HashMap<String, String>();
+				params.put("action",
+						JagApiProperties.App_BUILD_ACTION);
+				params.put("stage", "Development");
+				params.put("applicationKey", mavenProject.getArtifactId());
+				String version =mavenProject.getVersion();
+				if("SNAPSHOT".equals(version)){
+					version = "trunk";
+				}
+				params.put("version", version);
+				params.put("doDeploy", "true");
+				Display.getCurrent().asyncExec(new Runnable() {
+					@Override
+					public void run() {
+						try {
+							HttpsJaggeryClient.httpPost(
+									JagApiProperties.getBuildApplication(),
+									params); 
+						} catch (Exception e) {
+							log.error("Remote method invokation Error !", e);
+						}
+					}
+				}); 
+
+			   } catch (Exception e) {
+				  log.error("Project Pom Error !", e);  
 			}
     	}
     }
@@ -46,5 +82,4 @@ public class DeployAction implements IActionDelegate{
 		}
 	  
     }
-
 }

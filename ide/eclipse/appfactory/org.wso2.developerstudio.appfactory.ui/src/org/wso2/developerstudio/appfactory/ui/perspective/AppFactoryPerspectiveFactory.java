@@ -55,14 +55,14 @@ public class AppFactoryPerspectiveFactory implements IPerspectiveFactory {
 	private static final String APPDETILS_ID = "org.wso2.developerstudio.appfactory.ui.views.AppfactoryApplicationDetailsView";
 	private static final String APPBUILD_ID = "org.wso2.developerstudio.appfactory.ui.views.AppfactoryBuildInfoView";
     private static final String PROJECT_EXPOR_VIEW ="org.eclipse.ui.navigator.ProjectExplorer";
-    public static final String DEFAULT_LOGIN_URL = "https://appfactorypreview.wso2.com/appmgt/site/blocks/user/login/ajax/login.jag";
+   // public static final String DEFAULT_LOGIN_URL = "https://appfactorypreview.wso2.com/appmgt/site/blocks/user/login/ajax/login.jag";
 
 	private static IWebBrowser browser = null;
  
 	     public void createInitialLayout(IPageLayout appfacLayout) {
-	    	 LoginAction loginAction = new LoginAction();
+	    	
 			     try {
-			    	
+			    	 LoginAction loginAction = new LoginAction();
 					 if(loginAction.login()){
 						    Display.getCurrent().getActiveShell().setCursor((new Cursor(Display.getCurrent(), SWT.CURSOR_WAIT)));
 						    ProgressMonitorDialog progressMonitorDialog = new ProgressMonitorDialog(Display.getDefault().getActiveShell());
@@ -72,23 +72,10 @@ public class AppFactoryPerspectiveFactory implements IPerspectiveFactory {
 						    AppFactoryPerspectiveManager.val = false;
 						   // Display.getCurrent().getActiveShell().setCursor((new Cursor(Display.getCurrent(), SWT.CURSOR_ARROW)));
 					}else {
-						MessageBox messageBox = new MessageBox(loginAction.getActiveShell(),SWT.OK);
-				        messageBox.setText("Error");
-				        messageBox.setMessage("Error username or password");
-				        messageBox.open();
-				       // Display.getCurrent().getActiveShell().setCursor((new Cursor(Display.getCurrent(), SWT.CURSOR_WAIT)));
-					    ProgressMonitorDialog progressMonitorDialog = new ProgressMonitorDialog(Display.getDefault().getActiveShell());
-						progressMonitorDialog.create();
-						//progressMonitorDialog.open();
- 
-						progressMonitorDialog.run(true, false, new LoadPrevioiusAppFacPerfectiveJob());
-					   
+			            Display.getCurrent().getActiveShell().setCursor((new Cursor(Display.getCurrent(), SWT.CURSOR_ARROW)));
 					}
 				} catch (Exception e) {
-					MessageBox messageBox = new MessageBox(loginAction.getActiveShell(),SWT.OK);
-			        messageBox.setText("Error");
-			        messageBox.setMessage("perspective loading issue");
-			        messageBox.open();
+			        Display.getCurrent().getActiveShell().setCursor((new Cursor(Display.getCurrent(), SWT.CURSOR_ARROW)));
 					log.error("perspective loading issue", e);
 				} 	    		 
 	     }
@@ -130,18 +117,16 @@ public class AppFactoryPerspectiveFactory implements IPerspectiveFactory {
 						monitor.beginTask(operationText, 100);
 						monitor.worked(50);
 						addViews(appfacLayout); 
-						
 			   	        String appFactoryPreferenceURL = loginAction.getPreferenceStore().getString(AppFactoryPreferencePage.APP_FACTORY_LOCATION);
-						// Opening the Web browser
-						IWorkbenchBrowserSupport browserSupport = Activator.getDefault().getWorkbench().getBrowserSupport();
+						//Stop Opening the Web browser since there is a eclipse bug that will kill whole eclipse
+						/*IWorkbenchBrowserSupport browserSupport = Activator.getDefault().getWorkbench().getBrowserSupport();
 						browser = browserSupport.createBrowser(IWorkbenchBrowserSupport.LOCATION_BAR, null, null, null);
 						URL url = new URL("http://www.google.com/ncr");
 						if(appFactoryPreferenceURL!= null && !appFactoryPreferenceURL.equals("")){
 							browser.openURL(new URL(appFactoryPreferenceURL));
 						}else{
 							browser.openURL(url);
-						}
-						
+						}*/
 						operationText="Completed";
 						monitor.beginTask(operationText, 100);
 						monitor.worked(100);

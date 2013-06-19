@@ -33,7 +33,14 @@ import org.wso2.developerstudio.eclipse.logging.core.Logger;
 
 public class LoginAction {
 	 private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
+	 private String username="";
+	 private String password="";
+	 private Authenticator authenticator;
+	 private UserPasswordCredentials credentials;
+	 private Shell activeShell;
 	 private IPreferenceStore preferenceStore;
+	 private boolean isCansel;
+	 
 	 public IPreferenceStore getPreferenceStore() {
 		return preferenceStore;
 	}
@@ -42,12 +49,6 @@ public class LoginAction {
 		this.preferenceStore = preferenceStore;
 	}
 
-	 private String username="";
-	 private String password="";
-	 private Authenticator authenticator;
-	 private UserPasswordCredentials credentials;
-	 private Shell activeShell;
-	 
 	public Shell getActiveShell() {
 		return activeShell;
 	}
@@ -56,34 +57,33 @@ public class LoginAction {
 		this.activeShell = activeShell;
 	}
 
-	public LoginAction() {
+	public LoginAction() throws Exception{
 		 preferenceStore = Activator.getDefault().getPreferenceStore();
 		 authenticator = Authenticator.getInstance();
 		 activeShell = PlatformUI.getWorkbench().getDisplay().getActiveShell();
-		 try{
 		 preferenceStore.setDefault(AppFactoryPreferencePage.APP_FACTORY_LOCATION, JagApiProperties.getDomain());
 		 setLoginUrl(preferenceStore.getString(AppFactoryPreferencePage.APP_FACTORY_LOCATION));
 		 setUsername(preferenceStore.getString(AppFactoryPreferencePage.APP_FACTORY_USERNAME));
 		 setPassword(preferenceStore.getString(AppFactoryPreferencePage.APP_FACTORY_PASSWORD));
-		 }catch(Exception e){
-			 log.error("preference store error", e);
-		 }
 	 }
 	
 	public boolean login() {
 		boolean val = true;
 		try { 
 			showLoginDialog();
+			if(isCansel){
+				return false;
+			}
 			credentials = new UserPasswordCredentials(getUsername(),getPassword());
 		    val = authenticator.Authenticate(JagApiProperties.getLoginUrl(), credentials); 
 		} catch (Exception e) {
-			MessageBox messageBox = new MessageBox(activeShell,SWT.OK);
-	        messageBox.setText("Error");
-	        messageBox.setMessage(e.getMessage());
+			MessageBox messageBox = new MessageBox(this.getActiveShell(),SWT.OK);
+	        messageBox.setText("Login Error !");
+	        messageBox.setMessage("Error Url, Username or Password");
+	        messageBox.open();
 	        log.error("Login failer", e);
 		} 
 		return val;
- 
 	}
 
 	public String getUsername() {
@@ -117,7 +117,17 @@ public class LoginAction {
 			  setUsername(dialog.getUser());
 			  setPassword(dialog.getPassword());
 			  setLoginUrl(dialog.getHost());
+		 }else {
+			 this.setCansel(true);
 		 } 
+	}
+
+	public boolean isCansel() {
+		return isCansel;
+	}
+
+	public void setCansel(boolean isCansel) {
+		this.isCansel = isCansel;
 	}
 	
 }

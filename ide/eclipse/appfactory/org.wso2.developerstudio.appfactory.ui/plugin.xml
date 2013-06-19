@@ -16,6 +16,23 @@
             id="org.wso2.developerstudio.appfactory.ui.views.AppfactoryApplicationListView">
       </view>
    </extension>
+ 
+   <extension
+		point="org.wso2.developerstudio.eclipse.platform.core.intro.ui.dashboard">
+    <category id="dashboard.category.AF" showTitle="true"
+			title="AppFactory"
+			priority="9">
+	</category>
+	<wizardLink category="dashboard.category.AF"
+			id="dashboard.wizardLink.AF.pespective"
+			wizard="org.wso2.developerstudio.AF.perspective.action"
+			priority="1">
+	</wizardLink>
+	<customAction
+			class="org.wso2.developerstudio.appfactory.ui.perspective.ShowAppFactoryPerspective"
+			id="org.wso2.developerstudio.AF.perspective.action">
+	</customAction>
+ </extension>
    <!--extension
          point="org.eclipse.ui.perspectiveExtensions">
       <perspectiveExtension
