@@ -347,14 +347,15 @@ public class FileUtils {
 			int len;
 			try {
 				FileInputStream in = new FileInputStream(srcFile);
-				String nextEntryPath = path + File.separator + folder.getName();
+				String nextEntryPath = path + "/" + folder.getName();		//This path-separator is hard coded purposely
 				if (path != null && path.trim().equalsIgnoreCase("")) {
 					nextEntryPath = folder.getName();
 				}
-				zip.putNextEntry(new ZipEntry(nextEntryPath));
+				zip.putNextEntry(new ZipEntry(nextEntryPath.replaceAll("\\\\", "/")));
 				while ((len = in.read(buf)) > 0) {
 					zip.write(buf, 0, len);
 				}
+				in.close();
 			} catch (Exception ex) {
 				ex.printStackTrace();
 			}
@@ -382,7 +383,7 @@ public class FileUtils {
 			while (i <= fileListe.length) {
 				String newPath = folder.getName();
 				if (!path.equalsIgnoreCase(""))
-					newPath = path + File.separator + newPath;
+					newPath = path + "/" + newPath;		//This path-separator is hard coded purposely
 				addToZip(newPath, srcFolder + File.separator + fileListe[i], zip);
 				i++;
 			}
