@@ -351,7 +351,7 @@ public class FileUtils {
 				if (path != null && path.trim().equalsIgnoreCase("")) {
 					nextEntryPath = folder.getName();
 				}
-				zip.putNextEntry(new ZipEntry(nextEntryPath.replaceAll("\\\\", "/")));
+				zip.putNextEntry(new ZipEntry(nextEntryPath));
 				while ((len = in.read(buf)) > 0) {
 					zip.write(buf, 0, len);
 				}
