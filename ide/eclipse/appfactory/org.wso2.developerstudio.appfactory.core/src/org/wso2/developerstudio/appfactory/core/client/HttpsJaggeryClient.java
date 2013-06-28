@@ -1,6 +1,7 @@
 package org.wso2.developerstudio.appfactory.core.client;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
@@ -28,13 +29,23 @@ import org.apache.http.conn.ssl.SSLSocketFactory;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.MultiStatus;
+import org.eclipse.core.runtime.Status;
+import org.eclipse.jface.dialogs.ErrorDialog;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.PlatformUI;
 import org.wso2.developerstudio.appfactory.core.Activator;
+import org.wso2.developerstudio.appfactory.core.authentication.Authenticator;
+import org.wso2.developerstudio.appfactory.core.model.ErroModel;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 
 public class HttpsJaggeryClient {
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
     private static HttpClient  client;
+    private static Shell activeShell;
 
 	public static String httpPostLogin(String urlStr, Map<String,String> params){
 		
@@ -43,11 +54,11 @@ public class HttpsJaggeryClient {
 	    return  httpPost(urlStr,params);
 	}
 	
-	public static String httpPost(String urlStr, Map<String,String> params) {
-		   
+	public static String httpPost(String urlStr, Map<String,String> params){
 		   
 		    HttpPost post = new HttpPost(urlStr);
 		    String respond = "";
+		    HttpResponse response=null;
 	         try{
 		      List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(1);
 			  Set<String> keySet = params.keySet();
@@ -56,7 +67,7 @@ public class HttpsJaggeryClient {
 			   }
 		      post.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 		      
-		      HttpResponse response = client.execute(post);
+		      response = client.execute(post);
 		      if(200==response.getStatusLine().getStatusCode()){
 		      HttpEntity entityGetAppsOfUser = response.getEntity();
 		      BufferedReader rd = new BufferedReader(new InputStreamReader(entityGetAppsOfUser.getContent()));
@@ -71,12 +82,30 @@ public class HttpsJaggeryClient {
 		    	  entityGetAppsOfUser.getContent().close();
 		    	}
 		      }else{
-		    	  log.error("Error RespondCode");
+		    	     ErroModel erroModel = Authenticator.getInstance().getErroModel();
+		    	     erroModel.setMessage("Error respond Code");
+		    	     List<String> resions = new ArrayList<String>();
+		    	     resions.add(""+response.getStatusLine().getStatusCode());
+		    	     resions.add(response.getStatusLine().getReasonPhrase()); 
+		    	     erroModel.setResions(resions);
 		    	  return "false";
 		      }
 		     
-	         }catch(Exception e){
-	        	 log.error("", e);
+	      }catch(Exception e){
+	    	  
+	    	     ErroModel erroModel = Authenticator.getInstance().getErroModel();
+	    	     
+	    	     erroModel.setMessage("Could not connect to the AppFactory due to one of the following resions");
+	    	     List<String> resions = new ArrayList<String>();
+	    	     resions.add("1 Network connection failer");
+	    	     resions.add("2 Unknow Hostname");
+	    	     resions.add("3 Connection time out");
+	    	     resions.add(" ");
+	    	     resions.add(" ");
+	    	     resions.add("Please refer the log file for more detials");
+	    	     erroModel.setResions(resions);
+	    	     log.error("Connection failer",e); 
+	        	 return "false";
 	         } finally{
 	           client.getConnectionManager().closeExpiredConnections();
 	         }

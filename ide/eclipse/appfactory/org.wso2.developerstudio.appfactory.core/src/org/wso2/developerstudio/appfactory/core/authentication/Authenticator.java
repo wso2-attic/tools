@@ -17,17 +17,35 @@ package org.wso2.developerstudio.appfactory.core.authentication;
 
 import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Cursor;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IPageLayout;
+import org.osgi.framework.Bundle;
+import org.osgi.service.event.Event;
+import org.osgi.service.event.EventHandler;
 import org.wso2.developerstudio.appfactory.core.client.HttpsJaggeryClient;
+import org.wso2.developerstudio.appfactory.core.model.ErroModel;
+import org.wso2.developerstudio.appfactory.core.Activator;
+
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.MultiStatus;
+import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.core.runtime.Platform;
+import org.eclipse.core.runtime.Status;
+
  
 
 import com.google.gson.Gson;
@@ -41,6 +59,18 @@ public class Authenticator {
 	private static Authenticator authanticator = null;
 	private UserPasswordCredentials credentials;
 	private String result;
+	
+
+	private ErroModel erroModel;
+ 
+
+	public ErroModel getErroModel() {
+		return erroModel;
+	}
+
+	public void setErroModel(ErroModel erroModel) {
+		this.erroModel = erroModel;
+	}
 
 	public String getResult() {
 		return result;
@@ -53,10 +83,14 @@ public class Authenticator {
 	protected Authenticator() {
 
 	}
+	
+
 
 	public static Authenticator getInstance() {
 		if (authanticator == null) {
 			authanticator = new Authenticator();
+			ErroModel erroModel = new ErroModel();
+			authanticator.setErroModel(erroModel);
 		}
 		return authanticator;
 	}
@@ -112,14 +146,16 @@ public class Authenticator {
 	}
 	  
 		@Override
-		public void run(IProgressMonitor monitor) throws InvocationTargetException,
-				InterruptedException {
+		public void run(IProgressMonitor monitor) {
 			String operationText="fetching data from AppFactory ("+serverUrl+")";
 			monitor.beginTask(operationText, 100);
 			monitor.worked(10);
 			try{
 				if("".equals(credentials.getUser())||"".equals(credentials.getPassword())){
 					authenticator.setResult("false");
+					Authenticator.getInstance().getErroModel().setMessage("Username or password cannot be empty !!");
+				    List<String> resions = new ArrayList<String>();
+		    	    erroModel.setResions(resions);
 					return;
 				}
 				Map<String, String> params = new HashMap<String, String>();
@@ -136,8 +172,9 @@ public class Authenticator {
 					monitor.beginTask(operationText, 100);
 					monitor.worked(100);
 			}catch(Exception e){
+				
 				authenticator.setResult("false");
-				operationText=e.getMessage();
+							operationText=e.getMessage();
 				monitor.beginTask(operationText, 100);
 				monitor.worked(0);
 				monitor.setCanceled(true);
