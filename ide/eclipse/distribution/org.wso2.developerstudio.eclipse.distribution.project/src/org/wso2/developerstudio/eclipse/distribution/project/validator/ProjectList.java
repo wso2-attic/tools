@@ -37,7 +37,6 @@ import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBArtifact;
 import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
-import org.wso2.developerstudio.eclipse.maven.util.MavenUtils;
 import org.wso2.developerstudio.eclipse.platform.core.model.AbstractListDataProvider;
 import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectDataModel;
 import org.wso2.developerstudio.eclipse.platform.core.utils.Constants;
@@ -90,7 +89,8 @@ public class ProjectList extends AbstractListDataProvider {
 											} else{
 												dependency.setGroupId(mavenProject.getGroupId());
 											}
-											dependency.setVersion(artifact.getVersion());
+										//	dependency.setVersion(artifact.getVersion());
+											dependency.setVersion(mavenProject.getModel().getVersion()); //referring parent version
 											dependency.setType(ArtifactTypeMapping.getType(artifact.getType()));
 											
 											DependencyData dependencyData = new DependencyData();
