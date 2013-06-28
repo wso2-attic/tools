@@ -35,13 +35,18 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.MultiStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.core.runtime.Platform;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.action.MenuManager;
+import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.jface.viewers.DoubleClickEvent;
@@ -63,6 +68,12 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.console.MessageConsoleStream;
 import org.eclipse.ui.part.ViewPart;
 import org.eclipse.ui.wizards.IWizardDescriptor;
+import org.eclipse.e4.core.services.events.IEventBroker;
+import org.eclipse.e4.core.contexts.EclipseContextFactory;
+import org.eclipse.e4.core.contexts.IEclipseContext;
+import org.osgi.service.event.Event;
+import org.osgi.service.event.EventHandler;
+import org.osgi.framework.Bundle;
 import org.wso2.developerstudio.appfactory.core.authentication.Authenticator;
 import org.wso2.developerstudio.appfactory.core.authentication.UserPasswordCredentials;
 import org.wso2.developerstudio.appfactory.core.client.HttpsGenkinsClient;
@@ -71,6 +82,7 @@ import org.wso2.developerstudio.appfactory.core.jag.api.JagApiProperties;
 import org.wso2.developerstudio.appfactory.core.model.AppListModel;
 import org.wso2.developerstudio.appfactory.core.model.AppVersionInfo;
 import org.wso2.developerstudio.appfactory.core.model.ApplicationInfo;
+import org.wso2.developerstudio.appfactory.core.model.ErroModel;
 import org.wso2.developerstudio.appfactory.core.repository.JgitRepoManager;
 import org.wso2.developerstudio.appfactory.ui.Activator;
 import org.wso2.developerstudio.appfactory.ui.actions.LoginAction;
@@ -84,9 +96,26 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
 
- 
- 
- 
+
+import org.eclipse.core.runtime.Platform;
+import org.eclipse.core.runtime.jobs.Job;
+import org.eclipse.e4.core.contexts.EclipseContextFactory;
+import org.eclipse.e4.core.contexts.IEclipseContext;
+import org.eclipse.e4.core.di.InjectionException;
+import org.eclipse.e4.core.services.events.IEventBroker;
+import org.osgi.framework.Bundle;
+import org.osgi.framework.BundleContext;
+
+import org.eclipse.e4.core.di.annotations.Execute;
+import org.eclipse.e4.core.di.annotations.Optional;
+import org.eclipse.e4.core.services.events.IEventBroker;
+import org.eclipse.e4.ui.di.UIEventTopic;
+import org.eclipse.e4.ui.di.UISynchronize;
+import org.eclipse.e4.core.services.*;
+import org.osgi.framework.ServiceReference;
+import org.osgi.service.event.Event;
+import org.osgi.service.event.EventHandler;
+
 public class AppfactoryApplicationListView extends ViewPart {
 	
 	public static final String ID = "org.wso2.developerstudio.appfactory.ui.views.AppfactoryView";
@@ -105,17 +134,46 @@ public class AppfactoryApplicationListView extends ViewPart {
 	private UserPasswordCredentials credentials;
 	private List<ApplicationInfo> appLists;
 	private MenuManager menuMgr;
+	private IEventBroker broker;
+	private EventHandler closehandler;
 	TestOutputConsole console;
 	MessageConsoleStream out;
-
+	
   
+	@SuppressWarnings("restriction")
 	@Override
 	public void init(IViewSite site) throws PartInitException {
-  
-		 super.init(site);
-		 console = new TestOutputConsole();
-		 out = console.getOut();
-		 createUserAppList();
+
+		super.init(site);
+		console = new TestOutputConsole();
+		out = console.getOut();
+		Bundle bundle = Platform.getBundle(Activator.PLUGIN_ID);
+		// this.execute();
+		@SuppressWarnings("restriction")
+		IEclipseContext eclipseContext = EclipseContextFactory
+				.getServiceContext(bundle.getBundleContext());
+		eclipseContext.set(org.eclipse.e4.core.services.log.Logger.class, null);
+		broker = eclipseContext.get(IEventBroker.class);
+		closehandler = new EventHandler() {
+			public void handleEvent(final Event event) {
+				System.out.println(event.getProperty(IEventBroker.DATA));
+				// Display.getDefault();
+				@SuppressWarnings("unused")
+				final Display display = Display.getDefault();
+				Display.getDefault().asyncExec(new Runnable() {
+
+					@Override
+					public void run() {
+						out.println("" + event.getProperty(IEventBroker.DATA));
+					}
+				});
+			}
+		};
+
+		broker.subscribe("update", closehandler);
+
+		createUserAppList();
+
 	}
  
 	private void createUserAppList() {
@@ -244,92 +302,188 @@ public class AppfactoryApplicationListView extends ViewPart {
 	private Action buildInfoAction(final AppVersionInfo appInfo) {
 
 		Action reposetetings = new Action() {
+
 			@Override
 			public void run() {
-					Display.getCurrent().asyncExec(new Runnable() {
-						@Override
-						public void run() {
-							try {
-							
-								   credentials = Authenticator.getInstance().getCredentials();
+				building();
+			}
+
+			private void building() {
+				Job job = new Job("My Job") {
+					@Override
+					protected IStatus run(IProgressMonitor monitor) {
+						UISynchronize uiSynchronize = new UISynchronize() {
+
+							@Override
+							public void syncExec(Runnable runnable) {
+								// TODO Auto-generated method stub
+
+							}
+
+							@Override
+							public void asyncExec(Runnable runnable) {
+								try {
+
+									credentials = Authenticator.getInstance()
+											.getCredentials();
 									Map<String, String> params = new HashMap<String, String>();
-									params.put("action",
+									params.put(
+											"action",
 											JagApiProperties.App_BUILD_INFO_ACTION);
 									params.put("stage", "Development");
-									params.put("applicationKey", appInfo.getAppName());
+									params.put("applicationKey",
+											appInfo.getAppName());
 									params.put("version", appInfo.getVersion());
 									params.put("buildable", "true");
-									params.put("isRoleBasedPermissionAllowed", "false");
-									params.put("metaDataNeed","false");
-									params.put("userName",credentials.getUser());
-									String respond = HttpsJaggeryClient.httpPost(
-											JagApiProperties.getBuildLastSucessfullBuildUrl(),
-											params);
-									JsonElement jelement = new JsonParser().parse(respond);
+									params.put("isRoleBasedPermissionAllowed",
+											"false");
+									params.put("metaDataNeed", "false");
+									params.put("userName",
+											credentials.getUser());
+									String respond = HttpsJaggeryClient
+											.httpPost(
+													JagApiProperties
+															.getBuildLastSucessfullBuildUrl(),
+													params);
+									JsonElement jelement = new JsonParser()
+											.parse(respond);
 									JsonArray buildInfoArray;
-									int buidNo=0;
+									int buidNo = 0;
 									try {
-										buildInfoArray = jelement.getAsJsonArray();
+										buildInfoArray = jelement
+												.getAsJsonArray();
 										for (JsonElement jsonElement : buildInfoArray) {
-											JsonObject asJsonObject = jsonElement.getAsJsonObject();
-											JsonElement jsonElement2 = asJsonObject.get("version");
-											JsonObject asJsonObject2 = jsonElement2.getAsJsonObject();
-											String asString = asJsonObject2.get("current").getAsString();
-											if(asString.equals(appInfo.getVersion())){
-												JsonElement jsonElement3 = asJsonObject.get("build");
-												JsonObject asJsonObject3 = jsonElement3.getAsJsonObject();
-												buidNo = asJsonObject3.get("lastBuildId").getAsInt();
+											JsonObject asJsonObject = jsonElement
+													.getAsJsonObject();
+											JsonElement jsonElement2 = asJsonObject
+													.get("version");
+											JsonObject asJsonObject2 = jsonElement2
+													.getAsJsonObject();
+											String asString = asJsonObject2
+													.get("current")
+													.getAsString();
+											if (asString.equals(appInfo
+													.getVersion())) {
+												JsonElement jsonElement3 = asJsonObject
+														.get("build");
+												JsonObject asJsonObject3 = jsonElement3
+														.getAsJsonObject();
+												buidNo = asJsonObject3.get(
+														"lastBuildId")
+														.getAsInt();
 												break;
 											}
 										}
-										 
+
 									} catch (Exception e) {
 										log.error("", e);
 									}
-									 
+
 									params = new HashMap<String, String>();
-									params.put("action", JagApiProperties.App_BUILD_URL_ACTIONL);
-									params.put("lastBuildNo", ""+buidNo);
-									params.put("applicationVersion", appInfo.getVersion());
-									params.put("applicationKey", appInfo.getAppName());
+									params.put(
+											"action",
+											JagApiProperties.App_BUILD_URL_ACTIONL);
+									params.put("lastBuildNo", "" + buidNo);
+									params.put("applicationVersion",
+											appInfo.getVersion());
+									params.put("applicationKey",
+											appInfo.getAppName());
 									String builderBaseUrl = "false";
 									while ("false".equals(builderBaseUrl)) {
-										builderBaseUrl = HttpsJaggeryClient.httpPost(
-												JagApiProperties.getBuildInfoUrl(), params);
+										builderBaseUrl = HttpsJaggeryClient
+												.httpPost(JagApiProperties
+														.getBuildInfoUrl(),
+														params);
 										Thread.sleep(1000);
 									}
-									HttpResponse response = HttpsGenkinsClient.getBulildinfo(
-											appInfo.getAppName(), appInfo.getVersion(), builderBaseUrl,
-											buidNo);
+									HttpResponse response = HttpsGenkinsClient
+											.getBulildinfo(
+													appInfo.getAppName(),
+													appInfo.getVersion(),
+													builderBaseUrl, buidNo);
 									HttpEntity entity = response.getEntity();
 									BufferedReader rd = new BufferedReader(
-											new InputStreamReader(response.getEntity()
-													.getContent()));
+											new InputStreamReader(response
+													.getEntity().getContent()));
 									String line;
 									TestOutputConsole console = new TestOutputConsole();
 									MessageConsoleStream out = console.getOut();
 									out.getConsole().clearConsole();
 									while ((line = rd.readLine()) != null) {
-										out.println(line.toString());
+										// out.println(line.toString());
+										broker.send("update", line.toString());
 										Thread.sleep(100);
 									}
 									EntityUtils.consume(entity);
 
-							} catch (Exception e) {
-								log.error("Remote method invokation Error !", e);
+								} catch (Exception e) {
+									log.error(
+											"Remote method invokation Error !",
+											e);
+								}
+
 							}
-						}
-					}); 	
+						};
+						uiSynchronize.asyncExec(new Runnable() {
+							@Override
+							public void run() {
+
+							}
+						});
+
+						return Status.OK_STATUS;
+					}
+				};
+
+				job.schedule();
+
 			}
-			
+
 			public String getText() {
 				return "Build Logs";
 			}
 		};
+
 		return reposetetings;
+	}	
+	 
+	public static void buildingJob(){
+		
+		Job job = new Job("My Job") {
+			  @Override
+			  protected IStatus run(IProgressMonitor monitor) {
+			    // Do something long running
+			    //... 
+				  UISynchronize uiSynchronize = new UISynchronize() {
+						
+						@Override
+						public void syncExec(Runnable runnable) {
+							// TODO Auto-generated method stub
+							
+						}
+						
+						@Override
+						public void asyncExec(Runnable runnable) {
+							// TODO Auto-generated method stub
+							
+						}
+					};
+					uiSynchronize.asyncExec(new Runnable() {
+						@Override
+						public void run() {
+						
+						}
+					});
+					
+			    return Status.OK_STATUS;
+			  }
+			};
+	 
+			job.schedule();
+		
 	}
 	
-	 
+	
 
 	private Action repoSettingsAction() {
 		Action reposettings = new Action() {
@@ -424,15 +578,31 @@ public class AppfactoryApplicationListView extends ViewPart {
 							try {
 								project.open(new NullProgressMonitor());
 							} catch (CoreException e) {
-								e.printStackTrace();
+								//e.printStackTrace();
 							}
 						}
 					}); 
 				} catch (Exception e) {
+					ShowErrorMsg();
 					log.error("", e);
 				}
 			};
 
+			private void ShowErrorMsg(){
+				   ErroModel erroModel = Authenticator.getInstance().getErroModel();
+				   final String PID = Activator.PLUGIN_ID;
+				   MultiStatus info = new MultiStatus(PID, 1,"This project type doesnot support in Developer Studio", null);
+				   info.add(new Status(IStatus.INFO, PID, 1,erroModel.getMessage(), null));
+				   List<String> resions = erroModel.getResions();
+				   resions.add(".project file is missing");
+				   if(resions!=null){
+				   for (String msg : resions) {
+					   info.add(new Status(IStatus.INFO, PID, 1,msg, null));
+				   		}
+				   }
+				   ErrorDialog.openError(Display.getCurrent().getActiveShell(), "AppFactory Error", null, info);
+			}
+			
 			public String getText() {
 				return " Check-Out ";
 			}
@@ -501,9 +671,9 @@ public class AppfactoryApplicationListView extends ViewPart {
 				}
 				monitor.worked(90);
 			}catch(Exception e){
+				Display.getCurrent().getActiveShell().setCursor((new Cursor(Display.getCurrent(), SWT.CURSOR_ARROW)));
 				e.printStackTrace();
 				monitor.setCanceled(true); 
-				Display.getCurrent().getActiveShell().setCursor((new Cursor(Display.getCurrent(), SWT.CURSOR_ARROW)));
 			}
 			monitor.worked(100);
 			monitor.done();

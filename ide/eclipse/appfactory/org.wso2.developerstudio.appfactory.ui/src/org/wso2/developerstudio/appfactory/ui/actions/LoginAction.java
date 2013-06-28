@@ -16,20 +16,59 @@
 
 package org.wso2.developerstudio.appfactory.ui.actions;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.util.EntityUtils;
+import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.MultiStatus;
+import org.eclipse.core.runtime.Platform;
+import org.eclipse.core.runtime.Status;
+import org.eclipse.core.runtime.jobs.Job;
+import org.eclipse.e4.ui.di.UISynchronize;
+import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.jface.preference.IPreferenceStore;
+import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.window.Window;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.IEditorInput;
+import org.eclipse.ui.IEditorReference;
+import org.eclipse.ui.IPersistableElement;
+import org.eclipse.ui.IPerspectiveRegistry;
+import org.eclipse.ui.IWorkbenchPage;
+import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.WorkbenchException;
+import org.eclipse.ui.console.MessageConsoleStream;
+import org.eclipse.ui.intro.IIntroPart;
+import org.osgi.framework.Bundle;
 import org.wso2.developerstudio.appfactory.core.authentication.Authenticator;
 import org.wso2.developerstudio.appfactory.core.authentication.UserPasswordCredentials;
+import org.wso2.developerstudio.appfactory.core.client.HttpsGenkinsClient;
+import org.wso2.developerstudio.appfactory.core.client.HttpsJaggeryClient;
 import org.wso2.developerstudio.appfactory.core.jag.api.JagApiProperties;
+import org.wso2.developerstudio.appfactory.core.model.ErroModel;
 import org.wso2.developerstudio.appfactory.ui.Activator;
 import org.wso2.developerstudio.appfactory.ui.preference.AppFactoryPreferencePage;
 import org.wso2.developerstudio.appfactory.ui.views.PasswordDialog;
+import org.wso2.developerstudio.appfactory.ui.views.TestOutputConsole;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
+
+
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 public class LoginAction {
 	 private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
@@ -76,16 +115,36 @@ public class LoginAction {
 			}
 			credentials = new UserPasswordCredentials(getUsername(),getPassword());
 		    val = authenticator.Authenticate(JagApiProperties.getLoginUrl(), credentials); 
+		    if(!val){
+                this.ShowErrorMsg(); 
+		    }
+		    
 		} catch (Exception e) {
-			MessageBox messageBox = new MessageBox(this.getActiveShell(),SWT.OK);
-	        messageBox.setText("Login Error !");
-	        messageBox.setMessage("Error Url, Username or Password");
-	        messageBox.open();
+			 ErroModel erroModel = Authenticator.getInstance().getErroModel();
+    	     erroModel.setMessage("Authentication Failer");
+    	     List<String> resions = new ArrayList<String>();
+    	     resions.add("Please refer the log file for details");
+    	     erroModel.setResions(resions);
 	        log.error("Login failer", e);
+	        return false;
 		} 
 		return val;
 	}
 
+	private void ShowErrorMsg(){
+		   ErroModel erroModel = Authenticator.getInstance().getErroModel();
+		   final String PID = Activator.PLUGIN_ID;
+		   MultiStatus info = new MultiStatus(PID, 1,"AppFactory Login Fail !", null);
+		   info.add(new Status(IStatus.INFO, PID, 1,erroModel.getMessage(), null));
+		   List<String> resions = erroModel.getResions();
+		   if(resions!=null){
+		   for (String msg : resions) {
+			   info.add(new Status(IStatus.INFO, PID, 1,msg, null));
+		   		}
+		   }
+		   ErrorDialog.openError(activeShell, "AppFactory Login Error", null, info);
+	}
+	
 	public String getUsername() {
 		return username;
 	}
@@ -118,7 +177,12 @@ public class LoginAction {
 			  setPassword(dialog.getPassword());
 			  setLoginUrl(dialog.getHost());
 		 }else {
-			 this.setCansel(true);
+			   this.setCansel(true);
+			   MessageBox messageBox = new MessageBox(getActiveShell(), SWT.ICON_INFORMATION | SWT.OK);
+			   messageBox.setText("Information");
+			   messageBox.setMessage("AppFactory Perpective's views Loarding Fail ! \nPlease use perspective " +
+				   		"reset option to relogin to the AppFactory perspective \n ");  
+			   messageBox.open();
 		 } 
 	}
 
@@ -129,5 +193,6 @@ public class LoginAction {
 	public void setCansel(boolean isCansel) {
 		this.isCansel = isCansel;
 	}
-	
+	static final String DASHBOARD_VIEW_ID = "org.wso2.developerstudio.eclipse.dashboard";
+
 }

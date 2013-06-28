@@ -23,6 +23,10 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.core.runtime.Platform;
+import org.eclipse.e4.core.contexts.EclipseContextFactory;
+import org.eclipse.e4.core.contexts.IEclipseContext;
+import org.eclipse.e4.core.services.events.IEventBroker;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.swt.SWT;
@@ -33,6 +37,7 @@ import org.eclipse.ui.IFolderLayout;
 import org.eclipse.ui.IPageLayout;
 import org.eclipse.ui.IPerspectiveDescriptor;
 import org.eclipse.ui.IPerspectiveFactory;
+import org.eclipse.ui.IPerspectiveRegistry;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PerspectiveAdapter;
@@ -41,7 +46,12 @@ import org.eclipse.ui.WorkbenchException;
 import org.eclipse.ui.browser.IWebBrowser;
 import org.eclipse.ui.browser.IWorkbenchBrowserSupport;
 import org.eclipse.ui.console.IConsoleConstants;
+import org.osgi.framework.Bundle;
+import org.osgi.service.event.Event;
+import org.osgi.service.event.EventHandler;
+import org.wso2.developerstudio.appfactory.core.authentication.Authenticator;
 import org.wso2.developerstudio.appfactory.core.model.AppVersionInfo;
+import org.wso2.developerstudio.appfactory.core.model.ErroModel;
 import org.wso2.developerstudio.appfactory.core.repository.JgitRepoManager;
 import org.wso2.developerstudio.appfactory.ui.Activator;
 import org.wso2.developerstudio.appfactory.ui.actions.LoginAction;
@@ -59,9 +69,12 @@ public class AppFactoryPerspectiveFactory implements IPerspectiveFactory {
 
 	private static IWebBrowser browser = null;
  
+ 
 	     public void createInitialLayout(IPageLayout appfacLayout) {
 	    	
 			     try {
+			    	 
+			    	 
 			    	 LoginAction loginAction = new LoginAction();
 					 if(loginAction.login()){
 						    Display.getCurrent().getActiveShell().setCursor((new Cursor(Display.getCurrent(), SWT.CURSOR_WAIT)));
@@ -72,7 +85,7 @@ public class AppFactoryPerspectiveFactory implements IPerspectiveFactory {
 						    AppFactoryPerspectiveManager.val = false;
 						   // Display.getCurrent().getActiveShell().setCursor((new Cursor(Display.getCurrent(), SWT.CURSOR_ARROW)));
 					}else {
-			            Display.getCurrent().getActiveShell().setCursor((new Cursor(Display.getCurrent(), SWT.CURSOR_ARROW)));
+			          
 					}
 				} catch (Exception e) {
 			        Display.getCurrent().getActiveShell().setCursor((new Cursor(Display.getCurrent(), SWT.CURSOR_ARROW)));

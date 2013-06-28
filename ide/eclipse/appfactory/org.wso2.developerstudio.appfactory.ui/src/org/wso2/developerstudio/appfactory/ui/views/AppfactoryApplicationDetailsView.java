@@ -34,6 +34,7 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.ui.part.ViewPart;
+import org.wso2.developerstudio.appfactory.core.model.AppUserInfo;
 import org.wso2.developerstudio.appfactory.core.model.AppVersionInfo;
 import org.wso2.developerstudio.appfactory.core.model.ApplicationInfo;
 import org.wso2.developerstudio.appfactory.ui.Activator;
@@ -242,6 +243,7 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 
 		appInfoTabItem.setControl(scroller);
 		composite.pack();
+		composite.layout();
 	}
 
 	/**
@@ -405,6 +407,7 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 					tabFolder.getBackground(), null);
 		}
 		appTypeComposite.pack();
+		appTypeComposite.layout();
 		
 		removeChildControls(repoTypeComposite);
 		if(applicationInfo.getRepositoryType() != null && !applicationInfo.getRepositoryType().equals("")) {
@@ -415,7 +418,7 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 					tabFolder.getBackground(), null);
 		}
 		repoTypeComposite.pack();
-		
+		repoTypeComposite.layout();
 		removeChildControls(appOwnerComposite);
 		if(applicationInfo.getApplicationOwner() != null && !applicationInfo.getApplicationOwner().equals("")) {
 			createLabel(appOwnerComposite, SWT.NONE, applicationInfo.getApplicationOwner(), getGridData(),
@@ -425,7 +428,7 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 					tabFolder.getBackground(), null);
 		}
 		appOwnerComposite.pack();
-		
+		appOwnerComposite.layout();
 		removeChildControls(descriptionComposite);
 		if(applicationInfo.getDescription() != null && !applicationInfo.getDescription().equals("")) {
 			createLabel(descriptionComposite, SWT.NONE, applicationInfo.getDescription(), getGridData(),
@@ -435,6 +438,7 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 					tabFolder.getBackground(), null);
 		}
 		descriptionComposite.pack();
+		descriptionComposite.layout();
 	}
 
 	/**
@@ -477,13 +481,13 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 					tabFolder.getBackground(), null);
 		}
 		ownerComposite.pack();
-
+		ownerComposite.layout();
 		// developers
 		removeChildControls(developercomposite);
 		if (applicationInfo.getApplicationDevelopers() != null
 				&& applicationInfo.getApplicationDevelopers().size() > 0) {
-			for (String string : applicationInfo.getApplicationDevelopers()) {
-				createLabel(developercomposite, SWT.NONE, string, getGridData(),
+			for (AppUserInfo user : applicationInfo.getApplicationDevelopers()) {
+				createLabel(developercomposite, SWT.NONE, user.getUserDisplayName() + " "+ user.getDisplayName(), getGridData(),
 						tabFolder.getBackground(), null);
 			}
 		} else {
@@ -491,13 +495,13 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 					tabFolder.getBackground(), null);
 		}
 		developercomposite.pack();
-
+		developercomposite.layout();
 		// resources
 		removeChildControls(resourceComposite);
 		createLabel(resourceComposite, SWT.NONE, DEFAULT_VALUE, getGridData(),
 				tabFolder.getBackground(), null);
 		resourceComposite.pack();
-
+		resourceComposite.layout();
 		// data sources
 		removeChildControls(datasourcescomposite);
 		if (applicationInfo.getDatasources() != null && applicationInfo.getDatasources().size() > 0) {
@@ -510,7 +514,7 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 					tabFolder.getBackground(), null);
 		}
 		datasourcescomposite.pack();
-
+		datasourcescomposite.layout();
 		// data bases
 		removeChildControls(databasescomposite);
 		if (applicationInfo.getDatabases() != null && applicationInfo.getDatabases().size() > 0) {
@@ -523,7 +527,7 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 					tabFolder.getBackground(), null);
 		}
 		databasescomposite.pack();
-
+		databasescomposite.layout();
 		// apis
 		removeChildControls(apicomposite);
 		if (applicationInfo.getApis() != null && applicationInfo.getApis().size() > 0) {
@@ -536,7 +540,7 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 					tabFolder.getBackground(), null);
 		}
 		apicomposite.pack();
-
+		apicomposite.layout();
 		// properties
 		removeChildControls(propertiescomposite);
 		if (applicationInfo.getProperties() != null && applicationInfo.getProperties().size() > 0) {
@@ -549,6 +553,7 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 					tabFolder.getBackground(), null);
 		}
 		propertiescomposite.pack();
+		propertiescomposite.layout();
 	}
 
 }

@@ -47,8 +47,7 @@ public class AppFactoryPerspectiveManager implements IStartup {
                             	  //	PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().setPerspective(perspectiveDescriptor);
                             	    //  PlatformUI.getWorkbench().showPerspective("org.eclipse.jst.j2ee.J2EEPerspective", PlatformUI.getWorkbench().getActiveWorkbenchWindow());
                             	   PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().closePerspective(perspectiveDescriptor, false, true);
-                            	   
-                            	   
+
                             		}
                             	} catch (Exception e) {
                             		
