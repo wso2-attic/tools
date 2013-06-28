@@ -16,6 +16,7 @@
 
 package org.wso2.developerstudio.appfactory.core.model;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -52,7 +53,13 @@ public class AppListModel {
 		 params.put("stageName","Development");
 		 params.put("userName",Authenticator.getInstance().getCredentials().getUser());
 		 params.put("applicationKey",applicationInfo.getKey());
-		 String respond = HttpsJaggeryClient.httpPost(JagApiProperties.getAppInfoUrl(), params);
+		 String respond="";
+		try {
+			respond = HttpsJaggeryClient.httpPost(JagApiProperties.getAppInfoUrl(), params);
+		} catch (IllegalStateException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		 JsonElement jelement = new JsonParser().parse(respond);
 		 JsonElement jsonElement = jelement.getAsJsonArray().get(0).getAsJsonObject().get("versions");
 		 JsonArray infoArray = jsonElement.getAsJsonArray();
@@ -65,5 +72,31 @@ public class AppListModel {
 			 versionList.add(version);
 		}
 		applicationInfo.setVersion(versionList);
+		 
+		 Map<String,String> params2 = new HashMap<String,String>();
+		 params2.put("action", JagApiProperties.App_USERS_ROLES_ACTION);
+		// params2.put("userName",Authenticator.getInstance().getCredentials().getUser());
+		 params2.put("applicationKey",applicationInfo.getKey());
+		 String respond2="";
+		try {
+			respond2 = HttpsJaggeryClient.httpPost(JagApiProperties.getAppUserRolesUrlS(), params2);
+		} catch (IllegalStateException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		 JsonElement jelement2 = new JsonParser().parse(respond2);
+		 JsonArray infoArray2 = jelement2.getAsJsonArray();
+		 ArrayList<AppUserInfo> appUserList = new ArrayList<AppUserInfo>();
+		 for (JsonElement jsonElement3 : infoArray2) {
+			 JsonObject asJsonObject = jsonElement3.getAsJsonObject();
+			 Gson gson = new Gson();
+			 AppUserInfo user = gson.fromJson(asJsonObject, AppUserInfo.class);
+			 appUserList.add(user);
+		}
+		 applicationInfo.setApplicationDevelopers(appUserList);
+		 
+		 
+		 
+		 
 	}
 }

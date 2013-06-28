@@ -29,7 +29,7 @@ public class ApplicationInfo{
 	private String type;
 	private long revision;
 	private String applicationOwner;
-	private List<String> applicationDevelopers;
+	private List<AppUserInfo> applicationDevelopers;
 	private List<String> datasources;
 	private List<String> databases;
 	private List<String> apis;
@@ -117,7 +117,7 @@ public class ApplicationInfo{
 	/**
 	 * @return the applicationDevelopers
 	 */
-    public List<String> getApplicationDevelopers() {
+    public List<AppUserInfo> getApplicationDevelopers() {
     	if(applicationDevelopers==null){
     		return Collections.EMPTY_LIST;
     	}
@@ -127,7 +127,7 @@ public class ApplicationInfo{
 	/**
 	 * @param applicationDevelopers the applicationDevelopers to set
 	 */
-    public void setApplicationDevelopers(List<String> applicationDevelopers) {
+    public void setApplicationDevelopers(List<AppUserInfo> applicationDevelopers) {
 	    this.applicationDevelopers = applicationDevelopers;
     }
 
