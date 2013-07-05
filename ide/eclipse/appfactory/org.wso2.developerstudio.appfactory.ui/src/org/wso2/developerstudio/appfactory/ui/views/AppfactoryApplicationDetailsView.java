@@ -34,6 +34,7 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.ui.part.ViewPart;
+import org.wso2.developerstudio.appfactory.core.model.AppDBinfo;
 import org.wso2.developerstudio.appfactory.core.model.AppUserInfo;
 import org.wso2.developerstudio.appfactory.core.model.AppVersionInfo;
 import org.wso2.developerstudio.appfactory.core.model.ApplicationInfo;
@@ -46,18 +47,14 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 	public static final String ID = "org.wso2.developerstudio.appfactory.ui.views.AppfactoryView";
 	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
 	private static final String APPINFO_TAB_ITEM_NAME = "Application Info";
-	private static final String CURRENT_STATUS_TAB_ITEM_NAME = "Current Status";
+	private static final String CURRENT_STATUS_TAB_ITEM_NAME = "Build Status";
 	private static final String TEAM_TAB_ITEM_NAME = "Team Details";
+	private static final String DATA_SOURCES_TAB_ITEM_NAME = "Data Sources";
 	private static final String DEFAULT_VALUE = "Not Available";
 
-	private Table table;
-	private Composite ownerComposite;
-	private Composite developercomposite;
-	private Composite resourceComposite;
-	private Composite datasourcescomposite;
-	private Composite databasescomposite;
-	private Composite apicomposite;
-	private Composite propertiescomposite;
+	private Table currentStatusTable;
+	private Table teamDetailsTable;
+	private Table dataSourcesTable;
 	private Composite appTypeComposite;
 	private Composite repoTypeComposite;
 	private Composite appOwnerComposite;
@@ -66,6 +63,7 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 	private TabItem appInfoTabItem;
 	private TabItem currentStatusTabItem;
 	private TabItem teamTabItem;
+	private TabItem dataSourcesTabItem;
 
 	public AppfactoryApplicationDetailsView() {
 		AppfactoryApplicationListView.setAppDetailView(this);
@@ -101,15 +99,17 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 
 		createTabPages();
 
-		 /*tabFolder.addSelectionListener(new SelectionListener() {
-		 
-		 public void widgetDefaultSelected(SelectionEvent arg0) {
-		 updatePageContent(); }
-		  
-		 public void widgetSelected(SelectionEvent arg0) {
-		 updatePageContent(); }
-		 
-		 });*/
+		/*
+		 * tabFolder.addSelectionListener(new SelectionListener() {
+		 * 
+		 * public void widgetDefaultSelected(SelectionEvent arg0) {
+		 * updatePageContent(); }
+		 * 
+		 * public void widgetSelected(SelectionEvent arg0) {
+		 * updatePageContent(); }
+		 * 
+		 * });
+		 */
 	}
 
 	/**
@@ -125,10 +125,13 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 		updateAppInfo(applicationInfo);
 
 		// Updating the version info table
-		updateCurrentStatus(applicationInfo);
+		updateBuildStatus(applicationInfo);
 
 		// Updating the team details
 		updateTeamDetails(applicationInfo);
+
+		// Updating the data sources details
+		updateDataSources(applicationInfo);
 	}
 
 	private void removeChildControls(Composite composite) {
@@ -159,9 +162,13 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 		teamTabItem = new TabItem(tabFolder, SWT.NULL);
 		teamTabItem.setText(TEAM_TAB_ITEM_NAME);
 
+		dataSourcesTabItem = new TabItem(tabFolder, SWT.NULL);
+		dataSourcesTabItem.setText(DATA_SOURCES_TAB_ITEM_NAME);
+
 		createAppInfoPage();
 		createCurrentStatusPage();
 		createTeamDetailsPage();
+		createDataSourcesPage();
 	}
 
 	/**
@@ -187,7 +194,7 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 		ScrolledComposite scroller = new ScrolledComposite(tabFolder, SWT.BORDER | SWT.V_SCROLL
 				| SWT.H_SCROLL);
 		scroller.setBackground(tabFolder.getDisplay().getSystemColor(SWT.COLOR_WHITE));
-		//scroller.setExpandVertical(true);
+		// scroller.setExpandVertical(true);
 		scroller.setExpandHorizontal(true);
 		Composite composite = new Composite(scroller, SWT.NULL);
 		composite.setLayout(new FillLayout(SWT.VERTICAL));
@@ -195,19 +202,19 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 		scroller.setContent(composite);
 		scroller.setMinSize(composite.computeSize(SWT.DEFAULT, SWT.DEFAULT));
 
-		String[] names = new String[] { "Application Type", "Repository Type",
-				"Application Owner", "Description", "Version", "Repository URL" };
+		String[] names = new String[] { "Application Type", "Repository Type", "Application Owner",
+				"Description", "Version", "Repository URL" };
 
 		createLabel(composite, SWT.NONE, "", new GridData(), scroller.getBackground(), new Font(
 				null, "", 15, SWT.BOLD));
-		
+
 		createCompositeLabel(composite, names[0]);
 		appTypeComposite = new Composite(composite, SWT.NONE);
 		appTypeComposite.setBackground(tabFolder.getBackground());
 		GridLayout appTypeGridLayout = new GridLayout(1, false);
 		appTypeGridLayout.marginWidth = 20;
 		appTypeComposite.setLayout(appTypeGridLayout);
-		
+
 		createLabel(composite, SWT.NONE, "", new GridData(), scroller.getBackground(), new Font(
 				null, "", 15, SWT.BOLD));
 
@@ -217,7 +224,7 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 		GridLayout repoTypeGridLayout = new GridLayout(1, false);
 		repoTypeGridLayout.marginWidth = 20;
 		repoTypeComposite.setLayout(repoTypeGridLayout);
-		
+
 		createLabel(composite, SWT.NONE, "", new GridData(), scroller.getBackground(), new Font(
 				null, "", 15, SWT.BOLD));
 
@@ -227,17 +234,17 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 		GridLayout appOwnerGridLayout = new GridLayout(1, false);
 		appOwnerGridLayout.marginWidth = 20;
 		appOwnerComposite.setLayout(appOwnerGridLayout);
-		
+
 		createLabel(composite, SWT.NONE, "", new GridData(), scroller.getBackground(), new Font(
 				null, "", 15, SWT.BOLD));
-		
+
 		createCompositeLabel(composite, names[3]);
 		descriptionComposite = new Composite(composite, SWT.NONE);
 		descriptionComposite.setBackground(tabFolder.getBackground());
 		GridLayout descriptionGridLayout = new GridLayout(1, false);
 		descriptionGridLayout.marginWidth = 20;
 		descriptionComposite.setLayout(descriptionGridLayout);
-		
+
 		createLabel(composite, SWT.NONE, "", new GridData(), scroller.getBackground(), new Font(
 				null, "", 15, SWT.BOLD));
 
@@ -260,15 +267,15 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 		scroller.setContent(composite);
 		scroller.setMinSize(composite.computeSize(SWT.DEFAULT, SWT.DEFAULT));
 
-		table = new Table(composite, SWT.MULTI | SWT.BORDER | SWT.FULL_SELECTION);
-		table.setLinesVisible(true);
-		table.setHeaderVisible(true);
+		currentStatusTable = new Table(composite, SWT.MULTI | SWT.BORDER | SWT.FULL_SELECTION);
+		currentStatusTable.setLinesVisible(true);
+		currentStatusTable.setHeaderVisible(true);
 		GridData data = new GridData(SWT.FILL, SWT.FILL, true, false);
-		table.setLayoutData(data);
+		currentStatusTable.setLayoutData(data);
 
 		String[] titles = { "Version", "Last Build Status", "Repository" };
 		for (int i = 0; i < titles.length; i++) {
-			TableColumn column = new TableColumn(table, SWT.BOLD);
+			TableColumn column = new TableColumn(currentStatusTable, SWT.BOLD);
 			column.setText(titles[i]);
 			column.pack();
 		}
@@ -284,7 +291,7 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 		ScrolledComposite scroller = new ScrolledComposite(tabFolder, SWT.BORDER | SWT.V_SCROLL
 				| SWT.H_SCROLL);
 		scroller.setBackground(tabFolder.getDisplay().getSystemColor(SWT.COLOR_WHITE));
-		//scroller.setExpandVertical(true);
+		scroller.setExpandVertical(true);
 		scroller.setExpandHorizontal(true);
 		Composite composite = new Composite(scroller, SWT.NULL);
 		composite.setLayout(new FillLayout(SWT.VERTICAL));
@@ -292,104 +299,52 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 		scroller.setContent(composite);
 		scroller.setMinSize(composite.computeSize(SWT.DEFAULT, SWT.DEFAULT));
 
-		createLabel(composite, SWT.NONE, "", new GridData(), tabFolder.getBackground(), null);
+		teamDetailsTable = new Table(composite, SWT.MULTI | SWT.BORDER | SWT.FULL_SELECTION);
+		teamDetailsTable.setLinesVisible(true);
+		teamDetailsTable.setHeaderVisible(true);
+		GridData data = new GridData(SWT.FILL, SWT.FILL, true, false);
+		teamDetailsTable.setLayoutData(data);
 
-		// Team Header
-		// createCompositeLabel(composite, "Team");
-
-		// App owner Header
-		createCompositeLabel(composite, "App Owner");
-
-		// Get app owner list here and iteratively show them
-		ownerComposite = new Composite(composite, SWT.NONE);
-		ownerComposite.setBackground(tabFolder.getBackground());
-		GridLayout gridLayout1 = new GridLayout(1, false);
-		gridLayout1.marginWidth = 20;
-		ownerComposite.setLayout(gridLayout1);
-
-		createLabel(composite, SWT.NONE, "", new GridData(), scroller.getBackground(), new Font(
-				null, "", 12, SWT.BOLD));
-
-		// App Developer Header
-		createCompositeLabel(composite, "App Developer");
-
-		// Get app developer list here and iteratively show them
-		developercomposite = new Composite(composite, SWT.NONE);
-		developercomposite.setBackground(tabFolder.getBackground());
-		GridLayout gridLayout2 = new GridLayout(1, false);
-		gridLayout2.marginWidth = 20;
-		developercomposite.setLayout(gridLayout2);
-
-		createLabel(composite, SWT.NONE, "", new GridData(), scroller.getBackground(), new Font(
-				null, "", 12, SWT.BOLD));
-
-		// Resources Header
-		createCompositeLabel(composite, "Resources");
-
-		// Get app resources and display them
-		resourceComposite = new Composite(composite, SWT.NONE);
-		resourceComposite.setBackground(tabFolder.getBackground());
-		GridLayout resourceGridLayout = new GridLayout(1, false);
-		resourceGridLayout.marginWidth = 20;
-		resourceComposite.setLayout(resourceGridLayout);
-
-		createLabel(composite, SWT.NONE, "", new GridData(), scroller.getBackground(), new Font(
-				null, "", 12, SWT.BOLD));
-
-		// Data Sources Header
-		createCompositeLabel(composite, "Data Sources");
-
-		// Get Data Sources list here and iteratively show them
-		datasourcescomposite = new Composite(composite, SWT.NONE);
-		datasourcescomposite.setBackground(tabFolder.getBackground());
-		GridLayout gridLayout3 = new GridLayout(1, false);
-		gridLayout3.marginWidth = 20;
-		datasourcescomposite.setLayout(gridLayout3);
-
-		createLabel(composite, SWT.NONE, "", new GridData(), scroller.getBackground(), new Font(
-				null, "", 12, SWT.BOLD));
-
-		// Data bases Header
-		createCompositeLabel(composite, "Databases");
-
-		// Get Data Sources list here and iteratively show them
-		databasescomposite = new Composite(composite, SWT.NONE);
-		databasescomposite.setBackground(tabFolder.getBackground());
-		GridLayout gridLayout4 = new GridLayout(1, false);
-		gridLayout4.marginWidth = 20;
-		databasescomposite.setLayout(gridLayout4);
-
-		createLabel(composite, SWT.NONE, "", new GridData(), scroller.getBackground(), new Font(
-				null, "", 12, SWT.BOLD));
-
-		// APIs Header
-		createCompositeLabel(composite, "APIs");
-
-		// Get Data Sources list here and iteratively show them
-		apicomposite = new Composite(composite, SWT.NONE);
-		apicomposite.setBackground(tabFolder.getBackground());
-		GridLayout gridLayout5 = new GridLayout(1, false);
-		gridLayout5.marginWidth = 20;
-		apicomposite.setLayout(gridLayout5);
-
-		createLabel(composite, SWT.NONE, "", new GridData(), scroller.getBackground(), new Font(
-				null, "", 12, SWT.BOLD));
-
-		// Properties Header
-		createCompositeLabel(composite, "Properties");
-
-		// Get Data Sources list here and iteratively show them
-		propertiescomposite = new Composite(composite, SWT.NONE);
-		propertiescomposite.setBackground(tabFolder.getBackground());
-		GridLayout gridLayout6 = new GridLayout(1, false);
-		gridLayout6.marginWidth = 20;
-		propertiescomposite.setLayout(gridLayout6);
-
-		createLabel(composite, SWT.NONE, "", new GridData(), scroller.getBackground(), new Font(
-				null, "", 12, SWT.BOLD));
+		String[] titles = { "Name", "E-mail", "Role" };
+		for (int i = 0; i < titles.length; i++) {
+			TableColumn column = new TableColumn(teamDetailsTable, SWT.BOLD);
+			column.setText(titles[i]);
+			column.pack();
+		}
 
 		teamTabItem.setControl(scroller);
-		composite.pack();
+	}
+
+	/**
+	 * Create data sources tab page
+	 */
+	private void createDataSourcesPage() {
+		ScrolledComposite scroller = new ScrolledComposite(tabFolder, SWT.BORDER | SWT.V_SCROLL
+				| SWT.H_SCROLL);
+		scroller.setBackground(tabFolder.getDisplay().getSystemColor(SWT.COLOR_WHITE));
+		scroller.setExpandVertical(true);
+		scroller.setExpandHorizontal(true);
+		Composite composite = new Composite(scroller, SWT.NULL);
+		composite.setLayout(new FillLayout(SWT.VERTICAL));
+		composite.setBackground(tabFolder.getBackground());
+		scroller.setContent(composite);
+		scroller.setMinSize(composite.computeSize(SWT.DEFAULT, SWT.DEFAULT));
+
+		dataSourcesTable = new Table(composite, SWT.MULTI | SWT.BORDER | SWT.FULL_SELECTION);
+		dataSourcesTable.setLinesVisible(true);
+		dataSourcesTable.setHeaderVisible(true);
+		GridData data = new GridData(SWT.FILL, SWT.FILL, true, false);
+		dataSourcesTable.setLayoutData(data);
+
+		String[] titles = { "Databases", "DB Users", "DB Permission Templates" };
+		for (int i = 0; i < titles.length; i++) {
+			TableColumn column = new TableColumn(dataSourcesTable, SWT.BOLD);
+			column.setText(titles[i]);
+			column.pack();
+		}
+
+		dataSourcesTabItem.setControl(scroller);
+
 	}
 
 	/**
@@ -399,7 +354,7 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 	 */
 	private void updateAppInfo(ApplicationInfo applicationInfo) {
 		removeChildControls(appTypeComposite);
-		if(applicationInfo.getType() != null && !applicationInfo.getType().equals("")) {
+		if (applicationInfo.getType() != null && !applicationInfo.getType().equals("")) {
 			createLabel(appTypeComposite, SWT.NONE, applicationInfo.getType(), getGridData(),
 					tabFolder.getBackground(), null);
 		} else {
@@ -408,11 +363,12 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 		}
 		appTypeComposite.pack();
 		appTypeComposite.layout();
-		
+
 		removeChildControls(repoTypeComposite);
-		if(applicationInfo.getRepositoryType() != null && !applicationInfo.getRepositoryType().equals("")) {
-			createLabel(repoTypeComposite, SWT.NONE, applicationInfo.getRepositoryType(), getGridData(),
-					tabFolder.getBackground(), null);
+		if (applicationInfo.getRepositoryType() != null
+				&& !applicationInfo.getRepositoryType().equals("")) {
+			createLabel(repoTypeComposite, SWT.NONE, applicationInfo.getRepositoryType(),
+					getGridData(), tabFolder.getBackground(), null);
 		} else {
 			createLabel(repoTypeComposite, SWT.NONE, DEFAULT_VALUE, getGridData(),
 					tabFolder.getBackground(), null);
@@ -420,9 +376,10 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 		repoTypeComposite.pack();
 		repoTypeComposite.layout();
 		removeChildControls(appOwnerComposite);
-		if(applicationInfo.getApplicationOwner() != null && !applicationInfo.getApplicationOwner().equals("")) {
-			createLabel(appOwnerComposite, SWT.NONE, applicationInfo.getApplicationOwner(), getGridData(),
-					tabFolder.getBackground(), null);
+		if (applicationInfo.getApplicationOwner() != null
+				&& !applicationInfo.getApplicationOwner().equals("")) {
+			createLabel(appOwnerComposite, SWT.NONE, applicationInfo.getApplicationOwner(),
+					getGridData(), tabFolder.getBackground(), null);
 		} else {
 			createLabel(appOwnerComposite, SWT.NONE, DEFAULT_VALUE, getGridData(),
 					tabFolder.getBackground(), null);
@@ -430,9 +387,10 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 		appOwnerComposite.pack();
 		appOwnerComposite.layout();
 		removeChildControls(descriptionComposite);
-		if(applicationInfo.getDescription() != null && !applicationInfo.getDescription().equals("")) {
-			createLabel(descriptionComposite, SWT.NONE, applicationInfo.getDescription(), getGridData(),
-					tabFolder.getBackground(), null);
+		if (applicationInfo.getDescription() != null
+				&& !applicationInfo.getDescription().equals("")) {
+			createLabel(descriptionComposite, SWT.NONE, applicationInfo.getDescription(),
+					getGridData(), tabFolder.getBackground(), null);
 		} else {
 			createLabel(descriptionComposite, SWT.NONE, DEFAULT_VALUE, getGridData(),
 					tabFolder.getBackground(), null);
@@ -446,22 +404,22 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 	 * 
 	 * @param applicationInfo
 	 */
-	private void updateCurrentStatus(ApplicationInfo applicationInfo) {
+	private void updateBuildStatus(ApplicationInfo applicationInfo) {
 		// Remove existing
-		table.removeAll();
+		currentStatusTable.removeAll();
 
 		// Add new
-		List<AppVersionInfo> version = applicationInfo.getVersion();
+		List<AppVersionInfo> version = applicationInfo.getappVersionList();
 		for (AppVersionInfo appVersionInfo : version) {
-			TableItem item = new TableItem(table, SWT.NONE);
+			TableItem item = new TableItem(currentStatusTable, SWT.NONE);
 			item.setText(0, appVersionInfo.getVersion());
 			item.setText(1, appVersionInfo.getLastBuildResult());
 			item.setText(2, appVersionInfo.getRepoURL());
 		}
 
 		// Pack the new one to table
-		for (int i = 0; i < table.getColumnCount(); i++) {
-			table.getColumn(i).pack();
+		for (int i = 0; i < currentStatusTable.getColumnCount(); i++) {
+			currentStatusTable.getColumn(i).pack();
 		}
 	}
 
@@ -471,89 +429,46 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 	 * @param applicationInfo
 	 */
 	private void updateTeamDetails(ApplicationInfo applicationInfo) {
-		// owners
-		removeChildControls(ownerComposite);
-		if(applicationInfo.getApplicationOwner() != null && !applicationInfo.getApplicationOwner().equals("")) {
-			createLabel(ownerComposite, SWT.NONE, applicationInfo.getApplicationOwner(), getGridData(),
-					tabFolder.getBackground(), null);
-		} else {
-			createLabel(ownerComposite, SWT.NONE, DEFAULT_VALUE, getGridData(),
-					tabFolder.getBackground(), null);
+		// Remove existing
+		teamDetailsTable.removeAll();
+
+		// Add new
+		List<AppUserInfo> appUsers = applicationInfo.getApplicationDevelopers();
+		for (AppUserInfo appUser : appUsers) {
+			TableItem item = new TableItem(teamDetailsTable, SWT.NONE);
+			item.setText(0, appUser.getUserDisplayName());
+			item.setText(1, appUser.getUserName());
+			item.setText(2, appUser.getRoles());
 		}
-		ownerComposite.pack();
-		ownerComposite.layout();
-		// developers
-		removeChildControls(developercomposite);
-		if (applicationInfo.getApplicationDevelopers() != null
-				&& applicationInfo.getApplicationDevelopers().size() > 0) {
-			for (AppUserInfo user : applicationInfo.getApplicationDevelopers()) {
-				createLabel(developercomposite, SWT.NONE, user.getUserDisplayName() + " "+ user.getDisplayName(), getGridData(),
-						tabFolder.getBackground(), null);
-			}
-		} else {
-			createLabel(developercomposite, SWT.NONE, DEFAULT_VALUE, getGridData(),
-					tabFolder.getBackground(), null);
+
+		// Pack the new one to table
+		for (int i = 0; i < teamDetailsTable.getColumnCount(); i++) {
+			teamDetailsTable.getColumn(i).pack();
 		}
-		developercomposite.pack();
-		developercomposite.layout();
-		// resources
-		removeChildControls(resourceComposite);
-		createLabel(resourceComposite, SWT.NONE, DEFAULT_VALUE, getGridData(),
-				tabFolder.getBackground(), null);
-		resourceComposite.pack();
-		resourceComposite.layout();
-		// data sources
-		removeChildControls(datasourcescomposite);
-		if (applicationInfo.getDatasources() != null && applicationInfo.getDatasources().size() > 0) {
-			for (String string : applicationInfo.getDatasources()) {
-				createLabel(datasourcescomposite, SWT.NONE, string, getGridData(),
-						tabFolder.getBackground(), null);
-			}
-		} else {
-			createLabel(datasourcescomposite, SWT.NONE, DEFAULT_VALUE, getGridData(),
-					tabFolder.getBackground(), null);
+	}
+
+	/**
+	 * Display data sources information of the selected application.
+	 * 
+	 * @param applicationInfo
+	 */
+	private void updateDataSources(ApplicationInfo applicationInfo) {
+		// Remove existing
+		dataSourcesTable.removeAll();
+
+		// Add new
+		List<AppDBinfo> dataSources = applicationInfo.getDatabases();
+		for (AppDBinfo db : dataSources) {
+			TableItem item = new TableItem(dataSourcesTable, SWT.NONE);
+			item.setText(0, db.getDbs());
+			item.setText(1, db.getUsr());
+			item.setText(2, db.getTemplates());
 		}
-		datasourcescomposite.pack();
-		datasourcescomposite.layout();
-		// data bases
-		removeChildControls(databasescomposite);
-		if (applicationInfo.getDatabases() != null && applicationInfo.getDatabases().size() > 0) {
-			for (String string : applicationInfo.getDatabases()) {
-				createLabel(databasescomposite, SWT.NONE, string, getGridData(),
-						tabFolder.getBackground(), null);
-			}
-		} else {
-			createLabel(databasescomposite, SWT.NONE, DEFAULT_VALUE, getGridData(),
-					tabFolder.getBackground(), null);
+
+		// Pack the new one to table
+		for (int i = 0; i < dataSourcesTable.getColumnCount(); i++) {
+			dataSourcesTable.getColumn(i).pack();
 		}
-		databasescomposite.pack();
-		databasescomposite.layout();
-		// apis
-		removeChildControls(apicomposite);
-		if (applicationInfo.getApis() != null && applicationInfo.getApis().size() > 0) {
-			for (String string : applicationInfo.getApis()) {
-				createLabel(apicomposite, SWT.NONE, string, getGridData(),
-						tabFolder.getBackground(), null);
-			}
-		} else {
-			createLabel(apicomposite, SWT.NONE, DEFAULT_VALUE, getGridData(),
-					tabFolder.getBackground(), null);
-		}
-		apicomposite.pack();
-		apicomposite.layout();
-		// properties
-		removeChildControls(propertiescomposite);
-		if (applicationInfo.getProperties() != null && applicationInfo.getProperties().size() > 0) {
-			for (String string : applicationInfo.getProperties()) {
-				createLabel(propertiescomposite, SWT.NONE, string, getGridData(),
-						tabFolder.getBackground(), null);
-			}
-		} else {
-			createLabel(propertiescomposite, SWT.NONE, DEFAULT_VALUE, getGridData(),
-					tabFolder.getBackground(), null);
-		}
-		propertiescomposite.pack();
-		propertiescomposite.layout();
 	}
 
 }

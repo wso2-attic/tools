@@ -15,6 +15,7 @@
  */
 
 package org.wso2.developerstudio.appfactory.ui.views;
+import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.StyledCellLabelProvider;
 import org.eclipse.jface.viewers.StyledString;
 import org.eclipse.jface.viewers.ViewerCell;
@@ -22,6 +23,7 @@ import org.eclipse.ui.ISharedImages;
 import org.eclipse.ui.PlatformUI;
 import org.wso2.developerstudio.appfactory.core.model.AppVersionInfo;
 import org.wso2.developerstudio.appfactory.core.model.ApplicationInfo;
+import org.wso2.developerstudio.appfactory.ui.Activator;
 
 
 
@@ -33,19 +35,27 @@ public class AppListLabelProvider extends StyledCellLabelProvider {
 	    if (element instanceof ApplicationInfo) {
 	      ApplicationInfo app = (ApplicationInfo) element;
 	      text.append(app.getKey());
-	      cell.setImage(PlatformUI.getWorkbench().getSharedImages()
-	          .getImage(ISharedImages.IMG_OBJ_FOLDER));
+	      ImageDescriptor imageDescriptorFromPlugin = Activator.imageDescriptorFromPlugin(Activator.PLUGIN_ID,
+					 "/icons/submodules.gif");
+	      cell.setImage(imageDescriptorFromPlugin.createImage());
 	      
-	      if(app.getVersion().isEmpty()){
-	    	  text.append(" (Closed)", StyledString.DECORATIONS_STYLER);
-	      }else{
+	      if(app.getLableState()==1){
+	    	  text.append(" (Lording)", StyledString.DECORATIONS_STYLER);
+	      }else if(app.getLableState()==2){
 	    	  text.append(" (Opened)", StyledString.COUNTER_STYLER);
+	      }else{
+	    	  text.append(" (Closed)", StyledString.DECORATIONS_STYLER);
 	      }
 	    } else {
 	      AppVersionInfo version = (AppVersionInfo) element;
-	      text.append(version.getVersion());
-	      cell.setImage(PlatformUI.getWorkbench().getSharedImages()
-	          .getImage(ISharedImages.IMG_OBJ_FILE));
+	      if(version.isCheckedout()){
+	    	  text.append(version.getVersion()+" -Checked out",StyledString.COUNTER_STYLER);
+	      }else{
+	    	  text.append(version.getVersion()+" -closed",StyledString.DECORATIONS_STYLER);
+	      }
+	      ImageDescriptor imageDescriptorFromPlugin = Activator.imageDescriptorFromPlugin(Activator.PLUGIN_ID,
+					 "/icons/branch_obj.gif");
+	      cell.setImage(imageDescriptorFromPlugin.createImage());
 	    }
 	    cell.setText(text.toString());
 	    cell.setStyleRanges(text.getStyleRanges());

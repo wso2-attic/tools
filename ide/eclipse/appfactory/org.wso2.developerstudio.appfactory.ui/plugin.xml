@@ -103,13 +103,13 @@
             file="contexts.xml">
       </contexts>
    </extension>
-    <extension point="org.eclipse.ui.popupMenus">
+    <!--extension point="org.eclipse.ui.popupMenus">
         <objectContribution
               objectClass="org.eclipse.core.resources.IProject"
                id="org.wso2.developerstudio.eclipse.appfactory.project.popup.deploy">
                <action
                     label="Deploy"
-                    icon="icons/deploy.png"
+                    icon="icons/deploy11.png"
                     class="org.wso2.developerstudio.appfactory.ui.actions.DeployAction"
                     id="org.wso2.developerstudio.eclipse.appfactory.project.ui.action.deploy">
                </action>
@@ -122,7 +122,7 @@
 					</adapt>
 				</enablement>
               </objectContribution>
-        </extension>
+        </extension-->
         <extension
               point="org.eclipse.ui.perspectives">
            <perspective

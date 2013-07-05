@@ -28,6 +28,9 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.layout.GridData;
 import org.wso2.developerstudio.eclipse.platform.core.utils.ResourceManager;
 import org.wso2.developerstudio.eclipse.platform.core.utils.SWTResourceManager;
+import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 
 public class PasswordDialog extends Dialog {
   private Text userText;
@@ -36,6 +39,7 @@ public class PasswordDialog extends Dialog {
   private String user;
   private String password;
   private String host;
+  private boolean isSave;
 
   
 /** * Create the dialog. * * @param parentShell */
@@ -71,7 +75,7 @@ public class PasswordDialog extends Dialog {
 	GridData gd_lblNewLabel = new GridData(SWT.LEFT, SWT.TOP, false,
 			true, 2, 1);
 	gd_lblNewLabel.widthHint = 324;
-	gd_lblNewLabel.heightHint = 64;
+	gd_lblNewLabel.heightHint = 55;
 	lblNewLabel.setLayoutData(gd_lblNewLabel);
 	
     Label lblHost = new Label(container, SWT.NONE);
@@ -102,10 +106,23 @@ public class PasswordDialog extends Dialog {
     passwordText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false,
         false, 1, 1));
     passwordText.setText(password);
+    new Label(container, SWT.NONE);
     
-	
-    
-    
+    Button btnCheckButton = new Button(container, SWT.CHECK);
+    btnCheckButton.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
+    btnCheckButton.addSelectionListener(new SelectionAdapter() {
+    	@Override
+    	public void widgetSelected(SelectionEvent e) {
+    		 Button button = (Button) e.widget;
+    	        if (button.getSelection()){
+    	        	setSave(true);
+    	        }else{
+    	        	setSave(false);
+    	        }
+    	}
+    });
+    btnCheckButton.setText("Save my credentials in eclipe preference and use it next time");
+
     return container;
   }
 
@@ -125,7 +142,7 @@ public class PasswordDialog extends Dialog {
 
   @Override
   protected Point getInitialSize() {
-    return new Point(450, 250);
+    return new Point(484, 257);
   }
 
   @Override
@@ -133,7 +150,7 @@ public class PasswordDialog extends Dialog {
     user = userText.getText();
     password = passwordText.getText();
     host =hostText.getText().trim();
-    if(!host.contains("https://")){
+    if(!host.startsWith("http")||!host.startsWith("https")){
     	host = "https://"+host;
     }
     super.okPressed();
@@ -163,5 +180,13 @@ public String getHost() {
 
 public void setHost(String host) {
 	this.host = host;
+}
+
+public boolean isSave() {
+	return isSave;
+}
+
+public void setSave(boolean isSave) {
+	this.isSave = isSave;
 }
 }

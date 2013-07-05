@@ -38,6 +38,8 @@ import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.window.Window;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Cursor;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IEditorInput;
@@ -60,7 +62,7 @@ import org.wso2.developerstudio.appfactory.core.model.ErroModel;
 import org.wso2.developerstudio.appfactory.ui.Activator;
 import org.wso2.developerstudio.appfactory.ui.preference.AppFactoryPreferencePage;
 import org.wso2.developerstudio.appfactory.ui.views.PasswordDialog;
-import org.wso2.developerstudio.appfactory.ui.views.TestOutputConsole;
+import org.wso2.developerstudio.appfactory.ui.views.AppfactoryConsoleView;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
 
@@ -79,6 +81,7 @@ public class LoginAction {
 	 private Shell activeShell;
 	 private IPreferenceStore preferenceStore;
 	 private boolean isCansel;
+	 private boolean isSave;
 	 
 	 public IPreferenceStore getPreferenceStore() {
 		return preferenceStore;
@@ -104,21 +107,40 @@ public class LoginAction {
 		 setLoginUrl(preferenceStore.getString(AppFactoryPreferencePage.APP_FACTORY_LOCATION));
 		 setUsername(preferenceStore.getString(AppFactoryPreferencePage.APP_FACTORY_USERNAME));
 		 setPassword(preferenceStore.getString(AppFactoryPreferencePage.APP_FACTORY_PASSWORD));
+		 String val = preferenceStore.getString(AppFactoryPreferencePage.APP_FACTORY_SAVE);
+		 if("true".equals(val)){
+			 setSave(true);
+		 }else{
+			 setSave(false);
+		 }
 	 }
 	
 	public boolean login() {
 		boolean val = true;
 		try { 
-			showLoginDialog();
+			
+			if(!isSave){
+				showLoginDialog();
+			}
 			if(isCansel){
 				return false;
 			}
+			
 			credentials = new UserPasswordCredentials(getUsername(),getPassword());
 		    val = authenticator.Authenticate(JagApiProperties.getLoginUrl(), credentials); 
 		    if(!val){
                 this.ShowErrorMsg(); 
+                Display.getCurrent()
+				.getActiveShell()
+				.setCursor(
+						(new Cursor(Display.getCurrent(), SWT.CURSOR_ARROW)));
 		    }
-		    
+		    if(isSave()){
+				  preferenceStore.setValue(AppFactoryPreferencePage.APP_FACTORY_LOCATION, JagApiProperties.getDomain());
+				  preferenceStore.setValue(AppFactoryPreferencePage.APP_FACTORY_USERNAME,getUsername());
+				  preferenceStore.setValue(AppFactoryPreferencePage.APP_FACTORY_PASSWORD,getPassword());
+				  preferenceStore.setValue(AppFactoryPreferencePage.APP_FACTORY_SAVE,"true");
+			}
 		} catch (Exception e) {
 			 ErroModel erroModel = Authenticator.getInstance().getErroModel();
     	     erroModel.setMessage("Authentication Failer");
@@ -126,6 +148,10 @@ public class LoginAction {
     	     resions.add("Please refer the log file for details");
     	     erroModel.setResions(resions);
 	        log.error("Login failer", e);
+	        Display.getCurrent()
+			.getActiveShell()
+			.setCursor(
+					(new Cursor(Display.getCurrent(), SWT.CURSOR_ARROW)));
 	        return false;
 		} 
 		return val;
@@ -141,6 +167,8 @@ public class LoginAction {
 		   for (String msg : resions) {
 			   info.add(new Status(IStatus.INFO, PID, 1,msg, null));
 		   		}
+		   }else{
+			   info.add(new Status(IStatus.INFO, PID, 1,"Authantication Fail ! \n check username and password", null));
 		   }
 		   ErrorDialog.openError(activeShell, "AppFactory Login Error", null, info);
 	}
@@ -176,6 +204,7 @@ public class LoginAction {
 			  setUsername(dialog.getUser());
 			  setPassword(dialog.getPassword());
 			  setLoginUrl(dialog.getHost());
+			  setSave(dialog.isSave());
 		 }else {
 			   this.setCansel(true);
 			   MessageBox messageBox = new MessageBox(getActiveShell(), SWT.ICON_INFORMATION | SWT.OK);
@@ -192,6 +221,13 @@ public class LoginAction {
 
 	public void setCansel(boolean isCansel) {
 		this.isCansel = isCansel;
+	}
+	public boolean isSave() {
+		return isSave;
+	}
+
+	public void setSave(boolean isSave) {
+		this.isSave = isSave;
 	}
 	static final String DASHBOARD_VIEW_ID = "org.wso2.developerstudio.eclipse.dashboard";
 

@@ -52,9 +52,9 @@ public class AppListContentProvider implements ITreeContentProvider {
   @Override
   public Object[] getChildren(Object parentElement) {
     if (parentElement instanceof ApplicationInfo) {
-      ApplicationInfo app = (ApplicationInfo) parentElement;
-      if(app.getVersion()!=null){
-      return app.getVersion().toArray();
+       ApplicationInfo app = (ApplicationInfo) parentElement;
+      if(app.getappVersionList()!=null){
+      return app.getappVersionList().toArray();
       }
     }
     return null;

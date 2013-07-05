@@ -18,13 +18,19 @@ package org.wso2.developerstudio.appfactory.ui.views;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Type;
+import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.swing.text.StyleConstants.FontConstants;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -49,19 +55,25 @@ import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.jface.operation.IRunnableWithProgress;
+import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.DoubleClickEvent;
 import org.eclipse.jface.viewers.IDoubleClickListener;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.TreeViewer;
+import org.eclipse.jface.window.Window;
 import org.eclipse.jface.wizard.IWizard;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Cursor;
+import org.eclipse.swt.graphics.Font;
+import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.DirectoryDialog;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Menu;
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IViewSite;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
@@ -88,6 +100,7 @@ import org.wso2.developerstudio.appfactory.ui.Activator;
 import org.wso2.developerstudio.appfactory.ui.actions.LoginAction;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
+import org.wso2.developerstudio.eclipse.platform.core.utils.SWTResourceManager;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -98,7 +111,10 @@ import com.google.gson.reflect.TypeToken;
 
 
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.core.runtime.jobs.IJobChangeEvent;
+import org.eclipse.core.runtime.jobs.IJobManager;
 import org.eclipse.core.runtime.jobs.Job;
+import org.eclipse.core.runtime.jobs.JobChangeAdapter;
 import org.eclipse.e4.core.contexts.EclipseContextFactory;
 import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.core.di.InjectionException;
@@ -135,69 +151,269 @@ public class AppfactoryApplicationListView extends ViewPart {
 	private List<ApplicationInfo> appLists;
 	private MenuManager menuMgr;
 	private IEventBroker broker;
-	private EventHandler closehandler;
-	TestOutputConsole console;
-	MessageConsoleStream out;
-	
-  
+	private EventHandler buildhandler;
+	private EventHandler ErrorLoghandler;
+	private EventHandler infoLoghandler;
+	private EventHandler apphandler;
+	private EventHandler appVersionhandler;
+	private EventHandler projectOpenhandler;
+	private AppfactoryConsoleView console;
+	private MessageConsoleStream infoOut;
+	private MessageConsoleStream errorOut;
+	private MessageConsoleStream buildOut;
 	@SuppressWarnings("restriction")
 	@Override
 	public void init(IViewSite site) throws PartInitException {
 
 		super.init(site);
-		console = new TestOutputConsole();
-		out = console.getOut();
+		appLists = new ArrayList<ApplicationInfo>();
+		console = new AppfactoryConsoleView();
+		infoOut = console.getOut();
+		errorOut = console.getNewMsgStream();
+		buildOut = console.getNewMsgStream();
 		Bundle bundle = Platform.getBundle(Activator.PLUGIN_ID);
-		// this.execute();
+		 
 		@SuppressWarnings("restriction")
 		IEclipseContext eclipseContext = EclipseContextFactory
 				.getServiceContext(bundle.getBundleContext());
 		eclipseContext.set(org.eclipse.e4.core.services.log.Logger.class, null);
 		broker = eclipseContext.get(IEventBroker.class);
-		closehandler = new EventHandler() {
+		
+		buildhandler = getBuildLogEventHandler();
+		broker.subscribe("update", buildhandler);
+			
+		apphandler = getAppListHandler();
+		broker.subscribe("Appupdate", apphandler);
+ 
+		appVersionhandler = getAppVersionEventHandler();
+		broker.subscribe("Appversionupdate", appVersionhandler);
+		
+		ErrorLoghandler = getErrorLogEventHandler();
+		broker.subscribe("Errorupdate",ErrorLoghandler);
+		
+		infoLoghandler = getInfoLogEventHandler();
+		broker.subscribe("Infoupdate",infoLoghandler);
+		
+		projectOpenhandler = getPorjectcheckedOUtHandler();
+		broker.subscribe("Projectupdate",projectOpenhandler);
+		
+	}
+
+	@SuppressWarnings("restriction")
+	private void printErrorLog(String msg){
+		 broker.send("Errorupdate", "\n"+"["+new Timestamp(new Date().getTime()) +"] : "+msg);
+	}
+	
+	private void printInfoLog(String msg){
+		 broker.send("Infoupdate", "\n"+"["+new Timestamp(new Date().getTime()) +"] : "+msg);
+	}
+
+	private EventHandler getAppListHandler() {
+		return new EventHandler() {
 			public void handleEvent(final Event event) {
-				System.out.println(event.getProperty(IEventBroker.DATA));
-				// Display.getDefault();
+				@SuppressWarnings("unused")
+				final Display display = Display.getDefault();
+				Display.getDefault().asyncExec(new Runnable() {
+					@Override
+					public void run() {
+            			List<ApplicationInfo> oldappLists = appLists;
+						appLists =  (List<ApplicationInfo>) event.getProperty(IEventBroker.DATA);
+            			contentProvider.inputChanged(viewer, oldappLists, appLists);
+            			viewer.refresh();
+            		 
+					}
+				});
+			}
+		};
+	}
+	
+	private EventHandler getPorjectcheckedOUtHandler() {
+		return new EventHandler() {
+			public void handleEvent(final Event event) {
+				@SuppressWarnings("unused")
+				final Display display = Display.getDefault();
+				Display.getDefault().asyncExec(new Runnable() {
+					@Override
+					public void run() {
+						try {
+							contentProvider.inputChanged(viewer, model, model);
+							viewer.refresh();
+							
+						} catch (Exception e) {
+							 log.error("checkedoutError", e);
+						}
+
+					}
+				});
+			}
+		};
+	}
+
+	private EventHandler getAppVersionEventHandler() {
+		return new EventHandler() {
+			public void handleEvent(final Event event) {
 				@SuppressWarnings("unused")
 				final Display display = Display.getDefault();
 				Display.getDefault().asyncExec(new Runnable() {
 
 					@Override
 					public void run() {
-						out.println("" + event.getProperty(IEventBroker.DATA));
+						AppListModel refModel = (AppListModel) event.getProperty(IEventBroker.DATA);
+						contentProvider.inputChanged(viewer, model, refModel);
+						viewer.refresh();
 					}
 				});
 			}
 		};
+	}
+	
 
-		broker.subscribe("update", closehandler);
+	
+	
+	private EventHandler getBuildLogEventHandler() {
+		return new EventHandler() {
+			public void handleEvent(final Event event) {
+				@SuppressWarnings("unused")
+				final Display display = Display.getDefault();
+				Display.getDefault().asyncExec(new Runnable() {
 
-		createUserAppList();
+					@Override
+					public void run() {
+						buildOut.setColor(SWTResourceManager.getColor(SWT.COLOR_DARK_CYAN));
+						buildOut.println(""+event.getProperty(IEventBroker.DATA));
+					}
+				});
+			}
+		};
+	}
+	
+	private EventHandler getErrorLogEventHandler() {
+		return new EventHandler() {
+			public void handleEvent(final Event event) {
+				@SuppressWarnings("unused")
+				final Display display = Display.getDefault();
+				Display.getDefault().asyncExec(new Runnable() {
 
+					@Override
+					public void run() {
+						errorOut.setColor(SWTResourceManager.getColor(SWT.COLOR_RED));
+						errorOut.println("\n\n**********[ERROR]**********" + event.getProperty(IEventBroker.DATA));
+					}
+				});
+			}
+		};
+	}
+	
+	private EventHandler getInfoLogEventHandler() {
+		return new EventHandler() {
+			public void handleEvent(final Event event) {
+				@SuppressWarnings("unused")
+				final Display display = Display.getDefault();
+				Display.getDefault().asyncExec(new Runnable() {
+
+					@Override
+					public void run() {
+						infoOut.setColor(SWTResourceManager.getColor(SWT.COLOR_BLACK));
+						infoOut.println("\n\n**********[INFO]**********" + event.getProperty(IEventBroker.DATA));
+					}
+				});
+			}
+		};
+	}
+	
+	
+	private void ShowLoginDialog(){
+		 credentials = Authenticator.getInstance().getCredentials();
+		 try{
+		 if(credentials==null){
+			 printErrorLog("Aunthantication Failed ");
+			 LoginAction loginAction = new LoginAction();
+			 printInfoLog("Attempting to re-login");
+			 if(loginAction.login()){
+				 printInfoLog("Login Sucessfull");
+				 credentials = Authenticator.getInstance().getCredentials();
+			 }
+		 }else {
+			 
+		 }
+		 }catch(Exception e){
+			 
+		 }
+	}
+	
+	
+	@SuppressWarnings("restriction")
+	private List<ApplicationInfo> getApplist(){
+		 if(Authenticator.getInstance().getCredentials()!=null){
+		 Map<String,String> params = new HashMap<String,String>();
+		 params.put("action",JagApiProperties.USER_APP_LIST__ACTION);
+		 params.put("userName",Authenticator.getInstance().getCredentials().getUser()); 
+		 printInfoLog("Fetching User Application From Server");
+		 String respond = HttpsJaggeryClient.httpPost(JagApiProperties.getAppInfoUrl(), params);
+		 if("false".equals(respond)){
+		  printErrorLog(" Fetching Failed now attempting to relogin");	 
+	      boolean val = Authenticator.getInstance().reLogin();
+	      if(val){
+	       printInfoLog(" Re-Login sucessfull");	  
+	       respond = HttpsJaggeryClient.httpPost(JagApiProperties.getAppInfoUrl(), params);
+	      }else{
+	    	printErrorLog("CANNOT PROCEEDS \n Re-Login attempt has filed !! \n " +
+	    			"Please re-Login to the perspective");  
+	      }
+		 }
+		 if(!"false".equals(respond)){
+	     printInfoLog("Fetching completed, Apllications are loading to the view");	 
+		 Gson gson = new Gson();
+		 Type collectionType = new TypeToken<java.util.List<ApplicationInfo>>(){}.getType();
+		 return gson.fromJson(respond, collectionType);
+		 }
+		}
+		 return new ArrayList<ApplicationInfo>();
 	}
  
-	private void createUserAppList() {
+	/*@SuppressWarnings("restriction")
+	private void create1UserAppList() {
 		try{
 		 credentials = Authenticator.getInstance().getCredentials();
 		 if(credentials==null){
+			 printErrorLog("Aunthantication Failed ");
 			 LoginAction loginAction = new LoginAction();
+			 printInfoLog("Attempting to re-login");
 			 if(loginAction.login()){
-				 createUserAppList();
-			 }else{
-				 out.println("Restart the Appfactory");
+				 printInfoLog("Login Sucessfull");
+				 create1UserAppList();
 			 }
-		 } 
-		 Map<String,String> params = new HashMap<String,String>();
-		 params.put("action",JagApiProperties.USER_APP_LIST__ACTION);
-		 params.put("userName",credentials.getUser()); 
-		 String respond = HttpsJaggeryClient.httpPost(JagApiProperties.getAppInfoUrl(), params);
-		 Gson gson = new Gson();
-		 Type collectionType = new TypeToken<java.util.List<ApplicationInfo>>(){}.getType();
-		 appLists = gson.fromJson(respond, collectionType);
+		 }else {  
+
+			 Map<String,String> params = new HashMap<String,String>();
+			 params.put("action",JagApiProperties.USER_APP_LIST__ACTION);
+			 params.put("userName",credentials.getUser()); 
+			 printInfoLog(" Fetching User Application From Server");
+			 String respond = HttpsJaggeryClient.httpPost(JagApiProperties.getAppInfoUrl(), params);
+			 if("false".equals(respond)){
+				  printErrorLog(" Fetching Failed now attempting to relogin");	 
+			      boolean val = Authenticator.getInstance().reLogin();
+			      if(val){
+			       printInfoLog(" Re-Login sucessfull");	  
+			       respond = HttpsJaggeryClient.httpPost(JagApiProperties.getAppInfoUrl(), params);
+			      }else{
+			    	printErrorLog("CANNOT PROCEEDS \n Re-Login attempt has filed !! \n " +
+			    			"Please re-Login to the perspective");  
+			      }
+			 }
+
+			 if(!"false".equals(respond)){
+			 printInfoLog("Fetching completed, Apllications are loading to the view");		 
+			 Gson gson = new Gson();
+			 Type collectionType = new TypeToken<java.util.List<ApplicationInfo>>(){}.getType();
+			 appLists = gson.fromJson(respond, collectionType);
+			 }
+		 }
 		}catch(Exception e){
-			 out.println("Application View Loarding Issues : "+ e.getMessage());
+			printErrorLog("CANNOT PROCEEDS \n Applications lording failed ! \n "+e.getMessage());  
+	    	log.error("Application Lording :", e);
 		}
-	}
+	}*/
 	
 	public void createPartControl(Composite parent) {
           this.parent = parent;
@@ -209,7 +425,6 @@ public class AppfactoryApplicationListView extends ViewPart {
 		  viewer.setContentProvider(contentProvider);
 		  viewer.setLabelProvider(labelProvider);
 		  viewer.setInput(model);
-		  
 		  viewer.addSelectionChangedListener(new ISelectionChangedListener() {
 			
 			@Override
@@ -219,11 +434,9 @@ public class AppfactoryApplicationListView extends ViewPart {
 				 Object selectedNode = selection.getFirstElement();
 			   if (selectedNode instanceof ApplicationInfo){
 		        	ApplicationInfo appInfo = (ApplicationInfo) selection.getFirstElement();
-		        	if(!appInfo.isLoaded()){
-		        		getVersionInformation(appInfo);
-		        		appInfo.setLoaded(true);
+		        	if(!appInfo.getappVersionList().isEmpty()){
+		        		appDetailView.updateView(appInfo);
 		        	}
-		        	appDetailView.updateView(appInfo);
 		        }
 			}
 		});
@@ -256,216 +469,77 @@ public class AppfactoryApplicationListView extends ViewPart {
 	                    IStructuredSelection selection = (IStructuredSelection) viewer.getSelection();
 	                    if(selection.getFirstElement() instanceof AppVersionInfo){
 	                       final AppVersionInfo appVersionInfo = (AppVersionInfo) selection.getFirstElement();
+	                        manager.add(importAction(appVersionInfo));
 	                    	manager.add(checkOutAction(appVersionInfo));
-	                    	//manager.add(repoUpdateAction(appVersionInfo));
+	                    	manager.add(repoDeployAction(appVersionInfo));
 	                    	manager.add(buildInfoAction(appVersionInfo)); 
+	                    	
 	                    	
 	                    }else if (selection.getFirstElement() instanceof ApplicationInfo){
 	                    	ApplicationInfo appInfo = (ApplicationInfo) selection.getFirstElement();
-	                    	manager.add(appOpenAction(appInfo));
-		                    manager.add(repoSettingsAction());
-		                  
+	                    	String title ="";
+	                        if(appInfo.getappVersionList().isEmpty()){
+	                        	title = "Open  ";
+	                        }else{
+	                        	title = "Update";
+	                        }
+	                    	manager.add(appOpenAction(appInfo,title));
+		                    manager.add(repoSettingsAction(appInfo));
 	                    }
 	                }
 	            }
 	        });
 	        menuMgr.setRemoveAllWhenShown(true);
 	        viewer.getControl().setMenu(menu); 
+	        ShowLoginDialog();
+	        updateApplicationView();
 	}
 	
-	private Action appOpenAction(final ApplicationInfo appInfo) {
-		Action reposettings = new Action() {
-			public void run() {
-				try {
-					getVersionInformation(appInfo);
-				} catch (Exception e) {
-					log.error(e);
-				}
-			}
-			public String getText() {
-				return "Update Application";
-			}
-		};
-		return reposettings;
-	}
- 
-	private void getVersionInformation(final ApplicationInfo appInfo) {
-		Display.getCurrent().getActiveShell().setCursor((new Cursor(Display.getCurrent(), SWT.CURSOR_WAIT)));
-		AppListModel oldModel = model;
-		model.setversionInfo(appInfo);
-		contentProvider.inputChanged(viewer, oldModel, model);
-		viewer.refresh();
-		viewer.expandToLevel(appInfo, 1);
-		Display.getCurrent().getActiveShell().setCursor((new Cursor(Display.getCurrent(), SWT.CURSOR_ARROW)));
-	} 
+    /**
+     * Create toolbar.
+     */
+    private void createToolbar() {
+            IToolBarManager mgr = getViewSite().getActionBars().getToolBarManager();
+            mgr.add(new Action() {
+           	 @Override
+           	public void run() {
+           		updateApplicationView();
+           	}
+           	 
+           	 public String getText() {
+    				return "Refresh";
+    			}
+			});
+    }
 	
-	private Action buildInfoAction(final AppVersionInfo appInfo) {
-
-		Action reposetetings = new Action() {
-
+	private void  updateApplicationView(){
+		Job job = new Job("Updating User Applications List") {
+		   @SuppressWarnings("restriction")
 			@Override
-			public void run() {
-				building();
-			}
-
-			private void building() {
-				Job job = new Job("My Job") {
-					@Override
-					protected IStatus run(IProgressMonitor monitor) {
-						UISynchronize uiSynchronize = new UISynchronize() {
-
-							@Override
-							public void syncExec(Runnable runnable) {
-								// TODO Auto-generated method stub
-
-							}
-
-							@Override
-							public void asyncExec(Runnable runnable) {
-								try {
-
-									credentials = Authenticator.getInstance()
-											.getCredentials();
-									Map<String, String> params = new HashMap<String, String>();
-									params.put(
-											"action",
-											JagApiProperties.App_BUILD_INFO_ACTION);
-									params.put("stage", "Development");
-									params.put("applicationKey",
-											appInfo.getAppName());
-									params.put("version", appInfo.getVersion());
-									params.put("buildable", "true");
-									params.put("isRoleBasedPermissionAllowed",
-											"false");
-									params.put("metaDataNeed", "false");
-									params.put("userName",
-											credentials.getUser());
-									String respond = HttpsJaggeryClient
-											.httpPost(
-													JagApiProperties
-															.getBuildLastSucessfullBuildUrl(),
-													params);
-									JsonElement jelement = new JsonParser()
-											.parse(respond);
-									JsonArray buildInfoArray;
-									int buidNo = 0;
-									try {
-										buildInfoArray = jelement
-												.getAsJsonArray();
-										for (JsonElement jsonElement : buildInfoArray) {
-											JsonObject asJsonObject = jsonElement
-													.getAsJsonObject();
-											JsonElement jsonElement2 = asJsonObject
-													.get("version");
-											JsonObject asJsonObject2 = jsonElement2
-													.getAsJsonObject();
-											String asString = asJsonObject2
-													.get("current")
-													.getAsString();
-											if (asString.equals(appInfo
-													.getVersion())) {
-												JsonElement jsonElement3 = asJsonObject
-														.get("build");
-												JsonObject asJsonObject3 = jsonElement3
-														.getAsJsonObject();
-												buidNo = asJsonObject3.get(
-														"lastBuildId")
-														.getAsInt();
-												break;
-											}
-										}
-
-									} catch (Exception e) {
-										log.error("", e);
-									}
-
-									params = new HashMap<String, String>();
-									params.put(
-											"action",
-											JagApiProperties.App_BUILD_URL_ACTIONL);
-									params.put("lastBuildNo", "" + buidNo);
-									params.put("applicationVersion",
-											appInfo.getVersion());
-									params.put("applicationKey",
-											appInfo.getAppName());
-									String builderBaseUrl = "false";
-									while ("false".equals(builderBaseUrl)) {
-										builderBaseUrl = HttpsJaggeryClient
-												.httpPost(JagApiProperties
-														.getBuildInfoUrl(),
-														params);
-										Thread.sleep(1000);
-									}
-									HttpResponse response = HttpsGenkinsClient
-											.getBulildinfo(
-													appInfo.getAppName(),
-													appInfo.getVersion(),
-													builderBaseUrl, buidNo);
-									HttpEntity entity = response.getEntity();
-									BufferedReader rd = new BufferedReader(
-											new InputStreamReader(response
-													.getEntity().getContent()));
-									String line;
-									TestOutputConsole console = new TestOutputConsole();
-									MessageConsoleStream out = console.getOut();
-									out.getConsole().clearConsole();
-									while ((line = rd.readLine()) != null) {
-										// out.println(line.toString());
-										broker.send("update", line.toString());
-										Thread.sleep(100);
-									}
-									EntityUtils.consume(entity);
-
-								} catch (Exception e) {
-									log.error(
-											"Remote method invokation Error !",
-											e);
-								}
-
-							}
-						};
-						uiSynchronize.asyncExec(new Runnable() {
-							@Override
-							public void run() {
-
-							}
-						});
-
-						return Status.OK_STATUS;
-					}
-				};
-
-				job.schedule();
-
-			}
-
-			public String getText() {
-				return "Build Logs";
-			}
-		};
-
-		return reposetetings;
-	}	
-	 
-	public static void buildingJob(){
-		
-		Job job = new Job("My Job") {
-			  @Override
-			  protected IStatus run(IProgressMonitor monitor) {
-			    // Do something long running
-			    //... 
+			  protected IStatus run(final IProgressMonitor monitor) {
+				monitor.beginTask("Connecting to remote server for fetching app info", 100);
 				  UISynchronize uiSynchronize = new UISynchronize() {
-						
 						@Override
 						public void syncExec(Runnable runnable) {
-							// TODO Auto-generated method stub
 							
 						}
 						
 						@Override
 						public void asyncExec(Runnable runnable) {
-							// TODO Auto-generated method stub
-							
+							   monitor.subTask("Getting Applications");
+							   monitor.worked(10);
+							   List<ApplicationInfo> applist = getApplist();
+							   monitor.worked(40);
+							   if(applist!=null){
+								monitor.subTask("Lording applications into appList view");
+								monitor.worked(60);	   
+							   broker.send("Appupdate", applist);
+							   monitor.worked(90);	
+							   }else{
+							     monitor.subTask("Data fetching failed !!");
+							     monitor.worked(30);
+								 monitor.worked(0);	      
+							   }
 						}
 					};
 					uiSynchronize.asyncExec(new Runnable() {
@@ -478,72 +552,404 @@ public class AppfactoryApplicationListView extends ViewPart {
 			    return Status.OK_STATUS;
 			  }
 			};
-	 
-			job.schedule();
-		
+		job.schedule();
 	}
 	
 	
+	
+	private void  getAppVersions(final ApplicationInfo appInfo){
+		Job job = new Job("Updating Application versions") {
+		   @SuppressWarnings("restriction")
+			@Override
+			  protected IStatus run(final IProgressMonitor monitor) {
+				monitor.beginTask("Connecting to remote server for fetching app version info", 100);
+				  UISynchronize uiSynchronize = new UISynchronize() {
+						@Override
+						public void syncExec(Runnable runnable) {
+						}
+						
+						@Override
+						public void asyncExec(Runnable runnable) {
+							appInfo.setLableState(1);
+							broker.send("Appversionupdate", model);
+							if(getVersionInfo(appInfo, monitor)){
+								getTeamInfo(appInfo, monitor);
+								getDbInfo(appInfo, monitor);
+								appInfo.setLableState(2);
+							}else{
+								appInfo.setLableState(0);
+							}
+						}
 
-	private Action repoSettingsAction() {
+						private boolean getVersionInfo(
+								final ApplicationInfo appInfo,
+								final IProgressMonitor monitor) {
+							monitor.subTask("Getting version information");
+							monitor.worked(20);	   
+							boolean result = model.setversionInfo(appInfo);
+							if(!result){
+								boolean reLogin = Authenticator.getInstance().reLogin();
+								if(reLogin){
+									result = model.setversionInfo(appInfo);
+								}
+							}
+							if(result){
+							monitor.subTask("Lording version information");
+							monitor.worked(40);	 
+							broker.send("Appversionupdate", model);
+							monitor.worked(50);
+							return true;
+							}else{
+
+								return false;
+							}
+						}
+						
+						private boolean getTeamInfo(final ApplicationInfo appInfo,
+								final IProgressMonitor monitor) {
+							monitor.subTask("Getting Team information");
+							monitor.worked(60);	   
+							boolean result = model.setRoleInfomation(appInfo);
+							if(!result){
+								boolean reLogin = Authenticator.getInstance().reLogin();
+								if(reLogin){
+									result = model.setRoleInfomation(appInfo);
+								}
+							}
+							if(result){
+							monitor.subTask("Lording team information");
+							monitor.worked(60);	 
+							broker.send("Appversionupdate", model);
+							monitor.worked(90);
+							return true;
+							}else{
+								return false;
+							}
+						}
+						
+						private boolean getDbInfo(final ApplicationInfo appInfo,
+								final IProgressMonitor monitor) {
+							monitor.subTask("Getting Database information");
+							monitor.worked(60);	   
+							boolean result = model.setDBInfomation(appInfo);
+							if(!result){
+								boolean reLogin = Authenticator.getInstance().reLogin();
+								if(reLogin){
+									result = model.setDBInfomation(appInfo);
+								}
+							}
+							if(result){
+							monitor.subTask("Lording database information");
+							monitor.worked(60);	 
+							broker.send("Appversionupdate", model);
+							monitor.worked(90);
+							return true;
+							}else{
+								return false;
+							}
+						}
+						
+					};
+					uiSynchronize.asyncExec(new Runnable() {
+						@Override
+						public void run() {
+						
+						}
+					});
+					
+			    return Status.OK_STATUS;
+			  }
+			};
+		job.schedule();
+	}
+ 
+	
+	
+	
+	 
+	private void getbuildLogsJob(final AppVersionInfo appInfo,final boolean deploy) {
+		 
+		Job job = new Job("Fetching build logs") {
+		 
+			@SuppressWarnings("restriction")
+			@Override
+			protected IStatus run(final IProgressMonitor monitor) {
+				UISynchronize uiSynchronize = new UISynchronize() {
+
+					@Override
+					public void syncExec(Runnable runnable) {
+
+					}
+
+					@Override
+					public void asyncExec(Runnable runnable) {
+						try {
+							/*Getting last build ID*/
+						    int buildId = getLastBuildId(appInfo);
+						    if(deploy){
+						     int newbuildId = deploy(appInfo, buildId);
+						     if(newbuildId>buildId){
+						    	 while(true){
+						    		 buildId = getLastBuildId(appInfo); 
+						    		 if(buildId>=newbuildId){
+						    			 break;
+						    		 }
+						    		 printErrorLog("New Build id "+newbuildId+" is still not available , waiting 2 seconds to check again \n" +
+												"you can terminate this process by canseling the bacground process manually");	 
+										Thread.sleep(2000); 
+										if(monitor.isCanceled()){
+											printInfoLog("Build id requested has been terminated by the user");	  
+											break;
+										} 
+						    	 }
+						     }
+						    }
+							/*Getting Jenkins BuilderUrl by providing the buildId*/
+							String builderBaseUrl = getBuilderUrl(appInfo,buildId);
+							/*Getting jenkins log using above url*/
+							printJenkinsBuildLogs(appInfo, buildId,builderBaseUrl,monitor);
+
+						} catch (Exception e) {
+							printErrorLog("System Failed to get build logs \n "+e.getMessage());	 
+							log.error("BuildLogs Error :",e);
+						}
+
+					}
+
+					private int deploy(final AppVersionInfo appInfo, int buildId) {
+						Map<String, String> params = new HashMap<String, String>();
+						params.put("action",
+								JagApiProperties.App_BUILD_ACTION);
+						params.put("stage", "Development");
+						params.put("applicationKey", appInfo.getAppName());
+						params.put("version", appInfo.getVersion());
+						params.put("doDeploy", "true");
+						printInfoLog("Deploying application");	
+						String httpPostrespond = HttpsJaggeryClient.httpPost(
+								JagApiProperties.getBuildApplication(),
+								params); 
+						if(!"false".equals(httpPostrespond)){
+							printInfoLog("SucessFully deployed");
+							buildId++;
+						}else{
+							printErrorLog("Deploying process has failed");
+							printInfoLog("Last build log will be getting");
+						}
+
+						return buildId;
+					}
+
+					private String getBuilderUrl(final AppVersionInfo appInfo,
+							int buidNo) {
+						Map<String, String> params;
+						params = new HashMap<String, String>();
+						params.put("action",JagApiProperties.App_BUILD_URL_ACTIONL);
+						params.put("lastBuildNo", "" + buidNo);
+						params.put("applicationVersion",appInfo.getVersion());
+						params.put("applicationKey",appInfo.getAppName());
+						String builderBaseUrl = "";
+						builderBaseUrl = HttpsJaggeryClient.httpPost(JagApiProperties.getBuildInfoUrl(),params);
+						return builderBaseUrl;
+					}
+
+					private void printJenkinsBuildLogs(final AppVersionInfo appInfo, int buidNo,
+							String builderBaseUrl,IProgressMonitor monitor) throws IOException,InterruptedException {
+						printInfoLog("Getting buildLogs of build No "+buidNo);	  
+						while(true){
+						HttpResponse response = HttpsGenkinsClient
+								.getBulildinfo(
+										appInfo.getAppName(),
+										appInfo.getVersion(),
+										builderBaseUrl, buidNo);
+						if(response.getStatusLine().getStatusCode()==200){
+						HttpEntity entity = response.getEntity();
+						BufferedReader rd = new BufferedReader(
+								new InputStreamReader(response
+										.getEntity().getContent()));
+						String line;
+						while ((line = rd.readLine()) != null) {
+							broker.send("update", line.toString());
+							Thread.sleep(100);
+						}
+						EntityUtils.consume(entity);
+						break;
+						}else if(response.getStatusLine().getStatusCode()==404){
+							printErrorLog("Build Url still not available , waiting 2 seconds to check again \n" +
+									"you can terminate this process by canseling the bacground process manually");	 
+							Thread.sleep(2000); 
+							if(monitor.isCanceled()){
+								printInfoLog("Build logs requested has been terminated by user");	  
+								break;
+							}
+						}else{
+							printErrorLog("Build log request cannot proceed due to server error "+response.getStatusLine().getStatusCode());
+							 break;
+						}
+					}	
+				}
+
+					private int getLastBuildId(final AppVersionInfo appInfo) {
+						credentials = Authenticator.getInstance().getCredentials();
+						Map<String, String> params = new HashMap<String, String>();
+						params.put("action",JagApiProperties.App_BUILD_INFO_ACTION);
+						params.put("stage", "Development");
+						params.put("applicationKey",appInfo.getAppName());
+						params.put("version", appInfo.getVersion());
+						params.put("buildable", "true");
+						params.put("isRoleBasedPermissionAllowed","false");
+						params.put("metaDataNeed", "false");
+						params.put("userName",credentials.getUser());
+						printInfoLog("Getting last build id");	 
+						String respond = HttpsJaggeryClient.httpPost(JagApiProperties.getBuildLastSucessfullBuildUrl(),params);
+						if("false".equals(respond)){
+						printErrorLog(" Fetching Failed now attempting to relogin");	 
+					    boolean val = Authenticator.getInstance().reLogin();
+					      if(val){
+					    	  printInfoLog("Re-Login sucessfull");	  
+					    	  respond =HttpsJaggeryClient.httpPost(JagApiProperties.getBuildLastSucessfullBuildUrl(),params);
+					      }else{
+					    	printErrorLog("CANNOT PROCEEDS \n Re-Login attempt has filed !! \n " +
+					    			"Please re-Login to the perspective");  
+					      }
+						}
+						if(!"false".equals(respond)){
+							JsonElement jelement = new JsonParser().parse(respond);
+							JsonArray buildInfoArray;
+							int buildId = 0;
+								buildInfoArray = jelement.getAsJsonArray();
+								for (JsonElement jsonElement : buildInfoArray) 
+								{
+									JsonObject asJsonObject = jsonElement
+											.getAsJsonObject();
+									JsonElement jsonElement2 = asJsonObject
+											.get("version");
+									JsonObject asJsonObject2 = jsonElement2
+											.getAsJsonObject();
+									String asString = asJsonObject2.get("current")
+											.getAsString();
+									if (asString.equals(appInfo.getVersion())) {
+										JsonElement jsonElement3 = asJsonObject
+												.get("build");
+										JsonObject asJsonObject3 = jsonElement3
+												.getAsJsonObject();
+										buildId = asJsonObject3.get("lastBuildId")
+												.getAsInt();
+										break;
+									}
+								}
+								printInfoLog("Last build id :"+buildId);
+								return buildId;	
+						}
+						return 0;
+					}
+				
+			   };
+				uiSynchronize.asyncExec(new Runnable() {
+					@Override
+					public void run() {
+
+					}
+				});
+
+				return Status.OK_STATUS;
+			}
+
+		};
+			
+		job.schedule();
+	}
+	
+	
+	private Action appOpenAction(final ApplicationInfo appInfo,final String title) {
 		Action reposettings = new Action() {
 			public void run() {
 				try {
-                openRepoSettingsWizard();
+					getAppVersions(appInfo);
 				} catch (Exception e) {
-					log.error("", e);
+					appInfo.setLableState(0);
+					log.error(e);
 				}
-			};
-
+			}
 			public String getText() {
-				return "Chnage Reposertory Settings";
+				return title;
+			}
+
+			public ImageDescriptor getImageDescriptor() {
+				ImageDescriptor imageDescriptorFromPlugin = Activator.imageDescriptorFromPlugin(Activator.PLUGIN_ID,
+						 "/icons/open.gif");
+				return  imageDescriptorFromPlugin;
 			}
 		};
 		return reposettings;
 	}
-	
+ 
+	private Action buildInfoAction(final AppVersionInfo appInfo) {
 
-     
-     /**
-      * Create toolbar.
-      */
-     private void createToolbar() {
-             IToolBarManager mgr = getViewSite().getActionBars().getToolBarManager();
-             mgr.add(new Action() {
-            	 @Override
-            	public void run() {
-            		    Display.getCurrent().getActiveShell().setCursor((new Cursor(Display.getCurrent(), SWT.CURSOR_WAIT)));
-            			AppListModel oldModel = model;
-            			List<ApplicationInfo> oldappLists = appLists;
-            			createUserAppList();
-            			contentProvider.inputChanged(viewer, oldappLists, appLists);
-            			viewer.refresh();
-            			Display.getCurrent().getActiveShell().setCursor((new Cursor(Display.getCurrent(), SWT.CURSOR_ARROW)));
-            	}
-            	 
-            	 public String getText() {
-     				return "Refresh";
-     			}
-			});
-           //  mgr.add(deleteItemAction);
-     }
+		Action reposetetings = new Action() {
+			@Override
+			public void run() {
+				getbuildLogsJob(appInfo,false);
+			}
+
+			public String getText() {
+				return "Build Logs";
+			}
+			public ImageDescriptor getImageDescriptor() {
+				ImageDescriptor imageDescriptorFromPlugin = Activator.imageDescriptorFromPlugin(Activator.PLUGIN_ID,
+						 "/icons/buildLog.gif");
+				return  imageDescriptorFromPlugin;
+			}
+		};
+
+		return reposetetings;
+	}	
 	
-     
-     
-	private Action repoUpdateAction(final AppVersionInfo info) {
+	private Action repoSettingsAction(final ApplicationInfo appInfo) {
 		Action reposettings = new Action() {
 			public void run() {
 				try {
-					ProgressMonitorDialog progressMonitorDialog = new ProgressMonitorDialog(Display.getDefault().getActiveShell());
-					progressMonitorDialog.create();
-					progressMonitorDialog.open();
-					progressMonitorDialog.run(false, false, new RepoUpadetJob(info));
+					    DirectoryDialog dialog = new DirectoryDialog(Display.getCurrent()
+								.getActiveShell());
+					   dialog.setText("Select New Repository Location, Default will be eclipse workspace");
+					    if(dialog.open()!=null){
+					    	appInfo.setLocalrepoLocation(dialog.getFilterPath());
+					    	appInfo.updateVersions();
+					    }
 				} catch (Exception e) {
-					log.error("Updatating Error", e);
+					log.error("", e);
+				}
+			};
+       
+			public String getText() {
+				return "Chnage Local Repo Location ";
+			}
+			@Override
+			public ImageDescriptor getImageDescriptor() {
+				ImageDescriptor imageDescriptorFromPlugin = Activator.imageDescriptorFromPlugin(Activator.PLUGIN_ID,
+						 "/icons/repoLocation.gif");
+				return  imageDescriptorFromPlugin;
+			}
+		};
+		return reposettings;
+	} 
+ 
+	private Action repoDeployAction(final AppVersionInfo info) {
+		Action reposettings = new Action() {
+			public void run() {
+				try {
+					getbuildLogsJob(info,true);
+				} catch (Exception e) {
+					log.error("Deploying Error", e);
 				}
 			};
 			public String getText() {
-				return "Update Repository";
+				return "Deploy";
+			}
+			@Override
+			public ImageDescriptor getImageDescriptor() {
+				ImageDescriptor imageDescriptorFromPlugin = Activator.imageDescriptorFromPlugin(Activator.PLUGIN_ID,
+						 "/icons/deploy.gif");
+				return  imageDescriptorFromPlugin;
 			}
 		};
 		return reposettings;
@@ -551,66 +957,122 @@ public class AppfactoryApplicationListView extends ViewPart {
 	
 	private Action checkOutAction(final AppVersionInfo info) {
 		Action reposettings = new Action() {
-			public void run() {
+			public void run() {				
+				getcheckoutJob(info);
+			};
+
+			public String getText() {
+				return "Check Out";
+			}
+			@Override
+			public ImageDescriptor getImageDescriptor() {
+				ImageDescriptor imageDescriptorFromPlugin = Activator.imageDescriptorFromPlugin(Activator.PLUGIN_ID,
+						 "/icons/checkout.gif");
+				return  imageDescriptorFromPlugin;
+			}
+		};
+		return reposettings;
+	}
+	
+	private Action importAction(final AppVersionInfo info) {
+		Action reposettings = new Action() {
+			public void run() {				
+			    ProgressMonitorDialog progressMonitorDialog = new ProgressMonitorDialog(Display.getDefault().getActiveShell());
+				progressMonitorDialog.create();
+				progressMonitorDialog.open();
 				try {
-					ProgressMonitorDialog progressMonitorDialog = new ProgressMonitorDialog(Display.getDefault().getActiveShell());
-					progressMonitorDialog.create();
-					progressMonitorDialog.open();
-					progressMonitorDialog.run(false, false, new CloneJob(info));
-					String localRepo = ResourcesPlugin.getWorkspace().getRoot().getLocation().toOSString()+File.separator+info.getAppName();
-					 
-					IProjectDescription description = ResourcesPlugin
-							.getWorkspace()
-							.loadProjectDescription(new Path(localRepo+File.separator+".project"));
-					final IProject project = ResourcesPlugin.getWorkspace()
-							.getRoot().getProject(description.getName());
-					        if(!project.exists()){
-									project.create(description,new NullProgressMonitor());
-					        }		
-					ResourcesPlugin
-							.getWorkspace()
-							.getRoot()
-							.refreshLocal(IResource.DEPTH_INFINITE,
-									new NullProgressMonitor());
-					Display.getCurrent().asyncExec(new Runnable() {
-						@Override
-						public void run() {
-							try {
-								project.open(new NullProgressMonitor());
-							} catch (CoreException e) {
-								//e.printStackTrace();
-							}
-						}
-					}); 
-				} catch (Exception e) {
-					ShowErrorMsg();
-					log.error("", e);
+					progressMonitorDialog.run(true, false, new AppImportJobJob(info));
+				} catch (InvocationTargetException e) {
+					 log.error("project open", e);
+				} catch (InterruptedException e) {
+					log.error("project open", e);
 				}
 			};
 
-			private void ShowErrorMsg(){
-				   ErroModel erroModel = Authenticator.getInstance().getErroModel();
-				   final String PID = Activator.PLUGIN_ID;
-				   MultiStatus info = new MultiStatus(PID, 1,"This project type doesnot support in Developer Studio", null);
-				   info.add(new Status(IStatus.INFO, PID, 1,erroModel.getMessage(), null));
-				   List<String> resions = erroModel.getResions();
-				   resions.add(".project file is missing");
-				   if(resions!=null){
-				   for (String msg : resions) {
-					   info.add(new Status(IStatus.INFO, PID, 1,msg, null));
-				   		}
-				   }
-				   ErrorDialog.openError(Display.getCurrent().getActiveShell(), "AppFactory Error", null, info);
+			public String getText() {
+				return "Import to workspace";
+			}
+			@Override
+			public ImageDescriptor getImageDescriptor() {
+				ImageDescriptor imageDescriptorFromPlugin = Activator.imageDescriptorFromPlugin(Activator.PLUGIN_ID,
+						 "/icons/import.gif");
+				return  imageDescriptorFromPlugin;
 			}
 			
-			public String getText() {
-				return " Check-Out ";
+			@Override
+			public boolean isEnabled() {
+				// TODO Auto-generated method stub
+				return info.isCheckedout();
 			}
 		};
 		return reposettings;
 	}
 
-	private void openRepoSettingsWizard() {
+	private void  getcheckoutJob(final AppVersionInfo info){
+		Job job = new Job("Updating Application versions") {
+		   @SuppressWarnings("restriction")
+			@Override
+			  protected IStatus run(final IProgressMonitor monitor) {
+				monitor.beginTask("Connecting to remote server for fetching data", 100);
+				  UISynchronize uiSynchronize = new UISynchronize() {
+						@Override
+						public void syncExec(Runnable runnable) {
+						}
+						
+						@Override
+						public void asyncExec(Runnable runnable) {
+						 try{
+							monitor.subTask("Cloning with remote repository");
+							printInfoLog("Cloning with remote repository");
+							monitor.worked(10);	  
+							if(info.getLocalRepo()==null||info.getLocalRepo().equals("")){
+							 info.setLocalRepo(ResourcesPlugin.getWorkspace().getRoot().getLocation().toOSString());
+							}
+							String localRepo =info.getLocalRepo()+File.separator+info.getAppName();
+							monitor.worked(20);	
+							JgitRepoManager manager = new JgitRepoManager(localRepo,info.getRepoURL());
+							monitor.worked(30);
+							if(!manager.isCloned()){
+								manager.gitClone();
+								if(!"trunk".equals(info.getVersion())){	   
+										manager.checkout(info.getVersion());
+										monitor.worked(60);
+										monitor.subTask("Cloning completed sucessfully");
+										printInfoLog("Cloning completed sucessfully");
+									}
+							}else {
+								manager.checkout(info.getVersion());
+								monitor.worked(60);
+								monitor.subTask("Cloning completed sucessfully");
+								printInfoLog("Cloning completed sucessfully");
+							}
+                             info.setCheckedout(true);
+                             broker.send("Projectupdate", null);
+							 }catch(Exception e){
+								 monitor.worked(0);
+								 monitor.subTask("Cloning process has failed");
+								 printErrorLog("Cloning process has failed \n"+e.getMessage()); 
+								 log.error("Cloning :", e);
+						   }
+						}
+							
+					};
+					uiSynchronize.asyncExec(new Runnable() {
+						@Override
+						public void run() {
+						
+						}
+					});
+					
+			    return Status.OK_STATUS;
+			  }
+			};
+		job.schedule();
+	}	
+	
+	
+	
+	/*private void openRepoSettingsWizard() {
 
 		IWizardDescriptor descriptor = PlatformUI.getWorkbench()
 				.getNewWizardRegistry().findWizard(REPO_WIZARD_ID);
@@ -633,7 +1095,7 @@ public class AppfactoryApplicationListView extends ViewPart {
 			 log.error("Wizard invoke error", e);
 		}
 	}
-
+*/
 
 	public static AppfactoryApplicationDetailsView getAppDetailView() {
 	    return appDetailView;
@@ -643,88 +1105,58 @@ public class AppfactoryApplicationListView extends ViewPart {
 	    AppfactoryApplicationListView.appDetailView = appDetailView;
     }
 	
-	private class CloneJob implements IRunnableWithProgress {
-
-		private AppVersionInfo info;
-		
-		public CloneJob(AppVersionInfo info) {
-			 this.info = info;
-		}
-		@Override
-		public void run(IProgressMonitor monitor) throws InvocationTargetException,
-				InterruptedException {
-			Display.getCurrent().getActiveShell().setCursor((new Cursor(Display.getCurrent(), SWT.CURSOR_WAIT)));
-			String operationText="Cloning with remote repository";
-			monitor.beginTask(operationText, 100);
-			monitor.worked(10);
-			try{
-				String localRepo = ResourcesPlugin.getWorkspace().getRoot().getLocation().toOSString()+File.separator+info.getAppName();
-				JgitRepoManager manager = new JgitRepoManager(localRepo,info.getRepoURL());
-				monitor.worked(20);
-				if(!manager.isCloned()){
-					manager.gitClone();
-					if(!"trunk".equals(info.getVersion())){	   
-							manager.checkout(info.getVersion());
-						}
-				}else {
-					manager.checkout(info.getVersion());
-				}
-				monitor.worked(90);
-			}catch(Exception e){
-				Display.getCurrent().getActiveShell().setCursor((new Cursor(Display.getCurrent(), SWT.CURSOR_ARROW)));
-				e.printStackTrace();
-				monitor.setCanceled(true); 
-			}
-			monitor.worked(100);
-			monitor.done();
-			Display.getCurrent().getActiveShell().setCursor((new Cursor(Display.getCurrent(), SWT.CURSOR_ARROW)));
-		}
-	}	
-	
-	private class RepoUpadetJob implements IRunnableWithProgress {
-
-		private AppVersionInfo info;
-		public RepoUpadetJob(AppVersionInfo info) {
-			 this.info = info;
-		}
-		@Override
-		public void run(IProgressMonitor monitor) throws InvocationTargetException,
-				InterruptedException {
-			String operationText="Upadating local repository";
-			monitor.beginTask(operationText, 100);
-			monitor.worked(10);
-			try{
-				String localRepo = ResourcesPlugin.getWorkspace().getRoot().getLocation().toOSString()+"/"+info.getAppName();
-				JgitRepoManager manager = new JgitRepoManager(localRepo,info.getRepoURL());
-				if("trunk".equals(info.getVersion())){
-				//	manager.trackBranch("master");
-				}else{
-				//manager.trackBranch(info.getVersion());	
-					 
-				}
-				monitor.worked(60);
-				//manager.update();
-				manager.checkoutLocalBranch(info.getVersion());
-				
-				ResourcesPlugin
-				.getWorkspace()
-				.getRoot()
-				.refreshLocal(IResource.DEPTH_INFINITE,
-						new NullProgressMonitor());
-			}catch(Exception e){
-				monitor.setCanceled(true);
-				log.error("updateprocess error", e);
-			}
-			
-			monitor.worked(100);
-			monitor.done();
-		}
-	}
-
 	@Override
 	public void setFocus() {
 		// TODO Auto-generated method stub
 		
 	}
+	
+private class AppImportJobJob implements IRunnableWithProgress {
+		
+	AppVersionInfo appInfo;
+	 public AppImportJobJob(AppVersionInfo appInfo) {
+		    this.appInfo = appInfo;
+    	}
+	  
+		@Override
+		public void run(IProgressMonitor monitor) {
+			String operationText="Importing App into worksapce";
+			monitor.beginTask(operationText, 100);
+			try{
+				operationText="creating the project";
+				monitor.subTask(operationText);
+				monitor.worked(10);
+				IProjectDescription description = ResourcesPlugin
+						.getWorkspace()
+						.loadProjectDescription(new Path(appInfo.getLocalRepo()+
+								File.separator+appInfo.getAppName()+File.separator+".project"));
+				operationText="Opening the project";
+				monitor.subTask(operationText);
+				monitor.worked(10); 
+				final IProject project = ResourcesPlugin.getWorkspace()
+						.getRoot().getProject(description.getName());
+				        if(!project.exists()){
+						   project.create(description,monitor);
+						   project.open(monitor);
+				        }	
+				ResourcesPlugin
+				.getWorkspace()
+				.getRoot()
+				.refreshLocal(IResource.DEPTH_INFINITE,
+						monitor);
+				monitor.worked(80);
+				
+			}catch(Throwable e){
+				operationText="project Importing has filed please do it manually";
+				 monitor.subTask(operationText);
+				 monitor.worked(10); 
+				 log.error("importing failed", e);
+			}
+			
+			monitor.worked(100);
+			monitor.done();
+		}
+	}  
+
 
 }
