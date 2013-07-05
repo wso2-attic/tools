@@ -34,6 +34,7 @@ import org.osgi.framework.Bundle;
 import org.osgi.service.event.Event;
 import org.osgi.service.event.EventHandler;
 import org.wso2.developerstudio.appfactory.core.client.HttpsJaggeryClient;
+import org.wso2.developerstudio.appfactory.core.jag.api.JagApiProperties;
 import org.wso2.developerstudio.appfactory.core.model.ErroModel;
 import org.wso2.developerstudio.appfactory.core.Activator;
 
@@ -113,17 +114,21 @@ public class Authenticator {
 				return false;
 			}
 		}
-		/*Map<String, String> params = new HashMap<String, String>();
+	}
+	
+	public boolean reLogin()
+	{
+		Map<String, String> params = new HashMap<String, String>();
 		params.put("action", "login");
 		params.put("userName", credentials.getUser());
 		params.put("password", credentials.getPassword());
-		String value = HttpsJaggeryClient.httpPostLogin(serverUrl, params);
+		String value = HttpsJaggeryClient.httpPostLogin(JagApiProperties.getLoginUrl(), params);
 		if (!"false".equals(value)) {
-			this.serverURL = serverUrl;
-			this.credentials = credentials;
-			return true;
-		}*/
-		//return false;
+			 return true;
+		}else{
+			 return false;
+		}
+			 
 	}
 
 	public UserPasswordCredentials getCredentials() {
@@ -147,30 +152,40 @@ public class Authenticator {
 	  
 		@Override
 		public void run(IProgressMonitor monitor) {
-			String operationText="fetching data from AppFactory ("+serverUrl+")";
+			String operationText="fetching data from AppFactory "+JagApiProperties.getDomain();
 			monitor.beginTask(operationText, 100);
-			monitor.worked(10);
 			try{
+				operationText="validating credintials";
+				monitor.subTask(operationText);
+				monitor.worked(10);
 				if("".equals(credentials.getUser())||"".equals(credentials.getPassword())){
+					operationText="Incorrect format of credintials";
+					monitor.subTask(operationText);
+					monitor.worked(0);
+					monitor.setCanceled(true);
 					authenticator.setResult("false");
 					Authenticator.getInstance().getErroModel().setMessage("Username or password cannot be empty !!");
 				    List<String> resions = new ArrayList<String>();
 		    	    erroModel.setResions(resions);
 					return;
 				}
+				operationText="Sending loging request...";
+				monitor.subTask(operationText);
+				monitor.worked(20);
 				Map<String, String> params = new HashMap<String, String>();
 				params.put("action", "login");
 				params.put("userName", credentials.getUser());
 				params.put("password", credentials.getPassword());
 				String value = HttpsJaggeryClient.httpPostLogin(serverUrl, params);
 				if (!"false".equals(value)) {
+					operationText="Login scussfull ";
 					authenticator.setResult("true");
 				}else{
+					operationText="Login unscussfull due to invaild credintials";
 					authenticator.setResult("false");	
 				}
-				    operationText="Completed";
-					monitor.beginTask(operationText, 100);
-					monitor.worked(100);
+				monitor.subTask(operationText);
+				monitor.worked(80);
 			}catch(Exception e){
 				
 				authenticator.setResult("false");

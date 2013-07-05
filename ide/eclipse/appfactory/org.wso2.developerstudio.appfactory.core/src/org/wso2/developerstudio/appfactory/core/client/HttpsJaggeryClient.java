@@ -3,6 +3,7 @@ package org.wso2.developerstudio.appfactory.core.client;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.URL;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import java.util.ArrayList;
@@ -19,8 +20,10 @@ import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
+//import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
+//import org.apache.http.client.methods.HttpPost;
 import org.apache.http.conn.ClientConnectionManager;
 import org.apache.http.conn.ManagedClientConnection;
 import org.apache.http.conn.scheme.Scheme;
@@ -41,22 +44,25 @@ import org.wso2.developerstudio.appfactory.core.authentication.Authenticator;
 import org.wso2.developerstudio.appfactory.core.model.ErroModel;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
-
+import org.apache.http.impl.conn.tsccm.ThreadSafeClientConnManager;
+ 
 public class HttpsJaggeryClient {
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
     private static HttpClient  client;
     private static Shell activeShell;
 
 	public static String httpPostLogin(String urlStr, Map<String,String> params){
-		
+ 
+	 
 	    client = new DefaultHttpClient();
-	    client = HttpsJaggeryClient.wrapClient(client);
+	    client = HttpsJaggeryClient.wrapClient(client,urlStr);
 	    return  httpPost(urlStr,params);
 	}
 	
 	public static String httpPost(String urlStr, Map<String,String> params){
 		   
 		    HttpPost post = new HttpPost(urlStr);
+		   //  PostMethod postMethod = new PostMethod(urlStr);
 		    String respond = "";
 		    HttpResponse response=null;
 	         try{
@@ -66,8 +72,8 @@ public class HttpsJaggeryClient {
 				  nameValuePairs.add(new BasicNameValuePair(key, params.get(key)));
 			   }
 		      post.setEntity(new UrlEncodedFormEntity(nameValuePairs));
-		      
 		      response = client.execute(post);
+		    //  client.executeMethod(post);
 		      if(200==response.getStatusLine().getStatusCode()){
 		      HttpEntity entityGetAppsOfUser = response.getEntity();
 		      BufferedReader rd = new BufferedReader(new InputStreamReader(entityGetAppsOfUser.getContent()));
@@ -100,8 +106,8 @@ public class HttpsJaggeryClient {
 	    	     resions.add("1 Network connection failer");
 	    	     resions.add("2 Unknow Hostname");
 	    	     resions.add("3 Connection time out");
-	    	     resions.add(" ");
-	    	     resions.add(" ");
+	    	     resions.add(e.getMessage());
+	    	     resions.add("");
 	    	     resions.add("Please refer the log file for more detials");
 	    	     erroModel.setResions(resions);
 	    	     log.error("Connection failer",e); 
@@ -113,7 +119,7 @@ public class HttpsJaggeryClient {
      return respond;	       
   }
 	@SuppressWarnings("deprecation")
-	public static HttpClient wrapClient(HttpClient base) {
+	public static HttpClient wrapClient(HttpClient base,String urlStr) {
         try {
             SSLContext ctx = SSLContext.getInstance("TLS");
             X509TrustManager tm = new X509TrustManager() {
@@ -131,12 +137,30 @@ public class HttpsJaggeryClient {
             ctx.init(null, new TrustManager[]{tm}, null);
             SSLSocketFactory ssf = new SSLSocketFactory(ctx);
             ssf.setHostnameVerifier(SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER);
-            ClientConnectionManager ccm = base.getConnectionManager();
+          
+            ClientConnectionManager ccm =  new ThreadSafeClientConnManager();
             SchemeRegistry sr = ccm.getSchemeRegistry();
-            sr.register(new Scheme("https", ssf, 443));
+            URL url = new URL(urlStr);
+            int port = url.getPort();
+            if(port==-1){
+            	port=443;
+            }
+            String protocol = url.getProtocol();
+            if("https".equals(protocol)){
+            	 if(port==-1){
+                 	port=443;
+                 }
+            }else if("http".equals(protocol)){
+            	 if(port==-1){
+                 	port=80;
+                 }
+            }
+            sr.register(new Scheme(protocol, ssf, port));
+            
             return new DefaultHttpClient(ccm, base.getParams());
-        } catch (Exception ex) {
+        } catch (Throwable ex) {
             ex.printStackTrace();
+            log.error("Trust Mangaer error", ex);
             return null;
         } 
     }

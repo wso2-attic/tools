@@ -13,8 +13,11 @@ import org.apache.http.protocol.BasicHttpContext;
 import org.apache.http.protocol.ExecutionContext;
 import org.apache.http.protocol.HttpContext;
 import org.apache.http.util.EntityUtils;
+import org.wso2.developerstudio.appfactory.core.Activator;
 import org.wso2.developerstudio.appfactory.core.authentication.Authenticator;
 import org.wso2.developerstudio.appfactory.core.authentication.UserPasswordCredentials;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -24,11 +27,11 @@ import java.io.InputStreamReader;
 	 * Simple class to launch a jenkins build on run@Cloud platform, should also work on every jenkins instance (not tested)
 	 */
 	public class HttpsGenkinsClient {
-
+		private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
 	    public static HttpResponse getBulildinfo(String applicationId,String version,String builderBaseUrl,int lastBuildNo){
  
 	        DefaultHttpClient client = new DefaultHttpClient();
-	        client = (DefaultHttpClient) HttpsJaggeryClient.wrapClient(client);
+	        client = (DefaultHttpClient) HttpsJaggeryClient.wrapClient(client,builderBaseUrl);
 	        client.getCredentialsProvider().setCredentials(new AuthScope(AuthScope.ANY_HOST, AuthScope.ANY_PORT),
 	                new UsernamePasswordCredentials(Authenticator.getInstance().getCredentials().getUser()
 	                		, Authenticator.getInstance().getCredentials().getPassword()));
@@ -41,35 +44,16 @@ import java.io.InputStreamReader;
 	        // Add as the first (because of the zero) request interceptor
 	        // It will first intercept the request and preemptively initialize the authentication scheme if there is not
 	        client.addRequestInterceptor(new PreemptiveAuth(), 0);
-	        // You get request that will start the build
-	        //String builderBaseUrl = "https://jenkins.staging.appfactorypreview.wso2.com";
-	        //int lastBuildNo = 2;
 	        String getUrl =   builderBaseUrl + "/job/" + applicationId + "-" + version + "-default/" + lastBuildNo + "/consoleText";
 	        HttpGet get = new HttpGet(getUrl);
 
 	        try {
 	            // Execute your request with the given context
 	            HttpResponse response = client.execute(get, context);
-	          /*  System.out.println(response.getStatusLine().getStatusCode());
-
-	            HttpEntity entity = response.getEntity();
-	            BufferedReader rd = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
-	            StringBuilder sb = new StringBuilder();
-	            String line;
-	       //     TestOutputConsole
-               
-	            while ((line = rd.readLine()) != null) {
-	               // Thread.sleep(100);
-	                //sb.append(line + "\n");
-	                System.out.println(line.toString());
-	                Thread.sleep(10);
-	            }
-	            EntityUtils.consume(entity);*/
 	            return response;
 	        } catch (Exception e) {
-	            // TODO Auto-generated catch block
-	         e.printStackTrace();
-	        }
+	        log.error("Jenkins Client err", e);
+	        } 
 			return null;
 	    }
 

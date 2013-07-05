@@ -26,16 +26,22 @@ public class ApplicationInfo{
 	private String key;
 	private String name;
 	private String repositoryType;
+	private String localrepoLocation;
 	private String type;
+	private int lableState; // 0-closed 1-opening 2-opened
 	private long revision;
 	private String applicationOwner;
 	private List<AppUserInfo> applicationDevelopers;
 	private List<String> datasources;
-	private List<String> databases;
+	private List<AppDBinfo> databases;
 	private List<String> apis;
 	private List<String> properties;
 	private List<AppVersionInfo> version;
 	private boolean loaded;
+	
+	public ApplicationInfo() {
+		// TODO Auto-generated constructor stub
+	}
 	
 	public ApplicationInfo(String applicationKey) {
 		this.setKey(applicationKey);
@@ -89,14 +95,14 @@ public class ApplicationInfo{
 		this.type = type;
 	}
 
-	public List<AppVersionInfo> getVersion() {
+	public List<AppVersionInfo> getappVersionList() {
 		if(version==null){
 			return Collections.EMPTY_LIST;
 		}
 		return version;
 	}
 
-	public void setVersion(List<AppVersionInfo> version) {
+	public void setAppVersionList(List<AppVersionInfo> version) {
 		this.version = version;
 	}
 
@@ -151,7 +157,7 @@ public class ApplicationInfo{
 	/**
 	 * @return the databases
 	 */
-    public List<String> getDatabases() {
+    public List<AppDBinfo> getDatabases() {
     	if(databases==null){
     		return Collections.EMPTY_LIST;
     	}
@@ -161,7 +167,7 @@ public class ApplicationInfo{
 	/**
 	 * @param databases the databases to set
 	 */
-    public void setDatabases(List<String> databases) {
+    public void setDatabases(List<AppDBinfo> databases) {
 	    this.databases = databases;
     }
 
@@ -191,6 +197,13 @@ public class ApplicationInfo{
     	}
 	    return properties;
     }
+    
+    public void updateVersions(){
+    	List<AppVersionInfo> getappVersionList = getappVersionList();
+    	 for (AppVersionInfo appVersionInfo : getappVersionList) {
+			appVersionInfo.setLocalRepo(this.getLocalrepoLocation());
+		}
+    }
 
 	/**
 	 * @param properties the properties to set
@@ -205,6 +218,22 @@ public class ApplicationInfo{
 
 	public void setLoaded(boolean loaded) {
 		this.loaded = loaded;
+	}
+
+	public String getLocalrepoLocation() {
+		return localrepoLocation;
+	}
+
+	public void setLocalrepoLocation(String localrepoLocation) {
+		this.localrepoLocation = localrepoLocation;
+	}
+
+	public int getLableState() {
+		return lableState;
+	}
+
+	public void setLableState(int lableState) {
+		this.lableState = lableState;
 	}
 
 }

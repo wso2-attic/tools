@@ -47,56 +47,112 @@ public class AppListModel {
 	    return apps;
 	  }
 
-	public void setversionInfo(ApplicationInfo applicationInfo){
-		 Map<String,String> params = new HashMap<String,String>();
-		 params.put("action", JagApiProperties.App_NIFO_ACTION);
-		 params.put("stageName","Development");
-		 params.put("userName",Authenticator.getInstance().getCredentials().getUser());
-		 params.put("applicationKey",applicationInfo.getKey());
-		 String respond="";
-		try {
-			respond = HttpsJaggeryClient.httpPost(JagApiProperties.getAppInfoUrl(), params);
-		} catch (IllegalStateException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+	public boolean setversionInfo(ApplicationInfo applicationInfo) {
+		String respond = "";
+		/* Getting version information */
+		Map<String, String> params = new HashMap<String, String>();
+		params.put("action", JagApiProperties.App_NIFO_ACTION);
+		params.put("stageName", "Development");
+		params.put("userName", Authenticator.getInstance().getCredentials()
+				.getUser());
+		params.put("applicationKey", applicationInfo.getKey());
+		respond = HttpsJaggeryClient.httpPost(JagApiProperties.getAppInfoUrl(),
+				params);
+		if ("false".equals(respond)) {
+			return false;
+		} else {
+			JsonElement jelement = new JsonParser().parse(respond);
+			JsonElement jsonElement = jelement.getAsJsonArray().get(0)
+					.getAsJsonObject().get("versions");
+			JsonArray infoArray = jsonElement.getAsJsonArray();
+			ArrayList<AppVersionInfo> appVersionList = new ArrayList<AppVersionInfo>();
+			for (JsonElement jsonElement2 : infoArray) {
+				JsonObject asJsonObject = jsonElement2.getAsJsonObject();
+				Gson gson = new Gson();
+				AppVersionInfo version = gson.fromJson(asJsonObject,
+						AppVersionInfo.class);
+				version.setAppName(applicationInfo.getKey());
+				version.setLocalRepo(applicationInfo.getLocalrepoLocation());
+				appVersionList.add(version);
+			}
+			applicationInfo.setAppVersionList(appVersionList);
+			return true;
 		}
-		 JsonElement jelement = new JsonParser().parse(respond);
-		 JsonElement jsonElement = jelement.getAsJsonArray().get(0).getAsJsonObject().get("versions");
-		 JsonArray infoArray = jsonElement.getAsJsonArray();
-		 ArrayList<AppVersionInfo> versionList = new ArrayList<AppVersionInfo>();
-		 for (JsonElement jsonElement2 : infoArray) {
-			 JsonObject asJsonObject = jsonElement2.getAsJsonObject();
-			 Gson gson = new Gson();
-			 AppVersionInfo version = gson.fromJson(asJsonObject, AppVersionInfo.class);
-			 version.setAppName(applicationInfo.getKey());
-			 versionList.add(version);
-		}
-		applicationInfo.setVersion(versionList);
-		 
-		 Map<String,String> params2 = new HashMap<String,String>();
-		 params2.put("action", JagApiProperties.App_USERS_ROLES_ACTION);
-		// params2.put("userName",Authenticator.getInstance().getCredentials().getUser());
-		 params2.put("applicationKey",applicationInfo.getKey());
-		 String respond2="";
-		try {
-			respond2 = HttpsJaggeryClient.httpPost(JagApiProperties.getAppUserRolesUrlS(), params2);
-		} catch (IllegalStateException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		 JsonElement jelement2 = new JsonParser().parse(respond2);
-		 JsonArray infoArray2 = jelement2.getAsJsonArray();
-		 ArrayList<AppUserInfo> appUserList = new ArrayList<AppUserInfo>();
-		 for (JsonElement jsonElement3 : infoArray2) {
-			 JsonObject asJsonObject = jsonElement3.getAsJsonObject();
-			 Gson gson = new Gson();
-			 AppUserInfo user = gson.fromJson(asJsonObject, AppUserInfo.class);
-			 appUserList.add(user);
-		}
-		 applicationInfo.setApplicationDevelopers(appUserList);
-		 
-		 
-		 
-		 
 	}
+
+	public boolean setRoleInfomation(ApplicationInfo applicationInfo) {
+		String respond;
+		Map<String, String> params;
+		JsonElement jelement;
+		params = new HashMap<String, String>();
+		params.put("action", JagApiProperties.App_USERS_ROLES_ACTION);
+		params.put("applicationKey", applicationInfo.getKey());
+		respond = HttpsJaggeryClient.httpPost(
+				JagApiProperties.getAppUserRolesUrlS(), params);
+		if ("false".equals(respond)) {
+			return false;
+		} else {
+			jelement = new JsonParser().parse(respond);
+			JsonArray infoArray2 = jelement.getAsJsonArray();
+			ArrayList<AppUserInfo> appUserList = new ArrayList<AppUserInfo>();
+			for (JsonElement jsonElement3 : infoArray2) {
+				JsonObject asJsonObject = jsonElement3.getAsJsonObject();
+				Gson gson = new Gson();
+				AppUserInfo user = gson.fromJson(asJsonObject, AppUserInfo.class);
+				appUserList.add(user);
+			}
+			applicationInfo.setApplicationDevelopers(appUserList);
+			return true;
+		}
+	}
+	
+	public boolean setDBInfomation(ApplicationInfo applicationInfo) {
+		String respond;
+		Map<String, String> params;
+		JsonElement jelement;
+		params = new HashMap<String, String>();
+		params.put("action", JagApiProperties.App_DB_INFO_ACTION);
+		params.put("applicationKey", applicationInfo.getKey());
+		respond = HttpsJaggeryClient.httpPost(
+				JagApiProperties.getAppUserDbInfoUrl(), params);
+		if ("false".equals(respond)) {
+			return false;
+		} else {
+			jelement = new JsonParser().parse(respond);
+			JsonArray infoArray2 = jelement.getAsJsonArray();
+			ArrayList<AppDBinfo> appDbList = new ArrayList<AppDBinfo>();
+			for (JsonElement jsonElement3 : infoArray2) {
+				JsonObject asJsonObject = jsonElement3.getAsJsonObject();
+				String stage = asJsonObject.get("stage").getAsString();
+				if("Development".equals(stage)){
+					AppDBinfo appDBinfo = new AppDBinfo();
+					JsonArray dbArray = asJsonObject.get("dbs").getAsJsonArray();
+					List<String> dbs = new ArrayList<String>();
+					for (JsonElement jsonElement : dbArray) {
+						dbs.add(jsonElement.getAsString());
+					}
+					appDBinfo.setDbs(dbs);
+					
+					JsonArray dbusers = asJsonObject.get("users").getAsJsonArray();
+					List<String> usr = new ArrayList<String>();
+					for (JsonElement jsonElement : dbusers) {
+						usr.add(jsonElement.getAsJsonObject().get("name").getAsString());
+					}
+					appDBinfo.setUsr(usr);
+					
+					JsonArray dbtemplates = asJsonObject.get("templates").getAsJsonArray();
+					List<String> temple = new ArrayList<String>();
+					for (JsonElement jsonElement : dbtemplates) {
+						temple.add(jsonElement.getAsJsonObject().get("name").getAsString());
+					}
+					appDBinfo.setUsr(temple);
+					
+					appDbList.add(appDBinfo);
+				}
+			}
+			applicationInfo.setDatabases(appDbList);
+			return true;
+		}
+	}
+	
 }

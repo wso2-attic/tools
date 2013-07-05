@@ -11,7 +11,7 @@ public class JagApiProperties {
 	private static final String LAST_BUILD_URL_SFX  = "/appmgt/site/blocks/buildandrepo/list/ajax/list.jag";
 	private static final String Build_APPLICATION_URL_SFX = "/appmgt/site/blocks/lifecycle/add/ajax/add.jag";
 	private static final String APP_USER_ROLES_URL_SFX = "/appmgt/site/blocks/application/users/get/ajax/list.jag";
-	
+	private static final String APP_DB_INFO_URL ="/appmgt/site/blocks/rssmanager/add/ajax/add.jag";
 	
 	/*Actions*/
 	public static  final String USER_APP_LIST__ACTION = "getApplicationsOfUser";
@@ -21,6 +21,8 @@ public class JagApiProperties {
 	public static final String App_BUILD_INFO_ACTION ="getbuildandrepodata";
 	public static final String App_BUILD_ACTION ="createArtifact";
 	public static final String App_USERS_ROLES_ACTION ="getAppUsersWithRoles";
+	public static final String App_DB_INFO_ACTION = "getDbUserTemplateInfoForStages";
+	
 	
 	public static String getDomain() {
 		return domain;
@@ -48,5 +50,8 @@ public class JagApiProperties {
 	}
 	public static String getAppUserRolesUrlS() {
 		return domain + APP_USER_ROLES_URL_SFX;
+	}
+	public static String getAppUserDbInfoUrl() {
+		return domain+APP_DB_INFO_URL;
 	}
 }

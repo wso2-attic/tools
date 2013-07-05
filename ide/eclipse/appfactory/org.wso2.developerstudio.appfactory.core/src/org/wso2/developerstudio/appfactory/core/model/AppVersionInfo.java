@@ -18,13 +18,16 @@ package org.wso2.developerstudio.appfactory.core.model;
 
 public class AppVersionInfo {
  
-	  private String isAutoDeploy;
+	private String isAutoDeploy;
 	  private String repoURL;
 	  private String version;
 	  private String stage;
 	  private String isAutoBuild;
 	  private String lastBuildResult;
 	  private String appName;
+	  private String localRepo;
+	  private boolean isCheckedout;
+	  private boolean isbuildRequestCansel;
 	  
 	public String getIsAutoDeploy() {
 		return isAutoDeploy;
@@ -70,5 +73,29 @@ public class AppVersionInfo {
 
 	public void setAppName(String appName) {
 		this.appName = appName;
+	}
+
+	public boolean isIsbuildRequestCansel() {
+		return isbuildRequestCansel;
+	}
+
+	public void setIsbuildRequestCansel(boolean isbuildRequest) {
+		this.isbuildRequestCansel = isbuildRequest;
+	}
+
+	public String getLocalRepo() {
+		return localRepo;
+	}
+
+	public void setLocalRepo(String localRepo) {
+		this.localRepo = localRepo;
+	}
+
+	public boolean isCheckedout() {
+		return isCheckedout;
+	}
+
+	public void setCheckedout(boolean isCheckedout) {
+		this.isCheckedout = isCheckedout;
 	} 
 }
