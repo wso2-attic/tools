@@ -85,6 +85,14 @@
                                     <overWrite>true</overWrite>
                                     <outputDirectory>target/p2-repo</outputDirectory>
                                 </artifactItem>
+ 				<artifactItem>
+                                    <groupId>org.eclipse.egit</groupId>
+                                    <artifactId>egit.repository</artifactId>
+                                    <version>2.3.1.201302201838-r</version>
+                                    <type>zip</type>
+                                    <overWrite>true</overWrite>
+                                    <outputDirectory>target/egit-repo</outputDirectory>
+                                </artifactItem>
                             </artifactItems>
                         </configuration>
                     </execution>
@@ -344,6 +352,8 @@
 						<arg value="org.wso2.developerstudio.eclipse.brs.artifact.feature.feature.group" />
 						<arg value="-installIU" />
 						<arg value="org.wso2.developerstudio.eclipse.appfactory.feature.feature.group" />
+					 	<arg value="-installIU" />
+                                                <arg value="org.wso2.developerstudio.eclipse.jaggery.artifact.feature.feature.group" />
 						<arg value="-installIU" />
 						<arg value="org.wso2.soapui.feature.feature.group" />
 						<arg value="-installIU" />
@@ -433,6 +443,45 @@
                     </execution>
                 </executions>
             </plugin>
+			<plugin>
+                                <artifactId>maven-antrun-plugin</artifactId>
+                                <executions>
+                                        <execution>
+                                        <id>install-egit</id>
+                                        <phase>package</phase>
+                                        <goals>
+                                                <goal>run</goal>
+                                        </goals>
+                                        <configuration>
+                                        <tasks>
+                                                <java classname="org.eclipse.equinox.launcher.Main" fork="true"
+                                                        spawn="false" failonerror="true" maxmemory="1024m">
+                                                <classpath>
+                                                        <fileset dir="${project.basedir}/target/eclipse/plugins" includes="org.eclipse.equinox.launcher*.jar" />
+                                                </classpath>
+                                                <arg value="-nosplash" />
+                                                <arg value="-application" />
+                                                <arg value="org.eclipse.equinox.p2.director" />
+                                                <arg value="-repository" />
+                                                <arg value="file:${project.basedir}/target/egit-repo" />
+                                                <arg value="-destination" />
+                                                <arg value="${project.basedir}/target/eclipse" />
+                                                <arg value="-installIU" />
+                                                <arg value="org.eclipse.jgit.feature.group" />
+                                                <arg value="-installIU" />
+                                                <arg value="org.eclipse.jgit.pgm.feature.group" />
+                                                <arg value="-installIU" />
+                                                <arg value="org.eclipse.egit.import.feature.group" />
+                                                <arg value="-installIU" />
+                                                <arg value="org.eclipse.egit.mylyn.feature.group" />
+                                                <arg value="-installIU" />
+                                                <arg value="org.eclipse.egit.feature.group" />
+                                        </java>
+                                        </tasks>
+                                </configuration>
+                                </execution>
+                        </executions>
+                </plugin>
         </plugins>
     </build>
 

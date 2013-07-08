@@ -51,6 +51,7 @@
                             <bundles>
                                 <bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.appfactory.core:${appfactory.tools.version}</bundleDef>                   
 				<bundleDef>org.wso2.developerstudio:org.wso2.developerstudio.appfactory.ui:${appfactory.tools.version}</bundleDef>
+				<bundleDef>com.google.code.gson:gson:2.1.0.v201203072145</bundleDef>
                             </bundles>
                         </configuration>
                     </execution>

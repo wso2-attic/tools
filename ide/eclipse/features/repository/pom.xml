@@ -185,10 +185,6 @@
 						<bundleArtifactDef>org.w3c.dom:org.w3c.dom.smil:1.0.1.v200903091627</bundleArtifactDef>
 						<bundleArtifactDef>org.w3c.dom:org.w3c.dom.svg:1.1.0.v201011041433</bundleArtifactDef>					        
 					        <!-- END OF GMF JARS -->
-
-						<!-- appfactory.feature deps-->  
-						<bundleArtifactDef>com.google.code.gson:gson:2.1.0.v201203072145</bundleArtifactDef>
-						<!-- end appfactory.feature deps-->
 		
 	                			<!--bundleArtifactDef>com.google:com.google.collect:0.8.0.v201008251220</bundleArtifactDef>
 					        <bundleArtifactDef>com.google:com.google.inject:2.0.0.v201003051000</bundleArtifactDef-->
