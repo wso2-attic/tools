@@ -6,7 +6,6 @@ import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.IActionDelegate;
-import org.wso2.developerstudio.appfactory.core.client.HttpsJaggeryClient;
 
 public class PromoteAction implements IActionDelegate{
 	public static final String LOGIN_URL = "https://appfactorypreview.wso2.com/appmgt/site/blocks/user/login/ajax/login.jag";

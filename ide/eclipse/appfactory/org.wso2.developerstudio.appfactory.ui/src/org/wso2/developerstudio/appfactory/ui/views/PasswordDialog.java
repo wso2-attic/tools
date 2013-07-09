@@ -15,6 +15,7 @@
  */
 
 package org.wso2.developerstudio.appfactory.ui.views;
+
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.swt.graphics.Point;

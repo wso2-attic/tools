@@ -15,44 +15,20 @@
 
 package org.wso2.developerstudio.appfactory.core.authentication;
 
-import java.lang.reflect.InvocationTargetException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
 import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Cursor;
 import org.eclipse.swt.widgets.Display;
-import org.eclipse.ui.IPageLayout;
-import org.osgi.framework.Bundle;
-import org.osgi.service.event.Event;
-import org.osgi.service.event.EventHandler;
 import org.wso2.developerstudio.appfactory.core.client.HttpsJaggeryClient;
 import org.wso2.developerstudio.appfactory.core.jag.api.JagApiProperties;
-import org.wso2.developerstudio.appfactory.core.model.ErroModel;
-import org.wso2.developerstudio.appfactory.core.Activator;
-
-import org.eclipse.core.resources.IResource;
-import org.eclipse.core.resources.ResourcesPlugin;
-import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.MultiStatus;
-import org.eclipse.core.runtime.NullProgressMonitor;
-import org.eclipse.core.runtime.Platform;
-import org.eclipse.core.runtime.Status;
-
- 
-
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonParser;
+import org.wso2.developerstudio.appfactory.core.model.ErrorModel;
 
 public class Authenticator {
 
@@ -62,15 +38,15 @@ public class Authenticator {
 	private String result;
 	
 
-	private ErroModel erroModel;
+	private ErrorModel errorModel;
  
 
-	public ErroModel getErroModel() {
-		return erroModel;
+	public ErrorModel getErrorModel() {
+		return errorModel;
 	}
 
-	public void setErroModel(ErroModel erroModel) {
-		this.erroModel = erroModel;
+	public void setErrorModel(ErrorModel errorModel) {
+		this.errorModel = errorModel;
 	}
 
 	public String getResult() {
@@ -90,8 +66,8 @@ public class Authenticator {
 	public static Authenticator getInstance() {
 		if (authanticator == null) {
 			authanticator = new Authenticator();
-			ErroModel erroModel = new ErroModel();
-			authanticator.setErroModel(erroModel);
+			ErrorModel errorModel = new ErrorModel();
+			authanticator.setErrorModel(errorModel);
 		}
 		return authanticator;
 	}
@@ -164,9 +140,9 @@ public class Authenticator {
 					monitor.worked(0);
 					monitor.setCanceled(true);
 					authenticator.setResult("false");
-					Authenticator.getInstance().getErroModel().setMessage("Username or password cannot be empty !!");
+					Authenticator.getInstance().getErrorModel().setMessage("Username or password cannot be empty !!");
 				    List<String> resions = new ArrayList<String>();
-		    	    erroModel.setResions(resions);
+		    	    errorModel.setResions(resions);
 					return;
 				}
 				operationText="Sending loging request...";

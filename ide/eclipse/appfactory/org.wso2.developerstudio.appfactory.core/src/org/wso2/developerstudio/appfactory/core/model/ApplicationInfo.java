@@ -40,7 +40,7 @@ public class ApplicationInfo{
 	private boolean loaded;
 	
 	public ApplicationInfo() {
-		// TODO Auto-generated constructor stub
+
 	}
 	
 	public ApplicationInfo(String applicationKey) {

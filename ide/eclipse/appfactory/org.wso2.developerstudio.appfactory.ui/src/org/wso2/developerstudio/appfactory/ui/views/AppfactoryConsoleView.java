@@ -2,7 +2,6 @@ package org.wso2.developerstudio.appfactory.ui.views;
 
 
 import org.eclipse.jface.resource.ImageDescriptor;
-import org.eclipse.swt.SWT;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchWindow;
@@ -16,7 +15,6 @@ import org.eclipse.ui.console.IConsoleView;
 import org.eclipse.ui.console.MessageConsole;
 import org.eclipse.ui.console.MessageConsoleStream;
 import org.wso2.developerstudio.appfactory.ui.Activator;
-import org.wso2.developerstudio.eclipse.platform.core.utils.SWTResourceManager;
 
 public class AppfactoryConsoleView {
  

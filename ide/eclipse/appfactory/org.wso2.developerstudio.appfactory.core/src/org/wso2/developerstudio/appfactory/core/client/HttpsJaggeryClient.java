@@ -1,7 +1,21 @@
+/* Copyright (c) WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package org.wso2.developerstudio.appfactory.core.client;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.security.cert.CertificateException;
@@ -10,7 +24,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.concurrent.TimeUnit;
 
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
@@ -20,36 +33,25 @@ import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
-//import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
-//import org.apache.http.client.methods.HttpPost;
 import org.apache.http.conn.ClientConnectionManager;
-import org.apache.http.conn.ManagedClientConnection;
 import org.apache.http.conn.scheme.Scheme;
 import org.apache.http.conn.scheme.SchemeRegistry;
 import org.apache.http.conn.ssl.SSLSocketFactory;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.impl.conn.tsccm.ThreadSafeClientConnManager;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
-import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.MultiStatus;
-import org.eclipse.core.runtime.Status;
-import org.eclipse.jface.dialogs.ErrorDialog;
-import org.eclipse.swt.widgets.Display;
-import org.eclipse.swt.widgets.Shell;
-import org.eclipse.ui.PlatformUI;
 import org.wso2.developerstudio.appfactory.core.Activator;
 import org.wso2.developerstudio.appfactory.core.authentication.Authenticator;
-import org.wso2.developerstudio.appfactory.core.model.ErroModel;
+import org.wso2.developerstudio.appfactory.core.model.ErrorModel;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
-import org.apache.http.impl.conn.tsccm.ThreadSafeClientConnManager;
  
 public class HttpsJaggeryClient {
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
     private static HttpClient  client;
-    private static Shell activeShell;
 
 	public static String httpPostLogin(String urlStr, Map<String,String> params){
  
@@ -88,28 +90,28 @@ public class HttpsJaggeryClient {
 		    	  entityGetAppsOfUser.getContent().close();
 		    	}
 		      }else{
-		    	     ErroModel erroModel = Authenticator.getInstance().getErroModel();
-		    	     erroModel.setMessage("Error respond Code");
-		    	     List<String> resions = new ArrayList<String>();
-		    	     resions.add(""+response.getStatusLine().getStatusCode());
-		    	     resions.add(response.getStatusLine().getReasonPhrase()); 
-		    	     erroModel.setResions(resions);
+		    	     ErrorModel errorModel = Authenticator.getInstance().getErrorModel();
+		    	     errorModel.setMessage("Error respond Code");
+		    	     List<String> reasons = new ArrayList<String>();
+		    	     reasons.add(""+response.getStatusLine().getStatusCode());
+		    	     reasons.add(response.getStatusLine().getReasonPhrase()); 
+		    	     errorModel.setResions(reasons);
 		    	  return "false";
 		      }
 		     
 	      }catch(Exception e){
 	    	  
-	    	     ErroModel erroModel = Authenticator.getInstance().getErroModel();
+	    	     ErrorModel errorModel = Authenticator.getInstance().getErrorModel();
 	    	     
-	    	     erroModel.setMessage("Could not connect to the AppFactory due to one of the following resions");
-	    	     List<String> resions = new ArrayList<String>();
-	    	     resions.add("1 Network connection failer");
-	    	     resions.add("2 Unknow Hostname");
-	    	     resions.add("3 Connection time out");
-	    	     resions.add(e.getMessage());
-	    	     resions.add("");
-	    	     resions.add("Please refer the log file for more detials");
-	    	     erroModel.setResions(resions);
+	    	     errorModel.setMessage("Could not connect to the AppFactory due to one of the following reasons");
+	    	     List<String> reasons = new ArrayList<String>();
+	    	     reasons.add("1 Network connection failer");
+	    	     reasons.add("2 Unknow Hostname");
+	    	     reasons.add("3 Connection time out");
+	    	     reasons.add(e.getMessage());
+	    	     reasons.add("");
+	    	     reasons.add("Please refer the log file for more detials");
+	    	     errorModel.setResions(reasons);
 	    	     log.error("Connection failer",e); 
 	        	 return "false";
 	         } finally{
