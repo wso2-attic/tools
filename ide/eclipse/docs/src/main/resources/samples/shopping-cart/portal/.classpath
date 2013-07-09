@@ -159,22 +159,22 @@
   <classpathentry kind="var" path="M2_REPO/org/eclipse/equinox/org.eclipse.equinox.util/1.0.120.v20090520-1800/org.eclipse.equinox.util-1.0.120.v20090520-1800.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/eclipse/osgi/org.eclipse.osgi/3.5.0.v20090520/org.eclipse.osgi-3.5.0.v20090520.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/eclipse/osgi/org.eclipse.osgi.services/3.2.0.v20090520-1800/org.eclipse.osgi.services-3.2.0.v20090520-1800.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/wso2/carbon/org.wso2.carbon.application.deployer/3.3.0-SNAPSHOT/org.wso2.carbon.application.deployer-3.3.0-SNAPSHOT.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/wso2/carbon/org.wso2.carbon.authenticator.proxy/3.3.0-SNAPSHOT/org.wso2.carbon.authenticator.proxy-3.3.0-SNAPSHOT.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/wso2/carbon/org.wso2.carbon.base/3.3.0-SNAPSHOT/org.wso2.carbon.base-3.3.0-SNAPSHOT.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/wso2/carbon/org.wso2.carbon.bridge/3.3.0-SNAPSHOT/org.wso2.carbon.bridge-3.3.0-SNAPSHOT.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/wso2/carbon/org.wso2.carbon.caching.core/3.3.0-SNAPSHOT/org.wso2.carbon.caching.core-3.3.0-SNAPSHOT.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/wso2/carbon/org.wso2.carbon.component.mgt.core/3.3.0-SNAPSHOT/org.wso2.carbon.component.mgt.core-3.3.0-SNAPSHOT.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/wso2/carbon/org.wso2.carbon.component.mgt.services/3.3.0-SNAPSHOT/org.wso2.carbon.component.mgt.services-3.3.0-SNAPSHOT.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/wso2/carbon/org.wso2.carbon.context/3.3.0-SNAPSHOT/org.wso2.carbon.context-3.3.0-SNAPSHOT.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/wso2/carbon/org.wso2.carbon.core/3.3.0-SNAPSHOT/org.wso2.carbon.core-3.3.0-SNAPSHOT.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/wso2/carbon/org.wso2.carbon.core.common/3.3.0-SNAPSHOT/org.wso2.carbon.core.common-3.3.0-SNAPSHOT.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/wso2/carbon/org.wso2.carbon.logging/3.3.0-SNAPSHOT/org.wso2.carbon.logging-3.3.0-SNAPSHOT.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/wso2/carbon/org.wso2.carbon.queuing/3.3.0-SNAPSHOT/org.wso2.carbon.queuing-3.3.0-SNAPSHOT.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/wso2/carbon/org.wso2.carbon.registry.core/3.3.0-SNAPSHOT/org.wso2.carbon.registry.core-3.3.0-SNAPSHOT.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/wso2/carbon/org.wso2.carbon.registry.xboot/3.3.0-SNAPSHOT/org.wso2.carbon.registry.xboot-3.3.0-SNAPSHOT.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/wso2/carbon/org.wso2.carbon.user.core/3.3.0-SNAPSHOT/org.wso2.carbon.user.core-3.3.0-SNAPSHOT.jar"/>
-  <classpathentry kind="var" path="M2_REPO/org/wso2/carbon/org.wso2.carbon.utils/3.3.0-SNAPSHOT/org.wso2.carbon.utils-3.3.0-SNAPSHOT.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/wso2/carbon/org.wso2.carbon.application.deployer/3.2.0-SNAPSHOT/org.wso2.carbon.application.deployer-3.2.0-SNAPSHOT.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/wso2/carbon/org.wso2.carbon.authenticator.proxy/3.2.0-SNAPSHOT/org.wso2.carbon.authenticator.proxy-3.2.0-SNAPSHOT.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/wso2/carbon/org.wso2.carbon.base/3.2.0-SNAPSHOT/org.wso2.carbon.base-3.2.0-SNAPSHOT.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/wso2/carbon/org.wso2.carbon.bridge/3.2.0-SNAPSHOT/org.wso2.carbon.bridge-3.2.0-SNAPSHOT.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/wso2/carbon/org.wso2.carbon.caching.core/3.2.0-SNAPSHOT/org.wso2.carbon.caching.core-3.2.0-SNAPSHOT.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/wso2/carbon/org.wso2.carbon.component.mgt.core/3.2.0-SNAPSHOT/org.wso2.carbon.component.mgt.core-3.2.0-SNAPSHOT.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/wso2/carbon/org.wso2.carbon.component.mgt.services/3.2.0-SNAPSHOT/org.wso2.carbon.component.mgt.services-3.2.0-SNAPSHOT.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/wso2/carbon/org.wso2.carbon.context/3.2.0-SNAPSHOT/org.wso2.carbon.context-3.2.0-SNAPSHOT.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/wso2/carbon/org.wso2.carbon.core/3.2.0-SNAPSHOT/org.wso2.carbon.core-3.2.0-SNAPSHOT.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/wso2/carbon/org.wso2.carbon.core.common/3.2.0-SNAPSHOT/org.wso2.carbon.core.common-3.2.0-SNAPSHOT.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/wso2/carbon/org.wso2.carbon.logging/3.2.0-SNAPSHOT/org.wso2.carbon.logging-3.2.0-SNAPSHOT.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/wso2/carbon/org.wso2.carbon.queuing/3.2.0-SNAPSHOT/org.wso2.carbon.queuing-3.2.0-SNAPSHOT.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/wso2/carbon/org.wso2.carbon.registry.core/3.2.0-SNAPSHOT/org.wso2.carbon.registry.core-3.2.0-SNAPSHOT.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/wso2/carbon/org.wso2.carbon.registry.xboot/3.2.0-SNAPSHOT/org.wso2.carbon.registry.xboot-3.2.0-SNAPSHOT.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/wso2/carbon/org.wso2.carbon.user.core/3.2.0-SNAPSHOT/org.wso2.carbon.user.core-3.2.0-SNAPSHOT.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/wso2/carbon/org.wso2.carbon.utils/3.2.0-SNAPSHOT/org.wso2.carbon.utils-3.2.0-SNAPSHOT.jar"/>
   <classpathentry kind="var" path="M2_REPO/pdfbox/pdfbox/0.7.3/pdfbox-0.7.3.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/codehaus/plexus/plexus-container-default/1.0-alpha-9-stable-1/plexus-container-default-1.0-alpha-9-stable-1.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/codehaus/plexus/plexus-utils/1.4.9/plexus-utils-1.4.9.jar"/>

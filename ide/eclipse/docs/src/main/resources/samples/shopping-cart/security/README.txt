@@ -1,7 +1,7 @@
 How to run shoppingcart in a secured environment
 ================================================
 
-First build the security module (mvn clean install). You can find the com.acme.shoppingcart.security.pwcb-1.1.0-SNAPSHOT.jar and ReOrderProcess.zip in pwcb and bpel target directoies, respectively.
+First build the security module (mvn clean install). You can find the com.acme.shoppingcart.security.pwcb-1.0.0-SNAPSHOT.jar and ReOrderProcess.zip in pwcb and bpel target directoies, respectively.
 
 DS Server 
 ---------
@@ -11,7 +11,7 @@ DS Server
 ESB Server
 ----------
 
-1. Copy com.acme.shoppingcart.security.pwcb-1.1.0-SNAPSHOT.jar into ESB_HOME/repository/component/lib and restart the server.
+1. Copy com.acme.shoppingcart.security.pwcb-1.0.0-SNAPSHOT.jar into ESB_HOME/repository/component/lib and restart the server.
 2. Upload signAndEncrypt.xml security policy file to config registry  (_system/config/SignAndEncrypt.xml)
 3. Copy the synapse configuration of secured-shopping-cart-synapse-config.xml to ESB or Update your synapse configuration by adding a policy location to your endpoint
 
@@ -31,7 +31,7 @@ After configuring policy for endpoint
 BPS Server
 ----------
 
-1. Copy com.acme.shoppingcart.security.pwcb-1.1.0-SNAPSHOT.jar into BPS_HOME/repository/component/lib restart the server.
+1. Copy com.acme.shoppingcart.security.pwcb-1.0.0-SNAPSHOT.jar into BPS_HOME/repository/component/lib restart the server.
 2. Deployed ReOrderProcess BPEL package
 
 WSAS Server
