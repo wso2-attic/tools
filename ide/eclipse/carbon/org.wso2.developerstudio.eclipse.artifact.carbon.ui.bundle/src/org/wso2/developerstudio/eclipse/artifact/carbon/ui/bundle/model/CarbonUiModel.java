@@ -22,7 +22,7 @@ import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectDataM
 
 public class CarbonUiModel extends ProjectDataModel {
 	private String id;
-	private String version = "1.0.0.qualifier";
+	private String version = "1.1.0.qualifier";
 	private String name;
     private IProject carbonUIproject;
     private boolean isActivatorRequired=true;
