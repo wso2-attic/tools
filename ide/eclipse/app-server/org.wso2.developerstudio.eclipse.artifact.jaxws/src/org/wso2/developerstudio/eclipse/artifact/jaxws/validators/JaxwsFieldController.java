@@ -104,6 +104,9 @@ public class JaxwsFieldController extends AbstractFieldController {
 		if(modelProperty.equals("cxf.mode")){
 			updatedList.add("runtime");
 		}
+		if (modelProperty.equals("import.file")) {
+			updatedList.add("project.name");
+		}
 		return updatedList;
 	}
 }

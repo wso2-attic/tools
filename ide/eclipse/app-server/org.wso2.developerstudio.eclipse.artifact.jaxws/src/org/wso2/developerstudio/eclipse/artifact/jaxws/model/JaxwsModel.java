@@ -17,6 +17,7 @@
 package org.wso2.developerstudio.eclipse.artifact.jaxws.model;
 
 
+import java.io.File;
 import org.wso2.developerstudio.eclipse.platform.core.exception.ObserverFailedException;
 import org.wso2.developerstudio.eclipse.platform.core.project.model.ProjectDataModel;
 import org.wso2.developerstudio.eclipse.utils.project.ProjectUtils;
@@ -48,8 +49,10 @@ public class JaxwsModel extends ProjectDataModel {
 	public boolean setModelPropertyValue(String key, Object data) throws ObserverFailedException {
 		boolean returnValue = super.setModelPropertyValue(key, data);
 		if (key.equals("import.file")) {
-			if (getImportFile() != null && !getImportFile().toString().equals("")) {
-				setProjectName(ProjectUtils.fileNameWithoutExtension(getImportFile().getName()));
+			if(getProjectName()==null || getProjectName().trim().equals("")){
+				if (getImportFile() != null && !getImportFile().toString().equals("")) {
+					setProjectName(ProjectUtils.fileNameWithoutExtension(getImportFile().getName()));
+				}
 			}
 		} else if (key.equals("source.package")) {
 			setSourcePackage(data.toString());
@@ -116,4 +119,9 @@ public class JaxwsModel extends ProjectDataModel {
 		this.cxfRuntimeMode = cxfRuntimeMode;
 	}
 	
+	@Override
+	public void setImportFile(File importFile) {
+			super.importFile=importFile;
+
+	}
 }
