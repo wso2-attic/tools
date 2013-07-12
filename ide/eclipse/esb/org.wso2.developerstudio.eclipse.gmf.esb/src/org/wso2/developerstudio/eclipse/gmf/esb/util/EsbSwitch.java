@@ -325,6 +325,32 @@ public class EsbSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case EsbPackage.HTTP_ENDPOINT: {
+				HTTPEndpoint httpEndpoint = (HTTPEndpoint)theEObject;
+				T result = caseHTTPEndpoint(httpEndpoint);
+				if (result == null) result = caseAbstractEndPoint(httpEndpoint);
+				if (result == null) result = caseEndPoint(httpEndpoint);
+				if (result == null) result = caseEsbElement(httpEndpoint);
+				if (result == null) result = caseEsbNode(httpEndpoint);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.HTTP_END_POINT_INPUT_CONNECTOR: {
+				HTTPEndPointInputConnector httpEndPointInputConnector = (HTTPEndPointInputConnector)theEObject;
+				T result = caseHTTPEndPointInputConnector(httpEndPointInputConnector);
+				if (result == null) result = caseInputConnector(httpEndPointInputConnector);
+				if (result == null) result = caseEsbConnector(httpEndPointInputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.HTTP_END_POINT_OUTPUT_CONNECTOR: {
+				HTTPEndPointOutputConnector httpEndPointOutputConnector = (HTTPEndPointOutputConnector)theEObject;
+				T result = caseHTTPEndPointOutputConnector(httpEndPointOutputConnector);
+				if (result == null) result = caseOutputConnector(httpEndPointOutputConnector);
+				if (result == null) result = caseEsbConnector(httpEndPointOutputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case EsbPackage.DROP_MEDIATOR: {
 				DropMediator dropMediator = (DropMediator)theEObject;
 				T result = caseDropMediator(dropMediator);
@@ -2927,6 +2953,51 @@ public class EsbSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseAddressEndPointOutputConnector(AddressEndPointOutputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>HTTP Endpoint</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>HTTP Endpoint</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseHTTPEndpoint(HTTPEndpoint object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>HTTP End Point Input Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>HTTP End Point Input Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseHTTPEndPointInputConnector(HTTPEndPointInputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>HTTP End Point Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>HTTP End Point Output Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseHTTPEndPointOutputConnector(HTTPEndPointOutputConnector object) {
 		return null;
 	}
 

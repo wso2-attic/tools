@@ -183,6 +183,9 @@ import org.wso2.developerstudio.eclipse.gmf.esb.FilterMediatorInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.FilterMediatorOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.FilterMediatorPassOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.FilterPassContainer;
+import org.wso2.developerstudio.eclipse.gmf.esb.HTTPEndPointInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.HTTPEndPointOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.HTTPEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.HeaderAction;
 import org.wso2.developerstudio.eclipse.gmf.esb.HeaderMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.HeaderMediatorInputConnector;
@@ -667,6 +670,27 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	private EClass addressEndPointOutputConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass httpEndpointEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass httpEndPointInputConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass httpEndPointOutputConnectorEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -4325,6 +4349,60 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 */
 	public EClass getAddressEndPointOutputConnector() {
 		return addressEndPointOutputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getHTTPEndpoint() {
+		return httpEndpointEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getHTTPEndpoint_InputConnector() {
+		return (EReference)httpEndpointEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getHTTPEndpoint_OutputConnector() {
+		return (EReference)httpEndpointEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getHTTPEndpoint_URITemplate() {
+		return (EAttribute)httpEndpointEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getHTTPEndPointInputConnector() {
+		return httpEndPointInputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getHTTPEndPointOutputConnector() {
+		return httpEndPointOutputConnectorEClass;
 	}
 
 	/**
@@ -13605,6 +13683,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 
 		addressEndPointOutputConnectorEClass = createEClass(ADDRESS_END_POINT_OUTPUT_CONNECTOR);
 
+		httpEndpointEClass = createEClass(HTTP_ENDPOINT);
+		createEReference(httpEndpointEClass, HTTP_ENDPOINT__INPUT_CONNECTOR);
+		createEReference(httpEndpointEClass, HTTP_ENDPOINT__OUTPUT_CONNECTOR);
+		createEAttribute(httpEndpointEClass, HTTP_ENDPOINT__URI_TEMPLATE);
+
+		httpEndPointInputConnectorEClass = createEClass(HTTP_END_POINT_INPUT_CONNECTOR);
+
+		httpEndPointOutputConnectorEClass = createEClass(HTTP_END_POINT_OUTPUT_CONNECTOR);
+
 		dropMediatorEClass = createEClass(DROP_MEDIATOR);
 		createEReference(dropMediatorEClass, DROP_MEDIATOR__INPUT_CONNECTOR);
 
@@ -14941,6 +15028,9 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		addressEndPointEClass.getESuperTypes().add(this.getAbstractEndPoint());
 		addressEndPointInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
 		addressEndPointOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
+		httpEndpointEClass.getESuperTypes().add(this.getAbstractEndPoint());
+		httpEndPointInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
+		httpEndPointOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
 		dropMediatorEClass.getESuperTypes().add(this.getMediator());
 		dropMediatorInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
 		filterMediatorEClass.getESuperTypes().add(this.getMediator());
@@ -15352,6 +15442,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEClass(addressEndPointInputConnectorEClass, AddressEndPointInputConnector.class, "AddressEndPointInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(addressEndPointOutputConnectorEClass, AddressEndPointOutputConnector.class, "AddressEndPointOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(httpEndpointEClass, HTTPEndpoint.class, "HTTPEndpoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getHTTPEndpoint_InputConnector(), this.getHTTPEndPointInputConnector(), null, "inputConnector", null, 0, 1, HTTPEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getHTTPEndpoint_OutputConnector(), this.getHTTPEndPointOutputConnector(), null, "outputConnector", null, 0, 1, HTTPEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getHTTPEndpoint_URITemplate(), ecorePackage.getEString(), "URITemplate", null, 0, 1, HTTPEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(httpEndPointInputConnectorEClass, HTTPEndPointInputConnector.class, "HTTPEndPointInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(httpEndPointOutputConnectorEClass, HTTPEndPointOutputConnector.class, "HTTPEndPointOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(dropMediatorEClass, DropMediator.class, "DropMediator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDropMediator_InputConnector(), this.getDropMediatorInputConnector(), null, "inputConnector", null, 0, 1, DropMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

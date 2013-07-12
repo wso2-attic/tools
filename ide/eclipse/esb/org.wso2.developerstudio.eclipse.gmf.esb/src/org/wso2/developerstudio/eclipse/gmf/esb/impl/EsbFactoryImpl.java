@@ -96,6 +96,9 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 			case EsbPackage.ADDRESS_END_POINT: return createAddressEndPoint();
 			case EsbPackage.ADDRESS_END_POINT_INPUT_CONNECTOR: return createAddressEndPointInputConnector();
 			case EsbPackage.ADDRESS_END_POINT_OUTPUT_CONNECTOR: return createAddressEndPointOutputConnector();
+			case EsbPackage.HTTP_ENDPOINT: return createHTTPEndpoint();
+			case EsbPackage.HTTP_END_POINT_INPUT_CONNECTOR: return createHTTPEndPointInputConnector();
+			case EsbPackage.HTTP_END_POINT_OUTPUT_CONNECTOR: return createHTTPEndPointOutputConnector();
 			case EsbPackage.DROP_MEDIATOR: return createDropMediator();
 			case EsbPackage.DROP_MEDIATOR_INPUT_CONNECTOR: return createDropMediatorInputConnector();
 			case EsbPackage.FILTER_MEDIATOR: return createFilterMediator();
@@ -1302,6 +1305,37 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	public AddressEndPointOutputConnector createAddressEndPointOutputConnector() {
 		AddressEndPointOutputConnectorImpl addressEndPointOutputConnector = new AddressEndPointOutputConnectorImpl();
 		return addressEndPointOutputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public HTTPEndpoint createHTTPEndpoint() {
+		HTTPEndpointImpl httpEndpoint = new HTTPEndpointImpl();
+		httpEndpoint.setInputConnector(createHTTPEndPointInputConnector());
+		return httpEndpoint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public HTTPEndPointInputConnector createHTTPEndPointInputConnector() {
+		HTTPEndPointInputConnectorImpl httpEndPointInputConnector = new HTTPEndPointInputConnectorImpl();
+		return httpEndPointInputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public HTTPEndPointOutputConnector createHTTPEndPointOutputConnector() {
+		HTTPEndPointOutputConnectorImpl httpEndPointOutputConnector = new HTTPEndPointOutputConnectorImpl();
+		return httpEndPointOutputConnector;
 	}
 
 	/**

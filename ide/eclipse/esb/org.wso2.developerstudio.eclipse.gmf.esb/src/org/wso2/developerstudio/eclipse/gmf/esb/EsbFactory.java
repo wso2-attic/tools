@@ -251,6 +251,33 @@ public interface EsbFactory extends EFactory {
 	AddressEndPointOutputConnector createAddressEndPointOutputConnector();
 
 	/**
+	 * Returns a new object of class '<em>HTTP Endpoint</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>HTTP Endpoint</em>'.
+	 * @generated
+	 */
+	HTTPEndpoint createHTTPEndpoint();
+
+	/**
+	 * Returns a new object of class '<em>HTTP End Point Input Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>HTTP End Point Input Connector</em>'.
+	 * @generated
+	 */
+	HTTPEndPointInputConnector createHTTPEndPointInputConnector();
+
+	/**
+	 * Returns a new object of class '<em>HTTP End Point Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>HTTP End Point Output Connector</em>'.
+	 * @generated
+	 */
+	HTTPEndPointOutputConnector createHTTPEndPointOutputConnector();
+
+	/**
 	 * Returns a new object of class '<em>Drop Mediator</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

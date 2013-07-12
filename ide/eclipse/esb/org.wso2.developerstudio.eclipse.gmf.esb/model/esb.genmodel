@@ -640,6 +640,13 @@
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//AddressEndPointInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//AddressEndPointOutputConnector"/>
+    <genClasses ecoreClass="esb.ecore#//HTTPEndpoint">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//HTTPEndpoint/inputConnector"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//HTTPEndpoint/outputConnector"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//HTTPEndpoint/URITemplate"/>
+    </genClasses>
+    <genClasses ecoreClass="esb.ecore#//HTTPEndPointInputConnector"/>
+    <genClasses ecoreClass="esb.ecore#//HTTPEndPointOutputConnector"/>
     <genClasses ecoreClass="esb.ecore#//DropMediator">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//DropMediator/inputConnector"/>
     </genClasses>

@@ -209,6 +209,18 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 				return createAddressEndPointOutputConnectorAdapter();
 			}
 			@Override
+			public Adapter caseHTTPEndpoint(HTTPEndpoint object) {
+				return createHTTPEndpointAdapter();
+			}
+			@Override
+			public Adapter caseHTTPEndPointInputConnector(HTTPEndPointInputConnector object) {
+				return createHTTPEndPointInputConnectorAdapter();
+			}
+			@Override
+			public Adapter caseHTTPEndPointOutputConnector(HTTPEndPointOutputConnector object) {
+				return createHTTPEndPointOutputConnectorAdapter();
+			}
+			@Override
 			public Adapter caseDropMediator(DropMediator object) {
 				return createDropMediatorAdapter();
 			}
@@ -1758,6 +1770,48 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAddressEndPointOutputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.HTTPEndpoint <em>HTTP Endpoint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.HTTPEndpoint
+	 * @generated
+	 */
+	public Adapter createHTTPEndpointAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.HTTPEndPointInputConnector <em>HTTP End Point Input Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.HTTPEndPointInputConnector
+	 * @generated
+	 */
+	public Adapter createHTTPEndPointInputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.HTTPEndPointOutputConnector <em>HTTP End Point Output Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.HTTPEndPointOutputConnector
+	 * @generated
+	 */
+	public Adapter createHTTPEndPointOutputConnectorAdapter() {
 		return null;
 	}
 
