@@ -25,6 +25,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.BeanMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.BuilderMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.ConditionalRouterMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.EJBMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.HTTPEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamedEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.RecipientListEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.RouterMediator;
@@ -101,6 +102,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.EventMediat
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.FailoverEndPointTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.FaultMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.FilterMediatorTransformer;
+import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.HTTPEndPointTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.HeaderMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.IterateMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.LoadBalanceEndPointTransformer;
@@ -209,6 +211,7 @@ public class EsbTransformerRegistry {
 		addTransformer(Sequences.class, new SequenceTransformer());
 		addTransformer(AddressingEndpoint.class, new AddresingEndPointTransformer());
 		addTransformer(RecipientListEndPoint.class, new RecipientListEndPointTransformer());
+		addTransformer(HTTPEndpoint.class, new HTTPEndPointTransformer());
 	}
 	
 	/**

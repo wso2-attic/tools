@@ -21,6 +21,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 import org.apache.synapse.MessageContext;
+import org.apache.synapse.message.MessageConsumer;
 import org.apache.synapse.message.store.AbstractMessageStore;
 
 public class DummyMessageStore extends AbstractMessageStore {
@@ -73,6 +74,16 @@ public class DummyMessageStore extends AbstractMessageStore {
 
 	public void setClassName(String className) {
 		this.className = className;
+	}
+
+	public int getType() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public MessageConsumer newConsumer() throws Exception {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

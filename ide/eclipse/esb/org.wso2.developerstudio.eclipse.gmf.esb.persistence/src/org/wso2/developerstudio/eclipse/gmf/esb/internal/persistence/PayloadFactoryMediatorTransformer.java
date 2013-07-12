@@ -82,7 +82,7 @@ public class PayloadFactoryMediatorTransformer extends AbstractEsbNodeTransforme
 			} else {
 				argument.setValue(arg.getArgumentValue());
 			}
-			payloadFactoryMediator.addArgument(argument);
+			payloadFactoryMediator.addXPathArgument(argument);// addArgument(argument);
 		}
 
 		return payloadFactoryMediator;

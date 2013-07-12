@@ -44,4 +44,14 @@ public class DummyMessageProcessor extends AbstractMessageProcessor {
 		
 	}
 
+	public boolean isDestroyed() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void setDestroyed() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
