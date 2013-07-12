@@ -210,6 +210,11 @@ public class EsbServerItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(EsbPackage.Literals.ESB_SERVER__CHILDREN,
+				 EsbFactory.eINSTANCE.createHTTPEndpoint()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.ESB_SERVER__CHILDREN,
 				 EsbFactory.eINSTANCE.createDropMediator()));
 
 		newChildDescriptors.add

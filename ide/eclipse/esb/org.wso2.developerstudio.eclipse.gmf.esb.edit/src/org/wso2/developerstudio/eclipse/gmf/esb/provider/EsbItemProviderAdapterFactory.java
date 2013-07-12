@@ -1299,6 +1299,75 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.HTTPEndpoint} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected HTTPEndpointItemProvider httpEndpointItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.HTTPEndpoint}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createHTTPEndpointAdapter() {
+		if (httpEndpointItemProvider == null) {
+			httpEndpointItemProvider = new HTTPEndpointItemProvider(this);
+		}
+
+		return httpEndpointItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.HTTPEndPointInputConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected HTTPEndPointInputConnectorItemProvider httpEndPointInputConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.HTTPEndPointInputConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createHTTPEndPointInputConnectorAdapter() {
+		if (httpEndPointInputConnectorItemProvider == null) {
+			httpEndPointInputConnectorItemProvider = new HTTPEndPointInputConnectorItemProvider(this);
+		}
+
+		return httpEndPointInputConnectorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.HTTPEndPointOutputConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected HTTPEndPointOutputConnectorItemProvider httpEndPointOutputConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.HTTPEndPointOutputConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createHTTPEndPointOutputConnectorAdapter() {
+		if (httpEndPointOutputConnectorItemProvider == null) {
+			httpEndPointOutputConnectorItemProvider = new HTTPEndPointOutputConnectorItemProvider(this);
+		}
+
+		return httpEndPointOutputConnectorItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6865,6 +6934,9 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 		if (addressEndPointItemProvider != null) addressEndPointItemProvider.dispose();
 		if (addressEndPointInputConnectorItemProvider != null) addressEndPointInputConnectorItemProvider.dispose();
 		if (addressEndPointOutputConnectorItemProvider != null) addressEndPointOutputConnectorItemProvider.dispose();
+		if (httpEndpointItemProvider != null) httpEndpointItemProvider.dispose();
+		if (httpEndPointInputConnectorItemProvider != null) httpEndPointInputConnectorItemProvider.dispose();
+		if (httpEndPointOutputConnectorItemProvider != null) httpEndPointOutputConnectorItemProvider.dispose();
 		if (dropMediatorItemProvider != null) dropMediatorItemProvider.dispose();
 		if (dropMediatorInputConnectorItemProvider != null) dropMediatorInputConnectorItemProvider.dispose();
 		if (filterMediatorItemProvider != null) filterMediatorItemProvider.dispose();

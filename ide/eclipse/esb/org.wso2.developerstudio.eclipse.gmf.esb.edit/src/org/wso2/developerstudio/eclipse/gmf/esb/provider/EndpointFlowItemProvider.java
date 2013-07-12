@@ -171,6 +171,11 @@ public class EndpointFlowItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(EsbPackage.Literals.ENDPOINT_FLOW__CHILDREN,
+				 EsbFactory.eINSTANCE.createHTTPEndpoint()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.ENDPOINT_FLOW__CHILDREN,
 				 EsbFactory.eINSTANCE.createDropMediator()));
 
 		newChildDescriptors.add

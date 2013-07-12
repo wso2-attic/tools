@@ -192,6 +192,11 @@ public class EndpointDiagramItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(EsbPackage.Literals.ENDPOINT_DIAGRAM__CHILD,
+				 EsbFactory.eINSTANCE.createHTTPEndpoint()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.ENDPOINT_DIAGRAM__CHILD,
 				 EsbFactory.eINSTANCE.createParentEndPoint()));
 
 		newChildDescriptors.add
