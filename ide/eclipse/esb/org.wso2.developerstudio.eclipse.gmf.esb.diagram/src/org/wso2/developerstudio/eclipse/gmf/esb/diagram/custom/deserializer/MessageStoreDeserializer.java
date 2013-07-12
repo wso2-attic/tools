@@ -45,7 +45,7 @@ public class MessageStoreDeserializer
 	public org.wso2.developerstudio.eclipse.gmf.esb.MessageStore createNode(
 			IGraphicalEditPart part, MessageStore store) {
 		org.wso2.developerstudio.eclipse.gmf.esb.MessageStore messageStore = (org.wso2.developerstudio.eclipse.gmf.esb.MessageStore) DeserializerUtils
-				.createNode(part, EsbElementTypes.MessageStore_3700);
+				.createNode(part, EsbElementTypes.MessageStore_3715);
 		setElementToEdit(messageStore);
 		
 		if (store instanceof DummyMessageStore) {

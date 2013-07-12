@@ -78,7 +78,7 @@ public class MessageProcessorEditPart extends ShapeNodeEditPart {
 			}
 		}
 	}
-	
+
 	/**
 	 * @generated
 	 */
@@ -210,12 +210,11 @@ public class MessageProcessorEditPart extends ShapeNodeEditPart {
 		public MessageProcessorFigure() {
 			this.setBackgroundColor(THIS_BACK);
 		}
-		
+
 		@Override
 		public String getIconPath() {
 			return "icons/ico20/message-processor.png"; //FIXME:replace the icon with correct image
 		}
-		
 
 	}
 

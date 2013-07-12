@@ -55,7 +55,7 @@ public class EsbServerContentsCompartmentItemSemanticEditPolicy extends
 		if (EsbElementTypes.ComplexEndpoints_3677 == req.getElementType()) {
 			return getGEFWrapper(new ComplexEndpointsCreateCommand(req));
 		}
-		if (EsbElementTypes.MessageStore_3700 == req.getElementType()) {
+		if (EsbElementTypes.MessageStore_3715 == req.getElementType()) {
 			return getGEFWrapper(new MessageStoreCreateCommand(req));
 		}
 		if (EsbElementTypes.MessageProcessor_3701 == req.getElementType()) {

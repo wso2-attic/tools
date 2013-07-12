@@ -180,6 +180,7 @@ public class EsbPaletteFactory {
 		paletteContainer.add(createNamedEndpoint6CreationTool());
 		paletteContainer.add(createAddressingEndpoint7CreationTool());
 		paletteContainer.add(createRecipientListEndPoint8CreationTool());
+		paletteContainer.add(createHTTPEndpoint9CreationTool());
 		return paletteContainer;
 	}
 
@@ -947,6 +948,21 @@ public class EsbPaletteFactory {
 		entry.setId("createRecipientListEndPoint8CreationTool"); //$NON-NLS-1$
 		entry.setSmallIcon(EsbElementTypes
 				.getImageDescriptor(EsbElementTypes.RecipientListEndPoint_3692));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createHTTPEndpoint9CreationTool() {
+		ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+		types.add(EsbElementTypes.HTTPEndpoint_3709);
+		types.add(EsbElementTypes.HTTPEndpoint_3712);
+		NodeToolEntry entry = new NodeToolEntry(Messages.HTTPEndpoint9CreationTool_title,
+				Messages.HTTPEndpoint9CreationTool_desc, types);
+		entry.setId("createHTTPEndpoint9CreationTool"); //$NON-NLS-1$
+		entry.setSmallIcon(EsbElementTypes.getImageDescriptor(EsbElementTypes.HTTPEndpoint_3709));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

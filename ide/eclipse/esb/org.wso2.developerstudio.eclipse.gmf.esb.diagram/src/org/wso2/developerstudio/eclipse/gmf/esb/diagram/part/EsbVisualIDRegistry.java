@@ -850,6 +850,16 @@ public class EsbVisualIDRegistry {
 				return AddressingEndpointOutputConnectorEditPart.VISUAL_ID;
 			}
 			break;
+		case HTTPEndpointEditPart.VISUAL_ID:
+			if (EsbPackage.eINSTANCE.getHTTPEndPointInputConnector().isSuperTypeOf(
+					domainElement.eClass())) {
+				return HTTPEndPointInputConnectorEditPart.VISUAL_ID;
+			}
+			if (EsbPackage.eINSTANCE.getHTTPEndPointOutputConnector().isSuperTypeOf(
+					domainElement.eClass())) {
+				return HTTPEndPointOutputConnectorEditPart.VISUAL_ID;
+			}
+			break;
 		case SwitchDefaultContainerEditPart.VISUAL_ID:
 			if (EsbPackage.eINSTANCE.getMediatorFlow().isSuperTypeOf(domainElement.eClass())) {
 				return MediatorFlow4EditPart.VISUAL_ID;
@@ -977,6 +987,16 @@ public class EsbVisualIDRegistry {
 			if (EsbPackage.eINSTANCE.getLoadBalanceEndPointWestOutputConnector().isSuperTypeOf(
 					domainElement.eClass())) {
 				return LoadBalanceEndPointWestOutputConnector2EditPart.VISUAL_ID;
+			}
+			break;
+		case HTTPEndpoint2EditPart.VISUAL_ID:
+			if (EsbPackage.eINSTANCE.getHTTPEndPointInputConnector().isSuperTypeOf(
+					domainElement.eClass())) {
+				return HTTPEndPointInputConnector2EditPart.VISUAL_ID;
+			}
+			if (EsbPackage.eINSTANCE.getHTTPEndPointOutputConnector().isSuperTypeOf(
+					domainElement.eClass())) {
+				return HTTPEndPointOutputConnector2EditPart.VISUAL_ID;
 			}
 			break;
 		case Sequences2EditPart.VISUAL_ID:
@@ -1222,6 +1242,9 @@ public class EsbVisualIDRegistry {
 			if (EsbPackage.eINSTANCE.getAddressingEndpoint().isSuperTypeOf(domainElement.eClass())) {
 				return AddressingEndpointEditPart.VISUAL_ID;
 			}
+			if (EsbPackage.eINSTANCE.getHTTPEndpoint().isSuperTypeOf(domainElement.eClass())) {
+				return HTTPEndpointEditPart.VISUAL_ID;
+			}
 			break;
 		case MediatorFlowMediatorFlowCompartment9EditPart.VISUAL_ID:
 			if (EsbPackage.eINSTANCE.getDropMediator().isSuperTypeOf(domainElement.eClass())) {
@@ -1383,6 +1406,9 @@ public class EsbVisualIDRegistry {
 			}
 			if (EsbPackage.eINSTANCE.getAddressingEndpoint().isSuperTypeOf(domainElement.eClass())) {
 				return AddressingEndpointEditPart.VISUAL_ID;
+			}
+			if (EsbPackage.eINSTANCE.getHTTPEndpoint().isSuperTypeOf(domainElement.eClass())) {
+				return HTTPEndpointEditPart.VISUAL_ID;
 			}
 			break;
 		case MediatorFlowMediatorFlowCompartment7EditPart.VISUAL_ID:
@@ -1546,6 +1572,9 @@ public class EsbVisualIDRegistry {
 			if (EsbPackage.eINSTANCE.getAddressingEndpoint().isSuperTypeOf(domainElement.eClass())) {
 				return AddressingEndpointEditPart.VISUAL_ID;
 			}
+			if (EsbPackage.eINSTANCE.getHTTPEndpoint().isSuperTypeOf(domainElement.eClass())) {
+				return HTTPEndpointEditPart.VISUAL_ID;
+			}
 			break;
 		case MediatorFlowMediatorFlowCompartment2EditPart.VISUAL_ID:
 			if (EsbPackage.eINSTANCE.getDropMediator().isSuperTypeOf(domainElement.eClass())) {
@@ -1707,6 +1736,9 @@ public class EsbVisualIDRegistry {
 			}
 			if (EsbPackage.eINSTANCE.getAddressingEndpoint().isSuperTypeOf(domainElement.eClass())) {
 				return AddressingEndpointEditPart.VISUAL_ID;
+			}
+			if (EsbPackage.eINSTANCE.getHTTPEndpoint().isSuperTypeOf(domainElement.eClass())) {
+				return HTTPEndpointEditPart.VISUAL_ID;
 			}
 			break;
 		case MediatorFlowMediatorFlowCompartment11EditPart.VISUAL_ID:
@@ -1870,6 +1902,9 @@ public class EsbVisualIDRegistry {
 			if (EsbPackage.eINSTANCE.getAddressingEndpoint().isSuperTypeOf(domainElement.eClass())) {
 				return AddressingEndpointEditPart.VISUAL_ID;
 			}
+			if (EsbPackage.eINSTANCE.getHTTPEndpoint().isSuperTypeOf(domainElement.eClass())) {
+				return HTTPEndpointEditPart.VISUAL_ID;
+			}
 			break;
 		case MediatorFlowMediatorFlowCompartment13EditPart.VISUAL_ID:
 			if (EsbPackage.eINSTANCE.getDropMediator().isSuperTypeOf(domainElement.eClass())) {
@@ -2031,6 +2066,9 @@ public class EsbVisualIDRegistry {
 			}
 			if (EsbPackage.eINSTANCE.getAddressingEndpoint().isSuperTypeOf(domainElement.eClass())) {
 				return AddressingEndpointEditPart.VISUAL_ID;
+			}
+			if (EsbPackage.eINSTANCE.getHTTPEndpoint().isSuperTypeOf(domainElement.eClass())) {
+				return HTTPEndpointEditPart.VISUAL_ID;
 			}
 			break;
 		case MediatorFlowMediatorFlowCompartment12EditPart.VISUAL_ID:
@@ -2194,6 +2232,9 @@ public class EsbVisualIDRegistry {
 			if (EsbPackage.eINSTANCE.getAddressingEndpoint().isSuperTypeOf(domainElement.eClass())) {
 				return AddressingEndpointEditPart.VISUAL_ID;
 			}
+			if (EsbPackage.eINSTANCE.getHTTPEndpoint().isSuperTypeOf(domainElement.eClass())) {
+				return HTTPEndpointEditPart.VISUAL_ID;
+			}
 			break;
 		case MediatorFlowMediatorFlowCompartment17EditPart.VISUAL_ID:
 			if (EsbPackage.eINSTANCE.getDropMediator().isSuperTypeOf(domainElement.eClass())) {
@@ -2355,6 +2396,9 @@ public class EsbVisualIDRegistry {
 			}
 			if (EsbPackage.eINSTANCE.getAddressingEndpoint().isSuperTypeOf(domainElement.eClass())) {
 				return AddressingEndpointEditPart.VISUAL_ID;
+			}
+			if (EsbPackage.eINSTANCE.getHTTPEndpoint().isSuperTypeOf(domainElement.eClass())) {
+				return HTTPEndpointEditPart.VISUAL_ID;
 			}
 			break;
 		case MediatorFlowMediatorFlowCompartment3EditPart.VISUAL_ID:
@@ -2518,6 +2562,9 @@ public class EsbVisualIDRegistry {
 			if (EsbPackage.eINSTANCE.getAddressingEndpoint().isSuperTypeOf(domainElement.eClass())) {
 				return AddressingEndpointEditPart.VISUAL_ID;
 			}
+			if (EsbPackage.eINSTANCE.getHTTPEndpoint().isSuperTypeOf(domainElement.eClass())) {
+				return HTTPEndpointEditPart.VISUAL_ID;
+			}
 			break;
 		case MediatorFlowMediatorFlowCompartment14EditPart.VISUAL_ID:
 			if (EsbPackage.eINSTANCE.getDropMediator().isSuperTypeOf(domainElement.eClass())) {
@@ -2679,6 +2726,9 @@ public class EsbVisualIDRegistry {
 			}
 			if (EsbPackage.eINSTANCE.getAddressingEndpoint().isSuperTypeOf(domainElement.eClass())) {
 				return AddressingEndpointEditPart.VISUAL_ID;
+			}
+			if (EsbPackage.eINSTANCE.getHTTPEndpoint().isSuperTypeOf(domainElement.eClass())) {
+				return HTTPEndpointEditPart.VISUAL_ID;
 			}
 			break;
 		case MediatorFlowMediatorFlowCompartment15EditPart.VISUAL_ID:
@@ -2842,6 +2892,9 @@ public class EsbVisualIDRegistry {
 			if (EsbPackage.eINSTANCE.getAddressingEndpoint().isSuperTypeOf(domainElement.eClass())) {
 				return AddressingEndpointEditPart.VISUAL_ID;
 			}
+			if (EsbPackage.eINSTANCE.getHTTPEndpoint().isSuperTypeOf(domainElement.eClass())) {
+				return HTTPEndpointEditPart.VISUAL_ID;
+			}
 			break;
 		case MediatorFlowMediatorFlowCompartment16EditPart.VISUAL_ID:
 			if (EsbPackage.eINSTANCE.getDropMediator().isSuperTypeOf(domainElement.eClass())) {
@@ -3003,6 +3056,9 @@ public class EsbVisualIDRegistry {
 			}
 			if (EsbPackage.eINSTANCE.getAddressingEndpoint().isSuperTypeOf(domainElement.eClass())) {
 				return AddressingEndpointEditPart.VISUAL_ID;
+			}
+			if (EsbPackage.eINSTANCE.getHTTPEndpoint().isSuperTypeOf(domainElement.eClass())) {
+				return HTTPEndpointEditPart.VISUAL_ID;
 			}
 			break;
 		case MediatorFlowMediatorFlowCompartment4EditPart.VISUAL_ID:
@@ -3166,6 +3222,9 @@ public class EsbVisualIDRegistry {
 			if (EsbPackage.eINSTANCE.getAddressingEndpoint().isSuperTypeOf(domainElement.eClass())) {
 				return AddressingEndpointEditPart.VISUAL_ID;
 			}
+			if (EsbPackage.eINSTANCE.getHTTPEndpoint().isSuperTypeOf(domainElement.eClass())) {
+				return HTTPEndpointEditPart.VISUAL_ID;
+			}
 			break;
 		case MediatorFlowMediatorFlowCompartment8EditPart.VISUAL_ID:
 			if (EsbPackage.eINSTANCE.getDropMediator().isSuperTypeOf(domainElement.eClass())) {
@@ -3327,6 +3386,9 @@ public class EsbVisualIDRegistry {
 			}
 			if (EsbPackage.eINSTANCE.getAddressingEndpoint().isSuperTypeOf(domainElement.eClass())) {
 				return AddressingEndpointEditPart.VISUAL_ID;
+			}
+			if (EsbPackage.eINSTANCE.getHTTPEndpoint().isSuperTypeOf(domainElement.eClass())) {
+				return HTTPEndpointEditPart.VISUAL_ID;
 			}
 			break;
 		case MediatorFlowMediatorFlowCompartment10EditPart.VISUAL_ID:
@@ -3490,6 +3552,9 @@ public class EsbVisualIDRegistry {
 			if (EsbPackage.eINSTANCE.getAddressingEndpoint().isSuperTypeOf(domainElement.eClass())) {
 				return AddressingEndpointEditPart.VISUAL_ID;
 			}
+			if (EsbPackage.eINSTANCE.getHTTPEndpoint().isSuperTypeOf(domainElement.eClass())) {
+				return HTTPEndpointEditPart.VISUAL_ID;
+			}
 			break;
 		case MediatorFlowMediatorFlowCompartment6EditPart.VISUAL_ID:
 			if (EsbPackage.eINSTANCE.getDropMediator().isSuperTypeOf(domainElement.eClass())) {
@@ -3651,6 +3716,9 @@ public class EsbVisualIDRegistry {
 			}
 			if (EsbPackage.eINSTANCE.getAddressingEndpoint().isSuperTypeOf(domainElement.eClass())) {
 				return AddressingEndpointEditPart.VISUAL_ID;
+			}
+			if (EsbPackage.eINSTANCE.getHTTPEndpoint().isSuperTypeOf(domainElement.eClass())) {
+				return HTTPEndpointEditPart.VISUAL_ID;
 			}
 			break;
 		case MediatorFlowMediatorFlowCompartment5EditPart.VISUAL_ID:
@@ -3814,6 +3882,9 @@ public class EsbVisualIDRegistry {
 			if (EsbPackage.eINSTANCE.getAddressingEndpoint().isSuperTypeOf(domainElement.eClass())) {
 				return AddressingEndpointEditPart.VISUAL_ID;
 			}
+			if (EsbPackage.eINSTANCE.getHTTPEndpoint().isSuperTypeOf(domainElement.eClass())) {
+				return HTTPEndpointEditPart.VISUAL_ID;
+			}
 			break;
 		case EndpointDiagramEndpointCompartmentEditPart.VISUAL_ID:
 			if (EsbPackage.eINSTANCE.getDefaultEndPoint().isSuperTypeOf(domainElement.eClass())) {
@@ -3834,6 +3905,9 @@ public class EsbVisualIDRegistry {
 			}
 			if (EsbPackage.eINSTANCE.getLoadBalanceEndPoint().isSuperTypeOf(domainElement.eClass())) {
 				return LoadBalanceEndPoint2EditPart.VISUAL_ID;
+			}
+			if (EsbPackage.eINSTANCE.getHTTPEndpoint().isSuperTypeOf(domainElement.eClass())) {
+				return HTTPEndpoint2EditPart.VISUAL_ID;
 			}
 			break;
 		case TemplateTemplateCompartmentEditPart.VISUAL_ID:
@@ -3863,6 +3937,9 @@ public class EsbVisualIDRegistry {
 			}
 			if (EsbPackage.eINSTANCE.getLoadBalanceEndPoint().isSuperTypeOf(domainElement.eClass())) {
 				return LoadBalanceEndPoint2EditPart.VISUAL_ID;
+			}
+			if (EsbPackage.eINSTANCE.getHTTPEndpoint().isSuperTypeOf(domainElement.eClass())) {
+				return HTTPEndpoint2EditPart.VISUAL_ID;
 			}
 			break;
 		case SynapseAPIAPICompartmentEditPart.VISUAL_ID:
@@ -4030,6 +4107,9 @@ public class EsbVisualIDRegistry {
 			}
 			if (EsbPackage.eINSTANCE.getAddressingEndpoint().isSuperTypeOf(domainElement.eClass())) {
 				return AddressingEndpointEditPart.VISUAL_ID;
+			}
+			if (EsbPackage.eINSTANCE.getHTTPEndpoint().isSuperTypeOf(domainElement.eClass())) {
+				return HTTPEndpointEditPart.VISUAL_ID;
 			}
 			break;
 		}
@@ -4817,6 +4897,14 @@ public class EsbVisualIDRegistry {
 				return true;
 			}
 			break;
+		case HTTPEndpointEditPart.VISUAL_ID:
+			if (HTTPEndPointInputConnectorEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (HTTPEndPointOutputConnectorEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
 		case SwitchDefaultContainerEditPart.VISUAL_ID:
 			if (MediatorFlow4EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
@@ -4966,6 +5054,14 @@ public class EsbVisualIDRegistry {
 				return true;
 			}
 			if (LoadBalanceEndPointWestOutputConnector2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
+		case HTTPEndpoint2EditPart.VISUAL_ID:
+			if (HTTPEndPointInputConnector2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (HTTPEndPointOutputConnector2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -5219,6 +5315,9 @@ public class EsbVisualIDRegistry {
 			if (AddressingEndpointEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (HTTPEndpointEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case MediatorFlowMediatorFlowCompartment9EditPart.VISUAL_ID:
 			if (DropMediatorEditPart.VISUAL_ID == nodeVisualID) {
@@ -5375,6 +5474,9 @@ public class EsbVisualIDRegistry {
 				return true;
 			}
 			if (AddressingEndpointEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (HTTPEndpointEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -5535,6 +5637,9 @@ public class EsbVisualIDRegistry {
 			if (AddressingEndpointEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (HTTPEndpointEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case MediatorFlowMediatorFlowCompartment2EditPart.VISUAL_ID:
 			if (DropMediatorEditPart.VISUAL_ID == nodeVisualID) {
@@ -5691,6 +5796,9 @@ public class EsbVisualIDRegistry {
 				return true;
 			}
 			if (AddressingEndpointEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (HTTPEndpointEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -5851,6 +5959,9 @@ public class EsbVisualIDRegistry {
 			if (AddressingEndpointEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (HTTPEndpointEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case MediatorFlowMediatorFlowCompartment13EditPart.VISUAL_ID:
 			if (DropMediatorEditPart.VISUAL_ID == nodeVisualID) {
@@ -6007,6 +6118,9 @@ public class EsbVisualIDRegistry {
 				return true;
 			}
 			if (AddressingEndpointEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (HTTPEndpointEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -6167,6 +6281,9 @@ public class EsbVisualIDRegistry {
 			if (AddressingEndpointEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (HTTPEndpointEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case MediatorFlowMediatorFlowCompartment17EditPart.VISUAL_ID:
 			if (DropMediatorEditPart.VISUAL_ID == nodeVisualID) {
@@ -6323,6 +6440,9 @@ public class EsbVisualIDRegistry {
 				return true;
 			}
 			if (AddressingEndpointEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (HTTPEndpointEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -6483,6 +6603,9 @@ public class EsbVisualIDRegistry {
 			if (AddressingEndpointEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (HTTPEndpointEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case MediatorFlowMediatorFlowCompartment14EditPart.VISUAL_ID:
 			if (DropMediatorEditPart.VISUAL_ID == nodeVisualID) {
@@ -6639,6 +6762,9 @@ public class EsbVisualIDRegistry {
 				return true;
 			}
 			if (AddressingEndpointEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (HTTPEndpointEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -6799,6 +6925,9 @@ public class EsbVisualIDRegistry {
 			if (AddressingEndpointEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (HTTPEndpointEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case MediatorFlowMediatorFlowCompartment16EditPart.VISUAL_ID:
 			if (DropMediatorEditPart.VISUAL_ID == nodeVisualID) {
@@ -6955,6 +7084,9 @@ public class EsbVisualIDRegistry {
 				return true;
 			}
 			if (AddressingEndpointEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (HTTPEndpointEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -7115,6 +7247,9 @@ public class EsbVisualIDRegistry {
 			if (AddressingEndpointEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (HTTPEndpointEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case MediatorFlowMediatorFlowCompartment8EditPart.VISUAL_ID:
 			if (DropMediatorEditPart.VISUAL_ID == nodeVisualID) {
@@ -7271,6 +7406,9 @@ public class EsbVisualIDRegistry {
 				return true;
 			}
 			if (AddressingEndpointEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (HTTPEndpointEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -7431,6 +7569,9 @@ public class EsbVisualIDRegistry {
 			if (AddressingEndpointEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (HTTPEndpointEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case MediatorFlowMediatorFlowCompartment6EditPart.VISUAL_ID:
 			if (DropMediatorEditPart.VISUAL_ID == nodeVisualID) {
@@ -7587,6 +7728,9 @@ public class EsbVisualIDRegistry {
 				return true;
 			}
 			if (AddressingEndpointEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (HTTPEndpointEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -7747,6 +7891,9 @@ public class EsbVisualIDRegistry {
 			if (AddressingEndpointEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (HTTPEndpointEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			break;
 		case EndpointDiagramEndpointCompartmentEditPart.VISUAL_ID:
 			if (DefaultEndPoint2EditPart.VISUAL_ID == nodeVisualID) {
@@ -7765,6 +7912,9 @@ public class EsbVisualIDRegistry {
 				return true;
 			}
 			if (LoadBalanceEndPoint2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (HTTPEndpoint2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -7793,6 +7943,9 @@ public class EsbVisualIDRegistry {
 				return true;
 			}
 			if (LoadBalanceEndPoint2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (HTTPEndpoint2EditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -7956,6 +8109,9 @@ public class EsbVisualIDRegistry {
 				return true;
 			}
 			if (AddressingEndpointEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (HTTPEndpointEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -8194,8 +8350,12 @@ public class EsbVisualIDRegistry {
 		case RecipientListEndPointInputConnector2EditPart.VISUAL_ID:
 		case RecipientListEndPointOutputConnector2EditPart.VISUAL_ID:
 		case RecipientListEndPointWestOutputConnector2EditPart.VISUAL_ID:
-		case MessageStoreEditPart.VISUAL_ID:
 		case MessageProcessorEditPart.VISUAL_ID:
+		case HTTPEndPointInputConnectorEditPart.VISUAL_ID:
+		case HTTPEndPointOutputConnectorEditPart.VISUAL_ID:
+		case HTTPEndPointInputConnector2EditPart.VISUAL_ID:
+		case HTTPEndPointOutputConnector2EditPart.VISUAL_ID:
+		case MessageStoreEditPart.VISUAL_ID:
 			return true;
 		default:
 			break;

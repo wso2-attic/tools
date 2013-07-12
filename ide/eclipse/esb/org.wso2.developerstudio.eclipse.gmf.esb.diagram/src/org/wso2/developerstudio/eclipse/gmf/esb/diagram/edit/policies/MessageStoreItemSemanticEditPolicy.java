@@ -18,7 +18,7 @@ public class MessageStoreItemSemanticEditPolicy extends EsbBaseItemSemanticEditP
 	 * @generated
 	 */
 	public MessageStoreItemSemanticEditPolicy() {
-		super(EsbElementTypes.MessageStore_3700);
+		super(EsbElementTypes.MessageStore_3715);
 	}
 
 	/**

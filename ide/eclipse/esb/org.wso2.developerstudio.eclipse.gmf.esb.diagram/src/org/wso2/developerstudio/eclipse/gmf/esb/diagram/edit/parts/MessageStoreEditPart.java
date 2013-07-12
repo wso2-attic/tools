@@ -34,7 +34,7 @@ public class MessageStoreEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 3700;
+	public static final int VISUAL_ID = 3715;
 
 	/**
 	 * @generated
@@ -90,14 +90,15 @@ public class MessageStoreEditPart extends ShapeNodeEditPart {
 		};
 		return lep;
 	}
-	
+
 	@Override
 	public void notifyChanged(Notification notification) {
 		super.notifyChanged(notification);
 		if (notification.getFeature() instanceof EAttributeImpl) {
 			if (notification.getNotifier() instanceof BoundsImpl) {
 				Rectangle constraints = new Rectangle(10, 10, -1, -1);
-				((GraphicalEditPart) getParent()).setLayoutConstraint(this, getFigure(), constraints);
+				((GraphicalEditPart) getParent()).setLayoutConstraint(this, getFigure(),
+						constraints);
 			}
 		}
 	}

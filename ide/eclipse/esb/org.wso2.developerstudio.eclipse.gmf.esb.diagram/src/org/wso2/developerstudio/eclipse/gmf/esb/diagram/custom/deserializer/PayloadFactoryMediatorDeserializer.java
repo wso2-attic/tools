@@ -25,7 +25,7 @@ public class PayloadFactoryMediatorDeserializer extends AbstractEsbNodeDeseriali
 		
 		executeSetValueCommand(PAYLOAD_FACTORY_MEDIATOR__FORMAT, payloadFactoryMediator.getFormat());
 		EList<PayloadFactoryArgument> arguments=new BasicEList<PayloadFactoryArgument>();
-		for(Argument argument: payloadFactoryMediator.getArgumentList()){
+		for(Argument argument: payloadFactoryMediator.getXPathArgumentList()){// getArgumentList()){
 			PayloadFactoryArgument payloadFactoryArgument= EsbFactory.eINSTANCE.createPayloadFactoryArgument();
 			if(argument.getExpression()!=null){
 				executeSetValueCommand(payloadFactoryArgument,PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_EXPRESSION, createNamespacedProperty(argument.getExpression()));

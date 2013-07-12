@@ -311,6 +311,21 @@ public class EsbElementTypes {
 	/**
 	 * @generated
 	 */
+	public static final IElementType HTTPEndpoint_3712 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.HTTPEndpoint_3712"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType HTTPEndPointInputConnector_3713 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.HTTPEndPointInputConnector_3713"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType HTTPEndPointOutputConnector_3714 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.HTTPEndPointOutputConnector_3714"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
 	public static final IElementType LocalEntry_3663 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.LocalEntry_3663"); //$NON-NLS-1$
 
 	/**
@@ -381,7 +396,7 @@ public class EsbElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType MessageStore_3700 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.MessageStore_3700"); //$NON-NLS-1$
+	public static final IElementType MessageStore_3715 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.MessageStore_3715"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -807,6 +822,21 @@ public class EsbElementTypes {
 	 * @generated
 	 */
 	public static final IElementType AddressingEndpointOutputConnector_3691 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.AddressingEndpointOutputConnector_3691"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType HTTPEndpoint_3709 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.HTTPEndpoint_3709"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType HTTPEndPointInputConnector_3710 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.HTTPEndPointInputConnector_3710"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType HTTPEndPointOutputConnector_3711 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.HTTPEndPointOutputConnector_3711"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -2000,6 +2030,14 @@ public class EsbElementTypes {
 			elements.put(AddressingEndpointOutputConnector_3691,
 					EsbPackage.eINSTANCE.getAddressingEndpointOutputConnector());
 
+			elements.put(HTTPEndpoint_3709, EsbPackage.eINSTANCE.getHTTPEndpoint());
+
+			elements.put(HTTPEndPointInputConnector_3710,
+					EsbPackage.eINSTANCE.getHTTPEndPointInputConnector());
+
+			elements.put(HTTPEndPointOutputConnector_3711,
+					EsbPackage.eINSTANCE.getHTTPEndPointOutputConnector());
+
 			elements.put(SwitchDefaultContainer_3527,
 					EsbPackage.eINSTANCE.getSwitchDefaultContainer());
 
@@ -2108,6 +2146,14 @@ public class EsbElementTypes {
 			elements.put(LoadBalanceEndPointWestOutputConnector_3659,
 					EsbPackage.eINSTANCE.getLoadBalanceEndPointWestOutputConnector());
 
+			elements.put(HTTPEndpoint_3712, EsbPackage.eINSTANCE.getHTTPEndpoint());
+
+			elements.put(HTTPEndPointInputConnector_3713,
+					EsbPackage.eINSTANCE.getHTTPEndPointInputConnector());
+
+			elements.put(HTTPEndPointOutputConnector_3714,
+					EsbPackage.eINSTANCE.getHTTPEndPointOutputConnector());
+
 			elements.put(LocalEntry_3663, EsbPackage.eINSTANCE.getLocalEntry());
 
 			elements.put(Template_3664, EsbPackage.eINSTANCE.getTemplate());
@@ -2141,7 +2187,7 @@ public class EsbElementTypes {
 			elements.put(ComplexEndpointsOutputConnector_3679,
 					EsbPackage.eINSTANCE.getComplexEndpointsOutputConnector());
 
-			elements.put(MessageStore_3700, EsbPackage.eINSTANCE.getMessageStore());
+			elements.put(MessageStore_3715, EsbPackage.eINSTANCE.getMessageStore());
 
 			elements.put(MessageProcessor_3701, EsbPackage.eINSTANCE.getMessageProcessor());
 
@@ -2367,6 +2413,9 @@ public class EsbElementTypes {
 			KNOWN_ELEMENT_TYPES.add(AddressingEndpoint_3689);
 			KNOWN_ELEMENT_TYPES.add(AddressingEndpointInputConnector_3690);
 			KNOWN_ELEMENT_TYPES.add(AddressingEndpointOutputConnector_3691);
+			KNOWN_ELEMENT_TYPES.add(HTTPEndpoint_3709);
+			KNOWN_ELEMENT_TYPES.add(HTTPEndPointInputConnector_3710);
+			KNOWN_ELEMENT_TYPES.add(HTTPEndPointOutputConnector_3711);
 			KNOWN_ELEMENT_TYPES.add(SwitchDefaultContainer_3527);
 			KNOWN_ELEMENT_TYPES.add(MediatorFlow_3528);
 			KNOWN_ELEMENT_TYPES.add(FilterFailContainer_3537);
@@ -2408,6 +2457,9 @@ public class EsbElementTypes {
 			KNOWN_ELEMENT_TYPES.add(LoadBalanceEndPointInputConnector_3657);
 			KNOWN_ELEMENT_TYPES.add(LoadBalanceEndPointOutputConnector_3658);
 			KNOWN_ELEMENT_TYPES.add(LoadBalanceEndPointWestOutputConnector_3659);
+			KNOWN_ELEMENT_TYPES.add(HTTPEndpoint_3712);
+			KNOWN_ELEMENT_TYPES.add(HTTPEndPointInputConnector_3713);
+			KNOWN_ELEMENT_TYPES.add(HTTPEndPointOutputConnector_3714);
 			KNOWN_ELEMENT_TYPES.add(LocalEntry_3663);
 			KNOWN_ELEMENT_TYPES.add(Template_3664);
 			KNOWN_ELEMENT_TYPES.add(Sequences_3665);
@@ -2422,7 +2474,7 @@ public class EsbElementTypes {
 			KNOWN_ELEMENT_TYPES.add(ComplexEndpoints_3677);
 			KNOWN_ELEMENT_TYPES.add(MediatorFlow_3678);
 			KNOWN_ELEMENT_TYPES.add(ComplexEndpointsOutputConnector_3679);
-			KNOWN_ELEMENT_TYPES.add(MessageStore_3700);
+			KNOWN_ELEMENT_TYPES.add(MessageStore_3715);
 			KNOWN_ELEMENT_TYPES.add(MessageProcessor_3701);
 			KNOWN_ELEMENT_TYPES.add(EsbLink_4001);
 		}
@@ -2842,6 +2894,12 @@ public class EsbElementTypes {
 			return AddressingEndpointInputConnector_3690;
 		case AddressingEndpointOutputConnectorEditPart.VISUAL_ID:
 			return AddressingEndpointOutputConnector_3691;
+		case HTTPEndpointEditPart.VISUAL_ID:
+			return HTTPEndpoint_3709;
+		case HTTPEndPointInputConnectorEditPart.VISUAL_ID:
+			return HTTPEndPointInputConnector_3710;
+		case HTTPEndPointOutputConnectorEditPart.VISUAL_ID:
+			return HTTPEndPointOutputConnector_3711;
 		case SwitchDefaultContainerEditPart.VISUAL_ID:
 			return SwitchDefaultContainer_3527;
 		case MediatorFlow4EditPart.VISUAL_ID:
@@ -2924,6 +2982,12 @@ public class EsbElementTypes {
 			return LoadBalanceEndPointOutputConnector_3658;
 		case LoadBalanceEndPointWestOutputConnector2EditPart.VISUAL_ID:
 			return LoadBalanceEndPointWestOutputConnector_3659;
+		case HTTPEndpoint2EditPart.VISUAL_ID:
+			return HTTPEndpoint_3712;
+		case HTTPEndPointInputConnector2EditPart.VISUAL_ID:
+			return HTTPEndPointInputConnector_3713;
+		case HTTPEndPointOutputConnector2EditPart.VISUAL_ID:
+			return HTTPEndPointOutputConnector_3714;
 		case LocalEntryEditPart.VISUAL_ID:
 			return LocalEntry_3663;
 		case TemplateEditPart.VISUAL_ID:
@@ -2953,7 +3017,7 @@ public class EsbElementTypes {
 		case ComplexEndpointsOutputConnectorEditPart.VISUAL_ID:
 			return ComplexEndpointsOutputConnector_3679;
 		case MessageStoreEditPart.VISUAL_ID:
-			return MessageStore_3700;
+			return MessageStore_3715;
 		case MessageProcessorEditPart.VISUAL_ID:
 			return MessageProcessor_3701;
 		case EsbLinkEditPart.VISUAL_ID:

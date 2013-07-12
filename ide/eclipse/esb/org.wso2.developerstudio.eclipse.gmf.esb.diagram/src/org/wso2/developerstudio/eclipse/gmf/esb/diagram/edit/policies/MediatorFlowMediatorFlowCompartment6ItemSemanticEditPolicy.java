@@ -28,6 +28,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.EventMedia
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.FailoverEndPointCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.FaultMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.FilterMediatorCreateCommand;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.HTTPEndpointCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.HeaderMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.IterateMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.LoadBalanceEndPointCreateCommand;
@@ -228,6 +229,9 @@ public class MediatorFlowMediatorFlowCompartment6ItemSemanticEditPolicy extends
 		}
 		if (EsbElementTypes.AddressingEndpoint_3689 == req.getElementType()) {
 			return getGEFWrapper(new AddressingEndpointCreateCommand(req));
+		}
+		if (EsbElementTypes.HTTPEndpoint_3709 == req.getElementType()) {
+			return getGEFWrapper(new HTTPEndpointCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

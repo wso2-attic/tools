@@ -46,6 +46,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EventMediator
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FailoverEndPointEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FaultMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FilterMediatorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.HTTPEndpointEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.HeaderMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.IterateMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.LoadBalanceEndPointEditPart;
@@ -180,6 +181,7 @@ public class MediatorFlowMediatorFlowCompartment5CanonicalEditPolicy extends Can
 		case LoadBalanceEndPointEditPart.VISUAL_ID:
 		case APIResourceEndpointEditPart.VISUAL_ID:
 		case AddressingEndpointEditPart.VISUAL_ID:
+		case HTTPEndpointEditPart.VISUAL_ID:
 			return true;
 		}
 		return false;

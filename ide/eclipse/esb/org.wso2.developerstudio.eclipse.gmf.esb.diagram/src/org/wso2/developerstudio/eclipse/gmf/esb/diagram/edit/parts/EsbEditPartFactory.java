@@ -731,6 +731,15 @@ public class EsbEditPartFactory implements EditPartFactory {
 			case AddressingEndpointOutputConnectorEditPart.VISUAL_ID:
 				return new AddressingEndpointOutputConnectorEditPart(view);
 
+			case HTTPEndpointEditPart.VISUAL_ID:
+				return new HTTPEndpointEditPart(view);
+
+			case HTTPEndPointInputConnectorEditPart.VISUAL_ID:
+				return new HTTPEndPointInputConnectorEditPart(view);
+
+			case HTTPEndPointOutputConnectorEditPart.VISUAL_ID:
+				return new HTTPEndPointOutputConnectorEditPart(view);
+
 			case SwitchDefaultContainerEditPart.VISUAL_ID:
 				return new SwitchDefaultContainerEditPart(view);
 
@@ -868,6 +877,15 @@ public class EsbEditPartFactory implements EditPartFactory {
 
 			case LoadBalanceEndPointWestOutputConnector2EditPart.VISUAL_ID:
 				return new LoadBalanceEndPointWestOutputConnector2EditPart(view);
+
+			case HTTPEndpoint2EditPart.VISUAL_ID:
+				return new HTTPEndpoint2EditPart(view);
+
+			case HTTPEndPointInputConnector2EditPart.VISUAL_ID:
+				return new HTTPEndPointInputConnector2EditPart(view);
+
+			case HTTPEndPointOutputConnector2EditPart.VISUAL_ID:
+				return new HTTPEndPointOutputConnector2EditPart(view);
 
 			case LocalEntryEditPart.VISUAL_ID:
 				return new LocalEntryEditPart(view);

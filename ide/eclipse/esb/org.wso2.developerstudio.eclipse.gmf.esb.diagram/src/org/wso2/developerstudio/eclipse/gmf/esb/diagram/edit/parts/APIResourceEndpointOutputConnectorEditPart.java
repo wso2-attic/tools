@@ -366,6 +366,9 @@ public class APIResourceEndpointOutputConnectorEditPart extends AbstractBorderIt
 		if (targetEditPart instanceof AddressingEndpointInputConnectorEditPart) {
 			types.add(EsbElementTypes.EsbLink_4001);
 		}
+		if (targetEditPart instanceof HTTPEndPointInputConnectorEditPart) {
+			types.add(EsbElementTypes.EsbLink_4001);
+		}
 		if (targetEditPart instanceof MessageInputConnectorEditPart) {
 			types.add(EsbElementTypes.EsbLink_4001);
 		}
@@ -394,6 +397,9 @@ public class APIResourceEndpointOutputConnectorEditPart extends AbstractBorderIt
 			types.add(EsbElementTypes.EsbLink_4001);
 		}
 		if (targetEditPart instanceof LoadBalanceEndPointInputConnector2EditPart) {
+			types.add(EsbElementTypes.EsbLink_4001);
+		}
+		if (targetEditPart instanceof HTTPEndPointInputConnector2EditPart) {
 			types.add(EsbElementTypes.EsbLink_4001);
 		}
 		if (targetEditPart instanceof APIResourceInputConnectorEditPart) {
@@ -465,6 +471,7 @@ public class APIResourceEndpointOutputConnectorEditPart extends AbstractBorderIt
 			types.add(EsbElementTypes.LoadBalanceEndPointInputConnector_3095);
 			types.add(EsbElementTypes.APIResourceEndpointInputConnector_3675);
 			types.add(EsbElementTypes.AddressingEndpointInputConnector_3690);
+			types.add(EsbElementTypes.HTTPEndPointInputConnector_3710);
 			types.add(EsbElementTypes.MessageInputConnector_3046);
 			types.add(EsbElementTypes.MergeNodeFirstInputConnector_3014);
 			types.add(EsbElementTypes.MergeNodeSecondInputConnector_3015);
@@ -475,6 +482,7 @@ public class APIResourceEndpointOutputConnectorEditPart extends AbstractBorderIt
 			types.add(EsbElementTypes.RecipientListEndPointInputConnector_3697);
 			types.add(EsbElementTypes.WSDLEndPointInputConnector_3654);
 			types.add(EsbElementTypes.LoadBalanceEndPointInputConnector_3657);
+			types.add(EsbElementTypes.HTTPEndPointInputConnector_3713);
 			types.add(EsbElementTypes.APIResourceInputConnector_3670);
 			types.add(EsbElementTypes.APIResourceFaultInputConnector_3672);
 		}

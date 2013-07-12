@@ -24,6 +24,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AddressEndPoint2EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DefaultEndPoint2EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FailoverEndPoint2EditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.HTTPEndpoint2EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.LoadBalanceEndPoint2EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.RecipientListEndPoint2EditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.WSDLEndPoint2EditPart;
@@ -89,6 +90,7 @@ public class EndpointDiagramEndpointCompartment2CanonicalEditPolicy extends Cano
 		case RecipientListEndPoint2EditPart.VISUAL_ID:
 		case WSDLEndPoint2EditPart.VISUAL_ID:
 		case LoadBalanceEndPoint2EditPart.VISUAL_ID:
+		case HTTPEndpoint2EditPart.VISUAL_ID:
 			return true;
 		}
 		return false;

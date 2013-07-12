@@ -818,6 +818,16 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String HTTPEndpoint9CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String HTTPEndpoint9CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
 	public static String MergeNode1CreationTool_title;
 
 	/**
@@ -998,6 +1008,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_HTTPEndPointInputConnector_3713_incominglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_XQueryMediatorOutputConnector_3071_outgoinglinks;
 
 	/**
@@ -1073,6 +1088,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_HTTPEndPointOutputConnector_3711_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_LoadBalanceEndPointWestOutputConnector_3098_outgoinglinks;
 
 	/**
@@ -1114,6 +1134,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_DefaultEndPointOutputConnector_3022_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_HTTPEndPointOutputConnector_3714_outgoinglinks;
 
 	/**
 	 * @generated
@@ -1634,6 +1659,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_DBReportMediatorInputConnector_3079_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_HTTPEndPointInputConnector_3710_incominglinks;
 
 	/**
 	 * @generated

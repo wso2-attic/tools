@@ -274,6 +274,7 @@ public class MergeNodeFirstInputConnectorEditPart extends AbstractBorderItemEdit
 			types.add(EsbElementTypes.LoadBalanceEndPointWestOutputConnector_3098);
 			types.add(EsbElementTypes.APIResourceEndpointOutputConnector_3676);
 			types.add(EsbElementTypes.AddressingEndpointOutputConnector_3691);
+			types.add(EsbElementTypes.HTTPEndPointOutputConnector_3711);
 			types.add(EsbElementTypes.MessageOutputConnector_3047);
 			types.add(EsbElementTypes.MergeNodeOutputConnector_3016);
 			types.add(EsbElementTypes.SequencesOutputConnector_3617);
@@ -286,6 +287,7 @@ public class MergeNodeFirstInputConnectorEditPart extends AbstractBorderItemEdit
 			types.add(EsbElementTypes.WSDLEndPointOutputConnector_3655);
 			types.add(EsbElementTypes.LoadBalanceEndPointOutputConnector_3658);
 			types.add(EsbElementTypes.LoadBalanceEndPointWestOutputConnector_3659);
+			types.add(EsbElementTypes.HTTPEndPointOutputConnector_3714);
 			types.add(EsbElementTypes.APIResourceOutputConnector_3671);
 			types.add(EsbElementTypes.ComplexEndpointsOutputConnector_3679);
 		}
