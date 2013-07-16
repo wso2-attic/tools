@@ -93,9 +93,9 @@ public class EsbPaletteFactory {
 	private PaletteContainer createNodes1Group() {
 		PaletteDrawer paletteContainer = new PaletteDrawer(Messages.Nodes1Group_title);
 		paletteContainer.setId("createNodes1Group"); //$NON-NLS-1$
-		//paletteContainer.add(createEsbServer1CreationTool());
+		//paletteContainer.add(createEsbServer1CreationTool());		
 		paletteContainer.add(createProxyService2CreationTool());
-		//paletteContainer.add(createMessageMediator3CreationTool());		
+		//paletteContainer.add(createMessageMediator3CreationTool());	
 		paletteContainer.add(createAPIResource5CreationTool());
 		return paletteContainer;
 	}
@@ -107,60 +107,50 @@ public class EsbPaletteFactory {
 	private PaletteContainer createMediators2Group() {
 		PaletteDrawer paletteContainer = new PaletteDrawer(Messages.Mediators2Group_title);
 		paletteContainer.setId("createMediators2Group"); //$NON-NLS-1$	
-
-		paletteContainer.add(createLogMediator3CreationTool());
-		paletteContainer.add(createDropMediator1CreationTool());
-		paletteContainer.add(createPropertyMediator4CreationTool());
-		paletteContainer.add(createEnrichMediator5CreationTool());
-		paletteContainer.add(createEventMediator8CreationTool());
-		paletteContainer.add(createSendMediator19CreationTool());
+		
+		paletteContainer.add(createAggregateMediator24CreationTool());
+		paletteContainer.add(createBAMMediator40CreationTool());
+		paletteContainer.add(createBeanMediator41CreationTool());
+		paletteContainer.add(createBuilderMediator32CreationTool());
+		paletteContainer.add(createCacheMediator23CreationTool());
+		paletteContainer.add(createCalloutMediator25CreationTool());
 		paletteContainer.add(createCallTemplateMediator33CreationTool());
-		paletteContainer.add(createEnqueueMediator35CreationTool());
-		paletteContainer.add(createSequence4CreationTool());
-
-		paletteContainer.add(new PaletteSeparator());
-		paletteContainer.add(createFilterMediator2CreationTool());
-		paletteContainer.add(createSwitchMediator7CreationTool());
-		paletteContainer.add(createValidateMediator37CreationTool());
-		paletteContainer.add(createRouterMediator38CreationTool());
+		paletteContainer.add(createClassMediator10CreationTool());
+		paletteContainer.add(createCloneMediator21CreationTool());
+		paletteContainer.add(createCommandMediator15CreationTool());
 		paletteContainer.add(createConditionalRouterMediator39CreationTool());
-
-		paletteContainer.add(new PaletteSeparator());
-		paletteContainer.add(createXSLTMediator6CreationTool());
-		paletteContainer.add(createXQueryMediator14CreationTool());
-		paletteContainer.add(createFaultMediator13CreationTool());
-		paletteContainer.add(createHeaderMediator20CreationTool());
-		paletteContainer.add(createPayloadFactoryMediator34CreationTool());
-		paletteContainer.add(createURLRewriteMediator36CreationTool());
-
-		paletteContainer.add(new PaletteSeparator());
 		paletteContainer.add(createDBLookupMediator16CreationTool());
 		paletteContainer.add(createDBReportMediator17CreationTool());
-		paletteContainer.add(createEntitlementMediator9CreationTool());
-		paletteContainer.add(createCloneMediator21CreationTool());
-		paletteContainer.add(createIterateMediator22CreationTool());
-		paletteContainer.add(createCacheMediator23CreationTool());
-		paletteContainer.add(createAggregateMediator24CreationTool());
-		paletteContainer.add(createCalloutMediator25CreationTool());
-		paletteContainer.add(createTransactionMediator26CreationTool());
-		paletteContainer.add(createThrottleMediator27CreationTool());
-		paletteContainer.add(createRMSequenceMediator28CreationTool());
-		paletteContainer.add(createOAuthMediator29CreationTool());
-		paletteContainer.add(createRuleMediator30CreationTool());
-		paletteContainer.add(createStoreMediator31CreationTool());
-		paletteContainer.add(createBuilderMediator32CreationTool());
+		paletteContainer.add(createDropMediator1CreationTool());
 		paletteContainer.add(createEJBMediator42CreationTool());
-		paletteContainer.add(createSmooksMediator18CreationTool());
-
-		paletteContainer.add(new PaletteSeparator());
-		paletteContainer.add(createBeanMediator41CreationTool());
-		paletteContainer.add(createClassMediator10CreationTool());
-		paletteContainer.add(createSpringMediator11CreationTool());
+		paletteContainer.add(createEnqueueMediator35CreationTool());
+		paletteContainer.add(createEnrichMediator5CreationTool());
+		paletteContainer.add(createEntitlementMediator9CreationTool());
+		paletteContainer.add(createEventMediator8CreationTool());
+		paletteContainer.add(createFaultMediator13CreationTool());
+		paletteContainer.add(createFilterMediator2CreationTool());
+		paletteContainer.add(createHeaderMediator20CreationTool());
+		paletteContainer.add(createIterateMediator22CreationTool());
+		paletteContainer.add(createLogMediator3CreationTool());
+		paletteContainer.add(createOAuthMediator29CreationTool());
+		paletteContainer.add(createPayloadFactoryMediator34CreationTool());		
+		paletteContainer.add(createPropertyMediator4CreationTool());	
+		paletteContainer.add(createRMSequenceMediator28CreationTool());
+		paletteContainer.add(createRouterMediator38CreationTool());
+		paletteContainer.add(createRuleMediator30CreationTool());
 		paletteContainer.add(createScriptMediator12CreationTool());
-		paletteContainer.add(createCommandMediator15CreationTool());
-
-		paletteContainer.add(new PaletteSeparator());
-		paletteContainer.add(createBAMMediator40CreationTool());
+		paletteContainer.add(createSendMediator19CreationTool());	
+		paletteContainer.add(createSequence4CreationTool());
+		paletteContainer.add(createSmooksMediator18CreationTool());
+		paletteContainer.add(createSpringMediator11CreationTool());
+		paletteContainer.add(createStoreMediator31CreationTool());
+		paletteContainer.add(createSwitchMediator7CreationTool());
+		paletteContainer.add(createThrottleMediator27CreationTool());
+		paletteContainer.add(createTransactionMediator26CreationTool());		
+		paletteContainer.add(createURLRewriteMediator36CreationTool());
+		paletteContainer.add(createValidateMediator37CreationTool());
+		paletteContainer.add(createXQueryMediator14CreationTool());
+		paletteContainer.add(createXSLTMediator6CreationTool());
 
 		return paletteContainer;
 	}
@@ -171,16 +161,16 @@ public class EsbPaletteFactory {
 	 */
 	private PaletteContainer createEndPoints3Group() {
 		PaletteDrawer paletteContainer = new PaletteDrawer(Messages.EndPoints3Group_title);
-		paletteContainer.setId("createEndPoints3Group"); //$NON-NLS-1$
-		paletteContainer.add(createDefaultEndPoint1CreationTool());
+		paletteContainer.setId("createEndPoints3Group"); //$NON-NLS-1$		
 		paletteContainer.add(createAddressEndPoint2CreationTool());
+		paletteContainer.add(createAddressingEndpoint7CreationTool());
+		paletteContainer.add(createDefaultEndPoint1CreationTool());
 		paletteContainer.add(createFailoverEndPoint3CreationTool());
-		paletteContainer.add(createWSDLEndPoint4CreationTool());
+		paletteContainer.add(createHTTPEndpoint9CreationTool());		
 		paletteContainer.add(createLoadBalanceEndPoint5CreationTool());
 		paletteContainer.add(createNamedEndpoint6CreationTool());
-		paletteContainer.add(createAddressingEndpoint7CreationTool());
 		paletteContainer.add(createRecipientListEndPoint8CreationTool());
-		paletteContainer.add(createHTTPEndpoint9CreationTool());
+		paletteContainer.add(createWSDLEndPoint4CreationTool());		
 		return paletteContainer;
 	}
 
