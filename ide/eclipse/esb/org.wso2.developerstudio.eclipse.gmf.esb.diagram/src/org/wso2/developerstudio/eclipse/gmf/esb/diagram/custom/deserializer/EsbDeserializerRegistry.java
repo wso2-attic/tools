@@ -25,6 +25,7 @@ import org.apache.synapse.core.axis2.ProxyService;
 import org.apache.synapse.endpoints.AddressEndpoint;
 import org.apache.synapse.endpoints.DefaultEndpoint;
 import org.apache.synapse.endpoints.FailoverEndpoint;
+import org.apache.synapse.endpoints.HTTPEndpoint;
 import org.apache.synapse.endpoints.IndirectEndpoint;
 import org.apache.synapse.endpoints.LoadbalanceEndpoint;
 import org.apache.synapse.endpoints.RecipientListEndpoint;
@@ -176,6 +177,7 @@ public class EsbDeserializerRegistry {
 		addDeserializer(InMemoryMessageStore.class , new MessageStoreDeserializer());
 		addDeserializer(DummyMessageStore.class , new MessageStoreDeserializer());
 		addDeserializer(DummyMessageProcessor.class, new MessageProcessorDeserializer());
+		addDeserializer(HTTPEndpoint.class, new HTTPEndpointDeserializer());
 	}
 	
 	/**

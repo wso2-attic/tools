@@ -52,7 +52,8 @@ Require-Bundle: org.eclipse.core.runtime,
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Eclipse-LazyStart: true
-Import-Package: net.sf.saxon.javax.xml.xquery,
+Import-Package: com.damnhandy.uri.template,
+ net.sf.saxon.javax.xml.xquery,
  org.apache.axiom.om,
  org.apache.axiom.om.util,
  org.apache.axiom.om.xpath,
