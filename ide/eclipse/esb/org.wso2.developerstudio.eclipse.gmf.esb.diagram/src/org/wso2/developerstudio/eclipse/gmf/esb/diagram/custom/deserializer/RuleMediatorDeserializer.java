@@ -16,13 +16,14 @@
 
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 
-
+import org.apache.commons.lang.StringUtils;
 import org.apache.synapse.mediators.AbstractMediator;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.wso2.carbon.rule.common.Fact;
 import org.wso2.carbon.rule.common.Input;
 import org.wso2.carbon.rule.common.Output;
+import org.wso2.carbon.rule.common.Rule;
 import org.wso2.carbon.rule.common.RuleSet;
 import org.wso2.carbon.rule.mediator.config.RuleMediatorConfig;
 import org.wso2.carbon.rule.mediator.config.Source;
@@ -30,8 +31,12 @@ import org.wso2.carbon.rule.mediator.config.Target;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleActions;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleFact;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleFactType;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleResult;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleResultType;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleSourceType;
+import org.wso2.developerstudio.eclipse.gmf.esb.RuleType;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.*;
 
@@ -53,9 +58,31 @@ public class RuleMediatorDeserializer extends AbstractEsbNodeDeserializer<Abstra
 			executeSetValueCommand(RULE_MEDIATOR__INPUT_NAME_SPACE, input.getNameSpace());
 			for (Fact fact : input.getFacts()) {
 				RuleFact ruleFact = EsbFactory.eINSTANCE.createRuleFact();
-				ruleFact.setFactName( fact.getElementName());
-				ruleFact.setValueExpression(createNamespacedProperty(fact.getXpath(),fact.getPrefixToNamespaceMap()));
-				//TODO: set type, etc
+		
+				if(StringUtils.isNotBlank(fact.getType())) {
+					String ruleFactType = fact.getType();
+					if(ruleFactType.equals(RuleFactType.MESSAGE.toString())) {
+						ruleFact.setFactType(RuleFactType.MESSAGE);
+					} else if (ruleFactType.equals(RuleFactType.CONTEXT.toString())) {
+						ruleFact.setFactType(RuleFactType.CONTEXT);
+					} else if (ruleFactType.equals(RuleFactType.DOM.toString())) {
+						ruleFact.setFactType(RuleFactType.DOM);
+					} else if (ruleFactType.equals(RuleFactType.MEDIATOR.toString())) {
+						ruleFact.setFactType(RuleFactType.MEDIATOR);
+					} else if (ruleFactType.equals(RuleFactType.OMELEMENT.toString())) {
+						ruleFact.setFactType(RuleFactType.OMELEMENT);
+					} else {
+						//Custom Type
+						ruleFact.setFactCustomType(ruleFactType);
+					}
+				}			
+				if(StringUtils.isNotBlank(fact.getElementName())) {
+					ruleFact.setFactName(fact.getElementName());
+				}
+				if(StringUtils.isNotBlank(fact.getXpath())) {
+					ruleFact.setValueExpression(createNamespacedProperty(fact.getXpath(),fact.getPrefixToNamespaceMap()));
+				}
+				
 				executeAddValueCommand(mediatorModel.getFactsConfiguration().getFacts(), ruleFact);
 			}
 		}
@@ -66,25 +93,63 @@ public class RuleMediatorDeserializer extends AbstractEsbNodeDeserializer<Abstra
 			executeSetValueCommand(RULE_MEDIATOR__OUTPUT_NAME_SPACE, output.getNameSpace());
 			for (Fact fact : output.getFacts()) {
 				RuleResult ruleResult = EsbFactory.eINSTANCE.createRuleResult();
-				ruleResult.setResultName( fact.getElementName());
-				ruleResult.setValueExpression(createNamespacedProperty(fact.getXpath(),fact.getPrefixToNamespaceMap()));
-				//TODO: set type, etc
+				ruleResult.setResultName(fact.getElementName());
+				if(StringUtils.isNotBlank(fact.getXpath())) {
+					ruleResult.setValueExpression(createNamespacedProperty(fact.getXpath(),fact.getPrefixToNamespaceMap()));
+				}			
+				if(StringUtils.isNotBlank(fact.getType())) {
+					String resultFactType = fact.getType();
+					if(resultFactType.equals(RuleResultType.MESSAGE.toString())) {
+						ruleResult.setResultType(RuleResultType.MESSAGE);
+					} else if (resultFactType.equals(RuleResultType.CONTEXT.toString())) {
+						ruleResult.setResultType(RuleResultType.CONTEXT);
+					} else if (resultFactType.equals(RuleResultType.DOM.toString())) {
+						ruleResult.setResultType(RuleResultType.DOM);
+					} else if (resultFactType.equals(RuleResultType.MEDIATOR.toString())) {
+						ruleResult.setResultType(RuleResultType.MEDIATOR);
+					} else if (resultFactType.equals(RuleResultType.OMELEMENT.toString())) {
+						ruleResult.setResultType(RuleResultType.OMELEMENT);
+					} else {
+						//Custom Type
+						ruleResult.setResultCustomType(resultFactType);
+					}
+				}
+				
 				executeAddValueCommand(mediatorModel.getResultsConfiguration().getResults(), ruleResult);
 			}
 		}
 		
-		
 		RuleSet ruleSet = ruleMediatorConfig.getRuleSet();
 		if(ruleSet!=null){
-			//TODO: 
+			for(Rule rule : ruleSet.getRules()) {
+				if("dtable".equals(rule.getResourceType())) {
+					executeSetValueCommand(RULE_MEDIATOR__RULE_SET_TYPE, RuleType.DTABLE);
+				} else {
+					executeSetValueCommand(RULE_MEDIATOR__RULE_SET_TYPE, RuleType.REGULAR);
+				}
+				
+				if("url".equals(rule.getSourceType())) {
+					executeSetValueCommand(RULE_MEDIATOR__RULE_SET_SOURCE_TYPE, RuleSourceType.URL);
+					executeSetValueCommand(RULE_MEDIATOR__RULE_SET_URL, rule.getValue());			
+				} else if("registry".equals(rule.getSourceType())) {
+					executeSetValueCommand(RULE_MEDIATOR__RULE_SET_SOURCE_TYPE, RuleSourceType.REGISTRY);
+					executeSetValueCommand(RULE_MEDIATOR__RULE_SET_SOURCE_KEY, rule.getValue());
+				} else {
+					executeSetValueCommand(RULE_MEDIATOR__RULE_SET_SOURCE_TYPE, RuleSourceType.INLINE);
+					executeSetValueCommand(RULE_MEDIATOR__RULE_SET_SOURCE_CODE, rule.getValue());
+				}
+			}
 		}
 		
 		Source source = ruleMediatorConfig.getSource();
 		if(source!=null){
 			executeSetValueCommand(RULE_MEDIATOR__SOURCE_VALUE, source.getValue());
-			executeSetValueCommand(RULE_MEDIATOR__SOURCE_XPATH,
-					createNamespacedProperty(source.getXpath(), source.getPrefixToNamespaceMap()));
+			if(StringUtils.isNotBlank(source.getXpath())) {
+				executeSetValueCommand(RULE_MEDIATOR__SOURCE_XPATH,
+						createNamespacedProperty(source.getXpath(), source.getPrefixToNamespaceMap()));
+			}
 		}
+		
 		Target target = ruleMediatorConfig.getTarget();
 		if(target!=null){
 			if("child".equals(target.getAction())){
@@ -96,10 +161,16 @@ public class RuleMediatorDeserializer extends AbstractEsbNodeDeserializer<Abstra
 			}
 			
 			executeSetValueCommand(RULE_MEDIATOR__TARGET_VALUE, target.getValue());
-			executeSetValueCommand(RULE_MEDIATOR__TARGET_XPATH,
-					createNamespacedProperty(target.getXpath(), target.getPrefixToNamespaceMap()));
-			executeSetValueCommand(RULE_MEDIATOR__TARGET_RESULT_XPATH,
+			
+			if(StringUtils.isNotBlank(target.getXpath())) {
+				executeSetValueCommand(RULE_MEDIATOR__TARGET_XPATH,
+						createNamespacedProperty(target.getXpath(), target.getPrefixToNamespaceMap()));
+			}
+			
+			if(StringUtils.isNotBlank(target.getResultXpath())) {
+				executeSetValueCommand(RULE_MEDIATOR__TARGET_RESULT_XPATH,
 					createNamespacedProperty(target.getResultXpath(), target.getPrefixToNamespaceMap()));
+			}
 		}
 		return mediatorModel;
 	}

@@ -23,27 +23,35 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum RuleSourceType implements Enumerator {
 	/**
-	 * The '<em><b>INLINE</b></em>' literal object.
+	 * The '<em><b>Inline</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #INLINE_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	INLINE(0, "INLINE", "INLINE"),
+	INLINE(0, "inline", "INLINE"),
 
 	/**
-	 * The '<em><b>REGISTRY REFERENCE</b></em>' literal object.
+	 * The '<em><b>Registry</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #REGISTRY_REFERENCE_VALUE
+	 * @see #REGISTRY_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	REGISTRY_REFERENCE(1, "REGISTRY_REFERENCE", "REGISTRY_REFERENCE");
+	REGISTRY(1, "registry", "REGISTRY_REFERENCE"), /**
+	 * The '<em><b>Url</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #URL_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	URL(2, "url", "URL");
 
 	/**
-	 * The '<em><b>INLINE</b></em>' literal value.
+	 * The '<em><b>Inline</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of '<em><b>INLINE</b></em>' literal object isn't clear,
@@ -51,26 +59,41 @@ public enum RuleSourceType implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #INLINE
-	 * @model
+	 * @model name="inline" literal="INLINE"
 	 * @generated
 	 * @ordered
 	 */
 	public static final int INLINE_VALUE = 0;
 
 	/**
-	 * The '<em><b>REGISTRY REFERENCE</b></em>' literal value.
+	 * The '<em><b>Registry</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>REGISTRY REFERENCE</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>Registry</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #REGISTRY_REFERENCE
-	 * @model
+	 * @see #REGISTRY
+	 * @model name="registry" literal="REGISTRY_REFERENCE"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int REGISTRY_REFERENCE_VALUE = 1;
+	public static final int REGISTRY_VALUE = 1;
+
+	/**
+	 * The '<em><b>Url</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>URL</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #URL
+	 * @model name="url" literal="URL"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int URL_VALUE = 2;
 
 	/**
 	 * An array of all the '<em><b>Rule Source Type</b></em>' enumerators.
@@ -81,7 +104,8 @@ public enum RuleSourceType implements Enumerator {
 	private static final RuleSourceType[] VALUES_ARRAY =
 		new RuleSourceType[] {
 			INLINE,
-			REGISTRY_REFERENCE,
+			REGISTRY,
+			URL,
 		};
 
 	/**
@@ -133,7 +157,8 @@ public enum RuleSourceType implements Enumerator {
 	public static RuleSourceType get(int value) {
 		switch (value) {
 			case INLINE_VALUE: return INLINE;
-			case REGISTRY_REFERENCE_VALUE: return REGISTRY_REFERENCE;
+			case REGISTRY_VALUE: return REGISTRY;
+			case URL_VALUE: return URL;
 		}
 		return null;
 	}

@@ -152,9 +152,9 @@ public class EsbPropertySource extends PropertySource {
 			return new RuleMediatorResultsPropertyDescriptor(object,itemPropertyDescriptor);	
 		}else if(pkg.getRuleMediator_RuleSessionProperties().equals(feature)){
 			return new RuleMediatorSessionPropertyDescriptor(object,itemPropertyDescriptor);
-		}else if(pkg.getRuleMediator_RuleSetProperties().equals(feature)){
+		}/*else if(pkg.getRuleMediator_RuleSetProperties().equals(feature)){
 			return new RuleMediatorRuleSetPropertyDescriptor(object,itemPropertyDescriptor);
-		} else if (pkg.getStoreMediator_OnStoreSequence().equals(feature)) {
+		}*/ else if (pkg.getStoreMediator_OnStoreSequence().equals(feature)) {
 			return new CustomPropertyDescriptor(object,itemPropertyDescriptor);
 		} else if(pkg.getFilterMediator_Xpath().equals(feature)){
 		    return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
@@ -206,7 +206,7 @@ public class EsbPropertySource extends PropertySource {
 			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
 		}else if(pkg.getRuleMediator_TargetResultXpath().equals(feature)){
 			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
-		}else if(pkg.getRuleMediator_TargetResultXpath().equals(feature)){
+		}else if(pkg.getRuleMediator_TargetXpath().equals(feature)){
 			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
 		}else if(pkg.getProxyService_InSequenceKey().equals(feature)){
 			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);

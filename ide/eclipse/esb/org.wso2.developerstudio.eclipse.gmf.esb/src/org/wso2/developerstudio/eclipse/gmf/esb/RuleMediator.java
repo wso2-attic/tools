@@ -17,11 +17,10 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getRuleSetURI <em>Rule Set URI</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getRuleSetURL <em>Rule Set URL</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getRuleSetSourceType <em>Rule Set Source Type</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getRuleSetSourceCode <em>Rule Set Source Code</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getRuleSetSourceKey <em>Rule Set Source Key</em>}</li>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getRuleSetProperties <em>Rule Set Properties</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#isStatefulSession <em>Stateful Session</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getRuleSessionProperties <em>Rule Session Properties</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getFactsConfiguration <em>Facts Configuration</em>}</li>
@@ -51,31 +50,31 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface RuleMediator extends Mediator {
 	/**
-	 * Returns the value of the '<em><b>Rule Set URI</b></em>' attribute.
+	 * Returns the value of the '<em><b>Rule Set URL</b></em>' attribute.
 	 * The default value is <code>""</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Rule Set URI</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Rule Set URL</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Rule Set URI</em>' attribute.
-	 * @see #setRuleSetURI(String)
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getRuleMediator_RuleSetURI()
+	 * @return the value of the '<em>Rule Set URL</em>' attribute.
+	 * @see #setRuleSetURL(String)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getRuleMediator_RuleSetURL()
 	 * @model default=""
 	 * @generated
 	 */
-	String getRuleSetURI();
+	String getRuleSetURL();
 
 	/**
-	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getRuleSetURI <em>Rule Set URI</em>}' attribute.
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getRuleSetURL <em>Rule Set URL</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Rule Set URI</em>' attribute.
-	 * @see #getRuleSetURI()
+	 * @param value the new value of the '<em>Rule Set URL</em>' attribute.
+	 * @see #getRuleSetURL()
 	 * @generated
 	 */
-	void setRuleSetURI(String value);
+	void setRuleSetURL(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Rule Set Source Type</b></em>' attribute.
@@ -159,22 +158,6 @@ public interface RuleMediator extends Mediator {
 	 * @generated
 	 */
 	void setRuleSetSourceKey(RegistryKeyProperty value);
-
-	/**
-	 * Returns the value of the '<em><b>Rule Set Properties</b></em>' containment reference list.
-	 * The list contents are of type {@link org.wso2.developerstudio.eclipse.gmf.esb.RuleSetCreationProperty}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Rule Set Properties</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Rule Set Properties</em>' containment reference list.
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getRuleMediator_RuleSetProperties()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<RuleSetCreationProperty> getRuleSetProperties();
 
 	/**
 	 * Returns the value of the '<em><b>Stateful Session</b></em>' attribute.

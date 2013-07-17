@@ -115,11 +115,11 @@ public class ConfigureRuleMediatorSetPropertyDialog extends Dialog {
 			}
 		});
 
-		for (RuleSetCreationProperty ruleSetProp : ruleMediator
+		/*for (RuleSetCreationProperty ruleSetProp : ruleMediator
 				.getRuleSetProperties()) {
 
 			bindRuleSetProperty(ruleSetProp);
-		}
+		}*/
 
 		setupTableEditor(ruleSetPropTable);
 
@@ -162,7 +162,7 @@ public class ConfigureRuleMediatorSetPropertyDialog extends Dialog {
 		RuleSetCreationProperty setProp = (RuleSetCreationProperty) item
 				.getData();
 
-		if (null != setProp.eContainer()) {
+		/*if (null != setProp.eContainer()) {
 
 			RemoveCommand reoveCmd = new RemoveCommand(editingDomain,
 					ruleMediator,
@@ -171,7 +171,7 @@ public class ConfigureRuleMediatorSetPropertyDialog extends Dialog {
 			getResultCommand().append(reoveCmd);
 		}
 
-		ruleSetPropTable.remove(ruleSetPropTable.indexOf(item));
+		ruleSetPropTable.remove(ruleSetPropTable.indexOf(item));*/
 
 	}
 
@@ -252,13 +252,13 @@ public class ConfigureRuleMediatorSetPropertyDialog extends Dialog {
 
 			if (setProp.eContainer() == null) {
 
-				setProp.setPropertyName(item.getText(0));
+				/*setProp.setPropertyName(item.getText(0));
 				setProp.setPropertyValue(item.getText(1));
 
 				AddCommand addCmd = new AddCommand(editingDomain, ruleMediator,
 						EsbPackage.Literals.RULE_MEDIATOR__RULE_SET_PROPERTIES,
 						setProp);
-				getResultCommand().append(addCmd);
+				getResultCommand().append(addCmd);*/
 			} else {
 
 				if (!item.getText(0).equals(setProp.getPropertyName())) {

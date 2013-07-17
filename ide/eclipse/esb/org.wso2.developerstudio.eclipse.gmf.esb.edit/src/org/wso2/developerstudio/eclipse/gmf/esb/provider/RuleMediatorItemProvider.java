@@ -69,30 +69,31 @@ public class RuleMediatorItemProvider
 		}
 		super.getPropertyDescriptors(object);
 
-		addRuleSetURIPropertyDescriptor(object);
 		addRuleSetSourceTypePropertyDescriptor(object);
-		if (ruleMediator.getRuleSetSourceType() == RuleSourceType.REGISTRY_REFERENCE) {
+		if (ruleMediator.getRuleSetSourceType() == RuleSourceType.REGISTRY) {
 			addRuleSetSourceKeyPropertyDescriptor(object);
+		} else if (ruleMediator.getRuleSetSourceType() == RuleSourceType.URL) {
+			addRuleSetURLPropertyDescriptor(object);
 		} else {
 			addRuleSetSourceCodePropertyDescriptor(object);
 		}
-			addRuleSetPropertiesPropertyDescriptor(object);
-			//addStatefulSessionPropertyDescriptor(object);
-			//addRuleSessionPropertiesPropertyDescriptor(object);
-			addFactsConfigurationPropertyDescriptor(object);
-			addResultsConfigurationPropertyDescriptor(object);
-			addSourceValuePropertyDescriptor(object);
-			addSourceXpathPropertyDescriptor(object);
-			addTargetValuePropertyDescriptor(object);
-			addTargetResultXpathPropertyDescriptor(object);
-			addTargetXpathPropertyDescriptor(object);
-			addTargetActionPropertyDescriptor(object);
-			addInputWrapperNamePropertyDescriptor(object);
-			addInputNameSpacePropertyDescriptor(object);
-			addOutputWrapperNamePropertyDescriptor(object);
-			addOutputNameSpacePropertyDescriptor(object);
-			addRuleSetTypePropertyDescriptor(object);
- 
+		// addRuleSetPropertiesPropertyDescriptor(object);
+		// addStatefulSessionPropertyDescriptor(object);
+		// addRuleSessionPropertiesPropertyDescriptor(object);
+		addFactsConfigurationPropertyDescriptor(object);
+		addResultsConfigurationPropertyDescriptor(object);
+		addSourceValuePropertyDescriptor(object);
+		addSourceXpathPropertyDescriptor(object);
+		addTargetValuePropertyDescriptor(object);
+		addTargetResultXpathPropertyDescriptor(object);
+		addTargetXpathPropertyDescriptor(object);
+		addTargetActionPropertyDescriptor(object);
+		addInputWrapperNamePropertyDescriptor(object);
+		addInputNameSpacePropertyDescriptor(object);
+		addOutputWrapperNamePropertyDescriptor(object);
+		addOutputNameSpacePropertyDescriptor(object);
+		addRuleSetTypePropertyDescriptor(object);
+
 		return itemPropertyDescriptors;
 	}	 
 
@@ -134,19 +135,19 @@ public class RuleMediatorItemProvider
 	
 
 	/**
-	 * This adds a property descriptor for the Rule Set URI feature.
+	 * This adds a property descriptor for the Rule Set URL feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addRuleSetURIPropertyDescriptor(Object object) {
+	protected void addRuleSetURLPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_RuleMediator_RuleSetURI_feature"),
-				 getString("_UI_RuleMediator_RuleSetURI_description"),
-				 EsbPackage.Literals.RULE_MEDIATOR__RULE_SET_URI,
+				 getString("_UI_RuleMediator_RuleSetURL_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RuleMediator_RuleSetURL_feature", "_UI_RuleMediator_type"),
+				 EsbPackage.Literals.RULE_MEDIATOR__RULE_SET_URL,
 				 true,
 				 false,
 				 false,
@@ -213,28 +214,6 @@ public class RuleMediatorItemProvider
 				 getString("_UI_RuleMediator_ruleSetSourceKey_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_RuleMediator_ruleSetSourceKey_feature", "_UI_RuleMediator_type"),
 				 EsbPackage.Literals.RULE_MEDIATOR__RULE_SET_SOURCE_KEY,
-				 true,
-				 false,
-				 false,
-				 null,
-				 getString("_UI_RuleSetPropertyCategory"),
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Rule Set Properties feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addRuleSetPropertiesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_RuleMediator_ruleSetProperties_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RuleMediator_ruleSetProperties_feature", "_UI_RuleMediator_type"),
-				 EsbPackage.Literals.RULE_MEDIATOR__RULE_SET_PROPERTIES,
 				 true,
 				 false,
 				 false,
@@ -587,7 +566,6 @@ public class RuleMediatorItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(EsbPackage.Literals.RULE_MEDIATOR__RULE_SET_SOURCE_KEY);
-			childrenFeatures.add(EsbPackage.Literals.RULE_MEDIATOR__RULE_SET_PROPERTIES);
 			childrenFeatures.add(EsbPackage.Literals.RULE_MEDIATOR__RULE_SESSION_PROPERTIES);
 			childrenFeatures.add(EsbPackage.Literals.RULE_MEDIATOR__FACTS_CONFIGURATION);
 			childrenFeatures.add(EsbPackage.Literals.RULE_MEDIATOR__RESULTS_CONFIGURATION);
@@ -654,7 +632,7 @@ public class RuleMediatorItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(RuleMediator.class)) {
-			case EsbPackage.RULE_MEDIATOR__RULE_SET_URI:
+			case EsbPackage.RULE_MEDIATOR__RULE_SET_URL:
 			case EsbPackage.RULE_MEDIATOR__RULE_SET_SOURCE_TYPE:
 			case EsbPackage.RULE_MEDIATOR__RULE_SET_SOURCE_CODE:
 			case EsbPackage.RULE_MEDIATOR__STATEFUL_SESSION:
@@ -669,7 +647,6 @@ public class RuleMediatorItemProvider
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case EsbPackage.RULE_MEDIATOR__RULE_SET_SOURCE_KEY:
-			case EsbPackage.RULE_MEDIATOR__RULE_SET_PROPERTIES:
 			case EsbPackage.RULE_MEDIATOR__RULE_SESSION_PROPERTIES:
 			case EsbPackage.RULE_MEDIATOR__FACTS_CONFIGURATION:
 			case EsbPackage.RULE_MEDIATOR__RESULTS_CONFIGURATION:
@@ -700,11 +677,6 @@ public class RuleMediatorItemProvider
 			(createChildParameter
 				(EsbPackage.Literals.RULE_MEDIATOR__RULE_SET_SOURCE_KEY,
 				 EsbFactory.eINSTANCE.createRegistryKeyProperty()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(EsbPackage.Literals.RULE_MEDIATOR__RULE_SET_PROPERTIES,
-				 EsbFactory.eINSTANCE.createRuleSetCreationProperty()));
 
 		newChildDescriptors.add
 			(createChildParameter

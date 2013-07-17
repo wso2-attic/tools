@@ -341,17 +341,18 @@
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//SqlParameterDataType/TIMESTAMP"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//RuleActions">
-      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//RuleActions/Replace"/>
-      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//RuleActions/Child"/>
-      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//RuleActions/Sibling"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//RuleActions/replace"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//RuleActions/child"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//RuleActions/sibling"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//RuleType">
-      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//RuleType/Regular"/>
-      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//RuleType/DecisionTable"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//RuleType/regular"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//RuleType/dtable"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//RuleSourceType">
-      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//RuleSourceType/INLINE"/>
-      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//RuleSourceType/REGISTRY_REFERENCE"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//RuleSourceType/inline"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//RuleSourceType/registry"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//RuleSourceType/url"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//RuleFactType">
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//RuleFactType/CUSTOM"/>
@@ -1295,16 +1296,13 @@
     <genClasses ecoreClass="esb.ecore#//DBReportMediatorInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//DBReportMediatorOutputConnector"/>
     <genClasses ecoreClass="esb.ecore#//RuleMediator">
-      <genFeatures createChild="false" propertyCategory="Rule Set" propertyDescription="URI"
-          ecoreFeature="ecore:EAttribute esb.ecore#//RuleMediator/RuleSetURI"/>
+      <genFeatures createChild="false" propertyCategory="Rule Set" ecoreFeature="ecore:EAttribute esb.ecore#//RuleMediator/RuleSetURL"/>
       <genFeatures createChild="false" propertyCategory="Rule Set" propertyDescription=""
           ecoreFeature="ecore:EAttribute esb.ecore#//RuleMediator/ruleSetSourceType"/>
       <genFeatures createChild="false" propertyCategory="Rule Set" propertyMultiLine="true"
           ecoreFeature="ecore:EAttribute esb.ecore#//RuleMediator/ruleSetSourceCode"/>
       <genFeatures children="true" createChild="true" propertyCategory="Rule Set"
           ecoreFeature="ecore:EReference esb.ecore#//RuleMediator/ruleSetSourceKey"/>
-      <genFeatures children="true" createChild="true" propertyCategory="Rule Set"
-          ecoreFeature="ecore:EReference esb.ecore#//RuleMediator/ruleSetProperties"/>
       <genFeatures createChild="false" propertyCategory="Rule Session" ecoreFeature="ecore:EAttribute esb.ecore#//RuleMediator/statefulSession"/>
       <genFeatures children="true" createChild="true" propertyCategory="Rule Session"
           propertyDescription="" ecoreFeature="ecore:EReference esb.ecore#//RuleMediator/RuleSessionProperties"/>

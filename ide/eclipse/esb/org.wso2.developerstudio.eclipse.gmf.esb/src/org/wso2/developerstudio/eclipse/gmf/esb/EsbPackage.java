@@ -10978,13 +10978,13 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	int RULE_MEDIATOR__REVERSE = MEDIATOR__REVERSE;
 
 	/**
-	 * The feature id for the '<em><b>Rule Set URI</b></em>' attribute.
+	 * The feature id for the '<em><b>Rule Set URL</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RULE_MEDIATOR__RULE_SET_URI = MEDIATOR_FEATURE_COUNT + 0;
+	int RULE_MEDIATOR__RULE_SET_URL = MEDIATOR_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Rule Set Source Type</b></em>' attribute.
@@ -11014,22 +11014,13 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	int RULE_MEDIATOR__RULE_SET_SOURCE_KEY = MEDIATOR_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Rule Set Properties</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RULE_MEDIATOR__RULE_SET_PROPERTIES = MEDIATOR_FEATURE_COUNT + 4;
-
-	/**
 	 * The feature id for the '<em><b>Stateful Session</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RULE_MEDIATOR__STATEFUL_SESSION = MEDIATOR_FEATURE_COUNT + 5;
+	int RULE_MEDIATOR__STATEFUL_SESSION = MEDIATOR_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Rule Session Properties</b></em>' containment reference list.
@@ -11038,7 +11029,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int RULE_MEDIATOR__RULE_SESSION_PROPERTIES = MEDIATOR_FEATURE_COUNT + 6;
+	int RULE_MEDIATOR__RULE_SESSION_PROPERTIES = MEDIATOR_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Facts Configuration</b></em>' containment reference.
@@ -11047,7 +11038,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int RULE_MEDIATOR__FACTS_CONFIGURATION = MEDIATOR_FEATURE_COUNT + 7;
+	int RULE_MEDIATOR__FACTS_CONFIGURATION = MEDIATOR_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Results Configuration</b></em>' containment reference.
@@ -11056,7 +11047,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int RULE_MEDIATOR__RESULTS_CONFIGURATION = MEDIATOR_FEATURE_COUNT + 8;
+	int RULE_MEDIATOR__RESULTS_CONFIGURATION = MEDIATOR_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Child Mediators Configuration</b></em>' containment reference.
@@ -11065,7 +11056,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int RULE_MEDIATOR__CHILD_MEDIATORS_CONFIGURATION = MEDIATOR_FEATURE_COUNT + 9;
+	int RULE_MEDIATOR__CHILD_MEDIATORS_CONFIGURATION = MEDIATOR_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Input Connector</b></em>' containment reference.
@@ -11074,7 +11065,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int RULE_MEDIATOR__INPUT_CONNECTOR = MEDIATOR_FEATURE_COUNT + 10;
+	int RULE_MEDIATOR__INPUT_CONNECTOR = MEDIATOR_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Output Connector</b></em>' containment reference.
@@ -11083,7 +11074,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int RULE_MEDIATOR__OUTPUT_CONNECTOR = MEDIATOR_FEATURE_COUNT + 11;
+	int RULE_MEDIATOR__OUTPUT_CONNECTOR = MEDIATOR_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Child Mediators Output Connector</b></em>' containment reference.
@@ -11092,7 +11083,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int RULE_MEDIATOR__CHILD_MEDIATORS_OUTPUT_CONNECTOR = MEDIATOR_FEATURE_COUNT + 12;
+	int RULE_MEDIATOR__CHILD_MEDIATORS_OUTPUT_CONNECTOR = MEDIATOR_FEATURE_COUNT + 11;
 
 	/**
 	 * The feature id for the '<em><b>Mediator Flow</b></em>' containment reference.
@@ -11101,7 +11092,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int RULE_MEDIATOR__MEDIATOR_FLOW = MEDIATOR_FEATURE_COUNT + 13;
+	int RULE_MEDIATOR__MEDIATOR_FLOW = MEDIATOR_FEATURE_COUNT + 12;
 
 	/**
 	 * The feature id for the '<em><b>Source Value</b></em>' attribute.
@@ -11110,7 +11101,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int RULE_MEDIATOR__SOURCE_VALUE = MEDIATOR_FEATURE_COUNT + 14;
+	int RULE_MEDIATOR__SOURCE_VALUE = MEDIATOR_FEATURE_COUNT + 13;
 
 	/**
 	 * The feature id for the '<em><b>Source Xpath</b></em>' containment reference.
@@ -11119,7 +11110,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int RULE_MEDIATOR__SOURCE_XPATH = MEDIATOR_FEATURE_COUNT + 15;
+	int RULE_MEDIATOR__SOURCE_XPATH = MEDIATOR_FEATURE_COUNT + 14;
 
 	/**
 	 * The feature id for the '<em><b>Target Value</b></em>' attribute.
@@ -11128,7 +11119,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int RULE_MEDIATOR__TARGET_VALUE = MEDIATOR_FEATURE_COUNT + 16;
+	int RULE_MEDIATOR__TARGET_VALUE = MEDIATOR_FEATURE_COUNT + 15;
 
 	/**
 	 * The feature id for the '<em><b>Target Result Xpath</b></em>' containment reference.
@@ -11137,7 +11128,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int RULE_MEDIATOR__TARGET_RESULT_XPATH = MEDIATOR_FEATURE_COUNT + 17;
+	int RULE_MEDIATOR__TARGET_RESULT_XPATH = MEDIATOR_FEATURE_COUNT + 16;
 
 	/**
 	 * The feature id for the '<em><b>Target Xpath</b></em>' containment reference.
@@ -11146,7 +11137,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int RULE_MEDIATOR__TARGET_XPATH = MEDIATOR_FEATURE_COUNT + 18;
+	int RULE_MEDIATOR__TARGET_XPATH = MEDIATOR_FEATURE_COUNT + 17;
 
 	/**
 	 * The feature id for the '<em><b>Target Action</b></em>' attribute.
@@ -11155,7 +11146,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int RULE_MEDIATOR__TARGET_ACTION = MEDIATOR_FEATURE_COUNT + 19;
+	int RULE_MEDIATOR__TARGET_ACTION = MEDIATOR_FEATURE_COUNT + 18;
 
 	/**
 	 * The feature id for the '<em><b>Input Wrapper Name</b></em>' attribute.
@@ -11164,7 +11155,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int RULE_MEDIATOR__INPUT_WRAPPER_NAME = MEDIATOR_FEATURE_COUNT + 20;
+	int RULE_MEDIATOR__INPUT_WRAPPER_NAME = MEDIATOR_FEATURE_COUNT + 19;
 
 	/**
 	 * The feature id for the '<em><b>Input Name Space</b></em>' attribute.
@@ -11173,7 +11164,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int RULE_MEDIATOR__INPUT_NAME_SPACE = MEDIATOR_FEATURE_COUNT + 21;
+	int RULE_MEDIATOR__INPUT_NAME_SPACE = MEDIATOR_FEATURE_COUNT + 20;
 
 	/**
 	 * The feature id for the '<em><b>Output Wrapper Name</b></em>' attribute.
@@ -11182,7 +11173,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int RULE_MEDIATOR__OUTPUT_WRAPPER_NAME = MEDIATOR_FEATURE_COUNT + 22;
+	int RULE_MEDIATOR__OUTPUT_WRAPPER_NAME = MEDIATOR_FEATURE_COUNT + 21;
 
 	/**
 	 * The feature id for the '<em><b>Output Name Space</b></em>' attribute.
@@ -11191,7 +11182,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int RULE_MEDIATOR__OUTPUT_NAME_SPACE = MEDIATOR_FEATURE_COUNT + 23;
+	int RULE_MEDIATOR__OUTPUT_NAME_SPACE = MEDIATOR_FEATURE_COUNT + 22;
 
 	/**
 	 * The feature id for the '<em><b>Rule Set Type</b></em>' attribute.
@@ -11200,7 +11191,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int RULE_MEDIATOR__RULE_SET_TYPE = MEDIATOR_FEATURE_COUNT + 24;
+	int RULE_MEDIATOR__RULE_SET_TYPE = MEDIATOR_FEATURE_COUNT + 23;
 
 	/**
 	 * The number of structural features of the '<em>Rule Mediator</em>' class.
@@ -11209,7 +11200,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 * @ordered
 	 */
-	int RULE_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 25;
+	int RULE_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 24;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.RuleMediatorInputConnectorImpl <em>Rule Mediator Input Connector</em>}' class.
@@ -26799,15 +26790,15 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	EClass getRuleMediator();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getRuleSetURI <em>Rule Set URI</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getRuleSetURL <em>Rule Set URL</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Rule Set URI</em>'.
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getRuleSetURI()
+	 * @return the meta object for the attribute '<em>Rule Set URL</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getRuleSetURL()
 	 * @see #getRuleMediator()
 	 * @generated
 	 */
-	EAttribute getRuleMediator_RuleSetURI();
+	EAttribute getRuleMediator_RuleSetURL();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getRuleSetSourceType <em>Rule Set Source Type</em>}'.
@@ -26841,17 +26832,6 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 */
 	EReference getRuleMediator_RuleSetSourceKey();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getRuleSetProperties <em>Rule Set Properties</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Rule Set Properties</em>'.
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#getRuleSetProperties()
-	 * @see #getRuleMediator()
-	 * @generated
-	 */
-	EReference getRuleMediator_RuleSetProperties();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.RuleMediator#isStatefulSession <em>Stateful Session</em>}'.
@@ -37177,12 +37157,12 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		EClass RULE_MEDIATOR = eINSTANCE.getRuleMediator();
 
 		/**
-		 * The meta object literal for the '<em><b>Rule Set URI</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Rule Set URL</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute RULE_MEDIATOR__RULE_SET_URI = eINSTANCE.getRuleMediator_RuleSetURI();
+		EAttribute RULE_MEDIATOR__RULE_SET_URL = eINSTANCE.getRuleMediator_RuleSetURL();
 
 		/**
 		 * The meta object literal for the '<em><b>Rule Set Source Type</b></em>' attribute feature.
@@ -37207,14 +37187,6 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		 * @generated
 		 */
 		EReference RULE_MEDIATOR__RULE_SET_SOURCE_KEY = eINSTANCE.getRuleMediator_RuleSetSourceKey();
-
-		/**
-		 * The meta object literal for the '<em><b>Rule Set Properties</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RULE_MEDIATOR__RULE_SET_PROPERTIES = eINSTANCE.getRuleMediator_RuleSetProperties();
 
 		/**
 		 * The meta object literal for the '<em><b>Stateful Session</b></em>' attribute feature.

@@ -39,17 +39,17 @@ public enum RuleType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	REGULAR(0, "Regular", "Regular"),
+	REGULAR(0, "regular", "Regular"),
 
 	/**
-	 * The '<em><b>Decision Table</b></em>' literal object.
+	 * The '<em><b>Dtable</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #DECISION_TABLE_VALUE
+	 * @see #DTABLE_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	DECISION_TABLE(1, "DecisionTable", "DecisionTable");
+	DTABLE(1, "dtable", "DecisionTable");
 
 	/**
 	 * The '<em><b>Regular</b></em>' literal value.
@@ -60,26 +60,26 @@ public enum RuleType implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #REGULAR
-	 * @model name="Regular"
+	 * @model name="regular" literal="Regular"
 	 * @generated
 	 * @ordered
 	 */
 	public static final int REGULAR_VALUE = 0;
 
 	/**
-	 * The '<em><b>Decision Table</b></em>' literal value.
+	 * The '<em><b>Dtable</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Decision Table</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>Dtable</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #DECISION_TABLE
-	 * @model name="DecisionTable"
+	 * @see #DTABLE
+	 * @model name="dtable" literal="DecisionTable"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int DECISION_TABLE_VALUE = 1;
+	public static final int DTABLE_VALUE = 1;
 
 	/**
 	 * An array of all the '<em><b>Rule Type</b></em>' enumerators.
@@ -90,7 +90,7 @@ public enum RuleType implements Enumerator {
 	private static final RuleType[] VALUES_ARRAY =
 		new RuleType[] {
 			REGULAR,
-			DECISION_TABLE,
+			DTABLE,
 		};
 
 	/**
@@ -142,7 +142,7 @@ public enum RuleType implements Enumerator {
 	public static RuleType get(int value) {
 		switch (value) {
 			case REGULAR_VALUE: return REGULAR;
-			case DECISION_TABLE_VALUE: return DECISION_TABLE;
+			case DTABLE_VALUE: return DTABLE;
 		}
 		return null;
 	}

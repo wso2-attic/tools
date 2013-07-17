@@ -30,7 +30,7 @@ public enum RuleActions implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	REPLACE(0, "Replace", "Replace"),
+	REPLACE(0, "replace", "Replace"),
 
 	/**
 	 * The '<em><b>Child</b></em>' literal object.
@@ -40,7 +40,7 @@ public enum RuleActions implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	CHILD(1, "Child", "Child"),
+	CHILD(1, "child", "Child"),
 
 	/**
 	 * The '<em><b>Sibling</b></em>' literal object.
@@ -50,7 +50,7 @@ public enum RuleActions implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	SIBLING(2, "Sibling", "Sibling");
+	SIBLING(2, "sibling", "Sibling");
 
 	/**
 	 * The '<em><b>Replace</b></em>' literal value.
@@ -61,7 +61,7 @@ public enum RuleActions implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #REPLACE
-	 * @model name="Replace"
+	 * @model name="replace" literal="Replace"
 	 * @generated
 	 * @ordered
 	 */
@@ -76,7 +76,7 @@ public enum RuleActions implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #CHILD
-	 * @model name="Child"
+	 * @model name="child" literal="Child"
 	 * @generated
 	 * @ordered
 	 */
@@ -91,7 +91,7 @@ public enum RuleActions implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #SIBLING
-	 * @model name="Sibling"
+	 * @model name="sibling" literal="Sibling"
 	 * @generated
 	 * @ordered
 	 */
