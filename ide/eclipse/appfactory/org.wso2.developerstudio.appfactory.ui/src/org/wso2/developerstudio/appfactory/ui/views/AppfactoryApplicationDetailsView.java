@@ -17,6 +17,7 @@
 package org.wso2.developerstudio.appfactory.ui.views;
 
 import java.util.List;
+import java.util.Map;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.ScrolledComposite;
@@ -59,6 +60,9 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 	private Composite repoTypeComposite;
 	private Composite appOwnerComposite;
 	private Composite descriptionComposite;
+	private Composite databaseInfoComposite;
+	private Composite databaseUsersComposite;
+	private Composite databaseTemplatesComposite;
 	private TabFolder tabFolder;
 	private TabItem appInfoTabItem;
 	private TabItem currentStatusTabItem;
@@ -168,7 +172,8 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 		createAppInfoPage();
 		createCurrentStatusPage();
 		createTeamDetailsPage();
-		createDataSourcesPage();
+		createDbInfoPage();
+		//createDataSourcesPage();
 	}
 
 	/**
@@ -252,6 +257,59 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 		composite.pack();
 		composite.layout();
 	}
+	
+	private void createDbInfoPage() {
+		ScrolledComposite scroller = new ScrolledComposite(tabFolder, SWT.BORDER | SWT.V_SCROLL
+				| SWT.H_SCROLL);
+		scroller.setBackground(tabFolder.getDisplay().getSystemColor(SWT.COLOR_WHITE));
+		// scroller.setExpandVertical(true);
+		scroller.setExpandHorizontal(true);
+		Composite composite = new Composite(scroller, SWT.NULL);
+		composite.setLayout(new FillLayout(SWT.VERTICAL));
+		composite.setBackground(tabFolder.getBackground());
+		scroller.setContent(composite);
+		scroller.setMinSize(composite.computeSize(SWT.DEFAULT, SWT.DEFAULT));
+		String[] names = new String[] { "Database Urls", "DB users", "DB Templates"};
+
+		createLabel(composite, SWT.NONE, "", new GridData(), scroller.getBackground(), new Font(
+				null, "", 15, SWT.BOLD));
+
+		createCompositeLabel(composite, names[0]);
+		databaseInfoComposite = new Composite(composite, SWT.NONE);
+		databaseInfoComposite.setBackground(tabFolder.getBackground());
+		GridLayout appTypeGridLayout = new GridLayout(1, false);
+		appTypeGridLayout.marginWidth = 20;
+		databaseInfoComposite.setLayout(appTypeGridLayout);
+
+		createLabel(composite, SWT.NONE, "", new GridData(), scroller.getBackground(), new Font(
+				null, "", 15, SWT.BOLD));
+
+		createCompositeLabel(composite, names[1]);
+		databaseUsersComposite = new Composite(composite, SWT.NONE);
+		databaseUsersComposite.setBackground(tabFolder.getBackground());
+		GridLayout repoTypeGridLayout = new GridLayout(1, false);
+		repoTypeGridLayout.marginWidth = 20;
+		databaseUsersComposite.setLayout(repoTypeGridLayout);
+
+		createLabel(composite, SWT.NONE, "", new GridData(), scroller.getBackground(), new Font(
+				null, "", 15, SWT.BOLD));
+
+		createCompositeLabel(composite, names[2]);
+		databaseTemplatesComposite = new Composite(composite, SWT.NONE);
+		databaseTemplatesComposite.setBackground(tabFolder.getBackground());
+		GridLayout appOwnerGridLayout = new GridLayout(1, false);
+		appOwnerGridLayout.marginWidth = 20;
+		databaseTemplatesComposite.setLayout(appOwnerGridLayout);
+
+		createLabel(composite, SWT.NONE, "", new GridData(), scroller.getBackground(), new Font(
+				null, "", 15, SWT.BOLD));
+		composite.pack();
+		composite.layout();
+	}
+	
+	
+	
+	
 
 	/**
 	 * Create current status tab page
@@ -336,7 +394,7 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 		GridData data = new GridData(SWT.FILL, SWT.FILL, true, false);
 		dataSourcesTable.setLayoutData(data);
 
-		String[] titles = { "Databases", "DB Users", "DB Permission Templates" };
+		String[] titles = { "DB Name","Url", "DB Users", "Templates" };
 		for (int i = 0; i < titles.length; i++) {
 			TableColumn column = new TableColumn(dataSourcesTable, SWT.BOLD);
 			column.setText(titles[i]);
@@ -453,14 +511,66 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 	 * @param applicationInfo
 	 */
 	private void updateDataSources(ApplicationInfo applicationInfo) {
-		// Remove existing
+		
+		List<AppDBinfo> dataSources = applicationInfo.getDatabases();
+		AppDBinfo appDBinfo = dataSources.get(0);
+		removeChildControls(databaseInfoComposite);
+		List<Map<String, String>> dbs = appDBinfo.getDbs();
+	  
+		if (dbs!= null) {
+			  for (Map<String, String> map : dbs) {
+				  createLabel(databaseInfoComposite, SWT.NONE, map.get("url"), getGridData(),
+							tabFolder.getBackground(), null);
+				}
+
+		} else {
+			createLabel(databaseInfoComposite, SWT.NONE, DEFAULT_VALUE, getGridData(),
+					tabFolder.getBackground(), null);
+		}
+		databaseInfoComposite.pack();
+		databaseInfoComposite.layout();
+
+		removeChildControls(databaseUsersComposite);
+		List<String> usr = appDBinfo.getUsr();
+		
+		if (usr!=null) {
+			for (String name : usr) {
+				createLabel(databaseUsersComposite, SWT.NONE, name,
+						getGridData(), tabFolder.getBackground(), null);
+			}
+			
+		} else {
+			createLabel(databaseUsersComposite, SWT.NONE, DEFAULT_VALUE, getGridData(),
+					tabFolder.getBackground(), null);
+		}
+		databaseUsersComposite.pack();
+		databaseUsersComposite.layout();
+	 
+		removeChildControls(databaseTemplatesComposite);
+		List<String> temp = appDBinfo.getTemplates();
+		
+		if (temp!=null) {
+			for (String name : temp) {
+				createLabel(databaseTemplatesComposite, SWT.NONE, name,
+						getGridData(), tabFolder.getBackground(), null);
+			}
+			
+		} else {
+			createLabel(databaseTemplatesComposite, SWT.NONE, DEFAULT_VALUE, getGridData(),
+					tabFolder.getBackground(), null);
+		}
+		databaseTemplatesComposite.pack();
+		databaseTemplatesComposite.layout();
+ 
+		/*// Remove existing
 		dataSourcesTable.removeAll();
 
 		// Add new
 		List<AppDBinfo> dataSources = applicationInfo.getDatabases();
 		for (AppDBinfo db : dataSources) {
 			TableItem item = new TableItem(dataSourcesTable, SWT.NONE);
-			item.setText(0, db.getDbs());
+			
+			//item.setText(0, db.getDbs());
 			item.setText(1, db.getUsr());
 			item.setText(2, db.getTemplates());
 		}
@@ -468,7 +578,7 @@ public class AppfactoryApplicationDetailsView extends ViewPart {
 		// Pack the new one to table
 		for (int i = 0; i < dataSourcesTable.getColumnCount(); i++) {
 			dataSourcesTable.getColumn(i).pack();
-		}
+		}*/
 	}
 
 }

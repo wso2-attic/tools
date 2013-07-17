@@ -17,14 +17,16 @@
 package org.wso2.developerstudio.appfactory.core.model;
 
 import java.util.List;
+import java.util.Map;
 
 public class AppDBinfo {
 	
-private List<String> dbs;
+private List<Map<String,String>> dbs;
+
 private List<String>usr;
 private List<String>templates;
 
-public String getDbs() {
+/*public String getDbs() {
 	String value ="";
 	 if("".equals(value)){
 		 for (String name : dbs) {
@@ -36,13 +38,16 @@ public String getDbs() {
 		}
 	}
 	return value;
+}*/
+public List<Map<String, String>> getDbs() {
+	return dbs;
 }
 
-public void setDbs(List<String> dbs) {
+public void setDbs(List<Map<String,String>> dbs) {
 	this.dbs = dbs;
 }
 
-public String getUsr() {
+public String getUsr1() {
 	String value ="";
 	 if("".equals(value)){
 		 for (String name : usr) {
@@ -60,7 +65,7 @@ public void setUsr(List<String> usr) {
 	this.usr = usr;
 }
 
-public String getTemplates() {
+public String getTemplates1() {
 	String value ="";
 	if(templates!=null){
 		 for (String name : templates) {
@@ -72,6 +77,14 @@ public String getTemplates() {
 		}
 	}
 	return value;
+}
+
+public List<String> getUsr() {
+	return usr;
+}
+
+public List<String> getTemplates() {
+	return templates;
 }
 
 public void setTemplates(List<String> templates) {

@@ -123,26 +123,26 @@ public class AppListModel {
 				if("Development".equals(stage)){
 					AppDBinfo appDBinfo = new AppDBinfo();
 					JsonArray dbArray = asJsonObject.get("dbs").getAsJsonArray();
-					List<String> dbs = new ArrayList<String>();
+					List<Map<String,String>> dbs = new ArrayList<Map<String,String>>();
 					for (JsonElement jsonElement : dbArray) {
-						dbs.add(jsonElement.getAsString());
+						 HashMap<String, String> dbInfo = new HashMap<String, String>();
+						 dbInfo.put("dbName",jsonElement.getAsJsonObject().get("dbName").getAsString());
+						 dbInfo.put("url",jsonElement.getAsJsonObject().get("url").getAsString());
+						 dbs.add(dbInfo);
 					}
 					appDBinfo.setDbs(dbs);
-					
 					JsonArray dbusers = asJsonObject.get("users").getAsJsonArray();
 					List<String> usr = new ArrayList<String>();
 					for (JsonElement jsonElement : dbusers) {
 						usr.add(jsonElement.getAsJsonObject().get("name").getAsString());
 					}
 					appDBinfo.setUsr(usr);
-					
 					JsonArray dbtemplates = asJsonObject.get("templates").getAsJsonArray();
 					List<String> temple = new ArrayList<String>();
 					for (JsonElement jsonElement : dbtemplates) {
 						temple.add(jsonElement.getAsJsonObject().get("name").getAsString());
 					}
 					appDBinfo.setUsr(temple);
-					
 					appDbList.add(appDBinfo);
 				}
 			}
