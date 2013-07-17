@@ -65,6 +65,7 @@ public class ResourceMetaData extends AbstractXMLDoc{
 						"<createdTime>" + System.currentTimeMillis() + "</createdTime>" + 
 						"<lastUpdater>admin</lastUpdater>" + 
 						"<lastModified>" + System.currentTimeMillis() + "</lastModified> " + 
+						"<registryState>" + RegistryResourceUtils.RegistryState.ADDED + "</registryState>" + 
 						"<description>" + "" + "</description>" + 
 						"</resource>";
 		}else{
@@ -80,6 +81,7 @@ public class ResourceMetaData extends AbstractXMLDoc{
 						"<createdTime>" + System.currentTimeMillis() + "</createdTime>" + 
 						"<lastUpdater>admin</lastUpdater>" + 
 						"<lastModified>" + System.currentTimeMillis() + "</lastModified> " + 
+						"<registryState>" + RegistryResourceUtils.RegistryState.ADDED + "</registryState>" + 
 						"<description>" + "" + "</description>"+ 
 						"</resource>";
 		}
