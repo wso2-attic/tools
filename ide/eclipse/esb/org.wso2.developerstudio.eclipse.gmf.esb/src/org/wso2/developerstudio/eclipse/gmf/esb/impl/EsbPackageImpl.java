@@ -198,6 +198,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.IterateMediatorOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.IterateMediatorTargetOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.IterateTarget;
 import org.wso2.developerstudio.eclipse.gmf.esb.JMSSpecVersion;
+import org.wso2.developerstudio.eclipse.gmf.esb.JsonPathProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.KeyType;
 import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceAlgorithm;
 import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPoint;
@@ -213,6 +214,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.LogMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.LogMediatorInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.LogMediatorOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.LogProperty;
+import org.wso2.developerstudio.eclipse.gmf.esb.MediaType;
 import org.wso2.developerstudio.eclipse.gmf.esb.Mediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.MediatorFlow;
 import org.wso2.developerstudio.eclipse.gmf.esb.MediatorSequence;
@@ -3057,6 +3059,13 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	private EEnum keyTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum mediaTypeEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -11709,6 +11718,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getPayloadFactoryMediator_MediaType() {
+		return (EAttribute)payloadFactoryMediatorEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getPayloadFactoryMediatorInputConnector() {
 		return payloadFactoryMediatorInputConnectorEClass;
 	}
@@ -11756,6 +11774,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 */
 	public EReference getPayloadFactoryArgument_ArgumentExpression() {
 		return (EReference)payloadFactoryArgumentEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPayloadFactoryArgument_Evaluator() {
+		return (EAttribute)payloadFactoryArgumentEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -13365,6 +13392,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getMediaType() {
+		return mediaTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getPayloadFactoryArgumentType() {
 		return payloadFactoryArgumentTypeEEnum;
 	}
@@ -14536,6 +14572,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEReference(payloadFactoryMediatorEClass, PAYLOAD_FACTORY_MEDIATOR__ARGS);
 		createEReference(payloadFactoryMediatorEClass, PAYLOAD_FACTORY_MEDIATOR__INPUT_CONNECTOR);
 		createEReference(payloadFactoryMediatorEClass, PAYLOAD_FACTORY_MEDIATOR__OUTPUT_CONNECTOR);
+		createEAttribute(payloadFactoryMediatorEClass, PAYLOAD_FACTORY_MEDIATOR__MEDIA_TYPE);
 
 		payloadFactoryMediatorInputConnectorEClass = createEClass(PAYLOAD_FACTORY_MEDIATOR_INPUT_CONNECTOR);
 
@@ -14545,6 +14582,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEAttribute(payloadFactoryArgumentEClass, PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_TYPE);
 		createEAttribute(payloadFactoryArgumentEClass, PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_VALUE);
 		createEReference(payloadFactoryArgumentEClass, PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_EXPRESSION);
+		createEAttribute(payloadFactoryArgumentEClass, PAYLOAD_FACTORY_ARGUMENT__EVALUATOR);
 
 		conditionalRouteBranchEClass = createEClass(CONDITIONAL_ROUTE_BRANCH);
 		createEAttribute(conditionalRouteBranchEClass, CONDITIONAL_ROUTE_BRANCH__BREAK_AFTER_ROUTE);
@@ -14943,6 +14981,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		outputMethodEEnum = createEEnum(OUTPUT_METHOD);
 		receivingSequenceTypeEEnum = createEEnum(RECEIVING_SEQUENCE_TYPE);
 		keyTypeEEnum = createEEnum(KEY_TYPE);
+		mediaTypeEEnum = createEEnum(MEDIA_TYPE);
 		payloadFactoryArgumentTypeEEnum = createEEnum(PAYLOAD_FACTORY_ARGUMENT_TYPE);
 		typeEEnum = createEEnum(TYPE);
 		loadBalanceSessionTypeEEnum = createEEnum(LOAD_BALANCE_SESSION_TYPE);
@@ -16305,6 +16344,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEReference(getPayloadFactoryMediator_Args(), this.getPayloadFactoryArgument(), null, "args", null, 0, -1, PayloadFactoryMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPayloadFactoryMediator_InputConnector(), this.getPayloadFactoryMediatorInputConnector(), null, "inputConnector", null, 0, 1, PayloadFactoryMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPayloadFactoryMediator_OutputConnector(), this.getPayloadFactoryMediatorOutputConnector(), null, "outputConnector", null, 0, 1, PayloadFactoryMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPayloadFactoryMediator_MediaType(), this.getMediaType(), "mediaType", "xml", 0, 1, PayloadFactoryMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(payloadFactoryMediatorInputConnectorEClass, PayloadFactoryMediatorInputConnector.class, "PayloadFactoryMediatorInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -16314,6 +16354,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEAttribute(getPayloadFactoryArgument_ArgumentType(), this.getPayloadFactoryArgumentType(), "argumentType", null, 0, 1, PayloadFactoryArgument.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPayloadFactoryArgument_ArgumentValue(), ecorePackage.getEString(), "argumentValue", null, 0, 1, PayloadFactoryArgument.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPayloadFactoryArgument_ArgumentExpression(), this.getNamespacedProperty(), null, "argumentExpression", null, 0, 1, PayloadFactoryArgument.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPayloadFactoryArgument_Evaluator(), this.getMediaType(), "evaluator", "xml", 0, 1, PayloadFactoryArgument.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(conditionalRouteBranchEClass, ConditionalRouteBranch.class, "ConditionalRouteBranch", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getConditionalRouteBranch_BreakAfterRoute(), ecorePackage.getEBoolean(), "breakAfterRoute", null, 0, 1, ConditionalRouteBranch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -17038,6 +17079,10 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEEnum(keyTypeEEnum, KeyType.class, "KeyType");
 		addEEnumLiteral(keyTypeEEnum, KeyType.STATIC);
 		addEEnumLiteral(keyTypeEEnum, KeyType.DYNAMIC);
+
+		initEEnum(mediaTypeEEnum, MediaType.class, "MediaType");
+		addEEnumLiteral(mediaTypeEEnum, MediaType.XML);
+		addEEnumLiteral(mediaTypeEEnum, MediaType.JSON);
 
 		initEEnum(payloadFactoryArgumentTypeEEnum, PayloadFactoryArgumentType.class, "PayloadFactoryArgumentType");
 		addEEnumLiteral(payloadFactoryArgumentTypeEEnum, PayloadFactoryArgumentType.VALUE);

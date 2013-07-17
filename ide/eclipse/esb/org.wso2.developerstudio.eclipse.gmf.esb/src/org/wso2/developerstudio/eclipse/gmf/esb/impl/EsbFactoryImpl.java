@@ -520,6 +520,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 				return createReceivingSequenceTypeFromString(eDataType, initialValue);
 			case EsbPackage.KEY_TYPE:
 				return createKeyTypeFromString(eDataType, initialValue);
+			case EsbPackage.MEDIA_TYPE:
+				return createMediaTypeFromString(eDataType, initialValue);
 			case EsbPackage.PAYLOAD_FACTORY_ARGUMENT_TYPE:
 				return createPayloadFactoryArgumentTypeFromString(eDataType, initialValue);
 			case EsbPackage.TYPE:
@@ -710,6 +712,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 				return convertReceivingSequenceTypeToString(eDataType, instanceValue);
 			case EsbPackage.KEY_TYPE:
 				return convertKeyTypeToString(eDataType, instanceValue);
+			case EsbPackage.MEDIA_TYPE:
+				return convertMediaTypeToString(eDataType, instanceValue);
 			case EsbPackage.PAYLOAD_FACTORY_ARGUMENT_TYPE:
 				return convertPayloadFactoryArgumentTypeToString(eDataType, instanceValue);
 			case EsbPackage.TYPE:
@@ -5309,6 +5313,26 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	 * @generated
 	 */
 	public String convertKeyTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MediaType createMediaTypeFromString(EDataType eDataType, String initialValue) {
+		MediaType result = MediaType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertMediaTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

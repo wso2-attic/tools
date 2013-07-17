@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
+import org.wso2.developerstudio.eclipse.gmf.esb.MediaType;
 import org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryArgument;
 import org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryMediatorInputConnector;
@@ -38,6 +39,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryMediatorOutputConn
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.PayloadFactoryMediatorImpl#getArgs <em>Args</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.PayloadFactoryMediatorImpl#getInputConnector <em>Input Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.PayloadFactoryMediatorImpl#getOutputConnector <em>Output Connector</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.PayloadFactoryMediatorImpl#getMediaType <em>Media Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -93,6 +95,26 @@ public class PayloadFactoryMediatorImpl extends MediatorImpl implements PayloadF
 	 * @ordered
 	 */
 	protected PayloadFactoryMediatorOutputConnector outputConnector;
+
+	/**
+	 * The default value of the '{@link #getMediaType() <em>Media Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMediaType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final MediaType MEDIA_TYPE_EDEFAULT = MediaType.XML;
+
+	/**
+	 * The cached value of the '{@link #getMediaType() <em>Media Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMediaType()
+	 * @generated
+	 * @ordered
+	 */
+	protected MediaType mediaType = MEDIA_TYPE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -238,6 +260,27 @@ public class PayloadFactoryMediatorImpl extends MediatorImpl implements PayloadF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public MediaType getMediaType() {
+		return mediaType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMediaType(MediaType newMediaType) {
+		MediaType oldMediaType = mediaType;
+		mediaType = newMediaType == null ? MEDIA_TYPE_EDEFAULT : newMediaType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.PAYLOAD_FACTORY_MEDIATOR__MEDIA_TYPE, oldMediaType, mediaType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -267,6 +310,8 @@ public class PayloadFactoryMediatorImpl extends MediatorImpl implements PayloadF
 				return getInputConnector();
 			case EsbPackage.PAYLOAD_FACTORY_MEDIATOR__OUTPUT_CONNECTOR:
 				return getOutputConnector();
+			case EsbPackage.PAYLOAD_FACTORY_MEDIATOR__MEDIA_TYPE:
+				return getMediaType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -293,6 +338,9 @@ public class PayloadFactoryMediatorImpl extends MediatorImpl implements PayloadF
 			case EsbPackage.PAYLOAD_FACTORY_MEDIATOR__OUTPUT_CONNECTOR:
 				setOutputConnector((PayloadFactoryMediatorOutputConnector)newValue);
 				return;
+			case EsbPackage.PAYLOAD_FACTORY_MEDIATOR__MEDIA_TYPE:
+				setMediaType((MediaType)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -317,6 +365,9 @@ public class PayloadFactoryMediatorImpl extends MediatorImpl implements PayloadF
 			case EsbPackage.PAYLOAD_FACTORY_MEDIATOR__OUTPUT_CONNECTOR:
 				setOutputConnector((PayloadFactoryMediatorOutputConnector)null);
 				return;
+			case EsbPackage.PAYLOAD_FACTORY_MEDIATOR__MEDIA_TYPE:
+				setMediaType(MEDIA_TYPE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -337,6 +388,8 @@ public class PayloadFactoryMediatorImpl extends MediatorImpl implements PayloadF
 				return inputConnector != null;
 			case EsbPackage.PAYLOAD_FACTORY_MEDIATOR__OUTPUT_CONNECTOR:
 				return outputConnector != null;
+			case EsbPackage.PAYLOAD_FACTORY_MEDIATOR__MEDIA_TYPE:
+				return mediaType != MEDIA_TYPE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -353,6 +406,8 @@ public class PayloadFactoryMediatorImpl extends MediatorImpl implements PayloadF
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (format: ");
 		result.append(format);
+		result.append(", mediaType: ");
+		result.append(mediaType);
 		result.append(')');
 		return result.toString();
 	}

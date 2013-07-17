@@ -55,6 +55,7 @@ public class PropertyText extends Composite {
 	private Combo bindControl=null;
 	private boolean bind=false;
 	private boolean editable=false;
+	private boolean forcefullInlineEditing=false;
 	private Object property;
 	private Map<Integer,Object> properties;
 	
@@ -218,27 +219,39 @@ public class PropertyText extends Composite {
 		
 	}
 	
+	private void setInlineEditing(boolean enable){
+		if (forcefullInlineEditing){
+			editable=true;
+			gridDataActionButton.exclude=true;
+		} else {
+			editable=enable;
+			gridDataActionButton.exclude=enable;
+		}
+		textControl.setEditable(editable);
+	}
+	
+	public void setForcefullInlineEditing(boolean enable){
+		forcefullInlineEditing=enable;
+		setInlineEditing(enable);
+		layout();
+	}
+	
 	public void refresh(int index){
 		
 		Object object = this.properties.get(index);
 		if (object instanceof NamespacedProperty){
-			gridDataActionButton.exclude=false;
 			setText(((NamespacedProperty)object).getPropertyValue());
-			editable=false;
+			setInlineEditing(false);
 		} else if (object instanceof RegistryKeyProperty){
-			gridDataActionButton.exclude=false;
 			textControl.setText(((RegistryKeyProperty)object).getKeyValue());
-			editable=false;
+			setInlineEditing(false);
 		} else if (object instanceof EvaluatorExpressionProperty){
-			gridDataActionButton.exclude=false;
 			setText(((EvaluatorExpressionProperty)object).getEvaluatorValue());
-			editable=false;
-		} else{
-			gridDataActionButton.exclude=true;
+			setInlineEditing(false);
+		}else{
 			setText(object.toString());
-			editable=true;
+			setInlineEditing(true);
 		}
-		textControl.setEditable(editable);
 		setProperty(object);
 		layout();
 	}

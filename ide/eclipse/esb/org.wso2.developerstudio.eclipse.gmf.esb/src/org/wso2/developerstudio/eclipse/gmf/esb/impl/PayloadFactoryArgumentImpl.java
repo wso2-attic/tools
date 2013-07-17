@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
+import org.wso2.developerstudio.eclipse.gmf.esb.MediaType;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryArgument;
 import org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryArgumentType;
@@ -29,6 +30,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryArgumentType;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.PayloadFactoryArgumentImpl#getArgumentType <em>Argument Type</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.PayloadFactoryArgumentImpl#getArgumentValue <em>Argument Value</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.PayloadFactoryArgumentImpl#getArgumentExpression <em>Argument Expression</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.PayloadFactoryArgumentImpl#getEvaluator <em>Evaluator</em>}</li>
  * </ul>
  * </p>
  *
@@ -84,6 +86,26 @@ public class PayloadFactoryArgumentImpl extends EsbNodeImpl implements PayloadFa
 	 * @ordered
 	 */
 	protected NamespacedProperty argumentExpression;
+
+	/**
+	 * The default value of the '{@link #getEvaluator() <em>Evaluator</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEvaluator()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final MediaType EVALUATOR_EDEFAULT = MediaType.XML;
+
+	/**
+	 * The cached value of the '{@link #getEvaluator() <em>Evaluator</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEvaluator()
+	 * @generated
+	 * @ordered
+	 */
+	protected MediaType evaluator = EVALUATOR_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -199,6 +221,27 @@ public class PayloadFactoryArgumentImpl extends EsbNodeImpl implements PayloadFa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public MediaType getEvaluator() {
+		return evaluator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEvaluator(MediaType newEvaluator) {
+		MediaType oldEvaluator = evaluator;
+		evaluator = newEvaluator == null ? EVALUATOR_EDEFAULT : newEvaluator;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.PAYLOAD_FACTORY_ARGUMENT__EVALUATOR, oldEvaluator, evaluator));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -222,6 +265,8 @@ public class PayloadFactoryArgumentImpl extends EsbNodeImpl implements PayloadFa
 				return getArgumentValue();
 			case EsbPackage.PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_EXPRESSION:
 				return getArgumentExpression();
+			case EsbPackage.PAYLOAD_FACTORY_ARGUMENT__EVALUATOR:
+				return getEvaluator();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -242,6 +287,9 @@ public class PayloadFactoryArgumentImpl extends EsbNodeImpl implements PayloadFa
 				return;
 			case EsbPackage.PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_EXPRESSION:
 				setArgumentExpression((NamespacedProperty)newValue);
+				return;
+			case EsbPackage.PAYLOAD_FACTORY_ARGUMENT__EVALUATOR:
+				setEvaluator((MediaType)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -264,6 +312,9 @@ public class PayloadFactoryArgumentImpl extends EsbNodeImpl implements PayloadFa
 			case EsbPackage.PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_EXPRESSION:
 				setArgumentExpression((NamespacedProperty)null);
 				return;
+			case EsbPackage.PAYLOAD_FACTORY_ARGUMENT__EVALUATOR:
+				setEvaluator(EVALUATOR_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -282,6 +333,8 @@ public class PayloadFactoryArgumentImpl extends EsbNodeImpl implements PayloadFa
 				return ARGUMENT_VALUE_EDEFAULT == null ? argumentValue != null : !ARGUMENT_VALUE_EDEFAULT.equals(argumentValue);
 			case EsbPackage.PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_EXPRESSION:
 				return argumentExpression != null;
+			case EsbPackage.PAYLOAD_FACTORY_ARGUMENT__EVALUATOR:
+				return evaluator != EVALUATOR_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -300,6 +353,8 @@ public class PayloadFactoryArgumentImpl extends EsbNodeImpl implements PayloadFa
 		result.append(argumentType);
 		result.append(", argumentValue: ");
 		result.append(argumentValue);
+		result.append(", evaluator: ");
+		result.append(evaluator);
 		result.append(')');
 		return result.toString();
 	}

@@ -22,11 +22,13 @@ import java.util.Map.Entry;
 import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.apache.synapse.mediators.transform.Argument;
+import org.apache.synapse.util.xpath.SynapseJsonPath;
 import org.apache.synapse.util.xpath.SynapseXPath;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbNode;
+import org.wso2.developerstudio.eclipse.gmf.esb.MediaType;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryArgument;
 import org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryArgumentType;
@@ -63,29 +65,37 @@ public class PayloadFactoryMediatorTransformer extends AbstractEsbNodeTransforme
 	private org.apache.synapse.mediators.transform.PayloadFactoryMediator createPayloadFactoryMediator(EsbNode subject) throws Exception{
 	
 		// Check subject.
-		Assert.isTrue(subject instanceof PayloadFactoryMediator,
-				"Unsupported mediator passed in for serialization.");
+		Assert.isTrue(subject instanceof PayloadFactoryMediator, "Unsupported mediator passed in for serialization.");
 		PayloadFactoryMediator visualPayloadFactory = (PayloadFactoryMediator) subject;
 
 		org.apache.synapse.mediators.transform.PayloadFactoryMediator payloadFactoryMediator = new org.apache.synapse.mediators.transform.PayloadFactoryMediator();
 		payloadFactoryMediator.setFormat(visualPayloadFactory.getFormat());
+		String mediaType = visualPayloadFactory.getMediaType().toString();
+		payloadFactoryMediator.setType(mediaType);
 		EList<PayloadFactoryArgument> args = visualPayloadFactory.getArgs();
 		for (PayloadFactoryArgument arg : args) {
 			Argument argument = new Argument();
-			if (arg.getArgumentType() == PayloadFactoryArgumentType.EXPRESSION) {
-				NamespacedProperty namespacedProperty = arg.getArgumentExpression();
-				SynapseXPath expression = new SynapseXPath(namespacedProperty.getPropertyValue());
-				for (Entry<String, String> entry : namespacedProperty.getNamespaces().entrySet()) {
-					expression.addNamespace(entry.getKey(), entry.getValue());
+			if (arg.getEvaluator() == MediaType.XML){
+				if (arg.getArgumentType() == PayloadFactoryArgumentType.EXPRESSION) {
+					NamespacedProperty namespacedProperty = arg.getArgumentExpression();
+					SynapseXPath expression = new SynapseXPath(namespacedProperty.getPropertyValue());
+					for (Entry<String, String> entry : namespacedProperty.getNamespaces().entrySet()) {
+						expression.addNamespace(entry.getKey(), entry.getValue());
+					}
+					argument.setExpression(expression);
+					argument.setEvaluator(MediaType.XML.toString());
+				} else {
+					argument.setValue(arg.getArgumentValue());
 				}
-				argument.setExpression(expression);
-			} else {
-				argument.setValue(arg.getArgumentValue());
+				payloadFactoryMediator.addXPathArgument(argument);
+			} else if (arg.getEvaluator() == MediaType.JSON){
+				String jsonPathExpression = arg.getArgumentExpression().getPropertyValue();
+				argument.setJsonPath(new SynapseJsonPath(jsonPathExpression));
+				argument.setEvaluator(MediaType.JSON.toString());
+				payloadFactoryMediator.addJsonPathArgument(argument);
 			}
-			payloadFactoryMediator.addXPathArgument(argument);// addArgument(argument);
 		}
 
 		return payloadFactoryMediator;
 	}
-
 }

@@ -68,6 +68,7 @@ public class PayloadFactoryArgumentItemProvider
 			addArgumentTypePropertyDescriptor(object);
 			addArgumentValuePropertyDescriptor(object);
 			addArgumentExpressionPropertyDescriptor(object);
+			addEvaluatorPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -134,6 +135,28 @@ public class PayloadFactoryArgumentItemProvider
 				 false,
 				 false,
 				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Evaluator feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addEvaluatorPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_PayloadFactoryArgument_evaluator_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PayloadFactoryArgument_evaluator_feature", "_UI_PayloadFactoryArgument_type"),
+				 EsbPackage.Literals.PAYLOAD_FACTORY_ARGUMENT__EVALUATOR,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -208,6 +231,7 @@ public class PayloadFactoryArgumentItemProvider
 		switch (notification.getFeatureID(PayloadFactoryArgument.class)) {
 			case EsbPackage.PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_TYPE:
 			case EsbPackage.PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_VALUE:
+			case EsbPackage.PAYLOAD_FACTORY_ARGUMENT__EVALUATOR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case EsbPackage.PAYLOAD_FACTORY_ARGUMENT__ARGUMENT_EXPRESSION:

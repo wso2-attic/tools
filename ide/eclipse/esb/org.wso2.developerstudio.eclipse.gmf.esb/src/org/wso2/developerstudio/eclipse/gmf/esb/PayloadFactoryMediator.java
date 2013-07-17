@@ -20,6 +20,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryMediator#getArgs <em>Args</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryMediator#getInputConnector <em>Input Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryMediator#getOutputConnector <em>Output Connector</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryMediator#getMediaType <em>Media Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -121,5 +122,35 @@ public interface PayloadFactoryMediator extends Mediator {
 	 * @generated
 	 */
 	void setOutputConnector(PayloadFactoryMediatorOutputConnector value);
+
+	/**
+	 * Returns the value of the '<em><b>Media Type</b></em>' attribute.
+	 * The default value is <code>"xml"</code>.
+	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.gmf.esb.MediaType}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Media Type</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Media Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.MediaType
+	 * @see #setMediaType(MediaType)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getPayloadFactoryMediator_MediaType()
+	 * @model default="xml"
+	 * @generated
+	 */
+	MediaType getMediaType();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.PayloadFactoryMediator#getMediaType <em>Media Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Media Type</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.MediaType
+	 * @see #getMediaType()
+	 * @generated
+	 */
+	void setMediaType(MediaType value);
 
 } // PayloadFactoryMediator

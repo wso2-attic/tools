@@ -1813,6 +1813,12 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outputConnector" eType="#//PayloadFactoryMediatorOutputConnector"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mediaType" eType="#//MediaType"
+        defaultValueLiteral="xml"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="MediaType">
+    <eLiterals name="XML" literal="xml"/>
+    <eLiterals name="JSON" value="1" literal="json"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PayloadFactoryMediatorInputConnector"
       eSuperTypes="#//InputConnector"/>
@@ -1823,6 +1829,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="argumentValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="argumentExpression" eType="#//NamespacedProperty"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="evaluator" eType="#//MediaType"
+        defaultValueLiteral="xml"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="PayloadFactoryArgumentType">
     <eLiterals name="VALUE" literal="Value"/>
