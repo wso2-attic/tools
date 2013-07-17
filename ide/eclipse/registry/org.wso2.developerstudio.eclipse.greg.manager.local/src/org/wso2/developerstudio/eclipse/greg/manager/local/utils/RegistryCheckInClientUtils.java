@@ -45,6 +45,7 @@ import org.wso2.developerstudio.eclipse.greg.manager.local.Activator;
 import org.wso2.developerstudio.eclipse.greg.manager.local.bean.RemoteRegistryInfo;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
+import org.wso2.developerstudio.eclipse.platform.core.registry.util.RegistryResourceUtils;
 
 public class RegistryCheckInClientUtils {
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
@@ -265,6 +266,13 @@ public class RegistryCheckInClientUtils {
 					//determine reasonable state through the states of its file/folders contained.	
 					state = getFolderResourceState(state, metadataFolder, resource);
 				}
+				
+				if (state == RESOURCE_STATE_NORMAL) {
+					if (RegistryResourceUtils.getRegistryState(filePath) == RegistryResourceUtils.RegistryState.ADDED) {
+						state = RESOURCE_STATE_NEW;
+					}
+				}
+				
 			} else if (resource.exists()){
 				// metadata file doesn't exist && metadata folder exist => new resource
 				state = RESOURCE_STATE_NEW;

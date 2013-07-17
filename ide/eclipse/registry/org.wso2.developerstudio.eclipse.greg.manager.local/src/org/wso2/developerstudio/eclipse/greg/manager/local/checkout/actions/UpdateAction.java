@@ -34,6 +34,7 @@ import org.wso2.developerstudio.eclipse.greg.manager.local.decorators.RegistryRe
 import org.wso2.developerstudio.eclipse.greg.manager.local.utils.RegistryCheckInClientUtils;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
+import org.wso2.developerstudio.eclipse.platform.core.registry.util.RegistryResourceUtils;
 
 public class UpdateAction extends BaseRegistryAction {
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
@@ -73,6 +74,7 @@ public class UpdateAction extends BaseRegistryAction {
 					RegistryResourceDecorator.refreshProjectResource(folder.getProject());
 					folder.refreshLocal(IResource.DEPTH_INFINITE,
 										new NullProgressMonitor());
+					RegistryResourceUtils.updateMetaData(path, RegistryResourceUtils.RegistryState.UPDATED);
 					MessageDialog.openInformation(Display.getCurrent().getActiveShell(),
 												  "Success",
 												  "Successfully synched with registry");

@@ -31,6 +31,7 @@ import org.wso2.developerstudio.eclipse.greg.manager.local.utils.RegistryCheckIn
 import org.wso2.developerstudio.eclipse.greg.manager.remote.views.RegistryBrowserView;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
+import org.wso2.developerstudio.eclipse.platform.core.registry.util.RegistryResourceUtils;
 
 public class ShowInRegistryBrowserAction extends BaseRegistryAction {
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
@@ -86,7 +87,10 @@ public class ShowInRegistryBrowserAction extends BaseRegistryAction {
 	 */
 	protected void selectedFile(IFile file, IAction action) {
 		int resourceState = RegistryCheckInClientUtils.getResourceState(file.getLocation().toOSString());
-		if (resourceState == RegistryCheckInClientUtils.RESOURCE_STATE_NOT_RESOURCE){
+		int registryState = RegistryResourceUtils.getRegistryState(file.getLocation().toOSString());
+		if (resourceState == RegistryCheckInClientUtils.RESOURCE_STATE_NOT_RESOURCE
+			|| resourceState == RegistryCheckInClientUtils.RESOURCE_STATE_NEW
+			|| registryState == RegistryResourceUtils.RegistryState.ADDED ){
 			action.setEnabled(false);
 		}
 
@@ -97,7 +101,10 @@ public class ShowInRegistryBrowserAction extends BaseRegistryAction {
 	 */
 	protected void selectedFolder(IFolder folder, IAction action) {
 		int resourceState = RegistryCheckInClientUtils.getResourceState(folder.getLocation().toOSString());
-		if (resourceState == RegistryCheckInClientUtils.RESOURCE_STATE_NOT_RESOURCE){
+		int registryState = RegistryResourceUtils.getRegistryState(folder.getLocation().toOSString());
+		if (resourceState == RegistryCheckInClientUtils.RESOURCE_STATE_NOT_RESOURCE 
+			|| resourceState == RegistryCheckInClientUtils.RESOURCE_STATE_NEW
+			|| registryState == RegistryResourceUtils.RegistryState.ADDED ){
 			action.setEnabled(false);
 		}
 	}

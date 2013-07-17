@@ -16,7 +16,6 @@
 
 package org.wso2.developerstudio.eclipse.greg.manager.local.checkout.actions;
 
-import java.io.File;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
@@ -38,6 +37,8 @@ import org.wso2.developerstudio.eclipse.greg.manager.local.dialog.ResourceChecko
 import org.wso2.developerstudio.eclipse.greg.manager.local.utils.RegistryCheckInClientUtils;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
+import org.wso2.developerstudio.eclipse.platform.core.registry.util.RegistryResourceUtils;
+
 
 public class CommitAction extends BaseRegistryAction {
 	private static IDeveloperStudioLog log=Logger.getLog(Activator.PLUGIN_ID);
@@ -100,6 +101,7 @@ public class CommitAction extends BaseRegistryAction {
 					RegistryCheckInClientUtils.commit(path, credentials.getUsername(), credentials.getUsername());
 					RegistryResourceDecorator.refreshProjectResource(file.getProject());
 					file.refreshLocal(IResource.DEPTH_INFINITE,new NullProgressMonitor());
+					RegistryResourceUtils.updateMetaData(path, RegistryResourceUtils.RegistryState.COMMITED);
 					MessageDialog.openInformation(Display.getCurrent().getActiveShell(), 
 												 "Success",
 												 "Successfully commited changes");
@@ -240,6 +242,7 @@ public class CommitAction extends BaseRegistryAction {
 										   credentials.getUsername());
 				RegistryResourceDecorator.refreshProjectResource(folder.getProject());
 				folder.refreshLocal(IResource.DEPTH_INFINITE,new NullProgressMonitor());
+				RegistryResourceUtils.updateMetaData(path, RegistryResourceUtils.RegistryState.COMMITED);
 				MessageDialog.openInformation(Display.getCurrent().getActiveShell(), 
 											  "Success",
 											  "Successfully commited changes");

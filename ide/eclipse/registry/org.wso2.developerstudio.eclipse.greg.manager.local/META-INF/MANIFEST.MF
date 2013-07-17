@@ -50,7 +50,8 @@ Import-Package: javax.xml.stream;version="1.0.1.wso2v1",
  org.wso2.developerstudio.eclipse.greg.core.exception,
  org.wso2.developerstudio.eclipse.greg.manager.remote.views,
  org.wso2.developerstudio.eclipse.logging.core,
- org.wso2.developerstudio.eclipse.platform.core
+ org.wso2.developerstudio.eclipse.platform.core,
+ org.wso2.developerstudio.eclipse.platform.core.registry.util
 Bundle-ClassPath: .,
  lib/checkin-client-4.5.0.jar
 Export-Package: org.wso2.developerstudio.eclipse.greg.manager.local.utils,
