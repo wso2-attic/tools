@@ -71,8 +71,11 @@ public class TaskPropertyDialog extends Dialog{
 		super(parentShell);
 		this.editingDomain = editingDomain;
 		this.task = task;
-		// Set title
-		parentShell.setText("Task Configuration.");
+	}
+	
+	protected void configureShell(Shell newShell) {
+		super.configureShell(newShell);
+		newShell.setText("Task Configuration");
 	}
 	
 	protected Control createDialogArea(Composite parent) {
@@ -129,8 +132,9 @@ public class TaskPropertyDialog extends Dialog{
 				| SWT.HIDE_SELECTION);
 
 		TableColumn nameColumn = new TableColumn(propertyTable, SWT.LEFT);
-		TableColumn valueColumn = new TableColumn(propertyTable, SWT.LEFT);
 		TableColumn typeColumn = new TableColumn(propertyTable, SWT.LEFT);
+		TableColumn valueColumn = new TableColumn(propertyTable, SWT.LEFT);
+		
 		nameColumn.setText("Parameter Name");
 		nameColumn.setWidth(150);
 		valueColumn.setText("Value/Expression");
@@ -163,11 +167,9 @@ public class TaskPropertyDialog extends Dialog{
 		setupTableEditor(propertyTable);
 
 		FormData taskPropertiesTableLayoutData = new FormData(SWT.DEFAULT, 150);
-		taskPropertiesTableLayoutData.top = new FormAttachment(newPropertyButton,
-				0, SWT.TOP);
+		taskPropertiesTableLayoutData.top = new FormAttachment(newPropertyButton, 0, SWT.TOP);
 		taskPropertiesTableLayoutData.left = new FormAttachment(0);
-		taskPropertiesTableLayoutData.right = new FormAttachment(newPropertyButton,
-				-5);
+		taskPropertiesTableLayoutData.right = new FormAttachment(newPropertyButton, -5);
 		taskPropertiesTableLayoutData.bottom = new FormAttachment(100);
 		propertyTable.setLayoutData(taskPropertiesTableLayoutData);
 
@@ -186,13 +188,13 @@ public class TaskPropertyDialog extends Dialog{
 
 				param.setPropertyName(item.getText(0));
 
-				if (item.getText(2).equals("LITERAL")) {
-					param.setPropertyValue(item.getText(1));
+				if (item.getText(1).equals("LITERAL")) {
+					param.setPropertyValue(item.getText(2));
 					param.setPropertyType(TaskPropertyType.LITERAL);
 				}
 
-				if (item.getText(2).equals("XML")) {
-					param.setPropertyValue(item.getText(1));
+				if (item.getText(1).equals("XML")) {
+					param.setPropertyValue(item.getText(2));
 					param.setPropertyType(TaskPropertyType.XML);
 				}
 
@@ -222,11 +224,11 @@ public class TaskPropertyDialog extends Dialog{
 							editingDomain,
 							param,
 							EsbPackage.Literals.NAME_VALUE_TYPE_PROPERTY__PROPERTY_VALUE,
-							item.getText(1));
+							item.getText(2));
 					getResultCommand().append(setCmd);
 				}
 
-				if (item.getText(2).equals("LITERAL")) {
+				if (item.getText(1).equals("LITERAL")) {
 
 					SetCommand setCmdValueType = new SetCommand(
 							editingDomain,
@@ -236,7 +238,7 @@ public class TaskPropertyDialog extends Dialog{
 					getResultCommand().append(setCmdValueType);
 				}
 
-				if (item.getText(2).equals("XML")) {
+				if (item.getText(1).equals("XML")) {
 
 					SetCommand setCmdExpType = new SetCommand(
 							editingDomain,
@@ -259,17 +261,12 @@ public class TaskPropertyDialog extends Dialog{
 	
 	private TableItem bindPram(TaskProperty param) {
 		TableItem item = new TableItem(propertyTable, SWT.NONE);
-		if (param.getPropertyType().getLiteral().equals("LITERAL")) {
-			item.setText(new String[] { param.getPropertyName(),
-					param.getPropertyValue(),
-					param.getPropertyType().getLiteral() });
-		}
-		if (param.getPropertyType().getLiteral().equals("XML")) {
-			item.setText(new String[] { param.getPropertyName(),
-					param.getPropertyValue(),
-					param.getPropertyType().getLiteral()});
-		}
-
+	
+		item.setText(new String[] { param.getPropertyName(),
+									param.getPropertyType().getLiteral(),
+									param.getPropertyValue()
+								  });
+		
 		item.setData(param);
 		return item;
 	}
@@ -356,13 +353,13 @@ public class TaskPropertyDialog extends Dialog{
 				item.getParent());
 		cmbPropertyType = new Combo(item.getParent(), SWT.READ_ONLY);
 		cmbPropertyType.setItems(new String[] { "LITERAL", "XML" });
-		cmbPropertyType.setText(item.getText(2));
-		propertyTypeEditor.setEditor(cmbPropertyType, item, 2);
+		cmbPropertyType.setText(item.getText(1));
+		propertyTypeEditor.setEditor(cmbPropertyType, item, 1);
 		item.getParent().redraw();
 		item.getParent().layout();
 		cmbPropertyType.addListener(SWT.Selection, new Listener() {
 			public void handleEvent(Event evt) {
-				item.setText(2, cmbPropertyType.getText());
+				item.setText(1, cmbPropertyType.getText());
 			}
 		});
 	}
@@ -386,7 +383,4 @@ public class TaskPropertyDialog extends Dialog{
 		}
 		return resultCommand;
 	}
-	
-	
-
 }
