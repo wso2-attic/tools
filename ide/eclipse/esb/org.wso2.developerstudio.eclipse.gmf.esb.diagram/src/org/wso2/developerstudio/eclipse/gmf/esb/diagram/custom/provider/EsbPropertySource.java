@@ -282,6 +282,8 @@ public class EsbPropertySource extends PropertySource {
 			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
 		} else if(pkg.getMessageProcessor_Parameters().equals(feature)){
             return new MessageProcessorParamCustomPropertyDescriptor(object, itemPropertyDescriptor);
+		} else if(pkg.getCallTemplateMediator_TargetTemplate().equals(feature)){
+            return new CallTemplateTargetTemplateCustomPropertyDescriptor(object, itemPropertyDescriptor);
 		}
 			
 		// Else, default EMF behavior

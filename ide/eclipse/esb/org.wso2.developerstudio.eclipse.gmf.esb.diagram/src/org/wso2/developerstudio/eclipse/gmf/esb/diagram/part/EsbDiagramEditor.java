@@ -311,5 +311,9 @@ public class EsbDiagramEditor extends DiagramDocumentEditor implements IGotoMark
 	protected int getInitialDockLocation() {
 		return PositionConstants.WEST;
 	}
+	
+	protected int getInitialPaletteSize() {
+		return 240;
+	}
 
 }
