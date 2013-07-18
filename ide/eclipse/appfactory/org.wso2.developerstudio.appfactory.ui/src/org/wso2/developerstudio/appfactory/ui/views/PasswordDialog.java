@@ -75,8 +75,8 @@ public class PasswordDialog extends Dialog {
 			"icons/appfactory_logo.png"));
 	GridData gd_lblNewLabel = new GridData(SWT.LEFT, SWT.TOP, false,
 			true, 2, 1);
-	gd_lblNewLabel.widthHint = 324;
-	gd_lblNewLabel.heightHint = 55;
+	gd_lblNewLabel.widthHint = 509;
+	gd_lblNewLabel.heightHint = 32;
 	lblNewLabel.setLayoutData(gd_lblNewLabel);
 	
     Label lblHost = new Label(container, SWT.NONE);
@@ -111,6 +111,8 @@ public class PasswordDialog extends Dialog {
     
     Button btnCheckButton = new Button(container, SWT.CHECK);
     btnCheckButton.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
+    btnCheckButton.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false,
+            1, 1));
     btnCheckButton.addSelectionListener(new SelectionAdapter() {
     	@Override
     	public void widgetSelected(SelectionEvent e) {
@@ -143,7 +145,7 @@ public class PasswordDialog extends Dialog {
 
   @Override
   protected Point getInitialSize() {
-    return new Point(484, 257);
+    return new Point(539, 258);
   }
 
   @Override
