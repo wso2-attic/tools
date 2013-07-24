@@ -1,3 +1,19 @@
+/*
+ * Copyright (c) WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.ui;
 
 import java.util.ArrayList;
@@ -75,7 +91,7 @@ public class TaskPropertyDialog extends Dialog{
 		this.editingDomain = editingDomain;
 		this.task = task;
 		defaultESBtask = (task.getTaskImplementation().equals("org.apache.synapse.startup.tasks.MessageInjector"));
-		InitializeDefaultMessageInjectorTask();
+		initializeDefaultMessageInjectorTask();
 	}
 
 	protected void configureShell(Shell newShell) {
@@ -183,7 +199,7 @@ public class TaskPropertyDialog extends Dialog{
 
 	}
 
-	private void AddDefaultProperty(List<String> paramNames, String propertyName) {
+	private void addDefaultProperty(List<String> paramNames, String propertyName) {
 		
 		if (!paramNames.contains(propertyName)) {
 			TaskProperty p1 = EsbFactory.eINSTANCE.createTaskProperty();
@@ -247,16 +263,16 @@ public class TaskPropertyDialog extends Dialog{
 				if (defaultESBtask) {
 					if (param.getPropertyValue() != null) {
 						if (!param.getPropertyValue().equals(item.getText(2))) {
-							AppendPropertyValueCommand(item.getText(2), param);
+							appendPropertyValueCommand(item.getText(2), param);
 						}
 					} else {
 						if (!item.getText(2).isEmpty()) {
-							AppendPropertyValueCommand(item.getText(2), param);
+							appendPropertyValueCommand(item.getText(2), param);
 						}
 					}
 				} else {
 					if (!param.getPropertyValue().equals(item.getText(2))) {
-						AppendPropertyValueCommand(item.getText(2), param);
+						appendPropertyValueCommand(item.getText(2), param);
 					}
 				}
 			}
@@ -265,13 +281,13 @@ public class TaskPropertyDialog extends Dialog{
 		if (getResultCommand().canExecute()) {
 			editingDomain.getCommandStack().execute(getResultCommand());
 		}
-		FinalizeDefaultMessageInjecttorTask();
+		finalizeDefaultMessageInjecttorTask();
 
 		super.okPressed();
 
 	}
 
-	private void AppendPropertyValueCommand(String value, TaskProperty param) {
+	private void appendPropertyValueCommand(String value, TaskProperty param) {
 		SetCommand setCmd = new SetCommand(
 				editingDomain,
 				param,
@@ -410,7 +426,7 @@ public class TaskPropertyDialog extends Dialog{
 		return resultCommand;
 	}
 	
-	private void InitializeDefaultMessageInjectorTask() {
+	private void initializeDefaultMessageInjectorTask() {
 		
 		if (defaultESBtask) {
 			List<String> defaultParams = new ArrayList<String>(Arrays.asList("format","message", "soapAction", "to", "proxyName", "sequenceName", "injectTo"));
@@ -428,7 +444,7 @@ public class TaskPropertyDialog extends Dialog{
 				paramNames.add(param.getPropertyName());
 			}
 			for (String paramName : defaultParams){
-				AddDefaultProperty(paramNames, paramName);
+				addDefaultProperty(paramNames, paramName);
 			}
 			
 			if (getResultCommand().canExecute()) {
@@ -438,7 +454,7 @@ public class TaskPropertyDialog extends Dialog{
 		}
 	}
 	
-	private void FinalizeDefaultMessageInjecttorTask() {
+	private void finalizeDefaultMessageInjecttorTask() {
 		
 		resultCommand = null;
 		if (defaultESBtask){

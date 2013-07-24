@@ -1,3 +1,19 @@
+/*
+ * Copyright WSO2, Inc. (http://wso2.com)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.utils;
 
 import java.util.ArrayList;
@@ -20,8 +36,6 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloneMediator
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloneMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.CloneTargetContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ConditionalRouterMediatorEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EndpointFlowEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EndpointFlowEndpointCompartmentEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FilterMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.IterateMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlow12EditPart;
@@ -42,7 +56,6 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.RouterMediato
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.RouterMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.RouterTargetContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.RuleMediatorEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SendMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchCaseContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchDefaultContainerEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchMediatorContainerEditPart;
@@ -342,10 +355,10 @@ public class MediatorFigureReverser {
 			for (int i = 0; i < children.size(); ++i) {
 				if (children.get(i) instanceof AbstractMediator) {
 					((AbstractMediator) children.get(i))
-							.Reverse((AbstractMediator) children.get(i));
+							.reverse((AbstractMediator) children.get(i));
 				} else if (children.get(i) instanceof AbstractEndpoint) {
 					((AbstractEndpoint) children.get(i))
-							.Reverse((AbstractEndpoint) children.get(i));
+							.reverse((AbstractEndpoint) children.get(i));
 				}
 			}
 		}

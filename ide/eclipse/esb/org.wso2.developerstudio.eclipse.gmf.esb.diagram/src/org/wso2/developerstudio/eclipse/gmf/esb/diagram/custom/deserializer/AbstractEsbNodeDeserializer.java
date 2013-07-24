@@ -60,7 +60,6 @@ import org.wso2.developerstudio.eclipse.gmf.esb.OutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyService;
 import org.wso2.developerstudio.eclipse.gmf.esb.SendMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequences;
-import org.wso2.developerstudio.eclipse.gmf.esb.SequencesInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorCompartmentEditPart;
@@ -70,8 +69,6 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ConnectionUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.complexFiguredAbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbLinkEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ProxyServiceEditPart;
-import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequenceEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequencesEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequencesInputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramEditor;
@@ -350,7 +347,7 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 		}
 		clearLinks();
 		for (Map.Entry<EsbConnector, LinkedList<EsbNode>> flow : complexFiguredReversedFlows.entrySet()) {
-			ReverseComplexFlow(flow.getKey(), flow.getValue());
+			reverseComplexFlow(flow.getKey(), flow.getValue());
 		}
 		refreshEditPartMap();
 		for (Map.Entry<EsbConnector, LinkedList<EsbNode>> flow : connectionFlowMap.entrySet()) {
@@ -365,7 +362,7 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 	 * @param connector
 	 * @param nodes
 	 */
-	public static void ReverseComplexFlow(EsbConnector connector,
+	public static void reverseComplexFlow(EsbConnector connector,
 			LinkedList<EsbNode> nodes) {
 		
 		Rectangle containerBounds = currentLocation.get(connector);
@@ -696,50 +693,6 @@ public abstract class AbstractEsbNodeDeserializer<T,R extends EsbNode> implement
 		}
 		if (ccView.canExecute()) {
 			getDiagramEditor().getDiagramEditDomain().getDiagramCommandStack()
-					.execute(ccView);
-		}
-	}
-	
-
-	/**
-	 * Clear link 
-	 * @param sourceConnector
-	 */
-	@Deprecated
-	@SuppressWarnings({ "unchecked", "rawtypes" })
-	private static void clearLinks(AbstractConnectorEditPart sourceConnector) {
-		List connections = new ArrayList();
-		connections.addAll(sourceConnector.getSourceConnections());
-		connections.addAll(sourceConnector.getTargetConnections());
-		Iterator iterator = connections.iterator();
-		
-		CompoundCommand ccModel = new CompoundCommand();
-		org.eclipse.gef.commands.CompoundCommand ccView = new org.eclipse.gef.commands.CompoundCommand();
-		
-		while (iterator.hasNext()) {
-			EsbLinkEditPart linkEditPart = (EsbLinkEditPart) iterator.next();
-
-			Collection linkCollection = new ArrayList();
-			linkCollection.add(((ConnectorImpl) linkEditPart.getModel()).getElement());
-
-			org.eclipse.emf.edit.command.DeleteCommand modelDeleteCommand = new org.eclipse.emf.edit.command.DeleteCommand(
-					sourceConnector.getEditingDomain(), linkCollection);
-			if (modelDeleteCommand.canExecute()) {
-				ccModel.append(modelDeleteCommand);
-			}
-
-			DeleteCommand viewDeleteCommand = new DeleteCommand(
-					linkEditPart.getNotationView());
-			if (viewDeleteCommand.canExecute()) {
-				ccView.add(new ICommandProxy(viewDeleteCommand));
-			}
-		}
-
-		if (ccModel.canExecute()) {
-			sourceConnector.getEditingDomain().getCommandStack().execute(ccModel);
-		}
-		if (ccView.canExecute()) {
-			sourceConnector.getDiagramEditDomain().getDiagramCommandStack()
 					.execute(ccView);
 		}
 	}

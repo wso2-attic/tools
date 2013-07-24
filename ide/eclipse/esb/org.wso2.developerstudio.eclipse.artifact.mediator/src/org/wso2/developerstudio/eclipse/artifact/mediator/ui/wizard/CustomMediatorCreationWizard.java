@@ -201,8 +201,11 @@ public class CustomMediatorCreationWizard extends AbstractWSO2ProjectCreationWiz
 		try {
 			String[] depedencyList1 = getDepandanceyList();
 			for (String libName : depedencyList1) {
-				JavaUtils.addJarLibraryToProject(project,
-						LibraryUtils.getDependencyPath(libName));
+				File dependencyPath = LibraryUtils.getDependencyPath(libName);
+				if(dependencyPath!=null){
+					JavaUtils.addJarLibraryToProject(project,
+							dependencyPath);
+				}
 			}
 		} catch (Exception e) {
 			log.error("adding dependancies fail",e);
