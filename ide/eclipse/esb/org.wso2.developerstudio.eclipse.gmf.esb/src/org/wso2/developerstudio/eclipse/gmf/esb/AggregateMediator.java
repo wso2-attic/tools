@@ -181,6 +181,7 @@ public interface AggregateMediator extends Mediator {
 
 	/**
 	 * Returns the value of the '<em><b>Completion Min Messages Value</b></em>' attribute.
+	 * The default value is <code>"-1"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Completion Min Messages Value</em>' attribute isn't clear,
@@ -190,7 +191,7 @@ public interface AggregateMediator extends Mediator {
 	 * @return the value of the '<em>Completion Min Messages Value</em>' attribute.
 	 * @see #setCompletionMinMessagesValue(int)
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getAggregateMediator_CompletionMinMessagesValue()
-	 * @model
+	 * @model default="-1"
 	 * @generated
 	 */
 	int getCompletionMinMessagesValue();
@@ -233,6 +234,7 @@ public interface AggregateMediator extends Mediator {
 
 	/**
 	 * Returns the value of the '<em><b>Completion Max Messages Value</b></em>' attribute.
+	 * The default value is <code>"-1"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Completion Max Messages Value</em>' attribute isn't clear,
@@ -242,7 +244,7 @@ public interface AggregateMediator extends Mediator {
 	 * @return the value of the '<em>Completion Max Messages Value</em>' attribute.
 	 * @see #setCompletionMaxMessagesValue(int)
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getAggregateMediator_CompletionMaxMessagesValue()
-	 * @model
+	 * @model default="-1"
 	 * @generated
 	 */
 	int getCompletionMaxMessagesValue();

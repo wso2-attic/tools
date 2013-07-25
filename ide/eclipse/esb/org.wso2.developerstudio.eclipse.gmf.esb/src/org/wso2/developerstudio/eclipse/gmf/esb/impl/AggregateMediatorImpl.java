@@ -157,7 +157,7 @@ public class AggregateMediatorImpl extends MediatorImpl implements AggregateMedi
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int COMPLETION_MIN_MESSAGES_VALUE_EDEFAULT = 0;
+	protected static final int COMPLETION_MIN_MESSAGES_VALUE_EDEFAULT = -1;
 
 	/**
 	 * The cached value of the '{@link #getCompletionMinMessagesValue() <em>Completion Min Messages Value</em>}' attribute.
@@ -187,7 +187,7 @@ public class AggregateMediatorImpl extends MediatorImpl implements AggregateMedi
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int COMPLETION_MAX_MESSAGES_VALUE_EDEFAULT = 0;
+	protected static final int COMPLETION_MAX_MESSAGES_VALUE_EDEFAULT = -1;
 
 	/**
 	 * The cached value of the '{@link #getCompletionMaxMessagesValue() <em>Completion Max Messages Value</em>}' attribute.
