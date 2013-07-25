@@ -21,6 +21,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.HeaderMediatorInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.HeaderMediatorOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.HeaderValueType;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
+import org.wso2.developerstudio.eclipse.gmf.esb.ScopeType;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,6 +33,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.HeaderMediatorImpl#getHeaderName <em>Header Name</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.HeaderMediatorImpl#getHeaderAction <em>Header Action</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.HeaderMediatorImpl#getValueType <em>Value Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.HeaderMediatorImpl#getScope <em>Scope</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.HeaderMediatorImpl#getValueLiteral <em>Value Literal</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.HeaderMediatorImpl#getValueExpression <em>Value Expression</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.HeaderMediatorImpl#getInputConnector <em>Input Connector</em>}</li>
@@ -91,6 +93,26 @@ public class HeaderMediatorImpl extends MediatorImpl implements HeaderMediator {
 	 * @ordered
 	 */
 	protected HeaderValueType valueType = VALUE_TYPE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getScope() <em>Scope</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getScope()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final ScopeType SCOPE_EDEFAULT = ScopeType.DEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getScope() <em>Scope</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getScope()
+	 * @generated
+	 * @ordered
+	 */
+	protected ScopeType scope = SCOPE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getValueLiteral() <em>Value Literal</em>}' attribute.
@@ -259,6 +281,27 @@ public class HeaderMediatorImpl extends MediatorImpl implements HeaderMediator {
 		valueType = newValueType == null ? VALUE_TYPE_EDEFAULT : newValueType;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.HEADER_MEDIATOR__VALUE_TYPE, oldValueType, valueType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ScopeType getScope() {
+		return scope;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setScope(ScopeType newScope) {
+		ScopeType oldScope = scope;
+		scope = newScope == null ? SCOPE_EDEFAULT : newScope;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.HEADER_MEDIATOR__SCOPE, oldScope, scope));
 	}
 
 	/**
@@ -447,6 +490,8 @@ public class HeaderMediatorImpl extends MediatorImpl implements HeaderMediator {
 				return getHeaderAction();
 			case EsbPackage.HEADER_MEDIATOR__VALUE_TYPE:
 				return getValueType();
+			case EsbPackage.HEADER_MEDIATOR__SCOPE:
+				return getScope();
 			case EsbPackage.HEADER_MEDIATOR__VALUE_LITERAL:
 				return getValueLiteral();
 			case EsbPackage.HEADER_MEDIATOR__VALUE_EXPRESSION:
@@ -476,6 +521,9 @@ public class HeaderMediatorImpl extends MediatorImpl implements HeaderMediator {
 				return;
 			case EsbPackage.HEADER_MEDIATOR__VALUE_TYPE:
 				setValueType((HeaderValueType)newValue);
+				return;
+			case EsbPackage.HEADER_MEDIATOR__SCOPE:
+				setScope((ScopeType)newValue);
 				return;
 			case EsbPackage.HEADER_MEDIATOR__VALUE_LITERAL:
 				setValueLiteral((String)newValue);
@@ -511,6 +559,9 @@ public class HeaderMediatorImpl extends MediatorImpl implements HeaderMediator {
 			case EsbPackage.HEADER_MEDIATOR__VALUE_TYPE:
 				setValueType(VALUE_TYPE_EDEFAULT);
 				return;
+			case EsbPackage.HEADER_MEDIATOR__SCOPE:
+				setScope(SCOPE_EDEFAULT);
+				return;
 			case EsbPackage.HEADER_MEDIATOR__VALUE_LITERAL:
 				setValueLiteral(VALUE_LITERAL_EDEFAULT);
 				return;
@@ -542,6 +593,8 @@ public class HeaderMediatorImpl extends MediatorImpl implements HeaderMediator {
 				return headerAction != HEADER_ACTION_EDEFAULT;
 			case EsbPackage.HEADER_MEDIATOR__VALUE_TYPE:
 				return valueType != VALUE_TYPE_EDEFAULT;
+			case EsbPackage.HEADER_MEDIATOR__SCOPE:
+				return scope != SCOPE_EDEFAULT;
 			case EsbPackage.HEADER_MEDIATOR__VALUE_LITERAL:
 				return VALUE_LITERAL_EDEFAULT == null ? valueLiteral != null : !VALUE_LITERAL_EDEFAULT.equals(valueLiteral);
 			case EsbPackage.HEADER_MEDIATOR__VALUE_EXPRESSION:
@@ -569,6 +622,8 @@ public class HeaderMediatorImpl extends MediatorImpl implements HeaderMediator {
 		result.append(headerAction);
 		result.append(", valueType: ");
 		result.append(valueType);
+		result.append(", scope: ");
+		result.append(scope);
 		result.append(", valueLiteral: ");
 		result.append(valueLiteral);
 		result.append(')');

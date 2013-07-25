@@ -1280,6 +1280,8 @@
         defaultValueLiteral=""/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="valueType" eType="#//HeaderValueType"
         defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="scope" eType="#//ScopeType"
+        defaultValueLiteral=""/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="valueLiteral" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="header_value"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="valueExpression" eType="#//NamespacedProperty"
@@ -1298,6 +1300,10 @@
   <eClassifiers xsi:type="ecore:EEnum" name="HeaderValueType">
     <eLiterals name="LITERAL"/>
     <eLiterals name="EXPRESSION" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ScopeType">
+    <eLiterals name="DEFAULT" literal="default"/>
+    <eLiterals name="TRANSPORT" value="1" literal="transport"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ThrottleMediator" eSuperTypes="#//Mediator">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="groupId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"

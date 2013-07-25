@@ -18,6 +18,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.HeaderMediator#getHeaderName <em>Header Name</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.HeaderMediator#getHeaderAction <em>Header Action</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.HeaderMediator#getValueType <em>Value Type</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.HeaderMediator#getScope <em>Scope</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.HeaderMediator#getValueLiteral <em>Value Literal</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.HeaderMediator#getValueExpression <em>Value Expression</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.HeaderMediator#getInputConnector <em>Input Connector</em>}</li>
@@ -115,6 +116,36 @@ public interface HeaderMediator extends Mediator {
 	 * @generated
 	 */
 	void setValueType(HeaderValueType value);
+
+	/**
+	 * Returns the value of the '<em><b>Scope</b></em>' attribute.
+	 * The default value is <code>""</code>.
+	 * The literals are from the enumeration {@link org.wso2.developerstudio.eclipse.gmf.esb.ScopeType}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Scope</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Scope</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.ScopeType
+	 * @see #setScope(ScopeType)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getHeaderMediator_Scope()
+	 * @model default=""
+	 * @generated
+	 */
+	ScopeType getScope();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.HeaderMediator#getScope <em>Scope</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Scope</em>' attribute.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.ScopeType
+	 * @see #getScope()
+	 * @generated
+	 */
+	void setScope(ScopeType value);
 
 	/**
 	 * Returns the value of the '<em><b>Value Literal</b></em>' attribute.

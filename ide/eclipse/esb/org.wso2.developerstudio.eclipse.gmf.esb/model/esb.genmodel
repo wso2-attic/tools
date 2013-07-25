@@ -265,6 +265,10 @@
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//HeaderValueType/LITERAL"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//HeaderValueType/EXPRESSION"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//ScopeType">
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ScopeType/DEFAULT"/>
+      <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ScopeType/TRANSPORT"/>
+    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="esb.ecore#//ThrottlePolicyType">
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ThrottlePolicyType/INLINE"/>
       <genEnumLiterals ecoreEnumLiteral="esb.ecore#//ThrottlePolicyType/REGISTRY_REFERENCE"/>
@@ -1167,6 +1171,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//HeaderMediator/headerName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//HeaderMediator/headerAction"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//HeaderMediator/valueType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//HeaderMediator/scope"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//HeaderMediator/valueLiteral"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//HeaderMediator/valueExpression"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//HeaderMediator/inputConnector"/>

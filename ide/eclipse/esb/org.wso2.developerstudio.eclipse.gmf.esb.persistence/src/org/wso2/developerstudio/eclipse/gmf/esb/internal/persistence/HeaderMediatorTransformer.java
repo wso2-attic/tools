@@ -56,6 +56,7 @@ public class HeaderMediatorTransformer extends AbstractEsbNodeTransformer{
 				headerMediator.setQName(new QName(visualHeader.getHeaderName().getPropertyValue()));
 			}
 			headerMediator.setAction(visualHeader.getHeaderAction().getValue());
+			headerMediator.setScope(visualHeader.getScope().toString());
 			
 			if(visualHeader.getValueType().getValue()==0){
 				headerMediator.setValue(visualHeader.getValueLiteral());

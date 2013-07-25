@@ -72,6 +72,7 @@ public class HeaderMediatorItemProvider
 
 			addHeaderNamePropertyDescriptor(object);
 			addHeaderActionPropertyDescriptor(object);
+			addScopePropertyDescriptor(object);
 			
 			if (headerMediator.getHeaderAction().equals(HeaderAction.SET)) {
 				addValueTypePropertyDescriptor(object);
@@ -138,6 +139,28 @@ public class HeaderMediatorItemProvider
 				 getString("_UI_HeaderMediator_valueType_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_HeaderMediator_valueType_feature", "_UI_HeaderMediator_type"),
 				 EsbPackage.Literals.HEADER_MEDIATOR__VALUE_TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Scope feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addScopePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_HeaderMediator_scope_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_HeaderMediator_scope_feature", "_UI_HeaderMediator_type"),
+				 EsbPackage.Literals.HEADER_MEDIATOR__SCOPE,
 				 true,
 				 false,
 				 false,
@@ -260,6 +283,7 @@ public class HeaderMediatorItemProvider
 		switch (notification.getFeatureID(HeaderMediator.class)) {
 			case EsbPackage.HEADER_MEDIATOR__HEADER_ACTION:
 			case EsbPackage.HEADER_MEDIATOR__VALUE_TYPE:
+			case EsbPackage.HEADER_MEDIATOR__SCOPE:
 			case EsbPackage.HEADER_MEDIATOR__VALUE_LITERAL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

@@ -12,6 +12,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.HeaderAction;
 import org.wso2.developerstudio.eclipse.gmf.esb.HeaderMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.HeaderValueType;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
+import org.wso2.developerstudio.eclipse.gmf.esb.ScopeType;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
 import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.*;
 
@@ -40,6 +41,12 @@ public class HeaderMediatorDeserializer extends AbstractEsbNodeDeserializer<Abst
 			executeSetValueCommand(HEADER_MEDIATOR__HEADER_ACTION, HeaderAction.SET);
 		} else if (headerMediator.getAction() == 1) {
 			executeSetValueCommand(HEADER_MEDIATOR__HEADER_ACTION, HeaderAction.REMOVE);
+		}
+		
+		if (headerMediator.getScope().equals(ScopeType.DEFAULT.toString())) {
+			executeSetValueCommand(HEADER_MEDIATOR__SCOPE, ScopeType.DEFAULT);
+		} else if (headerMediator.getScope().equals(ScopeType.TRANSPORT.toString())) {
+			executeSetValueCommand(HEADER_MEDIATOR__SCOPE, ScopeType.TRANSPORT);
 		}
 		
 		if(headerMediator.getExpression() ==null){

@@ -468,6 +468,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 				return createHeaderActionFromString(eDataType, initialValue);
 			case EsbPackage.HEADER_VALUE_TYPE:
 				return createHeaderValueTypeFromString(eDataType, initialValue);
+			case EsbPackage.SCOPE_TYPE:
+				return createScopeTypeFromString(eDataType, initialValue);
 			case EsbPackage.THROTTLE_POLICY_TYPE:
 				return createThrottlePolicyTypeFromString(eDataType, initialValue);
 			case EsbPackage.THROTTLE_CONDITION_TYPE:
@@ -660,6 +662,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 				return convertHeaderActionToString(eDataType, instanceValue);
 			case EsbPackage.HEADER_VALUE_TYPE:
 				return convertHeaderValueTypeToString(eDataType, instanceValue);
+			case EsbPackage.SCOPE_TYPE:
+				return convertScopeTypeToString(eDataType, instanceValue);
 			case EsbPackage.THROTTLE_POLICY_TYPE:
 				return convertThrottlePolicyTypeToString(eDataType, instanceValue);
 			case EsbPackage.THROTTLE_CONDITION_TYPE:
@@ -4793,6 +4797,26 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	 * @generated
 	 */
 	public String convertHeaderValueTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ScopeType createScopeTypeFromString(EDataType eDataType, String initialValue) {
+		ScopeType result = ScopeType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertScopeTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

@@ -311,6 +311,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.RuleSessionProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleSetCreationProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleSourceType;
 import org.wso2.developerstudio.eclipse.gmf.esb.RuleType;
+import org.wso2.developerstudio.eclipse.gmf.esb.ScopeType;
 import org.wso2.developerstudio.eclipse.gmf.esb.ScriptLanguage;
 import org.wso2.developerstudio.eclipse.gmf.esb.ScriptMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.ScriptMediatorInputConnector;
@@ -2876,6 +2877,13 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	private EEnum headerValueTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum scopeTypeEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -9809,7 +9817,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getHeaderMediator_ValueLiteral() {
+	public EAttribute getHeaderMediator_Scope() {
 		return (EAttribute)headerMediatorEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -9818,8 +9826,8 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getHeaderMediator_ValueExpression() {
-		return (EReference)headerMediatorEClass.getEStructuralFeatures().get(4);
+	public EAttribute getHeaderMediator_ValueLiteral() {
+		return (EAttribute)headerMediatorEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -9827,7 +9835,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getHeaderMediator_InputConnector() {
+	public EReference getHeaderMediator_ValueExpression() {
 		return (EReference)headerMediatorEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -9836,8 +9844,17 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getHeaderMediator_OutputConnector() {
+	public EReference getHeaderMediator_InputConnector() {
 		return (EReference)headerMediatorEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getHeaderMediator_OutputConnector() {
+		return (EReference)headerMediatorEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -13157,6 +13174,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getScopeType() {
+		return scopeTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getThrottlePolicyType() {
 		return throttlePolicyTypeEEnum;
 	}
@@ -14305,6 +14331,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEReference(headerMediatorEClass, HEADER_MEDIATOR__HEADER_NAME);
 		createEAttribute(headerMediatorEClass, HEADER_MEDIATOR__HEADER_ACTION);
 		createEAttribute(headerMediatorEClass, HEADER_MEDIATOR__VALUE_TYPE);
+		createEAttribute(headerMediatorEClass, HEADER_MEDIATOR__SCOPE);
 		createEAttribute(headerMediatorEClass, HEADER_MEDIATOR__VALUE_LITERAL);
 		createEReference(headerMediatorEClass, HEADER_MEDIATOR__VALUE_EXPRESSION);
 		createEReference(headerMediatorEClass, HEADER_MEDIATOR__INPUT_CONNECTOR);
@@ -14954,6 +14981,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		transactionActionEEnum = createEEnum(TRANSACTION_ACTION);
 		headerActionEEnum = createEEnum(HEADER_ACTION);
 		headerValueTypeEEnum = createEEnum(HEADER_VALUE_TYPE);
+		scopeTypeEEnum = createEEnum(SCOPE_TYPE);
 		throttlePolicyTypeEEnum = createEEnum(THROTTLE_POLICY_TYPE);
 		throttleConditionTypeEEnum = createEEnum(THROTTLE_CONDITION_TYPE);
 		throttleAccessTypeEEnum = createEEnum(THROTTLE_ACCESS_TYPE);
@@ -16077,6 +16105,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEReference(getHeaderMediator_HeaderName(), this.getNamespacedProperty(), null, "headerName", null, 0, 1, HeaderMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getHeaderMediator_HeaderAction(), this.getHeaderAction(), "headerAction", "", 0, 1, HeaderMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getHeaderMediator_ValueType(), this.getHeaderValueType(), "valueType", "", 0, 1, HeaderMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getHeaderMediator_Scope(), this.getScopeType(), "scope", "", 0, 1, HeaderMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getHeaderMediator_ValueLiteral(), ecorePackage.getEString(), "valueLiteral", "header_value", 0, 1, HeaderMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getHeaderMediator_ValueExpression(), this.getNamespacedProperty(), null, "valueExpression", null, 0, 1, HeaderMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getHeaderMediator_InputConnector(), this.getHeaderMediatorInputConnector(), null, "inputConnector", null, 0, 1, HeaderMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -16935,6 +16964,10 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEEnum(headerValueTypeEEnum, HeaderValueType.class, "HeaderValueType");
 		addEEnumLiteral(headerValueTypeEEnum, HeaderValueType.LITERAL);
 		addEEnumLiteral(headerValueTypeEEnum, HeaderValueType.EXPRESSION);
+
+		initEEnum(scopeTypeEEnum, ScopeType.class, "ScopeType");
+		addEEnumLiteral(scopeTypeEEnum, ScopeType.DEFAULT);
+		addEEnumLiteral(scopeTypeEEnum, ScopeType.TRANSPORT);
 
 		initEEnum(throttlePolicyTypeEEnum, ThrottlePolicyType.class, "ThrottlePolicyType");
 		addEEnumLiteral(throttlePolicyTypeEEnum, ThrottlePolicyType.INLINE);
