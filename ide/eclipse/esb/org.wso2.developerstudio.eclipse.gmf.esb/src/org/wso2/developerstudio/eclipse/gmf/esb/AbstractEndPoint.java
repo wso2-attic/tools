@@ -6,6 +6,8 @@
  */
 package org.wso2.developerstudio.eclipse.gmf.esb;
 
+import org.eclipse.emf.common.util.EList;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -33,6 +35,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint#getSecurityPolicy <em>Security Policy</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint#getFormat <em>Format</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint#getOptimize <em>Optimize</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint#getTemplateParameters <em>Template Parameters</em>}</li>
  * </ul>
  * </p>
  *
@@ -532,5 +535,21 @@ public interface AbstractEndPoint extends EndPoint {
 	 * @generated
 	 */
 	void setOptimize(EndPointAttachmentOptimization value);
+
+	/**
+	 * Returns the value of the '<em><b>Template Parameters</b></em>' containment reference list.
+	 * The list contents are of type {@link org.wso2.developerstudio.eclipse.gmf.esb.TemplateParameter}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Template Parameters</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Template Parameters</em>' containment reference list.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getAbstractEndPoint_TemplateParameters()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<TemplateParameter> getTemplateParameters();
 
 } // AbstractEndPoint

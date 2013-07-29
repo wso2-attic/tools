@@ -6,14 +6,18 @@
  */
 package org.wso2.developerstudio.eclipse.gmf.esb.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPointAddressingVersion;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPointAttachmentOptimization;
@@ -21,6 +25,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EndPointMessageFormat;
 import org.wso2.developerstudio.eclipse.gmf.esb.EndPointTimeOutAction;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
+import org.wso2.developerstudio.eclipse.gmf.esb.TemplateParameter;
 
 /**
  * <!-- begin-user-doc -->
@@ -47,6 +52,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.AbstractEndPointImpl#getSecurityPolicy <em>Security Policy</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.AbstractEndPointImpl#getFormat <em>Format</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.AbstractEndPointImpl#getOptimize <em>Optimize</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.AbstractEndPointImpl#getTemplateParameters <em>Template Parameters</em>}</li>
  * </ul>
  * </p>
  *
@@ -392,6 +398,16 @@ public abstract class AbstractEndPointImpl extends EndPointImpl implements Abstr
 	 * @ordered
 	 */
 	protected EndPointAttachmentOptimization optimize = OPTIMIZE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getTemplateParameters() <em>Template Parameters</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTemplateParameters()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<TemplateParameter> templateParameters;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -852,6 +868,18 @@ public abstract class AbstractEndPointImpl extends EndPointImpl implements Abstr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<TemplateParameter> getTemplateParameters() {
+		if (templateParameters == null) {
+			templateParameters = new EObjectContainmentEList<TemplateParameter>(TemplateParameter.class, this, EsbPackage.ABSTRACT_END_POINT__TEMPLATE_PARAMETERS);
+		}
+		return templateParameters;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -859,6 +887,8 @@ public abstract class AbstractEndPointImpl extends EndPointImpl implements Abstr
 				return basicSetReliableMessagingPolicy(null, msgs);
 			case EsbPackage.ABSTRACT_END_POINT__SECURITY_POLICY:
 				return basicSetSecurityPolicy(null, msgs);
+			case EsbPackage.ABSTRACT_END_POINT__TEMPLATE_PARAMETERS:
+				return ((InternalEList<?>)getTemplateParameters()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -908,6 +938,8 @@ public abstract class AbstractEndPointImpl extends EndPointImpl implements Abstr
 				return getFormat();
 			case EsbPackage.ABSTRACT_END_POINT__OPTIMIZE:
 				return getOptimize();
+			case EsbPackage.ABSTRACT_END_POINT__TEMPLATE_PARAMETERS:
+				return getTemplateParameters();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -918,6 +950,7 @@ public abstract class AbstractEndPointImpl extends EndPointImpl implements Abstr
 	 * @generated
 	 */
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -974,6 +1007,10 @@ public abstract class AbstractEndPointImpl extends EndPointImpl implements Abstr
 				return;
 			case EsbPackage.ABSTRACT_END_POINT__OPTIMIZE:
 				setOptimize((EndPointAttachmentOptimization)newValue);
+				return;
+			case EsbPackage.ABSTRACT_END_POINT__TEMPLATE_PARAMETERS:
+				getTemplateParameters().clear();
+				getTemplateParameters().addAll((Collection<? extends TemplateParameter>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -1042,6 +1079,9 @@ public abstract class AbstractEndPointImpl extends EndPointImpl implements Abstr
 			case EsbPackage.ABSTRACT_END_POINT__OPTIMIZE:
 				setOptimize(OPTIMIZE_EDEFAULT);
 				return;
+			case EsbPackage.ABSTRACT_END_POINT__TEMPLATE_PARAMETERS:
+				getTemplateParameters().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1091,6 +1131,8 @@ public abstract class AbstractEndPointImpl extends EndPointImpl implements Abstr
 				return format != FORMAT_EDEFAULT;
 			case EsbPackage.ABSTRACT_END_POINT__OPTIMIZE:
 				return optimize != OPTIMIZE_EDEFAULT;
+			case EsbPackage.ABSTRACT_END_POINT__TEMPLATE_PARAMETERS:
+				return templateParameters != null && !templateParameters.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

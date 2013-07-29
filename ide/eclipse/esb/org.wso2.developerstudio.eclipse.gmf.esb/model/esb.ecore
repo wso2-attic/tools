@@ -233,6 +233,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="format" eType="#//EndPointMessageFormat"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="optimize" eType="#//EndPointAttachmentOptimization"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="templateParameters" upperBound="-1"
+        eType="#//TemplateParameter" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MessageMediator" eSuperTypes="#//EsbElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="inputConnector" eType="#//MessageInputConnector"
@@ -2001,6 +2003,8 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="onError" eType="#//RegistryKeyProperty"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="templateParameters" upperBound="-1"
+        eType="#//TemplateParameter" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SequencesOutputConnector" eSuperTypes="#//OutputConnector"/>
   <eClassifiers xsi:type="ecore:EClass" name="SequencesInputConnector" eSuperTypes="#//InputConnector"/>

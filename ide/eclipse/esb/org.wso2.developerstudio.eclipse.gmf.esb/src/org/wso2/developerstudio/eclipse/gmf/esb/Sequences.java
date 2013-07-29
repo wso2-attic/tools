@@ -24,6 +24,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.Sequences#isRecieveSequence <em>Recieve Sequence</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.Sequences#getAssociatedProxy <em>Associated Proxy</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.Sequences#getOnError <em>On Error</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.Sequences#getTemplateParameters <em>Template Parameters</em>}</li>
  * </ul>
  * </p>
  *
@@ -152,6 +153,22 @@ public interface Sequences extends EsbElement {
 	 * @generated
 	 */
 	void setOnError(RegistryKeyProperty value);
+
+	/**
+	 * Returns the value of the '<em><b>Template Parameters</b></em>' containment reference list.
+	 * The list contents are of type {@link org.wso2.developerstudio.eclipse.gmf.esb.TemplateParameter}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Template Parameters</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Template Parameters</em>' containment reference list.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getSequences_TemplateParameters()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<TemplateParameter> getTemplateParameters();
 
 	/**
 	 * Returns the value of the '<em><b>Output Connector</b></em>' containment reference.

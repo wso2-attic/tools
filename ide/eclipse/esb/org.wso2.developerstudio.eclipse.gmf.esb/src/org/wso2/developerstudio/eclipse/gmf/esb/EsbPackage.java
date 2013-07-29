@@ -1889,13 +1889,22 @@ public interface EsbPackage extends EPackage {
 	int ABSTRACT_END_POINT__OPTIMIZE = END_POINT_FEATURE_COUNT + 17;
 
 	/**
+	 * The feature id for the '<em><b>Template Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_END_POINT__TEMPLATE_PARAMETERS = END_POINT_FEATURE_COUNT + 18;
+
+	/**
 	 * The number of structural features of the '<em>Abstract End Point</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_END_POINT_FEATURE_COUNT = END_POINT_FEATURE_COUNT + 18;
+	int ABSTRACT_END_POINT_FEATURE_COUNT = END_POINT_FEATURE_COUNT + 19;
 
 	/**
 	 * The feature id for the '<em><b>Input Connector</b></em>' containment reference.
@@ -2177,6 +2186,15 @@ public interface EsbPackage extends EPackage {
 	int DEFAULT_END_POINT__OPTIMIZE = ABSTRACT_END_POINT__OPTIMIZE;
 
 	/**
+	 * The feature id for the '<em><b>Template Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEFAULT_END_POINT__TEMPLATE_PARAMETERS = ABSTRACT_END_POINT__TEMPLATE_PARAMETERS;
+
+	/**
 	 * The feature id for the '<em><b>Input Connector</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2454,6 +2472,15 @@ public interface EsbPackage extends EPackage {
 	 * @ordered
 	 */
 	int ADDRESS_END_POINT__OPTIMIZE = ABSTRACT_END_POINT__OPTIMIZE;
+
+	/**
+	 * The feature id for the '<em><b>Template Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADDRESS_END_POINT__TEMPLATE_PARAMETERS = ABSTRACT_END_POINT__TEMPLATE_PARAMETERS;
 
 	/**
 	 * The feature id for the '<em><b>Input Connector</b></em>' containment reference.
@@ -2752,6 +2779,15 @@ public interface EsbPackage extends EPackage {
 	 * @ordered
 	 */
 	int HTTP_ENDPOINT__OPTIMIZE = ABSTRACT_END_POINT__OPTIMIZE;
+
+	/**
+	 * The feature id for the '<em><b>Template Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HTTP_ENDPOINT__TEMPLATE_PARAMETERS = ABSTRACT_END_POINT__TEMPLATE_PARAMETERS;
 
 	/**
 	 * The feature id for the '<em><b>Input Connector</b></em>' containment reference.
@@ -13371,6 +13407,15 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	int WSDL_END_POINT__OPTIMIZE = ABSTRACT_END_POINT__OPTIMIZE;
 
 	/**
+	 * The feature id for the '<em><b>Template Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WSDL_END_POINT__TEMPLATE_PARAMETERS = ABSTRACT_END_POINT__TEMPLATE_PARAMETERS;
+
+	/**
 	 * The feature id for the '<em><b>WSDL Definition</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -14004,13 +14049,22 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	int SEQUENCES__ON_ERROR = ESB_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
+	 * The feature id for the '<em><b>Template Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEQUENCES__TEMPLATE_PARAMETERS = ESB_ELEMENT_FEATURE_COUNT + 7;
+
+	/**
 	 * The number of structural features of the '<em>Sequences</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEQUENCES_FEATURE_COUNT = ESB_ELEMENT_FEATURE_COUNT + 7;
+	int SEQUENCES_FEATURE_COUNT = ESB_ELEMENT_FEATURE_COUNT + 8;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SequencesOutputConnectorImpl <em>Sequences Output Connector</em>}' class.
@@ -14868,6 +14922,15 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @ordered
 	 */
 	int NAMED_ENDPOINT__OPTIMIZE = ABSTRACT_END_POINT__OPTIMIZE;
+
+	/**
+	 * The feature id for the '<em><b>Template Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_ENDPOINT__TEMPLATE_PARAMETERS = ABSTRACT_END_POINT__TEMPLATE_PARAMETERS;
 
 	/**
 	 * The feature id for the '<em><b>Input Connector</b></em>' containment reference.
@@ -15855,6 +15918,15 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	int API_RESOURCE_ENDPOINT__OPTIMIZE = ABSTRACT_END_POINT__OPTIMIZE;
 
 	/**
+	 * The feature id for the '<em><b>Template Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int API_RESOURCE_ENDPOINT__TEMPLATE_PARAMETERS = ABSTRACT_END_POINT__TEMPLATE_PARAMETERS;
+
+	/**
 	 * The feature id for the '<em><b>Input Connector</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -16236,6 +16308,15 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @ordered
 	 */
 	int ADDRESSING_ENDPOINT__OPTIMIZE = ABSTRACT_END_POINT__OPTIMIZE;
+
+	/**
+	 * The feature id for the '<em><b>Template Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ADDRESSING_ENDPOINT__TEMPLATE_PARAMETERS = ABSTRACT_END_POINT__TEMPLATE_PARAMETERS;
 
 	/**
 	 * The feature id for the '<em><b>Input Connector</b></em>' containment reference.
@@ -19046,6 +19127,17 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 */
 	EAttribute getAbstractEndPoint_Optimize();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint#getTemplateParameters <em>Template Parameters</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Template Parameters</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint#getTemplateParameters()
+	 * @see #getAbstractEndPoint()
+	 * @generated
+	 */
+	EReference getAbstractEndPoint_TemplateParameters();
 
 	/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.gmf.esb.MessageMediator <em>Message Mediator</em>}'.
@@ -29016,6 +29108,17 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	EReference getSequences_OnError();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link org.wso2.developerstudio.eclipse.gmf.esb.Sequences#getTemplateParameters <em>Template Parameters</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Template Parameters</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.Sequences#getTemplateParameters()
+	 * @see #getSequences()
+	 * @generated
+	 */
+	EReference getSequences_TemplateParameters();
+
+	/**
 	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.Sequences#getOutputConnector <em>Output Connector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -31115,6 +31218,14 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		 * @generated
 		 */
 		EAttribute ABSTRACT_END_POINT__OPTIMIZE = eINSTANCE.getAbstractEndPoint_Optimize();
+
+		/**
+		 * The meta object literal for the '<em><b>Template Parameters</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ABSTRACT_END_POINT__TEMPLATE_PARAMETERS = eINSTANCE.getAbstractEndPoint_TemplateParameters();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.MessageMediatorImpl <em>Message Mediator</em>}' class.
@@ -39109,6 +39220,14 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		 * @generated
 		 */
 		EReference SEQUENCES__ON_ERROR = eINSTANCE.getSequences_OnError();
+
+		/**
+		 * The meta object literal for the '<em><b>Template Parameters</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SEQUENCES__TEMPLATE_PARAMETERS = eINSTANCE.getSequences_TemplateParameters();
 
 		/**
 		 * The meta object literal for the '<em><b>Output Connector</b></em>' containment reference feature.

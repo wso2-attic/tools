@@ -26,6 +26,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequences;
+import org.wso2.developerstudio.eclipse.gmf.esb.Template;
 
 /**
  * This is the item provider adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.Sequences} object.
@@ -68,6 +69,11 @@ public class SequencesItemProvider
 		//addRecieveSequencePropertyDescriptor(object);
 		//addAssociatedProxyPropertyDescriptor(object);
 		addOnErrorPropertyDescriptor(object);
+		if(object instanceof Sequences){
+			if(((Sequences)object).eContainer() instanceof Template){
+				addTemplateParametersPropertyDescriptor(object);		
+			}
+		}		
 		return itemPropertyDescriptors;
 	}
 
@@ -160,6 +166,28 @@ public class SequencesItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Template Parameters feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTemplateParametersPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Sequences_templateParameters_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Sequences_templateParameters_feature", "_UI_Sequences_type"),
+				 EsbPackage.Literals.SEQUENCES__TEMPLATE_PARAMETERS,
+				 true,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -175,6 +203,7 @@ public class SequencesItemProvider
 			childrenFeatures.add(EsbPackage.Literals.SEQUENCES__INPUT_CONNECTOR);
 			childrenFeatures.add(EsbPackage.Literals.SEQUENCES__MEDIATOR_FLOW);
 			childrenFeatures.add(EsbPackage.Literals.SEQUENCES__ON_ERROR);
+			childrenFeatures.add(EsbPackage.Literals.SEQUENCES__TEMPLATE_PARAMETERS);
 		}
 		return childrenFeatures;
 	}
@@ -238,6 +267,7 @@ public class SequencesItemProvider
 			case EsbPackage.SEQUENCES__INPUT_CONNECTOR:
 			case EsbPackage.SEQUENCES__MEDIATOR_FLOW:
 			case EsbPackage.SEQUENCES__ON_ERROR:
+			case EsbPackage.SEQUENCES__TEMPLATE_PARAMETERS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -274,6 +304,11 @@ public class SequencesItemProvider
 			(createChildParameter
 				(EsbPackage.Literals.SEQUENCES__ON_ERROR,
 				 EsbFactory.eINSTANCE.createRegistryKeyProperty()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.SEQUENCES__TEMPLATE_PARAMETERS,
+				 EsbFactory.eINSTANCE.createTemplateParameter()));
 	}
 
 }

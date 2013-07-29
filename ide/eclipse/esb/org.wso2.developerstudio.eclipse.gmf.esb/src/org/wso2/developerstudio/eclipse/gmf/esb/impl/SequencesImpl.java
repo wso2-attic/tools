@@ -15,12 +15,15 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.MediatorFlow;
 import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequences;
 import org.wso2.developerstudio.eclipse.gmf.esb.SequencesInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.SequencesOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.TemplateParameter;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,6 +39,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.SequencesOutputConnector;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SequencesImpl#isRecieveSequence <em>Recieve Sequence</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SequencesImpl#getAssociatedProxy <em>Associated Proxy</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SequencesImpl#getOnError <em>On Error</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SequencesImpl#getTemplateParameters <em>Template Parameters</em>}</li>
  * </ul>
  * </p>
  *
@@ -127,6 +131,16 @@ public class SequencesImpl extends EsbElementImpl implements Sequences {
 	 * @ordered
 	 */
 	protected RegistryKeyProperty onError;
+
+	/**
+	 * The cached value of the '{@link #getTemplateParameters() <em>Template Parameters</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTemplateParameters()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<TemplateParameter> templateParameters;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -297,6 +311,18 @@ public class SequencesImpl extends EsbElementImpl implements Sequences {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<TemplateParameter> getTemplateParameters() {
+		if (templateParameters == null) {
+			templateParameters = new EObjectContainmentEList<TemplateParameter>(TemplateParameter.class, this, EsbPackage.SEQUENCES__TEMPLATE_PARAMETERS);
+		}
+		return templateParameters;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public SequencesOutputConnector getOutputConnector() {
 		return outputConnector;
 	}
@@ -394,6 +420,8 @@ public class SequencesImpl extends EsbElementImpl implements Sequences {
 				return basicSetMediatorFlow(null, msgs);
 			case EsbPackage.SEQUENCES__ON_ERROR:
 				return basicSetOnError(null, msgs);
+			case EsbPackage.SEQUENCES__TEMPLATE_PARAMETERS:
+				return ((InternalEList<?>)getTemplateParameters()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -420,6 +448,8 @@ public class SequencesImpl extends EsbElementImpl implements Sequences {
 				return getAssociatedProxy();
 			case EsbPackage.SEQUENCES__ON_ERROR:
 				return getOnError();
+			case EsbPackage.SEQUENCES__TEMPLATE_PARAMETERS:
+				return getTemplateParameters();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -455,6 +485,10 @@ public class SequencesImpl extends EsbElementImpl implements Sequences {
 			case EsbPackage.SEQUENCES__ON_ERROR:
 				setOnError((RegistryKeyProperty)newValue);
 				return;
+			case EsbPackage.SEQUENCES__TEMPLATE_PARAMETERS:
+				getTemplateParameters().clear();
+				getTemplateParameters().addAll((Collection<? extends TemplateParameter>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -488,6 +522,9 @@ public class SequencesImpl extends EsbElementImpl implements Sequences {
 			case EsbPackage.SEQUENCES__ON_ERROR:
 				setOnError((RegistryKeyProperty)null);
 				return;
+			case EsbPackage.SEQUENCES__TEMPLATE_PARAMETERS:
+				getTemplateParameters().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -514,6 +551,8 @@ public class SequencesImpl extends EsbElementImpl implements Sequences {
 				return associatedProxy != null && !associatedProxy.isEmpty();
 			case EsbPackage.SEQUENCES__ON_ERROR:
 				return onError != null;
+			case EsbPackage.SEQUENCES__TEMPLATE_PARAMETERS:
+				return templateParameters != null && !templateParameters.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

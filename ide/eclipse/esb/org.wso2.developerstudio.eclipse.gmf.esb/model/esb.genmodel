@@ -629,6 +629,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference esb.ecore#//AbstractEndPoint/securityPolicy"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//AbstractEndPoint/format"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//AbstractEndPoint/optimize"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//AbstractEndPoint/templateParameters"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//MessageMediator">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//MessageMediator/inputConnector"/>
@@ -1538,6 +1539,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//Sequences/recieveSequence"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//Sequences/associatedProxy"/>
       <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//Sequences/onError"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//Sequences/templateParameters"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//SequencesOutputConnector"/>
     <genClasses ecoreClass="esb.ecore#//SequencesInputConnector"/>

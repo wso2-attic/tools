@@ -24,6 +24,9 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
+import org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
+import org.wso2.developerstudio.eclipse.gmf.esb.Sequences;
 import org.wso2.developerstudio.eclipse.gmf.esb.Template;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.ui.ConfigureTemplateParametersDialog;
 
@@ -43,7 +46,12 @@ public class TemplateParametersPropertyDescriptor extends PropertyDescriptor {
 			protected Object openDialogBox(Control cellEditorWindow) {
 				Display display = Display.getDefault();
 				Shell shell = new Shell(display);
-				Template template = (Template) object;
+				Template template=null;
+				if(object instanceof Sequences){
+					template = (Template) ((Sequences)object).eContainer();
+				}else if(object instanceof AbstractEndPoint){
+					template= (Template) ((AbstractEndPoint)object).eContainer().eContainer();
+				}
 				ConfigureTemplateParametersDialog dialog = new ConfigureTemplateParametersDialog(
 						shell, template);
 				dialog.setBlockOnOpen(true);
