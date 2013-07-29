@@ -28,6 +28,34 @@
 			<description>ESB Config Project</description>
 		</wizard>
    </extension>
+   
+    <extension point="org.eclipse.ui.navigator.navigatorContent">	
+	   <navigatorContent activeByDefault="true" priority="high" id="org.eclipse.ui.navigator.resourceContent" name="test">
+				<commonWizard 
+					menuGroupId="2org.wso2.developerstudio.eclipse.artifact.esb"
+			  	 	type="new"
+					wizardId="org.wso2.developerstudio.eclipse.artifact.newesbproject">
+					<enablement>
+						<or>
+							<adapt type="org.eclipse.core.resources.IProject"/>
+							<adapt type="org.eclipse.core.resources.IFolder"/>
+						</or>
+					</enablement>
+				</commonWizard>
+				<triggerPoints>
+				           <or>         
+				              <instanceof 
+				                    value="org.eclipse.core.resources.IWorkspaceRoot" /> 
+				              <instanceof
+				                    value="org.eclipse.core.resources.IProject" />  
+				              <instanceof  
+				                     value="org.eclipse.core.resources.IFolder" /> 
+				           </or>
+				  </triggerPoints>
+		</navigatorContent>
+	</extension>
+	
+   
  <extension
        point="org.eclipse.ltk.core.refactoring.renameParticipants">
        <renameParticipant
