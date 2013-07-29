@@ -1302,6 +1302,24 @@ public interface EsbFactory extends EFactory {
 	MessageProcessor createMessageProcessor();
 
 	/**
+	 * Returns a new object of class '<em>API Handler</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>API Handler</em>'.
+	 * @generated
+	 */
+	APIHandler createAPIHandler();
+
+	/**
+	 * Returns a new object of class '<em>API Handler Property</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>API Handler Property</em>'.
+	 * @generated
+	 */
+	APIHandlerProperty createAPIHandlerProperty();
+
+	/**
 	 * Returns a new object of class '<em>Script Mediator</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

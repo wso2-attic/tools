@@ -21,6 +21,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.SynapseAPI#getHostName <em>Host Name</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.SynapseAPI#getPort <em>Port</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.SynapseAPI#getResources <em>Resources</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.SynapseAPI#getHandlers <em>Handlers</em>}</li>
  * </ul>
  * </p>
  *
@@ -150,5 +151,21 @@ public interface SynapseAPI extends EsbElement {
 	 * @generated
 	 */
 	EList<APIResource> getResources();
+
+	/**
+	 * Returns the value of the '<em><b>Handlers</b></em>' reference list.
+	 * The list contents are of type {@link org.wso2.developerstudio.eclipse.gmf.esb.APIHandler}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Handlers</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Handlers</em>' reference list.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getSynapseAPI_Handlers()
+	 * @model
+	 * @generated
+	 */
+	EList<APIHandler> getHandlers();
 
 } // SynapseAPI

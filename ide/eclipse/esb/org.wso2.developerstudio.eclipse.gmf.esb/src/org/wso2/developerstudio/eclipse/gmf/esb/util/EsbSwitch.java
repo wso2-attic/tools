@@ -2442,6 +2442,20 @@ public class EsbSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case EsbPackage.API_HANDLER: {
+				APIHandler apiHandler = (APIHandler)theEObject;
+				T result = caseAPIHandler(apiHandler);
+				if (result == null) result = caseEsbNode(apiHandler);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.API_HANDLER_PROPERTY: {
+				APIHandlerProperty apiHandlerProperty = (APIHandlerProperty)theEObject;
+				T result = caseAPIHandlerProperty(apiHandlerProperty);
+				if (result == null) result = caseEsbNode(apiHandlerProperty);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -4723,6 +4737,36 @@ public class EsbSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseMessageProcessor(MessageProcessor object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>API Handler</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>API Handler</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAPIHandler(APIHandler object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>API Handler Property</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>API Handler Property</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAPIHandlerProperty(APIHandlerProperty object) {
 		return null;
 	}
 

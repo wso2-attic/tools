@@ -271,7 +271,8 @@ public class Deserializer {
 			artifacts.put(sequence.getName(), sequence);
 			break;
 		case API:
-			API api = APIFactory.createAPI(element);
+			//API api = APIFactory.createAPI(element);
+			API api = DummyAPIFactory.createAPI(element);
 			artifacts.put(api.getName(), api);
 			break;
 		case ENDPOINT:

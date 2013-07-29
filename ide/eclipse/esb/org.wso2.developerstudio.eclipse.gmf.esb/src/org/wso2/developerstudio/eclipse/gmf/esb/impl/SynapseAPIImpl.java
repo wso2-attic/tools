@@ -19,8 +19,10 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.wso2.developerstudio.eclipse.gmf.esb.APIHandler;
 import org.wso2.developerstudio.eclipse.gmf.esb.APIResource;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.SynapseAPI;
@@ -37,6 +39,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.SynapseAPI;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SynapseAPIImpl#getHostName <em>Host Name</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SynapseAPIImpl#getPort <em>Port</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SynapseAPIImpl#getResources <em>Resources</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.SynapseAPIImpl#getHandlers <em>Handlers</em>}</li>
  * </ul>
  * </p>
  *
@@ -132,6 +135,16 @@ public class SynapseAPIImpl extends EsbElementImpl implements SynapseAPI {
 	 * @ordered
 	 */
 	protected EList<APIResource> resources;
+
+	/**
+	 * The cached value of the '{@link #getHandlers() <em>Handlers</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getHandlers()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<APIHandler> handlers;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -253,6 +266,18 @@ public class SynapseAPIImpl extends EsbElementImpl implements SynapseAPI {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<APIHandler> getHandlers() {
+		if (handlers == null) {
+			handlers = new EObjectResolvingEList<APIHandler>(APIHandler.class, this, EsbPackage.SYNAPSE_API__HANDLERS);
+		}
+		return handlers;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -280,6 +305,8 @@ public class SynapseAPIImpl extends EsbElementImpl implements SynapseAPI {
 				return getPort();
 			case EsbPackage.SYNAPSE_API__RESOURCES:
 				return getResources();
+			case EsbPackage.SYNAPSE_API__HANDLERS:
+				return getHandlers();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -309,6 +336,10 @@ public class SynapseAPIImpl extends EsbElementImpl implements SynapseAPI {
 				getResources().clear();
 				getResources().addAll((Collection<? extends APIResource>)newValue);
 				return;
+			case EsbPackage.SYNAPSE_API__HANDLERS:
+				getHandlers().clear();
+				getHandlers().addAll((Collection<? extends APIHandler>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -336,6 +367,9 @@ public class SynapseAPIImpl extends EsbElementImpl implements SynapseAPI {
 			case EsbPackage.SYNAPSE_API__RESOURCES:
 				getResources().clear();
 				return;
+			case EsbPackage.SYNAPSE_API__HANDLERS:
+				getHandlers().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -358,6 +392,8 @@ public class SynapseAPIImpl extends EsbElementImpl implements SynapseAPI {
 				return port != PORT_EDEFAULT;
 			case EsbPackage.SYNAPSE_API__RESOURCES:
 				return resources != null && !resources.isEmpty();
+			case EsbPackage.SYNAPSE_API__HANDLERS:
+				return handlers != null && !handlers.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -358,6 +358,8 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 			case EsbPackage.MESSAGE_STORE: return createMessageStore();
 			case EsbPackage.MESSAGE_PROCESSOR_PARAMETER: return createMessageProcessorParameter();
 			case EsbPackage.MESSAGE_PROCESSOR: return createMessageProcessor();
+			case EsbPackage.API_HANDLER: return createAPIHandler();
+			case EsbPackage.API_HANDLER_PROPERTY: return createAPIHandlerProperty();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -2248,6 +2250,26 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	public MessageProcessor createMessageProcessor() {
 		MessageProcessorImpl messageProcessor = new MessageProcessorImpl();
 		return messageProcessor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public APIHandler createAPIHandler() {
+		APIHandlerImpl apiHandler = new APIHandlerImpl();
+		return apiHandler;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public APIHandlerProperty createAPIHandlerProperty() {
+		APIHandlerPropertyImpl apiHandlerProperty = new APIHandlerPropertyImpl();
+		return apiHandlerProperty;
 	}
 
 	/**

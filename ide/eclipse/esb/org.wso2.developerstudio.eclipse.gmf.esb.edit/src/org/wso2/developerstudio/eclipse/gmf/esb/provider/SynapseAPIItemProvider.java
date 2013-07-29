@@ -68,6 +68,7 @@ public class SynapseAPIItemProvider
 			addContextPropertyDescriptor(object);
 			addHostNamePropertyDescriptor(object);
 			addPortPropertyDescriptor(object);
+			addHandlersPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -157,6 +158,28 @@ public class SynapseAPIItemProvider
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Handlers feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addHandlersPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SynapseAPI_handlers_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SynapseAPI_handlers_feature", "_UI_SynapseAPI_type"),
+				 EsbPackage.Literals.SYNAPSE_API__HANDLERS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 getString("_UI_HandlersPropertyCategory"),
 				 null));
 	}
 

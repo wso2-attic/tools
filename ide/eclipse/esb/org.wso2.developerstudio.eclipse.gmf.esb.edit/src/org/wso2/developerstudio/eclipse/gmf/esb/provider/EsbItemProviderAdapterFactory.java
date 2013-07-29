@@ -3344,6 +3344,52 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.APIHandler} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected APIHandlerItemProvider apiHandlerItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.APIHandler}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAPIHandlerAdapter() {
+		if (apiHandlerItemProvider == null) {
+			apiHandlerItemProvider = new APIHandlerItemProvider(this);
+		}
+
+		return apiHandlerItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.APIHandlerProperty} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected APIHandlerPropertyItemProvider apiHandlerPropertyItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.APIHandlerProperty}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAPIHandlerPropertyAdapter() {
+		if (apiHandlerPropertyItemProvider == null) {
+			apiHandlerPropertyItemProvider = new APIHandlerPropertyItemProvider(this);
+		}
+
+		return apiHandlerPropertyItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.ScriptMediator} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7196,6 +7242,8 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 		if (messageStoreItemProvider != null) messageStoreItemProvider.dispose();
 		if (messageProcessorParameterItemProvider != null) messageProcessorParameterItemProvider.dispose();
 		if (messageProcessorItemProvider != null) messageProcessorItemProvider.dispose();
+		if (apiHandlerItemProvider != null) apiHandlerItemProvider.dispose();
+		if (apiHandlerPropertyItemProvider != null) apiHandlerPropertyItemProvider.dispose();
 	}
 
 }

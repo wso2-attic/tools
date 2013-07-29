@@ -19,6 +19,8 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.wso2.developerstudio.eclipse.gmf.esb.APIHandler;
+import org.wso2.developerstudio.eclipse.gmf.esb.APIHandlerProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.APIResource;
 import org.wso2.developerstudio.eclipse.gmf.esb.APIResourceEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.APIResourceEndpointInputConnector;
@@ -1498,6 +1500,20 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	private EClass messageProcessorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass apiHandlerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass apiHandlerPropertyEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -7135,6 +7151,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getSynapseAPI_Handlers() {
+		return (EReference)synapseAPIEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getAPIResource() {
 		return apiResourceEClass;
 	}
@@ -7875,6 +7900,60 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 */
 	public EReference getMessageProcessor_Parameters() {
 		return (EReference)messageProcessorEClass.getEStructuralFeatures().get(14);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAPIHandler() {
+		return apiHandlerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAPIHandler_ClassName() {
+		return (EAttribute)apiHandlerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAPIHandler_Properties() {
+		return (EReference)apiHandlerEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAPIHandlerProperty() {
+		return apiHandlerPropertyEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAPIHandlerProperty_Name() {
+		return (EAttribute)apiHandlerPropertyEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAPIHandlerProperty_Value() {
+		return (EAttribute)apiHandlerPropertyEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -14838,6 +14917,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEAttribute(synapseAPIEClass, SYNAPSE_API__HOST_NAME);
 		createEAttribute(synapseAPIEClass, SYNAPSE_API__PORT);
 		createEReference(synapseAPIEClass, SYNAPSE_API__RESOURCES);
+		createEReference(synapseAPIEClass, SYNAPSE_API__HANDLERS);
 
 		apiResourceEClass = createEClass(API_RESOURCE);
 		createEReference(apiResourceEClass, API_RESOURCE__INPUT_CONNECTOR);
@@ -14941,6 +15021,14 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEAttribute(messageProcessorEClass, MESSAGE_PROCESSOR__CRON_EXPRESSION);
 		createEAttribute(messageProcessorEClass, MESSAGE_PROCESSOR__PINNED_SERVERS);
 		createEReference(messageProcessorEClass, MESSAGE_PROCESSOR__PARAMETERS);
+
+		apiHandlerEClass = createEClass(API_HANDLER);
+		createEAttribute(apiHandlerEClass, API_HANDLER__CLASS_NAME);
+		createEReference(apiHandlerEClass, API_HANDLER__PROPERTIES);
+
+		apiHandlerPropertyEClass = createEClass(API_HANDLER_PROPERTY);
+		createEAttribute(apiHandlerPropertyEClass, API_HANDLER_PROPERTY__NAME);
+		createEAttribute(apiHandlerPropertyEClass, API_HANDLER_PROPERTY__VALUE);
 
 		// Create enums
 		artifactTypeEEnum = createEEnum(ARTIFACT_TYPE);
@@ -15338,6 +15426,8 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		messageStoreEClass.getESuperTypes().add(this.getEsbElement());
 		messageProcessorParameterEClass.getESuperTypes().add(this.getEsbNode());
 		messageProcessorEClass.getESuperTypes().add(this.getEsbElement());
+		apiHandlerEClass.getESuperTypes().add(this.getEsbNode());
+		apiHandlerPropertyEClass.getESuperTypes().add(this.getEsbNode());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(esbDiagramEClass, EsbDiagram.class, "EsbDiagram", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -16613,6 +16703,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEAttribute(getSynapseAPI_HostName(), ecorePackage.getEString(), "hostName", null, 0, 1, SynapseAPI.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSynapseAPI_Port(), ecorePackage.getEInt(), "port", null, 0, 1, SynapseAPI.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSynapseAPI_Resources(), this.getAPIResource(), null, "resources", null, 0, -1, SynapseAPI.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSynapseAPI_Handlers(), this.getAPIHandler(), null, "handlers", null, 0, -1, SynapseAPI.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(apiResourceEClass, APIResource.class, "APIResource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAPIResource_InputConnector(), this.getAPIResourceInputConnector(), null, "inputConnector", null, 0, 1, APIResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -16716,6 +16807,14 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEAttribute(getMessageProcessor_CronExpression(), ecorePackage.getEString(), "cronExpression", null, 0, 1, MessageProcessor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMessageProcessor_PinnedServers(), ecorePackage.getEString(), "pinnedServers", null, 0, 1, MessageProcessor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMessageProcessor_Parameters(), this.getMessageProcessorParameter(), null, "parameters", null, 0, -1, MessageProcessor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(apiHandlerEClass, APIHandler.class, "APIHandler", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAPIHandler_ClassName(), ecorePackage.getEString(), "className", null, 0, 1, APIHandler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAPIHandler_Properties(), this.getAPIHandlerProperty(), null, "properties", null, 0, -1, APIHandler.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(apiHandlerPropertyEClass, APIHandlerProperty.class, "APIHandlerProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAPIHandlerProperty_Name(), ecorePackage.getEString(), "name", null, 0, 1, APIHandlerProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAPIHandlerProperty_Value(), ecorePackage.getEString(), "value", null, 0, 1, APIHandlerProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(artifactTypeEEnum, ArtifactType.class, "ArtifactType");
