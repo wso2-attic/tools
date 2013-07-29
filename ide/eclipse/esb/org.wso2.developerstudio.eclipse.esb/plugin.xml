@@ -1371,6 +1371,20 @@
              extension="xml">
        </template>
        <template
+             file="resources/templates/proxyservices/pass-through-proxy.xml"
+             id="org.wso2.developerstudio.eclipse.esb.proxy3"
+             name="Pass Through Proxy"
+             mediaType="application/vnd+wso2.proxyservice"
+             extension="xml">
+       </template>
+       <template
+             file="resources/templates/proxyservices/custom-proxy.xml"
+             id="org.wso2.developerstudio.eclipse.esb.proxy6"
+             name="Custom Proxy"
+             mediaType="application/vnd+wso2.proxyservice"
+             extension="xml">
+       </template>
+       <template
              file="resources/templates/proxyservices/transformer-proxy.xml"
              id="org.wso2.developerstudio.eclipse.esb.template.proxy1"
              name="Transformer Proxy"
@@ -1385,13 +1399,6 @@
              extension="xml">
        </template>
        <template
-             file="resources/templates/proxyservices/pass-through-proxy.xml"
-             id="org.wso2.developerstudio.eclipse.esb.proxy3"
-             name="Pass Through Proxy"
-             mediaType="application/vnd+wso2.proxyservice"
-             extension="xml">
-       </template>
-       <template
              file="resources/templates/proxyservices/wsdl-based-proxy.xml"
              id="org.wso2.developerstudio.eclipse.esb.proxy4"
              name="WSDL Based Proxy"
@@ -1402,13 +1409,6 @@
              file="resources/templates/proxyservices/secure-proxy.xml"
              id="org.wso2.developerstudio.eclipse.esb.proxy5"
              name="Secure Proxy"
-             mediaType="application/vnd+wso2.proxyservice"
-             extension="xml">
-       </template>
-       <template
-             file="resources/templates/proxyservices/custom-proxy.xml"
-             id="org.wso2.developerstudio.eclipse.esb.proxy6"
-             name="Custom Proxy"
              mediaType="application/vnd+wso2.proxyservice"
              extension="xml">
        </template>
