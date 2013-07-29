@@ -22,5 +22,11 @@ public class AbstractSequencesEditPart extends AbstractBorderedShapeEditPart{
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
+	@Override
+	protected void createDefaultEditPolicies() {
+		super.createDefaultEditPolicies();
+		removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
+		removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.POPUPBAR_ROLE);
+	}
 }
