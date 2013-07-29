@@ -89,9 +89,9 @@ public class ProxyServiceGroupBox extends RoundedRectangle {
 		RectangleFigure esbNodeTypeNameRectangle1 = new RectangleFigure();
 		esbNodeTypeNameRectangle1.setOutline(false);
 		esbNodeTypeNameRectangle1.setBackgroundColor(new Color(null, 255, 255, 255));
-		esbNodeTypeNameRectangle1.setPreferredSize(new Dimension(37, 20));
-		esbNodeTypeNameRectangle1.setMinimumSize(new Dimension(37, 20));
-		esbNodeTypeNameRectangle1.setMaximumSize(new Dimension(37, 20));
+		esbNodeTypeNameRectangle1.setPreferredSize(new Dimension(65, 20));
+		esbNodeTypeNameRectangle1.setMinimumSize(new Dimension(65, 20));
+		esbNodeTypeNameRectangle1.setMaximumSize(new Dimension(65, 20));
 
 		GridData constraintEsbNodeTypeNameRectangle1 = new GridData();
 		constraintEsbNodeTypeNameRectangle1.verticalAlignment = GridData.BEGINNING;

@@ -362,7 +362,7 @@ public class APIResourceEditPart extends AbstractBaseFigureEditPart {
 		}
 
 		public String getNodeName() {
-			return "API";
+			return "Resource";
 		}
 
 		public Color getBackgroundColor() {
