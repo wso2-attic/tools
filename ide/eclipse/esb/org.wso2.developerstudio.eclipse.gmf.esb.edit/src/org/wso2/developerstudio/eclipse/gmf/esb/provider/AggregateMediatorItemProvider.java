@@ -94,6 +94,8 @@ public class AggregateMediatorItemProvider
 		if (mediator.getSequenceType().equals(AggregateSequenceType.REGISTRY_REFERENCE)) {
 			addSequenceKeyPropertyDescriptor(object);
 		}
+		
+		addEnclosingElementPropertyPropertyDescriptor(object);
 
 		return itemPropertyDescriptors;
 	}
@@ -359,6 +361,28 @@ public class AggregateMediatorItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Enclosing Element Property feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addEnclosingElementPropertyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AggregateMediator_enclosingElementProperty_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AggregateMediator_enclosingElementProperty_feature", "_UI_AggregateMediator_type"),
+				 EsbPackage.Literals.AGGREGATE_MEDIATOR__ENCLOSING_ELEMENT_PROPERTY,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 getString("_UI_BasicPropertyCategory"),
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -443,6 +467,7 @@ public class AggregateMediatorItemProvider
 			case EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MIN_MESSAGES_VALUE:
 			case EsbPackage.AGGREGATE_MEDIATOR__COMPLETION_MAX_MESSAGES_VALUE:
 			case EsbPackage.AGGREGATE_MEDIATOR__SEQUENCE_TYPE:
+			case EsbPackage.AGGREGATE_MEDIATOR__ENCLOSING_ELEMENT_PROPERTY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case EsbPackage.AGGREGATE_MEDIATOR__CORRELATION_EXPRESSION:

@@ -6697,13 +6697,22 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	int AGGREGATE_MEDIATOR__SEQUENCE_KEY = MEDIATOR_FEATURE_COUNT + 15;
 
 	/**
+	 * The feature id for the '<em><b>Enclosing Element Property</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AGGREGATE_MEDIATOR__ENCLOSING_ELEMENT_PROPERTY = MEDIATOR_FEATURE_COUNT + 16;
+
+	/**
 	 * The number of structural features of the '<em>Aggregate Mediator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AGGREGATE_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 16;
+	int AGGREGATE_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 17;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.AggregateMediatorInputConnectorImpl <em>Aggregate Mediator Input Connector</em>}' class.
@@ -23901,6 +23910,17 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	EReference getAggregateMediator_SequenceKey();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator#getEnclosingElementProperty <em>Enclosing Element Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Enclosing Element Property</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator#getEnclosingElementProperty()
+	 * @see #getAggregateMediator()
+	 * @generated
+	 */
+	EAttribute getAggregateMediator_EnclosingElementProperty();
+
+	/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediatorInputConnector <em>Aggregate Mediator Input Connector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -34907,6 +34927,14 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		 * @generated
 		 */
 		EReference AGGREGATE_MEDIATOR__SEQUENCE_KEY = eINSTANCE.getAggregateMediator_SequenceKey();
+
+		/**
+		 * The meta object literal for the '<em><b>Enclosing Element Property</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute AGGREGATE_MEDIATOR__ENCLOSING_ELEMENT_PROPERTY = eINSTANCE.getAggregateMediator_EnclosingElementProperty();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.AggregateMediatorInputConnectorImpl <em>Aggregate Mediator Input Connector</em>}' class.

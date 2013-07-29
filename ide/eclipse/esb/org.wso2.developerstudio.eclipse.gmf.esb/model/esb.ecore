@@ -930,6 +930,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sequenceType" eType="#//AggregateSequenceType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sequenceKey" eType="#//RegistryKeyProperty"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="enclosingElementProperty"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="CompletionMessagesType">
     <eLiterals name="VALUE"/>

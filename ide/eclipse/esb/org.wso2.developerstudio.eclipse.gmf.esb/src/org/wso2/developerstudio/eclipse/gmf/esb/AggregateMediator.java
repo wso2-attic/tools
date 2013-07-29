@@ -33,6 +33,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator#getAggregationExpression <em>Aggregation Expression</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator#getSequenceType <em>Sequence Type</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator#getSequenceKey <em>Sequence Key</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator#getEnclosingElementProperty <em>Enclosing Element Property</em>}</li>
  * </ul>
  * </p>
  *
@@ -469,5 +470,31 @@ public interface AggregateMediator extends Mediator {
 	 * @generated
 	 */
 	void setSequenceKey(RegistryKeyProperty value);
+
+	/**
+	 * Returns the value of the '<em><b>Enclosing Element Property</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Enclosing Element Property</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Enclosing Element Property</em>' attribute.
+	 * @see #setEnclosingElementProperty(String)
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getAggregateMediator_EnclosingElementProperty()
+	 * @model
+	 * @generated
+	 */
+	String getEnclosingElementProperty();
+
+	/**
+	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.AggregateMediator#getEnclosingElementProperty <em>Enclosing Element Property</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Enclosing Element Property</em>' attribute.
+	 * @see #getEnclosingElementProperty()
+	 * @generated
+	 */
+	void setEnclosingElementProperty(String value);
 
 } // AggregateMediator

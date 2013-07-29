@@ -8386,6 +8386,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getAggregateMediator_EnclosingElementProperty() {
+		return (EAttribute)aggregateMediatorEClass.getEStructuralFeatures().get(16);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getAggregateMediatorInputConnector() {
 		return aggregateMediatorInputConnectorEClass;
 	}
@@ -14123,6 +14132,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEReference(aggregateMediatorEClass, AGGREGATE_MEDIATOR__AGGREGATION_EXPRESSION);
 		createEAttribute(aggregateMediatorEClass, AGGREGATE_MEDIATOR__SEQUENCE_TYPE);
 		createEReference(aggregateMediatorEClass, AGGREGATE_MEDIATOR__SEQUENCE_KEY);
+		createEAttribute(aggregateMediatorEClass, AGGREGATE_MEDIATOR__ENCLOSING_ELEMENT_PROPERTY);
 
 		aggregateMediatorInputConnectorEClass = createEClass(AGGREGATE_MEDIATOR_INPUT_CONNECTOR);
 
@@ -15897,6 +15907,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEReference(getAggregateMediator_AggregationExpression(), this.getNamespacedProperty(), null, "aggregationExpression", null, 0, 1, AggregateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAggregateMediator_SequenceType(), this.getAggregateSequenceType(), "sequenceType", null, 0, 1, AggregateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAggregateMediator_SequenceKey(), this.getRegistryKeyProperty(), null, "sequenceKey", null, 0, 1, AggregateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAggregateMediator_EnclosingElementProperty(), ecorePackage.getEString(), "enclosingElementProperty", null, 0, 1, AggregateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(aggregateMediatorInputConnectorEClass, AggregateMediatorInputConnector.class, "AggregateMediatorInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

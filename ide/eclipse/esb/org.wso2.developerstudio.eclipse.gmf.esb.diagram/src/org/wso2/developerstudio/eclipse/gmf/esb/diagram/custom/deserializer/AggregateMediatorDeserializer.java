@@ -19,6 +19,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 import java.util.Map;
 
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.synapse.mediators.AbstractMediator;
 import org.apache.synapse.mediators.Value;
 import org.apache.synapse.util.xpath.SynapseXPath;
@@ -201,6 +202,11 @@ public class AggregateMediatorDeserializer extends AbstractEsbNodeDeserializer<A
 			
 		}
 		
+		//Setting Enclosing Element Property 
+		if (StringUtils.isNotBlank(aggregateMediator.getEnclosingElementPropertyName())) {
+			executeSetValueCommand(AGGREGATE_MEDIATOR__ENCLOSING_ELEMENT_PROPERTY,
+					aggregateMediator.getEnclosingElementPropertyName());
+		}
 		
 		return visualAggregateMediator;
 		

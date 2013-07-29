@@ -53,6 +53,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.AggregateMediatorImpl#getAggregationExpression <em>Aggregation Expression</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.AggregateMediatorImpl#getSequenceType <em>Sequence Type</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.AggregateMediatorImpl#getSequenceKey <em>Sequence Key</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.AggregateMediatorImpl#getEnclosingElementProperty <em>Enclosing Element Property</em>}</li>
  * </ul>
  * </p>
  *
@@ -288,6 +289,26 @@ public class AggregateMediatorImpl extends MediatorImpl implements AggregateMedi
 	 * @ordered
 	 */
 	protected RegistryKeyProperty sequenceKey;
+
+	/**
+	 * The default value of the '{@link #getEnclosingElementProperty() <em>Enclosing Element Property</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEnclosingElementProperty()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ENCLOSING_ELEMENT_PROPERTY_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getEnclosingElementProperty() <em>Enclosing Element Property</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEnclosingElementProperty()
+	 * @generated
+	 * @ordered
+	 */
+	protected String enclosingElementProperty = ENCLOSING_ELEMENT_PROPERTY_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -879,6 +900,27 @@ public class AggregateMediatorImpl extends MediatorImpl implements AggregateMedi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getEnclosingElementProperty() {
+		return enclosingElementProperty;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEnclosingElementProperty(String newEnclosingElementProperty) {
+		String oldEnclosingElementProperty = enclosingElementProperty;
+		enclosingElementProperty = newEnclosingElementProperty;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.AGGREGATE_MEDIATOR__ENCLOSING_ELEMENT_PROPERTY, oldEnclosingElementProperty, enclosingElementProperty));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -946,6 +988,8 @@ public class AggregateMediatorImpl extends MediatorImpl implements AggregateMedi
 				return getSequenceType();
 			case EsbPackage.AGGREGATE_MEDIATOR__SEQUENCE_KEY:
 				return getSequenceKey();
+			case EsbPackage.AGGREGATE_MEDIATOR__ENCLOSING_ELEMENT_PROPERTY:
+				return getEnclosingElementProperty();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -1008,6 +1052,9 @@ public class AggregateMediatorImpl extends MediatorImpl implements AggregateMedi
 			case EsbPackage.AGGREGATE_MEDIATOR__SEQUENCE_KEY:
 				setSequenceKey((RegistryKeyProperty)newValue);
 				return;
+			case EsbPackage.AGGREGATE_MEDIATOR__ENCLOSING_ELEMENT_PROPERTY:
+				setEnclosingElementProperty((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -1069,6 +1116,9 @@ public class AggregateMediatorImpl extends MediatorImpl implements AggregateMedi
 			case EsbPackage.AGGREGATE_MEDIATOR__SEQUENCE_KEY:
 				setSequenceKey((RegistryKeyProperty)null);
 				return;
+			case EsbPackage.AGGREGATE_MEDIATOR__ENCLOSING_ELEMENT_PROPERTY:
+				setEnclosingElementProperty(ENCLOSING_ELEMENT_PROPERTY_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -1114,6 +1164,8 @@ public class AggregateMediatorImpl extends MediatorImpl implements AggregateMedi
 				return sequenceType != SEQUENCE_TYPE_EDEFAULT;
 			case EsbPackage.AGGREGATE_MEDIATOR__SEQUENCE_KEY:
 				return sequenceKey != null;
+			case EsbPackage.AGGREGATE_MEDIATOR__ENCLOSING_ELEMENT_PROPERTY:
+				return ENCLOSING_ELEMENT_PROPERTY_EDEFAULT == null ? enclosingElementProperty != null : !ENCLOSING_ELEMENT_PROPERTY_EDEFAULT.equals(enclosingElementProperty);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -1143,6 +1195,8 @@ public class AggregateMediatorImpl extends MediatorImpl implements AggregateMedi
 		result.append(completionMaxMessagesValue);
 		result.append(", sequenceType: ");
 		result.append(sequenceType);
+		result.append(", enclosingElementProperty: ");
+		result.append(enclosingElementProperty);
 		result.append(')');
 		return result.toString();
 	}

@@ -989,6 +989,7 @@
       <genFeatures createChild="false" propertyCategory="onComplete" ecoreFeature="ecore:EAttribute esb.ecore#//AggregateMediator/sequenceType"/>
       <genFeatures children="true" createChild="true" propertyCategory="onComplete"
           ecoreFeature="ecore:EReference esb.ecore#//AggregateMediator/sequenceKey"/>
+      <genFeatures createChild="false" propertyCategory="Basic" ecoreFeature="ecore:EAttribute esb.ecore#//AggregateMediator/enclosingElementProperty"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//AggregateMediatorInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//AggregateMediatorOutputConnector"/>

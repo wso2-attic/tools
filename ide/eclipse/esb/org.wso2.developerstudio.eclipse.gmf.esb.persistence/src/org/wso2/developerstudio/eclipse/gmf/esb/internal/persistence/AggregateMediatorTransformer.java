@@ -19,6 +19,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence;
 import java.util.List;
 import java.util.Map.Entry;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.synapse.config.xml.AnonymousListMediator;
 import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.mediators.ListMediator;
@@ -198,6 +199,11 @@ public class AggregateMediatorTransformer extends AbstractEsbNodeTransformer {
 
 				//onCompleteSequence.addAll(onCompleteMediatorList.getList());
 				aggregateMediator.setOnCompleteSequence(onCompleteSequence);
+			}
+			
+			if (StringUtils.isNotBlank(visualAggregate.getEnclosingElementProperty())) {
+				aggregateMediator.setEnclosingElementPropertyName(visualAggregate
+						.getEnclosingElementProperty());
 			}
 		}
 		return aggregateMediator;
