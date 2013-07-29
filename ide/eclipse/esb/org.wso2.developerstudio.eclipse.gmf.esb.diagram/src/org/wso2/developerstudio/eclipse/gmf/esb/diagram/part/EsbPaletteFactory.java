@@ -136,7 +136,7 @@ public class EsbPaletteFactory {
 		paletteContainer.add(createPayloadFactoryMediator34CreationTool());		
 		paletteContainer.add(createPropertyMediator4CreationTool());	
 		paletteContainer.add(createRMSequenceMediator28CreationTool());
-		paletteContainer.add(createRouterMediator38CreationTool());
+		//paletteContainer.add(createRouterMediator38CreationTool()); removed as requested in TOOLS-1800
 		paletteContainer.add(createRuleMediator30CreationTool());
 		paletteContainer.add(createScriptMediator12CreationTool());
 		paletteContainer.add(createSendMediator19CreationTool());	
