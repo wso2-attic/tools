@@ -1310,13 +1310,6 @@
     <extension
           point="org.wso2.developerstudio.eclipse.platform.core.artifacttemplates">
        <template
-             file="resources/templates/endpoints/default_endpoint.xml"
-             id="org.wso2.developerstudio.eclipse.esb.template.ep2"
-             name="Default Endpoint"
-             mediaType="application/vnd.wso2.esb.endpoint"
-             extension="xml">
-       </template>
-       <template
              file="resources/templates/sequences/sequence.xml"
              id="org.wso2.developerstudio.eclipse.esb.sequence"
              name="Sequence"
@@ -1327,6 +1320,13 @@
              file="resources/templates/endpoints/address_endpoint.xml"
              id="org.wso2.developerstudio.eclipse.esb.template.ep1"
              name="Address Endpoint"
+             mediaType="application/vnd.wso2.esb.endpoint"
+             extension="xml">
+       </template>
+       <template
+             file="resources/templates/endpoints/default_endpoint.xml"
+             id="org.wso2.developerstudio.eclipse.esb.template.ep2"
+             name="Default Endpoint"
              mediaType="application/vnd.wso2.esb.endpoint"
              extension="xml">
        </template>
