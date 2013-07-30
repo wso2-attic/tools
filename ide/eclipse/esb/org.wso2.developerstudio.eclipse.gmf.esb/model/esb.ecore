@@ -1734,13 +1734,14 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CallTemplateMediator" eSuperTypes="#//Mediator">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetTemplate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="availableTemplates" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="templateParameters" upperBound="-1"
         eType="#//CallTemplateParameter" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="inputConnector" eType="#//CallTemplateMediatorInputConnector"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outputConnector" eType="#//CallTemplateMediatorOutputConnector"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetTemplate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CallTemplateMediatorInputConnector"
       eSuperTypes="#//InputConnector"/>

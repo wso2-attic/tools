@@ -1379,10 +1379,11 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//CallTemplateParameter/parameterExpression"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//CallTemplateMediator">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//CallTemplateMediator/targetTemplate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//CallTemplateMediator/availableTemplates"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//CallTemplateMediator/templateParameters"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//CallTemplateMediator/inputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//CallTemplateMediator/outputConnector"/>
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//CallTemplateMediator/targetTemplate"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//CallTemplateMediatorInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//CallTemplateMediatorOutputConnector"/>

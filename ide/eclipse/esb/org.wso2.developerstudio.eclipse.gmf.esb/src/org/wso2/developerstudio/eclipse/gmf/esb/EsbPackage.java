@@ -11728,13 +11728,13 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	int CALL_TEMPLATE_MEDIATOR__REVERSE = MEDIATOR__REVERSE;
 
 	/**
-	 * The feature id for the '<em><b>Target Template</b></em>' attribute.
+	 * The feature id for the '<em><b>Available Templates</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CALL_TEMPLATE_MEDIATOR__TARGET_TEMPLATE = MEDIATOR_FEATURE_COUNT + 0;
+	int CALL_TEMPLATE_MEDIATOR__AVAILABLE_TEMPLATES = MEDIATOR_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Template Parameters</b></em>' containment reference list.
@@ -11764,13 +11764,22 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	int CALL_TEMPLATE_MEDIATOR__OUTPUT_CONNECTOR = MEDIATOR_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Target Template</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CALL_TEMPLATE_MEDIATOR__TARGET_TEMPLATE = MEDIATOR_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Call Template Mediator</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CALL_TEMPLATE_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 4;
+	int CALL_TEMPLATE_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CallTemplateMediatorInputConnectorImpl <em>Call Template Mediator Input Connector</em>}' class.
@@ -27722,15 +27731,15 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	EClass getCallTemplateMediator();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.CallTemplateMediator#getTargetTemplate <em>Target Template</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.CallTemplateMediator#getAvailableTemplates <em>Available Templates</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Target Template</em>'.
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CallTemplateMediator#getTargetTemplate()
+	 * @return the meta object for the attribute '<em>Available Templates</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CallTemplateMediator#getAvailableTemplates()
 	 * @see #getCallTemplateMediator()
 	 * @generated
 	 */
-	EAttribute getCallTemplateMediator_TargetTemplate();
+	EAttribute getCallTemplateMediator_AvailableTemplates();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link org.wso2.developerstudio.eclipse.gmf.esb.CallTemplateMediator#getTemplateParameters <em>Template Parameters</em>}'.
@@ -27764,6 +27773,17 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	 * @generated
 	 */
 	EReference getCallTemplateMediator_OutputConnector();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.CallTemplateMediator#getTargetTemplate <em>Target Template</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Target Template</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CallTemplateMediator#getTargetTemplate()
+	 * @see #getCallTemplateMediator()
+	 * @generated
+	 */
+	EAttribute getCallTemplateMediator_TargetTemplate();
 
 	/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.gmf.esb.CallTemplateMediatorInputConnector <em>Call Template Mediator Input Connector</em>}'.
@@ -38094,12 +38114,12 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		EClass CALL_TEMPLATE_MEDIATOR = eINSTANCE.getCallTemplateMediator();
 
 		/**
-		 * The meta object literal for the '<em><b>Target Template</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Available Templates</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute CALL_TEMPLATE_MEDIATOR__TARGET_TEMPLATE = eINSTANCE.getCallTemplateMediator_TargetTemplate();
+		EAttribute CALL_TEMPLATE_MEDIATOR__AVAILABLE_TEMPLATES = eINSTANCE.getCallTemplateMediator_AvailableTemplates();
 
 		/**
 		 * The meta object literal for the '<em><b>Template Parameters</b></em>' containment reference list feature.
@@ -38124,6 +38144,14 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		 * @generated
 		 */
 		EReference CALL_TEMPLATE_MEDIATOR__OUTPUT_CONNECTOR = eINSTANCE.getCallTemplateMediator_OutputConnector();
+
+		/**
+		 * The meta object literal for the '<em><b>Target Template</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CALL_TEMPLATE_MEDIATOR__TARGET_TEMPLATE = eINSTANCE.getCallTemplateMediator_TargetTemplate();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CallTemplateMediatorInputConnectorImpl <em>Call Template Mediator Input Connector</em>}' class.

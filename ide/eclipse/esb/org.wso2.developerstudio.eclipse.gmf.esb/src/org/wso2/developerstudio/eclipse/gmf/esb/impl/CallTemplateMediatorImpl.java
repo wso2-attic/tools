@@ -34,10 +34,11 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CallTemplateMediatorImpl#getTargetTemplate <em>Target Template</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CallTemplateMediatorImpl#getAvailableTemplates <em>Available Templates</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CallTemplateMediatorImpl#getTemplateParameters <em>Template Parameters</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CallTemplateMediatorImpl#getInputConnector <em>Input Connector</em>}</li>
  *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CallTemplateMediatorImpl#getOutputConnector <em>Output Connector</em>}</li>
+ *   <li>{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.CallTemplateMediatorImpl#getTargetTemplate <em>Target Template</em>}</li>
  * </ul>
  * </p>
  *
@@ -45,24 +46,24 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
  */
 public class CallTemplateMediatorImpl extends MediatorImpl implements CallTemplateMediator {
 	/**
-	 * The default value of the '{@link #getTargetTemplate() <em>Target Template</em>}' attribute.
+	 * The default value of the '{@link #getAvailableTemplates() <em>Available Templates</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTargetTemplate()
-	 * @generated NOT
-	 * @ordered
-	 */
-	protected static final String TARGET_TEMPLATE_EDEFAULT = "template";
-
-	/**
-	 * The cached value of the '{@link #getTargetTemplate() <em>Target Template</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTargetTemplate()
+	 * @see #getAvailableTemplates()
 	 * @generated
 	 * @ordered
 	 */
-	protected String targetTemplate = TARGET_TEMPLATE_EDEFAULT;
+	protected static final String AVAILABLE_TEMPLATES_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getAvailableTemplates() <em>Available Templates</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAvailableTemplates()
+	 * @generated
+	 * @ordered
+	 */
+	protected String availableTemplates = AVAILABLE_TEMPLATES_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getTemplateParameters() <em>Template Parameters</em>}' containment reference list.
@@ -95,6 +96,26 @@ public class CallTemplateMediatorImpl extends MediatorImpl implements CallTempla
 	protected CallTemplateMediatorOutputConnector outputConnector;
 
 	/**
+	 * The default value of the '{@link #getTargetTemplate() <em>Target Template</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTargetTemplate()
+	 * @generated NOT
+	 * @ordered
+	 */
+	protected static final String TARGET_TEMPLATE_EDEFAULT = "template";
+
+	/**
+	 * The cached value of the '{@link #getTargetTemplate() <em>Target Template</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTargetTemplate()
+	 * @generated
+	 * @ordered
+	 */
+	protected String targetTemplate = TARGET_TEMPLATE_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -118,8 +139,8 @@ public class CallTemplateMediatorImpl extends MediatorImpl implements CallTempla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getTargetTemplate() {
-		return targetTemplate;
+	public String getAvailableTemplates() {
+		return availableTemplates;
 	}
 
 	/**
@@ -127,11 +148,11 @@ public class CallTemplateMediatorImpl extends MediatorImpl implements CallTempla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTargetTemplate(String newTargetTemplate) {
-		String oldTargetTemplate = targetTemplate;
-		targetTemplate = newTargetTemplate;
+	public void setAvailableTemplates(String newAvailableTemplates) {
+		String oldAvailableTemplates = availableTemplates;
+		availableTemplates = newAvailableTemplates;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.CALL_TEMPLATE_MEDIATOR__TARGET_TEMPLATE, oldTargetTemplate, targetTemplate));
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.CALL_TEMPLATE_MEDIATOR__AVAILABLE_TEMPLATES, oldAvailableTemplates, availableTemplates));
 	}
 
 	/**
@@ -237,6 +258,27 @@ public class CallTemplateMediatorImpl extends MediatorImpl implements CallTempla
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getTargetTemplate() {
+		return targetTemplate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTargetTemplate(String newTargetTemplate) {
+		String oldTargetTemplate = targetTemplate;
+		targetTemplate = newTargetTemplate;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.CALL_TEMPLATE_MEDIATOR__TARGET_TEMPLATE, oldTargetTemplate, targetTemplate));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -258,14 +300,16 @@ public class CallTemplateMediatorImpl extends MediatorImpl implements CallTempla
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case EsbPackage.CALL_TEMPLATE_MEDIATOR__TARGET_TEMPLATE:
-				return getTargetTemplate();
+			case EsbPackage.CALL_TEMPLATE_MEDIATOR__AVAILABLE_TEMPLATES:
+				return getAvailableTemplates();
 			case EsbPackage.CALL_TEMPLATE_MEDIATOR__TEMPLATE_PARAMETERS:
 				return getTemplateParameters();
 			case EsbPackage.CALL_TEMPLATE_MEDIATOR__INPUT_CONNECTOR:
 				return getInputConnector();
 			case EsbPackage.CALL_TEMPLATE_MEDIATOR__OUTPUT_CONNECTOR:
 				return getOutputConnector();
+			case EsbPackage.CALL_TEMPLATE_MEDIATOR__TARGET_TEMPLATE:
+				return getTargetTemplate();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -279,8 +323,8 @@ public class CallTemplateMediatorImpl extends MediatorImpl implements CallTempla
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case EsbPackage.CALL_TEMPLATE_MEDIATOR__TARGET_TEMPLATE:
-				setTargetTemplate((String)newValue);
+			case EsbPackage.CALL_TEMPLATE_MEDIATOR__AVAILABLE_TEMPLATES:
+				setAvailableTemplates((String)newValue);
 				return;
 			case EsbPackage.CALL_TEMPLATE_MEDIATOR__TEMPLATE_PARAMETERS:
 				getTemplateParameters().clear();
@@ -291,6 +335,9 @@ public class CallTemplateMediatorImpl extends MediatorImpl implements CallTempla
 				return;
 			case EsbPackage.CALL_TEMPLATE_MEDIATOR__OUTPUT_CONNECTOR:
 				setOutputConnector((CallTemplateMediatorOutputConnector)newValue);
+				return;
+			case EsbPackage.CALL_TEMPLATE_MEDIATOR__TARGET_TEMPLATE:
+				setTargetTemplate((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -304,8 +351,8 @@ public class CallTemplateMediatorImpl extends MediatorImpl implements CallTempla
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case EsbPackage.CALL_TEMPLATE_MEDIATOR__TARGET_TEMPLATE:
-				setTargetTemplate(TARGET_TEMPLATE_EDEFAULT);
+			case EsbPackage.CALL_TEMPLATE_MEDIATOR__AVAILABLE_TEMPLATES:
+				setAvailableTemplates(AVAILABLE_TEMPLATES_EDEFAULT);
 				return;
 			case EsbPackage.CALL_TEMPLATE_MEDIATOR__TEMPLATE_PARAMETERS:
 				getTemplateParameters().clear();
@@ -315,6 +362,9 @@ public class CallTemplateMediatorImpl extends MediatorImpl implements CallTempla
 				return;
 			case EsbPackage.CALL_TEMPLATE_MEDIATOR__OUTPUT_CONNECTOR:
 				setOutputConnector((CallTemplateMediatorOutputConnector)null);
+				return;
+			case EsbPackage.CALL_TEMPLATE_MEDIATOR__TARGET_TEMPLATE:
+				setTargetTemplate(TARGET_TEMPLATE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -328,14 +378,16 @@ public class CallTemplateMediatorImpl extends MediatorImpl implements CallTempla
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case EsbPackage.CALL_TEMPLATE_MEDIATOR__TARGET_TEMPLATE:
-				return TARGET_TEMPLATE_EDEFAULT == null ? targetTemplate != null : !TARGET_TEMPLATE_EDEFAULT.equals(targetTemplate);
+			case EsbPackage.CALL_TEMPLATE_MEDIATOR__AVAILABLE_TEMPLATES:
+				return AVAILABLE_TEMPLATES_EDEFAULT == null ? availableTemplates != null : !AVAILABLE_TEMPLATES_EDEFAULT.equals(availableTemplates);
 			case EsbPackage.CALL_TEMPLATE_MEDIATOR__TEMPLATE_PARAMETERS:
 				return templateParameters != null && !templateParameters.isEmpty();
 			case EsbPackage.CALL_TEMPLATE_MEDIATOR__INPUT_CONNECTOR:
 				return inputConnector != null;
 			case EsbPackage.CALL_TEMPLATE_MEDIATOR__OUTPUT_CONNECTOR:
 				return outputConnector != null;
+			case EsbPackage.CALL_TEMPLATE_MEDIATOR__TARGET_TEMPLATE:
+				return TARGET_TEMPLATE_EDEFAULT == null ? targetTemplate != null : !TARGET_TEMPLATE_EDEFAULT.equals(targetTemplate);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -350,7 +402,9 @@ public class CallTemplateMediatorImpl extends MediatorImpl implements CallTempla
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (targetTemplate: ");
+		result.append(" (availableTemplates: ");
+		result.append(availableTemplates);
+		result.append(", targetTemplate: ");
 		result.append(targetTemplate);
 		result.append(')');
 		return result.toString();

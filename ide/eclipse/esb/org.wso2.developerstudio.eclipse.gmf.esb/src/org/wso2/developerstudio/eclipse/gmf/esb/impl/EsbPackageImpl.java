@@ -11462,7 +11462,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getCallTemplateMediator_TargetTemplate() {
+	public EAttribute getCallTemplateMediator_AvailableTemplates() {
 		return (EAttribute)callTemplateMediatorEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -11491,6 +11491,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 */
 	public EReference getCallTemplateMediator_OutputConnector() {
 		return (EReference)callTemplateMediatorEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCallTemplateMediator_TargetTemplate() {
+		return (EAttribute)callTemplateMediatorEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -14652,10 +14661,11 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEReference(callTemplateParameterEClass, CALL_TEMPLATE_PARAMETER__PARAMETER_EXPRESSION);
 
 		callTemplateMediatorEClass = createEClass(CALL_TEMPLATE_MEDIATOR);
-		createEAttribute(callTemplateMediatorEClass, CALL_TEMPLATE_MEDIATOR__TARGET_TEMPLATE);
+		createEAttribute(callTemplateMediatorEClass, CALL_TEMPLATE_MEDIATOR__AVAILABLE_TEMPLATES);
 		createEReference(callTemplateMediatorEClass, CALL_TEMPLATE_MEDIATOR__TEMPLATE_PARAMETERS);
 		createEReference(callTemplateMediatorEClass, CALL_TEMPLATE_MEDIATOR__INPUT_CONNECTOR);
 		createEReference(callTemplateMediatorEClass, CALL_TEMPLATE_MEDIATOR__OUTPUT_CONNECTOR);
+		createEAttribute(callTemplateMediatorEClass, CALL_TEMPLATE_MEDIATOR__TARGET_TEMPLATE);
 
 		callTemplateMediatorInputConnectorEClass = createEClass(CALL_TEMPLATE_MEDIATOR_INPUT_CONNECTOR);
 
@@ -16440,10 +16450,11 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEReference(getCallTemplateParameter_ParameterExpression(), this.getNamespacedProperty(), null, "parameterExpression", null, 0, 1, CallTemplateParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(callTemplateMediatorEClass, CallTemplateMediator.class, "CallTemplateMediator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getCallTemplateMediator_TargetTemplate(), ecorePackage.getEString(), "targetTemplate", null, 0, 1, CallTemplateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCallTemplateMediator_AvailableTemplates(), ecorePackage.getEString(), "availableTemplates", null, 0, 1, CallTemplateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCallTemplateMediator_TemplateParameters(), this.getCallTemplateParameter(), null, "templateParameters", null, 0, -1, CallTemplateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCallTemplateMediator_InputConnector(), this.getCallTemplateMediatorInputConnector(), null, "inputConnector", null, 0, 1, CallTemplateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCallTemplateMediator_OutputConnector(), this.getCallTemplateMediatorOutputConnector(), null, "outputConnector", null, 0, 1, CallTemplateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCallTemplateMediator_TargetTemplate(), ecorePackage.getEString(), "targetTemplate", null, 0, 1, CallTemplateMediator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(callTemplateMediatorInputConnectorEClass, CallTemplateMediatorInputConnector.class, "CallTemplateMediatorInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
