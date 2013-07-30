@@ -65,10 +65,33 @@ public class CallTemplateMediatorItemProvider
 			itemPropertyDescriptors.clear();
 		}
 		super.getPropertyDescriptors(object);
+		addAvailableTemplatesPropertyDescriptor(object);
 		addTargetTemplatePropertyDescriptor(object);
 		addParameterPropertyDescriptor(object);
 
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Available Templates feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAvailableTemplatesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CallTemplateMediator_availableTemplates_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CallTemplateMediator_availableTemplates_feature", "_UI_CallTemplateMediator_type"),
+				 EsbPackage.Literals.CALL_TEMPLATE_MEDIATOR__AVAILABLE_TEMPLATES,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -85,14 +108,14 @@ public class CallTemplateMediatorItemProvider
 				 getString("_UI_CallTemplateMediator_targetTemplate_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_CallTemplateMediator_targetTemplate_feature", "_UI_CallTemplateMediator_type"),
 				 EsbPackage.Literals.CALL_TEMPLATE_MEDIATOR__TARGET_TEMPLATE,
-				 true,
+				 false,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
-	
+
 	/**
 	 * This add a property descriptor for the CallTemplate Parameter feature. 
 	 * @param object
@@ -181,6 +204,7 @@ public class CallTemplateMediatorItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(CallTemplateMediator.class)) {
+			case EsbPackage.CALL_TEMPLATE_MEDIATOR__AVAILABLE_TEMPLATES:
 			case EsbPackage.CALL_TEMPLATE_MEDIATOR__TARGET_TEMPLATE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
