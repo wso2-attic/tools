@@ -97,7 +97,12 @@ public class ProjectList extends AbstractListDataProvider {
 											dependencyData.setDependency(dependency);
 											dependencyData.setParent(project);
 											dependencyData.setSelf(artifact.getFile());
-											dependencyData.setCApptype(artifact.getType());
+											if(("synapse/sequenceTemplate".equals(artifact.getType()))||("synapse/endpointTemplate".equals(artifact.getType()))){
+												dependencyData.setCApptype("synapse/template");
+											}else {
+												dependencyData.setCApptype(artifact.getType());
+											}
+											
 											dependencyData.setServerRole("capp/"+ artifact.getServerRole());
 											list.add(createListData(
 													DistProjectUtils

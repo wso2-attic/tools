@@ -44,6 +44,8 @@ public final class ArtifactTypeMapping {
 		type.put("synapse/task","xml");
 		type.put("synapse/api","xml");
 		type.put("synapse/template","xml");
+		type.put("synapse/sequenceTemplate","xml");
+		type.put("synapse/endpointTemplate","xml");
 		type.put("synapse/message-store","xml");
 		type.put("synapse/event-source","xml");
 		type.put("synapse/message-processors","xml");
