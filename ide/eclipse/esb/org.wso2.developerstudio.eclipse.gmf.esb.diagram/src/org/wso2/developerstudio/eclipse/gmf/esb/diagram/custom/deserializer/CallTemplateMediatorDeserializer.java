@@ -44,6 +44,7 @@ public class CallTemplateMediatorDeserializer extends AbstractEsbNodeDeserialize
 		CallTemplateMediator mediatorModel = (CallTemplateMediator) DeserializerUtils.createNode(part, EsbElementTypes.CallTemplateMediator_3594);
 		setElementToEdit(mediatorModel);
 		executeSetValueCommand(CALL_TEMPLATE_MEDIATOR__TARGET_TEMPLATE, mediator.getTargetTemplate());
+		executeSetValueCommand(CALL_TEMPLATE_MEDIATOR__AVAILABLE_TEMPLATES, "Select From Templates");
 
 		Map<String, Value> parameters = mediator.getpName2ExpressionMap();
 		for(Map.Entry<String, Value> entry : parameters.entrySet()){

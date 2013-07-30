@@ -32,8 +32,10 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.ui.celleditor.ExtendedComboBoxCellEditor;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.xml.type.internal.QName;
 import org.eclipse.emf.edit.command.DeleteCommand;
+import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.ui.provider.PropertyDescriptor;
 import org.eclipse.emf.transaction.RecordingCommand;
@@ -49,6 +51,8 @@ import org.wso2.developerstudio.eclipse.esb.project.artifact.ESBProjectArtifact;
 import org.wso2.developerstudio.eclipse.gmf.esb.CallTemplateMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.CallTemplateParameter;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
+import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
+import org.wso2.developerstudio.eclipse.gmf.esb.PropertyValueType;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbMultiPageEditor;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
@@ -61,6 +65,7 @@ public class CallTemplateTargetTemplateCustomPropertyDescriptor extends Property
 	private static final String synapseNS = "http://ws.apache.org/ns/synapse";
 	private Properties properties = new Properties();
 	private final String TYPE_TEMPLATE="synapse/sequenceTemplate";
+	private final String DEFAULT_VALUE="Select From Templates";
 	
 	public CallTemplateTargetTemplateCustomPropertyDescriptor(Object object,
 			IItemPropertyDescriptor itemPropertyDescriptor) {
@@ -69,6 +74,7 @@ public class CallTemplateTargetTemplateCustomPropertyDescriptor extends Property
 	
 	public CellEditor createPropertyEditor(Composite parent) {		
 		ArrayList<String> definedTemplates = new ArrayList<String>();	
+		definedTemplates.add(DEFAULT_VALUE);
 		File projectPath = null;
 		final Object object_=this.object;
 		final Shell shell=(Shell)parent.getShell();
@@ -113,42 +119,51 @@ public class CallTemplateTargetTemplateCustomPropertyDescriptor extends Property
 			 */
 			protected void focusLost() {
 				super.focusLost();
+				TransactionalEditingDomain editingDomain=null;
 				String path = projectPath_ + "/src/main/synapse-config/templates/" + getValue()	+ ".xml";
-				try {
-					String source = FileUtils.getContentAsString(new File(path));
-					System.out.println(source);
-					OMElement element = AXIOMUtil.stringToOM(source);
-
-					if (element.getFirstChildWithName(new QName(synapseNS, "sequence", null)) != null) {
-						TemplateMediatorFactory templateMediatorFactory = new TemplateMediatorFactory();
-						TemplateMediator templateMediator = (TemplateMediator) templateMediatorFactory.createMediator(element, properties);						
-						TransactionalEditingDomain editingDomain =((EsbMultiPageEditor)editor).getGraphicalEditor().getEditingDomain();						
-						DeleteCommand modelDeleteCommand = new DeleteCommand(editingDomain, ((CallTemplateMediator)object_).getTemplateParameters());
-						if (modelDeleteCommand.canExecute()) {
-							editingDomain.getCommandStack().execute(modelDeleteCommand);
-						}						
-						for (String parameter : templateMediator.getParameters()) {
-							final CallTemplateParameter callTemplateParameter = EsbFactory.eINSTANCE.createCallTemplateParameter();
-							callTemplateParameter.setParameterName(parameter);							
-							if(editor instanceof EsbMultiPageEditor){
-								RecordingCommand command = new RecordingCommand(editingDomain) {
-									protected void doExecute() {
-										((CallTemplateMediator)object_).getTemplateParameters().add(callTemplateParameter);
+				if(!DEFAULT_VALUE.equals(getValue().toString())){				
+					try {
+						String source = FileUtils.getContentAsString(new File(path));
+						System.out.println(source);
+						OMElement element = AXIOMUtil.stringToOM(source);
+	
+						if (element.getFirstChildWithName(new QName(synapseNS, "sequence", null)) != null) {
+							TemplateMediatorFactory templateMediatorFactory = new TemplateMediatorFactory();
+							TemplateMediator templateMediator = (TemplateMediator) templateMediatorFactory.createMediator(element, properties);						
+							editingDomain =((EsbMultiPageEditor)editor).getGraphicalEditor().getEditingDomain();						
+							DeleteCommand modelDeleteCommand = new DeleteCommand(editingDomain, ((CallTemplateMediator)object_).getTemplateParameters());
+							if (modelDeleteCommand.canExecute()) {
+								editingDomain.getCommandStack().execute(modelDeleteCommand);
+							}						
+							for (String parameter : templateMediator.getParameters()) {
+								final CallTemplateParameter callTemplateParameter = EsbFactory.eINSTANCE.createCallTemplateParameter();
+								callTemplateParameter.setParameterName(parameter);							
+								if(editor instanceof EsbMultiPageEditor){
+									RecordingCommand command = new RecordingCommand(editingDomain) {
+										protected void doExecute() {
+											((CallTemplateMediator)object_).getTemplateParameters().add(callTemplateParameter);
+										}
+									};
+									if (command.canExecute()) {
+										editingDomain.getCommandStack().execute(command);
 									}
-								};
-								if (command.canExecute()) {
-									editingDomain.getCommandStack().execute(command);
-								}
-							}	
+								}	
+							}
 						}
-					}
-				} catch (XMLStreamException e) {
-					log.error("Error occured while parsing selected template file", e);
-				    ErrorDialog.openError(shell,"Error occured while parsing selected template file", e.getMessage(), null);
-				}  catch (IOException e) {
-					log.error("Error occured while reading selected template file", e);
-					ErrorDialog.openError(shell,"Error occured while reading selected template file", e.getMessage(), null);
-				}				
+					} catch (XMLStreamException e) {
+						log.error("Error occured while parsing selected template file", e);
+					    ErrorDialog.openError(shell,"Error occured while parsing selected template file", e.getMessage(), null);
+					}  catch (IOException e) {
+						log.error("Error occured while reading selected template file", e);
+						ErrorDialog.openError(shell,"Error occured while reading selected template file", e.getMessage(), null);
+					}					
+					
+					SetCommand setCmd = new SetCommand(editingDomain, (EObject) object_,
+							EsbPackage.Literals.CALL_TEMPLATE_MEDIATOR__TARGET_TEMPLATE, getValue().toString());
+					if (setCmd.canExecute()) {
+						editingDomain.getCommandStack().execute(setCmd);
+					}		
+				}			
 			}
 		};
 	}

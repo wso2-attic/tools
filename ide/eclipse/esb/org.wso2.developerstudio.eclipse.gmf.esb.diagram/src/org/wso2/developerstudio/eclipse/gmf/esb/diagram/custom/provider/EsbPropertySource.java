@@ -282,7 +282,7 @@ public class EsbPropertySource extends PropertySource {
 			return new CustomPropertyDescriptor(object, itemPropertyDescriptor);
 		} else if(pkg.getMessageProcessor_Parameters().equals(feature)){
             return new MessageProcessorParamCustomPropertyDescriptor(object, itemPropertyDescriptor);
-		} else if(pkg.getCallTemplateMediator_TargetTemplate().equals(feature)){
+		} else if(pkg.getCallTemplateMediator_AvailableTemplates().equals(feature)){
             return new CallTemplateTargetTemplateCustomPropertyDescriptor(object, itemPropertyDescriptor);
 		} else if(pkg.getSequences_TemplateParameters().equals(feature)){
 			return new TemplateParametersPropertyDescriptor(object, itemPropertyDescriptor);
