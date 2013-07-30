@@ -199,7 +199,7 @@
         </plugins>
     </build>    
     <properties>
- 	<tycho-version>0.17.0</tycho-version>
+ 	<tycho-version>0.18.1</tycho-version>
 
  <!--********** bundle plugin versions **********-->
         <capp.tools.version>3.3.0-SNAPSHOT</capp.tools.version>

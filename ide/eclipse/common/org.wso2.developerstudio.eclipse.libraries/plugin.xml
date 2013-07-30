@@ -167,7 +167,7 @@
 			categoryId="org.wso2.developerstudio.eclipse.libraries.category.carbon" />
 		<library jar="lib/org.wso2.carbon.dataservices.core-3.0.1.jar"
 			categoryId="org.wso2.developerstudio.eclipse.libraries.category.ds" />
-		<library jar="lib/synapse-core_2.1.1.wso2v2.jar"
+		<library jar="lib/synapse-core_2.1.1.wso2v7.jar"
 			categoryId="org.wso2.developerstudio.eclipse.libraries.category.esb" />
 		<library jar="lib/synapse-commons_2.1.1.wso2v2.jar"
 			categoryId="org.wso2.developerstudio.eclipse.libraries.category.esb" />

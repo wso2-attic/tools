@@ -482,9 +482,17 @@ public class RegistryCheckInClientUtils {
 		ClientOptions clientOptions = new ClientOptions();
 		clientOptions.setUsername(username);
 		clientOptions.setPassword(password);
-		clientOptions.setWorkingDir(path);
+		clientOptions.setType(RegistryType.WS);
+		File fsPath = new File(path);
+		//if(fsPath.isFile()){
+		//	clientOptions.setWorkingDir(fsPath.getParentFile().getAbsolutePath());
+		//} else{
+			clientOptions.setWorkingDir(path);
+		//}
+		
 		clientOptions.setUserUrl(registryUrl + checkoutPath);
 		clientOptions.setTesting(true);
+		//clientOptions.set
 		clientOptions.setUserInteractor(new UserInteractor() {
 			public UserInputCode getInput(
 					org.wso2.carbon.registry.synchronization.message.MessageCode arg0,

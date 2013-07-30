@@ -38,26 +38,32 @@ public class LibraryUtils {
 	}
 	
 	public static File getDependencyPath(URL resource, boolean isRelativePath) {
-		IPath path = Activator.getDefault().getStateLocation();
-		IPath libFolder = path.append("lib");
-		String[] paths = resource.getFile().split("/");
-		IPath library = libFolder.append(paths[paths.length-1]);
-		File libraryFile = library.toFile();
-		if (!libraryFile.exists()) {
-			try {
-				writeToFile(libraryFile, resource.openStream());
-			} catch (IOException e) {
-				log.error(e);
-				return null;
+		if (resource!=null) {
+			IPath path = Activator.getDefault().getStateLocation();
+			IPath libFolder = path.append("lib");
+			String[] paths = resource.getFile().split("/");
+			IPath library = libFolder.append(paths[paths.length - 1]);
+			File libraryFile = library.toFile();
+			if (!libraryFile.exists()) {
+				try {
+					writeToFile(libraryFile, resource.openStream());
+				} catch (IOException e) {
+					log.error(e);
+					return null;
+				}
 			}
-		}
-		if (isRelativePath) {
-			IPath relativePath = EclipseUtils.getWorkspaceRelativePath(library);
-			relativePath = new Path(Constants.ECLIPSE_WORKSPACE_PATH)
-					.append(relativePath);
-			return relativePath.toFile();
-		}else{
-			return library.toFile();
+			if (isRelativePath) {
+				IPath relativePath = EclipseUtils
+						.getWorkspaceRelativePath(library);
+				relativePath = new Path(Constants.ECLIPSE_WORKSPACE_PATH)
+						.append(relativePath);
+				return relativePath.toFile();
+			} else {
+				return library.toFile();
+			}
+		} else{
+			log.error("the requested resource does not exist in library path");
+			return null;
 		}
 	}
 
