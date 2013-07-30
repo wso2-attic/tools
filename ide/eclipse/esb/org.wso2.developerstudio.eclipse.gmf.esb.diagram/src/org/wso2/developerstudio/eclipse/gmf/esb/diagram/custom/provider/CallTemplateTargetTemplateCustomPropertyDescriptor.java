@@ -60,7 +60,7 @@ public class CallTemplateTargetTemplateCustomPropertyDescriptor extends Property
 	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
 	private static final String synapseNS = "http://ws.apache.org/ns/synapse";
 	private Properties properties = new Properties();
-	private final String TYPE_TEMPLATE="synapse/template";
+	private final String TYPE_TEMPLATE="synapse/sequenceTemplate";
 	
 	public CallTemplateTargetTemplateCustomPropertyDescriptor(Object object,
 			IItemPropertyDescriptor itemPropertyDescriptor) {

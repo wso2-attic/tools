@@ -149,7 +149,11 @@ public class TemplateProjectCreationWizard extends AbstractWSO2ProjectCreationWi
 			ESBArtifact artifact = new ESBArtifact();
 			artifact.setName(sequenceModel.getTemplateName());
 			artifact.setVersion("1.0.0");
-			artifact.setType("synapse/template");
+			if("Sequence Template".equals(selectedTemplate.getName())){
+				artifact.setType("synapse/sequenceTemplate");
+			}else{
+				artifact.setType("synapse/endpointTemplate");
+			}			
 			artifact.setServerRole("EnterpriseServiceBus");
 			artifact.setGroupId(groupId);
 			artifact.setFile(FileUtils.getRelativePath(project.getLocation()
