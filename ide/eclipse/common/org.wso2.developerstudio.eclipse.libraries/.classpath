@@ -45,7 +45,7 @@
 	<classpathentry exported="true" kind="lib" path="lib/wso2eventing-api-2.1.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/quartz_2.1.1.wso2v1.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/org.wso2.carbon.securevault_4.0.0.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/org.wso2.carbon.registry.core_4.0.1.jar" sourcepath="/media/Dev/support_branch/4.0.0/kernel/core/org.wso2.carbon.registry.core/4.0.1"/>
+	<classpathentry exported="true" kind="lib" path="lib/org.wso2.carbon.registry.core_4.0.1.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/axiom_1.2.11.wso2v3.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/geronimo-stax-api_1.0_spec_1.0.1.wso2v2.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/wsdl4j_1.6.2.wso2v4.jar"/>
