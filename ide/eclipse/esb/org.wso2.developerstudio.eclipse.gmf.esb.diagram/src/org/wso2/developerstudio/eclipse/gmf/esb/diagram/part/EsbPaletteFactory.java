@@ -73,6 +73,10 @@ import static org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtil
  */
 public class EsbPaletteFactory {
 
+	 public static final int INITIAL_STATE_OPEN = 0,
+			 				 INITIAL_STATE_CLOSED = 1,
+			 				 INITIAL_STATE_PINNED_OPEN = 2;
+	 
 	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
 
 	/**
@@ -97,6 +101,7 @@ public class EsbPaletteFactory {
 		paletteContainer.add(createProxyService2CreationTool());
 		//paletteContainer.add(createMessageMediator3CreationTool());	
 		paletteContainer.add(createAPIResource5CreationTool());
+		paletteContainer.setInitialState(INITIAL_STATE_CLOSED);
 		return paletteContainer;
 	}
 
@@ -151,7 +156,7 @@ public class EsbPaletteFactory {
 		paletteContainer.add(createValidateMediator37CreationTool());
 		paletteContainer.add(createXQueryMediator14CreationTool());
 		paletteContainer.add(createXSLTMediator6CreationTool());
-
+		paletteContainer.setInitialState(INITIAL_STATE_CLOSED);
 		return paletteContainer;
 	}
 
@@ -170,7 +175,8 @@ public class EsbPaletteFactory {
 		paletteContainer.add(createLoadBalanceEndPoint5CreationTool());
 		paletteContainer.add(createNamedEndpoint6CreationTool());
 		paletteContainer.add(createRecipientListEndPoint8CreationTool());
-		paletteContainer.add(createWSDLEndPoint4CreationTool());		
+		paletteContainer.add(createWSDLEndPoint4CreationTool());	
+		paletteContainer.setInitialState(INITIAL_STATE_CLOSED);
 		return paletteContainer;
 	}
 
@@ -182,6 +188,7 @@ public class EsbPaletteFactory {
 		PaletteDrawer paletteContainer = new PaletteDrawer(Messages.Links4Group_title);
 		paletteContainer.setId("createLinks4Group"); //$NON-NLS-1$
 		paletteContainer.add(createEsbLink1CreationTool());
+		paletteContainer.setInitialState(INITIAL_STATE_CLOSED);
 		return paletteContainer;
 	}
 
@@ -1245,14 +1252,14 @@ public class EsbPaletteFactory {
 	private PaletteContainer createSequenceGroup() {
 		PaletteDrawer paletteContainer = new PaletteDrawer("Defined Sequences");
 		paletteContainer.setId("Sequences"); //$NON-NLS-1$
-
+		paletteContainer.setInitialState(INITIAL_STATE_CLOSED);
 		return paletteContainer;
 	}
 
 	private PaletteContainer createDefinedEndpointGroup() {
 		PaletteDrawer paletteContainer = new PaletteDrawer("Defined EndPoints");
 		paletteContainer.setId("DefinedEndpoints"); //$NON-NLS-1$
-
+		paletteContainer.setInitialState(INITIAL_STATE_CLOSED);
 		return paletteContainer;
 	}
 
