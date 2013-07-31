@@ -70,6 +70,8 @@ public class MessageProcessorModel extends ProjectDataModel {
 		availableProcessorlist = new ArrayList<OMElement>();
 		selectedProcessorList = new ArrayList<OMElement>();
 		messageProcessorType = "Scheduled Message Forwarding Processor";
+		retryInterval = "1000";
+		deliveryAttempts = "-1";
 	}
 
 	public String getMessageProcessorName() {
