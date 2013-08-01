@@ -13,6 +13,7 @@ import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.ToolbarLayout;
 import org.eclipse.draw2d.geometry.Dimension;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
@@ -45,6 +46,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.FailoverEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.FailoverEndPointOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.SwitchCaseBranchOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.SwitchCaseContainer;
+import org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediatorContainer;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AdditionalOutputConnector;
@@ -68,6 +70,7 @@ public class SwitchMediatorEditPart extends complexFiguredAbstractMediator {
 	public ArrayList<IFigure> caseOutputConnectors = new ArrayList<IFigure>();
 	int i = 0;
 	private int activeCount = 0;
+	private boolean reorderdOnUndo = false;
 
 	/**
 	 * @generated
@@ -213,9 +216,22 @@ public class SwitchMediatorEditPart extends complexFiguredAbstractMediator {
 		//This method is called twice at the startup. To avoid that we use this 'if' check.
 		if (activeCount == 1 && !reversed) {
 			SwitchMediatorUtils.reorderWhenForward(this);
-		}
+		} 
 		++activeCount;
-
+	}
+	
+	@Override
+	public void notifyChanged(Notification notification) {
+		super.notifyChanged(notification);
+		// Fixing TOOLS-1786
+		if(notification.getEventType() == Notification.SET && activeCount == 1 && !reorderdOnUndo && !reversed) {
+			EObject parentContainer = ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (this)
+					.getModel()).getElement();
+			if (((SwitchMediator) parentContainer).getCaseBranches().size() > 1){
+				SwitchMediatorUtils.reorderWhenForward(this);
+				reorderdOnUndo = true;
+			}
+		}
 	}
 
 	/**
