@@ -42,6 +42,10 @@ import org.eclipse.swt.widgets.Text;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamespacedProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.configure.ui.XPathSelectorDialog;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.validator.XpathValidator;
+import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
+import org.wso2.developerstudio.eclipse.logging.core.Logger;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
 
 /**
  * A SWT based editor dialog to be used for editing namespaced properties.
@@ -146,6 +150,8 @@ public class NamespacedPropertyEditorDialog extends Dialog {
 	 * Status indicating whether this dialog was saved or cancelled.
 	 */
 	private boolean saved;
+	
+	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
 	
 	/**
 	 * Constructs a new dialog.
@@ -393,13 +399,11 @@ public class NamespacedPropertyEditorDialog extends Dialog {
 			public void handleEvent(Event event) {
 				String prefix = nsPrefixTextField.getText();
 				String uri = nsUriTextField.getText();
-				if (isValidNamespace(prefix, uri)) {
+				if (XpathValidator.isValidNamespace(dialogShell, collectedNamespaces, prefix, uri)) {
 					addNamespace(prefix, uri);
 					nsPrefixTextField.setText("");
 					nsUriTextField.setText("");
 					nsPrefixTextField.setFocus();
-				} else {
-					// TODO: Report invalid namespace here.
 				}
 			}
 		});
@@ -432,13 +436,15 @@ public class NamespacedPropertyEditorDialog extends Dialog {
 		
 		okButton.addListener(SWT.Selection, new Listener() {
 			public void handleEvent(Event event) {
-				try {
-					saveConfiguration();
-					setSaved(true);
-				} catch (Exception ex) {
-					// TODO: Report validation error here.
+				if (XpathValidator.isValidConfiguration(dialogShell, propertyTextField.getText(), collectedNamespaces)) {
+					try {
+						saveConfiguration();
+						setSaved(true);
+					} catch (Exception ex) {
+						log.error("Error while saving namespace property",ex);
+					}
+					dialogShell.dispose();
 				}
-				dialogShell.dispose();
 			}
 		});
 		
@@ -448,14 +454,6 @@ public class NamespacedPropertyEditorDialog extends Dialog {
 				dialogShell.dispose();
 			}
 		});
-	}
-	
-	private boolean isValidNamespace(String prefix, String uri) {
-		// TODO: Perform proper validation here.
-		if (StringUtils.isBlank(prefix) || StringUtils.isBlank(uri) || collectedNamespaces.containsKey(prefix)) {
-			return false;
-		}
-		return true;
 	}
 
 	private void addNamespace(String prefix, String uri) {
