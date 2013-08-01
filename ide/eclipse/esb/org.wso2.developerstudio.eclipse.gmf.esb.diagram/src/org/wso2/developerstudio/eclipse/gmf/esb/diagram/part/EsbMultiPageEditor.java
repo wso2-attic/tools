@@ -27,8 +27,10 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -74,6 +76,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.EsbServer;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequences;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ExceptionMessageMapper;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditorUtils;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer.AbstractEsbNodeDeserializer;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer.Deserializer;
@@ -740,10 +743,13 @@ public class EsbMultiPageEditor extends MultiPageEditorPart implements
 			
 		} catch (Exception e) {
 			log.error("Error while generating diagram from source", e);
-			MessageDialog.openError(Display.getCurrent().getActiveShell(), "Error",
-					"Error occuerd during buidling the esb design view."
+			String errorMsgHeader = "Error occuerd during buidling the esb design view."
 							+ " Any changes you make in the source view to be discarded."
-							+ "\n\nplease see the log for more details.");
+							+ " Please see the log for more details.";
+			String simpleMessage = ExceptionMessageMapper.getNonTechnicalMessage(e.getMessage());
+			IStatus editorStatus = new Status(IStatus.ERROR, Activator.PLUGIN_ID, simpleMessage);
+			ErrorDialog.openError(Display.getCurrent().getActiveShell(), "Error", errorMsgHeader, editorStatus);
+			
 		} finally{
 			AbstractEsbNodeDeserializer.cleanupData();
 			sourceDirty=false;
