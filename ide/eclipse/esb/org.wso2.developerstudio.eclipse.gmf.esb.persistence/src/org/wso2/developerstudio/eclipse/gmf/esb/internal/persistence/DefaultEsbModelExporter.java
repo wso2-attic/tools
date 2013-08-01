@@ -37,13 +37,11 @@ import org.apache.axis2.util.XMLPrettyPrinter;
 import org.apache.synapse.config.SynapseConfiguration;
 import org.apache.synapse.config.xml.EntrySerializer;
 import org.apache.synapse.config.xml.MediatorSerializerFinder;
-import org.apache.synapse.config.xml.MessageStoreSerializer;
 import org.apache.synapse.config.xml.ProxyServiceSerializer;
 import org.apache.synapse.config.xml.SequenceMediatorSerializer;
 import org.apache.synapse.config.xml.SynapseXMLConfigurationSerializer;
 import org.apache.synapse.config.xml.endpoints.EndpointSerializer;
 import org.apache.synapse.config.xml.endpoints.TemplateSerializer;
-import org.apache.synapse.config.xml.rest.APISerializer;
 import org.apache.synapse.endpoints.Endpoint;
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.apache.synapse.mediators.template.TemplateMediator;
@@ -71,6 +69,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.SynapseAPI;
 import org.wso2.developerstudio.eclipse.gmf.esb.Task;
 import org.wso2.developerstudio.eclipse.gmf.esb.Template;
 import org.wso2.developerstudio.eclipse.gmf.esb.WSDLEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.CustomAPISerializer;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.EsbModelTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.TransformationInfo;
 
@@ -359,7 +358,7 @@ public class DefaultEsbModelExporter implements EsbModelTransformer {
 				break;	
 			case API:
 				if (child instanceof SynapseAPI) {
-					configOM = APISerializer.serializeAPI(transformAPI((SynapseAPI)child));
+					configOM = CustomAPISerializer.serializeAPI(transformAPI((SynapseAPI)child));
 				}
 				break;	
 			case MAIN_SEQUENCE:
