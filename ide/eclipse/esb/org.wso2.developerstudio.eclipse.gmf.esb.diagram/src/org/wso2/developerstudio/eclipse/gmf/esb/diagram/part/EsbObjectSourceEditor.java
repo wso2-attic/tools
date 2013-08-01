@@ -34,6 +34,7 @@ import org.eclipse.wst.sse.core.internal.text.rules.StructuredTextPartitioner;
 import org.eclipse.wst.sse.ui.StructuredTextEditor;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbServer;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ExceptionMessageMapper;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.EsbModelTransformer;
 import org.wso2.developerstudio.eclipse.logging.core.IDeveloperStudioLog;
 import org.wso2.developerstudio.eclipse.logging.core.Logger;
@@ -135,12 +136,12 @@ public class EsbObjectSourceEditor {
 //		try {
 			try {
 				newSource=EsbModelTransformer.instance.designToSource(server);
-			} catch (Exception e) {
+			}catch (Exception e) {
 				log.error("Cannot update source view", e);
-				IStatus editorStatus = new Status(IStatus.ERROR, Activator.PLUGIN_ID, e.getMessage());
-				ErrorDialog.openError(getEditor().getSite().getShell(), "Error", "The following error(s) have been detected", editorStatus);
-			}
-			
+				String simpleMessage = ExceptionMessageMapper.getNonTechnicalMessage(e.getMessage());
+				IStatus editorStatus = new Status(IStatus.ERROR, Activator.PLUGIN_ID, simpleMessage);
+				ErrorDialog.openError(getEditor().getSite().getShell(), "Error", "Cannot update source view. The following error(s) have been detected", editorStatus);
+			} 
 			
 //			newSource = EsbFactory.eINSTANCE.serializeToString(object);
 //		} catch (Exception ex) {
