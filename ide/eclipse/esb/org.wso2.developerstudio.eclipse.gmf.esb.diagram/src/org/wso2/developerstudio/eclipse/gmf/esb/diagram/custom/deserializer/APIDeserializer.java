@@ -17,30 +17,39 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.deserializer;
 
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 
 import org.apache.synapse.mediators.base.SequenceMediator;
 import org.apache.synapse.rest.API;
+import org.apache.synapse.rest.Handler;
 import org.apache.synapse.rest.Resource;
 import org.apache.synapse.rest.dispatch.DispatcherHelper;
 import org.apache.synapse.rest.dispatch.URITemplateHelper;
 import org.apache.synapse.rest.dispatch.URLMappingHelper;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
+import org.eclipse.emf.common.util.BasicEList;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.commands.SetBoundsCommand;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.View;
+import org.wso2.developerstudio.eclipse.gmf.esb.APIHandler;
+import org.wso2.developerstudio.eclipse.gmf.esb.APIHandlerProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.APIResource;
 import org.wso2.developerstudio.eclipse.gmf.esb.ApiResourceUrlStyle;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
+import org.wso2.developerstudio.eclipse.gmf.esb.LogProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.MediatorFlow;
 import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.SequenceType;
 import org.wso2.developerstudio.eclipse.gmf.esb.SynapseAPI;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementTypes;
+import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.custom.DummyHandler;
+
 import static org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage.Literals.*;
 
 /**
@@ -158,6 +167,28 @@ public class APIDeserializer extends AbstractEsbNodeDeserializer<API, SynapseAPI
 						executeSetValueCommand(API_RESOURCE__FAULT_SEQUENCE_NAME, faultSequenceName);
 					}
 				}
+			}
+			
+			for(Handler handler : api.getHandlers()) {
+				APIHandler apiHandler = EsbFactory.eINSTANCE.createAPIHandler();			
+
+				if(handler instanceof DummyHandler) {
+					DummyHandler dummyHandler = (DummyHandler) handler;
+					apiHandler.setClassName(dummyHandler.getClassName());
+				} else {
+					apiHandler.setClassName(handler.getClass().getName());
+				}
+					
+				Iterator itr = handler.getProperties().keySet().iterator();
+				while (itr.hasNext()) {
+					APIHandlerProperty handlerProperty = EsbFactory.eINSTANCE.createAPIHandlerProperty();
+					String propertyName = (String) itr.next();
+					handlerProperty.setName(propertyName);
+					handlerProperty.setValue((String)handler.getProperties().get(propertyName));
+					apiHandler.getProperties().add(handlerProperty);
+					
+				}
+				executeAddValueCommand(synapseAPI.getHandlers(),apiHandler);
 			}
 			
 			addPairMediatorFlow(resource.getOutputConnector(),resource.getInputConnector());

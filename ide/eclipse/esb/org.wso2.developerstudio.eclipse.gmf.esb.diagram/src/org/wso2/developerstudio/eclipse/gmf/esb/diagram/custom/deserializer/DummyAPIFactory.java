@@ -26,7 +26,6 @@ import org.apache.axiom.om.OMNode;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.synapse.SynapseException;
-import org.apache.synapse.config.xml.PropertyHelper;
 import org.apache.synapse.config.xml.XMLConfigConstants;
 import org.apache.synapse.config.xml.rest.APIFactory;
 import org.apache.synapse.config.xml.rest.ResourceFactory;
@@ -109,8 +108,6 @@ public class DummyAPIFactory {
 		}
 
 		try {
-			//Class clazz = APIFactory.class.getClassLoader().loadClass(handlerClass);
-			//Handler handler = (Handler) clazz.newInstance();
 			DummyHandler dummyHandler = new DummyHandler();
 			dummyHandler.setClassName(handlerClass);
 			api.addHandler(dummyHandler);
@@ -125,12 +122,10 @@ public class DummyAPIFactory {
 					if (child.getAttribute(ATT_VALUE) != null) {
 						String value = child.getAttribute(ATT_VALUE).getAttributeValue();
 						dummyHandler.addProperty(propName, value);
-						PropertyHelper.setInstanceProperty(propName, value, dummyHandler);
 					} else {
 						OMNode omElt = child.getFirstElement();
 						if (omElt != null) {
 							dummyHandler.addProperty(propName, omElt);
-							PropertyHelper.setInstanceProperty(propName, omElt, dummyHandler);
 						} else {
 							handleException("A Class mediator property must specify "
 									+ "name and value attributes, or a name and a child XML fragment");
