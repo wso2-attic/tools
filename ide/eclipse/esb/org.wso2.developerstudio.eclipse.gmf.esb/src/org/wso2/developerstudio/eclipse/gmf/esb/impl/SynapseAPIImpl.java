@@ -137,7 +137,7 @@ public class SynapseAPIImpl extends EsbElementImpl implements SynapseAPI {
 	protected EList<APIResource> resources;
 
 	/**
-	 * The cached value of the '{@link #getHandlers() <em>Handlers</em>}' reference list.
+	 * The cached value of the '{@link #getHandlers() <em>Handlers</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getHandlers()
@@ -268,7 +268,7 @@ public class SynapseAPIImpl extends EsbElementImpl implements SynapseAPI {
 	 */
 	public EList<APIHandler> getHandlers() {
 		if (handlers == null) {
-			handlers = new EObjectResolvingEList<APIHandler>(APIHandler.class, this, EsbPackage.SYNAPSE_API__HANDLERS);
+			handlers = new EObjectContainmentEList<APIHandler>(APIHandler.class, this, EsbPackage.SYNAPSE_API__HANDLERS);
 		}
 		return handlers;
 	}
@@ -283,6 +283,8 @@ public class SynapseAPIImpl extends EsbElementImpl implements SynapseAPI {
 		switch (featureID) {
 			case EsbPackage.SYNAPSE_API__RESOURCES:
 				return ((InternalEList<?>)getResources()).basicRemove(otherEnd, msgs);
+			case EsbPackage.SYNAPSE_API__HANDLERS:
+				return ((InternalEList<?>)getHandlers()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}

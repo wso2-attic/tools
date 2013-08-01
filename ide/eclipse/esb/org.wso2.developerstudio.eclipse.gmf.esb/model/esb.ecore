@@ -2170,7 +2170,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="resources" upperBound="-1"
         eType="#//APIResource" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="handlers" upperBound="-1"
-        eType="#//APIHandler"/>
+        eType="#//APIHandler" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="APIResource" eSuperTypes="#//EsbNode">
     <eStructuralFeatures xsi:type="ecore:EReference" name="inputConnector" eType="#//APIResourceInputConnector"
@@ -2314,7 +2314,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="APIHandler" eSuperTypes="#//EsbNode">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="className" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
-        eType="#//APIHandlerProperty"/>
+        eType="#//APIHandlerProperty" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="APIHandlerProperty" eSuperTypes="#//EsbNode">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

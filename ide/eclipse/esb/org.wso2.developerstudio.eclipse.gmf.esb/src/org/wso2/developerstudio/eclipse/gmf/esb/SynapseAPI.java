@@ -153,7 +153,7 @@ public interface SynapseAPI extends EsbElement {
 	EList<APIResource> getResources();
 
 	/**
-	 * Returns the value of the '<em><b>Handlers</b></em>' reference list.
+	 * Returns the value of the '<em><b>Handlers</b></em>' containment reference list.
 	 * The list contents are of type {@link org.wso2.developerstudio.eclipse.gmf.esb.APIHandler}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -161,9 +161,9 @@ public interface SynapseAPI extends EsbElement {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Handlers</em>' reference list.
+	 * @return the value of the '<em>Handlers</em>' containment reference list.
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getSynapseAPI_Handlers()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<APIHandler> getHandlers();

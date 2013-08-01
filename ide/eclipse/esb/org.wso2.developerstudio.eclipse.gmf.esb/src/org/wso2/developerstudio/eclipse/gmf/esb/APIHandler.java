@@ -62,7 +62,7 @@ public interface APIHandler extends EsbNode {
 	void setClassName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Properties</b></em>' reference list.
+	 * Returns the value of the '<em><b>Properties</b></em>' containment reference list.
 	 * The list contents are of type {@link org.wso2.developerstudio.eclipse.gmf.esb.APIHandlerProperty}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -70,9 +70,9 @@ public interface APIHandler extends EsbNode {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Properties</em>' reference list.
+	 * @return the value of the '<em>Properties</em>' containment reference list.
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getAPIHandler_Properties()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<APIHandlerProperty> getProperties();

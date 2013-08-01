@@ -15391,7 +15391,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	int SYNAPSE_API__RESOURCES = ESB_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Handlers</b></em>' reference list.
+	 * The feature id for the '<em><b>Handlers</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -16996,7 +16996,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	int API_HANDLER__CLASS_NAME = ESB_NODE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Properties</b></em>' reference list.
+	 * The feature id for the '<em><b>Properties</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -22595,10 +22595,10 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	EReference getSynapseAPI_Resources();
 
 	/**
-	 * Returns the meta object for the reference list '{@link org.wso2.developerstudio.eclipse.gmf.esb.SynapseAPI#getHandlers <em>Handlers</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.wso2.developerstudio.eclipse.gmf.esb.SynapseAPI#getHandlers <em>Handlers</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Handlers</em>'.
+	 * @return the meta object for the containment reference list '<em>Handlers</em>'.
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.SynapseAPI#getHandlers()
 	 * @see #getSynapseAPI()
 	 * @generated
@@ -23520,10 +23520,10 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	EAttribute getAPIHandler_ClassName();
 
 	/**
-	 * Returns the meta object for the reference list '{@link org.wso2.developerstudio.eclipse.gmf.esb.APIHandler#getProperties <em>Properties</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.wso2.developerstudio.eclipse.gmf.esb.APIHandler#getProperties <em>Properties</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Properties</em>'.
+	 * @return the meta object for the containment reference list '<em>Properties</em>'.
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.APIHandler#getProperties()
 	 * @see #getAPIHandler()
 	 * @generated
@@ -34046,7 +34046,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		EReference SYNAPSE_API__RESOURCES = eINSTANCE.getSynapseAPI_Resources();
 
 		/**
-		 * The meta object literal for the '<em><b>Handlers</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Handlers</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -34776,7 +34776,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		EAttribute API_HANDLER__CLASS_NAME = eINSTANCE.getAPIHandler_ClassName();
 
 		/**
-		 * The meta object literal for the '<em><b>Properties</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Properties</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
