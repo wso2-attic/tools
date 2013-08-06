@@ -52,11 +52,6 @@ public class CallTemplateMediatorEditPart extends FixedSizedAbstractMediator {
 	/**
 	 * @generated
 	 */
-	protected IFigure primaryShape;
-
-	/**
-	 * @generated
-	 */
 	public CallTemplateMediatorEditPart(View view) {
 		super(view);
 	}

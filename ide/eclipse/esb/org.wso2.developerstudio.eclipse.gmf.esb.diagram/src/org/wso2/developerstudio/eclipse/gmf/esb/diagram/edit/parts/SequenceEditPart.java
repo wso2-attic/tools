@@ -137,11 +137,6 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 	 */
 	protected IFigure contentPane;
 
-	/**
-	 * @generated
-	 */
-	protected IFigure primaryShape;
-
 	public static SequenceStorage sequenceStorage = new SequenceStorage();
 
 	private static Integer sequenceCount = 0;

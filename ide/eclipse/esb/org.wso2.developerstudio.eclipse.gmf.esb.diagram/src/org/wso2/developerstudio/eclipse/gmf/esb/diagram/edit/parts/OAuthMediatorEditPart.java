@@ -52,11 +52,6 @@ public class OAuthMediatorEditPart extends FixedSizedAbstractMediator {
 	/**
 	 * @generated
 	 */
-	protected IFigure primaryShape;
-
-	/**
-	 * @generated
-	 */
 	public OAuthMediatorEditPart(View view) {
 		super(view);
 	}

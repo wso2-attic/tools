@@ -52,11 +52,6 @@ public class EventMediatorEditPart extends FixedSizedAbstractMediator {
 	/**
 	 * @generated
 	 */
-	protected IFigure primaryShape;
-
-	/**
-	 * @generated
-	 */
 	public EventMediatorEditPart(View view) {
 		super(view);
 	}

@@ -16,9 +16,9 @@
 
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom;
 
-import org.eclipse.draw2d.GridData;
 import org.eclipse.draw2d.GridLayout;
 import org.eclipse.draw2d.ImageFigure;
+import org.eclipse.draw2d.LineBorder;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.StackLayout;
@@ -36,70 +36,59 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbDiagramEditorPlu
  */
 public class EsbGraphicalShapeWithLabel extends RoundedRectangle {
 	RectangleFigure propertyValueRectangle1;
+	static int Figure_PreferredWidth = FixedSizedAbstractMediator.FigureWidth;
+	static int Figure_PreferredHeight = FixedSizedAbstractMediator.FigureHeight + 20; //Additional 20 to show the editable lable
+	static int Image_PreferredWidth = 55;
+	static int Image_PreferredHeight = 55;
+	static int marginWidth = (Figure_PreferredWidth - Image_PreferredWidth) / 2; //equals to 10
+	static int marginHeight = 10;
+
 
 	public EsbGraphicalShapeWithLabel() {
 		GridLayout layoutThis = new GridLayout();
-		layoutThis.numColumns = 1;
-		layoutThis.makeColumnsEqualWidth = true;
 		layoutThis.marginHeight = 0;
 		layoutThis.marginWidth = 0;
-		this.setLayoutManager(layoutThis);
+		this.setLayoutManager(new StackLayout());
 
-		this.setCornerDimensions(new Dimension(1, 1));
+		this.setCornerDimensions(new Dimension(8, 8));
 		this.setFill(false);
 		this.setOutline(false);
-		this.setPreferredSize(new Dimension(75, 70));
+		this.setPreferredSize(new Dimension(Figure_PreferredWidth, Figure_PreferredHeight));
 		createContents();
 	}
 
 	private void createContents() {
 
-		/*main image grid data*/
-		GridData constraintMainImageRectangle = new GridData();
-		constraintMainImageRectangle.verticalAlignment = GridData.VERTICAL_ALIGN_BEGINNING;
-		constraintMainImageRectangle.horizontalAlignment = GridData.HORIZONTAL_ALIGN_BEGINNING;
-		constraintMainImageRectangle.horizontalIndent = 0;
-			
-		ImageDescriptor mainImgDesc = EsbDiagramEditorPlugin
-				.getBundledImageDescriptor(getIconPath());
+		RoundedRectangle bottomRondedRect = new RoundedRectangle();
+		bottomRondedRect.setCornerDimensions(new Dimension(8, 8));
+		bottomRondedRect.setOutline(false);
+		bottomRondedRect.setBackgroundColor(this.getBackgroundColor());
+		bottomRondedRect.setPreferredSize(new Dimension(Figure_PreferredWidth, Figure_PreferredHeight));
+		// we do not set border since we dont want to show that in unselected state
 		
-		Image image = mainImgDesc.createImage();
-		Image scaled = new Image(Display.getDefault(), 36, 52);
-		GC gc = new GC(scaled);
-		gc.setAntialias(SWT.ON);
-		gc.setInterpolation(SWT.HIGH);
-		gc.drawImage(image, 0, 0, image.getBounds().width, image.getBounds().height, 0, 0, 36, 52);
-		gc.dispose();
+		GridLayout bottomRondedRectGridLayout = new GridLayout();
+		bottomRondedRectGridLayout.horizontalSpacing = 0;
+		bottomRondedRectGridLayout.verticalSpacing = 0;
+		bottomRondedRectGridLayout.marginHeight = marginHeight - 1; // -1 is to handle visual pixel offset
+		bottomRondedRectGridLayout.marginWidth = marginWidth - 1;
+		bottomRondedRect.setLayoutManager(bottomRondedRectGridLayout);
 		
-		
-		ImageFigure mainImg = new ImageFigure(image);
-		mainImg.setSize(new Dimension(75, 50));
-		RectangleFigure mainImageRectangle = new RectangleFigure();
-		mainImageRectangle.setOutline(false);
-		mainImageRectangle.setBackgroundColor(new Color(null, 255, 255, 255));
-		mainImageRectangle.setPreferredSize(new Dimension(75, 50));
-		mainImageRectangle.add(mainImg);
-		this.add(mainImageRectangle, constraintMainImageRectangle);	
+		ImageFigure iconImageFigure = EditPartDrawingHelper.getIconImageFigure(getIconPath(), Image_PreferredWidth, Image_PreferredHeight);
+		bottomRondedRect.add(iconImageFigure);
+		this.add(bottomRondedRect);
 
 		propertyValueRectangle1 = new RectangleFigure();
 		propertyValueRectangle1.setOutline(false);
-		propertyValueRectangle1
-				.setBackgroundColor(PROPERTYVALUERECTANGLE_BACK);
-		propertyValueRectangle1.setPreferredSize(new Dimension(75, 20));
-
-		GridData constraintPropertyValueRectangle1 = new GridData();
-		constraintPropertyValueRectangle1.verticalAlignment = GridData.CENTER;
-		constraintPropertyValueRectangle1.horizontalAlignment = GridData.BEGINNING;
-		constraintPropertyValueRectangle1.horizontalIndent = 0;
-		constraintPropertyValueRectangle1.horizontalSpan = 1;
-		constraintPropertyValueRectangle1.verticalSpan = 1;
-		constraintPropertyValueRectangle1.grabExcessHorizontalSpace = true;
-		constraintPropertyValueRectangle1.grabExcessVerticalSpace = true;
-
-		propertyValueRectangle1.setLayoutManager(new StackLayout());
-		this.add(propertyValueRectangle1, constraintPropertyValueRectangle1);
-
-
+		propertyValueRectangle1.setBackgroundColor(EditPartDrawingHelper.FigureNormalColor );
+		propertyValueRectangle1.setAlpha(5); // very importnat here
+		propertyValueRectangle1.setPreferredSize(new Dimension(Figure_PreferredWidth, 10));
+		propertyValueRectangle1.setSize(Figure_PreferredWidth, 10);
+		
+		GridLayout propertyRectLayout = new GridLayout();
+		propertyRectLayout.marginHeight = 54; //10 + imageHeight + 10 -10/2
+		propertyRectLayout.marginWidth = marginWidth + 10;
+		propertyValueRectangle1.setLayoutManager(propertyRectLayout);
+		this.add(propertyValueRectangle1);
 	}
 
 	public RectangleFigure getPropertyValueRectangle1() {
@@ -117,9 +106,5 @@ public class EsbGraphicalShapeWithLabel extends RoundedRectangle {
 	public Color getLabelBackColor() {
 		return this.getBackgroundColor();
 	}
-	
-
-	static final Color PROPERTYVALUERECTANGLE_BACK = new Color(
-			null, 255, 255, 255);
 
 }

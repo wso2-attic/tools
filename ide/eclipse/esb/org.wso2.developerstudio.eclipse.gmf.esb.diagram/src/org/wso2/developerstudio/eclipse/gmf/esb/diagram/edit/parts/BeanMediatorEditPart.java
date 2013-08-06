@@ -53,11 +53,6 @@ public class BeanMediatorEditPart extends FixedSizedAbstractMediator {
 	/**
 	 * @generated
 	 */
-	protected IFigure primaryShape;
-
-	/**
-	 * @generated
-	 */
 	public BeanMediatorEditPart(View view) {
 		super(view);
 	}

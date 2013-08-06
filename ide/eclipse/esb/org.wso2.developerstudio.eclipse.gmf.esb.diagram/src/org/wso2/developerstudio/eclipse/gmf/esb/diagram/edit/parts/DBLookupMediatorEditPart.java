@@ -52,11 +52,6 @@ public class DBLookupMediatorEditPart extends FixedSizedAbstractMediator {
 	/**
 	 * @generated
 	 */
-	protected IFigure primaryShape;
-
-	/**
-	 * @generated
-	 */
 	public DBLookupMediatorEditPart(View view) {
 		super(view);
 	}

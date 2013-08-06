@@ -50,11 +50,6 @@ public class EnqueueMediatorEditPart extends FixedSizedAbstractMediator {
 	/**
 	 * @generated
 	 */
-	protected IFigure primaryShape;
-
-	/**
-	 * @generated
-	 */
 	public EnqueueMediatorEditPart(View view) {
 		super(view);
 	}

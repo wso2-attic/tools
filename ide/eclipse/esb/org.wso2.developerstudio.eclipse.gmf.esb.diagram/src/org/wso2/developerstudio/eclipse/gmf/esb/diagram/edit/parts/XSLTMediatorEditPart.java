@@ -50,11 +50,6 @@ public class XSLTMediatorEditPart extends FixedSizedAbstractMediator {
 	/**
 	 * @generated
 	 */
-	protected IFigure primaryShape;
-
-	/**
-	 * @generated
-	 */
 	public XSLTMediatorEditPart(View view) {
 		super(view);
 	}

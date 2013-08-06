@@ -50,11 +50,6 @@ public class TransactionMediatorEditPart extends FixedSizedAbstractMediator {
 	/**
 	 * @generated
 	 */
-	protected IFigure primaryShape;
-
-	/**
-	 * @generated
-	 */
 	public TransactionMediatorEditPart(View view) {
 		super(view);
 	}

@@ -52,11 +52,6 @@ public class URLRewriteMediatorEditPart extends FixedSizedAbstractMediator {
 	/**
 	 * @generated
 	 */
-	protected IFigure primaryShape;
-
-	/**
-	 * @generated
-	 */
 	public URLRewriteMediatorEditPart(View view) {
 		super(view);
 	}

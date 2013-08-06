@@ -53,11 +53,6 @@ public class FaultMediatorEditPart extends FixedSizedAbstractMediator {
 	/**
 	 * @generated
 	 */
-	protected IFigure primaryShape;
-
-	/**
-	 * @generated
-	 */
 	public FaultMediatorEditPart(View view) {
 		super(view);
 	}

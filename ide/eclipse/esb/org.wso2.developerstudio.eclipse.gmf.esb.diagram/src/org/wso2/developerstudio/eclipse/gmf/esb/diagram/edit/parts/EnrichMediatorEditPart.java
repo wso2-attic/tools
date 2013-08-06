@@ -52,11 +52,6 @@ public class EnrichMediatorEditPart extends FixedSizedAbstractMediator {
 	/**
 	 * @generated
 	 */
-	protected IFigure primaryShape;
-
-	/**
-	 * @generated
-	 */
 	public EnrichMediatorEditPart(View view) {
 		super(view);
 	}

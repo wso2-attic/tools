@@ -52,11 +52,6 @@ public class CommandMediatorEditPart extends FixedSizedAbstractMediator {
 	/**
 	 * @generated
 	 */
-	protected IFigure primaryShape;
-
-	/**
-	 * @generated
-	 */
 	public CommandMediatorEditPart(View view) {
 		super(view);
 	}

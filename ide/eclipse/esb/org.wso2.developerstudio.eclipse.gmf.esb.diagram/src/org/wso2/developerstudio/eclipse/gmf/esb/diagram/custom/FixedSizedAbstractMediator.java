@@ -18,26 +18,42 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom;
 
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.geometry.Dimension;
+import org.eclipse.gef.EditPolicy;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.HighlightOnSelectionEditPolicy;
 
 public abstract class FixedSizedAbstractMediator extends AbstractMediator {
 
+	public static int FigureWidth = 75;
+	public static int FigureHeight = 75;
+	protected IFigure primaryShape;
+	
 	public FixedSizedAbstractMediator(View view) {
 		super(view);
 	}
 	
 	public IFigure getFigure() {
 		IFigure figure = super.getFigure();
-		figure.setMaximumSize(new Dimension(75, 55));
+		figure.setMaximumSize(new Dimension(FigureWidth, FigureHeight));
 		return figure;
 	}
 	
 	protected NodeFigure createNodePlate() {
-		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(75, 55);
-		result.setMinimumSize(new Dimension(75, 55));
+		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(FigureWidth, FigureHeight);
+		result.setMinimumSize(new Dimension(FigureWidth, FigureHeight));
 		return result;
 	}
+	
+	public IFigure getFixedSizedPrimaryShape() {
+		return primaryShape;
+	}
 
+	@Override
+	protected void createDefaultEditPolicies() {
+		super.createDefaultEditPolicies();
+			installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, new CustomNonResizableEditPolicyEx());  //remove 8 corners
+			installEditPolicy(EditPolicy.SELECTION_FEEDBACK_ROLE, new HighlightOnSelectionEditPolicy()); //selection
+	}
 }

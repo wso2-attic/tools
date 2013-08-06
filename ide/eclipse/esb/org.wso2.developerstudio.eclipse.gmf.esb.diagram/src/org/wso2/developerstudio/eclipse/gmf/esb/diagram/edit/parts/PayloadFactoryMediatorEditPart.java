@@ -52,11 +52,6 @@ public class PayloadFactoryMediatorEditPart extends FixedSizedAbstractMediator {
 	/**
 	 * @generated
 	 */
-	protected IFigure primaryShape;
-
-	/**
-	 * @generated
-	 */
 	public PayloadFactoryMediatorEditPart(View view) {
 		super(view);
 	}

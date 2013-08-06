@@ -53,11 +53,6 @@ public class EJBMediatorEditPart extends FixedSizedAbstractMediator {
 	/**
 	 * @generated
 	 */
-	protected IFigure primaryShape;
-
-	/**
-	 * @generated
-	 */
 	public EJBMediatorEditPart(View view) {
 		super(view);
 	}

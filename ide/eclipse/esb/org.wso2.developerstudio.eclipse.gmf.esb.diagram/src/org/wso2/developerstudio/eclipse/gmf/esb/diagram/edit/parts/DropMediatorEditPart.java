@@ -381,11 +381,6 @@ public class DropMediatorEditPart extends FixedSizedAbstractMediator {
 	/**
 	 * @generated
 	 */
-	protected IFigure primaryShape;
-
-	/**
-	 * @generated
-	 */
 	public DropMediatorEditPart(View view) {
 		super(view);
 	}

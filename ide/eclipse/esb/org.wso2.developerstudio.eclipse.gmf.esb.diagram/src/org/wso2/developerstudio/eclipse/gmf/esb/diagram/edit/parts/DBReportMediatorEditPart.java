@@ -52,11 +52,6 @@ public class DBReportMediatorEditPart extends FixedSizedAbstractMediator {
 	/**
 	 * @generated
 	 */
-	protected IFigure primaryShape;
-
-	/**
-	 * @generated
-	 */
 	public DBReportMediatorEditPart(View view) {
 		super(view);
 	}

@@ -455,11 +455,6 @@ public class PropertyMediatorEditPart extends FixedSizedAbstractMediator {
 	/**
 	 * @generated
 	 */
-	protected IFigure primaryShape;
-
-	/**
-	 * @generated
-	 */
 	public PropertyMediatorEditPart(View view) {
 		super(view);
 	}

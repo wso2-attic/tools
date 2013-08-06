@@ -52,11 +52,6 @@ public class HeaderMediatorEditPart extends FixedSizedAbstractMediator {
 	/**
 	 * @generated
 	 */
-	protected IFigure primaryShape;
-
-	/**
-	 * @generated
-	 */
 	public HeaderMediatorEditPart(View view) {
 		super(view);
 	}

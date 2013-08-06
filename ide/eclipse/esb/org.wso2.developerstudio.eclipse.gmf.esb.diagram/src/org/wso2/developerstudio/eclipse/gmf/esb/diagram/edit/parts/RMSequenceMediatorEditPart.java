@@ -50,11 +50,6 @@ public class RMSequenceMediatorEditPart extends FixedSizedAbstractMediator {
 	/**
 	 * @generated
 	 */
-	protected IFigure primaryShape;
-
-	/**
-	 * @generated
-	 */
 	public RMSequenceMediatorEditPart(View view) {
 		super(view);
 	}

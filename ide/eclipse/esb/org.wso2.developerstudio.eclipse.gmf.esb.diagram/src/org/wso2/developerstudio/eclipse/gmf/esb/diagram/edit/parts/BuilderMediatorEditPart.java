@@ -52,11 +52,6 @@ public class BuilderMediatorEditPart extends FixedSizedAbstractMediator {
 	/**
 	 * @generated
 	 */
-	protected IFigure primaryShape;
-
-	/**
-	 * @generated
-	 */
 	public BuilderMediatorEditPart(View view) {
 		super(view);
 	}

@@ -53,11 +53,6 @@ public class XQueryMediatorEditPart extends FixedSizedAbstractMediator {
 	/**
 	 * @generated
 	 */
-	protected IFigure primaryShape;
-
-	/**
-	 * @generated
-	 */
 	public XQueryMediatorEditPart(View view) {
 		super(view);
 	}

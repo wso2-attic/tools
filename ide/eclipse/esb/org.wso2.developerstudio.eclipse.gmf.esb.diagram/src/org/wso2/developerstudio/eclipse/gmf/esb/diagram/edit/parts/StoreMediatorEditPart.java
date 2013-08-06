@@ -52,11 +52,6 @@ public class StoreMediatorEditPart extends FixedSizedAbstractMediator {
 	/**
 	 * @generated
 	 */
-	protected IFigure primaryShape;
-
-	/**
-	 * @generated
-	 */
 	public StoreMediatorEditPart(View view) {
 		super(view);
 	}

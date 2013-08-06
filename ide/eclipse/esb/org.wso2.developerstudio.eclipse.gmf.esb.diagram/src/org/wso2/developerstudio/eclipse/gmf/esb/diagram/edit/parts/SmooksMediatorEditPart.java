@@ -51,11 +51,6 @@ public class SmooksMediatorEditPart extends FixedSizedAbstractMediator {
 	/**
 	 * @generated
 	 */
-	protected IFigure primaryShape;
-
-	/**
-	 * @generated
-	 */
 	public SmooksMediatorEditPart(View view) {
 		super(view);
 	}

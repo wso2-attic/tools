@@ -54,11 +54,6 @@ public class LogMediatorEditPart extends FixedSizedAbstractMediator {
 	/**
 	 * @generated
 	 */
-	protected IFigure primaryShape;
-
-	/**
-	 * @generated
-	 */
 	public LogMediatorEditPart(View view) {
 		super(view);
 	}

@@ -53,11 +53,6 @@ public class BAMMediatorEditPart extends FixedSizedAbstractMediator {
 	/**
 	 * @generated
 	 */
-	protected IFigure primaryShape;
-
-	/**
-	 * @generated
-	 */
 	public BAMMediatorEditPart(View view) {
 		super(view);
 	}

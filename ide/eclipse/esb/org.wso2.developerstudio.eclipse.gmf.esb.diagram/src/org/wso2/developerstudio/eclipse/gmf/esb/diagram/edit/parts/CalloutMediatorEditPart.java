@@ -52,11 +52,6 @@ public class CalloutMediatorEditPart extends FixedSizedAbstractMediator {
 	/**
 	 * @generated
 	 */
-	protected IFigure primaryShape;
-
-	/**
-	 * @generated
-	 */
 	public CalloutMediatorEditPart(View view) {
 		super(view);
 	}

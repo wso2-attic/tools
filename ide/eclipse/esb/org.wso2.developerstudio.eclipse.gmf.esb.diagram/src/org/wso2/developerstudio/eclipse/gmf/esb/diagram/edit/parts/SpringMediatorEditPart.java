@@ -52,11 +52,6 @@ public class SpringMediatorEditPart extends FixedSizedAbstractMediator {
 	/**
 	 * @generated
 	 */
-	protected IFigure primaryShape;
-
-	/**
-	 * @generated
-	 */
 	public SpringMediatorEditPart(View view) {
 		super(view);
 	}

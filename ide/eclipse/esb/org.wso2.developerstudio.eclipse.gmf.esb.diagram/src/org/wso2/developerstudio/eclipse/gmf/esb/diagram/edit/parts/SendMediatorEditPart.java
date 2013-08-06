@@ -71,11 +71,6 @@ public class SendMediatorEditPart extends FixedSizedAbstractMediator {
 	/**
 	 * @generated
 	 */
-	protected IFigure primaryShape;
-
-	/**
-	 * @generated
-	 */
 	public SendMediatorEditPart(View view) {
 		super(view);
 	}
