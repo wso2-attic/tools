@@ -46,7 +46,7 @@ public class HTTPEndPointInputConnectorEditPart extends AbstractEndpointInputCon
 	 * @generated
 	 */
 	protected IFigure primaryShape;
-	
+
 	public final boolean isInput = true;
 
 	public NodeFigure figure_;

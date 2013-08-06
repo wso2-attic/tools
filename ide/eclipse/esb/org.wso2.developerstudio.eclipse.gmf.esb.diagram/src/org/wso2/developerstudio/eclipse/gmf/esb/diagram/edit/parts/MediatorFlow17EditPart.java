@@ -60,7 +60,7 @@ public class MediatorFlow17EditPart extends ShapeNodeEditPart {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();

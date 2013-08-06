@@ -431,7 +431,7 @@ public class MediatorFlowMediatorFlowCompartmentEditPart extends
 				}
 			}
 		}
-		
+
 	}
 
 	protected void removeChild(EditPart child) {

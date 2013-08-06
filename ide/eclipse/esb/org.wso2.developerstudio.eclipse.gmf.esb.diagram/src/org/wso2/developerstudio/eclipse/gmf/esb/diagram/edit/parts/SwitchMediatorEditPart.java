@@ -216,18 +216,19 @@ public class SwitchMediatorEditPart extends complexFiguredAbstractMediator {
 		//This method is called twice at the startup. To avoid that we use this 'if' check.
 		if (activeCount == 1 && !reversed) {
 			SwitchMediatorUtils.reorderWhenForward(this);
-		} 
+		}
 		++activeCount;
 	}
-	
+
 	@Override
 	public void notifyChanged(Notification notification) {
 		super.notifyChanged(notification);
 		// Fixing TOOLS-1786
-		if(notification.getEventType() == Notification.SET && activeCount == 1 && !reorderdOnUndo && !reversed) {
+		if (notification.getEventType() == Notification.SET && activeCount == 1 && !reorderdOnUndo
+				&& !reversed) {
 			EObject parentContainer = ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (this)
 					.getModel()).getElement();
-			if (((SwitchMediator) parentContainer).getCaseBranches().size() > 1){
+			if (((SwitchMediator) parentContainer).getCaseBranches().size() > 1) {
 				SwitchMediatorUtils.reorderWhenForward(this);
 				reorderdOnUndo = true;
 			}

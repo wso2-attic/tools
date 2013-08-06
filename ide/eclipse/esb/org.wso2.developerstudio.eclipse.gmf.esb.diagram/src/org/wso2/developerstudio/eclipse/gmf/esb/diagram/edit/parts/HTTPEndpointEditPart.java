@@ -126,7 +126,7 @@ public class HTTPEndpointEditPart extends AbstractEndpoint {
 	 * @generated
 	 */
 	protected IFigure createNodeShape() {
-		return primaryShape = new HTTPEndpointFigure(){
+		return primaryShape = new HTTPEndpointFigure() {
 			public void setBounds(org.eclipse.draw2d.geometry.Rectangle rect) {
 				super.setBounds(rect);
 				if (!connected) {
@@ -143,7 +143,7 @@ public class HTTPEndpointEditPart extends AbstractEndpoint {
 	public HTTPEndpointFigure getPrimaryShape() {
 		return (HTTPEndpointFigure) primaryShape;
 	}
-	
+
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof HTTPEndPointInputConnectorEditPart) {
 			double position;
@@ -182,8 +182,7 @@ public class HTTPEndpointEditPart extends AbstractEndpoint {
 		}
 		return false;
 	}
-	
-	
+
 	protected boolean removeFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof HTTPEndPointInputConnectorEditPart) {
 			getBorderedFigure().getBorderItemContainer().remove(
@@ -197,8 +196,7 @@ public class HTTPEndpointEditPart extends AbstractEndpoint {
 		}
 		return false;
 	}
-	
-	
+
 	protected void addChildVisual(EditPart childEditPart, int index) {
 		if (addFixedChild(childEditPart)) {
 			return;
@@ -306,12 +304,12 @@ public class HTTPEndpointEditPart extends AbstractEndpoint {
 			((Shape) primaryShape).setLineStyle(style);
 		}
 	}
-	
+
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(EsbVisualIDRegistry
 				.getType(AddressEndPointEndPointNameEditPart.VISUAL_ID));
 	}
-	
+
 	protected void refreshVisuals() {
 		super.refreshVisuals();
 		HTTPEndpoint HTTPEp = (HTTPEndpoint) resolveSemanticElement();
@@ -322,8 +320,8 @@ public class HTTPEndpointEditPart extends AbstractEndpoint {
 			}
 
 		}
-	}	
-	
+	}
+
 	protected void handleNotificationEvent(Notification notification) {
 		super.handleNotificationEvent(notification);
 		if (notification.getNotifier() instanceof HTTPEndpoint) {
@@ -364,8 +362,8 @@ public class HTTPEndpointEditPart extends AbstractEndpoint {
 			fFigureHTTPEndPointNamePropertyLabel.setText("");
 			fFigureHTTPEndPointNamePropertyLabel.setAlignment(PositionConstants.TOP
 					| PositionConstants.CENTER);
-			fFigureHTTPEndPointNamePropertyLabel.setFont(new Font(null, new FontData("Courier",
-					8, SWT.BOLD)));
+			fFigureHTTPEndPointNamePropertyLabel.setFont(new Font(null, new FontData("Courier", 8,
+					SWT.BOLD)));
 
 		}
 
@@ -375,7 +373,7 @@ public class HTTPEndpointEditPart extends AbstractEndpoint {
 		public WrappingLabel getFigureHTTPEndPointNamePropertyLabel() {
 			return fFigureHTTPEndPointNamePropertyLabel;
 		}
-		
+
 		public String getIconPath() {
 			return "icons/ico20/address-endpoint.gif";
 		}
@@ -398,7 +396,7 @@ public class HTTPEndpointEditPart extends AbstractEndpoint {
 	 * @generated
 	 */
 	static final Color THIS_BACK = new Color(null, 40, 151, 248);
-	
+
 	static final Color THIS_LABEL_BACK = new Color(null, 113, 198, 113);
 
 }

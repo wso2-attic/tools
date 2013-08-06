@@ -59,7 +59,7 @@ public class HTTPEndPointOutputConnectorEditPart extends AbstractEndpointOutputC
 	public NodeFigure getNodeFigureOutput() {
 		return figure_;
 	}
-	
+
 	/**
 	 * @generated
 	 */

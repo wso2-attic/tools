@@ -105,15 +105,16 @@ public class CloneMediatorEditPart extends complexFiguredAbstractMediator {
 		}
 		++activeCount;
 	}
-	
+
 	@Override
 	public void notifyChanged(Notification notification) {
 		super.notifyChanged(notification);
 		// Fixing TOOLS-1839.
-		if(notification.getEventType() == Notification.SET && activeCount == 1 && !reorderdOnUndo && !reversed) {
+		if (notification.getEventType() == Notification.SET && activeCount == 1 && !reorderdOnUndo
+				&& !reversed) {
 			EObject parentContainer = ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (this)
 					.getModel()).getElement();
-			if (((CloneMediator) parentContainer).getTargetsOutputConnector().size() > 1){
+			if (((CloneMediator) parentContainer).getTargetsOutputConnector().size() > 1) {
 				CloneMediatorUtils.reorderWhenForward(this);
 				reorderdOnUndo = true;
 			}
