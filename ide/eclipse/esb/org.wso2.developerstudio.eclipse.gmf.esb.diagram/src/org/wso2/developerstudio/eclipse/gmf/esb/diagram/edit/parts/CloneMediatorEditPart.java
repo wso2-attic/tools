@@ -12,6 +12,7 @@ import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.ToolbarLayout;
 import org.eclipse.draw2d.geometry.Dimension;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
@@ -84,6 +85,7 @@ public class CloneMediatorEditPart extends complexFiguredAbstractMediator {
 	private List<BorderItemLocator> outputLocators = new ArrayList<BorderItemLocator>();
 	private IFigure inputConnector;
 	private IFigure outputConnector;
+	private boolean reorderdOnUndo = false;
 
 	public ArrayList<IFigure> targetOutputConnectors = new ArrayList<IFigure>();
 
@@ -102,6 +104,20 @@ public class CloneMediatorEditPart extends complexFiguredAbstractMediator {
 			CloneMediatorUtils.reorderWhenForward(this);
 		}
 		++activeCount;
+	}
+	
+	@Override
+	public void notifyChanged(Notification notification) {
+		super.notifyChanged(notification);
+		// Fixing TOOLS-1839.
+		if(notification.getEventType() == Notification.SET && activeCount == 1 && !reorderdOnUndo && !reversed) {
+			EObject parentContainer = ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (this)
+					.getModel()).getElement();
+			if (((CloneMediator) parentContainer).getTargetsOutputConnector().size() > 1){
+				CloneMediatorUtils.reorderWhenForward(this);
+				reorderdOnUndo = true;
+			}
+		}
 	}
 
 	/**
