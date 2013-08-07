@@ -349,8 +349,8 @@ public class SwitchMediatorEditPart extends complexFiguredAbstractMediator {
 			layoutThis.setSpacing(0);
 			layoutThis.setVertical(false);
 			this.setLayoutManager(layoutThis);
-			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(325), getMapMode().DPtoLP(175)));
-			this.setOutline(true);
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(200), getMapMode().DPtoLP(150)));
+			this.setOutline(false);
 			this.setBackgroundColor(THIS_BACK);
 			createContents();
 		}

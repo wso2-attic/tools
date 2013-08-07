@@ -236,11 +236,15 @@ public class MediatorFlow13EditPart extends ShapeNodeEditPart {
 
 			GridLayout layoutThis = new GridLayout();
 			layoutThis.numColumns = 1;
+			layoutThis.horizontalSpacing = 5;
+			layoutThis.verticalSpacing = 5;
+			layoutThis.marginHeight = 5;
+			layoutThis.marginWidth = 5;
 			layoutThis.makeColumnsEqualWidth = true;
 			this.setLayoutManager(layoutThis);
 
-			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8), getMapMode().DPtoLP(8)));
-			this.setLineStyle(Graphics.LINE_DASH);
+			this.setCornerDimensions(new Dimension(1, 1));
+			this.setOutline(false);
 			this.setBackgroundColor(THIS_BACK);
 			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(5000), getMapMode()
 					.DPtoLP(4000)));

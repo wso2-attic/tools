@@ -29,111 +29,119 @@ public class SwitchMediatorGraphicalShape extends RoundedRectangle {
 		this.setCornerDimensions(new Dimension(1, 1));
 		this.setFill(false);
 		this.setOutline(false);
+		this.setBorder(new LineBorder(new Color(null, 224, 224, 224), 2, SWT.BORDER_DASH));
 		createContents();
 	}
 
 	private void createContents() {
-		
-		RoundedRectangle graphicalNodeContainer0 = new RoundedRectangle();
-		graphicalNodeContainer0.setCornerDimensions(new Dimension(1, 1));
-		graphicalNodeContainer0.setOutline(false);
-		graphicalNodeContainer0.setBackgroundColor(this.getBackgroundColor());
-		// graphicalNodeContainer0.setPreferredSize(new Dimension(100, 40));
-		LineBorder border0 = new LineBorder(this.getBackgroundColor(), 1, SWT.BORDER_SOLID);
-		graphicalNodeContainer0.setBorder(border0);
-		graphicalNodeContainer0.setPreferredSize(new Dimension(55, 10));
-		graphicalNodeContainer0.setMinimumSize(new Dimension(55, 70));
+		// Create left side rectangle.
+		RoundedRectangle leftRectangle = new RoundedRectangle();
+		leftRectangle.setCornerDimensions(new Dimension(1, 1));
+		leftRectangle.setOutline(false);
+		leftRectangle.setFill(false);
+		leftRectangle.setPreferredSize(new Dimension(110, 30));
+		leftRectangle.setMinimumSize(new Dimension(90, 95));
 
-		GridData constraintGraphicalNodeContainer0 = new GridData();
-		constraintGraphicalNodeContainer0.verticalAlignment = GridData.CENTER;
-		constraintGraphicalNodeContainer0.horizontalAlignment = GridData.CENTER;
-		// constraintGraphicalNodeContainer0.horizontalIndent = 0;
-		// constraintGraphicalNodeContainer0.horizontalSpan = 1;
-		// constraintGraphicalNodeContainer0.verticalSpan = 1;
-		// constraintGraphicalNodeContainer0.grabExcessHorizontalSpace = true;
-		// constraintGraphicalNodeContainer0.grabExcessVerticalSpace = true;
-		this.add(graphicalNodeContainer0, constraintGraphicalNodeContainer0);
+		GridData layoutGraphicalNodeContainer = new GridData();
+		layoutGraphicalNodeContainer.verticalAlignment = GridData.CENTER;
+		layoutGraphicalNodeContainer.horizontalAlignment = GridData.CENTER;
+		this.add(leftRectangle, layoutGraphicalNodeContainer);
 
-		GridLayout layoutGraphicalNodeContainer0 = new GridLayout();
-		layoutGraphicalNodeContainer0.numColumns = 1;
-		// layoutGraphicalNodeContainer0.makeColumnsEqualWidth = false;
-		// layoutGraphicalNodeContainer0.horizontalSpacing = 1;
-		// layoutGraphicalNodeContainer0.verticalSpacing = 0;
-		// layoutGraphicalNodeContainer0.marginHeight = -1;
-		// layoutGraphicalNodeContainer0.marginWidth = -1;
-		graphicalNodeContainer0.setLayoutManager(layoutGraphicalNodeContainer0);
+		GridLayout constraintGraphicalNodeContainer = new GridLayout();
+		constraintGraphicalNodeContainer.numColumns = 1;
+		leftRectangle.setLayoutManager(constraintGraphicalNodeContainer);
+
+		// Create inner rectangle inside the left side rectangle.
+		RoundedRectangle container = createInnerRectangle(leftRectangle);
 
 		ImageDescriptor imgDesc = EsbDiagramEditorPlugin.getBundledImageDescriptor(getIconPath());
-		
-		
-		Image image =imgDesc.createImage();
+
+		Image image = imgDesc.createImage();
 		Image scaled = new Image(Display.getDefault(), 23, 25);
-        GC gc = new GC(scaled);
-        gc.setAntialias(SWT.ON);
-        gc.setInterpolation(SWT.HIGH);
-        gc.drawImage(image, 0, 0, image.getBounds().width, image.getBounds().height, 0, 0, 23,
-                     25);
-        gc.dispose();
-		
-		
-		ImageFigure img = new ImageFigure(scaled);
+		GC gc = new GC(scaled);
+		gc.setAntialias(SWT.ON);
+		gc.setInterpolation(SWT.HIGH);
+		gc.drawImage(image, 0, 0, image.getBounds().width, image.getBounds().height, 0, 0, 23, 25);
+		gc.dispose();
+
+		ImageFigure img = new ImageFigure(image);
 		img.setSize(new Dimension(36, 40));
 
-		RectangleFigure imageRectangle1 = new RectangleFigure();
-		imageRectangle1.setOutline(false);
-		imageRectangle1.setBackgroundColor(new Color(null, 255, 255, 255));
-		imageRectangle1.setPreferredSize(new Dimension(23, 25));
-		imageRectangle1.add(img);
+		// Create rectangle to contain image.
+		RectangleFigure imageRectangle = new RectangleFigure();
+		imageRectangle.setOutline(false);
+		imageRectangle.setBackgroundColor(new Color(null, 255, 255, 225));
+		imageRectangle.setPreferredSize(new Dimension(23, 25));
+		imageRectangle.add(img);
 
-		GridData constraintImageRectangle1 = new GridData();
-		constraintImageRectangle1.verticalAlignment = GridData.END;
-		constraintImageRectangle1.horizontalAlignment = GridData.CENTER;
-		constraintImageRectangle1.horizontalIndent = 0;
-		constraintImageRectangle1.horizontalSpan = 1;
-		constraintImageRectangle1.verticalSpan = 2;
-		constraintImageRectangle1.grabExcessHorizontalSpace = true;
-		constraintImageRectangle1.grabExcessVerticalSpace = true;
-		graphicalNodeContainer0.add(img, constraintImageRectangle1);
-		// graphicalNodeContainer0.add(imageRectangle1,
-		// constraintImageRectangle1);
+		GridData constraintImageRectangle = new GridData();
+		constraintImageRectangle.verticalAlignment = GridData.END;
+		constraintImageRectangle.horizontalAlignment = GridData.CENTER;
+		constraintImageRectangle.horizontalIndent = 0;
+		constraintImageRectangle.horizontalSpan = 1;
+		constraintImageRectangle.verticalSpan = 2;
+		constraintImageRectangle.grabExcessHorizontalSpace = true;
+		constraintImageRectangle.grabExcessVerticalSpace = true;
+		container.add(img, constraintImageRectangle);
 
-		imageRectangle1.setLayoutManager(new StackLayout());
+		imageRectangle.setLayoutManager(new StackLayout());
 
-		// Rectangle to contain the type name label (eg: Log, Drop) on upper
-		// right
-		// ------------------------------------------------------------------------
-		RectangleFigure esbNodeTypeNameRectangle1 = new RectangleFigure();
-		esbNodeTypeNameRectangle1.setOutline(false);
-		esbNodeTypeNameRectangle1.setBackgroundColor(new Color(null, 255, 255, 255));
-		esbNodeTypeNameRectangle1.setPreferredSize(new Dimension(55, 20));
+		// Rectangle to hold item name.
+		RectangleFigure esbNodeTypeNameRectangle = new RectangleFigure();
+		esbNodeTypeNameRectangle.setOutline(false);
+		esbNodeTypeNameRectangle.setBackgroundColor(new Color(null, 255, 255, 225));
+		esbNodeTypeNameRectangle.setPreferredSize(new Dimension(55, 20));
 
-		GridData constraintEsbNodeTypeNameRectangle1 = new GridData();
-		constraintEsbNodeTypeNameRectangle1.verticalAlignment = GridData.BEGINNING;
-		constraintEsbNodeTypeNameRectangle1.horizontalAlignment = GridData.CENTER;
-		constraintEsbNodeTypeNameRectangle1.horizontalIndent = 0;
-		constraintEsbNodeTypeNameRectangle1.horizontalSpan = 1;
-		constraintEsbNodeTypeNameRectangle1.verticalSpan = 1;
-		constraintEsbNodeTypeNameRectangle1.grabExcessHorizontalSpace = true;
-		constraintEsbNodeTypeNameRectangle1.grabExcessVerticalSpace = true;
-		// graphicalNodeContainer0.add(esbNodeTypeNameRectangle1,
-		// constraintEsbNodeTypeNameRectangle1);
+		GridData constraintEsbNodeTypeNameRectangle = new GridData();
+		constraintEsbNodeTypeNameRectangle.verticalAlignment = GridData.BEGINNING;
+		constraintEsbNodeTypeNameRectangle.horizontalAlignment = GridData.CENTER;
+		constraintEsbNodeTypeNameRectangle.horizontalIndent = 0;
+		constraintEsbNodeTypeNameRectangle.horizontalSpan = 1;
+		constraintEsbNodeTypeNameRectangle.verticalSpan = 1;
+		constraintEsbNodeTypeNameRectangle.grabExcessHorizontalSpace = true;
+		constraintEsbNodeTypeNameRectangle.grabExcessVerticalSpace = true;
 
-		esbNodeTypeNameRectangle1.setLayoutManager(new StackLayout());
+		esbNodeTypeNameRectangle.setLayoutManager(new StackLayout());
 
-		// actual label to display which type this is
-		WrappingLabel esbNodeTypeNameLabel2 = new WrappingLabel();
-		esbNodeTypeNameLabel2.setText(getNodeName());
-		esbNodeTypeNameLabel2.setForegroundColor(new Color(null, 0, 0, 0));
-		esbNodeTypeNameLabel2.setFont(new Font(null, "Arial", 10, SWT.BOLD));
-		esbNodeTypeNameLabel2.setAlignment(SWT.CENTER);
-		esbNodeTypeNameLabel2.setPreferredSize(new Dimension(55, 20));
+		// Actual label to display which type this is.
+		WrappingLabel esbNodeTypeNameLabel = new WrappingLabel();
+		esbNodeTypeNameLabel.setText(getNodeName());
+		esbNodeTypeNameLabel.setForegroundColor(new Color(null, 0, 0, 0));
+		esbNodeTypeNameLabel.setFont(new Font(null, "Arial", 10, SWT.BOLD));
+		esbNodeTypeNameLabel.setAlignment(SWT.CENTER);
+		esbNodeTypeNameLabel.setPreferredSize(new Dimension(55, 20));
 
-		graphicalNodeContainer0.add(esbNodeTypeNameLabel2, constraintEsbNodeTypeNameRectangle1);
-		// esbNodeTypeNameRectangle1.add(esbNodeTypeNameLabel2);
-		// ------------------------------------------------------------------------
-	
+		container.add(esbNodeTypeNameLabel, constraintEsbNodeTypeNameRectangle);
 	}
 
+	private RoundedRectangle createInnerRectangle(RoundedRectangle leftRectangle) {
+		RoundedRectangle innerRect = new RoundedRectangle();
+		innerRect.setCornerDimensions(new Dimension(1, 1));
+		innerRect.setOutline(false);
+		innerRect.setBackgroundColor(this.getBackgroundColor());
+		LineBorder innerRectBorder = new LineBorder(new Color(null, 90, 90, 90), 1,
+				SWT.BORDER_SOLID);
+		innerRect.setBorder(innerRectBorder);
+		innerRect.setPreferredSize(new Dimension(95, 25));
+		innerRect.setMinimumSize(new Dimension(80, 100));
+		innerRect.setBackgroundColor(new Color(null, 255, 255, 225));
+
+		GridLayout innerRectLayout = new GridLayout();
+		innerRectLayout.numColumns = 1;
+		innerRectLayout.makeColumnsEqualWidth = true;
+		innerRect.setLayoutManager(innerRectLayout);
+
+		GridData innerRectGridData = new GridData();
+		innerRectGridData.verticalAlignment = GridData.FILL;
+		innerRectGridData.horizontalAlignment = GridData.FILL;
+		innerRectGridData.horizontalIndent = 5;
+		innerRectGridData.horizontalSpan = 5;
+		innerRectGridData.grabExcessHorizontalSpace = true;
+		innerRectGridData.grabExcessVerticalSpace = true;
+		leftRectangle.add(innerRect, innerRectGridData);
+
+		return innerRect;
+	}
 
 	public String getIconPath() {
 		return "icons/ico20/switch-mediator.gif";
@@ -146,7 +154,5 @@ public class SwitchMediatorGraphicalShape extends RoundedRectangle {
 	public Color getLabelBackColor() {
 		return this.getBackgroundColor();
 	}
-
-
 
 }
