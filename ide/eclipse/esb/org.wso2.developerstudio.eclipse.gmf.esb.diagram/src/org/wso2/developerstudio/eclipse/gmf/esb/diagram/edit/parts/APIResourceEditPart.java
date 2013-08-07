@@ -299,21 +299,18 @@ public class APIResourceEditPart extends AbstractBaseFigureEditPart {
 		 * @generated NOT
 		 */
 		public APIResourceFigure() {
+			
 			ToolbarLayout layoutThis = new ToolbarLayout();
 			layoutThis.setStretchMinorAxis(true);
 			layoutThis.setMinorAlignment(ToolbarLayout.ALIGN_CENTER);
 			layoutThis.setSpacing(0);
 			layoutThis.setVertical(false);
+			
 			this.setLayoutManager(layoutThis);
-			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(1000), getMapMode().DPtoLP(400)));
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(800), getMapMode().DPtoLP(400)));
+			this.setOutline(false);
 			this.setBackgroundColor(THIS_BACK);
-			this.setLineStyle(Graphics.LINE_SOLID);
 			this.setForegroundColor(new Color(null, 0, 0, 0));
-			this.setLineWidth(1);
-			this.setOutline(true);
-
-			/*LineBorder border0 = new LineBorder(new Color(null, 0, 0, 0), 1, SWT.BORDER_SOLID);
-			this.setBorder(border0);*/
 			createContents();
 		}
 

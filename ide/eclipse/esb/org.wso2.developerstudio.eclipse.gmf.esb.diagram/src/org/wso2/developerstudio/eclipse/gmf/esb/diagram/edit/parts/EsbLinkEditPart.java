@@ -26,6 +26,7 @@ import org.eclipse.draw2d.KeyEvent;
 import org.eclipse.draw2d.KeyListener;
 import org.eclipse.draw2d.LayoutListener;
 import org.eclipse.draw2d.LayoutManager;
+import org.eclipse.draw2d.LineBorder;
 import org.eclipse.draw2d.MouseEvent;
 import org.eclipse.draw2d.MouseListener;
 import org.eclipse.draw2d.MouseMotionListener;
@@ -52,6 +53,7 @@ import org.eclipse.gmf.runtime.notation.Routing;
 import org.eclipse.gmf.runtime.notation.RoutingStyle;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.resource.ImageDescriptor;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Cursor;
 import org.eclipse.swt.graphics.Font;
@@ -100,10 +102,13 @@ public class EsbLinkEditPart extends ConnectionNodeEditPart implements ITreeBran
 	protected Connection createConnectionFigure() {
 		PolylineConnectionEx figure = new PolylineConnectionEx();
 		PolygonDecoration decoration = new PolygonDecoration();
-		decoration.setScale(9, 3);
-		decoration.setAlpha(200);
+		decoration.setScale(12, 4);
+		decoration.setAlpha(250);
+		decoration.setBackgroundColor(new Color(null, 50, 50, 50));
+		decoration.setOutline(false);
 		figure.setTargetDecoration(decoration);
 		figure.setAlpha(150);
+		figure.setLineWidthFloat(0.5f);
 
 		// Need to execute this operation as a command.
 		AbstractEMFOperation command = new AbstractEMFOperation(getEditingDomain(),

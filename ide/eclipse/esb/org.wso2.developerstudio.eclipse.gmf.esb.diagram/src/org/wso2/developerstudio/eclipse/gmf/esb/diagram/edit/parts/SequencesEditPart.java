@@ -306,10 +306,9 @@ public class SequencesEditPart extends AbstractSequencesEditPart {
 			 layoutThis.makeColumnsEqualWidth = true;
 			 this.setLayoutManager(layoutThis);
 			 */
-			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(1000), getMapMode().DPtoLP(200)));
-			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8), getMapMode().DPtoLP(8)));
-			LineBorder border0 = new LineBorder(new Color(null, 0, 0, 0), 1, SWT.BORDER_SOLID);
-			this.setBorder(border0);
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(200), getMapMode().DPtoLP(100)));
+			this.setCornerDimensions(new Dimension(1, 1));
+			this.setOutline(false);
 			this.setBackgroundColor(THIS_BACK);
 		}
 

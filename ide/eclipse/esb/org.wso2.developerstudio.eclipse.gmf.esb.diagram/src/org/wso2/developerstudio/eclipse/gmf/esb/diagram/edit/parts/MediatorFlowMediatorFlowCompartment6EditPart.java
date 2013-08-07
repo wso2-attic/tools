@@ -1,6 +1,7 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
 
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.LineBorder;
 import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gef.EditPart;
@@ -15,6 +16,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
+import org.eclipse.gmf.runtime.diagram.ui.figures.BorderedNodeFigure;
 import org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateConnectionViewAndElementRequest;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
@@ -22,6 +24,8 @@ import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.emf.type.core.IHintedType;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.viewers.StructuredSelection;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Color;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpointInputConnectorEditPart;
@@ -51,7 +55,7 @@ public class MediatorFlowMediatorFlowCompartment6EditPart extends
 	AbstractBorderItemEditPart inputConnectorEditPart = null;
 	AbstractBorderItemEditPart sourceInputConnector = null;
 	ShapeNodeEditPart sourceEditPart = null;
-
+	
 	/**
 	 * @generated
 	 */
@@ -79,7 +83,8 @@ public class MediatorFlowMediatorFlowCompartment6EditPart extends
 		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super.createFigure();
 		result.setTitleVisibility(true);
 		// Override default border.
-		result.setBorder(new MarginBorder(0, 0, 0, 0));
+		LineBorder border = new LineBorder(new Color(null, 224, 224, 224), 1, SWT.BORDER_DASH);
+		result.setBorder(border);
 		result.setToolTip(getCompartmentName());
 		return result;
 	}

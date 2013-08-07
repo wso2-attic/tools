@@ -424,21 +424,11 @@ public class ProxyServiceEditPart extends AbstractBaseFigureEditPart {
 			layoutThis.setSpacing(0);
 			layoutThis.setVertical(false);
 
-			/*			FlowLayout layoutThis=new FlowLayout();
-			 layoutThis.setStretchMinorAxis(true);*/
-
 			this.setLayoutManager(layoutThis);
-
-			//this.setBackgroundColor(new Color(null, 255, 255, 255));
-
-			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(1000), getMapMode().DPtoLP(400)));
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(800), getMapMode().DPtoLP(400)));
+			this.setOutline(false);	
 			this.setBackgroundColor(THIS_BACK);
-			this.setLineStyle(Graphics.LINE_SOLID);
-			this.setOutline(true);
-			/*			LineBorder border0 = new LineBorder(new Color(null, 0, 0, 0), 1, SWT.BORDER_SOLID);
-			 this.setBorder(border0);*/
 			this.setForegroundColor(new Color(null, 0, 0, 0));
-			//this.setOutlineXOR(true);
 			createContents();
 		}
 

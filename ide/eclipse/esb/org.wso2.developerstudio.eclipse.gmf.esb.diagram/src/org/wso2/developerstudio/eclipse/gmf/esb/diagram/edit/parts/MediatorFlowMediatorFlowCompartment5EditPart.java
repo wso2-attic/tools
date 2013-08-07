@@ -18,6 +18,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
 
 import org.eclipse.draw2d.Figure;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.LineBorder;
 import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.geometry.Dimension;
@@ -49,6 +50,8 @@ import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.viewers.StructuredSelection;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Color;
 import org.wso2.developerstudio.eclipse.gmf.esb.InputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamedEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;

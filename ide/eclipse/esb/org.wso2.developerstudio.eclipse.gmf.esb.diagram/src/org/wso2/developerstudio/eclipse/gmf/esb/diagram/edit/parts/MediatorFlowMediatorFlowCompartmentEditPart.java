@@ -17,6 +17,7 @@
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
 
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.LineBorder;
 import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.emf.ecore.EObject;
@@ -42,6 +43,8 @@ import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.emf.type.core.IHintedType;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.viewers.StructuredSelection;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Color;
 import org.wso2.developerstudio.eclipse.gmf.esb.AddressEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.AddressingEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.DefaultEndPoint;
@@ -108,7 +111,8 @@ public class MediatorFlowMediatorFlowCompartmentEditPart extends
 		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super.createFigure();
 		result.setTitleVisibility(true);
 		// Override default border.
-		result.setBorder(new MarginBorder(0, 0, 0, 0));
+		LineBorder border = new LineBorder(new Color(null, 224, 224, 224), 1, SWT.BORDER_SOLID);
+		result.setBorder(border);
 		borderedNodeFigure = new BorderedNodeFigure(result);
 		result.setToolTip(getCompartmentName());
 		//return result;

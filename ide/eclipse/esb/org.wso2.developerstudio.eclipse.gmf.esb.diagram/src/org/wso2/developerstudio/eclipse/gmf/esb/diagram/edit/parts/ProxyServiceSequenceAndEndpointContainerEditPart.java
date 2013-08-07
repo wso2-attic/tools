@@ -234,7 +234,8 @@ public class ProxyServiceSequenceAndEndpointContainerEditPart extends ShapeNodeE
 			layoutThis.setVertical(true);
 
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0)));
-			this.setLineStyle(Graphics.LINE_SOLID);
+			//this.setLineStyle(Graphics.LINE_SOLID);
+			this.setOutline(false);
 			this.setBackgroundColor(THIS_BACK);
 		}
 

@@ -252,16 +252,10 @@ public class ProxyServiceFaultContainerEditPart extends ShapeNodeEditPart {
 			layoutThis.setVertical(true);
 
 			this.setLayoutManager(layoutThis);
-			this.setLineStyle(Graphics.LINE_SOLID);
-			this.setLineWidth(2);
-			this.setOutline(true);
+			this.setOutline(false);
 			// TODO: review this:
 			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(5000), getMapMode().DPtoLP(700)));
 			this.setForegroundColor(new Color(null, 255, 255, 255));
-			/*			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
-			 getMapMode().DPtoLP(8)));
-			 this.setLineStyle(Graphics.LINE_DASH);
-			 this.setBackgroundColor(THIS_BACK);*/
 		}
 
 		public void add(IFigure figure, Object constraint, int index) {

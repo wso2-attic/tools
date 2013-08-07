@@ -218,7 +218,7 @@ public class ProxyServiceContainerEditPart extends AbstractProxyServiceContainer
 			this.setLayoutManager(layoutThis);
 
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8), getMapMode().DPtoLP(8)));
-			this.setLineStyle(Graphics.LINE_DASH);
+			this.setOutline(false);
 			this.setBackgroundColor(THIS_BACK);
 		}
 

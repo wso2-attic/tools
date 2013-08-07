@@ -242,18 +242,17 @@ public class MediatorFlowEditPart extends ShapeNodeEditPart {
 		public MediatorFlowFigure() {
 			GridLayout layoutThis = new GridLayout();
 			layoutThis.numColumns = 1;
+			layoutThis.horizontalSpacing = 5;
+			layoutThis.verticalSpacing = 5;
+			layoutThis.marginHeight = 5;
+			layoutThis.marginWidth = 5;
 			layoutThis.makeColumnsEqualWidth = true;
 			this.setLayoutManager(layoutThis);
 
-			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0)));
-			this.setLineStyle(Graphics.LINE_SOLID);
-			this.setForegroundColor(new Color(null, 0, 0, 0));
-			this.setLineWidth(1);
-			this.setOutline(true);
-			/*			LineBorder border0 = new LineBorder(new Color(null, 0, 0, 0), 1, SWT.BORDER_SOLID);
-			 this.setBorder(border0);*/
+			this.setCornerDimensions(new Dimension(1, 1));
+			this.setOutline(false);
 			this.setBackgroundColor(THIS_BACK);
-
+			this.setForegroundColor(new Color(null, 0, 0, 0));
 			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(5000), getMapMode()
 					.DPtoLP(4000)));
 		}

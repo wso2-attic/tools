@@ -8,6 +8,7 @@ import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
+import org.eclipse.draw2d.ToolbarLayout;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
@@ -23,10 +24,14 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
 import org.eclipse.gmf.runtime.diagram.ui.figures.BorderedNodeFigure;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.graphics.Font;
+import org.eclipse.swt.layout.RowLayout;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractSequencesEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.MediatorFlow5ItemSemanticEditPolicy;
@@ -67,7 +72,8 @@ public class MediatorFlow5EditPart extends ShapeNodeEditPart {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new MediatorFlow5ItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
+		// XXX need an SCR to runtime to have another abstract superclass that
+		// would let children add reasonable editpolicies
 		removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
 
@@ -133,7 +139,7 @@ public class MediatorFlow5EditPart extends ShapeNodeEditPart {
 			sequencesEditPart.getBorderedFigure().getBorderItemContainer()
 					.add(sequencesEditPart.inputConnectorFigure, inputLocator);
 		} else {
-			//Should handle properly.
+			// Should handle properly.
 			throw new ClassCastException();
 		}
 	}
@@ -146,8 +152,8 @@ public class MediatorFlow5EditPart extends ShapeNodeEditPart {
 	/**
 	 * Creates figure for this edit part.
 	 * 
-	 * Body of this method does not depend on settings in generation model
-	 * so you may safely remove <i>generated</i> tag and modify it.
+	 * Body of this method does not depend on settings in generation model so
+	 * you may safely remove <i>generated</i> tag and modify it.
 	 * 
 	 * @generated
 	 */
@@ -161,9 +167,11 @@ public class MediatorFlow5EditPart extends ShapeNodeEditPart {
 	}
 
 	/**
-	 * Default implementation treats passed figure as content pane.
-	 * Respects layout one may have set for generated figure.
-	 * @param nodeShape instance of generated figure class
+	 * Default implementation treats passed figure as content pane. Respects
+	 * layout one may have set for generated figure.
+	 * 
+	 * @param nodeShape
+	 *            instance of generated figure class
 	 * @generated
 	 */
 	protected IFigure setupContentPane(IFigure nodeShape) {
@@ -246,19 +254,68 @@ public class MediatorFlow5EditPart extends ShapeNodeEditPart {
 
 			GridLayout layoutThis = new GridLayout();
 			layoutThis.numColumns = 1;
+			layoutThis.horizontalSpacing = 0;
+			layoutThis.verticalSpacing = 0;
+			layoutThis.marginHeight = 1;
+			layoutThis.marginWidth = 1;
 			layoutThis.makeColumnsEqualWidth = true;
 			this.setLayoutManager(layoutThis);
 
-			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8), getMapMode().DPtoLP(8)));
-			this.setBackgroundColor(THIS_BACK);
-			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(1000), getMapMode().DPtoLP(300)));
-			this.setLineStyle(Graphics.LINE_SOLID);
-			this.setForegroundColor(new Color(null, 0, 0, 0));
-			this.setLineWidth(1);
-			this.setOutline(true);
+			// Create top rectangle.
+			RoundedRectangle topRectangle = new RoundedRectangle();
+			topRectangle.setCornerDimensions(new Dimension(1, 1));
+			topRectangle.setOutline(false);
+			topRectangle.setBackgroundColor(new Color(null, 153, 204, 255));
+			topRectangle.setPreferredSize(new Dimension(200, 20));
+			topRectangle.setMinimumSize(new Dimension(200, 20));
 
-			/*			LineBorder border0 = new LineBorder(new Color(null, 0, 0, 0), 1, SWT.BORDER_SOLID);
-			 this.setBorder(border0);*/
+			GridLayout topRectangleLayout = new GridLayout();
+			topRectangleLayout.numColumns = 1;
+			topRectangleLayout.horizontalSpacing = 0;
+			topRectangleLayout.verticalSpacing = 0;
+			topRectangleLayout.marginHeight = 0;
+			topRectangleLayout.marginWidth = 0;
+			topRectangle.setLayoutManager(topRectangleLayout);
+			// topRectangle.setLayoutManager(new ToolbarLayout(true));
+
+			GridData topRectangleGridData = new GridData();
+			topRectangleGridData.verticalAlignment = GridData.FILL;
+			topRectangleGridData.horizontalAlignment = GridData.FILL;
+			topRectangleGridData.horizontalIndent = 1;
+			topRectangleGridData.horizontalSpan = 1;
+			topRectangleGridData.verticalAlignment = 1;
+			topRectangleGridData.verticalSpan = 1;
+			topRectangleGridData.grabExcessHorizontalSpace = true;
+			topRectangleGridData.grabExcessVerticalSpace = false;
+
+			this.add(topRectangle, topRectangleGridData);
+
+			GridData constraintEsbNodeTypeNameRectangle = new GridData();
+			constraintEsbNodeTypeNameRectangle.verticalAlignment = GridData.CENTER;
+			constraintEsbNodeTypeNameRectangle.horizontalAlignment = GridData.BEGINNING;
+			constraintEsbNodeTypeNameRectangle.horizontalIndent = 2;
+			constraintEsbNodeTypeNameRectangle.horizontalSpan = 1;
+			constraintEsbNodeTypeNameRectangle.verticalSpan = 1;
+			constraintEsbNodeTypeNameRectangle.grabExcessHorizontalSpace = true;
+			constraintEsbNodeTypeNameRectangle.grabExcessVerticalSpace = true;
+
+			WrappingLabel sequenceNameLabel = new WrappingLabel();
+			// TODO set the sequence name here. 
+			sequenceNameLabel.setText("");
+			sequenceNameLabel.setForegroundColor(new Color(null, 0, 0, 0));
+			sequenceNameLabel.setFont(new Font(null, "Arial", 10, SWT.NONE));
+			sequenceNameLabel.setAlignment(SWT.CENTER);
+			sequenceNameLabel.setPreferredSize(new Dimension(64, 20));
+
+			topRectangle.add(sequenceNameLabel, constraintEsbNodeTypeNameRectangle);
+
+			this.setCornerDimensions(new Dimension(1, 1));
+			this.setBackgroundColor(THIS_BACK);
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(200), getMapMode().DPtoLP(100)));
+			this.setLineStyle(Graphics.LINE_DASH);
+			this.setLineWidth(2);
+			this.setLineDashOffset(2.0f);
+			this.setForegroundColor(new Color(null, 0, 0, 0));
 		}
 
 		public void add(IFigure figure, Object constraint, int index) {
