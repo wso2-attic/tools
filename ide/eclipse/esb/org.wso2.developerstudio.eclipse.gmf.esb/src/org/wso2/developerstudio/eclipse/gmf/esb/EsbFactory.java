@@ -251,6 +251,42 @@ public interface EsbFactory extends EFactory {
 	AddressEndPointOutputConnector createAddressEndPointOutputConnector();
 
 	/**
+	 * Returns a new object of class '<em>Template Endpoint</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Template Endpoint</em>'.
+	 * @generated
+	 */
+	TemplateEndpoint createTemplateEndpoint();
+
+	/**
+	 * Returns a new object of class '<em>Template Endpoint Input Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Template Endpoint Input Connector</em>'.
+	 * @generated
+	 */
+	TemplateEndpointInputConnector createTemplateEndpointInputConnector();
+
+	/**
+	 * Returns a new object of class '<em>Template Endpoint Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Template Endpoint Output Connector</em>'.
+	 * @generated
+	 */
+	TemplateEndpointOutputConnector createTemplateEndpointOutputConnector();
+
+	/**
+	 * Returns a new object of class '<em>Template Endpoint Parameters</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Template Endpoint Parameters</em>'.
+	 * @generated
+	 */
+	TemplateEndpointParameters createTemplateEndpointParameters();
+
+	/**
 	 * Returns a new object of class '<em>HTTP Endpoint</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

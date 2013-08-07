@@ -367,6 +367,10 @@ import org.wso2.developerstudio.eclipse.gmf.esb.SynapseAPI;
 import org.wso2.developerstudio.eclipse.gmf.esb.TargetEndpointType;
 import org.wso2.developerstudio.eclipse.gmf.esb.TargetSequenceType;
 import org.wso2.developerstudio.eclipse.gmf.esb.Template;
+import org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpointInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpointOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpointParameters;
 import org.wso2.developerstudio.eclipse.gmf.esb.TemplateParameter;
 import org.wso2.developerstudio.eclipse.gmf.esb.TemplateType;
 import org.wso2.developerstudio.eclipse.gmf.esb.Task;
@@ -674,6 +678,34 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	private EClass addressEndPointOutputConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass templateEndpointEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass templateEndpointInputConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass templateEndpointOutputConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass templateEndpointParametersEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -4390,6 +4422,105 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 */
 	public EClass getAddressEndPointOutputConnector() {
 		return addressEndPointOutputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTemplateEndpoint() {
+		return templateEndpointEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTemplateEndpoint_InputConnector() {
+		return (EReference)templateEndpointEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTemplateEndpoint_OutputConnector() {
+		return (EReference)templateEndpointEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTemplateEndpoint_Address() {
+		return (EAttribute)templateEndpointEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTemplateEndpoint_TargetTemplate() {
+		return (EAttribute)templateEndpointEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTemplateEndpoint_Parameters() {
+		return (EReference)templateEndpointEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTemplateEndpointInputConnector() {
+		return templateEndpointInputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTemplateEndpointOutputConnector() {
+		return templateEndpointOutputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTemplateEndpointParameters() {
+		return templateEndpointParametersEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTemplateEndpointParameters_ParameterName() {
+		return (EAttribute)templateEndpointParametersEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTemplateEndpointParameters_ParameterValue() {
+		return (EAttribute)templateEndpointParametersEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -13851,6 +13982,21 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 
 		addressEndPointOutputConnectorEClass = createEClass(ADDRESS_END_POINT_OUTPUT_CONNECTOR);
 
+		templateEndpointEClass = createEClass(TEMPLATE_ENDPOINT);
+		createEReference(templateEndpointEClass, TEMPLATE_ENDPOINT__INPUT_CONNECTOR);
+		createEReference(templateEndpointEClass, TEMPLATE_ENDPOINT__OUTPUT_CONNECTOR);
+		createEAttribute(templateEndpointEClass, TEMPLATE_ENDPOINT__ADDRESS);
+		createEAttribute(templateEndpointEClass, TEMPLATE_ENDPOINT__TARGET_TEMPLATE);
+		createEReference(templateEndpointEClass, TEMPLATE_ENDPOINT__PARAMETERS);
+
+		templateEndpointInputConnectorEClass = createEClass(TEMPLATE_ENDPOINT_INPUT_CONNECTOR);
+
+		templateEndpointOutputConnectorEClass = createEClass(TEMPLATE_ENDPOINT_OUTPUT_CONNECTOR);
+
+		templateEndpointParametersEClass = createEClass(TEMPLATE_ENDPOINT_PARAMETERS);
+		createEAttribute(templateEndpointParametersEClass, TEMPLATE_ENDPOINT_PARAMETERS__PARAMETER_NAME);
+		createEAttribute(templateEndpointParametersEClass, TEMPLATE_ENDPOINT_PARAMETERS__PARAMETER_VALUE);
+
 		httpEndpointEClass = createEClass(HTTP_ENDPOINT);
 		createEReference(httpEndpointEClass, HTTP_ENDPOINT__INPUT_CONNECTOR);
 		createEReference(httpEndpointEClass, HTTP_ENDPOINT__OUTPUT_CONNECTOR);
@@ -15212,6 +15358,10 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		addressEndPointEClass.getESuperTypes().add(this.getAbstractEndPoint());
 		addressEndPointInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
 		addressEndPointOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
+		templateEndpointEClass.getESuperTypes().add(this.getAbstractEndPoint());
+		templateEndpointInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
+		templateEndpointOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
+		templateEndpointParametersEClass.getESuperTypes().add(this.getEsbNode());
 		httpEndpointEClass.getESuperTypes().add(this.getAbstractEndPoint());
 		httpEndPointInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
 		httpEndPointOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
@@ -15629,6 +15779,21 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEClass(addressEndPointInputConnectorEClass, AddressEndPointInputConnector.class, "AddressEndPointInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(addressEndPointOutputConnectorEClass, AddressEndPointOutputConnector.class, "AddressEndPointOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(templateEndpointEClass, TemplateEndpoint.class, "TemplateEndpoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTemplateEndpoint_InputConnector(), this.getTemplateEndpointInputConnector(), null, "inputConnector", null, 0, 1, TemplateEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTemplateEndpoint_OutputConnector(), this.getTemplateEndpointOutputConnector(), null, "outputConnector", null, 0, 1, TemplateEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTemplateEndpoint_Address(), ecorePackage.getEString(), "address", null, 0, 1, TemplateEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTemplateEndpoint_TargetTemplate(), ecorePackage.getEString(), "targetTemplate", null, 0, 1, TemplateEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTemplateEndpoint_Parameters(), this.getTemplateEndpointParameters(), null, "parameters", null, 0, 1, TemplateEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(templateEndpointInputConnectorEClass, TemplateEndpointInputConnector.class, "TemplateEndpointInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(templateEndpointOutputConnectorEClass, TemplateEndpointOutputConnector.class, "TemplateEndpointOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(templateEndpointParametersEClass, TemplateEndpointParameters.class, "TemplateEndpointParameters", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTemplateEndpointParameters_ParameterName(), ecorePackage.getEString(), "parameterName", null, 0, 1, TemplateEndpointParameters.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTemplateEndpointParameters_ParameterValue(), ecorePackage.getEString(), "parameterValue", null, 0, 1, TemplateEndpointParameters.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(httpEndpointEClass, HTTPEndpoint.class, "HTTPEndpoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getHTTPEndpoint_InputConnector(), this.getHTTPEndPointInputConnector(), null, "inputConnector", null, 0, 1, HTTPEndpoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

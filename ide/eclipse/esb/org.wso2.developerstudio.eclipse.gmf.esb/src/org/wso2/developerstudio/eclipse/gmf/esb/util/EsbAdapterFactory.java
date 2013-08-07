@@ -209,6 +209,22 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 				return createAddressEndPointOutputConnectorAdapter();
 			}
 			@Override
+			public Adapter caseTemplateEndpoint(TemplateEndpoint object) {
+				return createTemplateEndpointAdapter();
+			}
+			@Override
+			public Adapter caseTemplateEndpointInputConnector(TemplateEndpointInputConnector object) {
+				return createTemplateEndpointInputConnectorAdapter();
+			}
+			@Override
+			public Adapter caseTemplateEndpointOutputConnector(TemplateEndpointOutputConnector object) {
+				return createTemplateEndpointOutputConnectorAdapter();
+			}
+			@Override
+			public Adapter caseTemplateEndpointParameters(TemplateEndpointParameters object) {
+				return createTemplateEndpointParametersAdapter();
+			}
+			@Override
 			public Adapter caseHTTPEndpoint(HTTPEndpoint object) {
 				return createHTTPEndpointAdapter();
 			}
@@ -1778,6 +1794,62 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAddressEndPointOutputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpoint <em>Template Endpoint</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpoint
+	 * @generated
+	 */
+	public Adapter createTemplateEndpointAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpointInputConnector <em>Template Endpoint Input Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpointInputConnector
+	 * @generated
+	 */
+	public Adapter createTemplateEndpointInputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpointOutputConnector <em>Template Endpoint Output Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpointOutputConnector
+	 * @generated
+	 */
+	public Adapter createTemplateEndpointOutputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpointParameters <em>Template Endpoint Parameters</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpointParameters
+	 * @generated
+	 */
+	public Adapter createTemplateEndpointParametersAdapter() {
 		return null;
 	}
 

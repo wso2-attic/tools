@@ -650,6 +650,19 @@
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//AddressEndPointInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//AddressEndPointOutputConnector"/>
+    <genClasses ecoreClass="esb.ecore#//TemplateEndpoint">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//TemplateEndpoint/inputConnector"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//TemplateEndpoint/outputConnector"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//TemplateEndpoint/address"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//TemplateEndpoint/targetTemplate"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//TemplateEndpoint/parameters"/>
+    </genClasses>
+    <genClasses ecoreClass="esb.ecore#//TemplateEndpointInputConnector"/>
+    <genClasses ecoreClass="esb.ecore#//TemplateEndpointOutputConnector"/>
+    <genClasses ecoreClass="esb.ecore#//TemplateEndpointParameters">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//TemplateEndpointParameters/parameterName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//TemplateEndpointParameters/parameterValue"/>
+    </genClasses>
     <genClasses ecoreClass="esb.ecore#//HTTPEndpoint">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//HTTPEndpoint/inputConnector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//HTTPEndpoint/outputConnector"/>

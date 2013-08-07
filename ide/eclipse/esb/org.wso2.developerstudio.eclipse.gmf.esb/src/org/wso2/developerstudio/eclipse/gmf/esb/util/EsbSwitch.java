@@ -325,6 +325,39 @@ public class EsbSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case EsbPackage.TEMPLATE_ENDPOINT: {
+				TemplateEndpoint templateEndpoint = (TemplateEndpoint)theEObject;
+				T result = caseTemplateEndpoint(templateEndpoint);
+				if (result == null) result = caseAbstractEndPoint(templateEndpoint);
+				if (result == null) result = caseEndPoint(templateEndpoint);
+				if (result == null) result = caseEsbElement(templateEndpoint);
+				if (result == null) result = caseEsbNode(templateEndpoint);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.TEMPLATE_ENDPOINT_INPUT_CONNECTOR: {
+				TemplateEndpointInputConnector templateEndpointInputConnector = (TemplateEndpointInputConnector)theEObject;
+				T result = caseTemplateEndpointInputConnector(templateEndpointInputConnector);
+				if (result == null) result = caseInputConnector(templateEndpointInputConnector);
+				if (result == null) result = caseEsbConnector(templateEndpointInputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.TEMPLATE_ENDPOINT_OUTPUT_CONNECTOR: {
+				TemplateEndpointOutputConnector templateEndpointOutputConnector = (TemplateEndpointOutputConnector)theEObject;
+				T result = caseTemplateEndpointOutputConnector(templateEndpointOutputConnector);
+				if (result == null) result = caseOutputConnector(templateEndpointOutputConnector);
+				if (result == null) result = caseEsbConnector(templateEndpointOutputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.TEMPLATE_ENDPOINT_PARAMETERS: {
+				TemplateEndpointParameters templateEndpointParameters = (TemplateEndpointParameters)theEObject;
+				T result = caseTemplateEndpointParameters(templateEndpointParameters);
+				if (result == null) result = caseEsbNode(templateEndpointParameters);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case EsbPackage.HTTP_ENDPOINT: {
 				HTTPEndpoint httpEndpoint = (HTTPEndpoint)theEObject;
 				T result = caseHTTPEndpoint(httpEndpoint);
@@ -2967,6 +3000,66 @@ public class EsbSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseAddressEndPointOutputConnector(AddressEndPointOutputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Template Endpoint</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Template Endpoint</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTemplateEndpoint(TemplateEndpoint object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Template Endpoint Input Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Template Endpoint Input Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTemplateEndpointInputConnector(TemplateEndpointInputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Template Endpoint Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Template Endpoint Output Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTemplateEndpointOutputConnector(TemplateEndpointOutputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Template Endpoint Parameters</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Template Endpoint Parameters</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTemplateEndpointParameters(TemplateEndpointParameters object) {
 		return null;
 	}
 

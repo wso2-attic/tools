@@ -96,6 +96,10 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 			case EsbPackage.ADDRESS_END_POINT: return createAddressEndPoint();
 			case EsbPackage.ADDRESS_END_POINT_INPUT_CONNECTOR: return createAddressEndPointInputConnector();
 			case EsbPackage.ADDRESS_END_POINT_OUTPUT_CONNECTOR: return createAddressEndPointOutputConnector();
+			case EsbPackage.TEMPLATE_ENDPOINT: return createTemplateEndpoint();
+			case EsbPackage.TEMPLATE_ENDPOINT_INPUT_CONNECTOR: return createTemplateEndpointInputConnector();
+			case EsbPackage.TEMPLATE_ENDPOINT_OUTPUT_CONNECTOR: return createTemplateEndpointOutputConnector();
+			case EsbPackage.TEMPLATE_ENDPOINT_PARAMETERS: return createTemplateEndpointParameters();
 			case EsbPackage.HTTP_ENDPOINT: return createHTTPEndpoint();
 			case EsbPackage.HTTP_END_POINT_INPUT_CONNECTOR: return createHTTPEndPointInputConnector();
 			case EsbPackage.HTTP_END_POINT_OUTPUT_CONNECTOR: return createHTTPEndPointOutputConnector();
@@ -1315,6 +1319,48 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	public AddressEndPointOutputConnector createAddressEndPointOutputConnector() {
 		AddressEndPointOutputConnectorImpl addressEndPointOutputConnector = new AddressEndPointOutputConnectorImpl();
 		return addressEndPointOutputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public TemplateEndpoint createTemplateEndpoint() {
+		TemplateEndpointImpl templateEndpoint = new TemplateEndpointImpl();
+		templateEndpoint.setInputConnector(createTemplateEndpointInputConnector());
+		templateEndpoint.setOutputConnector(createTemplateEndpointOutputConnector());
+		return templateEndpoint;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TemplateEndpointInputConnector createTemplateEndpointInputConnector() {
+		TemplateEndpointInputConnectorImpl templateEndpointInputConnector = new TemplateEndpointInputConnectorImpl();
+		return templateEndpointInputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TemplateEndpointOutputConnector createTemplateEndpointOutputConnector() {
+		TemplateEndpointOutputConnectorImpl templateEndpointOutputConnector = new TemplateEndpointOutputConnectorImpl();
+		return templateEndpointOutputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TemplateEndpointParameters createTemplateEndpointParameters() {
+		TemplateEndpointParametersImpl templateEndpointParameters = new TemplateEndpointParametersImpl();
+		return templateEndpointParameters;
 	}
 
 	/**

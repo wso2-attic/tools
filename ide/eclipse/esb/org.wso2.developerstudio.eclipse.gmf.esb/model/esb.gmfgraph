@@ -1699,6 +1699,26 @@
           accessor="getFigureHTTPEndPointNamePropertyLabel"
           figure="//@figures.0/@descriptors.97/@actualFigure/@children.0"/>
     </descriptors>
+    <descriptors
+        name="TemplateEndpointFigure">
+      <actualFigure
+          xsi:type="gmfgraph:CustomFigure"
+          name="TemplateEndPointGraphicalFigure"
+          qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="40"
+            green="151"
+            blue="248"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="TemplateEndPointNamePropertyLabel"
+            text="&lt;...>"/>
+      </actualFigure>
+      <accessors
+          accessor="getFigureTemplateEndPointNamePropertyLabel"
+          figure="//@figures.0/@descriptors.98/@actualFigure/@children.0"/>
+    </descriptors>
   </figures>
   <nodes
       name="EsbServer"
@@ -2545,6 +2565,17 @@
       affixedParentSide="WEST"/>
   <nodes
       name="HTTPEndPointOutputConnector"
+      figure="WestPointerFigure"
+      affixedParentSide="WEST"/>
+  <nodes
+      name="TemplateEndpoint"
+      figure="TemplateEndpointFigure"/>
+  <nodes
+      name="TemplateEndpointInputConnector"
+      figure="EastPointerFigure"
+      affixedParentSide="WEST"/>
+  <nodes
+      name="TemplateEndpointOutputConnector"
       figure="WestPointerFigure"
       affixedParentSide="WEST"/>
   <connections
