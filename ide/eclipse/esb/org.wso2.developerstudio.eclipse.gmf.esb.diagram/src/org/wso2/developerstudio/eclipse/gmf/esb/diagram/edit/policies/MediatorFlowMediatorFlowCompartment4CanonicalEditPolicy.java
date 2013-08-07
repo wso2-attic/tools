@@ -67,6 +67,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SmooksMediato
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SpringMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.StoreMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchMediatorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.TemplateEndpointEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ThrottleMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.TransactionMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.URLRewriteMediatorEditPart;
@@ -183,6 +184,7 @@ public class MediatorFlowMediatorFlowCompartment4CanonicalEditPolicy extends Can
 		case APIResourceEndpointEditPart.VISUAL_ID:
 		case AddressingEndpointEditPart.VISUAL_ID:
 		case HTTPEndpointEditPart.VISUAL_ID:
+		case TemplateEndpointEditPart.VISUAL_ID:
 			return true;
 		}
 		return false;

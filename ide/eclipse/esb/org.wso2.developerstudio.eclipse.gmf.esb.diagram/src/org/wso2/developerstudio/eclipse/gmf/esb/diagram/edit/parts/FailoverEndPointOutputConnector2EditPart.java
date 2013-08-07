@@ -369,6 +369,9 @@ public class FailoverEndPointOutputConnector2EditPart extends AbstractBorderItem
 		if (targetEditPart instanceof HTTPEndPointInputConnectorEditPart) {
 			types.add(EsbElementTypes.EsbLink_4001);
 		}
+		if (targetEditPart instanceof TemplateEndpointInputConnectorEditPart) {
+			types.add(EsbElementTypes.EsbLink_4001);
+		}
 		if (targetEditPart instanceof MessageInputConnectorEditPart) {
 			types.add(EsbElementTypes.EsbLink_4001);
 		}
@@ -472,6 +475,7 @@ public class FailoverEndPointOutputConnector2EditPart extends AbstractBorderItem
 			types.add(EsbElementTypes.APIResourceEndpointInputConnector_3675);
 			types.add(EsbElementTypes.AddressingEndpointInputConnector_3690);
 			types.add(EsbElementTypes.HTTPEndPointInputConnector_3710);
+			types.add(EsbElementTypes.TemplateEndpointInputConnector_3717);
 			types.add(EsbElementTypes.MessageInputConnector_3046);
 			types.add(EsbElementTypes.MergeNodeFirstInputConnector_3014);
 			types.add(EsbElementTypes.MergeNodeSecondInputConnector_3015);

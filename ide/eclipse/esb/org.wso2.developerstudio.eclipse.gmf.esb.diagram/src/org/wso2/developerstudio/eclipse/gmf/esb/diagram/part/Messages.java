@@ -828,6 +828,16 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String TemplateEndpoint10CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String TemplateEndpoint10CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
 	public static String MergeNode1CreationTool_title;
 
 	/**
@@ -1233,6 +1243,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_TemplateEndpointOutputConnector_3718_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_SmooksMediatorOutputConnector_3083_outgoinglinks;
 
 	/**
@@ -1379,6 +1394,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_CommandMediatorOutputConnector_3074_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_TemplateEndpointInputConnector_3717_incominglinks;
 
 	/**
 	 * @generated

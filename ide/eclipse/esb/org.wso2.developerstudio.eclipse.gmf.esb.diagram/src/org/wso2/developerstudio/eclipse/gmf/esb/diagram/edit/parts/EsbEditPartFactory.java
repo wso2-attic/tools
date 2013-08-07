@@ -740,6 +740,15 @@ public class EsbEditPartFactory implements EditPartFactory {
 			case HTTPEndPointOutputConnectorEditPart.VISUAL_ID:
 				return new HTTPEndPointOutputConnectorEditPart(view);
 
+			case TemplateEndpointEditPart.VISUAL_ID:
+				return new TemplateEndpointEditPart(view);
+
+			case TemplateEndpointInputConnectorEditPart.VISUAL_ID:
+				return new TemplateEndpointInputConnectorEditPart(view);
+
+			case TemplateEndpointOutputConnectorEditPart.VISUAL_ID:
+				return new TemplateEndpointOutputConnectorEditPart(view);
+
 			case SwitchDefaultContainerEditPart.VISUAL_ID:
 				return new SwitchDefaultContainerEditPart(view);
 

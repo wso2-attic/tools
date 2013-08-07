@@ -841,6 +841,21 @@ public class EsbElementTypes {
 	/**
 	 * @generated
 	 */
+	public static final IElementType TemplateEndpoint_3716 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.TemplateEndpoint_3716"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType TemplateEndpointInputConnector_3717 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.TemplateEndpointInputConnector_3717"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType TemplateEndpointOutputConnector_3718 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.TemplateEndpointOutputConnector_3718"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
 	public static final IElementType ProxyServiceFaultContainer_3488 = getElementType("org.wso2.developerstudio.eclipse.gmf.esb.diagram.ProxyServiceFaultContainer_3488"); //$NON-NLS-1$
 
 	/**
@@ -2038,6 +2053,14 @@ public class EsbElementTypes {
 			elements.put(HTTPEndPointOutputConnector_3711,
 					EsbPackage.eINSTANCE.getHTTPEndPointOutputConnector());
 
+			elements.put(TemplateEndpoint_3716, EsbPackage.eINSTANCE.getTemplateEndpoint());
+
+			elements.put(TemplateEndpointInputConnector_3717,
+					EsbPackage.eINSTANCE.getTemplateEndpointInputConnector());
+
+			elements.put(TemplateEndpointOutputConnector_3718,
+					EsbPackage.eINSTANCE.getTemplateEndpointOutputConnector());
+
 			elements.put(SwitchDefaultContainer_3527,
 					EsbPackage.eINSTANCE.getSwitchDefaultContainer());
 
@@ -2416,6 +2439,9 @@ public class EsbElementTypes {
 			KNOWN_ELEMENT_TYPES.add(HTTPEndpoint_3709);
 			KNOWN_ELEMENT_TYPES.add(HTTPEndPointInputConnector_3710);
 			KNOWN_ELEMENT_TYPES.add(HTTPEndPointOutputConnector_3711);
+			KNOWN_ELEMENT_TYPES.add(TemplateEndpoint_3716);
+			KNOWN_ELEMENT_TYPES.add(TemplateEndpointInputConnector_3717);
+			KNOWN_ELEMENT_TYPES.add(TemplateEndpointOutputConnector_3718);
 			KNOWN_ELEMENT_TYPES.add(SwitchDefaultContainer_3527);
 			KNOWN_ELEMENT_TYPES.add(MediatorFlow_3528);
 			KNOWN_ELEMENT_TYPES.add(FilterFailContainer_3537);
@@ -2900,6 +2926,12 @@ public class EsbElementTypes {
 			return HTTPEndPointInputConnector_3710;
 		case HTTPEndPointOutputConnectorEditPart.VISUAL_ID:
 			return HTTPEndPointOutputConnector_3711;
+		case TemplateEndpointEditPart.VISUAL_ID:
+			return TemplateEndpoint_3716;
+		case TemplateEndpointInputConnectorEditPart.VISUAL_ID:
+			return TemplateEndpointInputConnector_3717;
+		case TemplateEndpointOutputConnectorEditPart.VISUAL_ID:
+			return TemplateEndpointOutputConnector_3718;
 		case SwitchDefaultContainerEditPart.VISUAL_ID:
 			return SwitchDefaultContainer_3527;
 		case MediatorFlow4EditPart.VISUAL_ID:

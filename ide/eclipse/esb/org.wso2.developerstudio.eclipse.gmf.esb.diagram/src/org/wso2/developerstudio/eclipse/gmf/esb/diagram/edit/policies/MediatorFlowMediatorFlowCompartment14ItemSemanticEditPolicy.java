@@ -48,6 +48,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.SmooksMedi
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.SpringMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.StoreMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.SwitchMediatorCreateCommand;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.TemplateEndpointCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.ThrottleMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.TransactionMediatorCreateCommand;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.commands.URLRewriteMediatorCreateCommand;
@@ -232,6 +233,9 @@ public class MediatorFlowMediatorFlowCompartment14ItemSemanticEditPolicy extends
 		}
 		if (EsbElementTypes.HTTPEndpoint_3709 == req.getElementType()) {
 			return getGEFWrapper(new HTTPEndpointCreateCommand(req));
+		}
+		if (EsbElementTypes.TemplateEndpoint_3716 == req.getElementType()) {
+			return getGEFWrapper(new TemplateEndpointCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}
