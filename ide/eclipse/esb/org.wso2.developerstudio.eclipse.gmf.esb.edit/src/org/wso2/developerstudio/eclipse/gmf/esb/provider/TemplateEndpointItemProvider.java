@@ -1,8 +1,17 @@
 /**
- * <copyright>
- * </copyright>
- *
- * $Id$
+ * Copyright 2009-2012 WSO2, Inc. (http://wso2.com)
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package org.wso2.developerstudio.eclipse.gmf.esb.provider;
 
@@ -27,16 +36,16 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbFactory;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
-import org.wso2.developerstudio.eclipse.gmf.esb.ParentEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpoint;
 
 /**
- * This is the item provider adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.ParentEndPoint} object.
+ * This is the item provider adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpoint} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ParentEndPointItemProvider
-	extends EndPointItemProvider
+public class TemplateEndpointItemProvider
+	extends AbstractEndPointItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -49,7 +58,7 @@ public class ParentEndPointItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ParentEndPointItemProvider(AdapterFactory adapterFactory) {
+	public TemplateEndpointItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -57,36 +66,82 @@ public class ParentEndPointItemProvider
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			//addNamePropertyDescriptor(object);
+			addAddressPropertyDescriptor(object);
+			addTargetTemplatePropertyDescriptor(object);
+			addParametersPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Name feature.
+	 * This adds a property descriptor for the Address feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNamePropertyDescriptor(Object object) {
+	protected void addAddressPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ParentEndPoint_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ParentEndPoint_name_feature", "_UI_ParentEndPoint_type"),
-				 EsbPackage.Literals.PARENT_END_POINT__NAME,
+				 getString("_UI_TemplateEndpoint_address_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TemplateEndpoint_address_feature", "_UI_TemplateEndpoint_type"),
+				 EsbPackage.Literals.TEMPLATE_ENDPOINT__ADDRESS,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Target Template feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTargetTemplatePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TemplateEndpoint_targetTemplate_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TemplateEndpoint_targetTemplate_feature", "_UI_TemplateEndpoint_type"),
+				 EsbPackage.Literals.TEMPLATE_ENDPOINT__TARGET_TEMPLATE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Parameters feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addParametersPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TemplateEndpoint_parameters_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TemplateEndpoint_parameters_feature", "_UI_TemplateEndpoint_type"),
+				 EsbPackage.Literals.TEMPLATE_ENDPOINT__PARAMETERS,
+				 true,
+				 false,
+				 false,
+				 null,
 				 null,
 				 null));
 	}
@@ -103,7 +158,9 @@ public class ParentEndPointItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(EsbPackage.Literals.PARENT_END_POINT__CHILDREN);
+			childrenFeatures.add(EsbPackage.Literals.TEMPLATE_ENDPOINT__INPUT_CONNECTOR);
+			childrenFeatures.add(EsbPackage.Literals.TEMPLATE_ENDPOINT__OUTPUT_CONNECTOR);
+			childrenFeatures.add(EsbPackage.Literals.TEMPLATE_ENDPOINT__PARAMETERS);
 		}
 		return childrenFeatures;
 	}
@@ -122,14 +179,14 @@ public class ParentEndPointItemProvider
 	}
 
 	/**
-	 * This returns ParentEndPoint.gif.
+	 * This returns TemplateEndpoint.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ParentEndPoint"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/TemplateEndpoint"));
 	}
 
 	/**
@@ -140,10 +197,10 @@ public class ParentEndPointItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ParentEndPoint)object).getName();
+		String label = ((TemplateEndpoint)object).getEndPointName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ParentEndPoint_type") :
-			getString("_UI_ParentEndPoint_type") + " " + label;
+			getString("_UI_TemplateEndpoint_type") :
+			getString("_UI_TemplateEndpoint_type") + " " + label;
 	}
 
 	/**
@@ -157,11 +214,14 @@ public class ParentEndPointItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(ParentEndPoint.class)) {
-			case EsbPackage.PARENT_END_POINT__NAME:
+		switch (notification.getFeatureID(TemplateEndpoint.class)) {
+			case EsbPackage.TEMPLATE_ENDPOINT__ADDRESS:
+			case EsbPackage.TEMPLATE_ENDPOINT__TARGET_TEMPLATE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case EsbPackage.PARENT_END_POINT__CHILDREN:
+			case EsbPackage.TEMPLATE_ENDPOINT__INPUT_CONNECTOR:
+			case EsbPackage.TEMPLATE_ENDPOINT__OUTPUT_CONNECTOR:
+			case EsbPackage.TEMPLATE_ENDPOINT__PARAMETERS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -181,63 +241,18 @@ public class ParentEndPointItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.PARENT_END_POINT__CHILDREN,
-				 EsbFactory.eINSTANCE.createDefaultEndPoint()));
+				(EsbPackage.Literals.TEMPLATE_ENDPOINT__INPUT_CONNECTOR,
+				 EsbFactory.eINSTANCE.createTemplateEndpointInputConnector()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.PARENT_END_POINT__CHILDREN,
-				 EsbFactory.eINSTANCE.createAddressEndPoint()));
+				(EsbPackage.Literals.TEMPLATE_ENDPOINT__OUTPUT_CONNECTOR,
+				 EsbFactory.eINSTANCE.createTemplateEndpointOutputConnector()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(EsbPackage.Literals.PARENT_END_POINT__CHILDREN,
-				 EsbFactory.eINSTANCE.createTemplateEndpoint()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(EsbPackage.Literals.PARENT_END_POINT__CHILDREN,
-				 EsbFactory.eINSTANCE.createHTTPEndpoint()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(EsbPackage.Literals.PARENT_END_POINT__CHILDREN,
-				 EsbFactory.eINSTANCE.createParentEndPoint()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(EsbPackage.Literals.PARENT_END_POINT__CHILDREN,
-				 EsbFactory.eINSTANCE.createFailoverEndPoint()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(EsbPackage.Literals.PARENT_END_POINT__CHILDREN,
-				 EsbFactory.eINSTANCE.createWSDLEndPoint()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(EsbPackage.Literals.PARENT_END_POINT__CHILDREN,
-				 EsbFactory.eINSTANCE.createLoadBalanceEndPoint()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(EsbPackage.Literals.PARENT_END_POINT__CHILDREN,
-				 EsbFactory.eINSTANCE.createNamedEndpoint()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(EsbPackage.Literals.PARENT_END_POINT__CHILDREN,
-				 EsbFactory.eINSTANCE.createAPIResourceEndpoint()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(EsbPackage.Literals.PARENT_END_POINT__CHILDREN,
-				 EsbFactory.eINSTANCE.createAddressingEndpoint()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(EsbPackage.Literals.PARENT_END_POINT__CHILDREN,
-				 EsbFactory.eINSTANCE.createRecipientListEndPoint()));
+				(EsbPackage.Literals.TEMPLATE_ENDPOINT__PARAMETERS,
+				 EsbFactory.eINSTANCE.createTemplateEndpointParameters()));
 	}
 
 }

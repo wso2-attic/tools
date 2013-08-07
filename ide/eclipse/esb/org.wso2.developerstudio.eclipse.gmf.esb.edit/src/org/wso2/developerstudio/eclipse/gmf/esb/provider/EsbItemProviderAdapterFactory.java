@@ -1299,6 +1299,98 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpoint} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TemplateEndpointItemProvider templateEndpointItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpoint}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTemplateEndpointAdapter() {
+		if (templateEndpointItemProvider == null) {
+			templateEndpointItemProvider = new TemplateEndpointItemProvider(this);
+		}
+
+		return templateEndpointItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpointInputConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TemplateEndpointInputConnectorItemProvider templateEndpointInputConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpointInputConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTemplateEndpointInputConnectorAdapter() {
+		if (templateEndpointInputConnectorItemProvider == null) {
+			templateEndpointInputConnectorItemProvider = new TemplateEndpointInputConnectorItemProvider(this);
+		}
+
+		return templateEndpointInputConnectorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpointOutputConnector} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TemplateEndpointOutputConnectorItemProvider templateEndpointOutputConnectorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpointOutputConnector}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTemplateEndpointOutputConnectorAdapter() {
+		if (templateEndpointOutputConnectorItemProvider == null) {
+			templateEndpointOutputConnectorItemProvider = new TemplateEndpointOutputConnectorItemProvider(this);
+		}
+
+		return templateEndpointOutputConnectorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpointParameters} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TemplateEndpointParametersItemProvider templateEndpointParametersItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpointParameters}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTemplateEndpointParametersAdapter() {
+		if (templateEndpointParametersItemProvider == null) {
+			templateEndpointParametersItemProvider = new TemplateEndpointParametersItemProvider(this);
+		}
+
+		return templateEndpointParametersItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.HTTPEndpoint} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6980,6 +7072,10 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 		if (addressEndPointItemProvider != null) addressEndPointItemProvider.dispose();
 		if (addressEndPointInputConnectorItemProvider != null) addressEndPointInputConnectorItemProvider.dispose();
 		if (addressEndPointOutputConnectorItemProvider != null) addressEndPointOutputConnectorItemProvider.dispose();
+		if (templateEndpointItemProvider != null) templateEndpointItemProvider.dispose();
+		if (templateEndpointInputConnectorItemProvider != null) templateEndpointInputConnectorItemProvider.dispose();
+		if (templateEndpointOutputConnectorItemProvider != null) templateEndpointOutputConnectorItemProvider.dispose();
+		if (templateEndpointParametersItemProvider != null) templateEndpointParametersItemProvider.dispose();
 		if (httpEndpointItemProvider != null) httpEndpointItemProvider.dispose();
 		if (httpEndPointInputConnectorItemProvider != null) httpEndPointInputConnectorItemProvider.dispose();
 		if (httpEndPointOutputConnectorItemProvider != null) httpEndPointOutputConnectorItemProvider.dispose();

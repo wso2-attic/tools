@@ -255,6 +255,11 @@ public class TemplateItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(EsbPackage.Literals.TEMPLATE__CHILD,
+				 EsbFactory.eINSTANCE.createTemplateEndpoint()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.TEMPLATE__CHILD,
 				 EsbFactory.eINSTANCE.createHTTPEndpoint()));
 
 		newChildDescriptors.add

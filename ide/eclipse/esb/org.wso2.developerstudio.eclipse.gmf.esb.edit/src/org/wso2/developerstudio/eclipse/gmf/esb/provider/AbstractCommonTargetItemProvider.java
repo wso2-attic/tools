@@ -250,6 +250,11 @@ public class AbstractCommonTargetItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(EsbPackage.Literals.ABSTRACT_COMMON_TARGET__ENDPOINT,
+				 EsbFactory.eINSTANCE.createTemplateEndpoint()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EsbPackage.Literals.ABSTRACT_COMMON_TARGET__ENDPOINT,
 				 EsbFactory.eINSTANCE.createHTTPEndpoint()));
 
 		newChildDescriptors.add
