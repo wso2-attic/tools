@@ -17,20 +17,15 @@
 package org.wso2.datamapper.core;
 
 import java.io.File;
-import java.util.Map;
 
+import temp.FunctionExecuter;
 
 public class DataMapper {
 
 	public void doMapping() {
 		
-		ConfigDataHandler configHandler = new ConfigDataHandler();
-		configHandler.setConfigFile(new File("./resource/mapping_rules"));
-		configHandler.setConfigRuleList();
-		Map<String,String> configQueryMap = configHandler.getConfigDataMap();
+		ConfigHandler configHandler = new ConfigHandler();
+		configHandler.executeConfigs(new File("./resource/mapping_rules"));
 		
-		ConfigDataExecuter configExecuter = new ConfigDataExecuter();
-		configExecuter.executeConfigs(configQueryMap);
-
 	}
 }
