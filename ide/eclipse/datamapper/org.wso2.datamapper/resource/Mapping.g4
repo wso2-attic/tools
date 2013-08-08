@@ -9,15 +9,22 @@ grammar Mapping;
   package org.wso2.datamapper.parsers;
 }
 
-stat: function '(' arg '.' arg (',' arg '.' arg)* ')'               
+stat: (outputelement '=' function )+            
     ;
+    
+outputelement: ID (DOT ID)*
+             ;
 
-function: ID
+function: functionname '(' arg (',' arg)* ')'
 		;
+		
+functionname:ID
+            ;
 
-arg: ID
+arg: ID (DOT ID)*
    ;
 
+DOT : [.];
 ID  :   [a-zA-Z]+ ;      // match identifiers
 INT :   [0-9]+ ;         // match integers
 NEWLINE:'\r'? '\n' ;     // return newlines to parser (is end-statement signal)
