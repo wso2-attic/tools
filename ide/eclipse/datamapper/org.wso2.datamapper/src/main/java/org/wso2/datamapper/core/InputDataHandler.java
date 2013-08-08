@@ -17,20 +17,39 @@
 package org.wso2.datamapper.core;
 
 import java.io.File;
+import java.util.List;
+
+import org.apache.axiom.om.OMElement;
+import org.wso2.datamapper.inputAdapters.InputDataReaderAdapter;
+import org.wso2.datamapper.inputAdapters.XmlInputReader;
 
 public class InputDataHandler {
-	private String inputValue;	
+	
 	private File inputFile;
+	private String inputFileType;
+	private InputDataReaderAdapter inputAdapter;
+	private List<OMElement> inputValueList;
+	
+	
+	public InputDataHandler(String inputFileType){
+		this.inputFileType = inputFileType;
+		
+		if(this.inputFileType.equals("xml")){
+			inputAdapter = new XmlInputReader();
+		}
+	}
 	
 	public void setInputFile(File inputFile) {
 		this.inputFile = inputFile;
 	}
 
-	public String getInputvalue(String element) {
+	public List<OMElement> getInputvalues(String element) {
+		String elementValue;
 		
-		XmlInputReader xmlReader = new XmlInputReader();
-		inputValue = xmlReader.readXmlElement(this.inputFile, element);
+		inputAdapter = new XmlInputReader();
+		inputAdapter.setInputReader(inputFile);
+		this.inputValueList = inputAdapter.readInputvalues(element);
 		
-		return inputValue;
+		return this.inputValueList;
 	}
 }
