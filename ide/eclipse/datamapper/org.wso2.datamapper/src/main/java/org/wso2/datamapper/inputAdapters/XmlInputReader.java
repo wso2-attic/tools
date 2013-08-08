@@ -55,35 +55,21 @@ public class XmlInputReader implements InputDataReaderAdapter {
 	}
 
 	@Override
-	public List<String> readInputvalues(String elementPath , int index) {
-		elementPath = "//" + elementPath.replace('.', '/')+"["+index+"]";
-		System.out.println("path "+elementPath);
-		this.inputValueList = new ArrayList<String>();
+	public List<OMElement> readInputvalues(String elementPath) {
+		
+		elementPath = "//" + elementPath.replace('.', '/');
+		this.nodeList = new ArrayList<OMElement>();
 
 		try {
-			xpathExpression = new AXIOMXPath("//employees/employee/firstname[1]");	
+			xpathExpression = new AXIOMXPath(elementPath);
 			String temp ="";
-			
-			OMElement node = (OMElement) xpathExpression.selectSingleNode(this.documentElement);
-			
-			if(node != null){
-				System.out.println("rrrrrrrr "+node.getText());
-				
-			}
-			//System.out.println("aaaaa "+node.getText());
-			/*this.nodeList = xpathExpression.selectNodes(this.documentElement);
-			Iterator<OMElement> it = nodeList.iterator();
+			this.nodeList = xpathExpression.selectNodes(this.documentElement);
 
-			while (it.hasNext()) {
-				OMElement node = it.next();
-				this.inputValueList.add(node.getText());
-			}*/
-//System.out.println("aaaaa "+inputValueList);
 		} catch (JaxenException e) {
 			e.printStackTrace();
 		}
 
-		return this.inputValueList;
+		return this.nodeList;
 	}
 
 }
