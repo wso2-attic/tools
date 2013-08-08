@@ -559,6 +559,22 @@
           id="dashboard.wizardLink.brs"
           wizard="org.wso2.developerstudio.eclipse.artifact.businessruleservice.wizard">
     	</wizardLink>
+    	
+    	<!-- Jaggery-->
+    	 <wizardCategory
+          category="org.eclipse.php.project.ui">
+    	</wizardCategory>
+    	<category
+          id="dashboard.category.jaggery"
+          showTitle="true"
+          priority="10"
+          title="Jaggery">
+    	</category>
+    	<wizardLink
+          category="dashboard.category.jaggery"
+          id="dashboard.wizardLink.jaggery"
+          wizard="org.eclipse.php.ui.wizards.PHPProjectCreationWizard">
+    	</wizardLink>
 
 	</extension>
 	
