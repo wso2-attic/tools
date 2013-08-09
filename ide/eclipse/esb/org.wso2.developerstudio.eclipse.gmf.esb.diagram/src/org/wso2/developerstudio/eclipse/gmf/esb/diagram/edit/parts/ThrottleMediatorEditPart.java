@@ -64,11 +64,6 @@ public class ThrottleMediatorEditPart extends complexFiguredAbstractMediator {
 	/**
 	 * @generated
 	 */
-	protected IFigure primaryShape;
-
-	/**
-	 * @generated
-	 */
 	public ThrottleMediatorEditPart(View view) {
 		super(view);
 	}

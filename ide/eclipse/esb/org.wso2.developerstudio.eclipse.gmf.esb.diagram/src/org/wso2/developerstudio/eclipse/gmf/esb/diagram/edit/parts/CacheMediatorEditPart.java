@@ -62,11 +62,6 @@ public class CacheMediatorEditPart extends complexFiguredAbstractMediator {
 	/**
 	 * @generated
 	 */
-	protected IFigure primaryShape;
-
-	/**
-	 * @generated
-	 */
 	public CacheMediatorEditPart(View view) {
 		super(view);
 	}

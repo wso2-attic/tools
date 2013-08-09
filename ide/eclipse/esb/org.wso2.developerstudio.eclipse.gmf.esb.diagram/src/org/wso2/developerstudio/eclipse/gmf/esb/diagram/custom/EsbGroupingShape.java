@@ -26,9 +26,12 @@ public class EsbGroupingShape extends RoundedRectangle {
 		GridLayout layoutThis = new GridLayout();
 		layoutThis.numColumns = 2;
 		layoutThis.makeColumnsEqualWidth = true;
+		layoutThis.marginHeight = 0;
+		layoutThis.marginWidth = 0;
 		this.setLayoutManager(layoutThis);
 		this.setCornerDimensions(new Dimension(1, 1));
-		this.setFill(false);
+		//this.setFill(false); // dont uncoment this since we need to show the selection color from botom do not repaiint
+	
 		this.setOutline(false);
 		this.setBorder(new LineBorder(new Color(null, 224, 224, 224), 2, SWT.BORDER_DASH));
 		createContents();
@@ -73,12 +76,6 @@ public class EsbGroupingShape extends RoundedRectangle {
 		ImageFigure img = new ImageFigure(image);
 		img.setSize(new Dimension(36, 40));
 
-		// Create rectangle to contain image.
-		RectangleFigure imageRectangle = new RectangleFigure();
-		imageRectangle.setOutline(false);
-		imageRectangle.setBackgroundColor(new Color(null, 255, 255, 225));
-		imageRectangle.setPreferredSize(new Dimension(36, 40));
-		imageRectangle.add(img);
 
 		GridData constraintImageRectangle = new GridData();
 		constraintImageRectangle.verticalAlignment = GridData.VERTICAL_ALIGN_CENTER;
@@ -90,7 +87,6 @@ public class EsbGroupingShape extends RoundedRectangle {
 		constraintImageRectangle.grabExcessVerticalSpace = true;
 		container.add(img, constraintImageRectangle);
 
-		imageRectangle.setLayoutManager(new StackLayout());
 
 		// Rectangle to hold item name (ex. Aggregate, Cache, etc.).
 		RectangleFigure esbNodeTypeNameRectangle = new RectangleFigure();

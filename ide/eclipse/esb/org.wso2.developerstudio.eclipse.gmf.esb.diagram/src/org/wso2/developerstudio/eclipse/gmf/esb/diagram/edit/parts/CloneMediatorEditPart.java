@@ -76,10 +76,6 @@ public class CloneMediatorEditPart extends complexFiguredAbstractMediator {
 	 */
 	protected IFigure contentPane;
 
-	/**
-	 * @generated
-	 */
-	protected IFigure primaryShape;
 
 	private List<IFigure> outputConnectors = new ArrayList<IFigure>();
 	private List<BorderItemLocator> outputLocators = new ArrayList<BorderItemLocator>();

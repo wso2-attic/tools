@@ -63,11 +63,6 @@ public class FilterMediatorEditPart extends complexFiguredAbstractMediator {
 	/**
 	 * @generated
 	 */
-	protected IFigure primaryShape;
-
-	/**
-	 * @generated
-	 */
 	public FilterMediatorEditPart(View view) {
 		super(view);
 	}

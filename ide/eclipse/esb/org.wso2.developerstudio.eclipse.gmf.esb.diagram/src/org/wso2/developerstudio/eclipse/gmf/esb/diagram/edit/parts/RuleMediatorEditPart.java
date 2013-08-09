@@ -61,11 +61,6 @@ public class RuleMediatorEditPart extends complexFiguredAbstractMediator {
 	/**
 	 * @generated
 	 */
-	protected IFigure primaryShape;
-
-	/**
-	 * @generated
-	 */
 	public RuleMediatorEditPart(View view) {
 		super(view);
 	}

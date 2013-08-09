@@ -28,7 +28,7 @@ public class CloneMediatorGraphicalShape extends RoundedRectangle {
 		layoutThis.makeColumnsEqualWidth = true;
 		this.setLayoutManager(layoutThis);
 		this.setCornerDimensions(new Dimension(1, 1));
-		this.setFill(false);
+		//this.setFill(false); // dont uncoment this
 		this.setOutline(false);
 		this.setBorder(new LineBorder(new Color(null, 224, 224, 224), 2, SWT.BORDER_DASH));
 		createContents();
@@ -68,12 +68,6 @@ public class CloneMediatorGraphicalShape extends RoundedRectangle {
 		ImageFigure img = new ImageFigure(image);
 		img.setSize(new Dimension(30, 30));
 
-		RectangleFigure imageRectangle = new RectangleFigure();
-		imageRectangle.setOutline(false);
-		imageRectangle.setBackgroundColor(new Color(null, 255, 255, 225));
-		imageRectangle.setPreferredSize(new Dimension(23, 25));
-		imageRectangle.add(img);
-
 		GridData constraintImageRectangle = new GridData();
 		constraintImageRectangle.verticalAlignment = GridData.END;
 		constraintImageRectangle.horizontalAlignment = GridData.CENTER;
@@ -84,7 +78,7 @@ public class CloneMediatorGraphicalShape extends RoundedRectangle {
 		constraintImageRectangle.grabExcessVerticalSpace = true;
 		container.add(img, constraintImageRectangle);
 
-		imageRectangle.setLayoutManager(new StackLayout());
+
 
 		// Rectangle to hold item name (ex. Aggregate, Cache, etc.).
 		RectangleFigure esbNodeTypeNameRectangle = new RectangleFigure();

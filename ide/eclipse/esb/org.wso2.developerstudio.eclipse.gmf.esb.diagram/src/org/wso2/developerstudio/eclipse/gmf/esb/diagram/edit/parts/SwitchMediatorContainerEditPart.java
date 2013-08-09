@@ -216,6 +216,7 @@ public class SwitchMediatorContainerEditPart extends ShapeNodeEditPart {
 			layoutThis.setMinorAlignment(ToolbarLayout.ALIGN_CENTER);
 			layoutThis.setSpacing(0);
 			layoutThis.setVertical(true);
+			this.setAlpha(0); //to make this transparent
 			this.setLayoutManager(layoutThis);
 
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8), getMapMode().DPtoLP(8)));

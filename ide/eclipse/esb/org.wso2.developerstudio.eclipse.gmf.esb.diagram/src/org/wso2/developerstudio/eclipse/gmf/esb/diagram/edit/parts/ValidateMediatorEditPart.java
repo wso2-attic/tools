@@ -59,11 +59,6 @@ public class ValidateMediatorEditPart extends complexFiguredAbstractMediator {
 	/**
 	 * @generated
 	 */
-	protected IFigure primaryShape;
-
-	/**
-	 * @generated
-	 */
 	public ValidateMediatorEditPart(View view) {
 		super(view);
 	}

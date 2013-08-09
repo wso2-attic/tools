@@ -20,6 +20,7 @@ import org.eclipse.gef.editpolicies.SelectionEditPolicy;
 import org.eclipse.swt.graphics.Color;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditPartDrawingHelper;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedSizedAbstractMediator;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.complexFiguredAbstractMediator;
 
 
 public class HighlightOnSelectionEditPolicy extends SelectionEditPolicy {
@@ -40,8 +41,12 @@ public class HighlightOnSelectionEditPolicy extends SelectionEditPolicy {
 		
 		if(getHost() instanceof FixedSizedAbstractMediator) {
 			FixedSizedAbstractMediator mediator = (FixedSizedAbstractMediator)getHost();
-			//if (mediator.getFixedSizedPrimaryShape() != null){
-				mediator.getFixedSizedPrimaryShape().setBackgroundColor(col);
+			mediator.getFixedSizedPrimaryShape().setBackgroundColor(col);
+		}
+		
+		if(getHost() instanceof complexFiguredAbstractMediator) {
+			complexFiguredAbstractMediator mediator = (complexFiguredAbstractMediator)getHost();
+			mediator.getComplexFiguredPrimaryShape().setBackgroundColor(col);
 		}
 
 	}

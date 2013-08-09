@@ -27,7 +27,7 @@ public class SwitchMediatorGraphicalShape extends RoundedRectangle {
 		layoutThis.makeColumnsEqualWidth = true;
 		this.setLayoutManager(layoutThis);
 		this.setCornerDimensions(new Dimension(1, 1));
-		this.setFill(false);
+		//this.setFill(false); // dont uncoment this since we need to show the selection color from botom do not repaiint
 		this.setOutline(false);
 		this.setBorder(new LineBorder(new Color(null, 224, 224, 224), 2, SWT.BORDER_DASH));
 		createContents();
@@ -67,13 +67,6 @@ public class SwitchMediatorGraphicalShape extends RoundedRectangle {
 		ImageFigure img = new ImageFigure(image);
 		img.setSize(new Dimension(36, 40));
 
-		// Create rectangle to contain image.
-		RectangleFigure imageRectangle = new RectangleFigure();
-		imageRectangle.setOutline(false);
-		imageRectangle.setBackgroundColor(new Color(null, 255, 255, 225));
-		imageRectangle.setPreferredSize(new Dimension(23, 25));
-		imageRectangle.add(img);
-
 		GridData constraintImageRectangle = new GridData();
 		constraintImageRectangle.verticalAlignment = GridData.END;
 		constraintImageRectangle.horizontalAlignment = GridData.CENTER;
@@ -84,7 +77,6 @@ public class SwitchMediatorGraphicalShape extends RoundedRectangle {
 		constraintImageRectangle.grabExcessVerticalSpace = true;
 		container.add(img, constraintImageRectangle);
 
-		imageRectangle.setLayoutManager(new StackLayout());
 
 		// Rectangle to hold item name.
 		RectangleFigure esbNodeTypeNameRectangle = new RectangleFigure();

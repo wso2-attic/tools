@@ -58,11 +58,6 @@ public class ConditionalRouterMediatorEditPart extends complexFiguredAbstractMed
 	/**
 	 * @generated
 	 */
-	protected IFigure primaryShape;
-
-	/**
-	 * @generated
-	 */
 	public ConditionalRouterMediatorEditPart(View view) {
 		super(view);
 	}

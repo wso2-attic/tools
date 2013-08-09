@@ -63,11 +63,6 @@ public class RouterMediatorEditPart extends complexFiguredAbstractMediator {
 	/**
 	 * @generated
 	 */
-	protected IFigure primaryShape;
-
-	/**
-	 * @generated
-	 */
 	public RouterMediatorEditPart(View view) {
 		super(view);
 	}

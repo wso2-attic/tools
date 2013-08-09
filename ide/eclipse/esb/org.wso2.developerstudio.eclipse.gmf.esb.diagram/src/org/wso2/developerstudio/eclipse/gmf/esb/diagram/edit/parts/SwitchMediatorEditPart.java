@@ -85,11 +85,6 @@ public class SwitchMediatorEditPart extends complexFiguredAbstractMediator {
 	/**
 	 * @generated
 	 */
-	protected IFigure primaryShape;
-
-	/**
-	 * @generated
-	 */
 	public SwitchMediatorEditPart(View view) {
 		super(view);
 	}

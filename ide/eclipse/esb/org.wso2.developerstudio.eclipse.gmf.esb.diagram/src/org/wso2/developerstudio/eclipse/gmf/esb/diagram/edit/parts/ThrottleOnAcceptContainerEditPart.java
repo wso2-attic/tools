@@ -217,6 +217,7 @@ public class ThrottleOnAcceptContainerEditPart extends ShapeNodeEditPart {
 			layoutThis.setSpacing(0);
 			layoutThis.setVertical(true);
 			this.setLayoutManager(layoutThis);
+			this.setAlpha(0); //to make this transparent
 
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8), getMapMode().DPtoLP(8)));
 			this.setLineStyle(Graphics.LINE_DASH);

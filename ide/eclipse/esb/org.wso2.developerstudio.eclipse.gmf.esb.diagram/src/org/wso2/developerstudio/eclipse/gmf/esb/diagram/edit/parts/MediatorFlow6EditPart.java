@@ -228,40 +228,16 @@ public class MediatorFlow6EditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated NOT
 	 */
-	public class MediatorFlowFigure extends RoundedRectangle {
+	public class MediatorFlowFigure extends EsbMediatorFlowFigure {
 
 		/**
 		 * @generated NOT
 		 */
 		public MediatorFlowFigure() {
 
-			GridLayout layoutThis = new GridLayout();
-			layoutThis.numColumns = 1;
-			layoutThis.horizontalSpacing = 5;
-			layoutThis.verticalSpacing = 5;
-			layoutThis.marginHeight = 5;
-			layoutThis.marginWidth = 5;
-			layoutThis.makeColumnsEqualWidth = true;
-			this.setLayoutManager(layoutThis);
-
-			this.setCornerDimensions(new Dimension(1, 1));
-			this.setOutline(false);
 			this.setBackgroundColor(THIS_BACK);
 			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(5000), getMapMode()
 					.DPtoLP(4000)));
-		}
-
-		public void add(IFigure figure, Object constraint, int index) {
-			if (figure instanceof ResizableCompartmentFigure) {
-				GridData layoutData = new GridData();
-				layoutData.grabExcessHorizontalSpace = true;
-				layoutData.grabExcessVerticalSpace = true;
-				layoutData.horizontalAlignment = GridData.FILL;
-				layoutData.verticalAlignment = GridData.FILL;
-				super.add(figure, layoutData, index);
-			} else {
-				super.add(figure, constraint, index);
-			}
 		}
 
 	}

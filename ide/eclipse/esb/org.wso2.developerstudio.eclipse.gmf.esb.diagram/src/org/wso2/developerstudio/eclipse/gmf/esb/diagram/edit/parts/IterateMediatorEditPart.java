@@ -62,11 +62,6 @@ public class IterateMediatorEditPart extends complexFiguredAbstractMediator {
 	/**
 	 * @generated
 	 */
-	protected IFigure primaryShape;
-
-	/**
-	 * @generated
-	 */
 	public IterateMediatorEditPart(View view) {
 		super(view);
 	}
