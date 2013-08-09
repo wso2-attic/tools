@@ -21,6 +21,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -31,44 +32,36 @@ import org.antlr.v4.runtime.tree.ParseTreeWalker;
 import org.wso2.datamapper.parsers.MappingLexer;
 import org.wso2.datamapper.parsers.MappingParser;
 
-
-
-
-
-import temp.FunctionExecuter;
-
 public class ConfigHandler {
 
-	private Map<String,String> resultMap;
+	private Map<String,List<String>> resultMap;
 
-	public Map<String,String> executeConfigs(File configFile) {
+	public Map<String,List<String>> executeConfigs(String inputFileType, File configFile, File inputFile) {
 		
-		ANTLRInputStream in;
+		ANTLRInputStream inputStream;
 		try {
-			in = new ANTLRInputStream(new FileInputStream(configFile));
-			MappingLexer lexer = new MappingLexer(in);
+			
+			inputStream = new ANTLRInputStream(new FileInputStream(configFile));
+			MappingLexer lexer = new MappingLexer(inputStream);
 			CommonTokenStream tokens = new CommonTokenStream(lexer);
 			MappingParser parser = new MappingParser(tokens);
 
-			ParseTree tree = parser.stat();
-			
+			ParseTree tree = parser.stat();	
 			ParseTreeWalker walker = new ParseTreeWalker();
-			FunctionExecuter funExe = new FunctionExecuter();
+			FunctionExecuter funExe = new FunctionExecuter(inputFileType, inputFile);
 
 			walker.walk(funExe, tree);
 			resultMap = funExe.getResultMap();
 	
-	        Set<String> key = resultMap.keySet();
-	        System.out.println("keys : "+key);
-	        Iterator<String> it = key.iterator();
+	        Set<String> keys = resultMap.keySet();
+	        System.out.println("keys : "+keys);
+	        Iterator<String> it = keys.iterator();
 	        
-	        String outputEle = "";
-	        String OutEleValue = "";
+	        String outputElement = "";
 	        
 	        while(it.hasNext()){
-	        	outputEle = it.next();
-	        	OutEleValue = resultMap.get(outputEle);    	
-	        	System.out.println("result : "+outputEle+"  : "+OutEleValue);	
+	        	outputElement = it.next();  
+	        	System.out.println("result : "+outputElement+"   : "+resultMap.get(outputElement));	
 	        }   
 
 		} catch (FileNotFoundException e) {

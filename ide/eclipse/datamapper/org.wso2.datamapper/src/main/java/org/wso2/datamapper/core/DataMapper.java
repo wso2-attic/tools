@@ -18,14 +18,12 @@ package org.wso2.datamapper.core;
 
 import java.io.File;
 
-import temp.FunctionExecuter;
-
 public class DataMapper {
 
 	public void doMapping() {
 		
 		ConfigHandler configHandler = new ConfigHandler();
-		configHandler.executeConfigs(new File("./resource/mapping_rules"));
+		configHandler.executeConfigs("xml", new File("./resource/mapping_rules"),new File("./resource/input.xml"));
 		
 	}
 }
