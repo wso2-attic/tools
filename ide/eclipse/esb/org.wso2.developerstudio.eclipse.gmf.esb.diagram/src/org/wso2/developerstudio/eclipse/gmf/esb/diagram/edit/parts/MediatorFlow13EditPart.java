@@ -225,7 +225,7 @@ public class MediatorFlow13EditPart extends ShapeNodeEditPart {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	public class MediatorFlowFigure extends EsbMediatorFlowFigure {
 
