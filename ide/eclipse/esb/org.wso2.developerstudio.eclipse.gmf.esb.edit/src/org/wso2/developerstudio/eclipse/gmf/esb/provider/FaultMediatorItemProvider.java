@@ -69,7 +69,8 @@ public class FaultMediatorItemProvider extends MediatorItemProvider implements
 
 		addSoapVersionPropertyDescriptor(object);
 		if (faultMediator.getSoapVersion().equals(FaultSoapVersion.SOAP_11)) {
-			addFaultCodeTypePropertyDescriptor(object);
+			//addFaultCodeTypePropertyDescriptor(object);
+			addFaultCodeSoap11PropertyDescriptor(object);
 			addFaultStringTypePropertyDescriptor(object);
 
 			if (faultMediator.getFaultStringType().equals(FaultStringType.VALUE)) {
@@ -78,15 +79,16 @@ public class FaultMediatorItemProvider extends MediatorItemProvider implements
 				addFaultStringExpressionPropertyDescriptor(object);
 			}
 			
-			if(faultMediator.getFaultCodeType().equals(FaultCodeType.EXPRESSION)){
+			/*if(faultMediator.getFaultCodeType().equals(FaultCodeType.EXPRESSION)){
 				addFaultCodeExpressionPropertyDescriptor(object);	
 			}else{
 				addFaultCodeSoap11PropertyDescriptor(object);
-			}
+			}*/
 
 			addFaultActorPropertyDescriptor(object);
 		}else if (faultMediator.getSoapVersion().equals(FaultSoapVersion.SOAP_12)) {
-			addFaultCodeTypePropertyDescriptor(object);
+			//addFaultCodeTypePropertyDescriptor(object);
+			addFaultCodeSoap12PropertyDescriptor(object);
 			addFaultReasonTypePropertyDescriptor(object);
 
 			if (faultMediator.getFaultReasonType().equals(FaultReasonType.VALUE)) {
@@ -95,11 +97,11 @@ public class FaultMediatorItemProvider extends MediatorItemProvider implements
 				addFaultReasonExpressionPropertyDescriptor(object);
 			}
 			
-			if(faultMediator.getFaultCodeType().equals(FaultCodeType.EXPRESSION)){
+			/*if(faultMediator.getFaultCodeType().equals(FaultCodeType.EXPRESSION)){
 				addFaultCodeExpressionPropertyDescriptor(object);	
 			}else{
 				addFaultCodeSoap12PropertyDescriptor(object);
-			}
+			}*/
 
 			addRoleNamePropertyDescriptor(object);
 			addNodeNamePropertyDescriptor(object);
@@ -134,7 +136,7 @@ public class FaultMediatorItemProvider extends MediatorItemProvider implements
 						"_UI_FaultMediator_type"),
 				EsbPackage.Literals.FAULT_MEDIATOR__FAULT_STRING_EXPRESSION,
 				true, false, false, ItemPropertyDescriptor.TEXT_VALUE_IMAGE,
-				null, null));
+				"Reason", null));
 	}
 
 	protected void addFaultReasonExpressionPropertyDescriptor(Object object) {
@@ -148,7 +150,7 @@ public class FaultMediatorItemProvider extends MediatorItemProvider implements
 						"_UI_FaultMediator_type"),
 				EsbPackage.Literals.FAULT_MEDIATOR__FAULT_REASON_EXPRESSION,
 				true, false, false, ItemPropertyDescriptor.TEXT_VALUE_IMAGE,
-				null, null));
+				"Reason", null));
 	}
 
 	protected void addFaultDetailExpressionPropertyDescriptor(Object object) {
@@ -162,7 +164,7 @@ public class FaultMediatorItemProvider extends MediatorItemProvider implements
 						"_UI_FaultMediator_type"),
 				EsbPackage.Literals.FAULT_MEDIATOR__FAULT_DETAIL_EXPRESSION,
 				true, false, false, ItemPropertyDescriptor.TEXT_VALUE_IMAGE,
-				null, null));
+				"Detail", null));
 	}
 
 	/**
@@ -213,7 +215,7 @@ public class FaultMediatorItemProvider extends MediatorItemProvider implements
 	 * This adds a property descriptor for the Fault Code Soap11 feature. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addFaultCodeSoap11PropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
@@ -227,7 +229,7 @@ public class FaultMediatorItemProvider extends MediatorItemProvider implements
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 "Code",
 				 null));
 	}
 
@@ -279,7 +281,7 @@ public class FaultMediatorItemProvider extends MediatorItemProvider implements
 	 * This adds a property descriptor for the Fault String Type feature. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addFaultStringTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
@@ -293,7 +295,7 @@ public class FaultMediatorItemProvider extends MediatorItemProvider implements
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 "Reason",
 				 null));
 	}
 
@@ -301,7 +303,7 @@ public class FaultMediatorItemProvider extends MediatorItemProvider implements
 	 * This adds a property descriptor for the Fault String Value feature. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addFaultStringValuePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
@@ -315,7 +317,7 @@ public class FaultMediatorItemProvider extends MediatorItemProvider implements
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 "Reason",
 				 null));
 	}
 
@@ -345,7 +347,7 @@ public class FaultMediatorItemProvider extends MediatorItemProvider implements
 	 * This adds a property descriptor for the Fault Code Soap12 feature. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addFaultCodeSoap12PropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
@@ -359,7 +361,7 @@ public class FaultMediatorItemProvider extends MediatorItemProvider implements
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 "Code",
 				 null));
 	}
 
@@ -367,7 +369,7 @@ public class FaultMediatorItemProvider extends MediatorItemProvider implements
 	 * This adds a property descriptor for the Fault Reason Type feature. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addFaultReasonTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
@@ -381,7 +383,7 @@ public class FaultMediatorItemProvider extends MediatorItemProvider implements
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 "Reason",
 				 null));
 	}
 
@@ -389,7 +391,7 @@ public class FaultMediatorItemProvider extends MediatorItemProvider implements
 	 * This adds a property descriptor for the Fault Reason Value feature. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addFaultReasonValuePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
@@ -403,7 +405,7 @@ public class FaultMediatorItemProvider extends MediatorItemProvider implements
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 "Reason",
 				 null));
 	}
 
@@ -455,7 +457,7 @@ public class FaultMediatorItemProvider extends MediatorItemProvider implements
 	 * This adds a property descriptor for the Fault Detail Type feature. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addFaultDetailTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
@@ -469,7 +471,7 @@ public class FaultMediatorItemProvider extends MediatorItemProvider implements
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 "Detail",
 				 null));
 	}
 
@@ -477,7 +479,7 @@ public class FaultMediatorItemProvider extends MediatorItemProvider implements
 	 * This adds a property descriptor for the Fault Detail Value feature. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void addFaultDetailValuePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
@@ -491,7 +493,7 @@ public class FaultMediatorItemProvider extends MediatorItemProvider implements
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
+				 "Detail",
 				 null));
 	}
 
