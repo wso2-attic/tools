@@ -2,6 +2,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
 
 import org.eclipse.draw2d.GridData;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.LayoutListener;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.Shape;
@@ -118,6 +119,7 @@ public class AggregateMediatorEditPart extends complexFiguredAbstractMediator {
 				if ((!connected)
 						&& (this.getBounds().getLocation().x != 0 && this.getBounds().getLocation().y != 0)) {
 					getMostSuitableElementToConnect();
+					reAllocate(rect);
 					connected = true;
 				}
 			};
@@ -233,7 +235,7 @@ public class AggregateMediatorEditPart extends complexFiguredAbstractMediator {
 	 * Body of this method does not depend on settings in generation model
 	 * so you may safely remove <i>generated</i> tag and modify it.
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	protected NodeFigure createMainFigure() {
 		NodeFigure figure = createNodePlate();
@@ -241,6 +243,7 @@ public class AggregateMediatorEditPart extends complexFiguredAbstractMediator {
 		IFigure shape = createNodeShape();
 		figure.add(shape);
 		contentPane = setupContentPane(shape);
+		addLayoutListner(figure);
 		return figure;
 	}
 

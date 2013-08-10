@@ -135,6 +135,7 @@ public class SequencesEditPart extends AbstractSequencesEditPart {
 	}
 
 	private void alignLeft(int y, int width, int height) {
+		y=100;
 		Rectangle constraints = new Rectangle(0, y, width, height);
 		((GraphicalEditPart) getParent()).setLayoutConstraint(this, getFigure(), constraints);
 	}

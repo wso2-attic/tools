@@ -116,6 +116,7 @@ public class ConditionalRouterMediatorEditPart extends complexFiguredAbstractMed
 				if ((!connected)
 						&& (this.getBounds().getLocation().x != 0 && this.getBounds().getLocation().y != 0)) {
 					getMostSuitableElementToConnect();
+					reAllocate(rect);
 					connected = true;
 				}
 			};
@@ -181,7 +182,7 @@ public class ConditionalRouterMediatorEditPart extends complexFiguredAbstractMed
 	 * Body of this method does not depend on settings in generation model
 	 * so you may safely remove <i>generated</i> tag and modify it.
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	protected NodeFigure createMainFigure() {
 		NodeFigure figure = createNodePlate();
@@ -189,6 +190,7 @@ public class ConditionalRouterMediatorEditPart extends complexFiguredAbstractMed
 		IFigure shape = createNodeShape();
 		figure.add(shape);
 		contentPane = setupContentPane(shape);
+		addLayoutListner(figure);
 		return figure;
 	}
 

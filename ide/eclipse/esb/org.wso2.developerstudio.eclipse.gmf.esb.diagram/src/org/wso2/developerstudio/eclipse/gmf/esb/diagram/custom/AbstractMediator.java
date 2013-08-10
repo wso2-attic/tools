@@ -21,17 +21,23 @@ import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.draw2d.Figure;
+import org.eclipse.draw2d.FigureCanvas;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.PositionConstants;
+import org.eclipse.draw2d.geometry.Rectangle;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.impl.EAttributeImpl;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.commands.CompoundCommand;
 import org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.gmf.runtime.notation.impl.BoundsImpl;
 import org.wso2.developerstudio.eclipse.gmf.esb.AbstractEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbLink;
 import org.wso2.developerstudio.eclipse.gmf.esb.Mediator;
@@ -39,6 +45,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.OutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.SequenceInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.SequenceOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.connections.ConnectionCalculator;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.layout.XYRepossition;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.utils.MediatorFigureReverser;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.APIResourceOutputConnectorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AggregateMediatorEditPart;
@@ -77,14 +84,20 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SequencesOutp
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ThrottleMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.ValidateMediatorEditPart;
+import org.eclipse.gef.GraphicalEditPart;
+import org.eclipse.swt.widgets.Display;
 
 public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 
 	public boolean isForward = true;
 	private int i = 0;
 	
+	public int x;
+	public int y;
+	
 	private AbstractInputConnectorEditPart connectedInputConnector;
 	private AbstractOutputConnectorEditPart connectedOutputConnector;
+	private AbstractMediator instance=null;
 
 	/*
 	 * activete method is called twice for a mediator.so that we use this
@@ -95,6 +108,7 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 	public AbstractMediator(View view) {
 		super(view);
 		setIsForward(!((Mediator) view.getElement()).isReverse());
+		instance=this;
 	}
 
 	protected NodeFigure createMainFigure() {
@@ -155,6 +169,35 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 			((SequenceEditPart)this).moveConnectorsRightSide();
 		}
 		++i;
+	}
+	
+	 public void notifyChanged(Notification notification) {
+		 	super.notifyChanged(notification);
+		 	if (notification.getFeature() instanceof EAttributeImpl) {
+		 		if (notification.getNotifier() instanceof BoundsImpl) {
+		 			if (x != 0 && y != 0) {
+		 			rePosition(x,y,
+		 					((BoundsImpl) notification.getNotifier()).getWidth(),
+		 					((BoundsImpl) notification.getNotifier()).getHeight());
+		 			FigureCanvas canvas = (FigureCanvas) getViewer().getControl();
+		 			canvas.getViewport().repaint();
+		 			}
+		 		}
+		 	}
+		 }
+
+	private void rePosition(int x,int y, int width, int height) {
+		Rectangle constraints = new Rectangle(x, y, width, height);
+		((GraphicalEditPart) getParent()).setLayoutConstraint(this, getFigure(), constraints);
+	}
+		 
+	protected void reAllocate(Rectangle bounds){
+		Display.getCurrent().asyncExec(new Runnable() {			
+			@Override
+			public void run() {	
+				XYRepossition.resizeContainers((IGraphicalEditPart) instance);			
+				XYRepossition.reArrange((IGraphicalEditPart) instance);	 
+			}});
 	}
 	
 	private boolean shouldReverse() {
