@@ -21,6 +21,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.apache.axiom.om.OMElement;
@@ -33,6 +34,7 @@ public class XmlInputReader implements InputDataReaderAdapter {
 
 	private AXIOMXPath xpathExpression;
 	private List<OMElement> nodeList;
+	private List<String> inputValueList;
 	private OMElement documentElement;
 
 	@Override
@@ -49,20 +51,30 @@ public class XmlInputReader implements InputDataReaderAdapter {
 	}
 
 	@Override
-	public List<OMElement> readInputvalues(String elementXPath) {
+	public List readInputvalues(String elementXPath) {
 		
 		elementXPath = "//" + elementXPath.replace('.', '/');
 		this.nodeList = new ArrayList<OMElement>();
+		this.inputValueList = new ArrayList<String>();
 
 		try {
 			xpathExpression = new AXIOMXPath(elementXPath);
 			this.nodeList = xpathExpression.selectNodes(this.documentElement);
+			
+			Iterator<OMElement> xmlElementIterator = this.nodeList.listIterator();
+			OMElement element;
+			
+			while (xmlElementIterator.hasNext()) {
+				element = xmlElementIterator.next();
+				inputValueList.add(element.getText());		
+			}
+			
 
 		} catch (JaxenException e) {
 			e.printStackTrace();
 		}
 
-		return this.nodeList;
+		return this.inputValueList;
 	}
 
 }

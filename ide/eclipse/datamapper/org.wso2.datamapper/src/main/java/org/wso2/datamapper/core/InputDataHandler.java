@@ -43,8 +43,7 @@ public class InputDataHandler {
 		this.inputFile = inputFile;
 	}
 
-	public List<OMElement> getInputvalues(String element) {		
-		inputAdapter = new XmlInputReader();
+	public List<String> getInputvalues(String element) {	
 		inputAdapter.setInputReader(inputFile);
 		this.inputValueList = inputAdapter.readInputvalues(element);
 		

@@ -36,7 +36,7 @@ public class DataMapper {
 
 	private Map<String,List<String>> resultMap;
 
-	public Map<String,List<String>> domapping(String inputFileType, File configFile, File inputFile) {
+	public Map<String,List<String>> doMapping(String inputFileType, File configFile, File inputFile) {
 		
 		ANTLRInputStream inputStream;
 		try {
@@ -54,7 +54,6 @@ public class DataMapper {
 			resultMap = funExe.getResultMap();
 	
 	        Set<String> keys = resultMap.keySet();
-	        System.out.println("keys : "+keys);
 	        Iterator<String> it = keys.iterator();
 	        
 	        String outputElement = "";

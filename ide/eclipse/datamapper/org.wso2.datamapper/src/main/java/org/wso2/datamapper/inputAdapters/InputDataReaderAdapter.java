@@ -8,6 +8,6 @@ import org.apache.axiom.om.OMElement;
 public interface InputDataReaderAdapter {
 
 	public void setInputReader(File inputFile);
-	public List<OMElement> readInputvalues(String elementPath);
+	public List readInputvalues(String elementPath);
 	
 }

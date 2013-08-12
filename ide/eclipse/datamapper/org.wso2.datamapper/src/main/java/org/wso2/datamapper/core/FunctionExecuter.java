@@ -24,7 +24,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.antlr.v4.runtime.misc.NotNull;
-import org.apache.axiom.om.OMElement;
 import org.wso2.datamapper.parsers.MappingBaseListener;
 import org.wso2.datamapper.parsers.MappingParser.ArgContext;
 import org.wso2.datamapper.parsers.MappingParser.FunctionContext;
@@ -36,16 +35,16 @@ public class FunctionExecuter extends MappingBaseListener {
 
 	private String outputElement;
 	private String funcName;
-	private List<OMElement> tempArgList;
 	private Map<String,List<String>> resultMap;
 	private InputDataHandler inputHandler;
 	private List<String> outputList;
+	private List<String> tempArgList;
 
 	public FunctionExecuter(String inputFileType, File inputFile) {
-		tempArgList = new ArrayList<OMElement>();
 		resultMap = new HashMap<String, List<String>>();
 		inputHandler = new InputDataHandler(inputFileType);
 		inputHandler.setInputFile(inputFile);
+		tempArgList = new ArrayList<String>();
 	}
 
 	public Map<String, List<String>> getResultMap() {
@@ -62,31 +61,31 @@ public class FunctionExecuter extends MappingBaseListener {
 		super.exitArg(ctx);
 		String arg = ctx.getText();	
 		
-		List<OMElement> functionParameterList = inputHandler.getInputvalues(arg);
-		OMElement oldElement;
-		OMElement newElement;
+		List<String> functionParameterList = inputHandler.getInputvalues(arg);
+		
+		String oldElement;
+		String newElement;
 			
-		if(tempArgList.size() > 0){
-			Iterator<OMElement> oldElementIterator = tempArgList.listIterator();
-			Iterator<OMElement> newElementIterator = functionParameterList.listIterator();
+		if(this.tempArgList.size() > 0){
+			Iterator<String> oldValuesIterator = this.tempArgList.listIterator();
+			Iterator<String> newValuesIterator = functionParameterList.listIterator();
 			
-			while (oldElementIterator.hasNext() && newElementIterator.hasNext()) {
-				oldElement = oldElementIterator.next();
-				newElement = newElementIterator.next();
+			while (oldValuesIterator.hasNext() && newValuesIterator.hasNext()) {
+				oldElement = oldValuesIterator.next();
+				newElement = newValuesIterator.next();
 				
 				if(this.funcName.equals("concat")){
-					outputList.add(oldElement.getText().concat(" "+newElement.getText()));
+					outputList.add(oldElement.concat(" "+newElement));
 				}	
 			}
-			tempArgList = new ArrayList<OMElement>();
+			this.tempArgList = new ArrayList<String>();
 		}else{
-			tempArgList = functionParameterList;
+			this.tempArgList = functionParameterList;
 		}
 	}
 
 	@Override
 	public void exitFunction(@NotNull FunctionContext ctx) {		
-		System.out.println(this.outputElement+" == "+this.outputList);
 		resultMap.put(this.outputElement, this.outputList);
 		this.outputList = null;
 	}
