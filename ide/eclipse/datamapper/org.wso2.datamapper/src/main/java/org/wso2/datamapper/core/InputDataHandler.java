@@ -28,7 +28,7 @@ public class InputDataHandler {
 	private File inputFile;
 	private String inputFileType;
 	private InputDataReaderAdapter inputAdapter;
-	private List<OMElement> inputValueList;
+	private List inputValueList;
 	
 	
 	public InputDataHandler(String inputFileType){

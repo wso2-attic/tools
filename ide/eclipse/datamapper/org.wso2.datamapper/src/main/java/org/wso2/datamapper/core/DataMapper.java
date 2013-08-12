@@ -17,13 +17,61 @@
 package org.wso2.datamapper.core;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import org.antlr.v4.runtime.ANTLRInputStream;
+import org.antlr.v4.runtime.CommonTokenStream;
+import org.antlr.v4.runtime.tree.ParseTree;
+import org.antlr.v4.runtime.tree.ParseTreeWalker;
+import org.wso2.datamapper.parsers.MappingLexer;
+import org.wso2.datamapper.parsers.MappingParser;
 
 public class DataMapper {
 
-	public void doMapping() {
+	private Map<String,List<String>> resultMap;
+
+	public Map<String,List<String>> domapping(String inputFileType, File configFile, File inputFile) {
 		
-		ConfigHandler configHandler = new ConfigHandler();
-		configHandler.executeConfigs("xml", new File("./resource/mapping_rules"),new File("./resource/input.xml"));
+		ANTLRInputStream inputStream;
+		try {
+			
+			inputStream = new ANTLRInputStream(new FileInputStream(configFile));
+			MappingLexer lexer = new MappingLexer(inputStream);
+			CommonTokenStream tokens = new CommonTokenStream(lexer);
+			MappingParser parser = new MappingParser(tokens);
+
+			ParseTree tree = parser.stat();	
+			ParseTreeWalker walker = new ParseTreeWalker();
+			FunctionExecuter funExe = new FunctionExecuter(inputFileType, inputFile);
+
+			walker.walk(funExe, tree);
+			resultMap = funExe.getResultMap();
+	
+	        Set<String> keys = resultMap.keySet();
+	        System.out.println("keys : "+keys);
+	        Iterator<String> it = keys.iterator();
+	        
+	        String outputElement = "";
+	        
+	        while(it.hasNext()){
+	        	outputElement = it.next();  
+	        	System.out.println("result : "+outputElement+"   : "+resultMap.get(outputElement));	
+	        }   
+
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
+        return resultMap;
 	}
 }
