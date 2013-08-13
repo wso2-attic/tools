@@ -197,8 +197,12 @@ public abstract class AbstractEndpoint extends BorderedBorderItemEditPart {
 		super.createDefaultEditPolicies();
 		removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 		removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.POPUPBAR_ROLE);
-		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, new CustomNonResizableEditPolicyEx());  //remove 8 corners
 		installEditPolicy(EditPolicy.SELECTION_FEEDBACK_ROLE, new HighlightOnSelectionEditPolicy()); //selection
+	}
+	
+	@Override
+	public EditPolicy getPrimaryDragEditPolicy() {
+		return new CustomBorderItemSelectionEditPolicy();
 	}
 	
 	public IFigure getEndPointPrimaryShape() {

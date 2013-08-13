@@ -16,7 +16,9 @@
 
 package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
 
+
 import org.eclipse.gef.editpolicies.SelectionEditPolicy;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.RoundedRectangleBorder;
 import org.eclipse.swt.graphics.Color;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditPartDrawingHelper;
@@ -35,24 +37,30 @@ public class HighlightOnSelectionEditPolicy extends SelectionEditPolicy {
 	}
 		
 	private void setselected(boolean isselected) {
+		RoundedRectangleBorder border = null;
 		Color col = EditPartDrawingHelper.FigureNormalColor;
 		if (isselected) { 
 			col = EditPartDrawingHelper.FigureSelectedColor;
+			border = new RoundedRectangleBorder(8, 8);
+			border.setColor(EditPartDrawingHelper.FigureSelectedBorderColor);
 		}
 		
 		if(getHost() instanceof FixedSizedAbstractMediator) {
 			FixedSizedAbstractMediator mediator = (FixedSizedAbstractMediator)getHost();
 			mediator.getFixedSizedPrimaryShape().setBackgroundColor(col);
+			mediator.getFixedSizedPrimaryShape().setBorder(border);
 		}
 		
 		if(getHost() instanceof complexFiguredAbstractMediator) {
 			complexFiguredAbstractMediator mediator = (complexFiguredAbstractMediator)getHost();
 			mediator.getComplexFiguredPrimaryShape().setBackgroundColor(col);
+			//mediator.getComplexFiguredPrimaryShape().setBorder(border);
 		}
 		
 		if(getHost() instanceof AbstractEndpoint) {
 			AbstractEndpoint mediator = (AbstractEndpoint)getHost();
 			mediator.getEndPointPrimaryShape().setBackgroundColor(col);
+			mediator.getEndPointPrimaryShape().setBorder(border);
 		}
 	}
 
