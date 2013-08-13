@@ -37,30 +37,33 @@ public class HighlightOnSelectionEditPolicy extends SelectionEditPolicy {
 	}
 		
 	private void setselected(boolean isselected) {
-		RoundedRectangleBorder border = null;
-		Color col = EditPartDrawingHelper.FigureNormalColor;
+		
+		Color figureColor = EditPartDrawingHelper.FigureNormalColor;
+		Color boderColor = EditPartDrawingHelper.FigureNormalColor;
 		if (isselected) { 
-			col = EditPartDrawingHelper.FigureSelectedColor;
-			border = new RoundedRectangleBorder(8, 8);
-			border.setColor(EditPartDrawingHelper.FigureSelectedBorderColor);
+			figureColor = EditPartDrawingHelper.FigureSelectedColor;
+			boderColor = EditPartDrawingHelper.FigureSelectedBorderColor;
 		}
 		
 		if(getHost() instanceof FixedSizedAbstractMediator) {
 			FixedSizedAbstractMediator mediator = (FixedSizedAbstractMediator)getHost();
-			mediator.getFixedSizedPrimaryShape().setBackgroundColor(col);
-			mediator.getFixedSizedPrimaryShape().setBorder(border);
+			mediator.getFixedSizedPrimaryShape().setBackgroundColor(figureColor);
+			RoundedRectangleBorder border = (RoundedRectangleBorder)mediator.getFixedSizedPrimaryShape().getBorder();
+			border.setColor(boderColor);
 		}
 		
 		if(getHost() instanceof complexFiguredAbstractMediator) {
 			complexFiguredAbstractMediator mediator = (complexFiguredAbstractMediator)getHost();
-			mediator.getComplexFiguredPrimaryShape().setBackgroundColor(col);
-			//mediator.getComplexFiguredPrimaryShape().setBorder(border);
+			mediator.getComplexFiguredPrimaryShape().setBackgroundColor(figureColor);
+			//RoundedRectangleBorder border = (RoundedRectangleBorder)mediator.getComplexFiguredPrimaryShape().getBorder();
+			//border.setColor(boderColor);
 		}
 		
 		if(getHost() instanceof AbstractEndpoint) {
 			AbstractEndpoint mediator = (AbstractEndpoint)getHost();
-			mediator.getEndPointPrimaryShape().setBackgroundColor(col);
-			mediator.getEndPointPrimaryShape().setBorder(border);
+			mediator.getEndPointPrimaryShape().setBackgroundColor(figureColor);
+			RoundedRectangleBorder border = (RoundedRectangleBorder)mediator.getEndPointPrimaryShape().getBorder();
+			border.setColor(boderColor);
 		}
 	}
 
