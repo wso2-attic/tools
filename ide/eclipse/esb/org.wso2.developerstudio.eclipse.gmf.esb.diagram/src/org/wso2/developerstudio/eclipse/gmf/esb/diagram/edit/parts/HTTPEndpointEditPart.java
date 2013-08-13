@@ -64,11 +64,6 @@ public class HTTPEndpointEditPart extends AbstractEndpoint {
 	/**
 	 * @generated
 	 */
-	protected IFigure primaryShape;
-
-	/**
-	 * @generated
-	 */
 	public HTTPEndpointEditPart(View view) {
 		super(view);
 	}
@@ -359,12 +354,6 @@ public class HTTPEndpointEditPart extends AbstractEndpoint {
 		private void createContents() {
 
 			fFigureHTTPEndPointNamePropertyLabel = new WrappingLabel();
-			fFigureHTTPEndPointNamePropertyLabel.setText("");
-			fFigureHTTPEndPointNamePropertyLabel.setAlignment(PositionConstants.TOP
-					| PositionConstants.CENTER);
-			fFigureHTTPEndPointNamePropertyLabel.setFont(new Font(null, new FontData("Courier", 8,
-					SWT.BOLD)));
-
 		}
 
 		/**
@@ -395,7 +384,7 @@ public class HTTPEndpointEditPart extends AbstractEndpoint {
 	/**
 	 * @generated
 	 */
-	static final Color THIS_BACK = new Color(null, 40, 151, 248);
+	static final Color THIS_BACK = new Color(null, 255, 255, 255);
 
 	static final Color THIS_LABEL_BACK = new Color(null, 113, 198, 113);
 

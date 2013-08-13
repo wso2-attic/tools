@@ -58,11 +58,6 @@ public class AddressingEndpointEditPart extends AbstractEndpoint {
 	/**
 	 * @generated
 	 */
-	protected IFigure primaryShape;
-
-	/**
-	 * @generated
-	 */
 	public AddressingEndpointEditPart(View view) {
 		super(view);
 	}
@@ -320,10 +315,6 @@ public class AddressingEndpointEditPart extends AbstractEndpoint {
 		private void createContents() {
 
 			fFigureAddressingEndPointNamePropertyLabel = new WrappingLabel();
-			fFigureAddressingEndPointNamePropertyLabel.setText("<...>");
-			fFigureAddressingEndPointNamePropertyLabel.setAlignment(SWT.CENTER);
-			this.getPropertyValueRectangle1().add(fFigureAddressingEndPointNamePropertyLabel);
-
 		}
 
 		/**
@@ -354,7 +345,7 @@ public class AddressingEndpointEditPart extends AbstractEndpoint {
 	/**
 	 * @generated
 	 */
-	static final Color THIS_BACK = new Color(null, 40, 151, 248);
+	static final Color THIS_BACK = new Color(null, 255, 255, 255);
 
 	static final Color THIS_LABEL_BACK = new Color(null, 113, 198, 113);
 

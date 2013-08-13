@@ -50,6 +50,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorO
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.CloneMediatorGraphicalShape;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.MultipleCompartmentComplexFiguredAbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ShowPropertyViewEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.complexFiguredAbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.editpolicy.FeedbackIndicateDragDropEditPolicy;
@@ -62,7 +63,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry
 /**
  * @generated NOT
  */
-public class CloneMediatorEditPart extends complexFiguredAbstractMediator {
+public class CloneMediatorEditPart extends MultipleCompartmentComplexFiguredAbstractMediator {
 
 	private int activeCount = 0;
 
@@ -176,6 +177,7 @@ public class CloneMediatorEditPart extends complexFiguredAbstractMediator {
 				if ((!connected)
 						&& (this.getBounds().getLocation().x != 0 && this.getBounds().getLocation().y != 0)) {
 					getMostSuitableElementToConnect();
+					reAllocate(rect);
 					connected = true;
 				}
 			};
@@ -357,7 +359,7 @@ public class CloneMediatorEditPart extends complexFiguredAbstractMediator {
 	 * Body of this method does not depend on settings in generation model
 	 * so you may safely remove <i>generated</i> tag and modify it.
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	protected NodeFigure createMainFigure() {
 		NodeFigure figure = createNodePlate();
@@ -365,6 +367,7 @@ public class CloneMediatorEditPart extends complexFiguredAbstractMediator {
 		IFigure shape = createNodeShape();
 		figure.add(shape);
 		contentPane = setupContentPane(shape);
+		addLayoutListner(figure);
 		return figure;
 	}
 

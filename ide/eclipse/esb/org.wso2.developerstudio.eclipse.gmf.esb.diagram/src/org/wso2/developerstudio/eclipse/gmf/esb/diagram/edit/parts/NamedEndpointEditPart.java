@@ -136,11 +136,6 @@ public class NamedEndpointEditPart extends AbstractEndpoint {
 	 */
 	protected IFigure contentPane;
 
-	/**
-	 * @generated
-	 */
-	protected IFigure primaryShape;
-
 	public static ArrayList<String> definedEndpointsNames = new ArrayList<String>();
 
 	private Combo endpointTypeCombo;
@@ -676,7 +671,7 @@ public class NamedEndpointEditPart extends AbstractEndpoint {
 	/**
 	 * @generated NOT
 	 */
-	public class NamedEndpointFigure extends EsbGraphicalShapeWithLabel {
+	public class NamedEndpointFigure extends EsbGraphicalShape {
 
 		/**
 		 * @generated
@@ -698,13 +693,6 @@ public class NamedEndpointEditPart extends AbstractEndpoint {
 		private void createContents() {
 
 			fFigureNamedEndPointNamePropertyLabel = new WrappingLabel();
-			fFigureNamedEndPointNamePropertyLabel.setText("");
-			fFigureNamedEndPointNamePropertyLabel.setAlignment(PositionConstants.TOP
-					| PositionConstants.CENTER);
-			fFigureNamedEndPointNamePropertyLabel.setFont(new Font(null, new FontData("Courier", 8,
-					SWT.BOLD)));
-			this.getPropertyValueRectangle1().add(fFigureNamedEndPointNamePropertyLabel);
-
 		}
 
 		/**
@@ -749,6 +737,6 @@ public class NamedEndpointEditPart extends AbstractEndpoint {
 	/**
 	 * @generated
 	 */
-	static final Color THIS_BACK = new Color(null, 40, 151, 248);
+	static final Color THIS_BACK = new Color(null, 255, 255, 255);
 
 }

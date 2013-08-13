@@ -36,6 +36,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGroupingShape;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ShowPropertyViewEditPolicy;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.SingleCompartmentComplexFiguredAbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.complexFiguredAbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.editpolicy.FeedbackIndicateDragDropEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.IterateMediatorCanonicalEditPolicy;
@@ -45,7 +46,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry
 /**
  * @generated NOT
  */
-public class IterateMediatorEditPart extends complexFiguredAbstractMediator {
+public class IterateMediatorEditPart extends SingleCompartmentComplexFiguredAbstractMediator {
 
 	public IFigure targetOutputConnector;
 
@@ -125,6 +126,7 @@ public class IterateMediatorEditPart extends complexFiguredAbstractMediator {
 				if ((!connected)
 						&& (this.getBounds().getLocation().x != 0 && this.getBounds().getLocation().y != 0)) {
 					getMostSuitableElementToConnect();
+					reAllocate(rect);
 					connected = true;
 				}
 			};
@@ -234,7 +236,7 @@ public class IterateMediatorEditPart extends complexFiguredAbstractMediator {
 	 * Body of this method does not depend on settings in generation model
 	 * so you may safely remove <i>generated</i> tag and modify it.
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	protected NodeFigure createMainFigure() {
 		NodeFigure figure = createNodePlate();
@@ -242,6 +244,7 @@ public class IterateMediatorEditPart extends complexFiguredAbstractMediator {
 		IFigure shape = createNodeShape();
 		figure.add(shape);
 		contentPane = setupContentPane(shape);
+		addLayoutListner(figure);
 		return figure;
 	}
 

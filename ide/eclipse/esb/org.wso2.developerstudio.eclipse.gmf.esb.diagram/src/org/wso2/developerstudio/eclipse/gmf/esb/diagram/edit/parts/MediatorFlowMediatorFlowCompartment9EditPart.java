@@ -13,6 +13,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorCompartmentEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediatorFlowCompartmentEditPart.Complexity;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.editpolicy.FeedbackIndicateDragDropEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.MediatorFlowMediatorFlowCompartment9CanonicalEditPolicy;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.policies.MediatorFlowMediatorFlowCompartment9ItemSemanticEditPolicy;
@@ -29,10 +30,11 @@ public class MediatorFlowMediatorFlowCompartment9EditPart extends
 	public static final int VISUAL_ID = 7030;
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	public MediatorFlowMediatorFlowCompartment9EditPart(View view) {
 		super(view);
+		complexity=Complexity.DOUBLE;
 	}
 
 	/**

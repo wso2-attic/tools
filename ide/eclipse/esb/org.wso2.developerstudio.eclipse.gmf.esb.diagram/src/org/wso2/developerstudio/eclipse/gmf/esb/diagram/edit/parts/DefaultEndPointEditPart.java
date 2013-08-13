@@ -61,11 +61,6 @@ public class DefaultEndPointEditPart extends AbstractEndpoint {
 	/**
 	 * @generated
 	 */
-	protected IFigure primaryShape;
-
-	/**
-	 * @generated
-	 */
 	public DefaultEndPointEditPart(View view) {
 		super(view);
 	}
@@ -358,10 +353,6 @@ public class DefaultEndPointEditPart extends AbstractEndpoint {
 		private void createContents() {
 
 			fFigureDefaultEndPointNamePropertyLabel = new WrappingLabel();
-			fFigureDefaultEndPointNamePropertyLabel.setText("<...>");
-			fFigureDefaultEndPointNamePropertyLabel.setAlignment(SWT.CENTER);
-			this.getPropertyValueRectangle1().add(fFigureDefaultEndPointNamePropertyLabel);
-
 		}
 
 		/**
@@ -392,7 +383,7 @@ public class DefaultEndPointEditPart extends AbstractEndpoint {
 	/**
 	 * @generated NOT
 	 */
-	static final Color THIS_BACK = new Color(null, 113, 198, 113);
+	static final Color THIS_BACK = new Color(null, 255, 255, 255);
 
 	static final Color THIS_LABEL_BACK = new Color(null, 113, 198, 113);
 

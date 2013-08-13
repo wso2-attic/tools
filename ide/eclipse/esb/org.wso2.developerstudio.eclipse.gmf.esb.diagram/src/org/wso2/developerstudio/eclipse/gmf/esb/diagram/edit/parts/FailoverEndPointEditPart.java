@@ -64,11 +64,6 @@ public class FailoverEndPointEditPart extends ComplexFiguredAbstractEndpoint {
 	/**
 	 * @generated
 	 */
-	protected IFigure primaryShape;
-
-	/**
-	 * @generated
-	 */
 	public FailoverEndPointEditPart(View view) {
 		super(view);
 	}
@@ -79,8 +74,7 @@ public class FailoverEndPointEditPart extends ComplexFiguredAbstractEndpoint {
 	protected void createDefaultEditPolicies() {
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new FailoverEndPointItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new FailoverEndPointItemSemanticEditPolicy());
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE, new FailoverEndPointCanonicalEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
@@ -268,7 +262,7 @@ public class FailoverEndPointEditPart extends ComplexFiguredAbstractEndpoint {
 		}
 		return nodeShape; // use nodeShape itself as contentPane
 	}
-
+	
 	/**
 	 * @generated
 	 */
@@ -326,7 +320,7 @@ public class FailoverEndPointEditPart extends ComplexFiguredAbstractEndpoint {
 	/**
 	 * @generated NOT
 	 */
-	public class FailoverEndPointFigure extends EsbGraphicalShapeWithLabel {
+	public class FailoverEndPointFigure extends EsbGraphicalShape {
 
 		/**
 		 * @generated
@@ -346,15 +340,8 @@ public class FailoverEndPointEditPart extends ComplexFiguredAbstractEndpoint {
 		 * @generated NOT
 		 */
 		private void createContents() {
+			
 			fFigureFailoverEndPointNamePropertyLabel = new WrappingLabel();
-			fFigureFailoverEndPointNamePropertyLabel.setText("");
-			fFigureFailoverEndPointNamePropertyLabel.setAlignment(PositionConstants.TOP
-					| PositionConstants.CENTER);
-			fFigureFailoverEndPointNamePropertyLabel.setFont(new Font(null, new FontData("Courier",
-					8, SWT.BOLD)));
-
-			this.getPropertyValueRectangle1().add(fFigureFailoverEndPointNamePropertyLabel);
-
 		}
 
 		/**
@@ -381,7 +368,7 @@ public class FailoverEndPointEditPart extends ComplexFiguredAbstractEndpoint {
 	/**
 	 * @generated
 	 */
-	static final Color THIS_BACK = new Color(null, 40, 151, 248);
+	static final Color THIS_BACK = new Color(null, 255, 255, 255);
 
 }
 /*package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;

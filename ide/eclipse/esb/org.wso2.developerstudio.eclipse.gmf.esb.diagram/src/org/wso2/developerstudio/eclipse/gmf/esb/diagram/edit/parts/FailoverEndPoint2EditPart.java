@@ -60,11 +60,6 @@ public class FailoverEndPoint2EditPart extends ComplexFiguredAbstractEndpoint {
 	/**
 	 * @generated
 	 */
-	protected IFigure primaryShape;
-
-	/**
-	 * @generated
-	 */
 	public FailoverEndPoint2EditPart(View view) {
 		super(view);
 	}
@@ -329,7 +324,7 @@ public class FailoverEndPoint2EditPart extends ComplexFiguredAbstractEndpoint {
 	/**
 	 * @generated NOT
 	 */
-	public class FailoverEndPointFigure extends EsbGraphicalShapeWithLabel {
+	public class FailoverEndPointFigure extends EsbGraphicalShape {
 
 		/**
 		 * @generated
@@ -349,15 +344,8 @@ public class FailoverEndPoint2EditPart extends ComplexFiguredAbstractEndpoint {
 		 * @generated NOT
 		 */
 		private void createContents() {
+			
 			fFigureFailoverEndPointNamePropertyLabel = new WrappingLabel();
-			fFigureFailoverEndPointNamePropertyLabel.setText("");
-			fFigureFailoverEndPointNamePropertyLabel.setAlignment(PositionConstants.TOP
-					| PositionConstants.CENTER);
-			fFigureFailoverEndPointNamePropertyLabel.setFont(new Font(null, new FontData("Courier",
-					8, SWT.BOLD)));
-
-			this.getPropertyValueRectangle1().add(fFigureFailoverEndPointNamePropertyLabel);
-
 		}
 
 		/**
@@ -384,7 +372,7 @@ public class FailoverEndPoint2EditPart extends ComplexFiguredAbstractEndpoint {
 	/**
 	 * @generated
 	 */
-	static final Color THIS_BACK = new Color(null, 40, 151, 248);
+	static final Color THIS_BACK = new Color(null, 255, 255, 255);
 
 }/*package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
 

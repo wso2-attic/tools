@@ -130,12 +130,12 @@ public class MediatorFlow5EditPart extends ShapeNodeEditPart {
 			if (null == sequencesEditPart.outputConnectorFigure)
 				return;
 			BorderItemLocator outputLocator = new FixedBorderItemLocator(this.getFigure(),
-					sequencesEditPart.outputConnectorFigure, PositionConstants.WEST, 0.5);
+					sequencesEditPart.outputConnectorFigure, PositionConstants.WEST, 0.55);
 			sequencesEditPart.getBorderedFigure().getBorderItemContainer()
 					.add(sequencesEditPart.outputConnectorFigure, outputLocator);
 
 			BorderItemLocator inputLocator = new FixedBorderItemLocator(this.getFigure(),
-					sequencesEditPart.inputConnectorFigure, PositionConstants.EAST, 0.5);
+					sequencesEditPart.inputConnectorFigure, PositionConstants.EAST, 0.55);
 			sequencesEditPart.getBorderedFigure().getBorderItemContainer()
 					.add(sequencesEditPart.inputConnectorFigure, inputLocator);
 		} else {
@@ -265,7 +265,7 @@ public class MediatorFlow5EditPart extends ShapeNodeEditPart {
 			RoundedRectangle topRectangle = new RoundedRectangle();
 			topRectangle.setCornerDimensions(new Dimension(1, 1));
 			topRectangle.setOutline(false);
-			topRectangle.setBackgroundColor(new Color(null, 153, 204, 255));
+			topRectangle.setBackgroundColor(new Color(null, 113, 183, 64));
 			topRectangle.setPreferredSize(new Dimension(200, 20));
 			topRectangle.setMinimumSize(new Dimension(200, 20));
 

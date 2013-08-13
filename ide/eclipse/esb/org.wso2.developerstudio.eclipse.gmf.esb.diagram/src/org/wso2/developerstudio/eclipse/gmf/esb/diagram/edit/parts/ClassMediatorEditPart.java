@@ -113,6 +113,7 @@ public class ClassMediatorEditPart extends FixedSizedAbstractMediator {
 				super.setBounds(rect);
 				if (this.getBounds().getLocation().x != 0 && this.getBounds().getLocation().y != 0) {
 					getMostSuitableElementToConnect();
+					reAllocate(rect);
 				}
 			};
 		};

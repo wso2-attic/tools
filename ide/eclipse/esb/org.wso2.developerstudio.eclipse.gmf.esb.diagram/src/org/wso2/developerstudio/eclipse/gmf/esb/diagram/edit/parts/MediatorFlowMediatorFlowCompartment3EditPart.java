@@ -35,10 +35,11 @@ public class MediatorFlowMediatorFlowCompartment3EditPart extends
 	public static final int VISUAL_ID = 7016;
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	public MediatorFlowMediatorFlowCompartment3EditPart(View view) {
 		super(view);
+		complexity=Complexity.SINGLE;
 	}
 
 	/**

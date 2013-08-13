@@ -18,6 +18,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
 
 import org.eclipse.gef.editpolicies.SelectionEditPolicy;
 import org.eclipse.swt.graphics.Color;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EditPartDrawingHelper;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedSizedAbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.complexFiguredAbstractMediator;
@@ -48,7 +49,11 @@ public class HighlightOnSelectionEditPolicy extends SelectionEditPolicy {
 			complexFiguredAbstractMediator mediator = (complexFiguredAbstractMediator)getHost();
 			mediator.getComplexFiguredPrimaryShape().setBackgroundColor(col);
 		}
-
+		
+		if(getHost() instanceof AbstractEndpoint) {
+			AbstractEndpoint mediator = (AbstractEndpoint)getHost();
+			mediator.getEndPointPrimaryShape().setBackgroundColor(col);
+		}
 	}
 
 }

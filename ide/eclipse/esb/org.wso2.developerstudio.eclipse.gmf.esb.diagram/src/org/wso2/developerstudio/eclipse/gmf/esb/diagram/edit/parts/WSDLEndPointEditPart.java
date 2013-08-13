@@ -64,11 +64,6 @@ public class WSDLEndPointEditPart extends AbstractEndpoint {
 	/**
 	 * @generated
 	 */
-	protected IFigure primaryShape;
-
-	/**
-	 * @generated
-	 */
 	public WSDLEndPointEditPart(View view) {
 		super(view);
 	}
@@ -379,10 +374,6 @@ public class WSDLEndPointEditPart extends AbstractEndpoint {
 		private void createContents() {
 
 			fFigureWSDLEndPointNamePropertyLabel = new WrappingLabel();
-			fFigureWSDLEndPointNamePropertyLabel.setText("<...>");
-			fFigureWSDLEndPointNamePropertyLabel.setAlignment(SWT.CENTER);
-			this.getPropertyValueRectangle1().add(fFigureWSDLEndPointNamePropertyLabel);
-
 		}
 
 		/**
@@ -413,7 +404,7 @@ public class WSDLEndPointEditPart extends AbstractEndpoint {
 	/**
 	 * @generated NOT
 	 */
-	static final Color THIS_BACK = new Color(null, 113, 198, 113);
+	static final Color THIS_BACK = new Color(null, 255, 255, 255);
 
 	static final Color THIS_LABEL_BACK = new Color(null, 113, 198, 113);
 

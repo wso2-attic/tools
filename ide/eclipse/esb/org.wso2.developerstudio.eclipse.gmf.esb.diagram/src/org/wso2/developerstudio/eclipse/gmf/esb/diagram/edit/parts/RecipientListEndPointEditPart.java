@@ -54,11 +54,6 @@ public class RecipientListEndPointEditPart extends ComplexFiguredAbstractEndpoin
 	/**
 	 * @generated
 	 */
-	protected IFigure primaryShape;
-
-	/**
-	 * @generated
-	 */
 	public RecipientListEndPointEditPart(View view) {
 		super(view);
 	}
@@ -69,11 +64,9 @@ public class RecipientListEndPointEditPart extends ComplexFiguredAbstractEndpoin
 	protected void createDefaultEditPolicies() {
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new RecipientListEndPointItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new RecipientListEndPointItemSemanticEditPolicy());
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
-		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
-				new RecipientListEndPointCanonicalEditPolicy());
+		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE, new RecipientListEndPointCanonicalEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		installEditPolicy(EditPolicyRoles.OPEN_ROLE, new OpenSeparatelyEditPolicy());
 		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
@@ -186,11 +179,19 @@ public class RecipientListEndPointEditPart extends ComplexFiguredAbstractEndpoin
 		super.removeChildVisual(childEditPart);
 	}
 
-	/**
-	 * @generated
+	/** 
+	 * @generated NOT
 	 */
 	protected IFigure createNodeShape() {
-		return primaryShape = new RecipientListEndPointFigure();
+		return primaryShape = new RecipientListEndPointFigure(){
+			public void setBounds(org.eclipse.draw2d.geometry.Rectangle rect) {
+				super.setBounds(rect);
+				if (!connected) {
+					getMostSuitableElementToConnect();
+					connected = true;
+				}
+			};
+		};
 	}
 
 	/**
@@ -320,6 +321,6 @@ public class RecipientListEndPointEditPart extends ComplexFiguredAbstractEndpoin
 	/**
 	 * @generated
 	 */
-	static final Color THIS_BACK = new Color(null, 40, 151, 248);
+	static final Color THIS_BACK = new Color(null, 255, 255, 255);
 
 }

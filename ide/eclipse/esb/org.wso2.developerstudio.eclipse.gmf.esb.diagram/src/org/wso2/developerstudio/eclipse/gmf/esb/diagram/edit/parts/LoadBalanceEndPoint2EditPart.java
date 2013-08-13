@@ -60,11 +60,6 @@ public class LoadBalanceEndPoint2EditPart extends ComplexFiguredAbstractEndpoint
 	/**
 	 * @generated
 	 */
-	protected IFigure primaryShape;
-
-	/**
-	 * @generated
-	 */
 	public LoadBalanceEndPoint2EditPart(View view) {
 		super(view);
 	}
@@ -330,7 +325,7 @@ public class LoadBalanceEndPoint2EditPart extends ComplexFiguredAbstractEndpoint
 	/**
 	 * @generated NOT
 	 */
-	public class LoadBalanceEndPointFigure extends EsbGraphicalShapeWithLabel {
+	public class LoadBalanceEndPointFigure extends EsbGraphicalShape {
 
 		/**
 		 * @generated
@@ -350,15 +345,8 @@ public class LoadBalanceEndPoint2EditPart extends ComplexFiguredAbstractEndpoint
 		 * @generated NOT
 		 */
 		private void createContents() {
+			
 			fFigureLoadBalanceEndPointNamePropertyLabel = new WrappingLabel();
-			fFigureLoadBalanceEndPointNamePropertyLabel.setText("");
-			fFigureLoadBalanceEndPointNamePropertyLabel.setAlignment(PositionConstants.TOP
-					| PositionConstants.CENTER);
-			fFigureLoadBalanceEndPointNamePropertyLabel.setFont(new Font(null, new FontData(
-					"Courier", 8, SWT.BOLD)));
-
-			this.getPropertyValueRectangle1().add(fFigureLoadBalanceEndPointNamePropertyLabel);
-
 		}
 
 		/**
@@ -385,7 +373,7 @@ public class LoadBalanceEndPoint2EditPart extends ComplexFiguredAbstractEndpoint
 	/**
 	 * @generated
 	 */
-	static final Color THIS_BACK = new Color(null, 40, 151, 248);
+	static final Color THIS_BACK = new Color(null, 255, 255, 255);
 
 }/*package org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts;
 

@@ -54,11 +54,6 @@ public class RecipientListEndPoint2EditPart extends ComplexFiguredAbstractEndpoi
 	/**
 	 * @generated
 	 */
-	protected IFigure primaryShape;
-
-	/**
-	 * @generated
-	 */
 	public RecipientListEndPoint2EditPart(View view) {
 		super(view);
 	}
@@ -319,6 +314,6 @@ public class RecipientListEndPoint2EditPart extends ComplexFiguredAbstractEndpoi
 	/**
 	 * @generated
 	 */
-	static final Color THIS_BACK = new Color(null, 40, 151, 248);
+	static final Color THIS_BACK = new Color(null, 255, 255, 255);
 
 }
