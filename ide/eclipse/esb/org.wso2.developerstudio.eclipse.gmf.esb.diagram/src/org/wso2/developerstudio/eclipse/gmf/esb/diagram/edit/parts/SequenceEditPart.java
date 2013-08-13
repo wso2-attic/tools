@@ -13,6 +13,7 @@ import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.draw2d.Figure;
+import org.eclipse.draw2d.GridData;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.Shape;
@@ -63,7 +64,6 @@ import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.FontData;
-import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
@@ -917,12 +917,13 @@ public class SequenceEditPart extends FixedSizedAbstractMediator {
 		 */
 		private void createContents() {
 
-			fSequenceLabelFigure = new WrappingLabel();
+			/*fSequenceLabelFigure = new WrappingLabel();
 			fSequenceLabelFigure.setText("");
 			fSequenceLabelFigure.setAlignment(PositionConstants.TOP | PositionConstants.CENTER);
-			fSequenceLabelFigure.setFont(new Font(null, new FontData("Courier", 8, SWT.BOLD)));
-			this.getPropertyValueRectangle1().add(fSequenceLabelFigure);
+			fSequenceLabelFigure.setFont(new Font(null, new FontData("Courier", 8, SWT.BOLD)));	
+			this.getPropertyValueRectangle1().add(fSequenceLabelFigure);*/
 
+			fSequenceLabelFigure = getPropertyNameLabel();
 		}
 
 		/*	*//**

@@ -325,7 +325,7 @@ public class LoadBalanceEndPoint2EditPart extends ComplexFiguredAbstractEndpoint
 	/**
 	 * @generated NOT
 	 */
-	public class LoadBalanceEndPointFigure extends EsbGraphicalShape {
+	public class LoadBalanceEndPointFigure extends EsbGraphicalShapeWithLabel {
 
 		/**
 		 * @generated
@@ -344,9 +344,8 @@ public class LoadBalanceEndPoint2EditPart extends ComplexFiguredAbstractEndpoint
 		/**
 		 * @generated NOT
 		 */
-		private void createContents() {
-			
-			fFigureLoadBalanceEndPointNamePropertyLabel = new WrappingLabel();
+		private void createContents() {		
+			fFigureLoadBalanceEndPointNamePropertyLabel = getPropertyNameLabel();
 		}
 
 		/**

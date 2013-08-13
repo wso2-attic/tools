@@ -73,7 +73,7 @@ public class FilterMediatorGraphicalShape extends RoundedRectangle {
 
 		RectangleFigure imageRectangle = new RectangleFigure();
 		imageRectangle.setOutline(false);
-		imageRectangle.setBackgroundColor(new Color(null, 255, 255, 225));
+		imageRectangle.setBackgroundColor(new Color(null, 233, 245, 215));
 		imageRectangle.setPreferredSize(new Dimension(23, 25));
 		imageRectangle.add(img);
 
@@ -92,7 +92,7 @@ public class FilterMediatorGraphicalShape extends RoundedRectangle {
 		// Rectangle to contain the type name label.
 		RectangleFigure esbNodeTypeNameRectangle1 = new RectangleFigure();
 		esbNodeTypeNameRectangle1.setOutline(false);
-		esbNodeTypeNameRectangle1.setBackgroundColor(new Color(null, 255, 255, 225));
+		esbNodeTypeNameRectangle1.setBackgroundColor(new Color(null, 233, 245, 215));
 		esbNodeTypeNameRectangle1.setPreferredSize(new Dimension(45, 20));
 
 		GridData constraintEsbNodeTypeNameRectangle = new GridData();
@@ -128,7 +128,7 @@ public class FilterMediatorGraphicalShape extends RoundedRectangle {
 		innerRect.setBorder(innerRectBorder);
 		innerRect.setPreferredSize(new Dimension(95, 25));
 		innerRect.setMinimumSize(new Dimension(80, 100));
-		innerRect.setBackgroundColor(new Color(null, 255, 255, 225));
+		innerRect.setBackgroundColor(new Color(null, 233, 245, 215));
 
 		GridLayout innerRectLayout = new GridLayout();
 		innerRectLayout.numColumns = 1;

@@ -78,7 +78,7 @@ public class EsbGroupingShape extends RoundedRectangle {
 
 
 		GridData constraintImageRectangle = new GridData();
-		constraintImageRectangle.verticalAlignment = GridData.VERTICAL_ALIGN_CENTER;
+		constraintImageRectangle.verticalAlignment = GridData.END;
 		constraintImageRectangle.horizontalAlignment = GridData.CENTER;
 		constraintImageRectangle.horizontalIndent = 0;
 		constraintImageRectangle.horizontalSpan = 1;

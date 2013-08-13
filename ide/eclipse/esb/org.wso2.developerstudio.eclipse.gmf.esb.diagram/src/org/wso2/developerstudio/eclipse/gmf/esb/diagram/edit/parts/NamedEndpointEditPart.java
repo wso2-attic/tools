@@ -671,7 +671,7 @@ public class NamedEndpointEditPart extends AbstractEndpoint {
 	/**
 	 * @generated NOT
 	 */
-	public class NamedEndpointFigure extends EsbGraphicalShape {
+	public class NamedEndpointFigure extends EsbGraphicalShapeWithLabel {
 
 		/**
 		 * @generated
@@ -691,8 +691,7 @@ public class NamedEndpointEditPart extends AbstractEndpoint {
 		 * @generated NOT
 		 */
 		private void createContents() {
-
-			fFigureNamedEndPointNamePropertyLabel = new WrappingLabel();
+			fFigureNamedEndPointNamePropertyLabel = getPropertyNameLabel();
 		}
 
 		/**

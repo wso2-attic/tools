@@ -324,7 +324,7 @@ public class FailoverEndPoint2EditPart extends ComplexFiguredAbstractEndpoint {
 	/**
 	 * @generated NOT
 	 */
-	public class FailoverEndPointFigure extends EsbGraphicalShape {
+	public class FailoverEndPointFigure extends EsbGraphicalShapeWithLabel {
 
 		/**
 		 * @generated
@@ -345,7 +345,7 @@ public class FailoverEndPoint2EditPart extends ComplexFiguredAbstractEndpoint {
 		 */
 		private void createContents() {
 			
-			fFigureFailoverEndPointNamePropertyLabel = new WrappingLabel();
+			fFigureFailoverEndPointNamePropertyLabel = getPropertyNameLabel();
 		}
 
 		/**
