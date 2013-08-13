@@ -188,18 +188,8 @@ public abstract class AbstractMediatorOutputConnectorEditPart extends AbstractOu
 			constraintImageRectangle11.grabExcessHorizontalSpace = true;
 			constraintImageRectangle11.grabExcessVerticalSpace = true;
 
-			ImageDescriptor imgDesc1 = EsbDiagramEditorPlugin
-					.getBundledImageDescriptor("icons/ico20/arrowEast.png");
-			ImageFigure img1 = new ImageFigure(imgDesc1.createImage());
-			img1.setSize(new Dimension(22, 18));
-
-			RectangleFigure imageRectangle11 = new RectangleFigure();
-			imageRectangle11.setOutline(false);
-			imageRectangle11.setBackgroundColor(new Color(null, 255, 255, 255));
-			imageRectangle11.setPreferredSize(new Dimension(22, 18));
-			imageRectangle11.add(img1);
-
-			this.add(imageRectangle11, constraintImageRectangle11);
+			ImageFigure img1 = EditPartDrawingHelper.getEastArrowIcon(22, 18);
+			this.add(img1, constraintImageRectangle11);
 
 		}
 
@@ -280,18 +270,8 @@ public abstract class AbstractMediatorOutputConnectorEditPart extends AbstractOu
 			constraintImageRectangle11.grabExcessHorizontalSpace = true;
 			constraintImageRectangle11.grabExcessVerticalSpace = true;
 
-			ImageDescriptor imgDesc1 = EsbDiagramEditorPlugin
-					.getBundledImageDescriptor("icons/ico20/arrowWest.png");
-			ImageFigure img1 = new ImageFigure(imgDesc1.createImage());
-			img1.setSize(new Dimension(22, 18));
-
-			RectangleFigure imageRectangle11 = new RectangleFigure();
-			imageRectangle11.setOutline(false);
-			imageRectangle11.setBackgroundColor(new Color(null, 255, 255, 255));
-			imageRectangle11.setPreferredSize(new Dimension(22, 18));
-			imageRectangle11.add(img1);
-
-			this.add(imageRectangle11, constraintImageRectangle11);
+			ImageFigure img1 = EditPartDrawingHelper.getWestArrowIcon(22, 18);
+			this.add(img1, constraintImageRectangle11);
 
 		}
 

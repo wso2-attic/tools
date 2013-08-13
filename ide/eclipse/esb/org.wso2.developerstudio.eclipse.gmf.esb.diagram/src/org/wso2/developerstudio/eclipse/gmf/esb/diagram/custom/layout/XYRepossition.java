@@ -17,6 +17,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.complexFiguredAbs
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AggregateMediatorEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbLinkEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.EsbServerEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.MediatorFlowMediatorFlowCompartment5EditPart;
 
 public class XYRepossition {
 
@@ -46,13 +47,19 @@ public class XYRepossition {
 				org.eclipse.draw2d.geometry.Rectangle constraints = new org.eclipse.draw2d.geometry.Rectangle(
 						0, 100, x, y);
 
+				
+				((GraphicalEditPart) parent.getParent().getParent()).setLayoutConstraint(
+						parent.getParent(), ((GraphicalEditPart) parent.getParent()).getFigure(),
+						constraints);
+				
+				if(parent instanceof MediatorFlowMediatorFlowCompartment5EditPart){
+				
 				((GraphicalEditPart) parent.getParent().getParent().getParent())
 						.setLayoutConstraint(parent.getParent().getParent(),
 								((GraphicalEditPart) parent.getParent().getParent()).getFigure(),
 								constraints);
-				((GraphicalEditPart) parent.getParent().getParent()).setLayoutConstraint(
-						parent.getParent(), ((GraphicalEditPart) parent.getParent()).getFigure(),
-						constraints);
+
+				}
 				/*
 				 * Resize complex mediator
 				 */								

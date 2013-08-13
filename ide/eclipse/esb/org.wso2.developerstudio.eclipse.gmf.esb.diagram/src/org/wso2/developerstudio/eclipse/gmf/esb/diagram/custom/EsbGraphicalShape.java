@@ -45,7 +45,7 @@ public class EsbGraphicalShape extends RoundedRectangle {
 		RoundedRectangle bottomRondedRect = new RoundedRectangle();
 		bottomRondedRect.setCornerDimensions(new Dimension(8, 8));
 		bottomRondedRect.setOutline(false);
-		bottomRondedRect.setBackgroundColor(this.getBackgroundColor());
+		//bottomRondedRect.setBackgroundColor(this.getBackgroundColor()); //do no set background since this will case probs with selection colors
 		bottomRondedRect.setPreferredSize(new Dimension(Figure_PreferredWidth, Figure_PreferredHeight));
 		// we do not set border since we dont want to show that in unselected state
 		

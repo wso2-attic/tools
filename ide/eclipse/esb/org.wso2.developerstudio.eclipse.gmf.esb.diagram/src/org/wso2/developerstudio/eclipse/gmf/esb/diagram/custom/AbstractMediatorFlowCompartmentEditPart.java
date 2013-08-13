@@ -23,6 +23,8 @@ public class AbstractMediatorFlowCompartmentEditPart extends ShapeCompartmentEdi
 
 	private static IDeveloperStudioLog log = Logger.getLog(Activator.PLUGIN_ID);
 	private AbstractMediatorFlowCompartmentEditPart instance;
+	public Complexity complexity=null;
+	public enum Complexity{SINGLE,DOUBLE,MULTIPLE};  
 	
 	public AbstractMediatorFlowCompartmentEditPart(View view) {
 		super(view);

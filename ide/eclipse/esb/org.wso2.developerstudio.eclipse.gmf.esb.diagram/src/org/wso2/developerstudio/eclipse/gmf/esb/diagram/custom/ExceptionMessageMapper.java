@@ -5,7 +5,7 @@ public class ExceptionMessageMapper {
 	public static String getNonTechnicalMessage(String message) {
 		
 		String simpleMessage = message;
-		if (message.contains("Only one resource can be designated as default"))
+		if ("Only one resource can be designated as default".contains(message))
 		{
 			simpleMessage = "You have defined more than one resources where no uri-mapping(or uri-template) is provided or with empty uri-maping(or uri-template)s, " +
 					"which leads to treat all these resources as default resources, But Only one resource can be designated as default. "; 

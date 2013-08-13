@@ -91,7 +91,7 @@ public class EsbGroupingShape extends RoundedRectangle {
 		// Rectangle to hold item name (ex. Aggregate, Cache, etc.).
 		RectangleFigure esbNodeTypeNameRectangle = new RectangleFigure();
 		esbNodeTypeNameRectangle.setOutline(false);
-		esbNodeTypeNameRectangle.setBackgroundColor(new Color(null, 255, 255, 225));
+		esbNodeTypeNameRectangle.setBackgroundColor(new Color(null, 233, 245, 215));
 		esbNodeTypeNameRectangle.setPreferredSize(new Dimension(64, 20));
 
 		GridData constraintEsbNodeTypeNameRectangle = new GridData();
@@ -126,7 +126,7 @@ public class EsbGroupingShape extends RoundedRectangle {
 		innerRect.setBorder(innerRectBorder);
 		innerRect.setPreferredSize(new Dimension(95, 25));
 		innerRect.setMinimumSize(new Dimension(80, 100));
-		innerRect.setBackgroundColor(new Color(null, 255, 255, 225));
+		innerRect.setBackgroundColor(new Color(null, 233, 245, 215));
 
 		GridLayout innerRectLayout = new GridLayout();
 		innerRectLayout.numColumns = 1;
