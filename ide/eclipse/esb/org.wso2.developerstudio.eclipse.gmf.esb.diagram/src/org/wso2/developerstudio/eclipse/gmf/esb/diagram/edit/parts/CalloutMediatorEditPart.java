@@ -26,6 +26,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShapeWithLabel;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedSizedAbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ShowPropertyViewEditPolicy;
@@ -136,6 +137,11 @@ public class CalloutMediatorEditPart extends FixedSizedAbstractMediator {
 					.getFigureCalloutMediatorPropertyValue());
 			return true;
 		}
+		if (childEditPart instanceof CalloutMediatorDescriptionEditPart) {
+			((CalloutMediatorDescriptionEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getCalloutMediatorDescriptionLabel());
+			return true;
+		}
 		if (childEditPart instanceof CalloutMediatorInputConnectorEditPart) {
 			IFigure borderItemFigure = ((CalloutMediatorInputConnectorEditPart) childEditPart)
 					.getFigure();
@@ -160,6 +166,9 @@ public class CalloutMediatorEditPart extends FixedSizedAbstractMediator {
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof CalloutMediatorSoapActionEditPart) {
+			return true;
+		}
+		if (childEditPart instanceof CalloutMediatorDescriptionEditPart) {
 			return true;
 		}
 		if (childEditPart instanceof CalloutMediatorInputConnectorEditPart) {
@@ -294,12 +303,14 @@ public class CalloutMediatorEditPart extends FixedSizedAbstractMediator {
 	/**
 	 * @generated
 	 */
-	public class CalloutMediatorFigure extends EsbGraphicalShape {
+	public class CalloutMediatorFigure extends EsbGraphicalShapeWithLabel {
 
 		/**
 		 * @generated
 		 */
 		private WrappingLabel fFigureCalloutMediatorPropertyValue;
+		
+		private WrappingLabel calloutMediatorDescriptionLabel;
 
 		/**
 		 * @generated
@@ -318,9 +329,9 @@ public class CalloutMediatorEditPart extends FixedSizedAbstractMediator {
 			fFigureCalloutMediatorPropertyValue = new WrappingLabel();
 			fFigureCalloutMediatorPropertyValue.setText("<...>");
 			fFigureCalloutMediatorPropertyValue.setAlignment(SWT.CENTER);
-
-			this.getPropertyValueRectangle1().add(fFigureCalloutMediatorPropertyValue);
-
+			//this.getPropertyValueRectangle1().add(fFigureCalloutMediatorPropertyValue);
+			
+			calloutMediatorDescriptionLabel = getPropertyNameLabel();
 		}
 
 		/**
@@ -328,6 +339,10 @@ public class CalloutMediatorEditPart extends FixedSizedAbstractMediator {
 		 */
 		public WrappingLabel getFigureCalloutMediatorPropertyValue() {
 			return fFigureCalloutMediatorPropertyValue;
+		}
+		
+		public WrappingLabel getCalloutMediatorDescriptionLabel() {
+			return calloutMediatorDescriptionLabel;
 		}
 
 		public String getIconPath() {

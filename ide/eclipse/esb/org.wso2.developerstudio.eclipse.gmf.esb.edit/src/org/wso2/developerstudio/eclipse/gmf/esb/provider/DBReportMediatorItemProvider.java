@@ -66,8 +66,9 @@ public class DBReportMediatorItemProvider
 		if (itemPropertyDescriptors != null) {
 			itemPropertyDescriptors.clear();
 		}
-			super.getPropertyDescriptors(object);
-			addConnectionUseTransactionPropertyDescriptor(object);
+		super.getPropertyDescriptors(object);
+		addConnectionUseTransactionPropertyDescriptor(object);
+		addDescriptionPropertyDescriptor(object);
 			
 		return itemPropertyDescriptors;
 	}

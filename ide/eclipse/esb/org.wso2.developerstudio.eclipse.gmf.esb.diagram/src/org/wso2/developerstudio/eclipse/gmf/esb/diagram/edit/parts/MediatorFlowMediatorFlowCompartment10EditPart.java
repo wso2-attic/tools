@@ -34,7 +34,7 @@ public class MediatorFlowMediatorFlowCompartment10EditPart extends
 	 */
 	public MediatorFlowMediatorFlowCompartment10EditPart(View view) {
 		super(view);
-		complexity=Complexity.DOUBLE;
+		complexity = Complexity.DOUBLE;
 	}
 
 	/**

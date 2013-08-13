@@ -63,20 +63,21 @@ public class RMSequenceMediatorItemProvider
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
 		RMSequenceMediator rmSequenceMediator = (RMSequenceMediator) object;
-		
+
 		if (itemPropertyDescriptors != null) {
 			itemPropertyDescriptors.clear();
 		}
-			super.getPropertyDescriptors(object);
+		super.getPropertyDescriptors(object);
 
-			addRmSpecVersionPropertyDescriptor(object);
-			addSequenceTypePropertyDescriptor(object);
-			
-			if (rmSequenceMediator.getSequenceType().equals(RMSequenceType.CORRELATED_SEQUENCE)) {
+		addRmSpecVersionPropertyDescriptor(object);
+		addSequenceTypePropertyDescriptor(object);
+
+		if (rmSequenceMediator.getSequenceType().equals(RMSequenceType.CORRELATED_SEQUENCE)) {
 			addCorrelationXpathPropertyDescriptor(object);
 			addLastMessageXpathPropertyDescriptor(object);
-			}
-	
+		}
+		addDescriptionPropertyDescriptor(object);
+
 		return itemPropertyDescriptors;
 	}
 
@@ -220,8 +221,10 @@ public class RMSequenceMediatorItemProvider
 	
 	@Override
 	public String getText(Object object) {
-		RMSequenceMediator rmSequenceMediator = (RMSequenceMediator)object;
-		return getString("_UI_RMSequenceMediator_type") + " " + rmSequenceMediator.isReverse();
+		String label = ((RMSequenceMediator)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_RMSequenceMediator_type") :
+			getString("_UI_RMSequenceMediator_type") + " " + label;
 	}
 
 	/**

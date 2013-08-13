@@ -171,8 +171,10 @@ public class RouterMediatorItemProvider
 	
 	@Override
 	public String getText(Object object) {
-		RouterMediator routerMediator = (RouterMediator)object;
-		return getString("_UI_RouterMediator_type") + " " + routerMediator.isReverse();
+		String label = ((RouterMediator)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_RouterMediator_type") :
+			getString("_UI_RouterMediator_type") + " " + label;
 	}
 
 	/**

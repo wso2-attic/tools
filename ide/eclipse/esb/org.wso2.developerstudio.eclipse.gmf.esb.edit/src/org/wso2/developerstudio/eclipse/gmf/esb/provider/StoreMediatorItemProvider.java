@@ -68,6 +68,7 @@ public class StoreMediatorItemProvider
 
 		addMessageStorePropertyDescriptor(object);
 		addOnStoreSequencePropertyDescriptor(object);
+		addDescriptionPropertyDescriptor(object);
 		return itemPropertyDescriptors;
 	}
 

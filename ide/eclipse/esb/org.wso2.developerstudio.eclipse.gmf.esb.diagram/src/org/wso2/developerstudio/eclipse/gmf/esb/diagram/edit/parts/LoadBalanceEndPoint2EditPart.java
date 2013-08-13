@@ -344,7 +344,7 @@ public class LoadBalanceEndPoint2EditPart extends ComplexFiguredAbstractEndpoint
 		/**
 		 * @generated NOT
 		 */
-		private void createContents() {		
+		private void createContents() {
 			fFigureLoadBalanceEndPointNamePropertyLabel = getPropertyNameLabel();
 		}
 

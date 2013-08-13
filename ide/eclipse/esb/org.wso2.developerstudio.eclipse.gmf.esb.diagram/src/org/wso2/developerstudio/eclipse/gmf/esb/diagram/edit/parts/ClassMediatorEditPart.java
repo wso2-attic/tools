@@ -26,6 +26,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShapeWithLabel;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedSizedAbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ShowPropertyViewEditPolicy;
@@ -135,6 +136,11 @@ public class ClassMediatorEditPart extends FixedSizedAbstractMediator {
 					.getFigureClassMediatorPropertyValue());
 			return true;
 		}
+		if (childEditPart instanceof ClassMediatorDescriptionEditPart) {
+			((ClassMediatorDescriptionEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getClassMediatorDescriptionLabel());
+			return true;
+		}
 		if (childEditPart instanceof ClassMediatorInputConnectorEditPart) {
 			IFigure borderItemFigure = ((ClassMediatorInputConnectorEditPart) childEditPart)
 					.getFigure();
@@ -159,6 +165,9 @@ public class ClassMediatorEditPart extends FixedSizedAbstractMediator {
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof ClassMediatorClassNameEditPart) {
+			return true;
+		}
+		if(childEditPart instanceof ClassMediatorDescriptionEditPart) {
 			return true;
 		}
 		if (childEditPart instanceof ClassMediatorInputConnectorEditPart) {
@@ -293,13 +302,15 @@ public class ClassMediatorEditPart extends FixedSizedAbstractMediator {
 	/**
 	 * @generated
 	 */
-	public class ClassMediatorFigure extends EsbGraphicalShape {
+	public class ClassMediatorFigure extends EsbGraphicalShapeWithLabel {
 
 		/**
 		 * @generated
 		 */
 		private WrappingLabel fFigureClassMediatorPropertyValue;
 
+		private WrappingLabel classMediatorDescriptionLabel;
+		
 		/**
 		 * @generated
 		 */
@@ -316,10 +327,10 @@ public class ClassMediatorEditPart extends FixedSizedAbstractMediator {
 
 			fFigureClassMediatorPropertyValue = new WrappingLabel();
 			fFigureClassMediatorPropertyValue.setText("<...>");
-
 			fFigureClassMediatorPropertyValue.setAlignment(SWT.CENTER);
-
-			this.getPropertyValueRectangle1().add(fFigureClassMediatorPropertyValue);
+			//this.getPropertyValueRectangle1().add(fFigureClassMediatorPropertyValue);
+			
+			classMediatorDescriptionLabel = getPropertyNameLabel();
 		}
 
 		/**
@@ -327,6 +338,10 @@ public class ClassMediatorEditPart extends FixedSizedAbstractMediator {
 		 */
 		public WrappingLabel getFigureClassMediatorPropertyValue() {
 			return fFigureClassMediatorPropertyValue;
+		}
+		
+		public WrappingLabel getClassMediatorDescriptionLabel() {
+			return classMediatorDescriptionLabel;
 		}
 
 		public String getIconPath() {

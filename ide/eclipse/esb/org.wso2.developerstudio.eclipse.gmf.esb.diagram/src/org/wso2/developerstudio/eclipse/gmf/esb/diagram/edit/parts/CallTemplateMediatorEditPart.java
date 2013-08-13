@@ -26,6 +26,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShapeWithLabel;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedSizedAbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ShowPropertyViewEditPolicy;
@@ -130,6 +131,11 @@ public class CallTemplateMediatorEditPart extends FixedSizedAbstractMediator {
 
 	protected boolean addFixedChild(EditPart childEditPart) {
 
+		if (childEditPart instanceof CallTemplateMediatorDescriptionEditPart) {
+			((CallTemplateMediatorDescriptionEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getCallTemplateMediatorDescriptionLabel());
+			return true;
+		}
 		if (childEditPart instanceof CallTemplateMediatorInputConnectorEditPart) {
 			IFigure borderItemFigure = ((CallTemplateMediatorInputConnectorEditPart) childEditPart)
 					.getFigure();
@@ -151,6 +157,9 @@ public class CallTemplateMediatorEditPart extends FixedSizedAbstractMediator {
 
 	protected boolean removeFixedChild(EditPart childEditPart) {
 
+		if(childEditPart instanceof CallTemplateMediatorDescriptionEditPart) {
+			return true;
+		}
 		if (childEditPart instanceof CallTemplateMediatorInputConnectorEditPart) {
 			getBorderedFigure().getBorderItemContainer().remove(
 					((CallTemplateMediatorInputConnectorEditPart) childEditPart).getFigure());
@@ -266,12 +275,14 @@ public class CallTemplateMediatorEditPart extends FixedSizedAbstractMediator {
 	/**
 	 * @generated
 	 */
-	public class CallTemplateMediatorFigure extends EsbGraphicalShape {
+	public class CallTemplateMediatorFigure extends EsbGraphicalShapeWithLabel {
 
 		/**
 		 * @generated
 		 */
 		private WrappingLabel fFigureCallTemplateMediatorPropertyValue;
+		
+		private WrappingLabel callTemplateMediatorDescriptionLabel;
 
 		/**
 		 * @generated
@@ -290,9 +301,9 @@ public class CallTemplateMediatorEditPart extends FixedSizedAbstractMediator {
 			fFigureCallTemplateMediatorPropertyValue = new WrappingLabel();
 			fFigureCallTemplateMediatorPropertyValue.setText("<...>");
 			fFigureCallTemplateMediatorPropertyValue.setAlignment(SWT.CENTER);
-
-			this.getPropertyValueRectangle1().add(fFigureCallTemplateMediatorPropertyValue);
-
+			//this.getPropertyValueRectangle1().add(fFigureCallTemplateMediatorPropertyValue);
+			
+			callTemplateMediatorDescriptionLabel = getPropertyNameLabel();
 		}
 
 		/**
@@ -302,6 +313,9 @@ public class CallTemplateMediatorEditPart extends FixedSizedAbstractMediator {
 			return fFigureCallTemplateMediatorPropertyValue;
 		}
 
+		public WrappingLabel getCallTemplateMediatorDescriptionLabel() {
+			return callTemplateMediatorDescriptionLabel;
+		}
 		public String getIconPath() {
 			return "icons/ico20/callTemplate-mediator.gif";
 		}

@@ -299,13 +299,13 @@ public class APIResourceEditPart extends AbstractBaseFigureEditPart {
 		 * @generated NOT
 		 */
 		public APIResourceFigure() {
-			
+
 			ToolbarLayout layoutThis = new ToolbarLayout();
 			layoutThis.setStretchMinorAxis(true);
 			layoutThis.setMinorAlignment(ToolbarLayout.ALIGN_CENTER);
 			layoutThis.setSpacing(0);
 			layoutThis.setVertical(false);
-			
+
 			this.setLayoutManager(layoutThis);
 			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(800), getMapMode().DPtoLP(400)));
 			this.setOutline(false);

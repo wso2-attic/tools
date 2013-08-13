@@ -79,6 +79,7 @@ public class BAMMediatorItemProvider
 		addServerProfilePropertyDescriptor(object);
 		addStreamNamePropertyDescriptor(object);
 		addStreamVersionPropertyDescriptor(object);
+		addDescriptionPropertyDescriptor(object);
 
 		return itemPropertyDescriptors;
 	}

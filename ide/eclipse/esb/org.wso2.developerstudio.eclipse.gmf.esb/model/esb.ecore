@@ -8,7 +8,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Test" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EsbNode" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="EsbElement" abstract="true" eSuperTypes="#//EsbNode"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EsbElement" abstract="true" eSuperTypes="#//EsbNode">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EsbServer" eSuperTypes="#//EsbNode">
     <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
         eType="#//EsbElement" containment="true"/>

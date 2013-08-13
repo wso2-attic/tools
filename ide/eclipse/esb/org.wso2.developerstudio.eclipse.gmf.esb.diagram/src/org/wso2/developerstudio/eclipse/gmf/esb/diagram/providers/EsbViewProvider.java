@@ -1886,6 +1886,8 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 					IPreferenceConstants.PREF_FONT_COLOR);
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
 		}
+		Node label5166 = createLabel(node,
+				EsbVisualIDRegistry.getType(DropMediatorDescriptionEditPart.VISUAL_ID));
 		return node;
 	}
 
@@ -2068,6 +2070,8 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 		}
 		Node label5127 = createLabel(node,
 				EsbVisualIDRegistry.getType(PropertyMediatorPropertyNameEditPart.VISUAL_ID));
+		Node label5167 = createLabel(node,
+				EsbVisualIDRegistry.getType(PropertyMediatorDescriptionEditPart.VISUAL_ID));
 		return node;
 	}
 
@@ -2364,6 +2368,8 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 		}
 		Node label5130 = createLabel(node,
 				EsbVisualIDRegistry.getType(LogMediatorLogCategoryEditPart.VISUAL_ID));
+		Node label5168 = createLabel(node,
+				EsbVisualIDRegistry.getType(LogMediatorDescriptionEditPart.VISUAL_ID));
 		return node;
 	}
 
@@ -4286,6 +4292,8 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 		}
 		Node label5131 = createLabel(node,
 				EsbVisualIDRegistry.getType(EnrichMediatorSourceTypeEditPart.VISUAL_ID));
+		Node label5169 = createLabel(node,
+				EsbVisualIDRegistry.getType(EnrichMediatorDescriptionEditPart.VISUAL_ID));
 		return node;
 	}
 
@@ -4504,6 +4512,8 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 					IPreferenceConstants.PREF_FONT_COLOR);
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
 		}
+		Node label5170 = createLabel(node,
+				EsbVisualIDRegistry.getType(XSLTMediatorDescriptionEditPart.VISUAL_ID));
 		return node;
 	}
 
@@ -5017,6 +5027,8 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 		}
 		Node label5133 = createLabel(node,
 				EsbVisualIDRegistry.getType(EventMediatorTopicTypeEditPart.VISUAL_ID));
+		Node label5171 = createLabel(node,
+				EsbVisualIDRegistry.getType(EventMediatorDescriptionEditPart.VISUAL_ID));
 		return node;
 	}
 
@@ -5127,6 +5139,8 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 		}
 		Node label5134 = createLabel(node,
 				EsbVisualIDRegistry.getType(EntitlementMediatorServerURLEditPart.VISUAL_ID));
+		Node label5172 = createLabel(node,
+				EsbVisualIDRegistry.getType(EntitlementMediatorDescriptionEditPart.VISUAL_ID));
 		return node;
 	}
 
@@ -5239,6 +5253,8 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 		}
 		Node label5135 = createLabel(node,
 				EsbVisualIDRegistry.getType(ClassMediatorClassNameEditPart.VISUAL_ID));
+		Node label5173 = createLabel(node,
+				EsbVisualIDRegistry.getType(ClassMediatorDescriptionEditPart.VISUAL_ID));
 		return node;
 	}
 
@@ -5349,6 +5365,8 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 		}
 		Node label5136 = createLabel(node,
 				EsbVisualIDRegistry.getType(SpringMediatorBeanNameEditPart.VISUAL_ID));
+		Node label5174 = createLabel(node,
+				EsbVisualIDRegistry.getType(SpringMediatorDescriptionEditPart.VISUAL_ID));
 		return node;
 	}
 
@@ -5459,6 +5477,8 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 		}
 		Node label5137 = createLabel(node,
 				EsbVisualIDRegistry.getType(ScriptMediatorScriptLanguageEditPart.VISUAL_ID));
+		Node label5175 = createLabel(node,
+				EsbVisualIDRegistry.getType(ScriptMediatorDescriptionEditPart.VISUAL_ID));
 		return node;
 	}
 
@@ -5569,6 +5589,8 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 		}
 		Node label5138 = createLabel(node,
 				EsbVisualIDRegistry.getType(FaultMediatorFaultStringTypeEditPart.VISUAL_ID));
+		Node label5176 = createLabel(node,
+				EsbVisualIDRegistry.getType(FaultMediatorDescriptionEditPart.VISUAL_ID));
 		return node;
 	}
 
@@ -5679,6 +5701,8 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 		}
 		Node label5139 = createLabel(node,
 				EsbVisualIDRegistry.getType(XQueryMediatorScriptKeyTypeEditPart.VISUAL_ID));
+		Node label5177 = createLabel(node,
+				EsbVisualIDRegistry.getType(XQueryMediatorDescriptionEditPart.VISUAL_ID));
 		return node;
 	}
 
@@ -5789,6 +5813,8 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 		}
 		Node label5140 = createLabel(node,
 				EsbVisualIDRegistry.getType(CommandMediatorClassNameEditPart.VISUAL_ID));
+		Node label5178 = createLabel(node,
+				EsbVisualIDRegistry.getType(CommandMediatorDescriptionEditPart.VISUAL_ID));
 		return node;
 	}
 
@@ -5899,6 +5925,8 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 		}
 		Node label5141 = createLabel(node,
 				EsbVisualIDRegistry.getType(DBLookupMediatorConnectionURLEditPart.VISUAL_ID));
+		Node label5179 = createLabel(node,
+				EsbVisualIDRegistry.getType(DBLookupMediatorDescriptionEditPart.VISUAL_ID));
 		return node;
 	}
 
@@ -6009,6 +6037,8 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 		}
 		Node label5142 = createLabel(node,
 				EsbVisualIDRegistry.getType(DBReportMediatorConnectionURLEditPart.VISUAL_ID));
+		Node label5180 = createLabel(node,
+				EsbVisualIDRegistry.getType(DBReportMediatorDescriptionEditPart.VISUAL_ID));
 		return node;
 	}
 
@@ -6117,6 +6147,8 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 					IPreferenceConstants.PREF_FONT_COLOR);
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
 		}
+		Node label5181 = createLabel(node,
+				EsbVisualIDRegistry.getType(SmooksMediatorDescriptionEditPart.VISUAL_ID));
 		return node;
 	}
 
@@ -6225,6 +6257,8 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 					IPreferenceConstants.PREF_FONT_COLOR);
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
 		}
+		Node label5182 = createLabel(node,
+				EsbVisualIDRegistry.getType(SendMediatorDescriptionEditPart.VISUAL_ID));
 		return node;
 	}
 
@@ -6411,6 +6445,8 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 		}
 		Node label5143 = createLabel(node,
 				EsbVisualIDRegistry.getType(HeaderMediatorValueLiteralEditPart.VISUAL_ID));
+		Node label5183 = createLabel(node,
+				EsbVisualIDRegistry.getType(HeaderMediatorDescriptionEditPart.VISUAL_ID));
 		return node;
 	}
 
@@ -8291,6 +8327,8 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 		}
 		Node label5147 = createLabel(node,
 				EsbVisualIDRegistry.getType(CalloutMediatorSoapActionEditPart.VISUAL_ID));
+		Node label5184 = createLabel(node,
+				EsbVisualIDRegistry.getType(CalloutMediatorDescriptionEditPart.VISUAL_ID));
 		return node;
 	}
 
@@ -8477,6 +8515,8 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 					IPreferenceConstants.PREF_FONT_COLOR);
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
 		}
+		Node label5188 = createLabel(node,
+				EsbVisualIDRegistry.getType(StoreMediatorDescriptionEditPart.VISUAL_ID));
 		return node;
 	}
 
@@ -8585,6 +8625,8 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 					IPreferenceConstants.PREF_FONT_COLOR);
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
 		}
+		Node label5189 = createLabel(node,
+				EsbVisualIDRegistry.getType(BuilderMediatorDescriptionEditPart.VISUAL_ID));
 		return node;
 	}
 
@@ -8693,6 +8735,8 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 					IPreferenceConstants.PREF_FONT_COLOR);
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
 		}
+		Node label5190 = createLabel(node,
+				EsbVisualIDRegistry.getType(CallTemplateMediatorDescriptionEditPart.VISUAL_ID));
 		return node;
 	}
 
@@ -8803,6 +8847,8 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 					IPreferenceConstants.PREF_FONT_COLOR);
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
 		}
+		Node label5191 = createLabel(node,
+				EsbVisualIDRegistry.getType(PayloadFactoryMediatorDescriptionEditPart.VISUAL_ID));
 		return node;
 	}
 
@@ -8913,6 +8959,8 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 					IPreferenceConstants.PREF_FONT_COLOR);
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
 		}
+		Node label5192 = createLabel(node,
+				EsbVisualIDRegistry.getType(EnqueueMediatorDescriptionEditPart.VISUAL_ID));
 		return node;
 	}
 
@@ -9021,6 +9069,8 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 					IPreferenceConstants.PREF_FONT_COLOR);
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
 		}
+		Node label5193 = createLabel(node,
+				EsbVisualIDRegistry.getType(URLRewriteMediatorDescriptionEditPart.VISUAL_ID));
 		return node;
 	}
 
@@ -9761,6 +9811,8 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 					IPreferenceConstants.PREF_FONT_COLOR);
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
 		}
+		Node label5194 = createLabel(node,
+				EsbVisualIDRegistry.getType(BAMMediatorDescriptionEditPart.VISUAL_ID));
 		return node;
 	}
 
@@ -9869,6 +9921,8 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 					IPreferenceConstants.PREF_FONT_COLOR);
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
 		}
+		Node label5195 = createLabel(node,
+				EsbVisualIDRegistry.getType(BeanMediatorDescriptionEditPart.VISUAL_ID));
 		return node;
 	}
 
@@ -9977,6 +10031,8 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 					IPreferenceConstants.PREF_FONT_COLOR);
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
 		}
+		Node label5196 = createLabel(node,
+				EsbVisualIDRegistry.getType(EJBMediatorDescriptionEditPart.VISUAL_ID));
 		return node;
 	}
 
@@ -10423,6 +10479,8 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 					IPreferenceConstants.PREF_FONT_COLOR);
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
 		}
+		Node label5185 = createLabel(node,
+				EsbVisualIDRegistry.getType(TransactionMediatorDescriptionEditPart.VISUAL_ID));
 		return node;
 	}
 
@@ -10533,6 +10591,8 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 					IPreferenceConstants.PREF_FONT_COLOR);
 			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
 		}
+		Node label5186 = createLabel(node,
+				EsbVisualIDRegistry.getType(RMSequenceMediatorDescriptionEditPart.VISUAL_ID));
 		return node;
 	}
 
@@ -11126,6 +11186,8 @@ public class EsbViewProvider extends AbstractProvider implements IViewProvider {
 		}
 		Node label5148 = createLabel(node,
 				EsbVisualIDRegistry.getType(OAuthMediatorRemoteServiceUrlEditPart.VISUAL_ID));
+		Node label5187 = createLabel(node,
+				EsbVisualIDRegistry.getType(OAuthMediatorDescriptionEditPart.VISUAL_ID));
 		return node;
 	}
 

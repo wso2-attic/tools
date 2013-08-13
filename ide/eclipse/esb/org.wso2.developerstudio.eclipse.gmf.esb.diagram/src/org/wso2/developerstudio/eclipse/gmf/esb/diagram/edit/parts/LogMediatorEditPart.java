@@ -27,6 +27,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShapeWithLabel;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedSizedAbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ShowPropertyViewEditPolicy;
@@ -138,6 +139,11 @@ public class LogMediatorEditPart extends FixedSizedAbstractMediator {
 					.getFigureLogCatogeryLogPropertyLabel());
 			return true;
 		}
+		if (childEditPart instanceof LogMediatorDescriptionEditPart) {
+			((LogMediatorDescriptionEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getLogDescriptionLabel());
+			return true;
+		}
 		if (childEditPart instanceof LogMediatorInputConnectorEditPart) {
 			IFigure borderItemFigure = ((LogMediatorInputConnectorEditPart) childEditPart)
 					.getFigure();
@@ -162,6 +168,9 @@ public class LogMediatorEditPart extends FixedSizedAbstractMediator {
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof LogMediatorLogCategoryEditPart) {
+			return true;
+		}
+		if (childEditPart instanceof LogMediatorDescriptionEditPart) {
 			return true;
 		}
 		if (childEditPart instanceof LogMediatorInputConnectorEditPart) {
@@ -296,12 +305,14 @@ public class LogMediatorEditPart extends FixedSizedAbstractMediator {
 	/**
 	 * @generated
 	 */
-	public class LogMediatorFigure extends EsbGraphicalShape {
+	public class LogMediatorFigure extends EsbGraphicalShapeWithLabel {
 
 		/**
 		 * @generated
 		 */
 		private WrappingLabel fFigureLogCatogeryLogPropertyLabel;
+		
+		private WrappingLabel fFigureLogDescriptionLabel;
 
 		/**
 		 * @generated
@@ -320,9 +331,9 @@ public class LogMediatorEditPart extends FixedSizedAbstractMediator {
 			fFigureLogCatogeryLogPropertyLabel = new WrappingLabel();
 			fFigureLogCatogeryLogPropertyLabel.setText("<...>");
 			fFigureLogCatogeryLogPropertyLabel.setAlignment(SWT.CENTER);
-
-			this.getPropertyValueRectangle1().add(fFigureLogCatogeryLogPropertyLabel);
-
+			//this.getPropertyValueRectangle1().add(fFigureLogCatogeryLogPropertyLabel);
+			
+			fFigureLogDescriptionLabel = getPropertyNameLabel();
 		}
 
 		/**
@@ -330,6 +341,10 @@ public class LogMediatorEditPart extends FixedSizedAbstractMediator {
 		 */
 		public WrappingLabel getFigureLogCatogeryLogPropertyLabel() {
 			return fFigureLogCatogeryLogPropertyLabel;
+		}
+		
+		public WrappingLabel getLogDescriptionLabel() {
+			return fFigureLogDescriptionLabel;
 		}
 
 		public String getIconPath() {

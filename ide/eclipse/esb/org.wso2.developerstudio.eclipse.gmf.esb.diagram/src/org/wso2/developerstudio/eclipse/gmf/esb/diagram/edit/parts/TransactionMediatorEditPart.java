@@ -24,6 +24,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShapeWithLabel;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedSizedAbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ShowPropertyViewEditPolicy;
@@ -131,6 +132,11 @@ public class TransactionMediatorEditPart extends FixedSizedAbstractMediator {
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
 
+		if (childEditPart instanceof TransactionMediatorDescriptionEditPart) {
+			((TransactionMediatorDescriptionEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getTransactionMediatorDescriptionLabel());
+			return true;
+		}
 		if (childEditPart instanceof TransactionMediatorInputConnectorEditPart) {
 
 			IFigure borderItemFigure = ((TransactionMediatorInputConnectorEditPart) childEditPart)
@@ -158,12 +164,26 @@ public class TransactionMediatorEditPart extends FixedSizedAbstractMediator {
 		}
 		return false;
 	}
+	
+	protected boolean removeFixedChild(EditPart childEditPart) {
+		if(childEditPart instanceof TransactionMediatorDescriptionEditPart) {
+			return true;
+		}
+		return false;
+	}
 
 	protected void addChildVisual(EditPart childEditPart, int index) {
 		if (addFixedChild(childEditPart)) {
 			return;
 		}
 		super.addChildVisual(childEditPart, -1);
+	}
+	
+	protected void removeChildVisual(EditPart childEditPart) {
+		if (removeFixedChild(childEditPart)) {
+			return;
+		}
+		super.removeChildVisual(childEditPart);
 	}
 
 	/**
@@ -247,12 +267,14 @@ public class TransactionMediatorEditPart extends FixedSizedAbstractMediator {
 	/**
 	 * @generated
 	 */
-	public class TransactionMediatorFigure extends EsbGraphicalShape {
+	public class TransactionMediatorFigure extends EsbGraphicalShapeWithLabel {
 
 		/**
 		 * @generated
 		 */
 		private WrappingLabel fFigureTransactionMediatorPropertyValue;
+		
+		private WrappingLabel transactionMediatorDescriptionLabel;
 
 		/**
 		 * @generated
@@ -271,9 +293,9 @@ public class TransactionMediatorEditPart extends FixedSizedAbstractMediator {
 			fFigureTransactionMediatorPropertyValue = new WrappingLabel();
 			fFigureTransactionMediatorPropertyValue.setText("<...>");
 			fFigureTransactionMediatorPropertyValue.setAlignment(SWT.CENTER);
-
-			this.getPropertyValueRectangle1().add(fFigureTransactionMediatorPropertyValue);
-
+			//this.getPropertyValueRectangle1().add(fFigureTransactionMediatorPropertyValue);
+			
+			transactionMediatorDescriptionLabel = getPropertyNameLabel();
 		}
 
 		/**
@@ -281,6 +303,10 @@ public class TransactionMediatorEditPart extends FixedSizedAbstractMediator {
 		 */
 		public WrappingLabel getFigureTransactionMediatorPropertyValue() {
 			return fFigureTransactionMediatorPropertyValue;
+		}
+		
+		public WrappingLabel getTransactionMediatorDescriptionLabel() {
+			return transactionMediatorDescriptionLabel;
 		}
 
 		public String getIconPath() {

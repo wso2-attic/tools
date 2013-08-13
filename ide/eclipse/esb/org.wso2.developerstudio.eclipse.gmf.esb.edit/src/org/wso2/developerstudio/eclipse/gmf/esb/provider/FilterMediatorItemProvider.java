@@ -220,8 +220,10 @@ public class FilterMediatorItemProvider
 	
 	@Override
 	public String getText(Object object) {
-		FilterMediator filterMediator = (FilterMediator)object;
-		return getString("_UI_FilterMediator_type") + " " + filterMediator.isReverse();
+		String label = ((FilterMediator)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_FilterMediator_type") :
+			getString("_UI_FilterMediator_type") + " " + label;
 	}
 
 	/**

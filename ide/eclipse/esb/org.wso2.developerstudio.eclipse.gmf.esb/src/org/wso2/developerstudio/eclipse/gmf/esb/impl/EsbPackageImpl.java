@@ -3331,6 +3331,15 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getEsbElement_Description() {
+		return (EAttribute)esbElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getEsbServer() {
 		return esbServerEClass;
 	}
@@ -13828,6 +13837,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		esbNodeEClass = createEClass(ESB_NODE);
 
 		esbElementEClass = createEClass(ESB_ELEMENT);
+		createEAttribute(esbElementEClass, ESB_ELEMENT__DESCRIPTION);
 
 		esbServerEClass = createEClass(ESB_SERVER);
 		createEReference(esbServerEClass, ESB_SERVER__CHILDREN);
@@ -15617,6 +15627,7 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEClass(esbNodeEClass, EsbNode.class, "EsbNode", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(esbElementEClass, EsbElement.class, "EsbElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getEsbElement_Description(), ecorePackage.getEString(), "description", null, 0, 1, EsbElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(esbServerEClass, EsbServer.class, "EsbServer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEsbServer_Children(), this.getEsbElement(), null, "children", null, 0, -1, EsbServer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

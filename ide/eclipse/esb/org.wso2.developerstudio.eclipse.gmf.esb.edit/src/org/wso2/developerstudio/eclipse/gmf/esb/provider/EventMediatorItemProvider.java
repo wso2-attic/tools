@@ -79,7 +79,8 @@ public class EventMediatorItemProvider
 				break;
 
 			}
-			addEventExpressionPropertyDescriptor(object);			
+			addEventExpressionPropertyDescriptor(object);
+			addDescriptionPropertyDescriptor(object);
 		
 		return itemPropertyDescriptors;
 	}
@@ -216,8 +217,10 @@ public class EventMediatorItemProvider
 	
 	@Override
 	public String getText(Object object) {
-		EventMediator eventMediator = (EventMediator)object;
-		return getString("_UI_EventMediator_type") + " " + eventMediator.isReverse();
+		String label = ((EventMediator)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_EventMediator_type") :
+			getString("_UI_EventMediator_type") + " " + label;
 	}
 
 	/**

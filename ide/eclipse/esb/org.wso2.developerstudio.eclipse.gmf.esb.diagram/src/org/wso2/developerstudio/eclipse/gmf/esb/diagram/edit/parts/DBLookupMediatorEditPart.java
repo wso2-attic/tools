@@ -26,6 +26,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShapeWithLabel;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedSizedAbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ShowPropertyViewEditPolicy;
@@ -136,6 +137,11 @@ public class DBLookupMediatorEditPart extends FixedSizedAbstractMediator {
 					.getFigureDBLookupMediatorPropertyValue());
 			return true;
 		}
+		if (childEditPart instanceof DBLookupMediatorDescriptionEditPart) {
+			((DBLookupMediatorDescriptionEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getDBLookupMediatorDescriptionLabel());
+			return true;
+		}
 		if (childEditPart instanceof DBLookupMediatorInputConnectorEditPart) {
 
 			IFigure borderItemFigure = ((DBLookupMediatorInputConnectorEditPart) childEditPart)
@@ -161,6 +167,9 @@ public class DBLookupMediatorEditPart extends FixedSizedAbstractMediator {
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof DBLookupMediatorConnectionURLEditPart) {
+			return true;
+		}
+		if (childEditPart instanceof DBLookupMediatorDescriptionEditPart) {
 			return true;
 		}
 		if (childEditPart instanceof DBLookupMediatorInputConnectorEditPart) {
@@ -295,12 +304,14 @@ public class DBLookupMediatorEditPart extends FixedSizedAbstractMediator {
 	/**
 	 * @generated
 	 */
-	public class DBLookupMediatorFigure extends EsbGraphicalShape {
+	public class DBLookupMediatorFigure extends EsbGraphicalShapeWithLabel {
 
 		/**
 		 * @generated
 		 */
 		private WrappingLabel fFigureDBLookupMediatorPropertyValue;
+		
+		private WrappingLabel dbLookupMediatorDescriptionLabel;
 
 		/**
 		 * @generated
@@ -319,8 +330,9 @@ public class DBLookupMediatorEditPart extends FixedSizedAbstractMediator {
 			fFigureDBLookupMediatorPropertyValue = new WrappingLabel();
 			fFigureDBLookupMediatorPropertyValue.setText("<...>");
 			fFigureDBLookupMediatorPropertyValue.setAlignment(SWT.CENTER);
-
-			this.getPropertyValueRectangle1().add(fFigureDBLookupMediatorPropertyValue);
+			//this.getPropertyValueRectangle1().add(fFigureDBLookupMediatorPropertyValue);
+			
+			dbLookupMediatorDescriptionLabel = getPropertyNameLabel();
 		}
 
 		/**
@@ -328,6 +340,10 @@ public class DBLookupMediatorEditPart extends FixedSizedAbstractMediator {
 		 */
 		public WrappingLabel getFigureDBLookupMediatorPropertyValue() {
 			return fFigureDBLookupMediatorPropertyValue;
+		}
+		
+		public WrappingLabel getDBLookupMediatorDescriptionLabel() {
+			return dbLookupMediatorDescriptionLabel;
 		}
 
 		public String getIconPath() {

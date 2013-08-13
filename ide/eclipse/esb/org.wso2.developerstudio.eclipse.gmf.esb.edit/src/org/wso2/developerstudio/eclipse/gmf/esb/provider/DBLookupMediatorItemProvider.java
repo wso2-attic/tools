@@ -63,7 +63,8 @@ public class DBLookupMediatorItemProvider
 		if (itemPropertyDescriptors != null) {
 			itemPropertyDescriptors.clear();
 		}
-			super.getPropertyDescriptors(object);
+		super.getPropertyDescriptors(object);
+		addDescriptionPropertyDescriptor(object);	
 
 		return itemPropertyDescriptors;
 	}

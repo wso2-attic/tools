@@ -26,6 +26,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShapeWithLabel;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedSizedAbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ShowPropertyViewEditPolicy;
@@ -135,6 +136,11 @@ public class EnrichMediatorEditPart extends FixedSizedAbstractMediator {
 					.getFigureEnrichMediatorPropertyValue());
 			return true;
 		}
+		if (childEditPart instanceof EnrichMediatorDescriptionEditPart) {
+			((EnrichMediatorDescriptionEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getEnrichMediatorDescriptionLabel());
+			return true;
+		}
 		if (childEditPart instanceof EnrichMediatorInputConnectorEditPart) {
 			IFigure borderItemFigure = ((EnrichMediatorInputConnectorEditPart) childEditPart)
 					.getFigure();
@@ -159,6 +165,9 @@ public class EnrichMediatorEditPart extends FixedSizedAbstractMediator {
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof EnrichMediatorSourceTypeEditPart) {
+			return true;
+		}
+		if (childEditPart instanceof EnrichMediatorDescriptionEditPart) {
 			return true;
 		}
 		if (childEditPart instanceof EnrichMediatorInputConnectorEditPart) {
@@ -293,12 +302,14 @@ public class EnrichMediatorEditPart extends FixedSizedAbstractMediator {
 	/**
 	 * @generated
 	 */
-	public class EnrichMediatorFigure extends EsbGraphicalShape {
+	public class EnrichMediatorFigure extends EsbGraphicalShapeWithLabel {
 
 		/**
 		 * @generated
 		 */
 		private WrappingLabel fFigureEnrichMediatorPropertyValue;
+		
+		private WrappingLabel enrichMediatorDescriptionLabel;
 
 		/**
 		 * @generated
@@ -315,10 +326,10 @@ public class EnrichMediatorEditPart extends FixedSizedAbstractMediator {
 		private void createContents() {
 			fFigureEnrichMediatorPropertyValue = new WrappingLabel();
 			fFigureEnrichMediatorPropertyValue.setText("<...>");
-
 			fFigureEnrichMediatorPropertyValue.setAlignment(SWT.CENTER);
-
-			this.getPropertyValueRectangle1().add(fFigureEnrichMediatorPropertyValue);
+			//this.getPropertyValueRectangle1().add(fFigureEnrichMediatorPropertyValue);
+		
+			enrichMediatorDescriptionLabel = getPropertyNameLabel();
 		}
 
 		/**
@@ -326,6 +337,10 @@ public class EnrichMediatorEditPart extends FixedSizedAbstractMediator {
 		 */
 		public WrappingLabel getFigureEnrichMediatorPropertyValue() {
 			return fFigureEnrichMediatorPropertyValue;
+		}
+		
+		public WrappingLabel getEnrichMediatorDescriptionLabel() {
+			return enrichMediatorDescriptionLabel;
 		}
 
 		public String getIconPath() {

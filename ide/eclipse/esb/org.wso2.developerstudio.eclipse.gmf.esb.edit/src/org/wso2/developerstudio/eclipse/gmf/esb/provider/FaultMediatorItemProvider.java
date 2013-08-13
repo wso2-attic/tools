@@ -122,6 +122,8 @@ public class FaultMediatorItemProvider extends MediatorItemProvider implements
 		} else {
 			addFaultDetailValuePropertyDescriptor(object);
 		}	
+		addDescriptionPropertyDescriptor(object);
+		
 		return itemPropertyDescriptors;
 	}
 

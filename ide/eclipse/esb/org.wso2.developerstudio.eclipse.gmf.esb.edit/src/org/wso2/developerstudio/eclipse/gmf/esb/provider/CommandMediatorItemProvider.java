@@ -67,6 +67,7 @@ public class CommandMediatorItemProvider
 		super.getPropertyDescriptors(object);
 		addClassNamePropertyDescriptor(object);
 		addPropertiesPropertyDescriptor(object);
+		addDescriptionPropertyDescriptor(object);
 		return itemPropertyDescriptors;
 	}
 

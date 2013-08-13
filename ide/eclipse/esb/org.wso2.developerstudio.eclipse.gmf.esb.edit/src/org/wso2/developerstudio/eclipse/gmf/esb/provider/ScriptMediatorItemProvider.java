@@ -82,6 +82,8 @@ public class ScriptMediatorItemProvider
 		} else {
 			addScriptBodyPropertyDescriptor(object);
 		}
+		addDescriptionPropertyDescriptor(object);
+		
 		return itemPropertyDescriptors;
 	}
 
@@ -319,8 +321,10 @@ public class ScriptMediatorItemProvider
 	
 	@Override
 	public String getText(Object object) {
-		ScriptMediator scriptMediator = (ScriptMediator)object;
-		return getString("_UI_ScriptMediator_type") + " " + scriptMediator.isReverse();
+		String label = ((ScriptMediator)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ScriptMediator_type") :
+			getString("_UI_ScriptMediator_type") + " " + label;
 	}
 
 	/**

@@ -24,6 +24,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShapeWithLabel;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedSizedAbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ShowPropertyViewEditPolicy;
@@ -104,6 +105,11 @@ public class EnqueueMediatorEditPart extends FixedSizedAbstractMediator {
 	}
 
 	protected boolean addFixedChild(EditPart childEditPart) {
+		if (childEditPart instanceof EnqueueMediatorDescriptionEditPart) {
+			((EnqueueMediatorDescriptionEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getEnqueueMediatorDescriptionLabel());
+			return true;
+		}
 		if (childEditPart instanceof EnqueueMediatorInputConnectorEditPart) {
 			IFigure borderItemFigure = ((EnqueueMediatorInputConnectorEditPart) childEditPart)
 					.getFigure();
@@ -128,6 +134,20 @@ public class EnqueueMediatorEditPart extends FixedSizedAbstractMediator {
 			return;
 		}
 		super.addChildVisual(childEditPart, -1);
+	}
+	
+	protected boolean removeFixedChild(EditPart childEditPart) {
+		if(childEditPart instanceof EnqueueMediatorDescriptionEditPart) {
+			return true;
+		}
+		return false;
+	}
+	
+	protected void removeChildVisual(EditPart childEditPart) {
+		if (removeFixedChild(childEditPart)) {
+			return;
+		}
+		super.removeChildVisual(childEditPart);
 	}
 
 	/**
@@ -233,12 +253,14 @@ public class EnqueueMediatorEditPart extends FixedSizedAbstractMediator {
 	/**
 	 * @generated
 	 */
-	public class EnqueueMediatorFigure extends EsbGraphicalShape {
+	public class EnqueueMediatorFigure extends EsbGraphicalShapeWithLabel {
 
 		/**
 		 * @generated
 		 */
 		private WrappingLabel fFigureEnqueueMediatorPropertyValue;
+		
+		private WrappingLabel enqueueMediatorDescriptionLabel;
 
 		/**
 		 * @generated
@@ -257,9 +279,9 @@ public class EnqueueMediatorEditPart extends FixedSizedAbstractMediator {
 			fFigureEnqueueMediatorPropertyValue = new WrappingLabel();
 			fFigureEnqueueMediatorPropertyValue.setText("<...>");
 			fFigureEnqueueMediatorPropertyValue.setAlignment(SWT.CENTER);
-
-			this.getPropertyValueRectangle1().add(fFigureEnqueueMediatorPropertyValue);
-
+			//this.getPropertyValueRectangle1().add(fFigureEnqueueMediatorPropertyValue);
+			
+			enqueueMediatorDescriptionLabel = getPropertyNameLabel();
 		}
 
 		/**
@@ -267,6 +289,10 @@ public class EnqueueMediatorEditPart extends FixedSizedAbstractMediator {
 		 */
 		public WrappingLabel getFigureEnqueueMediatorPropertyValue() {
 			return fFigureEnqueueMediatorPropertyValue;
+		}
+		
+		public WrappingLabel getEnqueueMediatorDescriptionLabel() {
+			return enqueueMediatorDescriptionLabel;
 		}
 
 		public String getIconPath() {

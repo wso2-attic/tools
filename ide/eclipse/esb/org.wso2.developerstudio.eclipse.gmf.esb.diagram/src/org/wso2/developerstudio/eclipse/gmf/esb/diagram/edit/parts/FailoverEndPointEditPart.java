@@ -74,7 +74,8 @@ public class FailoverEndPointEditPart extends ComplexFiguredAbstractEndpoint {
 	protected void createDefaultEditPolicies() {
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new FailoverEndPointItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
+				new FailoverEndPointItemSemanticEditPolicy());
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE, new FailoverEndPointCanonicalEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
@@ -262,7 +263,7 @@ public class FailoverEndPointEditPart extends ComplexFiguredAbstractEndpoint {
 		}
 		return nodeShape; // use nodeShape itself as contentPane
 	}
-	
+
 	/**
 	 * @generated
 	 */
@@ -340,7 +341,7 @@ public class FailoverEndPointEditPart extends ComplexFiguredAbstractEndpoint {
 		 * @generated NOT
 		 */
 		private void createContents() {
-			
+
 			fFigureFailoverEndPointNamePropertyLabel = getPropertyNameLabel();
 		}
 

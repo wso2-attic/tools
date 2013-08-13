@@ -68,6 +68,7 @@ public class ClassMediatorItemProvider
 
 		addClassNamePropertyDescriptor(object);
 		addClassPropertyDescriptor(object);
+		addDescriptionPropertyDescriptor(object);
 
 		return itemPropertyDescriptors;
 	}

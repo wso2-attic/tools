@@ -70,6 +70,7 @@ public class EntitlementMediatorItemProvider
 			addServerURLPropertyDescriptor(object);
 			addUsernamePropertyDescriptor(object);
 			addPasswordPropertyDescriptor(object);
+			addDescriptionPropertyDescriptor(object);
 		
 		return itemPropertyDescriptors;
 	}

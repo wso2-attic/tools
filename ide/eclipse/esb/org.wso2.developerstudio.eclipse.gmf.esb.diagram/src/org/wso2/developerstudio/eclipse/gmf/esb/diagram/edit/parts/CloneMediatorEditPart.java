@@ -77,7 +77,6 @@ public class CloneMediatorEditPart extends MultipleCompartmentComplexFiguredAbst
 	 */
 	protected IFigure contentPane;
 
-
 	private List<IFigure> outputConnectors = new ArrayList<IFigure>();
 	private List<BorderItemLocator> outputLocators = new ArrayList<BorderItemLocator>();
 	private IFigure inputConnector;

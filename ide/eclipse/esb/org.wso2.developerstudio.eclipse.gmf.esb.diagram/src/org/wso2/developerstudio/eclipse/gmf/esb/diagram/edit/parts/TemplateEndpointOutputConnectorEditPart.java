@@ -35,7 +35,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.providers.EsbElementType
 /**
  * @generated NOT
  */
-public class TemplateEndpointOutputConnectorEditPart extends AbstractEndpointOutputConnectorEditPart {
+public class TemplateEndpointOutputConnectorEditPart extends
+		AbstractEndpointOutputConnectorEditPart {
 
 	/**
 	 * @generated
@@ -51,7 +52,7 @@ public class TemplateEndpointOutputConnectorEditPart extends AbstractEndpointOut
 	 * @generated
 	 */
 	protected IFigure primaryShape;
-	
+
 	public final boolean isInput = false;
 
 	public NodeFigure figure_;

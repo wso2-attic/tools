@@ -81,6 +81,7 @@ public class SmooksMediatorItemProvider
 			addOutputActionPropertyDescriptor(object);
 			addOutputExpressionPropertyDescriptor(object);
 		}
+		addDescriptionPropertyDescriptor(object);
 
 		return itemPropertyDescriptors;
 	}
@@ -314,8 +315,10 @@ public class SmooksMediatorItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		SmooksMediator smooksMediator = (SmooksMediator)object;
-		return getString("_UI_SmooksMediator_type") + " " + smooksMediator.isReverse();
+		String label = ((SmooksMediator)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_SmooksMediator_type") :
+			getString("_UI_SmooksMediator_type") + " " + label;
 	}
 
 	/**

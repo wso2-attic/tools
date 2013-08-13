@@ -99,6 +99,7 @@ public class BeanMediatorItemProvider
 			addTargetExpressionPropertyDescriptor(object);
 			break;
 		}	
+		addDescriptionPropertyDescriptor(object);
 			
 		return itemPropertyDescriptors;
 	}
@@ -375,8 +376,10 @@ public class BeanMediatorItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		BeanMediator beanMediator = (BeanMediator)object;
-		return getString("_UI_BeanMediator_type") + " " + beanMediator.isReverse();
+		String label = ((BeanMediator)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_BeanMediator_type") :
+			getString("_UI_BeanMediator_type") + " " + label;
 	}
 
 	/**

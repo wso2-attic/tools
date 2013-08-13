@@ -97,8 +97,10 @@ public class MediatorItemProvider
 	
 	@Override
 	public String getText(Object object) {
-		Mediator mediator = (Mediator)object;
-		return getString("_UI_Mediator_type") + " " + mediator.isReverse();
+		String label = ((Mediator)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Mediator_type") :
+			getString("_UI_Mediator_type") + " " + label;
 	}
 
 	/**

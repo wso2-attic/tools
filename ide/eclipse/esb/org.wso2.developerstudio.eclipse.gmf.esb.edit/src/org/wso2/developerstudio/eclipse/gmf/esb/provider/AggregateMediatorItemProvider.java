@@ -443,8 +443,10 @@ public class AggregateMediatorItemProvider
 	
 	@Override
 	public String getText(Object object) {
-		AggregateMediator aggregateMediator = (AggregateMediator)object;
-		return getString("_UI_AggregateMediator_type") + " " + aggregateMediator.isReverse();
+		String label = ((AggregateMediator)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_AggregateMediator_type") :
+			getString("_UI_AggregateMediator_type") + " " + label;
 	}
 
 	/**

@@ -55,7 +55,7 @@ public class TemplateEndpointInputConnectorEditPart extends AbstractEndpointInpu
 
 		return figure_;
 	}
-	
+
 	/**
 	 * @generated
 	 */

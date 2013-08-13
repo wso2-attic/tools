@@ -117,7 +117,7 @@ public class TemplateEndpointEditPart extends AbstractEndpoint {
 	 * @generated NOT
 	 */
 	protected IFigure createNodeShape() {
-		return primaryShape = new TemplateEndpointFigure(){
+		return primaryShape = new TemplateEndpointFigure() {
 			public void setBounds(org.eclipse.draw2d.geometry.Rectangle rect) {
 				super.setBounds(rect);
 				if (!connected) {
@@ -134,8 +134,7 @@ public class TemplateEndpointEditPart extends AbstractEndpoint {
 	public TemplateEndpointFigure getPrimaryShape() {
 		return (TemplateEndpointFigure) primaryShape;
 	}
-	
-	
+
 	protected boolean addFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof TemplateEndpointInputConnectorEditPart) {
 			double position;
@@ -203,7 +202,7 @@ public class TemplateEndpointEditPart extends AbstractEndpoint {
 		}
 		return getContentPane();
 	}
-	
+
 	/**
 	 * @generated
 	 */
@@ -322,7 +321,7 @@ public class TemplateEndpointEditPart extends AbstractEndpoint {
 		public WrappingLabel getFigureTemplateEndPointNamePropertyLabel() {
 			return fFigureTemplateEndPointNamePropertyLabel;
 		}
-		
+
 		public String getIconPath() {
 			return "icons/ico20/address-endpoint.gif";
 		}
@@ -345,7 +344,7 @@ public class TemplateEndpointEditPart extends AbstractEndpoint {
 	 * @generated NOT
 	 */
 	static final Color THIS_BACK = new Color(null, 255, 255, 255);
-	
+
 	static final Color THIS_LABEL_BACK = new Color(null, 113, 198, 113);
 
 }

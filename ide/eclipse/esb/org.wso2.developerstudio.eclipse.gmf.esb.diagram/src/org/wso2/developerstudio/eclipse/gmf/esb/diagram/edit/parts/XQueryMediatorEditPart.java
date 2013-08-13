@@ -27,6 +27,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShapeWithLabel;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedSizedAbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ShowPropertyViewEditPolicy;
@@ -136,6 +137,11 @@ public class XQueryMediatorEditPart extends FixedSizedAbstractMediator {
 					.getFigureXQueryMediatorPropertyValue());
 			return true;
 		}
+		if (childEditPart instanceof XQueryMediatorDescriptionEditPart) {
+			((XQueryMediatorDescriptionEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getXQueryMediatorDescriptionLabel());
+			return true;
+		}
 		if (childEditPart instanceof XQueryMediatorInputConnectorEditPart) {
 			IFigure borderItemFigure = ((XQueryMediatorInputConnectorEditPart) childEditPart)
 					.getFigure();
@@ -160,6 +166,9 @@ public class XQueryMediatorEditPart extends FixedSizedAbstractMediator {
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof XQueryMediatorScriptKeyTypeEditPart) {
+			return true;
+		}
+		if (childEditPart instanceof XQueryMediatorDescriptionEditPart) {
 			return true;
 		}
 		if (childEditPart instanceof XQueryMediatorInputConnectorEditPart) {
@@ -302,12 +311,14 @@ public class XQueryMediatorEditPart extends FixedSizedAbstractMediator {
 	/**
 	 * @generated
 	 */
-	public class XQueryMediatorFigure extends EsbGraphicalShape {
+	public class XQueryMediatorFigure extends EsbGraphicalShapeWithLabel {
 
 		/**
 		 * @generated
 		 */
 		private WrappingLabel fFigureXQueryMediatorPropertyValue;
+		
+		private WrappingLabel xQueryMediatorDescriptionLabel;
 
 		/**
 		 * @generated
@@ -326,9 +337,9 @@ public class XQueryMediatorEditPart extends FixedSizedAbstractMediator {
 			fFigureXQueryMediatorPropertyValue = new WrappingLabel();
 			fFigureXQueryMediatorPropertyValue.setText("<...>");
 			fFigureXQueryMediatorPropertyValue.setAlignment(SWT.CENTER);
-
-			this.getPropertyValueRectangle1().add(fFigureXQueryMediatorPropertyValue);
-
+			//this.getPropertyValueRectangle1().add(fFigureXQueryMediatorPropertyValue);
+			
+			xQueryMediatorDescriptionLabel = getPropertyNameLabel();
 		}
 
 		/**
@@ -338,6 +349,10 @@ public class XQueryMediatorEditPart extends FixedSizedAbstractMediator {
 			return fFigureXQueryMediatorPropertyValue;
 		}
 
+		public WrappingLabel getXQueryMediatorDescriptionLabel() {
+			return xQueryMediatorDescriptionLabel;
+		}
+		
 		public String getIconPath() {
 			return "icons/ico20/xquery-mediator.gif";
 		}

@@ -119,8 +119,10 @@ public class MergeNodeItemProvider
 	
 	@Override
 	public String getText(Object object) {
-		MergeNode mergeNode = (MergeNode)object;
-		return getString("_UI_MergeNode_type") + " " + mergeNode.isReverse();
+		String label = ((MergeNode)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_MergeNode_type") :
+			getString("_UI_MergeNode_type") + " " + label;
 	}
 
 	/**

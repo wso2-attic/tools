@@ -174,8 +174,10 @@ public class ConditionalRouterMediatorItemProvider
 	
 	@Override
 	public String getText(Object object) {
-		ConditionalRouterMediator conditionalRouterMediator = (ConditionalRouterMediator)object;
-		return getString("_UI_ConditionalRouterMediator_type") + " " + conditionalRouterMediator.isReverse();
+		String label = ((ConditionalRouterMediator)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ConditionalRouterMediator_type") :
+			getString("_UI_ConditionalRouterMediator_type") + " " + label;
 	}
 
 	/**

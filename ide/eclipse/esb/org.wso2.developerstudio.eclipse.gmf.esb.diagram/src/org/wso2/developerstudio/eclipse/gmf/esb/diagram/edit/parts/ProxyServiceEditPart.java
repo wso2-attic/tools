@@ -426,7 +426,7 @@ public class ProxyServiceEditPart extends AbstractBaseFigureEditPart {
 
 			this.setLayoutManager(layoutThis);
 			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(800), getMapMode().DPtoLP(400)));
-			this.setOutline(false);	
+			this.setOutline(false);
 			this.setBackgroundColor(THIS_BACK);
 			this.setForegroundColor(new Color(null, 0, 0, 0));
 			createContents();

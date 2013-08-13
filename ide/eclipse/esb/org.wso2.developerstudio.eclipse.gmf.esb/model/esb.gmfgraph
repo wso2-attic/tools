@@ -158,6 +158,8 @@
           xsi:type="gmfgraph:CustomFigure"
           name="LogMediatorGraphicalFigure"
           qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"/>
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="230"
@@ -167,9 +169,15 @@
             xsi:type="gmfgraph:Label"
             name="LogCatogeryLogPropertyLabel"
             text="&lt;...>"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="LogMediatorDescriptionFigure"
+            text="&lt;...>"/>
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.9/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.9/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="ProxyServiceFigure">
@@ -196,6 +204,8 @@
           xsi:type="gmfgraph:CustomFigure"
           name="DropMediatorGraphicalFigure"
           qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"/>
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="230"/>
@@ -203,10 +213,16 @@
             xsi:type="gmfgraph:Label"
             name="DropCatogeryDropPropertyLabel"
             text=""/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="DropMediatorDescriptionFigure"
+            text="&lt;...>"/>
       </actualFigure>
       <accessors
           accessor="getDropMediatorLabelFigure"
           figure="//@figures.0/@descriptors.11/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.11/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="SequenceFigure">
@@ -234,6 +250,8 @@
           xsi:type="gmfgraph:CustomFigure"
           name="PropertyMediatorGraphicalFigure"
           qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"/>
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="230"
@@ -243,9 +261,15 @@
             xsi:type="gmfgraph:Label"
             name="PropertyMediatorPropertyValueLabel"
             text="&lt;...>"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="PropertyMediatorDescriptionFigure"
+            text="&lt;...>"/>
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.13/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.13/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="EnrichMediatorFigure">
@@ -253,6 +277,8 @@
           xsi:type="gmfgraph:CustomFigure"
           name="EnrichMediatorGraphicalFigure"
           qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"/>
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="230"
@@ -262,9 +288,15 @@
             xsi:type="gmfgraph:Label"
             name="EnrichMediatorPropertyValue"
             text="&lt;...>"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="EnrichMediatorDescriptionFigure"
+            text="&lt;...>"/>
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.14/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.14/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="XSLTMediatorFigure">
@@ -272,6 +304,8 @@
           xsi:type="gmfgraph:CustomFigure"
           name="XSLTMediatorGraphicalFigure"
           qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"/>
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="230"
@@ -281,9 +315,15 @@
             xsi:type="gmfgraph:Label"
             name="XSLTMediatorPropertyValueLabel"
             text="&lt;...>"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="XSLTMediatorDescriptionFigure"
+            text="&lt;...>"/>
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.15/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.15/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="DefaultEndPointFigure">
@@ -362,6 +402,8 @@
           xsi:type="gmfgraph:CustomFigure"
           name="EventMediatorGraphicalFigure"
           qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"/>
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="230"
@@ -371,10 +413,16 @@
             xsi:type="gmfgraph:Label"
             name="EventMediatorPropertyValue"
             text="&lt;...>"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="EventMediatorDescriptionFigure"
+            text="&lt;...>"/>
       </actualFigure>
       <accessors
           accessor="getFigureEventMediatorPropertyValue"
           figure="//@figures.0/@descriptors.20/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.20/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="EntitlementMediatorFigure">
@@ -382,6 +430,8 @@
           xsi:type="gmfgraph:CustomFigure"
           name="EntitlementMediatorGraphicalFigure"
           qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"/>
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="230"
@@ -391,9 +441,15 @@
             xsi:type="gmfgraph:Label"
             name="EntitlementMediatorPropertyValue"
             text="&lt;...>"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="EntitlementMediatorDescriptionFigure"
+            text="&lt;...>"/>
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.21/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.21/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="ClassMediatorFigure">
@@ -401,6 +457,8 @@
           xsi:type="gmfgraph:CustomFigure"
           name="ClassMediatorGraphicalFigure"
           qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"/>
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="230"
@@ -410,9 +468,15 @@
             xsi:type="gmfgraph:Label"
             name="ClassMediatorPropertyValue"
             text="&lt;...>"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="ClassMediatorDescriptionFigure"
+            text="&lt;...>"/>
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.22/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.22/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="SpringMediatorFigure">
@@ -420,6 +484,8 @@
           xsi:type="gmfgraph:CustomFigure"
           name="SpringMediatorGraphicalFigure"
           qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"/>
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="230"
@@ -429,9 +495,15 @@
             xsi:type="gmfgraph:Label"
             name="SpringMediatorPropertyValue"
             text="&lt;...>"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="SpringMediatorDescriptionFigure"
+            text="&lt;...>"/>
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.23/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.23/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="ScriptMediatorFigure">
@@ -439,6 +511,8 @@
           xsi:type="gmfgraph:CustomFigure"
           name="ScriptMediatorGraphicalFigure"
           qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"/>
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="230"
@@ -448,9 +522,15 @@
             xsi:type="gmfgraph:Label"
             name="ScriptMediatorPropertyValue"
             text="&lt;...>"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="ScriptMediatorDescriptionFigure"
+            text="&lt;...>"/>
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.24/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.24/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="FaultMediatorFigure">
@@ -458,6 +538,8 @@
           xsi:type="gmfgraph:CustomFigure"
           name="FaultMediatorGraphicalFigure"
           qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"/>
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="230"
@@ -467,9 +549,15 @@
             xsi:type="gmfgraph:Label"
             name="FaultMediatorPropertyValue"
             text="&lt;...>"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="FaultMediatorDescriptionFigure"
+            text="&lt;...>"/>
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.25/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.25/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="XQueryMediatorFigure">
@@ -477,6 +565,8 @@
           xsi:type="gmfgraph:CustomFigure"
           name="XQueryMediatorGraphicalFigure"
           qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"/>
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="230"
@@ -486,9 +576,15 @@
             xsi:type="gmfgraph:Label"
             name="XQueryMediatorPropertyValue"
             text="&lt;...>"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="XQueryMediatorDescriptionFigure"
+            text="&lt;...>"/>
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.26/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.26/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="CommandMediatorFigure">
@@ -496,6 +592,8 @@
           xsi:type="gmfgraph:CustomFigure"
           name="CommandMediatorGraphicalFigure"
           qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"/>
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="230"
@@ -505,9 +603,15 @@
             xsi:type="gmfgraph:Label"
             name="CommandMediatorPropertyValue"
             text="&lt;...>"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="CommandMediatorDescriptionFigure"
+            text="&lt;...>"/>
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.27/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.27/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="DBLookupMediatorFigure">
@@ -515,6 +619,8 @@
           xsi:type="gmfgraph:CustomFigure"
           name="DBLookupMediatorGraphicalFigure"
           qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"/>
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="230"
@@ -524,9 +630,15 @@
             xsi:type="gmfgraph:Label"
             name="DBLookupMediatorPropertyValue"
             text="&lt;...>"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="DBLookupMediatorDescriptionFigure"
+            text="&lt;...>"/>
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.28/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.28/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="DBReportMediatorFigure">
@@ -534,6 +646,8 @@
           xsi:type="gmfgraph:CustomFigure"
           name="DBReportMediatorGraphicalFigure"
           qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"/>
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="230"
@@ -543,9 +657,15 @@
             xsi:type="gmfgraph:Label"
             name="DBReportMediatorPropertyValue"
             text="&lt;...>"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="DBReportMediatorDescriptionFigure"
+            text="&lt;...>"/>
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.29/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.29/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="SmooksMediatorFigure">
@@ -553,6 +673,8 @@
           xsi:type="gmfgraph:CustomFigure"
           name="SmooksMediatorGraphicalFigure"
           qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"/>
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="230"
@@ -562,9 +684,15 @@
             xsi:type="gmfgraph:Label"
             name="SmooksMediatorPropertyValue"
             text="&lt;...>"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="SmooksMediatorDescriptionFigure"
+            text="&lt;...>"/>
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.30/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.30/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="SendMediatorFigure">
@@ -572,6 +700,8 @@
           xsi:type="gmfgraph:CustomFigure"
           name="SendMediatorGraphicalFigure"
           qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.SendMediatorGraphicalShape">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"/>
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="230"
@@ -581,10 +711,16 @@
             xsi:type="gmfgraph:Label"
             name="SendMediatorPropertyValue"
             text="&lt;...>"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="SendMediatorDescriptionFigure"
+            text="&lt;...>"/>
       </actualFigure>
       <accessors
           accessor="getFigureSendMediatorPropertyValue"
           figure="//@figures.0/@descriptors.31/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.31/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="FailoverEndPointFigure">
@@ -658,6 +794,8 @@
           xsi:type="gmfgraph:CustomFigure"
           name="HeaderMediatorGraphicalFigure"
           qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"/>
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="230"
@@ -667,10 +805,16 @@
             xsi:type="gmfgraph:Label"
             name="HeaderMediatorPropertyValue"
             text="&lt;...>"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="HeaderMediatorDescriptionFigure"
+            text="&lt;...>"/>
       </actualFigure>
       <accessors
           accessor="getFigureHeaderMediatorPropertyValue"
           figure="//@figures.0/@descriptors.36/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.36/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="CloneMediatorFigure">
@@ -764,6 +908,8 @@
           xsi:type="gmfgraph:CustomFigure"
           name="CalloutMediatorGraphicalFigure"
           qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"/>
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="230"
@@ -773,10 +919,16 @@
             xsi:type="gmfgraph:Label"
             name="CalloutMediatorPropertyValue"
             text="&lt;...>"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="CalloutMediatorDescriptionFigure"
+            text="&lt;...>"/>
       </actualFigure>
       <accessors
           accessor="getFigureCalloutMediatorPropertyValue"
           figure="//@figures.0/@descriptors.41/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.41/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="TransactionMediatorFigure">
@@ -784,6 +936,8 @@
           xsi:type="gmfgraph:CustomFigure"
           name="TransactionMediatorGraphicalFigure"
           qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"/>
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="230"
@@ -793,10 +947,16 @@
             xsi:type="gmfgraph:Label"
             name="TransactionMediatorPropertyValue"
             text="&lt;...>"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="TransactionMediatorDescriptionFigure"
+            text="&lt;...>"/>
       </actualFigure>
       <accessors
           accessor="getFigureTransactionMediatorPropertyValue"
           figure="//@figures.0/@descriptors.42/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.42/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="ThrottleMediatorFigure">
@@ -824,6 +984,8 @@
           xsi:type="gmfgraph:CustomFigure"
           name="RMSequenceMediatorGraphicalFigure"
           qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"/>
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="230"
@@ -833,10 +995,16 @@
             xsi:type="gmfgraph:Label"
             name="RMSequenceMediatorPropertyValue"
             text="&lt;...>"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="RMSequenceMediatorDescriptionFigure"
+            text="&lt;...>"/>
       </actualFigure>
       <accessors
           accessor="getFigureRMSequenceMediatorPropertyValue"
           figure="//@figures.0/@descriptors.44/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.44/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="OAuthMediatorFigure">
@@ -844,6 +1012,8 @@
           xsi:type="gmfgraph:CustomFigure"
           name="OAuthMediatorGraphicalFigure"
           qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"/>
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="230"
@@ -853,10 +1023,16 @@
             xsi:type="gmfgraph:Label"
             name="OAuthMediatorPropertyValue"
             text="&lt;...>"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="OAuthMediatorDescriptionFigure"
+            text="&lt;...>"/>
       </actualFigure>
       <accessors
           accessor="getFigureOAuthMediatorPropertyValue"
           figure="//@figures.0/@descriptors.45/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.45/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="RuleMediatorFigure">
@@ -1175,6 +1351,8 @@
           xsi:type="gmfgraph:CustomFigure"
           name="StoreMediatorGraphicalFigure"
           qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"/>
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="230"
@@ -1184,10 +1362,16 @@
             xsi:type="gmfgraph:Label"
             name="StoreMediatorPropertyValue"
             text="&lt;...>"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="StoreMediatorDescriptionFigure"
+            text="&lt;...>"/>
       </actualFigure>
       <accessors
           accessor="getFigureStoreMediatorPropertyValue"
           figure="//@figures.0/@descriptors.67/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.67/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="BuilderMediatorFigure">
@@ -1195,6 +1379,8 @@
           xsi:type="gmfgraph:CustomFigure"
           name="BuilderMediatorGraphicalFigure"
           qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"/>
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="230"
@@ -1204,10 +1390,16 @@
             xsi:type="gmfgraph:Label"
             name="BuilderMediatorPropertyValue"
             text="&lt;...>"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="BuilderMediatorDescriptionFigure"
+            text="&lt;...>"/>
       </actualFigure>
       <accessors
           accessor="getFigureBuilderMediatorPropertyValue"
           figure="//@figures.0/@descriptors.68/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.68/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="CallTemplateMediatorFigure">
@@ -1215,6 +1407,8 @@
           xsi:type="gmfgraph:CustomFigure"
           name="CallTemplateMediatorGraphicalFigure"
           qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"/>
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="230"
@@ -1224,10 +1418,16 @@
             xsi:type="gmfgraph:Label"
             name="CallTemplateMediatorPropertyValue"
             text="&lt;...>"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="CallTemplateMediatorDescriptionFigure"
+            text="&lt;...>"/>
       </actualFigure>
       <accessors
           accessor="getFigureCallTemplateMediatorPropertyValue"
           figure="//@figures.0/@descriptors.69/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.69/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="PayloadFactoryMediatorFigure">
@@ -1235,6 +1435,8 @@
           xsi:type="gmfgraph:CustomFigure"
           name="PayloadFactoryMediatorGraphicalFigure"
           qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"/>
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="230"
@@ -1244,10 +1446,16 @@
             xsi:type="gmfgraph:Label"
             name="PayloadFactoryMediatorPropertyValue"
             text="&lt;...>"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="PayloadFactoryMediatorDescriptionFigure"
+            text="&lt;...>"/>
       </actualFigure>
       <accessors
           accessor="getFigurePayloadFactoryMediatorPropertyValue"
           figure="//@figures.0/@descriptors.70/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.70/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="EnqueueMediatorFigure">
@@ -1255,6 +1463,8 @@
           xsi:type="gmfgraph:CustomFigure"
           name="EnqueueMediatorGraphicalFigure"
           qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"/>
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="230"
@@ -1264,10 +1474,16 @@
             xsi:type="gmfgraph:Label"
             name="EnqueueMediatorPropertyValue"
             text="&lt;...>"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="EnqueueMediatorDescriptionFigure"
+            text="&lt;...>"/>
       </actualFigure>
       <accessors
           accessor="getFigureEnqueueMediatorPropertyValue"
           figure="//@figures.0/@descriptors.71/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.71/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="CloneMediatorContainerFigure">
@@ -1320,6 +1536,8 @@
           xsi:type="gmfgraph:CustomFigure"
           name="URLRewriteMediatorGraphicalFigure"
           qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"/>
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="230"
@@ -1329,10 +1547,16 @@
             xsi:type="gmfgraph:Label"
             name="URLRewriteMediatorPropertyValue"
             text="&lt;...>"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="URLRewriteMediatorDescriptionFigure"
+            text="&lt;...>"/>
       </actualFigure>
       <accessors
           accessor="getFigureURLRewriteMediatorPropertyValue"
           figure="//@figures.0/@descriptors.75/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.75/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="ValidateMediatorFigure">
@@ -1575,6 +1799,8 @@
           xsi:type="gmfgraph:CustomFigure"
           name="BAMMediatorGraphicalFigure"
           qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"/>
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="230"
@@ -1584,7 +1810,13 @@
             xsi:type="gmfgraph:Label"
             name="BAMPropertyLabel"
             text="&lt;...>"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="BAMMediatorDescriptionFigure"
+            text="&lt;...>"/>
       </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.90/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="BeanMediatorFigure">
@@ -1592,6 +1824,8 @@
           xsi:type="gmfgraph:CustomFigure"
           name="BeanMediatorGraphicalFigure"
           qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"/>
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="230"
@@ -1601,7 +1835,13 @@
             xsi:type="gmfgraph:Label"
             name="BeanMediatorPropertyValueLabel"
             text="&lt;...>"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="BeanMediatorDescriptionFigure"
+            text="&lt;...>"/>
       </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.91/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="EJBMediatorFigure">
@@ -1609,6 +1849,8 @@
           xsi:type="gmfgraph:CustomFigure"
           name="EJBMediatorGraphicalFigure"
           qualifiedClassName="org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape">
+        <layout
+            xsi:type="gmfgraph:FlowLayout"/>
         <backgroundColor
             xsi:type="gmfgraph:RGBColor"
             red="230"
@@ -1618,7 +1860,13 @@
             xsi:type="gmfgraph:Label"
             name="EJBMediatorPropertyValueLabel"
             text="&lt;...>"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="EJBMediatorDescriptionFigure"
+            text="&lt;...>"/>
       </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.92/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="AddressingEndpointFigure">
@@ -2803,4 +3051,159 @@
       figure="NamedEndpointFigure"
       elementIcon="false"
       accessor="//@figures.0/@descriptors.82/@accessors.0"/>
+  <labels
+      name="DropMediatorDescription"
+      figure="DropMediatorFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.11/@accessors.1"/>
+  <labels
+      name="LogMediatorDescription"
+      figure="LogMediatorFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.9/@accessors.1"/>
+  <labels
+      name="BAMMediatorDescription"
+      figure="BAMMediatorFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.90/@accessors.0"/>
+  <labels
+      name="BeanMediatorDescription"
+      figure="BeanMediatorFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.91/@accessors.0"/>
+  <labels
+      name="EJBMediatorDescription"
+      figure="EJBMediatorFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.92/@accessors.0"/>
+  <labels
+      name="PropertyMediatorDescription"
+      figure="PropertyMediatorFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.13/@accessors.1"/>
+  <labels
+      name="EnrichMediatorDescription"
+      figure="EnrichMediatorFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.14/@accessors.1"/>
+  <labels
+      name="XSLTMediatorDescription"
+      figure="XSLTMediatorFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.15/@accessors.1"/>
+  <labels
+      name="EventMediatorDescription"
+      figure="EventMediatorFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.20/@accessors.1"/>
+  <labels
+      name="EntitlementMediatorDescription"
+      figure="EntitlementMediatorFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.21/@accessors.1"/>
+  <labels
+      name="EnqueueMediatorDescription"
+      figure="EnqueueMediatorFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.71/@accessors.1"/>
+  <labels
+      name="ClassMediatorDescription"
+      figure="ClassMediatorFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.22/@accessors.1"/>
+  <labels
+      name="SpringMediatorDescription"
+      figure="SpringMediatorFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.23/@accessors.1"/>
+  <labels
+      name="ScriptMediatorDescription"
+      figure="ScriptMediatorFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.24/@accessors.1"/>
+  <labels
+      name="FaultMediatorDescription"
+      figure="FaultMediatorFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.25/@accessors.1"/>
+  <labels
+      name="XQueryMediatorDescription"
+      figure="XQueryMediatorFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.26/@accessors.1"/>
+  <labels
+      name="CalloutMediatorDescription"
+      figure="CalloutMediatorFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.41/@accessors.1"/>
+  <labels
+      name="RMSequenceMediatorDescription"
+      figure="RMSequenceMediatorFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.44/@accessors.1"/>
+  <labels
+      name="TransactionMediatorDescription"
+      figure="TransactionMediatorFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.42/@accessors.1"/>
+  <labels
+      name="OAuthMediatorDescription"
+      figure="OAuthMediatorFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.45/@accessors.1"/>
+  <labels
+      name="HeaderMediatorDescription"
+      figure="HeaderMediatorFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.36/@accessors.1"/>
+  <labels
+      name="CommandMediatorDescription"
+      figure="CommandMediatorFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.27/@accessors.1"/>
+  <labels
+      name="DBLookupMediatorDescription"
+      figure="DBLookupMediatorFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.28/@accessors.1"/>
+  <labels
+      name="DBReportMediatorDescription"
+      figure="DBReportMediatorFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.29/@accessors.1"/>
+  <labels
+      name="CallTemplateMediatorDescription"
+      figure="CallTemplateMediatorFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.69/@accessors.1"/>
+  <labels
+      name="SmooksMediatorDescription"
+      figure="SmooksMediatorFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.30/@accessors.1"/>
+  <labels
+      name="StoreMediatorDescription"
+      figure="StoreMediatorFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.67/@accessors.1"/>
+  <labels
+      name="BuilderMediatorDescription"
+      figure="BuilderMediatorFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.68/@accessors.1"/>
+  <labels
+      name="PayloadFactoryMediatorDescription"
+      figure="PayloadFactoryMediatorFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.70/@accessors.1"/>
+  <labels
+      name="SendMediatorDescription"
+      figure="SendMediatorFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.31/@accessors.1"/>
+  <labels
+      name="URLRewriteMediatorDescription"
+      figure="URLRewriteMediatorFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.75/@accessors.1"/>
 </gmfgraph:Canvas>

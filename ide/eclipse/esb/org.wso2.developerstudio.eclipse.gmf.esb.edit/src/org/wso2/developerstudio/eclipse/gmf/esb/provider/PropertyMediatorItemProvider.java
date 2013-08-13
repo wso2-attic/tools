@@ -101,6 +101,7 @@ public class PropertyMediatorItemProvider
 		}								
 		
 		addPropertyScopePropertyDescriptor(object);	
+		addDescriptionPropertyDescriptor(object);
 		
 		
 		/*if (itemPropertyDescriptors == null) {

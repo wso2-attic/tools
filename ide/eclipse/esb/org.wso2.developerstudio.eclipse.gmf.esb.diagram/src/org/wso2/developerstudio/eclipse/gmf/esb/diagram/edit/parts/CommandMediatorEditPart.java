@@ -26,6 +26,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShapeWithLabel;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedSizedAbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ShowPropertyViewEditPolicy;
@@ -136,6 +137,11 @@ public class CommandMediatorEditPart extends FixedSizedAbstractMediator {
 					.getFigureCommandMediatorPropertyValue());
 			return true;
 		}
+		if (childEditPart instanceof CommandMediatorDescriptionEditPart) {
+			((CommandMediatorDescriptionEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getCommandMediatorDescriptionLabel());
+			return true;
+		}
 		if (childEditPart instanceof CommandMediatorInputConnectorEditPart) {
 			IFigure borderItemFigure = ((CommandMediatorInputConnectorEditPart) childEditPart)
 					.getFigure();
@@ -160,6 +166,9 @@ public class CommandMediatorEditPart extends FixedSizedAbstractMediator {
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof CommandMediatorClassNameEditPart) {
+			return true;
+		}
+		if (childEditPart instanceof CommandMediatorDescriptionEditPart) {
 			return true;
 		}
 		if (childEditPart instanceof CommandMediatorInputConnectorEditPart) {
@@ -294,12 +303,14 @@ public class CommandMediatorEditPart extends FixedSizedAbstractMediator {
 	/**
 	 * @generated
 	 */
-	public class CommandMediatorFigure extends EsbGraphicalShape {
+	public class CommandMediatorFigure extends EsbGraphicalShapeWithLabel {
 
 		/**
 		 * @generated
 		 */
 		private WrappingLabel fFigureCommandMediatorPropertyValue;
+		
+		private WrappingLabel commandMediatorDescriptionLabel;
 
 		/**
 		 * @generated
@@ -318,9 +329,9 @@ public class CommandMediatorEditPart extends FixedSizedAbstractMediator {
 			fFigureCommandMediatorPropertyValue = new WrappingLabel();
 			fFigureCommandMediatorPropertyValue.setText("<...>");
 			fFigureCommandMediatorPropertyValue.setAlignment(SWT.CENTER);
+			//this.getPropertyValueRectangle1().add(fFigureCommandMediatorPropertyValue);
 
-			this.getPropertyValueRectangle1().add(fFigureCommandMediatorPropertyValue);
-
+			commandMediatorDescriptionLabel = getPropertyNameLabel();
 		}
 
 		/**
@@ -328,6 +339,10 @@ public class CommandMediatorEditPart extends FixedSizedAbstractMediator {
 		 */
 		public WrappingLabel getFigureCommandMediatorPropertyValue() {
 			return fFigureCommandMediatorPropertyValue;
+		}
+		
+		public WrappingLabel getCommandMediatorDescriptionLabel() {
+			return commandMediatorDescriptionLabel;
 		}
 
 		public String getIconPath() {

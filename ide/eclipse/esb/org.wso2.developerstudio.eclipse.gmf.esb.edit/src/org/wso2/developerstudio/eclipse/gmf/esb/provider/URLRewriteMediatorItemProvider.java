@@ -69,6 +69,7 @@ public class URLRewriteMediatorItemProvider
 			addUrlRewriteRulesPropertyDescriptor(object);
 			addInPropertyPropertyDescriptor(object);
 			addOutPropertyPropertyDescriptor(object);
+			addDescriptionPropertyDescriptor(object);
 		return itemPropertyDescriptors;
 	}
 
@@ -189,8 +190,10 @@ public class URLRewriteMediatorItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		URLRewriteMediator urlRewriteMediator = (URLRewriteMediator)object;
-		return getString("_UI_URLRewriteMediator_type") + " " + urlRewriteMediator.isReverse();
+		String label = ((URLRewriteMediator)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_URLRewriteMediator_type") :
+			getString("_UI_URLRewriteMediator_type") + " " + label;
 	}
 
 	/**

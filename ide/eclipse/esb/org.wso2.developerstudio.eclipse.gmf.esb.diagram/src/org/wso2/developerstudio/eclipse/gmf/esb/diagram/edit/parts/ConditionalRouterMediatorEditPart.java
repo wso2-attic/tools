@@ -42,7 +42,8 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.part.EsbVisualIDRegistry
 /**
  * @generated NOT
  */
-public class ConditionalRouterMediatorEditPart extends SingleCompartmentComplexFiguredAbstractMediator {
+public class ConditionalRouterMediatorEditPart extends
+		SingleCompartmentComplexFiguredAbstractMediator {
 
 	public IFigure additionalOutputConnector;
 

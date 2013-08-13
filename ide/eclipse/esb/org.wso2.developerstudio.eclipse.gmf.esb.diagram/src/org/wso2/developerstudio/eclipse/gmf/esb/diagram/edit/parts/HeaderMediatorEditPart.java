@@ -26,6 +26,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShapeWithLabel;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedSizedAbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ShowPropertyViewEditPolicy;
@@ -135,6 +136,11 @@ public class HeaderMediatorEditPart extends FixedSizedAbstractMediator {
 					.getFigureHeaderMediatorPropertyValue());
 			return true;
 		}
+		if (childEditPart instanceof HeaderMediatorDescriptionEditPart) {
+			((HeaderMediatorDescriptionEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getHeaderMediatorDescriptionLabel());
+			return true;
+		}
 		if (childEditPart instanceof HeaderMediatorInputConnectorEditPart) {
 			IFigure borderItemFigure = ((HeaderMediatorInputConnectorEditPart) childEditPart)
 					.getFigure();
@@ -159,6 +165,9 @@ public class HeaderMediatorEditPart extends FixedSizedAbstractMediator {
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof HeaderMediatorValueLiteralEditPart) {
+			return true;
+		}
+		if (childEditPart instanceof HeaderMediatorDescriptionEditPart) {
 			return true;
 		}
 		if (childEditPart instanceof HeaderMediatorInputConnectorEditPart) {
@@ -293,12 +302,14 @@ public class HeaderMediatorEditPart extends FixedSizedAbstractMediator {
 	/**
 	 * @generated
 	 */
-	public class HeaderMediatorFigure extends EsbGraphicalShape {
+	public class HeaderMediatorFigure extends EsbGraphicalShapeWithLabel {
 
 		/**
 		 * @generated
 		 */
 		private WrappingLabel fFigureHeaderMediatorPropertyValue;
+		
+		private WrappingLabel headerMediatorDescriptionLabel;
 
 		/**
 		 * @generated
@@ -317,9 +328,9 @@ public class HeaderMediatorEditPart extends FixedSizedAbstractMediator {
 			fFigureHeaderMediatorPropertyValue = new WrappingLabel();
 			fFigureHeaderMediatorPropertyValue.setText("<...>");
 			fFigureHeaderMediatorPropertyValue.setAlignment(SWT.CENTER);
-
-			this.getPropertyValueRectangle1().add(fFigureHeaderMediatorPropertyValue);
-
+			//this.getPropertyValueRectangle1().add(fFigureHeaderMediatorPropertyValue);
+			
+			headerMediatorDescriptionLabel = getPropertyNameLabel();
 		}
 
 		/**
@@ -327,6 +338,10 @@ public class HeaderMediatorEditPart extends FixedSizedAbstractMediator {
 		 */
 		public WrappingLabel getFigureHeaderMediatorPropertyValue() {
 			return fFigureHeaderMediatorPropertyValue;
+		}
+		
+		public WrappingLabel getHeaderMediatorDescriptionLabel() {
+			return headerMediatorDescriptionLabel;
 		}
 
 		public String getIconPath() {

@@ -28,6 +28,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShapeWithLabel;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedSizedAbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ShowPropertyViewEditPolicy;
@@ -128,6 +129,11 @@ public class BAMMediatorEditPart extends FixedSizedAbstractMediator {
 
 	protected boolean addFixedChild(EditPart childEditPart) {
 
+		if (childEditPart instanceof BAMMediatorDescriptionEditPart) {
+			((BAMMediatorDescriptionEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getBAMMediatorDescriptionLabel());
+			return true;
+		}
 		if (childEditPart instanceof BAMMediatorInputConnectorEditPart) {
 			IFigure borderItemFigure = ((BAMMediatorInputConnectorEditPart) childEditPart)
 					.getFigure();
@@ -148,6 +154,9 @@ public class BAMMediatorEditPart extends FixedSizedAbstractMediator {
 	}
 
 	protected boolean removeFixedChild(EditPart childEditPart) {
+		if(childEditPart instanceof BAMMediatorDescriptionEditPart) {
+			return true;
+		}
 		if (childEditPart instanceof BAMMediatorInputConnectorEditPart) {
 			getBorderedFigure().getBorderItemContainer().remove(
 					((BAMMediatorInputConnectorEditPart) childEditPart).getFigure());
@@ -271,7 +280,9 @@ public class BAMMediatorEditPart extends FixedSizedAbstractMediator {
 	/**
 	 * @generated
 	 */
-	public class BAMMediatorFigure extends EsbGraphicalShape {
+	public class BAMMediatorFigure extends EsbGraphicalShapeWithLabel {
+		
+		private WrappingLabel bamMediatorDescriptionLabel;
 
 		/**
 		 * @generated
@@ -289,11 +300,15 @@ public class BAMMediatorEditPart extends FixedSizedAbstractMediator {
 			WrappingLabel bAMPropertyLabel0 = new WrappingLabel();
 			bAMPropertyLabel0.setText("<...>");
 			bAMPropertyLabel0.setAlignment(SWT.CENTER);
-
-			this.getPropertyValueRectangle1().add(bAMPropertyLabel0);
-
+			//this.getPropertyValueRectangle1().add(bAMPropertyLabel0);
+			
+			bamMediatorDescriptionLabel = getPropertyNameLabel();
 		}
 
+		public WrappingLabel getBAMMediatorDescriptionLabel() {
+			return bamMediatorDescriptionLabel;
+		}
+		
 		public String getIconPath() {
 			return "icons/ico20/bam-mediator.gif";
 		}

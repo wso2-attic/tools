@@ -109,7 +109,8 @@ public class EnrichMediatorItemProvider
 				break;
 			}
 		}
-				
+		addDescriptionPropertyDescriptor(object);
+		
 		return itemPropertyDescriptors;
 	}
 	
@@ -400,8 +401,10 @@ public class EnrichMediatorItemProvider
 	
 	@Override
 	public String getText(Object object) {
-		EnrichMediator enrichMediator = (EnrichMediator)object;
-		return getString("_UI_EnrichMediator_type") + " " + enrichMediator.isReverse();
+		String label = ((EnrichMediator)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_EnrichMediator_type") :
+			getString("_UI_EnrichMediator_type") + " " + label;
 	}
 
 	/**

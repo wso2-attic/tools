@@ -98,6 +98,13 @@
                         <ownedChild>
                           <domainMetaElement
                               href="esb.ecore#//DropMediator"/>
+                          <labelMappings
+                              xsi:type="gmfmap:FeatureLabelMapping">
+                            <diagramLabel
+                                href="esb.gmfgraph#DropMediatorDescription"/>
+                            <features
+                                href="esb.ecore#//EsbElement/description"/>
+                          </labelMappings>
                           <tool
                               xsi:type="gmftool:CreationTool"
                               href="esb.gmftool#//@palette/@tools.1/@tools.0"/>
@@ -130,6 +137,13 @@
                                 href="esb.gmfgraph#PropertyMediatorPropertyName"/>
                             <features
                                 href="esb.ecore#//PropertyMediator/propertyName"/>
+                          </labelMappings>
+                          <labelMappings
+                              xsi:type="gmfmap:FeatureLabelMapping">
+                            <diagramLabel
+                                href="esb.gmfgraph#PropertyMediatorDescription"/>
+                            <features
+                                href="esb.ecore#//EsbElement/description"/>
                           </labelMappings>
                           <tool
                               xsi:type="gmftool:CreationTool"
@@ -378,6 +392,13 @@
                             <features
                                 href="esb.ecore#//LogMediator/logCategory"/>
                           </labelMappings>
+                          <labelMappings
+                              xsi:type="gmfmap:FeatureLabelMapping">
+                            <diagramLabel
+                                href="esb.gmfgraph#LogMediatorDescription"/>
+                            <features
+                                href="esb.ecore#//EsbElement/description"/>
+                          </labelMappings>
                           <tool
                               xsi:type="gmftool:CreationTool"
                               href="esb.gmftool#//@palette/@tools.1/@tools.2"/>
@@ -421,6 +442,13 @@
                             <features
                                 href="esb.ecore#//EnrichMediator/sourceType"/>
                           </labelMappings>
+                          <labelMappings
+                              xsi:type="gmfmap:FeatureLabelMapping">
+                            <diagramLabel
+                                href="esb.gmfgraph#EnrichMediatorDescription"/>
+                            <features
+                                href="esb.ecore#//EsbElement/description"/>
+                          </labelMappings>
                           <tool
                               xsi:type="gmftool:CreationTool"
                               href="esb.gmftool#//@palette/@tools.1/@tools.4"/>
@@ -455,6 +483,13 @@
                         <ownedChild>
                           <domainMetaElement
                               href="esb.ecore#//XSLTMediator"/>
+                          <labelMappings
+                              xsi:type="gmfmap:FeatureLabelMapping">
+                            <diagramLabel
+                                href="esb.gmfgraph#XSLTMediatorDescription"/>
+                            <features
+                                href="esb.ecore#//EsbElement/description"/>
+                          </labelMappings>
                           <tool
                               xsi:type="gmftool:CreationTool"
                               href="esb.gmftool#//@palette/@tools.1/@tools.5"/>
@@ -633,6 +668,13 @@
                             <features
                                 href="esb.ecore#//EventMediator/topicType"/>
                           </labelMappings>
+                          <labelMappings
+                              xsi:type="gmfmap:FeatureLabelMapping">
+                            <diagramLabel
+                                href="esb.gmfgraph#EventMediatorDescription"/>
+                            <features
+                                href="esb.ecore#//EsbElement/description"/>
+                          </labelMappings>
                           <tool
                               xsi:type="gmftool:CreationTool"
                               href="esb.gmftool#//@palette/@tools.1/@tools.7"/>
@@ -675,6 +717,13 @@
                                 href="esb.gmfgraph#EntitlementMediatorServerName"/>
                             <features
                                 href="esb.ecore#//EntitlementMediator/serverURL"/>
+                          </labelMappings>
+                          <labelMappings
+                              xsi:type="gmfmap:FeatureLabelMapping">
+                            <diagramLabel
+                                href="esb.gmfgraph#EntitlementMediatorDescription"/>
+                            <features
+                                href="esb.ecore#//EsbElement/description"/>
                           </labelMappings>
                           <tool
                               xsi:type="gmftool:CreationTool"
@@ -719,6 +768,13 @@
                             <features
                                 href="esb.ecore#//ClassMediator/className"/>
                           </labelMappings>
+                          <labelMappings
+                              xsi:type="gmfmap:FeatureLabelMapping">
+                            <diagramLabel
+                                href="esb.gmfgraph#ClassMediatorDescription"/>
+                            <features
+                                href="esb.ecore#//EsbElement/description"/>
+                          </labelMappings>
                           <tool
                               xsi:type="gmftool:CreationTool"
                               href="esb.gmftool#//@palette/@tools.1/@tools.9"/>
@@ -761,6 +817,13 @@
                                 href="esb.gmfgraph#SpringMediatorSpringBean"/>
                             <features
                                 href="esb.ecore#//SpringMediator/beanName"/>
+                          </labelMappings>
+                          <labelMappings
+                              xsi:type="gmfmap:FeatureLabelMapping">
+                            <diagramLabel
+                                href="esb.gmfgraph#SpringMediatorDescription"/>
+                            <features
+                                href="esb.ecore#//EsbElement/description"/>
                           </labelMappings>
                           <tool
                               xsi:type="gmftool:CreationTool"
@@ -805,6 +868,13 @@
                             <features
                                 href="esb.ecore#//ScriptMediator/scriptLanguage"/>
                           </labelMappings>
+                          <labelMappings
+                              xsi:type="gmfmap:FeatureLabelMapping">
+                            <diagramLabel
+                                href="esb.gmfgraph#ScriptMediatorDescription"/>
+                            <features
+                                href="esb.ecore#//EsbElement/description"/>
+                          </labelMappings>
                           <tool
                               xsi:type="gmftool:CreationTool"
                               href="esb.gmftool#//@palette/@tools.1/@tools.11"/>
@@ -847,6 +917,13 @@
                                 href="esb.gmfgraph#FaultMediatorFaultCode"/>
                             <features
                                 href="esb.ecore#//FaultMediator/faultStringType"/>
+                          </labelMappings>
+                          <labelMappings
+                              xsi:type="gmfmap:FeatureLabelMapping">
+                            <diagramLabel
+                                href="esb.gmfgraph#FaultMediatorDescription"/>
+                            <features
+                                href="esb.ecore#//EsbElement/description"/>
                           </labelMappings>
                           <tool
                               xsi:type="gmftool:CreationTool"
@@ -891,6 +968,13 @@
                             <features
                                 href="esb.ecore#//XQueryMediator/scriptKeyType"/>
                           </labelMappings>
+                          <labelMappings
+                              xsi:type="gmfmap:FeatureLabelMapping">
+                            <diagramLabel
+                                href="esb.gmfgraph#XQueryMediatorDescription"/>
+                            <features
+                                href="esb.ecore#//EsbElement/description"/>
+                          </labelMappings>
                           <tool
                               xsi:type="gmftool:CreationTool"
                               href="esb.gmftool#//@palette/@tools.1/@tools.13"/>
@@ -933,6 +1017,13 @@
                                 href="esb.gmfgraph#CommandMediatorClassName"/>
                             <features
                                 href="esb.ecore#//CommandMediator/className"/>
+                          </labelMappings>
+                          <labelMappings
+                              xsi:type="gmfmap:FeatureLabelMapping">
+                            <diagramLabel
+                                href="esb.gmfgraph#CommandMediatorDescription"/>
+                            <features
+                                href="esb.ecore#//EsbElement/description"/>
                           </labelMappings>
                           <tool
                               xsi:type="gmftool:CreationTool"
@@ -977,6 +1068,13 @@
                             <features
                                 href="esb.ecore#//AbstractSqlExecutorMediator/connectionURL"/>
                           </labelMappings>
+                          <labelMappings
+                              xsi:type="gmfmap:FeatureLabelMapping">
+                            <diagramLabel
+                                href="esb.gmfgraph#DBLookupMediatorDescription"/>
+                            <features
+                                href="esb.ecore#//EsbElement/description"/>
+                          </labelMappings>
                           <tool
                               xsi:type="gmftool:CreationTool"
                               href="esb.gmftool#//@palette/@tools.1/@tools.15"/>
@@ -1020,6 +1118,13 @@
                             <features
                                 href="esb.ecore#//AbstractSqlExecutorMediator/connectionURL"/>
                           </labelMappings>
+                          <labelMappings
+                              xsi:type="gmfmap:FeatureLabelMapping">
+                            <diagramLabel
+                                href="esb.gmfgraph#DBReportMediatorDescription"/>
+                            <features
+                                href="esb.ecore#//EsbElement/description"/>
+                          </labelMappings>
                           <tool
                               xsi:type="gmftool:CreationTool"
                               href="esb.gmftool#//@palette/@tools.1/@tools.16"/>
@@ -1054,6 +1159,13 @@
                         <ownedChild>
                           <domainMetaElement
                               href="esb.ecore#//SmooksMediator"/>
+                          <labelMappings
+                              xsi:type="gmfmap:FeatureLabelMapping">
+                            <diagramLabel
+                                href="esb.gmfgraph#SmooksMediatorDescription"/>
+                            <features
+                                href="esb.ecore#//EsbElement/description"/>
+                          </labelMappings>
                           <tool
                               xsi:type="gmftool:CreationTool"
                               href="esb.gmftool#//@palette/@tools.1/@tools.17"/>
@@ -1088,6 +1200,13 @@
                         <ownedChild>
                           <domainMetaElement
                               href="esb.ecore#//SendMediator"/>
+                          <labelMappings
+                              xsi:type="gmfmap:FeatureLabelMapping">
+                            <diagramLabel
+                                href="esb.gmfgraph#SendMediatorDescription"/>
+                            <features
+                                href="esb.ecore#//EsbElement/description"/>
+                          </labelMappings>
                           <tool
                               xsi:type="gmftool:CreationTool"
                               href="esb.gmftool#//@palette/@tools.1/@tools.18"/>
@@ -1153,6 +1272,13 @@
                                 href="esb.gmfgraph#HeaderMediatorHeaderName"/>
                             <features
                                 href="esb.ecore#//HeaderMediator/valueLiteral"/>
+                          </labelMappings>
+                          <labelMappings
+                              xsi:type="gmfmap:FeatureLabelMapping">
+                            <diagramLabel
+                                href="esb.gmfgraph#HeaderMediatorDescription"/>
+                            <features
+                                href="esb.ecore#//EsbElement/description"/>
                           </labelMappings>
                           <tool
                               xsi:type="gmftool:CreationTool"
@@ -1387,6 +1513,13 @@
                             <features
                                 href="esb.ecore#//CalloutMediator/soapAction"/>
                           </labelMappings>
+                          <labelMappings
+                              xsi:type="gmfmap:FeatureLabelMapping">
+                            <diagramLabel
+                                href="esb.gmfgraph#CalloutMediatorDescription"/>
+                            <features
+                                href="esb.ecore#//EsbElement/description"/>
+                          </labelMappings>
                           <tool
                               xsi:type="gmftool:CreationTool"
                               href="esb.gmftool#//@palette/@tools.1/@tools.24"/>
@@ -1421,6 +1554,13 @@
                         <ownedChild>
                           <domainMetaElement
                               href="esb.ecore#//TransactionMediator"/>
+                          <labelMappings
+                              xsi:type="gmfmap:FeatureLabelMapping">
+                            <diagramLabel
+                                href="esb.gmfgraph#TransactionMediatorDescription"/>
+                            <features
+                                href="esb.ecore#//EsbElement/description"/>
+                          </labelMappings>
                           <tool
                               xsi:type="gmftool:CreationTool"
                               href="esb.gmftool#//@palette/@tools.1/@tools.25"/>
@@ -1455,6 +1595,13 @@
                         <ownedChild>
                           <domainMetaElement
                               href="esb.ecore#//RMSequenceMediator"/>
+                          <labelMappings
+                              xsi:type="gmfmap:FeatureLabelMapping">
+                            <diagramLabel
+                                href="esb.gmfgraph#RMSequenceMediatorDescription"/>
+                            <features
+                                href="esb.ecore#//EsbElement/description"/>
+                          </labelMappings>
                           <tool
                               xsi:type="gmftool:CreationTool"
                               href="esb.gmftool#//@palette/@tools.1/@tools.27"/>
@@ -1544,6 +1691,13 @@
                                 href="esb.gmfgraph#OAuthMediatorRemoteServiceURL"/>
                             <features
                                 href="esb.ecore#//OAuthMediator/remoteServiceUrl"/>
+                          </labelMappings>
+                          <labelMappings
+                              xsi:type="gmfmap:FeatureLabelMapping">
+                            <diagramLabel
+                                href="esb.gmfgraph#OAuthMediatorDescription"/>
+                            <features
+                                href="esb.ecore#//EsbElement/description"/>
                           </labelMappings>
                           <tool
                               xsi:type="gmftool:CreationTool"
@@ -1636,6 +1790,13 @@
                         <ownedChild>
                           <domainMetaElement
                               href="esb.ecore#//StoreMediator"/>
+                          <labelMappings
+                              xsi:type="gmfmap:FeatureLabelMapping">
+                            <diagramLabel
+                                href="esb.gmfgraph#StoreMediatorDescription"/>
+                            <features
+                                href="esb.ecore#//EsbElement/description"/>
+                          </labelMappings>
                           <diagramNode
                               href="esb.gmfgraph#StoreMediator"/>
                           <children>
@@ -1667,6 +1828,13 @@
                         <ownedChild>
                           <domainMetaElement
                               href="esb.ecore#//BuilderMediator"/>
+                          <labelMappings
+                              xsi:type="gmfmap:FeatureLabelMapping">
+                            <diagramLabel
+                                href="esb.gmfgraph#BuilderMediatorDescription"/>
+                            <features
+                                href="esb.ecore#//EsbElement/description"/>
+                          </labelMappings>
                           <diagramNode
                               href="esb.gmfgraph#BuilderMediator"/>
                           <children>
@@ -1698,6 +1866,13 @@
                         <ownedChild>
                           <domainMetaElement
                               href="esb.ecore#//CallTemplateMediator"/>
+                          <labelMappings
+                              xsi:type="gmfmap:FeatureLabelMapping">
+                            <diagramLabel
+                                href="esb.gmfgraph#CallTemplateMediatorDescription"/>
+                            <features
+                                href="esb.ecore#//EsbElement/description"/>
+                          </labelMappings>
                           <diagramNode
                               href="esb.gmfgraph#CallTemplateMediator"/>
                           <children>
@@ -1729,6 +1904,13 @@
                         <ownedChild>
                           <domainMetaElement
                               href="esb.ecore#//PayloadFactoryMediator"/>
+                          <labelMappings
+                              xsi:type="gmfmap:FeatureLabelMapping">
+                            <diagramLabel
+                                href="esb.gmfgraph#PayloadFactoryMediatorDescription"/>
+                            <features
+                                href="esb.ecore#//EsbElement/description"/>
+                          </labelMappings>
                           <tool
                               xsi:type="gmftool:CreationTool"
                               href="esb.gmftool#//@palette/@tools.1/@tools.33"/>
@@ -1763,6 +1945,13 @@
                         <ownedChild>
                           <domainMetaElement
                               href="esb.ecore#//EnqueueMediator"/>
+                          <labelMappings
+                              xsi:type="gmfmap:FeatureLabelMapping">
+                            <diagramLabel
+                                href="esb.gmfgraph#EnqueueMediatorDescription"/>
+                            <features
+                                href="esb.ecore#//EsbElement/description"/>
+                          </labelMappings>
                           <tool
                               xsi:type="gmftool:CreationTool"
                               href="esb.gmftool#//@palette/@tools.1/@tools.34"/>
@@ -1797,6 +1986,13 @@
                         <ownedChild>
                           <domainMetaElement
                               href="esb.ecore#//URLRewriteMediator"/>
+                          <labelMappings
+                              xsi:type="gmfmap:FeatureLabelMapping">
+                            <diagramLabel
+                                href="esb.gmfgraph#URLRewriteMediatorDescription"/>
+                            <features
+                                href="esb.ecore#//EsbElement/description"/>
+                          </labelMappings>
                           <tool
                               xsi:type="gmftool:CreationTool"
                               href="esb.gmftool#//@palette/@tools.1/@tools.35"/>
@@ -1998,6 +2194,13 @@
                         <ownedChild>
                           <domainMetaElement
                               href="esb.ecore#//BAMMediator"/>
+                          <labelMappings
+                              xsi:type="gmfmap:FeatureLabelMapping">
+                            <diagramLabel
+                                href="esb.gmfgraph#BAMMediatorDescription"/>
+                            <features
+                                href="esb.ecore#//EsbElement/description"/>
+                          </labelMappings>
                           <tool
                               xsi:type="gmftool:CreationTool"
                               href="esb.gmftool#//@palette/@tools.1/@tools.39"/>
@@ -2032,6 +2235,13 @@
                         <ownedChild>
                           <domainMetaElement
                               href="esb.ecore#//BeanMediator"/>
+                          <labelMappings
+                              xsi:type="gmfmap:FeatureLabelMapping">
+                            <diagramLabel
+                                href="esb.gmfgraph#BeanMediatorDescription"/>
+                            <features
+                                href="esb.ecore#//EsbElement/description"/>
+                          </labelMappings>
                           <tool
                               xsi:type="gmftool:CreationTool"
                               href="esb.gmftool#//@palette/@tools.1/@tools.40"/>
@@ -2066,6 +2276,13 @@
                         <ownedChild>
                           <domainMetaElement
                               href="esb.ecore#//EJBMediator"/>
+                          <labelMappings
+                              xsi:type="gmfmap:FeatureLabelMapping">
+                            <diagramLabel
+                                href="esb.gmfgraph#EJBMediatorDescription"/>
+                            <features
+                                href="esb.ecore#//EsbElement/description"/>
+                          </labelMappings>
                           <tool
                               xsi:type="gmftool:CreationTool"
                               href="esb.gmftool#//@palette/@tools.1/@tools.41"/>

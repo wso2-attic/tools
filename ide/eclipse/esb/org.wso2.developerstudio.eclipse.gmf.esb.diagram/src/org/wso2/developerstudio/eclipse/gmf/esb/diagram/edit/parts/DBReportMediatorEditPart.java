@@ -26,6 +26,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShapeWithLabel;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedSizedAbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ShowPropertyViewEditPolicy;
@@ -136,6 +137,11 @@ public class DBReportMediatorEditPart extends FixedSizedAbstractMediator {
 					.getFigureDBReportMediatorPropertyValue());
 			return true;
 		}
+		if (childEditPart instanceof DBReportMediatorDescriptionEditPart) {
+			((DBReportMediatorDescriptionEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getDBReportMediatorDescriptionLabel());
+			return true;
+		}
 		if (childEditPart instanceof DBReportMediatorInputConnectorEditPart) {
 			IFigure borderItemFigure = ((DBReportMediatorInputConnectorEditPart) childEditPart)
 					.getFigure();
@@ -160,6 +166,9 @@ public class DBReportMediatorEditPart extends FixedSizedAbstractMediator {
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof DBReportMediatorConnectionURLEditPart) {
+			return true;
+		}
+		if (childEditPart instanceof DBReportMediatorDescriptionEditPart) {
 			return true;
 		}
 		if (childEditPart instanceof DBReportMediatorInputConnectorEditPart) {
@@ -294,12 +303,14 @@ public class DBReportMediatorEditPart extends FixedSizedAbstractMediator {
 	/**
 	 * @generated
 	 */
-	public class DBReportMediatorFigure extends EsbGraphicalShape {
+	public class DBReportMediatorFigure extends EsbGraphicalShapeWithLabel {
 
 		/**
 		 * @generated
 		 */
 		private WrappingLabel fFigureDBReportMediatorPropertyValue;
+		
+		private WrappingLabel dpReportMediatorDescriptionLabel;
 
 		/**
 		 * @generated
@@ -318,9 +329,9 @@ public class DBReportMediatorEditPart extends FixedSizedAbstractMediator {
 			fFigureDBReportMediatorPropertyValue = new WrappingLabel();
 			fFigureDBReportMediatorPropertyValue.setText("<...>");
 			fFigureDBReportMediatorPropertyValue.setAlignment(SWT.CENTER);
+			//this.getPropertyValueRectangle1().add(fFigureDBReportMediatorPropertyValue);
 
-			this.getPropertyValueRectangle1().add(fFigureDBReportMediatorPropertyValue);
-
+			dpReportMediatorDescriptionLabel = getPropertyNameLabel();
 		}
 
 		/**
@@ -330,6 +341,10 @@ public class DBReportMediatorEditPart extends FixedSizedAbstractMediator {
 			return fFigureDBReportMediatorPropertyValue;
 		}
 
+		public WrappingLabel getDBReportMediatorDescriptionLabel() {
+			return dpReportMediatorDescriptionLabel;
+		}
+		
 		public String getIconPath() {
 			return "icons/ico20/dbreport-mediator.gif";
 		}

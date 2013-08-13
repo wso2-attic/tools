@@ -28,6 +28,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShapeWithLabel;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedSizedAbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ShowPropertyViewEditPolicy;
@@ -136,6 +137,11 @@ public class BeanMediatorEditPart extends FixedSizedAbstractMediator {
 
 	protected boolean addFixedChild(EditPart childEditPart) {
 
+		if (childEditPart instanceof BeanMediatorDescriptionEditPart) {
+			((BeanMediatorDescriptionEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getBeanMediatorDescriptionLabel());
+			return true;
+		}
 		if (childEditPart instanceof BeanMediatorInputConnectorEditPart) {
 			IFigure borderItemFigure = ((BeanMediatorInputConnectorEditPart) childEditPart)
 					.getFigure();
@@ -157,6 +163,9 @@ public class BeanMediatorEditPart extends FixedSizedAbstractMediator {
 
 	protected boolean removeFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof CacheMediatorCacheIdEditPart) {
+			return true;
+		}
+		if (childEditPart instanceof BeanMediatorDescriptionEditPart) {
 			return true;
 		}
 		if (childEditPart instanceof BeanMediatorInputConnectorEditPart) {
@@ -274,8 +283,10 @@ public class BeanMediatorEditPart extends FixedSizedAbstractMediator {
 	/**
 	 * @generated
 	 */
-	public class BeanMediatorFigure extends EsbGraphicalShape {
+	public class BeanMediatorFigure extends EsbGraphicalShapeWithLabel {
 
+		private WrappingLabel beanMediatorDescriptionLabel;
+		
 		/**
 		 * @generated
 		 */
@@ -293,9 +304,13 @@ public class BeanMediatorEditPart extends FixedSizedAbstractMediator {
 			WrappingLabel beanMediatorPropertyValueLabel0 = new WrappingLabel();
 			beanMediatorPropertyValueLabel0.setText("<...>");
 			beanMediatorPropertyValueLabel0.setAlignment(SWT.CENTER);
-
-			this.getPropertyValueRectangle1().add(beanMediatorPropertyValueLabel0);
-
+			//this.getPropertyValueRectangle1().add(beanMediatorPropertyValueLabel0);
+			
+			beanMediatorDescriptionLabel = getPropertyNameLabel();
+		}
+		
+		public WrappingLabel getBeanMediatorDescriptionLabel() {
+			return beanMediatorDescriptionLabel;
 		}
 
 		public String getIconPath() {

@@ -69,6 +69,7 @@ public class PayloadFactoryMediatorItemProvider
 		addFormatPropertyDescriptor(object);
 		addArgsPropertyDescriptor(object);
 		addMediaTypePropertyDescriptor(object);
+		addDescriptionPropertyDescriptor(object);
 
 		return itemPropertyDescriptors;
 	}

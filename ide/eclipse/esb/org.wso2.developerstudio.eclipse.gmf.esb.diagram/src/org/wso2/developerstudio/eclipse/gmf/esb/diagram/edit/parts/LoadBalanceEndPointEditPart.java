@@ -343,7 +343,7 @@ public class LoadBalanceEndPointEditPart extends ComplexFiguredAbstractEndpoint 
 		 * @generated NOT
 		 */
 		private void createContents() {
-			fFigureLoadBalanceEndPointNamePropertyLabel = getPropertyNameLabel();	
+			fFigureLoadBalanceEndPointNamePropertyLabel = getPropertyNameLabel();
 		}
 
 		/**
@@ -373,4 +373,3 @@ public class LoadBalanceEndPointEditPart extends ComplexFiguredAbstractEndpoint 
 	static final Color THIS_BACK = new Color(null, 255, 255, 255);
 
 }
-

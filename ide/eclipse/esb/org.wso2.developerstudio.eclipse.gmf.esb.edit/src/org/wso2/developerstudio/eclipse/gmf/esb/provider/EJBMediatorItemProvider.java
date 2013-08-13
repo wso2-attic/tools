@@ -91,6 +91,7 @@ public class EJBMediatorItemProvider
 		addRemovePropertyDescriptor(object);
 		addTargetPropertyDescriptor(object);
 		addJNDINamePropertyDescriptor(object);
+		addDescriptionPropertyDescriptor(object);
 			
 		return itemPropertyDescriptors;
 	}

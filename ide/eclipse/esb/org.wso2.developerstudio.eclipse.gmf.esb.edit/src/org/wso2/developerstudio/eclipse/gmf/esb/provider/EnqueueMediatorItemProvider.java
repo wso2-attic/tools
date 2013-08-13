@@ -71,6 +71,7 @@ public class EnqueueMediatorItemProvider
 			addExecutorPropertyDescriptor(object);
 			addPriorityPropertyDescriptor(object);
 			addSequenceKeyPropertyDescriptor(object);
+			addDescriptionPropertyDescriptor(object);
 		
 		return itemPropertyDescriptors;
 	}
@@ -190,8 +191,10 @@ public class EnqueueMediatorItemProvider
 	
 	@Override
 	public String getText(Object object) {
-		EnqueueMediator enqueueMediator = (EnqueueMediator)object;
-		return getString("_UI_EnqueueMediator_type") + " " + enqueueMediator.isReverse();
+		String label = ((EnqueueMediator)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_EnqueueMediator_type") :
+			getString("_UI_EnqueueMediator_type") + " " + label;
 	}
 
 	/**

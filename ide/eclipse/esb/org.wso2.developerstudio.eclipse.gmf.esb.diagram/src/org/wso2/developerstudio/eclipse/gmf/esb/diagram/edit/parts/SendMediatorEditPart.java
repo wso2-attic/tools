@@ -39,6 +39,7 @@ import org.eclipse.ui.PlatformUI;
 import org.wso2.developerstudio.eclipse.gmf.esb.RegistryKeyProperty;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShapeWithLabel;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGroupingShape;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedSizedAbstractMediator;
@@ -169,6 +170,11 @@ public class SendMediatorEditPart extends FixedSizedAbstractMediator {
 
 	protected boolean addFixedChild(EditPart childEditPart) {
 
+		if (childEditPart instanceof SendMediatorDescriptionEditPart) {
+			((SendMediatorDescriptionEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getSendMediatorDescriptionLabel());
+			return true;
+		}
 		if (childEditPart instanceof SendMediatorInputConnectorEditPart) {
 
 			IFigure borderItemFigure = ((SendMediatorInputConnectorEditPart) childEditPart)
@@ -200,12 +206,26 @@ public class SendMediatorEditPart extends FixedSizedAbstractMediator {
 		}*/
 		return false;
 	}
+	
+	protected boolean removeFixedChild(EditPart childEditPart) {
+		if (childEditPart instanceof SendMediatorDescriptionEditPart) {
+			return true;
+		}
+		return false;
+	}
 
 	protected void addChildVisual(EditPart childEditPart, int index) {
 		if (addFixedChild(childEditPart)) {
 			return;
 		}
 		super.addChildVisual(childEditPart, -1);
+	}
+	
+	protected void removeChildVisual(EditPart childEditPart) {
+		if (removeFixedChild(childEditPart)) {
+			return;
+		}
+		super.removeChildVisual(childEditPart);
 	}
 
 	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
@@ -288,11 +308,13 @@ public class SendMediatorEditPart extends FixedSizedAbstractMediator {
 	 */
 	//public class SendMediatorFigure extends SendMediatorGraphicalShape {
 
-	public class SendMediatorFigure extends EsbGraphicalShape {
+	public class SendMediatorFigure extends EsbGraphicalShapeWithLabel {
 		/**
 		 * @generated
 		 */
 		private WrappingLabel fFigureSendMediatorPropertyValue;
+		
+		private WrappingLabel sendMediatorDescriptionLabel;
 
 		/**
 		 * @generated NOT
@@ -344,9 +366,9 @@ public class SendMediatorEditPart extends FixedSizedAbstractMediator {
 			fFigureSendMediatorPropertyValue = new WrappingLabel();
 			fFigureSendMediatorPropertyValue.setText("<...>");
 			fFigureSendMediatorPropertyValue.setAlignment(SWT.CENTER);
-
-			this.getPropertyValueRectangle1().add(fFigureSendMediatorPropertyValue);
-
+			//this.getPropertyValueRectangle1().add(fFigureSendMediatorPropertyValue);
+			
+			sendMediatorDescriptionLabel = getPropertyNameLabel();
 		}
 
 		/**
@@ -356,6 +378,10 @@ public class SendMediatorEditPart extends FixedSizedAbstractMediator {
 			return fFigureSendMediatorPropertyValue;
 		}
 
+		public WrappingLabel getSendMediatorDescriptionLabel() {
+			return sendMediatorDescriptionLabel;
+		}
+		
 		public String getIconPath() {
 			return "icons/ico20/send-mediator.gif";
 		}

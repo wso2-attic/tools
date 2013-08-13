@@ -24,6 +24,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShapeWithLabel;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedSizedAbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ShowPropertyViewEditPolicy;
@@ -128,6 +129,11 @@ public class RMSequenceMediatorEditPart extends FixedSizedAbstractMediator {
 
 	protected boolean addFixedChild(EditPart childEditPart) {
 
+		if (childEditPart instanceof RMSequenceMediatorDescriptionEditPart) {
+			((RMSequenceMediatorDescriptionEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getRMSequenceMediatorDescriptionLabel());
+			return true;
+		}
 		if (childEditPart instanceof RMSequenceMediatorInputConnectorEditPart) {
 
 			IFigure borderItemFigure = ((RMSequenceMediatorInputConnectorEditPart) childEditPart)
@@ -155,12 +161,26 @@ public class RMSequenceMediatorEditPart extends FixedSizedAbstractMediator {
 			}*/
 		return false;
 	}
+	
+	protected boolean removeFixedChild(EditPart childEditPart) {
+		if (childEditPart instanceof RMSequenceMediatorDescriptionEditPart) {
+			return true;
+		}
+		return false;
+	}
 
 	protected void addChildVisual(EditPart childEditPart, int index) {
 		if (addFixedChild(childEditPart)) {
 			return;
 		}
 		super.addChildVisual(childEditPart, -1);
+	}
+	
+	protected void removeChildVisual(EditPart childEditPart) {
+		if (removeFixedChild(childEditPart)) {
+			return;
+		}
+		super.removeChildVisual(childEditPart);
 	}
 
 	/**
@@ -244,12 +264,14 @@ public class RMSequenceMediatorEditPart extends FixedSizedAbstractMediator {
 	/**
 	 * @generated
 	 */
-	public class RMSequenceMediatorFigure extends EsbGraphicalShape {
+	public class RMSequenceMediatorFigure extends EsbGraphicalShapeWithLabel {
 
 		/**
 		 * @generated
 		 */
 		private WrappingLabel fFigureRMSequenceMediatorPropertyValue;
+		
+		private WrappingLabel rmSequenceMediatorDescriptionLabel;
 
 		/**
 		 * @generated
@@ -268,9 +290,9 @@ public class RMSequenceMediatorEditPart extends FixedSizedAbstractMediator {
 			fFigureRMSequenceMediatorPropertyValue = new WrappingLabel();
 			fFigureRMSequenceMediatorPropertyValue.setText("<...>");
 			fFigureRMSequenceMediatorPropertyValue.setAlignment(SWT.CENTER);
-
-			this.getPropertyValueRectangle1().add(fFigureRMSequenceMediatorPropertyValue);
-
+			//this.getPropertyValueRectangle1().add(fFigureRMSequenceMediatorPropertyValue);
+			
+			rmSequenceMediatorDescriptionLabel = getPropertyNameLabel();
 		}
 
 		/**
@@ -280,6 +302,9 @@ public class RMSequenceMediatorEditPart extends FixedSizedAbstractMediator {
 			return fFigureRMSequenceMediatorPropertyValue;
 		}
 
+		public WrappingLabel getRMSequenceMediatorDescriptionLabel() {
+			return rmSequenceMediatorDescriptionLabel;
+		}
 		public String getIconPath() {
 			return "icons/ico20/rmsequence-mediator.gif";
 		}

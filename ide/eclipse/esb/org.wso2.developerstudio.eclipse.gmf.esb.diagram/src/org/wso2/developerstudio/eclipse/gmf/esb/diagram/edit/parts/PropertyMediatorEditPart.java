@@ -429,6 +429,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShapeWithLabel;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedSizedAbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ShowPropertyViewEditPolicy;
@@ -539,6 +540,11 @@ public class PropertyMediatorEditPart extends FixedSizedAbstractMediator {
 					.getFigurePropertyMediatorPropertyValueLabel());
 			return true;
 		}
+		if (childEditPart instanceof PropertyMediatorDescriptionEditPart) {
+			((PropertyMediatorDescriptionEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getPropertyMediatorDescriptionLabel());
+			return true;
+		}
 		if (childEditPart instanceof PropertyMediatorInputConnectorEditPart) {
 			IFigure borderItemFigure = ((PropertyMediatorInputConnectorEditPart) childEditPart)
 					.getFigure();
@@ -563,6 +569,9 @@ public class PropertyMediatorEditPart extends FixedSizedAbstractMediator {
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof PropertyMediatorPropertyNameEditPart) {
+			return true;
+		}
+		if (childEditPart instanceof PropertyMediatorDescriptionEditPart) {
 			return true;
 		}
 		if (childEditPart instanceof PropertyMediatorInputConnectorEditPart) {
@@ -697,12 +706,14 @@ public class PropertyMediatorEditPart extends FixedSizedAbstractMediator {
 	/**
 	 * @generated
 	 */
-	public class PropertyMediatorFigure extends EsbGraphicalShape {
+	public class PropertyMediatorFigure extends EsbGraphicalShapeWithLabel {
 
 		/**
 		 * @generated
 		 */
 		private WrappingLabel fFigurePropertyMediatorPropertyValueLabel;
+		
+		private WrappingLabel propertyMediatorDescriptionLabel;
 
 		/**
 		 * @generated
@@ -721,9 +732,9 @@ public class PropertyMediatorEditPart extends FixedSizedAbstractMediator {
 			fFigurePropertyMediatorPropertyValueLabel = new WrappingLabel();
 			fFigurePropertyMediatorPropertyValueLabel.setText("<...>");
 			fFigurePropertyMediatorPropertyValueLabel.setAlignment(SWT.CENTER);
-
-			this.getPropertyValueRectangle1().add(fFigurePropertyMediatorPropertyValueLabel);
-
+			//this.getPropertyValueRectangle1().add(fFigurePropertyMediatorPropertyValueLabel);
+			
+			propertyMediatorDescriptionLabel = getPropertyNameLabel();
 		}
 
 		/**
@@ -731,6 +742,10 @@ public class PropertyMediatorEditPart extends FixedSizedAbstractMediator {
 		 */
 		public WrappingLabel getFigurePropertyMediatorPropertyValueLabel() {
 			return fFigurePropertyMediatorPropertyValueLabel;
+		}
+		
+		public WrappingLabel getPropertyMediatorDescriptionLabel() {
+			return propertyMediatorDescriptionLabel;
 		}
 
 		public String getIconPath() {

@@ -63,6 +63,7 @@ public class LogMediatorItemProvider extends MediatorItemProvider implements
 			addLogLevelPropertyDescriptor(object);
 			addLogSeparatorPropertyDescriptor(object);
 			addLogPropertyDescriptor(object);
+			addDescriptionPropertyDescriptor(object);
 		
 		return itemPropertyDescriptors;
 	}
@@ -206,8 +207,10 @@ public class LogMediatorItemProvider extends MediatorItemProvider implements
 	
 	@Override
 	public String getText(Object object) {
-		LogMediator logMediator = (LogMediator)object;
-		return getString("_UI_LogMediator_type") + " " + logMediator.isReverse();
+		String label = ((LogMediator)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_LogMediator_type") :
+			getString("_UI_LogMediator_type") + " " + label;
 	}
 
 	/**

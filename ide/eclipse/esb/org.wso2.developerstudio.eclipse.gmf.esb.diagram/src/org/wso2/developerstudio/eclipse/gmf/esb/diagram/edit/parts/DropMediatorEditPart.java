@@ -355,6 +355,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShapeWithLabel;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedSizedAbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ShowPropertyViewEditPolicy;
@@ -463,6 +464,36 @@ public class DropMediatorEditPart extends FixedSizedAbstractMediator {
 			super.addBorderItem(borderItemContainer, borderItemEditPart);
 		}
 	}
+	
+	protected boolean addFixedChild(EditPart childEditPart) {
+		if (childEditPart instanceof DropMediatorDescriptionEditPart) {
+			((DropMediatorDescriptionEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getDropMediatorDescriptionLabel());
+			return true;
+		}
+		return false;
+	}
+	
+	protected boolean removeFixedChild(EditPart childEditPart) {
+		if (childEditPart instanceof DropMediatorDescriptionEditPart) {
+			return true;
+		}
+		return false;
+	}
+	
+	protected void addChildVisual(EditPart childEditPart, int index) {
+		if (addFixedChild(childEditPart)) {
+			return;
+		}
+		super.addChildVisual(childEditPart, -1);
+	}
+
+	protected void removeChildVisual(EditPart childEditPart) {
+		if (removeFixedChild(childEditPart)) {
+			return;
+		}
+		super.removeChildVisual(childEditPart);
+	}
 
 	/**
 	 * Creates figure for this edit part.
@@ -545,12 +576,14 @@ public class DropMediatorEditPart extends FixedSizedAbstractMediator {
 	/**
 	 * @generated
 	 */
-	public class DropMediatorFigure extends EsbGraphicalShape {
+	public class DropMediatorFigure extends EsbGraphicalShapeWithLabel {
 
 		/**
 		 * @generated
 		 */
 		private WrappingLabel fDropMediatorLabelFigure;
+		
+		private WrappingLabel dropMediatorDescriptionLabel;
 
 		/**
 		 * @generated
@@ -568,11 +601,10 @@ public class DropMediatorEditPart extends FixedSizedAbstractMediator {
 
 			fDropMediatorLabelFigure = new WrappingLabel();
 			fDropMediatorLabelFigure.setText("");
-
 			fDropMediatorLabelFigure.setAlignment(SWT.CENTER);
-
-			this.getPropertyValueRectangle1().add(fDropMediatorLabelFigure);
-
+			//this.getPropertyValueRectangle1().add(fDropMediatorLabelFigure);
+			
+			dropMediatorDescriptionLabel = getPropertyNameLabel();
 		}
 
 		/**
@@ -582,6 +614,10 @@ public class DropMediatorEditPart extends FixedSizedAbstractMediator {
 			return fDropMediatorLabelFigure;
 		}
 
+		public WrappingLabel getDropMediatorDescriptionLabel() {
+			return dropMediatorDescriptionLabel;
+		}
+		
 		public String getIconPath() {
 			return "icons/ico20/drop-mediator.gif";
 		}

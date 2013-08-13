@@ -22,6 +22,7 @@ import org.eclipse.draw2d.ImageFigure;
 import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.geometry.Dimension;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.RoundedRectangleBorder;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
@@ -37,7 +38,7 @@ public class EsbGraphicalShapeWithLabel extends RoundedRectangle {
 	static int Figure_PreferredWidth = FixedSizedAbstractMediator.FigureWidth;
 	static int Figure_PreferredHeight = FixedSizedAbstractMediator.FigureHeight + 20; //Additional 20 to show the editable label
 	static int Image_PreferredWidth = 75;
-	static int Image_PreferredHeight = 50;
+	static int Image_PreferredHeight = 52;
 	static int marginWidth = (Figure_PreferredWidth - Image_PreferredWidth) / 2; //equals to 10
 	static int marginHeight = 10;
 
@@ -45,7 +46,9 @@ public class EsbGraphicalShapeWithLabel extends RoundedRectangle {
 		GridLayout layoutThis = new GridLayout();
 		layoutThis.numColumns = 1;
 		layoutThis.makeColumnsEqualWidth = true;
-		layoutThis.marginHeight = 0;
+		layoutThis.horizontalSpacing = 0;
+		layoutThis.verticalSpacing = 0;
+		layoutThis.marginHeight = 4;
 		layoutThis.marginWidth = 0;
 
 		this.setLayoutManager(layoutThis);
@@ -53,6 +56,10 @@ public class EsbGraphicalShapeWithLabel extends RoundedRectangle {
 		this.setOutline(false);
 		this.setPreferredSize(new Dimension(Figure_PreferredWidth, Figure_PreferredHeight));
 
+		RoundedRectangleBorder border = new RoundedRectangleBorder(8, 8);
+        border.setColor(EditPartDrawingHelper.FigureNormalColor);
+        this.setBorder(border);
+        
 		createContents();
 	}
 
@@ -60,9 +67,9 @@ public class EsbGraphicalShapeWithLabel extends RoundedRectangle {
 
 		/* main image grid data */
 		GridData constraintMainImageRectangle = new GridData();
-		constraintMainImageRectangle.verticalAlignment = GridData.VERTICAL_ALIGN_BEGINNING;
-		constraintMainImageRectangle.horizontalAlignment = GridData.HORIZONTAL_ALIGN_BEGINNING;
-		constraintMainImageRectangle.horizontalIndent = 0;
+		constraintMainImageRectangle.verticalAlignment = GridData.BEGINNING;
+		constraintMainImageRectangle.horizontalAlignment = GridData.CENTER;
+		constraintMainImageRectangle.verticalSpan = 1;
 
 		ImageFigure iconImageFigure = EditPartDrawingHelper.getIconImageFigure(getIconPath(),
 				Image_PreferredWidth, Image_PreferredHeight);
@@ -78,11 +85,11 @@ public class EsbGraphicalShapeWithLabel extends RoundedRectangle {
 		RoundedRectangle propertyValueRectangle1 = new RoundedRectangle();
 		propertyValueRectangle1.setCornerDimensions(new Dimension(8, 8));
 		propertyValueRectangle1.setOutline(false);
-		propertyValueRectangle1.setPreferredSize(new Dimension(Figure_PreferredWidth, 20));
+		propertyValueRectangle1.setPreferredSize(new Dimension(Figure_PreferredWidth, 25));
 
 		GridData constraintPropertyValueRectangle = new GridData();
-		constraintPropertyValueRectangle.verticalAlignment = GridData.CENTER;
-		constraintPropertyValueRectangle.horizontalAlignment = GridData.BEGINNING;
+		constraintPropertyValueRectangle.verticalAlignment = GridData.FILL;
+		constraintPropertyValueRectangle.horizontalAlignment = GridData.FILL;
 		constraintPropertyValueRectangle.horizontalIndent = 0;
 		constraintPropertyValueRectangle.horizontalSpan = 1;
 		constraintPropertyValueRectangle.verticalSpan = 1;

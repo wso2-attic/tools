@@ -79,6 +79,7 @@ public class XQueryMediatorItemProvider
 					break;
 				}
 				addTargetXPathPropertyDescriptor(object);
+				addDescriptionPropertyDescriptor(object);
 			
 		return itemPropertyDescriptors;
 	}
@@ -244,8 +245,10 @@ public class XQueryMediatorItemProvider
 	
 	@Override
 	public String getText(Object object) {
-		XQueryMediator xQueryMediator = (XQueryMediator)object;
-		return getString("_UI_XQueryMediator_type") + " " + xQueryMediator.isReverse();
+		String label = ((XQueryMediator)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_XQueryMediator_type") :
+			getString("_UI_XQueryMediator_type") + " " + label;
 	}
 
 	/**

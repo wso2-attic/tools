@@ -81,6 +81,7 @@ public class XSLTMediatorItemProvider
 			addPropertiesPropertyDescriptor(object);
 			addResourcesPropertyDescriptor(object);
 			addFeaturesPropertyDescriptor(object);
+			addDescriptionPropertyDescriptor(object);
 		
 		return itemPropertyDescriptors;
 	}
@@ -312,8 +313,10 @@ public class XSLTMediatorItemProvider
 	
 	@Override
 	public String getText(Object object) {
-		XSLTMediator xsltMediator = (XSLTMediator)object;
-		return getString("_UI_XSLTMediator_type") + " " + xsltMediator.isReverse();
+		String label = ((XSLTMediator)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_XSLTMediator_type") :
+			getString("_UI_XSLTMediator_type") + " " + label;
 	}
 
 	/**

@@ -91,7 +91,7 @@ public class CalloutMediatorItemProvider
 				addResultContextPropertyPropertyDescriptor(object);
 			}
 			
-			
+			addDescriptionPropertyDescriptor(object);
 		
 		return itemPropertyDescriptors;
 	}
@@ -380,8 +380,10 @@ public class CalloutMediatorItemProvider
 	
 	@Override
 	public String getText(Object object) {
-		CalloutMediator calloutMediator = (CalloutMediator)object;
-		return getString("_UI_CalloutMediator_type") + " " + calloutMediator.isReverse();
+		String label = ((CalloutMediator)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_CalloutMediator_type") :
+			getString("_UI_CalloutMediator_type") + " " + label;
 	}
 
 	/**

@@ -67,6 +67,7 @@ public class TransactionMediatorItemProvider
 		super.getPropertyDescriptors(object);
 
 		addActionPropertyDescriptor(object);
+		addDescriptionPropertyDescriptor(object);
 		return itemPropertyDescriptors;
 	}
 
@@ -144,8 +145,10 @@ public class TransactionMediatorItemProvider
 	
 	@Override
 	public String getText(Object object) {
-		TransactionMediator transactionMediator = (TransactionMediator)object;
-		return getString("_UI_TransactionMediator_type") + " " + transactionMediator.isReverse();
+		String label = ((TransactionMediator)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_TransactionMediator_type") :
+			getString("_UI_TransactionMediator_type") + " " + label;
 	}
 
 	/**

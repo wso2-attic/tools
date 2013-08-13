@@ -294,8 +294,10 @@ public class IterateMediatorItemProvider
 	
 	@Override
 	public String getText(Object object) {
-		IterateMediator iterateMediator = (IterateMediator)object;
-		return getString("_UI_IterateMediator_type") + " " + iterateMediator.isReverse();
+		String label = ((IterateMediator)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_IterateMediator_type") :
+			getString("_UI_IterateMediator_type") + " " + label;
 	}
 
 	/**

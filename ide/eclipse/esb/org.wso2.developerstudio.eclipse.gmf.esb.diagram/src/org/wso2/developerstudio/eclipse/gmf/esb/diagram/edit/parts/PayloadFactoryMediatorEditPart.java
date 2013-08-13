@@ -26,6 +26,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShapeWithLabel;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedSizedAbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ShowPropertyViewEditPolicy;
@@ -130,6 +131,11 @@ public class PayloadFactoryMediatorEditPart extends FixedSizedAbstractMediator {
 
 	protected boolean addFixedChild(EditPart childEditPart) {
 
+		if (childEditPart instanceof PayloadFactoryMediatorDescriptionEditPart) {
+			((PayloadFactoryMediatorDescriptionEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getPayloadFactoryMediatorDescriptionLabel());
+			return true;
+		}
 		if (childEditPart instanceof PayloadFactoryMediatorInputConnectorEditPart) {
 			IFigure borderItemFigure = ((PayloadFactoryMediatorInputConnectorEditPart) childEditPart)
 					.getFigure();
@@ -151,6 +157,9 @@ public class PayloadFactoryMediatorEditPart extends FixedSizedAbstractMediator {
 
 	protected boolean removeFixedChild(EditPart childEditPart) {
 
+		if(childEditPart instanceof PayloadFactoryMediatorDescriptionEditPart) {
+			return true;
+		}
 		if (childEditPart instanceof PayloadFactoryMediatorInputConnectorEditPart) {
 			getBorderedFigure().getBorderItemContainer().remove(
 					((PayloadFactoryMediatorInputConnectorEditPart) childEditPart).getFigure());
@@ -266,12 +275,14 @@ public class PayloadFactoryMediatorEditPart extends FixedSizedAbstractMediator {
 	/**
 	 * @generated
 	 */
-	public class PayloadFactoryMediatorFigure extends EsbGraphicalShape {
+	public class PayloadFactoryMediatorFigure extends EsbGraphicalShapeWithLabel {
 
 		/**
 		 * @generated
 		 */
 		private WrappingLabel fFigurePayloadFactoryMediatorPropertyValue;
+		
+		private WrappingLabel payloadFactoryMediatorDescriptionLabel;
 
 		/**
 		 * @generated
@@ -290,9 +301,9 @@ public class PayloadFactoryMediatorEditPart extends FixedSizedAbstractMediator {
 			fFigurePayloadFactoryMediatorPropertyValue = new WrappingLabel();
 			fFigurePayloadFactoryMediatorPropertyValue.setText("<...>");
 			fFigurePayloadFactoryMediatorPropertyValue.setAlignment(SWT.CENTER);
-
-			this.getPropertyValueRectangle1().add(fFigurePayloadFactoryMediatorPropertyValue);
-
+			//this.getPropertyValueRectangle1().add(fFigurePayloadFactoryMediatorPropertyValue);
+			
+			payloadFactoryMediatorDescriptionLabel = getPropertyNameLabel();
 		}
 
 		/**
@@ -302,6 +313,10 @@ public class PayloadFactoryMediatorEditPart extends FixedSizedAbstractMediator {
 			return fFigurePayloadFactoryMediatorPropertyValue;
 		}
 
+		public WrappingLabel getPayloadFactoryMediatorDescriptionLabel() {
+			return payloadFactoryMediatorDescriptionLabel;
+		}
+		
 		public String getIconPath() {
 			return "icons/ico20/payloadFactory-mediator.gif";
 		}

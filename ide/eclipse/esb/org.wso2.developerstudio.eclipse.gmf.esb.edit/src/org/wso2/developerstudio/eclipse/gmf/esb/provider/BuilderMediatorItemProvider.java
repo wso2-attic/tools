@@ -65,6 +65,7 @@ public class BuilderMediatorItemProvider
 		}
 		super.getPropertyDescriptors(object);
 		addMessageBuildersPropertyDescriptor(object);
+		addDescriptionPropertyDescriptor(object);
 
 		return itemPropertyDescriptors;
 	}
@@ -142,8 +143,10 @@ public class BuilderMediatorItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		BuilderMediator builderMediator = (BuilderMediator)object;
-		return getString("_UI_BuilderMediator_type") + " " + builderMediator.isReverse();
+		String label = ((BuilderMediator)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_BuilderMediator_type") :
+			getString("_UI_BuilderMediator_type") + " " + label;
 	}
 
 	/**

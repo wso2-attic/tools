@@ -69,6 +69,7 @@ public class SpringMediatorItemProvider
 
 			 addBeanNamePropertyDescriptor(object);
 	         addConfigurationKeyPropertyDescriptor(object);
+	         addDescriptionPropertyDescriptor(object);
 		
 		return itemPropertyDescriptors;
 	}

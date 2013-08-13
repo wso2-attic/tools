@@ -55,7 +55,7 @@ public class MediatorFlowMediatorFlowCompartment6EditPart extends
 	AbstractBorderItemEditPart inputConnectorEditPart = null;
 	AbstractBorderItemEditPart sourceInputConnector = null;
 	ShapeNodeEditPart sourceEditPart = null;
-	
+
 	/**
 	 * @generated
 	 */

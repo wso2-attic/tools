@@ -78,6 +78,8 @@ public class SendMediatorItemProvider
 			addDynamicReceivingSequencePropertyDescriptor(object);
 			break;
 		}	
+		addDescriptionPropertyDescriptor(object);
+		
 		return itemPropertyDescriptors;
 	}
 
@@ -218,8 +220,10 @@ public class SendMediatorItemProvider
 	
 	@Override
 	public String getText(Object object) {
-		SendMediator sendMediator = (SendMediator)object;
-		return getString("_UI_SendMediator_type") + " " + sendMediator.isReverse();
+		String label = ((SendMediator)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_SendMediator_type") :
+			getString("_UI_SendMediator_type") + " " + label;
 	}
 
 	/**

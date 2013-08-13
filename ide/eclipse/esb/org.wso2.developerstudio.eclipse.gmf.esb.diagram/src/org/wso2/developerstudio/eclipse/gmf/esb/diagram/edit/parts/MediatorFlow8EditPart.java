@@ -228,8 +228,7 @@ public class MediatorFlow8EditPart extends ShapeNodeEditPart {
 		}
 
 	}
-	
-	
+
 	public boolean isSelectable() {
 		// TODO This or using ResizableEditpolicy?
 		return false;

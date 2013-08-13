@@ -121,7 +121,10 @@ public class MessageMediatorItemProvider
 	
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_MessageMediator_type");
+		String label = ((MessageMediator)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_MessageMediator_type") :
+			getString("_UI_MessageMediator_type") + " " + label;
 	}
 
 	/**

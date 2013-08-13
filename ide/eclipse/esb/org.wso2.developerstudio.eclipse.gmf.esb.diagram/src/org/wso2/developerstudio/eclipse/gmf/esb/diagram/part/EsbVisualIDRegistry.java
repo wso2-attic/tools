@@ -4253,12 +4253,18 @@ public class EsbVisualIDRegistry {
 			}
 			break;
 		case DropMediatorEditPart.VISUAL_ID:
+			if (DropMediatorDescriptionEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			if (DropMediatorInputConnectorEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
 		case PropertyMediatorEditPart.VISUAL_ID:
 			if (PropertyMediatorPropertyNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (PropertyMediatorDescriptionEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (PropertyMediatorInputConnectorEditPart.VISUAL_ID == nodeVisualID) {
@@ -4348,6 +4354,9 @@ public class EsbVisualIDRegistry {
 			if (LogMediatorLogCategoryEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (LogMediatorDescriptionEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			if (LogMediatorInputConnectorEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -4359,6 +4368,9 @@ public class EsbVisualIDRegistry {
 			if (EnrichMediatorSourceTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (EnrichMediatorDescriptionEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			if (EnrichMediatorInputConnectorEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -4367,6 +4379,9 @@ public class EsbVisualIDRegistry {
 			}
 			break;
 		case XSLTMediatorEditPart.VISUAL_ID:
+			if (XSLTMediatorDescriptionEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			if (XSLTMediatorInputConnectorEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -4424,6 +4439,9 @@ public class EsbVisualIDRegistry {
 			if (EventMediatorTopicTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (EventMediatorDescriptionEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			if (EventMediatorInputConnectorEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -4433,6 +4451,9 @@ public class EsbVisualIDRegistry {
 			break;
 		case EntitlementMediatorEditPart.VISUAL_ID:
 			if (EntitlementMediatorServerURLEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (EntitlementMediatorDescriptionEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (EntitlementMediatorInputConnectorEditPart.VISUAL_ID == nodeVisualID) {
@@ -4446,6 +4467,9 @@ public class EsbVisualIDRegistry {
 			if (ClassMediatorClassNameEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (ClassMediatorDescriptionEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			if (ClassMediatorInputConnectorEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -4455,6 +4479,9 @@ public class EsbVisualIDRegistry {
 			break;
 		case SpringMediatorEditPart.VISUAL_ID:
 			if (SpringMediatorBeanNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (SpringMediatorDescriptionEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (SpringMediatorInputConnectorEditPart.VISUAL_ID == nodeVisualID) {
@@ -4468,6 +4495,9 @@ public class EsbVisualIDRegistry {
 			if (ScriptMediatorScriptLanguageEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (ScriptMediatorDescriptionEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			if (ScriptMediatorInputConnectorEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -4477,6 +4507,9 @@ public class EsbVisualIDRegistry {
 			break;
 		case FaultMediatorEditPart.VISUAL_ID:
 			if (FaultMediatorFaultStringTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (FaultMediatorDescriptionEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (FaultMediatorInputConnectorEditPart.VISUAL_ID == nodeVisualID) {
@@ -4490,6 +4523,9 @@ public class EsbVisualIDRegistry {
 			if (XQueryMediatorScriptKeyTypeEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (XQueryMediatorDescriptionEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			if (XQueryMediatorInputConnectorEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -4499,6 +4535,9 @@ public class EsbVisualIDRegistry {
 			break;
 		case CommandMediatorEditPart.VISUAL_ID:
 			if (CommandMediatorClassNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (CommandMediatorDescriptionEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (CommandMediatorInputConnectorEditPart.VISUAL_ID == nodeVisualID) {
@@ -4512,6 +4551,9 @@ public class EsbVisualIDRegistry {
 			if (DBLookupMediatorConnectionURLEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (DBLookupMediatorDescriptionEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			if (DBLookupMediatorInputConnectorEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -4523,6 +4565,9 @@ public class EsbVisualIDRegistry {
 			if (DBReportMediatorConnectionURLEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (DBReportMediatorDescriptionEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			if (DBReportMediatorInputConnectorEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -4531,6 +4576,9 @@ public class EsbVisualIDRegistry {
 			}
 			break;
 		case SmooksMediatorEditPart.VISUAL_ID:
+			if (SmooksMediatorDescriptionEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			if (SmooksMediatorInputConnectorEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -4539,6 +4587,9 @@ public class EsbVisualIDRegistry {
 			}
 			break;
 		case SendMediatorEditPart.VISUAL_ID:
+			if (SendMediatorDescriptionEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			if (SendMediatorInputConnectorEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -4559,6 +4610,9 @@ public class EsbVisualIDRegistry {
 			break;
 		case HeaderMediatorEditPart.VISUAL_ID:
 			if (HeaderMediatorValueLiteralEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (HeaderMediatorDescriptionEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (HeaderMediatorInputConnectorEditPart.VISUAL_ID == nodeVisualID) {
@@ -4648,6 +4702,9 @@ public class EsbVisualIDRegistry {
 			if (CalloutMediatorSoapActionEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
+			if (CalloutMediatorDescriptionEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			if (CalloutMediatorInputConnectorEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -4656,6 +4713,9 @@ public class EsbVisualIDRegistry {
 			}
 			break;
 		case TransactionMediatorEditPart.VISUAL_ID:
+			if (TransactionMediatorDescriptionEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			if (TransactionMediatorInputConnectorEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -4664,6 +4724,9 @@ public class EsbVisualIDRegistry {
 			}
 			break;
 		case RMSequenceMediatorEditPart.VISUAL_ID:
+			if (RMSequenceMediatorDescriptionEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			if (RMSequenceMediatorInputConnectorEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -4692,6 +4755,9 @@ public class EsbVisualIDRegistry {
 			break;
 		case OAuthMediatorEditPart.VISUAL_ID:
 			if (OAuthMediatorRemoteServiceUrlEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (OAuthMediatorDescriptionEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			if (OAuthMediatorInputConnectorEditPart.VISUAL_ID == nodeVisualID) {
@@ -4724,6 +4790,9 @@ public class EsbVisualIDRegistry {
 			}
 			break;
 		case StoreMediatorEditPart.VISUAL_ID:
+			if (StoreMediatorDescriptionEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			if (StoreMediatorInputConnectorEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -4732,6 +4801,9 @@ public class EsbVisualIDRegistry {
 			}
 			break;
 		case BuilderMediatorEditPart.VISUAL_ID:
+			if (BuilderMediatorDescriptionEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			if (BuilderMediatorInputConnectorEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -4740,6 +4812,9 @@ public class EsbVisualIDRegistry {
 			}
 			break;
 		case CallTemplateMediatorEditPart.VISUAL_ID:
+			if (CallTemplateMediatorDescriptionEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			if (CallTemplateMediatorInputConnectorEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -4748,6 +4823,9 @@ public class EsbVisualIDRegistry {
 			}
 			break;
 		case PayloadFactoryMediatorEditPart.VISUAL_ID:
+			if (PayloadFactoryMediatorDescriptionEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			if (PayloadFactoryMediatorInputConnectorEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -4756,6 +4834,9 @@ public class EsbVisualIDRegistry {
 			}
 			break;
 		case EnqueueMediatorEditPart.VISUAL_ID:
+			if (EnqueueMediatorDescriptionEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			if (EnqueueMediatorInputConnectorEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -4764,6 +4845,9 @@ public class EsbVisualIDRegistry {
 			}
 			break;
 		case URLRewriteMediatorEditPart.VISUAL_ID:
+			if (URLRewriteMediatorDescriptionEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			if (URLRewriteMediatorInputConnectorEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -4839,6 +4923,9 @@ public class EsbVisualIDRegistry {
 			}
 			break;
 		case BAMMediatorEditPart.VISUAL_ID:
+			if (BAMMediatorDescriptionEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			if (BAMMediatorInputConnectorEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -4847,6 +4934,9 @@ public class EsbVisualIDRegistry {
 			}
 			break;
 		case BeanMediatorEditPart.VISUAL_ID:
+			if (BeanMediatorDescriptionEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			if (BeanMediatorInputConnectorEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
@@ -4855,6 +4945,9 @@ public class EsbVisualIDRegistry {
 			}
 			break;
 		case EJBMediatorEditPart.VISUAL_ID:
+			if (EJBMediatorDescriptionEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
 			if (EJBMediatorInputConnectorEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}

@@ -82,6 +82,7 @@ public class HeaderMediatorItemProvider
 					addValueExpressionPropertyDescriptor(object);
 				}			
 			}
+			addDescriptionPropertyDescriptor(object);
 		
 		return itemPropertyDescriptors;
 	}
@@ -264,8 +265,10 @@ public class HeaderMediatorItemProvider
 	
 	@Override
 	public String getText(Object object) {
-		HeaderMediator headerMediator = (HeaderMediator)object;
-		return getString("_UI_HeaderMediator_type") + " " + headerMediator.isReverse();
+		String label = ((HeaderMediator)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_HeaderMediator_type") :
+			getString("_UI_HeaderMediator_type") + " " + label;
 	}
 
 	/**

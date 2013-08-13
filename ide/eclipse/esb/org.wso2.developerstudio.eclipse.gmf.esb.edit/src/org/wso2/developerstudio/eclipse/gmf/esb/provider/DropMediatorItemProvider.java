@@ -61,6 +61,8 @@ public class DropMediatorItemProvider
 			itemPropertyDescriptors.clear();
 		}
 		super.getPropertyDescriptors(object);
+		addDescriptionPropertyDescriptor(object);
+		
 		return itemPropertyDescriptors;
 	}
 
@@ -117,8 +119,10 @@ public class DropMediatorItemProvider
 	
 	@Override
 	public String getText(Object object) {
-		DropMediator dropMediator = (DropMediator)object;
-		return getString("_UI_DropMediator_type") + " " + dropMediator.isReverse();
+		String label = ((DropMediator)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_DropMediator_type") :
+			getString("_UI_DropMediator_type") + " " + label;
 	}
 
 	/**

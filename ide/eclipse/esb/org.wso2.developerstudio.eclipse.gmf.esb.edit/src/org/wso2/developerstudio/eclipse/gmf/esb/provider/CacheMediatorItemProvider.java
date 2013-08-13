@@ -368,8 +368,10 @@ public class CacheMediatorItemProvider
 	
 	@Override
 	public String getText(Object object) {
-		CacheMediator cacheMediator = (CacheMediator)object;
-		return getString("_UI_CacheMediator_type") + " " + cacheMediator.isReverse();
+		String label = ((CacheMediator)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_CacheMediator_type") :
+			getString("_UI_CacheMediator_type") + " " + label;
 	}
 
 	/**

@@ -266,12 +266,13 @@ public class MediatorFlowEditPart extends ShapeNodeEditPart {
 				layoutData.verticalAlignment = GridData.FILL;
 				super.add(figure, layoutData, index);
 			} else {
-				super.add(figure, constraint, index);;
+				super.add(figure, constraint, index);
+				;
 			}
 		}
 
 	}
-	
+
 	public boolean isSelectable() {
 		// TODO This or using ResizableEditpolicy?
 		return false;

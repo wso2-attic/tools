@@ -26,6 +26,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShapeWithLabel;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedSizedAbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ShowPropertyViewEditPolicy;
@@ -135,6 +136,11 @@ public class OAuthMediatorEditPart extends FixedSizedAbstractMediator {
 					.getFigureOAuthMediatorPropertyValue());
 			return true;
 		}
+		if (childEditPart instanceof OAuthMediatorDescriptionEditPart) {
+			((OAuthMediatorDescriptionEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getOAuthMediatorDescriptionLabel());
+			return true;
+		}
 		if (childEditPart instanceof OAuthMediatorInputConnectorEditPart) {
 			IFigure borderItemFigure = ((OAuthMediatorInputConnectorEditPart) childEditPart)
 					.getFigure();
@@ -159,6 +165,9 @@ public class OAuthMediatorEditPart extends FixedSizedAbstractMediator {
 	 */
 	protected boolean removeFixedChild(EditPart childEditPart) {
 		if (childEditPart instanceof OAuthMediatorRemoteServiceUrlEditPart) {
+			return true;
+		}
+		if (childEditPart instanceof OAuthMediatorDescriptionEditPart) {
 			return true;
 		}
 		if (childEditPart instanceof OAuthMediatorInputConnectorEditPart) {
@@ -293,12 +302,14 @@ public class OAuthMediatorEditPart extends FixedSizedAbstractMediator {
 	/**
 	 * @generated
 	 */
-	public class OAuthMediatorFigure extends EsbGraphicalShape {
+	public class OAuthMediatorFigure extends EsbGraphicalShapeWithLabel {
 
 		/**
 		 * @generated
 		 */
 		private WrappingLabel fFigureOAuthMediatorPropertyValue;
+		
+		private WrappingLabel oAuthMediatorDescriptionLabel;
 
 		/**
 		 * @generated
@@ -317,9 +328,9 @@ public class OAuthMediatorEditPart extends FixedSizedAbstractMediator {
 			fFigureOAuthMediatorPropertyValue = new WrappingLabel();
 			fFigureOAuthMediatorPropertyValue.setText("<...>");
 			fFigureOAuthMediatorPropertyValue.setAlignment(SWT.CENTER);
-
-			this.getPropertyValueRectangle1().add(fFigureOAuthMediatorPropertyValue);
-
+			//this.getPropertyValueRectangle1().add(fFigureOAuthMediatorPropertyValue);
+			
+			oAuthMediatorDescriptionLabel = getPropertyNameLabel();
 		}
 
 		/**
@@ -329,6 +340,10 @@ public class OAuthMediatorEditPart extends FixedSizedAbstractMediator {
 			return fFigureOAuthMediatorPropertyValue;
 		}
 
+		public WrappingLabel getOAuthMediatorDescriptionLabel() {
+			return oAuthMediatorDescriptionLabel;
+		}
+		
 		public String getIconPath() {
 			return "icons/ico20/oauth-mediator.gif";
 		}

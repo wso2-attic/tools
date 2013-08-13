@@ -26,6 +26,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShapeWithLabel;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedSizedAbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ShowPropertyViewEditPolicy;
@@ -130,6 +131,11 @@ public class URLRewriteMediatorEditPart extends FixedSizedAbstractMediator {
 
 	protected boolean addFixedChild(EditPart childEditPart) {
 
+		if (childEditPart instanceof URLRewriteMediatorDescriptionEditPart) {
+			((URLRewriteMediatorDescriptionEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getURLRewriteMediatorDescriptionLabel());
+			return true;
+		}
 		if (childEditPart instanceof URLRewriteMediatorInputConnectorEditPart) {
 
 			IFigure borderItemFigure = ((URLRewriteMediatorInputConnectorEditPart) childEditPart)
@@ -151,12 +157,26 @@ public class URLRewriteMediatorEditPart extends FixedSizedAbstractMediator {
 		}
 		return false;
 	}
+	
+	protected boolean removeFixedChild(EditPart childEditPart) {
+		if(childEditPart instanceof URLRewriteMediatorDescriptionEditPart) {
+			return true;
+		}
+		return false;
+	}
 
 	protected void addChildVisual(EditPart childEditPart, int index) {
 		if (addFixedChild(childEditPart)) {
 			return;
 		}
 		super.addChildVisual(childEditPart, -1);
+	}
+	
+	protected void removeChildVisual(EditPart childEditPart) {
+		if (removeFixedChild(childEditPart)) {
+			return;
+		}
+		super.removeChildVisual(childEditPart);
 	}
 
 	/**
@@ -248,12 +268,14 @@ public class URLRewriteMediatorEditPart extends FixedSizedAbstractMediator {
 	/**
 	 * @generated
 	 */
-	public class URLRewriteMediatorFigure extends EsbGraphicalShape {
+	public class URLRewriteMediatorFigure extends EsbGraphicalShapeWithLabel {
 
 		/**
 		 * @generated
 		 */
 		private WrappingLabel fFigureURLRewriteMediatorPropertyValue;
+		
+		private WrappingLabel urlRewriteMediatorDescriptionLabel;
 
 		/**
 		 * @generated
@@ -272,8 +294,9 @@ public class URLRewriteMediatorEditPart extends FixedSizedAbstractMediator {
 			fFigureURLRewriteMediatorPropertyValue = new WrappingLabel();
 			fFigureURLRewriteMediatorPropertyValue.setText("<...>");
 			fFigureURLRewriteMediatorPropertyValue.setAlignment(SWT.CENTER);
-
-			this.getPropertyValueRectangle1().add(fFigureURLRewriteMediatorPropertyValue);
+			//this.getPropertyValueRectangle1().add(fFigureURLRewriteMediatorPropertyValue);
+			
+			urlRewriteMediatorDescriptionLabel = getPropertyNameLabel();
 		}
 
 		/**
@@ -281,6 +304,10 @@ public class URLRewriteMediatorEditPart extends FixedSizedAbstractMediator {
 		 */
 		public WrappingLabel getFigureURLRewriteMediatorPropertyValue() {
 			return fFigureURLRewriteMediatorPropertyValue;
+		}
+		
+		public WrappingLabel getURLRewriteMediatorDescriptionLabel() {
+			return urlRewriteMediatorDescriptionLabel;
 		}
 
 		public String getIconPath() {

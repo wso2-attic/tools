@@ -197,8 +197,10 @@ public class CloneMediatorItemProvider
 	
 	@Override
 	public String getText(Object object) {
-		CloneMediator cloneMediator = (CloneMediator)object;
-		return getString("_UI_CloneMediator_type") + " " + cloneMediator.isReverse();
+		String label = ((CloneMediator)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_CloneMediator_type") :
+			getString("_UI_CloneMediator_type") + " " + label;
 	}
 
 	/**

@@ -66,6 +66,7 @@ public class OAuthMediatorItemProvider
 		super.getPropertyDescriptors(object);
 
 		addRemoteServiceUrlPropertyDescriptor(object);
+		addDescriptionPropertyDescriptor(object);
 
 		return itemPropertyDescriptors;
 	}
@@ -144,8 +145,10 @@ public class OAuthMediatorItemProvider
 	
 	@Override
 	public String getText(Object object) {
-		OAuthMediator oAuthMediator = (OAuthMediator)object;
-		return getString("_UI_OAuthMediator_type") + " " + oAuthMediator.isReverse();
+		String label = ((OAuthMediator)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_OAuthMediator_type") :
+			getString("_UI_OAuthMediator_type") + " " + label;
 	}
 
 	/**

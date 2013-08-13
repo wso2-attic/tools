@@ -25,6 +25,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShapeWithLabel;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedSizedAbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ShowPropertyViewEditPolicy;
@@ -135,6 +136,11 @@ public class SmooksMediatorEditPart extends FixedSizedAbstractMediator {
 
 	protected boolean addFixedChild(EditPart childEditPart) {
 
+		if (childEditPart instanceof SmooksMediatorDescriptionEditPart) {
+			((SmooksMediatorDescriptionEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getSmooksMediatorDescriptionLabel());
+			return true;
+		}
 		if (childEditPart instanceof SmooksMediatorInputConnectorEditPart) {
 
 			IFigure borderItemFigure = ((SmooksMediatorInputConnectorEditPart) childEditPart)
@@ -162,12 +168,26 @@ public class SmooksMediatorEditPart extends FixedSizedAbstractMediator {
 		}*/
 		return false;
 	}
+	
+	protected boolean removeFixedChild(EditPart childEditPart) {
+		if (childEditPart instanceof SmooksMediatorDescriptionEditPart) {
+			return true;
+		}
+		return false;
+	}
 
 	protected void addChildVisual(EditPart childEditPart, int index) {
 		if (addFixedChild(childEditPart)) {
 			return;
 		}
 		super.addChildVisual(childEditPart, -1);
+	}
+	
+	protected void removeChildVisual(EditPart childEditPart) {
+		if (removeFixedChild(childEditPart)) {
+			return;
+		}
+		super.removeChildVisual(childEditPart);
 	}
 
 	/**
@@ -241,12 +261,14 @@ public class SmooksMediatorEditPart extends FixedSizedAbstractMediator {
 	/**
 	 * @generated
 	 */
-	public class SmooksMediatorFigure extends EsbGraphicalShape {
+	public class SmooksMediatorFigure extends EsbGraphicalShapeWithLabel {
 
 		/**
 		 * @generated
 		 */
 		private WrappingLabel fFigureSmooksMediatorPropertyValue;
+		
+		private WrappingLabel smooksMediatorDescriptionLabel;
 
 		/**
 		 * @generated
@@ -265,9 +287,9 @@ public class SmooksMediatorEditPart extends FixedSizedAbstractMediator {
 			fFigureSmooksMediatorPropertyValue = new WrappingLabel();
 			fFigureSmooksMediatorPropertyValue.setText("<...>");
 			fFigureSmooksMediatorPropertyValue.setAlignment(SWT.CENTER);
-
-			this.getPropertyValueRectangle1().add(fFigureSmooksMediatorPropertyValue);
-
+			//this.getPropertyValueRectangle1().add(fFigureSmooksMediatorPropertyValue);
+			
+			smooksMediatorDescriptionLabel = getPropertyNameLabel();
 		}
 
 		/**
@@ -275,6 +297,10 @@ public class SmooksMediatorEditPart extends FixedSizedAbstractMediator {
 		 */
 		public WrappingLabel getFigureSmooksMediatorPropertyValue() {
 			return fFigureSmooksMediatorPropertyValue;
+		}
+		
+		public WrappingLabel getSmooksMediatorDescriptionLabel() {
+			return smooksMediatorDescriptionLabel;
 		}
 
 		public String getIconPath() {

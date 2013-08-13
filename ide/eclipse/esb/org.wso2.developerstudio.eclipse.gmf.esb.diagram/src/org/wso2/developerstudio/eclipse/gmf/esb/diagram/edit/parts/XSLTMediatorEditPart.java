@@ -24,6 +24,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShapeWithLabel;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedSizedAbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ShowPropertyViewEditPolicy;
@@ -126,6 +127,11 @@ public class XSLTMediatorEditPart extends FixedSizedAbstractMediator {
 
 	protected boolean addFixedChild(EditPart childEditPart) {
 
+		if (childEditPart instanceof XSLTMediatorDescriptionEditPart) {
+			((XSLTMediatorDescriptionEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getXSLTMediatorDescriptionLabel());
+			return true;
+		}
 		if (childEditPart instanceof XSLTMediatorInputConnectorEditPart) {
 
 			IFigure borderItemFigure = ((XSLTMediatorInputConnectorEditPart) childEditPart)
@@ -147,12 +153,26 @@ public class XSLTMediatorEditPart extends FixedSizedAbstractMediator {
 		}
 		return false;
 	}
+	
+	protected boolean removeFixedChild(EditPart childEditPart) {
+		if (childEditPart instanceof XSLTMediatorDescriptionEditPart) {
+			return true;
+		}
+		return false;
+	}
 
 	protected void addChildVisual(EditPart childEditPart, int index) {
 		if (addFixedChild(childEditPart)) {
 			return;
 		}
 		super.addChildVisual(childEditPart, -1);
+	}
+	
+	protected void removeChildVisual(EditPart childEditPart) {
+		if (removeFixedChild(childEditPart)) {
+			return;
+		}
+		super.removeChildVisual(childEditPart);
 	}
 
 	/**
@@ -236,12 +256,14 @@ public class XSLTMediatorEditPart extends FixedSizedAbstractMediator {
 	/**
 	 * @generated
 	 */
-	public class XSLTMediatorFigure extends EsbGraphicalShape {
+	public class XSLTMediatorFigure extends EsbGraphicalShapeWithLabel {
 
 		/**
 		 * @generated
 		 */
 		private WrappingLabel fFigureXSLTMediatorPropertyValueLabel;
+		
+		private WrappingLabel xsltMediatorDescriptionLabel;
 
 		/**
 		 * @generated
@@ -259,11 +281,10 @@ public class XSLTMediatorEditPart extends FixedSizedAbstractMediator {
 
 			fFigureXSLTMediatorPropertyValueLabel = new WrappingLabel();
 			fFigureXSLTMediatorPropertyValueLabel.setText("<...>");
-
 			fFigureXSLTMediatorPropertyValueLabel.setAlignment(SWT.CENTER);
-
-			this.getPropertyValueRectangle1().add(fFigureXSLTMediatorPropertyValueLabel);
-
+			//this.getPropertyValueRectangle1().add(fFigureXSLTMediatorPropertyValueLabel);
+			
+			xsltMediatorDescriptionLabel = getPropertyNameLabel();
 		}
 
 		/**
@@ -271,6 +292,10 @@ public class XSLTMediatorEditPart extends FixedSizedAbstractMediator {
 		 */
 		public WrappingLabel getFigureXSLTMediatorPropertyValueLabel() {
 			return fFigureXSLTMediatorPropertyValueLabel;
+		}
+		
+		public WrappingLabel getXSLTMediatorDescriptionLabel() {
+			return xsltMediatorDescriptionLabel;
 		}
 
 		public String getIconPath() {

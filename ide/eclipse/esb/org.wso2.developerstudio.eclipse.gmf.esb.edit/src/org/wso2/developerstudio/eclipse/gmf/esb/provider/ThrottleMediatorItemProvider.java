@@ -355,8 +355,10 @@ public class ThrottleMediatorItemProvider
 	
 	@Override
 	public String getText(Object object) {
-		ThrottleMediator throttleMediator = (ThrottleMediator)object;
-		return getString("_UI_ThrottleMediator_type") + " " + throttleMediator.isReverse();
+		String label = ((ThrottleMediator)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ThrottleMediator_type") :
+			getString("_UI_ThrottleMediator_type") + " " + label;
 	}
 
 	/**

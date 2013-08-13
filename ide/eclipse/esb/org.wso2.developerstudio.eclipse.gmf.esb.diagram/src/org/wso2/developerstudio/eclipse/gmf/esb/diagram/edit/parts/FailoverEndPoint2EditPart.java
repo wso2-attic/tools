@@ -344,7 +344,7 @@ public class FailoverEndPoint2EditPart extends ComplexFiguredAbstractEndpoint {
 		 * @generated NOT
 		 */
 		private void createContents() {
-			
+
 			fFigureFailoverEndPointNamePropertyLabel = getPropertyNameLabel();
 		}
 

@@ -68,6 +68,7 @@ public class CallTemplateMediatorItemProvider
 		addAvailableTemplatesPropertyDescriptor(object);
 		addTargetTemplatePropertyDescriptor(object);
 		addParameterPropertyDescriptor(object);
+		addDescriptionPropertyDescriptor(object);
 
 		return itemPropertyDescriptors;
 	}
@@ -188,8 +189,10 @@ public class CallTemplateMediatorItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		CallTemplateMediator callTemplateMediator = (CallTemplateMediator)object;
-		return getString("_UI_CallTemplateMediator_type") + " " + callTemplateMediator.isReverse();
+		String label = ((CallTemplateMediator)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_CallTemplateMediator_type") :
+			getString("_UI_CallTemplateMediator_type") + " " + label;
 	}
 
 	/**

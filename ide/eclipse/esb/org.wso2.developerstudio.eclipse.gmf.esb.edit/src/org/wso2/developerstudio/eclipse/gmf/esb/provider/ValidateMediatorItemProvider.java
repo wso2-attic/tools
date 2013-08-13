@@ -222,8 +222,10 @@ public class ValidateMediatorItemProvider
 	
 	@Override
 	public String getText(Object object) {
-		ValidateMediator validateMediator = (ValidateMediator)object;
-		return getString("_UI_ValidateMediator_type") + " " + validateMediator.isReverse();
+		String label = ((ValidateMediator)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ValidateMediator_type") :
+			getString("_UI_ValidateMediator_type") + " " + label;
 	}
 
 	/**

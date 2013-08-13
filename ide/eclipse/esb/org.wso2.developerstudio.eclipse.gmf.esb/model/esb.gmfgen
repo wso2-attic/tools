@@ -297,8 +297,9 @@
             editHelperClassName="DropMediatorEditHelper"/>
         <viewmap
             xsi:type="gmfgen:InnerClassViewmap"
+            layoutType="FLOW_LAYOUT"
             className="DropMediatorFigure"
-            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class DropMediatorFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fDropMediatorLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public DropMediatorFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fDropMediatorLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fDropMediatorLabelFigure.setText(&quot;&quot;);&#xA;&#xA;this.add(fDropMediatorLabelFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getDropMediatorLabelFigure() {&#xA;&#x9;&#x9;return fDropMediatorLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 230, 0, 0);&#xA;&#xA;">
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class DropMediatorFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fDropMediatorLabelFigure; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureDropMediatorDescriptionFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public DropMediatorFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fDropMediatorLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fDropMediatorLabelFigure.setText(&quot;&quot;);&#xA;&#xA;this.add(fDropMediatorLabelFigure);&#xA;&#xA;&#xA;&#xA;fFigureDropMediatorDescriptionFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureDropMediatorDescriptionFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureDropMediatorDescriptionFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getDropMediatorLabelFigure() {&#xA;&#x9;&#x9;return fDropMediatorLabelFigure;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureDropMediatorDescriptionFigure() {&#xA;&#x9;&#x9;return fFigureDropMediatorDescriptionFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 230, 0, 0);&#xA;&#xA;">
           <attributes
               xsi:type="gmfgen:StyleAttributes"
               fixedBackground="true"/>
@@ -311,6 +312,23 @@
           <childMetaFeature
               href="esb.genmodel#//esb/MediatorFlow/children"/>
         </modelFacet>
+        <labels
+            visualID="5166"
+            editPartClassName="DropMediatorDescriptionEditPart"
+            itemSemanticEditPolicyClassName="DropMediatorDescriptionItemSemanticEditPolicy">
+          <diagramRunTimeClass
+              href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+          <viewmap
+              xsi:type="gmfgen:ParentAssignedViewmap"
+              getterName="getFigureDropMediatorDescriptionFigure"
+              figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+          <modelFacet
+              xsi:type="gmfgen:FeatureLabelModelFacet"
+              parser="/0/@labelParsers/@implementations.0">
+            <metaFeatures
+                href="esb.genmodel#//esb/EsbElement/description"/>
+          </modelFacet>
+        </labels>
       </childNodes>
       <childNodes
           xsi:type="gmfgen:GenChildSideAffixedNode"
@@ -366,8 +384,9 @@
             editHelperClassName="PropertyMediatorEditHelper"/>
         <viewmap
             xsi:type="gmfgen:InnerClassViewmap"
+            layoutType="FLOW_LAYOUT"
             className="PropertyMediatorFigure"
-            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class PropertyMediatorFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigurePropertyMediatorPropertyValueLabel; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public PropertyMediatorFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigurePropertyMediatorPropertyValueLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigurePropertyMediatorPropertyValueLabel.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigurePropertyMediatorPropertyValueLabel);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigurePropertyMediatorPropertyValueLabel() {&#xA;&#x9;&#x9;return fFigurePropertyMediatorPropertyValueLabel;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 230, 230, 230);&#xA;&#xA;">
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class PropertyMediatorFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigurePropertyMediatorPropertyValueLabel; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigurePropertyMediatorDescriptionFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public PropertyMediatorFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigurePropertyMediatorPropertyValueLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigurePropertyMediatorPropertyValueLabel.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigurePropertyMediatorPropertyValueLabel);&#xA;&#xA;&#xA;&#xA;fFigurePropertyMediatorDescriptionFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigurePropertyMediatorDescriptionFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigurePropertyMediatorDescriptionFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigurePropertyMediatorPropertyValueLabel() {&#xA;&#x9;&#x9;return fFigurePropertyMediatorPropertyValueLabel;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigurePropertyMediatorDescriptionFigure() {&#xA;&#x9;&#x9;return fFigurePropertyMediatorDescriptionFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 230, 230, 230);&#xA;&#xA;">
           <attributes
               xsi:type="gmfgen:StyleAttributes"
               fixedBackground="true"/>
@@ -398,6 +417,23 @@
               editPattern="">
             <metaFeatures
                 href="esb.genmodel#//esb/PropertyMediator/propertyName"/>
+          </modelFacet>
+        </labels>
+        <labels
+            visualID="5167"
+            editPartClassName="PropertyMediatorDescriptionEditPart"
+            itemSemanticEditPolicyClassName="PropertyMediatorDescriptionItemSemanticEditPolicy">
+          <diagramRunTimeClass
+              href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+          <viewmap
+              xsi:type="gmfgen:ParentAssignedViewmap"
+              getterName="getFigurePropertyMediatorDescriptionFigure"
+              figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+          <modelFacet
+              xsi:type="gmfgen:FeatureLabelModelFacet"
+              parser="/0/@labelParsers/@implementations.0">
+            <metaFeatures
+                href="esb.genmodel#//esb/EsbElement/description"/>
           </modelFacet>
         </labels>
       </childNodes>
@@ -1076,8 +1112,9 @@
             editHelperClassName="LogMediatorEditHelper"/>
         <viewmap
             xsi:type="gmfgen:InnerClassViewmap"
+            layoutType="FLOW_LAYOUT"
             className="LogMediatorFigure"
-            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class LogMediatorFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureLogCatogeryLogPropertyLabel; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public LogMediatorFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureLogCatogeryLogPropertyLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureLogCatogeryLogPropertyLabel.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureLogCatogeryLogPropertyLabel);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureLogCatogeryLogPropertyLabel() {&#xA;&#x9;&#x9;return fFigureLogCatogeryLogPropertyLabel;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 230, 230, 230);&#xA;&#xA;">
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class LogMediatorFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureLogCatogeryLogPropertyLabel; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureLogMediatorDescriptionFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public LogMediatorFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureLogCatogeryLogPropertyLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureLogCatogeryLogPropertyLabel.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureLogCatogeryLogPropertyLabel);&#xA;&#xA;&#xA;&#xA;fFigureLogMediatorDescriptionFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureLogMediatorDescriptionFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureLogMediatorDescriptionFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureLogCatogeryLogPropertyLabel() {&#xA;&#x9;&#x9;return fFigureLogCatogeryLogPropertyLabel;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureLogMediatorDescriptionFigure() {&#xA;&#x9;&#x9;return fFigureLogMediatorDescriptionFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 230, 230, 230);&#xA;&#xA;">
           <attributes
               xsi:type="gmfgen:StyleAttributes"
               fixedBackground="true"/>
@@ -1108,6 +1145,23 @@
               editPattern="">
             <metaFeatures
                 href="esb.genmodel#//esb/LogMediator/logCategory"/>
+          </modelFacet>
+        </labels>
+        <labels
+            visualID="5168"
+            editPartClassName="LogMediatorDescriptionEditPart"
+            itemSemanticEditPolicyClassName="LogMediatorDescriptionItemSemanticEditPolicy">
+          <diagramRunTimeClass
+              href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+          <viewmap
+              xsi:type="gmfgen:ParentAssignedViewmap"
+              getterName="getFigureLogMediatorDescriptionFigure"
+              figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+          <modelFacet
+              xsi:type="gmfgen:FeatureLabelModelFacet"
+              parser="/0/@labelParsers/@implementations.0">
+            <metaFeatures
+                href="esb.genmodel#//esb/EsbElement/description"/>
           </modelFacet>
         </labels>
       </childNodes>
@@ -1202,8 +1256,9 @@
             editHelperClassName="EnrichMediatorEditHelper"/>
         <viewmap
             xsi:type="gmfgen:InnerClassViewmap"
+            layoutType="FLOW_LAYOUT"
             className="EnrichMediatorFigure"
-            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class EnrichMediatorFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureEnrichMediatorPropertyValue; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public EnrichMediatorFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureEnrichMediatorPropertyValue = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureEnrichMediatorPropertyValue.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureEnrichMediatorPropertyValue);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureEnrichMediatorPropertyValue() {&#xA;&#x9;&#x9;return fFigureEnrichMediatorPropertyValue;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 230, 230, 230);&#xA;&#xA;">
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class EnrichMediatorFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureEnrichMediatorPropertyValue; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureEnrichMediatorDescriptionFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public EnrichMediatorFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureEnrichMediatorPropertyValue = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureEnrichMediatorPropertyValue.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureEnrichMediatorPropertyValue);&#xA;&#xA;&#xA;&#xA;fFigureEnrichMediatorDescriptionFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureEnrichMediatorDescriptionFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureEnrichMediatorDescriptionFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureEnrichMediatorPropertyValue() {&#xA;&#x9;&#x9;return fFigureEnrichMediatorPropertyValue;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureEnrichMediatorDescriptionFigure() {&#xA;&#x9;&#x9;return fFigureEnrichMediatorDescriptionFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 230, 230, 230);&#xA;&#xA;">
           <attributes
               xsi:type="gmfgen:StyleAttributes"
               fixedBackground="true"/>
@@ -1234,6 +1289,23 @@
               editPattern="">
             <metaFeatures
                 href="esb.genmodel#//esb/EnrichMediator/sourceType"/>
+          </modelFacet>
+        </labels>
+        <labels
+            visualID="5169"
+            editPartClassName="EnrichMediatorDescriptionEditPart"
+            itemSemanticEditPolicyClassName="EnrichMediatorDescriptionItemSemanticEditPolicy">
+          <diagramRunTimeClass
+              href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+          <viewmap
+              xsi:type="gmfgen:ParentAssignedViewmap"
+              getterName="getFigureEnrichMediatorDescriptionFigure"
+              figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+          <modelFacet
+              xsi:type="gmfgen:FeatureLabelModelFacet"
+              parser="/0/@labelParsers/@implementations.0">
+            <metaFeatures
+                href="esb.genmodel#//esb/EsbElement/description"/>
           </modelFacet>
         </labels>
       </childNodes>
@@ -1328,8 +1400,9 @@
             editHelperClassName="XSLTMediatorEditHelper"/>
         <viewmap
             xsi:type="gmfgen:InnerClassViewmap"
+            layoutType="FLOW_LAYOUT"
             className="XSLTMediatorFigure"
-            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class XSLTMediatorFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureXSLTMediatorPropertyValueLabel; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public XSLTMediatorFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureXSLTMediatorPropertyValueLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureXSLTMediatorPropertyValueLabel.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureXSLTMediatorPropertyValueLabel);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureXSLTMediatorPropertyValueLabel() {&#xA;&#x9;&#x9;return fFigureXSLTMediatorPropertyValueLabel;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 230, 230, 230);&#xA;&#xA;">
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class XSLTMediatorFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureXSLTMediatorPropertyValueLabel; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureXSLTMediatorDescriptionFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public XSLTMediatorFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureXSLTMediatorPropertyValueLabel = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureXSLTMediatorPropertyValueLabel.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureXSLTMediatorPropertyValueLabel);&#xA;&#xA;&#xA;&#xA;fFigureXSLTMediatorDescriptionFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureXSLTMediatorDescriptionFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureXSLTMediatorDescriptionFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureXSLTMediatorPropertyValueLabel() {&#xA;&#x9;&#x9;return fFigureXSLTMediatorPropertyValueLabel;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureXSLTMediatorDescriptionFigure() {&#xA;&#x9;&#x9;return fFigureXSLTMediatorDescriptionFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 230, 230, 230);&#xA;&#xA;">
           <attributes
               xsi:type="gmfgen:StyleAttributes"
               fixedBackground="true"/>
@@ -1342,6 +1415,23 @@
           <childMetaFeature
               href="esb.genmodel#//esb/MediatorFlow/children"/>
         </modelFacet>
+        <labels
+            visualID="5170"
+            editPartClassName="XSLTMediatorDescriptionEditPart"
+            itemSemanticEditPolicyClassName="XSLTMediatorDescriptionItemSemanticEditPolicy">
+          <diagramRunTimeClass
+              href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+          <viewmap
+              xsi:type="gmfgen:ParentAssignedViewmap"
+              getterName="getFigureXSLTMediatorDescriptionFigure"
+              figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+          <modelFacet
+              xsi:type="gmfgen:FeatureLabelModelFacet"
+              parser="/0/@labelParsers/@implementations.0">
+            <metaFeatures
+                href="esb.genmodel#//esb/EsbElement/description"/>
+          </modelFacet>
+        </labels>
       </childNodes>
       <childNodes
           xsi:type="gmfgen:GenChildSideAffixedNode"
@@ -1832,8 +1922,9 @@
             editHelperClassName="EventMediatorEditHelper"/>
         <viewmap
             xsi:type="gmfgen:InnerClassViewmap"
+            layoutType="FLOW_LAYOUT"
             className="EventMediatorFigure"
-            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class EventMediatorFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureEventMediatorPropertyValue; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public EventMediatorFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureEventMediatorPropertyValue = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureEventMediatorPropertyValue.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureEventMediatorPropertyValue);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureEventMediatorPropertyValue() {&#xA;&#x9;&#x9;return fFigureEventMediatorPropertyValue;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 230, 230, 230);&#xA;&#xA;">
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class EventMediatorFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureEventMediatorPropertyValue; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureEventMediatorDescriptionFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public EventMediatorFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureEventMediatorPropertyValue = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureEventMediatorPropertyValue.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureEventMediatorPropertyValue);&#xA;&#xA;&#xA;&#xA;fFigureEventMediatorDescriptionFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureEventMediatorDescriptionFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureEventMediatorDescriptionFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureEventMediatorPropertyValue() {&#xA;&#x9;&#x9;return fFigureEventMediatorPropertyValue;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureEventMediatorDescriptionFigure() {&#xA;&#x9;&#x9;return fFigureEventMediatorDescriptionFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 230, 230, 230);&#xA;&#xA;">
           <attributes
               xsi:type="gmfgen:StyleAttributes"
               fixedBackground="true"/>
@@ -1864,6 +1955,23 @@
               editPattern="">
             <metaFeatures
                 href="esb.genmodel#//esb/EventMediator/topicType"/>
+          </modelFacet>
+        </labels>
+        <labels
+            visualID="5171"
+            editPartClassName="EventMediatorDescriptionEditPart"
+            itemSemanticEditPolicyClassName="EventMediatorDescriptionItemSemanticEditPolicy">
+          <diagramRunTimeClass
+              href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+          <viewmap
+              xsi:type="gmfgen:ParentAssignedViewmap"
+              getterName="getFigureEventMediatorDescriptionFigure"
+              figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+          <modelFacet
+              xsi:type="gmfgen:FeatureLabelModelFacet"
+              parser="/0/@labelParsers/@implementations.0">
+            <metaFeatures
+                href="esb.genmodel#//esb/EsbElement/description"/>
           </modelFacet>
         </labels>
       </childNodes>
@@ -1958,8 +2066,9 @@
             editHelperClassName="EntitlementMediatorEditHelper"/>
         <viewmap
             xsi:type="gmfgen:InnerClassViewmap"
+            layoutType="FLOW_LAYOUT"
             className="EntitlementMediatorFigure"
-            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class EntitlementMediatorFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureEntitlementMediatorPropertyValue; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public EntitlementMediatorFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureEntitlementMediatorPropertyValue = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureEntitlementMediatorPropertyValue.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureEntitlementMediatorPropertyValue);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureEntitlementMediatorPropertyValue() {&#xA;&#x9;&#x9;return fFigureEntitlementMediatorPropertyValue;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 230, 230, 230);&#xA;&#xA;">
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class EntitlementMediatorFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureEntitlementMediatorPropertyValue; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureEntitlementMediatorDescriptionFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public EntitlementMediatorFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureEntitlementMediatorPropertyValue = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureEntitlementMediatorPropertyValue.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureEntitlementMediatorPropertyValue);&#xA;&#xA;&#xA;&#xA;fFigureEntitlementMediatorDescriptionFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureEntitlementMediatorDescriptionFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureEntitlementMediatorDescriptionFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureEntitlementMediatorPropertyValue() {&#xA;&#x9;&#x9;return fFigureEntitlementMediatorPropertyValue;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureEntitlementMediatorDescriptionFigure() {&#xA;&#x9;&#x9;return fFigureEntitlementMediatorDescriptionFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 230, 230, 230);&#xA;&#xA;">
           <attributes
               xsi:type="gmfgen:StyleAttributes"
               fixedBackground="true"/>
@@ -1990,6 +2099,23 @@
               editPattern="">
             <metaFeatures
                 href="esb.genmodel#//esb/EntitlementMediator/serverURL"/>
+          </modelFacet>
+        </labels>
+        <labels
+            visualID="5172"
+            editPartClassName="EntitlementMediatorDescriptionEditPart"
+            itemSemanticEditPolicyClassName="EntitlementMediatorDescriptionItemSemanticEditPolicy">
+          <diagramRunTimeClass
+              href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+          <viewmap
+              xsi:type="gmfgen:ParentAssignedViewmap"
+              getterName="getFigureEntitlementMediatorDescriptionFigure"
+              figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+          <modelFacet
+              xsi:type="gmfgen:FeatureLabelModelFacet"
+              parser="/0/@labelParsers/@implementations.0">
+            <metaFeatures
+                href="esb.genmodel#//esb/EsbElement/description"/>
           </modelFacet>
         </labels>
       </childNodes>
@@ -2084,8 +2210,9 @@
             editHelperClassName="ClassMediatorEditHelper"/>
         <viewmap
             xsi:type="gmfgen:InnerClassViewmap"
+            layoutType="FLOW_LAYOUT"
             className="ClassMediatorFigure"
-            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ClassMediatorFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureClassMediatorPropertyValue; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ClassMediatorFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureClassMediatorPropertyValue = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureClassMediatorPropertyValue.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureClassMediatorPropertyValue);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureClassMediatorPropertyValue() {&#xA;&#x9;&#x9;return fFigureClassMediatorPropertyValue;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 230, 230, 230);&#xA;&#xA;">
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ClassMediatorFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureClassMediatorPropertyValue; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureClassMediatorDescriptionFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ClassMediatorFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureClassMediatorPropertyValue = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureClassMediatorPropertyValue.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureClassMediatorPropertyValue);&#xA;&#xA;&#xA;&#xA;fFigureClassMediatorDescriptionFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureClassMediatorDescriptionFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureClassMediatorDescriptionFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureClassMediatorPropertyValue() {&#xA;&#x9;&#x9;return fFigureClassMediatorPropertyValue;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureClassMediatorDescriptionFigure() {&#xA;&#x9;&#x9;return fFigureClassMediatorDescriptionFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 230, 230, 230);&#xA;&#xA;">
           <attributes
               xsi:type="gmfgen:StyleAttributes"
               fixedBackground="true"/>
@@ -2116,6 +2243,23 @@
               editPattern="">
             <metaFeatures
                 href="esb.genmodel#//esb/ClassMediator/className"/>
+          </modelFacet>
+        </labels>
+        <labels
+            visualID="5173"
+            editPartClassName="ClassMediatorDescriptionEditPart"
+            itemSemanticEditPolicyClassName="ClassMediatorDescriptionItemSemanticEditPolicy">
+          <diagramRunTimeClass
+              href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+          <viewmap
+              xsi:type="gmfgen:ParentAssignedViewmap"
+              getterName="getFigureClassMediatorDescriptionFigure"
+              figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+          <modelFacet
+              xsi:type="gmfgen:FeatureLabelModelFacet"
+              parser="/0/@labelParsers/@implementations.0">
+            <metaFeatures
+                href="esb.genmodel#//esb/EsbElement/description"/>
           </modelFacet>
         </labels>
       </childNodes>
@@ -2210,8 +2354,9 @@
             editHelperClassName="SpringMediatorEditHelper"/>
         <viewmap
             xsi:type="gmfgen:InnerClassViewmap"
+            layoutType="FLOW_LAYOUT"
             className="SpringMediatorFigure"
-            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class SpringMediatorFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureSpringMediatorPropertyValue; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public SpringMediatorFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureSpringMediatorPropertyValue = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureSpringMediatorPropertyValue.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureSpringMediatorPropertyValue);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureSpringMediatorPropertyValue() {&#xA;&#x9;&#x9;return fFigureSpringMediatorPropertyValue;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 230, 230, 230);&#xA;&#xA;">
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class SpringMediatorFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureSpringMediatorPropertyValue; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureSpringMediatorDescriptionFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public SpringMediatorFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureSpringMediatorPropertyValue = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureSpringMediatorPropertyValue.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureSpringMediatorPropertyValue);&#xA;&#xA;&#xA;&#xA;fFigureSpringMediatorDescriptionFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureSpringMediatorDescriptionFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureSpringMediatorDescriptionFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureSpringMediatorPropertyValue() {&#xA;&#x9;&#x9;return fFigureSpringMediatorPropertyValue;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureSpringMediatorDescriptionFigure() {&#xA;&#x9;&#x9;return fFigureSpringMediatorDescriptionFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 230, 230, 230);&#xA;&#xA;">
           <attributes
               xsi:type="gmfgen:StyleAttributes"
               fixedBackground="true"/>
@@ -2242,6 +2387,23 @@
               editPattern="">
             <metaFeatures
                 href="esb.genmodel#//esb/SpringMediator/beanName"/>
+          </modelFacet>
+        </labels>
+        <labels
+            visualID="5174"
+            editPartClassName="SpringMediatorDescriptionEditPart"
+            itemSemanticEditPolicyClassName="SpringMediatorDescriptionItemSemanticEditPolicy">
+          <diagramRunTimeClass
+              href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+          <viewmap
+              xsi:type="gmfgen:ParentAssignedViewmap"
+              getterName="getFigureSpringMediatorDescriptionFigure"
+              figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+          <modelFacet
+              xsi:type="gmfgen:FeatureLabelModelFacet"
+              parser="/0/@labelParsers/@implementations.0">
+            <metaFeatures
+                href="esb.genmodel#//esb/EsbElement/description"/>
           </modelFacet>
         </labels>
       </childNodes>
@@ -2336,8 +2498,9 @@
             editHelperClassName="ScriptMediatorEditHelper"/>
         <viewmap
             xsi:type="gmfgen:InnerClassViewmap"
+            layoutType="FLOW_LAYOUT"
             className="ScriptMediatorFigure"
-            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ScriptMediatorFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureScriptMediatorPropertyValue; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ScriptMediatorFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureScriptMediatorPropertyValue = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureScriptMediatorPropertyValue.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureScriptMediatorPropertyValue);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureScriptMediatorPropertyValue() {&#xA;&#x9;&#x9;return fFigureScriptMediatorPropertyValue;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 230, 230, 230);&#xA;&#xA;">
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ScriptMediatorFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureScriptMediatorPropertyValue; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureScriptMediatorDescriptionFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ScriptMediatorFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureScriptMediatorPropertyValue = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureScriptMediatorPropertyValue.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureScriptMediatorPropertyValue);&#xA;&#xA;&#xA;&#xA;fFigureScriptMediatorDescriptionFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureScriptMediatorDescriptionFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureScriptMediatorDescriptionFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureScriptMediatorPropertyValue() {&#xA;&#x9;&#x9;return fFigureScriptMediatorPropertyValue;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureScriptMediatorDescriptionFigure() {&#xA;&#x9;&#x9;return fFigureScriptMediatorDescriptionFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 230, 230, 230);&#xA;&#xA;">
           <attributes
               xsi:type="gmfgen:StyleAttributes"
               fixedBackground="true"/>
@@ -2368,6 +2531,23 @@
               editPattern="">
             <metaFeatures
                 href="esb.genmodel#//esb/ScriptMediator/scriptLanguage"/>
+          </modelFacet>
+        </labels>
+        <labels
+            visualID="5175"
+            editPartClassName="ScriptMediatorDescriptionEditPart"
+            itemSemanticEditPolicyClassName="ScriptMediatorDescriptionItemSemanticEditPolicy">
+          <diagramRunTimeClass
+              href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+          <viewmap
+              xsi:type="gmfgen:ParentAssignedViewmap"
+              getterName="getFigureScriptMediatorDescriptionFigure"
+              figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+          <modelFacet
+              xsi:type="gmfgen:FeatureLabelModelFacet"
+              parser="/0/@labelParsers/@implementations.0">
+            <metaFeatures
+                href="esb.genmodel#//esb/EsbElement/description"/>
           </modelFacet>
         </labels>
       </childNodes>
@@ -2462,8 +2642,9 @@
             editHelperClassName="FaultMediatorEditHelper"/>
         <viewmap
             xsi:type="gmfgen:InnerClassViewmap"
+            layoutType="FLOW_LAYOUT"
             className="FaultMediatorFigure"
-            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class FaultMediatorFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureFaultMediatorPropertyValue; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public FaultMediatorFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureFaultMediatorPropertyValue = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureFaultMediatorPropertyValue.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureFaultMediatorPropertyValue);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureFaultMediatorPropertyValue() {&#xA;&#x9;&#x9;return fFigureFaultMediatorPropertyValue;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 230, 230, 230);&#xA;&#xA;">
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class FaultMediatorFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureFaultMediatorPropertyValue; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureFaultMediatorDescriptionFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public FaultMediatorFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureFaultMediatorPropertyValue = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureFaultMediatorPropertyValue.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureFaultMediatorPropertyValue);&#xA;&#xA;&#xA;&#xA;fFigureFaultMediatorDescriptionFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureFaultMediatorDescriptionFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureFaultMediatorDescriptionFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureFaultMediatorPropertyValue() {&#xA;&#x9;&#x9;return fFigureFaultMediatorPropertyValue;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureFaultMediatorDescriptionFigure() {&#xA;&#x9;&#x9;return fFigureFaultMediatorDescriptionFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 230, 230, 230);&#xA;&#xA;">
           <attributes
               xsi:type="gmfgen:StyleAttributes"
               fixedBackground="true"/>
@@ -2494,6 +2675,23 @@
               editPattern="">
             <metaFeatures
                 href="esb.genmodel#//esb/FaultMediator/faultStringType"/>
+          </modelFacet>
+        </labels>
+        <labels
+            visualID="5176"
+            editPartClassName="FaultMediatorDescriptionEditPart"
+            itemSemanticEditPolicyClassName="FaultMediatorDescriptionItemSemanticEditPolicy">
+          <diagramRunTimeClass
+              href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+          <viewmap
+              xsi:type="gmfgen:ParentAssignedViewmap"
+              getterName="getFigureFaultMediatorDescriptionFigure"
+              figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+          <modelFacet
+              xsi:type="gmfgen:FeatureLabelModelFacet"
+              parser="/0/@labelParsers/@implementations.0">
+            <metaFeatures
+                href="esb.genmodel#//esb/EsbElement/description"/>
           </modelFacet>
         </labels>
       </childNodes>
@@ -2588,8 +2786,9 @@
             editHelperClassName="XQueryMediatorEditHelper"/>
         <viewmap
             xsi:type="gmfgen:InnerClassViewmap"
+            layoutType="FLOW_LAYOUT"
             className="XQueryMediatorFigure"
-            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class XQueryMediatorFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureXQueryMediatorPropertyValue; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public XQueryMediatorFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureXQueryMediatorPropertyValue = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureXQueryMediatorPropertyValue.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureXQueryMediatorPropertyValue);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureXQueryMediatorPropertyValue() {&#xA;&#x9;&#x9;return fFigureXQueryMediatorPropertyValue;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 230, 230, 230);&#xA;&#xA;">
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class XQueryMediatorFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureXQueryMediatorPropertyValue; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureXQueryMediatorDescriptionFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public XQueryMediatorFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureXQueryMediatorPropertyValue = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureXQueryMediatorPropertyValue.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureXQueryMediatorPropertyValue);&#xA;&#xA;&#xA;&#xA;fFigureXQueryMediatorDescriptionFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureXQueryMediatorDescriptionFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureXQueryMediatorDescriptionFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureXQueryMediatorPropertyValue() {&#xA;&#x9;&#x9;return fFigureXQueryMediatorPropertyValue;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureXQueryMediatorDescriptionFigure() {&#xA;&#x9;&#x9;return fFigureXQueryMediatorDescriptionFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 230, 230, 230);&#xA;&#xA;">
           <attributes
               xsi:type="gmfgen:StyleAttributes"
               fixedBackground="true"/>
@@ -2620,6 +2819,23 @@
               editPattern="">
             <metaFeatures
                 href="esb.genmodel#//esb/XQueryMediator/scriptKeyType"/>
+          </modelFacet>
+        </labels>
+        <labels
+            visualID="5177"
+            editPartClassName="XQueryMediatorDescriptionEditPart"
+            itemSemanticEditPolicyClassName="XQueryMediatorDescriptionItemSemanticEditPolicy">
+          <diagramRunTimeClass
+              href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+          <viewmap
+              xsi:type="gmfgen:ParentAssignedViewmap"
+              getterName="getFigureXQueryMediatorDescriptionFigure"
+              figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+          <modelFacet
+              xsi:type="gmfgen:FeatureLabelModelFacet"
+              parser="/0/@labelParsers/@implementations.0">
+            <metaFeatures
+                href="esb.genmodel#//esb/EsbElement/description"/>
           </modelFacet>
         </labels>
       </childNodes>
@@ -2714,8 +2930,9 @@
             editHelperClassName="CommandMediatorEditHelper"/>
         <viewmap
             xsi:type="gmfgen:InnerClassViewmap"
+            layoutType="FLOW_LAYOUT"
             className="CommandMediatorFigure"
-            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class CommandMediatorFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureCommandMediatorPropertyValue; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public CommandMediatorFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureCommandMediatorPropertyValue = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureCommandMediatorPropertyValue.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureCommandMediatorPropertyValue);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureCommandMediatorPropertyValue() {&#xA;&#x9;&#x9;return fFigureCommandMediatorPropertyValue;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 230, 230, 230);&#xA;&#xA;">
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class CommandMediatorFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureCommandMediatorPropertyValue; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureCommandMediatorDescriptionFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public CommandMediatorFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureCommandMediatorPropertyValue = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureCommandMediatorPropertyValue.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureCommandMediatorPropertyValue);&#xA;&#xA;&#xA;&#xA;fFigureCommandMediatorDescriptionFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureCommandMediatorDescriptionFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureCommandMediatorDescriptionFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureCommandMediatorPropertyValue() {&#xA;&#x9;&#x9;return fFigureCommandMediatorPropertyValue;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureCommandMediatorDescriptionFigure() {&#xA;&#x9;&#x9;return fFigureCommandMediatorDescriptionFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 230, 230, 230);&#xA;&#xA;">
           <attributes
               xsi:type="gmfgen:StyleAttributes"
               fixedBackground="true"/>
@@ -2746,6 +2963,23 @@
               editPattern="">
             <metaFeatures
                 href="esb.genmodel#//esb/CommandMediator/className"/>
+          </modelFacet>
+        </labels>
+        <labels
+            visualID="5178"
+            editPartClassName="CommandMediatorDescriptionEditPart"
+            itemSemanticEditPolicyClassName="CommandMediatorDescriptionItemSemanticEditPolicy">
+          <diagramRunTimeClass
+              href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+          <viewmap
+              xsi:type="gmfgen:ParentAssignedViewmap"
+              getterName="getFigureCommandMediatorDescriptionFigure"
+              figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+          <modelFacet
+              xsi:type="gmfgen:FeatureLabelModelFacet"
+              parser="/0/@labelParsers/@implementations.0">
+            <metaFeatures
+                href="esb.genmodel#//esb/EsbElement/description"/>
           </modelFacet>
         </labels>
       </childNodes>
@@ -2840,8 +3074,9 @@
             editHelperClassName="DBLookupMediatorEditHelper"/>
         <viewmap
             xsi:type="gmfgen:InnerClassViewmap"
+            layoutType="FLOW_LAYOUT"
             className="DBLookupMediatorFigure"
-            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class DBLookupMediatorFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureDBLookupMediatorPropertyValue; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public DBLookupMediatorFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureDBLookupMediatorPropertyValue = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureDBLookupMediatorPropertyValue.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureDBLookupMediatorPropertyValue);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureDBLookupMediatorPropertyValue() {&#xA;&#x9;&#x9;return fFigureDBLookupMediatorPropertyValue;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 230, 230, 230);&#xA;&#xA;">
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class DBLookupMediatorFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureDBLookupMediatorPropertyValue; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureDBLookupMediatorDescriptionFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public DBLookupMediatorFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureDBLookupMediatorPropertyValue = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureDBLookupMediatorPropertyValue.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureDBLookupMediatorPropertyValue);&#xA;&#xA;&#xA;&#xA;fFigureDBLookupMediatorDescriptionFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureDBLookupMediatorDescriptionFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureDBLookupMediatorDescriptionFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureDBLookupMediatorPropertyValue() {&#xA;&#x9;&#x9;return fFigureDBLookupMediatorPropertyValue;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureDBLookupMediatorDescriptionFigure() {&#xA;&#x9;&#x9;return fFigureDBLookupMediatorDescriptionFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 230, 230, 230);&#xA;&#xA;">
           <attributes
               xsi:type="gmfgen:StyleAttributes"
               fixedBackground="true"/>
@@ -2872,6 +3107,23 @@
               editPattern="">
             <metaFeatures
                 href="esb.genmodel#//esb/AbstractSqlExecutorMediator/connectionURL"/>
+          </modelFacet>
+        </labels>
+        <labels
+            visualID="5179"
+            editPartClassName="DBLookupMediatorDescriptionEditPart"
+            itemSemanticEditPolicyClassName="DBLookupMediatorDescriptionItemSemanticEditPolicy">
+          <diagramRunTimeClass
+              href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+          <viewmap
+              xsi:type="gmfgen:ParentAssignedViewmap"
+              getterName="getFigureDBLookupMediatorDescriptionFigure"
+              figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+          <modelFacet
+              xsi:type="gmfgen:FeatureLabelModelFacet"
+              parser="/0/@labelParsers/@implementations.0">
+            <metaFeatures
+                href="esb.genmodel#//esb/EsbElement/description"/>
           </modelFacet>
         </labels>
       </childNodes>
@@ -2966,8 +3218,9 @@
             editHelperClassName="DBReportMediatorEditHelper"/>
         <viewmap
             xsi:type="gmfgen:InnerClassViewmap"
+            layoutType="FLOW_LAYOUT"
             className="DBReportMediatorFigure"
-            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class DBReportMediatorFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureDBReportMediatorPropertyValue; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public DBReportMediatorFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureDBReportMediatorPropertyValue = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureDBReportMediatorPropertyValue.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureDBReportMediatorPropertyValue);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureDBReportMediatorPropertyValue() {&#xA;&#x9;&#x9;return fFigureDBReportMediatorPropertyValue;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 230, 230, 230);&#xA;&#xA;">
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class DBReportMediatorFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureDBReportMediatorPropertyValue; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureDBReportMediatorDescriptionFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public DBReportMediatorFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureDBReportMediatorPropertyValue = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureDBReportMediatorPropertyValue.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureDBReportMediatorPropertyValue);&#xA;&#xA;&#xA;&#xA;fFigureDBReportMediatorDescriptionFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureDBReportMediatorDescriptionFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureDBReportMediatorDescriptionFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureDBReportMediatorPropertyValue() {&#xA;&#x9;&#x9;return fFigureDBReportMediatorPropertyValue;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureDBReportMediatorDescriptionFigure() {&#xA;&#x9;&#x9;return fFigureDBReportMediatorDescriptionFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 230, 230, 230);&#xA;&#xA;">
           <attributes
               xsi:type="gmfgen:StyleAttributes"
               fixedBackground="true"/>
@@ -2998,6 +3251,23 @@
               editPattern="">
             <metaFeatures
                 href="esb.genmodel#//esb/AbstractSqlExecutorMediator/connectionURL"/>
+          </modelFacet>
+        </labels>
+        <labels
+            visualID="5180"
+            editPartClassName="DBReportMediatorDescriptionEditPart"
+            itemSemanticEditPolicyClassName="DBReportMediatorDescriptionItemSemanticEditPolicy">
+          <diagramRunTimeClass
+              href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+          <viewmap
+              xsi:type="gmfgen:ParentAssignedViewmap"
+              getterName="getFigureDBReportMediatorDescriptionFigure"
+              figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+          <modelFacet
+              xsi:type="gmfgen:FeatureLabelModelFacet"
+              parser="/0/@labelParsers/@implementations.0">
+            <metaFeatures
+                href="esb.genmodel#//esb/EsbElement/description"/>
           </modelFacet>
         </labels>
       </childNodes>
@@ -3092,8 +3362,9 @@
             editHelperClassName="SmooksMediatorEditHelper"/>
         <viewmap
             xsi:type="gmfgen:InnerClassViewmap"
+            layoutType="FLOW_LAYOUT"
             className="SmooksMediatorFigure"
-            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class SmooksMediatorFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureSmooksMediatorPropertyValue; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public SmooksMediatorFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureSmooksMediatorPropertyValue = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureSmooksMediatorPropertyValue.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureSmooksMediatorPropertyValue);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureSmooksMediatorPropertyValue() {&#xA;&#x9;&#x9;return fFigureSmooksMediatorPropertyValue;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 230, 230, 230);&#xA;&#xA;">
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class SmooksMediatorFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureSmooksMediatorPropertyValue; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureSmooksMediatorDescriptionFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public SmooksMediatorFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureSmooksMediatorPropertyValue = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureSmooksMediatorPropertyValue.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureSmooksMediatorPropertyValue);&#xA;&#xA;&#xA;&#xA;fFigureSmooksMediatorDescriptionFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureSmooksMediatorDescriptionFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureSmooksMediatorDescriptionFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureSmooksMediatorPropertyValue() {&#xA;&#x9;&#x9;return fFigureSmooksMediatorPropertyValue;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureSmooksMediatorDescriptionFigure() {&#xA;&#x9;&#x9;return fFigureSmooksMediatorDescriptionFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 230, 230, 230);&#xA;&#xA;">
           <attributes
               xsi:type="gmfgen:StyleAttributes"
               fixedBackground="true"/>
@@ -3106,6 +3377,23 @@
           <childMetaFeature
               href="esb.genmodel#//esb/MediatorFlow/children"/>
         </modelFacet>
+        <labels
+            visualID="5181"
+            editPartClassName="SmooksMediatorDescriptionEditPart"
+            itemSemanticEditPolicyClassName="SmooksMediatorDescriptionItemSemanticEditPolicy">
+          <diagramRunTimeClass
+              href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+          <viewmap
+              xsi:type="gmfgen:ParentAssignedViewmap"
+              getterName="getFigureSmooksMediatorDescriptionFigure"
+              figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+          <modelFacet
+              xsi:type="gmfgen:FeatureLabelModelFacet"
+              parser="/0/@labelParsers/@implementations.0">
+            <metaFeatures
+                href="esb.genmodel#//esb/EsbElement/description"/>
+          </modelFacet>
+        </labels>
       </childNodes>
       <childNodes
           xsi:type="gmfgen:GenChildSideAffixedNode"
@@ -3198,8 +3486,9 @@
             editHelperClassName="SendMediatorEditHelper"/>
         <viewmap
             xsi:type="gmfgen:InnerClassViewmap"
+            layoutType="FLOW_LAYOUT"
             className="SendMediatorFigure"
-            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class SendMediatorFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.SendMediatorGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureSendMediatorPropertyValue; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public SendMediatorFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureSendMediatorPropertyValue = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureSendMediatorPropertyValue.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureSendMediatorPropertyValue);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureSendMediatorPropertyValue() {&#xA;&#x9;&#x9;return fFigureSendMediatorPropertyValue;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 230, 230, 230);&#xA;&#xA;">
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class SendMediatorFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.SendMediatorGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureSendMediatorPropertyValue; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureSendMediatorDescriptionFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public SendMediatorFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureSendMediatorPropertyValue = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureSendMediatorPropertyValue.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureSendMediatorPropertyValue);&#xA;&#xA;&#xA;&#xA;fFigureSendMediatorDescriptionFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureSendMediatorDescriptionFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureSendMediatorDescriptionFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureSendMediatorPropertyValue() {&#xA;&#x9;&#x9;return fFigureSendMediatorPropertyValue;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureSendMediatorDescriptionFigure() {&#xA;&#x9;&#x9;return fFigureSendMediatorDescriptionFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 230, 230, 230);&#xA;&#xA;">
           <attributes
               xsi:type="gmfgen:StyleAttributes"
               fixedBackground="true"/>
@@ -3212,6 +3501,23 @@
           <childMetaFeature
               href="esb.genmodel#//esb/MediatorFlow/children"/>
         </modelFacet>
+        <labels
+            visualID="5182"
+            editPartClassName="SendMediatorDescriptionEditPart"
+            itemSemanticEditPolicyClassName="SendMediatorDescriptionItemSemanticEditPolicy">
+          <diagramRunTimeClass
+              href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+          <viewmap
+              xsi:type="gmfgen:ParentAssignedViewmap"
+              getterName="getFigureSendMediatorDescriptionFigure"
+              figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+          <modelFacet
+              xsi:type="gmfgen:FeatureLabelModelFacet"
+              parser="/0/@labelParsers/@implementations.0">
+            <metaFeatures
+                href="esb.genmodel#//esb/EsbElement/description"/>
+          </modelFacet>
+        </labels>
       </childNodes>
       <childNodes
           xsi:type="gmfgen:GenChildSideAffixedNode"
@@ -3371,8 +3677,9 @@
             editHelperClassName="HeaderMediatorEditHelper"/>
         <viewmap
             xsi:type="gmfgen:InnerClassViewmap"
+            layoutType="FLOW_LAYOUT"
             className="HeaderMediatorFigure"
-            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class HeaderMediatorFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureHeaderMediatorPropertyValue; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public HeaderMediatorFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureHeaderMediatorPropertyValue = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureHeaderMediatorPropertyValue.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureHeaderMediatorPropertyValue);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureHeaderMediatorPropertyValue() {&#xA;&#x9;&#x9;return fFigureHeaderMediatorPropertyValue;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 230, 230, 230);&#xA;&#xA;">
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class HeaderMediatorFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureHeaderMediatorPropertyValue; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureHeaderMediatorDescriptionFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public HeaderMediatorFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureHeaderMediatorPropertyValue = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureHeaderMediatorPropertyValue.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureHeaderMediatorPropertyValue);&#xA;&#xA;&#xA;&#xA;fFigureHeaderMediatorDescriptionFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureHeaderMediatorDescriptionFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureHeaderMediatorDescriptionFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureHeaderMediatorPropertyValue() {&#xA;&#x9;&#x9;return fFigureHeaderMediatorPropertyValue;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureHeaderMediatorDescriptionFigure() {&#xA;&#x9;&#x9;return fFigureHeaderMediatorDescriptionFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 230, 230, 230);&#xA;&#xA;">
           <attributes
               xsi:type="gmfgen:StyleAttributes"
               fixedBackground="true"/>
@@ -3402,6 +3709,23 @@
               parser="/0/@labelParsers/@implementations.0">
             <metaFeatures
                 href="esb.genmodel#//esb/HeaderMediator/valueLiteral"/>
+          </modelFacet>
+        </labels>
+        <labels
+            visualID="5183"
+            editPartClassName="HeaderMediatorDescriptionEditPart"
+            itemSemanticEditPolicyClassName="HeaderMediatorDescriptionItemSemanticEditPolicy">
+          <diagramRunTimeClass
+              href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+          <viewmap
+              xsi:type="gmfgen:ParentAssignedViewmap"
+              getterName="getFigureHeaderMediatorDescriptionFigure"
+              figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+          <modelFacet
+              xsi:type="gmfgen:FeatureLabelModelFacet"
+              parser="/0/@labelParsers/@implementations.0">
+            <metaFeatures
+                href="esb.genmodel#//esb/EsbElement/description"/>
           </modelFacet>
         </labels>
       </childNodes>
@@ -4142,8 +4466,9 @@
             editHelperClassName="CalloutMediatorEditHelper"/>
         <viewmap
             xsi:type="gmfgen:InnerClassViewmap"
+            layoutType="FLOW_LAYOUT"
             className="CalloutMediatorFigure"
-            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class CalloutMediatorFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureCalloutMediatorPropertyValue; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public CalloutMediatorFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureCalloutMediatorPropertyValue = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureCalloutMediatorPropertyValue.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureCalloutMediatorPropertyValue);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureCalloutMediatorPropertyValue() {&#xA;&#x9;&#x9;return fFigureCalloutMediatorPropertyValue;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 230, 230, 230);&#xA;&#xA;">
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class CalloutMediatorFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureCalloutMediatorPropertyValue; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureCalloutMediatorDescriptionFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public CalloutMediatorFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureCalloutMediatorPropertyValue = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureCalloutMediatorPropertyValue.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureCalloutMediatorPropertyValue);&#xA;&#xA;&#xA;&#xA;fFigureCalloutMediatorDescriptionFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureCalloutMediatorDescriptionFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureCalloutMediatorDescriptionFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureCalloutMediatorPropertyValue() {&#xA;&#x9;&#x9;return fFigureCalloutMediatorPropertyValue;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureCalloutMediatorDescriptionFigure() {&#xA;&#x9;&#x9;return fFigureCalloutMediatorDescriptionFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 230, 230, 230);&#xA;&#xA;">
           <attributes
               xsi:type="gmfgen:StyleAttributes"
               fixedBackground="true"/>
@@ -4173,6 +4498,23 @@
               parser="/0/@labelParsers/@implementations.0">
             <metaFeatures
                 href="esb.genmodel#//esb/CalloutMediator/soapAction"/>
+          </modelFacet>
+        </labels>
+        <labels
+            visualID="5184"
+            editPartClassName="CalloutMediatorDescriptionEditPart"
+            itemSemanticEditPolicyClassName="CalloutMediatorDescriptionItemSemanticEditPolicy">
+          <diagramRunTimeClass
+              href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+          <viewmap
+              xsi:type="gmfgen:ParentAssignedViewmap"
+              getterName="getFigureCalloutMediatorDescriptionFigure"
+              figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+          <modelFacet
+              xsi:type="gmfgen:FeatureLabelModelFacet"
+              parser="/0/@labelParsers/@implementations.0">
+            <metaFeatures
+                href="esb.genmodel#//esb/EsbElement/description"/>
           </modelFacet>
         </labels>
       </childNodes>
@@ -4267,8 +4609,9 @@
             editHelperClassName="TransactionMediatorEditHelper"/>
         <viewmap
             xsi:type="gmfgen:InnerClassViewmap"
+            layoutType="FLOW_LAYOUT"
             className="TransactionMediatorFigure"
-            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class TransactionMediatorFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureTransactionMediatorPropertyValue; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public TransactionMediatorFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureTransactionMediatorPropertyValue = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureTransactionMediatorPropertyValue.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureTransactionMediatorPropertyValue);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureTransactionMediatorPropertyValue() {&#xA;&#x9;&#x9;return fFigureTransactionMediatorPropertyValue;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 230, 230, 230);&#xA;&#xA;">
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class TransactionMediatorFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureTransactionMediatorPropertyValue; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureTransactionMediatorDescriptionFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public TransactionMediatorFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureTransactionMediatorPropertyValue = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureTransactionMediatorPropertyValue.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureTransactionMediatorPropertyValue);&#xA;&#xA;&#xA;&#xA;fFigureTransactionMediatorDescriptionFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureTransactionMediatorDescriptionFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureTransactionMediatorDescriptionFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureTransactionMediatorPropertyValue() {&#xA;&#x9;&#x9;return fFigureTransactionMediatorPropertyValue;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureTransactionMediatorDescriptionFigure() {&#xA;&#x9;&#x9;return fFigureTransactionMediatorDescriptionFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 230, 230, 230);&#xA;&#xA;">
           <attributes
               xsi:type="gmfgen:StyleAttributes"
               fixedBackground="true"/>
@@ -4281,6 +4624,23 @@
           <childMetaFeature
               href="esb.genmodel#//esb/MediatorFlow/children"/>
         </modelFacet>
+        <labels
+            visualID="5185"
+            editPartClassName="TransactionMediatorDescriptionEditPart"
+            itemSemanticEditPolicyClassName="TransactionMediatorDescriptionItemSemanticEditPolicy">
+          <diagramRunTimeClass
+              href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+          <viewmap
+              xsi:type="gmfgen:ParentAssignedViewmap"
+              getterName="getFigureTransactionMediatorDescriptionFigure"
+              figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+          <modelFacet
+              xsi:type="gmfgen:FeatureLabelModelFacet"
+              parser="/0/@labelParsers/@implementations.0">
+            <metaFeatures
+                href="esb.genmodel#//esb/EsbElement/description"/>
+          </modelFacet>
+        </labels>
       </childNodes>
       <childNodes
           xsi:type="gmfgen:GenChildSideAffixedNode"
@@ -4373,8 +4733,9 @@
             editHelperClassName="RMSequenceMediatorEditHelper"/>
         <viewmap
             xsi:type="gmfgen:InnerClassViewmap"
+            layoutType="FLOW_LAYOUT"
             className="RMSequenceMediatorFigure"
-            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class RMSequenceMediatorFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureRMSequenceMediatorPropertyValue; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public RMSequenceMediatorFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureRMSequenceMediatorPropertyValue = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureRMSequenceMediatorPropertyValue.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureRMSequenceMediatorPropertyValue);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureRMSequenceMediatorPropertyValue() {&#xA;&#x9;&#x9;return fFigureRMSequenceMediatorPropertyValue;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 230, 230, 230);&#xA;&#xA;">
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class RMSequenceMediatorFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureRMSequenceMediatorPropertyValue; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureRMSequenceMediatorDescriptionFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public RMSequenceMediatorFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureRMSequenceMediatorPropertyValue = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureRMSequenceMediatorPropertyValue.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureRMSequenceMediatorPropertyValue);&#xA;&#xA;&#xA;&#xA;fFigureRMSequenceMediatorDescriptionFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureRMSequenceMediatorDescriptionFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureRMSequenceMediatorDescriptionFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureRMSequenceMediatorPropertyValue() {&#xA;&#x9;&#x9;return fFigureRMSequenceMediatorPropertyValue;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureRMSequenceMediatorDescriptionFigure() {&#xA;&#x9;&#x9;return fFigureRMSequenceMediatorDescriptionFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 230, 230, 230);&#xA;&#xA;">
           <attributes
               xsi:type="gmfgen:StyleAttributes"
               fixedBackground="true"/>
@@ -4387,6 +4748,23 @@
           <childMetaFeature
               href="esb.genmodel#//esb/MediatorFlow/children"/>
         </modelFacet>
+        <labels
+            visualID="5186"
+            editPartClassName="RMSequenceMediatorDescriptionEditPart"
+            itemSemanticEditPolicyClassName="RMSequenceMediatorDescriptionItemSemanticEditPolicy">
+          <diagramRunTimeClass
+              href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+          <viewmap
+              xsi:type="gmfgen:ParentAssignedViewmap"
+              getterName="getFigureRMSequenceMediatorDescriptionFigure"
+              figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+          <modelFacet
+              xsi:type="gmfgen:FeatureLabelModelFacet"
+              parser="/0/@labelParsers/@implementations.0">
+            <metaFeatures
+                href="esb.genmodel#//esb/EsbElement/description"/>
+          </modelFacet>
+        </labels>
       </childNodes>
       <childNodes
           xsi:type="gmfgen:GenChildSideAffixedNode"
@@ -4654,8 +5032,9 @@
             editHelperClassName="OAuthMediatorEditHelper"/>
         <viewmap
             xsi:type="gmfgen:InnerClassViewmap"
+            layoutType="FLOW_LAYOUT"
             className="OAuthMediatorFigure"
-            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class OAuthMediatorFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureOAuthMediatorPropertyValue; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public OAuthMediatorFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureOAuthMediatorPropertyValue = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureOAuthMediatorPropertyValue.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureOAuthMediatorPropertyValue);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureOAuthMediatorPropertyValue() {&#xA;&#x9;&#x9;return fFigureOAuthMediatorPropertyValue;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 230, 230, 230);&#xA;&#xA;">
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class OAuthMediatorFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureOAuthMediatorPropertyValue; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureOAuthMediatorDescriptionFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public OAuthMediatorFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureOAuthMediatorPropertyValue = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureOAuthMediatorPropertyValue.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureOAuthMediatorPropertyValue);&#xA;&#xA;&#xA;&#xA;fFigureOAuthMediatorDescriptionFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureOAuthMediatorDescriptionFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureOAuthMediatorDescriptionFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureOAuthMediatorPropertyValue() {&#xA;&#x9;&#x9;return fFigureOAuthMediatorPropertyValue;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureOAuthMediatorDescriptionFigure() {&#xA;&#x9;&#x9;return fFigureOAuthMediatorDescriptionFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 230, 230, 230);&#xA;&#xA;">
           <attributes
               xsi:type="gmfgen:StyleAttributes"
               fixedBackground="true"/>
@@ -4684,6 +5063,23 @@
               parser="/0/@labelParsers/@implementations.0">
             <metaFeatures
                 href="esb.genmodel#//esb/OAuthMediator/remoteServiceUrl"/>
+          </modelFacet>
+        </labels>
+        <labels
+            visualID="5187"
+            editPartClassName="OAuthMediatorDescriptionEditPart"
+            itemSemanticEditPolicyClassName="OAuthMediatorDescriptionItemSemanticEditPolicy">
+          <diagramRunTimeClass
+              href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+          <viewmap
+              xsi:type="gmfgen:ParentAssignedViewmap"
+              getterName="getFigureOAuthMediatorDescriptionFigure"
+              figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+          <modelFacet
+              xsi:type="gmfgen:FeatureLabelModelFacet"
+              parser="/0/@labelParsers/@implementations.0">
+            <metaFeatures
+                href="esb.genmodel#//esb/EsbElement/description"/>
           </modelFacet>
         </labels>
       </childNodes>
@@ -4973,8 +5369,9 @@
             editHelperClassName="StoreMediatorEditHelper"/>
         <viewmap
             xsi:type="gmfgen:InnerClassViewmap"
+            layoutType="FLOW_LAYOUT"
             className="StoreMediatorFigure"
-            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class StoreMediatorFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureStoreMediatorPropertyValue; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public StoreMediatorFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureStoreMediatorPropertyValue = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureStoreMediatorPropertyValue.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureStoreMediatorPropertyValue);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureStoreMediatorPropertyValue() {&#xA;&#x9;&#x9;return fFigureStoreMediatorPropertyValue;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 230, 230, 230);&#xA;&#xA;">
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class StoreMediatorFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureStoreMediatorPropertyValue; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureStoreMediatorDescriptionFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public StoreMediatorFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureStoreMediatorPropertyValue = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureStoreMediatorPropertyValue.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureStoreMediatorPropertyValue);&#xA;&#xA;&#xA;&#xA;fFigureStoreMediatorDescriptionFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureStoreMediatorDescriptionFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureStoreMediatorDescriptionFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureStoreMediatorPropertyValue() {&#xA;&#x9;&#x9;return fFigureStoreMediatorPropertyValue;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureStoreMediatorDescriptionFigure() {&#xA;&#x9;&#x9;return fFigureStoreMediatorDescriptionFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 230, 230, 230);&#xA;&#xA;">
           <attributes
               xsi:type="gmfgen:StyleAttributes"
               fixedBackground="true"/>
@@ -4987,6 +5384,23 @@
           <childMetaFeature
               href="esb.genmodel#//esb/MediatorFlow/children"/>
         </modelFacet>
+        <labels
+            visualID="5188"
+            editPartClassName="StoreMediatorDescriptionEditPart"
+            itemSemanticEditPolicyClassName="StoreMediatorDescriptionItemSemanticEditPolicy">
+          <diagramRunTimeClass
+              href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+          <viewmap
+              xsi:type="gmfgen:ParentAssignedViewmap"
+              getterName="getFigureStoreMediatorDescriptionFigure"
+              figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+          <modelFacet
+              xsi:type="gmfgen:FeatureLabelModelFacet"
+              parser="/0/@labelParsers/@implementations.0">
+            <metaFeatures
+                href="esb.genmodel#//esb/EsbElement/description"/>
+          </modelFacet>
+        </labels>
       </childNodes>
       <childNodes
           xsi:type="gmfgen:GenChildSideAffixedNode"
@@ -5079,8 +5493,9 @@
             editHelperClassName="BuilderMediatorEditHelper"/>
         <viewmap
             xsi:type="gmfgen:InnerClassViewmap"
+            layoutType="FLOW_LAYOUT"
             className="BuilderMediatorFigure"
-            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class BuilderMediatorFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureBuilderMediatorPropertyValue; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public BuilderMediatorFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureBuilderMediatorPropertyValue = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureBuilderMediatorPropertyValue.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureBuilderMediatorPropertyValue);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureBuilderMediatorPropertyValue() {&#xA;&#x9;&#x9;return fFigureBuilderMediatorPropertyValue;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 230, 230, 230);&#xA;&#xA;">
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class BuilderMediatorFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureBuilderMediatorPropertyValue; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureBuilderMediatorDescriptionFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public BuilderMediatorFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureBuilderMediatorPropertyValue = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureBuilderMediatorPropertyValue.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureBuilderMediatorPropertyValue);&#xA;&#xA;&#xA;&#xA;fFigureBuilderMediatorDescriptionFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureBuilderMediatorDescriptionFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureBuilderMediatorDescriptionFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureBuilderMediatorPropertyValue() {&#xA;&#x9;&#x9;return fFigureBuilderMediatorPropertyValue;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureBuilderMediatorDescriptionFigure() {&#xA;&#x9;&#x9;return fFigureBuilderMediatorDescriptionFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 230, 230, 230);&#xA;&#xA;">
           <attributes
               xsi:type="gmfgen:StyleAttributes"
               fixedBackground="true"/>
@@ -5093,6 +5508,23 @@
           <childMetaFeature
               href="esb.genmodel#//esb/MediatorFlow/children"/>
         </modelFacet>
+        <labels
+            visualID="5189"
+            editPartClassName="BuilderMediatorDescriptionEditPart"
+            itemSemanticEditPolicyClassName="BuilderMediatorDescriptionItemSemanticEditPolicy">
+          <diagramRunTimeClass
+              href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+          <viewmap
+              xsi:type="gmfgen:ParentAssignedViewmap"
+              getterName="getFigureBuilderMediatorDescriptionFigure"
+              figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+          <modelFacet
+              xsi:type="gmfgen:FeatureLabelModelFacet"
+              parser="/0/@labelParsers/@implementations.0">
+            <metaFeatures
+                href="esb.genmodel#//esb/EsbElement/description"/>
+          </modelFacet>
+        </labels>
       </childNodes>
       <childNodes
           xsi:type="gmfgen:GenChildSideAffixedNode"
@@ -5185,8 +5617,9 @@
             editHelperClassName="CallTemplateMediatorEditHelper"/>
         <viewmap
             xsi:type="gmfgen:InnerClassViewmap"
+            layoutType="FLOW_LAYOUT"
             className="CallTemplateMediatorFigure"
-            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class CallTemplateMediatorFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureCallTemplateMediatorPropertyValue; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public CallTemplateMediatorFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureCallTemplateMediatorPropertyValue = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureCallTemplateMediatorPropertyValue.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureCallTemplateMediatorPropertyValue);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureCallTemplateMediatorPropertyValue() {&#xA;&#x9;&#x9;return fFigureCallTemplateMediatorPropertyValue;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 230, 230, 230);&#xA;&#xA;">
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class CallTemplateMediatorFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureCallTemplateMediatorPropertyValue; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureCallTemplateMediatorDescriptionFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public CallTemplateMediatorFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureCallTemplateMediatorPropertyValue = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureCallTemplateMediatorPropertyValue.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureCallTemplateMediatorPropertyValue);&#xA;&#xA;&#xA;&#xA;fFigureCallTemplateMediatorDescriptionFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureCallTemplateMediatorDescriptionFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureCallTemplateMediatorDescriptionFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureCallTemplateMediatorPropertyValue() {&#xA;&#x9;&#x9;return fFigureCallTemplateMediatorPropertyValue;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureCallTemplateMediatorDescriptionFigure() {&#xA;&#x9;&#x9;return fFigureCallTemplateMediatorDescriptionFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 230, 230, 230);&#xA;&#xA;">
           <attributes
               xsi:type="gmfgen:StyleAttributes"
               fixedBackground="true"/>
@@ -5199,6 +5632,23 @@
           <childMetaFeature
               href="esb.genmodel#//esb/MediatorFlow/children"/>
         </modelFacet>
+        <labels
+            visualID="5190"
+            editPartClassName="CallTemplateMediatorDescriptionEditPart"
+            itemSemanticEditPolicyClassName="CallTemplateMediatorDescriptionItemSemanticEditPolicy">
+          <diagramRunTimeClass
+              href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+          <viewmap
+              xsi:type="gmfgen:ParentAssignedViewmap"
+              getterName="getFigureCallTemplateMediatorDescriptionFigure"
+              figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+          <modelFacet
+              xsi:type="gmfgen:FeatureLabelModelFacet"
+              parser="/0/@labelParsers/@implementations.0">
+            <metaFeatures
+                href="esb.genmodel#//esb/EsbElement/description"/>
+          </modelFacet>
+        </labels>
       </childNodes>
       <childNodes
           xsi:type="gmfgen:GenChildSideAffixedNode"
@@ -5291,8 +5741,9 @@
             editHelperClassName="PayloadFactoryMediatorEditHelper"/>
         <viewmap
             xsi:type="gmfgen:InnerClassViewmap"
+            layoutType="FLOW_LAYOUT"
             className="PayloadFactoryMediatorFigure"
-            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class PayloadFactoryMediatorFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigurePayloadFactoryMediatorPropertyValue; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public PayloadFactoryMediatorFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigurePayloadFactoryMediatorPropertyValue = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigurePayloadFactoryMediatorPropertyValue.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigurePayloadFactoryMediatorPropertyValue);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigurePayloadFactoryMediatorPropertyValue() {&#xA;&#x9;&#x9;return fFigurePayloadFactoryMediatorPropertyValue;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 230, 230, 230);&#xA;&#xA;">
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class PayloadFactoryMediatorFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigurePayloadFactoryMediatorPropertyValue; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigurePayloadFactoryMediatorDescriptionFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public PayloadFactoryMediatorFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigurePayloadFactoryMediatorPropertyValue = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigurePayloadFactoryMediatorPropertyValue.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigurePayloadFactoryMediatorPropertyValue);&#xA;&#xA;&#xA;&#xA;fFigurePayloadFactoryMediatorDescriptionFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigurePayloadFactoryMediatorDescriptionFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigurePayloadFactoryMediatorDescriptionFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigurePayloadFactoryMediatorPropertyValue() {&#xA;&#x9;&#x9;return fFigurePayloadFactoryMediatorPropertyValue;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigurePayloadFactoryMediatorDescriptionFigure() {&#xA;&#x9;&#x9;return fFigurePayloadFactoryMediatorDescriptionFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 230, 230, 230);&#xA;&#xA;">
           <attributes
               xsi:type="gmfgen:StyleAttributes"
               fixedBackground="true"/>
@@ -5305,6 +5756,23 @@
           <childMetaFeature
               href="esb.genmodel#//esb/MediatorFlow/children"/>
         </modelFacet>
+        <labels
+            visualID="5191"
+            editPartClassName="PayloadFactoryMediatorDescriptionEditPart"
+            itemSemanticEditPolicyClassName="PayloadFactoryMediatorDescriptionItemSemanticEditPolicy">
+          <diagramRunTimeClass
+              href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+          <viewmap
+              xsi:type="gmfgen:ParentAssignedViewmap"
+              getterName="getFigurePayloadFactoryMediatorDescriptionFigure"
+              figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+          <modelFacet
+              xsi:type="gmfgen:FeatureLabelModelFacet"
+              parser="/0/@labelParsers/@implementations.0">
+            <metaFeatures
+                href="esb.genmodel#//esb/EsbElement/description"/>
+          </modelFacet>
+        </labels>
       </childNodes>
       <childNodes
           xsi:type="gmfgen:GenChildSideAffixedNode"
@@ -5397,8 +5865,9 @@
             editHelperClassName="EnqueueMediatorEditHelper"/>
         <viewmap
             xsi:type="gmfgen:InnerClassViewmap"
+            layoutType="FLOW_LAYOUT"
             className="EnqueueMediatorFigure"
-            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class EnqueueMediatorFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureEnqueueMediatorPropertyValue; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public EnqueueMediatorFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureEnqueueMediatorPropertyValue = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureEnqueueMediatorPropertyValue.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureEnqueueMediatorPropertyValue);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureEnqueueMediatorPropertyValue() {&#xA;&#x9;&#x9;return fFigureEnqueueMediatorPropertyValue;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 230, 230, 230);&#xA;&#xA;">
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class EnqueueMediatorFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureEnqueueMediatorPropertyValue; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureEnqueueMediatorDescriptionFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public EnqueueMediatorFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureEnqueueMediatorPropertyValue = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureEnqueueMediatorPropertyValue.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureEnqueueMediatorPropertyValue);&#xA;&#xA;&#xA;&#xA;fFigureEnqueueMediatorDescriptionFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureEnqueueMediatorDescriptionFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureEnqueueMediatorDescriptionFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureEnqueueMediatorPropertyValue() {&#xA;&#x9;&#x9;return fFigureEnqueueMediatorPropertyValue;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureEnqueueMediatorDescriptionFigure() {&#xA;&#x9;&#x9;return fFigureEnqueueMediatorDescriptionFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 230, 230, 230);&#xA;&#xA;">
           <attributes
               xsi:type="gmfgen:StyleAttributes"
               fixedBackground="true"/>
@@ -5411,6 +5880,23 @@
           <childMetaFeature
               href="esb.genmodel#//esb/MediatorFlow/children"/>
         </modelFacet>
+        <labels
+            visualID="5192"
+            editPartClassName="EnqueueMediatorDescriptionEditPart"
+            itemSemanticEditPolicyClassName="EnqueueMediatorDescriptionItemSemanticEditPolicy">
+          <diagramRunTimeClass
+              href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+          <viewmap
+              xsi:type="gmfgen:ParentAssignedViewmap"
+              getterName="getFigureEnqueueMediatorDescriptionFigure"
+              figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+          <modelFacet
+              xsi:type="gmfgen:FeatureLabelModelFacet"
+              parser="/0/@labelParsers/@implementations.0">
+            <metaFeatures
+                href="esb.genmodel#//esb/EsbElement/description"/>
+          </modelFacet>
+        </labels>
       </childNodes>
       <childNodes
           xsi:type="gmfgen:GenChildSideAffixedNode"
@@ -5503,8 +5989,9 @@
             editHelperClassName="URLRewriteMediatorEditHelper"/>
         <viewmap
             xsi:type="gmfgen:InnerClassViewmap"
+            layoutType="FLOW_LAYOUT"
             className="URLRewriteMediatorFigure"
-            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class URLRewriteMediatorFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureURLRewriteMediatorPropertyValue; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public URLRewriteMediatorFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureURLRewriteMediatorPropertyValue = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureURLRewriteMediatorPropertyValue.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureURLRewriteMediatorPropertyValue);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureURLRewriteMediatorPropertyValue() {&#xA;&#x9;&#x9;return fFigureURLRewriteMediatorPropertyValue;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 230, 230, 230);&#xA;&#xA;">
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class URLRewriteMediatorFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureURLRewriteMediatorPropertyValue; &#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureURLRewriteMediatorDescriptionFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public URLRewriteMediatorFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureURLRewriteMediatorPropertyValue = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureURLRewriteMediatorPropertyValue.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureURLRewriteMediatorPropertyValue);&#xA;&#xA;&#xA;&#xA;fFigureURLRewriteMediatorDescriptionFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureURLRewriteMediatorDescriptionFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureURLRewriteMediatorDescriptionFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureURLRewriteMediatorPropertyValue() {&#xA;&#x9;&#x9;return fFigureURLRewriteMediatorPropertyValue;&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureURLRewriteMediatorDescriptionFigure() {&#xA;&#x9;&#x9;return fFigureURLRewriteMediatorDescriptionFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 230, 230, 230);&#xA;&#xA;">
           <attributes
               xsi:type="gmfgen:StyleAttributes"
               fixedBackground="true"/>
@@ -5517,6 +6004,23 @@
           <childMetaFeature
               href="esb.genmodel#//esb/MediatorFlow/children"/>
         </modelFacet>
+        <labels
+            visualID="5193"
+            editPartClassName="URLRewriteMediatorDescriptionEditPart"
+            itemSemanticEditPolicyClassName="URLRewriteMediatorDescriptionItemSemanticEditPolicy">
+          <diagramRunTimeClass
+              href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+          <viewmap
+              xsi:type="gmfgen:ParentAssignedViewmap"
+              getterName="getFigureURLRewriteMediatorDescriptionFigure"
+              figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+          <modelFacet
+              xsi:type="gmfgen:FeatureLabelModelFacet"
+              parser="/0/@labelParsers/@implementations.0">
+            <metaFeatures
+                href="esb.genmodel#//esb/EsbElement/description"/>
+          </modelFacet>
+        </labels>
       </childNodes>
       <childNodes
           xsi:type="gmfgen:GenChildSideAffixedNode"
@@ -6200,8 +6704,9 @@
             editHelperClassName="BAMMediatorEditHelper"/>
         <viewmap
             xsi:type="gmfgen:InnerClassViewmap"
+            layoutType="FLOW_LAYOUT"
             className="BAMMediatorFigure"
-            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class BAMMediatorFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public BAMMediatorFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel bAMPropertyLabel0 = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;bAMPropertyLabel0.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(bAMPropertyLabel0);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 230, 230, 230);&#xA;&#xA;">
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class BAMMediatorFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureBAMMediatorDescriptionFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public BAMMediatorFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel bAMPropertyLabel0 = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;bAMPropertyLabel0.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(bAMPropertyLabel0);&#xA;&#xA;&#xA;&#xA;fFigureBAMMediatorDescriptionFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureBAMMediatorDescriptionFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureBAMMediatorDescriptionFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureBAMMediatorDescriptionFigure() {&#xA;&#x9;&#x9;return fFigureBAMMediatorDescriptionFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 230, 230, 230);&#xA;&#xA;">
           <attributes
               xsi:type="gmfgen:StyleAttributes"
               fixedBackground="true"/>
@@ -6214,6 +6719,23 @@
           <childMetaFeature
               href="esb.genmodel#//esb/MediatorFlow/children"/>
         </modelFacet>
+        <labels
+            visualID="5194"
+            editPartClassName="BAMMediatorDescriptionEditPart"
+            itemSemanticEditPolicyClassName="BAMMediatorDescriptionItemSemanticEditPolicy">
+          <diagramRunTimeClass
+              href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+          <viewmap
+              xsi:type="gmfgen:ParentAssignedViewmap"
+              getterName="getFigureBAMMediatorDescriptionFigure"
+              figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+          <modelFacet
+              xsi:type="gmfgen:FeatureLabelModelFacet"
+              parser="/0/@labelParsers/@implementations.0">
+            <metaFeatures
+                href="esb.genmodel#//esb/EsbElement/description"/>
+          </modelFacet>
+        </labels>
       </childNodes>
       <childNodes
           xsi:type="gmfgen:GenChildSideAffixedNode"
@@ -6306,8 +6828,9 @@
             editHelperClassName="BeanMediatorEditHelper"/>
         <viewmap
             xsi:type="gmfgen:InnerClassViewmap"
+            layoutType="FLOW_LAYOUT"
             className="BeanMediatorFigure"
-            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class BeanMediatorFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public BeanMediatorFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel beanMediatorPropertyValueLabel0 = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;beanMediatorPropertyValueLabel0.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(beanMediatorPropertyValueLabel0);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 230, 230, 230);&#xA;&#xA;">
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class BeanMediatorFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureBeanMediatorDescriptionFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public BeanMediatorFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel beanMediatorPropertyValueLabel0 = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;beanMediatorPropertyValueLabel0.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(beanMediatorPropertyValueLabel0);&#xA;&#xA;&#xA;&#xA;fFigureBeanMediatorDescriptionFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureBeanMediatorDescriptionFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureBeanMediatorDescriptionFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureBeanMediatorDescriptionFigure() {&#xA;&#x9;&#x9;return fFigureBeanMediatorDescriptionFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 230, 230, 230);&#xA;&#xA;">
           <attributes
               xsi:type="gmfgen:StyleAttributes"
               fixedBackground="true"/>
@@ -6320,6 +6843,23 @@
           <childMetaFeature
               href="esb.genmodel#//esb/MediatorFlow/children"/>
         </modelFacet>
+        <labels
+            visualID="5195"
+            editPartClassName="BeanMediatorDescriptionEditPart"
+            itemSemanticEditPolicyClassName="BeanMediatorDescriptionItemSemanticEditPolicy">
+          <diagramRunTimeClass
+              href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+          <viewmap
+              xsi:type="gmfgen:ParentAssignedViewmap"
+              getterName="getFigureBeanMediatorDescriptionFigure"
+              figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+          <modelFacet
+              xsi:type="gmfgen:FeatureLabelModelFacet"
+              parser="/0/@labelParsers/@implementations.0">
+            <metaFeatures
+                href="esb.genmodel#//esb/EsbElement/description"/>
+          </modelFacet>
+        </labels>
       </childNodes>
       <childNodes
           xsi:type="gmfgen:GenChildSideAffixedNode"
@@ -6412,8 +6952,9 @@
             editHelperClassName="EJBMediatorEditHelper"/>
         <viewmap
             xsi:type="gmfgen:InnerClassViewmap"
+            layoutType="FLOW_LAYOUT"
             className="EJBMediatorFigure"
-            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class EJBMediatorFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public EJBMediatorFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel eJBMediatorPropertyValueLabel0 = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;eJBMediatorPropertyValueLabel0.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(eJBMediatorPropertyValueLabel0);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 230, 230, 230);&#xA;&#xA;">
+            classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class EJBMediatorFigure extends org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureEJBMediatorDescriptionFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public EJBMediatorFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.FlowLayout layoutThis = new org.eclipse.draw2d.FlowLayout();&#xA;&#x9;layoutThis.setStretchMinorAxis(false);&#xA;&#x9;layoutThis.setMinorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#xA;&#x9;layoutThis.setMajorAlignment(org.eclipse.draw2d.FlowLayout.ALIGN_LEFTTOP&#xA;);&#xA;&#x9;layoutThis.setMajorSpacing(5);&#xA;&#x9;layoutThis.setMinorSpacing(5);&#xA;&#x9;layoutThis.setHorizontal(true);&#xA;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;&#x9;this.setBackgroundColor(THIS_BACK&#xA;);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel eJBMediatorPropertyValueLabel0 = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;eJBMediatorPropertyValueLabel0.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(eJBMediatorPropertyValueLabel0);&#xA;&#xA;&#xA;&#xA;fFigureEJBMediatorDescriptionFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;&#xA;fFigureEJBMediatorDescriptionFigure.setText(&quot;&lt;...>&quot;);&#xA;&#xA;this.add(fFigureEJBMediatorDescriptionFigure);&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureEJBMediatorDescriptionFigure() {&#xA;&#x9;&#x9;return fFigureEJBMediatorDescriptionFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;/**&#xA; * @generated&#xA; */&#xA;static final org.eclipse.swt.graphics.Color THIS_BACK = new org.eclipse.swt.graphics.Color(null, 230, 230, 230);&#xA;&#xA;">
           <attributes
               xsi:type="gmfgen:StyleAttributes"
               fixedBackground="true"/>
@@ -6426,6 +6967,23 @@
           <childMetaFeature
               href="esb.genmodel#//esb/MediatorFlow/children"/>
         </modelFacet>
+        <labels
+            visualID="5196"
+            editPartClassName="EJBMediatorDescriptionEditPart"
+            itemSemanticEditPolicyClassName="EJBMediatorDescriptionItemSemanticEditPolicy">
+          <diagramRunTimeClass
+              href="../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+          <viewmap
+              xsi:type="gmfgen:ParentAssignedViewmap"
+              getterName="getFigureEJBMediatorDescriptionFigure"
+              figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+          <modelFacet
+              xsi:type="gmfgen:FeatureLabelModelFacet"
+              parser="/0/@labelParsers/@implementations.0">
+            <metaFeatures
+                href="esb.genmodel#//esb/EsbElement/description"/>
+          </modelFacet>
+        </labels>
       </childNodes>
       <childNodes
           xsi:type="gmfgen:GenChildSideAffixedNode"
@@ -7786,6 +8344,7 @@
           visualID="3716"
           editPartClassName="TemplateEndpointEditPart"
           itemSemanticEditPolicyClassName="TemplateEndpointItemSemanticEditPolicy"
+          notationViewFactoryClassName="TemplateEndpointViewFactory"
           canonicalEditPolicyClassName="TemplateEndpointCanonicalEditPolicy"
           childNodes="/0/@diagram/@childNodes.206 /0/@diagram/@childNodes.207"
           graphicalNodeEditPolicyClassName="TemplateEndpointGraphicalNodeEditPolicy"
@@ -7818,6 +8377,7 @@
           visualID="3717"
           editPartClassName="TemplateEndpointInputConnectorEditPart"
           itemSemanticEditPolicyClassName="TemplateEndpointInputConnectorItemSemanticEditPolicy"
+          notationViewFactoryClassName="TemplateEndpointInputConnectorViewFactory"
           canonicalEditPolicyClassName="TemplateEndpointInputConnectorCanonicalEditPolicy"
           graphicalNodeEditPolicyClassName="TemplateEndpointInputConnectorGraphicalNodeEditPolicy"
           createCommandClassName="TemplateEndpointInputConnectorCreateCommand"
@@ -7854,6 +8414,7 @@
           visualID="3718"
           editPartClassName="TemplateEndpointOutputConnectorEditPart"
           itemSemanticEditPolicyClassName="TemplateEndpointOutputConnectorItemSemanticEditPolicy"
+          notationViewFactoryClassName="TemplateEndpointOutputConnectorViewFactory"
           canonicalEditPolicyClassName="TemplateEndpointOutputConnectorCanonicalEditPolicy"
           graphicalNodeEditPolicyClassName="TemplateEndpointOutputConnectorGraphicalNodeEditPolicy"
           createCommandClassName="TemplateEndpointOutputConnectorCreateCommand"
@@ -16354,7 +16915,7 @@
         extensibleViaService="true">
       <implementations
           xsi:type="gmfgen:PredefinedParser"
-          uses="/0/@diagram/@childNodes.9/@labels.0/@modelFacet /0/@diagram/@childNodes.45/@labels.0/@modelFacet /0/@diagram/@childNodes.51/@labels.0/@modelFacet /0/@diagram/@childNodes.54/@labels.0/@modelFacet /0/@diagram/@childNodes.57/@labels.0/@modelFacet /0/@diagram/@childNodes.69/@labels.0/@modelFacet /0/@diagram/@childNodes.72/@labels.0/@modelFacet /0/@diagram/@childNodes.75/@labels.0/@modelFacet /0/@diagram/@childNodes.86/@labels.0/@modelFacet /0/@diagram/@childNodes.106/@labels.0/@modelFacet /0/@diagram/@childNodes.120/@labels.0/@modelFacet /0/@diagram/@childNodes.172/@labels.0/@modelFacet /0/@diagram/@childNodes.175/@labels.0/@modelFacet /0/@diagram/@childNodes.178/@labels.0/@modelFacet /0/@diagram/@childNodes.186/@labels.0/@modelFacet /0/@diagram/@childNodes.189/@labels.0/@modelFacet /0/@diagram/@childNodes.192/@labels.0/@modelFacet /0/@diagram/@childNodes.123/@labels.0/@modelFacet /0/@diagram/@childNodes.101/@labels.0/@modelFacet /0/@diagram/@childNodes.96/@labels.0/@modelFacet /0/@diagram/@childNodes.89/@labels.0/@modelFacet /0/@diagram/@childNodes.12/@labels.0/@modelFacet /0/@diagram/@childNodes.0/@labels.0/@modelFacet /0/@diagram/@childNodes.228/@labels.0/@modelFacet /0/@diagram/@childNodes.231/@labels.0/@modelFacet /0/@diagram/@childNodes.234/@labels.0/@modelFacet /0/@diagram/@childNodes.242/@labels.0/@modelFacet /0/@diagram/@childNodes.245/@labels.0/@modelFacet"/>
+          uses="/0/@diagram/@childNodes.7/@labels.0/@modelFacet /0/@diagram/@childNodes.9/@labels.0/@modelFacet /0/@diagram/@childNodes.9/@labels.1/@modelFacet /0/@diagram/@childNodes.28/@labels.1/@modelFacet /0/@diagram/@childNodes.31/@labels.1/@modelFacet /0/@diagram/@childNodes.34/@labels.0/@modelFacet /0/@diagram/@childNodes.45/@labels.0/@modelFacet /0/@diagram/@childNodes.48/@labels.1/@modelFacet /0/@diagram/@childNodes.51/@labels.0/@modelFacet /0/@diagram/@childNodes.51/@labels.1/@modelFacet /0/@diagram/@childNodes.54/@labels.0/@modelFacet /0/@diagram/@childNodes.54/@labels.1/@modelFacet /0/@diagram/@childNodes.57/@labels.0/@modelFacet /0/@diagram/@childNodes.57/@labels.1/@modelFacet /0/@diagram/@childNodes.60/@labels.1/@modelFacet /0/@diagram/@childNodes.63/@labels.1/@modelFacet /0/@diagram/@childNodes.66/@labels.1/@modelFacet /0/@diagram/@childNodes.69/@labels.0/@modelFacet /0/@diagram/@childNodes.69/@labels.1/@modelFacet /0/@diagram/@childNodes.72/@labels.0/@modelFacet /0/@diagram/@childNodes.72/@labels.1/@modelFacet /0/@diagram/@childNodes.75/@labels.0/@modelFacet /0/@diagram/@childNodes.75/@labels.1/@modelFacet /0/@diagram/@childNodes.78/@labels.0/@modelFacet /0/@diagram/@childNodes.81/@labels.0/@modelFacet /0/@diagram/@childNodes.86/@labels.0/@modelFacet /0/@diagram/@childNodes.86/@labels.1/@modelFacet /0/@diagram/@childNodes.106/@labels.0/@modelFacet /0/@diagram/@childNodes.106/@labels.1/@modelFacet /0/@diagram/@childNodes.109/@labels.0/@modelFacet /0/@diagram/@childNodes.112/@labels.0/@modelFacet /0/@diagram/@childNodes.120/@labels.0/@modelFacet /0/@diagram/@childNodes.120/@labels.1/@modelFacet /0/@diagram/@childNodes.128/@labels.0/@modelFacet /0/@diagram/@childNodes.131/@labels.0/@modelFacet /0/@diagram/@childNodes.134/@labels.0/@modelFacet /0/@diagram/@childNodes.137/@labels.0/@modelFacet /0/@diagram/@childNodes.140/@labels.0/@modelFacet /0/@diagram/@childNodes.143/@labels.0/@modelFacet /0/@diagram/@childNodes.163/@labels.0/@modelFacet /0/@diagram/@childNodes.166/@labels.0/@modelFacet /0/@diagram/@childNodes.169/@labels.0/@modelFacet /0/@diagram/@childNodes.172/@labels.0/@modelFacet /0/@diagram/@childNodes.175/@labels.0/@modelFacet /0/@diagram/@childNodes.178/@labels.0/@modelFacet /0/@diagram/@childNodes.186/@labels.0/@modelFacet /0/@diagram/@childNodes.189/@labels.0/@modelFacet /0/@diagram/@childNodes.192/@labels.0/@modelFacet /0/@diagram/@childNodes.123/@labels.0/@modelFacet /0/@diagram/@childNodes.101/@labels.0/@modelFacet /0/@diagram/@childNodes.96/@labels.0/@modelFacet /0/@diagram/@childNodes.89/@labels.0/@modelFacet /0/@diagram/@childNodes.12/@labels.0/@modelFacet /0/@diagram/@childNodes.0/@labels.0/@modelFacet /0/@diagram/@childNodes.228/@labels.0/@modelFacet /0/@diagram/@childNodes.231/@labels.0/@modelFacet /0/@diagram/@childNodes.234/@labels.0/@modelFacet /0/@diagram/@childNodes.242/@labels.0/@modelFacet /0/@diagram/@childNodes.245/@labels.0/@modelFacet"/>
       <implementations
           xsi:type="gmfgen:PredefinedEnumParser"
           uses="/0/@diagram/@childNodes.28/@labels.0/@modelFacet /0/@diagram/@childNodes.31/@labels.0/@modelFacet /0/@diagram/@childNodes.48/@labels.0/@modelFacet /0/@diagram/@childNodes.60/@labels.0/@modelFacet /0/@diagram/@childNodes.63/@labels.0/@modelFacet /0/@diagram/@childNodes.66/@labels.0/@modelFacet /0/@diagram/@childNodes.20/@labels.0/@modelFacet"/>

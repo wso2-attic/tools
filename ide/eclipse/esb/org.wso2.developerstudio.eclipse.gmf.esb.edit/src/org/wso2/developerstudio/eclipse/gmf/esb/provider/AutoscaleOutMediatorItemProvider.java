@@ -82,8 +82,10 @@ public class AutoscaleOutMediatorItemProvider
 	
 	@Override
 	public String getText(Object object) {
-		AutoscaleOutMediator autoscaleOutMediator = (AutoscaleOutMediator)object;
-		return getString("_UI_AutoscaleOutMediator_type") + " " + autoscaleOutMediator.isReverse();
+		String label = ((AutoscaleOutMediator)object).getDescription();
+		return label == null || label.length() == 0 ?
+			getString("_UI_AutoscaleOutMediator_type") :
+			getString("_UI_AutoscaleOutMediator_type") + " " + label;
 	}
 
 	/**

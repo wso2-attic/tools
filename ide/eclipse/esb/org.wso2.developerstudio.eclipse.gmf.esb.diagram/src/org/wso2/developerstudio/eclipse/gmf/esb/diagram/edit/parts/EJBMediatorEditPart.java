@@ -28,6 +28,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShape;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.EsbGraphicalShapeWithLabel;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedBorderItemLocator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.FixedSizedAbstractMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.ShowPropertyViewEditPolicy;
@@ -136,6 +137,11 @@ public class EJBMediatorEditPart extends FixedSizedAbstractMediator {
 
 	protected boolean addFixedChild(EditPart childEditPart) {
 
+		if (childEditPart instanceof EJBMediatorDescriptionEditPart) {
+			((EJBMediatorDescriptionEditPart) childEditPart).setLabel(getPrimaryShape()
+					.getEJBMediatorDescriptionLabel());
+			return true;
+		}
 		if (childEditPart instanceof EJBMediatorInputConnectorEditPart) {
 			IFigure borderItemFigure = ((EJBMediatorInputConnectorEditPart) childEditPart)
 					.getFigure();
@@ -156,6 +162,9 @@ public class EJBMediatorEditPart extends FixedSizedAbstractMediator {
 	}
 
 	protected boolean removeFixedChild(EditPart childEditPart) {
+		if(childEditPart instanceof EJBMediatorDescriptionEditPart) {
+			return true;
+		}
 		if (childEditPart instanceof EJBMediatorInputConnectorEditPart) {
 			getBorderedFigure().getBorderItemContainer().remove(
 					((EJBMediatorInputConnectorEditPart) childEditPart).getFigure());
@@ -271,8 +280,10 @@ public class EJBMediatorEditPart extends FixedSizedAbstractMediator {
 	/**
 	 * @generated
 	 */
-	public class EJBMediatorFigure extends EsbGraphicalShape {
+	public class EJBMediatorFigure extends EsbGraphicalShapeWithLabel {
 
+		private WrappingLabel ejbMediatorDescriptionLabel;
+		
 		/**
 		 * @generated
 		 */
@@ -290,9 +301,13 @@ public class EJBMediatorEditPart extends FixedSizedAbstractMediator {
 			WrappingLabel eJBMediatorPropertyValueLabel0 = new WrappingLabel();
 			eJBMediatorPropertyValueLabel0.setText("<...>");
 			eJBMediatorPropertyValueLabel0.setAlignment(SWT.CENTER);
-
-			this.getPropertyValueRectangle1().add(eJBMediatorPropertyValueLabel0);
-
+			//this.getPropertyValueRectangle1().add(eJBMediatorPropertyValueLabel0);
+			
+			ejbMediatorDescriptionLabel = getPropertyNameLabel();
+		}
+		
+		public WrappingLabel getEJBMediatorDescriptionLabel() {
+			return ejbMediatorDescriptionLabel;
 		}
 
 		public String getIconPath() {
