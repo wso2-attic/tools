@@ -195,8 +195,12 @@ public abstract class AbstractMediator extends AbstractBorderedShapeEditPart {
 		Display.getCurrent().asyncExec(new Runnable() {			
 			@Override
 			public void run() {	
-				XYRepossition.resizeContainers((IGraphicalEditPart) instance);			
-				XYRepossition.reArrange((IGraphicalEditPart) instance);	 
+				XYRepossition.resizeContainers((IGraphicalEditPart) instance);
+				Display.getCurrent().asyncExec(new Runnable() {			
+					@Override
+					public void run() {			
+						XYRepossition.reArrange((IGraphicalEditPart) instance);	 
+					}});
 			}});
 	}
 	
