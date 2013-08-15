@@ -235,8 +235,14 @@ public class ConnectionCalculator {
 		FigureCanvas canvas = (FigureCanvas) ctrl;
 		int horizontal = canvas.getHorizontalBar().getSelection();
 		int vertical = canvas.getVerticalBar().getSelection();
-		horizontal += 20;
-		vertical += 30;
+		/*
+		 * Commented following two line of codes to get rid of the issue - When
+		 * element is dropped inside the compartment of a complex
+		 * mediator(Aggregate etc.) at the border of it, it is connected to
+		 * outer mediator flow but resides inside the compartment.
+		 */
+		//horizontal += 20;
+		//vertical += 30;
 		org.eclipse.swt.graphics.Point p = canvas.toDisplay(0, 0);
 
 		currentFigureLocation = new Point((x - p.x) + horizontal, (y - p.y)
