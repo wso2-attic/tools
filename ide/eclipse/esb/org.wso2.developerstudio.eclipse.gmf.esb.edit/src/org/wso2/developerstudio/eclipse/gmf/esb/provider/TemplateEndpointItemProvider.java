@@ -66,17 +66,18 @@ public class TemplateEndpointItemProvider
 	 * This returns the property descriptors for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public List<IItemPropertyDescriptor> getPropertyDescriptors(Object object) {
-		if (itemPropertyDescriptors == null) {
-			super.getPropertyDescriptors(object);
-
-			addAddressPropertyDescriptor(object);
-			addTargetTemplatePropertyDescriptor(object);
-			addParametersPropertyDescriptor(object);
+		super.getPropertyDescriptors(object);
+		if (itemPropertyDescriptors != null) {
+			itemPropertyDescriptors.clear();
 		}
+
+		//addAddressPropertyDescriptor(object);
+		addTargetTemplatePropertyDescriptor(object);
+		addParametersPropertyDescriptor(object);
 		return itemPropertyDescriptors;
 	}
 
@@ -252,7 +253,7 @@ public class TemplateEndpointItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(EsbPackage.Literals.TEMPLATE_ENDPOINT__PARAMETERS,
-				 EsbFactory.eINSTANCE.createTemplateEndpointParameters()));
+				 EsbFactory.eINSTANCE.createTemplateEndpointParameter()));
 	}
 
 }

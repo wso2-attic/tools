@@ -661,9 +661,9 @@
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//TemplateEndpointInputConnector"/>
     <genClasses ecoreClass="esb.ecore#//TemplateEndpointOutputConnector"/>
-    <genClasses ecoreClass="esb.ecore#//TemplateEndpointParameters">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//TemplateEndpointParameters/parameterName"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//TemplateEndpointParameters/parameterValue"/>
+    <genClasses ecoreClass="esb.ecore#//TemplateEndpointParameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//TemplateEndpointParameter/parameterName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//TemplateEndpointParameter/parameterValue"/>
     </genClasses>
     <genClasses ecoreClass="esb.ecore#//HTTPEndpoint">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//HTTPEndpoint/inputConnector"/>

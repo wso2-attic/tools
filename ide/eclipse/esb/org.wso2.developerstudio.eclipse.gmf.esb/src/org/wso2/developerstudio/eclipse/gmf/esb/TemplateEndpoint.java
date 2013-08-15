@@ -15,6 +15,8 @@
  */
 package org.wso2.developerstudio.eclipse.gmf.esb;
 
+import org.eclipse.emf.common.util.EList;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -142,29 +144,19 @@ public interface TemplateEndpoint extends AbstractEndPoint {
 	void setTargetTemplate(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Parameters</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Parameters</b></em>' containment reference list.
+	 * The list contents are of type {@link org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpointParameter}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Parameters</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Parameters</em>' containment reference.
-	 * @see #setParameters(TemplateEndpointParameters)
+	 * @return the value of the '<em>Parameters</em>' containment reference list.
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage#getTemplateEndpoint_Parameters()
 	 * @model containment="true"
 	 * @generated
 	 */
-	TemplateEndpointParameters getParameters();
-
-	/**
-	 * Sets the value of the '{@link org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpoint#getParameters <em>Parameters</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Parameters</em>' containment reference.
-	 * @see #getParameters()
-	 * @generated
-	 */
-	void setParameters(TemplateEndpointParameters value);
+	EList<TemplateEndpointParameter> getParameters();
 
 } // TemplateEndpoint

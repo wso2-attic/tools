@@ -221,8 +221,8 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 				return createTemplateEndpointOutputConnectorAdapter();
 			}
 			@Override
-			public Adapter caseTemplateEndpointParameters(TemplateEndpointParameters object) {
-				return createTemplateEndpointParametersAdapter();
+			public Adapter caseTemplateEndpointParameter(TemplateEndpointParameter object) {
+				return createTemplateEndpointParameterAdapter();
 			}
 			@Override
 			public Adapter caseHTTPEndpoint(HTTPEndpoint object) {
@@ -1840,16 +1840,16 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpointParameters <em>Template Endpoint Parameters</em>}'.
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpointParameter <em>Template Endpoint Parameter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpointParameters
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpointParameter
 	 * @generated
 	 */
-	public Adapter createTemplateEndpointParametersAdapter() {
+	public Adapter createTemplateEndpointParameterAdapter() {
 		return null;
 	}
 

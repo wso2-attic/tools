@@ -12,6 +12,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.FailoverEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.FailoverEndPointOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPointOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.WSDLEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.AddressEndPointEditPart;
@@ -19,6 +20,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.DefaultEndPoi
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.FailoverEndPointEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.LoadBalanceEndPointEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.SwitchMediatorEditPart;
+import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.TemplateEndpointEditPart;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.edit.parts.WSDLEndPointEditPart;
 
 public class EndpointUtils {
@@ -141,6 +143,24 @@ public class EndpointUtils {
 						}
 					}
 				}
+			} else if (child instanceof TemplateEndpointEditPart) {
+             TemplateEndpointEditPart endpointEditPart = (TemplateEndpointEditPart) child;
+             EObject parentEndpoint =
+                                      ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (endpointEditPart).getModel()).getElement();
+             if (((TemplateEndpoint) parentEndpoint).getInputConnector().getIncomingLinks().size() == 0) {
+                     if (((TemplateEndpoint) parentEndpoint).getOutputConnector() == null) {
+                             SetCommand addCmd =
+                                                 new SetCommand(
+                                                                domain,
+                                                                parentEndpoint,
+                                                                EsbPackage.Literals.TEMPLATE_ENDPOINT__OUTPUT_CONNECTOR,
+                                                                EsbFactory.eINSTANCE.createTemplateEndpointOutputConnector());
+                             if (addCmd.canExecute()) {
+                                     domain.getCommandStack().execute(addCmd);
+                             }
+                     }
+             }
 			}
+
 		}
 }

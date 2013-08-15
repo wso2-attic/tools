@@ -31,6 +31,7 @@ import org.apache.synapse.endpoints.LoadbalanceEndpoint;
 import org.apache.synapse.endpoints.RecipientListEndpoint;
 import org.apache.synapse.endpoints.SALoadbalanceEndpoint;
 import org.apache.synapse.endpoints.Template;
+import org.apache.synapse.endpoints.TemplateEndpoint;
 import org.apache.synapse.endpoints.WSDLEndpoint;
 
 import org.apache.synapse.mediators.base.SequenceMediator;
@@ -178,6 +179,7 @@ public class EsbDeserializerRegistry {
 		addDeserializer(DummyMessageStore.class , new MessageStoreDeserializer());
 		addDeserializer(DummyMessageProcessor.class, new MessageProcessorDeserializer());
 		addDeserializer(HTTPEndpoint.class, new HTTPEndpointDeserializer());
+		addDeserializer(TemplateEndpoint.class, new TemplateEndpointDeserializer());
 	}
 	
 	/**

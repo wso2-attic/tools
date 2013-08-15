@@ -69,6 +69,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.SpringMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.StoreMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.SwitchMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.Template;
+import org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.ThrottleMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.TransactionMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.URLRewriteMediator;
@@ -125,6 +126,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.SmooksMedia
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.SpringMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.StoreMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.SwitchMediatorTransformer;
+import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.TemplateEndPointTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.TemplateTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.ThrottleMediatorTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.internal.persistence.TransactionMediatorTransformer;
@@ -212,6 +214,7 @@ public class EsbTransformerRegistry {
 		addTransformer(AddressingEndpoint.class, new AddresingEndPointTransformer());
 		addTransformer(RecipientListEndPoint.class, new RecipientListEndPointTransformer());
 		addTransformer(HTTPEndpoint.class, new HTTPEndPointTransformer());
+		addTransformer(TemplateEndpoint.class, new TemplateEndPointTransformer());
 	}
 	
 	/**

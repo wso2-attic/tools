@@ -99,7 +99,7 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 			case EsbPackage.TEMPLATE_ENDPOINT: return createTemplateEndpoint();
 			case EsbPackage.TEMPLATE_ENDPOINT_INPUT_CONNECTOR: return createTemplateEndpointInputConnector();
 			case EsbPackage.TEMPLATE_ENDPOINT_OUTPUT_CONNECTOR: return createTemplateEndpointOutputConnector();
-			case EsbPackage.TEMPLATE_ENDPOINT_PARAMETERS: return createTemplateEndpointParameters();
+			case EsbPackage.TEMPLATE_ENDPOINT_PARAMETER: return createTemplateEndpointParameter();
 			case EsbPackage.HTTP_ENDPOINT: return createHTTPEndpoint();
 			case EsbPackage.HTTP_END_POINT_INPUT_CONNECTOR: return createHTTPEndPointInputConnector();
 			case EsbPackage.HTTP_END_POINT_OUTPUT_CONNECTOR: return createHTTPEndPointOutputConnector();
@@ -1329,7 +1329,6 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	public TemplateEndpoint createTemplateEndpoint() {
 		TemplateEndpointImpl templateEndpoint = new TemplateEndpointImpl();
 		templateEndpoint.setInputConnector(createTemplateEndpointInputConnector());
-		templateEndpoint.setOutputConnector(createTemplateEndpointOutputConnector());
 		return templateEndpoint;
 	}
 
@@ -1358,9 +1357,9 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TemplateEndpointParameters createTemplateEndpointParameters() {
-		TemplateEndpointParametersImpl templateEndpointParameters = new TemplateEndpointParametersImpl();
-		return templateEndpointParameters;
+	public TemplateEndpointParameter createTemplateEndpointParameter() {
+		TemplateEndpointParameterImpl templateEndpointParameter = new TemplateEndpointParameterImpl();
+		return templateEndpointParameter;
 	}
 
 	/**

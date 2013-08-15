@@ -1368,26 +1368,26 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpointParameters} instances.
+	 * This keeps track of the one adapter used for all {@link org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpointParameter} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected TemplateEndpointParametersItemProvider templateEndpointParametersItemProvider;
+	protected TemplateEndpointParameterItemProvider templateEndpointParameterItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpointParameters}.
+	 * This creates an adapter for a {@link org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpointParameter}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createTemplateEndpointParametersAdapter() {
-		if (templateEndpointParametersItemProvider == null) {
-			templateEndpointParametersItemProvider = new TemplateEndpointParametersItemProvider(this);
+	public Adapter createTemplateEndpointParameterAdapter() {
+		if (templateEndpointParameterItemProvider == null) {
+			templateEndpointParameterItemProvider = new TemplateEndpointParameterItemProvider(this);
 		}
 
-		return templateEndpointParametersItemProvider;
+		return templateEndpointParameterItemProvider;
 	}
 
 	/**
@@ -7075,7 +7075,7 @@ public class EsbItemProviderAdapterFactory extends EsbAdapterFactory implements 
 		if (templateEndpointItemProvider != null) templateEndpointItemProvider.dispose();
 		if (templateEndpointInputConnectorItemProvider != null) templateEndpointInputConnectorItemProvider.dispose();
 		if (templateEndpointOutputConnectorItemProvider != null) templateEndpointOutputConnectorItemProvider.dispose();
-		if (templateEndpointParametersItemProvider != null) templateEndpointParametersItemProvider.dispose();
+		if (templateEndpointParameterItemProvider != null) templateEndpointParameterItemProvider.dispose();
 		if (httpEndpointItemProvider != null) httpEndpointItemProvider.dispose();
 		if (httpEndPointInputConnectorItemProvider != null) httpEndPointInputConnectorItemProvider.dispose();
 		if (httpEndPointOutputConnectorItemProvider != null) httpEndPointOutputConnectorItemProvider.dispose();

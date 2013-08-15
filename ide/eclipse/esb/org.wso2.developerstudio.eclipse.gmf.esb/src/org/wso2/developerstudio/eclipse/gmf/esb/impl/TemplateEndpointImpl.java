@@ -15,19 +15,23 @@
  */
 package org.wso2.developerstudio.eclipse.gmf.esb.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.wso2.developerstudio.eclipse.gmf.esb.EsbPackage;
 import org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpointInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpointOutputConnector;
-import org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpointParameters;
+import org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpointParameter;
 
 /**
  * <!-- begin-user-doc -->
@@ -108,14 +112,14 @@ public class TemplateEndpointImpl extends AbstractEndPointImpl implements Templa
 	protected String targetTemplate = TARGET_TEMPLATE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference.
+	 * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getParameters()
 	 * @generated
 	 * @ordered
 	 */
-	protected TemplateEndpointParameters parameters;
+	protected EList<TemplateEndpointParameter> parameters;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -269,42 +273,11 @@ public class TemplateEndpointImpl extends AbstractEndPointImpl implements Templa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TemplateEndpointParameters getParameters() {
+	public EList<TemplateEndpointParameter> getParameters() {
+		if (parameters == null) {
+			parameters = new EObjectContainmentEList<TemplateEndpointParameter>(TemplateEndpointParameter.class, this, EsbPackage.TEMPLATE_ENDPOINT__PARAMETERS);
+		}
 		return parameters;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetParameters(TemplateEndpointParameters newParameters, NotificationChain msgs) {
-		TemplateEndpointParameters oldParameters = parameters;
-		parameters = newParameters;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EsbPackage.TEMPLATE_ENDPOINT__PARAMETERS, oldParameters, newParameters);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setParameters(TemplateEndpointParameters newParameters) {
-		if (newParameters != parameters) {
-			NotificationChain msgs = null;
-			if (parameters != null)
-				msgs = ((InternalEObject)parameters).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EsbPackage.TEMPLATE_ENDPOINT__PARAMETERS, null, msgs);
-			if (newParameters != null)
-				msgs = ((InternalEObject)newParameters).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EsbPackage.TEMPLATE_ENDPOINT__PARAMETERS, null, msgs);
-			msgs = basicSetParameters(newParameters, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, EsbPackage.TEMPLATE_ENDPOINT__PARAMETERS, newParameters, newParameters));
 	}
 
 	/**
@@ -320,7 +293,7 @@ public class TemplateEndpointImpl extends AbstractEndPointImpl implements Templa
 			case EsbPackage.TEMPLATE_ENDPOINT__OUTPUT_CONNECTOR:
 				return basicSetOutputConnector(null, msgs);
 			case EsbPackage.TEMPLATE_ENDPOINT__PARAMETERS:
-				return basicSetParameters(null, msgs);
+				return ((InternalEList<?>)getParameters()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -352,6 +325,7 @@ public class TemplateEndpointImpl extends AbstractEndPointImpl implements Templa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -368,7 +342,8 @@ public class TemplateEndpointImpl extends AbstractEndPointImpl implements Templa
 				setTargetTemplate((String)newValue);
 				return;
 			case EsbPackage.TEMPLATE_ENDPOINT__PARAMETERS:
-				setParameters((TemplateEndpointParameters)newValue);
+				getParameters().clear();
+				getParameters().addAll((Collection<? extends TemplateEndpointParameter>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -395,7 +370,7 @@ public class TemplateEndpointImpl extends AbstractEndPointImpl implements Templa
 				setTargetTemplate(TARGET_TEMPLATE_EDEFAULT);
 				return;
 			case EsbPackage.TEMPLATE_ENDPOINT__PARAMETERS:
-				setParameters((TemplateEndpointParameters)null);
+				getParameters().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -418,7 +393,7 @@ public class TemplateEndpointImpl extends AbstractEndPointImpl implements Templa
 			case EsbPackage.TEMPLATE_ENDPOINT__TARGET_TEMPLATE:
 				return TARGET_TEMPLATE_EDEFAULT == null ? targetTemplate != null : !TARGET_TEMPLATE_EDEFAULT.equals(targetTemplate);
 			case EsbPackage.TEMPLATE_ENDPOINT__PARAMETERS:
-				return parameters != null;
+				return parameters != null && !parameters.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

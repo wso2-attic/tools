@@ -2907,7 +2907,7 @@ public interface EsbPackage extends EPackage {
 	int TEMPLATE_ENDPOINT__TARGET_TEMPLATE = ABSTRACT_END_POINT_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Parameters</b></em>' containment reference.
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2981,14 +2981,14 @@ public interface EsbPackage extends EPackage {
 	int TEMPLATE_ENDPOINT_OUTPUT_CONNECTOR_FEATURE_COUNT = OUTPUT_CONNECTOR_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.TemplateEndpointParametersImpl <em>Template Endpoint Parameters</em>}' class.
+	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.TemplateEndpointParameterImpl <em>Template Endpoint Parameter</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.TemplateEndpointParametersImpl
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getTemplateEndpointParameters()
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.TemplateEndpointParameterImpl
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getTemplateEndpointParameter()
 	 * @generated
 	 */
-	int TEMPLATE_ENDPOINT_PARAMETERS = 37;
+	int TEMPLATE_ENDPOINT_PARAMETER = 37;
 
 	/**
 	 * The feature id for the '<em><b>Parameter Name</b></em>' attribute.
@@ -2997,7 +2997,7 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEMPLATE_ENDPOINT_PARAMETERS__PARAMETER_NAME = ESB_NODE_FEATURE_COUNT + 0;
+	int TEMPLATE_ENDPOINT_PARAMETER__PARAMETER_NAME = ESB_NODE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Parameter Value</b></em>' attribute.
@@ -3006,16 +3006,16 @@ public interface EsbPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEMPLATE_ENDPOINT_PARAMETERS__PARAMETER_VALUE = ESB_NODE_FEATURE_COUNT + 1;
+	int TEMPLATE_ENDPOINT_PARAMETER__PARAMETER_VALUE = ESB_NODE_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of structural features of the '<em>Template Endpoint Parameters</em>' class.
+	 * The number of structural features of the '<em>Template Endpoint Parameter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEMPLATE_ENDPOINT_PARAMETERS_FEATURE_COUNT = ESB_NODE_FEATURE_COUNT + 2;
+	int TEMPLATE_ENDPOINT_PARAMETER_FEATURE_COUNT = ESB_NODE_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.HTTPEndpointImpl <em>HTTP Endpoint</em>}' class.
@@ -20429,10 +20429,10 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	EAttribute getTemplateEndpoint_TargetTemplate();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpoint#getParameters <em>Parameters</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpoint#getParameters <em>Parameters</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Parameters</em>'.
+	 * @return the meta object for the containment reference list '<em>Parameters</em>'.
 	 * @see org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpoint#getParameters()
 	 * @see #getTemplateEndpoint()
 	 * @generated
@@ -20460,36 +20460,36 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 	EClass getTemplateEndpointOutputConnector();
 
 	/**
-	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpointParameters <em>Template Endpoint Parameters</em>}'.
+	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpointParameter <em>Template Endpoint Parameter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Template Endpoint Parameters</em>'.
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpointParameters
+	 * @return the meta object for class '<em>Template Endpoint Parameter</em>'.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpointParameter
 	 * @generated
 	 */
-	EClass getTemplateEndpointParameters();
+	EClass getTemplateEndpointParameter();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpointParameters#getParameterName <em>Parameter Name</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpointParameter#getParameterName <em>Parameter Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Parameter Name</em>'.
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpointParameters#getParameterName()
-	 * @see #getTemplateEndpointParameters()
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpointParameter#getParameterName()
+	 * @see #getTemplateEndpointParameter()
 	 * @generated
 	 */
-	EAttribute getTemplateEndpointParameters_ParameterName();
+	EAttribute getTemplateEndpointParameter_ParameterName();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpointParameters#getParameterValue <em>Parameter Value</em>}'.
+	 * Returns the meta object for the attribute '{@link org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpointParameter#getParameterValue <em>Parameter Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Parameter Value</em>'.
-	 * @see org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpointParameters#getParameterValue()
-	 * @see #getTemplateEndpointParameters()
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpointParameter#getParameterValue()
+	 * @see #getTemplateEndpointParameter()
 	 * @generated
 	 */
-	EAttribute getTemplateEndpointParameters_ParameterValue();
+	EAttribute getTemplateEndpointParameter_ParameterValue();
 
 	/**
 	 * Returns the meta object for class '{@link org.wso2.developerstudio.eclipse.gmf.esb.HTTPEndpoint <em>HTTP Endpoint</em>}'.
@@ -32620,7 +32620,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		EAttribute TEMPLATE_ENDPOINT__TARGET_TEMPLATE = eINSTANCE.getTemplateEndpoint_TargetTemplate();
 
 		/**
-		 * The meta object literal for the '<em><b>Parameters</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -32648,14 +32648,14 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		EClass TEMPLATE_ENDPOINT_OUTPUT_CONNECTOR = eINSTANCE.getTemplateEndpointOutputConnector();
 
 		/**
-		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.TemplateEndpointParametersImpl <em>Template Endpoint Parameters</em>}' class.
+		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.TemplateEndpointParameterImpl <em>Template Endpoint Parameter</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.TemplateEndpointParametersImpl
-		 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getTemplateEndpointParameters()
+		 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.TemplateEndpointParameterImpl
+		 * @see org.wso2.developerstudio.eclipse.gmf.esb.impl.EsbPackageImpl#getTemplateEndpointParameter()
 		 * @generated
 		 */
-		EClass TEMPLATE_ENDPOINT_PARAMETERS = eINSTANCE.getTemplateEndpointParameters();
+		EClass TEMPLATE_ENDPOINT_PARAMETER = eINSTANCE.getTemplateEndpointParameter();
 
 		/**
 		 * The meta object literal for the '<em><b>Parameter Name</b></em>' attribute feature.
@@ -32663,7 +32663,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute TEMPLATE_ENDPOINT_PARAMETERS__PARAMETER_NAME = eINSTANCE.getTemplateEndpointParameters_ParameterName();
+		EAttribute TEMPLATE_ENDPOINT_PARAMETER__PARAMETER_NAME = eINSTANCE.getTemplateEndpointParameter_ParameterName();
 
 		/**
 		 * The meta object literal for the '<em><b>Parameter Value</b></em>' attribute feature.
@@ -32671,7 +32671,7 @@ int FILTER_MEDIATOR_FEATURE_COUNT = MEDIATOR_FEATURE_COUNT + 9;
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute TEMPLATE_ENDPOINT_PARAMETERS__PARAMETER_VALUE = eINSTANCE.getTemplateEndpointParameters_ParameterValue();
+		EAttribute TEMPLATE_ENDPOINT_PARAMETER__PARAMETER_VALUE = eINSTANCE.getTemplateEndpointParameter_ParameterValue();
 
 		/**
 		 * The meta object literal for the '{@link org.wso2.developerstudio.eclipse.gmf.esb.impl.HTTPEndpointImpl <em>HTTP Endpoint</em>}' class.

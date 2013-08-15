@@ -35,6 +35,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.OutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.ProxyService;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequence;
 import org.wso2.developerstudio.eclipse.gmf.esb.Sequences;
+import org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.WSDLEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.EsbNodeTransformer;
 import org.wso2.developerstudio.eclipse.gmf.esb.persistence.EsbTransformerRegistry;
@@ -166,7 +167,9 @@ public class SequenceTransformer extends AbstractEsbNodeTransformer{
 			return ((WSDLEndPoint)endpoint).getOutputConnector();
 		}else if(endpoint instanceof NamedEndpoint){
 			return ((NamedEndpoint)endpoint).getOutputConnector();
-		}
+		} else if(endpoint instanceof TemplateEndpoint){
+			return ((TemplateEndpoint)endpoint).getOutputConnector();
+        }
 		return null;
 	}
 }

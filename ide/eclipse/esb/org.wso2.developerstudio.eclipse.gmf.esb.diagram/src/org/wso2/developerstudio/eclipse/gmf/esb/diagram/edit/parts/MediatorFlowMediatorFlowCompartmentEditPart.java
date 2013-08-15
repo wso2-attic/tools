@@ -55,6 +55,7 @@ import org.wso2.developerstudio.eclipse.gmf.esb.HTTPEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.LoadBalanceEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.NamedEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.RecipientListEndPoint;
+import org.wso2.developerstudio.eclipse.gmf.esb.TemplateEndpoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.WSDLEndPoint;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.Activator;
 import org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.AbstractEndpoint;
@@ -420,7 +421,22 @@ public class MediatorFlowMediatorFlowCompartmentEditPart extends
 					}
 				}
 			}
-		} else if (child instanceof HTTPEndpointEditPart) {
+		}else if (child instanceof TemplateEndpointEditPart) {
+            TemplateEndpointEditPart endpointEditPart = (TemplateEndpointEditPart) child;
+            EObject parentEndpoint = ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (endpointEditPart)
+                            .getModel()).getElement();
+            if (((TemplateEndpoint) parentEndpoint).getInputConnector().getIncomingLinks().size() == 0) {
+                    if (((TemplateEndpoint) parentEndpoint).getOutputConnector() == null) {
+                            SetCommand addCmd = new SetCommand(getEditingDomain(), parentEndpoint,
+                                            EsbPackage.Literals.TEMPLATE_ENDPOINT__OUTPUT_CONNECTOR,
+                                            EsbFactory.eINSTANCE.createTemplateEndpointOutputConnector());
+                            if (addCmd.canExecute()) {
+                                    getEditingDomain().getCommandStack().execute(addCmd);
+                            }
+                    }
+            }
+		}
+		else if (child instanceof HTTPEndpointEditPart) {
 			HTTPEndpointEditPart endpointEditPart = (HTTPEndpointEditPart) child;
 			EObject parentEndpoint = ((org.eclipse.gmf.runtime.notation.impl.NodeImpl) (endpointEditPart)
 					.getModel()).getElement();

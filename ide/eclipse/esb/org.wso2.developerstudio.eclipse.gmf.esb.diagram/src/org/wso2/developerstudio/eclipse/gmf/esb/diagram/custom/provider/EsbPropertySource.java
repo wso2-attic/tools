@@ -290,7 +290,9 @@ public class EsbPropertySource extends PropertySource {
 			return new TemplateParametersPropertyDescriptor(object, itemPropertyDescriptor);
 		} else if(pkg.getSynapseAPI_Handlers().equals(feature)) {
 			return new APIHandlersPropertyDescriptor(object, itemPropertyDescriptor);
-		} 
+		} else if(pkg.getTemplateEndpoint_Parameters().equals(feature)){
+	    	return new TemplateEndpointParametersPropertyDescriptor(object, itemPropertyDescriptor); 
+		}
 			
 		// Else, default EMF behavior
 		else {

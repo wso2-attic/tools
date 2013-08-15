@@ -351,10 +351,10 @@ public class EsbSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case EsbPackage.TEMPLATE_ENDPOINT_PARAMETERS: {
-				TemplateEndpointParameters templateEndpointParameters = (TemplateEndpointParameters)theEObject;
-				T result = caseTemplateEndpointParameters(templateEndpointParameters);
-				if (result == null) result = caseEsbNode(templateEndpointParameters);
+			case EsbPackage.TEMPLATE_ENDPOINT_PARAMETER: {
+				TemplateEndpointParameter templateEndpointParameter = (TemplateEndpointParameter)theEObject;
+				T result = caseTemplateEndpointParameter(templateEndpointParameter);
+				if (result == null) result = caseEsbNode(templateEndpointParameter);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -3049,17 +3049,17 @@ public class EsbSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Template Endpoint Parameters</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Template Endpoint Parameter</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Template Endpoint Parameters</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Template Endpoint Parameter</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseTemplateEndpointParameters(TemplateEndpointParameters object) {
+	public T caseTemplateEndpointParameter(TemplateEndpointParameter object) {
 		return null;
 	}
 
