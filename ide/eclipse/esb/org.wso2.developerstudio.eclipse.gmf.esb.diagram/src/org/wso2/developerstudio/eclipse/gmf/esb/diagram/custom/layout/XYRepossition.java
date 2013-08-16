@@ -2,6 +2,7 @@ package org.wso2.developerstudio.eclipse.gmf.esb.diagram.custom.layout;
 
 import java.util.List;
 
+import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.GraphicalEditPart;
@@ -24,57 +25,51 @@ public class XYRepossition {
 	public static void resizeContainers(IGraphicalEditPart editPart) {
 		IGraphicalEditPart parent = editPart;
 		while (!(parent instanceof EsbServerEditPart)) {
-			int complexMediatorCompartmentGap=5;
-			int arraowLength = 50;
-			int connectorLength = 5;
-			int constantY = 50;
-			int p = parent.getChildren().size();
-			int x = (2 * connectorLength) + arraowLength;
-			int y = 0;
-			for (int i = 0; i < p; ++i) {
-				Rectangle bound = ((GraphicalEditPart) parent.getChildren().get(i)).getFigure()
-						.getBounds();
-				x = (arraowLength) + bound.width + (2 * connectorLength) + x;
-				if (bound.height > y) {
-					y = bound.height;
-				}
-			}
-			y = y + constantY;
-			if (parent instanceof AbstractMediatorFlowCompartmentEditPart) {
-				/*
-				 * Resize compartment size
-				 */
-				org.eclipse.draw2d.geometry.Rectangle constraints = new org.eclipse.draw2d.geometry.Rectangle(
-						0, 100, x, y);
-
-				
-				((GraphicalEditPart) parent.getParent().getParent()).setLayoutConstraint(
-						parent.getParent(), ((GraphicalEditPart) parent.getParent()).getFigure(),
-						constraints);
-				
-				if(parent instanceof MediatorFlowMediatorFlowCompartment5EditPart){
-				
-				((GraphicalEditPart) parent.getParent().getParent().getParent())
-						.setLayoutConstraint(parent.getParent().getParent(),
-								((GraphicalEditPart) parent.getParent().getParent()).getFigure(),
-								constraints);
-
-				}
-				/*
-				 * Resize complex mediator
-				 */								
-/*				EditPart parentEditpart=parent.getParent();
-				while((parentEditpart.getParent()!=null)&&!(parentEditpart  instanceof AbstractMediator)){
-					parentEditpart=parentEditpart.getParent();
-				}*/
-				AbstractMediator mediator=EditorUtils.getMediator(parent);
-				if(mediator instanceof complexFiguredAbstractMediator){
-				((IGraphicalEditPart)mediator).getFigure().getBounds().setWidth(x+90);
-				((IGraphicalEditPart)mediator).getFigure().getBounds().setHeight(y+(2*complexMediatorCompartmentGap));
-				}
-				
-			}
+			resizeEditpart(parent);
 			parent = (IGraphicalEditPart) parent.getParent();
+		}
+	}
+
+	private static void resizeEditpart(IGraphicalEditPart parent) {
+		int complexMediatorCompartmentGap=5;
+		int arraowLength = 50;
+		int connectorLength = 5;
+		int constantY = 50;
+		int p = parent.getChildren().size();
+		int x = (2 * connectorLength) + arraowLength;
+		int y = 0;
+		for (int i = 0; i < p; ++i) {
+			Rectangle bound = ((GraphicalEditPart) parent.getChildren().get(i)).getFigure()
+					.getBounds();
+			x = (arraowLength) + bound.width + (2 * connectorLength) + x;
+			if (bound.height > y) {
+				y = bound.height;
+			}
+		}
+		y = y + constantY;
+		if (parent instanceof AbstractMediatorFlowCompartmentEditPart) {
+	
+			Rectangle constraints = new Rectangle(0, 100, x, y);
+
+			((GraphicalEditPart) parent.getParent().getParent()).setLayoutConstraint(
+					parent.getParent(), ((GraphicalEditPart) parent.getParent()).getFigure(),
+					constraints);
+			
+			if(parent instanceof MediatorFlowMediatorFlowCompartment5EditPart){
+			
+			((GraphicalEditPart) parent.getParent().getParent().getParent())
+					.setLayoutConstraint(parent.getParent().getParent(),
+							((GraphicalEditPart) parent.getParent().getParent()).getFigure(),
+							constraints);
+
+			}
+
+			AbstractMediator mediator=EditorUtils.getMediator(parent);
+			if(mediator instanceof complexFiguredAbstractMediator){
+			((IGraphicalEditPart)mediator).getFigure().getBounds().setWidth(x+90);
+			((IGraphicalEditPart)mediator).getFigure().getBounds().setHeight(y+(2*complexMediatorCompartmentGap));
+			}
+			
 		}
 	}
 
@@ -82,13 +77,56 @@ public class XYRepossition {
 		
 		IGraphicalEditPart parent = editPart;
 		while (!(parent instanceof EsbServerEditPart)) {
-		if((parent instanceof AbstractMediatorFlowCompartmentEditPart)||(parent instanceof AbstractMediatorCompartmentEditPart)){
+			rearrangeChildren(parent);
+			parent = (IGraphicalEditPart) parent.getParent();
+		}
+	}
 
+	private static void rearrangeChildren(IGraphicalEditPart editPart) {
+		
+		if((editPart instanceof AbstractMediatorFlowCompartmentEditPart)){
+			int arraowLength = 50;
+			int connectorLength = 5;
+			int arrowAndtwoConnectorsLength = arraowLength + 2 * connectorLength;
+			int x = arrowAndtwoConnectorsLength - arraowLength;
+			ShapeNodeEditPart node = getLeftMostNodeFromEditPart(editPart);
 			
 			
-		int arraowLength = 50;
-		int connectorLength = 5;
-		int x = arraowLength + connectorLength;
+			while (node instanceof AbstractMediator) {
+				
+				int y = ((IGraphicalEditPart) editPart.getParent()).getFigure().getBounds().height / 2;
+				y = y - node.getFigure().getBounds().height / 2 - 10;
+	
+				((AbstractMediator) node).x = x;
+				((AbstractMediator) node).y = y;
+	
+				IFigure nodeFigure = ((GraphicalEditPart) node).getFigure();
+				int nodeFigureWdith = nodeFigure.getBounds().width;
+				int nodeFigureHeight = nodeFigure.getBounds().height;
+				Rectangle constraints = new Rectangle(x, y, nodeFigureWdith, nodeFigureHeight);
+				
+				GraphicalEditPart nodeParent = ((GraphicalEditPart) ((GraphicalEditPart) node).getParent());
+				nodeParent.setLayoutConstraint((EditPart) node, nodeFigure, constraints);
+				x = x + arrowAndtwoConnectorsLength + nodeFigureWdith;
+				
+				AbstractOutputConnectorEditPart nodeOPconector = EditorUtils.getMediatorOutputConnector((ShapeNodeEditPart) node);
+				List sourceConnections = nodeOPconector.getSourceConnections();
+				
+				if (sourceConnections != null) {
+					if(sourceConnections.size()!=0){
+						EsbLinkEditPart linkPart = (EsbLinkEditPart) sourceConnections.get(0);
+						node = (ShapeNodeEditPart) linkPart.getTarget().getParent();
+					}else{
+						break;
+					}
+				}
+			}
+		}
+	}
+	
+
+	private static ShapeNodeEditPart getLeftMostNodeFromEditPart(
+			IGraphicalEditPart parent) {
 		ShapeNodeEditPart first = (ShapeNodeEditPart) parent.getParent().getParent();
 		ShapeNodeEditPart node = null;
 		AbstractOutputConnectorEditPart firstOutputConnector=null;
@@ -107,38 +145,7 @@ public class XYRepossition {
 				}
 			}
 		}
-		
-
-		while (node instanceof AbstractMediator) {
-			//Rectangle bound = ((GraphicalEditPart) node).getFigure().getBounds();
-			
-			int y = ((IGraphicalEditPart) parent.getParent()).getFigure().getBounds().height / 2;
-			y = y - node.getFigure().getBounds().height / 2 - 10;
-
-			Rectangle constraints = new Rectangle(x, y, ((GraphicalEditPart) node).getFigure()
-					.getBounds().width, ((GraphicalEditPart) node).getFigure().getBounds().height);
-			if (node instanceof AbstractMediator) {
-				((AbstractMediator) node).x = x;
-				((AbstractMediator) node).y = y;
-			}
-			((GraphicalEditPart) ((GraphicalEditPart) node).getParent()).setLayoutConstraint(
-					(EditPart) node, ((GraphicalEditPart) node).getFigure(), constraints);
-
-			x = x + (arraowLength) + ((GraphicalEditPart) node).getFigure()
-					.getBounds().width + (2 * connectorLength);
-			List sourceConnections=EditorUtils.getOutputConnector((ShapeNodeEditPart) node).getSourceConnections();
-			if (sourceConnections != null) {
-				if(sourceConnections.size()!=0){
-				node = (ShapeNodeEditPart) ((EsbLinkEditPart) sourceConnections.get(0))
-						.getTarget().getParent();
-				}else{
-				break;
-			}
-			}
-		}
-		}
-		parent = (IGraphicalEditPart) parent.getParent();
-		}
+		return node;
 	}
 
 }
