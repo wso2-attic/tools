@@ -1356,6 +1356,60 @@ public interface EsbFactory extends EFactory {
 	APIHandlerProperty createAPIHandlerProperty();
 
 	/**
+	 * Returns a new object of class '<em>Cloud Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Cloud Connector</em>'.
+	 * @generated
+	 */
+	CloudConnector createCloudConnector();
+
+	/**
+	 * Returns a new object of class '<em>Cloud Connector Input Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Cloud Connector Input Connector</em>'.
+	 * @generated
+	 */
+	CloudConnectorInputConnector createCloudConnectorInputConnector();
+
+	/**
+	 * Returns a new object of class '<em>Cloud Connector Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Cloud Connector Output Connector</em>'.
+	 * @generated
+	 */
+	CloudConnectorOutputConnector createCloudConnectorOutputConnector();
+
+	/**
+	 * Returns a new object of class '<em>Cloud Connector Operation</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Cloud Connector Operation</em>'.
+	 * @generated
+	 */
+	CloudConnectorOperation createCloudConnectorOperation();
+
+	/**
+	 * Returns a new object of class '<em>Cloud Connector Operation Input Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Cloud Connector Operation Input Connector</em>'.
+	 * @generated
+	 */
+	CloudConnectorOperationInputConnector createCloudConnectorOperationInputConnector();
+
+	/**
+	 * Returns a new object of class '<em>Cloud Connector Operation Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Cloud Connector Operation Output Connector</em>'.
+	 * @generated
+	 */
+	CloudConnectorOperationOutputConnector createCloudConnectorOperationOutputConnector();
+
+	/**
 	 * Returns a new object of class '<em>Script Mediator</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

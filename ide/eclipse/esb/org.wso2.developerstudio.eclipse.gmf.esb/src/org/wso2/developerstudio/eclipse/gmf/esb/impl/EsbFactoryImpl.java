@@ -364,6 +364,12 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 			case EsbPackage.MESSAGE_PROCESSOR: return createMessageProcessor();
 			case EsbPackage.API_HANDLER: return createAPIHandler();
 			case EsbPackage.API_HANDLER_PROPERTY: return createAPIHandlerProperty();
+			case EsbPackage.CLOUD_CONNECTOR: return createCloudConnector();
+			case EsbPackage.CLOUD_CONNECTOR_INPUT_CONNECTOR: return createCloudConnectorInputConnector();
+			case EsbPackage.CLOUD_CONNECTOR_OUTPUT_CONNECTOR: return createCloudConnectorOutputConnector();
+			case EsbPackage.CLOUD_CONNECTOR_OPERATION: return createCloudConnectorOperation();
+			case EsbPackage.CLOUD_CONNECTOR_OPERATION_INPUT_CONNECTOR: return createCloudConnectorOperationInputConnector();
+			case EsbPackage.CLOUD_CONNECTOR_OPERATION_OUTPUT_CONNECTOR: return createCloudConnectorOperationOutputConnector();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -2315,6 +2321,66 @@ public class EsbFactoryImpl extends EFactoryImpl implements EsbFactory {
 	public APIHandlerProperty createAPIHandlerProperty() {
 		APIHandlerPropertyImpl apiHandlerProperty = new APIHandlerPropertyImpl();
 		return apiHandlerProperty;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CloudConnector createCloudConnector() {
+		CloudConnectorImpl cloudConnector = new CloudConnectorImpl();
+		return cloudConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CloudConnectorInputConnector createCloudConnectorInputConnector() {
+		CloudConnectorInputConnectorImpl cloudConnectorInputConnector = new CloudConnectorInputConnectorImpl();
+		return cloudConnectorInputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CloudConnectorOutputConnector createCloudConnectorOutputConnector() {
+		CloudConnectorOutputConnectorImpl cloudConnectorOutputConnector = new CloudConnectorOutputConnectorImpl();
+		return cloudConnectorOutputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CloudConnectorOperation createCloudConnectorOperation() {
+		CloudConnectorOperationImpl cloudConnectorOperation = new CloudConnectorOperationImpl();
+		return cloudConnectorOperation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CloudConnectorOperationInputConnector createCloudConnectorOperationInputConnector() {
+		CloudConnectorOperationInputConnectorImpl cloudConnectorOperationInputConnector = new CloudConnectorOperationInputConnectorImpl();
+		return cloudConnectorOperationInputConnector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CloudConnectorOperationOutputConnector createCloudConnectorOperationOutputConnector() {
+		CloudConnectorOperationOutputConnectorImpl cloudConnectorOperationOutputConnector = new CloudConnectorOperationOutputConnectorImpl();
+		return cloudConnectorOperationOutputConnector;
 	}
 
 	/**

@@ -57,6 +57,24 @@
         <largeIcon
             xsi:type="gmftool:DefaultImage"/>
       </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="CloudConnector"
+          description="Create new CloudConnector">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="CloudConnectorOperation"
+          description="Create new CloudConnectorOperation">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
     </tools>
     <tools
         xsi:type="gmftool:ToolGroup"

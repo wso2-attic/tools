@@ -1783,5 +1783,19 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//APIHandlerProperty/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute esb.ecore#//APIHandlerProperty/value"/>
     </genClasses>
+    <genClasses ecoreClass="esb.ecore#//CloudConnector">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//CloudConnector/inputConnector"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//CloudConnector/outputConnector"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//CloudConnector/connectorParameters"/>
+    </genClasses>
+    <genClasses ecoreClass="esb.ecore#//CloudConnectorInputConnector"/>
+    <genClasses ecoreClass="esb.ecore#//CloudConnectorOutputConnector"/>
+    <genClasses ecoreClass="esb.ecore#//CloudConnectorOperation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//CloudConnectorOperation/inputConnector"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//CloudConnectorOperation/outputConnector"/>
+      <genFeatures children="true" createChild="true" ecoreFeature="ecore:EReference esb.ecore#//CloudConnectorOperation/connectorParameters"/>
+    </genClasses>
+    <genClasses ecoreClass="esb.ecore#//CloudConnectorOperationInputConnector"/>
+    <genClasses ecoreClass="esb.ecore#//CloudConnectorOperationOutputConnector"/>
   </genPackages>
 </genmodel:GenModel>

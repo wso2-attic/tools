@@ -1301,6 +1301,30 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 				return createAPIHandlerPropertyAdapter();
 			}
 			@Override
+			public Adapter caseCloudConnector(CloudConnector object) {
+				return createCloudConnectorAdapter();
+			}
+			@Override
+			public Adapter caseCloudConnectorInputConnector(CloudConnectorInputConnector object) {
+				return createCloudConnectorInputConnectorAdapter();
+			}
+			@Override
+			public Adapter caseCloudConnectorOutputConnector(CloudConnectorOutputConnector object) {
+				return createCloudConnectorOutputConnectorAdapter();
+			}
+			@Override
+			public Adapter caseCloudConnectorOperation(CloudConnectorOperation object) {
+				return createCloudConnectorOperationAdapter();
+			}
+			@Override
+			public Adapter caseCloudConnectorOperationInputConnector(CloudConnectorOperationInputConnector object) {
+				return createCloudConnectorOperationInputConnectorAdapter();
+			}
+			@Override
+			public Adapter caseCloudConnectorOperationOutputConnector(CloudConnectorOperationOutputConnector object) {
+				return createCloudConnectorOperationOutputConnectorAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -3530,6 +3554,90 @@ public class EsbAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAPIHandlerPropertyAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.CloudConnector <em>Cloud Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CloudConnector
+	 * @generated
+	 */
+	public Adapter createCloudConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorInputConnector <em>Cloud Connector Input Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorInputConnector
+	 * @generated
+	 */
+	public Adapter createCloudConnectorInputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOutputConnector <em>Cloud Connector Output Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOutputConnector
+	 * @generated
+	 */
+	public Adapter createCloudConnectorOutputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation <em>Cloud Connector Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation
+	 * @generated
+	 */
+	public Adapter createCloudConnectorOperationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperationInputConnector <em>Cloud Connector Operation Input Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperationInputConnector
+	 * @generated
+	 */
+	public Adapter createCloudConnectorOperationInputConnectorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperationOutputConnector <em>Cloud Connector Operation Output Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperationOutputConnector
+	 * @generated
+	 */
+	public Adapter createCloudConnectorOperationOutputConnectorAdapter() {
 		return null;
 	}
 

@@ -1967,6 +1967,50 @@
           accessor="getFigureTemplateEndPointNamePropertyLabel"
           figure="//@figures.0/@descriptors.98/@actualFigure/@children.0"/>
     </descriptors>
+    <descriptors
+        name="CloudConnectorFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="CloudConnectorContainerFigure"
+          lineKind="LINE_DASH">
+        <layout
+            xsi:type="gmfgraph:GridLayout"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="255"
+            green="255"
+            blue="255"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="CloudConnectorDescriptionFigure"
+            text="&lt;...>"/>
+      </actualFigure>
+      <accessors
+          accessor="getFigureCloudConnectorDescriptionFigure"
+          figure="//@figures.0/@descriptors.99/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="CloudConnectorOperationFigure">
+      <actualFigure
+          xsi:type="gmfgraph:RoundedRectangle"
+          name="CloudConnectorOperationContainerFigure"
+          lineKind="LINE_DASH">
+        <layout
+            xsi:type="gmfgraph:GridLayout"/>
+        <backgroundColor
+            xsi:type="gmfgraph:RGBColor"
+            red="255"
+            green="255"
+            blue="255"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="CloudConnectorOperationDescriptionFigure"
+            text="&lt;...>"/>
+      </actualFigure>
+      <accessors
+          accessor="getFigureCloudConnectorOperationDescriptionFigure"
+          figure="//@figures.0/@descriptors.100/@actualFigure/@children.0"/>
+    </descriptors>
   </figures>
   <nodes
       name="EsbServer"
@@ -2826,6 +2870,28 @@
       name="TemplateEndpointOutputConnector"
       figure="WestPointerFigure"
       affixedParentSide="WEST"/>
+  <nodes
+      name="CloudConnector"
+      figure="CloudConnectorFigure"/>
+  <nodes
+      name="CloudConnectorInputConnector"
+      figure="EastPointerFigure"
+      affixedParentSide="WEST"/>
+  <nodes
+      name="CloudConnectorOutputConnector"
+      figure="EastPointerFigure"
+      affixedParentSide="EAST"/>
+  <nodes
+      name="CloudConnectorOperation"
+      figure="CloudConnectorOperationFigure"/>
+  <nodes
+      name="CloudConnectorOperationInputConnector"
+      figure="EastPointerFigure"
+      affixedParentSide="WEST"/>
+  <nodes
+      name="CloudConnectorOperationOutputConnector"
+      figure="EastPointerFigure"
+      affixedParentSide="EAST"/>
   <connections
       name="EsbLink"
       figure="PlainConnectionFigure"/>
@@ -3206,4 +3272,14 @@
       figure="URLRewriteMediatorFigure"
       elementIcon="false"
       accessor="//@figures.0/@descriptors.75/@accessors.1"/>
+  <labels
+      name="CloudConnectorDescription"
+      figure="CloudConnectorFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.99/@accessors.0"/>
+  <labels
+      name="CloudConnectorOperationDescription"
+      figure="CloudConnectorOperationFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.100/@accessors.0"/>
 </gmfgraph:Canvas>

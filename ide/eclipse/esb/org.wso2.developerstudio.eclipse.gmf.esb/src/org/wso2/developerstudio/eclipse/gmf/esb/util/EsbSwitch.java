@@ -2489,6 +2489,54 @@ public class EsbSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case EsbPackage.CLOUD_CONNECTOR: {
+				CloudConnector cloudConnector = (CloudConnector)theEObject;
+				T result = caseCloudConnector(cloudConnector);
+				if (result == null) result = caseEsbElement(cloudConnector);
+				if (result == null) result = caseEsbNode(cloudConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.CLOUD_CONNECTOR_INPUT_CONNECTOR: {
+				CloudConnectorInputConnector cloudConnectorInputConnector = (CloudConnectorInputConnector)theEObject;
+				T result = caseCloudConnectorInputConnector(cloudConnectorInputConnector);
+				if (result == null) result = caseInputConnector(cloudConnectorInputConnector);
+				if (result == null) result = caseEsbConnector(cloudConnectorInputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.CLOUD_CONNECTOR_OUTPUT_CONNECTOR: {
+				CloudConnectorOutputConnector cloudConnectorOutputConnector = (CloudConnectorOutputConnector)theEObject;
+				T result = caseCloudConnectorOutputConnector(cloudConnectorOutputConnector);
+				if (result == null) result = caseOutputConnector(cloudConnectorOutputConnector);
+				if (result == null) result = caseEsbConnector(cloudConnectorOutputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.CLOUD_CONNECTOR_OPERATION: {
+				CloudConnectorOperation cloudConnectorOperation = (CloudConnectorOperation)theEObject;
+				T result = caseCloudConnectorOperation(cloudConnectorOperation);
+				if (result == null) result = caseEsbElement(cloudConnectorOperation);
+				if (result == null) result = caseEsbNode(cloudConnectorOperation);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.CLOUD_CONNECTOR_OPERATION_INPUT_CONNECTOR: {
+				CloudConnectorOperationInputConnector cloudConnectorOperationInputConnector = (CloudConnectorOperationInputConnector)theEObject;
+				T result = caseCloudConnectorOperationInputConnector(cloudConnectorOperationInputConnector);
+				if (result == null) result = caseInputConnector(cloudConnectorOperationInputConnector);
+				if (result == null) result = caseEsbConnector(cloudConnectorOperationInputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EsbPackage.CLOUD_CONNECTOR_OPERATION_OUTPUT_CONNECTOR: {
+				CloudConnectorOperationOutputConnector cloudConnectorOperationOutputConnector = (CloudConnectorOperationOutputConnector)theEObject;
+				T result = caseCloudConnectorOperationOutputConnector(cloudConnectorOperationOutputConnector);
+				if (result == null) result = caseOutputConnector(cloudConnectorOperationOutputConnector);
+				if (result == null) result = caseEsbConnector(cloudConnectorOperationOutputConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -4860,6 +4908,96 @@ public class EsbSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseAPIHandlerProperty(APIHandlerProperty object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Cloud Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Cloud Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCloudConnector(CloudConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Cloud Connector Input Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Cloud Connector Input Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCloudConnectorInputConnector(CloudConnectorInputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Cloud Connector Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Cloud Connector Output Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCloudConnectorOutputConnector(CloudConnectorOutputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Cloud Connector Operation</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Cloud Connector Operation</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCloudConnectorOperation(CloudConnectorOperation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Cloud Connector Operation Input Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Cloud Connector Operation Input Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCloudConnectorOperationInputConnector(CloudConnectorOperationInputConnector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Cloud Connector Operation Output Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Cloud Connector Operation Output Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCloudConnectorOperationOutputConnector(CloudConnectorOperationOutputConnector object) {
 		return null;
 	}
 

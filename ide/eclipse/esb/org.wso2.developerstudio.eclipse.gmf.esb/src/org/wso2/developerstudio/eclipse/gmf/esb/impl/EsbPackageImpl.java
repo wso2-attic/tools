@@ -89,6 +89,12 @@ import org.wso2.developerstudio.eclipse.gmf.esb.CloneMediatorInputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.CloneMediatorOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.CloneMediatorTargetOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.CloneTargetContainer;
+import org.wso2.developerstudio.eclipse.gmf.esb.CloudConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperation;
+import org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperationInputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOperationOutputConnector;
+import org.wso2.developerstudio.eclipse.gmf.esb.CloudConnectorOutputConnector;
 import org.wso2.developerstudio.eclipse.gmf.esb.CloneTarget;
 import org.wso2.developerstudio.eclipse.gmf.esb.CommandMediator;
 import org.wso2.developerstudio.eclipse.gmf.esb.CommandMediatorInputConnector;
@@ -1546,6 +1552,48 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 * @generated
 	 */
 	private EClass apiHandlerPropertyEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass cloudConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass cloudConnectorInputConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass cloudConnectorOutputConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass cloudConnectorOperationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass cloudConnectorOperationInputConnectorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass cloudConnectorOperationOutputConnectorEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -8103,6 +8151,114 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 	 */
 	public EAttribute getAPIHandlerProperty_Value() {
 		return (EAttribute)apiHandlerPropertyEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCloudConnector() {
+		return cloudConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCloudConnector_InputConnector() {
+		return (EReference)cloudConnectorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCloudConnector_OutputConnector() {
+		return (EReference)cloudConnectorEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCloudConnector_ConnectorParameters() {
+		return (EReference)cloudConnectorEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCloudConnectorInputConnector() {
+		return cloudConnectorInputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCloudConnectorOutputConnector() {
+		return cloudConnectorOutputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCloudConnectorOperation() {
+		return cloudConnectorOperationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCloudConnectorOperation_InputConnector() {
+		return (EReference)cloudConnectorOperationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCloudConnectorOperation_OutputConnector() {
+		return (EReference)cloudConnectorOperationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCloudConnectorOperation_ConnectorParameters() {
+		return (EReference)cloudConnectorOperationEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCloudConnectorOperationInputConnector() {
+		return cloudConnectorOperationInputConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCloudConnectorOperationOutputConnector() {
+		return cloudConnectorOperationOutputConnectorEClass;
 	}
 
 	/**
@@ -15216,6 +15372,24 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		createEAttribute(apiHandlerPropertyEClass, API_HANDLER_PROPERTY__NAME);
 		createEAttribute(apiHandlerPropertyEClass, API_HANDLER_PROPERTY__VALUE);
 
+		cloudConnectorEClass = createEClass(CLOUD_CONNECTOR);
+		createEReference(cloudConnectorEClass, CLOUD_CONNECTOR__INPUT_CONNECTOR);
+		createEReference(cloudConnectorEClass, CLOUD_CONNECTOR__OUTPUT_CONNECTOR);
+		createEReference(cloudConnectorEClass, CLOUD_CONNECTOR__CONNECTOR_PARAMETERS);
+
+		cloudConnectorInputConnectorEClass = createEClass(CLOUD_CONNECTOR_INPUT_CONNECTOR);
+
+		cloudConnectorOutputConnectorEClass = createEClass(CLOUD_CONNECTOR_OUTPUT_CONNECTOR);
+
+		cloudConnectorOperationEClass = createEClass(CLOUD_CONNECTOR_OPERATION);
+		createEReference(cloudConnectorOperationEClass, CLOUD_CONNECTOR_OPERATION__INPUT_CONNECTOR);
+		createEReference(cloudConnectorOperationEClass, CLOUD_CONNECTOR_OPERATION__OUTPUT_CONNECTOR);
+		createEReference(cloudConnectorOperationEClass, CLOUD_CONNECTOR_OPERATION__CONNECTOR_PARAMETERS);
+
+		cloudConnectorOperationInputConnectorEClass = createEClass(CLOUD_CONNECTOR_OPERATION_INPUT_CONNECTOR);
+
+		cloudConnectorOperationOutputConnectorEClass = createEClass(CLOUD_CONNECTOR_OPERATION_OUTPUT_CONNECTOR);
+
 		// Create enums
 		artifactTypeEEnum = createEEnum(ARTIFACT_TYPE);
 		endPointPropertyScopeEEnum = createEEnum(END_POINT_PROPERTY_SCOPE);
@@ -15618,6 +15792,12 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		messageProcessorEClass.getESuperTypes().add(this.getEsbElement());
 		apiHandlerEClass.getESuperTypes().add(this.getEsbNode());
 		apiHandlerPropertyEClass.getESuperTypes().add(this.getEsbNode());
+		cloudConnectorEClass.getESuperTypes().add(this.getEsbElement());
+		cloudConnectorInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
+		cloudConnectorOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
+		cloudConnectorOperationEClass.getESuperTypes().add(this.getEsbElement());
+		cloudConnectorOperationInputConnectorEClass.getESuperTypes().add(this.getInputConnector());
+		cloudConnectorOperationOutputConnectorEClass.getESuperTypes().add(this.getOutputConnector());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(esbDiagramEClass, EsbDiagram.class, "EsbDiagram", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -17024,6 +17204,24 @@ public class EsbPackageImpl extends EPackageImpl implements EsbPackage {
 		initEClass(apiHandlerPropertyEClass, APIHandlerProperty.class, "APIHandlerProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAPIHandlerProperty_Name(), ecorePackage.getEString(), "name", null, 0, 1, APIHandlerProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAPIHandlerProperty_Value(), ecorePackage.getEString(), "value", null, 0, 1, APIHandlerProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(cloudConnectorEClass, CloudConnector.class, "CloudConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCloudConnector_InputConnector(), this.getCloudConnectorInputConnector(), null, "inputConnector", null, 0, 1, CloudConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCloudConnector_OutputConnector(), this.getCloudConnectorOutputConnector(), null, "outputConnector", null, 0, 1, CloudConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCloudConnector_ConnectorParameters(), this.getCallTemplateParameter(), null, "connectorParameters", null, 0, -1, CloudConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(cloudConnectorInputConnectorEClass, CloudConnectorInputConnector.class, "CloudConnectorInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(cloudConnectorOutputConnectorEClass, CloudConnectorOutputConnector.class, "CloudConnectorOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(cloudConnectorOperationEClass, CloudConnectorOperation.class, "CloudConnectorOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCloudConnectorOperation_InputConnector(), this.getCloudConnectorOperationInputConnector(), null, "inputConnector", null, 0, 1, CloudConnectorOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCloudConnectorOperation_OutputConnector(), this.getCloudConnectorOperationOutputConnector(), null, "outputConnector", null, 0, 1, CloudConnectorOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCloudConnectorOperation_ConnectorParameters(), this.getCallTemplateParameter(), null, "connectorParameters", null, 0, -1, CloudConnectorOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(cloudConnectorOperationInputConnectorEClass, CloudConnectorOperationInputConnector.class, "CloudConnectorOperationInputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(cloudConnectorOperationOutputConnectorEClass, CloudConnectorOperationOutputConnector.class, "CloudConnectorOperationOutputConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(artifactTypeEEnum, ArtifactType.class, "ArtifactType");
